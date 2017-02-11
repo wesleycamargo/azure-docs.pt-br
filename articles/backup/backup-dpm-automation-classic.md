@@ -1,12 +1,12 @@
 ---
-title: Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Docs
+title: "Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Docs"
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: Nkolli1
 manager: shreeshd
-editor: ''
-
+editor: 
+ms.assetid: bcbcef79-9d33-4e84-a558-9866614f2cae
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark; trinadhk; anuragm; markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+
 
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-(dpm)-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
+# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Clássico](backup-dpm-automation-classic.md)
@@ -107,7 +111,7 @@ As opções disponíveis incluem:
 | /s:"local" |Caminho para a pasta de cache para o agente de Backup do Azure. |C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Aceitar o Microsoft Update |- |
 | /nu |Não verificar se há atualizações após a conclusão da instalação |- |
-| /d |Desinstala o agente dos Serviços de Recuperação do Microsoft Azure |- |
+| /d |Desinstala o agente dos Serviços de Recuperação do Microsoft Azure |- |
 | /ph |Endereço do host do proxy |- |
 | /po |Número da porta do host do proxy |- |
 | /pu |UserName do host do proxy |- |
@@ -299,7 +303,7 @@ Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica-&-recovery-point-volume"></a>Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
+### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
 Você também pode alterar o tamanho do volume de Réplica do DPM, bem como o volume de Cópia de sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , como no exemplo abaixo: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Confirmando as alterações ao Grupo de Proteção
@@ -345,6 +349,9 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o Backup do Azure para DPM, confira [Introdução ao Backup de DPM](backup-azure-dpm-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: Saiba mais sobre como alterar sua assinatura do Azure e mude por um
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/6/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
+ms.sourcegitcommit: c18614f1c096eb76c6a28a9038dab079e04cd4db
+ms.openlocfilehash: 91ad4b1a661e110f7ce8f0ca4cfc7697d86f6c58
 
 
 ---
@@ -90,9 +90,8 @@ No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em
 ## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Posso migrar de Pré-pago para [Provedor de Soluções na Nuvem](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) ou [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 Atualmente, não oferecemos suporte à alteração de oferta para CSP ou EA no Centro de Contas. Para mover sua assinatura existente para o EA, peça ao seu administrador de registro para adicionar sua conta ao EA. Depois disso, você receberá um email de convite. Ao seguir as instruções para aceitar o convite, as assinaturas serão automaticamente movidas para o Contrato Enterprise. Para migrar para o CSP, confira [Migração de assinatura do Azure para o CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
-## <a name="next-steps"></a>Próximas etapas
-* Saiba como [gerenciar funções de administrador](billing-add-change-azure-subscription-administrator.md) para sua assinatura
-* Acompanhe o uso ao [baixar dados de uso e nota fiscal](billing-download-azure-invoice-daily-usage-date.md)
+## <a name="can-i-migrate-data-and-services-for-my-azure-subscription-to-a-new-subscription"></a>Posso migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?
+Sim. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](./azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
@@ -100,6 +99,6 @@ Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

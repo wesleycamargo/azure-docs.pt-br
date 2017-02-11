@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 689f413ebcab734024322d4c6f46c0c824840017
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
 
 
 ---
@@ -26,7 +26,7 @@ Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você já precisa ter [generalizado a VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem.
-* Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para ver as etapas de instalação.
+* Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para ver as etapas de instalação.
 
 ## <a name="log-in-to-azure-powershell"></a>Fazer logon no Azure PowerShell
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure.
@@ -86,6 +86,6 @@ Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

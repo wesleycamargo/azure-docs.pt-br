@@ -128,7 +128,6 @@
 #### [Implantar um serviço Web](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Usar dados externos](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Implantar em várias regiões](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Publicar no Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Usar parâmetros de serviço Web](machine-learning-web-service-parameters.md)
 #### [Habilitar o registro em log](machine-learning-web-services-logging.md)
 ### Gerenciar serviços Web
@@ -157,23 +156,10 @@
 #### [Usar o Hadoop com 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [Usar o SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Usar o SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Exemplos de serviços da Web
-#### [Exemplos com o R](machine-learning-r-csharp-web-service-examples.md)
-#### [Classificador binário](machine-learning-r-csharp-binary-classifier.md)
-#### [Modelo de cluster](machine-learning-r-csharp-cluster-model.md)
-#### [Regressão linear multivariada](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Previsão - Ajuste exponencial](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Previsão – ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Previsão – ARIMA](machine-learning-r-csharp-arima.md)
-#### [Análise de sobrevivência](machine-learning-r-csharp-survival-analysis.md)
-#### [Análise de sentimento baseada em léxico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Diferença no teste de proporções](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Pacote de distribuição normal](machine-learning-r-csharp-normal-distribution.md)
-#### [Pacote de distribuição binomial](machine-learning-r-csharp-binomial-distribution.md)
-#### [Perguntas frequentes sobre o Marketplace](machine-learning-marketplace-faq.md)
 
 # Referência
-## [PowerShell](machine-learning-powershell-module.md)
+## [Módulo do PowerShell (Novo)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [Módulo do PowerShell (Clássico)](machine-learning-powershell-module.md)
 ## [Referência de módulo e algoritmos](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [Módulos personalizados](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### APIs
-#### [Detecção de anomalias](machine-learning-apps-anomaly-detection.md)
+#### [Detecção de anomalias](machine-learning-apps-anomaly-detection-api.md)
 #### [Análise de texto](machine-learning-apps-text-analytics.md)
 #### [Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
 #### Recomendações
@@ -222,6 +208,6 @@
 ## [Obtenha ajuda do chat ao vivo](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

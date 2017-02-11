@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 12/17/2016
 ms.author: tedway; neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b95d7d7b11af4dcd3ed814f31697f5d1b617f64b
+ms.sourcegitcommit: ec9d29701915d237686625fbc3abec9827fda467
+ms.openlocfilehash: 22c30bfea89e3c650d81e1ebae20c9d151e6f36c
 
 
 ---
 # <a name="multi-geo-help-documentation"></a>Documentação da Ajuda para diversas áreas geográficas
-Este artigo descreve como criar um espaço de trabalho e publicar um serviço Web em outras regiões do Azure.
+Este artigo descreve como você pode criar um espaço de trabalho e publicar um serviço Web em diferentes regiões do Azure.  A página [Produtos do Azure por região](https://azure.microsoft.com/en-us/regions/services/) lista regiões em que o Azure Machine Learning está disponível.
 
 ## <a name="create-a-workspace"></a>Criar um espaço de trabalho
 1. Entre no Portal Clássico do Azure.
@@ -30,7 +30,7 @@ Este artigo descreve como criar um espaço de trabalho e publicar um serviço We
    ![Imagem de Ajuda de várias áreas geográficas 1][1]
 3. Selecione o espaço de trabalho e, em seguida, clique em **Entrar no Estúdio AM**.
    ![Imagem de Ajuda de várias áreas geográficas 2][2]
-4. Agora você tem um espaço de trabalho em outra região que pode usar como qualquer outro espaço de trabalho. Para alternar entre seus espaços de trabalho, veja o canto superior direito da tela. Clique na lista suspensa, selecione a região e, em seguida, selecione o espaço de trabalho. Tudo é local à região do espaço de trabalho; por exemplo, todos os serviços Web criados por meio de um espaço de trabalho estarão na mesma região em que o espaço de trabalho está localizado.
+4. Agora você tem um espaço de trabalho em outra região que pode usar como qualquer outro espaço de trabalho. Para alternar entre seus espaços de trabalho, veja o canto superior direito da tela. Clique na lista suspensa, selecione a região e, em seguida, selecione o espaço de trabalho. Tudo é local para a região do espaço de trabalho.  Por exemplo, todos os serviços Web criados por meio de um espaço de trabalho estarão na mesma região em que o espaço de trabalho está localizado.
    ![Imagem de Ajuda de várias áreas geográficas 3][3]
 
 ## <a name="open-an-experiment-from-gallery"></a>Abrir um experimento da Galeria
@@ -46,9 +46,9 @@ Para gerenciar os serviços Web de forma programática, como um novo treinamento
 
 ### <a name="things-to-note"></a>Elementos a serem observados
 1. Dessa maneira, você só pode copiar experimentos entre espaços de trabalho que pertençam à mesma região. Se precisar copiar experimentos entre espaços de trabalho em regiões diferentes, você poderá usar o cmdlet do [PowerShell](http://aka.ms/amlps), [*Copy-AmlExperiment *](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) para fazer isso. Outra solução alternativa é publicar o experimento na Galeria no modo não listado e depois abri-lo no espaço de trabalho da outra região.
-2. O seletor de região mostrará apenas os espaços de trabalho para uma região por vez. No futuro, você poderá ver uma lista completa de espaços de trabalho aos quais tem acesso em todas as regiões ao mesmo tempo.  
-3. Um espaço de trabalho livre ou de acesso de convidado (anônimo) será criado e hospedado no Centro-Sul dos EUA No futuro, você poderá criar espaços de trabalho de acesso livre/de convidado na região que escolher.  
-4. Os serviços Web implantados por meio de um espaço de trabalho no Sudeste Asiático também serão hospedados no Sudeste Asiático. No futuro, você terá a flexibilidade de criar experiências em uma região e implantar pontos de extremidade de serviço Web gerados em regiões diferentes.  
+2. O seletor de região mostrará apenas os espaços de trabalho para uma região por vez.  
+3. Um espaço de trabalho livre ou de acesso de convidado (anônimo) será criado e hospedado no Centro-Sul dos EUA  
+4. Os serviços Web implantados por meio de um espaço de trabalho no Sudeste Asiático também serão hospedados no Sudeste Asiático.  
 
 ## <a name="more-information"></a>Mais informações
 Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
@@ -61,6 +61,6 @@ Fazer uma pergunta no [fórum de Aprendizado de Máquina do Azure](https://socia
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

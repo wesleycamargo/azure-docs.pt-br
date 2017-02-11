@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2016
+ms.date: 09/21/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 6f05aa3f06c8ec86d58cafd406c2752ddb2eecc1
-ms.openlocfilehash: cf5b560028f3f80e3ba46ef96ae7a157dad7847d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -38,16 +38,15 @@ Saiba como criar uma conta do Lote do Azure no [portal do Azure][azure_portal] e
    
     ![Criar uma conta do Batch][account_portal]
    
-    a. **Nome da conta**: o nome de sua conta do Lote. O nome escolhido deve ser exclusivo na região do Azure em que a nova conta será criada (confira **Local** abaixo). O nome da conta pode conter apenas minúsculas ou números e deve ter 3 a 24 caracteres de comprimento.
+    a. **Nome da Conta**: um nome exclusivo para sua conta do Lote. Esse nome deve ser exclusivo na região do Azure em que a conta é criada (confira o *Local* abaixo). Ele pode conter somente caracteres minúsculos, números e deve ter de 3 a 24 caracteres de comprimento.
    
-    b. **Assinatura**: a assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
+    b. **Assinatura**: uma assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
    
-    c. **Grupo de recursos**: selecione um grupo de recursos para sua nova conta do Lote ou, opcionalmente, crie um novo.
+    c. **Grupo de recursos**: um grupo de recursos para sua nova conta do Lote ou, opcionalmente, crie um novo.
    
-    d. **Local**: a região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
+    d. **Local**: uma região do Azure na qual a conta do Lote será criada. Somente as regiões com suporte da sua assinatura e do seu grupo de recursos são exibidas como opções.
    
-    e. **Conta de armazenamento** (opcional): uma conta de armazenamento do Azure para fins gerais que você associa à sua nova conta do Lote. Confira [Conta vinculada do Armazenamento do Azure](#linked-azure-storage-account) abaixo para obter mais detalhes.
-
+    e. **Conta de Armazenamento** (opcional): uma conta de armazenamento de **Uso geral** que você associa à sua nova conta do Lote. Confira [Conta vinculada do Armazenamento do Azure](#linked-azure-storage-account) abaixo para obter mais detalhes.
 4. Clique em **Criar** para criar a conta.
    
    O portal indica que ele está **Implantando** a conta e, após a conclusão, uma notificação **Implantações bem-sucedidas** aparecerá em *Notificações*.
@@ -57,37 +56,34 @@ Após a criação da conta, você poderá abrir a **folha Conta do Lote** para a
 
 ![Folha Conta do Lote no portal do Azure][account_blade]
 
-* **URL de conta do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-technical-overview.md#batch-development-apis), você precisará de uma URL de conta para acessar os recursos do Lote. Uma URL de conta do Lote tem o seguinte formato:
+* **URL da conta do Lote**: os aplicativos que você criou com as [APIs de desenvolvimento do Lote](batch-technical-overview.md#batch-development-apis) precisam de uma URL de conta para gerenciar recursos e executar trabalhos na conta. Uma URL de conta do Lote tem o seguinte formato:
   
     `https://<account_name>.<region>.batch.azure.com`
 
 ![URL de conta do Lote no portal][account_url]
 
-* **Chaves de acesso**: para autenticar o acesso à conta do Lote do aplicativo, você precisará de uma chave de acesso da conta. Para exibir ou regenerar chaves de acesso da sua conta do Lote, insira `keys` na caixa **Pesquisar** do menu à esquerda na folha Conta do Lote e, em seguida, selecione **Chaves**.
+* **Chaves de acesso**: seus aplicativos também precisam de uma chave de acesso ao trabalhar com recursos em sua conta do Lote. Para exibir ou regenerar chaves de acesso da sua conta do Lote, insira `keys` na caixa **Pesquisar** do menu à esquerda na folha Conta do Lote e, em seguida, selecione **Chaves**.
   
     ![Chaves de conta do Lote no portal do Azure][account_keys]
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+## <a name="pricing"></a>Preços
+As contas do Lote são oferecidas apenas em uma "Camada Gratuita", o que significa que não são cobradas pela própria conta do Lote. Você é cobrado pelos recursos de computação subjacentes do Azure consumidos por suas soluções do Lote e pelos recursos consumidos por outros serviços quando suas cargas de trabalho forem executadas. Por exemplo, você será cobrado pelos nós de computação em seus pools e pelos dados guardados no Armazenamento do Azure como entrada ou saída de suas tarefas. De forma semelhante, se você usar o recurso [pacotes de aplicativos](batch-application-packages.md) do Lote, será cobrado pelos recursos do Armazenamento do Azure usados para armazenar os pacotes de aplicativos. Veja [Preços do Lote][batch_pricing] para saber mais.
 
 ## <a name="linked-azure-storage-account"></a>Conta vinculada do Armazenamento do Azure
+Como mencionado anteriormente, você pode (opcionalmente) vincular uma conta de armazenamento de **Finalidade geral** à sua nova conta do Lote. O recurso [pacotes de aplicativos](batch-application-packages.md) do Lote usa o armazenamento de blobs em uma conta do Armazenamento de Uso geral vinculada, como faz a biblioteca [.NET de Convenções de Arquivo do Lote](batch-task-output.md). Esses recursos opcionais ajudarão você a implantar os aplicativos executados por suas tarefas do Lote, persistindo os dados que eles produzem.
 
-Como mencionado anteriormente, você pode, opcionalmente, vincular uma conta de Armazenamento do Azure de finalidade geral à sua nova conta do Lote. O recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote usa o armazenamento de Blobs do Azure, como faz a biblioteca [.NET de Convenções de Arquivo do Lote](batch-task-output.md). Esses recursos opcionais ajudarão você a implantar os aplicativos executados por suas tarefas do Lote, persistindo os dados que eles produzem.
-
-É recomendável que você crie uma nova conta de armazenamento exclusivamente para uso com sua conta do Lote.
+No momento, o Lote dá suporte *somente* ao tipo de conta de armazenamento de **Uso geral**, conforme descrito na etapa 5, [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account), em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md). Ao vincular uma conta do Armazenamento do Azure à sua conta do Lote, vincule *somente* uma conta de armazenamento de **Finalidade geral** .
 
 ![Criação de uma conta de armazenamento de “finalidade geral”][storage_account]
 
-> [!NOTE] 
-> O Lote do Azure atualmente dá suporte apenas ao tipo de conta de Armazenamento de uso geral. Esse tipo de conta é descrito na etapa 5, [Criar uma conta de armazenamento] (../storage/storage-create-storage-account.md#create-a-storage-account), em [Sobre contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
->
->
+É recomendável que você crie uma conta do Armazenamento para uso exclusivo de sua conta do Lote.
 
 > [!WARNING]
 > Tome cuidado ao regenerar as chaves de acesso de uma conta de Armazenamento vinculada. Regenere somente uma chave de conta do Armazenamento e clique em **Sincronizar Chaves** na folha Conta do Armazenamento vinculada. Aguarde cinco minutos para permitir que as chaves sejam propagadas para os nós de computação em seus pools e regenere e sincronize a outra chave, se necessário. Se você regenerar as chaves ao mesmo tempo, os nós de computação não poderão sincronizar nenhuma delas e, assim, perderão o acesso à conta de armazenamento.
 > 
 > 
 
-![Regeneração de chaves da conta de armazenamento][4]
+  ![Regeneração de chaves da conta de armazenamento][4]
 
 ## <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 Esteja ciente de que como sua assinatura do Azure e outros serviços do Azure, determinados [limites e cotas](batch-quota-limit.md) se aplicam a contas do Lote. As cotas atuais em uma conta do Lote aparecem no portal nas **Propriedades**da conta.
@@ -96,9 +92,9 @@ Esteja ciente de que como sua assinatura do Azure e outros serviços do Azure, d
 
 Lembre-se dessas cotas quando estiver projetando e dimensionando suas cargas de trabalho do Lote. Por exemplo, se seu pool não alcançar o número de destino de nós de computação especificado, talvez você tenha atingido o limite de cota de núcleos para sua conta do Lote.
 
-A cota para contas do Lote é por região por assinatura. Portanto, você pode ter mais de uma conta do Lote por padrão, desde que elas estejam em regiões diferentes. Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura mas em diferentes regiões do Azure.
+Observe também que você não está restrito a uma única conta do Lote para sua assinatura do Azure. Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote na mesma assinatura mas em diferentes regiões do Azure.
 
-Adicionalmente, muitas dessas cotas podem ser aumentadas com uma solicitação de suporte do produto gratuito enviada no portal do Azure. Confira [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter detalhes sobre a solicitação de aumentos de cota.
+Muitas dessas cotas podem ser aumentadas com uma solicitação de suporte do produto gratuito enviada no portal do Azure. Confira [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter detalhes sobre a solicitação de aumentos de cota.
 
 ## <a name="other-batch-account-management-options"></a>Outras opções de gerenciamento de conta do Lote
 Além de usar o portal do Azure, você também pode criar e gerenciar contas do Lote com o seguinte:
@@ -128,6 +124,6 @@ Além de usar o portal do Azure, você também pode criar e gerenciar contas do 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

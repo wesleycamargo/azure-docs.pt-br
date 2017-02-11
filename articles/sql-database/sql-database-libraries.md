@@ -1,31 +1,48 @@
 ---
-title: Bibliotecas de conexão para Banco de Dados SQL e SQL Server
-description: Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft.
+title: "Bibliotecas de conexão para Banco de Dados SQL e SQL Server"
+description: "Lista o número de versão mínimo para cada driver que os programas clientes podem usar para se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server. Foi fornecido um link para obtenção de informações de versão sobre drivers lançados pela comunidade, e não pela Microsoft."
 services: sql-database
-documentationcenter: ''
-author: pehteh
+documentationcenter: 
+author: MightyPen
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
-ms.author: pehteh
+ms.date: 10/01/2016
+ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7725c2d0e35ad5bc1d1872acc55ccfcac2d7a931
+
 
 ---
-# Bibliotecas de conexão para Banco de Dados SQL e SQL Server
-Este tópico lista cada biblioteca/driver que os programas clientes podem usar ao se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server.
+# <a name="connection-libraries-for-sql-database-and-sql-server"></a>Bibliotecas de conexão para Banco de Dados SQL e SQL Server
+Este tópico lista cada biblioteca ou *driver* que os programas clientes podem usar ao se conectarem ao Banco de Dados SQL do Azure ou ao Microsoft SQL Server.
 
 | Linguagem | Plataforma | Recursos adicionais | Baixar |
 |:--- |:--- |:--- |:--- |
-| ADO.NET |Windows, Linux e Mac |[Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md) |[Baixar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
-| Java |Windows, Linux e Mac |[Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows](sql-database-develop-java-simple-windows.md) |[Baixar](http://go.microsoft.com/fwlink/?LinkId=245496) |
-| PHP |Windows |[Conectar-se ao Banco de Dados SQL usando PHP no Windows](sql-database-develop-php-simple-windows.md) |[Baixar](https://www.microsoft.com/download/details.aspx?id=20098) |
-| Node.js |Windows, Linux e Mac |[Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md) |[Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |
-| Python |Windows, Linux e Mac |[Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md) |[Instalar](https://msdn.microsoft.com/library/mt694094.aspx) |
-| Ruby |Windows, Linux e Mac |[Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) |[Instalar](https://msdn.microsoft.com/library/mt711041.aspx) |
+| ADO.NET |Windows, Linux e Mac |[Microsoft ADO.NET para SQL Server](http://msdn.microsoft.com/library/mt657768.aspx) |[Baixar](https://msdn.microsoft.com/vstudio/aa496123.aspx) |
+| Java |Windows, Linux e Mac |[Microsoft JDBC Driver para SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) |[Baixar](http://go.microsoft.com/fwlink/?LinkId=245496) |
+| PHP |Windows |[Microsoft PHP Driver para SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) |[Baixar](https://www.microsoft.com/download/details.aspx?id=20098) |
+| Node.js |Windows, Linux e Mac |[Node.js Driver para SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) |[Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |
+| Python |Windows, Linux e Mac |[Python SQL Driver](http://msdn.microsoft.com/library/mt652092.aspx) |Opções de instalação: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |
+| Ruby |Windows, Linux e Mac |[Ruby Driver para SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) |[Instalar](https://msdn.microsoft.com/library/mt711041.aspx) |
 
-<!---HONumber=AcomDC_0817_2016-->
+## <a name="related-links"></a>Links relacionados
+* [SQL Server Drivers](http://msdn.microsoft.com/library/mt654049.aspx) para conectar-se de um cliente
+* [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md), ADO.NET
+* [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-develop-nodejs-simple.md)
+* [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-develop-python-simple.md), pymssql
+* [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md)
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

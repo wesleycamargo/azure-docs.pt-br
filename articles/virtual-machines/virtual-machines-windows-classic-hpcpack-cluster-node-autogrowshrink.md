@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 12/08/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 810b4b14964feec6243a93978702eab779f4af8f
-ms.openlocfilehash: e07f149901a307386b4cf901fe6ab486b84764d0
+ms.sourcegitcommit: 50d9550cde6fde4b3c312b19d68f280d31cb5ab0
+ms.openlocfilehash: bd9ed92dcbf4c1bd692e1bebbeab59b51285e28d
 
 
 ---
@@ -51,11 +51,27 @@ No momento somente é possível aumentar ou reduzir automaticamente nós de comp
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
+    ```
+        
+    Se sua conta estiver em mais de um locatário do Azure Active Directory ou em mais de uma assinatura do Azure, execute o seguinte comando para selecionar o locatário e a assinatura corretos:
+  
+    ```powershell
+        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+    ```     
+       
+    Execute o seguinte comando para exibir o locatário e a assinatura atualmente selecionados:
+    
+    ```powershell
+        Get-AzureRMContext
+    ```
 
+  4. Execute o seguinte script
+
+    ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
 
-  onde
+    onde
 
     **DisplayName** – nome de exibição do aplicativo ativo do Azure. Se o aplicativo não existir, ele será criado no Azure Active Directory.
 
@@ -65,7 +81,7 @@ No momento somente é possível aumentar ou reduzir automaticamente nós de comp
 
     **CertificateThumbprint** – impressão digital do certificado instalado no nó de cabeçalho na etapa 1.
 
-    **TenantId** – ID de locatário do Azure Active Directory.
+    **TenantId** – ID de locatário do Azure Active Directory. Obtenha a ID de Locatário na página **Propriedades** do portal do Azure Active Directory.
 
     Para obter mais detalhes sobre **ConfigARMAutoGrowShrinkCert.ps1**, execute `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
@@ -241,6 +257,6 @@ Os trabalhos configurados pelo modelo de trabalho Padrão definem o escopo da ca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

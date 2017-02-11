@@ -1,22 +1,27 @@
 ---
-title: Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o PowerShell | Microsoft Docs
-description: Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o PowerShell
+title: "Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o PowerShell | Microsoft Docs"
+description: "Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o PowerShell"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5849b600-89cb-4995-ae9f-0188a17b4e1b
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+
 
 ---
-# Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o PowerShell
+# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-geo-replication-failover-portal.md)
 > * [PowerShell](sql-database-geo-replication-failover-powershell.md)
@@ -26,15 +31,15 @@ ms.author: sstein
 
 Este artigo mostra como iniciar um failover planejado ou não planejado para um Banco de Dados SQL com o PowerShell. Para configurar a Replicação Geográfica, consulte [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-powershell.md).
 
-## Iniciar um failover planejado
+## <a name="initiate-a-planned-failover"></a>Iniciar um failover planejado
 Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com o parâmetro **-Failover** para promover um banco de dados secundário para que ele se torne o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário. Essa funcionalidade é designada para um failover planejado, como durante os exercícios de recuperação de desastres, e requer que o banco de dados primário esteja disponível.
 
 O comando executa o seguinte fluxo de trabalho:
 
 1. Alterne temporariamente a replicação para o modo síncrono. Isso fará com que todas as transações pendentes sejam liberadas para o secundário.
-2. Alterne as funções dos dois bancos de dados na parceria de Replicação Geográfica.
+2. Alterne as funções dos dois bancos de dados na parceria de Replicação Geográfica.  
 
-Essa sequência garante que os dois bancos de dados estejam sincronizados antes que as funções sejam alternadas, de forma que não ocorra nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para obter mais informações, consulte [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
+Essa sequência garante que os dois bancos de dados estejam sincronizados antes que as funções sejam alternadas, de forma que não ocorra nenhuma perda de dados. Há um breve período durante o qual os bancos de dados não estão disponíveis (na ordem de 0 a 25 segundos) enquanto as funções são alternadas. A operação inteira deve levar menos de um minuto para ser concluída em circunstâncias normais. Para saber mais, veja [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393\(v=azure.300\).aspx).
 
 Esse cmdlet retornará quando o processo de alternar o banco de dados secundário para primário for concluído.
 
@@ -49,7 +54,7 @@ O comando a seguir alterna as funções do banco de dados chamado "mydb" no serv
 > 
 > 
 
-## Iniciar um failover não planejado do banco de dados primário para o banco de dados secundário
+## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Iniciar um failover não planejado do banco de dados primário para o banco de dados secundário
 Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com os parâmetros **–Failover** e **-AllowDataLoss** para promover um banco de dados secundário e ele se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível.
 
 Essa funcionalidade foi designada para a recuperação de desastres quando a restauração da disponibilidade do banco de dados é fundamental e a perda de dados é aceitável. Quando o failover forçado é chamado, o banco de dados secundário especificado imediatamente se torna o banco de dados primário e começa a aceitar as transações de gravação. Assim que o banco de dados primário original for capaz de se reconectar com o novo banco de dados primário após a operação de failover forçado, um backup incremental será realizado no banco de dados primário original e o antigo banco de dados primário será transformado em um banco de dados secundário para o novo banco de dados primário; em seguida, será simplesmente uma réplica do novo primário.
@@ -71,12 +76,17 @@ O comando a seguir alternará as funções de banco de dados chamado "mydb" para
 
 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
-* Para saber mais sobre a recuperação após um desastre usando a replicação geográfica ativa, incluindo as etapas anteriores e posteriores à recuperação e como executar uma análise de recuperação de desastre, confira [Disaster Recovery Drills](sql-database-disaster-recovery.md) (Análises de recuperação de desastre)
-* Para ver uma postagem de blog de Sasha Nosov sobre a replicação geográfica ativa, confira [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Destaque para os novos recursos de replicação geográfica ativa)
+* Para saber mais sobre a recuperação após um desastre usando a replicação geográfica ativa, incluindo as etapas anteriores e posteriores à recuperação e como executar uma análise de recuperação de desastre, confira [Disaster Recovery Drills](sql-database-disaster-recovery.md)
+* Para ver uma postagem de blog de Sasha Nosov sobre a replicação geográfica ativa, confira [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 * Para obter informações sobre a criação de aplicativos de nuvem para usar a replicação geográfica ativa, confira [Projetando aplicativos de nuvem para continuidade de negócios usando a Replicação Geográfica](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* Para obter informações sobre como usar a replicação geográfica ativa com o Pool de Banco de Dados Elástico, confira [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) (Estratégias de recuperação de desastre do pool elástico).
+* Para obter informações sobre o uso da Replicação geográfica ativa com pools elásticos, consulte [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)(Estratégias de recuperação de desastre do pool elástico).
 * Para obter uma visão geral sobre a continuidade dos negócios, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

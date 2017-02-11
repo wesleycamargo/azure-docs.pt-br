@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Aprenda sobre o Banco de dados SQL, um banco de dados como serviço na nuvem. Tutoriais, vídeos e outras documentações mostram como configurar, conectar e gerenciar um banco de dados relacional."
 translationtype: Human Translation
-ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
-ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
@@ -126,7 +126,7 @@ Saiba como usar o Banco de Dados SQL, um banco de dados como serviço relacional
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
                         <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
@@ -145,7 +145,7 @@ Saiba como usar o Banco de Dados SQL, um banco de dados como serviço relacional
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">referência da API REST</a></p>
+                        <p><a href="/rest/api/sql/">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -153,13 +153,7 @@ Saiba como usar o Banco de Dados SQL, um banco de dados como serviço relacional
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Banco de Dados SQL </div>
-    </a>
-</div>
+
 
 
 

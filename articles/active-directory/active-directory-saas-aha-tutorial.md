@@ -24,7 +24,7 @@ O objetivo deste tutorial é mostrar a integração do Azure ao Aha!
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Um Aha! assinatura habilitada para logon único
+* Uma assinatura habilitada para logon único do Aha!
 
 Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Aha! poderão fazer logon único no aplicativo em seu site de empresa do Aha! (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
@@ -35,7 +35,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-aha-tutorial/IC798944.png "Cenário")
+![Cenário](./media/active-directory-saas-aha-tutorial/IC798944.png "Scenario")
 
 ## <a name="enabling-the-application-integration-for-aha"></a>Habilitando a integração de aplicativos para o Aha!
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Aha!.
@@ -47,16 +47,16 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-aha-tutorial/IC700994.png "Aplicativos")
+   ![Aplicativos](./media/active-directory-saas-aha-tutorial/IC700994.png "Applications")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-aha-tutorial/IC749321.png "Adicionar aplicativo")
+   ![Adicionar aplicativo](./media/active-directory-saas-aha-tutorial/IC749321.png "Add application")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-aha-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-aha-tutorial/IC749322.png "Add an application from gallerry")
 6. Na **caixa de pesquisa**, digite **Aha!**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-aha-tutorial/IC798945.png "Galeria de Aplicativos")
+   ![Galeria de Aplicativos](./media/active-directory-saas-aha-tutorial/IC798945.png "Application Gallery")
 7. No painel de resultados, selecione **Aha!** e clique em **Concluir** para adicionar o aplicativo.
    
    ![Aha!](./media/active-directory-saas-aha-tutorial/IC802746.png "Aha!")
@@ -68,32 +68,32 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração do aplicativo **Aha!** Na página de integração do aplicativo, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798946.png "Configurar Logon Único")
+   ![Configurar o logon único](./media/active-directory-saas-aha-tutorial/IC798946.png "Configure Single Sign-On")
 2. Em **Como você gostaria que os usuários fizessem logon na página Aha!** selecione **Logon Único do Microsoft Azure AD** e, em seguida, clique em **Avançar**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798947.png "Configurar Logon Único")
+   ![Configurar o logon único](./media/active-directory-saas-aha-tutorial/IC798947.png "Configure Single Sign-On")
 3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Aha!**, digite a URL usada pelos usuários para entrar no aplicativo Aha! (por exemplo: "*https://company.aha.io/session/new*"), and then click **Next**.
    
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-aha-tutorial/IC798948.png "Configurar URL do Aplicativo")
+   ![Configurar a URL do Aplicativo](./media/active-directory-saas-aha-tutorial/IC798948.png "Configure App URL")
 4. Na página **Configurar logon único no Aha!**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo de metadados localmente no computador.
    
-   ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798949.png "Configurar Logon Único")
+   ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798949.png "Configure Single Sign-On")
 5. Em outra janela do navegador da Web, faça logon em seu site de empresa Aha! como um administrador.
 6. No menu na parte superior, clique em **Configurações**.
    
-   ![Configurações](./media/active-directory-saas-aha-tutorial/IC798950.png "Configurações")
+   ![Configurações](./media/active-directory-saas-aha-tutorial/IC798950.png "Settings")
 7. Clique em **Conta**.
    
-   ![Perfil](./media/active-directory-saas-aha-tutorial/IC798951.png "Perfil")
+   ![Perfil](./media/active-directory-saas-aha-tutorial/IC798951.png "Profile")
 8. Clique em **Segurança e logon único**.
    
-   ![Segurança e logon único](./media/active-directory-saas-aha-tutorial/IC798952.png "Segurança e logon único")
+   ![Segurança e logon único](./media/active-directory-saas-aha-tutorial/IC798952.png "Security and single sign-on")
 9. Na seção **Logon Único**, como **Provedor de Identidade**, selecione **SAML2.0**.
    
-   ![Segurança e logon único](./media/active-directory-saas-aha-tutorial/IC798953.png "Segurança e logon único")
+   ![Segurança e logon único](./media/active-directory-saas-aha-tutorial/IC798953.png "Security and single sign-on")
 10. Na página de configuração **Logon Único** , realize as seguintes etapas:
     
-    ![Logon Único](./media/active-directory-saas-aha-tutorial/IC798954.png "Logon Único")
+    ![Logon Único](./media/active-directory-saas-aha-tutorial/IC798954.png "Single Sign-On")
     
     1. Na caixa de texto **Nome** , digite um nome para a sua configuração.
     2. Para **Configurar usando**, selecione **Arquivo de Metadados**.
@@ -101,7 +101,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
     4. Clique em **Atualizar**.
 11. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
     
-    ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798955.png "Configurar Logon Único")
+    ![Configurar Logon Único](./media/active-directory-saas-aha-tutorial/IC798955.png "Configure Single Sign-On")
     
     ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
@@ -123,10 +123,10 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração do aplicativo **Aha!**, clique em **Atribuir usuários**.
    
-   ![Atribuir Usuários](./media/active-directory-saas-aha-tutorial/IC798956.png "Atribuir Usuários")
+   ![Atribuir usuários](./media/active-directory-saas-aha-tutorial/IC798956.png "Assign Users")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-aha-tutorial/IC767830.png "Sim")
+   ![Sim](./media/active-directory-saas-aha-tutorial/IC767830.png "Yes")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 

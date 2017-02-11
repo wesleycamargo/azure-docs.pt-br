@@ -1,5 +1,5 @@
 ---
-title: Implante seu primeiro aplicativo Web Java no Azure em cinco minutos | Microsoft Docs
+title: Implantar seu primeiro aplicativo Web Java no Azure em cinco minutos (CLI 2.0 Preview) | Microsoft Docs
 description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 90c1099f7970fc490ca01f2d815679f967c46187
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: e15a67ee0568c52f5fb81110b0ad6d2c53ec8fae
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Implante seu primeiro aplicativo Web Java no Azure em cinco minutos
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Implantar seu primeiro aplicativo Web Java no Azure em cinco minutos (CLI 2.0 Preview)
+
+> [!div class="op_single_selector"]
+> * [Primeiro site HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [Primeiro aplicativo .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Primeiro aplicativo PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Primeiro aplicativo Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Primeiro aplicativo Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Primeiro aplicativo Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Este tutorial o ajuda a implantar um aplicativo Web Java simples para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -73,7 +84,7 @@ Agora, vamos implantar um aplicativo Java no Azure usando FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. Em **Versão Java**, selecione **Java 8** e clique em **Salvar**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Quando chegar a notificação **Configurações do aplicativo Web atualizadas com êxito**, navegue até http://*&lt;appname>*.azurewebsites.net para ver o servlet do JSP padrão em ação.
 3. Na folha do aplicativo Web, role para baixo até as **Credenciais de implantação** ou procure-as e clique nelas.
@@ -120,6 +131,6 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

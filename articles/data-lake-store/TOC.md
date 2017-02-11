@@ -44,6 +44,7 @@
 ## Gerenciar
 ### [Acessar logs de diagnóstico](data-lake-store-diagnostic-logs.md)
 ### [Projetando para alta disponibilidade](data-lake-store-troubleshooting-guidance.md)
+### [Guia de ajuste do desempenho](data-lake-store-performance-tuning-guidance.md)
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
@@ -64,6 +65,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

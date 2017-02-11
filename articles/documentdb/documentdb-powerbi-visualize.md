@@ -1,13 +1,13 @@
 ---
-title: Tutorial do Power BI para o conector do Banco de Dados de Documentos | Microsoft Docs
-description: Use este tutorial do Power BI para importar o JSON, criar relatórios interessantes e visualizar dados usando o conector do Banco de Dados de Documentos e do Power BI.
+title: Tutorial do Power BI para o conector do DocumentDB | Microsoft Docs
+description: "Use este tutorial do Power BI para importar o JSON, criar relatórios interessantes e visualizar dados usando o conector do Banco de Dados de Documentos e do Power BI."
 keywords: tutorial do power bi, visualizar dados, conector do power bi
 services: documentdb
 author: h0n
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+
 
 ---
-# <a name="power-bi-tutorial-for-documentdb:-visualize-data-using-the-power-bi-connector"></a>Tutorial do Power BI para o Banco de Dados de Documentos: visualizar dados usando o conector do Power BI
+# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>Tutorial do Power BI para o Banco de Dados de Documentos: visualizar dados usando o conector do Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) é um serviço online no qual você pode criar e compartilhar painéis e relatórios com dados que são importantes para você e sua organização.  O Power BI Desktop é uma ferramenta dedicada para a criação de relatórios que permite recuperar dados de várias fontes de dados, mesclar e transformar os dados, criar relatórios e visualizações avançados e publicar os relatórios no Power BI.  Com a versão mais recente do Power BI Desktop, agora você pode se conectar à sua conta do Banco de Dados de Documentos por meio do conector do Banco de Dados de Documentos para o Power BI.   
 
 Neste tutorial do Power BI, explicaremos as etapas para conectar a uma conta do DocumentDB no Power BI Desktop, navegaremos até uma coleção em que desejamos extrair os dados usando o Navegador, transformaremos os dados JSON em formato tabular usando o Editor de Consultas do Power BI Desktop, além de criarmos e publicarmos um relatório no PowerBI.com.
@@ -42,24 +46,24 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de ter
 
 Para compartilhar seus relatórios no PowerBI.com, você deve ter uma conta no PowerBI.com.  Para saber mais sobre o Power BI Gratuito e o Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="let's-get-started"></a>Vamos começar
+## <a name="lets-get-started"></a>Vamos começar
 Neste tutorial, vamos imaginar que você é um geólogo que estuda os vulcões em todo o mundo.  Os dados de vulcão são armazenados em uma conta do Banco de Dados de Documentos e os documentos JSON são semelhantes ao exemplo mostrado abaixo.
 
     {
         "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
             "type": "Point",
             "coordinates": [
-            -121.758,
-            46.87
+              -121.758,
+              46.87
             ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
 Você deseja recuperar os dados de vulcão da conta do Banco de Dados de Documentos e visualizar dados em um relatório interativo do Power BI como o mostrado abaixo.
@@ -171,7 +175,7 @@ Para compartilhar seu relatório, você deve ter uma conta no PowerBI.com.
    
     ![Publicando no Power BI Sucesso! Abrir tutorial no Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-## <a name="create-a-dashboard-in-powerbi.com"></a>Criar um painel no PowerBI.com
+## <a name="create-a-dashboard-in-powerbicom"></a>Criar um painel no PowerBI.com
 Agora que você tem um relatório, vamos compartilhá-lo no PowerBI.com
 
 Quando você publica o relatório do Power BI Desktop no PowerBI.com, ele gera um **Relatório** e um **Conjunto de Dados** em seu locatário PowerBI.com. Por exemplo, após publicar um relatório chamado **PowerBITutorial** no PoweBIi.com, você verá PowerBITutorial nas seções **Relatórios** e **Conjuntos de Dados** no PowerBI.com.
@@ -186,7 +190,7 @@ Siga as instruções em [Fixar um bloco de um relatório](https://powerbi.micros
 
 Você também pode fazer modificações ad hoc ao relatório antes de criar um painel. No entanto, é recomendável que você use o Power BI Desktop para executar as modificações e republicar o relatório no PowerBI.com.
 
-## <a name="refresh-data-in-powerbi.com"></a>Atualizar dados no Power BI.com
+## <a name="refresh-data-in-powerbicom"></a>Atualizar dados no Power BI.com
 Há duas maneiras de atualizar os dados: agendamento e ad hoc.
 
 Para uma atualização ad hoc, basta clicar nas reticências (...) ao lado do **Conjunto de Dados**, por exemplo, PowerBITutorial. Você deve ver uma lista de ações, incluindo **Atualizar Agora**. Clique em **Atualizar Agora** para atualizar os dados.
@@ -209,6 +213,9 @@ Para uma atualização agendada, faça o seguinte:
 * Para saber mais sobre o Power BI, confira [Introdução ao Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Para saber mais sobre o DocumentDB, confira a [página de documentação do DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

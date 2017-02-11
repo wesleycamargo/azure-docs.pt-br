@@ -3,7 +3,7 @@ title: "Instalação e gerenciamento fáceis de aplicativos no Lote do Azure | M
 description: "Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 10/21/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: de20208ebc796d22de26280d73be94dfb0cb04dc
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
 
 
 ---
@@ -75,7 +75,7 @@ Os pacotes de aplicativos podem simplificar o código em sua solução de Lote e
 A tarefa de inicialização do pool não precisa especificar uma longa lista de arquivos de recursos individuais para instalar nos nós. Não é preciso gerenciar manualmente diversas versões dos arquivos do aplicativo no Armazenamento do Azure nem em seus nós. E você não precisa preocupar-se com a geração de [URLs SAS](../storage/storage-dotnet-shared-access-signature-part-1.md) para fornecer acesso aos arquivos em sua conta de Armazenamento. O Lote funciona em segundo plano com o Armazenamento do Azure para armazenar os pacotes de aplicativos e implantá-los nos nós de computação.
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
-Você pode usar o [portal do Azure][portal] ou a biblioteca [.NET de Gerenciamento do Lote](batch-management-dotnet.md) para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro iremos vincular uma conta de Armazenamento e analisar como adicionar aplicativos e pacotes, e como gerenciá-los com o portal.
+Você pode usar o [Portal do Azure][portal] ou a biblioteca [.NET de Gerenciamento do Lote](batch-management-dotnet.md) para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro iremos vincular uma conta de Armazenamento e analisar como adicionar aplicativos e pacotes, e como gerenciá-los com o portal.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
 Para usar pacotes de aplicativos, em primeiro lugar, você deve vincular uma conta de armazenamento do Azure à sua conta do Lote. Se você ainda não configurou uma conta de Armazenamento para sua conta do Lote, o portal do Azure exibirá um aviso na primeira vez em que clicar no bloco **Aplicativos** na folha **Conta do Lote**.
@@ -178,7 +178,7 @@ Para atualizar ou excluir um pacote de aplicativos existente, abra a folha de de
 
 Quando você clica em **Atualizar**, a folha *Atualizar pacote* é exibida. Essa folha é semelhante à folha *Novo pacote de aplicativos*. No entanto, somente o campo de seleção de pacotes está habilitado, permitindo que você especifique um novo arquivo ZIP a carregar.
 
-![Folha Atualizar pacote no portal do Azure][11]
+![Folha do pacote de atualização no portal do Azure][11]
 
 **Excluir**
 
@@ -217,7 +217,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implantação do pacote de aplicativos falhar por algum motivo, o serviço de Lote marcará o nó como [inutilizável][net_nodestate] e nenhuma tarefa será agendada para a execução nesse nó. Nesse caso, você deve **reiniciar** o nó para reiniciar a implantação do pacote. A reinicialização do nó também habilitará a agendamento de tarefas novamente nele.
+> Se uma implantação do pacote de aplicativos falhar por algum motivo, o serviço do Lote marcará o nó como [inutilizável][net_nodestate] e nenhuma tarefa será agendada para a execução nesse nó. Nesse caso, você deve **reiniciar** o nó para reiniciar a implantação do pacote. A reinicialização do nó também habilitará a agendamento de tarefas novamente nele.
 > 
 > 
 
@@ -313,7 +313,7 @@ foreach (ApplicationSummary app in applications)
 Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolher os aplicativos para seus trabalhos e especificar a versão exata a ser usada ao processar trabalhos com o serviço habilitado para o Lote. Você também pode fornecer aos clientes a capacidade de carregar e rastrear os próprios aplicativos no serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* A [API REST do Lote][api_rest] também dá suporte para trabalhar com os pacotes de aplicativos. Por exemplo, consulte o elemento[applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para saber mais sobre como especificar os pacotes a instalar usando a API REST. Consulte [Aplicativos][rest_applications] para obter detalhes sobre como obter as informações do aplicativo usando a API REST do Lote.
+* A [API REST do Lote][api_rest] também dá suporte ao trabalho com pacotes de aplicativos. Por exemplo, consulte o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a instalar usando a API REST. Consulte [Aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do Lote.
 * Aprenda a [gerenciar de modo programático as contas e as cotas do Lote do Azure com o .NET de Gerenciamento do Lote](batch-management-dotnet.md). A biblioteca [.NET de Gerenciamento do Lote][api_net_mgmt] pode permitir os recursos de criação e exclusão de conta para seu aplicativo ou serviço do Lote.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
@@ -342,13 +342,13 @@ Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolh
 [5]: ./media/batch-application-packages/app_pkg_05.png "Folha Novo aplicativo no portal do Azure"
 [7]: ./media/batch-application-packages/app_pkg_07.png "Menu suspenso Atualizar ou excluir pacotes no portal do Azure"
 [8]: ./media/batch-application-packages/app_pkg_08.png "Folha Novo pacote de aplicativos no portal do Azure"
-[9]: ./media/batch-application-packages/app_pkg_09.png "Nenhum alerta de conta do Armazenamento vinculado"
+[9]: ./media/batch-application-packages/app_pkg_09.png "Alerta Nenhuma conta de armazenamento vinculada"
 [10]: ./media/batch-application-packages/app_pkg_10.png "Folha Escolher conta de armazenamento no portal do Azure"
-[11]: ./media/batch-application-packages/app_pkg_11.png "Folha Atualizar pacote no portal do Azure"
+[11]: ./media/batch-application-packages/app_pkg_11.png "Folha do pacote de atualização no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Caixa de diálogo de confirmação Excluir pacote no portal do Azure"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

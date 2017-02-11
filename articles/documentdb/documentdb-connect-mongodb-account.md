@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
-ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+ms.sourcegitcommit: 91474f61ab724d3fd7a70c51dcd097fade8953dd
+ms.openlocfilehash: 3789079412932d56be1c9697fc23c56de5afba6f
 
 
 ---
@@ -73,12 +73,12 @@ Onde os valores dessa cadeia de caracteres estão disponíveis na folha Cadeia d
 * Porta (obrigatória)
   * 10250
 * Banco de dados (opcional)
-  * O banco de dados padrão usado pela conexão
+  * O banco de dados padrão usado pela conexão (se nenhum banco de dados for fornecido, o banco de dados padrão será "test")
 * ssl=true (obrigatório)
 
 Por exemplo, considere a conta mostrada nas Informações da Cadeia de Conexão acima.  Uma cadeia de conexão válida é:
 
-    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
@@ -86,6 +86,6 @@ Por exemplo, considere a conta mostrada nas Informações da Cadeia de Conexão 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como usar o Agendador para agendar e invocar trabalhos, como ações recorrentes de aplicativo e manutenção de rotina. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
-ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Documentação do Agendador
@@ -89,7 +89,7 @@ Saiba como usar o Agendador para agendar e invocar automaticamente os trabalhos 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/scheduler">referência da API REST</a></p>
+                        <p><a href="/rest/api/scheduler">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -97,13 +97,7 @@ Saiba como usar o Agendador para agendar e invocar automaticamente os trabalhos 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Agendador </div>
-    </a>
-</div>
+
 
 
 

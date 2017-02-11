@@ -1,37 +1,41 @@
 ---
-title: Notas de versão do Stream Analytics | Microsoft Docs
-description: Notas de versão do Stream Analytics
+title: "Notas de versão do Stream Analytics | Microsoft Docs"
+description: "Notas de versão do Stream Analytics"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
+ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de versão do Stream Analytics
-## <a name="notes-for-04/15/2016-release-of-stream-analytics"></a>Notas de versão de 15/04/2016 do Stream Analytics
+## <a name="notes-for-04152016-release-of-stream-analytics"></a>Notas de versão de 15/04/2016 do Stream Analytics
 Esta versão contém a seguinte atualização.
 
 | Title | Descrição |
 | --- | --- |
-| Disponibilidade geral para saídas do Power BI |[Saídas do Power BI](stream-analytics-power-bi-dashboard.md) agora estão em disponibilidade geral. A expiração de autorização de 90 dias para o Power BI foi removida. Para obter mais informações sobre os cenários em que a autorização precisa ser renovada, consulte a seção [Renovar autorização](stream-analytics-power-bi-dashboard.md#Renew-authorization) do painel Criar um Power BI. |
+| Disponibilidade geral para saídas do Power BI |[Saídas do Power BI](stream-analytics-power-bi-dashboard.md) agora estão em disponibilidade geral. A expiração de autorização de 90 dias para o Power BI foi removida. Para obter mais informações sobre os cenários em que a autorização precisa ser renovada, consulte a seção [Renovar autorização](stream-analytics-power-bi-dashboard.md#renew-authorization) do painel Criar um Power BI. |
 
-## <a name="notes-for-03/03/2016-release-of-stream-analytics"></a>Notas de versão de 03/03/2016 do Stream Analytics
+## <a name="notes-for-03032016-release-of-stream-analytics"></a>Notas de versão de 03/03/2016 do Stream Analytics
 Esta versão contém a seguinte atualização.
 
 | Title | Descrição |
 | --- | --- |
 | Novos itens de linguagem de consulta de Stream Analytics |SAQL agora tem [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN Page"), [TRY_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN Page") e [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN Page"). |
 
-## <a name="notes-for-12/10/2015-release-of-stream-analytics"></a>Notas de versão de 10/12/2015 do Stream Analytics
+## <a name="notes-for-12102015-release-of-stream-analytics"></a>Notas de versão de 10/12/2015 do Stream Analytics
 Esta versão contém a seguinte atualização.
 
 | Title | Descrição |
@@ -39,14 +43,14 @@ Esta versão contém a seguinte atualização.
 | Atualização de versão da API REST |A versão da API REST foi atualizada para 2015-10-01. Detalhes podem ser encontrados no MSDN em [Referência de API REST do gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx) e [Integração do Machine Learning ao Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
 | Integração de Aprendizado de Máquina do Azure |Com essa versão, é fornecido suporte para funções definidas pelo usuário do Aprendizado de Máquina do Azure. Veja o [tutorial](stream-analytics-machine-learning-integration-tutorial.md) para obter mais informações, bem como o [comunicado geral do blog](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
-## <a name="notes-for-11/12/2015-release-of-stream-analytics"></a>Notas de versão de 12/11/2015 do Stream Analytics
+## <a name="notes-for-11122015-release-of-stream-analytics"></a>Notas de versão de 12/11/2015 do Stream Analytics
 Esta versão contém a seguinte atualização.
 
 | Title | Descrição |
 | --- | --- |
 | Novo comportamento de SELECT |SELECT no Stream Analytics foi estendido para permitir * como um acessador de propriedade de um registro aninhado. Para obter mais informações, consulte [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Tipos de dados complexos"). |
 
-## <a name="notes-for-10/22/2015-release-of-stream-analytics"></a>Notas de versão de 22/10/2015 do Stream Analytics
+## <a name="notes-for-10222015-release-of-stream-analytics"></a>Notas de versão de 22/10/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
@@ -56,7 +60,7 @@ Esta versão contém as atualizações a seguir.
 | Acréscimo do recurso System.Timestamp a GROUP BY |Agora, a função [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) permite window_type ou [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
 | Acréscimo de OFFSET para janelas com Cascata e Salto |Por padrão, janelas [Em Cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) e [De Salto](https://msdn.microsoft.com/library/azure/dn835041.aspx) são alinhadas com tempo zero (01/01/0001 12:00:00 AM UTC). O novo parâmetro (opcional) “offsetsize” permite especificar um deslocamento (ou alinhamento) personalizado. |
 
-## <a name="notes-for-09/29/2015-release-of-stream-analytics"></a>Notas de versão de 29/09/2015 do Stream Analytics
+## <a name="notes-for-09292015-release-of-stream-analytics"></a>Notas de versão de 29/09/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
@@ -67,14 +71,14 @@ Esta versão contém as atualizações a seguir.
 | Suporte para a entrada do Hub IoT |Os trabalhos do Stream Analytics agora podem ingerir dados dos Hubs IoT. |
 | TIMESTAMP BY para eventos heterogêneos |Quando uma transmissão de dados única contém vários tipos de evento com carimbos de data/hora em diferentes campos, agora você pode usar o [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) com expressões para especificar diferentes campos de carimbo de data/hora para cada caso. |
 
-## <a name="notes-for-09/10/2015-release-of-stream-analytics"></a>Notas de versão de 10/09/2015 do Stream Analytics
+## <a name="notes-for-09102015-release-of-stream-analytics"></a>Notas de versão de 10/09/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
 | --- | --- |
 | Suporte para grupos do PowerBI |Para habilitar o compartilhamento de dados com outros usuários do Power BI, os trabalhos do Stream Analytics agora podem ser gravados nos [grupos do PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de sua conta do Power BI. |
 
-## <a name="notes-for-08/20/2015-release-of-stream-analytics"></a>Notas de versão de 20/08/2015 do Stream Analytics
+## <a name="notes-for-08202015-release-of-stream-analytics"></a>Notas de versão de 20/08/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
@@ -83,7 +87,7 @@ Esta versão contém as atualizações a seguir.
 | Novas funções de matriz |As funções de matriz [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) e [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx) agora estão disponíveis. |
 | Novas funções de registro |As funções de registro [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) e [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx) agora estão disponíveis. |
 
-## <a name="notes-for-07/30/2015-release-of-stream-analytics"></a>Notas de versão de 30/07/2015 do Stream Analytics
+## <a name="notes-for-07302015-release-of-stream-analytics"></a>Notas de versão de 30/07/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
@@ -92,14 +96,14 @@ Esta versão contém as atualizações a seguir.
 | Suporte para saída de filas do barramento de serviço |[Filas do Barramento de Serviço](stream-analytics-define-outputs.md#service-bus-queues) agora estão disponíveis nos trabalhos do Stream Analytics. |
 | Suporte para saída de filas de tópicos do Barramento de Serviço |[Tópicos do Barramento de Serviço](stream-analytics-define-outputs.md#service-bus-topics) agora estão disponíveis nos trabalhos do Stream Analytics. |
 
-## <a name="notes-for-07/09/2015-release-of-stream-analytics"></a>Notas de versão de 09/07/2015 do Stream Analytics
+## <a name="notes-for-07092015-release-of-stream-analytics"></a>Notas de versão de 09/07/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
 | --- | --- |
 | Particionamento de saída de blob personalizado |Saídas de armazenamento de blob agora permitem uma opção para especificar a frequência em que os blobs de saída são gravados e a estrutura e o formato da pasta do caminho de saída dados. |
 
-## <a name="notes-for-05/03/2015-release-of-stream-analytics"></a>Notas de versão de 03/05/2015 do Stream Analytics
+## <a name="notes-for-05032015-release-of-stream-analytics"></a>Notas de versão de 03/05/2015 do Stream Analytics
 Esta versão contém as atualizações a seguir.
 
 | Title | Descrição |
@@ -107,7 +111,7 @@ Esta versão contém as atualizações a seguir.
 | Maior valor máximo aumentado da janela de tolerância inoperante |O tamanho máximo da janela de tolerância inoperante agora é 59:59 (MM:SS) |
 | Formato de saída JSON: linha separada ou matriz |Agora há uma opção para gerar a armazenamento de blob ou hub de evento de saída como uma matriz de objetos JSON ou separando os objetos JSON com uma nova linha. |
 
-## <a name="notes-for-04/16/2015-release-of-stream-analytics"></a>Notas de versão de 16/04/2015 do Stream Analytics
+## <a name="notes-for-04162015-release-of-stream-analytics"></a>Notas de versão de 16/04/2015 do Stream Analytics
 | Title | Descrição |
 | --- | --- |
 | Atraso na configuração da conta de Armazenamento do Azure |Ao criar um trabalho do Stream Analytics em uma região pela primeira vez, você precisará criar uma nova conta de Armazenamento ou especifique uma conta existente para monitorar trabalhos do Stream Analytics nessa região. Devido à latência na configuração de monitoramento, criar outro trabalho do Stream Analytics na mesma região dentro de 30 minutos solicitará a especificação de uma segunda conta de armazenamento em vez de mostrar aquela recentemente configurada no menu suspenso de Conta de Monitoramento de Armazenamento. Para evitar a criação de uma conta de Armazenamento desnecessária, aguarde 30 minutos após a criação de um trabalho em uma região pela primeira vez antes de provisionar trabalhos adicionais nessa região. |
@@ -130,6 +134,8 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

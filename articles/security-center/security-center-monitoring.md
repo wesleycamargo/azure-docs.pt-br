@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 01/10/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
-ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
+ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
+ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
 
 
 ---
@@ -33,7 +33,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 
 No bloco **Integridade da segurança do recurso**, você pode monitorar o estado de segurança de seus recursos. No exemplo a seguir, você pode ver que vários problemas têm severidade média e alta e exigem atenção. As políticas de segurança que são habilitadas terão impacto sobre os tipos de controles que são monitorados.
 
-![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
+![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4-2017.png)
 
 Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma máquina virtual sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](/virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
@@ -169,7 +169,8 @@ Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtu
 A parte inferior da folha tem as recomendações para essa máquina virtual, que é semelhante ao que foi descrito anteriormente. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração ou controle de segurança necessário.
 
 ### <a name="monitor-data"></a>Dados de monitoramento
-Quando você clica em **Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure.
+
+Quando você clica em **SQL e Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure.](security-center-enable-encryption-for-storage-account.md).
 
 ![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
@@ -217,6 +218,6 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

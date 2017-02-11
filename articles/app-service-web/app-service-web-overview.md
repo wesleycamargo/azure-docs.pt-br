@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 69f3bd4759e879c6f3b55d8126f34e8ebf4be52d
+ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
+ms.openlocfilehash: a8fb8f7d338fa2f33b8fe6565f119e0be6419f41
 
 
 ---
@@ -58,13 +58,25 @@ Além disso, um aplicativo Web pode tirar proveito dos recursos oferecidos por [
 Além dos Aplicativos Web no Serviço de Aplicativo, o Azure oferece outros serviços que podem ser usados para hospedar sites e aplicativos Web. Os Aplicativos Web são a melhor opção para a maioria dos cenários.  Para a arquitetura de microsserviço, considere o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric), e se você precisar de mais controle sobre as VMs nas quais seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para saber mais sobre como escolher entre esses serviços do Azure, confira [Comparação entre o Serviço de Aplicativo do Azure, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Introdução
-Para começar com a implantação do código de exemplo para um novo aplicativo Web no Serviço de Aplicativo, siga o tutorial [Implantar seu primeiro aplicativo Web no Azure em cinco minutos](app-service-web-get-started.md) . Você precisará de uma conta gratuita do Azure.
+Para começar com a implantação do código de exemplo em um novo aplicativo Web no Serviço de Aplicativo, siga um dos tutoriais na caixa suspensa a seguir. Você precisará de uma conta gratuita do Azure.
 
-Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [!div class="op_single_selector"]
+> * [Implantar seu primeiro site HTML no Azure em cinco minutos](app-service-web-get-started-html-cli-nodejs.md)
+> * [Implantar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Implantar seu primeiro aplicativo Web PHP no Azure em cinco minutos](app-service-web-get-started-php-cli-nodejs.md)
+> * [Implantar seu primeiro aplicativo Web Node.js no Azure em cinco minutos](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Implantar seu primeiro aplicativo Web Python no Azure em cinco minutos](app-service-web-get-started-python-cli-nodejs.md)
+> * [Implantar seu primeiro aplicativo Web Java no Azure em cinco minutos](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
+> 
+> 
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

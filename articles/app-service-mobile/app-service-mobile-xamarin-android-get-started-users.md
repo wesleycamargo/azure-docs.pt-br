@@ -1,42 +1,46 @@
 ---
-title: Introdução à autenticação para aplicativos móveis no Xamarin Android
-description: Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
+title: "Introdução à autenticação para aplicativos móveis no Xamarin Android"
+description: "Aprenda a usar os aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
-author: mattchenderson
+author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/28/2016
-ms.author: mahender
+ms.date: 10/01/2016
+ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4c0ba82ca010f1ee571424fa3d650718e5acdd8b
+
 
 ---
-# Adicione autenticação ao aplicativo Xamarin.Android
+# <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicione autenticação ao aplicativo Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 Este tópico mostra como autenticar usuários de um aplicativo móvel em seu aplicativo cliente. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Aplicativos Móveis do Azure. Após ser autenticado e autorizado com sucesso no aplicativo móvel, o valor da ID de usuário é exibido.
 
 Este tutorial baseia-se no início rápido do aplicativo móvel. Você também deve primeiro concluir o tutorial [Criar um aplicativo Xamarin.Android]. Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
+## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar os Serviços de Aplicativos
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador. Verifique se uma exceção não tratada com um código de status 401 (Não autorizado) é gerada após o aplicativo ser iniciado. Isso acontece porque o aplicativo tenta acessar o back-end do aplicativo móvel como um usuário não autenticado. A tabela *TodoItem* agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo do cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
 
-## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 O aplicativo é atualizado para exigir que os usuários toquem no botão **Entrar** e se autentiquem para que os dados sejam exibidos.
 
-1. Adicione o seguinte código à classe **TodoActivity**:
+1. Adicione o seguinte código à classe **TodoActivity** :
    
         // Define a authenticated user.
         private MobileServiceUser user;
@@ -74,16 +78,16 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
             }
         }
    
-    Isso cria um novo método para autenticar um usuário e um manipulador de método para um novo botão **Entrar**. O usuário no código de exemplo acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é usada para exibir a ID de usuário após a autenticação.
+    Isso cria um novo método para autenticar um usuário e um manipulador de método para um novo botão **Entrar** . O usuário no código de exemplo acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é usada para exibir a ID de usuário após a autenticação.
    
    > [!NOTE]
    > Se estiver usando um provedor de identidade que não seja o Facebook, altere o valor transmitido para **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
    > 
    > 
-2. No método **OnCreate**, exclua ou comente a linha de código a seguir:
+2. No método **OnCreate** , exclua ou comente a linha de código a seguir:
    
         OnRefreshItemsSelected ();
-3. No arquivo Activity\_To\_Do.axml, adicione a definição do botão *LoginUser* a seguir antes do botão *AddItem* existente:
+3. No arquivo Activity_To_Do.axml, adicione a definição do botão *LoginUser* a seguir antes do botão *AddItem* existente:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -96,9 +100,13 @@ O aplicativo é atualizado para exigir que os usuários toquem no botão **Entra
         <string name="login_button_text">Sign in</string>
 5. No Visual Studio ou Xamarin Studio, execute o projeto cliente em um dispositivo ou emulador e entre com o seu provedor de identidade preferido.
    
-       Quando você entrar com êxito, o aplicativo exibirá o sua ID de logon e a lista de itens de tarefas e você poderá fazer atualizações aos dados.
+       When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 <!-- URLs. -->
 [Criar um aplicativo Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

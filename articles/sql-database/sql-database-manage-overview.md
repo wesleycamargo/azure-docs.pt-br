@@ -12,12 +12,12 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
+ms.topic: get-started-article
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5adb83a7b8e19ca78dd4d837b497e1ceb4444f86
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
 
 
 ---
@@ -37,7 +37,7 @@ SSMS (SQL Server Management Studio) e SSDT (SQL Server Data Tools) são ferramen
 >  
 
 ## <a name="powershell"></a>PowerShell
-É possível usar o PowerShell para gerenciar bancos de dados e pools de banco de dados elástico e para automatizar as implantações de recursos do Azure. A Microsoft recomenda essa ferramenta para gerenciar um grande número de bancos de dados e automatizar a implantação e alterações de recursos em um ambiente de produção.
+É possível usar o PowerShell para gerenciar bancos de dados e pools elásticos, bem como para automatizar implantações de recursos do Azure. A Microsoft recomenda essa ferramenta para gerenciar um grande número de bancos de dados e automatizar a implantação e alterações de recursos em um ambiente de produção.
 
 Para obter mais informações, consulte [Gerenciar o banco de dados SQL com o PowerShell](sql-database-manage-powershell.md)
 
@@ -56,6 +56,6 @@ Use as ferramentas de banco de dados elástico para executar ações como
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

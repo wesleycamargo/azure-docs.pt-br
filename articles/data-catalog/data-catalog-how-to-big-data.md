@@ -1,35 +1,24 @@
 ---
-title: Como trabalhar com as fontes de dados de 'big data' | Microsoft Docs
-description: 'Artigo de instruções realçando padrões para uso do Catálogo de Dados do Azure com fontes de dados de '
-big: ''
-data",: ''
-incluindo: ''
-o: ''
-armazenamento: ''
-de: ''
-blobs: ''
-do: ''
-azure,: ''
-azure: ''
-data: ''
-lake: ''
-e: ''
-hdfs: ''
-hadoop.": ''
+title: Como trabalhar com as fontes de dados de &quot;big data&quot; | Microsoft Docs
+description: "Artigo de instruções realçando padrões para uso do Catálogo de Dados do Azure com fontes de dados de &quot;big data&quot;, incluindo o Armazenamento de Blobs do Azure, o Azure Data Lake e o HDFS do Hadoop."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8cf7ea7ca69753c12469dff9dc352d616c276ddd
+
 
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com fontes de big data no Catálogo de Dados do Azure
@@ -79,6 +68,8 @@ Os padrões descritos acima são apenas duas maneiras possíveis em que um armaz
 ## <a name="summary"></a>Resumo
 Registrar fontes de dados com o **Catálogo de Dados do Azure** facilita a descoberta e a compreensão. Registrando e anotando os diretórios e arquivos de big data que representam os conjuntos de dados lógicos, você pode ajudar os usuários a localizar e usar as fontes de big data de que precisam.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

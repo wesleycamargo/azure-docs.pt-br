@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Azure Active Directory Integration with Samanage | Microsoft Docs'
-description: Learn how to use Samanage with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+title: "Tutorial: Integração do Azure Active Directory ao Samanage | Microsoft Docs"
+description: "Saiba como usar o Samanage com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,245 +13,252 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/31/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da49f1d9f8aa5fbbaf6e16f1db03a16f80a2bc92
+
 
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Azure Active Directory integration with Samanage
-The objective of this tutorial is to show you how to integrate Samanage with Azure Active Directory (Azure AD).
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Azure Active Directory ao Samanage
+O objetivo desse tutorial é mostrar como integrar o Samanage ao Azure AD (Azure Active Directory).
 
-Integrating Samanage with Azure AD provides you with the following benefits:
+A integração do Samanage ao Azure AD oferece os seguintes benefícios:
 
-* You can control in Azure AD who has access to Samanage
-* You can enable your users to automatically get signed-on to Samanage (Single Sign-On) with their Azure AD accounts
-* You can manage your accounts in one central location - the Azure classic portal
+* No Azure AD, é possível controlar quem tem acesso ao Samanage
+* Você pode permitir que seus usuários façam logon automaticamente no Samanage (logon único) com as contas do Azure AD deles
+* Gerenciar suas contas em um único local: o Portal clássico do Azure
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisites
-To configure Azure AD integration with Samanage, you need the following items:
+## <a name="prerequisites"></a>Pré-requisitos
+Para configurar a integração do Azure AD ao Samanage, você precisará dos seguintes itens:
 
-* A valid Azure subscription
-* A tenant in Samanage
+* Uma assinatura válida do Azure
+* Um locatário no Samanage
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 > 
 > 
 
-To test the steps in this tutorial, you should follow these recommendations:
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-* You should not use your production environment, unless this is necessary.
-* If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* Não use o ambiente de produção, a menos que seja necessário.
+* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="scenario-description"></a>Scenario description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.
+## <a name="scenario-description"></a>Descrição do cenário
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
 
-The scenario outlined in this tutorial consists of two main building blocks:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adding Samanage from the gallery
-2. Configuring and testing Azure AD single sign-on
+1. Adição do Samanage da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-samanage-from-the-gallery"></a>Adding Samanage from the gallery
-To configure the integration of Samanage into Azure AD, you need to add Samanage from the gallery to your list of managed SaaS apps.
+## <a name="adding-samanage-from-the-gallery"></a>Adição do Samanage da galeria
+Para configurar a integração do Samanage ao Azure AD, você precisa adicionar o Samanage na galeria à sua lista de aplicativos de SaaS gerenciados.
 
-**To add Samanage from the gallery, perform the following steps:**
+**Para adicionar o Samanage da galeria, execute as seguintes etapas:**
 
-1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-samanage-tutorial/tutorial_general_01.png "Active Directory")
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Applications](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Applications")
-4. Click **Add** at the bottom of the page.
+   ![Aplicativos](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Applications")
+4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Add application](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Add application")
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+   ![Adicionar aplicativo](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Add application")
+5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Add an application from gallerry](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Add an application from gallerry")
-6. In the **search box**, type **Samanage**.
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Add an application from gallerry")
+6. Na **caixa de pesquisa**, digite **Samanage**.
    
-   ![Application gallery](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "Application gallery")
-7. In the results pane, select **Samanage**, and then click **Complete** to add the application.
+   ![Galeria de aplicativos](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_01.png "Application gallery")
+7. No painel de resultados, selecione **Samanage** e clique em **Concluir** para adicionar o aplicativo.
    
    ![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")
 
-## <a name="configuring-and-testing-azure-ad-single-signon"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Samanage based on a test user called "Britta Simon".
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Samanage, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Samanage to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Samanage needs to be established.
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Samanage é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Samanage.
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Samanage.
+Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Samanage.
 
-To configure and test Azure AD single sign-on with Samanage, you need to complete the following building blocks:
+Para configurar e testar o logon único do Azure AD com o Samanage, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Samanage test user](#creating-a-Samanage-test-user)** - to have a counterpart of Britta Simon in Samanage that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+3. **[Criação de um usuário de teste de Samanage](#creating-a-Samanage-test-user)** - para ter um equivalente de Brenda Fernandes no Samanage que esteja vinculado à representação dela no Azure AD.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-signon"></a>Configuring Azure AD single sign-on
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Samanage application.
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo do Samanage.
 
-**To configure Azure AD single sign-on with Samanage, perform the following steps:**
+**Para configurar o logon único do Azure AD com o Samanage, execute as seguintes etapas:**
 
-1. In the Azure classic portal, on the **Samanage** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
+1. No portal clássico do Azure, na página de integração de aplicativos do **Samanage**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-   ![Configure single sign-on](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configure single sign-on")
-2. On the **How would you like users to sign on to Samanage** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+   ![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Configure single sign-on")
+2. Na página **Como você deseja que os usuários façam logon no Samanage**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Microsoft Azure AD Single Sign-On")
-3. On the Configure App Settings dialog page, perform the following steps:
+   ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Microsoft Azure AD Single Sign-On")
+3. Na página de diálogo Definir Configurações de Aplicativo, execute as seguintes etapas:
    
-   ![Configure App URL](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configure App URL")
+   ![Configurar a URL do Aplicativo](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Configure App URL")
    
-   a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<Company Name>.samanage.com/saml_login/<Company Name>`.
+   a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com/saml_login/<Company Name>`.
    
-   b. click **Next**
+   b. Clique em **Avançar**
    
    > [!NOTE]
-   > Please note that these are not the real values. You have to update these values with the actual Sign On URL. To get these values, refer step 8.c for more details or contact Samanage.
+   > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada real. Para obter esses valores, consulte etapa 8.c para obter mais detalhes ou entre em contato com o Samanage.
    > 
    > 
-4. On the **Configure single sign-on at Samanage** page, click **Download certificate**, and then save the certificate file on your computer.
+4. Na página **Configurar logon único no Samanage**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Configure Single Sign-On")
-5. In a different web browser window, log into your Samanage company site as an administrator.
-6. Click **Dashboard** and select **Setup** in left navigation pane.
+   ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Configure Single Sign-On")
+5. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Samanage como administrador.
+6. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
-   ![Dashboard](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")
-7. Click **Single Sign-On**.
+   ![Painel](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Dashboard")
+7. Clique em **Logon Único**.
    
-   ![Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
-8. Navigate to **Login using SAML** section, perform the following steps:
+   ![Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Single Sign-On")
+8. Navegue até a seção **Logon usando SAML** , execute as seguintes etapas:
    
-   ![Login using SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
+   ![Logon usando SAML](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
    
-   a.  Click **Enable Single Sign-On with SAML**.
+   a.  Clique em **Habilitar o Logon Único com SAML**.
    
-   b.  In the **Identity Provider URL** textbox put the value of **Identity Provider ID** from Azure AD application configuration wizard.    
+   b.  Na caixa de texto **URL do Provedor de Identidade**, insira o valor de **ID do Provedor de Identidade** do assistente de configuração de aplicativo do Azure AD.    
    
-   c.  Confirm the **Login URL** matches the **Sign On URL** in step 3.
+   c.  Confirme o **URL de Logon** corresponde a **URL de Entrada** na etapa 3.
    
-   d.  In the **Logout URL** textbox put the value of **Remote Logout URL** from Azure AD application configuration wizard.
+   d.  Na caixa de texto **URL de Logoff do Provedor de Identidade**, insira o valor de **URL de Logoff Remoto** do assistente de configuração de aplicativo do Azure AD.
    
-   e. In the **SAML Issuer** textbox type the app id URI set in your identity provider.
+   e. No tipo de caixa de texto **Emissor SAML** , digite o URI da id do aplicativo definido no seu provedor de identidade.
    
-   f.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Paste your Identity Provider x.509 Certificate below** textbox.
+   f.  Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Cole seu Certificado x.509 do Provedor de Identidade abaixo** .
    
-   g.  Click **Create users if they do not exist in Samanage**.
+   g.  Clique em **Criar usuários se eles não existirem no Samanage**.
    
-   h.  Click **Update**.
-9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+   h.  Clique em **Atualizar**.
+9. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
-   ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Configure Single Sign-On")
-10. On the **Single sign-on confirmation** page, click **Complete**.
+   ![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Configure Single Sign-On")
+10. Na página **Confirmação de logon único**, clique em **Concluir**.
     
-    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Configure Single Sign-On")
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the classic portal called Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
-![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
+![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
 
-**To create a test user in Azure AD, perform the following steps:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. In the **Azure classic Portal**, on the left navigation pane, click **Active Directory**.
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-3. To display the list of users, in the menu on the top, click **Users**.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
+4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)
-5. On the **Tell us about this user** dialog page, perform the following steps:
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_03.png)
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
    
-    a. As Type Of User, select New user in your organization.
+    a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Click **Next**.
-6. On the **User Profile** dialog page, perform the following steps:
+    c. Clique em **Próximo**.
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
    
-   a. In the **First Name** textbox, type **Britta**.  
+   a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. In the **Role** list, select **User**.
+   d. Na lista **Função**, selecione **Usuário**.
    
-   e. Click **Next**.
-7. On the **Get temporary password** dialog page, click **create**.
+   e. Clique em **Próximo**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
-8. On the **Get temporary password** dialog page, perform the following steps:
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
    
-    a. Write down the value of the **New Password**.
+    a. Anote o valor da **Nova Senha**.
    
-    b. Click **Complete**.   
+    b. Clique em **Concluído**.   
 
-### <a name="creating-a-samanage-test-user"></a>Creating a Samanage test user
-In order to enable Azure AD users to log into Samanage, they must be provisioned into Samanage.In the case of Samanage, provisioning is a manual task.
+### <a name="creating-a-samanage-test-user"></a>Criação de um usuário de teste de Samanage
+Para permitir que os usuários do Azure AD façam logon no Samanage, eles deverão ser provisionados no Samanage. No caso do Samanage, o provisionamento é uma tarefa manual.
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>To provision a user account, perform the following steps:
-1. Log into your Samanage company site as an administrator.
-2. Click **Dashboard** and select **Setup** in left navigation pan.
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+1. Faça logon em seu site de empresa Samanage como um administrador.
+2. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
-   ![Setup](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Setup")
-3. Click the **Users** tab
+   ![Configuração](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Setup")
+3. Clique na guia **Usuários**
    
-   ![Users](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Users")
-4. Click **New User**.
+   ![Usuários](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Users")
+4. Clique em **Novo Usuário**.
    
-   ![New User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "New User")
-5. Type the **Name** and the **Email Address** of an Azure AD account you want to provision and click **Create user**.
+   ![Novo Usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_007.png "New User")
+5. Digite o **Nome** e o **Endereço de Email** de uma conta do Azure AD que você deseja provisionar e clique em **Criar usuário**.
    
-   ![Creat User](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Creat User")
+   ![Criar Usuário](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_008.png "Creat User")
    
    > [!NOTE]
-   > The AAD account holder will receive an email and follow a link to confirm their account before it becomes active. You can use any other Samanage user account creation tools or APIs provided by Samanage to provision AAD user accounts.
+   > O titular da conta do AAD receberá um email e um link para confirmar sua conta antes de se tornar ativo. É possível usar qualquer outra ferramenta de criação da conta de usuário do Samanage ou as APIs fornecidas pelo Samanage para provisionar as contas de usuário do AAD.
    > 
    > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Samanage.
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Samanage.
 
-![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Assign users")
+![Atribuir usuários](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Assign users")
 
-**To assign Britta Simon to Samanage, perform the following steps:**
+**Para atribuir Brenda Fernandes ao Samanage, execute as seguintes etapas:**
 
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
-    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "Assign users")
-2. In the applications list, select **Samanage**.
+    ![Atribuir usuários](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "Assign users")
+2. Na lista de aplicativos, selecione **Samanage**.
    
-    ![Configure Single Sign-On](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
-3. In the menu on the top, click **Users**.
+    ![Configurar o logon único](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
+3. No menu na parte superior, clique em **Usuários**.
    
-    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Assign users")
-4. In the Users list, select **Britta Simon**.
-5. In the toolbar on the bottom, click **Assign**.
+    ![Atribuir usuários](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Assign users")
+4. Na lista de usuários, selecione **Brenda Fernandes**.
+5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
-    ![Assign users](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Assign users")
 
-### <a name="testing-single-signon"></a>Testing single sign-on
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+### <a name="testing-single-sign-on"></a>Teste do logon único
+O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-When you click the Samanage tile in the Access Panel, you should get automatically signed-on to your Samanage application.
+Ao clicar no bloco do Samanage no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Samanage.
 
-## <a name="additional-resources"></a>Additional resources
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+## <a name="additional-resources"></a>Recursos adicionais
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

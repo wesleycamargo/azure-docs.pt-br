@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como incorporar relatórios interativos e visualizações de dados do Power BI em aplicativos. Tutoriais, referências de API e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b15e8e9676cba8969505728e6b9f7f2db4559e9a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
 
-O Power BI Embedded é um serviço do Azure que permite aos desenvolvedores de aplicativos adicionar relatórios interativos do Power BI em seus próprios aplicativos. O Power BI Embedded funciona com aplicativos existentes, sem que seja necessário reprojetar ou alterar a forma de acesso dos usuários.
+Saiba como adicionar relatórios interativos e visualizações de dados para aplicativos com o Power BI Embedded. Tutoriais, referências de API e outras documentações mostram como incorporar perfeitamente painéis e relatórios do Power BI em aplicativos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -120,7 +121,7 @@ O Power BI Embedded é um serviço do Azure que permite aos desenvolvedores de a
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">referência da API REST</a></p>
+                        <p><a href="/rest/api/powerbiembedded/">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -128,15 +129,9 @@ O Power BI Embedded é um serviço do Azure que permite aos desenvolvedores de a
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Power BI Embedded </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

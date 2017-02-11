@@ -3,8 +3,8 @@ title: "Criar um instantâneo somente leitura de um blob | Microsoft Docs"
 description: "Saiba como criar um instantâneo de um blob para fazer backup de dados de blob em um determinado momento. Entenda como é realizada a cobrança pelos instantâneos e como usá-los para minimizar os encargos de capacidade."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: tamram
+ms.date: 12/07/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
+ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
 
 
 ---
@@ -24,12 +24,12 @@ ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
 ## <a name="overview"></a>Visão geral
 Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Os instantâneos são úteis para fazer backup de blobs. Depois de criar um instantâneo, você pode lê-lo, copiá-lo ou excluí-lo, mas não é possível modificá-lo.
 
-O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo fato de que o URI do blob tem um valor **DateTime** para indicar a hora em que o instantâneo foi criado. Por exemplo, se um URI de blob de páginas for `http://storagesample.core.blob.windows.net/mydrives/myvhd`, o URI do instantâneo será semelhante a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. 
+O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo fato de que o URI do blob tem um valor **DateTime** para indicar a hora em que o instantâneo foi criado. Por exemplo, se um URI de blob de páginas for `http://storagesample.core.blob.windows.net/mydrives/myvhd`, o URI do instantâneo será semelhante a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
 > Todos os instantâneos compartilham o URI do blob de base. A única diferença entre o blob de base e o instantâneo é o acréscimo do valor **DateTime** .
-> 
-> 
+>
+>
 
 Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até que sejam explicitamente excluídos. Um instantâneo não pode durar mais que seu blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
 
@@ -98,7 +98,6 @@ Usando instantâneos com armazenamento Premium, siga estas regras:
 
 * O número máximo de instantâneos por blob de páginas em uma conta de armazenamento premium é 100. Se esse limite for excedido, a operação de Blob de Instantâneo retornará o código de erro 409 (**SnapshotCountExceeded**).
 * Você pode criar um instantâneo de um blob de páginas em uma conta de armazenamento premium uma vez a cada 10 minutos. Se essa taxa for excedida, a operação de Blob de Instantâneo retornará o código de erro 409 (**SnaphotOperationRateExceeded**).
-* Não é possível chamar Blob Get para ler um instantâneo de um blob de páginas em uma conta de armazenamento premium. Chamar o Blob Get em um instantâneo em uma conta de armazenamento Premium retorna o código de erro 400 (**InvalidOperation**). No entanto, você pode chamar as Propriedades de Blob Get e os Metadados de Blob Get em um instantâneo em uma conta de armazenamento premium.
 * Para ler um instantâneo, você pode usar a operação de cópia de Blob para copiar um instantâneo para outro blob de páginas na conta. O blob de destino da operação de cópia não deve ter todos os instantâneos existentes. Se o blob de destino tiver instantâneos, a operação Copiar Blob retornará o código de erro 409 (**SnapshotsPresent**).
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retornar o URI absoluto para um instantâneo
@@ -137,11 +136,11 @@ A lista a seguir inclui os principais pontos a considerar ao criar um instantân
 
 > [!NOTE]
 > As práticas recomendadas ditam que você gerencie instantâneos com cuidado para evitar cobranças extras. É recomendável gerenciar instantâneos da seguinte maneira:
-> 
+>
 > * Exclua e recrie instantâneos associados a um blob sempre que você atualiza o blob, mesmo se você estiver atualizando com dados idênticos, a menos que o design do seu aplicativo requer que você mantenha os instantâneos. Ao excluir e recriar os instantâneos do blob, você pode garantir que o blob e os instantâneos não divirjam.
-> * Se você estiver mantendo instantâneos para um blob, evite chamar **UploadFile**, **UploadText**, **UploadStream** ou **UploadByteArray** para atualizar o blob. Esses métodos substituem todos os blocos no blob, de modo que o blob de base e os instantâneos divergem consideravelmente. Em vez disso, atualize o menor número possível de blocos usando os métodos **PutBlock** e **PutBlockList**.
-> 
-> 
+> * Se você estiver mantendo instantâneos para um blob, evite chamar **UploadFile**, **UploadText**, **UploadStream** ou **UploadByteArray** para atualizar o blob. Esses métodos substituem todos os blocos no blob, de modo que o blob base e os instantâneos divergem consideravelmente. Em vez disso, atualize o menor número possível de blocos usando os métodos **PutBlock** e **PutBlockList**.
+>
+>
 
 ### <a name="snapshot-billing-scenarios"></a>Cenários de cobrança de instantâneo
 Os cenários a seguir demonstram como cobranças se acumulam para um blob de blocos e seus instantâneos.
@@ -163,11 +162,11 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 ![Recursos de Armazenamento do Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter exemplos adicionais usando o Armazenamento de Blobs, confira [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Você pode baixar um aplicativo de exemplo e executá-lo ou procurar o código no GitHub. 
+Para obter exemplos adicionais usando o Armazenamento de Blobs, confira [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Você pode baixar um aplicativo de exemplo e executá-lo ou procurar o código no GitHub.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

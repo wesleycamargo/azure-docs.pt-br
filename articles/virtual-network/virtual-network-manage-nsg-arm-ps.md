@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 93e806457de136d773de2c8121b91491c0cf3de1
-ms.openlocfilehash: f25daf68920c6fe54e739104233173b14bc27f84
+ms.sourcegitcommit: 8ecda7d59b3631b07e807ee018017c75b963dac5
+ms.openlocfilehash: 8eaca4e52363e577c015d9d183f200abedbf4d43
 
 
 ---
@@ -379,25 +379,19 @@ Para associar o NSG **NSG-FrontEnd** à NIC **TestNICWeb1**, siga as etapas a se
 ### <a name="dissociate-an-nsg-from-a-nic"></a>Desassociar um NSG de uma NIC
 Para desassociar o NSG **NSG-FrontEnd** da NIC **TestNICWeb1**, siga as etapas a seguir:
 
-1. Execute o comando a seguir para recuperar o NSG existente e para armazená-lo em uma variável:
-
-    ```powershell
-    $nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
-    ```
-
-2. Execute o comando a seguir para recuperar a NIC existente e para armazená-lo em uma variável:
+1. Execute o comando a seguir para recuperar a NIC existente e para armazená-lo em uma variável:
 
     ```powershell
     $nic = Get-AzureRmNetworkInterface -ResourceGroupName RG-NSG -Name TestNICWeb1
     ```
 
-3. Defina a propriedade **NetworkSecurityGroup** da variável **NIC** para **$null** executando o comando a seguir:
+2. Defina a propriedade **NetworkSecurityGroup** da variável **NIC** para **$null** executando o comando a seguir:
 
     ```powershell
     $nic.NetworkSecurityGroup = $null
     ```
 
-4. Para salvar as alterações feitas na NIC, execute o comando a seguir:
+3. Para salvar as alterações feitas na NIC, execute o comando a seguir:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $nic
@@ -523,6 +517,6 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

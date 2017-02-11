@@ -1,32 +1,36 @@
 ---
-title: Solução de Gerenciamento de Capacidade no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Planejamento de Capacidade no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V gerenciados pelo System Center Virtual Machine Manager
+title: "Solução de Gerenciamento de Capacidade no Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Planejamento de Capacidade no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V gerenciados pelo System Center Virtual Machine Manager"
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
+ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
+
 
 ---
 # <a name="capacity-management-solution-in-log-analytics"></a>Solução de Gerenciamento de Capacidade no Log Analytics
-Você pode usar a solução de Planejamento de Capacidade no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V gerenciados pelo System Center Virtual Machine Manager. Essa solução requer o System Center Operations Manager e o System Center Virtual Machine Manager. O Planejamento de Capacidade não estará disponível se você usar apenas agentes conectados diretamente. Instale a solução para atualizar o agente do Operations Manager. A solução lê os contadores de desempenho no servidor monitorado e envia dados de uso para o serviço OMS na nuvem para processamento. Lógica é aplicada aos dados de uso e o serviço de nuvem registra os dados. Ao longo do tempo, padrões de uso são identificados e a capacidade é projetada com base no consumo atual.
+Você pode usar a solução de Gerenciamento de Capacidade no Log Analytics para ajudá-lo a compreender a capacidade dos servidores Hyper-V. Essa solução requer o System Center Operations Manager e o System Center Virtual Machine Manager. Se você usar agentes conectados diretamente, a solução de Planejamento de Capacidade não será funcional. A solução lê os contadores de desempenho no servidor monitorado e envia dados de uso para o serviço OMS na nuvem para processamento. Lógica é aplicada aos dados de uso e o serviço de nuvem registra os dados. Ao longo do tempo, padrões de uso são identificados e a capacidade é projetada com base no consumo atual.
 
-Por exemplo, uma projeção pode identificar quando a núcleos do de processador adicionais ou memória adicional serão necessários para um servidor individual. Neste exemplo, a projeção pode indicar que o servidor precisará de mais memória em 30 dias. Isso pode ajudá-lo a planejar uma atualização de memória durante a próxima janela de manutenção do servidor, que pode ocorrer uma vez a cada duas semanas.
+Por exemplo, uma projeção pode identificar quando núcleos de processador adicionais ou memória adicional são necessários para um servidor individual. Neste exemplo, a projeção pode indicar que o servidor precisa de mais memória em 30 dias. Essa projeção pode ajudá-lo a planejar uma atualização de memória durante a próxima janela de manutenção do servidor.
 
 > [!NOTE]
 > A solução de Gerenciamento de Capacidade não está disponível para ser adicionada a espaços de trabalho. Os clientes que possuem a solução de Gerenciamento de Capacidade instalada podem continuar a usá-la.  
-> 
-> 
+>
+>
 
-A solução de Planejamento de Capacidade está sendo atualizada para lidar com os seguintes desafios relatados pelos clientes:
+Uma solução de Capacidade e Desempenho de substituição está em modo de visualização privado. Essa solução de substituição trata dos seguintes desafios informados pelos clientes com a solução de Gerenciamento de Capacidade original:
 
 * Requisito para usar o Virtual Machine Manager e o Operations Manager
 * Incapacidade de personalizar/filtrar com base em grupos
@@ -38,15 +42,18 @@ Benefícios da nova solução de capacidade:
 
 * Suporte a coleta de dados granulares com maior confiabilidade e precisão
 * Suporte para Hyper-V sem a necessidade do VMM
-* Visualização de métricas no Power BI
 * Informações sobre a utilização de nível de VM
+
+Atualmente, a nova solução requer o Hyper-V Server 2012 ou posterior. A solução fornece percepções sobre seu ambiente Hyper-V e oferece visibilidade da utilização geral (CPU, Memória e Disco) dos hosts e das VMs em execução nos servidores Hyper-V. As métricas são coletadas na CPU, na Memória e no Disco em todos os hosts e VMs em execução.
+
+O restante da documentação nesta página se refere à antiga solução de Gerenciamento de Capacidade. Esta documentação será atualizada quando a nova solução estiver em visualização pública.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
 * O Operations Manager é necessário para a solução de Gerenciamento de Capacidade.
 * O Virtual Machine Manage é necessário para a solução de Gerenciamento de Capacidade.
-* A conectividade do Operations Manager com o VMM (Virtual Machine Manager) é necessária. Para obter informações adicionais sobre como conectar os sistemas, consulte [Como conectar o VMM ao Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
+* A conectividade do Operations Manager com o VMM (Virtual Machine Manager) é necessária. Para saber mais sobre como conectar os sistemas, confira [Como conectar o VMM ao Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
 * O Operations Manager deve estar conectado ao Log Analytics.
 * Adicione a solução de Gerenciamento de Capacidade ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
@@ -55,7 +62,7 @@ O Gerenciamento de Capacidade coleta dados de desempenho, metadados e dados de e
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o gerenciamento de capacidade.
 
-| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente direto | Agente do Operations Manager | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Não](./media/log-analytics-capacity/oms-bullet-red.png) |![Sim](./media/log-analytics-capacity/oms-bullet-green.png) |![Não](./media/log-analytics-capacity/oms-bullet-red.png) |![Sim](./media/log-analytics-capacity/oms-bullet-green.png) |![Sim](./media/log-analytics-capacity/oms-bullet-green.png) |por hora |
 
@@ -68,7 +75,7 @@ A tabela a seguir mostra exemplos de tipos de dados coletados pelo Gerenciamento
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="capacity-management-page"></a>Página de Gerenciamento de Capacidade
- Após a instalação da solução de Planejamento de Capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do OMS.
+Após a instalação da solução de Planejamento de Capacidade, você pode exibir a capacidade dos seus servidores monitorados usando o bloco **Planejamento de Capacidade** na página **Visão Geral** do OMS.
 
 ![imagem do bloco Planejamento de Capacidade](./media/log-analytics-capacity/oms-capacity01.png)
 
@@ -152,11 +159,11 @@ As seguintes áreas são mostradas na página **Armazenamento** :
 
 **Desempenho do Disco**
 
-Usando o OMS, você pode exibir a tendência de uso histórico do espaço em disco. A funcionalidade de projeção usa um algoritmo para projetar o uso futuro. Para uso do espaço em particular, a capacidade de projeção permite projetar quando você poderá ficar sem espaço em disco. Isso ajudará a planejar o armazenamento adequado e saber quando você precisa adquirir mais armazenamento.
+Usando o OMS, você pode exibir a tendência de uso histórico do espaço em disco. A funcionalidade de projeção usa um algoritmo para projetar o uso futuro. Para uso do espaço em particular, a capacidade de projeção permite projetar quando você poderá ficar sem espaço em disco. Esta projeção o ajuda a planejar o armazenamento adequado e saber quando precisa adquirir mais armazenamento.
 
 **Ferramenta de Projeção**
 
-Usando a ferramenta de projeção, você pode exibir as tendências históricas para utilização do espaço em disco. A funcionalidade de projeção também permite projetar quando você ficará com pouco espaço em disco. Isso ajudará a planejar a capacidade adequada e a saber quando você precisa adquirir mais capacidade de armazenamento.
+Usando a ferramenta de projeção, você pode exibir as tendências históricas para utilização do espaço em disco. A funcionalidade de projeção também permite projetar quando você ficará com pouco espaço em disco. Esta projeção o ajuda a planejar a capacidade adequada e saber quando precisa adquirir mais capacidade de armazenamento.
 
 ### <a name="to-work-with-items-on-the-direct-attached-storage-page"></a>Para trabalhar com itens na página Armazenamento Anexado Direto
 1. No painel **Armazenamento Anexado Direto**, na área **Utilização**, você pode exibir as informações de utilização do disco.
@@ -167,6 +174,8 @@ Usando a ferramenta de projeção, você pode exibir as tendências históricas 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados de gerenciamento de capacidade detalhados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

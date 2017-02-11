@@ -1,25 +1,29 @@
 ---
-title: Comunicação de serviço WCF do Reliable services | Microsoft Docs
-description: A comunicação de serviço WCF interna no Service Fabric fornece a comunicação WCF cliente-serviço para o Reliable Services.
+title: "Pilha de comunicação WCF do Reliable Services | Microsoft Docs"
+description: "A comunicação de serviço WCF interna no Service Fabric fornece a comunicação WCF cliente-serviço para o Reliable Services."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
 manager: timlt
 editor: vturecek
-
+ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 07/26/2016
+ms.date: 01/25/2017
 ms.author: bharatn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a3b0362f0c3b42e4a61348abe306c3beaa6f0c86
+
 
 ---
-# Pilha de comunicação baseada no WCF para Reliable Services
-A estrutura de Serviços confiáveis permite que os autores do serviço escolham qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio do **ICommunicationListener** retornado dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md). A estrutura fornece uma implementação da pilha de comunicação baseada no WCF (Windows Communication Foundation) da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicação baseada no WCF para Reliable Services
+A estrutura de Serviços confiáveis permite que os autores do serviço escolham qual pilha de comunicação desejam usar para seu serviço. Eles podem ligar a pilha de comunicação de sua escolha por meio do **ICommunicationListener** retornado dos métodos [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . A estrutura fornece uma implementação da pilha de comunicação baseada no WCF (Windows Communication Foundation) da pilha de comunicação para autores de serviço que desejam usar comunicação baseada no WCF.
 
-## Ouvinte de comunicação do WCF
+## <a name="wcf-communication-listener"></a>Ouvinte de comunicação do WCF
 A implementação específica do WCF do **ICommunicationListener** é fornecida pela classe **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
 
 Digamos que temos um contrato de serviço do tipo `ICalculator`
@@ -59,7 +63,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## Desenvolvimento de clientes para a pilha de comunicação do WCF
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Desenvolvimento de clientes para a pilha de comunicação do WCF
 Para o desenvolvimento de clientes que se comuniquem com serviços usando o WCF, a estrutura fornece **WcfClientCommunicationFactory**, que é a implementação específica do WCF do [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
@@ -118,9 +122,14 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 > 
 > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Chamada de procedimento remoto com Reliable Services remoto](service-fabric-reliable-services-communication-remoting.md)
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

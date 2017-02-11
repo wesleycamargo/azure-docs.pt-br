@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
 
 
 ---
@@ -41,10 +41,8 @@ Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que co
 
 Este tópico pode ser útil para desenvolvedores que trabalham em aplicativos que fornecem mídia protegida com vários DRMs, como PlayReady e Widevine. O tópico mostra como configurar o serviço de distribuição de licenças com políticas de autorização para que somente clientes autorizados possam receber licenças do PlayReady ou Widevine. Ele também mostra como usar a criptografia dinâmica com DRM do PlayReady ou Widevine em DASH.
 
-> [!NOTE]
-> Para começar a usar criptografia dinâmica, é necessário primeiro obter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
->
->
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
 ## <a name="download-sample"></a>Baixar exemplo
 Você pode baixar o exemplo descrito neste artigo [aqui](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -160,8 +158,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
+7. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
 
     Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
@@ -623,6 +620,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

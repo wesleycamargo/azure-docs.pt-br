@@ -1,12 +1,12 @@
 ---
-title: Saiba mais sobre o Conector de Mensagem de Codificação de EDIFACT do Enterprise Integration Pack | Microsoft Docs
-description: Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos
+title: "Saiba mais sobre o Conector de Mensagem de Codificação EDIFACT do Enterprise Integration Pack | Microsoft Docs"
+description: "Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,25 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: padmavc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35eeddd89c79b20d81c4af611598d909da38db52
+
 
 ---
-# Introdução para Codificar Mensagem EDIFACT
-Valida o EDI e as propriedades específicas de parceiro
+# <a name="get-started-with-encode-edifact-message"></a>Introdução para Codificar Mensagem EDIFACT
+Valida o EDI e as propriedades específicas de parceiro 
 
-## Criar a conexão
-### Pré-requisitos
+## <a name="create-the-connection"></a>Criar a conexão
+### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
-* Uma Conta de Integração é necessária para usar o conector de Codificar Mensagem EDIFACT. Consulte detalhes sobre como criar uma [Conta de Integração](app-service-logic-enterprise-integration-create-integration-account.md), [parceiros](app-service-logic-enterprise-integration-partners.md) e um [contrato EDIFACT](app-service-logic-enterprise-integration-edifact.md)
+* Uma Conta de Integração é necessária para usar o conector de Codificar Mensagem EDIFACT. Veja os detalhes de como criar uma [Conta de Integração](app-service-logic-enterprise-integration-create-integration-account.md), [parceiros](app-service-logic-enterprise-integration-partners.md) e um [contrato EDIFACT](app-service-logic-enterprise-integration-edifact.md)
 
-### Conecte-se à opção Decodificar Mensagem EDIFACT usando as seguintes etapas:
+### <a name="connect-to-decode-edifact-message-using-the-following-steps"></a>Conecte-se à opção Decodificar Mensagem EDIFACT usando as seguintes etapas:
 1. [Criar um Aplicativo Lógico](app-service-logic-create-a-logic-app.md) fornece um exemplo.
-2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação. No designer do Aplicativo Lógico, adicione um gatilho e uma ação. Selecione Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite “EDIFACT” na caixa de pesquisa. Selecione Codificar Mensagem EDIFACT pelo nome do contrato ou Codificar Mensagem EDIFACT por identidades.
+2. Esse conector não tem gatilhos. Use outros gatilhos para iniciar o Aplicativo Lógico, como um gatilho de solicitação.  No designer do Aplicativo Lógico, adicione um gatilho e uma ação.  Selecione Mostrar APIs gerenciadas da Microsoft na lista suspensa e digite “EDIFACT” na caixa de pesquisa.  Selecione Codificar Mensagem EDIFACT pelo nome do contrato ou Codificar Mensagem EDIFACT por identidades.
    
-    ![pesquisa de EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
+    ![pesquisa de EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
 3. Se ainda não tiver criado conexões com a Conta de Integração, você deverá fornecer os detalhes de conexão
    
-    ![criar conexão com a conta de integração](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)
-4. Insira os detalhes da Conta de Integração. As propriedades com um asterisco são obrigatórias
+    ![criar conexão com a conta de integração](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)  
+4. Insira os detalhes da Conta de Integração.  As propriedades com um asterisco são obrigatórias
    
    | Propriedade | Detalhes |
    | --- | --- |
@@ -47,17 +51,17 @@ Valida o EDI e as propriedades específicas de parceiro
    
     ![detalhes da conexão com a conta de integração](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
 
-#### Codificar Mensagem EDIFACT pelo nome do contrato
+#### <a name="encode-edifact-message-by-agreement-name"></a>Codificar Mensagem EDIFACT pelo nome do contrato
 1. Forneça a mensagem xml e o nome do contrato de EDIFACT para codificar.
    
    ![fornecer campos obrigatórios](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
 
-#### Codificar Mensagem EDIFACT por identidades
-1. Forneça o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato de EDIFACT. Selecione a mensagem xml para codificar
+#### <a name="encode-edifact-message-by-identities"></a>Codificar Mensagem EDIFACT por identidades
+1. Forneça o identificador do remetente, o qualificador de remetente, o identificador do destinatário e o qualificador do destinatário conforme configurado no contrato de EDIFACT.  Selecione a mensagem xml para codificar
    
     ![fornecer campos obrigatórios](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
 
-## A Codificação EDIFACT faz o seguinte
+## <a name="edifact-encode-does-following"></a>A Codificação EDIFACT faz o seguinte
 * Resolver o contrato, correspondendo o qualificador de remetente e o identificador e o qualificador do destinatário e o identificador
 * Serializa o intercâmbio de EDI, convertendo mensagens codificadas em XML em conjuntos de transação EDI no intercâmbio.
 * Aplica os segmentos de cabeçalho e rodapé do conjunto de transação
@@ -72,7 +76,12 @@ Valida o EDI e as propriedades específicas de parceiro
   * Como uma confirmação técnica, a mensagem CONTRL indica o recebimento de um intercâmbio.
   * Como uma confirmação funcional, a mensagem CONTRL indica a aceitação ou a rejeição do intercâmbio recebido, do grupo ou da mensagem, com uma lista de erros ou funcionalidade sem suporte
 
-## Próximas etapas
-[Saiba mais sobre o Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
+## <a name="next-steps"></a>Próximas etapas
+[Saiba mais sobre o Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

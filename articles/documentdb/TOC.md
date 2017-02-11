@@ -2,6 +2,7 @@
 ## [O que é o DocumentDB?](documentdb-introduction.md)
 ## [Conceitos principais](documentdb-resources.md)
 ## [Distribuição global](documentdb-distribute-data-globally.md)
+## [Análise de TCO NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Cenários
 ### [Casos de uso comuns](documentdb-use-cases.md)
 ### [Expandindo o DocumentDB para as redes sociais](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Escrever seu primeiro aplicativo
 ### [Aplicativo de console .NET](documentdb-get-started.md)
 ### [Aplicativo de console do .NET Core](documentdb-dotnetcore-get-started.md)
+### [Aplicativo de console Java](documentdb-java-get-started.md)
 ### [Aplicativo de console do Node.js](documentdb-nodejs-get-started.md)
 ### [Aplicativo de console do C++](documentdb-cpp-get-started.md)
 ## Compilar um aplicativo Web
@@ -24,7 +26,6 @@
 # Como
 
 ## Plano
-### [Armazenamento e desempenho](documentdb-manage.md)
 ### [Particionamento e colocação em escala](documentdb-partition-data.md)
 ### [Consistência](documentdb-consistency-levels.md)
 ### [NoSQL versus SQL](documentdb-nosql-vs-sql.md)
@@ -39,8 +40,6 @@
 ### [Proteger o acesso aos dados](documentdb-secure-access-to-data.md)
 ### [Backup e restauração](documentdb-online-backup-and-restore.md)
 ### [Níveis de desempenho](documentdb-performance-levels.md)
-### [Cotas de recursos](documentdb-limits.md)
-### [Aumentar cotas](documentdb-increase-limits.md)
 ### [Unidades de solicitação](documentdb-request-units.md)
 ### CLI do Azure
 #### [Criar uma conta](documentdb-automation-resource-manager-cli.md)
@@ -120,6 +119,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b9772ec5a8684b196ad1c7fa523acc3772d81854
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: d06a5c281b9390ae7d7f3a9ef18b27b62355a33f
 
 
 ---
@@ -29,7 +29,7 @@ Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (inte
 > 
 
 ## <a name="create-core-resources"></a>Criar recursos fundamentais
-Verifique se você tem a versão mais recente do [Azure PowerShell instalada e configurada](../powershell-install-configure.md). Faça logon na sua Conta do Azure:
+Verifique se você tem a versão mais recente do [Azure PowerShell instalada e configurada](/powershell/azureps-cmdlets-docs). Faça logon na sua Conta do Azure:
 
 ```powershell
 Login-AzureRmAccount
@@ -160,6 +160,6 @@ Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

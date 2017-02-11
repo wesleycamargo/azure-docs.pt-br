@@ -78,7 +78,7 @@
 ### [Visualização](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [REST](/rest/api/logic/)
 
-## Esquema de 2014 (antes do GA)
+## Esquema de&2014; (antes do GA)
 ### [Conector de Recursos do Azure](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Conector de arquivo](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 

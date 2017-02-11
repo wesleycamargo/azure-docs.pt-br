@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
-ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
 
 
 ---
@@ -30,10 +30,6 @@ ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
 > 
 
 Você pode usar o SSMS (SQL Server Management Studio) para administrar servidores e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor e um banco de dados criados no Banco de Dados SQL do Azure antes de começar. Consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e [Conectar e consultar usando o SSMS](sql-database-connect-query-ssms.md) para obter mais informações.
-
-> [!TIP]
-> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started.md).
->
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure. 
 
@@ -146,6 +142,6 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Dimensionar automaticamente os nós de computação em um pool de Lote d
 description: "Habilite o dimensionamento automático em um pool de nuvem para ajustar dinamicamente o número de nós de computação no pool."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
 ms.date: 10/14/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2c142291b48210014597b9c0efbe1e0f2886fdf
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
 
 
 ---
 # <a name="automatically-scale-compute-nodes-in-an-azure-batch-pool"></a>Dimensionar automaticamente nós de computação em um pool do Lote do Azure
 Com o dimensionamento automático, o serviço de Lote do Azure pode adicionar ou remover dinamicamente os nós do computador em um pool baseado nos parâmetros definidos. Você pode economizar potencialmente tempo e dinheiro ajustando automaticamente a quantidade de energia do computador usada por seu aplicativo - adicione nós quando as demandas de tarefa do seu trabalho aumentarem e remova-os quando diminuírem.
 
-Você pode habilitar o dimensionamento automático em um pool de nós de computação associando uma *fórmula de dimensionamento automático* que você definir, como com o método [PoolOperations.EnableAutoScale][net_enableautoscale] na biblioteca [.NET do Lote](batch-dotnet-get-started.md). O serviço Lote usa então essa fórmula para determinar o número de nós de computação que são necessários para executar a carga de trabalho. O Lote responde aos exemplos de dados de métrica de serviço coletados periodicamente e ajusta o número de nós de computação em um pool em um intervalo configurável baseado na fórmula associada.
+Você pode habilitar o dimensionamento automático em um pool de nós de computação associando-o a uma *fórmula de dimensionamento automático* que você definir, como com o método [PoolOperations.EnableAutoScale][net_enableautoscale] na biblioteca [.NET do Lote](batch-dotnet-get-started.md). O serviço Lote usa então essa fórmula para determinar o número de nós de computação que são necessários para executar a carga de trabalho. O Lote responde aos exemplos de dados de métrica de serviço coletados periodicamente e ajusta o número de nós de computação em um pool em um intervalo configurável baseado na fórmula associada.
 
 Você pode habilitar o dimensionamento automático quando um pool é criado ou em um pool existente. Você também pode alterar uma fórmula existente em um pool que tenha o "dimensionamento automático" habilitado. O Lote fornece a capacidade de avaliar as fórmulas antes de atribuí-las aos pools, bem como monitorar o status das execuções de dimensionamento automático.
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de dimensionamento automático
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas a um elemento [autoScaleFormula][rest_autoscaleformula] (API REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define, que contém uma ou mais instruções que são atribuídas ao elemento [autoScaleFormula][rest_autoscaleformula] (REST do Lote) do pool ou à propriedade [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (.NET do Lote). Ao ser atribuído a um pool, o serviço do Lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento (você verá mais sobre intervalos mais adiante). A cadeia de caracteres da fórmula não pode ter mais de 8 KB, pode incluir até cem instruções que são separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode pensar nas fórmulas de dimensionamento automático como se estivesse usando uma "linguagem" de dimensionamento automático do Lote. As instruções da fórmula são expressões de forma livre que podem incluir as variáveis definidas pelo serviço (variáveis definidas pelo serviço de Lote) e as variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações com esses valores usando tipos, operadores e funções internas. Por exemplo, uma instrução pode ter a seguinte forma:
 
@@ -138,8 +138,8 @@ Essas **operações** são permitidas nos tipos listados acima.
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operador* double |*, / |timeinterval |
 | timeinterval *operador* timeinterval |+, - |timeinterval |
-| timeinterval *operador* timestamp |+ | timestamp |
-| timestamp *operador* timeinterval |+ | timestamp |
+| timeinterval *operador* timestamp |+ |timestamp |
+| timestamp *operador* timeinterval |+ |timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
 | *operador*double |-, ! |double |
 | *operador*timeinterval |- |timeinterval |
@@ -173,7 +173,7 @@ Essas **funções** predefinidas estão disponíveis para usar na definição de
 | std(doubleVecList) |double |Retorna o desvio padrão da amostra dos valores em doubleVecList. |
 | stop() | |Interrompe a avaliação da expressão de dimensionamento automático. |
 | sum(doubleVecList) |double |Retorna a soma de todos os componentes em doubleVecList. |
-| time(string dateTime="") | timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
+| time(string dateTime="") |timestamp |Retorna o carimbo de data/hora do horário atual se nenhum parâmetro for passado, ou o carimbo de data/hora da cadeia de caracteres dateTime se algum parâmetro passar. Os formatos de dateTime com suporte são W3C-DTF e RFC1123. |
 | val(doubleVec v, double i) |double |Retorna o valor do elemento que está no local i do vetor v com um índice inicial de zero. |
 
 Algumas das funções descritas na tabela acima podem aceitar uma lista como argumento. A lista separada por vírgulas é qualquer combinação de *double* e *doubleVec*. Por exemplo:
@@ -342,7 +342,7 @@ Para criar um novo pool com a autoescala habilitada, você pode usar uma das seg
 
 * [Adicionar um pool a uma conta](https://msdn.microsoft.com/library/azure/dn820174.aspx): especifique os elementos `enableAutoScale` e `autoScaleFormula` na solicitação de API REST para configurar a autoescala para um pool quando você criá-lo.
 
-O trecho de código a seguir cria um pool de habilitado para autoescala usando a biblioteca [.NET do Lote][net_api]. A fórmula de dimensionamento automático do pool define o número alvo de nós para cinco às segundas-feiras e um em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros trechos do C# neste artigo, "myBatchClient" é uma instância corretamente inicializada de [BatchClient][net_batchclient].
+O trecho de código a seguir cria um pool de habilitado para dimensionamento automático usando a biblioteca [.NET do Lote][net_api]. A fórmula de dimensionamento automático do pool define o número alvo de nós para cinco às segundas-feiras e um em todos os outros dias da semana. O [intervalo de autoescala](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros trechos do C# neste artigo, "myBatchClient" é uma instância corretamente inicializada de [BatchClient][net_batchclient].
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
@@ -355,7 +355,7 @@ pool.Commit();
 Além da API REST do Lote e do SDK do .NET, você pode usar qualquer um dos outros [SDKs do Lote](batch-technical-overview.md#batch-development-apis), [cmdlets do Lote do PowerShell](batch-powershell-cmdlets-get-started.md) e a [CLI do Lote](batch-cli-get-started.md) para trabalhar com a autoescala.
 
 > [!IMPORTANT]
-> Ao criar um pool habilitado para autoescala, você **não** deve especificar o parâmetro `targetDedicated`. Além disso, se você desejar redimensionar manualmente um pool habilitado para o dimensionamento automático (por exemplo, com [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primeiramente será preciso **desabilitar** o dimensionamento automático no pool, depois, redimensioná-lo.
+> Ao criar um pool habilitado para autoescala, você **não** deve especificar o parâmetro `targetDedicated`. Além disso, se você desejar redimensionar manualmente um pool habilitado para dimensionamento automático (por exemplo, com [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primeiramente será preciso **desabilitar** o dimensionamento automático no pool e, depois, redimensioná-lo.
 > 
 > 
 
@@ -376,7 +376,7 @@ O intervalo mínimo é de cinco minutos e o máximo é de 168 horas. Se um inter
 Se já tiver criado um pool com um número definido de nós de computação usando o parâmetro *targetDedicated*, você ainda poderá habilitar a autoescala no pool. Cada SDK do Lote fornece uma operação "habilitar autoescala", por exemplo:
 
 * [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] (.NET do Lote)
-* [Habilitar autoescala em um pool][rest_enableautoscale] (API REST)
+* [Habilitar o dimensionamento automático em um pool][rest_enableautoscale] (API REST)
 
 Quando você habilita a autoescala em um pool existente, o seguinte se aplica:
 
@@ -391,7 +391,7 @@ Quando você habilita a autoescala em um pool existente, o seguinte se aplica:
 > 
 > 
 
-Este trecho de código em C# usa a biblioteca [.NET do Lote][net_api] para habilitar a autoescala em um pool existente:
+Este trecho de código em C# usa a biblioteca [.NET do Lote][net_api] para habilitar o dimensionamento automático em um pool existente:
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -405,7 +405,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ```
 
 ### <a name="update-an-autoscale-formula"></a>Atualizar uma fórmula de autoescala
-Use a mesma solicitação "habilitar autoescala" para *atualizar* a fórmula em um pool existente com a autoescala habilitada (por exemplo, com [EnableAutoScale][net_enableautoscale] no .NET do Lote). Não há uma operação especial "atualizar autoescala". Por exemplo, se a autoescala já estiver habilitada em "myexistingpool" quando o código a seguir for executado, sua fórmula de autoescala será substituída pelo conteúdo de `myNewFormula`.
+Use a mesma solicitação "habilitar dimensionamento automático" para *atualizar* a fórmula em um pool existente com habilitado para dimensionamento automático (por exemplo, com [EnableAutoScale][net_enableautoscale] no .NET do Lote). Não há uma operação especial "atualizar autoescala". Por exemplo, se a autoescala já estiver habilitada em "myexistingpool" quando o código a seguir for executado, sua fórmula de autoescala será substituída pelo conteúdo de `myNewFormula`.
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -414,7 +414,7 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ```
 
 ### <a name="update-the-autoscale-interval"></a>Atualizar o intervalo de autoescala
-Assim como na atualização de uma fórmula de autoescala, use o mesmo método [EnableAutoScale][net_enableautoscale] para alterar o intervalo de avaliação do autoescala de um pool existente habilitado para autoescala. Por exemplo, para definir o intervalo de avaliação de autoescala como 60 minutos para um pool que já está habilitado para autoescala:
+Assim como na atualização de uma fórmula de dimensionamento automático, use o mesmo método [EnableAutoScale][net_enableautoscale] para alterar o intervalo de avaliação de dimensionamento automático de um pool existente habilitado para dimensionamento automático. Por exemplo, para definir o intervalo de avaliação de autoescala como 60 minutos para um pool que já está habilitado para autoescala:
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -434,7 +434,7 @@ Para avaliar uma fórmula de autoescala, você deve primeiro **habilitar a autoe
   
     Nessa solicitação da API REST, especifique a ID do pool no URI e a fórmula de autoescala no elemento *autoScaleFormula* do corpo da solicitação. A resposta da operação contém quaisquer informações de erro que possam estar relacionadas à fórmula.
 
-Neste trecho de código [.NET do Lote][net_api], avaliamos uma fórmula antes de aplicá-la a [CloudPool][net_cloudpool]. Se o pool não tiver a autoescala habilitada, poderemos habilitá-la primeiro.
+Neste trecho de código do [.NET do Lote][net_api], avaliamos uma fórmula antes de aplicá-la a [CloudPool][net_cloudpool]. Se o pool não tiver a autoescala habilitada, poderemos habilitá-la primeiro.
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

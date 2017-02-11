@@ -61,10 +61,13 @@
 ### [Prever desempenho de HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Prever resultados de inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Analisar logs de site](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Usar blocos de anotações do Zeppelin](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Kernels de Jupyter notebook](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Pacotes para Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Usar pacotes externos com Jupyter usando a mágica da célula](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Usar pacotes externos com Jupyter usando a ação de script](hdinsight-apache-spark-python-package-installation.md)
 ### [Usar um Jupyter notebook local](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Trabalhos remotos com Livy](hdinsight-apache-spark-livy-rest-interface.md)
+### [Desenvolver aplicativos usando o Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [Desenvolver aplicativos usando IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [Depurar remotamente com IntelliJ](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Gerenciar recursos](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Usar a CLI do Azure](hdinsight-administer-use-command-line.md)
 ### [Gerenciar clusters usando a interface do usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md)
 #### [Usar API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Adicionar contas de armazenamento](hdinsight-hadoop-add-storage.md)
 ### [Carregar dados para trabalhos Hadoop](hdinsight-upload-data.md)
 ### [Importar e exportar dados com Sqoop](hdinsight-use-sqoop.md)
 #### [Conexão com o SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -3,8 +3,8 @@ layout: LandingPage
 +toc_rel: breadcrumb.json
 description: "Saiba como usar uma rede virtual na nuvem. A documentação mostra como implantar uma rede virtual, usá-la para iniciar os recursos e integrá-la a uma rede local."
 translationtype: Human Translation
-ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
-ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Documentação da Rede Virtual
@@ -114,7 +114,7 @@ Saiba mais sobre como usar a Rede Virtual (VNet), uma representação da sua red
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Gerenciador de recursos)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Clássico)</a></p>
                         <p><a href="/cli/azure">CLI do Azure</a></p>
                     </div>
@@ -127,7 +127,7 @@ Saiba mais sobre como usar a Rede Virtual (VNet), uma representação da sua red
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/java/api/">Java</a></p>
                      </div>
                 </div>
@@ -140,7 +140,7 @@ Saiba mais sobre como usar a Rede Virtual (VNet), uma representação da sua red
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Gerenciador de Recursos)</a></p>
                         <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Clássico)</a></p>
                     </div>
                 </div>
@@ -149,13 +149,7 @@ Saiba mais sobre como usar a Rede Virtual (VNet), uma representação da sua red
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação da Rede Virtual </div>
-    </a>
-</div>
+
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: Circuitos da Rota Expressa e domínios de roteamento | Microsoft Docs
-description: Esta página apresenta uma visão geral dos circuitos da Rota Expressa e dos domínios de roteamento.
+title: "Circuitos do ExpressRoute e domínios de roteamento | Microsoft Docs"
+description: "Esta página apresenta uma visão geral dos circuitos da Rota Expressa e dos domínios de roteamento."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos da Rota Expressa e domínios de roteamento
@@ -30,7 +34,7 @@ Um circuito da Rota Expressa pode ter até três emparelhamentos independentes: 
 
 Cada circuito tem uma largura de banda fixa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) e é mapeado para um provedor de conectividade e um local de emparelhamento. A largura de banda selecionada é compartilhada entre todos os emparelhamentos para o circuito. 
 
-### <a name="quotas,-limits,-and-limitations"></a>Cotas, limites e limitações
+### <a name="quotas-limits-and-limitations"></a>Cotas, limites e limitações
 Cotas e limites padrão aplicam-se a todos os circuitos da Rota Expressa. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre cotas.
 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento da Rota Expressa
@@ -82,6 +86,9 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
   * [Configurar roteamento (emparelhamentos de circuito)](expressroute-howto-routing-classic.md)
   * [Vincular uma rede virtual a um circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

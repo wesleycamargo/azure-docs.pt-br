@@ -1,6 +1,6 @@
 ---
-title: "Regras de firewall no nível de servidor e no nível de banco de dados do Banco de Dados SQL do Azure usando o T-SQL | Microsoft Docs"
-description: "Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure."
+title: 'T-SQL: regras de firewall do Banco de dados SQL | Microsoft Docs'
+description: "Saiba como configurar as regras de firewall de nível de banco de dados e de nível de servidor dos endereços IP que acessam os bancos de dados SQL do Azure usando o Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 0f91e59a72b033c0a0dc52b4f127478b73c66ff1
 
 
 ---
@@ -94,6 +94,6 @@ Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

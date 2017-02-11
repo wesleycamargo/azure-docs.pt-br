@@ -1,19 +1,23 @@
 ---
 title: API REST de alerta do Log Analytics
-description: A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
+description: "A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 11/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 53a7be4d213f3f4c6d01b95355543fc9cd55717f
+
 
 ---
 # <a name="log-analytics-alert-rest-api"></a>API REST de alerta do Log Analytics
@@ -47,25 +51,30 @@ Use o método Get com uma ID de agendamento para recuperar um agendamento espec�
 
 A seguir está um exemplo de resposta para um agendamento.
 
-    {
+```json
+{
+    "value": [{
         "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace/savedSearches/0f0f4853-17f8-4ed1-9a03-8e888b0d16ec/schedules/a17b53ef-bd70-4ca4-9ead-83b00f2024a8",
         "etag": "W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\"",
         "properties": {
-        "Interval": 15,
-        "QueryTimeSpan": 15
-    }
+            "Interval": 15,
+            "QueryTimeSpan": 15
+        }
+    }]
+}
+```
 
 ### <a name="creating-a-schedule"></a>Criando uma agenda
-Use o método Put com uma ID de agendamento única para criar um novo agendamento.  Observe que dois agendamento não podem ter a mesma ID, mesmo se estão associados a diferentes pesquisas salvas.  Ao criar um agendamento no console do OMS, uma GUID é criado para a ID de agendamento.
+Use o método Put com uma ID de agendamento única para criar um novo agendamento.  Observe que dois agendamento não podem ter a mesma ID, mesmo se estiverem associados a diferentes pesquisas salvas.  Ao criar um agendamento no console do OMS, uma GUID é criado para a ID de agendamento.
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Editando um agendamento
 Use o método Put com uma ID de agendamento existente para a mesma pesquisa salva para modificar esse agendamento.  O corpo da solicitação deve incluir a Etag do agendamento.
 
-    $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
+      $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
+      armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 
 ### <a name="deleting-schedules"></a>Excluindo agendamentos
@@ -183,12 +192,12 @@ Veja a seguir uma resposta de exemplo para uma ação de notificação por email
 Use o método Put com uma ID de ação única para criar uma nova ação de email para um agendamento.  O exemplo a seguir cria uma notificação por email com um limite para que o email seja enviado quando os resultados da pesquisa salvos excederem o limite.
 
     $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 Use o método Put com uma ID de ação existente para modificar uma ação de email para um agendamento.  O corpo da solicitação deve incluir a Etag da ação.
 
     $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $ emailJson
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Ações de correção
 As correções iniciam um runbook na Automação do Azure que tenta corrigir o problema identificado pelo alerta.  Você deve criar um webhook para o runbook usado em uma ação de correção e especificar o URI na propriedade WebhookUri.  Quando você cria essa ação usando o console do OMS, um novo webhook é criado automaticamente para o runbook.
@@ -306,6 +315,9 @@ Use o método Put com uma ID de ação existente para modificar uma ação de we
 ## <a name="next-steps"></a>Próximas etapas
 * Use a [API REST para executar pesquisas de log](log-analytics-log-search-api.md) no Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

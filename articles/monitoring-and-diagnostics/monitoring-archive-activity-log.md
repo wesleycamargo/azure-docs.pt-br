@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
+ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
+ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
 
 
 ---
@@ -24,10 +24,10 @@ ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](monitoring-overview-activity-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Log de Atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
+Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Log de Atividades. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Diagnóstico e as métricas em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Atividades, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs. A conta de armazenamento não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="log-profile"></a>Perfil de Log
-Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você deverá definir o **Log de Perfil** para uma assinatura. O Perfil de Log define o tipo de eventos armazenados ou transmitidos e as saídas — conta de armazenamento e/ou hub de eventos. Ele também define a política de retenção (número de dias para manter) para eventos armazenados em uma conta de armazenamento. Se a política de retenção for definida como zero, os eventos serão armazenados indefinidamente. Caso contrário, isso pode ser definido como qualquer valor entre 1 e 2147483647. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você deverá definir o **Log de Perfil** para uma assinatura. O Perfil de Log define o tipo de eventos armazenados ou transmitidos e as saídas — conta de armazenamento e/ou hub de eventos. Ele também define a política de retenção (número de dias para manter) para eventos armazenados em uma conta de armazenamento. Se a política de retenção for definida como zero, os eventos serão armazenados indefinidamente. Caso contrário, isso pode ser definido como qualquer valor entre 1 e 2147483647. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos. [Você pode ler mais sobre perfis de log aqui](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Arquivar o Log de Atividades usando o portal
 1. No portal, clique no link **Log de atividades** na barra de navegação do lado esquerdo. Se você não vir um link para o Log de Atividades, clique no link **Mais Serviços** primeiro.
@@ -171,6 +171,6 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

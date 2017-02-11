@@ -4,8 +4,8 @@ hide_bc: true
 title: "Documentação do Microsoft Azure | Microsoft Docs"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: cee95b80d3e4360d68e6f37ad3c61e15d7d2a42e
-ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
+ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
+ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 ---
 <div id="main" class="v2">
@@ -631,6 +631,21 @@ ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Outras Nuvens</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/azure-government.svg" alt="" />
+                                                <p>Governo dos EUA para Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2326,7 +2341,50 @@ ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
                                 </a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
+                    <li>
+                        <a href="#other">Outras Nuvens</a>
+                        <ul id="other" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-government/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-government.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Governo dos EUA para Microsoft Azure</h3>
+                                                    <p>Compilar e hospedar aplicativos das missões do Governo dos EUA em uma instância dedicada do Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure Stack</h3>
+                                                    <p>Entregar serviços do Azure do seu próprio datacenter com essa nova plataforma de nuvem híbrida</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -2851,6 +2909,6 @@ ms.openlocfilehash: 656048594dd18c9c39e67a2ec8136cc6e827fccf
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -15,24 +15,24 @@ ms.workload: data-services
 ms.date: 07/12/2016
 ms.author: jrj;barbkess;sonyama
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01eb26ff4528faabdbc7b4d482190148b52f67d4
+ms.sourcegitcommit: f1a24e4ee10593514f44d83ad5e9a46047dafdee
+ms.openlocfilehash: f132af2966e2ac59e77dc0fa8113eb83089c68dd
 
 
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
-> * [Tipos de dados][Tipos de dados]
-> * [Distribuir][Distribuir]
-> * [Índice][Índice]
-> * [Partition][Partition]
-> * [Estatísticas][Estatísticas]
-> * [Temporário][Temporário]
+> * [Visão geral][Overview]
+> * [Tipos de Dados][Data Types]
+> * [Distribuir][Distribute]
+> * [Índice][Index]
+> * [Partição][Partition]
+> * [Estatísticas][Statistics]
+> * [Temporário][Temporary]
 > 
 > 
 
-O SQL Data Warehouse oferece várias opções de indexação, incluindo [clustered columnstore indexes][clustered columnstore indexes], [índices clusterizados e índices não clusterizados][índices clusterizados e índices não clusterizados].  Além disso, ele oferece uma opção sem índice também conhecida como [heap][heap].  Este artigo aborda as vantagens de cada tipo de índice, bem como dicas para obter o melhor desempenho dos seus índices. Confira [sintaxe create table][sintaxe create table] para obter mais detalhes sobre como criar uma tabela no SQL Data Warehouse.
+O SQL Data Warehouse oferece várias opções de indexação, incluindo [índices columnstore clusterizados][clustered columnstore indexes], [índices clusterizados e índices não clusterizados][clustered indexes and nonclustered indexes].  Além disso, ele oferece uma opção sem índice, também conhecida como [heap][heap].  Este artigo aborda as vantagens de cada tipo de índice, bem como dicas para obter o melhor desempenho dos seus índices. Consulte [Sintaxe create table][create table syntax] para obter mais detalhes sobre como criar uma tabela no SQL Data Warehouse.
 
 ## <a name="clustered-columnstore-indexes"></a>Índice columnstore clusterizado
 Por padrão, o SQL Data Warehouse cria um índice columnstore clusterizado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
@@ -57,7 +57,7 @@ Há alguns cenários em que columnstore clusterizado pode não ser uma boa opç�
 * Tabelas pequenas com menos de cem milhões de linhas.  Considere as tabelas de heap.
 
 ## <a name="heap-tables"></a>Tabelas de heap
-Quando você estiver descarregando temporariamente os dados no SQL Data Warehouse, poderá achar que usar uma tabela de heap tornará o processo geral mais rápido.  Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap será muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária][Temporário] também carregará muito mais rapidamente do que carregar uma tabela em um armazenamento permanente.  
+Quando você estiver descarregando temporariamente os dados no SQL Data Warehouse, poderá achar que usar uma tabela de heap tornará o processo geral mais rápido.  Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap será muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária][Temporary] será realizado muito mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
 
 Para tabelas de pesquisa pequenas, de menos de cem milhões de linhas, as tabelas de heap geralmente são adequadas.  As tabelas columnstore do cluster começam a obter compactação ideal quando há mais de cem milhões de linhas.
 
@@ -93,11 +93,6 @@ Para adicionar um índice não clusterizado em uma tabela, basta usar a seguinte
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
-
-> [!NOTE]
-> Um índice não clusterizado é criado por padrão quando CREATE INDEX é usado. Além disso, um índice não clusterizado é permitido somente em uma tabela de armazenamento de linha (HEAP ou CLUSTERED INDEX). Índices não clusterizados sobre um CLUSTERED COLUMNSTORE INDEX não são permitidos neste momento.
-> 
-> 
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Otimizando índices columnstore clusterizados
 As tabelas columnstore clusterizadas são organizadas em dados em segmentos.  Para segmentos de boa qualidade, é essencial obter um desempenho ideal em uma tabela columnstore.  A qualidade de segmento pode ser medida pelo número de linhas em um grupo de linhas compactado.  A qualidade do segmento é ideal quando há pelo menos cem mil linhas por grupo de linha compactado e ganho de desempenho conforme o número de linhas por grupo de linhas se aproxima das 1.048.576 linhas, que é a maior quantidade de linhas que um grupo de linhas pode conter.
@@ -221,7 +216,7 @@ Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaix
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: identificar ou criar o usuário que usa a classe de recurso correta
 Uma maneira rápida de melhorar a qualidade do segmento imediatamente é recriar o índice.  O SQL retornado pela exibição acima retornará uma instrução ALTER INDEX REBUILD, que pode ser usada para recriar os índices.  Ao recriar os índices, não deixe de alocar memória suficiente para a sessão que recriará o índice.  Para fazer isso, aumente a classe de recurso de um usuário que tem permissões para recriar o índice nessa tabela para o mínimo recomendado.  A classe de recurso de usuário do proprietário do banco de dados não pode ser alterada. Se você não tiver criado um usuário no sistema, precisará fazer isso primeiro.  Recomendamos, no mínimo, iniciar com xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
 
-Abaixo está um exemplo de como alocar mais memória para um usuário aumentando sua classe de recurso.  Mais informações sobre o recurso de classes e como criar um novo usuário podem ser encontradas no artigo [Gerenciamento de simultaneidade e carga de trabalho][Simultaneidade].
+Abaixo está um exemplo de como alocar mais memória para um usuário aumentando sua classe de recurso.  Encontre mais informações sobre classes de recurso e como criar um novo usuário no artigo [concurrency and workload management][Concurrency] (Gerenciamento de carga de trabalho e concomitância).
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
@@ -230,7 +225,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
 Faça logon como o usuário da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recurso maior, e execute as instruções ALTER INDEX.  Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado.  Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
-Como alternativa, em vez de recompilar o índice, você pode copiar a tabela para uma nova tabela utilizando [CTAS][CTAS].  Qual é a melhor opção? Para grandes volumes de dados, [CTAS][CTAS] é geralmente mais rápida do que [ALTER INDEX][ALTER INDEX]. Para volumes menores de dados, [ALTER INDEX][ALTER INDEX] é mais fácil de usar e não exigirá a troca da tabela.  Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recompilar índices com CTAS.
+Como alternativa, em vez de recriar o índice, é possível copiar a tabela para uma nova tabela usando [CTAS][CTAS].  Qual é a melhor opção? Para grandes volumes de dados, [CTAS][CTAS] é geralmente mais rápido do que [ALTER INDEX][ALTER INDEX]. Para volumes menores de dados, [ALTER INDEX][ALTER INDEX] é mais fácil de usar e não exige a troca da tabela.  Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recompilar índices com CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,13 +247,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para saber mais sobre a recompilação de índices, confira a seção ALTER INDEX REBUILD em [Desfragmentação de índices columnstore][Desfragmentação de índices columnstore] (Desfragmentação de Índices Columnstore) e o tópico da sintaxe [ALTER INDEX][ALTER INDEX].
+A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Usar ALTER INDEX REBUILD para desfragmentar o índice columnstore offline][Columnstore Indexes Defragmentation] e o tópico da sintaxe [ALTER INDEX][ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou.  Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas.  Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Recriando índices com CTAS e alternância de partição
-Este exemplo usa [CTAS][CTAS] e a alternância de partição para recompilar uma partição de tabela. 
+Este exemplo usa [CTAS][CTAS] e a troca de partição para recompilar uma partição de tabela. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -298,37 +293,37 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-Para obter mais detalhes sobre como recriar partições usando `CTAS`, confira o artigo [Partition][Partition].
+Para obter mais detalhes sobre como recriar partições usando `CTAS`, consulte o artigo [Partition][Partition] (Partição).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, confira os artigos em [Visão Geral da Tabela][Visão geral], [Tipos de Dados de Tabela][Tipos de dados], [Distribuindo uma Tabela][Distribuir],  [Particionando uma Tabela][Partition], [Mantendo Estatísticas de Tabela][Estatísticas] e [Tabelas Temporárias][Temporário].  Para saber mais sobre as práticas recomendadas, veja [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas do SQL Data Warehouse].
+Para saber mais, consulte os artigos [Table Overview][Overview] (Visão Geral da Tabela), [Table Data Types][Data Types] (Tipos de Dados da Tabela), [Distributing a Table][Distribute] (Distribuindo uma Tabela), [Partitioning a Table][Partition] (Particionando uma Tabela), [Maintaining Table Statistics][Statistics] (Mantendo Estatísticas de Tabela) e [Temporary Tables][Temporary] (Tabelas Temporárias).  Para saber mais sobre as práticas recomendadas, consulte [Práticas recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral]: ./sql-data-warehouse-tables-overview.md
-[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
-[Distribuir]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporário]: ./sql-data-warehouse-tables-temporary.md
-[Simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
 [heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[índices clusterizados e índices não clusterizados]: https://msdn.microsoft.com/library/ms190457.aspx
-[sintaxe create table]: https://msdn.microsoft.com/library/mt203953.aspx
-[Desfragmentação de índices columnstore]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
+[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

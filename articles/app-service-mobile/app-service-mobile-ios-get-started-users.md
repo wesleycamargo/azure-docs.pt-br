@@ -1,12 +1,12 @@
 ---
-title: Add Authentication on iOS with Azure Mobile Apps
-description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
+title: "Adicionar autenticação no iOS com aplicativos móveis do Azure"
+description: "Aprenda a usar os aplicativos móveis do Azure para autenticar usuários de seu aplicativo iOS por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: ios
 author: ysxu
 manager: yochayk
-editor: ''
-
+editor: 
+ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,32 +14,36 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4df1f27e5cefe9813fdc79b96d42e5c5d033901c
+
 
 ---
-# <a name="add-authentication-to-your-ios-app"></a>Add authentication to your iOS app
+# <a name="add-authentication-to-your-ios-app"></a>Adicione autenticação ao seu aplicativo do iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first.
+Neste tutorial, você adicionará a autenticação ao projeto de [início rápido do iOS] usando um provedor de identidade com suporte. Este tutorial baseia-se no tutorial de [início rápido do iOS] , que você deve concluir primeiro.
 
-## <a name="<a-name="register"></a>register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Register your app for authentication and configure the App Service
+## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="<a-name="permissions"></a>restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restrict permissions to authenticated users
+## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-In Xcode, press **Run** to  start the app. An exception will be raised because the app attempts to access the backend as an unauthenticated user, but *TodoItem* table now requires authentication.
+No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção será criada porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
-## <a name="<a-name="add-authentication"></a>add-authentication-to-app"></a><a name="add-authentication"></a>Add authentication to app
+## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 [!INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
 <!-- URLs. -->
 
-[iOS quick start]: app-service-mobile-ios-get-started.md
+[início rápido do iOS]: app-service-mobile-ios-get-started.md
 
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

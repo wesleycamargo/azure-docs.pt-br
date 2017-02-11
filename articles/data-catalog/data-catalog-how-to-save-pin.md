@@ -1,20 +1,24 @@
 ---
 title: Como salvar as pesquisas e fixar os ativos de dados | Microsoft Docs
-description: Artigo de instruções que destaca recursos do Catálogo de Dados do Azure para salvar fontes de dados e ativos de dados para reutilização posterior.
+description: "Artigo de instruções que destaca recursos do Catálogo de Dados do Azure para salvar fontes de dados e ativos de dados para reutilização posterior."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/10/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f017776480466979d7f2f9edec2b3ac5caca2321
+
 
 ---
 # <a name="how-to-save-searches-and-pin-data-assets"></a>Como salvar pesquisas e fixar ativos de dados
@@ -68,7 +72,7 @@ Desafixar um ativo é igualmente simples: basta os usuários clicarem novamente 
 
 ![Como desafixar um ativo de dados](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="“my-assets”"></a>"Meus Ativos"
+## <a name="my-assets"></a>"Meus Ativos"
 A home page do portal do Catálogo de Dados do Azure inclui uma seção "Meus Ativos" que exibe os ativos de interesse do usuário atual. Essa seção inclui os ativos fixos e as pesquisas salvas.
 
 ![“Meus Ativos” na home page](./media/data-catalog-how-to-save-pin/07-my-assets.png)
@@ -76,6 +80,8 @@ A home page do portal do Catálogo de Dados do Azure inclui uma seção "Meus At
 ## <a name="summary"></a>Resumo
 O Catálogo de Dados do Azure fornece recursos que tornam mais fácil para os usuários descobrir as fontes de dados de que precisam. Assim, eles podem gastar menos tempo procurando dados e mais tempo trabalhando com eles. As pesquisas salvas e os ativos de dados fixados se baseiam nesses recursos principais para que os usuários possam facilmente identificar fontes de dados com as quais trabalharão repetidamente.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

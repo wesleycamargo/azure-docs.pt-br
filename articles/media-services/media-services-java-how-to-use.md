@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b36dc7bc2d4d1a8565bc6eb823e830a62d36bf34
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Configurando uma conta do Azure para Serviços de Mídia
-Para configurar sua conta dos Serviços de Mídia, use o portal do Azure. Confira o tópico [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md). Depois de criar sua conta no portal do Azure, você estará pronto para configurar o computador para o desenvolvimento dos Serviços de Mídia.
 
-## <a name="setting-up-for-media-services-development"></a>Configurando para desenvolvimento de Serviços de Mídia
+Para configurar sua conta dos Serviços de Mídia, use o portal do Azure. Confira o tópico [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md). Depois de criar sua conta no portal do Azure, você estará pronto para configurar o computador para o desenvolvimento dos Serviços de Mídia.
+ 
 Esta seção contém os pré-requisitos gerais para desenvolvimento de Serviços de Mídia usando o SDK dos Serviços de Mídia para Java.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -34,6 +34,10 @@ Esta seção contém os pré-requisitos gerais para desenvolvimento de Serviços
 * As bibliotecas do Azure para Java, que podem ser instaladas na [Central de desenvolvedores de Java no Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Como usar os Serviços de Mídia com o Java
+
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+
 O código a seguir mostra como criar um ativo, carregar um arquivo de mídia para o ativo, executar um trabalho com uma tarefa para transformar o ativo e criar um localizador para transmitir seu vídeo.
 
 Você precisa configurar uma conta de Serviços de Mídia para usar esse código. Para obter informações sobre como configurar uma conta, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Para obter a documentação do Javadoc dos Serviços de Mídia, consulte a [Docu
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

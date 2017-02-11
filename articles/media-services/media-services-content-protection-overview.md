@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
 
 
 ---
@@ -37,7 +37,7 @@ Este tópico explica os [conceitos e terminologia](media-services-content-protec
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
 Os Serviços de Mídia do Microsoft Azure permitem que você forneça o conteúdo criptografado dinamicamente com a chave de limpeza do AES ou a criptografia DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay.
 
-Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Você não pode criptografar o formato de streaming HDSou fazer o download progressivo.
+Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
 
 Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
 
@@ -119,6 +119,6 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 12/07/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8b9a3b853adcbdfd2a5d4113489e8fcad26d9f59
+ms.sourcegitcommit: b60f957cce6225894f656b20d32604f55b418311
+ms.openlocfilehash: aa37f2113ac3aceda99c9987eacff2424e9b4434
 
 
 ---
@@ -34,12 +34,13 @@ Atualmente, o Azure HDInsight fornece cinco tipos diferentes de clusters, cada u
 
 | Tipo de cluster | Funcionalidade |
 | --- | --- |
-| O Hadoop |Consulta e análise (trabalhos em lotes) |
-| HBase |Armazenamento de dados NoSQL |
-| Storm |Processamento de eventos em tempo real |
-| Spark |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
+| [Hadoop](hdinsight-hadoop-introduction.md) |Consulta e análise (trabalhos em lotes) |
+| [HBase](hdinsight-hbase-overview.md) |Armazenamento de dados NoSQL |
+| [Storm](hdinsight-storm-overview.md) |Processamento de eventos em tempo real |
+| [Spark](hdinsight-apache-spark-overview.md) |Processamento na memória, consultas interativas, processamento de transmissão de microlotes |
 | [Hive Interativo (Visualização)](hdinsight-hadoop-use-interactive-hive.md) |Caching na memória para consultas de Hive interativas e mais rápidas |
-| Servidor de R no Spark (Visualização) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
+| [R Server no Spark (Visualização)](hdinsight-hadoop-r-server-overview.md) |Uma variedade de recursos de estatísticas de Big Data, modelagem preditiva e aprendizado de máquina |
+| [Kafka (Visualização)](hdinsight-apache-kafka-introduction.md) | Uma plataforma de streaming distribuída que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real |
 
 Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster, bem como o tamanho da VM padrão para cada tipo de nó. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.
 
@@ -71,13 +72,14 @@ A tabela a seguir lista os tamanhos de VM padrão para o HDInsight:
   | Cabeçalho – Tamanho padrão da VM |D3 |D3 |A3 |D12 |D12 |
   | Cabeçalho – Tamanhos recomendados de VM |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Trabalho – Tamanho de VM padrão |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Trabalho – Tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |
+  | Trabalho – Tamanhos de VM recomendados |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
   | Zookeeper – Tamanho de VM padrão | |A2 |A2 | | |
   | Zookeeper – Tamanhos de VM recomendados | |A2, A3, A4 |A2, A3, A4 | | |
   | Borda – Tamanhos padrão da VM | | | | |Windows: D12; Linux: D4 |
   | Borda – Tamanhos recomendados de VM | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
-Observe que esse cabeçalho é conhecido como *Nimbus* para o tipo de cluster Storm. O trabalho é conhecido como *Região* para o tipo de cluster HBase e como *Supervisor* para o tipo de cluster Storm.
+> [!NOTE]
+> O cabeçalho é conhecido como *Nimbus* para o tipo de cluster Storm. O trabalho é conhecido como *Região* para o tipo de cluster HBase e como *Supervisor* para o tipo de cluster Storm.
 
 > [!IMPORTANT]
 > Se você planeja ter mais de 32 nós de trabalho, seja na criação do cluster ou em seu dimensionamento após a criação, será preciso escolher um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM.
@@ -91,7 +93,7 @@ Observe que esse cabeçalho é conhecido como *Nimbus* para o tipo de cluster St
 > 
 > 
 
-Se sua solução exige tecnologias que sejam distribuídas entre vários tipos de cluster HDInsight, você deve criar uma Rede Virtual do Azure e os tipos de cluster necessários dentro da rede virtual. Isso permite que os clusters e qualquer código que você implantar neles se comuniquem diretamente uns com os outros.
+Se sua solução exige tecnologias que sejam distribuídas entre vários tipos de cluster HDInsight, você deve criar uma Rede Virtual do Azure e os tipos de cluster necessários dentro da rede virtual. Essa configuração permite que os clusters e qualquer código que você implantar neles se comuniquem diretamente uns com os outros.
 
 Para obter mais informações sobre como usar uma Rede Virtual do Azure com HDInsight, confira [Estender o HDInsight com Redes Virtuais do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -210,28 +212,28 @@ No modelo de implantação clássica, alguns tamanhos de VM são ligeiramente di
 
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A3\Grande |4 |7 GB |2 |Temporário = 285 GB |8 |8 x 500 |
-| Standard_A4\ExtraLarge |8 |14 GB |4 |Temporário = 605 GB |16 |16 x 500 |
-| Standard_A6 |4 |28 GB |2 |Temporário = 285 GB |8 |8 x 500 |
-| Standard_A7 |8 |56 GB |4 |Temporário = 605 GB |16 |16 x 500 |
+| Standard_A3\Grande |4 |7 GB |2 |Temporário = 285 GB |8 |8 x&500; |
+| Standard_A4\ExtraLarge |8 |14 GB |4 |Temporário = 605 GB |16 |16 x&500; |
+| Standard_A6 |4 |28 GB |2 |Temporário = 285 GB |8 |8 x&500; |
+| Standard_A7 |8 |56 GB |4 |Temporário = 605 GB |16 |16 x&500; |
 
 #### <a name="standard-tier-d-series"></a>Camada Standard: série D
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
-| Standard_D4 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
-| Standard_D12 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
-| Standard_D13 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
-| Standard_D14 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x 500 |
+| Standard_D3 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
+| Standard_D4 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
+| Standard_D12 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
+| Standard_D13 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
+| Standard_D14 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x&500; |
 
 #### <a name="standard-tier-dv2-series"></a>Camada Standard: série Dv2
 | Tamanho | Núcleos de CPU | Memória | NICs (Máx.) | Máx. tamanho do disco | Máx. de discos de dados (1023 GB cada) | Máx. IOPS (500 por disco) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D3_v2 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
-| Standard_D4_v2 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
-| Standard_D12_v2 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x 500 |
-| Standard_D13_v2 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x 500 |
-| Standard_D14_v2 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x 500 |
+| Standard_D3_v2 |4 |14 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
+| Standard_D4_v2 |8 |28 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
+| Standard_D12_v2 |4 |28 GB |4 |Temporário (SSD) =200 GB |8 |8 x&500; |
+| Standard_D13_v2 |8 |56 GB |8 |Temporário (SSD) =400 GB |16 |16 x&500; |
+| Standard_D14_v2 |16 |112 GB |8 |Temporário (SSD) =800 GB |32 |32 x&500; |
 
 Para obter as considerações de implantação a serem observadas ao planejar o uso desses recursos, confira [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para obter informações sobre os preços dos vários tamanhos, veja [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
@@ -339,6 +341,6 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

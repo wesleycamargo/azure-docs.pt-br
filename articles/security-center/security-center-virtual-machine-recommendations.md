@@ -1,19 +1,23 @@
 ---
-title: Protegendo suas máquinas virtuais na Central de Segurança do Azure | Microsoft Docs
-description: Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger suas máquinas virtuais e cumprir as políticas de segurança.
+title: "Protegendo suas máquinas virtuais na Central de Segurança do Azure | Microsoft Docs"
+description: "Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger suas máquinas virtuais e cumprir as políticas de segurança."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 01/07/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c048263ab1ae453a10f0471ae33a122e21151d94
+
 
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protegendo suas máquinas virtuais na Central de Segurança do Azure
@@ -49,6 +53,9 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

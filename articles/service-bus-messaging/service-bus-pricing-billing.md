@@ -1,153 +1,158 @@
 ---
-title: Service Bus pricing and billing | Microsoft Docs
-description: Overview of Service Bus pricing structure.
-services: service-bus
+title: "Preços e cobrança do Barramento de Serviço | Microsoft Docs"
+description: "Visão geral da estrutura de preços de Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+
 
 ---
-# <a name="service-bus-pricing-and-billing"></a>Service Bus pricing and billing
-Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+# <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
+O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
 
 > [!NOTE]
-> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/), and the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing).
-> 
-> 
+> Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, consulte a [Azure Service Bus pricing page (Página de preços do Barramento de Serviço do Azure)](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#service-bus-pricing).
+>
+>
 
-Service Bus uses the following two meters for queues and topics/subscriptions:
+O Barramento de Serviço usa os dois medidores a seguir para filas e tópicos/assinaturas:
 
-1. **Messaging Operations**: Defined as API calls against queue or topic/subscription service endpoints. This meter will replace messages sent or received as the primary unit of billable usage for queues and topics/subscriptions.
-2. **Brokered Connections**: Defined as the peak number of persistent connections open against queues, topics, or subscriptions during a given one-hour sampling period. This meter will only apply in the Standard tier, in which you can open additional connections (previously, connections were limited to 100 per queue/topic/subscription) for a nominal per-connection fee.
+1. **Operações de sistema de mensagens**: definido como chamadas à API em pontos de extremidade de serviço de fila ou tópico/assinatura. Esse medidor substituirá as mensagens enviadas ou recebidas como a principal unidade de uso cobrável para filas e tópicos/assinaturas.
+2. **Conexões agenciadas**: definidas como o número máximo de conexões persistentes abertas em filas, tópicos ou assinaturas durante um determinado período de amostragem de uma hora. Esse medidor se aplicará somente na camada Standard, no qual você pode abrir conexões adicionais (anteriormente, as conexões eram limitadas a 100 por fila/tópico/assinatura) por uma taxa nominal por conexão.
 
-The **Standard** tier introduces graduated pricing for operations performed with queues and topics/subscriptions, resulting in volume-based discounts of up to 80% at the highest usage levels. There is also a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost.
+A camada **Standard** apresenta preços graduados para operações executadas com filas e tópicos/assinaturas, resultando em descontos por volume de até 80% altos níveis de uso. Há também um encargo de base da camada Standard de US $10 por mês, que permite que você execute até 12,5 milhões de operações por mês sem custos adicionais.
 
-The **Premium** tier provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution. Not only is this performance more predictable and available, but it is also faster. Azure Service Bus Premium messaging builds on the storage engine introduced in Azure Event Hubs. With Premium messaging, peak performance is much faster than the Standard tier.
+A camada **Premium** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço. Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. O sistema de mensagens Premium do Barramento de Serviço do Azure se baseia no mecanismo de armazenamento introduzido nos Hubs de Eventos do Azure. Com o sistema de mensagens Premium, o desempenho de pico é muito mais rápido do que na camada Standard.
 
-Note that the standard base charge is charged only once per month per Azure subscription. This means that after you create a single Standard or Premium tier Service Bus namespace, you will be able to create as many additional Standard or Premium tier namespaces as you want under that same Azure subscription, without incurring additional base charges.
+Observe que o custo base padrão é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um único namespace de Barramento de Serviço camada Standard ou Premium, você poderá criar tantos namespaces adicionais da camada Standard ou Premium quanto desejar nessa mesma assinatura do Azure, sem incorrer em encargos adicionais de base.
 
-All existing Service Bus namespaces created prior to November 1, 2014 were automatically placed into the Standard tier. This ensures that you continue to have access to all features currently available with Service Bus. Subsequently, you can use the [Azure classic portal][Azure classic portal] to downgrade to the Basic tier if desired.
+Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, é possível usar o [portal clássico do Azure][portal clássico do Azure] para fazer o downgrade para a camada Basic, se desejado.
 
-The following table summarizes the functional differences between the Basic and Standard/Premium tiers.
+A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Standard/Premium.
 
-| Capability | Basic | Standard/Premium |
+| Recurso | Basic | Standard/Premium |
 | --- | --- | --- |
-| Queues |Yes |Yes |
-| Scheduled messages |Yes |Yes |
-| Topics/Subscriptions |No |Yes |
-| Relays |No |Yes |
-| Transactions |No |Yes |
-| De-Duplication |No |Yes |
-| Sessions |No |Yes |
-| Large messages |No |Yes |
-| ForwardTo |No |Yes |
-| SendVia |No |Yes |
-| Brokered connections (included) |100 per Service Bus namespace |1,000 per Azure subscription |
-| Brokered connections (overage allowed) |No |Yes (billable) |
+| Filas |Sim |Sim |
+| Mensagens agendadas |Sim |Sim |
+| Tópicos/Assinaturas |Não |Sim |
+| Retransmissão |Não |Sim |
+| Transações |Não |Sim |
+| Eliminação de duplicação |Não |Sim |
+| Sessões |Não |Sim |
+| Mensagens grandes |Não |Sim |
+| ForwardTo |Não |Sim |
+| SendVia |Não |Sim |
+| Conexões orientadas (incluídas) |100 por namespace do Barramento de Serviço |1.000 por assinatura do Azure |
+| Conexões orientadas (excedente permitido) |Não |Sim (faturável) |
 
-## <a name="messaging-operations"></a>Messaging operations
-As part of the new pricing model, billing for queues and topics/subscriptions is changing. These entities are transitioning from billing per message to billing per operation. An "operation" refers to any API call made against a queue or topic/subscription service endpoint. This includes management, send/receive, and session state operations.
+## <a name="messaging-operations"></a>Operações de sistema de mensagens
+Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinaturas está mudando. Essas entidades estão fazendo a transição de cobrança por mensagem para cobrança por operação. Uma “operação” se refere a qualquer chamada à API feita em relação a um ponto de extremidade de serviço de fila ou tópico/assinatura. Isso inclui operações de gerenciamento, envio/recebimento e estado da sessão.
 
-| Operation Type | Description |
+| Tipo de operação | Descrição |
 | --- | --- |
-| Management |Create, Read, Update, Delete (CRUD) against queues or topics/subscriptions. |
-| Messaging |Sending and receiving messages with queues or topics/subscriptions. |
-| Session state |Getting or setting session state on a queue or topic/subscription. |
+| Gerenciamento |Criar, ler, atualizar, excluir (CRUD) em relação a filas ou tópicos/assinaturas. |
+| Mensagens |Enviando e recebendo mensagens com filas ou tópicos/assinaturas. |
+| Estado de sessão |Obter ou definir o estado de sessão em uma fila ou tópico/assinatura. |
 
-The following prices were effective starting November 1, 2014:
+Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
 
-| Basic | Cost |
+| Basic | Custo |
 | --- | --- |
-| Operations |$0.05 per million operations |
+| Operações |US $0,05 por milhões de operações |
 
-| Standard | Cost |
+| Standard | Custo |
 | --- | --- |
-| Base charge |$10/month |
-| First 12.5 million operations/month |Included |
-| 12.5-100 million operations/month |$0.80 per million operations |
-| 100 million-2,500 million operations/month |$0.50 per million operations |
-| Over 2,500 million operations/month |$0.20 per million operations |
+| Custo base |US $10/ mês |
+| Primeiras 12,5 milhões de operações/mês |Incluso |
+| 12,5 a 100 milhões de operações/mês |US $0,80 por cada milhão de operações |
+| 100 milhões a 2,5 bilhões de operações/mês |US $0,50 por cada milhão de operações |
+| Mais do que 2,5 bilhões de operações/mês |US $0,20 por cada milhão de operações |
 
-| Premium | Cost |
+| Premium | Custo |
 | --- | --- |
-| Daily |$11.13 fixed rate per Message Unit |
+| Diário |Taxa fixa de US $11.13 por unidade de mensagem |
 
-## <a name="brokered-connections"></a>Brokered connections
-*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics, or subscriptions. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
+## <a name="brokered-connections"></a>Conexões orientadas
+*Conexões agenciadas* acomodam padrões de uso do cliente que envolvem um grande número de remetentes/destinatários “persistentemente conectados” em filas, tópicos ou assinaturas. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
 
-Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
+Anteriormente, filas e tópicos/assinaturas tinham um limite de 100 conexões simultâneas por URL. O esquema de cobrança atual remove o limite por URL para filas e tópicos/assinaturas e implementa cotas e medição em conexões orientadas no namespace do Barramento de Serviço e níveis de assinatura do Azure.
 
-The Basic tier includes, and is strictly limited to, 100 brokered connections per Service Bus namespace. Connections above this number will be rejected in the Basic tier. The Standard tier removes the per-namespace limit and counts aggregate brokered connection usage across the Azure subscription. In the Standard tier, 1,000 brokered connections per Azure subscription will be allowed at no extra cost (beyond the base charge). Using more than a total of 1,000 brokered connections across Standard-tier Service Bus namespaces in an Azure subscription will be billed on a graduated schedule, as shown in the following table.
+A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas por namespace de Barramento de Serviço. Conexões acima desse número serão rejeitadas na camada Basic. A camada Standard remove o limite por namespace e conta o uso total de conexão orientada na assinatura do Azure. Na camada Standard, serão permitidas 1.000 conexões orientadas por assinatura do Azure sem custo (além do custo base) adicional. O uso de mais de um total de 1.000 conexões orientadas nos namespaces de Barramento de Serviço da camada Standard em uma assinatura do Azure será cobrado em um agendamento classificado, como mostrado na tabela a seguir.
 
-| Brokered connections (Standard tier) | Cost |
+| Conexões orientadas (camada Standard) | Custo |
 | --- | --- |
-| First 1,000/month |Included with base charge |
-| 1,000-100,000/month |$0.03 per connection/month |
-| 100,000-500,000/month |$0.025 per connection/month |
-| Over 500,000/month |$0.015 per connection/month |
+| Primeiras 1.000/mês |Incluído no custo base |
+| 1.000 a 100.000/mês |US $0,03 por conexão/mês |
+| 100.000 a 500.000/mês |US $0,025 por conexão/mês |
+| Mais de 500.000/mês |US $0,015 por conexão/mês |
 
 > [!NOTE]
-> 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
-> 
-> 
+> A camada do sistema de mensagens Standard inclui 1.000 conexões agenciadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos e assinaturas com a assinatura do Azure associada.
+>
+>
 
 <br />
 
 > [!NOTE]
-> Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
-> 
-> 
+> A cobrança baseia-se no número máximo de conexões simultâneas e é rateada por hora com base em 744 horas por mês.
+>
+>
 
-| Premium Tier |
+| Camada Premium |
 | --- |
-| Brokered connections are not charged in the Premium tier. |
+| As conexões orientadas não são cobradas na camada Premium. |
 
-For more information about brokered connections, see the [FAQ](#faq) section later in this topic.
+Para obter mais informações sobre conexões orientadas, consulte a seção de [Perguntas frequentes](#faq) mais adiante neste tópico.
 
-## <a name="relay"></a>Relay
-Relays are available only in Standard tier namespaces. Otherwise, pricing and connection quotas for relays remain unchanged. This means that relays will continue to be charged on the number of messages (not operations), and relay hours.
+## <a name="wcf-relay"></a>Retransmissão de WCF
+As retransmissões do WCF estão disponíveis apenas nos namespaces da camada Standard. Caso contrário, as cotas de preços e conexão para retransmissões permanecem inalteradas. Isso significa que as retransmissões continuarão a ser cobradas sobre o número de mensagens (não operações) e horas de retransmissão.
 
-| Relay pricing | Cost |
+| Preço da Retransmissão do WCF | Custo |
 | --- | --- |
-| Relay hours |$0.10 for every 100 relay hours |
-| Messages |$0.01 for every 10,000 messages |
+| Horas de retransmissão do WCF |US $0,10 por cada 100 horas de retransmissão |
+| Mensagens |US $0,01 para cada 10.000 mensagens |
 
-## <a name="faq"></a>FAQ
-### <a name="how-is-the-relay-hours-meter-calculated?"></a>How is the Relay Hours meter calculated?
-See [this topic](service-bus-faq.md#how-is-the-relay-hours-meter-calculated).
+## <a name="faq"></a>Perguntas frequentes
+### <a name="how-is-the-wcf-relay-hours-meter-calculated"></a>Como é calculado o medidor de horas de retransmissão do WCF?
+Consulte [este tópico](service-bus-faq.md).
 
-### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them?"></a>What are brokered connections and how do I get charged for them?
-A brokered connection is defined as one of the following:
+### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>O que são conexões orientadas e como serei cobrado para elas?
+Uma conexão orientada é definida como uma das conexões a seguir:
 
-1. An AMQP connection from a client to a Service Bus queue or topic/subscription.
-2. An HTTP call to receive a message from a Service Bus topic or queue that has a receive timeout value greater than zero.
+1. Uma conexão AMQP de um cliente com uma fila ou tópico/assinatura do Barramento de Serviço.
+2. Uma chamada HTTP para receber uma mensagem de uma fila ou tópico do Barramento de Serviço que possua um valor de tempo limite de recebimento maior que zero.
 
-Service Bus charges for the peak number of concurrent brokered connections that exceed the included quantity (1,000 in the Standard tier). Peaks are measured on an hourly basis, prorated by dividing by 744 hours in a month, and added up over the monthly billing period. The included quantity (1,000 brokered connections per month) is applied at the end of the billing period against the sum of the prorated hourly peaks.
+Encargos de Barramento de Serviço para o número máximo de conexões orientadas simultâneas orientadas que excedem a quantidade incluída (1.000 na camada Standard). Os picos são medidos por hora, rateados dividindo por 744 horas por mês e adicionados ao longo do período de faturamento mensal. A quantidade incluída (1.000 conexões orientadas por mês) é aplicada ao final do período de cobrança em relação à soma dos picos de hora em hora rateados.
 
-For example:
+Por exemplo:
 
-1. Each of 10,000 devices connects via a single AMQP connection, and receives commands from a Service Bus topic. The devices send telemetry events to an Event Hub. If all devices connect for 12 hours each day, the following connection charges apply (in addition to any other Service Bus topic charges): 10,000 connections * 12 hours * 31 days / 744 = 5,000 brokered connections. After the monthly allowance of 1,000 brokered connections, you would be charged for 4,000 brokered connections, at the rate of $0.03 per brokered connection, for a total of $120.
-2. 10,000 devices receive messages from a Service Bus queue via HTTP, specifying a non-zero timeout. If all devices connect for 12 hours every day, you will see the following connection charges (in addition to any other Service Bus charges): 10,000 HTTP Receive connections * 12 hours per day * 31 days / 744 hours = 5,000 brokered connections.
+1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 31 dias / 744 = 5.000 conexões orientadas. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
+2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões de recebimento de HTTP * 12 horas * 31 dias / 744 = 5.000 conexões orientadas.
 
-### <a name="do-brokered-connection-charges-apply-to-queues-and-topics/subscriptions?"></a>Do brokered connection charges apply to queues and topics/subscriptions?
-Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. Note that 100 brokered connections are allowed at no charge in a Basic namespace. This is also the maximum number of brokered connections allowed for the Azure subscription. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
+### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Os encargos de conexão gerenciada são aplicáveis a filas e tópicos/assinaturas?
+Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. O recebimento de eventos com HTTP usando um tempo limite maior que zero, às vezes chamado de "sondagem longa", gera encargos de conexão gerenciada. Conexões do AMQP geram encargos de conexão gerenciada independentemente se as conexões estão sendo usadas para enviar ou receber. Observe que são permitidas 100 conexões orientadas gratuitamente em um namespace da camada Basic. Esse também é o número máximo de conexões orientadas permitidas para a assinatura do Azure. As primeiras 1.000 conexões orientadas em todos os namespaces da camada Standard em uma assinatura do Azure são incluídas sem custo adicional (além do custo base). Como essas permissões são suficientes para cobrir muitos cenários de mensagens de serviço para serviço, os encargos de conexão gerenciada normalmente apenas se tornam relevantes se você planeja usar sondagem longa AMQP ou HTTP com um grande número de clientes; por exemplo, para obter um fluxo de eventos mais eficiente ou habilitar a comunicação bidirecional com muitos dispositivos ou instâncias do aplicativo.
 
-## <a name="next-steps"></a>Next steps
-* For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
-* See the [Service Bus FAQ](service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
+## <a name="next-steps"></a>Próximas etapas
+* Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
+* Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#service-bus-pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
-[Azure classic portal]: http://manage.windowsazure.com
+[portal clássico do Azure]: http://manage.windowsazure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

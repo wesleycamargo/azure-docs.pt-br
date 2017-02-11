@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9285673f77cc598d881712ef125040e103059f87
+ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
+ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alerts"></a>Configurar um webhook em alertas do Log de Atividades do Azure
+# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configurar um webhook em um alerta do Log de Atividades do Azure
 Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta do Log de Atividades do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de métrica do Azure, [consulte esta página](insights-webhooks-alerts.md). Você também pode configurar um alerta do Log de Atividades para enviar um email quando estiver ativado.
 
 > [!NOTE]
-> No momento, esse recurso está em visualização, portanto, espere desempenho e qualidade variáveis.
+> Atualmente, esse recurso está em visualização e será removido em algum momento no futuro.
 > 
 > 
 
@@ -127,6 +127,6 @@ A operação POST contém o seguinte esquema e carga JSON para todos os alertas 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

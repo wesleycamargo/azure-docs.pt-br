@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric no Linux | Microsoft Docs
-description: Os clusters do Service Fabric dão suporte para o Linux e para o Java, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric escritos em Java e em C# no Linux.
+description: "Os clusters do Service Fabric dão suporte para o Linux e para o Java, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric escritos em Java e em C# no Linux."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 459afade-145d-4ee6-b72b-ddf380ccd1bf
 ms.service: service-fabric
 ms.devlang: Java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: SubramaR
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f52903801c53a50d149fe8732bf514194aae0478
+
 
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric no Linux
@@ -33,6 +37,7 @@ A visualização limitada oferece suporte à criação de clusters de desenvolvi
 > 
 > 
 
+
 ## <a name="supported-tooling"></a>Ferramentas com suporte
 A preview dá suporte à interação com o cluster por meio da CLI do Azure. Para desenvolvedores Java, a integração com o Eclipse e o Yeoman é fornecida com o Eclipse com suporte no Linux e no OSX. A integração OSX usa uma VM do Linux nos bastidores por meio do Vagrant. Para desenvolvedores C#, a integração com o Yeoman é fornecida para gerar modelos de aplicativos.
 
@@ -42,6 +47,9 @@ A preview dá suporte à interação com o cluster por meio da CLI do Azure. Par
 3. [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
 4. [Criar seu primeiro aplicativo do Java do Service Fabric no Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

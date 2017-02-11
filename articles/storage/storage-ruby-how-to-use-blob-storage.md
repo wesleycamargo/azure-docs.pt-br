@@ -3,8 +3,8 @@ title: Como usar o Armazenamento de Blobs (armazenamento de objeto) do Ruby | Mi
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: e2fe4c45-27b0-4d15-b3fb-e7eb574db717
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: b6eb8c68402a18a66f9d227a1a835bcee81f73cc
-ms.openlocfilehash: 78d07dbcd11692fc29518a29c64507940971bc6a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
 
 
 ---
@@ -51,7 +51,7 @@ Usando seu editor de texto favorito, adicione o seguinte na parte superior do ar
 require "azure"
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configurar uma conexão de armazenamento do Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configurar uma conexão do Armazenamento do Azure
 O módulo do Azure lerá as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS_KEY** para obter as informações necessárias para se conectar à sua conta de armazenamento do Azure. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações da conta antes de usar **Azure::Blob::BlobService** com o seguinte código:
 
 ```ruby
@@ -64,15 +64,15 @@ Para obter esses valores de uma conta de armazenamento clássico ou do Resource 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Na folha Configurações no lado direito, clique em **Chaves de Acesso**.
-4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas. 
-5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
+4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas.
+5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
 Para obter esses valores de uma conta de armazenamento clássico no Portal Clássico do Azure:
 
 1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior do painel de navegação.
-4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária. 
+4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a tecla de acesso primária e a tecla de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
 5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
 ## <a name="create-a-container"></a>Criar um contêiner
@@ -80,7 +80,7 @@ Para obter esses valores de uma conta de armazenamento clássico no Portal Clás
 
 O objeto **Azure::Blob::BlobService** permite que você trabalhe com contêineres e blobs. Para criar um contêiner, use o método **create\_container()**.
 
-O exemplo de código a seguir cria um contêiner ou imprime o erro, se houver algum.
+O exemplo de código a seguir cria um contêiner ou imprime o erro, se houver.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new
@@ -168,6 +168,6 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

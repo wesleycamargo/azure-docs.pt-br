@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao TimeOffManager | Microsoft Docs'
-description: Saiba como usar o TimeOffManager com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: integração do Azure Active Directory ao TimeOffManager | Microsoft Docs"
+description: "Saiba como usar o TimeOffManager com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ef606389a71e58b671fe84d91b0dbb22a35aad7a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Active Directory do Azure ao TimeOffManager
+# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integração do Active Directory do Azure ao TimeOffManager
 O objetivo deste tutorial é mostrar a integração do Azure com o TimeOffManager.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -36,7 +40,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-timeoffmanager"></a>Habilitando a integração de aplicativos com o TimeOffManager
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o TimeOffManager.
 
-### <a name="to-enable-the-application-integration-for-timeoffmanager,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos para o TimeOffManager, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-timeoffmanager-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o TimeOffManager, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-timeoffmanager-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do TimeOffManager.  
 Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração do aplicativo **TimeOffManager**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configure Single Sign-On")
@@ -143,7 +147,7 @@ Os usuários são adicionados automaticamente durante o primeiro logon usando o 
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder aos usuários do AD do Azure que você deseja que usem seu aplicativo acesso a ele.
 
-### <a name="to-assign-users-to-timeoffmanager,-perform-the-following-steps:"></a>Para atribuir usuários ao TimeOffManager, execute as seguintes etapas:
+### <a name="to-assign-users-to-timeoffmanager-perform-the-following-steps"></a>Para atribuir usuários ao TimeOffManager, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **TimeOffManager**, clique em **Atribuir usuários**.
    
@@ -154,6 +158,9 @@ Para testar sua configuração, é necessário conceder aos usuários do AD do A
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

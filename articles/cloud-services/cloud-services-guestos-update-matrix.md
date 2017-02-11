@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/01/2016
+ms.date: 12/14/2016
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46a27d34778b20ba23f406e58189f623e70a5941
+ms.sourcegitcommit: 9652e8365642ec0d088f73ba2bb4eaa0def653a6
+ms.openlocfilehash: 0752130c0e9116efcd0da44e8c81de356cace7e4
 
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
-Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações o ajudarão a planejar seu caminho de atualização antes de um SO convidado ser desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Configurações de atualização de SO convidado do Azure], não é essencial ler esta página.
+Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações o ajudarão a planejar seu caminho de atualização antes de um SO convidado ser desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
 
 > [!IMPORTANT]
 > Esta página se aplica às funções de trabalho e da Web dos Serviços de Nuvem, que são executados em um SO convidado. Ela **não se aplica** a Máquinas Virtuais IaaS. 
@@ -31,13 +31,19 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 <!-- -->
 
 > [!TIP]
-> Assine o Feed do [RSS de atualização do SO de convidado][rss] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
+> Assine o [RSS feed de atualização do SO convidado][rss] para receber as notificações mais recentes sobre todas as alterações do SO convidado.
 > 
 > 
 
 Não está certo quanto ao que é o SO convidado ou como as versões do SO convidado funcionam? Leia [esta](#how-it-works) seção.
 
 ## <a name="news-updates"></a>Notícias atualizadas
+###### <a name="december-14-2016"></a>**14 de dezembro de 2016**
+A distribuição do SO convidado de dezembro começa em 14 de dezembro de 2016 e deve ser lançada em 13 de janeiro de 2016.
+
+###### <a name="november-20-2016"></a>**20 de novembro de 2016**
+A distribuição do SO convidado de novembro começa em 8 de novembro de 2016 e deve ser lançada em 8 de dezembro de 2016.
+
 ###### <a name="october-23-2016"></a>**23 de outubro de 2016**
 O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro de 2016, com suporte do .NET 4.6.
 
@@ -78,13 +84,15 @@ O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para i
 Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> As datas com * estão sujeitas a alterações
+> As datas com * estão sujeitas a alterações. 
 > 
-> 
+> A senha de RDP para a Família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
+>
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.2_201610-02 |1 de novembro de 2016 |30 de janeiro de 2017 |TBD |
+| WA-GUEST-OS-5.3_201611-01 |14 de dezembro de 2016 |Post 5.5 |TBD |
+| WA-GUEST-OS-5.2_201610-02 |1 de novembro de 2016 |Post 5.4 |TBD |
 
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
@@ -98,9 +106,11 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.38_201611-01 |14 de dezembro de 2016 |Post 4.4 |TBD |
+| WA-GUEST-OS-4.37_201610-02 |16 de novembro de 2016 |Post 4.39 |TBD |
 | WA-GUEST-OS-4.36_201609-01 |13 de outubro de 2016 |Post 4.38 |TBD |
-| WA-GUEST-OS-4.35_201608-01 |13 de setembro de 2016 |Post 4.37 |TBD |
-| WA-GUEST-OS-4.34_201607-01 |8 de agosto de 2016 |Post 4.36 |TBD |
+| WA-GUEST-OS-4.35_201608-01 |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
+| WA-GUEST-OS-4.34_201607-01 |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
 | WA-GUEST-OS-4.33_201606-01 |13 de julho de 2016 |13 de outubro de 2016 |TBD |
 | WA-GUEST-OS-4.32_201605-01 |10 de junho de 2016 |8 de setembro de 2016 |TBD |
 | WA-GUEST-OS-4.31_201604-01 |2 de maio de 2016 |13 de agosto de 2016 |TBD |
@@ -130,9 +140,11 @@ Dá suporte a .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.45_201611-01 |14 de dezembro de 2016 |Post 3.47 |TBD |
+| WA-GUEST-OS-3.44_201610-01 |16 de novembro de 2016 |Post 3.46 |TBD |
 | WA-GUEST-OS-3.43_201609-01 |13 de outubro de 2016 |Post 3.45 |TBD |
-| WA-GUEST-OS-3.42_201608-01 |13 de setembro de 2016 |Post 3.44 |TBD |
-| WA-GUEST-OS-3.41_201607-01 |8 de agosto de 2016 |Post 3.43 |TBD |
+| WA-GUEST-OS-3.42_201608-01 |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
+| WA-GUEST-OS-3.41_201607-01 |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
 | WA-GUEST-OS-3.40_201606-01 |13 de julho de 2016 |13 de outubro de 2016 |TBD |
 | WA-GUEST-OS-3.39_201605-01 |10 de junho de 2016 |8 de setembro de 2016 |TBD |
 | WA-GUEST-OS-3.38_201604-01 |2 de maio de 2016 |13 de agosto de 2016 |TBD |
@@ -162,9 +174,11 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação | Data de validade |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.57_201611-01 |14 de dezembro de 2016 |Post 2.59 |TBD |
+| WA-GUEST-OS-2.56_201610-01 |16 de novembro de 2016 |Post 2.58 |TBD |
 | WA-GUEST-OS-2.55_201609-01 |13 de outubro de 2016 |Post 2.57 |TBD |
-| WA-GUEST-OS-2.54_201608-01 |13 de setembro de 2016 |Post 2.56 |TBD |
-| WA-GUEST-OS-2.53_201607-01 |8 de agosto de 2016 |Post 2.55 |TBD |
+| WA-GUEST-OS-2.54_201608-01 |13 de setembro de 2016 |16 de dezembro de 2016 |TBD |
+| WA-GUEST-OS-2.53_201607-01 |8 de agosto de 2016 |13 de novembro de 2016 |TBD |
 | WA-GUEST-OS-2.52_201606-01 |13 de julho de 2016 |13 de outubro de 2016 |TBD |
 | WA-GUEST-OS-2.51_201605-01 |10 de junho de 2016 |8 de setembro de 2016 |TBD |
 | WA-GUEST-OS-2.50_201604-01 |2 de maio de 2016 |13 de agosto de 2016 |TBD |
@@ -183,10 +197,10 @@ Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 | ~~WA-GUEST-OS-2.38_201504-01~~ |17 de abril de 2015 |9 de agosto de 2015 |TBD |
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
-A lista de correções incluídas em cada lançamento mensal de SO convidado está disponível [aqui][patches].
+A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
 
 ## <a name="sdk-support"></a>Suporte a SDK
-Embora a [política de desativação do SDK do Azure][sdk da política de desativação] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO Convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte. 
+Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte. 
 
 | Família do SO convidado | Versões compatíveis do SDK |
 | --- | --- |
@@ -207,13 +221,13 @@ Quando a data de **validade** vence, qualquer Serviço de Nuvem ainda usando o S
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os serviços de nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento. 
 
 * **Guest OS family**  
-   Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
+  Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
-  Específica da imagem da família de SO Convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO Convidado é produzida. Nem todos os patches estarão necessariamente incluídos. 
+  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos. 
   
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
-   Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug. 
+  Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal clássico do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug. 
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 
@@ -226,33 +240,33 @@ A cadeia de caracteres de configuração para um SO convidado tem inseridas nela
 ## <a name="guest-os-system-update-process"></a>Processo de atualização de sistema do SO convidado
 Esta página contém informações sobre as próximas versões do SO convidado. Os clientes indicaram que desejam saber quando um lançamento ocorre, porque suas funções de serviço de nuvem reinicializarão se elas estiverem definidas para atualização "Automática". Lançamentos de SO convidado normalmente ocorrem pelo menos 5 dias após o lançamento da atualização do MSRC, que por sua vez ocorre na segunda terça-feira de cada mês. As novas versões incluem todos os patches do MSRC relevantes para cada família de SOs convidados. 
 
-O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [Feed RSS de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações. 
+O Microsoft Azure está constantemente lançando atualizações. O SO convidado é apenas uma atualização desse tipo no pipeline. Uma versão pode ser afetada por um número muito grande de fatores para que se possa listá-los aqui. Além disso, o Azure é executado em literalmente centenas de milhares de computadores. Isso significa que é impossível fornecer uma data e hora exatas em que a função (ou funções) será reinicializada. Atualizaremos o [RSS feed de atualização do SO convidado][rss] com as informações mais recentes que tivermos, mas considere esse horário como uma janela aproximada. Estamos cientes de que isso causa problemas para clientes e estamos trabalhando em um plano limitar ou programar as reinicializações. 
 
 Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal clássico do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração. 
 
-Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de Host e de Convidado, veja a postagem no blog MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][reinícios].
+Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de host e convidados, consulte a postagem no blog do MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
 
 Se você atualizar manualmente o SO convidado, leia [Política de desativação do SO convidado][retirepolicy].
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].
 
-[Instalar o .NET em uma Função do Serviço de Nuvem]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Configurações de atualização de SO convidado do Azure]: cloud-services-how-to-configure.md
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
-[Comunicado de Segurança da Microsoft 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
+[Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
-[sdk da política de desativação]: https://msdn.microsoft.com/library/dn479282.aspx
-[servidor e gos]: https://msdn.microsoft.com/library/dn775043.aspx
+[retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
+[server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
-[pacote de instalação de rede]: http://www.microsoft.com/download/details.aspx?id=42643
+[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: http://www.microsoft.com/security/msrc/default.aspx
-[atualizar portal do sistema operacional convidado]: https://msdn.microsoft.com/library/gg433101.aspx
-[atualizar serviço do sistema operacional convidado]: https://msdn.microsoft.com/library/gg456324.aspx
-[reinícios]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
+[update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
+[restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
@@ -260,6 +274,6 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

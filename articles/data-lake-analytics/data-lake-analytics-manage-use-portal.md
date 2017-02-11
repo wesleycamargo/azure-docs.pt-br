@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 289f6e91458a1a4799941ccea46f7ee6d1a296c4
+ms.sourcegitcommit: 86711ba89442c3569b570bbf3ea2d1661a469011
+ms.openlocfilehash: 34be29749075b9953950ffd64d2526430307d33e
 
 
 ---
@@ -148,7 +148,9 @@ Para saber mais sobre como criar usuários e grupos de segurança do Active Dire
 3. Na folha **Usuário**, clique em **Adicionar**.
 4. Selecione uma função e adicione um usuário, em seguida clique em **OK**.
 
-**Observação: se esse usuário ou grupo de segurança precisar enviar trabalhos, será necessário conceder a permissão no Data Lake Store. Para obter mais informações, consulte [Proteger dados armazenados no Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
+>[!NOTE]
+>Se esse usuário ou grupo de segurança precisar enviar trabalhos, será necessário obter permissão no Data Lake Store também. Para obter mais informações, consulte [Proteger dados armazenados no Data Lake Store](../data-lake-store/data-lake-store-secure-data.md)
+>
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -248,6 +250,6 @@ No entanto, o grupo Gerenciamento de Recursos pode estar localizado em um data c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5b7f1533aca3b5391252e4195e2edeb6443827fd
+ms.sourcegitcommit: e1f9c62765e414e194330419f26c2b7437da21b3
+ms.openlocfilehash: 79cfe90bb883b5cadf707272d31a990c8886dbe4
 
 
 ---
@@ -63,7 +63,7 @@ Você instalou o SDK que envia dados de telemetria da extremidade do servidor (b
 Adicione o trecho de JavaScript do Application Insights para cada página da Web, a fim de obter a telemetria de navegadores cliente.
 
 1. No Azure, abra o recurso Application Insights para seu aplicativo.
-2. Abra a Introdução, Monitor do lado do cliente e copie o trecho.
+2. Abra Introdução, Monitorar e diagnosticar aplicativos do lado do cliente e copie o trecho.
 3. Cole-o para que ele apareça na parte superior de cada página da Web. Normalmente, você pode fazer isso colando na página de layout mestre.
 
 ![Estender no Azure](./media/app-insights-asp-net-more/100.png)
@@ -133,6 +133,6 @@ Há várias maneiras de explorar seus dados. Se você tiver começado a usar o A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

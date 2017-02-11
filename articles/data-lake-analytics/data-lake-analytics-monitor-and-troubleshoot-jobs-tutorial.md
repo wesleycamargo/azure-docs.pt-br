@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: e266bf691f91381e6eed8138acd5baef44d88b57
+ms.sourcegitcommit: 194b5d79505afbfd0208f63dd182a0e03227ba69
+ms.openlocfilehash: 1915201480f57c5f132e13bb5ce4283fbea975fe
 
 
 ---
@@ -59,7 +59,7 @@ Agora, você criará um trabalho do U-SQL com um nome de arquivo de origem invá
             TO "/output/SearchLog-from-adls.csv"
         USING Outputters.Csv();
 
-    O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, no qual ele deverá ser **/Samples/Data/SearchLog.tsv**.
+    O arquivo de origem definido no script é **/Samples/Data/SearchLog.tsv1**, em que ele deverá ser **/Samples/Data/SearchLog.tsv**.
 5. Clique em **Enviar Trabalho** na parte superior. Um novo painel Detalhes do Trabalho é aberto. Na barra de título, ele mostra o status do trabalho. Leva alguns minutos para ser concluído. Você pode clicar em **Atualizar** para obter o status mais recente.
 6. Aguarde até que o status do trabalho seja alterado para **Falha**.  Se o trabalho for **Bem-sucedido**, isso ocorreu porque você não removeu a pasta /Samples. Veja a seção **Pré-requisito** no início do tutorial.
 
@@ -105,6 +105,6 @@ Na última seção, você enviou um trabalho e o trabalho falhou.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

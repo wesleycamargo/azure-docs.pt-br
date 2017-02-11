@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9671e22d6c027c589e229ae2ecbbda71f0bb7e1c
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 63e822de6ae50be33590048140e06e89526282ee
 
 
 ---
 # <a name="manage-azure-virtual-machines-using-resource-manager-and-powershell"></a>Gerenciar Máquinas Virtuais do Azure usando o Resource Manager e o PowerShell
 ## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
-Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="set-variables"></a>Definir variáveis
 Todos os comandos no artigo requerem o nome do grupo de recursos no qual se encontra a máquina virtual e o nome da máquina virtual a ser gerenciada. Substitua o valor **$rgName** pelo nome do grupo de recursos que contém a máquina virtual. Substitua o valor **$vmName** pelo nome da VM. Crie as variáveis.
@@ -218,11 +218,11 @@ O arquivo de script pode conter algo parecido com este código para inicializaç
     }
 
 ## <a name="next-steps"></a>Próximas etapas
-Se houver problemas com a implantação, a próxima etapa será examinar [(Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+Se houver problemas com a implantação, a próxima etapa será examinar [Solucionando os problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

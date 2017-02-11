@@ -1,32 +1,36 @@
 ---
 title: Conectar um dispositivo usando o Node.js | Microsoft Docs
-description: Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em Node.js.
-services: ''
+description: "Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em Node.js."
+services: 
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 01/04/2017
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 02247d679c9bffa01b8d2827ea57eba38894107e
+ms.openlocfilehash: 698384bb5079feb937f423f9b6365dff20cfa3be
+
 
 ---
-# Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Node.js)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Node.js)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Compilar e executar a solução de exemplo node.js
-1. Para clonar o repositório GitHub dos *SDKs do Microsoft Azure IoT* e instalar o *SDK de dispositivo de IoT do Microsoft Azure para Node.js* em seu ambiente de área de trabalho, siga as instruções em [Preparar seu ambiente de desenvolvimento][lnk-github-prepare].
-2. Em sua cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois seguintes arquivos da pasta node/device/samples em uma pasta no seu dispositivo:
+## <a name="build-and-run-the-nodejs-sample-solution"></a>Compilar e executar a solução de exemplo node.js
+1. Para clonar o repositório GitHub do *SDK de IoT do Microsoft Azure* e instalá-lo em seu ambiente de área de trabalho, siga as instruções em [Preparar seu ambiente de desenvolvimento][lnk-github-prepare].
+2. Em sua cópia local do repositório [azure-iot-sdk-node][lnk-github-repo], copie os dois seguintes arquivos da pasta device/samples para uma pasta no seu dispositivo:
    
-   * packages.json
-   * remote\_monitoring.js
-3. Abra o arquivo remote\_monitoring.js e procure a seguinte variável:
+   * package.json
+   * remote_monitoring.js
+3. Abra o arquivo remote_monitoring.js e procure a seguinte variável:
    
     ```
     var connectionString = "[IoT Hub device connection string]";
@@ -37,7 +41,7 @@ ms.author: dobett
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    Se o seu nome de host do Hub IoT for **contoso** e a sua ID de dispositivo for **mydevice**, sua cadeia de conexão terá esta aparência:
+    Se o nome de host do Hub IoT for **contoso** e a ID de dispositivo for **mydevice**, a cadeia de conexão terá esta aparência:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
@@ -45,13 +49,17 @@ ms.author: dobett
 5. Salve o arquivo. Execute os seguintes comandos no prompt de comando na pasta que contém os arquivos para instalar os pacotes necessários e, em seguida, execute o aplicativo de exemplo:
    
     ```
-    npm install
+    npm install --save
     node remote_monitoring.js
     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-[lnk-github-repo]: https://github.com/azure/azure-iot-sdks
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

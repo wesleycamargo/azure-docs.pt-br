@@ -17,8 +17,14 @@
 ### [Monitorar com o OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitorar com Datadog (DC/SO)](container-service-monitoring.md)
 ### [Monitorar com Sysdig (DC/SO)](container-service-monitoring-sysdig.md)
-## [Gerenciar com Kubernetes](container-service-kubernetes-walkthrough.md)
-## [Gerenciar com o Docker Swarm](container-service-docker-swarm.md)
+### [Monitor com Dynatrace (DC/SO)](container-service-monitoring-dynatrace.md)
+## Gerenciar com Kubernetes
+### [Introdução ao Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Configurar uma entidade de serviço](container-service-kubernetes-service-principal.md)
+### [Interagir com a IU da Web do Kubernetes](container-service-kubernetes-ui.md)
+## Gerenciar com o Docker Swarm
+### [Docker e Docker Compose](container-service-docker-swarm.md)
+### [Integração contínua do Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
@@ -29,6 +35,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

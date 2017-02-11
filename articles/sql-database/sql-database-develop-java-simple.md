@@ -1,33 +1,38 @@
 ---
 title: Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows | Microsoft Docs
-description: Apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O exemplo usa o JDBC, e é executado em um computador cliente com Windows.
+description: "Apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O exemplo usa o JDBC, e é executado em um computador cliente com Windows."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: LuisBosquez
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 08fc49b1-cd48-4dcc-a293-ff22a4d2d62c
 ms.service: sql-database
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 10/03/2016
 ms.author: lbosq
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d8934ab6ac0fd29e5b389c2690b5ef42575e005
+
 
 ---
-# Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows
-[!INCLUDE [SQL-Database-develop-Includes-Selector-Language-Platform-Depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+# <a name="connect-to-sql-database-by-using-java-with-jdbc-on-windows"></a>Conectar-se ao Banco de Dados SQL usando Java com JDBC no Windows
+[!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 Este tópico apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O exemplo de Java se baseia no Java Development Kit (JDK) versão 1.8. O exemplo se conecta a um Banco de Dados SQL do Azure usando o driver JDBC.
 
-## Etapa 1: configurar o Ambiente de Desenvolvimento
+## <a name="step-1--configure-development-environment"></a>Etapa 1: configurar o Ambiente de Desenvolvimento
 [Configurar um ambiente de desenvolvimento para desenvolvimento Java](https://msdn.microsoft.com/library/mt720658.aspx)
 
-## Etapa 2: Criar um banco de dados SQL
-Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados.
+## <a name="step-2-create-a-sql-database"></a>Etapa 2: Criar um banco de dados SQL
+Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados.  
 
-## Etapa 3: Obter a cadeia de conexão
+## <a name="step-3-get-connection-string"></a>Etapa 3: Obter a cadeia de conexão
 [!INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
 > [!NOTE]
@@ -35,16 +40,21 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 > 
 > 
 
-## Etapa 4: Executar o código de exemplo
-* [Proof of Concept connecting to SQL using Java](https://msdn.microsoft.com/library/mt720656.aspx) (Prova de conceito, conectar-se ao SQL usando Java)
+## <a name="step-4-run-sample-code"></a>Etapa 4: Executar o código de exemplo
+* [Proof of Concept connecting to SQL using Java](https://msdn.microsoft.com/library/mt720656.aspx)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Visite o [Centro de Desenvolvimento do Java](/develop/java/).
 * Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * Mais informações sobre o [Microsoft JDBC Driver para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

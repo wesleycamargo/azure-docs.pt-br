@@ -1,12 +1,12 @@
 ---
 title: 'Exemplo de IoT do Azure do MyDriving: crie-o | Microsoft Docs'
-description: Crie um aplicativo que apresenta uma demonstração abrangente de como projetar um sistema de IoT usando o Microsoft Azure, incluindo o Stream Analytics, o Aprendizado de Máquina e os Hubs de Eventos.
-services: ''
+description: "Crie um aplicativo que apresenta uma demonstração abrangente de como projetar um sistema de IoT usando o Microsoft Azure, incluindo o Stream Analytics, o Aprendizado de Máquina e os Hubs de Eventos."
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+
 
 ---
 # <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>Criar e implantar a Solução MyDriving no seu ambiente
@@ -192,7 +196,7 @@ Para executar uma implantação automática de serviços do Azure e dos serviço
 
 O Microsoft Azure fornece uma infinidade de serviços diferentes que você pode usar para criar aplicativos de nuvem. Embora muitos deles possam ser usados individualmente (por exemplo, Serviço de Aplicativo/Aplicativos Web), eles funcionam melhor quando interconectados para formar um sistema integrado como o que usamos no MyDriving.
 
-É possível criar e interconectar os serviços do Azure manualmente, mas é muito mais rápido e confiável usar modelos do Azure Resource Manager. [Resource Manager](../resource-group-overview.md) automatiza a implantação dos recursos de uma solução e cria as interconexões entre eles.
+É possível criar e interconectar os serviços do Azure manualmente, mas é muito mais rápido e confiável usar modelos do Azure Resource Manager. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatiza a implantação dos recursos de uma solução e cria as interconexões entre eles.
 
 Você encontrará o modelo para o sistema MyDriving no repositório do GitHub em [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Ele fornece uma exibição muito abrangente e concisa de como os diferentes serviços em nossa arquitetura são interconectados. Explicamos todos eles detalhadamente no [Guia de Referência do MyDriving](http://aka.ms/mydrivingdocs), mas você pode aprender muito apenas lendo o próprio modelo.
 
@@ -377,7 +381,7 @@ Supomos que:
 Para obter mais informações, consulte:
 
 * Resumo dos [limites e cotas do serviço do Azure](../azure-subscription-service-limits.md#iot-hub-limits)
-* [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
+*  [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>Envie-nos seus comentários
 Uma vez que criamos o MyDriving para ajudar a iniciar rapidamente seus próprios sistemas de IoT, certamente desejamos saber de você como ele funciona. Fale conosco se:
@@ -394,6 +398,9 @@ Aguardamos seu contato!
 ## <a name="next-steps"></a>Próximas etapas
 Recomendamos o [Guia de Referência do MyDriving](http://aka.ms/mydrivingdocs), que é uma descrição abrangente do design do sistema e seus componentes.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
