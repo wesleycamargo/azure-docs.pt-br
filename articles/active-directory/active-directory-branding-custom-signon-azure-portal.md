@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -45,10 +45,10 @@ Quando você visita um serviço com URLs específicas sem locatário (por exempl
 > [!NOTE]
 > * O nome do domínio deve aparecer como "Ativo" na parte **Domínios** do portal do Azure no qual você configurou a identidade visual. Para obter mais informações, confira [Adicionar nomes de domínio personalizados](active-directory-domains-add-azure-portal.md).
 > * A identidade visual da página de entrada não se transfere para a página de entrada do consumidor da Microsoft. Se você entrar com uma conta da Microsoft, talvez veja uma lista com identidade visual de blocos de usuários renderizados pelo Azure AD, mas a identidade visual da sua organização não se aplicará à página de entrada da conta da Microsoft.
-> 
-> 
+>
+>
 
-Na sua página de entrada, a caixa de seleção **Mantenha-me conectado** permite que o usuário permaneça conectado ao fechar e reabrir o navegador. 
+Na sua página de entrada, a caixa de seleção **Mantenha-me conectado** permite que o usuário permaneça conectado ao fechar e reabrir o navegador.
 
    ![Mantenha-me conectado](./media/active-directory-branding-custom-signon-azure-portal/01.png)
 
@@ -57,22 +57,22 @@ A exibição da caixa de seleção depende da configuração de **Manter a minha
 
    ![Mantenha-me conectado](./media/active-directory-branding-custom-signon-azure-portal/02.png)
 
-Para ocultar a caixa de seleção, defina essa configuração para **Sim**. 
+Para ocultar a caixa de seleção, defina essa configuração para **Sim**.
 
 > [!NOTE]
 > Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários marcarem essa caixa de seleção. Se você definir essa configuração como oculta, os usuários poderão ver avisos adicionais e inesperados para entrar.
-> 
-> 
+>
+>
 
 **Para adicionar identidade visual da empresa ao diretório:**
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
-   
+
    ![Abrir o gerenciamento de usuários](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - Identidade visual da empresa**, selecione o comando **Editar**.
-   
+
     ![Editar identidade visual personalizada](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
@@ -81,7 +81,6 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar identidade visual da empresa específica a um idioma](active-directory-branding-localize-azure-portal.md)
-
 
 
 
