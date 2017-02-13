@@ -192,6 +192,6 @@ Para atualizar a CLI, navegue até o diretório onde você clonou a CLI e execut
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
