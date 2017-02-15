@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/11/2016
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1735370b7365a1b865f816a6e6120bd53237f126
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: a1a292716a501adbc048ef68b9f567865ef991b2
 
 
 ---
@@ -39,9 +39,9 @@ Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você 
 
 Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
-Dependendo de como você configura a política de entrega de ativos, você será capaz de empacotar dinamicamente, criptografar dinamicamente e transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e fluxos HDS.
+Dependendo de como configurar a política de entrega de ativos, você poderá empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: transmissões MPEG DASH, HLS e Smooth Streaming.
 
-A lista a seguir mostra os formatos que você usa para transmitir Smooth, HLS, DASH e HDS.
+A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.
 
 Smooth Streaming:
 
@@ -55,11 +55,6 @@ MPEG DASH
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
-HDS
-
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
-
-Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Considerações
 * Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo. A recomendação é remover a política do ativo antes de excluir a política.
@@ -68,36 +63,50 @@ Para obter instruções sobre como publicar um ativo e criar uma URL de streamin
 * Se você tiver um ativo com um localizador de streaming existente, não será possível vincular uma nova política ao ativo (você pode desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo).  Primeiramente, você precisa remover o localizador de streaming, ajustar as políticas e recriar o localizador de streaming.  Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes, uma vez que o conteúdo pode ser armazenado em cache pela CDN de origem ou downstream.
 
 ## <a name="clear-asset-delivery-policy"></a>Política de entrega de ativos clara
+
 O seguinte método **ConfigureClearAssetDeliveryPolicy** especifica para não aplicar criptografia dinâmica e entregar o fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e Smooth Streaming. Você talvez queira aplicar essa política para seus ativos de armazenamento criptografados.
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
-static public void ConfigureClearAssetDeliveryPolicy(IAsset asset) { IAssetDeliveryPolicy policy = _context.AssetDeliveryPolicies.Create("Clear Policy", AssetDeliveryPolicyType.NoDynamicEncryption, AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-asset.DeliveryPolicies.Add(policy); }
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+    {
+        IAssetDeliveryPolicy policy =
+        _context.AssetDeliveryPolicies.Create("Clear Policy",
+        AssetDeliveryPolicyType.NoDynamicEncryption,
+        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+        
+        asset.DeliveryPolicies.Add(policy);
+    }
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicCommonEncryption
+
 O método **CreateAssetDeliveryPolicy** a seguir cria o **AssetDeliveryPolicy**, que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) a um protocolo de streaming suave (outros protocolos de streaming serão bloqueados no streaming). O método utiliza dois parâmetros: **Ativo** (o ativo ao qual você deseja aplicar a política de entrega) e **IContentKey** (a chave de conteúdo do tipo **CommonEncryption**. Para obter mais informações, consulte: [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .
 
-static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key) { Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-
-Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration = new Dictionary<AssetDeliveryPolicyConfigurationKey, string> { {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}, };
-
-        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-                "AssetDeliveryPolicy",
-            AssetDeliveryPolicyType.DynamicCommonEncryption,
-            AssetDeliveryProtocol.SmoothStreaming,
-            assetDeliveryPolicyConfiguration);
-
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-        Console.WriteLine();
-        Console.WriteLine("Adding Asset Delivery Policy: " +
-            assetDeliveryPolicy.AssetDeliveryPolicyType);
-    }
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    {
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+            {
+                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            };
+    
+            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                AssetDeliveryPolicyType.DynamicCommonEncryption,
+                AssetDeliveryProtocol.SmoothStreaming,
+                assetDeliveryPolicyConfiguration);
+    
+            // Add AssetDelivery Policy to the asset
+            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+    
+            Console.WriteLine();
+            Console.WriteLine("Adding Asset Delivery Policy: " +
+                assetDeliveryPolicy.AssetDeliveryPolicyType);
+     }
 
 Os Serviços de Mídia do Azure também permitem que você adicione criptografia Widevine. O exemplo a seguir demonstra o PlayReady e o Widevine sendo adicionados à política de fornecimento de ativos.
 
@@ -214,11 +223,6 @@ Para obter informações sobre os valores que você pode especificar ao criar um
         /// Apple HTTP Live Streaming protocol.
         /// </summary>
         HLS = 0x4,
-
-        /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
 
         /// <summary>
         /// Include all protocols.
@@ -344,6 +348,6 @@ Para obter informações sobre os valores que você pode especificar ao criar um
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

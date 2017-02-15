@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar os serviços de monitoramento e de diagnóstico para acompanhar o desempenho, manter a segurança e identificar tendências. Referências de API, práticas recomendadas e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentação do Monitoramento e Diagnóstico
 
-O Monitoramento e Diagnóstico é uma plataforma de sistemas distribuídos que torna mais fácil empacotar, implantar e gerenciar microsserviços escalonáveis e confiáveis, bem como resolver desafios significativos no desenvolvimento e gerenciamento de aplicativos em nuvem.  O Monitoramento e Diagnóstico representa a plataforma de middleware de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de Camada 1 e nível corporativo.
+Aprenda a usar os serviços de monitoramento e de diagnóstico do Azure para acompanhar o desempenho, manter a segurança e identificar tendências. Os tutoriais, as referências de API, as práticas recomendadas e outras documentações ajudarão você a compreender os usos de monitoramento e de diagnóstico e a planejar e implantar soluções escalonáveis e confiáveis.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -137,7 +138,7 @@ O Monitoramento e Diagnóstico é uma plataforma de sistemas distribuídos que t
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">referência da API REST</a></p>
+                        <p><a href="/rest/api/monitor/">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -145,15 +146,10 @@ O Monitoramento e Diagnóstico é uma plataforma de sistemas distribuídos que t
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Monitoramento e Diagnóstico </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

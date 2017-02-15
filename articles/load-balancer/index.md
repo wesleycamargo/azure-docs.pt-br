@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Balanceador de Carga para o desempenho de rede dos aplicativos. Gerencie o tráfego para máquinas virtuais e recursos de nuvem e em redes virtuais entre locais."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Documentação do Balanceador de Carga
 
-O Azure Load Balancer oferece alta disponibilidade e desempenho de rede para seus aplicativos.  O Balanceador de Carga pode ser configurado para carregar o tráfego de entrada da Internet em máquinas virtuais, tráfego entre os recursos de nuvem, tráfego em uma rede virtual entre locais ou o tráfego externo para uma máquina virtual específica.
+Saiba mais sobre como configurar o Balanceador de Carga para oferecer alta disponibilidade e desempenho de rede para seus aplicativos. A documentação mostra como balancear a carga do tráfego de e para máquinas virtuais e recursos de nuvem, e em redes virtuais entre locais.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +107,7 @@ O Azure Load Balancer oferece alta disponibilidade e desempenho de rede para seu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
@@ -123,7 +124,7 @@ O Azure Load Balancer oferece alta disponibilidade e desempenho de rede para seu
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">referência da API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -131,16 +132,10 @@ O Azure Load Balancer oferece alta disponibilidade e desempenho de rede para seu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Balanceador de Carga </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Saiba como criar uma máquina virtual usando a distribuição do Linux de sua escolha. A Documentação mostra diferentes maneiras de criar modelos de VM."
+title: "Documentação, Tutoriais e Referência de API das Máquinas Virtuais do Azure | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f368f2700bd349e106169d1828af7a148daa5cc2
-ms.openlocfilehash: f87947ed5f072ba4f0927ade1b1d3ec0e1424f3c
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Documentação da Máquina Virtual do Linux
+# <a name="linux-virtual-machine-documentation"></a>Documentação da Máquina Virtual do Linux
 
-Use as Máquinas Virtuais do Azure para criar e executar as máquinas virtuais do Linux em computação, redes e infraestrutura de armazenamento do Azure.  Dimensione para milhares de computadores para implantações em toda a Internet ou execute um por alguns minutos para lidar com grandes volumes de números: você obterá velocidade e consistência.
+Saiba como executar Máquinas Virtuais no Azure usando a distribuição do Linux de sua escolha. Documentação, referências de API e exemplos mostram diferentes maneiras de criar e implantar modelos de VM.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,7 +134,7 @@ Use as Máquinas Virtuais do Azure para criar e executar as máquinas virtuais d
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute">referência da API REST</a></p>
+                        <p><a href="/rest/api/compute">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -130,16 +142,10 @@ Use as Máquinas Virtuais do Azure para criar e executar as máquinas virtuais d
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação da Máquina Virtual do Linux </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

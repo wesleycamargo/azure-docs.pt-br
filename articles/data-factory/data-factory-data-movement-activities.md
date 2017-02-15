@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: f8e9579f15c79eef6a90c6a583b3f9ba2599d55d
-ms.openlocfilehash: d51a62cd3b0320beb7996d1b472ad500cfddd1d1
+ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
+ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
 
 
 ---
@@ -80,28 +80,28 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 
 | Geografia do repositório de dados de destino | Região do armazenamento de dados de destino | Região usada para movimentação de dados |
 |:--- |:--- |:--- |
-| Estados Unidos | Leste dos EUA |Leste dos EUA |
-| . | Leste dos EUA 2 |Leste dos EUA 2 |
-| . | Centro dos EUA |Centro dos EUA |
-| . | Centro-Norte dos EUA |Centro-Norte dos EUA |
-| . | Centro-Sul dos Estados Unidos |Centro-Sul dos Estados Unidos |
-| . | Centro-Oeste dos EUA |Centro dos EUA |
-| . | Oeste dos EUA |Oeste dos EUA |
-| . | Oeste dos EUA 2 |Oeste dos EUA |
+| Estados Unidos | Leste dos EUA | Leste dos EUA |
+| . | Leste dos EUA 2 | Leste dos EUA 2 |
+| . | Centro dos EUA | Centro dos EUA |
+| . | Centro-Norte dos EUA | Centro-Norte dos EUA |
+| . | Centro-Sul dos Estados Unidos | Centro-Sul dos Estados Unidos |
+| . | Centro-Oeste dos EUA | Centro-Oeste dos EUA |
+| . | Oeste dos EUA | Oeste dos EUA |
+| . | Oeste dos EUA 2 | Oeste dos EUA |
 | Canadá | Leste do Canadá | Canadá Central |
 | . | Canadá Central | Canadá Central |
-| Brasil | Sul do Brasil |Sul do Brasil |
-| Europa | Norte da Europa |Norte da Europa |
-| . | Europa Ocidental |Europa Ocidental |
-| Pacífico Asiático | Sudeste Asiático |Sudeste Asiático |
-| . | Ásia Oriental |Sudeste Asiático |
-| Austrália | Leste da Austrália |Leste da Austrália |
-| . | Sudeste da Austrália |Sudeste da Austrália |
-| Japão | Leste do Japão |Leste do Japão |
-| . | Oeste do Japão |Leste do Japão |
-| Índia | Índia Central |Índia Central |
-| . | Índia Ocidental |Índia Central |
-| . | Sul da Índia |Índia Central |
+| Brasil | Sul do Brasil | Sul do Brasil |
+| Europa | Norte da Europa | Norte da Europa |
+| . | Europa Ocidental | Europa Ocidental |
+| Pacífico Asiático | Sudeste Asiático | Sudeste Asiático |
+| . | Ásia Oriental | Sudeste Asiático |
+| Austrália | Leste da Austrália | Leste da Austrália |
+| . | Sudeste da Austrália | Sudeste da Austrália |
+| Japão | Leste do Japão | Leste do Japão |
+| . | Oeste do Japão | Leste do Japão |
+| Índia | Índia Central | Índia Central |
+| . | Índia Ocidental | Índia Central |
+| . | Sul da Índia | Índia Central |
 
 
 > [!NOTE]
@@ -127,47 +127,48 @@ Para a Atividade de Cópia, a seção `typeProperties` varia de acordo com os ti
 
 Veja um exemplo de definição JSON:
 
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from Azure blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from Azure blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputBlobTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputSQLTable"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputBlobTable"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputSQLTable"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+}
+```
 A agenda que é definida no conjunto de dados de saída determina quando a atividade é executada (por exemplo, **diariamente**, frequência como **dia** e intervalo como **1**). A atividade copia dados de um conjunto de dados de entrada (**origem**) para um conjunto de dados de saída (**coletor**).
 
 Você pode especificar mais de um conjunto de dados de entrada para a Atividade de Cópia. Eles são usados para verificar as dependências antes que a atividade seja executada. No entanto, somente os dados do primeiro conjunto de dados são copiados para o conjunto de dados de destino. Para saber mais, confira [Agendamento e execução](data-factory-scheduling-and-execution.md).  
@@ -192,6 +193,6 @@ O mapeamento de um sistema de tipo nativo para o tipo .NET do armazenamento de d
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

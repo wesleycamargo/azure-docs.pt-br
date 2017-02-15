@@ -1,19 +1,23 @@
 ---
-title: Como gerenciar certificados de federação no AD do Azure | Microsoft Docs
-description: Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve.
+title: "Como Gerenciar os Certificados de Federação no Azure AD | Microsoft Docs"
+description: "Saiba como personalizar a data de vencimento para seus certificados de federação e como renovar certificados que vencerão em breve."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
+
 
 ---
 # <a name="managing-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciamento de certificados para logon único federado no Active Directory do Azure
@@ -71,6 +75,9 @@ As etapas de renovação mostradas abaixo idealmente não devem resultar em nenh
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -125,7 +125,7 @@ Para obter mais informações sobre como criar alertas, consulte os seguintes ar
 Este artigo mostrou exemplos simples de dimensionamento vertical. Com essa base (conta de Automação, Runbooks, webhooks e alertas) você pode conectar uma grande variedade de eventos com um conjunto personalizado de ações.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
-[galeria]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
+[gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
 
 
 

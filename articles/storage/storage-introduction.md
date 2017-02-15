@@ -3,8 +3,8 @@ title: "Introdução ao Armazenamento | Microsoft Docs"
 description: "Uma visão geral do armazenamento do Azure e do armazenamento de dados online da Microsoft na nuvem. Saiba como usar a melhor solução de armazenamento em nuvem disponível nos seus aplicativos."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Para usuários com grandes quantidades de dados de objetos não estruturados par
 * Dados de configuração de aplicativos de nuvem
 * Big data, como logs e outros grandes conjuntos de dados
 
-Cada blob é organizado em um contêiner. Os contêineres também fornecem uma maneira útil para atribuir políticas de segurança para grupos de objetos. Uma conta de armazenamento pode conter qualquer número de contêineres e um contêiner pode conter qualquer número de blobs, até o limite de 500 TB de capacidade da conta de armazenamento.  
+Cada blob é organizado em um contêiner. Os contêineres também fornecem uma maneira útil para atribuir políticas de segurança para grupos de objetos. Uma conta de armazenamento pode conter qualquer número de contêineres e um contêiner pode conter qualquer número de blobs, até o limite de 500 TB de capacidade da conta de armazenamento.
 
 O armazenamento de blobs oferece três tipos de blobs: blob de blocos, blob de anexo e blob de páginas (discos).
 
@@ -128,32 +128,32 @@ Confira [Usando Assinaturas de Acesso Compartilhado (SAS)](storage-dotnet-shared
 ## <a name="replication-for-durability-and-high-availability"></a>Replicação para durabilidade e alta disponibilidade
 Os dados na sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade. A replicação copia os dados no mesmo data center ou em um segundo data center, dependendo de qual opção de replicação você escolher. A replicação protege seus dados e preserva o tempo de atividade do aplicativo no caso de falhas transitórias de hardware. Se os seus dados forem replicados para um segundo data center, isso também protegerá os dados contra uma falha catastrófica no local principal.
 
-A replicação garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas. Consulte o SLA para obter informações sobre as garantias do Armazenamento do Azure para disponibilidade e durabilidade. 
+A replicação garante que sua conta de armazenamento atenda ao [SLA (Contrato de Nível de Serviço) do Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/) mesmo diante de falhas. Consulte o SLA para obter informações sobre as garantias do Armazenamento do Azure para disponibilidade e durabilidade.
 
-Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:  
+Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
-* **Armazenamento com redundância local (LRS).**  O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em um único data center, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de um único data center.  
-  
+* **Armazenamento com redundância local (LRS).** O armazenamento com redundância local mantém três cópias dos seus dados. O LRS é replicado três vezes em um único data center, em uma única região. O LRS protege os dados contra falhas normais de hardware, mas não contra falha de um único data center.
+
     O LRS é oferecido com desconto. Para durabilidade máxima, recomendamos que você utilize o armazenamento com redundância geográfica, descrito abaixo.
-* **Armazenamento com redundância de zona (ZRS).**  O armazenamento com redundância de zona mantém três cópias dos seus dados. O ZRS é replicado três vezes por dois ou três instalações, em uma única região ou em duas regiões, proporcionando maior durabilidade que o LRS. O ZRS assegura que seus dados irão durar em uma única região.  
-  
-    O ZRS proporciona maior durabilidade que o LRS, todavia, para durabilidade máxima recomendamos que você utilize o armazenamento com redundância geográfica, descrito abaixo.  
-  
+* **Armazenamento com redundância de zona (ZRS).** O armazenamento com redundância de zona mantém três cópias dos seus dados. O ZRS é replicado três vezes por dois ou três instalações, em uma única região ou em duas regiões, proporcionando maior durabilidade que o LRS. O ZRS assegura que seus dados irão durar em uma única região.
+
+    O ZRS proporciona maior durabilidade que o LRS, todavia, para durabilidade máxima recomendamos que você utilize o armazenamento com redundância geográfica, descrito abaixo.
+
   > [!NOTE]
   > O ZRS está atualmente disponível apenas para blobs de blocos e tem suporte apenas nas versões de 14/02/2014 e posteriores.
-  > 
+  >
   > Depois que tiver criado sua conta de armazenamento e selecionado ZRS, você não poderá convertê-la para utilizar nenhum outro tipo de replicação, ou vice-versa.
-  > 
-  > 
+  >
+  >
 * **Armazenamento com redundância geográfica (GRS)**. O GRS mantém seis cópias de seus dados. Com o GRS, seus dados são replicados três vezes na região primária e também são replicados três vezes para uma região secundária a centenas de quilômetros de distância da região primária, oferecendo o nível mais alto de durabilidade. Em caso de falha na região primária, o Armazenamento do Azure realizará failover para a região secundária. O GRS assegura que seus dados serão duráveis em duas regiões separadas.
-  
+
     Para obter informações sobre os pares primários e secundários por região, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
-* **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**. O armazenamento com redundância geográfica com acesso de leitura replica seus dados para uma localização geográfica secundária e também fornece acesso de leitura aos dados no local secundário. O armazenamento com redundância geográfica com acesso de leitura permite acessar os dados no local primário ou secundário caso um local fique indisponível. O acesso de leitura ao armazenamento com redundância geográfica é a opção padrão para sua conta de armazenamento quando ela é criada. 
-  
+* **Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)**. O armazenamento com redundância geográfica com acesso de leitura replica seus dados para uma localização geográfica secundária e também fornece acesso de leitura aos dados no local secundário. O armazenamento com redundância geográfica com acesso de leitura permite acessar os dados no local primário ou secundário caso um local fique indisponível. O acesso de leitura ao armazenamento com redundância geográfica é a opção padrão para sua conta de armazenamento quando ela é criada.
+
   > [!IMPORTANT]
   > Você pode alterar como seus dados são replicados depois que sua conta de armazenamento tiver sido criada, a menos que tenha especificado ZRS quando criou a conta. No entanto, observe que você pode incorrer em custo por uma transferência de dados adicional e ocasional se alternar de LRS para GRS ou RA-GRS.
-  > 
-  > 
+  >
+  >
 
 Consulte [Replicação de armazenamento do Azure](storage-redundancy.md) para obter mais detalhes sobre as opções de replicação de armazenamento.
 

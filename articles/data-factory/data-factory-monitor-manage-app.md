@@ -2,21 +2,25 @@
 title: Monitorar e gerenciar pipelines do Azure Data Factory
 description: Saiba como usar o Aplicativo de Monitoramento e Gerenciamento para monitorar e gerenciar data factories e pipelines do Azure.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/05/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 0bb9269d20c157221faa5604e68acc3410a5247b
+ms.openlocfilehash: d8e5e8e99d40af959f8fa1dd4bf7b636a9f2343b
+
 
 ---
-# Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
+# <a name="monitor-and-manage-azure-data-factory-pipelines-using-new-monitoring-and-management-app"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando novo Aplicativo de Monitoramento e Gerenciamento
 > [!div class="op_single_selector"]
 > * [Usando o Portal do Azure/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Usando o aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md)
@@ -29,12 +33,12 @@ Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o
 > 
 > 
 
-## Iniciando o Aplicativo de Monitoramento e Gerenciamento a
+## <a name="launching-the-monitoring-and-management-app-a"></a>Iniciando o Aplicativo de Monitoramento e Gerenciamento a
 Para iniciar o Aplicativo de Monitoramento e Gerenciamento, clique no bloco **Monitoramento e Gerenciamento** na folha **DATA FACTORY** do seu data factory.
 
-![Bloco Monitoramento na home page do Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Bloco Monitoramento na home page do Data Factory](./media/data-factory-monitor-manage-app/MonitoringAppTile.png) 
 
-Você verá que o Aplicativo de Monitoramento e Gerenciamento foi iniciado em uma guia/janela separada.
+Você verá que o Aplicativo de Monitoramento e Gerenciamento foi iniciado em uma guia/janela separada.  
 
 ![Aplicativo de Monitoramento e Gerenciamento](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
@@ -43,38 +47,38 @@ Você verá que o Aplicativo de Monitoramento e Gerenciamento foi iniciado em um
 > 
 > 
 
-Se não vir janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.
+Se não vir janelas de atividade na lista na parte inferior, clique no botão **Atualizar** na barra de ferramentas para atualizar a lista. Além disso, defina os valores corretos para os filtros **Hora de início** e **Hora de término**.  
 
-## Noções básicas sobre o Aplicativo de Monitoramento e Gerenciamento
-Há três guias (**Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**) à esquerda e a primeira guia (Gerenciador de Recursos) é selecionada por padrão.
+## <a name="understanding-the-monitoring-and-management-app"></a>Noções básicas sobre o Aplicativo de Monitoramento e Gerenciamento
+Há três guias (**Gerenciador de Recursos**, **Exibições de Monitoramento** e **Alertas**) à esquerda e a primeira guia (Gerenciador de Recursos) é selecionada por padrão. 
 
-### Gerenciador de Recursos
-Você verá o seguinte:
+### <a name="resource-explorer"></a>Gerenciador de Recursos
+Você verá o seguinte: 
 
 * **Modo de exibição de árvore** do Gerenciador de Recursos no painel esquerdo.
 * **Exibição de diagrama** na parte superior.
-* Lista de **Atividade do Windows** na parte inferior no painel central.
-* Guias **Propriedades**/**Gerenciador de Janelas de Atividades** no painel direito.
+* **Atividade do Windows** na parte inferior no painel central.
+* **Gerenciador de Janelas de Atividades**/**Gerenciador de Janelas de Atividades** no painel direito. 
 
-No Gerenciador de Recursos, você encontra todos os recursos (pipelines, conjuntos de dados, serviços vinculados) no data factory em um modo de exibição de árvore. Ao selecionar um objeto no Gerenciador de Recursos, você nota o seguinte:
+No Gerenciador de Recursos, você encontra todos os recursos (pipelines, conjuntos de dados, serviços vinculados) no data factory em um modo de exibição de árvore. Ao selecionar um objeto no Gerenciador de Recursos, você nota o seguinte: 
 
 * a entidade Data Factory associada está realçada na Exibição de Diagrama.
-* as janelas de atividades associadas (clique [aqui](data-factory-scheduling-and-execution.md) para saber mais sobre as janelas de atividades) estão realçadas na lista Janelas de Atividades na parte inferior.
-* as propriedades do objeto selecionado na janela Propriedades no painel direito.
-* Definição de JSON do objeto selecionado, se aplicável. Por exemplo: um serviço vinculado, um conjunto de dados ou um pipeline.
+* as janelas de atividades associadas (clique [aqui](data-factory-scheduling-and-execution.md) para saber mais sobre as janelas de atividades) estão realçadas na lista Janelas de Atividades na parte inferior.  
+* as propriedades do objeto selecionado na janela Propriedades no painel direito. 
+* Definição de JSON do objeto selecionado, se aplicável. Por exemplo: um serviço vinculado, um conjunto de dados ou um pipeline. 
 
 ![Gerenciador de Recursos](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre a janela de atividades.
+Consulte o artigo [Agendamento e Execução](data-factory-scheduling-and-execution.md) para obter informações conceituais detalhadas sobre a janela de atividades. 
 
-### Exibição de diagrama
+### <a name="diagram-view"></a>Exibição de diagrama
 O Modo de exibição de diagrama de uma data factory fornece um único painel onde você pode monitorar e gerenciar a data factory e seus ativos. Ao selecionar uma entidade Data Factory (conjunto de dados/pipeline) na exibição de diagrama, você observa o seguinte:
 
 * a entidade Data Factory é selecionada no modo de exibição de árvore
 * as janelas de atividades associadas são destacadas na lista Janelas de Atividades.
 * as propriedades do objeto selecionado na janela Propriedades
 
-Quando o pipeline for habilitado (quando não estiver em estado pausado), será mostrado com uma linha verde.
+Quando o pipeline for habilitado (quando não estiver em estado pausado), será mostrado com uma linha verde. 
 
 ![Execução do Pipeline](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
@@ -98,19 +102,19 @@ Na exibição do pipeline, ao clicar em um conjunto de dados de saída e mover s
 
 ![Pop-up Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-É possível clicar em uma janela de atividade para ver detalhes dela na janela **Propriedade** no painel direito.
+É possível clicar em uma janela de atividade para ver detalhes dela na janela **Propriedade** no painel direito. 
 
 ![Propriedades da janela de atividades](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
 No painel direito, mude para a guia **Gerenciador de Janelas de Atividades** para ver mais detalhes.
 
-![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png) 
 
-Você também verá as **variáveis resolvidas** para cada tentativa de execução de atividade na seção **Tentativas**.
+Você também verá as **variáveis resolvidas** para cada tentativa de execução de atividade na seção **Tentativas**. 
 
 ![Variáveis resolvidas](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Mude para a guia **Script** para ver a definição do script JSON para o objeto selecionado.
+Mude para a guia **Script** para ver a definição do script JSON para o objeto selecionado.   
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
@@ -128,12 +132,12 @@ Na parte inferior do modo de exibição de diagrama, você deve ver botões Ampl
 
 ![Comandos Zoom da Exibição de Diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
-### Lista Janelas de Atividades
-A lista Janelas de Atividades na parte inferior do painel intermediário exibe todas as janelas de atividades do conjunto de dados que você selecionou no Gerenciador de Recursos ou na Exibição de Diagrama. Por padrão, a lista está na ordem decrescente, o que significa que você verá a janela de atividades mais recente na parte de cima.
+### <a name="activity-windows-list"></a>Lista Janelas de Atividades
+A lista Janelas de Atividades na parte inferior do painel intermediário exibe todas as janelas de atividades do conjunto de dados que você selecionou no Gerenciador de Recursos ou na Exibição de Diagrama. Por padrão, a lista está na ordem decrescente, o que significa que você verá a janela de atividades mais recente na parte de cima. 
 
 ![Lista Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
-Essa lista não é atualizada automaticamente, portanto use o botão de atualização na barra de ferramentas para atualizá-la manualmente.
+Essa lista não é atualizada automaticamente, portanto use o botão de atualização na barra de ferramentas para atualizá-la manualmente.  
 
 As janelas de atividades podem estar em um dos seguintes status:
 
@@ -166,10 +170,10 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>ValidationRetry</td><td>Aguardando a validação ser repetida.</td>
 </tr>
 <tr>
-&lt;tr
+<tr
 <td rowspan="2">InProgress</td><td>Validando</td><td>Validação em andamento.</td>
 </tr>
-<td></td>
+<td>-</td>
 <td>A janela de atividades está sendo processada.</td>
 </tr>
 <tr>
@@ -182,15 +186,15 @@ As janelas de atividades podem estar em um dos seguintes status:
 <td>Validação</td><td>A validação falhou.</td>
 </tr>
 <tr>
-<td></td><td>Falha ao gerar e/ou validar a janela de atividades.</td>
+<td>-</td><td>Falha ao gerar e/ou validar a janela de atividades.</td>
 </tr>
-<td>Ready</td><td></td><td>A janela de atividades está pronta para consumo.</td>
-</tr>
-<tr>
-<td>Ignorado</td><td></td><td>A janela de atividades não foi processada.</td>
+<td>Ready</td><td>-</td><td>A janela de atividades está pronta para consumo.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td></td><td>Uma janela de atividades que costumava existir com um status diferente, mas que foi redefinida.</td>
+<td>Ignorado</td><td>-</td><td>A janela de atividades não foi processada.</td>
+</tr>
+<tr>
+<td>Nenhum</td><td>-</td><td>Uma janela de atividades que costumava existir com um status diferente, mas que foi redefinida.</td>
 </tr>
 </table>
 
@@ -199,54 +203,54 @@ Ao clicar em uma janela de atividades na lista, você verá detalhes sobre ela n
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### Atualizar janelas de atividades
-Os detalhes não são atualizados automaticamente e, portanto, você precisa usar o botão **atualizar** (segundo botão) na barra de comandos para atualizar manualmente a lista de janelas de atividades.
+### <a name="refresh-activity-windows"></a>Atualizar janelas de atividades
+Os detalhes não são atualizados automaticamente e, portanto, você precisa usar o botão **atualizar** (segundo botão) na barra de comandos para atualizar manualmente a lista de janelas de atividades.  
 
-### Janela Propriedades
-A janela Propriedades está no painel à extrema direita do Aplicativo de Monitoramento e Gerenciamento.
+### <a name="properties-window"></a>Janela Propriedades
+A janela Propriedades está no painel à extrema direita do Aplicativo de Monitoramento e Gerenciamento. 
 
 ![Janela Propriedades](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Ela exibe as propriedades do item selecionado no Gerenciador de Recursos (modo de exibição de árvore) (ou) na exibição de diagrama (ou) na lista de janelas de atividades.
+Ela exibe as propriedades do item selecionado no Gerenciador de Recursos (modo de exibição de árvore) (ou) na exibição de diagrama (ou) na lista de janelas de atividades. 
 
-### Gerenciador de Janelas de Atividades
-A janela **Gerenciador de Janelas de Atividades** está no painel mais à direita do Aplicativo de Monitoramento e Gerenciamento. Ela exibe detalhes sobre a janela de atividades selecionada no pop-up Janelas de Atividades ou na lista Janelas de Atividades.
+### <a name="activity-window-explorer"></a>Gerenciador de Janelas de Atividades
+A janela **Gerenciador de Janelas de Atividades** está no painel mais à direita do Aplicativo de Monitoramento e Gerenciamento. Ela exibe detalhes sobre a janela de atividades selecionada no pop-up Janelas de Atividades ou na lista Janelas de Atividades. 
 
 ![Gerenciador de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
 Você pode mudar para outra janela de atividades clicando nela na exibição de calendário na parte superior. Também é possível usar os botões **seta para a esquerda**/**seta para a direita**, na parte superior, para ver as janelas de atividades da semana anterior/próxima semana.
 
-Você pode usar os botões da barra de ferramentas no painel inferior para **executar novamente** a janela de atividades ou para **atualizar** os detalhes no painel.
+Você pode usar os botões da barra de ferramentas no painel inferior para **executar novamente** a janela de atividades ou para **atualizar** os detalhes no painel. 
 
-### Script
-Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados e pipeline).
+### <a name="script"></a>Script
+Você pode usar a guia **Script** para exibir a definição de JSON da entidade selecionada do Data Factory (serviço vinculado, conjunto de dados e pipeline). 
 
 ![Guia Script](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-## Usando as exibições do sistema
-O Aplicativo Monitoramento e Gerenciamento inclui exibições do sistema predefinidas (**Janelas de atividades recentes**, **Janelas de atividades com falha**, **Janelas de atividades em andamento**) que permitem exibir as janelas de atividades recentes/com falha/em andamento do seu data factory.
+## <a name="using-system-views"></a>Usando as exibições do sistema
+O Aplicativo Monitoramento e Gerenciamento inclui exibições do sistema predefinidas (**Janelas de atividades recentes**, **Janelas de atividades com falha**, **Janelas de atividades em andamento**) que permitem exibir as janelas de atividades recentes/com falha/em andamento do seu data factory. 
 
-Mude para a guia **Exibições de Monitoramento** à esquerda ao clicar nela.
+Mude para a guia **Exibições de Monitoramento** à esquerda ao clicar nela. 
 
 ![Guia Exibições de Monitoramento](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Atualmente, há três exibições do sistema com suporte. Escolha uma opção para ver as janelas de atividades recentes (ou) as janelas de atividades com falha (ou) as janelas de atividades em andamento na lista Janelas de Atividades (na parte inferior do painel intermediário).
+Atualmente, há três exibições do sistema com suporte. Escolha uma opção para ver as janelas de atividades recentes (ou) as janelas de atividades com falha (ou) as janelas de atividades em andamento na lista Janelas de Atividades (na parte inferior do painel intermediário). 
 
-Ao escolher a opção **Janelas de atividades recentes**, você verá todas as janelas de atividades recentes na ordem decrescente da **hora da última tentativa**.
+Ao escolher a opção **Janelas de atividades recentes**, você verá todas as janelas de atividades recentes na ordem decrescente da **hora da última tentativa**. 
 
-Você pode usar a exibição **Janelas de atividades com falha** para ver todas as janelas de atividade com falha na lista. Escolha uma janela de atividades com falha na lista para ver detalhes sobre ela na janela **Propriedades** ou no **Gerenciador de Janelas de Atividades**. Você também pode baixar todos os logs de uma janela de atividades com falha.
+Você pode usar a exibição **Janelas de atividades com falha** para ver todas as janelas de atividade com falha na lista. Escolha uma janela de atividades com falha na lista para ver detalhes sobre ela na janela **Propriedades** ou no **Gerenciador de Janelas de Atividades**. Você também pode baixar todos os logs de uma janela de atividades com falha. 
 
-## Classificando e filtrando janelas de atividades
+## <a name="sorting-and-filtering-activity-windows"></a>Classificando e filtrando janelas de atividades
 Altere as configurações da **hora de início** e **hora de término** na barra de comandos para filtrar as janelas de atividades. Depois de alterar a Hora de início e a Hora de término, clique no botão ao lado da hora de término para atualizar a lista Janelas de Atividades.
 
 ![Horas de Início e Término](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Atualmente, todas as horas estão no formato UTC no Aplicativo de Monitoramento e Gerenciamento.
+> Atualmente, todas as horas estão no formato UTC no Aplicativo de Monitoramento e Gerenciamento. 
 > 
 > 
 
-Na **lista Janelas de Atividades**, clique no nome de uma coluna (por exemplo: Status).
+Na **lista Janelas de Atividades**, clique no nome de uma coluna (por exemplo: Status). 
 
 ![Menu da coluna Lista de Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
@@ -256,59 +260,65 @@ Você pode fazer o seguinte:
 * Classificar em ordem decrescente.
 * Filtrar por um ou mais valores (Pronto, Aguardando etc.)
 
-Ao especificar um filtro em uma coluna, você verá o botão de filtro habilitado para a coluna, indicando que os valores na coluna são valores filtrados.
+Ao especificar um filtro em uma coluna, você verá o botão de filtro habilitado para a coluna, indicando que os valores na coluna são valores filtrados. 
 
 ![Filtrar na coluna da lista Janelas de Atividades](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os filtros da lista de janelas de atividades, clique no botão Filtrar na barra de comandos.
+Você pode usar a mesma janela pop-up para limpar filtros. Para limpar todos os filtros da lista de janelas de atividades, clique no botão Filtrar na barra de comandos. 
 
 ![Limpar todos os filtros na lista Janelas de Atividades](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
-## Executando ações em lote
-### Executar novamente as janelas de atividades selecionadas
-Escolha uma janela de atividades, clique na seta para baixo do primeiro botão da barra de comandos e selecione **Executar novamente**/**Executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline**, todas as janelas de atividades upstream também são executadas novamente. ![Executar novamente uma janela de atividades](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+## <a name="performing-batch-actions"></a>Executando ações em lote
+### <a name="rerun-selected-activity-windows"></a>Executar novamente as janelas de atividades selecionadas
+Escolha uma janela de atividades, clique na seta para baixo do primeiro botão da barra de comandos e selecione **Executar novamente** / **Executar novamente com upstream no pipeline**. Quando você escolhe a opção **Executar novamente com upstream no pipeline** , todas as janelas de atividades upstream também são executadas novamente. 
+    ![Executar novamente uma janela de atividades](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.
+Também é possível escolher várias janelas de atividades na lista e executá-las novamente ao mesmo tempo. Talvez você queira filtrar as janelas de atividades com base no status (por exemplo: **Com falha**) e executar novamente as janelas de atividades com falha após corrigir o problema que faz com que as janelas de atividades falhem. Confira a seção a seguir para obter os detalhes sobre como filtrar janelas de atividades na lista.  
 
-### Pausar/retomar vários pipelines
+### <a name="pauseresume-multiple-pipelines"></a>Pausar/retomar vários pipelines
 Você pode selecionar dois ou mais pipelines (usando CTRL) e usar os botões da barra de comandos (destacados pelo retângulo vermelho na imagem a seguir) para pausá-los/retomá-los de uma vez.
 
 ![Suspender/Retomar na barra de comandos](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
-## Criando alertas
+## <a name="creating-alerts"></a>Criando alertas
 A página Alertas permite criar um alerta e exibir/editar/excluir alertas existentes. Também é possível desabilitar/habilitar um alerta. Para ver a página Alertas, clique na guia Alertas.
 
 ![Guia Alertas](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
-### Para criar um alerta
-1. Clique em **Adicionar Alerta** para adicionar um alerta. Você verá a página Detalhes.
+### <a name="to-create-an-alert"></a>Para criar um alerta
+1. Clique em **Adicionar Alerta** para adicionar um alerta. Você verá a página Detalhes. 
    
     ![Criar Alertas - página Detalhes](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Especifique o **nome** e a **descrição** para o alerta e clique em **Avançar**. Você verá a página **Filtros**.
+2. Especifique o **nome** e a **descrição** para o alerta e clique em **Avançar**. Você verá a página **Filtros** .
    
     ![Criar Alertas - página Filtros](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Escolha o **evento**, o **status** e o **substatus** (opcional) sobre o qual deseja que o serviço Data Factory alerte você e clique em **Avançar**. Você verá a página **Destinatários**.
+3. Escolha o **evento**, o **status** e o **substatus** (opcional) sobre o qual deseja que o serviço Data Factory alerte você e clique em **Avançar**. Você verá a página **Destinatários** .
    
-    ![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Escolha a opção **Enviar email ao administrador da assinatura** e/ou insira o **email adicional de administrador** e clique em **Concluir**. Você deverá ver o alerta na lista.
+    ![Criar Alertas - página Destinatários](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png) 
+4. Escolha a opção **Enviar email ao administrador da assinatura** e/ou insira o **email adicional de administrador** e clique em **Concluir**. Você deverá ver o alerta na lista. 
    
     ![Lista Alertas](./media/data-factory-monitor-manage-app/AlertsList.png)
 
-Na lista Alertas, use os botões associados ao alerta para editar/excluir/desabilitar/habilitar um alerta.
+Na lista Alertas, use os botões associados ao alerta para editar/excluir/desabilitar/habilitar um alerta. 
 
-### Evento/status/substatus
+### <a name="eventstatussubstatus"></a>Evento/status/substatus
 A tabela a seguir fornece a lista de eventos disponíveis e o status (e o substatus).
 
 | Nome do evento | Status | Substatus |
 | --- | --- | --- |
 | Execução de Atividade Iniciada |Iniciado |Iniciando |
 | Execução de Atividade Concluída |Bem-sucedido |Bem-sucedido |
-| Execução de Atividade Concluída |Falha |Alocação de Recursos com Falha<br/><br/>Execução com Falha<br/><br/>Tempo Limite Expirado<br/><br/>Validação com Falha<br/><br/>Abandonado |
-| Criação de Cluster HDI sob Demanda Iniciada |Iniciado |&nbsp; |
-| Cluster HDI sob Demanda Criado com Êxito |Bem-sucedido |&nbsp; |
-| Cluster HDI sob Demanda Excluído |Bem-sucedido |&nbsp; |
+| Execução de Atividade Concluída |Com falha |Alocação de Recursos com Falha<br/><br/>Execução com falha<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandoned |
+| Criação de Cluster HDI sob Demanda Iniciada |Iniciado |-|
+| Cluster HDI sob Demanda Criado com Êxito |Bem-sucedido |-|
+| Cluster HDI sob Demanda Excluído |Bem-sucedido |-|
 
-### Para editar/excluir/desabilitar um alerta
+### <a name="to-editdeletedisable-an-alert"></a>Para editar/excluir/desabilitar um alerta
 ![Botões Alertas](./media/data-factory-monitor-manage-app/AlertButtons.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

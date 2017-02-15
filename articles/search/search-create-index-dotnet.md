@@ -39,7 +39,7 @@ Observe que todos os códigos de exemplo neste artigo são escritos com C#. Voc�
 ## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
 Agora que provisionou um serviço de Pesquisa do Azure, você está quase pronto para emitir solicitações em relação ao ponto de extremidade de serviço usando o SDK do .NET. Primeiro, é necessário obter uma das chaves de API do administrador gerada para o serviço de pesquisa que você provisionou. O SDK do .NET enviará está chave de API em cada solicitação ao seu serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 

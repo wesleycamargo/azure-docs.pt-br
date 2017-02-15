@@ -1,19 +1,23 @@
 ---
-title: Como usar as filas de Barramento de Serviço com PHP | Microsoft Docs
-description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP.
-services: service-bus
+title: "Como usar as filas de Barramento de Serviço com PHP | Microsoft Docs"
+description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de código escritos em PHP."
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d89a2f0a7f36bf9e2052682e931ac5c3596721f
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
@@ -84,7 +88,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer]
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="how-to:-create-a-queue"></a>Tutorial: criar uma fila
+## <a name="how-to-create-a-queue"></a>Tutorial: criar uma fila
 Você pode realizar operações de gerenciamento para as filas do Barramento de Serviço pela classe **ServiceBusRestProxy**. Um objeto **ServiceBusRestProxy** é construído por meio do método de fábrica **ServicesBuilder::createServiceBusService** com uma cadeia de conexão apropriada que encapsula as permissões de token para gerenciá-lo.
 
 O exemplo a seguir mostra como criar uma instância de um **ServiceBusRestProxy** e chamar **ServiceBusRestProxy->createQueue** para criar uma fila chamada `myqueue` em um namespace de serviço `MySBNamespace`:
@@ -99,7 +103,7 @@ use WindowsAzure\ServiceBus\Models\QueueInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     $queueInfo = new QueueInfo("myqueue");
 
     // Create queue.
@@ -120,7 +124,7 @@ catch(ServiceException $e){
 > 
 > 
 
-## <a name="how-to:-send-messages-to-a-queue"></a>Tutoria: Enviar mensagens a uma fila
+## <a name="how-to-send-messages-to-a-queue"></a>Tutoria: Enviar mensagens a uma fila
 Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo chamará o método **ServiceBusRestProxy->sendQueueMessage**. O código abaixo demonstra como enviar uma mensagem à fila `myqueue` que criamos acima no namespace de serviço `MySBNamespace`.
 
 ```
@@ -133,7 +137,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -174,7 +178,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -202,7 +206,7 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to:-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
 O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
 
 Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
@@ -210,7 +214,7 @@ Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o a
 Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não puder tolerar o processamento duplicado, é recomendável adicionar lógica extra ao aplicativo para tratar a entrega de mensagens duplicadas. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para saber mais.
+Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, consulte [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter mais informações.
 
 Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/php/).
 
@@ -221,6 +225,6 @@ Para saber mais, consulte também o [Centro de Desenvolvedores em PHP](/develop/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

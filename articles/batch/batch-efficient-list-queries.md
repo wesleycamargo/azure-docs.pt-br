@@ -3,7 +3,7 @@ title: Consultas de lista eficientes no Lote do Azure | Microsoft Docs
 description: "Aumente o desempenho filtrando suas consultas ao solicitar informações sobre os recursos do Lote, como pools, trabalhos, tarefas e nós de computação."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,23 +12,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/25/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb91797d2f5f1b27b20bcc88da192dc14038e2b8
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 62487d3d26ba66ce2ba88ae1a71858d68e68544c
 
 
 ---
 # <a name="query-the-azure-batch-service-efficiently"></a>Consultar o serviço do Lote do Azure com eficiência
-Aqui, você aprenderá a aumentar o desempenho do aplicativo do Lote do Azure reduzindo a quantidade de dados retornados pelo serviço quando consulta os serviços, as tarefas e os nós de computação com a biblioteca [.NET do Lote][api_net].
+Aqui, você aprenderá a melhorar o desempenho do aplicativo do Lote do Azure reduzindo a quantidade de dados retornados pelo serviço quando consulta trabalhos, tarefas e nós de computação com a biblioteca [.NET do Lote][api_net].
 
 Quase todos os aplicativos do Lote precisam executar algum tipo de monitoramento ou outra operação que consulta o serviço de Lote, geralmente em intervalos regulares. Por exemplo, para determinar se há qualquer tarefa em fila restante em um trabalho, você deve obter dados sobre cada tarefa no trabalho. Para determinar o status de nós em seu pool, você deve obter os dados em cada nó no pool. Este artigo explica como executar essas consultas da forma mais eficiente.
 
 ## <a name="meet-the-detaillevel"></a>Atender DetailLevel
 Em um aplicativo do Lote de produção, as entidades, como trabalhos, tarefas e nós de computação, podem chegar a milhares. Quando você solicita informações sobre esses recursos, uma quantidade de dados potencialmente grande deve "cruzar a transmissão" do serviço do Lote para seu aplicativo em cada consulta. Limitando o número de itens e o tipo de informação retornada por uma consulta, você pode aumentar a velocidade de suas consultas e, portanto, o desempenho de seu aplicativo.
 
-Esse trecho de código da API do [.NET do Lote][api_net] lista *todas* as tarefas associadas a um trabalho, junto com *todas* as propriedades de cada tarefa:
+Esse trecho de código da API do [.NET do Lote][api_net] lista *todas* as tarefas associadas a um trabalho, bem como *todas* as propriedades de cada tarefa:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -36,7 +36,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Porém, você pode executar uma consulta de lista muito mais eficiente aplicando um "nível de detalhe" à sua consulta. Você faz isso fornecendo um objeto [ODATADetailLevel][odata] para o método [JobOperations.ListTasks][net_list_tasks]. Este trecho de código retorna apenas a ID, a linha de comando e as propriedades de informações do nó de computação das tarefas concluídas:
+Porém, você pode executar uma consulta de lista muito mais eficiente aplicando um "nível de detalhe" à sua consulta. Você faz isso fornecendo um objeto [ODATADetailLevel][odata] ao método [JobOperations.ListTasks][net_list_tasks]. Este trecho de código retorna apenas a ID, a linha de comando e as propriedades de informações do nó de computação das tarefas concluídas:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -58,7 +58,7 @@ Neste cenário do exemplo, se houver milhares de tarefas no trabalho, os resulta
 > 
 
 ## <a name="filter-select-and-expand"></a>Filtrar, selecionar e expandir
-As APIs do [.NET do Lote][api_net] e [REST do Lote][api_rest] permitem reduzir o número de itens retornados em uma lista e a quantidade de informações retornadas para cada. Você faz isso especificando **filter**, **select** e **expand strings** ao executar as consultas da lista.
+As APIs [.NET do Lote][api_net] e [REST do Lote][api_rest] permitem reduzir o número de itens retornados em uma lista e a quantidade de informações retornadas para cada um. Você faz isso especificando **filter**, **select** e **expand strings** ao executar as consultas da lista.
 
 ### <a name="filter"></a>Filter
 A cadeia de caracteres filter é uma expressão que reduz o número de itens retornados. Por exemplo, liste somente as tarefas em execução para um trabalho, ou liste apenas nós de computação que estejam prontos para executar tarefas.
@@ -87,7 +87,7 @@ A cadeia de caracteres expand reduz o número de chamadas de API necessárias pa
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Especificações das cadeias de caracteres filter, select e expand
-* Os nomes das propriedades nas cadeias de caracteres filter, select e expand devem aparecer como na API [REST do Lote][api_rest] -- mesmo o [.NET do Lote][api_net] ou um dos outros SDKs do Lote.
+* Os nomes das propriedades nas cadeias de caracteres filter, select e expand devem aparecer como na API [REST do Lote][api_rest] – mesmo quando você usa o [.NET do Lote][api_net] ou um dos outros SDKs do Lote.
 * Todos os nomes de propriedade diferenciam maiúsculas de minúsculas, mas valores de propriedade não diferenciam maiúsculas de minúsculas.
 * As cadeias de caracteres de data/hora podem ter um dos dois formatos e devem ser precedidas por `DateTime`.
   
@@ -97,11 +97,11 @@ A cadeia de caracteres expand reduz o número de chamadas de API necessárias pa
 * Se uma propriedade ou operador inválido for especificado, o resultado será um erro `400 (Bad Request)` .
 
 ## <a name="efficient-querying-in-batch-net"></a>Consulta eficiente no .NET de Lote
-Na API [.NET do Lote][api_net], a classe [ODATADetailLevel][odata] é usada para fornecer as cadeias de caracteres filter, select e expand para as operações da lista. A classe ODataDetailLevel tem três propriedades de cadeia de caracteres públicas que podem ser especificadas no construtor ou definidas diretamente. Em seguida, você passa o objeto ODataDetailLevel como um parâmetro para as várias operações da lista, como [ListPools][net_list_pools], [ListJobs][net_list_jobs] e [ListTasks][net_list_tasks].
+Na API [.NET do Lote][api_net], a classe [ODATADetailLevel][odata] é usada para fornecimento de cadeias de caracteres filter, select e expand para operações de lista. A classe ODataDetailLevel tem três propriedades de cadeia de caracteres públicas que podem ser especificadas no construtor ou definidas diretamente. Em seguida, você passa o objeto ODataDetailLevel como um parâmetro para as várias operações da lista, como [ListPools][net_list_pools], [ListJobs][net_list_jobs] e [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[FilterClause][odata_filter]: limite o número de itens retornados.
-* [ODATADetailLevel][odata].[SelectClause][odata_select]: especifica quais valores da propriedade são retornados com cada item.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recupera os dados de todos os itens em uma única chamada da API, em vez de chamadas separadas para cada item.
+* [ODATADetailLevel][odata].[FilterClause][odata_filter]: limitar o número de itens retornados.
+* [ODATADetailLevel][odata].[SelectClause][odata_select]: especificar quais valores da propriedade são retornados com cada item.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recuperar dados de todos os itens em uma única chamada à API, em vez de chamadas separadas para cada item.
 
 O trecho de código abaixo usa a API de Lote .NET para consultar o serviço de Lote com eficiência a fim de obter as estatísticas de um conjunto específico de pools. Nesse cenário, o usuário de Lote tem grupos de teste e de produção. As IDs do pool de teste são prefixadas com "test", e as IDs do grupo de produção são prefixadas com "prod". No trecho de código, *myBatchClient* é uma instância devidamente inicializada da classe [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) .
 
@@ -140,19 +140,19 @@ List<CloudPool> testPools =
 Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expansão *devem* refletir os seus equivalentes da API REST, no nome e no caso. As tabelas a seguir fornecem os mapeamentos entre os equivalentes API .NET e REST.
 
 ### <a name="mappings-for-filter-strings"></a>Mapeamentos para cadeias de caracteres de filtro
-* **Métodos da lista .NET**: cada um dos métodos da API .NET nesta coluna aceita um objeto [ODATADetailLevel][odata] como um parâmetro.
-* **Solicitações da lista REST**: cada página da API REST associada a essa coluna contém uma tabela especificando as propriedades e as operações permitidas nas cadeias de caracteres *filter* . Você usará esses nomes e operações da propriedades ao construir uma cadeia de caracteres [ODATADetailLevel.FilterClause][odata_filter].
+* **Métodos da lista .NET**: cada um dos métodos da API .NET nesta coluna aceita um objeto [ODATADetailLevel][odata] como parâmetro.
+* **Solicitações da lista REST**: cada página da API REST associada a essa coluna contém uma tabela especificando as propriedades e as operações permitidas nas cadeias de caracteres *filter* . Você usará esses nomes de propriedade e operações ao construir uma cadeia de caracteres [ODATADetailLevel.FilterClause][odata_filter].
 
 | Métodos da lista .NET | Solicitações da lista REST |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[Listar os certificados em uma conta][rest_list_certs] |
+| [CertificateOperations.ListCertificates][net_list_certs] |[Listar os certificados de uma conta][rest_list_certs] |
 | [CloudTask.ListNodeFiles][net_list_task_files] |[Listar os arquivos associados a uma tarefa][rest_list_task_files] |
 | [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[Listar o status das tarefas de preparação e liberação de trabalho para um determinado trabalho][rest_list_jobprep_status] |
 | [JobOperations.ListJobs][net_list_jobs] |[Listar os trabalhos em uma conta][rest_list_jobs] |
 | [JobOperations.ListNodeFiles][net_list_nodefiles] |[Listar os arquivos em um nó][rest_list_nodefiles] |
 | [JobOperations.ListTasks][net_list_tasks] |[Listar as tarefas associadas a um trabalho][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Liste as agendas de trabalho em uma conta][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Listar os trabalhos associados a uma agenda de trabalho][rest_list_schedule_jobs] |
+| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Listar os cronogramas de trabalho em uma conta][rest_list_job_schedules] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Listar os trabalhos associados a um cronograma de trabalho][rest_list_schedule_jobs] |
 | [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Listar os nós de computação em um pool][rest_list_compute_nodes] |
 | [PoolOperations.ListPools][net_list_pools] |[Listar os pools em uma conta][rest_list_pools] |
 
@@ -164,13 +164,13 @@ Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expans�
 | --- | --- |
 | [Certificate][net_cert] |[Obter informações sobre um certificado][rest_get_cert] |
 | [CloudJob][net_job] |[Obter informações sobre um trabalho][rest_get_job] |
-| [CloudJobSchedule][net_schedule] |[Obter informações sobre uma agenda de trabalho][rest_get_schedule] |
+| [CloudJobSchedule][net_schedule] |[Obter informações sobre um cronograma de trabalho][rest_get_schedule] |
 | [ComputeNode][net_node] |[Obter informações sobre um nó][rest_get_node] |
 | [CloudPool][net_pool] |[Obter informações sobre um pool][rest_get_pool] |
 | [CloudTask][net_task] |[Obter informações sobre uma tarefa][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Exemplo: construir uma cadeia de caracteres filter
-Ao construir uma cadeia de caracteres filter para um [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em “Mapeamentos para cadeias de caracteres filter” para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se você quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
+Ao construir uma cadeia de caracteres filter para [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em “Mapeamentos para cadeias de caracteres filter” para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
 
 | Propriedade | Operações permitidas | Tipo |
 |:--- |:--- |:--- |
@@ -194,7 +194,7 @@ A cadeia de caracteres de seleção para incluir somente a ID e a linha de coman
 
 ## <a name="code-samples"></a>Exemplos de código
 ### <a name="efficient-list-queries-code-sample"></a>Exemplo de código de consultas de lista eficientes
-Confira o exemplo de projeto [EfficientListQueries][efficient_query_sample] no GitHub para ver como uma consulta de lista eficaz pode afetar o desempenho de um aplicativo. Esse aplicativo de console em C# cria e adiciona um grande número de tarefas a um trabalho. Em seguida, ele faz várias chamadas para o método[JobOperations.ListTasks][net_list_tasks] e passa os objetos [ODATADetailLevel][odata] que são configurados com valores de propriedade diferentes para variar a quantidade de dados a serem retornados. Ele produz uma saída semelhante à seguinte:
+Confira o projeto de exemplo [EfficientListQueries][efficient_query_sample] no GitHub para ver como uma consulta de lista eficaz pode afetar o desempenho de um aplicativo. Esse aplicativo de console em C# cria e adiciona um grande número de tarefas a um trabalho. Em seguida, ele faz várias chamadas para o método [JobOperations.ListTasks][net_list_tasks] e passa objetos [ODATADetailLevel][odata] que são configurados com valores de propriedade diferentes para variar a quantidade de dados a serem retornados. Ele produz uma saída semelhante à seguinte:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -215,7 +215,7 @@ Como mostrado nos tempos transcorridos, você pode diminuir muito os tempos de r
 ### <a name="batchmetrics-library-and-code-sample"></a>Biblioteca BatchMetrics e exemplo de código
 Além do exemplo de código EfficientListQueries acima, você pode encontrar o projeto [BatchMetrics][batch_metrics] no repositório GitHub [azure-batch-samples][github_samples]. O projeto de exemplo BatchMetrics demonstra como monitorar com eficiência o andamento do trabalho de Lote do Azure usando a API do Lote.
 
-O exemplo [BatchMetrics][batch_metrics] inclui um projeto da biblioteca de classes .NET que você pode incorporar em seus próprios projetos e um programa da linha de comando simples para treinar e demonstrar o uso da biblioteca.
+O exemplo [BatchMetrics][batch_metrics] inclui um projeto da biblioteca de classes .NET que você pode incorporar a seus próprios projetos e um programa de linha de comando simples para treinar e demonstrar o uso da biblioteca.
 
 O aplicativo de exemplo no projeto demonstra as seguintes operações:
 
@@ -292,6 +292,6 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

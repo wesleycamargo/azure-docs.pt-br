@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que dá aos aplicativos acesso rápido aos dados. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 4e66f89a5a63cafc8cc9e6af957f27172957c934
-ms.openlocfilehash: cd838fe6027f2c097850c29308630d2086243985
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Documentação do Cache Redis
@@ -160,7 +160,7 @@ Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de m
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
                         <p><a href="http://redis.io/clients">Clientes do Redis</a></p>
@@ -176,7 +176,7 @@ Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de m
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">referência da API REST</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -184,13 +184,7 @@ Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de m
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Cache Redis </div>
-    </a>
-</div>
+
 
 
 

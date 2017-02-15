@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -35,8 +35,8 @@ Todo aplicativo que usa o Azure AD B2C precisa ser registrado em seu diretório 
 Depois de registrar o aplicativo, ele se comunicará com o AD do Azure enviando solicitações ao ponto de extremidade v2.0:
 
 ```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
+https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
 Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvidas na troca:

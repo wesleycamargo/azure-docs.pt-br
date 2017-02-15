@@ -1,5 +1,5 @@
 ---
-title: Aplicativo multicamadas .NET | Microsoft Docs
+title: "Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Um tutorial .NET que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -33,7 +33,7 @@ Você aprenderá o seguinte:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end será uma função Web MVC do ASP.NET e o back-end será uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web implantado em um site do Azure, em vez de em um serviço de nuvem. Para obter instruções sobre o que fazer de forma diferente no front-end de um site do Azure, consulte a seção [Próximas etapas](#nextsteps). Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end é uma função Web MVC do ASP.NET e o back-end é uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web, que é implantado em um site do Azure em vez de em um serviço de nuvem. Para obter instruções sobre o que fazer de forma diferente no front-end de um site do Azure, consulte a seção [Próximas etapas](#nextsteps). Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 A captura de tela a seguir mostra o aplicativo concluído.
 
@@ -57,15 +57,6 @@ Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diret
   ![][2]
 
 As seções a seguir discutem o código que implementa essa arquitetura.
-
-## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
-Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
-
-1. Instale o SDK do Azure para .NET em [Obter as ferramentas e o SDK][Obter as ferramentas e o SDK].
-2. Clique em **Instalar o SDK** da versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
-3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
-4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
-5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
 A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
@@ -109,7 +100,7 @@ Nesta seção, você cria várias páginas que exibem seu aplicativo.
 
 1. No arquivo OnlineOrder.cs do Visual Studio, substitua a definição do namespace existente pelo seguinte código:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ Nesta seção, você cria várias páginas que exibem seu aplicativo.
    ```
 2. No **Gerenciador de Soluções**, clique duas vezes em **Controllers\HomeController.cs**. Adicione as seguintes instruções **using** na parte superior do arquivo para incluir os namespaces do modelo que você acabou de criar, bem como o Barramento de Serviço.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. Também no arquivo HomeController.cs do Visual Studio, substitua a definição do namespace existente pelo código a seguir. Esse código contém métodos para processar o envio de itens para a fila.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ Nesta seção, você cria várias páginas que exibem seu aplicativo.
     ![][28]
 11. Por fim, modifique a página de envio para incluir algumas informações sobre a fila. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\Home\Submit.cshtml** para abri-lo no editor do Visual Studio. Adicione a seguinte linha após `<h2>Submit</h2>`. Por enquanto, `ViewBag.MessageCount` está vazio. Você irá preenchê-lo mais tarde.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Você agora implementou a interface do usuário. Você pode pressionar **F5** para executar o aplicativo e confirmar que parece conforme o esperado.
@@ -207,7 +198,7 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
 2. Nomeie a classe **QueueConnector.cs**. Clique em **Adicionar** para criar a classe.
 3. Agora, você adiciona o código que encapsula as informações da conexão e inicializa a conexão em uma fila do Barramento de Serviço. Substitua todo o conteúdo de QueueConnector.cs pelo código a seguir e insira valores para `your Service Bus namespace` (nome do namespace) e `yourKey`, que é a **chave primária** obtida anteriormente no portal do Azure.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
 4. Agora, garanta que o método **Initialize** seja chamado. No **Gerenciador de Soluções**, clique duas vezes em **Global.asax\Global.asax.cs**.
 5. Adicione a linha de código a seguir ao fim do método **Application_Start**.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Por fim, atualize o código da Web criado anteriormente, para enviar itens para a fila. No **Gerenciador de Soluções**, clique duas vezes em **Controllers\HomeController.cs**.
 7. Atualize o método `Submit()` (a sobrecarga sem parâmetros) da seguinte maneira para obter a contagem de mensagens da fila.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ Agora, adicione o código para enviar itens para uma fila. Primeiro, você cria 
    ```
 8. Atualize o método `Submit(OnlineOrder order)` (a sobrecarga com um parâmetro) da seguinte maneira para enviar as informações do pedido para a fila.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 10. Navegue até a subpasta para **FrontendWebRole\Models** e clique duas vezes em **OnlineOrder.cs** para adicioná-la a esse projeto.
 11. Em **WorkerRole.cs**, altere o valor da variável **QueueName** de `"ProcessingQueue"` para `"OrdersQueue"`, como mostrado no código a seguir.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. Adicione a seguinte instrução using na parte superior do arquivo WorkerRole.cs.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. Na função `Run()`, dentro da chamada `OnMessage()`, substitua o conteúdo da cláusula `try` pelo código a seguir.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +353,16 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 Para obter mais informações sobre o Barramento de Serviço, consulte os seguintes recursos:  
 
 * [Barramento de Serviço do Azure][sbmsdn]  
-* [Página de serviço do Barramento de Serviço][sbwacom]  
-* [Como usar filas do Barramento de Serviço][sbwacomqhowto]  
+* [Página de serviço do Barramento de Serviço][sbacom]  
+* [Como usar filas do Barramento de Serviço][sbacomqhowto]  
 
 Para saber mais sobre os cenários com várias camadas, consulte:  
 
-* [Aplicativo Multicamada .NET Usando Tabelas de armazenamento, Filas e Blobs][mutitierstorage]  
+* [Aplicativo de várias camadas .NET usando tabelas de armazenamento, filas e blobs][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Obter as ferramentas e o SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ Para saber mais sobre os cenários com várias camadas, consulte:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

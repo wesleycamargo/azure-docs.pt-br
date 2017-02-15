@@ -1,0 +1,54 @@
+# Visão geral
+## [O que é o SQL Server nas VMs do Azure?](virtual-machines-windows-sql-server-iaas-overview.md) 
+## [Preços](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [PERGUNTAS FREQUENTES](virtual-machines-windows-sql-server-iaas-faq.md)
+ 
+# Introdução
+## [Provisionar uma VM no Portal do Azure](virtual-machines-windows-portal-sql-server-provision.md)
+## [Provisionar uma VM usando o Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+## [Conectar-se a uma VM](virtual-machines-windows-sql-connect.md)
+## [Migrar um banco de dados do SQL Server](virtual-machines-windows-migrate-sql.md)
+
+# Como
+## Configurar alta disponibilidade
+### [Opções de alta disponibilidade](virtual-machines-windows-sql-high-availability-dr.md) 
+### [Configurar os grupos de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+#### [Automático - com modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Manual - pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+#### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+#### [Balanceador de carga - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [Balanceador de carga - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Várias regiões](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
+## Gerenciar
+### [Usar a extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md)
+### [Aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md)
+### [Configurar a integração do Cofre de Chaves do Azure](virtual-machines-windows-ps-sql-keyvault.md)
+### [Considerações de segurança](virtual-machines-windows-sql-security.md)
+## Backup e restauração
+### [Backup e restauração](virtual-machines-windows-sql-backup-recovery.md)
+### [Backup Automatizado](virtual-machines-windows-sql-automated-backup.md)
+### [Usar o Armazenamento do Azure para backup e restauração](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+## [Práticas recomendadas de desempenho](virtual-machines-windows-sql-performance.md)
+## [Configurar o armazenamento](virtual-machines-windows-sql-server-storage-configuration.md)
+## [Padrões de aplicativo](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+
+# Referência
+## [PowerShell](/powershell/resourcemanager)
+## [CLI do Azure](/cli/azure/)
+## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
+## [Drivers do SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)
+## [REST](/rest/api/)
+
+# Recursos
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
+## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Ferramentas do SQL Server](https://msdn.microsoft.com/library/mt238365.aspx)
+## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
+## [SSDT (Ferramentas de Dados do SQL Server)](https://msdn.microsoft.com/library/mt204009.aspx)
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

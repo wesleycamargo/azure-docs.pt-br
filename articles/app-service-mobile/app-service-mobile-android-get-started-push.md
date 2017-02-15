@@ -1,71 +1,89 @@
 ---
-title: Adicionar notificações por push ao aplicativo Android com aplicativos móveis do Azure
-description: Saiba como usar aplicativos móveis do Azure para enviar notificações por push para seu aplicativo Android.
+title: "Adicionar notificações por push ao aplicativo Android com os Aplicativos Móveis | Microsoft Docs"
+description: "Saiba como usar os Aplicativos Móveis para enviar notificações por push ao seu aplicativo Android."
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
-editor: ''
-author: RickSaling
-
+editor: 
+author: ysxu
+ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 07/21/2016
-ms.author: ricksal
+ms.date: 10/12/2016
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
+ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
+
 
 ---
-# Adicionar notificações de push ao seu aplicativo Android
+# <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao aplicativo Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Visão geral
-Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que, sempre que um registro for inserido, uma notificação por push seja enviada. Este tutorial baseia-se no tutorial de [início rápido do Android], que você deve concluir primeiro. Se você não usar o projeto baixado do início rápido do servidor, você deve adicionar o pacote de extensão de notificação por push ao seu projeto. Para obter mais informações sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Visão geral
+Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que, sempre que um registro for inserido, uma notificação por push seja enviada.
 
-## Pré-requisitos
-Para concluir este tutorial, você precisará do seguinte:
+Se você não usar o projeto baixado do início rápido do servidor, deverá adicionar o pacote de extensão de notificação por push ao seu projeto. Para saber mais, veja [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-* [Conta do Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) com um endereço de email verificado.
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) - não é necessário para um projeto de back-end Node.js.
-* Conclua o [tutorial de início rápido](app-service-mobile-android-get-started.md).
+## <a name="prerequisites"></a>Pré-requisitos
+Você precisará do seguinte:
 
-## <a name="create-hub"></a>Criar um Hub de notificação
-[!INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+* Uma IDE, dependendo do back-end do projeto:
 
-## Habilitar o sistema de mensagens em nuvem do Google
-[!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
+  * [Android Studio](https://developer.android.com/sdk/index.html), se esse aplicativo tiver um back-end do Node.js.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou posterior, se esse aplicativo tiver um back-end do Microsoft .NET.
+* Android 2.3 ou posterior, Google Repository revisão 27 ou posterior e Google Play Services 9.0.2 ou posterior para o Firebase Cloud Messaging.
+* Conclua o [início rápido do Android].
 
-## Configurar seu back-end de Aplicativo Móvel para enviar solicitações por push
-[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
+## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Criar um projeto que ofereça suporte ao Firebase Cloud Messaging
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a id="update-service"></a>Atualizar o projeto de servidor para enviar notificações por push
+## <a name="configure-a-notification-hub"></a>Configurar um hub de notificação
+[!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
+
+## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações por push
+[!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
+
+## <a name="enable-push-notifications-for-the-server-project"></a>Em seguida, habilite as notificações por push para o projeto de servidor
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## Adicionar notificações de push para seu aplicativo
-Você deve certificar-se de que seu projeto de aplicativo do Android está pronto para lidar com notificações por push.
+## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações de push para seu aplicativo
+Nesta seção, você atualizará seu aplicativo de cliente Android para manipular notificações por push.
 
-### Verificar Versão de SDK do Android
+### <a name="verify-android-sdk-version"></a>Verificar a versão do SDK do Android
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-A próxima etapa é instalar os serviços do Google Play. A mensagens de nuvem do Google tem alguns requisitos mínimos de nível do API para desenvolvimento e teste, o que a propriedade **minSdkVersion** no manifesto deve estar de acordo.
+A próxima etapa é instalar os serviços do Google Play. O Google Cloud Messaging tem alguns requisitos mínimos de nível de API para desenvolvimento e teste, com os quais a propriedade **minSdkVersion** no manifesto deve estar em conformidade.
 
-Se estiver testando com um dispositivo mais antigo, consulte [Configurar o SDK do Google Play Services] para determinar o mínimo que pode ser definido para esse valor e defina-o de maneira apropriada.
+Se estiver testando com um dispositivo mais antigo, consulte [Set Up Google Play Services SDK] (Configurar a SDK do Google Play Services) para determinar o mínimo que esse valor pode ser definido e defina-o de maneira apropriada.
 
-### Inclua o Google Play Services no projeto
-[!INCLUDE [Adicionar Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-google-play-services-to-the-project"></a>Adicionar serviços do Google Play ao projeto
+[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
-### Incluir código
+### <a name="add-code"></a>Incluir código
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## Testar o aplicativo no serviço móvel publicado
+## <a name="test-the-app-against-the-published-mobile-service"></a>Testar o aplicativo no serviço móvel publicado
 Você pode testar o aplicativo anexando um telefone Android com um cabo USB diretamente ou usando um dispositivo virtual no emulador.
 
-## <a id="more"></a>Mais
-* As marcas permitem que você tenha como alvo clientes segmentados com pushes. [Trabalhar com o SDK do servidor de back-end do .NET para Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) mostra como adicionar marcas à instalação de um dispositivo.
+## <a name="next-steps"></a>Próximas etapas
+Agora que você concluiu este tutorial, considere continuar com um dos seguintes tutoriais:
+
+* [Adicionar autenticação ao aplicativo Android](app-service-mobile-android-get-started-users.md).
+  Saiba como adicionar autenticação ao projeto de início rápido da lista de tarefas pendentes no Android usando um provedor de identidade com suporte.
+* [Habilitar a sincronização offline para o aplicativo móvel Android](app-service-mobile-android-get-started-offline-data.md).
+  Saiba como adicionar suporte offline ao aplicativo usando um back-end dos Aplicativos Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel &mdash; exibindo, adicionando ou modificando dados &mdash; mesmo quando não há nenhuma conexão de rede.
 
 <!-- URLs -->
 [início rápido do Android]: app-service-mobile-android-get-started.md
 
-[Configurar o SDK do Google Play Services]: https://developers.google.com/android/guides/setup
+[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

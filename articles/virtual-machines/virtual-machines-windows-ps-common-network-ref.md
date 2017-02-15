@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 9f97aee1d257c97d6ff4f1b6bf941599eade2376
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: ce08e9dcd0585e00bdd42b8aa34ac2c597a53a6e
 
 
 ---
 # <a name="common-network-azure-powershell-commands-for-vms"></a>Comandos de rede comuns do Azure PowerShell para VMs
 Se você quiser criar uma máquina virtual, será necessário criar uma [rede virtual](../virtual-network/virtual-networks-overview.md) ou saber sobre uma rede virtual existente na qual a VM possa ser adicionada. Normalmente, quando você cria uma VM, você também precisa considerar a criação dos recursos descritos neste artigo.
 
-Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 | Tarefa | Command |
@@ -70,6 +70,6 @@ Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

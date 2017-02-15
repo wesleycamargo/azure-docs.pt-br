@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -27,7 +27,7 @@ Você pode gerenciar seus aplicativos empresariais na visualização do Azure AD
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Azure Active Directory** na caixa de texto e selecione **Enter**.
 3. Na folha **Azure Active Directory -** ***directoryname*** (ou seja, a folha Azure AD do diretório que você está gerenciando), selecione **Aplicativos empresariais**.
-   
+
     ![Abrir aplicativos empresariais](./media/active-directory-coreapps-view-azure-portal/open-enterprise-apps.png)
 4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Nessa folha, é possível escolher os aplicativos a serem gerenciados, alterar as colunas exibidas ou filtrar a lista para encontrar o aplicativo desejado (por exemplo, exibir apenas aplicativos desabilitados).
 
@@ -36,7 +36,6 @@ Você pode gerenciar seus aplicativos empresariais na visualização do Azure AD
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-
 
 
 

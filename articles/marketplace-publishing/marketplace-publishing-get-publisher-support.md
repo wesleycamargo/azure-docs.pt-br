@@ -1,12 +1,12 @@
 ---
 title: Acessando o suporte do publicador para o Azure Marketplace | Microsoft Docs
-description: Como acessar e enviar solicitações de suporte do publicador para o Azure Marketplace
+description: "Como acessar e enviar solicitações de suporte do publicador para o Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: 9c0c981a-9e5e-437a-9b70-67a9f376302f
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2015
 ms.author: v-jeana; hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45a8b94a1fabe8158bfc637fc48968ff677215c8
+
 
 ---
-# Acesse o suporte do publicador para o Azure Marketplace
+# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Acesse o suporte do publicador para o Azure Marketplace
 A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Garantir que sua consulta localize a equipe de suporte correta é importante para garantir uma resposta apropriada e em tempo hábil. Considere os seguintes cenários que podem ajudá-lo a rotear sua consulta para a equipe apropriada:
 
 * Se você for um publicador no Azure Marketplace e ainda estiver desenvolvendo sua VM, você deve se comprometer com o Microsoft Onboarding ou equipes de computação.
@@ -32,17 +36,17 @@ Esta artigo mostrará como:
 * Fornecer informações de contato.
 * Descrever o problema.
 
-## 1\. Entre na sua conta da Microsoft
-Navegue para https://publish.windowsazure.com/ e entre com suas credenciais da conta da Microsoft.
+## <a name="1-sign-in-to-your-microsoft-account"></a>1. Entre na sua conta da Microsoft
+Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.
 
   ![Tela de entrada][1]
 
-## 2\. Navegue até as páginas de suporte do publicador
+## <a name="2-navigate-to-the-publisher-support-pages"></a>2. Navegue até as páginas de suporte do publicador
 No menu superior direito, selecione **Obter Suporte**.
 
   ![Obtenha suporte][2]
 
-## 3\. Selecione o tipo de problema e categoria
+## <a name="3-select-the-problem-type-and-category"></a>3. Selecione o tipo de problema e categoria
 ![Tipo de problema e categoria][3]
 
 Os tipos de problemas disponíveis são os seguintes:
@@ -56,17 +60,17 @@ Os tipos de problemas disponíveis são os seguintes:
 * **Central de Desenvolvedores**
 * **Outros**
 
-## 4\. Solicitar suporte
-Depois de selecionar o tipo de problema e a categoria, clique no botão **Iniciar solicitação**.
+## <a name="4-request-support"></a>4. Solicitar suporte
+Depois de selecionar o tipo de problema e a categoria, clique no botão **Iniciar solicitação** .
 
 ![Suporte de início][4]
 
-## 5\. Fornecer informações de contato e descrever o problema
+## <a name="5-provide-contact-information-and-describe-the-problem"></a>5. Fornecer informações de contato e descrever o problema
 Descreva o problema como totalmente possível e forneça quaisquer arquivos (capturas de tela, rastreamentos de rede, etc.) que podem ser úteis para solucionar o problema.
 
 ![Descrever o problema][5]
 
-## 6\. Confirmação de envio
+## <a name="6-submission-confirmation"></a>6. Confirmação de envio
 Depois que você tiver enviado seu problema, abordaremos o reconhecimento de recebimento dentro de 24 horas e atribuir o problema de uma prioridade e severidade. Nossa equipe dedicada de engenheiros de suporte ajudará com a resolução de acordo com os tempos de resposta do SLA.
 
 ![Confirmação][6]
@@ -74,7 +78,7 @@ Depois que você tiver enviado seu problema, abordaremos o reconhecimento de rec
 * Se precisar falar conosco sobre seu problema, use o número de confirmação em todas as correspondências.
 * Você pode exibir o andamento da resolução do seu problema a qualquer momento.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber como solucionar problemas de suporte específico, visite, [Problemas comuns no Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
@@ -84,4 +88,8 @@ Para saber como solucionar problemas de suporte específico, visite, [Problemas 
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

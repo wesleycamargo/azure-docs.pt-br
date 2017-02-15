@@ -1,19 +1,23 @@
 ---
-title: Como usar as filas do Barramento de Serviço com o Ruby | Microsoft Docs
-description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby.
-services: service-bus
+title: "Como usar as filas do Barramento de Serviço com o Ruby | Microsoft Docs"
+description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby."
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
@@ -21,7 +25,7 @@ ms.author: sethm
 
 Este guia descreve como usar as filas do barramento de serviço. Os exemplos são gravados no Ruby e usam a gema do Azure. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**. Para saber mais sobre filas de Barramento de Serviços, confira a seção [Próximas etapas](#next-steps).
 
-## <a name="what-are-service-bus-queues?"></a>O que são as filas do Barramento de Serviço?
+## <a name="what-are-service-bus-queues"></a>O que são as filas do Barramento de Serviço?
 Filas do Barramento de Serviço dão suporte a um modelo de comunicação de *sistema de mensagens agenciado*. Com filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário. Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento.
 De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
@@ -68,7 +72,7 @@ Crie um aplicativo Ruby. Para obter instruções, confira [Criar um aplicativo R
 Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Usar RubyGems para obter o pacote
-1. Use uma interface de linha de comandos como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
+1. Use uma interface de linha de comando como **PowerShell** (Windows), **Terminal** (Mac) ou **Bash** (Unix).
 2. Digite "gem install azure" na janela de comandos para instalar a gema e as dependências.
 
 ### <a name="import-the-package"></a>Importar o pacote
@@ -154,6 +158,9 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 
 Para fazer uma comparação entre as filas de Barramento de Serviço do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o armazenamento de Filas no Ruby](../storage/storage-ruby-how-to-use-queue-storage.md), confira [Filas do Azure e filas de Barramento de Serviço do Azure - Comparadas e Contrastadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

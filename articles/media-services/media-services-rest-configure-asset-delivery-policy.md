@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
 
 
 ---
@@ -38,9 +38,9 @@ Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você 
 
 Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
 
-Dependendo de como você configura a política de entrega de ativos, você será capaz de empacotar dinamicamente, criptografar dinamicamente e transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e fluxos HDS.
+Dependendo de como você configura a política de entrega de ativos, poderá empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e transmissões.
 
-A lista a seguir mostra os formatos que você usa para transmitir Smooth, HLS, DASH e HDS.
+A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.
 
 Smooth Streaming:
 
@@ -54,9 +54,6 @@ MPEG DASH
 
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
-HDS
-
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
 
 Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
@@ -306,11 +303,6 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
         HLS = 0x4,
 
         /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
-
-        /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
@@ -441,6 +433,6 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

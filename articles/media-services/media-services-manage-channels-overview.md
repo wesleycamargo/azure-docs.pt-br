@@ -12,42 +12,42 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01508d35a4bae80a403025e35fa7b42970ec90af
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: b9a4a790cab7b5600bf4942ac81367192a008447
 
 
 ---
-# <a name="overview-of-live-steaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
+# <a name="overview-of-live-streaming-using-azure-media-services"></a>Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure
 ## <a name="overview"></a>Visão geral
 Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azure, normalmente, os seguintes componentes estão envolvidos:
 
 * Uma câmera é usada para transmitir um evento.
 * Um codificador de vídeo ao vivo que converte os sinais da câmera para fluxos que são enviados a um serviço de transmissão ao vivo.
-  
+
     Opcionalmente, vários codificadores sincronizados em tempo real. Para determinados eventos ao vivo críticos que exigem alta disponibilidade e qualidade de experiência muito altas, é recomendável utilizar codificadores redundantes ativos-ativos com sincronização de tempo para atingir um failover contínuo sem perda de dados.
 * Um serviço de streaming ao vivo que permite que você faça o seguinte:
-  
+
   * inclusão de conteúdo ao vivo usando diversos protocolos de transmissão ao vivo (por exemplo RTMP ou Smooth Streaming),
   * (opcionalmente) codificação de seu fluxo no fluxo de taxa de bits adaptável
   * visualização de sua transmissão ao vivo,
   * armazenamento do conteúdo incluído para ser transmitido posteriormente (vídeo sob demanda)
-  * fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS, HDS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
+  * fornecimento do conteúdo por meio de protocolos de transmissão comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou para uma CDN (Rede de Distribuição de Conteúdo) para a distribuição posterior.
 
 O AMS **(Serviços de Mídia do Microsoft Azure)** fornece a capacidade de ingerir, codificar, visualizar, armazenar e fornecer o conteúdo de transmissão ao vivo.
 
-Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para fazer isso, use codificadores ativos para codificar sua transmissão em uma transmissão de vídeo de taxa de bits múltipla (taxa de bits adaptável).  Para lidar com streaming em diferentes dispositivos, use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia para reempacotar dinamicamente seu fluxo para diferentes protocolos. Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+Ao fornecer conteúdo aos clientes, sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para fazer isso, use codificadores ativos para codificar sua transmissão em uma transmissão de vídeo de taxa de bits múltipla (taxa de bits adaptável).  Para lidar com streaming em diferentes dispositivos, use o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia para reempacotar dinamicamente seu fluxo para diferentes protocolos. Os Serviços de Mídia permitem a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH.
 
 Nos Serviços de Mídia do Azure, **Canais** e **Programas**, e **StreamingEndpoints** tratam de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR, segurança, escalabilidade e redundância.
 
 Um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um Canal pode receber fluxos de entrada ao vivo da seguinte maneira:
 
 * Um codificador ativo local envia múltiplas taxas de bits **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o Canal que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **Canai**s sem nenhum processamento adicional. Você pode usar os codificadores ao vivo a seguir, que produz Smooth Streaming com múltiplas taxas de bits: Elemental, Envivio, Cisco.  Os seguintes codificadores ativos produzem RTMP: transcodificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast e Tricaster.  Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, isso não é recomendado. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-  
+
   > [!NOTE]
-  > Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Veja os detalhes de [preços](/pricing/details/media-services/) .
+  > Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Veja os detalhes de [preços](https://azure.microsoft.com/pricing/details/media-services/) .
   > 
   > 
 * Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). Também há suporte para RTP (MPEG-TS), desde que você tenha uma conexão dedicada ao data center do Azure. Os seguintes codificadores ativos com saída RTMP são conhecidos por trabalhar com canais desse tipo: Telestream Wirecast e FMLE. O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
@@ -55,7 +55,7 @@ Um **Canal** representa um pipeline para o processamento de conteúdo de transmi
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, você pode especificar de que modo você deseja que o canal receba o fluxo de entrada e se deseja ou não que o canal realize a codificação ao vivo do seu fluxo. Você tem duas opções:
 
 * **Nenhum** (passagem) – Especifique esse valor se você planejar usar um codificador ativo local que emitirá uma transmissão de taxa de bits múltipla (uma transmissão de passagem). Nesse caso, o fluxo de entrada foi transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10.  
-* **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Esse método é mais econômico para escalar verticalmente de forma rápida para eventos incomuns. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. 
+* **Standard** – Escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Esse método é mais econômico para escalar verticalmente de forma rápida para eventos incomuns. Lembre-se de que há um impacto de cobrança para codificação ativa e você deve se lembrar que deixar um canal de codificação ativo no estado "Em execução" incorrerá em cobranças.  É recomendável parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra.
 
 ## <a name="comparison-of-channel-types"></a>Comparação dos tipos de canais
 A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com suporte nos Serviços de Mídia
@@ -65,7 +65,7 @@ A tabela a seguir fornece um guia de comparação dos dois tipos de Canal com su
 | A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não |Sim |
 | Resolução máxima, número de camadas |1080p, 8 camadas, 60+fps |720p, 6 camadas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming e RTP |
-| Preço |Confira a [página de preços](/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](/pricing/details/media-services/) |
+| Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo de execução máximo |24x7 |8 horas |
 | Suporte para inserção de imagens fixas |Não |Sim |
 | Suporte para sinalização de anúncios |Não |Sim |
@@ -99,7 +99,7 @@ Cada conta dos Serviços de Mídia pode conter vários canais, vários programas
 
 ### <a name="program"></a>Programa
 Um [Programa](https://msdn.microsoft.com/library/azure/dn783463.aspx) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
-Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. 
+Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas.
 
 ArchiveWindowLength também determina que a quantidade máxima de clientes de tempo pode buscar de volta no tempo a partir da posição atual em tempo real. Programas podem ser executados sobre o período de tempo especificado, mas o conteúdo que sair do comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
@@ -117,19 +117,19 @@ Você é responsável por parar seus canais quando terminar com o canal. A falha
 
 > [!NOTE]
 > Ao trabalhar com canais Standard, o AMS desligará automaticamente qualquer Canal que ainda esteja no estado "Em execução" 12 horas depois que a transmissão de entrada for perdida e não houver nenhum Programa em execução. No entanto, você ainda será cobrado pelo tempo em que o canal estava no estado "Em execução".
-> 
-> 
+>
+>
 
 ### <a name="a-idstatesachannel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Os estados de canal e como eles são mapeados para o modo de cobrança
 O estado atual de um canal. Os valores possíveis incluem:
 
 * **Parado**. Esse é o estado inicial do Canal após sua criação (a menos que o início automático tenha sido selecionado no portal). Não há cobrança nesse estado. Nesse estado, as propriedades do canal podem ser atualizadas, mas streaming não é permitido.
 * **Iniciando**. O canal está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o canal retorna para o estado Parado.
-* **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional. 
+* **Executando**. O canal é capaz de processar transmissões ao vivo. Agora o uso está sendo cobrado. Você deve parar o canal para evitar a cobrança adicional.
 * **Parando**. O canal está sendo parado. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 * **Excluindo**. O canal está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.
 
-A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança. 
+A tabela a seguir mostra como os estados de canal são mapeados para o modo de cobrança.
 
 | Estado de canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
@@ -157,7 +157,6 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

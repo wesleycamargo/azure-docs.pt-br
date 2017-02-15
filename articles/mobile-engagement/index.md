@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como obter informações sobre o uso do aplicativo móvel e sobre a segmentação de usuários em tempo real e como habilitar notificações por push cientes de contexto e mensagens no aplicativo."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Documentação do Mobile Engagement
 
-O Engajamento Móvel do Azure é uma plataforma SaaS (software como serviço) de envolvimento do usuário que fornece informações baseadas em dados sobre o uso do aplicativo, segmentação de usuários, além de habilitar notificações por push e mensagens no aplicativo.
+Saiba como aumentar o uso, a retenção e a monetização de aplicativos móveis com o Engajamento Móvel. Os tutoriais, os SDKs e outras documentações mostram como obter informações sobre o uso do aplicativo móvel e sobre a segmentação de usuários em tempo real e como habilitar notificações por push cientes de contexto e mensagens no aplicativo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -194,17 +195,10 @@ O Engajamento Móvel do Azure é uma plataforma SaaS (software como serviço) de
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Engajamento Móvel do Azure </div>
-    </a>
-</div>
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

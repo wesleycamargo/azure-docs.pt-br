@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: cherylmc
+ms.author: cherylmc;ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 8eb67e0800671f4d41612780db52a243023b9e5a
+ms.sourcegitcommit: 5c6ee9ef23e8594391a4fce313f945b31e6870a7
+ms.openlocfilehash: ed4bd2e039196e60b7366fd9d2e8a8b43ce00f30
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell – Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - clássico](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Clássico - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Vídeo – Portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Este artigo descreve como criar um circuito da Rota Expressa do azure usando o portal do Azure e o modelo de implantação do Azure Resource Manager. As etapas a seguir também mostrarão a você como verificar o status do circuito, como atualizá-lo ou como excluí-lo e desprovisioná-lo.
 
@@ -39,6 +40,7 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando o p
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Verifique se você tem acesso ao [portal do Azure](https://portal.azure.com).
 * Verifique se você tem permissões para criar novos recursos de rede. Se você não tiver as permissões corretas, entre em contato com o administrador da conta.
+* Você pode [exibir um vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de começar para entender melhor as etapas.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Entrar no Portal do Azure
@@ -84,19 +86,19 @@ Nessa folha, **Status do provedor** fornece informações sobre o estado de prov
 Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
 
 Status do provedor: não provisionado<BR>
- Status do circuito: habilitado
+Status do circuito: habilitado
 
 ![Iniciar o processo de provisionamento](./media/expressroute-howto-circuit-portal-resource-manager/viewstatus.png)
 
 O circuito assumirá o estado a seguir quando o provedor de conectividade estiver no processo de habilitá-lo para você:
 
 Status do provedor: provisionando<BR>
- Status do circuito: habilitado
+Status do circuito: habilitado
 
 Para que você consiga usar um circuito da Rota Expressa, ele deverá estar no seguinte estado:
 
 Status do provedor: provisionado<BR>
- Status do circuito: habilitado
+Status do circuito: habilitado
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verifique periodicamente o status e o estado da chave do circuito
 Você pode exibir as propriedades do circuito de seu interesse selecionando-o. Verifique o **Status do provedor** e se ele mudou para **Provisionado** antes de continuar.
@@ -147,6 +149,6 @@ Depois de criar seu circuito, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

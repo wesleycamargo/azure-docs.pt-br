@@ -282,6 +282,6 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

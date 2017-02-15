@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 12/06/2016
 ms.author: telmos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b178c399cd3e29c97bc68c6c1494a015920a0a1
+ms.sourcegitcommit: b574360cce92350a9bf52c21678bf0e91ceb270e
+ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
 
 
 ---
@@ -36,8 +36,8 @@ O tipo de resolução de nomes usado depende de como as VMs e as instâncias de 
 | --- | --- | --- |
 | Resolução de nomes entre as instâncias de função ou as máquinas virtuais no mesmo serviço de nuvem ou rede virtual |[Resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution) |nome de host ou FQDN |
 | Resolução de nomes entre instâncias de função ou máquinas virtuais localizadas em redes virtuais diferentes |Servidores DNS gerenciados pelo cliente que encaminham consultas entre redes virtuais para resolução pelo Azure (proxy DNS).  Confira [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Somente FQDN |
-| Resolução de nomes de serviço e de computador locais em instâncias de função ou VMs no Azure |Servidores DNS gerenciados pelo cliente (por exemplo, controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizados usando transferências de zona).  Confira [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Somente FQDN |
-| Resolução de nomes de host do Azure em computadores locais |Encaminhe consultas para um servidor de proxy DNS gerenciado pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para resolução pelo Azure. Confira [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Somente FQDN |
+| Resolução de nomes de serviço e de computador locais em instâncias de função ou VMs no Azure |Servidores DNS gerenciados pelo cliente (por exemplo, controlador de domínio local, controlador de domínio somente leitura local ou DNS secundário sincronizado usando transferências de zona).  Confira [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Somente FQDN |
+| Resolução de nomes de host do Azure de computadores locais |Encaminhe consultas para um servidor de proxy DNS gerenciado pelo cliente na rede virtual correspondente. O servidor proxy encaminha consultas para resolução pelo Azure. Confira [Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Somente FQDN |
 | DNS inverso para IPs internos |[Resolução de nome usando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |n/d |
 | Resolução de nomes entre VMs ou instâncias de função localizadas em serviços de nuvem diferente, não em uma rede virtual |Não aplicável. Não há suporte para a conectividade entre máquinas virtuais e instâncias de função em diferentes serviços de nuvem fora de uma rede virtual. |n/d |
 
@@ -114,7 +114,7 @@ O arquivo resolv.conf é normalmente gerado automaticamente e não deve ser edit
   * adicione a linha de opções para '/etc/resolveconf/resolv.conf.d/head' 
   * execute 'resolvconf -u' para atualizar
 * **SUSE** (usa netconf):
-  * adicione 'timeout:1 tentativas: 5' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
+  * adicione 'timeout:1 tentativas:&5;' ao parâmetro NETCONFIG_DNS_RESOLVER_OPTIONS = "" em '/ etc/sysconfig/rede/config' 
   * execute 'netconfig update' para atualizar
 * **OpenLogic** (usa NetworkManager):
   * adicione 'echo "options timeout:1 attempts:5"' em '/etc/NetworkManager/dispatcher.d/11-dhclient' 
@@ -123,9 +123,9 @@ O arquivo resolv.conf é normalmente gerado automaticamente e não deve ser edit
 ## <a name="name-resolution-using-your-own-dns-server"></a>Resolução de nome usando seu próprio servidor DNS
 Há várias situações em que suas necessidades de resolução de nome podem ir além dos recursos fornecidos pelo Azure, por exemplo, ao usar domínios do Active Directory ou ao precisar de resolução DNS entre redes virtuais.  Para abordar esses cenários, o Azure oferece a capacidade de usar seus próprios servidores DNS.  
 
-Os servidores DNS em uma rede virtual podem encaminhar consultas DNS para os resolvedores recursivos do Azure a fim de resolver nomes de host dentro da rede virtual.  Por exemplo, um DC (controlador de domínio) em execução no Azure pode responder a consultas DNS de seus domínios e encaminhar todas as outras consultas ao Azure.  Isso permite que as VMs vejam tanto seus recursos locais (pelo controlador de domínio) quanto nomes de host fornecidos pelo Azure (pelo encaminhador).  O acesso a resolvedores recursivos do Azure é fornecido por meio da IP virtual 168.63.129.16.
+Os servidores DNS em uma rede virtual podem encaminhar consultas DNS para os resolvedores recursivos do Azure a fim de resolver nomes de host dentro da rede virtual.  Por exemplo, um DC (controlador de domínio) em execução no Azure pode responder a consultas DNS de seus domínios e encaminhar todas as outras consultas ao Azure.  Isso permite que as VMs vejam tanto seus recursos locais (pelo DC) quanto nomes de host fornecidos pelo Azure (pelo encaminhador).  O acesso a resolvedores recursivos do Azure é fornecido por meio da IP virtual 168.63.129.16.
 
-O encaminhamento de DNS também permite a resolução DNS entre redes virtuais e permite suas máquinas locais resolvam nomes de host fornecidos pelo Azure.  Para resolver o nome de host da VM, a VM do servidor DNS deve residir na mesma rede virtual e ser configurado para encaminhar consultas de nome de host ao Azure.  Como o sufixo DNS é diferente em cada rede virtual, você pode usar regras de encaminhamento condicionais para enviar consultas DNS a fim de serem resolvidas pela rede virtual correta.  A imagem abaixo mostra duas redes virtuais e uma rede local fazendo a resolução de DNS entre redes virtuais usando este método.  Um encaminhador DNS de exemplo está disponível na [galeria de Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+O encaminhamento do DNS também possibilita a resolução do DNS entre redes virtuais e permite que os computadores locais resolvam nomes de host fornecidos pelo Azure.  Para resolver o nome de host da VM, a VM do servidor DNS deve residir na mesma rede virtual e ser configurado para encaminhar consultas de nome de host ao Azure.  Como o sufixo DNS é diferente em cada rede virtual, você pode usar regras de encaminhamento condicionais para enviar consultas DNS a fim de serem resolvidas pela rede virtual correta.  A imagem a seguir mostra duas redes virtuais e uma rede local fazendo a resolução do DNS entre redes virtuais usando esse método.  Um encaminhador DNS de exemplo está disponível na [galeria de Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 ![DNS entre redes virtuais](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
@@ -182,6 +182,6 @@ Modelo de implantação clássico:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

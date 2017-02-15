@@ -155,7 +155,7 @@ Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é rea
 
     O Lote pode detectar e repetir as tarefas com falha. Você pode especificar o **número máximo de tentativas de tarefa** como uma restrição, inclusive se uma tarefa é repetida *sempre* ou *nunca* é repetida. Repetir uma tarefa significa que a tarefa é colocada na fila para ser executada novamente.
 * O aplicativo do cliente pode adicionar tarefas a um trabalho ou você pode especificar uma [tarefa do gerenciador de trabalhos](#job-manager-task). Uma tarefa do gerenciador de trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do gerenciador de trabalhos sendo executada em um de nós de computação no pool. A tarefa do gerenciador de trabalhos é tratada especificamente pelo Lote – ela é colocada na fila assim que o trabalho é criado e é reiniciada, caso falhe. Uma tarefa do gerenciador de trabalhos é *necessária* para os trabalhos criados por um [agendamento de trabalho](#scheduled-jobs) , pois é a única maneira de definir as tarefas antes do trabalho ser instanciado.
-* Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete] [ net_onalltaskscomplete] no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
+* Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete][net_onalltaskscomplete] no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
 
     Observe que o serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
 
@@ -167,7 +167,7 @@ Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no a
 O plano de trabalho em pools é independente. Entre pools diferentes, não é garantido que um trabalho com prioridade mais alta seja agendado primeiro, caso faltem nós ociosos em seu pool associado. No mesmo pool, trabalhos com o mesmo nível de prioridade têm a mesma chance de ser agendados.
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
-As [Agendas de trabalho] [ rest_job_schedules] permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+As [Agendas de trabalho][rest_job_schedules] permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="task"></a>Tarefa
 Uma tarefa é uma unidade de computação que está associada a um trabalho. Ela é executada em um nó. As tarefas são atribuídas a um nó para execução ou estão na fila até que um nó fique livre. Resumindo, uma tarefa executa um ou mais programas ou scripts em um nó de computação para executar o trabalho necessário.
@@ -425,7 +425,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 ## <a name="next-steps"></a>Próximas etapas
 * Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
-* Baixe e compile o projeto de exemplo [Gerenciador do Lote] [ github_batchexplorer] para usar durante o desenvolvimento de suas soluções de Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
+* Baixe e compile o projeto de exemplo [Gerenciador do Lote][github_batchexplorer] para usar durante o desenvolvimento de suas soluções de Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
 
   * Monitorar e manipular pools, trabalhos e tarefas em sua conta do Lote
   * Baixe `stdout.txt`, `stderr.txt` e outros arquivos de nós

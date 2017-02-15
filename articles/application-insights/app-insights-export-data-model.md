@@ -1,11 +1,11 @@
 ---
 title: Modelo de dados do Application Insights
-description: Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros.
+description: "Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
+ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+
 
 ---
-# Modelo de dados de exportação do Application Insights
-Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal. Você verá essas propriedades na saída de dados de [Exportação Contínua](app-insights-export-telemetry.md). Elas também aparecerão em filtros de propriedade em [Gerenciador de Métricas](app-insights-metrics-explorer.md) e em [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md).
+# <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
+Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal.
+Você verá essas propriedades na saída de dados de [Exportação Contínua](app-insights-export-telemetry.md).
+Elas também aparecerão nos filtros da propriedade no [Explorador de Métrica](app-insights-metrics-explorer.md) e na [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md).
 
 Pontos a serem observados:
 
@@ -26,19 +32,19 @@ Pontos a serem observados:
 
 Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que ilustram como usá-los.
 
-## Exemplo
+## <a name="example"></a>Exemplo
     // A server report about an HTTP request
     {
-    "request": [ 
+    "request": [
       {
         "urlData": { // derived from 'url'
           "host": "contoso.org",
           "base": "/",
-          "hashTag": "" 
+          "hashTag": ""
         },
         "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events 
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
@@ -71,14 +77,14 @@ Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que il
         "continent": "North America",
         "country": "United States",
         // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0", 
+        "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
         // percentage of generated data sent to portal:
-        "samplingRate": 100.0, 
+        "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
       "user": {
@@ -106,7 +112,7 @@ Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que il
     }
   }
 
-## Contexto
+## <a name="context"></a>Contexto
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com cada ponto de dados.
 
 | Caminho | Tipo | Observações |
@@ -148,24 +154,24 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | internal.data.documentVersion |string | |
 | internal.data.id |string | |
 
-## Eventos
+## <a name="events"></a>Eventos
 Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| event [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| event [0] name |string |Nome do evento. Comprimento máximo 250. |
+| event [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
+| event [0] name |string |Nome do evento.  Comprimento máximo 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
-## Exceções
+## <a name="exceptions"></a>Exceções
 [Exceções](app-insights-asp-net-exceptions.md) do relatório no servidor e no navegador.
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| basicException [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -188,17 +194,17 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 | basicException [0] stack |string |Comprimento máximo 10k |
 | basicException [0] typeName |string | |
 
-## Mensagens de rastreamento
-Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e pelos [adaptadores de registro em log](app-insights-asp-net-trace-logs.md).
+## <a name="trace-messages"></a>Mensagens de rastreamento
+Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e pelos [adaptadores de log](app-insights-asp-net-trace-logs.md).
 
-| Caminho | Tipo | Observações |
+| path | Tipo | Observações |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
 | message [0] raw |string |A mensagem de log, comprimento máximo de 10 mil. |
 | message [0] severityLevel |string | |
 
-## Dependência remota
+## <a name="remote-dependency"></a>Dependência remota
 Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamadas para dependências](app-insights-asp-net-dependencies.md) no servidor, e chamadas do AJAX no navegador.
 
 | Caminho | Tipo | Observações |
@@ -206,7 +212,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] async |booleano | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Por exemplo, "home/index" |
-| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
 | remoteDependency [0] id |string | |
@@ -219,23 +225,23 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] urlData.hashTag |string | |
 | remoteDependency [0] urlData.host |string |Comprimento máximo 200 |
 
-## Solicitações
+## <a name="requests"></a>Solicitações
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo: 4 =&gt; 25%. |
+| request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo: 4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
 | request [0] id |string |ID da operação |
-| request [0] name |string |GET/POST + url base. Comprimento máximo 250 |
+| request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
 | request [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
-| request [0] success |Booleano |Padrão == (responseCode &lt; 400) |
+| request [0] success |booleano |Padrão == (responseCode &lt; 400) |
 | request [0] url |string |Não incluindo o host |
 | request [0] urlData.base |string | |
 | request [0] urlData.hashTag |string | |
 | request [0] urlData.host |string | |
 
-## Desempenho de exibição da página
+## <a name="page-view-performance"></a>Desempenho de exibição da página
 Enviado pelo navegador. Mede o tempo de processamento de uma página, desde o início da solicitação do usuário até a exibição completa (excluindo as chamadas do AJAX assíncronas).
 
 Os valores de contexto mostram a versão do navegador e do sistema operacional cliente.
@@ -254,27 +260,27 @@ Os valores de contexto mostram a versão do navegador e do sistema operacional c
 | clientPerformance [0] urlData.host |string | |
 | clientPerformance [0] urlData.protocol |string | |
 
-## Visualizações de página
-Enviado pelo trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
+## <a name="page-views"></a>Visualizações de página
+Enviado por trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| view [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| view [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
-| view [0] name |string |Título da página. Comprimento máximo 250 |
+| view [0] name |string |Título da página.  Comprimento máximo 250 |
 | view [0] url |string | |
 | view [0] urlData.base |string | |
 | view [0] urlData.hashTag |string | |
 | view [0] urlData.host |string | |
 
-## Disponibilidade
+## <a name="availability"></a>Disponibilidade
 Relata os [testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md).
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |string |disponibilidade |
-| availability [0] availabilityMetric.value |número |1\.0 ou 0.0 |
-| availability [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| availability [0] availabilityMetric.name |string |Disponibilidade |
+| availability [0] availabilityMetric.value |número |1.0 ou 0.0 |
+| availability [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |inteiro | |
 | availability [0] durationMetric.name |string | |
@@ -286,7 +292,7 @@ Relata os [testes de disponibilidade na Web](app-insights-monitor-web-app-availa
 | availability [0] testRunId |string | |
 | availability [0] testTimestamp |string | |
 
-## Métricas
+## <a name="metrics"></a>Métricas
 Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
@@ -316,7 +322,7 @@ Por exemplo:
          } ] }
     }
 
-## Sobre valores de métricas
+## <a name="about-metric-values"></a>Sobre valores de métricas
 Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
 
       "durationMetric": {
@@ -338,12 +344,16 @@ Nas tabelas acima, omitimos os campos min, max, stdDev e sampledValue, que são 
 
 Em vez de agregar previamente as métricas, você pode usar a [amostragem](app-insights-sampling.md) se precisar reduzir o volume de telemetria.
 
-### Durações
+### <a name="durations"></a>Durações
 Exceto quando indicado o contrário, as durações são representadas em décimos de microssegundo, de modo que 10000000.0 significa 1 segundo.
 
-## Consulte também
-* [Application Insights](app-insights-overview.md) 
+## <a name="see-also"></a>Consulte também
+* [Application Insights](app-insights-overview.md)
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

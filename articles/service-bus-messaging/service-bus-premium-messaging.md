@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/21/2016
-ms.author: darosa,sethm
+ms.date: 1/06/2016
+ms.author: darosa,sethm,jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: d36b40444af4ba68b016351f9ff016351e9fe58c
-ms.openlocfilehash: a4ccfdbc079a989477a80af7ac701dc77dce5a4f
+ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
+ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
 
 
 ---
@@ -31,9 +31,9 @@ Algumas diferenças de alto nível são destacadas na tabela a seguir.
 | --- | --- |
 | Alta taxa de transferência |Taxa de transferência variável |
 | Desempenho previsível |Latência variável |
-| Preços previsíveis |Preço pré-pago variável |
-| Capacidade de escalar verticalmente a carga de trabalho |N/D |
-| Tamanho de mensagem com mais de 256 KB |O tamanho da mensagem é de 256 KB |
+| Preço fixo |Preço pré-pago variável |
+| Capacidade de escalar a carga de trabalho verticalmente |N/D |
+| Até 1 MB de tamanho de mensagem |Até 256 KB de tamanho de mensagem |
 
 O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos na camada de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
 
@@ -43,10 +43,19 @@ Esse desempenho não é apenas o mais previsível e disponível, mas também o m
 A seguir, algumas diferenças entre as camadas dos sistemas de mensagens Premium e Standard.
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
-Há suporte para filas e tópicos no Sistema de Mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do Sistema de Mensagens do Barramento de Serviço. O Sistema de Mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
+Há suporte para filas e tópicos no Sistema de Mensagens Premium, mas elas não funcionam da mesma forma nas camadas Standard e Basic do Sistema de Mensagens do Barramento de Serviço. O Sistema de Mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário para o desempenho. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+
+## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
+
+A introdução ao sistema de mensagens Premium é simples e o processo é semelhante ao do sistema de mensagens padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou *Premium* em 'Tipo de preços'.
+
+![criar-premium-namespace][create-premium-namespace]
+
+Você também pode criar um [namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira os tópicos a seguir.
@@ -56,9 +65,12 @@ Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira 
 * [Visão geral do Sistema de Mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

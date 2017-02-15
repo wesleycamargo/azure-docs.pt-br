@@ -1,12 +1,12 @@
 ---
-title: Select rows to migrate by using a filter function (Stretch Database) | Microsoft Docs
-description: Learn how to select rows to migrate by using a filter function.
+title: "Selecione linhas para migrar usando uma função de filtro (Stretch Database) | Microsoft Docs"
+description: "Saiba como selecionar linhas para migrar pelo uso de uma função de filtro."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: f5ef79d9-68ef-4394-a057-d7aac5706b72
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,57 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 76af756316523935cf04e19f12a3a1380d0f3a42
+
 
 ---
-# <a name="select-rows-to-migrate-by-using-a-filter-function-(stretch-database)"></a>Select rows to migrate by using a filter function (Stretch Database)
-If you store cold data in a separate table, you can configure Stretch Database to migrate the entire table. If your table contains both hot and cold data, on the other hand, you can specify a filter function to select the rows to migrate. The filter predicate is an inline table\-valued function. This topic describes how to write an inline table\-valued function to select rows to migrate.
+# <a name="select-rows-to-migrate-by-using-a-filter-function-stretch-database"></a>Selecionar linhas a migrar pelo uso de uma função de filtro (Stretch Database)
+Se armazenar os dados inativos em uma tabela separada, você poderá configurar o Stretch Database para migrar toda a tabela. Por outro lado, se sua tabela contiver dados ativos e inativos, você poderá especificar uma função de filtro para selecionar as linhas a serem migradas. O predicado de filtro é uma função com valor de tabela embutida. Este tópico descreve como escrever uma função com valor de tabela embutida a fim de selecionar linhas para migração.
 
 > [!NOTE]
-> If you provide a filter function that performs poorly, data migration also performs poorly. Stretch Database applies the filter function to the table by using the CROSS APPLY operator.
+> Se você fornecer uma função de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Stretch Database aplica a função de filtro à tabela usando o operador CROSS APPLY.
 > 
 > 
 
-If you don't specify a filter function, the entire table is migrated.
+Se você não especificar uma função de filtro, toda a tabela será migrada.
 
-When you run the Enable Database for Stretch Wizard, you can migrate an entire table or you can specify a simple filter function in the wizard. If you want to use a different type of filter function to select rows to migrate, do one of the following things.
+Quando você executar o Assistente Habilitar Banco de Dados para o Stretch, poderá migrar uma tabela inteira ou especificar uma função de filtro simples no assistente. Se você quiser usar um tipo diferente de função de filtro para selecionar as linhas a serem migradas, faça um dos procedimentos a seguir.
 
-* Exit the wizard and run the ALTER TABLE statement to enable Stretch for the table and to specify a filter function.
-* Run the ALTER TABLE statement to specify a filter function after you exit the wizard.
+* Saia do assistente e execute a instrução ALTER TABLE para habilitar o Stretch para a tabela e especificar uma função de filtro.
+* Execute a instrução ALTER TABLE para especificar uma função de filtro depois de sair do assistente.
 
-The ALTER TABLE syntax for adding a function is described later in this topic.
+A sintaxe de ALTER TABLE para adicionar uma função é descrita posteriormente neste tópico.
 
-## <a name="basic-requirements-for-the-filter-function"></a>Basic requirements for the filter function
-The inline table\-valued function required for a Stretch Database filter predicate looks like the following example.
+## <a name="basic-requirements-for-the-filter-function"></a>Requisitos básicos para a função de filtro
+A função com valor de tabela embutida necessária para um predicado de filtro do Stretch Database se parece com o exemplo a seguir.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datatype1, @column2 datatype2 [, ...n])
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE <predicate>
 ```
-The parameters for the function have to be identifiers for columns from the table.
+Os parâmetros da função precisam ser identificadores para as colunas provenientes da tabela.
 
-Schema binding is required to prevent columns that are used by the filter function from being dropped or altered.
+É necessário usar a associação de esquema para evitar que as colunas usadas pela função de filtro sejam descartadas ou alteradas.
 
-### <a name="return-value"></a>Return value
-If the function returns a non\-empty result, the row is eligible to be migrated. Otherwise \- that is, if the function doesn't return a result \- the row is not eligible to be migrated.
+### <a name="return-value"></a>Valor de retorno
+Se a função retornar um resultado não vazio, a linha poderá ser qualificada para migração. Caso contrário, \- ou seja, se a função não retornar um resultado\- a linha não estará qualificada para ser migrada.
 
 ### <a name="conditions"></a>Conditions
-The &lt;*predicate*&gt; can consist of one condition, or of multiple conditions joined with the AND logical operator.
+O &lt;*predicado*&gt; pode ser formado por uma condição ou por várias condições unidas pelo operador lógico AND.
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
 ```
-Each condition in turn can consist of one primitive condition, or of multiple primitive conditions joined with the OR logical operator.
+Cada condição pode ser formada por uma condição primitiva ou por várias condições primitivas unidas pelo operador lógico OR.
 
 ```
 <condition> ::= <primitive_condition> [ OR <primitive_condition> ] [ ...n ]
 ```
 
-### <a name="primitive-conditions"></a>Primitive conditions
-A primitive condition can do one of the following comparisons.
+### <a name="primitive-conditions"></a>Condições primitivas
+Uma condição primitiva pode fazer uma das comparações a seguir.
 
 ```
 <primitive_condition> ::=
@@ -75,16 +79,16 @@ A primitive condition can do one of the following comparisons.
 }
 ```
 
-* Compare a function parameter to a constant expression. For example, `@column1 < 1000`.
+* Comparar um parâmetro de função a uma expressão constante. Por exemplo: `@column1 < 1000`.
   
-  Here's an example that checks whether the value of a *date* column is &lt; 1/1/2016.
+  Veja um exemplo que verifica se o valor de uma coluna *data* é &lt; 1/1/2016.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
   GO
   
@@ -93,17 +97,17 @@ A primitive condition can do one of the following comparisons.
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
-* Apply the IS NULL or IS NOT NULL operator to a function parameter.
-* Use the IN operator to compare a function parameter to a list of constant values.
+* Aplique o operador IS NULL ou IS NOT NULL a um parâmetro de função.
+* Use o operador IN para comparar um parâmetro de função a uma lista de valores constantes.
   
-  Here's an example that checks whether the value of a *shipment\_status*  column is `IN (N'Completed', N'Returned', N'Cancelled')`.
+  Veja um exemplo que verifica se o valor de uma coluna *shipment\_status* é `IN (N'Completed', N'Returned', N'Cancelled')`.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   
@@ -113,8 +117,8 @@ A primitive condition can do one of the following comparisons.
   ) )
   ```
 
-### <a name="comparison-operators"></a>Comparison operators
-The following comparison operators are supported.
+### <a name="comparison-operators"></a>Operadores de comparação
+Há suporte para os seguintes operadores de comparação.
 
 `<, <=, >, >=, =, <>, !=, !<, !>`
 
@@ -122,21 +126,21 @@ The following comparison operators are supported.
 <comparison_operator> ::= { < | <= | > | >= | = | <> | != | !< | !> }
 ```
 
-### <a name="constant-expressions"></a>Constant expressions
-The constants that you use in a filter function can be any deterministic expression that can be evaluated when you define the function. Constant expressions can contain the following things.
+### <a name="constant-expressions"></a>Expressões constantes
+As constantes usadas em uma função de filtro podem ser qualquer expressão determinística que possa ser avaliada quando você define a função. As expressões constantes podem conter o seguinte.
 
-* Literals. For example, `N’abc’, 123`.
-* Algebraic expressions. For example, `123 + 456`.
-* Deterministic functions. For example, `SQRT(900)`.
-* Deterministic conversions that use CAST or CONVERT. For example, `CONVERT(datetime, '1/1/2016', 101)`.
+* Literais. Por exemplo: `N’abc’, 123`.
+* Expressões algébricas. Por exemplo: `123 + 456`.
+* Funções determinísticas. Por exemplo: `SQRT(900)`.
+* Conversões determinísticas que usam CAST ou CONVERT. Por exemplo: `CONVERT(datetime, '1/1/2016', 101)`.
 
-### <a name="other-expressions"></a>Other expressions
-You can use the BETWEEN and NOT BETWEEN operators if the resulting function conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+### <a name="other-expressions"></a>Outras expressões
+Você poderá usar os operadores BETWEEN e NOT BETWEEN se a função resultante estiver de acordo com as regras descritas aqui depois de substituir os operadores BETWEEN e NOT BETWEEN pelas expressões equivalentes AND e OR.
 
-You can't use subqueries or non\-deterministic functions such as RAND() or GETDATE().
+Não é possível usar subconsultas ou funções não determinísticas como RAND() ou GETDATE().
 
-## <a name="add-a-filter-function-to-a-table"></a>Add a filter function to a table
-Add a filter function to a table by running the **ALTER TABLE** statement and specifying an existing inline table\-valued function as the value of the **FILTER\_PREDICATE** parameter. For example:
+## <a name="add-a-filter-function-to-a-table"></a>Adicionar uma função de filtro a uma tabela
+Adicione uma função de filtro a uma tabela executando a instrução **ALTER TABLE** e especificando uma função embutida com valor de tabela existente como o valor do parâmetro **FILTER\_PREDICATE**. Por exemplo:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -144,22 +148,22 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     MIGRATION_STATE = <desired_migration_state>
 ) )
 ```
-After you bind the function to the table as a predicate, the following things are true.
+Depois de associar a função à tabela como um predicado, ocorre o seguinte.
 
-* The next time data migration occurs, only the rows for which the function returns a non\-empty value are migrated.
-* The columns used by the function are schema bound. You can't alter these columns as long as a table is using the function as its filter predicate.
+* Na próxima migração de dados, apenas as linhas para as quais a função retornar um valor não vazio serão migradas.
+* As colunas usadas pela função serão associadas ao esquema. Você não poderá alterar essas colunas se uma tabela estiver usando a função como seu predicado de filtro.
 
-You can't drop the inline table\-valued function as long as a table is using the function as its filter predicate.
+Você não poderá descartar a função embutida com valor de tabela se uma tabela estiver usando a função como seu predicado de filtro.
 
 > [!NOTE]
-> To improve the performance of the filter function, create an index on the columns used by the function.
+> Para melhorar o desempenho da função de filtro, crie um índice nas colunas usadas pela função.
 > 
 > 
 
-### <a name="passing-column-names-to-the-filter-function"></a>Passing column names to the filter function
-When you assign a filter function to a table, specify the column names passed to the filter function with a one-part name. If you specify a three-part name when you pass the column names, subsequent queries against the Stretch\-enabled table will fail.
+### <a name="passing-column-names-to-the-filter-function"></a>Passando nomes de coluna à função de filtro
+Quando você atribuir uma função de filtro a uma tabela, especifique os nomes de coluna passados para a função de filtro com um nome de parte única. Se você especificar um nome de três partes ao passar os nomes de coluna, as consultas subsequentes com base na tabela habilitada para Stretch falharão.
 
-For example, if you specify a three-part column name as shown in the following example, the statement will run successfully, but subsequent queries against the table will fail.
+Por exemplo, se você especificar um nome de coluna de três partes conforme mostrado no exemplo a seguir, a instrução será executada com êxito, mas as consultas subsequentes com base na tabela falharão.
 
 ```tsql
 ALTER TABLE SensorTelemetry
@@ -169,7 +173,7 @@ ALTER TABLE SensorTelemetry
   )
 ```
 
-Instead, specify the filter function with a one-part column name as shown in the following example.
+Em vez disso, especifique a função de filtro com um nome de coluna de uma parte, conforme mostrado no exemplo a seguir.
 
 ```tsql
 ALTER TABLE SensorTelemetry
@@ -179,18 +183,18 @@ ALTER TABLE SensorTelemetry
   )
 ```
 
-## <a name="<a-name="addafterwiz"></a>add-a-filter-function-after-running-the-wizard"></a><a name="addafterwiz"></a>Add a filter function after running the Wizard
-If you want use a function that you can't create in the **Enable Database for Stretch** Wizard, you can run the ALTER TABLE statement to specify a function after you exit the wizard. Before you can apply a function, however, you have to stop the data migration that's already in progress and bring back migrated data. (For more info about why this is necessary, see [Replace an existing filter function](#replacePredicate).  
+## <a name="a-nameaddafterwizaadd-a-filter-function-after-running-the-wizard"></a><a name="addafterwiz"></a>Adicione uma função de filtro após executar o Assistente
+Se você quiser usar uma função que você não pode criar no assistente **Habilitar o banco de dados para Stretch** , poderá executar a instrução ALTER TABLE para especificar uma função depois que você sair do assistente. Antes que possa aplicar uma função, no entanto, você precisa interromper a migração de dados que já está em andamento e trazer de volta os dados migrados. (Para obter mais informações sobre o motivo de isso ser necessário, consulte [Substituir uma função de filtro existente](#replacePredicate).  
 
-1. Reverse the direction of migration and bring back the data already migrated. You can't cancel this operation after it starts. You also incur costs on Azure for outbound data transfers \(egress\). For more info, see [How Azure pricing works](https://azure.microsoft.com/pricing/details/data-transfers/).  
+1. Reverta a direção da migração e restaure os dados já migrados. Você não pode cancelar esta operação após ela ser iniciada. Você também incorre em custos no Azure para transferências de dados de \(saída\). Para obter mais informações, consulte [Como funcionam os preços do Azure](https://azure.microsoft.com/pricing/details/data-transfers/).  
    
     ```tsql  
     ALTER TABLE <table name>  
          SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
     ```  
-2. Wait for migration to finish. You can check the status in **Stretch Database Monitor** from SQL Server Management Studio, or you can query the **sys.dm_db_rda_migration_status** view. For more info, see [Monitor and troubleshoot data migration](sql-server-stretch-database-monitor.md) or [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
-3. Create the filter function that you want to apply to the table.  
-4. Add the function to the table and restart data migration to Azure.  
+2. Aguarde até a migração ser concluída. Você pode verificar o status no **Monitor do Stretch Database** do SQL Server Management Studio, ou você pode consultar a exibição **sys.dm_db_rda_migration_status**. Para obter mais informações, confira [Monitorar e solucionar problemas de migração de dados](sql-server-stretch-database-monitor.md) ou [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
+3. Crie a função de filtro que você deseja aplicar à tabela.  
+4. Adicione a função à tabela e reinicie a migração de dados para o Azure.  
    
     ```tsql  
     ALTER TABLE <table name>  
@@ -202,8 +206,8 @@ If you want use a function that you can't create in the **Enable Database for St
         );   
     ```  
 
-## <a name="filter-rows-by-date"></a>Filter rows by date
-The following example migrates rows where the **date** column contains a value earlier than January 1, 2016.
+## <a name="filter-rows-by-date"></a>Filtrar linhas por data
+O exemplo a seguir migra linhas em que a coluna **data** contém um valor anterior a 1º de janeiro de 2016.
 
 ```tsql
 -- Filter by date
@@ -216,8 +220,8 @@ AS
 GO
 ```
 
-## <a name="filter-rows-by-the-value-in-a-status-column"></a>Filter rows by the value in a status column
-The following example migrates rows where the **status** column contains one of the specified values.
+## <a name="filter-rows-by-the-value-in-a-status-column"></a>Filtrar linhas pelo valor em uma coluna de status
+O exemplo a seguir migra linhas em que a coluna **status** contém um dos valores especificados.
 
 ```tsql
 -- Filter by status column
@@ -230,13 +234,13 @@ AS
 GO
 ```
 
-## <a name="filter-rows-by-using-a-sliding-window"></a>Filter rows by using a sliding window
-To filter rows by using a sliding window, keep in mind the following requirements for the filter function.
+## <a name="filter-rows-by-using-a-sliding-window"></a>Filtrar linhas usando uma janela deslizante
+Para filtrar linhas usando uma janela deslizante, tenha em mente os seguintes requisitos para a função de filtro.
 
-* The function has to be deterministic. Therefore you can't create a function that automatically recalculates the sliding window as time passes.
-* The function uses schema binding. Therefore you can't simply update the function "in place" every day by calling **ALTER FUNCTION** to move the sliding window.
+* A função deve ser determinística. Portanto, você não pode criar uma função que recalcula automaticamente a janela deslizante com o passar do tempo.
+* A função usa a associação do esquema. Portanto, não é possível simplesmente atualizar a função "no local" diariamente chamando **ALTER FUNCTION** para mover a janela deslizante.
 
-Start with a filter function like the following example, which migrates rows where the **systemEndTime** column contains a value earlier than January 1, 2016.
+Comece com uma função de filtro como a do exemplo a seguir, que migra as linhas em que a coluna **systemEndTime** contém um valor anterior a 1º de janeiro de 2016.
 
 ```tsql
 CREATE FUNCTION dbo.fn_StretchBySystemEndTime20160101(@systemEndTime datetime2)
@@ -247,7 +251,7 @@ RETURN SELECT 1 AS is_eligible
   WHERE @systemEndTime < CONVERT(datetime2, '2016-01-01T00:00:00', 101) ;
 ```
 
-Apply the filter function to the table.
+Aplique a função de filtro à tabela.
 
 ```tsql
 ALTER TABLE <table name>
@@ -261,11 +265,11 @@ SET (
 ;
 ```
 
-When you want to update the sliding window, do the following things.
+Quando você deseja atualizar a janela deslizante, faça o seguinte.
 
-1. Create a new function that specifies the new sliding window. The following example selects dates earlier than January 2, 2016, instead of January 1, 2016.
-2. Replace the previous filter function with the new one by calling **ALTER TABLE**, as shown in the following example.
-3. Optionally, drop the previous filter function that you're no longer using by calling **DROP FUNCTION**. (This step is not shown in the example.)
+1. Crie uma nova função que especifica a nova janela deslizante. O exemplo a seguir seleciona datas anteriores a 2 de janeiro de 2016, em vez de 1º de janeiro de 2016.
+2. Substitua a função de filtro anterior pela nova, chamando **ALTER TABLE**, conforme mostrado no exemplo a seguir.
+3. Opcionalmente, remova a função de filtro anterior que você não usa mais chamando **DROP FUNCTION**. (Essa etapa não é mostrada no exemplo.)
 
 ```tsql
 BEGIN TRAN
@@ -292,15 +296,15 @@ GO
 COMMIT ;
 ```
 
-## <a name="more-examples-of-valid-filter-functions"></a>More examples of valid filter functions
-* The following example combines two primitive conditions by using the AND logical operator.
+## <a name="more-examples-of-valid-filter-functions"></a>Mais exemplos de funções de filtro válidas
+* O exemplo a seguir combina duas condições primitivas usando o operador lógico AND.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate((@column1 datetime, @column2 nvarchar(15))
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
     WHERE @column1 < N'20150101' AND @column2 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   
@@ -309,94 +313,94 @@ COMMIT ;
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
-* The following example uses several conditions and a deterministic conversion with CONVERT.
+* O exemplo a seguir usa várias condições e uma conversão determinística com CONVERT.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example1(@column1 datetime, @column2 int, @column3 nvarchar)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
       WHERE @column1 < CONVERT(datetime, '1/1/2015', 101)AND (@column2 < -100 OR @column2 > 100 OR @column2 IS NULL)AND @column3 IN (N'Completed', N'Returned', N'Cancelled')
   GO
   ```
-* The following example uses mathematical operators and functions.
+* O exemplo a seguir usa funções e operadores matemáticos.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example2(@column1 float)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < SQRT(400) + 10
   GO
   ```
-* The following example uses the BETWEEN and NOT BETWEEN operators. This usage is valid because the resulting function conforms to the rules described here after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+* O exemplo a seguir usa os operadores BETWEEN e NOT BETWEEN. Esse uso é válido porque a função resultante está de acordo com as regras descritas aqui, depois de substituir os operadores BETWEEN e NOT BETWEEN pelas expressões equivalentes AND e OR.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 BETWEEN 0 AND 100
               AND (@column2 NOT BETWEEN 200 AND 300 OR @column1 = 50)
   GO
   ```
-  The preceding function is equivalent to the following function after you replace the BETWEEN and NOT BETWEEN operators with the equivalent AND and OR expressions.
+  A função anterior é equivalente à função a seguir depois de substituir os operadores BETWEEN e NOT BETWEEN pelas expressões equivalentes AND e OR.
   
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example4(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 >= 0 AND @column1 <= 100AND (@column2 < 200 OR @column2 > 300 OR @column1 = 50)
   GO
   ```
 
-## <a name="examples-of-filter-functions-that-aren't-valid"></a>Examples of filter functions that aren't valid
-* The following function isn't valid because it contains a non\-deterministic conversion.
+## <a name="examples-of-filter-functions-that-arent-valid"></a>Exemplos de funções de filtro que não são válidas
+* A função a seguir não é válida porque contém uma conversão não determinística.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example5(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016')
   GO
   ```
-* The following function isn't valid because it contains a non\-deterministic function call.
+* A função a seguir não é válida porque contém uma chamada de função não determinística.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example6(@column1 datetime)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < DATEADD(day, -60, GETDATE())
   GO
   ```
-* The following function isn't valid because it contains a subquery.
+* A função a seguir não é válida porque contém uma subconsulta.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example7(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (SELECT SupplierID FROM Supplier WHERE Status = 'Defunct'))
   GO
   ```
-* The following functions aren't valid because expressions that use algebraic operators or built\-in functions must evaluate to a constant when you define the function. You can't include column references in algebraic expressions or function calls.
+* As funções a seguir não são válidas porque expressões que usam operadores algébricos ou funções internas devem ser avaliadas como uma constante quando você define a função. Você não pode incluir referências da coluna em expressões algébricas ou em chamadas de função.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example8(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE @column1 % 2 =  0
   GO
   
@@ -404,124 +408,124 @@ COMMIT ;
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE SQRT(@column1) = 30
   GO
   ```
-* The following function isn't valid because it violates the rules described here  after you replace the BETWEEN operator with the equivalent AND expression.
+* A função a seguir não é válida porque viola as regras descritas aqui após a substituição do operador BETWEEN pela expressão AND equivalente.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example10(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE (@column1 BETWEEN 1 AND 200 OR @column1 = 300) AND @column2 > 1000
   GO
   ```
-  The preceding function is equivalent to the following function after you replace the BETWEEN operator with the equivalent AND expression. This function isn't valid because primitive conditions can only use the OR logical operator.
+  A função anterior é equivalente à função a seguir depois de substituir o operador BETWEEN pela expressão equivalente AND. Essa função não é válida porque condições primitivas só podem usar o operador lógico OR.
   
   ```tsql
   CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
   RETURNS TABLE
   WITH SCHEMABINDING
   AS
-  RETURN  SELECT 1 AS is_eligible
+  RETURN    SELECT 1 AS is_eligible
           WHERE (@column1 >= 1 AND @column1 <= 200 OR @column1 = 300) AND @column2 > 1000
   GO
   ```
 
-## <a name="how-stretch-database-applies-the-filter-function"></a>How Stretch Database applies the filter function
-Stretch Database applies the filter function to the table and determines eligible rows by using the CROSS APPLY operator. For example:
+## <a name="how-stretch-database-applies-the-filter-function"></a>Como o Stretch Database aplica a função de filtro
+O Stretch Database aplica a função de filtro à tabela e determina as linhas qualificadas usando o operador CROSS APPLY. Por exemplo:
 
 ```tsql
 SELECT * FROM stretch_table_name CROSS APPLY fn_stretchpredicate(column1, column2)
 ```
-If the function returns a non\-empty result for the row, the row is eligible to be migrated.
+Se a função retornar um resultado não vazio para a linha, a linha poderá ser migrada.
 
-## <a name="<a-name="replacepredicate"></a>replace-an-existing-filter-function"></a><a name="replacePredicate"></a>Replace an existing filter function
-You can replace a previously specified filter function by running the **ALTER TABLE** statement again and specifying a new value for the **FILTER\_PREDICATE** parameter. For example:
+## <a name="a-namereplacepredicateareplace-an-existing-filter-function"></a><a name="replacePredicate"></a>Substituir uma função de filtro existente
+Você pode substituir uma função de filtro especificada anteriormente executando novamente a instrução **ALTER TABLE** e especificando um novo valor para o parâmetro **FILTER\_PREDICATE**. Por exemplo:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     FILTER_PREDICATE = dbo.fn_stretchpredicate2(column1, column2),
     MIGRATION_STATE = <desired_migration_state>
 ```
-The new inline table\-valued function has the following requirements.
+A nova função embutida com valor de tabela tem os seguintes requisitos.
 
-* The new function has to be less restrictive than the previous function.
-* All the operators that existed in the old function must exist in the new function.
-* The new function can't contain operators that don't exist in the old function.
-* The order of operator arguments can't change.
-* Only constant values that are part of a `<, <=, >, >=`  comparison can be changed in a way that makes the function less restrictive.
+* A nova função deve ser menos restritiva do que a função anterior.
+* Todos os operadores que existiam na função antiga devem existir na nova função.
+* A nova função não pode conter operadores inexistentes na função antiga.
+* Não é possível alterar a ordem dos argumentos do operador.
+* Somente os valores constantes que fazem parte de uma comparação `<, <=, >, >=` podem ser alterados de maneira a tornar a função menos restritiva.
 
-### <a name="example-of-a-valid-replacement"></a>Example of a valid replacement
-Assume that the following function is the current filter predicate.
+### <a name="example-of-a-valid-replacement"></a>Exemplo de uma substituição válida
+Vamos supor que a função a seguir seja o predicado de filtro atual.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate_old (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -100 OR @column2 > 100)
 GO
 ```
-The following function is a valid replacement because the new date constant (which specifies a later cutoff date) makes the function less restrictive.
+A função a seguir é uma substituição válida porque a nova constante de data (que especifica uma data de corte posterior) torna a função menos restritiva.
 
 ```tsql
 CREATE FUNCTION dbo.fn_stretchpredicate_new (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '2/1/2016', 101)
             AND (@column2 < -50 OR @column2 > 50)
 GO
 ```
 
-### <a name="examples-of-replacements-that-aren't-valid"></a>Examples of replacements that aren't valid
-The following function isn't a valid replacement because the new date constant (which specifies an earlier cutoff date) doesn't make the function less restrictive.
+### <a name="examples-of-replacements-that-arent-valid"></a>Exemplos de substituições que não são válidas
+A função a seguir não é uma substituição válida porque a nova constante de data (que especifica uma data de corte anterior) não torna a função menos restritiva.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_1 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2015', 101)
             AND (@column2 < -100 OR @column2 > 100)
 GO
 ```
-The following function isn't a valid replacement because one of the comparison operators has been removed.
+A função a seguir não é uma substituição válida porque um dos operadores de comparação foi removido.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_2 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -50)
 GO
 ```
-The following function isn't a valid replacement because a new condition has been added with the AND logical operator.
+A função a seguir não é uma substituição válida porque uma nova condição foi adicionada com o operador lógico AND.
 
 ```tsql
 CREATE FUNCTION dbo.fn_notvalidreplacement_3 (@column1 datetime, @column2 int)
 RETURNS TABLE
 WITH SCHEMABINDING
 AS
-RETURN  SELECT 1 AS is_eligible
+RETURN    SELECT 1 AS is_eligible
         WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
             AND (@column2 < -100 OR @column2 > 100)
             AND (@column2 <> 0)
 GO
 ```
 
-## <a name="remove-a-filter-function-from-a-table"></a>Remove a filter function from a table
-To migrate the entire table instead of selected rows, remove the existing function by setting **FILTER\_PREDICATE** to null. For example:
+## <a name="remove-a-filter-function-from-a-table"></a>Remover uma função de filtro de uma tabela
+Para migrar toda a tabela em vez das linhas selecionadas, remova a função existente definindo **FILTER\_PREDICATE** como nulo. Por exemplo:
 
 ```tsql
 ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
@@ -529,20 +533,23 @@ ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
     MIGRATION_STATE = <desired_migration_state>
 ) )
 ```
-After you remove the filter function, all rows in the table are eligible for migration. As a result, you cannot specify a filter function for the same table later unless you bring back all the remote data for the table from Azure first. This restriction exists to avoid the situation where rows that are not eligible for migration when you provide a new filter function have already been migrated to Azure.
+Depois de remover a função de filtro, todas as linhas na tabela poderão ser migradas. Como resultado, você não pode especificar uma função de filtro para a mesma tabela posteriormente, a menos que você retorne todos os dados remotos para a tabela do Azure primeiro. Essa restrição existe para evitar a situação em que linhas que não estão qualificadas para a migração quando você fornece uma nova função de filtro já foram migradas para o Azure.
 
-## <a name="check-the-filter-function-applied-to-a-table"></a>Check the filter function applied to a table
-To check the filter function applied to a table, open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column. If the value is null, the entire table is eligible for archiving. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
+## <a name="check-the-filter-function-applied-to-a-table"></a>Clique na função de filtro aplicada a uma tabela
+Para verificar a função de filtro aplicado a uma tabela, abra a exibição de catálogo **sys.remote\_data\_archive\_tables** e verifique o valor da coluna **filter\_predicate**. Se o valor for nulo, a tabela inteira poderá ser arquivada. Para obter mais informações, consulte [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx).
 
-## <a name="security-notes-for-filter-functions"></a>Security notes for filter functions
-A compromised account with db_owner privileges can do the following things.  
+## <a name="security-notes-for-filter-functions"></a>Observações de segurança para funções de filtro
+Uma conta com privilégios de db_owner comprometida pode fazer o que está descrito a seguir.  
 
-* Create and apply a table-valued function that consumes large amounts of server resources or waits for an extended period resulting in a denial of service.  
-* Create and apply a table-valued function that makes it possible to infer the content of a table for which the user has been explicitly denied read access.  
+* Criar e aplicar uma função com valor de tabela que consome grandes quantidades de recursos do servidor ou espera por um longo período, resultando em uma negação de serviço.  
+* Criar e aplicar uma função com valor de tabela que torna possível inferir o conteúdo de uma tabela para a qual o acesso de leitura foi negado explicitamente ao usuário.  
 
-## <a name="see-also"></a>See also
-[ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
+## <a name="see-also"></a>Consulte também
+[ALTERAR TABELA (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -238,6 +238,6 @@ Agora, quando os usuários acessam seu aplicativo e um dispositivo que não est�
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

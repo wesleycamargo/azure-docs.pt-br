@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 12/07/2016
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7a90634ecc8712b7b94567c3b1cea574d544075b
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 39f4f0b7e9bbe28a36471558c8535ee9f3cd17ff
 
 
 ---
@@ -51,7 +51,7 @@ Para obter mais informações, consulte
 * Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
 * O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
 * Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
-* No momento, não é possível criptografar o formato de streaming HDS nem downloads progressivos.
+* No momento, não é possível criptografar downloads progressivos.
 
 ## <a name="aes-128-dynamic-encryption"></a>Criptografia dinâmica AES-128
 ### <a name="open-restriction"></a>Restrição aberta
@@ -424,6 +424,6 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

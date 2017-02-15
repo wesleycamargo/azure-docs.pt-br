@@ -3,7 +3,7 @@ title: "Cotas do serviço de lote e limites | Microsoft Docs"
 description: "Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3433ce8b664fb02c5c267ea4b21e678fdc1accfe
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 1a530bf6e9afca9a7cdc1f68e8eefdbf077dc516
 
 
 ---
@@ -49,7 +49,7 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 <sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
-Exiba suas cotas da conta do Lote no [portal do Azure][portal].
+Exibir suas cotas de conta do Lote no [portal do Azure][portal].
 
 1. Selecione **Contas do Lote** no portal e selecione a conta do Lote na qual você está interessado.
 2. Selecione **Propriedades** na folha de menu da conta do Lote
@@ -75,7 +75,7 @@ Siga as etapas abaixo para solicitar um aumento de cota usando o [portal do Azur
     Clique em **Próximo**.
 4. Na folha **Problema** :
    
-    a. Selecione uma **Severidade** de acordo com seu [impacto nos negócios][support_sev].
+    a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
@@ -103,6 +103,6 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

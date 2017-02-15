@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar Aplicativos Web do Serviço de Aplicativo para criar e hospedar sites e aplicativos Web. Tutoriais, vídeos, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
+ms.sourcegitcommit: 74579a5e96c26f130c0c1cc59e8cf4d6975ea89d
+ms.openlocfilehash: e5bb9e8ea35411f159ddf342fe0fda0ba1759fb5
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentação dos Aplicativos Web do Azure
 
-Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação totalmente gerenciada que é otimizada para hospedagem de sites e aplicativos Web. Essa oferta de PaaS (plataforma como serviço) do Microsoft Azure permite que você se concentre na lógica de negócios enquanto o Azure cuida da infraestrutura para executar e dimensionar os aplicativos.
+Saiba como usar Aplicativos Web do Serviço de Aplicativo para criar e hospedar sites e aplicativos Web. Vídeos, tutoriais, referências de API e outras documentações mostram como desenvolver nessa plataforma de computação totalmente gerenciada.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -65,7 +66,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-dotnet-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-dotnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
         </a>
     </li> 
      <li>
-        <a href="/azure/app-service-web/web-sites-java-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-java">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -101,7 +102,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/app-service-web-nodejs-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +120,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-web/web-sites-python-ptvs-django-mysql">
+        <a href="/azure/app-service-web/app-service-web-get-started-python">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -138,7 +139,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
     </li>
    
      <li>
-        <a href="/azure/app-service-web/app-service-web-php-get-started">
+        <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -197,7 +198,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/dotnet/api">.NET</a></p>
                         <p><a href="/java/api/">Java</a></p>
                     </div>
@@ -219,16 +220,10 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a documentação de Aplicativos Web </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

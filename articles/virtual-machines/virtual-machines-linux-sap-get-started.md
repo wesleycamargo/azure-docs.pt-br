@@ -14,63 +14,63 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/07/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
+ms.sourcegitcommit: 93e460026969ef75edd68116479eb4ff1c53bdf3
+ms.openlocfilehash: 04944e7311b325f0ea320d6206af634bbae5c679
 
 
 ---
-# <a name="using-sap-solutions-on-microsoft-azure-virtual-machines"></a>Uso das soluções SAP em máquinas virtuais do Microsoft Azure
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904]:https://service.sap.com/sap/support/notes/1139904
-[1173395]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958]:https://service.sap.com/sap/support/notes/1558958
-[1585981]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258]:https://service.sap.com/sap/support/notes/1814258
-[1882376]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+# <a name="using-sap-on-azure-virtual-machines-vms"></a>Usando o SAP em Máquinas Virtuais (VMs) do Azure
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -116,9 +116,9 @@ ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
 [deployment-guide-install-vm-agent-windows]:virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-linux-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy.md
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy.md
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -171,9 +171,9 @@ ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
 [planning-guide-microsoft-azure-networking]:virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -193,7 +193,7 @@ ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:virtual-machines-linux-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
+[virtual-machines-azure-resource-manager-architecture]:../azure-resource-manager/resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
@@ -215,11 +215,11 @@ ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
 [virtual-machines-manage-availability]:virtual-machines-linux-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes]:virtual-machines-linux-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -242,7 +242,7 @@ ms.openlocfilehash: b18eb0dbb796c69c582ea66bfc71fbc5eefb4784
 [xplat-cli]:../xplat-cli-install.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
-Ao escolher o Microsoft Azure como seu parceiro de nuvem pronta SAP, você poderá executar de forma confiável suas cargas de trabalho críticas da SAP em uma plataforma escalonável, compatível e comprovada na empresa.  Obtenha a escalabilidade, a flexibilidade e a economia do Azure. Com a parceria expandida entre a Microsoft e a SAP, você pode executar aplicativos da SAP entre cenários de desenvolvimento/teste e produção no Azure, com suporte total. Do SAP NetWeaver ao SAP S4/HANA, do Linux ao Windows, do SAP HANA ao SQL, estamos com você. 
+Ao escolher o Microsoft Azure como seu parceiro de nuvem pronto para o SAP, você poderá executar de forma confiável suas cargas de trabalho críticas do SAP em uma plataforma escalonável, em conformidade e comprovada pela empresa.  Obtenha a escalabilidade, flexibilidade e economia de custos do Azure. Com a parceria expandida entre a Microsoft e a SAP, você pode executar aplicativos da SAP entre cenários de desenvolvimento/teste e produção no Azure, com suporte total. Do SAP NetWeaver ao SAP S4/HANA, do Linux ao Windows, do SAP HANA ao SQL, estamos com você. 
 
 Com os serviços de máquina virtual do Microsoft Azure e o SAP HANA em grandes instâncias do Azure, a Microsoft oferece uma plataforma abrangente de IaaS (Infraestrutura como Serviço). Como uma ampla gama de soluções SAP tem suporte no Azure, este "documento de introdução" servirá como um Sumário para nosso conjunto atual de documentos SAP. Conforme mais títulos são adicionados à nossa biblioteca de documentos, você os verá adicionados aqui. 
 
@@ -256,28 +256,71 @@ Com os serviços de máquina virtual do Microsoft Azure e o SAP HANA em grandes 
 | HANA Enterprise para BW, OLAP |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 para implantações de nó único, SAP HANA no Azure (instâncias grandes) |
 | SAP BW/4HANA |Red Hat Enterprise Linux, SUSE Linux Enterprise |GS5 para implantações de nó único, SAP HANA no Azure (instâncias grandes) |
 
-## <a name="sap-netweaver-certifications"></a>Certificações SAP NetWeaver
+## <a name="sap-netweaver-certifications"></a>Certificações do SAP NetWeaver
 O Microsoft Azure está certificado para os produtos SAP a seguir, com total suporte da Microsoft e da SAP.
 
 | Produto SAP | SO convidado | RDBMS | Tipos de máquina virtual |
 | --- | --- | --- | --- |
-| Software SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
-| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
+| Software SAP Business Suite |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (somente Windows), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
+| SAP Business All-in-One |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (somente Windows), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
 | SAP BusinessObjects BI |Windows |N/D |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
-| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle, DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
-
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
+| SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (somente Windows), DB2, SAP ASE |A5 a A11, D11 a D14, DS11 a DS14, GS1 a GS5 |
 
 ## <a name="getting-started-with-sap-hana-on-azure"></a>Introdução ao SAP HANA no Azure
 Título: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure
 
 Resumo: este guia de início rápido ajudará você a configurar uma instância única do sistema protótipo/demonstração SAP HANA em VMs do Azure por meio de uma instalação manual do SAP NetWeaver 7.5 e do SAP HANA SP12. O guia presume que o leitor já esteja familiarizado com conceitos básicos do Azure IaaS, por exemplo, implantar máquinas virtuais ou redes virtuais por meio do Portal do Azure ou do Powershell/CLI, incluindo a opção de usar modelos json. Além disso, espera-se que o leitor esteja familiarizado com o SAP HANA, com o SAP NetWeaver e como instalá-los localmente.
 
-Atualizado: setembro de 2016
+Atualização: dezembro de 2016
 
 [Esse guia pode ser encontrado aqui](virtual-machines-linux-sap-hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Guia de início rápido para NetWeaver no SUSE Linux no Azure
+## <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Visão geral e arquitetura do SAP HANA no Azure (Instâncias Grandes)
+Título: Visão geral e arquitetura do SAP HANA no Azure (Instâncias Grandes)
+
+Resumo: Este Guia de Arquitetura e Implantação Técnica fornece informações para ajudá-lo a implantar o SAP no novo SAP HANA no Azure (Instâncias Grandes). Ele não pretende ser um guia completo que abrange uma configuração específica das soluções SAP, mas pretende apresentar informações úteis para a implantação inicial e as operações contínuas. Não deve substituir a documentação do SAP relacionada à instalação do SAP HANA (nem as várias Notas de Suporte do SAP que abrangem o tópico). Ele fornece uma visão geral, bem como detalhes adicionais da instalação do SAP HANA no Azure (Instâncias Grandes).
+
+Atualização: dezembro de 2016
+
+[Esse guia pode ser encontrado aqui](./linux/sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Infraestrutura e conectividade para o SAP HANA no Azure (Instâncias Grandes)
+Título: Infraestrutura e conectividade para o SAP HANA no Azure (Instâncias Grandes)
+
+Resumo: Após a finalização da compra do SAP HANA no Azure (Instâncias Grandes) entre você e a equipe de contas empresariais da Microsoft, várias configurações de rede são necessárias para garantir a conectividade apropriada.  Este documento descreve as informações que devem ser compartilhadas com as informações a seguir. Este documento descreve as informações que devem ser coletadas e quais scripts de configuração devem ser executados. 
+
+Atualização: dezembro de 2016
+
+[Esse guia pode ser encontrado aqui](./linux/sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Instalar o SAP HANA no SAP HANA no Azure (Instâncias Grandes)
+Título: Instalar o SAP HANA no SAP HANA no Azure (Instâncias Grandes)
+
+Resumo: Este documento descreve os procedimentos de instalação do SAP HANA na Instância Grande do Azure.
+
+Atualização: dezembro de 2016
+
+[Esse guia pode ser encontrado aqui](./linux/sap-hana-overview-sap-hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
+Título: Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (Instâncias Grandes)
+
+Resumo: HA (Alta Disponibilidade) e DR (Recuperação de Desastre) são aspectos muito importantes da execução do SAP HANA crítico em servidores do Azure (Instâncias Grandes). É importante trabalhar com a SAP, o integrador de sistema e/ou a Microsoft, a fim de arquitetar e implementar adequadamente a estratégia de HA/DR certa para você. Deve-se levar em conta considerações importantes como RPO (Objetivo de Ponto de Recuperação) e RTO (Objetivo de Tempo de Recuperação), específicas ao ambiente.  Este documento explica as opções para habilitar o nível preferencial de HA e DR.
+
+Atualização: dezembro de 2016
+
+[Este documento pode ser encontrado aqui](./linux/sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="troubleshooting-and-monitoring-of-sap-hana-on-azure-large-instances"></a>Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes)
+Título: Solução de problemas e monitoramento do SAP HANA no Azure (Instâncias Grandes)
+
+Resumo: Este guia inclui informações úteis para estabelecer o monitoramento do SAP HANA no ambiente do Azure, bem como informações de solução de problemas adicionais. 
+
+Atualização: dezembro de 2016
+
+[Este documento pode ser encontrado aqui](./linux/sap-hana-overview-troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="quickstart-guide-for-netweaver-on-suse-linux-on-azure"></a>Guia de início rápido do NetWeaver no SUSE Linux no Azure
 Título: Testando o SAP NetWeaver em VMs SUSE Linux no Microsoft Azure 
 
 Resumo: este artigo descreve fatores que devem ser levados em consideração quando você estiver executando o SAP NetWeaver em VMs (máquinas virtuais) do SUSE Linux no Microsoft Azure. A partir de 19 de maio de 2016, o SAP NetWeaver tem suporte oficial em VMs do SUSE Linux no Azure. Todos os detalhes relativos a versões do Linux, versões de kernel do SAP e assim por diante podem ser encontrados na nota do SAP 1928533 "Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure".
@@ -304,7 +347,7 @@ Atualização: março de 2016
 
 [Este guia pode ser encontrado aqui][guia de implantação]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de Implantação de DBMS
+## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de implantação de DBMS
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação de DBMS
 
 Resumo: este artigo aborda considerações sobre planejamento e implementação para os sistemas DBMS que devem ser executados em conjunto com o SAP. Na primeira parte, são listadas e apresentadas as considerações gerais. As partes seguintes do documento estão relacionadas às implantações dos diferentes DBMS com suporte do SAP no Azure. Os DBMS diferentes apresentados são o SQL Server, o SAP ASE e o Oracle. Nestas partes específicas, serão discutidas as considerações que você terá de fazer ao executar sistemas SAP no Azure em conjunto com os DBMS. Serão apresentados assuntos como os métodos de backup e de alta disponibilidade com suporte dos diferentes DBMS no Azure a serem usados com os aplicativos SAP.
@@ -316,6 +359,6 @@ Atualização: março de 2016
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

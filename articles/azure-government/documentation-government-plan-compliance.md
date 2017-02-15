@@ -16,13 +16,13 @@ ms.workload: azure-government
 ms.date: 10/06/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 601945c05affc350eba111dcec969e6504b91611
-ms.openlocfilehash: e26f1c182869dee58b0ab26da1aa65f99ba8faaa
+ms.sourcegitcommit: 5be95e2deda3bcc36494ba51eeb050d5c4e2894b
+ms.openlocfilehash: 3c1e610412ec043a62f3c389bd239a4225111e61
 
 
 ---
 # <a name="azure-government-compliance"></a>Conformidade com o Azure Governamental
-## <a name="blueprint-customer-responsibilities-matrix-streamlining-ato-processes"></a>Matriz de Responsabilidades do Cliente do Blueprint: simplificando os processos do ATO
+## <a name="blueprint-customer-responsibilities-matrix--streamlining-ato-processes"></a>Matriz de Responsabilidades do Cliente do Blueprint: simplificando os processos do ATO
 O programa Azure Blueprint permite que os clientes acessem a documentação para auxiliar nos processos da agência ou ATO (autorização específica do sistema para operar). Este artigo fornece uma análise mais profunda sobre a CRM (Matriz de Responsabilidades do Cliente) do Azure Blueprint e como a equipe de segurança pode aproveitar neste documento.
 
 A CRM do Azure Blueprint foi projetada para ser um utilitário. É um formato de planilha que define os requisitos de controle em que o cliente de criação no Azure deve implementar o controle de segurança.
@@ -38,7 +38,7 @@ Por exemplo, AC-1 requer que os procedimentos e as políticas de controle de ace
 
 Para acessar o CRM, bem como o Modelo do Plano de Segurança do Sistema do Azure Blueprint, envie um email para AzureBlueprint@microsoft.com.
 
-Nós valorizamos seus comentários sobre a CRM sobre como ela é crucial para nossa iteração do documento para torná-la mais eficiente possível na simplificação dos processos ATO do cliente.
+Nós valorizamos seus comentários sobre o CRM, uma vez que eles são cruciais para nossa iteração do documento para torná-la o mais eficiente possível na simplificação dos processos de ATO do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 <a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Central de Confiabilidade da Microsoft </a>
@@ -48,6 +48,6 @@ Nós valorizamos seus comentários sobre a CRM sobre como ela é crucial para no
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

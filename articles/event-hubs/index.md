@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como usar os Hubs de Eventos para receber milhões de eventos por segundo de aplicativos e dispositivos IoT em uma ampla variedade de plataformas."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8244f410fa3337ae161657fe11ae5db2a2f378cd
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Documentação dos Hubs de Eventos
 
-Os Hubs de Eventos são um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Os Hubs de Eventos agem como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, eles podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento.
+Saiba como usar os Hubs de Eventos para coletar e gerenciar milhões de eventos por segundo de aplicativos e dispositivos IoT conectados. Os tutoriais, as referências de API e outras documentações mostram como configurar a ingestão escalonável de eventos em uma ampla variedade de plataformas.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -107,7 +108,7 @@ Os Hubs de Eventos são um serviço de entrada de dados altamente escalonável q
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">referência da API REST</a></p>
+                        <p><a href="/rest/api/eventhub">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -115,16 +116,10 @@ Os Hubs de Eventos são um serviço de entrada de dados altamente escalonável q
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação dos Hubs de Eventos </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

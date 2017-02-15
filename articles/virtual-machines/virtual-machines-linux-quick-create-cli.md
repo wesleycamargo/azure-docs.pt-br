@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Criar uma VM do Linux usando a CLI 2.0 (visualização) do Azure
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Criar uma VM do Linux usando a CLI 2.0 Preview do Azure (az.py)
 Este artigo mostra como implantar rapidamente uma nova VM (máquina virtual) no Azure usando o comando [az vm create](/cli/azure/vm#create) na CLI 2.0 (visualização) do Azure. 
 
 > [!NOTE] 
-> A CLI 2.0 de visualização do Azure é a nossa CLI multi-plataforma de próxima geração. Experimente-a e dê sua opinião sobre ela na [página do projeto GitHub](https://github.com/Azure/azure-cli).
+> A CLI 2.0 de visualização do Azure é a nossa CLI multi-plataforma de próxima geração. [Experimente.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> O restante dos nossos documentos usa a CLI existente do Azure. Para criar uma VM usando a CLI existente do Azure, e não a CLI 2.0 de visualização, consulte [Criar uma VM com a CLI do Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O restante dos nossos documentos usa a CLI existente do Azure. Para criar uma VM usando a CLI 1.0 existente do Azure, e não a CLI 2.0 Preview, consulte [Criar uma VM com a CLI do Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para criar uma VM, você precisa do seguinte: 
 
 * uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* a [CLI do Azure v. 2.0 (visualização)](https://github.com/Azure/azure-cli#installation) instalada
+* a [CLI do Azure v. 2.0 (visualização)](/cli/azure/install-az-cli2) instalada
 * estar conectado à sua conta do Azure (digite [az login](/cli/azure/#login))
 
 (Também é possível implantar rapidamente uma VM Linux usando o [portal do Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
@@ -41,10 +41,10 @@ O exemplo a seguir mostra como implantar uma VM Debian e anexar sua chave SSH (S
 
 ## <a name="create-a-resource-group"></a>Criar um grupos de recursos
 
-Primeiro, digite [az resource group create](/cli/azure/resource/group#create) para criar o grupo de recursos que contém todos os recursos implantados:
+Primeiro, digite [az group create](/cli/azure/group#create) para criar o grupo de recursos que contém todos os recursos implantados:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 A saída é tem a seguinte aparência (você pode escolher uma opção `--output` diferente se desejar):
@@ -127,6 +127,6 @@ Você também pode [usar o driver do Azure para `docker-machine` com vários com
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

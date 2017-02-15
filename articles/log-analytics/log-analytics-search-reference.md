@@ -1,19 +1,23 @@
 ---
-title: Referência de pesquisa do Log Analytics | Microsoft Docs
-description: A referência da pesquisa do Log Analytics descreve a linguagem de pesquisa e fornece as opções de sintaxe de consulta geral que você pode usar ao pesquisar expressões de dados e de filtragem para ajudar a restringir a sua pesquisa.
+title: "Referência de pesquisa do Log Analytics | Microsoft Docs"
+description: "A referência da pesquisa do Log Analytics descreve a linguagem de pesquisa e fornece as opções de sintaxe de consulta geral que você pode usar ao pesquisar expressões de dados e de filtragem para ajudar a restringir a sua pesquisa."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 402615a2-bed0-4831-ba69-53be49059718
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
+ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+
 
 ---
 # <a name="log-analytics-search-reference"></a>Referência da pesquisa do Log Analytics
@@ -41,8 +45,8 @@ Essa consulta retorna resultados que contêm a palavra "sistema" em qualquer cam
 
 > [!NOTE]
 > Nem todos os campos são indexados dessa maneira, mas os campos de texto mais comuns (como nomes e descrições) normalmente são.
-> 
-> 
+>
+>
 
 ```
 system error
@@ -58,8 +62,8 @@ Essa consulta retorna resultados que contêm as palavras *sistema* e *erro*. Em 
 
 > [!IMPORTANT]
 > Todos os nomes de campo e os valores para os campos de cadeia de caracteres e de texto diferenciam maiúsculas de minúsculas.
-> 
-> 
+>
+>
 
 ## <a name="filter-expression"></a>Expressão do filtro...
 As subseções a seguir explicam as expressões de filtro.
@@ -94,7 +98,7 @@ Type:Perf 0.5
 HTTP 500
 ```
 
-### <a name="date/time"></a>Data/hora
+### <a name="datetime"></a>Data/hora
 Cada parte dos dados no sistema tem uma propriedade *TimeGenerated* que representa a data e hora original do registro. Alguns tipos de dados podem ter mais campos de data/hora (por exemplo, *LastModified*).
 
 O seletor de Gráfico/Tempo da linha do tempo no Log Analytics mostra uma distribuição de resultados ao longo do tempo (de acordo com a consulta atual que está sendo executada) com base no campo *TimeGenerated* . Os campos de data/hora têm um formato de cadeia de caracteres específico que pode ser usado em consultas para restringi-la a um determinado período. Você também pode usar a sintaxe para se referir a intervalos de tempo relativo (por exemplo, "entre 3 dias atrás e 2 horas atrás").
@@ -140,7 +144,7 @@ Novamente, é improvável que isso gere um resultado porque os dados não passam
 
 Esses exemplos são blocos de construção a serem usados para datas relativas e absolutas. Nas próximas três subseções, explicaremos como usá-los em filtros mais avançados, com exemplos que usam intervalos de datas relativas.
 
-### <a name="date/time-math"></a>Cálculos de data/hora
+### <a name="datetime-math"></a>Cálculos de data/hora
 Use os operadores de cálculo de data/hora para deslocar ou arredondar o valor de data/hora usando cálculos simples de data/hora.
 
 Sintaxe:
@@ -249,6 +253,29 @@ TimeGenerated:[NOW..NOW+1DAY]
 SampleValue:[0..2]
 ```
 
+### <a name="regular-expressions"></a>Expressões regulares
+É possível especificar um critério de pesquisa para um campo com uma expressão regular usando a palavra-chave Regex.
+
+**Sintaxe**
+
+```
+field:Regex("Regular Expression")
+```
+
+```
+field=Regex("Regular Expression")
+```
+
+**Exemplo**
+
+```
+Computer=Regex("C.*")
+```
+
+```
+Computer=Regex("^C.*")
+```
+
 ### <a name="logical-operators"></a>Operadores lógicos
 As linguagens de consulta dão suporte aos operadores lógicos (*AND*, *OR* e *NOT*) e seus alias de operadores em C (*&&*, *||* e *!*), respectivamente. Você pode usar parênteses para agrupar esses operadores.
 
@@ -268,7 +295,7 @@ Você pode omitir o operador lógico para os argumentos de filtro de nível supe
 | Expressão do filtro... | Equivalente a |
 | --- | --- |
 | erro do sistema |erro do sistema AND |
-| sistema "Windows Server" OR Gravidade: 1 |sistema AND (“Windows Server” OR Gravidade: 1) |
+| sistema "Windows Server" OR Gravidade:&1; |sistema AND (“Windows Server” OR Gravidade:&1;) |
 
 ### <a name="wildcarding"></a>Recurso de curinga
 O idioma de consulta dá suporte usando o caractere (*\*) para representar um ou mais caracteres para um valor em uma consulta.
@@ -283,16 +310,16 @@ Type=Event Computer=*SQL*
 
 > [!NOTE]
 > Os caracteres curinga não podem ser usados entre aspas atualmente. Mensagem=`"*This text*"` considerará o (\*) usado como um caractere literal (\*).
-> 
+>
 > ## <a name="commands"></a>Comandos
-> 
+>
 
 Os comandos se aplicam aos resultados retornados pela consulta. Use o caractere de barra vertical (|) para aplicar um comando aos resultados obtidos. Vários comandos devem ser separados pelo caractere de barra vertical.
 
 > [!NOTE]
 > Os nomes de comando podem ser escritos em letras maiúsculas ou minúsculas, ao contrário de nomes de campos e dados.
-> 
-> 
+>
+>
 
 ### <a name="sort"></a>Classificar
 Sintaxe:
@@ -301,7 +328,7 @@ Sintaxe:
 
 Classifica os resultados por campos específicos. O prefixo crescente/decrescente é opcional. Se eles forem omitidos, a ordem de classificação *crescente* será presumida. Se uma consulta não usar o comando *Sort* explicitamente, Sort **TimeGenerated** desc será o comportamento padrão e sempre retornará os resultados mais recentes primeiro.
 
-### <a name="top/limit"></a>Superior/limite
+### <a name="toplimit"></a>Superior/limite
 Sintaxe:
 
     top number
@@ -359,7 +386,7 @@ Agrega os resultados por *groupField* e calcula os valores de medida agregados u
 | Função estatística Medida | Descrição |
 | --- | --- |
 | *aggregateFunction* |O nome da função aggregate (não diferencia maiúsculas de minúsculas). Há suporte para as seguintes funções agregadas: COUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## ou PCT## (## é um número entre 1 e 99) |
-| *aggregatedField* |O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG STDDEV ou PERCENTILE## ou pct## (## é um número entre 1 e 99). |
+| *aggregatedField* |O campo que está sendo agregado. Esse campo é opcional para a função de agregação COUNT, mas deve ser um campo numérico existente para SUM, MAX, MIN, AVG STDDEV ou PERCENTILE## ou pct## (## é um número entre 1 e 99). O aggregatedField também pode ser qualquer uma das funções Estender com suporte. |
 | *fieldAlias* |O alias (opcional) para o valor agregado calculado. Se não for especificado, o nome do campo será AggregatedValue. |
 | *groupField* |O nome do campo pelo qual o conjunto de resultados é agrupado. |
 | *Intervalo* |O intervalo de tempo no formato:**nnnNAME** , em que nnn é um número inteiro positivo. **NaME** é o nome do intervalo. Os nomes de intervalo com suporte incluem (com distinção entre maiúsculas e minúsculas): MILLISECOND[S] SECOND[S] MINUTE[S] HOUR[S] DAY[S] MONTH[S] YEAR[S] |
@@ -528,6 +555,16 @@ Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN
 
 Agrupa % de Tempo do Processador primeiro por computador e segundo por Nome da instância, além de retornar o mínimo, a média, percentil 75 e máximo para cada período de uma hora
 
+**Exemplo 20**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | measure max(product(CounterValue,60)) as MaxDWPerMin by InstanceName Interval 1HOUR
+```
+
+*Explicação*
+
+Calcula o número máximo de gravações de disco por minuto para cada disco em seu computador
+
 ### <a name="where"></a>Where
 Sintaxe:
 
@@ -573,12 +610,12 @@ Type=Event Computer IN {Type:Update Classification="Security Updates"  UpdateSta
 
 **Exemplo**
 
-    Type=Event | sort TimeGenerated DESC | Dedup EventID
+    Type=Event | Dedup EventID | sort TimeGenerated DESC
 
 O exemplo acima retorna um evento (a versão mais recente porque usamos DESC em TimeGenerated) por EventID
 
 ### <a name="extend"></a>Extend
-**Descrição** Permite criar campos de tempo de execução em consultas
+**Descrição** Permite criar campos de tempo de execução em consultas. Também será possível usar o comando de medida após Estender se você desejar executar a agregação.
 
 **Exemplo 1**
 
@@ -599,8 +636,15 @@ Dimensionar o valor de WireData TotalBytes de modo que todos os resultados fique
 
 ```
 Type=Perf CounterName="% Processor Time" | EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION
-Tag Perf Counter Values less than 50% las LOW and others as HIGH
 ```
+Marcar os Valores do Contador de Desempenho de menos de 50% como BAIXO e outros como ALTO
+
+**Exemplo 5**
+
+```
+Type= Perf CounterName="Disk Writes/sec" Computer="BaconDC01.BaconLand.com" | Extend product(CounterValue,60) as DWPerMin| measure max(DWPerMin) by InstanceName Interval 1HOUR
+```
+Calcula o número máximo de gravações de disco por minuto para cada disco em seu computador
 
 **Funções com Suporte**
 
@@ -608,18 +652,18 @@ Tag Perf Counter Values less than 50% las LOW and others as HIGH
 | --- | --- | --- |
 | abs |Retorna o valor absoluto do valor ou da função especificada. |`abs(x)` <br> `abs(-5)` |
 | acos |Retorna o arco cosseno de um valor ou uma função |`acos(x)` |
-| e |Retornará um valor true se e somente se todos os seus operandos forem avaliados como true. |`and(not(exists(popularity)),exists(price))` |
+| e |Retorna um valor true se e somente se todos os seus operandos forem avaliados como true. |`and(not(exists(popularity)),exists(price))` |
 | asin |Retorna o arco seno de um valor ou uma função |`asin(x)` |
 | atan |Retorna o arco tangente de um valor ou uma função |`atan(x)` |
 | atan2 |Retorna o ângulo resultante da conversão das coordenadas retangulares x, y em coordenadas polares |`atan2(x,y)` |
 | cbrt |Raiz cúbica |`cbrt(x)` |
-| ceil |Arredonda para cima para um número inteiro |`ceil(x)`  <br> `ceil(5.6)` – Retorna 6 |
+| ceil |Arredonda para cima para um número inteiro |`ceil(x)`  <br> `ceil(5.6)` - Retorna 6 |
 | cos |Retorna o cosseno de um ângulo |`cos(x)` |
 | cosh |Retorna o cosseno hiperbólico de um ângulo |`cosh(x)` |
 | def |def é uma abreviatura para padrão. Retornará o valor do campo "campo" ou, se o campo não existir, retornará o valor padrão especificado e gerará o primeiro valor, em que: `exists()==true`. |`def(rating,5)` – essa função def() retornará a classificação ou, se não houver nenhuma classificação especificada no documento, retornará 5 <br> `def(myfield, 1.0)` – equivalente a `if(exists(myfield),myfield,1.0)` |
 | deg |Converter radianos em graus |`deg(x)` |
 | div |`div(x,y)` divide x por y. |`div(1,y)` <br> `div(sum(x,100),max(y,1))` |
-| dist |Retorna a distância entre dois vetores (pontos) em um espaço n-dimensional. Usa a potência, além de duas ou mais instâncias de ValueSource, e calcula as distâncias entre dois vetores. Cada ValueSource deve ser um número. Um número par de instâncias ValueSource deve ser passado e o método pressupõe que a primeira metade representa o primeiro vetor e a segunda metade representa o segundo vetor. |`dist(2, x, y, 0, 0)` – calcula a distância Euclidiana entre (0,0) e (x, y) para cada documento. <br> `dist(1, x, y, 0, 0)` – calcula a distância Manhattan (taxi) entre (0,0) e (x, y) para cada documento. <br> `dist(2,,x,y,z,0,0,0)` – a distância Euclidiana entre (0,0,0) e (x,y,z) para cada documento.<br>`dist(1,x,y,z,e,f,g)` – distância Manhattan entre (x,y,z) e (e,f,g), em que cada letra é um nome de campo. |
+| dist |Retorna a distância entre dois vetores (pontos) em um espaço n-dimensional. Usa a potência, além de duas ou mais instâncias de ValueSource, e calcula as distâncias entre dois vetores. Cada ValueSource deve ser um número. Um número par de instâncias ValueSource deve ser passado e o método pressupõe que a primeira metade representa o primeiro vetor e a segunda metade representa o segundo vetor. |`dist(2, x, y, 0, 0)` – calcula a distância Euclidiana entre (0,0) e (x, y) para cada documento. <br> `dist(1, x, y, 0, 0)` – calcula a distância Manhattan (taxi) entre (0,0) e (x, y) para cada documento. <br> `dist(2,,x,y,z,0,0,0)` – a distância Euclidiana entre (0,0,0) e (x,y,z) para cada documento.<br>`dist(1,x,y,z,e,f,g)` – distância Manhattan entre(x,y,z) e (e,f,g), em que cada letra é um nome de campo. |
 | exists |Retorna TRUE se existir algum membro do campo. |`exists(author)` – retorna TRUE para qualquer documento que tenha um valor no campo "author".<br>`exists(query(price:5.00))` – retornará TRUE se "price" corresponder a "5.00". |
 | exp |Retorna o número de Euler elevado à potência x |`exp(x)` |
 | floor |Arredonda para baixo para um número inteiro |`floor(x)`  <br> `floor(5.6)` – Retorna 5 |
@@ -767,6 +811,8 @@ Para saber mais sobre pesquisas de log:
 * Familiarize-se com as [pesquisas de log](log-analytics-log-searches.md) para exibir informações detalhadas reunidas por soluções.
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

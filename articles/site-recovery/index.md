@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como configurar a recuperação de desastre de nuvem e continuidade de negócios para servidores físicos e máquinas virtuais ao implantar e gerenciar a replicação."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Documentação do Site Recovery
 
-O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação de máquinas virtuais locais e servidores físicos. Você pode replicar os servidores e as VMs do seu datacenter primário local para o Azure ou para um datacenter secundário. Se houver uma interrupção em seu site primário, você pode realizar o failover no site secundário para manter as cargas de trabalho acessíveis e disponíveis.
+Saiba mais sobre como usar a Recuperação de Site para continuidade de negócios e a estratégia de recuperação de desastre para nuvens privadas. Os tutoriais e outras documentações mostram como planejar, implantar e gerenciar a orquestração de replicação de servidores físicos locais e máquinas virtuais para a nuvem ou para um data center secundário.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +72,7 @@ O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de ne
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">referência da API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -79,16 +80,10 @@ O Azure Site Recovery contribui para sua estratégia de BCDR (continuidade de ne
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Site Recovery </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Adicionar o conector do Slack aos seus aplicativos lógicos | Microsoft Docs
-description: Começar a usar o Conector do Slack nos seus aplicativos lógicos do Serviço de Aplicativo do Microsoft Azure
-services: ''
-documentationcenter: ''
+title: " Usar o Conector do Slack em seus Aplicativos Lógicos | Microsoft Docs"
+description: "Começar a usar o Conector do Slack nos seus aplicativos lógicos do Serviço de Aplicativo do Microsoft Azure"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+
 
 ---
-# Introdução ao conector do Slack
+# <a name="get-started-with-the-slack-connector"></a>Introdução ao conector do Slack
 O Slack é uma ferramenta de comunicação da equipe que reúne todas as comunicações de equipe em um só lugar, que pode ser pesquisado instantaneamente e está disponível onde você estiver.
 
 > [!NOTE]
@@ -29,22 +33,22 @@ Com o conector do Slack, você pode:
 
 * Usá-lo para criar aplicativos lógicos
 
-Para adicionar uma operação aos Aplicativos Lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Vamos conversar sobre gatilhos e ações
-O conector do Slack pode ser usado como uma ação. Ele não tem gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## <a name="lets-talk-about-triggers-and-actions"></a>Vamos conversar sobre gatilhos e ações
+O conector do Slack pode ser usado como uma ação. Ele não tem gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML. 
 
  O conector do Slack possui as seguintes ações e/ou gatilhos disponíveis:
 
-### Ações do Slack
+### <a name="slack-actions"></a>Ações do Slack
 Você pode executar as seguintes ações:
 
 | Ação | Descrição |
 | --- | --- |
 | PostMessage |Poste uma mensagem em um canal específico. |
 
-## Criar uma conexão com o Slack
-Para usar o conector do Slack, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades:
+## <a name="create-a-connection-to-slack"></a>Criar uma conexão com o Slack
+Para usar o conector do Slack, crie primeiro uma **conexão** e forneça os detalhes dessas propriedades: 
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
@@ -54,13 +58,18 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 
 1. Selecione **Recorrência**
 2. Selecione uma **Frequência** e insira um **Intervalo**
-3. Selecione **Adicionar uma ação** ![Configurar a Margem de atraso][1]  
+3. Selecione **Adicionar uma ação**  
+   ![Configurar a Margem de atraso][1]  
 4. Insira Margem de atraso na caixa de pesquisa e aguarde até que a pesquisa retorne todas as entradas com Margem de atraso no nome
 5. Selecione **Margem de atraso – Postar mensagem**
-6. Selecione **Entrar na Margem de atraso**: ![Configurar a Margem de atraso][2]
-7. Forneça suas credenciais da Margem de atraso para entrar e autorizar o aplicativo ![Configurar a Margem de atraso][3]  
-8. Você será redirecionado à página de logon de sua organização. **Autorize** a Margem de atraso a interagir com seu aplicativo lógico: ![Configurar a Margem de atraso][5] 
-9. Após a conclusão da autenticação, você será redirecionado ao seu aplicativo lógico para concluí-lo por meio da configuração da seção **Margem de atraso - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.![Configurar a Margem de atraso][6]
+6. Selecione **Entrar no Slack**:  
+   ![Configurar a Margem de atraso][2]
+7. Fornecer suas credenciais do Slack para entrar e autorizar o aplicativo    
+   ![Configurar a Margem de atraso][3]  
+8. Você será redirecionado à página de logon de sua organização. **Autorize** o Slack a interagir com seu aplicativo lógico:      
+   ![Configurar a Margem de atraso][5] 
+9. Após o término da autorização, você será redirecionado para seu aplicativo lógico para concluí-lo configurando a seção **Slack - Obter todas as mensagens**. Adicione outros gatilhos e outras ações necessárias.  
+   ![Configurar a Margem de atraso][6]
 10. Salve seu trabalho selecionando **Salvar** na barra de menus acima.
 
 > [!TIP]
@@ -68,25 +77,25 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 > 
 > 
 
-## Referência da API REST do Slack
-#### Esta documentação destina-se à versão: 1.0
-### Poste uma mensagem em um canal específico.
-**```POST: /chat.postMessage```**
+## <a name="slack-rest-api-reference"></a>Referência da API REST do Slack
+#### <a name="this-documentation-is-for-version-10"></a>Esta documentação destina-se à versão: 1.0
+### <a name="post-a-message-to-a-specified-channel"></a>Poste uma mensagem em um canal específico.
+**```POST: /chat.postMessage```** 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | canal |string |sim |query |nenhum |Canal, grupo privado ou canal de IM para envio de mensagem. Pode ser um nome (ex: #geral) ou uma ID codificada. |
-| texto |string |sim |query |nenhum |Texto da mensagem a ser enviada. Para obter opções de formatação, confira https://api.slack.com/docs/formatting. |
+| texto |string |sim |query |nenhum |Texto da mensagem a ser enviada. Para ver as opções de formatação, consulte https://api.slack.com/docs/formatting. |
 | Nome de Usuário |string |não |query |nenhum |Nome do bot |
-| as\_user |booleano |não |query |nenhum |Passa true para postar a mensagem como o usuário autenticado em vez de um bot |
-| analisar |string |não |query |nenhum |Altera como as mensagens são tratadas. Para obter detalhes, confira https://api.slack.com/docs/formatting. |
-| link\_names |inteiro |não |query |nenhum |Localiza e vincula os nomes de canal e nomes de usuário. |
-| unfurl\_links |booleano |não |query |nenhum |Passe true para habilitar o desdobramento do conteúdo basicamente baseado em texto. |
-| unfurl\_media |booleano |não |query |nenhum |Passe false para desabilitar o conteúdo de mídia. |
-| icon\_url |string |não |query |nenhum |URL para uma imagem a ser usada como ícone para esta mensagem |
-| icon\_emoji |string |não |query |nenhum |Emoji a ser usado como ícone para esta mensagem |
+| as_user |booleano |não |query |nenhum |Passa true para postar a mensagem como o usuário autenticado em vez de um bot |
+| analisar |string |não |query |nenhum |Altera como as mensagens são tratadas. Para obter detalhes, consulte https://api.slack.com/docs/formatting. |
+| link_names |inteiro |não |query |nenhum |Localiza e vincula os nomes de canal e nomes de usuário. |
+| unfurl_links |booleano |não |query |nenhum |Passe true para habilitar o desdobramento do conteúdo basicamente baseado em texto. |
+| unfurl_media |booleano |não |query |nenhum |Passe false para desabilitar o conteúdo de mídia. |
+| icon_url |string |não |query |nenhum |URL para uma imagem a ser usada como ícone para esta mensagem |
+| icon_emoji |string |não |query |nenhum |Emoji a ser usado como ícone para esta mensagem |
 
-### Estas são as respostas possíveis:
+### <a name="here-are-the-possible-responses"></a>Estas são as respostas possíveis:
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
@@ -99,53 +108,53 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 | padrão |Falha na Operação. |
 
 - - -
-## Definições de objeto:
- **Mensagem**: mensagem do Yammer
+## <a name="object-definitions"></a>Definições de objeto:
+ **Message**: mensagem do Yammer
 
 Propriedades necessárias para a mensagem:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
 | ID |inteiro |
-| content\_excerpt |string |
-| sender\_id |inteiro |
-| replied\_to\_id |inteiro |
-| created\_at |string |
-| network\_id |inteiro |
-| message\_type |string |
-| sender\_type |string |
+| content_excerpt |string |
+| sender_id |inteiro |
+| replied_to_id |inteiro |
+| created_at |string |
+| network_id |inteiro |
+| message_type |string |
+| sender_type |string |
 | url |string |
-| web\_url |string |
-| group\_id |inteiro |
+| web_url |string |
+| group_id |inteiro |
 | corpo |não definido |
-| thread\_id |inteiro |
-| direct\_message |booleano |
-| client\_type |string |
-| client\_url |string |
+| thread_id |inteiro |
+| direct_message |booleano |
+| client_type |string |
+| client_url |string |
 | idioma |string |
-| notified\_user\_ids |array |
+| notified_user_ids |array |
 | privacidade |string |
-| liked\_by |não definido |
-| system\_message |booleano |
+| liked_by |não definido |
+| system_message |booleano |
 
- **PostOperationRequest**: representa uma solicitação POST para o conector do Yammer postar no Yammer
+ **PostOperationRequest**: representa uma solicitação de postagem para que o Conector do Yammer poste no Yammer
 
 Propriedades obrigatórias para PostOperationRequest:
 
 corpo
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
 | corpo |string |
-| group\_id |inteiro |
-| replied\_to\_id |inteiro |
-| direct\_to\_id |inteiro |
+| group_id |inteiro |
+| replied_to_id |inteiro |
+| direct_to_id |inteiro |
 | difusão |booleano |
 | topic1 |string |
 | topic2 |string |
@@ -172,9 +181,9 @@ corpo
 
 Propriedades obrigatórias para MessageList:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -184,9 +193,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para MessageBody:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -198,9 +207,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para LikedBy:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -211,27 +220,27 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para YammmerEntity:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
 | type |string |
 | ID |inteiro |
-| full\_name |string |
+| full_name |string |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-## Definições de objeto:
+## <a name="object-definitions"></a>Definições de objeto:
  **WebResultModel**: resultados da pesquisa da Web do Bing
 
 Propriedades obrigatórias para WebResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -245,9 +254,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para VideoResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -262,9 +271,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para ThumbnailModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -278,9 +287,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para ImageResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -291,13 +300,13 @@ Nenhuma das propriedades é obrigatória.
 | SourceUrl |string |
 | Miniatura |não definido |
 
- **NewsResultModel**: resultados da pesquisa do Bing Notícias
+ **NewsResultModel**: resultados da pesquisa de notícias do Bing
 
 Propriedades obrigatórias para NewsResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -312,9 +321,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para SpellResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -325,9 +334,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para RelatedSearchResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -339,9 +348,9 @@ Nenhuma das propriedades é obrigatória.
 
 Propriedades obrigatórias para CompositeSearchResultModel:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -357,30 +366,30 @@ Nenhuma das propriedades é obrigatória.
 | SpellSuggestionResults |array |
 | RelatedSearchResults |array |
 
-## Definições de objeto:
- **PostOperationResponse**: representa a resposta da operação de postagem do Conector da Margem de atraso para postar na Margem de atraso
+## <a name="object-definitions"></a>Definições de objeto:
+ **PostOperationResponse**: representa a resposta da operação de postagem do Conector da Margem de atraso para postar no Margem de atraso
 
 Propriedades obrigatórias para PostOperationResponse:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
-| ok |booleano |
+| OK |booleano |
 | canal |string |
 | ts |string |
-| message |não definido |
+| Message |não definido |
 | error |string |
 
  **MessageItem**: uma mensagem de canal.
 
 Propriedades obrigatórias para MessageItem:
 
-Nenhuma das propriedades é obrigatória.
+Nenhuma das propriedades é obrigatória. 
 
-**Todas as propriedades**:
+**Todas as propriedades**: 
 
 | Nome | Tipo de Dados |
 | --- | --- |
@@ -388,16 +397,20 @@ Nenhuma das propriedades é obrigatória.
 | ID |string |
 | usuário |string |
 | criado |inteiro |
-| is\_user-deleted |booleano |
+| is_user-deleted |booleano |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png
+[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
 [3]: ./media/connectors-create-api-slack/connectionconfig3.png
 [4]: ./media/connectors-create-api-slack/connectionconfig4.png
 [5]: ./media/connectors-create-api-slack/connectionconfig5.png
 [6]: ./media/connectors-create-api-slack/connectionconfig6.png
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

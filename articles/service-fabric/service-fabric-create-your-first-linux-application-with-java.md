@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
-ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
+ms.sourcegitcommit: 381d372b549fa0ed0900d97c03b9584b21624b25
+ms.openlocfilehash: 4a8fb3499ec55e451b54a05d5642bdf9a924294f
 
 
 ---
@@ -25,17 +25,21 @@ ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
-> 
-> 
+>
+>
 
-O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, veremos como criar um aplicativo para Linux e compilar um serviço usando Java.  O vídeo do Microsoft Virtual Academy a seguir também explica o processo de criação de um aplicativo Java no Linux:  
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, veremos como criar um aplicativo para Linux e compilar um serviço usando Java.  
 
 > [!NOTE]
 > O Java como uma linguagem de programação de primeira classe interna tem suporte somente para a visualização do Linux (há planos para o suporte ao Windows). No entanto, os aplicativos, incluindo aplicativos Java, podem ser executados como executáveis convidados ou dentro de contêineres no Windows ou no Linux. Para saber mais, veja [Implantar um executável existente no Azure Service Fabric](service-fabric-deploy-existing-app.md) e [Implantar contêineres no Service Fabric](service-fabric-deploy-container.md).
-> 
+>
+
+## <a name="video-tutorial"></a>Tutorial em vídeo
+
+O vídeo do Microsoft Virtual Academy a seguir explica o processo de criação de um aplicativo Java no Linux:  
+<center><a target="\_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -47,12 +51,12 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 1. Em um terminal, digite ``yo azuresfjava``.
 2. Nome do seu aplicativo.
 3. Escolha o tipo de seu primeiro serviço e dê um nome para ele. Para os fins deste tutorial, escolheremos o Serviço Reliable Actor.
-   
+
    ![Gerador de Yeoman do Service Fabric para Java][sf-yeoman]
 
 > [!NOTE]
 > Para obter mais informações sobre as opções, confira [Visão geral do modelo de programação do Service Fabric](service-fabric-choose-framework.md).
-> 
+>
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
 Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usada para compilar o aplicativo no terminal.
@@ -66,13 +70,13 @@ Os modelos Yeoman do Service Fabric incluem um script de compilação para [Grad
 Após a compilação do aplicativo, você pode implantá-lo no cluster local usando a CLI do Azure.
 
 1. Conectar-se ao cluster local do Service Fabric.
-   
+
     ```bash
     azure servicefabric cluster connect
     ```
 
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
-   
+
     ```bash
     ./install.sh
     ```
@@ -85,14 +89,14 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
 Projetos de atores não fazem nada por conta própria. Eles exigem outro serviço ou cliente para enviar mensagens a eles. O modelo de ator inclui um script de teste simples que você pode usar para interagir com o serviço de ator.
 
 1. Execute o script usando o utilitário de inspeção para ver a saída do serviço de ator.
-   
+
     ```bash
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
 
 2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3.
-   
+
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
@@ -106,7 +110,7 @@ Se você instalou o [Plug-in Service Fabric](https://docs.microsoft.com/en-us/az
 O Plug-in de serviço do Service Fabric está disponível por meio da extensibilidade do Eclipse.
 
 1. No Eclipse, escolha **Arquivo > Outros > Service Fabric**. Você verá um conjunto de opções, incluindo Atores e Contêineres.
-   
+
     ![Modelos de Service Fabric no Eclipse][sf-eclipse-templates]
 
 2. Nesse caso, escolha Serviço Sem Estado.
@@ -114,7 +118,7 @@ O Plug-in de serviço do Service Fabric está disponível por meio da extensibil
 3. Você deve confirmar o uso da perspectiva do Service Fabric, que otimiza o Eclipse para uso com projetos do Service Fabric. Selecione “Sim”.
 
 ### <a name="deploy-the-application"></a>Implantar o aplicativo
-Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse. 
+Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse.
 
 1. Escolha **Executar > Executar Configurações**.
 2. Especifique **local** ou **nuvem**. A configuração padrão é **local**. Para implantar um cluster remoto, selecione **nuvem**.
@@ -125,7 +129,7 @@ Seu aplicativo será compilado e implantado em poucos instantes. Você pode moni
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
-Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfjava:AddService`
 

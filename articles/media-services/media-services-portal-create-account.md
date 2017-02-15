@@ -1,5 +1,5 @@
 ---
-title: " Criar uma conta dos Serviços de Mídia do Azure com o Portal do Azure | Microsoft Docs"
+title: " Criar uma conta dos Serviços de Mídia do Azure com o Portal do Azure | Microsoft Docss"
 description: "Este tutorial orienta você pelas etapas de criação de uma conta do Serviços de Mídia do Azure com o portal do Azure."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ As etapas nesta seção mostram como criar uma conta do AMS.
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **+ Novo** > **Web + Móvel** > **Serviços de Mídia**.
    
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Criar Serviços de Mídia](./media/media-services-create-account/media-services-new1.png)
 3. Em **CRIAR CONTA DOS SERVIÇOS DE MÍDIA** , insira os valores necessários.
    
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Criar Serviços de Mídia](./media/media-services-create-account/media-services-new3.png)
    
    1. Em **Nome da Conta**, insira o nome da nova conta AMS. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.
    2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
@@ -69,9 +69,12 @@ As etapas nesta seção mostram como criar uma conta do AMS.
    6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
 4. Clique em **Criar** na parte inferior do formulário.
    
-    Quando a conta for criada com êxito, o status mudará para **Executando**. 
+    Quando a conta é criada com êxito, a página de visão geral é carregada. Na tabela de ponto de extremidade de streaming, a conta terá um ponto de extremidade de streaming padrão em estado **Parado**. 
+
+    >[!NOTE]
+    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
    
-    ![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Configurações dos Serviços de Mídia](./media/media-services-create-account/media-services-settings.png)
    
     Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
 
@@ -86,7 +89,7 @@ Será necessário o nome da conta e as informações da chave primária para ace
     A janela **Gerenciar chaves** mostra o nome da conta e as chaves primária e secundária são exibidas. 
 3. Pressione o botão Copiar para copiar os valores.
    
-    ![Chaves dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Chaves dos Serviços de Mídia](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode carregar arquivos em sua conta do AMS. Para saber mais, veja [Carregar arquivos](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Agora você pode carregar arquivos em sua conta do AMS. Para saber mais, veja [C
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

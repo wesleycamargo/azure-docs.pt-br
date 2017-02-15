@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Banco de Dados SQL usando Python | Microsoft Docs
-description: "Apresenta um exemplo de código Phyton que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
+description: "Apresenta um exemplo de código Python que pode ser usado para se conectar ao Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
 author: meet-bhagdev

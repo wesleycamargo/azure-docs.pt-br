@@ -1,26 +1,30 @@
 ---
-title: Cenários comuns do Catálogo de Dados do Azure | Microsoft Docs
-description: Uma visão geral dos cenários comuns para o Catálogo de Dados do Azure, incluindo o registro e a descoberta de fontes de dados de alto valor, a habilitação de business intelligence de autoatendimento e a captura de conhecimento local existente sobre fontes de dados e processos.
+title: "Cenários comuns do Catálogo de Dados do Azure | Microsoft Docs"
+description: "Uma visão geral dos cenários comuns para o Catálogo de Dados do Azure, incluindo o registro e a descoberta de fontes de dados de alto valor, a habilitação de business intelligence de autoatendimento e a captura de conhecimento local existente sobre fontes de dados e processos."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/03/2016
+ms.date: 01/23/2017
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 975084c19909b0829b6f93cab05373fb71b10cf3
+
 
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Cenários comuns de Catálogo de Dados do Azure
 Este artigo apresenta cenários comuns nos quais o Catálogo de Dados do Azure pode ajudar as organizações a obter mais valor de suas fontes de dados existentes.
 
-## <a name="scenario-#1---registration-of-central-data-sources"></a>Cenário nº 1 - Registro de fontes de dados central
+## <a name="scenario-1---registration-of-central-data-sources"></a>Cenário nº 1 - Registro de fontes de dados central
 As organizações geralmente têm um número de fontes de dados de alto valor. Essas fontes de dados incluem a linha de negócios de sistemas OLTP, data warehouse e business intelligence / bancos de dados de análise. Geralmente, o número de sistemas e a sobreposição entre os sistemas aumenta ao longo do tempo conforme as necessidades dos negócios evoluem, bem como os negócios em si evoluem através de fusões e aquisições.
 
 Muitas vezes é difícil para os usuários saber onde localizar os dados dentro dessas fontes de dados. Perguntas como essas são todas muito comuns:
@@ -34,7 +38,7 @@ Nesse cenário, o Catálogo de Dados do Azure pode ajudar. As fontes de dados ce
 
 Este cenário também apresenta uma oportunidade para anotar as fontes de dados de alto valor para torná-las mais fáceis de entender e de acessar. Um aspecto fundamental desse esforço é incluir informações sobre como os usuários podem solicitar acesso à fonte de dados. O Catálogo de Dados do Azure permite que os usuários forneçam o endereço de email do usuário ou da equipe responsável pelo controle do acesso à fonte de dados, dos links para ferramentas, da documentação ou do texto livre que descreve o processo de solicitação de acesso. Com essas informações incluídas no catálogo, os usuários que descobrirem fontes de dados registradas, mas que ainda não tenham permissões para acessar os dados, poderão solicitar com facilidade o acesso usando os processos definidos e controlados por proprietários da fontes de dados.
 
-## <a name="scenario-#2---self-service-business-intelligence"></a>Cenário nº 2 - Autoatendimento de Business Intelligence
+## <a name="scenario-2---self-service-business-intelligence"></a>Cenário nº 2 - Autoatendimento de Business Intelligence
 Embora as soluções de business intelligence corporativas tradicionais continuem a ser uma parte valiosa das estruturas de dados de muitas organizações, a alteração ritmo dos negócios tornou o BI de autoatendimento cada vez mais importante. BI de autoatendimento permite que os operadores de informações e analistas criem seus próprios relatórios, pastas de trabalho e painéis sem depender de uma equipe de TI central, nem ficando restrito à programação e disponibilidade dessa equipe de TI.
 
 Em cenários de BI de autoatendimento, é comum os usuários combinarem dados de várias fontes, muitos dos quais podem não terem sido usados anteriormente para BI e análise. Embora algumas dessas fontes de dados possam já serem conhecidas, geralmente há um processo para descobrir o que deve ser feito para localizar e avaliar possíveis fontes de dados para uma determinada tarefa.
@@ -47,7 +51,7 @@ Esse crescimento orgânico do conteúdo do catálogo é um complemento natural p
 
 Também vale a pena observar que embora esse cenário se concentre especificamente no BI de autoatendimento, os mesmos padrões e desafios também se aplicam a projetos de BI corporativos de grande escala. Qualquer esforço que envolva um processo manual de descoberta de fonte de dados é um esforço que pode agregar valor à organização por meio do uso do Catálogo de Dados do Azure.
 
-## <a name="scenario-#3---capturing-tribal-knowledge"></a>Cenário nº 3 - Capturando o conhecimento do grupo
+## <a name="scenario-3---capturing-tribal-knowledge"></a>Cenário nº 3 - Capturando o conhecimento do grupo
 Como saber quais dados você precisa para fazer seu trabalho e onde encontrá-los?
 
 Se você estiver na sua função por algum tempo, você provavelmente já sabe. Você já passou por um processo de aprendizado gradual e aprendeu ao longo do tempo sobre as fontes de dados que são essenciais para o seu trabalho diário.
@@ -62,6 +66,8 @@ Essa transferência contínua de conhecimento do grupo faz parte do processo de 
 
 O Catálogo de Dados do Azure fornece um local para compartilhar esse conhecimento de grupo, tornando-o facilmente identificável. Especialistas em dados podem anotar diretamente os ativos de dados e também incluir links para a documentação existente. Isso não apenas captura o conhecimento em si, mas também o coloca na mesma experiência usada para descoberta de fonte de dados. Quando alguém usa o catálogo para descobrir um fonte de dados, não encontrará apenas a fonte em si, mas também o conhecimento do especialista que anteriormente existia somente na mente do próprio especialista.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

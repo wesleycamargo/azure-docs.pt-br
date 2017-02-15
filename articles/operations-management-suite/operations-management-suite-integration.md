@@ -1,22 +1,26 @@
 ---
-title: Integração com o OMS (Operations Management Suite) | Microsoft Docs
-description: Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com o OMS e links para artigos, fornecendo informações técnicas detalhadas.
+title: "Integração com o OMS (Operations Management Suite) | Microsoft Docs"
+description: "Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com o OMS e links para artigos, fornecendo informações técnicas detalhadas."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fc5f3a8a-77f7-4103-bd7e-744c15ffcca7
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
+
 
 ---
-# <a name="integrating-with-operations-management-suite-(oms)"></a>Integração com o OMS (Operations Management Suite)
+# <a name="integrating-with-operations-management-suite-oms"></a>Integração com o OMS (Operations Management Suite)
 O Microsoft Operations Management Suite é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda você a gerenciar e proteger sua infraestrutura local e de nuvem.  Além de usar os recursos padrão do OMS, você pode integrá-los com outros aplicativos de gerenciamento e serviços para proporcionar um ambiente de gerenciamento híbrido, fornecer cenários de gerenciamento personalizado exclusivos em seu ambiente ou oferecer uma experiência de gerenciamento personalizada para seus clientes.  Este artigo proporciona uma visão geral das diferentes opções de integração com os serviços do OMS e links para artigos, fornecendo informações técnicas detalhadas. 
 
 ## <a name="log-analytics"></a>Log Analytics
@@ -32,7 +36,7 @@ Há vários métodos para preencher o repositório do OMS.  O método usado depe
 As seções a seguir descrevem as diferentes opções para preencher o repositório do OMS.
 
 #### <a name="connected-sources-and-data-sources"></a>Fontes conectadas e Fontes de dados
-As fontes conectadas são os locais onde os dados podem ser recuperados para o repositório do OMS.  As Fontes de Dados e as Soluções são executadas nas Fontes Conectadas e definem os dados específicos que são coletados.  Se seu aplicativo grava dados em uma das fontes de dados, você pode coletá-los ao configurar a fonte de dados.  Por exemplo, se seu aplicativo cria eventos de Syslog, eles podem ser coletados pela fonte de dados de Syslog em um agente do Linux.
+As fontes conectadas são os locais onde os dados podem ser recuperados para o repositório do OMS.  As Fontes de Dados e as Soluções são executadas nas Fontes Conectadas e definem os dados específicos que são coletados.  Se seu aplicativo grava dados em uma das fontes de dados, você poderá coletá-los ao configurar a fonte de dados.  Por exemplo, se seu aplicativo cria eventos de Syslog, eles poderão ser coletados pela fonte de dados de Syslog em um agente do Linux.
 
 * [Fontes de dados no Log Analytics](../log-analytics/log-analytics-data-sources.md)
 
@@ -59,7 +63,7 @@ Todos os dados armazenados no repositório do OMS estão disponíveis por meio d
 #### <a name="custom-views"></a>Modos de exibição personalizados
 O Designer de Exibição permite que você crie modos de exibição personalizados no console do OMS, que forneçam aos usuários visualização e análise dos dados em sua solução.  Cada exibição inclui um bloco, que é exibido na página principal do console, e qualquer número de partes da visualização que são baseadas nas pesquisas de log que você define.
 
-* [Designer de modos de exibição do Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Designer de exibição do Log Analytics](../log-analytics/log-analytics-view-designer.md)
 
 #### <a name="power-bi"></a>Power BI
 O Log Analytics pode exportar dados do repositório do OMS para o Power BI automaticamente para que você possa aproveitar suas visualizações e ferramentas de análise.  Ele executa essa exportação em uma agenda para que os dados sejam mantidos atualizados. 
@@ -102,6 +106,9 @@ Por exemplo, sua solução pode incluir um runbook de automação para coletar e
 ## <a name="next-steps"></a>Próximas etapas
 * Recorra ao [SDK do OMS](operations-management-suite-sdk.md) para obter informações técnicas sobre a automatização de serviços do OMS.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -35,11 +35,11 @@ Você pode adicionar elementos específicos do idioma à sua página de entrada 
 
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
-   
+
    ![Abrir o gerenciamento de usuários](./media/active-directory-branding-localize-azure-portal/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - identidade visual da empresa**, selecione o comando **Adicionar idioma**.
-   
+
     ![Adicionar elementos de identidade visual específicos do idioma](./media/active-directory-branding-localize-azure-portal/add-language.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
@@ -48,7 +48,6 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 
 ## <a name="next-steps"></a>Próximas etapas
 [Adicionar identidade visual da empresa à página de entrada](active-directory-branding-custom-signon-azure-portal.md)
-
 
 
 

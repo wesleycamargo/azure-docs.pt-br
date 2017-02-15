@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como usar o SQL Data Warehouse, combinando o SQL Server ao processamento paralelo maciço. A documentação mostra como carregar, analisar, gerenciar e exportar dados."
 translationtype: Human Translation
-ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
-ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
 
 ---
 
@@ -90,7 +90,7 @@ Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Limites de capacidade</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">Elementos da linguagem T-SQL</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">Instruções T-SQL</a></p>
@@ -102,13 +102,7 @@ Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do SQL Data Warehouse </div>
-    </a>
-</div>
+
 
 
 

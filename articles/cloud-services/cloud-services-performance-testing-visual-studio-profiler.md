@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/30/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7e92ee0331f87755846314a39a0f1ab41f85121
+ms.sourcegitcommit: 0440827a5f5f82a43a88d601a6d090436b81df8e
+ms.openlocfilehash: bb06e93608f7914b0f8c9b971cc285a849056345
 
 
 ---
@@ -156,7 +156,7 @@ Parabéns! Você começou a usar o criador de perfis.
 * Se durante a amostragem você vir a mensagem "PRF0025: nenhum dado foi coletado", verifique se o processo ao qual você se conectou tem atividade de CPU. Os aplicativos que não estão fazendo nenhum trabalho de computação podem não produzir nenhum dado de amostragem.  Também é possível que o processo tenha sido encerrado antes de qualquer amostra ter sido feita. Verifique se o método Run para uma função para a qual você esteja criando um perfil não é encerrado.
 
 ## <a name="next-steps"></a>Próximas etapas
-A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho.  Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, veja a postagem no blog [Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010][3].
+A instrumentação de binários do Azure no emulador não tem suporte no criador de perfis do Visual Studio, mas para testar a alocação de memória, você poderá escolher essa opção ao criar um perfil. Você também pode escolher a criação de perfis simultânea, que ajuda a determinar se os threads estão perdendo tempo competindo por bloqueios, ou a criação de perfis de interação de camadas, que ajuda a rastrear problemas de desempenho ao interagir entre camadas de um aplicativo, mais frequentemente entre a camada de dados e uma função de trabalho.  Você pode exibir as consultas do banco de dados que seu aplicativo gera e usar os dados da criação de perfis para melhorar o uso do banco de dados. Para obter informações sobre a criação de perfis de interação de camadas, veja a postagem no blog [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3] (Passo a passo: usando o criador de perfis de interação de camadas no Visual Studio Team System 2010).
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
@@ -177,6 +177,6 @@ A instrumentação de binários do Azure no emulador não tem suporte no criador
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

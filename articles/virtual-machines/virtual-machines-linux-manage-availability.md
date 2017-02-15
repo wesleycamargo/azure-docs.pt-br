@@ -21,6 +21,7 @@ ms.openlocfilehash: 3c305ed5b1ba35088983050f4a5c0ac56ab3888b
 
 
 ---
+
 # <a name="manage-the-availability-of-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais
 Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo Linux no Azure. Você também pode [gerenciar a disponibilidade das máquinas virtuais do Windows](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

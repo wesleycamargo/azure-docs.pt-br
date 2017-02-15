@@ -12,25 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 12/09/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: fa688748be96aa614b46a218e19a0e771b908baf
+ms.sourcegitcommit: 23fb716997145152bd09d177b75973ad0b4ca9f3
+ms.openlocfilehash: 171cfe2a8750025914545701fa3423c7b9baa5f2
 
 
 ---
-# <a name="pass-secure-values-during-deployment"></a>Transmitir valores seguros durante a implantação
+# <a name="use-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Key Vault para passar um valor de parâmetro seguro durante a implantação
 
-Quando você precisa transmitir um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível armazenar esse valor como um segredo em um [Cofre de Chaves do Azure](../key-vault/key-vault-whatis.md) e fazer referência ao segredo em seu arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Você não precisa inserir manualmente o valor para o segredo toda vez que implanta os recursos.
+Quando você precisa passar um valor seguro (como uma senha) como um parâmetro durante a implantação, é possível recuperar o valor de um [Azure Key Vault](../key-vault/key-vault-whatis.md). Você recupera o valor fazendo referência ao cofre de chaves e ao segredo no arquivo de parâmetros. O valor nunca é exposto porque você apenas fazer referência à sua ID de cofre de chaves. Você não precisa inserir manualmente o valor para o segredo toda vez que implanta os recursos. O cofre de chaves pode existir em uma assinatura diferente que o grupo de recursos que está sendo implantado. Ao fazer referência ao Key Vault, inclua a ID da assinatura.
+
+Este tópico mostra como criar um cofre de chaves e o segredo, configurar o acesso ao segredo para um modelo do Resource Manager e passar o segredo como um parâmetro. Se você já tiver um cofre de chaves e o segredo, mas precisar verificar o acesso ao modelo e ao usuário, acesse a seção [Habilitar o acesso ao segredo](#enable-access-to-the-secret). Se você já tiver o cofre de chaves e o segredo e tiver certeza de que ele está configurado para o acesso ao modelo e ao usuário, acesse a seção [Fazer referência a um segredo com uma ID estática](#reference-a-secret-with-static-id). 
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Implantar um cofre da chave e segredo
 
-Para saber mais sobre a implantação de um cofre de chaves e um segredo, veja [Esquema do cofre de chaves](resource-manager-template-keyvault.md) e [Esquema do segredo do cofre de chaves](resource-manager-template-keyvault-secret.md). Ao criar o cofre de chaves, defina a propriedade **enabledForTemplateDeployment** como **true** para que ela possa ser referenciada de outros modelos do Resource Manager. 
+É possível implantar um cofre de chaves e o segredo por meio de um modelo do Resource Manager. Para obter um exemplo, consulte [Modelo do cofre de chaves](resource-manager-template-keyvault.md) e [Modelo do segredo do cofre de chaves](resource-manager-template-keyvault-secret.md). Ao criar o cofre de chaves, defina a propriedade **enabledForTemplateDeployment** como **true** para que ela possa ser referenciada de outros modelos do Resource Manager. 
+
+Se preferir, você pode criar o cofre de chaves e o segredo por meio do portal do Azure. 
+
+1. Selecione **Novo** -> **Segurança + Identidade** -> **Key Vault**.
+
+   ![criar novo cofres de chaves](./media/resource-manager-keyvault-parameter/new-key-vault.png)
+
+2. Forneça valores para o cofre de chaves. Por enquanto, você pode ignorar as configurações **Políticas de acesso** e **Política de acesso avançada**. Essas configurações são abordadas na seção. Selecione **Criar**.
+
+   ![definir cofre de chaves](./media/resource-manager-keyvault-parameter/create-key-vault.png)
+
+3. Agora você tem um cofre de chaves. Selecione esse cofre de chaves.
+
+4. Na folha do cofre de chaves, selecione **Segredos**.
+
+   ![selecionar segredos](./media/resource-manager-keyvault-parameter/select-secret.png)
+
+5. Selecione **Adicionar**.
+
+   ![escolher adicionar](./media/resource-manager-keyvault-parameter/add-secret.png)
+
+6. Selecione **Manual** para obter as opções de upload. Forneça um nome e valor para o segredo. Selecione **Criar**.
+
+   ![fornecer o segredo](./media/resource-manager-keyvault-parameter/provide-secret.png)
+
+Você criou o cofre de chaves e o segredo.
+
+## <a name="enable-access-to-the-secret"></a>Habilitar o acesso ao segredo
+
+Se você estiver usando um cofre de chaves novo ou existente, verifique se o usuário que implanta o modelo pode acessar o segredo. O usuário que implanta um modelo que faz referência a um segredo deve ter a permissão `Microsoft.KeyVault/vaults/deploy/action` do cofre de chaves. Ambas as funções [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) concedem esse acesso. Você também pode criar uma [função personalizada](../active-directory/role-based-access-control-custom-roles.md) que concede essa permissão e adicionar o usuário a essa função. Além disso, é necessário conceder ao Resource Manager a capacidade de acessar o cofre de chaves durante a implantação.
+
+É possível verificar ou realizar essas etapas por meio do portal.
+
+1. Selecione **IAM (Controle de acesso)**.
+
+   ![selecionar o controle de acesso](./media/resource-manager-keyvault-parameter/select-access-control.png)
+
+2. Se a conta que você pretende usar para a implantação de modelos ainda não for um Proprietário ou Colaborador (nem tiver sido adicionada a uma função personalizada que concede a permissão `Microsoft.KeyVault/vaults/deploy/action`), selecione **Adicionar**
+
+   ![adicionar usuário](./media/resource-manager-keyvault-parameter/add-user.png)
+
+3. Selecione a função Colaborador ou Proprietário e pesquise a identidade a ser atribuída a essa função. Selecione **OK** para concluir a adição da identidade à função.
+
+   ![adicionar usuário](./media/resource-manager-keyvault-parameter/search-user.png)
+
+4. Para habilitar o acesso de um modelo durante a implantação, selecione **Controle de acesso avançado**. Selecione a opção **Habilitar acesso ao Azure Resource Manager para implantação de modelos**.
+
+   ![habilitar acesso a modelos](./media/resource-manager-keyvault-parameter/select-template-access.png)
 
 ## <a name="reference-a-secret-with-static-id"></a>Fazer referência a um segredo com ID estática
 
-Você faz referência ao segredo em um arquivo de parâmetros que transmite valores para seu modelo. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo. No exemplo a seguir, o segredo do cofre de chaves já deve existir e você fornece um valor estático para sua ID de recurso.
+Você faz referência ao segredo em um **arquivo de parâmetros (não no modelo)** que passa valores para o modelo. Você faz referência ao segredo transmitindo o identificador de recurso do cofre de chave e o nome do segredo. No exemplo a seguir, o segredo do cofre de chaves já deve existir e você fornece um valor estático para sua ID de recurso.
 
 ```json
 {
@@ -52,7 +102,7 @@ Você faz referência ao segredo em um arquivo de parâmetros que transmite valo
 }
 ```
 
-O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a seguir mostra as seções relevantes de um modelo que implanta um SQL Server que exige uma senha de administrador.
+No modelo, o parâmetro que aceita o segredo deve ser uma **securestring**. O exemplo a seguir mostra as seções relevantes de um modelo que implanta um SQL Server que exige uma senha de administrador.
 
 ```json
 {
@@ -88,7 +138,7 @@ O parâmetro que aceita o segredo deve ser um **securestring**. O exemplo a segu
 }
 ```
 
-O usuário implantando um modelo que faz referência a um segredo deve ter a permissão **Microsoft.KeyVault/vaults/deploy/action** para o cofre de chaves. Ambas as funções [Proprietário](../active-directory/role-based-access-built-in-roles.md#owner) e [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) concedem esse acesso. Você também pode criar uma [função personalizada](../active-directory/role-based-access-control-custom-roles.md) que concede essa permissão e adicionar o usuário a essa função.
+
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Fazer referência a um segredo com ID dinâmica
 
@@ -143,6 +193,6 @@ Para gerar dinamicamente a ID de recurso para um segredo de cofre de chaves, voc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

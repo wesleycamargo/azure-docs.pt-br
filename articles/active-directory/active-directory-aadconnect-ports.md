@@ -1,12 +1,12 @@
 ---
 title: 'Azure AD Connect: portas | Microsoft Docs'
-description: Essa página é uma página de referência técnica para as portas que precisam estar abertas para o Azure AD Connect
+description: "Essa página é uma página de referência técnica para as portas que precisam estar abertas para o Azure AD Connect"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bc48cac1f7e361df7f80f1dbf5a438484d4137c9
+
 
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Requeridos para Identidade Híbrida
@@ -43,7 +47,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 
 Para obter uma lista de URLs e endereços IP que você precisa abrir no firewall, confira [Intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## <a name="table-3---azure-ad-connect-and-federation-servers/wap"></a>Tabela 3 - Azure AD Connect e Servidores de Federação/WAP
+## <a name="table-3---azure-ad-connect-and-federation-serverswap"></a>Tabela 3 - Azure AD Connect e Servidores de Federação/WAP
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e servidores de Federação/WAP.  
 
 | Protocolo | Portas | Descrição |
@@ -67,10 +71,10 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 | HTTPS |443(TCP/UDP) |Usado para autenticação de dispositivo. |
 | TCP |49443 (TCP) |Usado para autenticação de certificado. |
 
-## <a name="table-6a-&-6b---azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabela 6a e 6b - agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
+## <a name="table-6a--6b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabela 6a e 6b - agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 As tabelas a seguir descrevem os pontos de extremidade, portas e protocolos que são necessários para a comunicação entre agentes do Azure AD Connect Health e Azure AD
 
-### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>Tabela 6a - portas e protocolos para o agente do Azure AD Connect Health para o (AD FS/Sync) e Azure AD
+### <a name="table-6a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabela 6a - portas e protocolos para o agente do Azure AD Connect Health para o (AD FS/Sync) e Azure AD
 Esta tabela descreve as portas e protocolos de saída a seguir que são necessários para a comunicação entre os agentes do Azure AD Connect Health e o Azure AD.  
 
 | Protocolo | Portas | Descrição |
@@ -78,9 +82,12 @@ Esta tabela descreve as portas e protocolos de saída a seguir que são necessá
 | HTTPS |443(TCP/UDP) |Saída |
 | Barramento de Serviço do Azure |5671 (TCP/UDP) |Saída |
 
-### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-(ad-fs/sync)-and-azure-ad"></a>6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
+### <a name="6b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>6b - pontos de extremidade de agente do Azure AD Connect Health para (AD FS/Sync) e Azure AD
 Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md#requirements).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

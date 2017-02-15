@@ -1,13 +1,13 @@
 ---
-title: Adicionar o gatilho de recorrência em aplicativos lógicos | Microsoft Docs
-description: Visão geral do gatilho de recorrência e como usá-lo com um aplicativo lógico do Azure.
-services: ''
-documentationcenter: ''
+title: "Adicionar o gatilho de recorrência em aplicativos lógicos | Microsoft Docs"
+description: "Visão geral do gatilho de recorrência e como usá-lo com um aplicativo lógico do Azure."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d85eb09283bc464e78bf84401eeb0ff366ef5773
+
 
 ---
-# Introdução ao gatilho de recorrência
+# <a name="get-started-with-the-recurrence-trigger"></a>Introdução ao gatilho de recorrência
 Usando o gatilho de recorrência, você pode criar fluxos de trabalho poderosos na nuvem.
 
 Por exemplo, você pode:
@@ -27,7 +31,7 @@ Por exemplo, você pode:
 
 Para começar a usar o gatilho de recorrência em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usar um gatilho de recorrência
+## <a name="use-a-recurrence-trigger"></a>Usar um gatilho de recorrência
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
 Veja uma sequência de exemplo de como configurar um gatilho de recorrência em um aplicativo lógico:
@@ -39,10 +43,11 @@ O aplicativo lógico iniciará uma execução depois de cada intervalo de tempo.
 
 ![Gatilho HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-## Detalhes do gatilho
+## <a name="trigger-details"></a>Detalhes do gatilho
 O gatilho de recorrência tem as propriedades a seguir que você pode configurar.
 
-Ele dispara um aplicativo lógico depois de um intervalo de tempo especificado. Um * significa que é um campo obrigatório.
+Ele dispara um aplicativo lógico depois de um intervalo de tempo especificado.
+Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
@@ -53,7 +58,12 @@ Ele dispara um aplicativo lógico depois de um intervalo de tempo especificado. 
 
 <br>
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

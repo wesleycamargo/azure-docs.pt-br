@@ -1,18 +1,22 @@
 ---
-title: Usando a Análise, a ferramenta de pesquisa avançada do Application Insights | Microsoft Docs
-description: 'Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights. '
+title: "Usando a Análise, a ferramenta de pesquisa avançada do Application Insights | Microsoft Docs"
+description: "Usando a Análise, a ferramenta de pesquisa e diagnóstico avançada do Application Insights. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: danhadari
 manager: douge
-
+ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: danha
+ms.date: 11/16/2016
+ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
+ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+
 
 ---
 # <a name="using-analytics-in-application-insights"></a>Usando Análise no Application Insights
@@ -34,17 +38,20 @@ Há um [tour mais extenso aqui](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Escreva uma consulta
 ![Exibição de esquema](./media/app-insights-analytics-using/150.png)
 
-Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators). O IntelliSense mostrará os operadores e alguns dos elementos de expressão que você pode usar.
+Comece com os nomes de uma das tabelas listadas à esquerda (ou os operadores [range](app-insights-analytics-reference.md#range-operator) ou [union](app-insights-analytics-reference.md#union-operator)). Use `|` para criar um pipeline de [operadores](app-insights-analytics-reference.md#queries-and-operators). 
 
-Confira a [Visão geral da linguagem do Analytics](app-insights-analytics-tour.md) e a [referência da linguagem](app-insights-analytics-reference.md).
+O IntelliSense mostrará os operadores e os elementos de expressão que você pode usar. Clique no ícone de informações (ou pressione CTRL + espaço) para obter uma descrição mais detalhada e exemplos de como usar cada elemento.
+
+Confira a [tour da linguagem do Analytics](app-insights-analytics-tour.md) e a [referência da linguagem](app-insights-analytics-reference.md).
 
 ### <a name="run-a-query"></a>Executar uma consulta
 ![Executando uma consulta](./media/app-insights-analytics-using/130.png)
 
 1. Você pode usar quebras de linha simples em uma consulta.
 2. Coloque o cursor na ou no final da consulta que você deseja executar.
+3. Verifique o intervalo de tempo da consulta. (Você pode alterá-lo ou substituí-lo, incluindo sua própria cláusula [`where...timestamp...`](app-insights-analytics-tour.md#time-range) em sua consulta.)
 3. Clique em Ir para executar a consulta.
-4. Não coloque linhas em branco em sua consulta. Você pode manter várias consultas separadas em uma guia de consulta separando-as com linhas em branco. Apenas a que estiver com o cursor será executada.
+4. Não coloque linhas em branco em sua consulta. Você pode manter várias consultas separadas em uma guia de consulta separando-as com linhas em branco. Somente a consulta que possui o cursor é executada.
 
 ### <a name="save-a-query"></a>Salvar uma consulta
 ![Salvando uma consulta](./media/app-insights-analytics-using/140.png)
@@ -84,15 +91,28 @@ Para classificar por mais de uma coluna, use o agrupamento. Primeiro habilite-o 
 
 ![Agrupar](./media/app-insights-analytics-using/060.png)
 
-### <a name="missing-some-results?"></a>Faltando alguns resultados?
-Há um limite de 10 mil linhas nos resultados retornados do portal. Será exibido um aviso se você ultrapassar o limite. Se isso acontecer, os resultados na tabela de classificação não mostrarão sempre todos os primeiros ou últimos resultados reais. 
+### <a name="missing-some-results"></a>Faltando alguns resultados?
 
-É recomendável evitar atingir o limite. Use operadores como:
+Se você acha que não está vendo todos os resultados esperados, há alguns motivos possíveis.
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
-* [take 100](app-insights-analytics-reference.md#take-operator)
-* [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+* **Filtro de intervalo de tempo**. Por padrão, você verá apenas os resultados das últimas 24 horas. Há um filtro automático que limita o número de resultados que são recuperados das tabelas de origem. 
+
+    No entanto, você pode alterar o filtro de intervalo de tempo usando o menu suspenso.
+
+    Ou você pode substituir o intervalo automático incluindo sua própria [`where  ... timestamp ...` cláusula](app-insights-analytics-reference.md#where-operator) em sua consulta. Por exemplo:
+
+    `requests | where timestamp > ago('2d')`
+
+* **Limite de resultados**. Há um limite de 10 mil linhas nos resultados retornados do portal. Será exibido um aviso se você ultrapassar o limite. Se isso acontecer, os resultados na tabela de classificação não mostrarão sempre todos os primeiros ou últimos resultados reais. 
+
+    É recomendável evitar atingir o limite. Use o filtro de intervalo de tempo ou operadores como:
+
+  * [top 100 by timestamp](app-insights-analytics-reference.md#top-operator) 
+  * [take 100](app-insights-analytics-reference.md#take-operator)
+  * [summarize ](app-insights-analytics-reference.md#summarize-operator) 
+  * [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator)
+
+(Quer de 10 mil linhas? Considere usar [Exportação contínua](app-insights-export-telemetry.md) em vez disso. A análise foi projetada para análise, em vez de recuperar dados brutos.)
 
 ## <a name="diagrams"></a>Diagramas
 Selecione o tipo de diagrama que você deseja:
@@ -112,13 +132,16 @@ Isso significa que, quando você monta um painel para ajudar a monitorar o desem
 
 Você poderá fixar uma tabela no painel, se ele tiver quatro ou menos colunas. Somente as primeiras sete linhas são exibidas.
 
-#### <a name="dashboard-refresh"></a>Atualização do painel
-O gráfico fixado no painel é atualizado de forma automática ao executar novamente a consulta aproximadamente a cada meia hora.
+### <a name="dashboard-refresh"></a>Atualização do painel
+O gráfico fixado no painel é atualizado de forma automática ao executar novamente a consulta aproximadamente a cada duas horas.
 
-#### <a name="automatic-simplifications"></a>Simplificações automáticas
-Em alguns casos, certas simplificações são aplicadas a um gráfico quando ele é fixado em um painel.
+### <a name="automatic-simplifications"></a>Simplificações automáticas
 
-Quando você fixa um gráfico que exibe o pin muitos compartimentos (normalmente um gráfico de barras), os compartimentos menos ocupados são automaticamente agrupados em um único compartimento do tipo "outros". Por exemplo, esta consulta:
+Certas simplificações são aplicadas a um gráfico quando ele é fixado em um painel.
+
+**Restrição de tempo:** As consultas são limitadas automaticamente aos últimos 14 dias. O efeito é o mesmo que se sua consulta incluísse `where timestamp > ago(14d)`.
+
+**Restrição de contagem de compartimentos:** Se você exibir um gráfico que tenha muitos compartimentos distintos (normalmente um gráfico de barras), os compartimentos menos ocupados são automaticamente agrupados em um único compartimento do tipo "outros". Por exemplo, esta consulta:
 
     requests | summarize count_search = count() by client_CountryOrRegion
 
@@ -134,23 +157,66 @@ mas quando você a fixa a um painel, ela fica assim:
 Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar para Excel**.
 
 ## <a name="export-to-power-bi"></a>Exportar para o Power BI
-1. Coloque o cursor em uma consulta e escolha **Exportar para Power BI**.
-   
-    ![](./media/app-insights-analytics-using/240.png)
-   
-    Isso baixa um arquivo de script M.
-2. Copie o script em Linguagem M no editor de consulta avançada do Power BI Desktop.
-   
-   * Abra o arquivo exportado.
-   * No Power BI Desktop, selecione: **Obter Dados, Consulta Nula, Editor Avançado** e cole o script em Linguagem M.
-     
-     ![](./media/app-insights-analytics-using/250.png)
-3. Edite as credenciais, se necessário, e agora você já pode compilar seu relatório.
-   
-    ![](./media/app-insights-analytics-using/260.png)
+Coloque o cursor em uma consulta e escolha **Exportar para Power BI**.
+
+![Exportar do Analytics para o Power BI](./media/app-insights-analytics-using/240.png)
+
+Execute a consulta no Power BI. Você pode configurá-lo para atualizar em uma agenda.
+
+Com o Power BI, você pode criar painéis que reúnem dados de uma grande variedade de fontes.
+
+[Saiba mais sobre como exportar para o Power BI](app-insights-export-power-bi.md)
+
+
+## <a name="automation"></a>Automação
+
+Você pode executar consultas de análise por meio da [API de REST de acesso de dados](https://dev.applicationinsights.io/), por exemplo, usando o PowerShell.
+
+
+
+## <a name="import-data"></a>Importar dados
+
+Você pode importar dados de um arquivo CSV. Normalmente, importam-se dados estáticos que você pode associar a tabelas de sua telemetria. 
+
+Por exemplo, se usuários autenticados são identificados em sua telemetria por um alias ou ID ofuscado, você pode importar uma tabela que mapeie os aliases para nomes reais. Ao realizar uma junção na telemetria de solicitação, você pode identificar os usuários por seus nomes reais nos relatórios de análise.
+
+### <a name="define-your-data-schema"></a>Definir o esquema de dados
+
+1. Clique em **Configurações** (na parte superior esquerda) e, em seguida, **Fontes de dados**. 
+2. Adicione uma fonte de dados de acordo com as instruções a seguir. Será solicitado que você forneça uma amostra dos dados, que devem incluir pelo menos dez linhas. Em seguida, você corrige o esquema.
+
+Isso define uma fonte de dados que você pode usar para importar as tabelas individuais.
+
+### <a name="import-a-table"></a>Importar uma tabela
+
+1. Abra sua definição de fonte de dados da lista.
+2. Clique em "Carregar" e siga as instruções para carregar a tabela. Isso envolve uma chamada a uma API REST e, portanto é fácil de automatizar. 
+
+A tabela agora está disponível para uso em consultas de análise. Ele aparecerá na análise 
+
+### <a name="use-the-table"></a>Use a tabela
+
+Vamos supor que a definição de fonte de dados é chamada `usermap` e que ela possui dois campos, `realName` e `user_AuthenticatedId`. A tabela `requests` também tem um campo chamado `user_AuthenticatedId`, portanto, é fácil uni-los:
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) | take 10
+    | join kind=leftouter ( usermap ) on user_AuthenticatedId 
+```
+A tabela resultante de solicitações tem uma coluna adicional, `realName`.
+
+### <a name="import-from-logstash"></a>Importar do LogStash
+
+Se você usar [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), você poderá usar a análise para consultar seus logs. Use o [plug-in que redireciona os dados para análise](https://github.com/Microsoft/logstash-output-application-insights). 
+
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,6 +2,7 @@
 ## [O que é o DocumentDB?](documentdb-introduction.md)
 ## [Conceitos principais](documentdb-resources.md)
 ## [Distribuição global](documentdb-distribute-data-globally.md)
+## [Análise de TCO NoSQL](https://aka.ms/documentdb-tco-paper)
 ## Cenários
 ### [Casos de uso comuns](documentdb-use-cases.md)
 ### [Expandindo o DocumentDB para as redes sociais](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## Escrever seu primeiro aplicativo
 ### [Aplicativo de console .NET](documentdb-get-started.md)
 ### [Aplicativo de console do .NET Core](documentdb-dotnetcore-get-started.md)
+### [Aplicativo de console Java](documentdb-java-get-started.md)
 ### [Aplicativo de console do Node.js](documentdb-nodejs-get-started.md)
 ### [Aplicativo de console do C++](documentdb-cpp-get-started.md)
 ## Compilar um aplicativo Web
@@ -24,7 +26,6 @@
 # Como
 
 ## Plano
-### [Armazenamento e desempenho](documentdb-manage.md)
 ### [Particionamento e colocação em escala](documentdb-partition-data.md)
 ### [Consistência](documentdb-consistency-levels.md)
 ### [NoSQL versus SQL](documentdb-nosql-vs-sql.md)
@@ -34,13 +35,12 @@
 ### [Modelar seus dados](documentdb-modeling-data.md)
 ### [Usar dados geoespaciais](documentdb-geospatial.md)
 ### [Desenvolver para várias regiões](documentdb-developing-with-multiple-regions.md)
+### [Failovers regionais](documentdb-regional-failovers.md)
 ### [Expirar dados automaticamente](documentdb-time-to-live.md)
 ### [Personalizar seus índices](documentdb-indexing-policies.md)
 ### [Proteger o acesso aos dados](documentdb-secure-access-to-data.md)
 ### [Backup e restauração](documentdb-online-backup-and-restore.md)
 ### [Níveis de desempenho](documentdb-performance-levels.md)
-### [Cotas de recursos](documentdb-limits.md)
-### [Aumentar cotas](documentdb-increase-limits.md)
 ### [Unidades de solicitação](documentdb-request-units.md)
 ### CLI do Azure
 #### [Criar uma conta](documentdb-automation-resource-manager-cli.md)
@@ -55,6 +55,9 @@
 ### [Controlar alterações com o Feed de alterações](documentdb-change-feed.md)
 ### [Testes de desempenho](documentdb-performance-testing.md)
 ### [Dicas de desempenho](documentdb-performance-tips.md)
+### Práticas recomendadas
+#### [Instalação de vários mestres](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## Usar o suporte de DocumentDB para MongoDB
 ### [Suporte de protocolo para MongoDB](documentdb-protocol-mongodb.md)
@@ -79,10 +82,10 @@
 
 ## Integração
 ### [Implantar um site com o Serviço de Aplicativo do Azure](documentdb-create-documentdb-website.md)
-### [Log de aplicativo com Aplicativos Lógicos](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Log de aplicativo com Aplicativos Lógicos](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Associar ao Azure Functions](../azure-functions/functions-bindings-documentdb.md)
 ### [Analisar dados com o Hadoop](documentdb-run-hadoop-with-hdinsight.md)
-### [Integrar ao Azure Search](documentdb-search-indexer.md)
+### [Integrar ao Azure Search](../search/search-howto-index-documentdb.md)
 ### [Mover dados com o Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analisar dados em tempo real com o Stream Analytics do Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Obter notificações com Aplicativos Lógicos](documentdb-change-notification.md)
@@ -120,6 +123,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

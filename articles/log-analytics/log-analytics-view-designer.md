@@ -1,19 +1,23 @@
 ---
-title: Designer de modos de exibição do Log Analytics | Microsoft Docs
-description: O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
+title: "Designer de exibição do Log Analytics | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Designer de modos de exibição do Log Analytics
@@ -92,6 +96,9 @@ Os modos de exibição têm apenas uma linha de partes da visualização.  Reorg
 * Adicione [Blocos](log-analytics-view-designer-tiles.md) ao modo de exibição personalizado.
 * Adicione [Partes da visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

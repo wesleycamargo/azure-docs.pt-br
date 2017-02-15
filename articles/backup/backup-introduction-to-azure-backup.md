@@ -1,10 +1,10 @@
 ---
 title: "O que é o Backup do Azure? | Microsoft Docs"
-description: "Com o Backup e os Serviços de Recuperação do Azure, você pode fazer backup e restaurar dados e aplicativos de Servidores Windows, máquinas de cliente Windows, servidores com System Center DPM e máquinas virtuais do Azure."
+description: "Usando os Serviços de Recuperação e Backup do Azure, você poderá fazer backup e restaurar os dados e aplicativos a partir dos Servidores Windows, computadores com Windows, servidores do System Center DPM e máquinas virtuais do Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "backup e restauração; serviços de recuperação; soluções de backup"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/7/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
-ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -53,8 +53,8 @@ Se não tiver certeza de qual componente do Backup do Azure atende às suas nece
 | Componente | Benefícios | limites | O que é protegido? | Onde os backups são armazenados? |
 | --- | --- | --- | --- | --- |
 | Agente de Backup do Azure (MARS) |<li>Fazer backup de arquivos e pastas no sistema operacional Windows físico ou virtual (as máquinas virtuais podem ser locais ou estar no Azure)<li>Nenhum servidor de backup separado necessário. |<li>Fazer backup 3 vezes por dia <li>Não reconhece aplicativos; arquivo, pasta e restauração em nível de volume somente, <li>  Não há suporte para Linux. |<li>Arquivos, <li>Pastas |Criar cofre de backup do Azure |
-| System Center DPM |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux no Hyper-V e VMs VMware <li>Proteger VMs VMware usando o DPM 2012 R2 |Não é possível fazer o backup da carga de trabalho do Oracle.|<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente,<li>  Fita (somente local) |
-| Servidor de Backup do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux (se hospedada no Hyper-V)<li>Proteger VMs VMware usando o DPM 2012 R2<li>Não exige uma licença do System Center |<li>Não é possível fazer o backup da carga de trabalho do Oracle.<li>Sempre requer assinatura do Azure ao vivo<li>Não há suporte para backup em fita |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente |
+| System Center DPM |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux no Hyper-V e VMs VMware <li>Backup e restauração das VMs VMware usando o DPM 2012 R2 |Não é possível fazer o backup da carga de trabalho do Oracle.|<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente,<li>  Fita (somente local) |
+| Servidor de Backup do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux no Hyper-V e VMs VMware<li>Fazer backup e restaurar VMs VMware <li>Não exige uma licença do System Center |<li>Não é possível fazer o backup da carga de trabalho do Oracle.<li>Sempre requer assinatura do Azure ao vivo<li>Não há suporte para backup em fita |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente |
 | Backup de VM IaaS do Azure |<li>Backups nativos para Windows/Linux<li>Sem necessidade de instalação de agente específico<li>Backup em nível de malha sem a necessidade de uma infraestrutura de backup |<li>Fazer backup de máquinas virtuais uma vez por dia <li>Restaurar máquinas virtuais somente no nível do disco<li>Não pode fazer backup no local |<li>VMs, <li>Todos os discos (usando o PowerShell) |<p>Criar cofre de backup do Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Quais são os cenários de implantação para cada componente?
@@ -234,6 +234,6 @@ Para obter detalhes sobre como proteger outras cargas de trabalho, experimente u
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

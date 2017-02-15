@@ -1,13 +1,13 @@
 ---
-title: Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10 | Microsoft Docs
-description: Explica como os administradores podem configurar a Política de Grupo para permitir que dispositivos ingressem no domínio da rede corporativa.
+title: "Conectar dispositivos ingressados no domínio ao Azure AD para experiências com Windows 10 | Microsoft Docs"
+description: "Explica como os administradores podem configurar a Política de Grupo para permitir que dispositivos ingressem no domínio da rede corporativa."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 2ff29f3e-5325-4f43-9baa-6ae8d6bad3e3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e211d13e41526157f6ade960b86f31dfdfd54e1
+
 
 ---
 # <a name="connect-domain-joined-devices-to-azure-ad-for-windows-10-experiences"></a>Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10
@@ -50,10 +54,10 @@ Para habilitar o acesso condicional, você pode criar configurações de Políti
 * System Center Configuration Manager versão 1509 para a visualização técnica de cenários do Passport
 
 ## <a name="deployment-instructions"></a>Instruções de implantação
-### <a name="step-1:-deploy-azure-active-directory-connect"></a>Etapa 1: implantar o Azure Active Directory Connect
+### <a name="step-1-deploy-azure-active-directory-connect"></a>Etapa 1: implantar o Azure Active Directory Connect
 O Azure Connect AD permitirá que computadores locais sejam provisionados como objetos de dispositivo na nuvem. Para implantar o Azure AD Connect, confira "Instalar o Azure AD Connect" no artigo [Integração de suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md#install-azure-ad-connect).
 
-* Se você tiver usado uma [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (não a instalação Expressa), siga o procedimento **Criar um ponto de conexão de serviço no Active Directory local**, mais adiante nesta etapa.
+* Se você tiver usado uma [instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md) (não a instalação Expressa), siga o procedimento **Criar um ponto de conexão de serviço no Active Directory local**, mais adiante nesta etapa.
 * Se você tiver uma configuração federada com o AD do Azure antes de instalar o Azure AD Connect (por exemplo, se tiver implantado o AD FS, Serviços de Federação do Active Directory, antes), siga o procedimento **Configurar regras de declaração do AD FS** posteriormente nesta etapa.
 
 #### <a name="create-a-service-connection-point-in-on-premises-active-directory"></a>Criar um ponto de conexão de serviço no Active Directory local
@@ -117,7 +121,7 @@ No servidor AD FS (ou em uma sessão conectada ao servidor AD FS), execute os se
 > 
 > 
 
-### <a name="step-2:-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Etapa 2: configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
+### <a name="step-2-configure-automatic-device-registration-via-group-policy-in-active-directory"></a>Etapa 2: configurar o registro automático de dispositivo usando Política de Grupo no Active Directory
 Você pode usar uma Política de Grupo no Active Directory para configurar os dispositivos ingressados no domínio do Windows 10 para registro automático no AD do Azure.
 
 > [!NOTE]
@@ -137,6 +141,9 @@ Você pode usar uma Política de Grupo no Active Directory para configurar os di
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

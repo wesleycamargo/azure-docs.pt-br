@@ -1,12 +1,12 @@
 ---
-title: Interface de usuário do Mobile Engagement do Azure - Minha conta
+title: "Interface de usuário do Mobile Engagement do Azure - Minha conta"
 description: Como gerenciar os dispositivos de teste e o perfil de conta usando o Mobile Engagement do Azure
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,40 +14,50 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
+
 
 ---
-# Como gerenciar os dispositivos de teste e o perfil de conta
-Este artigo descreve a **Home** page do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis.
+# <a name="how-to-manage-your-account-profile-and-test-devices"></a>Como gerenciar os dispositivos de teste e o perfil de conta
+Este artigo descreve a página **Início** do portal do **Engajamento Móvel**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. 
 
-Para ir para a página **Minha conta**, clique em sua conta na parte superior da página.
+Para ir para a página **Minha conta** , clique em sua conta na parte superior da página.
 
 A seção Minha conta da interface do usuário é onde você pode visualizar e alterar as configurações associadas a sua conta, incluindo as configurações de perfil e testar as IDs de dispositivo. Essas configurações contêm itens que também podem ser acessados por meio da API do dispositivo.
 
-![MyAccount1][7]
+![MyAccount1][7]  
 
-## Perfil:
+## <a name="profile"></a>Perfil:
 Você pode exibir ou alterar qualquer uma de suas configurações de conta mostradas abaixo. Você também pode fornecer permissão a outro usuário para usar seu aplicativo com base em seu endereço de email na [Página Inicial](mobile-engagement-user-interface-home.md).
 
-![MyAccount2][8]
+![MyAccount2][8]  
 
-## Dispositivos:
-Você pode exibir, adicionar ou remover IDs de Dispositivo dos dispositivos de teste que você pode usar para testar suas campanhas de **alcance** ou de **envio por push**. Instruções contextuais sobre como localizar a ID de dispositivo dos dispositivos para cada plataforma (iOS, Android, Windows Phone, etc.) são exibidas quando você clicar em “Novo dispositivo”.
+## <a name="devices"></a>Dispositivos:
+Você pode exibir, adicionar ou remover IDs de Dispositivo dos dispositivos de teste que você pode usar para testar suas campanhas de **alcance** ou de **envio por push**. Instruções contextuais sobre como localizar a ID de dispositivo dos dispositivos para cada plataforma (iOS, Android, Windows Phone, etc.) são exibidas quando você clicar em “Novo dispositivo”. 
 
-![MyAccount3][9]
+![MyAccount3][9]  
 
 Para usar a API de envio ou a API do dispositivo, você precisa saber o identificador de dispositivo exclusivo de seus usuários (o parâmetro deviceid). Há várias maneiras para recuperá-lo:
 
 1. No back-end, você pode usar o recurso “Get” da API do dispositivo para obter a lista completa de identificadores de dispositivos.
 2. Em seu aplicativo, você pode usar o SDK para obtê-lo. (No Android, chame a função de getDeviceID() da classe agente e no iOS, leia a propriedade deviceid da classe agente).
-3. De um aviso Reach, se a URL da ação associada ao comunicado contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo disparando a ação. http://<exemplo>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata será substituído por: http://<exemplo>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata
-4. De um aviso Reach, se o código HTML do anúncio contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo exibindo o anúncio da web. Este é o identificador do dispositivo: {deviceid} será substituído por: Este é o identificador do dispositivo: XXXXXXXXXXXXXXXX
-5. Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado. A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista. Clique para esse evento no Monitor. Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento. Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
+3. De um aviso Reach, se a URL da ação associada ao comunicado contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo disparando a ação.
+   http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata será substituído por: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
+4. De um aviso Reach, se o código HTML do anúncio contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo exibindo o anúncio da web.
+   Este é o identificador do dispositivo: {deviceid} será substituído por: Este é o identificador do dispositivo: XXXXXXXXXXXXXXXX
+5. Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado.
+   A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista.
+   Clique para esse evento no Monitor.
+   Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento.
+   Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
    >(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
 
-## Guia de solução de problemas
-* [Guia solução de problemas - Serviço][Link 24]
+## <a name="troubleshooting-guide"></a>Guia de solução de problemas
+* [Guia de Solução de Problemas - Serviço][Link 24]
 
-## Confira também
+## <a name="see-also"></a>Consulte também
 * [Documentação da interface do usuário - Página inicial][Link 13]
 
 <!--Image references-->
@@ -149,4 +159,8 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

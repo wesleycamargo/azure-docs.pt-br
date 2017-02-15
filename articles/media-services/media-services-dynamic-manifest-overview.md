@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b322f69a1b4dec77a1c8c8bcd0e5f231f9617ff
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
 
 
 ---
@@ -29,7 +29,7 @@ Este tópico analisa cenários os comuns nos quais o uso dos filtros seria muito
 Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para atingir essa meta, faça o seguinte:
 
 * codifique seu fluxo para múltiplas taxas de bits ([taxa de bits adaptável](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) transmissão de vídeo (isso também tratará das condições de rede e de qualidade) e 
-* use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os serviços de mídia oferecem suporte ao fornecimento das seguintes tecnologias de streaming de taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access). 
+* use o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos serviços de mídia para reempacotar dinamicamente seu fluxo em protocolos diferentes (isso se encarregará da transmissão em dispositivos diferentes). Os Serviços de Mídia dão suporte à entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming e MPEG DASH. 
 
 ### <a name="manifest-files"></a>Arquivos de manifesto
 Ao codificar um ativo para streaming de taxa de bits adaptável, um arquivo de **manifesto** (reprodução) é criado (o arquivo é baseado em texto ou XML). O arquivo de **manifesto** inclui o streaming de metadados, como: tipo da trilha (áudio, vídeo ou texto), nome da trilha, hora de início e término, taxa de bits (qualidades), idiomas da trilha, janela de apresentação (janela deslizante de duração fixa), codec de vídeo (FourCC). Também instrui o player a recuperar o próximo fragmento, fornecendo informações sobre os próximos fragmentos de vídeo executáveis disponíveis e sua localização. Os fragmentos (ou segmentos) são as "partes" reais de um conteúdo de vídeo.
@@ -74,7 +74,7 @@ Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o 
 * Corte do início de um vídeo ("corte de um vídeo").
 * Ajuste da janela de apresentação (DVR) a fim de fornecer um comprimento limitado da janela de DVR no player ("ajuste da janela de apresentação").
 
-Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming com taxa de bits adaptável compatíveis com o [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH, Smooth Streaming e HDS. Por exemplo:
+Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
 
 URL de MPEG DASH com filtro
 
@@ -114,7 +114,7 @@ Com o manifesto dinâmico, é possível criar perfis de dispositivos, como dispo
 
 ![Exemplo de filtragem de representação][renditions2]
 
-No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth, MPEG DASH e HDS.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta.  Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
+No exemplo a seguir, o codificador foi usado para codificar um ativo mezzanine em sete representações de vídeo ISO MP4s (de 180p para 1080p). O ativo codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de streaming: HLS, Smooth e MPEG DASH.  Na parte superior do diagrama, é mostrado o manifesto HLS para o ativo sem filtros (ele contém todas as sete representações).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro chamado "ott". O filtro de "ott" especifica a remoção de todas as taxas de bits abaixo de 1Mbps, resultando na remoção dos dois níveis de qualidade inferiores da resposta.  Na parte inferior direita, é mostrado o manifesto HLS, ao qual foi aplicado um filtro chamado "mobile". O filtro "mobile" especifica a remoção de representações em que a resolução é maior do que 720p, resultando na remoção de duas representações de 1080p.
 
 ![Filtragem de representação][renditions1]
 
@@ -213,6 +213,6 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,52 +15,52 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 0ed17898b925cd5e24410f9b3edccaeb655a1e59
+ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
+ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
 
 
 ---
 # <a name="enterprise-class-wordpress-on-azure-app-service"></a>WordPress de classe empresarial no Serviço de Aplicativo do Azure
-O Serviço de Aplicativo do Azure oferece um ambiente escalonável, seguro e fácil de usar para sites do [WordPress][wordpress] críticos e de grande escala. A própria Microsoft executa sites de edição corporativa como os blogs do [Office][officeblog] e [Bing][bingblog]. Este documento mostra como você pode usar os Aplicativos Web do Serviço de Aplicativo do Azure para estabelecer e manter um site do WordPress de classe empresarial baseado na nuvem que pode lidar com um grande volume de visitantes.
+O Serviço de Aplicativo do Azure oferece um ambiente escalonável, seguro e fácil de usar para sites do [WordPress][wordpress] críticos e de grande escala. A própria Microsoft executa sites de edição corporativa, como os blogs do [Office ][officeblog]e do [Bing][bingblog]. Este artigo mostra como usar o recurso Aplicativos Web do Serviço de Aplicativo do Microsoft Azure para estabelecer e manter um site do WordPress de classe empresarial baseado em nuvem que pode lidar com um grande volume de visitantes.
 
 ## <a name="architecture-and-planning"></a>Arquitetura e planejamento
-Uma instalação básica do WordPress tem apenas dois requisitos.
+Uma instalação básica do WordPress tem apenas dois requisitos:
 
-* **Banco de Dados MySQL** – disponível por meio do [ClearDB no Azure Marketplace][cdbnstore] ou é possível gerenciar a própria instalação do MySQL nas Máquinas Virtuais do Azure usando o [Windows][mysqlwindows] ou o [Linux][mysqllinux].
-
-  > [!NOTE]
-  > O ClearDB fornece diversas configurações do MySQL, com características de desempenho diferentes para cada configuração. Consulte a [Azure Store][cdbnstore] para obter informações sobre ofertas fornecidas por meio da Azure Store ou diretamente como visto no [site do ClearDB](http://www.cleardb.com/pricing.view).
-  >
-  >
-* **PHP 5.2.4 ou posterior** – o Serviço de Aplicativo do Azure atualmente fornece as [versões do PHP 5.4, 5.5 e 5.6][phpwebsite].
+* **Banco de dados MySQL**: esse requisito está disponível por meio de [ClearDB no Azure Marketplace][cdbnstore]. Como alternativa, é possível gerenciar sua própria instalação do MySQL nas Máquinas Virtuais do Azure usando o [Windows][mysqlwindows] ou o [Linux][mysqllinux].
 
   > [!NOTE]
-  > Recomendamos sempre executar a versão mais recente do PHP para garantir que você tenha as correções de segurança mais recentes.
+  > O ClearDB fornece diversas configurações de MySQL. Cada configuração tem características de desempenho diferentes. Veja a [Azure Store][cdbnstore] para saber mais sobre ofertas fornecidas por meio da Azure Store ou diretamente, como visto no [site do ClearDB](http://www.cleardb.com/pricing.view).
+  >
+  >
+* **PHP 5.2.4 ou posterior**: atualmente, o Serviço de Aplicativo do Azure fornece as [versões 5.4, 5.5 e 5.6 do PHP][phpwebsite].
+
+  > [!NOTE]
+  > Recomendamos sempre a execução da versão mais recente do PHP, para garantir que você tenha as correções de segurança mais recentes.
   >
   >
 
 ### <a name="basic-deployment"></a>Implantação básica
-Usando apenas os requisitos básicos, você poderia criar uma solução básica dentro de uma região do Azure.
+Se você usar apenas os requisitos básicos, poderá criar uma solução básica dentro de uma região do Azure.
 
 ![Um aplicativo Web do Azure e um Banco de Dados MySQL hospedados em uma única região do Azure][basic-diagram]
 
-Embora isso permita que você escale horizontalmente o aplicativo criando várias instâncias de aplicativos Web do site, tudo é hospedado nos data centers em uma região geográfica específica. Os visitantes de fora dessa região podem notar tempos de resposta longos ao usar o site e, se os datacenters nessa região desligarem, o aplicativo desligará também.
+Embora isso permita a criação de várias instâncias de aplicativos Web do site a fim de escalar horizontalmente o aplicativo, tudo é hospedado dentro dos datacenters em uma região geográfica específica. Os visitantes de fora dessa região podem enfrentar tempos de resposta mais lentos no site. Se os datacenters nessa região ficarem inativos, seu aplicativo também ficará.
 
 ### <a name="multi-region-deployment"></a>Implantação em várias regiões
-Usando o [Gerenciador de Tráfego][trafficmanager] do Azure, é possível dimensionar o site do WordPress em várias regiões geográficas e, ao mesmo tempo, fornecer apenas uma URL para os visitantes. Todos os visitantes chegam por meio do Gerenciador de Tráfego e são encaminhados para uma região com base na configuração do balanceamento de carga.
+Com o [Gerenciador de Tráfego][trafficmanager] do Azure, é possível dimensionar seu site do WordPress por várias regiões geográficas e fornecer a mesma URL para todos os visitantes. Todos os visitantes chegam por meio do Gerenciador de Tráfego e são encaminhados para uma região com base na configuração de balanceamento de carga.
 
 ![Um aplicativo Web do Azure, hospedado em várias regiões, usando o roteador de Alta Disponibilidade do CDBR para rotear ao MySQL em várias regiões][multi-region-diagram]
 
-Dentro de cada região, o site do WordPress ainda seria dimensionado em várias instâncias dos aplicativos Web, mas essa colocação em escala é específica da região. As regiões de alto tráfego podem ser dimensionadas de maneira diferente do que as de baixo tráfego.
+Dentro de cada região, o site do WordPress ainda seria dimensionado por várias instâncias dos Aplicativos Web, mas esse dimensionamento é específico a uma região. As regiões de tráfego alto podem ser dimensionadas de maneira diferente do que as de tráfego baixo.
 
-A replicação e o roteamento para vários Bancos de Dados MySQL podem ser feitos usando o [CDBR High Availability Router][cleardbscale] do ClearDB (mostrado à esquerda) ou o [MySQL Cluster CGE][cge].
+Para replicar e rotear o tráfego para vários bancos de dados MySQL, você pode usar [roteadores de alta disponibilidade do ClearDB (CDBRs)][cleardbscale] (à esquerda) ou o [CGE (Carrier Grade Edition) de Cluster do MySQL][cge].
 
 ### <a name="multi-region-deployment-with-media-storage-and-caching"></a>Implantação em várias regiões com armazenamento e cache de mídia
-Se o site aceitar uploads ou hospedar arquivos de mídia, use o Armazenamento de Blobs do Azure. Se você precisar de cache, leve em consideração [Redis cache][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou uma das outras ofertas de cache na [Azure Store](http://azure.microsoft.com/gallery/store/).
+Se o site aceitar uploads ou hospedar arquivos de mídia, use o Armazenamento de Blobs do Azure. Se você precisar de cache, leve em consideração o [Cache Redis][rediscache], o [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), o [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) ou uma das outras ofertas de cache na [Azure Store](http://azure.microsoft.com/gallery/store/).
 
-![Um aplicativo Web do Azure, hospedado em várias regiões, usando-se o roteador de Alta Disponibilidade do CDBR para MySQL, com Cache Gerenciado, armazenamento de Blob e CDN][performance-diagram]
+![Um aplicativo Web do Azure, hospedado em várias regiões, usando o roteador de Alta Disponibilidade do CDBR para MySQL, com o Cache Gerenciado, Armazenamento de Blobs e Rede de Distribuição de Conteúdo][performance-diagram]
 
-Como o armazenamento de blob é distribuído geograficamente entre várias regiões por padrão, você não precisa se preocupar com a replicação de arquivos em todos os sites. Também é possível habilitar a [Rede de Distribuição de Conteúdo][cdn] (CDN) do Azure para Armazenamento de Blobs, que distribui arquivos para nós finais mais próximos dos visitantes.
+Como o armazenamento de blob é distribuído geograficamente entre várias regiões por padrão, você não precisa se preocupar com a replicação de arquivos em todos os sites. Também é possível habilitar a [Rede de Distribuição de Conteúdo][cdn] do Azure para Armazenamento de Blobs, que distribui arquivos para nós finais mais próximos dos visitantes.
 
 ### <a name="planning"></a>Planejamento
 #### <a name="additional-requirements"></a>Requisitos adicionais
@@ -70,7 +70,7 @@ Como o armazenamento de blob é distribuído geograficamente entre várias regi�
 | **Enviar email** |[SendGrid][storesendgrid] e o [plug-in do WordPress para usar o SendGrid][sendgridplugin] |
 | **Nomes de domínio personalizados** |[Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure][customdomain] |
 | **HTTPS** |[Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure][httpscustomdomain] |
-| **Validação de pré-produção** |[Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure][staging] <p>Alternar de um aplicativo Web de preparo para a produção também migra a configuração do WordPress. Você deverá garantir que todas as configurações sejam atualizadas segundo os requisitos do aplicativo de produção antes de alternar o site de teste para a produção.</p> |
+| **Validação de pré-produção** |[Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure][staging] <p>Ao transferir um aplicativo Web de preparo para a produção, mova também a configuração do WordPress. Verifique se todas as configurações estão atualizadas de acordo com os requisitos do aplicativo de produção antes de mover o aplicativo do preparo para a produção.</p> |
 | **Monitoramento e solução de problemas** |[Habilitar o log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure][log] e [Monitorar aplicativos Web no Serviço de Aplicativo do Azure][monitor] |
 | **Implantar o site** |[Implantar um aplicativo Web no Serviço de Aplicativo do Azure][deploy] |
 
@@ -78,80 +78,80 @@ Como o armazenamento de blob é distribuído geograficamente entre várias regi�
 | Para fazer isto... | Use isto... |
 | --- | --- |
 | **Sites de balanceamento de carga** ou **sites distribuídos geograficamente** |[Encaminhar tráfego com o Gerenciador de Tráfego do Azure][trafficmanager] |
-| **Backup e restauração** |[Fazer backup de um Aplicativo Web no Serviço de Aplicativo do Azure][backup] e [Restaurar um Aplicativo Web no Serviço de Aplicativo do Azure][restore] |
+| **Backup e restauração** |[Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure][backup] e [Restaurar um aplicativo Web no Serviço de Aplicativo do Azure][restore] |
 
 #### <a name="performance"></a>Desempenho
-O desempenho na nuvem é obtido principalmente por meio do cache e da escala horizontal, mas a memória, a largura de banda e outros atributos da hospedagem de Aplicativos Web também devem ser considerados.
+O desempenho na nuvem é obtido principalmente por meio de cache e escalonamento. No entanto, a memória, a largura de banda e outros atributos da hospedagem de Aplicativos da Web devem ser consideradas.
 
 | Para fazer isto... | Use isto... |
 | --- | --- |
-| **Compreender recursos de instância do Site** |[Detalhes do preço, inclusive recursos das camadas do Serviço de Aplicativo][websitepricing] |
-| **Recursos do cache** |[Redis cache][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) ou uma das outras ofertas de cache na [Azure Store](/gallery/store/) |
-| **Dimensionar o aplicativo** |[Dimensionar um Aplicativo Web no Serviço de Aplicativo do Azure][websitescale] e [Roteamento de Alta Disponibilidade do ClearDB][cleardbscale]. Se optar por hospedar e gerenciar a própria instalação do MySQL, você deverá levar em consideração o [MySQL Cluster CGE][cge] para escalar horizontalmente |
+| **Compreender recursos de instância do Site** |[Detalhes do preço, incluindo recursos de camadas do Serviço de Aplicativo][websitepricing] |
+| **Recursos do cache** |[Cache Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) ou uma das outras opções de cache na [Azure Store](/gallery/store/) |
+| **Dimensionar o aplicativo** |[Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure][websitescale] e [Roteamento de alta disponibilidade do ClearDB][cleardbscale]. Se você optar por hospedar e gerenciar a própria instalação do MySQL, considere o [CGE de Cluster do MySQL][cge] para escalar horizontalmente. |
 
 #### <a name="migration"></a>Migração
-Existem dois métodos de migrar um site do WordPress existente para o Serviço de Aplicativo do Azure.
+Há dois métodos para migrar um site do WordPress existente para o Serviço de Aplicativo do Azure:
 
-* **[Exportação do WordPress][export]** – isso exporta o conteúdo de seu blog, que pode então ser importado para um novo site do WordPress no Serviço de Aplicativo do Azure usando o [plug-in do WordPress importer][import].
+* **[Exportação do WordPress][export]**: esse método exporta o conteúdo de seu blog. Em seguida, você pode importar o conteúdo para um novo site do WordPress no Serviço de Aplicativo do Azure usando o [plug-in Importador do WordPress][import].
 
   > [!NOTE]
-  > Embora permita migrar o conteúdo, esse processo não migra qualquer plug-in, tema ou outra personalização. Eles devem ser reinstalados manualmente.
+  > Embora permita migrar o conteúdo, esse processo não migra qualquer plug-in, tema ou outra personalização. Instale novamente esses componentes de forma manual.
   >
   >
-* **Migração manual** - [Faça backup de seu site][wordpressbackup] e [banco de dados][wordpressdbbackup] e, em seguida, restaure-o manualmente para um aplicativo Web no Serviço de Aplicativo do Azure e o banco de dados MySQL associado para migrar sites altamente personalizados e evitar o tédio de instalar manualmente os plug-ins, temas e outras personalizações.
+* **Migração manual**: [faça backup de seu site][wordpressbackup] e do [banco de dados][wordpressdbbackup] e, em seguida, restaure-os manualmente para um aplicativo Web no Serviço de Aplicativo do Azure e no banco de dados MySQL. Esse método é útil para migrar sites altamente personalizados, pois evita o tédio da instalação manual de plug-ins, temas e outras personalizações.
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 ### <a name="create-a-wordpress-site"></a>Criar um site do WordPress
-1. Use o [Azure Marketplace][cdbnstore] para criar um banco de dados MySQL do tamanho identificado na seção [Arquitetura e planejamento](#planning) nas regiões em que você hospedará o site.
-2. Siga as etapas em [Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure][createwordpress] para criar um aplicativo Web do WordPress. Ao criar o aplicativo Web, selecione **Usar um banco de dados MySQL existente** e o banco de dados criado na etapa 1.
+1. Use o [Azure Marketplace][cdbnstore] para criar um banco de dados MySQL do tamanho identificado na seção [Arquitetura e planejamento](#planning) na região, ou regiões, em que você hospedará o site.
+2. Execute as etapas em [Criar um aplicativo Web do WordPress no Serviço de Aplicativo do Azure][createwordpress] para criar um novo aplicativo Web do WordPress. Ao criar o aplicativo Web, selecione **Usar um banco de dados MySQL existente** e selecione o banco de dados criado na etapa 1.
 
-Se você estiver migrando um site do WordPress existente, consulte [Migrar um site do WordPress existente para o Azure](#Migrate-an-existing-WordPress-site-to-Azure) depois de criar um novo aplicativo Web.
+Se você estiver migrando um site do WordPress existente, consulte [Migrar um site do WordPress existente para o Azure](#Migrate-an-existing-WordPress-site-to-Azure) após a criação de um novo aplicativo Web.
 
 ### <a name="migrate-an-existing-wordpress-site-to-azure"></a>Migrar um site do WordPress existente para o Azure
-Conforme mencionado na seção [Arquitetura e planejamento](#planning) , existem duas maneiras de migrar um site do WordPress.
+Conforme mencionado na seção [Arquitetura e planejamento](#planning), existem duas maneiras de migrar um site do WordPress:
 
-* **exportar e importar** – para sites sem muita personalização ou nos quais você apenas deseja mover o conteúdo.
-* **fazer backup e restaurar** - para sites com muita personalização onde você deseja mover tudo.
+* **Use exportar e importar** para sites sem muita personalização ou nos quais você apenas deseja mover o conteúdo.
+* **Use fazer backup e restaurar** para sites com muita personalização onde você deseja mover tudo.
 
 Use uma das seções a seguir para migrar o site.
 
 #### <a name="the-export-and-import-method"></a>O método exportar e importar
-1. Use a [Exportação do WordPress][export] para exportar seu site existente.
+1. Use a [exportação do WordPress][export] para exportar o site existente.
 2. Crie um aplicativo Web usando as etapas na seção [Criar um site do WordPress](#Create-a-new-WordPress-site).
-3. Faça logon em seu site do WordPress em aplicativos Web e clique em **Plug-ins** -> **Adicionar Novo**. Procure e instale o plug-in **WordPress Importer** .
-4. Depois que o plug-in de importação for instalado, clique em **Ferramentas** -> **Importar** e selecione **WordPress** para usar o plug-in de importação do WordPress.
-5. Na página **Importar WordPress**, clique em **Escolher Arquivo**. Procure o arquivo WXR exportado do site do WordPress existente e escolha **Carregar arquivo e importar**.
+3. Entre no site do WordPress no [Portal do Azure][mgmtportal]e, em seguida, clique em **Plug-ins** > **Adicionar Novo**. Procure e instale o plug-in **Importador do WordPress**.
+4. Após a instalação do plug-in do Importador do WordPress, clique em **Ferramentas** > **Importar** e clique em **WordPress** para usar o plug-in Importador do WordPress.
+5. Na página **Importar WordPress**, clique em **Escolher Arquivo**. Localize o arquivo WXR exportado do site do WordPress existente e clique em **Carregar arquivo e importar**.
 6. Clique em **Enviar**. Você será avisado se a importação for bem-sucedida.
-7. Depois de ter concluído todas essas etapas, reinicie o site de sua folha de aplicativo Web no [Portal do Azure][mgmtportal].
+7. Após a conclusão de todas essas etapas, reinicie o site de sua folha **Serviços de Aplicativo** no [Portal do Azure][mgmtportal].
 
-Depois de importar o site, você precisará realizar as etapas a seguir para habilitar as configurações não contidas no arquivo de importação.
+Depois de importar o site, talvez seja necessário executar as etapas a seguir para habilitar as configurações não contidas no arquivo de importação.
 
 | Se você estava usando isto... | Faça isso... |
 | --- | --- |
-| **Permalinks** |No painel do WordPress do novo site, clique em **Configurações** -> **Permalinks** e atualize a estrutura Permalinks |
-| **links de imagem/mídia** |Para atualizar links para a nova localização, use o [plug-in Velvet Blues Update URLs][velvet], uma ferramenta de pesquisa e substituição ou faça isso manualmente no banco de dados |
-| **Temas** |Vá até **Aparência** -> **Tema** e atualize o tema do site conforme necessário |
-| **Menus** |Se o tema permitir menus, os links para a home page ainda poderão ter o subdiretório anterior inserido. Vá até **Aparência** -> **Menus** e os atualize |
+| **Permalinks** |No painel do WordPress do novo site, clique em **Configurações** > **Permalinks** e atualize a estrutura Permalinks. |
+| **links de imagem/mídia** |Para atualizar links para o novo local, use o [plug-in Velvet Blues Update URLs][velvet], uma ferramenta de pesquisa e substituição, ou atualize os links manualmente no banco de dados. |
+| **Temas** |Acesse **Aparência** > **Tema** e atualize o tema do site conforme necessário. |
+| **Menus** |Se o tema permitir menus, os links para a home page ainda poderão ter o subdiretório anterior inserido. Acesse **Aparência** > **Menus** e os atualize. |
 
 #### <a name="the-backup-and-restore-method"></a>O método fazer backup e restaurar
-1. Faça backup do site do WordPress usando as informações nos [backups do WordPress][wordpressbackup].
-2. Faça backup do banco de dados existente usando as informações em [Fazendo backup do banco de dados][wordpressdbbackup].
+1. Faça backup do site do WordPress existente usando as informações nos [backups do WordPress][wordpressbackup].
+2. Faça backup do banco de dados existente usando as informações em [Fazer backup do banco de dados][wordpressdbbackup].
 3. Crie um novo banco de dados e restaure o backup.
 
-   1. Compre um novo banco de dados do [Azure Marketplace][cdbnstore] ou configure um banco de dados MySQL em uma VM do [Windows][mysqlwindows] ou [Linux][mysqllinux].
-   2. Usando um cliente do MySQL como [MySQL Workbench][workbench], conecte-se ao novo banco de dados e importe o banco de dados do WordPress.
-   3. Atualize o banco de dados para alterar as entradas de domínio para o novo domínio do Serviço de Aplicativo do Azure. Por exemplo, mywordpress.azurewebsites.net. Use [Pesquisar e Substituir o Script dos Bancos de Dados do WordPress][searchandreplace] para alterar todas as instâncias com segurança.
+   1. Compre um novo banco de dados no [Azure Marketplace][cdbnstore] ou configure o banco de dados MySQL em uma máquina virtual [Windows][mysqlwindows] ou [Linux][mysqllinux].
+   2. Use um cliente do MySQL como [MySQL Workbench][workbench] para se conectar ao novo banco de dados e importar o banco de dados do WordPress.
+   3. Atualize o banco de dados para alterar as entradas de domínio para o novo domínio do Serviço de Aplicativo do Azure, por exemplo, mywordpress.azurewebsites.net. Use [Localizar e Substituir o Script dos Bancos de Dados do WordPress][searchandreplace] para alterar todas as instâncias com segurança.
 4. Crie um aplicativo Web no Portal do Azure e publique o backup do WordPress.
 
-   1. Criar um aplicativo Web no [Portal do Azure][mgmtportal] com um banco de dados usando **Novo** -> **Web + Móvel** -> **Azure Marketplace** -> **Aplicativos Web** -> **Aplicativo Web + SQL** (ou **Aplicativo Web + MySQL**)**Criar**. Defina todas as configurações necessárias para criar um aplicativo Web vazio.
-   2. No backup do WordPress, localize o arquivo **wp-config.php** e o abra em um editor. Substitua as entradas a seguir pelas informações do novo banco de dados MySQL.
+   1. Para criar um aplicativo Web que tenha um banco de dados, no [Portal do Azure][mgmtportal], clique em **Novo** > **Web + Móvel** > **Azure Marketplace** > **Aplicativos Web** > **Aplicativo Web + SQL** (ou **Aplicativo Web + MySQL**) > **Criar**. Defina todas as configurações necessárias para criar um aplicativo Web vazio.
+   2. No backup do WordPress, localize o arquivo **wp-config.php** e o abra em um editor. Substitua as entradas a seguir pelas informações do novo banco de dados MySQL:
 
-      * **DB_NAME** – o nome de usuário do banco de dados
-      * **DB_USER** – o nome de usuário usado para acessar o banco de dados
-      * **DB_PASSWORD** – a senha do usuário
+      * **DB_NAME**: o nome de usuário do banco de dados.
+      * **DB_USER**: o nome de usuário usado para acessar o banco de dados.
+      * **DB_PASSWORD**: a senha do usuário.
 
-        Depois de alterar essas entradas, salve e feche o arquivo **wp-config.php** .
-   3. Use as informações sobre [Implantar um aplicativo Web no Serviço de Aplicativo do Azure][deploy] para habilitar o método de implantação que você deseja usar e, em seguida, implante seu backup do WordPress em seu aplicativo Web no Serviço de Aplicativo do Azure.
+        Depois de alterar essas entradas, salve e feche o arquivo **wp-config.php**.
+   3. Use as informações em [Implantar um aplicativo Web no Serviço de Aplicativo do Azure][deploy] para habilitar o método de implantação que você deseja usar e, em seguida, implante seu backup do WordPress para seu aplicativo Web no Serviço de Aplicativo do Azure.
 5. Depois que o site do WordPress for implantado, você deverá ser capaz de acessar o novo site (como um aplicativo Web do Serviço de Aplicativo) usando a URL *.azurewebsite.net do site.
 
 ### <a name="configure-your-site"></a>Configurar o site
@@ -159,20 +159,20 @@ Depois que o site do WordPress for criado ou migrado, use as informações a seg
 
 | Para fazer isto... | Use isto... |
 | --- | --- |
-| **Definir o modo do plano de Serviço de Aplicativo e o tamanho e habilitar o dimensionamento** |[Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure][websitescale] |
-| **Habilitar conexões de banco de dados persistentes** |Por padrão, o WordPress não usa conexões de banco de dados persistentes, que podem reduzir a conexão com o banco de dados depois de várias conexões. Para habilitar conexões persistentes, instale o (plug-in adaptador de conexões persistentes) [https://wordpress.org/plugins/persistent-database-connection-updater/installation/]. |
-| **Melhorar o desempenho** |<ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Desabilitar o cookie ARR</a> – pode melhorar o desempenho durante a execução do WordPress em várias instâncias de aplicativos Web</p></li><li><p>Habilitar caching. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (visualização) pode ser usado com o <a href="https://wordpress.org/plugins/redis-object-cache/">Plug-in do WordPress de objeto de cache Redis</a> ou usar uma das outras opções de cache da <a href="/gallery/store/">Azure Store</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Como deixar o WordPress mais rápido com Wincache</a> – Wincache é habilitado por padrão para os aplicativos Web</p></li><li><p>[Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure][websitescale] e usar o <a href="http://www.cleardb.com/developers/cdbr/introduction">Roteamento de Alta Disponibilidade do ClearDB</a> ou <a href="http://www.mysql.com/products/cluster/">CGE de Cluster do MySQL</a></p></li></ul> |
-| **Usar blobs para armazenamento** |<ol><li><p>[Crie uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md)</p></li><li><p>Saiba como [Usar a Rede de Distribuição de Conteúdo](../cdn/cdn-create-new-endpoint.md) para distribuir geograficamente os dados armazenados em blobs.</p></li><li><p>Instale e configure o <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage for WordPress</a>.</p><p>Para obter informações detalhadas sobre a instalação e a configuração do plug-in, consulte o <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guia do usuário</a>.</p> </li></ol> |
+| **Definir o modo do plano de Serviço de Aplicativo e o tamanho e habilitar o dimensionamento** |[Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure][websitescale]. |
+| **Habilitar conexões de banco de dados persistentes** |Por padrão, o WordPress não usa conexões de banco de dados persistentes, que podem reduzir a conexão com o banco de dados depois de várias conexões. Para habilitar conexões persistentes, instale o [plug-in do adaptador de conexões persistentes](https://wordpress.org/plugins/persistent-database-connection-updater/installation/). |
+| **Melhorar o desempenho** |<ul><li><p><a href="https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/">Desabilite o cookie ARR</a>, o que pode melhorar o desempenho durante a execução do WordPress em várias instâncias de Aplicativos Web.</p></li><li><p>Habilitar caching. Use o <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Cache Redis</a> (visualização) com o <a href="https://wordpress.org/plugins/redis-object-cache/">Plug-in do WordPress de objeto de cache Redis</a>, ou use uma das outras opções de cache da <a href="/gallery/store/">Azure Store</a>.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Tornar o WordPress mais rápido com Wincache</a>. O Wincache está habilitado por padrão para aplicativos Web.</p></li><li><p>[Dimensione um aplicativo Web no Serviço de Aplicativo do Azure][websitescale] e use o <a href="http://www.cleardb.com/developers/cdbr/introduction">Roteamento de Alta Disponibilidade do ClearDB</a> ou o <a href="http://www.mysql.com/products/cluster/">CGE de Cluster do MySQL</a>.</p></li></ul> |
+| **Usar blobs para armazenamento** |<ol><li><p>[Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md).</p></li><li><p>Saiba como [Usar a Rede de Distribuição de Conteúdo](../cdn/cdn-create-new-endpoint.md) para distribuir geograficamente os dados armazenados em blobs.</p></li><li><p>Instale e configure o <a href="https://wordpress.org/plugins/windows-azure-storage/">Plug-in Azure Storage for WordPress</a>.</p><p>Para obter informações detalhadas sobre a instalação e a configuração do plug-in, consulte o <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">guia do usuário</a>.</p> </li></ol> |
 | **Habilitar o email** |Habilitar o <a href="https://azure.microsoft.com/en-us/marketplace/partners/sendgrid/sendgrid-azure/">SendGrid</a> usando a Azure Store. Instalar o <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified">plug-in SendGrid</a> para o WordPress. |
-| **Configurar um nome de domínio personalizado** |[Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure][customdomain] |
-| **Habilitar protocolo HTTPS para um nome de domínio personalizado** |[Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure][httpscustomdomain] |
-| **Fazer balanceamento de carga ou distribuir geograficamente o site** |[Encaminhar tráfego com o Gerenciador de Tráfego do Azure][trafficmanager]. Se você estiver usando um domínio personalizado, consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure][customdomain] para obter informações sobre como usar o Gerenciador de Tráfego com nomes de domínio personalizados |
-| **Habilitar backups automatizados** |[Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure][backup] |
-| **Habilitar registro em log de diagnóstico** |[Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure][log] |
+| **Configurar um nome de domínio personalizado** |[Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure][customdomain]. |
+| **Habilitar protocolo HTTPS para um nome de domínio personalizado** |[Habilitar HTTPS para um aplicativo Web no Serviço de Aplicativo do Azure][httpscustomdomain]. |
+| **Fazer balanceamento de carga ou distribuir geograficamente o site** |[Encaminhar tráfego com o Gerenciador de Tráfego do Azure][trafficmanager]. Se você estiver usando um domínio personalizado, consulte [Configurar um nome de domínio personalizado no Serviço de Aplicativo do Azure][customdomain] para obter informações sobre como usar o Gerenciador de Tráfego com nomes de domínio personalizados. |
+| **Habilitar backups automatizados** |[Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure][backup]. |
+| **Habilitar registro em log de diagnóstico** |[Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure][log]. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Otimização do WordPress](http://codex.wordpress.org/WordPress_Optimization)
-* [Converter WordPress em Multissite no Serviço de Aplicativo do Azure](web-sites-php-convert-wordpress-multisite.md)
+* [Converter WordPress em multissite no Serviço de Aplicativo do Azure](web-sites-php-convert-wordpress-multisite.md)
 * [Assistente de atualização do ClearDB para o Azure](http://www.cleardb.com/store/azure/upgrade)
 * [Hospedando o WordPress em uma subpasta do seu aplicativo Web no Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 * [Passo a passo: criar um site do WordPress usando o Azure](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
@@ -191,12 +191,12 @@ Depois que o site do WordPress for criado ou migrado, use as informações a seg
 * [Dicas para o WordPress no Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo.. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 >
 >
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 <!-- URL List -->
 
@@ -239,13 +239,13 @@ Depois que o site do WordPress for criado ou migrado, use as informações a seg
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
-[posh]: ../powershell-install-configure.md
-[CLI do Azure]: ../xplat-cli-install.md
+[posh]: /powershell/azureps-cmdlets-docs
+[Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn/cdn-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

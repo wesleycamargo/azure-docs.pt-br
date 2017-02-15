@@ -4,7 +4,7 @@ description: Saiba como criar um Gateway de Aplicativo usando a CLI do Azure no 
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: 165289acd1d2a5bc098e9a83f43613d16a023045
 
 
 ---
@@ -32,7 +32,7 @@ ms.openlocfilehash: 3e3e563f941ad4ad58f96b03e98f49a7d99844d9
 > 
 > 
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
+O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Application Gateway tem os seguintes recursos de entrega de aplicativo: balanceamento de carga HTTP, afinidade de sessão baseada em cookie e descarregamento SSL (protocolo SSL), investigações de integridade personalizadas e suporte para vários sites.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: instalar a CLI do Azure
 
@@ -40,8 +40,6 @@ Para executar as etapas deste artigo, será necessário [instalar a Interface de
 
 > [!NOTE]
 > Se você não tiver uma conta do Azure, crie uma. Inscreva-se em uma [avaliação gratuita aqui](../active-directory/sign-up-organization.md).
-> 
-> 
 
 ## <a name="scenario"></a>Cenário
 
@@ -58,8 +56,6 @@ Este cenário:
 
 > [!NOTE]
 > A configuração adicional do Application Gateway, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Application Gateway ser configurado e não durante a implantação inicial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -125,11 +121,9 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 
 > [!NOTE]
 > Para obter uma lista de parâmetros que podem ser fornecidos durante a criação, execute o seguinte comando: **azure network application-gateway create --help**.
-> 
-> 
 
 Este exemplo cria um Application Gateway básico com configurações padrão para o ouvinte, pool de back-end, configurações de http de back-end e regras. Ele também configura o descarregamento de SSL. Você pode modificar essas configurações de acordo com sua implantação quando o provisionamento for bem-sucedido.
-Se você já tiver o seu aplicativo Web definido com o pool de back-end nas etapas anteriores, o balanceamento de carga começará depois que ele for criado.
+Se você já tiver seu aplicativo Web definido com o pool de back-end nas etapas anteriores, o balanceamento de carga começará depois que ele for criado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -146,6 +140,6 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

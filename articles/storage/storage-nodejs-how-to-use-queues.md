@@ -4,7 +4,7 @@ description: "Saiba como usar o serviço Fila do Azure para criar e excluir fila
 services: storage
 documentationcenter: nodejs
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
 ms.service: storage
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fbff069ba313437d610dc441d5f85d4ca2d187ed
+ms.sourcegitcommit: 1fea38ed4caacfee0c69d024b1ea6dbdcbccaf1d
+ms.openlocfilehash: 0f558871b2dfc85d2713c3511829dcbf41aea17b
 
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como usar o Armazenamento de Fila do Node.js
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando o serviço Fila do Microsoft Azure. As amostras são gravadas usando a API do Node.js. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
@@ -333,14 +333,14 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* Visite o [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure].
-* Visite o repositório de [SDK do Armazenamento do Azure para Node][SDK do Armazenamento do Azure para Node] no GitHub.
+* Visite o [Blog da equipe do Armazenamento do Azure][Azure Storage Team Blog].
+* Visite o repositório [Microsoft Azure Storage SDK for Node.js][Azure Storage SDK for Node] (SDK do Armazenamento do Azure para Node.js) no GitHub.
 
-[SDK do Armazenamento do Azure para Node]: https://github.com/Azure/azure-storage-node
-[usando a API REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Portal do Azure]: https://portal.azure.com
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure Portal]: https://portal.azure.com
 [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Cloud Service with Storage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
 [Aplicativo Web Node.js com o Serviço Tabela do Azure]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
 
@@ -349,11 +349,11 @@ Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga es
 [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
 [Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

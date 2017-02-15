@@ -1,12 +1,12 @@
 ---
-title: Gerenciar o controle de acesso com base em função com a API REST
-description: Gerenciar o controle de acesso com base em função com a API REST
+title: "Gerenciar o controle de acesso com base em função com a API REST"
+description: "Gerenciar o controle de acesso com base em função com a API REST"
 services: active-directory
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+
 
 ---
-# Gerenciar o controle de acesso com base em função com a API REST
+# <a name="managing-role-based-access-control-with-the-rest-api"></a>Gerenciar o controle de acesso com base em função com a API REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -26,12 +30,12 @@ ms.author: kgremban
 
 O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
-## Lista todas as atribuições de função
+## <a name="list-all-role-assignments"></a>Lista todas as atribuições de função
 Lista todas as atribuições de função no escopo e sub-escopos especificados.
 
 Para listar as atribuições de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **GET** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments?api-version={api-version}&$filter={filter}
@@ -40,17 +44,17 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
 3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função:
    
-   * Liste atribuições de função para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos: `atScope()`
-   * Liste atribuições de função para um usuário, grupo ou aplicativo específico: `principalId%20eq%20'{objectId of user, group, or service principal}'`
+   * Liste atribuições de função para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos: `atScope()`    
+   * Liste atribuições de função para um usuário, grupo ou aplicativo específico: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Liste atribuições de função para um usuário específico, incluindo aqueles herdados de grupos | `assignedTo('{objectId of user}')`
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -76,12 +80,12 @@ Código de status: 200
 
 ```
 
-## Obter informações sobre uma atribuição de função
+## <a name="get-information-about-a-role-assignment"></a>Obter informações sobre uma atribuição de função
 Obtém informações sobre uma atribuição de função única especificada pelo identificador de atribuição de função.
 
-Para saber mais sobre uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+Para saber mais sobre uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/read` . Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **GET** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -90,13 +94,13 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-assignment-id}* pelo identificador GUID da atribuição de função.
 3. Substitua *{api-version}* por 2015-07-01.
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -117,12 +121,12 @@ Código de status: 200
 
 ```
 
-## Criar uma atribuição de função
+## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 Crie uma atribuição de função no escopo especificado para a entidade especificada, concedendo a função especificada.
 
-Para criar uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+Para criar uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/write` . Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **PUT** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -131,9 +135,9 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Quando você cria uma atribuição de função em um escopo pai, todos os escopos filho herdam a mesma atribuição de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-assignment-id}* pelo novo GUID, que se torna o identificador GUID da nova atribuição de função.
 3. Substitua *{api-version}* por 2015-07-01.
 
@@ -154,7 +158,7 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 | roleDefinitionId |Sim |Cadeia de caracteres |Identificador da função. O formato do identificador é: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Sim |Cadeia de caracteres |ID de objeto da entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) para o qual a função é atribuída. |
 
-### Response
+### <a name="response"></a>Response
 Código de status: 201
 
 ```
@@ -175,12 +179,12 @@ Código de status: 201
 
 ```
 
-## Excluir uma atribuição de função
+## <a name="delete-a-role-assignment"></a>Excluir uma atribuição de função
 Exclua uma atribuição de função no escopo especificado.
 
-Para excluir uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+Para excluir uma atribuição de função, é necessário ter acesso à operação `Microsoft.Authorization/roleAssignments/delete` . Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **DELETE** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{role-assignment-id}?api-version={api-version}
@@ -189,13 +193,13 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-assignment-id}* pelo GUID da ID da atribuição de função.
 3. Substitua *{api-version}* por 2015-07-01.
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -216,12 +220,12 @@ Código de status: 200
 
 ```
 
-## Lista todas as Funções
+## <a name="list-all-roles"></a>Lista todas as Funções
 Lista todas as funções que estão disponíveis para atribuição no escopo especificado.
 
 Para listar as funções, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` no escopo. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **GET** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version={api-version}&$filter={filter}
@@ -230,16 +234,16 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as funções. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
 3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de funções:
    
    * Liste funções disponíveis para atribuição no escopo especificado e qualquer de seus escopos filho: `atScopeAndBelow()`
    * Pesquise uma função usando o nome de exibição exato: `roleName%20eq%20'{role-display-name}'`. Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -299,12 +303,12 @@ Código de status: 200
 
 ```
 
-## Obter informações sobre uma Função
+## <a name="get-information-about-a-role"></a>Obter informações sobre uma Função
 Obtém informações sobre uma função única especificada pelo identificador de definição da função. Para obter informações sobre uma única função usando seu nome de exibição, consulte [Listar todas as funções](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-Para saber mais sobre uma função, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read`. Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
+Para saber mais sobre uma função, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/read` . Todas as funções internas recebem acesso a essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **GET** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -313,13 +317,13 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-definition-id}* pelo identificador GUID de definição da função.
 3. Substitua *{api-version}* por 2015-07-01.
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -379,12 +383,12 @@ Código de status: 200
 
 ```
 
-## Criar uma Função personalizada
+## <a name="create-a-custom-role"></a>Criar uma Função personalizada
 Criar uma função personalizada.
 
 Para criar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **PUT** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -393,9 +397,9 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis.
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-definition-id}* pelo novo GUID, que se torna o identificador GUID da nova função personalizada.
 3. Substitua *{api-version}* por 2015-07-01.
 
@@ -438,11 +442,11 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 | properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada. Tamanho máximo de 128 caracteres. |
 | properties.description |Não |Cadeia de caracteres |Descrição da função personalizada. Tamanho máximo de 1024 caracteres. |
 | properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |Cadeia de caracteres |Uma matriz de cadeias de caracteres de ação especificando as operações concedidas pela função personalizada. |
-| properties.permissions.notActions |Não |Cadeia de caracteres |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações concedidas pela função personalizada. |
-| properties.assignableScopes |Sim |Cadeia de caracteres |Uma matriz de escopos no qual a função personalizada pode ser usada. |
+| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações concedidas pela função personalizada. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações concedidas pela função personalizada. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de escopos no qual a função personalizada pode ser usada. |
 
-### Response
+### <a name="response"></a>Response
 Código de status: 201
 
 ```
@@ -482,12 +486,12 @@ Código de status: 201
 
 ```
 
-## Atualizar uma Função personalizada
+## <a name="update-a-custom-role"></a>Atualizar uma Função personalizada
 Modificar uma função personalizada.
 
 Para modificar uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/write` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **PUT** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -496,9 +500,9 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-definition-id}* pelo identificador GUID de definição da função personalizada.
 3. Substitua *{api-version}* por 2015-07-01.
 
@@ -541,11 +545,11 @@ Para o corpo da solicitação, forneça os valores no seguinte formato:
 | properties.roleName |Sim |Cadeia de caracteres |Nome de exibição da função personalizada a ser atualizada. |
 | properties.description |Não |Cadeia de caracteres |Nome de exibição da função personalizada atualizada. |
 | properties.type |Sim |Cadeia de caracteres |Defina como "CustomRole". |
-| properties.permissions.actions |Sim |Cadeia de caracteres |Uma matriz de cadeias de caracteres de ação especificando as operações para as quais a função personalizada atualizada concede acesso. |
-| properties.permissions.notActions |Não |Cadeia de caracteres |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações para as quais a função personalizada atualizada concede acesso. |
-| properties.assignableScopes |Sim |Cadeia de caracteres |Uma matriz de escopos na qual a função personalizada atualizada pode ser usada. |
+| properties.permissions.actions |Sim |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações para as quais a função personalizada atualizada concede acesso. |
+| properties.permissions.notActions |Não |String[] |Uma matriz de cadeias de caracteres de ação especificando as operações a serem excluídas das operações para as quais a função personalizada atualizada concede acesso. |
+| properties.assignableScopes |Sim |String[] |Uma matriz de escopos na qual a função personalizada atualizada pode ser usada. |
 
-### Response
+### <a name="response"></a>Response
 Código de status: 201
 
 ```
@@ -585,12 +589,12 @@ Código de status: 201
 
 ```
 
-## Excluir uma Função personalizada
+## <a name="delete-a-custom-role"></a>Excluir uma Função personalizada
 Excluir uma função personalizada.
 
 Para excluir uma função personalizada, é necessário ter acesso à operação `Microsoft.Authorization/roleDefinitions/delete` em todos os seus `AssignableScopes`. Das funções internas, somente *Proprietário* e *Administrador do Acesso do Usuário* recebem permissão para acessar essa operação. Para saber mais sobre as atribuições de função e o gerenciamento de acesso para recursos do Azure, consulte [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md).
 
-### Solicitação
+### <a name="request"></a>Solicitação
 Use o método **DELETE** com o seguinte URI:
 
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}?api-version={api-version}
@@ -599,13 +603,13 @@ Dentro do URI, faça as seguintes substituições para personalizar sua solicita
 
 1. Substitua *{scope}* pelo escopo para o qual deseja você excluir as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
    
-   * Assinatura: /subscriptions/{subscription-id}
-   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1
-   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1
+   * Assinatura: /subscriptions/{subscription-id}  
+   * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
+   * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{role-definition-id}* pela definição de função do GUID da função personalizada.
 3. Substitua *{api-version}* por 2015-07-01.
 
-### Response
+### <a name="response"></a>Response
 Código de status: 200
 
 ```
@@ -648,4 +652,9 @@ Código de status: 200
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

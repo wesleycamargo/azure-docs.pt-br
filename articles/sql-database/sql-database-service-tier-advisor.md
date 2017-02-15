@@ -1,12 +1,12 @@
 ---
-title: Recomendações de camada de preços do Banco de Dados SQL do Azure
-description: Ao alterar as camadas de preços no portal do Azure, são fornecidas recomendações de camada de preços que apontam a camada mais adequada para executar a carga de trabalho do Banco de Dados SQL do Azure. As camadas de preços descrevem o nível de serviço e o nível de desempenho de um banco de dados SQL.
+title: "Recomendações de camada de preços do Banco de Dados SQL do Azure"
+description: "Ao alterar as camadas de preços no portal do Azure, são fornecidas recomendações de camada de preços que apontam a camada mais adequada para executar a carga de trabalho do Banco de Dados SQL do Azure. As camadas de preços descrevem o nível de serviço e o nível de desempenho de um banco de dados SQL."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 265beec9-7478-4abd-9ab5-4094e2e75fe4
 ms.service: sql-database
 ms.devlang: na
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/08/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: 1596e1d146af13fba965a0db45c2d9bbc0c6f6be
+
 
 ---
-# Recomendações de camada de preços do Banco de Dados SQL
+# <a name="sql-database-pricing-tier-recommendations"></a>Recomendações de camada de preços do Banco de Dados SQL
  As recomendações de tipo de preço sugerem a camada de serviço e o nível de desempenho mais adequados para execução de uma carga de trabalho existente do banco de dados SQL do Azure.
 
 > [!NOTE]
 > As recomendações de tipo de preço estão disponíveis apenas para bancos de dados Web e Business e pools de banco de dados elástico, e apenas no [Portal do Azure](https://portal.azure.com/).
-> 
-> 
+>
+>
 
 Obtenha as recomendações de tipo de preço durante as seguintes tarefas:
 
 * [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md)
 * [Atualizar servidor do SQL Azure para V12](sql-database-upgrade-server-portal.md)
 * Navegue até o servidor V12. Veja [Recomendações sobre tipo de preço do Banco de Dados SQL](sql-database-service-tier-advisor.md).
-* [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+* [Criar um pool de banco de dados elástico](sql-database-elastic-pool.md#which-databases-go-in-a-pool)
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 O serviço do Banco de Dados SQL analisa os requisitos atuais de desempenho e recursos avaliando o uso histórico de recursos de um banco de dados SQL. Além disso, a camada de serviço mínima aceitável é determinada com base no tamanho do banco de dados e nos recursos de [continuidade dos negócios](sql-database-business-continuity.md) habilitados.
 
 Com a análise dessas informações, são recomendados a camada de serviço e o nível de desempenho mais adequados para execução da carga de trabalho comum do banco de dados e manutenção do respectivo conjunto de recursos atuais.
@@ -40,7 +44,7 @@ Com a análise dessas informações, são recomendados a camada de serviço e o 
 * Os dados são analisados em intervalos de 15 segundos e cada resultset do intervalo é classificado na camada de serviço e no nível de desempenho existentes mais adequados para tratamento da carga de trabalho do resultset.
 * Essas amostras de 15 segundos são agregadas à análise mais ampla de 15 a 30 dias, sendo assim recomendados a camada de serviço e o nível de desempenho que podem tratar de forma mais eficiente 95% da carga de trabalho histórica.
 
-### Recomendações
+### <a name="recommendations"></a>Recomendações
 Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de recomendações:
 
 | Recomendações | Descrição |
@@ -48,27 +52,27 @@ Com base no uso do banco de dados, atualmente, podemos encontrar 2 categorias de
 | Atualizar |Atualize para uma nova camada. |
 | Indisponível |Um banco de dados exige uma carga de trabalho mínima ou, aproximadamente, 35 dias de atividade. Não há dados suficientes para fornecer uma recomendação válida. |
 
-## Obtendo recomendações de camada de preços
+## <a name="getting-pricing-tier-recommendations"></a>Obtendo recomendações de camada de preços
 Obtenha recomendações de tipo de preço escolhendo um banco de dados Web ou Business. Clique em **Todas as configurações** e em **Tipo de preço (DTUs de escala)**. (As recomendações de tipo de preço também estarão disponíveis quando você [Atualizar o Azure SQL Server para o V12](sql-database-upgrade-server-portal.md).)
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **PROCURAR** > **bancos de dados SQL**.
-3. Na folha **Bancos de Dados SQL**, clique no banco de dados para o qual você deseja ver uma recomendação:
-   
+3. Na folha **Bancos de Dados SQL** , clique no banco de dados para o qual você deseja ver uma recomendação:
+
     ![Selecionar um banco de dados][1]
 4. Na folha do banco de dados, escolha **Todas as configurações** e **Tipo de preço (DTUs de escala)**.
 5. Os **Tipos de preço recomendados** são exibidos e você pode clicar no tipo sugerido e no botão **Selecionar** para alterar para esse tipo.
-   
+
     ![Inscrever-se para obter a visualização][4]
 6. Se preferir, clique em **Exibir detalhes de uso** para abrir a folha **Detalhes de Recomendação da Camada de Preços**, onde você pode exibir a camada recomendada para o banco de dados, uma comparação de recursos entre as camadas atuais e recomendadas e um gráfico da análise do uso histórico de recursos.
-   
+
     ![Inscrever-se para obter a visualização][5]
 
-## Resumo
+## <a name="summary"></a>Resumo
 As recomendações de camada de preços proporcionam uma experiência automatizada de coleta de dados de telemetria para cada banco de dados SQL, bem como apontam a melhor combinação de nível de desempenho/camada de serviço com base nos requisitos de recursos e nas necessidades reais de desempenho de um banco de dados. Na folha Configurações, clique em **Tipo de preço (DTUs de escala)** para ver as recomendações de tipo de preço para quaisquer bancos de dados Web e Business.
 
-## Próximas etapas
-Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm\_operation\_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor de Banco de Dados SQL.
+## <a name="next-steps"></a>Próximas etapas
+Dependendo dos detalhes do seu banco de dados específico, a execução de uma atualização ou um downgrade normalmente não acontece de forma instantânea. O portal fornecerá notificações à medida que o banco de dados faz a transição para sua nova camada, ou você pode monitorar o status da atualização consultando a exibição [sys.dm_operation_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx) no banco de dados mestre do Servidor de Banco de Dados SQL.
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
@@ -77,5 +81,6 @@ Dependendo dos detalhes do seu banco de dados específico, a execução de uma a
 
 
 
+<!--HONumber=Nov16_HO3-->
 
-<!---HONumber=AcomDC_0810_2016-->
+

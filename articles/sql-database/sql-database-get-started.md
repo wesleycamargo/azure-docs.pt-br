@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do banco de dados SQL: criar um servidor, uma regra de firewall de nível de servidor, um banco de dados de exemplo, uma regra de firewall de nível de banco de dados e conexão com o SQL Server Management Studio | Microsoft Docs"
-description: "Saiba como configurar um servidor lógico do Banco de Dados SQL, regra de firewall do servidor, banco de dados SQL e dados de exemplo. Além disso, saiba como conectar com as ferramentas do cliente, configurar usuários e configurar uma regra de firewall do banco de dados."
+title: "Portal do Azure: introdução ao Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e bancos de dados usando o portal do Azure. Você também aprenderá a consultar bancos de dados usando o SQL Server Management Studio."
 keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 8eb4b280104cc4f05b9ed25985d0c336f15b6d0f
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Introdução aos servidores de banco de dados SQL, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Tutorial do Banco de Dados SQL: introdução aos servidores do Bancos de Dados SQL do Azure, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio
 
 Neste tutorial de introdução, você aprenderá a usar o portal do Azure para:
 
@@ -306,6 +306,6 @@ Agora que você concluiu este tutorial, há vários tutoriais adicionais que tal
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,107 +1,131 @@
 ---
-title: Guia de início rápido da Central de Segurança do Azure | Microsoft Docs
-description: Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas.
+title: "Guia de início rápido da Central de Segurança do Azure | Microsoft Docs"
+description: "Este artigo ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure, pois o orienta em relação aos componentes de monitoramento da segurança e gerenciamento de políticas, além de conduzi-lo às próximas etapas."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 12/09/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
+ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+
 
 ---
-# Guia de início rápido da Central de Segurança do Azure
-Este documento ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure ao orientá-lo através de componentes de gerenciamento de monitoramento e pela política de segurança e vinculação às próximas etapas.
+# <a name="azure-security-center-quick-start-guide"></a>Guia de início rápido da Central de Segurança do Azure
+Este artigo ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure, pois o orienta em relação aos componentes de monitoramento da segurança e gerenciamento de políticas da Central de Segurança.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
-> 
-> 
+> Este artigo apresenta o serviço usando uma implantação de exemplo. Ele não é um guia passo a passo.
+>
+>
 
-## Coleta de dados
-A Central de Segurança coleta dados de suas máquinas virtuais para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança. As etapas a seguir mostram como desativar a coleta de dados.
+## <a name="prerequisites"></a>Pré-requisitos
+Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## Pré-requisitos
-Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. A Central de Segurança é habilitada com sua assinatura. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+A camada gratuita da Central de Segurança é habilitada automaticamente com sua assinatura e fornece visibilidade sobre o estado de segurança de seus recursos do Azure. Ela fornece gerenciamento de política de segurança básica, recomendações de segurança e integração com produtos e serviços de segurança de parceiros do Azure.
 
-A Central de Segurança é acessada pelo [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/) para saber mais.
+Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para saber mais sobre o portal do Azure, confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/).
 
-## Acessar a Central de Segurança
+## <a name="permissions"></a>Permissões
+Na Central de Segurança, você vê apenas informações relacionadas a um recurso do Azure quando está atribuído a uma função de Proprietário, Colaborador ou Leitor para a assinatura ou grupo de recursos a que o recurso pertence. Confira [Permissões na Central de Segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
+
+## <a name="data-collection"></a>Coleta de dados
+A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as VMs em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança.
+
+As etapas a seguir descrevem como acessar e usar os componentes da Central de Segurança. Nestas etapas, mostramos como desativar a coleta de dados se você optar pelo cancelamento.
+
+## <a name="access-security-center"></a>Acessar a Central de Segurança
 No Portal, execute estas etapas para acessar a Central de Segurança:
 
-1. Selecione **Navegar** e role até a opção **Central de segurança**. ![Acessar a Central de Segurança do Azure no portal][1]
-2. Escolha **Central de Segurança**. Isso abre a folha **Central de Segurança**.
-3. Para facilitar o acesso à folha da **Central de segurança** no futuro, selecione opção **Fixar folha no painel** (canto superior direito). ![Fixar a folha à opção de painel][2]
+1. No menu **Microsoft Azure**, selecione **Central de Segurança**.
 
-## Usar a Central de Segurança
-Você pode configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure. Vamos configurar uma **política** de segurança para sua assinatura:
+   ![Menu do Azure][1]
+2. Se você estiver acessando a Central de Segurança pela primeira vez, a folha **Bem-vindo** será aberta. Selecione **Sim! Quero iniciar a Central de Segurança do Azure** para abrir a folha **Central de Segurança** e habilitar a coleta de dados.
+   ![Tela de boas-vindas][10]
+3. Depois que você iniciar a Central de Segurança na folha Bem-vindo ou no menu do Microsoft Azure, a folha **Central de Segurança** será aberta. Para facilitar o acesso à folha **Central de segurança** no futuro, selecione opção **Fixar folha no painel** (canto superior direito).
+   ![Fixar a folha à opção de painel][2]
 
-1. Clique no bloco **Política** na folha **Central de Segurança**. ![Central de Segurança][3]
-2. Na folha **Política de segurança - definir política por assinatura ou grupo de recursos**, selecione uma assinatura. ![A folha da política de segurança na Central de Segurança do Azure][4]
+## <a name="use-security-center"></a>Usar a Central de Segurança
+Você pode configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure. Vamos configurar uma política de segurança para sua assinatura:
+
+1. Na folha **Central de Segurança**, selecione o bloco **Política**.
+   ![Política de segurança][3]
+2. Na folha **Política de segurança - definir política por assinatura ou grupo de recursos** , selecione uma assinatura.
 3. Na folha **Política de segurança**, a **Coleta de dados** é habilitada para coletar os registros automaticamente. A extensão de monitoramento é provisionada em todas as VMs atuais e novas na assinatura. (Você pode recusar a coleta de dados definindo a **Coleta de dados** para **Desativada**, mas isso impedirá que a Central de Segurança forneça recomendações e alertas de segurança.)
-4. Selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Se você não escolher uma conta de armazenamento para cada região, ela será criada para você. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
-   
+4. Na folha **Política de segurança**, selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver VMs em execução, escolha a conta de armazenamento na qual os dados coletados dessas VMs serão armazenados. Se você não escolher uma conta de armazenamento para cada região, ela será criada para você. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
+
    > [!NOTE]
    > É recomendável que você habilite a coleta de dados e escolha uma conta de armazenamento no nível da assinatura primeiro. As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da conta de armazenamento e da coleta de dados ocorre apenas no nível da assinatura.
-   > 
-   > 
-5. Ative as **Recomendações** que você gostaria de ver como parte de sua política de segurança. Exemplos:
-   
-   * Ativar as **Atualizações do sistema** verificará todas as máquinas virtuais com suporte quanto às atualizações do SO que faltam.
-   * Ativar as **Vulnerabilidade do SO** verificará as máquinas virtuais com suporte para identificar as configurações do SO que poderiam tornar a máquina virtual mais vulnerável a ataques.
+   >
+   >
+5. Na folha **Política de segurança**, selecione **Política de prevenção**. Isso abre a folha **Política de prevenção**.
+   ![Política de prevenção][4]
+6. Na folha **Política de prevenção**, ative as recomendações que você deseja ver como parte de sua política de segurança. Exemplos:
 
-**Recomendações** de endereço:
+   * Definir as **Atualizações do sistema** como **Ativado** verificará todas as máquinas virtuais com suporte quanto às atualizações do SO que faltam.
+   * Definir as **Vulnerabilidade do SO** para **Ativado** verificará as máquinas virtuais com suporte para identificar as configurações do SO que poderiam tornar a máquina virtual mais vulnerável a ataques.
 
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Recomendações**. A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando possíveis vulnerabilidades de segurança são identificadas, uma recomendação é mostrada aqui.
-2. Selecione cada recomendação para exibir mais informações e/ou tomar medidas para resolver o problema. ![Recomendações na Central de Segurança do Azure][5]
+### <a name="view-recommendations"></a>Exibir recomendações
+1. Volte para a folha **Central de Segurança** e selecione o bloco **Recomendações**. A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações na folha **Recomendações** .
+   ![Recomendações na Central de Segurança do Azure][5]
+2. Selecione uma recomendação na folha **Recomendação** para exibir mais informações e/ou tomar medidas para resolver o problema.
 
-Exiba o estado de integridade e segurança de seus recursos por meio da **Integridade de segurança dos recursos**:
+### <a name="view-the-health-and-security-state-of-your-resources"></a>Exibir o estado de integridade e segurança de seus recursos
+1. Volte para a folha **Central de segurança** . O bloco **Integridade de segurança dos recursos** contém indicadores do estado da segurança para as máquinas virtuais, rede, dados e aplicativos.
+2. Selecione **Máquinas virtuais** para exibir mais informações. A folha **Máquinas virtuais** abre e exibe um resumo do status dos programas antimalware, atualizações do sistema, reinicializações e vulnerabilidades de SO das máquinas virtuais.
+   ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
+3. Selecione um item em **RECOMENDAÇÕES DA MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
+4. Selecione uma VM em **Máquinas virtuais** para exibir detalhes adicionais.
 
-1. Volte para a folha **Central de segurança**.
-2. O bloco **Integridade de segurança dos recursos** contém indicadores do estado da segurança para as **Máquinas virtuais**, **Rede**, **SQL** e **Aplicativos**.
-3. Selecione **Máquinas virtuais** para exibir mais informações.
-4. A folha **Máquinas virtuais** exibe um resumo do status que mostra o status dos programas antimalware, atualizações do sistema, reinicializações e regras da linha de base das máquinas virtuais.
-5. Selecione um item em **RECOMENDAÇÕES DA MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
-6. Faça uma busca detalhada para exibir informações adicionais das máquinas virtuais específicas. ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
+### <a name="view-security-alerts"></a>Exibir alertas de segurança
+1. Volte para a folha **Central de Segurança** e selecione o bloco **Alertas de segurança**. A folha **Alertas de segurança** exibe uma lista de alertas. A análise da Central de Segurança dos seus logs de segurança e da atividade da rede gera esses alertas. Os alertas das soluções de parceiro integradas estão incluídos.
+   ![Alertas na Central de Segurança do Azure][7]
 
-Enderece os **Alertas de segurança**:
+   > [!NOTE]
+   > Os alertas de segurança só estarão disponíveis se a camada Standard da Central de Segurança estiver habilitada. Uma avaliação gratuita por 90 dias da camada Standard está disponível. Confira as [Próximas etapas](#next-steps) para obter informações sobre como obter a camada Standard.
+   >
+   >
+2. Selecione um alerta para exibir mais informações. Neste exemplo, vamos selecionar **Binário do sistema modificado descoberto**. Isso abre folhas que fornecem detalhes adicionais sobre o alerta.
+   ![Detalhes de alerta de segurança na Central de Segurança do Azure][8]
 
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Alertas de segurança**. Na folha **Alertas de segurança**, uma lista de alertas é exibida. Os alertas são gerados pela análise da Central de Segurança de seus logs de segurança e pela atividade de rede. Os alertas das soluções de parceiro integradas também estão incluídos. ![Alertas na Central de Segurança do Azure][7]
-2. Selecione um alerta para exibir mais informações. ![Detalhes de alerta de segurança na Central de Segurança do Azure][8]
+### <a name="view-the-health-of-your-partner-solutions"></a>Exiba a integridade de suas soluções de parceiros:
+1. Volte para a folha **Central de segurança** . O bloco **Soluções de parceiros** permite monitorar rapidamente o status da integridade de suas soluções de parceiros integradas em sua assinatura do Azure.
+2. Selecione o bloco **Soluções de parceiros** . Uma folha será aberta e exibirá uma lista de suas soluções de parceiros conectadas à Central de Segurança.
+   ![Soluções de parceiros][9]
+3. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **F5-WAF** .  Uma folha será aberta e mostrará o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
 
-Exiba a integridade de suas **Soluções de parceiros**:
+## <a name="next-steps"></a>Próximas etapas
+Neste artigo, você foi apresentado aos componentes de monitoramento de segurança e de gerenciamento de políticas da Central de Segurança. Agora que você está familiarizado com a Central de Segurança, tente as seguintes etapas:
 
-1. Volte para a folha **Central de segurança**. O bloco **Soluções de parceiros** permite monitorar rapidamente o status da integridade de suas soluções de parceiros integradas em sua assinatura do Azure.
-2. Selecione o bloco **Soluções de parceiros**. Uma folha será aberta exibindo uma lista de suas soluções de parceiros conectadas à Central de Segurança. ![Soluções de parceiros][9]
-3. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **F5-WAF2**. Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução. ![Detalhes da solução de parceiro][10]
-
-## Confira também
-Neste documento, você foi apresentado para o monitoramento de segurança e para os componentes de gerenciamento de políticas na Central de Segurança. Para saber mais, consulte os seguintes:
-
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
+* Configure uma política de segurança para sua assinatura do Azure. Para saber mais, confira [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md).
+* Use as recomendações na Central de Segurança para ajudar a proteger os recursos do Azure. Para saber mais, confira [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
+* Confira e gerencie os alertas de segurança atuais. Para saber mais, confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+* Saiba mais sobre os [recursos avançados de detecção de ameaça](security-center-detection-capabilities.md) que vêm com a [camada Standard](security-center-pricing.md) da Central de Segurança. Uma avaliação gratuita por 90 dias da camada Standard está disponível.
+* Se você tiver dúvidas sobre como usar a Central de Segurança, confira as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/security-tile.png
-[2]: ./media/security-center-get-started/pin-blade.png
-[3]: ./media/security-center-get-started/security-center.png
-[4]: ./media/security-center-get-started/security-policy.png
+[1]: ./media/security-center-get-started/azure-menu.png
+[2]: ./media/security-center-get-started/security-center-pin.png
+[3]: ./media/security-center-get-started/security-policy.png
+[4]: ./media/security-center-get-started/prevention-policy.png
 [5]: ./media/security-center-get-started/recommendations.png
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/partner-solutions-detail.png
+[10]: ./media/security-center-get-started/welcome.png
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+
