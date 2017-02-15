@@ -1,19 +1,23 @@
 ---
-title: Referência sobre blocos do designer de modos de exibição do Log Analytics | Microsoft Docs
-description: O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas.
+title: "Referência Sobre Blocos do Designer de Modos de Exibição do Log Analytics | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8629719d2a8532b7dc579bd2fc184ac8542035cf
+
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do designer de modos de exibição do Log Analytics
@@ -22,7 +26,7 @@ O Designer de Modos de Exibição do Log Analytics permite que você crie modos 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
 * [Designer de Modos de Exibição](log-analytics-view-designer.md) – visão geral do Designer de Modos de Exibição e procedimentos para criar e editar modos de exibição personalizados.
-* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
+* [Referência de componentes de visualização](log-analytics-view-designer-parts.md) – referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
 
 A tabela a seguir lista os diferentes tipos de blocos disponíveis no Designer de Modos de Exibição.  As seções a seguir descrevem cada tipo de bloco em detalhes e suas propriedades.
 
@@ -117,7 +121,7 @@ O bloco **Gráfico de linhas** exibe um gráfico de linhas com várias séries d
 | Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Eixo Y** |
 | Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** Especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
 | Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Avançado** |**> Verificação do fluxo de dados** |
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
@@ -127,7 +131,7 @@ O bloco **Gráfico de linhas** exibe um gráfico de linhas com várias séries d
 | Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
 | Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
 
-## <a name="line-chart-&-callout-tile"></a>Bloco Gráfico de linhas e balão
+## <a name="line-chart--callout-tile"></a>Bloco Gráfico de linhas e balão
 O bloco **Gráfico de linhas e balão** exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  
 
 ![Bloco Gráfico de Linhas e Balão](media/log-analytics-view-designer/tile-line-chart-callout.png)
@@ -139,12 +143,12 @@ O bloco **Gráfico de linhas e balão** exibe um gráfico de linhas com várias 
 | **Gráfico de Linhas** | |
 | Consultar |Consulta a executar para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda um valor numérico.  Isso é normalmente uma consulta que usa a palavra-chave **medida** para resumir resultados.  Se a consulta usar a palavra-chave **intervalo**, o eixo X do gráfico usará esse intervalo de tempo.  Se a consulta não incluir a palavra-chave **intervalo**, intervalos de uma hora serão usados para o eixo X. |
 | **Gráfico de Linhas** |**> Balão** |
-| Balão |Título   Texto a ser exibido acima do valor do balão. |
+| Balão |Título    Texto a ser exibido acima do valor do balão. |
 | Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão.  Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
 | Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<br>– Média: média do valor de todos os registros.<br><br>– Contagem: contagem de todos os registros retornados pela consulta.<br>– Última Amostra: o valor do último intervalo incluído no gráfico.<br>– Máx.: o valor máximo dos intervalos incluídos no gráfico.<br>– Mín.: o valor mínimo dos intervalos incluídos no gráfico.<br>– Soma: soma dos valores de todos os registros. |
 | **Gráfico de Linhas** |**> Eixo Y** |
 | Usar Escala Logarítmica |Selecione para usar uma escala logarítmica para o eixo Y. |
-| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
+| Unidades |Especifique as unidades para os valores retornados pela consulta.  Essas informações são usadas para exibir rótulos no gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores.  O **Tipo de Unidade** Especifica a categoria da unidade e define os valores que estão disponíveis para o **Tipo de Unidade Atual**.  Se você selecionar um valor em **Converter**, os valores numéricos serão convertidos do tipo **Unidade Atual** para o tipo **Converter em**. |
 | Rótulo Personalizado |Texto a exibir para o eixo Y ao lado do rótulo para o tipo de unidade.  Se nenhum nome for especificado, somente o tipo de unidade será exibido. |
 | **Avançado** |**> Verificação do fluxo de dados** |
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
@@ -163,7 +167,7 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 |:--- |:--- |
 | Nome |Texto a exibir na parte superior do bloco. |
 | Descrição |Texto exibido abaixo do nome do bloco. |
-| Primeiro gráfico | |
+| Primeiro Gráfico | |
 | Legenda |Texto exibido sob o balão para a primeira série. |
 | Cor |Cor a usar para as colunas na primeira série. |
 | Consulta de Gráfico |Consulta a executar para a primeira série.  A contagem do número de registros em cada intervalo de tempo será representada pelas colunas do gráfico. |
@@ -183,8 +187,11 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas em blocos.
-* Adicione [Partes da visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
+* Adicione [Componentes de Visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

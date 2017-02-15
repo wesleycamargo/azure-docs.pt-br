@@ -1,69 +1,73 @@
 ---
 title: Conceitos do DevTest Labs | Microsoft Docs
-description: Aprenda os conceitos básicos do DevTest Labs e como ele pode facilitar a criação, o gerenciamento e o monitoramento de máquinas virtuais do Azure
+description: "Aprenda os conceitos básicos do DevTest Labs e como ele pode facilitar a criação, o gerenciamento e o monitoramento de máquinas virtuais do Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/25/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e1b087b9e952d9045e8580d4074e7655d165a08
+
 
 ---
-# Conceitos dos Laboratórios de Desenvolvimento/Teste
+# <a name="devtest-labs-concepts"></a>Conceitos dos Laboratórios de Desenvolvimento/Teste
 > [!NOTE]
 > Este artigo é a parte 3 de uma série de 3 partes:
 > 
 > 1. [O que são os Laboratórios de Desenvolvimento/Teste?](devtest-lab-overview.md)
 > 2. [Por que os Laboratórios de Desenvolvimento/Teste?](devtest-lab-why.md)
-> 3. **[Conceitos do DevTest Labs](devtest-lab-concepts.md)**
+> 3. **[Conceitos dos Laboratórios de Desenvolvimento/Teste](devtest-lab-concepts.md)**
 > 
 > 
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 A lista a seguir contém as principais definições e conceitos dos Laboratórios de Desenvolvimento/Teste:
 
-## Artefatos
+## <a name="artifacts"></a>Artefatos
 Artefatos são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Os artefatos podem ser:
 
 * Ferramentas que você deseja instalar na VM, por exemplo, agentes, Fiddler e Visual Studio.
 * Ações que você deseja executar na VM - como clonar um repositório.
 * Aplicativos que você deseja testar.
 
-Os artefatos são arquivos JSON do [Azure Resource Manager](../resource-group-overview.md) que contêm instruções para realizar a implantação e aplicar a configuração.
+Os artefatos são arquivos JSON do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que contêm instruções para realizar a implantação e aplicar a configuração. 
 
-## Repositórios de artefatos
+## <a name="artifact-repositories"></a>Repositórios de artefatos
 Repositórios de artefatos são repositórios git nos quais os artefatos são verificados. Os mesmos repositórios de artefato podem ser adicionados a vários laboratórios da sua organização, permitindo a reutilização e compartilhamento.
 
-## Imagens base
+## <a name="base-images"></a>Imagens base
 Imagens base são imagens de VM com todas as ferramentas e configurações pré-instaladas e configuradas para criar uma VM rapidamente. Você pode provisionar uma VM escolhendo uma base existente e adicionando um artefato para instalar o agente de teste. Você pode salvar a VM provisionada como base para que a base possa ser usada sem precisar reinstalar o agente de teste para cada provisionamento da VM.
 
-## Fórmulas
+## <a name="formulas"></a>Fórmulas
 Além de fornecerem as imagens base, as fórmulas também fornecem um mecanismo para provisionamento rápido de VMs. Uma fórmula em Laboratórios de Desenvolvimento/Teste é uma lista de valores de propriedade padrão usados para criar uma VM de laboratório. Com fórmulas, VMs com o mesmo conjunto de propriedades - como a imagem de base, tamanho de máquina virtual, rede virtual e artefatos - podem ser criadas sem a necessidade de especificar essas propriedades a cada vez. Ao criar uma máquina virtual a partir de uma fórmula, os valores padrão poderão ser usados como são ou modificados.
 
-## Limites
+## <a name="caps"></a>Limites
 Limites são um mecanismo usado para minimizar o desperdício em seu laboratório. Por exemplo, você pode definir um limite para restringir o número de VMs que podem ser criados por usuário ou em um laboratório.
 
-## Políticas
+## <a name="policies"></a>Políticas
 Políticas ajudam no controle de custos em seu laboratório. Por exemplo, você pode criar uma política para desligar automaticamente máquinas virtuais com base em uma agenda definida.
 
-## Níveis de segurança
-O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função) do Azure. Para entender como funciona o acesso, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC.
+## <a name="security-levels"></a>Níveis de segurança
+O acesso de segurança é determinado pelo RBAC (controle de acesso baseado em função) do Azure. Para entender como funciona o acesso, é importante entender as diferenças entre um escopo, uma permissão e uma função, conforme definido pelo RBAC. 
 
-* Permissão – uma permissão é um acesso definido para uma ação específica (por exemplo, acesso de leitura para todas as máquinas virtuais).
-* Função – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, a função *proprietário da assinatura* tem acesso a todos os recursos dentro de uma assinatura.
+* Permissão – uma permissão é um acesso definido para uma ação específica (por exemplo, acesso de leitura para todas as máquinas virtuais). 
+* Função – uma função é um conjunto de permissões que podem ser agrupadas e atribuídas a um usuário. Por exemplo, a função *proprietário da assinatura* tem acesso a todos os recursos dentro de uma assinatura. 
 * Escopo – um escopo é um nível na hierarquia de um recurso do Azure, como um grupo de recursos, um único laboratório ou toda a assinatura.
 
 Dentro do escopo do DevTest Labs, há dois tipos de funções para definir permissões de usuário: usuário de laboratório e proprietário de laboratório.
 
-* Proprietário de laboratório – um proprietário de laboratório tem acesso a qualquer recurso no laboratório. Portanto, um proprietário de laboratório pode modificar políticas, ler e gravar quaisquer máquinas virtuais, alterar a rede virtual e assim por diante.
-* Usuário de laboratório – um usuário de laboratório pode exibir todos os recursos de laboratório, como VMs, políticas e redes virtuais, mas não pode modificar políticas ou as VMs criadas por outros usuários.
+* Proprietário de laboratório – um proprietário de laboratório tem acesso a qualquer recurso no laboratório. Portanto, um proprietário de laboratório pode modificar políticas, ler e gravar quaisquer máquinas virtuais, alterar a rede virtual e assim por diante. 
+* Usuário de laboratório – um usuário de laboratório pode exibir todos os recursos de laboratório, como VMs, políticas e redes virtuais, mas não pode modificar políticas ou as VMs criadas por outros usuários. 
 
 Para ver como criar funções personalizadas no DevTest Labs, e você pode aprender como fazer isso neste artigo, [Grant user permissions to specific lab policies (Conceder permissões de usuário para políticas específicas do laboratório)](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -71,7 +75,12 @@ Como os escopos são hierárquicos, quando um usuário tem permissões em um det
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Criar um laboratório no DevTest Labs](devtest-lab-create-lab.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

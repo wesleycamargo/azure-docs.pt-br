@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d904de6370c1c6bd5116471465ec63fd8999a7ee
+ms.sourcegitcommit: e4ef793b2c1bc0026581fa4b414300721678d7d3
+ms.openlocfilehash: ecf2afc7a6e35b99a110e2e259e005e2164ebb27
 
 
 ---
@@ -157,7 +157,7 @@ O cache permite que você defina um momento específico período para que tentat
 <center>![Nuvem](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>IPs Confiáveis
-IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa. Os recursos estão disponíveis para locatários do Azure AD que tenham licenças do Azure AD Premium, Enterprise Mobility Suite ou Azure Multi-Factor Authentication.
+IPs Confiáveis é um recurso de autenticação multifator que permite que os administradores de um inquilino gerenciado ou federado possam ignorar a autenticação multifator para usuários que estão entrando pela intranet local da empresa. Esse recurso está disponível na versão completa da Autenticação Multifator do Azure. (Para obter detalhes sobre como obter a versão completa da Autenticação Multifator do Azure, consulte [Como obter a Autenticação Multifator do Azure](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).)
 
 | Tipo de locatário do Azure AD | Opções disponíveis de IPs confiáveis |
 |:--- |:--- |
@@ -222,7 +222,7 @@ Veja a seguir uma lista de importante das coisas que você deve saber sobre senh
 O Azure AD oferece suporte à federação com Serviços de Domínio do Active Directory (AD DS) local do Windows Server. Se sua organização for federada (SSO) com o Azure AD e você pretende usar o Azure Multi-Factor Authentication, é importante que você tenha as seguinte informações ao usar senhas de aplicativo. Isso se aplica apenas aos clientes federados (SSO).
 
 * A Senha de aplicativo é verificada pelo Azure AD e, portanto, se desvia da federação. A federação só é usada ativamente ao configurar a Senha de aplicativo.
-* Para usuários federados (SSO), nós nunca iremos ao Provedor de Identidade (IdP), ao contrário do fluxo passivo. As senhas são armazenadas na ID organizacional. Se o usuário sair da empresa, essa informação deve ir para a ID organizacional usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até 3 horas para sincronizar, atrasando a desabilitação/exclusão da Senha de aplicativo no Azure AD.
+* Para usuários federados (SSO), nós nunca iremos ao Provedor de Identidade (IdP), ao contrário do fluxo passivo. As senhas são armazenadas na ID organizacional. Se o usuário sair da empresa, essa informação deve ir para a ID organizacional usando o DirSync em tempo real. A desabilitação/exclusão da conta pode levar até&3; horas para sincronizar, atrasando a desabilitação/exclusão da Senha de aplicativo no Azure AD.
 * As configurações do Controle de Acesso do Cliente local não são consideradas pela Senha de aplicativo
 * Nenhum recurso de registro de autenticação local/auditoria recurso está disponível para a Senha de aplicativo
 * É preciso que haja mais treinamento do usuário final é necessário para o cliente Microsoft Lync 2013. Para as etapas obrigatórias, consulte Como alterar a senha em seu email para a senha de aplicativo.
@@ -349,6 +349,6 @@ Quando os usuários registram suas contas na MFA, eles escolhem o método de ver
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

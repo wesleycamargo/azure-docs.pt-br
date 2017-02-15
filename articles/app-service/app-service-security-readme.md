@@ -30,6 +30,6 @@ O Serviço de Aplicativo do Azure usa a mesma solução Antimalware usada pelos 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -147,6 +147,6 @@ Confira também [Visão geral da rede virtual](virtual-network/virtual-networks-
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

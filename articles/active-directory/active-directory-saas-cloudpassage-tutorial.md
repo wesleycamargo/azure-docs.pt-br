@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Active Directory do Azure ao CloudPassage | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o CloudPassage.
+title: "Tutorial: integração do Azure Active Directory ao CloudPassage | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o CloudPassage."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01676cbaf2b677b43a223cf33699710c77da41fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integração do Active Directory do Azure ao CloudPassage
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integração do Active Directory do Azure ao CloudPassage
 O objetivo desse tutorial é mostrar como integrar o CloudPassage ao Azure AD (Azure Active Directory).  
 A integração do CloudPassage ao Azure AD oferece os seguintes benefícios: 
 
@@ -52,7 +56,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 ## <a name="adding-cloudpassage-from-the-gallery"></a>Adicionando CloudPassage da Galeria
 Para configurar a integração do CloudPassage com o AD do Azure, você precisa adicionar o CloudPassage, por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
 
-### <a name="to-add-cloudpassage-from-the-gallery,-perform-the-following-steps:"></a>Para adicionar o CloudPassage por meio da galeria, execute as seguintes etapas:
+### <a name="to-add-cloudpassage-from-the-gallery-perform-the-following-steps"></a>Para adicionar o CloudPassage por meio da galeria, execute as seguintes etapas:
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1]
@@ -225,7 +229,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 ### <a name="creating-a-cloudpassage-test-user"></a>Criar um usuário de teste CloudPassage
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no CloudPassage.
 
-#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage,-perform-the-following-steps:"></a>Para criar um usuário chamado Brenda Fernandes no CloudPassage, execute as seguintes etapas:
+#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage-perform-the-following-steps"></a>Para criar um usuário chamado Brenda Fernandes no CloudPassage, execute as seguintes etapas:
 1. Faça logon em seu site de empresa do **CloudPassage** como administrador. 
 2. Na barra de ferramentas, na parte superior, clique em **Configurações** e clique em **Administração do Site**. 
    
@@ -331,6 +335,6 @@ Quando você clica no bloco CloudPassage no Painel de Acesso, você deve fazer l
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

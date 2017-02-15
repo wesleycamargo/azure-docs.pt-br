@@ -1,19 +1,23 @@
 ---
 title: Criar cluster do Azure Service Fabric no Windows Server e Linux | Microsoft Docs
-description: Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux.
+description: "Os clusters do Service Fabric são executados no Windows Server e Linux, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric em qualquer lugar que possa executar o Windows Server ou Linux."
 services: service-fabric
 documentationcenter: .net
 author: Chackdan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 140bee520dd8de0d9303a7d80e10cae407c8b10d
+
 
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Criar clusters do Service Fabric no Windows Server ou no Linux
@@ -26,7 +30,7 @@ A criação de um cluster no Azure deve ser realizada por intermédio de um mode
 Você pode criar clusters em VMs que executem estes sistemas operacionais:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (depois que ele for anunciado como disponível para o público em geral)
+* Windows Server 2016 
 * Linux Ubuntu 16.04 (em preview pública) 
 
 ## <a name="create-service-fabric-standalone-clusters-on-premise-or-with-any-cloud-provider"></a>Crie clusters autônomos do Service Fabric localmente ou em qualquer provedor de nuvem
@@ -34,7 +38,7 @@ O Service Fabric fornece um pacote de instalação para você criar esses cluste
 
 Para obter mais informações sobre como configurar os clusters autônomos do Service Fabric no Windows Server, leia [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-### <a name="any-cloud-deployments-vs.-on-premises-deployments"></a>Qualquer implantação na nuvem vs. implantações locais
+### <a name="any-cloud-deployments-vs-on-premises-deployments"></a>Qualquer implantação na nuvem vs. implantações locais
 O processo de criação de um cluster do Service Fabric local é semelhante ao processo de criação de um cluster em qualquer nuvem escolhida com um conjunto de VMs. As etapas iniciais para provisionar as VMs são administradas pelo provedor da nuvem ou pelo ambiente local que você está usando. Depois que você tiver um conjunto de VMs com conectividade de rede habilitada entre elas, as etapas para configurar o pacote do Service Fabric, editar as configurações do cluster e executar os scripts de gerenciamento e criação do cluster serão idênticas. Isso garante que o seu conhecimento e experiência com a operação e o gerenciamento de clusters do Service Fabric poderão ser transferidos quando você optar por novos ambientes de hospedagem.
 
 ### <a name="benefits-of-creating-standalone-service-fabric-clusters"></a>Benefícios de criar clusters autônomos do Service Fabric
@@ -49,7 +53,7 @@ O processo de criação de um cluster do Service Fabric local é semelhante ao p
 Você pode criar clusters em VMs ou em computadores que executem estes sistemas operacionais:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (depois que ele for anunciado como disponível para o público em geral)
+* Windows Server 2016 
 * Linux (em breve)
 
 ## <a name="advantages-of-service-fabric-clusters-on-azure-over-standalone-service-fabric-clusters-created-on-premises"></a>Vantagens dos clusters do Service Fabric no Azure sobre os clusters autônomos do Service Fabric criados no local
@@ -63,10 +67,14 @@ A execução de clusters do Service Fabric no Azure apresenta vantagens em rela�
 * **Dimensionamento automático** : para os clusters no Azure, fornecemos uma funcionalidade interna de dimensionamento automático devido aos conjuntos de escala da Máquina Virtual. Em ambientes locais e outros de nuvem, você precisa criar seu próprio recurso de dimensionamento automático ou dimensionar manualmente usando as APIs que o Service Fabric expõe para dimensionar os clusters.
 
 ## <a name="next-steps"></a>Próximas etapas
-Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
-Crie um cluster em VMs ou em computadores que estejam executando o Linux: [Service Fabric no Linux](service-fabric-linux-overview.md)
+* Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Crie um cluster em VMs ou em computadores que estejam executando o Linux: [Service Fabric no Linux](service-fabric-linux-overview.md)
+* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

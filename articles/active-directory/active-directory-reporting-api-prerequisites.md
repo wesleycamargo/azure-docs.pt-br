@@ -1,12 +1,12 @@
 ---
-title: Pré-requisitos para acessar a API de relatório do Azure AD. | Microsoft Docs
-description: Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD
+title: "Pré-requisitos para acessar a API de relatório do Azure AD. | Microsoft Docs"
+description: "Aprenda sobre os pré-requisitos para acessar a API de relatório do Azure AD"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0f23cc578fb946247d492b9dee92cf7a9daafa1
+
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure AD
@@ -111,7 +115,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/12.png) 
 
-### <a name="get-the-application's-client-id"></a>Obter a ID do cliente do aplicativo
+### <a name="get-the-applications-client-id"></a>Obter a ID do cliente do aplicativo
 1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/01.png) 
@@ -129,7 +133,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites/13.png)
 
-### <a name="get-the-application's-client-secret"></a>Obter o segredo do cliente do aplicativo
+### <a name="get-the-applications-client-secret"></a>Obter o segredo do cliente do aplicativo
 Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chave e salvar seu valor ao salvar a nova chave, pois não é possível recuperar este valor posteriormente.
 
 1. No [portal clássico do Azure](https://manage.windowsazure.com), no painel de navegação à esquerda, clique em **Active Directory**.
@@ -161,6 +165,9 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
 * Você gostaria de acessar os dados da API de relatório do Azure AD de uma maneira programática? Confira [Introdução à API de Relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Se você quiser saber mais sobre os relatórios do Azure Active Directory, confira o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

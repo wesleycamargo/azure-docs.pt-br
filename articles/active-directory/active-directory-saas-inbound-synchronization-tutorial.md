@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configurando o Workday para sincronização de entrada | Microsoft Docs'
-description: Saiba como usar o Inbound Synchronization com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: Configurando o Workday para sincronização de entrada | Microsoft Docs"
+description: "Saiba como usar o Inbound Synchronization com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 8fe96f0a-f142-4d66-b53d-3ac3eb41a661
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7f45241e96df7e0381d775afc9a5cfa36fca49c4
+
 
 ---
-# <a name="tutorial:-configuring-workday-for-inbound-synchronization"></a>Tutorial: Configurando o Workday para sincronização de entrada
+# <a name="tutorial-configuring-workday-for-inbound-synchronization"></a>Tutorial: Configurando o Workday para sincronização de entrada
 > [!NOTE]
 > O Azure Active Directory (AD) Premium está disponível para clientes na China usando a instância mundial do AD do Azure.    
 > O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China.    
@@ -41,7 +45,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-workday"></a>Habilitando a integração de aplicativos para o Workday
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Salesforce.    
 
-### <a name="to-enable-the-application-integration-for-workday,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos para o Workday, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-workday-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o Workday, execute as seguintes etapas:
 1. No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.    
    
    ![Active Directory](./media/active-directory-saas-inbound-synchronization-tutorial/IC700993.png "Active Directory")  
@@ -138,7 +142,7 @@ Nesta etapa, você deve conceder permissões ao novo grupo de segurança para op
 ## <a name="configuring-user-import-in-microsoft-azure-ad"></a>Configurando a importação de usuário no AD do Microsoft Azure
 O objetivo desta seção é descrever como configurar o AD do Microsoft Azure para importar pessoas do Workday.    
 
-### <a name="to-configure-user-import-in-microsoft-azure-ad,-perform-the-following-steps:"></a>Para configurar a importação de usuário no AD do Microsoft Azure, execute as seguintes etapas:
+### <a name="to-configure-user-import-in-microsoft-azure-ad-perform-the-following-steps"></a>Para configurar a importação de usuário no AD do Microsoft Azure, execute as seguintes etapas:
 1. Na página de integração de aplicativos do **Workday**, clique em **Configurar importação de usuários** para abrir a caixa de diálogo **Configurar Provisionamento**.    
 2. Na página **Configurações e credenciais do administrador** , realize as seguintes etapas e clique em Avançar:    
    
@@ -159,6 +163,9 @@ O objetivo desta seção é descrever como configurar o AD do Microsoft Azure pa
 
 Agora, você pode ir para a seção **Usuários** e verificar se o usuário do Workday foi importado.    
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

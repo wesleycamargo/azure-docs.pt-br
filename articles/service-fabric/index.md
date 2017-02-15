@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como usar a plataforma de middleware do Service Fabric para empacotar e implantar microsserviços de aplicativos de escala de nuvem. Tutoriais, referências de API e códigos de exemplo."
 translationtype: Human Translation
-ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
-ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Documentação do Service Fabric
@@ -126,7 +126,7 @@ Saiba como usar o Service Fabric para empacotar, implantar e gerenciar microsser
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Linguagens</h3>
                         <p><a href="/java/api/microsoft.servicefabric.services">API Java</a></p>
                         <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
@@ -140,7 +140,7 @@ Saiba como usar o Service Fabric para empacotar, implantar e gerenciar microsser
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicefabric">referência da API REST</a></p>
+                        <p><a href="/rest/api/servicefabric">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -149,16 +149,10 @@ Saiba como usar o Service Fabric para empacotar, implantar e gerenciar microsser
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Service Fabric </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

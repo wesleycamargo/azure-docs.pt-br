@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 
 
 ---
@@ -42,20 +42,8 @@ Clique na imagem para exibi-la em tamanho normal.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?api-version=2.14).  
+Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="what-youll-learn"></a>O que você aprenderá
-
-O tutorial mostra como concluir as seguintes tarefas:
-
-1. Criar uma conta de Serviços de Mídia (usando o portal do Azure).
-2. Configurar o ponto de extremidade de streaming (usando o portal do Azure).
-3. Criar e configurar um projeto do Visual Studio.
-4. Conectar-se à conta dos Serviços de Mídia.
-5. Criar um novo ativo e carregar um arquivo de vídeo.
-6. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
-7. Publicar o ativo e obter URLs para streaming e download progressivo.
-8. Testar ao reproduzir o conteúdo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
@@ -88,39 +76,31 @@ As etapas nesta seção mostram como criar uma conta do AMS.
    6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
 4. Clique em **Criar** na parte inferior do formulário.
 
-    Quando a conta for criada com êxito, o status mudará para **Executando**.
+    Quando a conta é criada com êxito, a página de visão geral é carregada. Na tabela de ponto de extremidade de streaming, a conta terá um ponto de extremidade de streaming padrão em estado **Parado**.
+
+    >[!NOTE]
+    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
     ![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
 
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurar pontos de extremidade de streaming usando o portal do Azure
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer o vídeo via streaming de taxa de bits adaptável para seus clientes. Os Serviços de Mídia do Azure permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming e MPEG DASH.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Iniciar pontos de extremidade de streaming usando o portal do Azure
 
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
 
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
-* Codifique seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 da taxa de bits adaptável (as etapas de codificação serão demonstradas mais tarde neste tutorial).  
-* Crie pelo menos uma unidade de transmissão para o *ponto de extremidade de streaming* a partir da qual você planeja fornecer seu conteúdo. As etapas a seguir mostram como alterar o número de unidades da transmissão.
+Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
-Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
+1. Na janela Configurações, clique em Pontos de extremidade de streaming. 
+2. Clique no ponto de extremidade de streaming padrão. 
 
-Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
+    A janela DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO é exibida.
 
-1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
-2. Clique no ponto de extremidade de streaming padrão.
-
-    A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
-3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão** .
-
-    ![Unidades de transmissão](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Clique no botão **Salvar** para salvar as alterações.
-
-   > [!NOTE]
-   > A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
-   >
-   >
+3. Clique no ícone Iniciar.
+4. Clique no botão Salvar para salvar as alterações.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
@@ -258,15 +238,12 @@ Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codif
 
 Como mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes. Os serviços de mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxas de bit adaptável: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
 
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
-
-* Codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável.  
-* Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
+Para tirar proveito do empacotamento dinâmico, você precisa codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável.  
 
 O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Standard**. O código envia o trabalho e aguarda até que ele seja concluído.
 
-Depois que o trabalho de codificação for concluído, você poderá publicar seus ativos e transmitir ou baixar progressivamente os arquivos MP4.
-
+Depois que o trabalho for concluído, você poderá transmitir seu ativo ou baixar progressivamente arquivos MP4 criados como resultado de transcodificação.
+ 
 Adicionar o método a seguir à classe do programa.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -467,6 +444,6 @@ O exemplo de código a seguir contém o código que você criou neste tutorial: 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

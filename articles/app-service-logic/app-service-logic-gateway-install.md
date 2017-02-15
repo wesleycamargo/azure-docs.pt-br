@@ -1,12 +1,12 @@
 ---
-title: Instalação de Aplicativos Lógicos no gateway de dados local | Microsoft Docs
-description: Informações sobre como instalar o gateway de dados local para uso em um Aplicativo Lógico.
+title: "Instalação de Aplicativos Lógicos no gateway de dados local | Microsoft Docs"
+description: "Informações sobre como instalar o gateway de dados local para uso em um Aplicativo Lógico."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddd62d3112a2c93ea3c935ce89ff387049899c09
+
 
 ---
 # <a name="install-the-on-premises-data-gateway-for-logic-apps"></a>Instalar gateway de dados local para Aplicativos Lógicos
@@ -82,7 +86,7 @@ O firewall também pode estar bloqueando as conexões que o Barramento de Servi�
 ### <a name="configure-ports"></a>Configure portas
 O gateway cria uma conexão de saída para o Barramento de Serviço do Azure. Ele se comunica nas portas de saída: TCP 443 (padrão), 5671, 5672, 9350 a 9354. O gateway não exige portas de entrada.
 
-Saiba mais sobre [soluções híbridas](../service-bus/service-bus-fundamentals-hybrid-solutions.md).
+Saiba mais sobre [soluções híbridas](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
 | NOMES DE DOMÍNIO | PORTAS DE SAÍDA | DESCRIÇÃO |
 | --- | --- | --- |
@@ -142,7 +146,7 @@ Você pode usar um aplicativo de teste de velocidade do Azure de terceiros para 
 **Pergunta**: onde minhas credenciais são armazenadas? <br/>
 **Resposta**: As credenciais que você inserir para uma fonte de dados são armazenadas criptografadas no serviço de nuvem do gateway. Elas são descriptografadas no gateway local.
 
-### <a name="high-availability/disaster-recovery"></a>Alta disponibilidade/recuperação de desastres
+### <a name="high-availabilitydisaster-recovery"></a>Alta disponibilidade/recuperação de desastres
 **Pergunta**: há planos para habilitar cenários de alta disponibilidade com o gateway? <br/>
 **Resposta**: Isso está em nossos planos, mas ainda não temos um cronograma.
 
@@ -175,7 +179,7 @@ Quando um usuário interage com um elemento que está conectado a uma fonte de d
 ### <a name="update-to-the-latest-version"></a>Obtenha a versão mais recente
 Muitos problemas podem surgir quando a versão do gateway está desatualizada.  É uma boa prática geral garantir que sua versão seja sempre a mais recente.  Se você não atualiza o gateway há um mês ou mais, convém instalar a versão mais recente do gateway e verificar se o problema pode ser reproduzido.
 
-### <a name="error:-failed-to-add-user-to-group.-(-2147463168-pbiegwservice-performance-log-users-)"></a>Erro: falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users )
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users-"></a>Erro: falha ao adicionar usuário ao grupo. (-2147463168 PBIEgwService Performance Log Users )
 Você poderá receber esse erro se estiver tentando instalar o gateway em um controlador de domínio, que não tem suporte. Será preciso implantar o gateway em uma máquina que não seja um controlador de domínio.
 
 ## <a name="tools"></a>Ferramentas
@@ -202,6 +206,9 @@ Os logs do Gateway de Gerenciamento de Dados e do PowerBIGateway se encontram em
 * [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 * [Conectores de Aplicativos Lógicos](../connectors/apis-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/07/2016
 ms.author: adsolank;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+ms.sourcegitcommit: 7065d5e87dbf47153bc89b37b56af81927b8b92b
+ms.openlocfilehash: 902e872b224b267c989f741345efdd8ef3fa8ce3
 
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2
 ## <a name="overview"></a>Visão geral
-O MP (processador de mídia) da **Preview do Indexador de Mídia do Azure 2** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Comparada à versão anterior do [Indexador de Mídia do Azure](media-services-index-content.md), a **Preview do Indexador de Mídia do Azure 2** executa uma indexação mais rápida e oferece maior suporte a idiomas. Dentre os idiomas com suporte estão o inglês, espanhol, francês, alemão, italiano, chinês, português e árabe.
+O MP (processador de mídia) da **Preview do Indexador de Mídia do Azure 2** permite tornar conteúdo e arquivos de mídia pesquisáveis, bem como gerar faixas de legendagem oculta. Comparada à versão anterior do [Indexador de Mídia do Azure](media-services-index-content.md), a **Preview do Indexador de Mídia do Azure 2** executa uma indexação mais rápida e oferece maior suporte a idiomas. Os idiomas com suporte incluem o inglês, espanhol, francês, alemão, italiano, chinês (mandarim, simplificado), português, árabe e japonês.
 
 No momento, o MP da **Preview do Indexador de Mídia do Azure 2** está em Preview.
 
@@ -32,8 +32,6 @@ Este tópico mostra como criar trabalhos de indexação com a **Visualização d
 > As seguintes considerações se aplicam:
 > 
 > Não há suporte para o Indexador 2 no Azure China e no Azure Governamental.
-> 
-> A preview é limitada a cerca de 10 minutos de processamento, mas é gratuita para todos os clientes.
 > 
 > Quanto a indexação de conteúdo, certifique-se de usar os arquivos de mídia com fala muito clara (sem música em segundo plano, ruído, efeitos ou assovio no microfone). Alguns exemplos de conteúdo apropriado são: reuniões, palestras e apresentações registradas. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, tudo com áudio misto e efeitos de som, com conteúdo mal gravado com ruídos de fundo (assovio).
 > 
@@ -78,14 +76,16 @@ A Preview do Indexador de Mídia do Azure 2 dá suporte à conversão de fala em
 
 * Inglês [EnUs]
 * Espanhol [EsEs]
-* Chinês [ZhCn]
+* Chinês (mandarim, simplificado) [ZhCn]
 * Francês [FrFr]
 * Alemão [DeDe]
 * Italiano [ItIt]
 * Português [PtBr]
 * Árabe (Egípcio) [ArEg]
+* Japonês [JaJp]
 
 ## <a name="sample-code"></a>Exemplo de código
+
 O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
@@ -282,6 +282,6 @@ O programa a seguir mostra como:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

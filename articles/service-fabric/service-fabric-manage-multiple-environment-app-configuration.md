@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/01/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+ms.sourcegitcommit: cd256c403cc8094a135157cdc69dbdd3971978ca
+ms.openlocfilehash: 9f8a898f265bc27fc47ea2e3d00d123f3f47dad6
 
 
 ---
@@ -31,6 +31,7 @@ A solução para esse problema de configuração é um conjunto de serviços pad
 ### <a name="default-services"></a>Serviços padrão
 Os aplicativos do Service Fabric são compostos de uma coleção de instâncias de serviço. Embora seja possível para você criar um aplicativo vazio e, em seguida, criar dinamicamente todas as instâncias de serviço, a maioria dos aplicativos tem um conjunto de serviços principais que sempre deverá ser criado quando o aplicativo for instanciado. Eles são chamados de "serviços padrão". Eles são especificados no manifesto do aplicativo, com espaços reservados para configuração por ambiente incluídos entre colchetes adicionais:
 
+```xml
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
@@ -46,14 +47,17 @@ Os aplicativos do Service Fabric são compostos de uma coleção de instâncias 
         </StatefulService>
     </Service>
   </DefaultServices>
+```
 
 Cada um dos parâmetros nomeados deve ser definido dentro do elemento Parameters do manifesto do aplicativo:
 
+```xml
     <Parameters>
         <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
+```
 
 O atributo DefaultValue especifica o valor a ser usado na ausência de um parâmetro mais específico para um determinado ambiente.
 
@@ -67,12 +71,14 @@ O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) 
 
 Suponha que você tenha a seguinte configuração no arquivo Config\Settings.xml para o serviço `Stateful1`:
 
+```xml
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
-
+```
 Para substituir esse valor por um par de aplicativo/ambiente específico, crie uma `ConfigOverride` ao importar o manifesto do serviço no manifesto do aplicativo.
 
+```xml
     <ConfigOverrides>
      <ConfigOverride Name="Config">
         <Settings>
@@ -82,7 +88,7 @@ Para substituir esse valor por um par de aplicativo/ambiente específico, crie u
         </Settings>
      </ConfigOverride>
   </ConfigOverrides>
-
+```
 Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. Você pode fazer isso declarando-o na seção de parâmetros do manifesto do aplicativo e especificando valores específicos nos arquivos de parâmetro do aplicativo.
 
 > [!NOTE]
@@ -93,6 +99,7 @@ Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. V
 ### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
 O projeto de aplicativo do Service Fabric pode incluir um ou mais arquivos de parâmetro de aplicativo. Cada um deles define os valores específicos para os parâmetros definidos no manifesto do aplicativo:
 
+```xml
     <!-- ApplicationParameters\Local.xml -->
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -102,7 +109,7 @@ O projeto de aplicativo do Service Fabric pode incluir um ou mais arquivos de pa
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>
     </Application>
-
+```
 Por padrão, um novo aplicativo inclui três arquivos de parâmetro de aplicativo, chamados Local.1Node.xml, Local.5Node.xml e Cloud.xml:
 
 ![Arquivos de parâmetros de aplicativo no Gerenciador de Soluções][app-parameters-solution-explorer]
@@ -134,6 +141,6 @@ Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

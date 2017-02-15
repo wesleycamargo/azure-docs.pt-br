@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como configurar o monitoramento de segurança e o gerenciamento de políticas para recursos do Azure. Tutoriais, uma referência da API REST e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
-ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Documentação da Central de Segurança
@@ -77,7 +77,7 @@ Saiba como usar a Central de Segurança para obter visibilidade e controle sobre
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">referência da API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -85,13 +85,7 @@ Saiba como usar a Central de Segurança para obter visibilidade e controle sobre
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação da Central de Segurança </div>
-    </a>
-</div>
+
 
 
 

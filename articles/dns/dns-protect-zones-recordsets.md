@@ -43,14 +43,14 @@ As permissões também podem ser [concedidas usando o Azure PowerShell](../activ
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName <resource group name>
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 O comando equivalente também está [disponível por meio da CLI do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-azure role assignment create --signInName  <user email address> --roleName "DNS Zone Contributor" --resourceGroup <resource group name>
+azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --resourceGroup "<resource group name>"
 ```
 
 ### <a name="zone-level-rbac"></a>RBAC de nível de zona
@@ -67,12 +67,12 @@ As permissões também podem ser [concedidas usando o Azure PowerShell](../activ
 
 ```powershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName <resource group name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 O comando equivalente também está [disponível por meio da CLI do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 azure role assignment create --signInName <user email address> --roleName "DNS Zone Contributor" --resource-name <zone name> --resource-type Microsoft.Network/DNSZones --resource-group <resource group name>
 ```
@@ -89,14 +89,14 @@ As permissões RBAC de nível do conjunto de registros também podem ser [conced
 
 ```powershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName <user email address> -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 O comando equivalente também está [disponível por meio da CLI do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md):
 
-```powershell
+```azurecli
 # Grant permissions to a specific record set
-azure role assignment create --signInName <user email address> --roleName "DNS Zone Contributor" --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 ### <a name="custom-roles"></a>Funções personalizadas
@@ -150,7 +150,7 @@ New-AzureRmRoleDefinition -InputFile <file path>
 
 Ela também pode ser criada por meio da CLI do Azure:
 
-```powershell
+```azurecli
 # Create new role definition based on input file
 azure role create -inputfile <file path>
 ```
@@ -193,7 +193,7 @@ Atualmente, os bloqueios de recurso em nível de conjunto de registros só podem
 
 ```powershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name>/<record set name> -ResourceType Microsoft.Network/DNSZones/<record type> -ResourceGroupName <resource group name>
+New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Proteção contra a exclusão de zona
@@ -208,7 +208,7 @@ O comando do PowerShell a seguir cria um bloqueio DoNotDelete para o registro SO
 
 ```powershell
 # Protect against zone delete with DoNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel DoNotDelete -LockName <lock name> -ResourceName <zone name>/@ -ResourceType Microsoft.Network/DNSZones/SOA -ResourceGroupName <resource group name>
+New-AzureRmResourceLock -LockLevel DoNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Outra maneira de evitar a exclusão acidental de zonas é usando uma função personalizada para garantir que o operador e as contas de serviço usados para gerenciar as zonas não tenham permissões de exclusão. Quando você precisa excluir uma zona, pode impor uma exclusão em duas etapas, primeiro concedendo permissões de exclusão de zonas (no escopo de zona, para evitar excluir a zona errada) e depois para excluir a zona.

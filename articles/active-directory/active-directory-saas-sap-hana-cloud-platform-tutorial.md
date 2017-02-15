@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP | Microsoft Docs'
-description: Saiba como usar a SAP HANA Cloud Platform com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: Integração do Azure Active Directory com a SAP HANA Cloud Platform | Microsoft Docs"
+description: "Saiba como usar a SAP HANA Cloud Platform com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dae115c597e3a86c954eafcdd322954774fd55a5
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana-cloud-platform"></a>Tutorial: Integração do Active Directory do Azure com a Plataforma de Nuvem HANA SAP
 O objetivo deste tutorial é mostrar a integração do Azure com a Plataforma de Nuvem HANA SAP.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -41,7 +45,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-sap-hana-cloud-platform"></a>Habilitando a integração de aplicativos para a Plataforma de Nuvem HANA SAP
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com a Plataforma de Nuvem HANA SAP.
 
-### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos com a Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-sap-hana-cloud-platform-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com a Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
 1. No Portal de Gerenciamento do Azure, no painel navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700993.png "Active Directory")
@@ -68,7 +72,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Como parte deste procedimento, será necessário carregar um certificado codificado de base 64 no locatário da Plataforma de Nuvem HANA SAP.  
 Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar o logon único](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configure single sign-on")
@@ -164,7 +168,7 @@ Como uma etapa opcional, você pode configurar grupos com base na asserção par
 ## <a name="assigning-a-role-to-a-user"></a>Atribuindo uma função a um usuário
 Para permitir que os usuários do AD do Azure façam logon na Plataforma de Nuvem HANA SAP, atribua funções a eles na Plataforma de Nuvem HANA SAP.
 
-### <a name="to-assign-a-role-to-a-user,-perform-the-following-steps:"></a>Para atribuir uma função a um usuário, execute as seguintes etapas:
+### <a name="to-assign-a-role-to-a-user-perform-the-following-steps"></a>Para atribuir uma função a um usuário, execute as seguintes etapas:
 1. Faça logon em sua ferramenta cockpit da **SAP HANA Cloud Platform** .
 2. Execute as seguintes etapas:
    
@@ -179,7 +183,7 @@ Para permitir que os usuários do AD do Azure façam logon na Plataforma de Nuve
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-sap-hana-cloud-platform,-perform-the-following-steps:"></a>Para atribuir usuários à Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
+### <a name="to-assign-users-to-sap-hana-cloud-platform-perform-the-following-steps"></a>Para atribuir usuários à Plataforma de Nuvem HANA SAP, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos da **SAP HANA Cloud Platform**, clique em **Atribuir usuários**.
    
@@ -190,6 +194,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

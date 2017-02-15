@@ -1,35 +1,39 @@
 ---
-title: Exceções comuns geradas pelo FabricClient | Microsoft Docs
-description: Descreve as exceções e erros comuns que podem ser gerados pelas APIs FabricClient ao executar operações de gerenciamento de aplicativos e clusters.
+title: "Exceções comuns do FabricClient lançadas | Microsoft Docs"
+description: "Descreve as exceções e erros comuns que podem ser gerados pelas APIs FabricClient ao executar operações de gerenciamento de aplicativos e clusters."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 11/14/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 491f61afe899c746c193f0d3703d3212f9258e63
+ms.openlocfilehash: 578046d6939b90cb58d457087bb465006630b4c1
+
 
 ---
-# Exceções e erros comuns ao trabalhar com as APIs FabricClient
-As APIs [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) permitem que administradores de clusters e aplicativos executem tarefas administrativas em um aplicativo, serviço ou cluster do Service Fabric. Por exemplo, implantação, atualização e remoção de aplicativos, verificação da integridade de clusters ou teste de serviços. Desenvolvedores de aplicativos e administradores de clusters podem usar as APIs FabricClient para desenvolver ferramentas para gerenciar clusters e aplicativos do Service Fabric.
+# <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Exceções e erros comuns ao trabalhar com as APIs FabricClient
+As APIs [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) permitem que administradores de clusters e aplicativos executem tarefas administrativas em um aplicativo, serviço ou cluster do Service Fabric. Por exemplo, implantação, atualização e remoção de aplicativos, verificação da integridade de clusters ou teste de serviços. Desenvolvedores de aplicativos e administradores de clusters podem usar as APIs FabricClient para desenvolver ferramentas para gerenciar clusters e aplicativos do Service Fabric.
 
-Há muitos tipos de operações diferentes que podem ser executados usando o FabricClient. Cada método pode gerar exceções para erros decorrentes de entrada incorreta, erros de tempo de execução ou problemas de infra-estrutura transitórios. Consulte a documentação de referência da API para localizar quais exceções são geradas por um método específico. Há algumas exceções, no entanto, que podem ser geradas por várias APIs [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) diferentes. A tabela a seguir lista as exceções que são comuns entre as APIs FabricClient.
+Há muitos tipos de operações diferentes que podem ser executados usando o FabricClient.  Cada método pode gerar exceções para erros decorrentes de entrada incorreta, erros de tempo de execução ou problemas de infra-estrutura transitórios.  Consulte a documentação de referência da API para localizar quais exceções são geradas por um método específico. Há algumas exceções, no entanto, que podem ser lançadas por várias APIs [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) diferentes. A tabela a seguir lista as exceções que são comuns entre as APIs FabricClient.
 
 | Exceção | Gerada quando |
 | --- |:--- |
-| [System.Fabric.FabricObjectClosedException](https://msdn.microsoft.com/library/system.fabric.fabricobjectclosedexception.aspx) |O objeto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) está em um estado fechado. Descarte o objeto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) que você está usando e crie uma instância para um novo objeto [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). |
-| [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |A operação atingiu o tempo limite. [OperationTimedOut](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) é retornado quando a operação leva mais do que MaxOperationTimeout para ser concluída. |
-| [System.UnauthorizedAccessException](https://msdn.microsoft.com/pt-BR/library/system.unauthorizedaccessexception.aspx) |Ocorreu uma falha na verificação de acesso para a operação. E\_ACCESSDENIED é retornado. |
-| [System.Fabric.FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx) |Ocorreu um erro de tempo de execução ao executar a operação. Qualquer um dos métodos FabricClient pode gerar [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx). A propriedade [ErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricexception.errorcode.aspx) indica a causa exata da exceção. Códigos de erro são definidos na enumeração [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx). |
-| [System.Fabric.FabricTransientException](https://msdn.microsoft.com/library/system.fabric.fabrictransientexception.aspx) |A operação falhou devido a algum tipo de condição de erro transitório. Por exemplo, uma operação pode falhar porque um quorum de réplicas está inacessível temporariamente. Exceções temporárias correspondem a operações com falha que podem ser tentadas novamente. |
+| [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |O objeto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) está em um estado fechado. Descarte o objeto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) que você está usando e instancie um novo objeto [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient). |
+| [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |A operação atingiu o tempo limite. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) é retornado quando a operação leva mais do que o MaxOperationTimeout para ser concluída. |
+| [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception#System_UnauthorizedAccessException) |Ocorreu uma falha na verificação de acesso para a operação. E_ACCESSDENIED é retornado. |
+| [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException) |Ocorreu um erro de tempo de execução ao executar a operação. Qualquer um dos métodos FabricClient pode gerar [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException); a propriedade [ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException_ErrorCode) indica a causa exata da exceção. Códigos de erro são definidos na enumeração [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode). |
+| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception#System_Fabric_FabricTransientException) |A operação falhou devido a algum tipo de condição de erro transitório. Por exemplo, uma operação pode falhar porque um quorum de réplicas está inacessível temporariamente. Exceções temporárias correspondem a operações com falha que podem ser tentadas novamente. |
 
-Alguns erros [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.fabricerrorcode.aspx) que podem ser retornados em uma [FabricException](https://msdn.microsoft.com/library/system.fabric.fabricexception.aspx):
+Alguns erros [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) comuns que podem ser retornados em uma [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception#System_Fabric_FabricException):
 
 | Erro | Condição |
 | --- |:--- |
@@ -44,4 +48,9 @@ Alguns erros [FabricErrorCode](https://msdn.microsoft.com/library/system.fabric.
 | InvalidSubjectName |O nome da entidade é inválido. |
 | InvalidAllowedCommonNameList |O formato da cadeia de caracteres de lista de nome comum é inválido. Ele deve ser uma lista separada por vírgulas. |
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

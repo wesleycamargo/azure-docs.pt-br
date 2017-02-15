@@ -28,7 +28,7 @@ O diagrama abaixo fornece uma visão geral da arquitetura do [Modelo de Soluçã
 
 ![Diagrama da arquitetura do Modelo de Solução do Microsoft Cortana Intelligence para previsão de demanda de energia][image]
 
-[imagem]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
+[image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png
 
 
 

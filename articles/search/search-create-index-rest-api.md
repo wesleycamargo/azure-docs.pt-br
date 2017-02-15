@@ -110,6 +110,6 @@ Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

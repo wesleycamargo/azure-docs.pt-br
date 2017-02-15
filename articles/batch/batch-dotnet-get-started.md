@@ -3,7 +3,7 @@ title: "Tutorial – Introdução à Biblioteca .NET do Lote do Azure | Microsof
 description: "Saiba mais sobre os conceitos básicos do Lote do Azure e sobre como desenvolver para o serviço Lote com um cenário de exemplo."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 58189daa7dd80e9ecb074a935e3e53fe75637643
-ms.openlocfilehash: 8bac99e393dd0ccca9eaa6097dc87872e306dc5c
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8243e2304d846e02ecf0114b79be73c0016941df
 
 
 ---
@@ -75,7 +75,7 @@ O diagrama a seguir ilustra as principais operações executadas pelo aplicativo
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** À medida que as tarefas são concluídas, elas carregam os dados de saída no Armazenamento do Azure.<br/>
-[**Etapa 7.**](#step-7-download-task-output)  Baixe a saída da tarefa do Armazenamento.
+[**Etapa 7.**](#step-7-download-task-output) Baixe a saída da tarefa do Armazenamento.
 
 Como mencionado, nem todas as soluções do Lote executam essas etapas exatas e podem incluir muitas outras, mas o aplicativo de exemplo *DotNetTutorial* demonstra os processos comuns encontrados em uma solução do Lote.
 
@@ -104,7 +104,7 @@ private const string StorageAccountKey  = "";
 >
 >
 
-Você pode encontrar suas credenciais de conta do Lote e do Armazenamento na folha da conta de cada serviço no [Portal do Azure][azure_portal]:
+Você pode encontrar suas credenciais de conta do Lote e de Armazenamento na folha da conta de cada serviço no [Portal do Azure][azure_portal]:
 
 ![Credenciais de Lote no portal][9]
 ![Credenciais de armazenamento no portal][10]<br/>
@@ -112,7 +112,7 @@ Você pode encontrar suas credenciais de conta do Lote e do Armazenamento na fol
 Agora que você atualizou o projeto com suas credenciais, clique com botão direito do mouse na solução no Gerenciador de Soluções e clique em **Compilar Solução**. Confirme a restauração de qualquer pacote NuGet, se solicitado.
 
 > [!TIP]
-> Se os pacotes NuGet não forem automaticamente restaurados ou se você encontrar erros sobre uma falha ao restaurar os pacotes, verifique se você tem o [Gerenciador de Pacotes NuGet][nuget_packagemgr] instalado. Em seguida, habilite o download de pacotes ausentes. Confira [Habilitando a Restauração de Pacotes Durante a Compilação][nuget_restore] para habilitar o download de pacotes.
+> Se os pacotes NuGet não forem automaticamente restaurados ou se você encontrar erros sobre uma falha ao restaurar os pacotes, verifique se você tem o [Gerenciador de Pacotes NuGet][nuget_packagemgr] instalado. Em seguida, habilite o download de pacotes ausentes. Confira [Habilitando a Restauração de Pacotes Durante o Build][nuget_restore] para habilitar o download de pacotes.
 >
 >
 
@@ -130,7 +130,7 @@ O Lote inclui suporte interno para a interação com o Armazenamento do Azure. O
 * **input**: as tarefas baixarão os arquivos de dados a serem processados do contêiner *input* .
 * **output**: quando as tarefas concluírem o processamento dos arquivos de entrada, carregarão os resultados no contêiner *output* .
 
-Para interagir com uma conta do Armazenamento e criar contêineres, usamos a [Biblioteca de Cliente do Armazenamento do Azure para .NET][net_api_storage]. Podemos criar uma referência à conta com [CloudStorageAccount][net_cloudstorageaccount] e dela criar um [CloudBlobClient][net_cloudblobclient]:
+Para interagir com uma conta de Armazenamento e criar contêineres, usamos a [Biblioteca de Cliente do Armazenamento do Azure para .NET][net_api_storage]. Podemos criar uma referência à conta com [CloudStorageAccount][net_cloudstorageaccount] e dela criar um [CloudBlobClient][net_cloudblobclient]:
 
 ```csharp
 // Construct the Storage account connection string
@@ -266,7 +266,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-Um [ResourceFile][net_resourcefile] fornece tarefas no Lote com a URL para um arquivo no Armazenamento do Azure que é baixado para um nó de computação antes da execução da tarefa. A propriedade [ResourceFile.BlobSource][net_resourcefile_blobsource] especifica a URL completa do arquivo como ela existe no Armazenamento do Azure. A URL também pode incluir uma assinatura de acesso compartilhado (SAS) que fornece acesso seguro ao arquivo. A maioria dos tipos de tarefas no .NET do Lote inclui uma propriedade *ResourceFiles* , incluindo:
+O [ResourceFile][net_resourcefile] fornece tarefas no Lote com a URL para um arquivo no Armazenamento do Azure que é baixado para um nó de computação antes da execução da tarefa. A propriedade [ResourceFile.BlobSource][net_resourcefile_blobsource] especifica a URL completa do arquivo como ela existe no Armazenamento do Azure. A URL também pode incluir uma assinatura de acesso compartilhado (SAS) que fornece acesso seguro ao arquivo. A maioria dos tipos de tarefas no .NET do Lote inclui uma propriedade *ResourceFiles* , incluindo:
 
 * [CloudTask][net_task]
 * [StartTask][net_pool_starttask]
@@ -348,7 +348,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-Ao criar um pool com [CreatePool][net_pool_create], você especificará diversos parâmetros, como o número de nós de computação, o [tamanho dos nós](../cloud-services/cloud-services-sizes-specs.md) e o sistema operacional dos nós. Em *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar o Windows Server 2012 R2 do [Serviços de Nuvem](../cloud-services/cloud-services-guestos-update-matrix.md). No entanto, ao especificar uma [VirtualMachineConfiguration][net_virtualmachineconfiguration], você poderá criar grupos de nós criados de imagens do Marketplace, que incluem imagens do Windows e do Linux. Confira [Provisionar nós de computação em Linux nos pools do Lote do Azure](batch-linux-nodes.md) para saber mais.
+Ao criar um pool com [CreatePool][net_pool_create], você especificará diversos parâmetros, como o número de nós de computação, o [tamanho dos nós](../cloud-services/cloud-services-sizes-specs.md) e o sistema operacional dos nós. Em *DotNetTutorial*, usamos [CloudServiceConfiguration][net_cloudserviceconfiguration] para especificar o Windows Server 2012 R2 do [Serviços de Nuvem](../cloud-services/cloud-services-guestos-update-matrix.md). No entanto, ao especificar uma [VirtualMachineConfiguration][net_virtualmachineconfiguration], você poderá criar grupos de nós criados de imagens do Marketplace, que incluem imagens do Windows e do Linux. Confira [Provisionar nós de computação Linux em pools do Lote do Azure](batch-linux-nodes.md) para obter mais informações.
 
 > [!IMPORTANT]
 > Você é cobrado pelos recursos de computação no Lote. Para minimizar os custos, você poderá diminuir `targetDedicated` para 1 antes de executar o exemplo.
@@ -498,7 +498,7 @@ Quando as tarefas são adicionadas a um trabalho, são automaticamente enfileira
 Há muitas abordagens para o monitoramento da execução da tarefa. O DotNetTutorial mostra um exemplo simples que relata apenas a conclusão e a falha de tarefas ou os estados de êxito. No método `MonitorTasks` no `Program.cs` do DotNetTutorial, há três conceitos do .NET do Lote que garantem a discussão. Eles são listados na ordem em que aparecem:
 
 1. **ODATADetailLevel**: a especificação de um [ODATADetailLevel][net_odatadetaillevel] na lista de operações (como a obtenção de uma lista de tarefas do trabalho) é essencial para garantir o desempenho do aplicativo do Lote. Adicione [Consultar o serviço Lote do Azure com eficiência](batch-efficient-list-queries.md) à sua lista de leitura se você planejar fazer qualquer tipo de monitoramento de status em seus aplicativos do Lote.
-2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] fornece aplicativos .NET do Lote com utilitários auxiliares para monitorar estados da tarefa. Em `MonitorTasks`, *DotNetTutorial* aguarda que todas as tarefas atinjam [TaskState.Completed][net_taskstate] dentro de um limite de tempo. Em seguida, ele conclui o trabalho.
+2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] fornece aplicativos .NET do Lote com utilitários auxiliares para monitorar estados da tarefa. Em `MonitorTasks`, *DotNetTutorial* aguarda que todas as tarefas alcancem [TaskState.Completed][net_taskstate] dentro de um limite de tempo. Em seguida, ele conclui o trabalho.
 3. **TerminateJobAsync**: o encerramento de um trabalho com [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (ou o bloqueio de JobOperations.TerminateJob) marca esse trabalho como concluído. Será essencial fazer isso se sua solução do Lote usar um [JobReleaseTask][net_jobreltask]. Esse é um tipo especial de tarefa, descrita em [Tarefas de preparação e de conclusão do trabalho](batch-job-prep-release.md).
 
 O método `MonitorTasks` no `Program.cs` do *DotNetTutorial* aparece abaixo:
@@ -664,7 +664,7 @@ private static async Task DeleteContainerAsync(
 ## <a name="step-9-delete-the-job-and-the-pool"></a>Etapa 9: excluir o trabalho e o pool
 Na etapa final, é solicitado que você exclua o trabalho e o pool criados pelo aplicativo DotNetTutorial. Embora você não seja cobrado pelos trabalhos e pelas tarefas, *será* cobrado pelos nós de computação. Portanto, recomendamos que você aloque os nós conforme necessário. A exclusão de pools não utilizados pode fazer parte de seu processo de manutenção.
 
-As [JobOperations][net_joboperations] e as [PoolOperations][net_pooloperations] do BatchClient têm métodos de exclusão correspondentes, que serão chamados se o usuário confirmar a exclusão:
+As [JobOperations][net_joboperations] e as [PoolOperations][net_pooloperations] do BatchClient têm métodos de exclusão correspondentes, chamados se o usuário confirmar a exclusão:
 
 ```csharp
 // Clean up the resources we've created in the Batch account if the user so chooses
@@ -690,7 +690,7 @@ if (response != "n" && response != "no")
 >
 
 ## <a name="run-the-dotnettutorial-sample"></a>Executar o exemplo *DotNetTutorial*
-Quando você executar o aplicativo de exemplo, a saída do console será semelhante à seguinte. Durante a execução, você terá uma pausa em `Awaiting task completion, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. Use o [Portal do Azure][azure_portal] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [Portal do Azure][azure_portal] ou o [Gerenciador do Armazenamento do Azure][storage_explorers] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
+Quando você executar o aplicativo de exemplo, a saída do console será semelhante à seguinte. Durante a execução, você terá uma pausa em `Awaiting task completion, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. Use o [Portal do Azure][azure_portal] para monitorar o pool, os nós de computação, o trabalho e as tarefas durante e após a execução. Use o [Portal do Azure][azure_portal] ou o [Gerenciador de Armazenamento do Azure][storage_explorers] para exibir os recursos do Armazenamento (contêineres e blobs) criados pelo aplicativo.
 
 O tempo de execução típico é de **aproximadamente 5 minutos** ao executar o aplicativo em sua configuração padrão.
 
@@ -784,7 +784,7 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Criar contêineres no Armazenamento do Azure"
 [2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Carregar arquivos de aplicativo e de entrada (dados) da tarefa nos contêineres"
 [3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Criar pool do Lote"
-[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Criar trabalho do Lote"
+[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Criar trabalho em lotes"
 [5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Adicionar tarefas ao trabalho"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Monitorar tarefas"
 [7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Baixar a saída da tarefa do Armazenamento"
@@ -795,6 +795,6 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 42428d9456c5ea00192a981265bd50263cbf66ba
 
 
 ---
@@ -26,14 +26,14 @@ Quando você estiver distribuindo conteúdo de streaming ou vídeo sob demanda a
 Para atingir esse objetivo, você pode:
 
 * Codificar o fluxo para uma transmissão de vídeo de múltiplas taxas de bits (taxa de bit adaptável). Isso cuidará da qualidade e das condições de rede.
-* Usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia do Microsoft Azure para reempacotar dinamicamente a transmissão em diferentes protocolos. Isso se encarregará da transmissão em diferentes dispositivos. Os Serviços de Mídia dão suporte à distribuição das seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG-DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+* Usar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Serviços de Mídia do Microsoft Azure para reempacotar dinamicamente a transmissão em diferentes protocolos. Isso se encarregará da transmissão em diferentes dispositivos. Os Serviços de Mídia dá suporte a entrega das seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming e MPEG DASH.
 
 Este artigo apresenta uma visão geral de conceitos importantes de distribuição de conteúdo.
 
 Para verificar os problemas conhecidos, confira [Problemas conhecidos](media-services-deliver-content-overview.md#known-issues).
 
-## <a name="dynamic-packaging"></a>empacotamento dinâmico
-Com o empacotamento dinâmico que os Serviços de Mídia fornecem, você pode distribuir seu conteúdo codificado por Smooth Streaming ou MP4 de taxa de bits adaptável em formatos de transmissão suportados pelos Serviços de Mídia (MPEG-DASH, HLS, Smooth Streaming, HDS) sem precisar reempacotar nesses formatos de streaming. É recomendável distribuir conteúdo com empacotamento dinâmico.
+## <a name="dynamic-packaging"></a>Empacotamento dinâmico
+Com o empacotamento dinâmico que os Serviços de Mídia fornecem, você pode distribuir seu conteúdo codificado por Smooth Streaming ou MP4 de taxa de bits adaptável em formatos de transmissão com suporte dos Serviços de Mídia (MPEG-DASH, HLS, Smooth Streaming) sem precisar empacotar novamente nesses formatos de streaming. É recomendável distribuir conteúdo com empacotamento dinâmico.
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
@@ -73,7 +73,7 @@ Os localizadores não foram desenvolvidos para gerenciar o controle de acesso po
 Quando você cria um localizador, pode haver um atraso de 30 segundos devido a processos de armazenamento e propagação necessários no Armazenamento do Azure.
 
 ## <a name="adaptive-streaming"></a>Streaming adaptável
-Tecnologias de taxa de bits adaptável permitem que os aplicativos de player de vídeo determinem as condições da rede e selecionem entre várias taxas de bits. Quando a comunicação da rede é degradada, o cliente pode escolher uma taxa de bits inferior, de modo que a reprodução possa continuar com a qualidade de vídeo inferior. À medida que as condições da rede melhoram, o cliente pode alternar para uma taxa de bits mais alta com qualidade de vídeo aprimorada. Os Serviços de Mídia do Azure permitem as seguintes tecnologias de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG-DASH e HDS.
+Tecnologias de taxa de bits adaptável permitem que os aplicativos de player de vídeo determinem as condições da rede e selecionem entre várias taxas de bits. Quando a comunicação da rede é degradada, o cliente pode escolher uma taxa de bits inferior, de modo que a reprodução possa continuar com a qualidade de vídeo inferior. À medida que as condições da rede melhoram, o cliente pode alternar para uma taxa de bits mais alta com qualidade de vídeo aprimorada. Os Serviços de Mídia do Azure dão suporte às seguintes tecnologias de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming e MPEG-DASH.
 
 Para fornecer aos usuários URLs de streaming, você deve primeiro criar um localizador OnDemandOrigin. A criação do localizador proporciona o caminho base para o ativo que inclui o conteúdo que você deseja transmitir. No entanto, para poder transmitir esse conteúdo, você precisa modificar esse caminho ainda mais. Para construir uma URL completa para o arquivo de manifesto de streaming, é preciso concatenar o valor do caminho do localizador e o nome de arquivo de manifesto (filename.ism). Em seguida, acrescente **/Manifest** e um formato apropriado (se necessário) ao caminho do localizador.
 
@@ -120,11 +120,6 @@ Por padrão, o formato de manifesto do Smooth Streaming contém a marca de repet
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=fmp4-v20)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
-
-### <a name="hds-for-adobe-primetimeaccess-licensees-only"></a>HDS (apenas para licenciados do Adobe PrimeTime/Access)
-{nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=f4m-f4f)
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 ## <a name="progressive-download"></a>Download progressivo
 Com o download progressivo, é possível iniciar a reprodução da mídia antes de o arquivo inteiro ter sido baixado. Você não pode baixar progressivamente arquivos .ism* (ismv, isma, ismt ou ismc).
@@ -189,6 +184,6 @@ Alguns dos clientes herdados do Smooth Streaming podem não dar suporte às marc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

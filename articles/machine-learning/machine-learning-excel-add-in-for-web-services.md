@@ -1,20 +1,24 @@
 ---
-title: Suplemento do Excel para serviços Web do Machine Learning | Microsoft Docs
-description: Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código.
+title: "Suplemento do Excel para serviços Web do Machine Learning | Microsoft Docs"
+description: "Como usar os serviços Web do Azure Machine Learning diretamente no Excel sem escrever nenhum código."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: tedway
 manager: jhubbard
 editor: cgronlun
-tags: ''
-
+tags: 
+ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/05/2016
+ms.date: 11/15/2016
 ms.author: tedway;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 97f5972dcda1c70cd56c00cc8153d3fba5491404
+ms.openlocfilehash: b1039dbddc4e42f890254ec98e7cbe45347c5b4c
+
 
 ---
 # <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Suplemento do Excel para serviços Web do Azure Machine Learning
@@ -88,6 +92,6 @@ Faça suas perguntas na seção de comentário abaixo ou em nosso [fórum](http:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

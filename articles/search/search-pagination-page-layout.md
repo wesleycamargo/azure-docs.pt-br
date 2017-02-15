@@ -118,6 +118,6 @@ Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

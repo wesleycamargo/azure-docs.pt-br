@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 41334fb928b18c288f32efb0978150fa24ae14e3
 
 
 ---
@@ -54,7 +54,7 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
    A implementação é totalmente automatizada usando bibliotecas de gerenciamento do C# e filas do Barramento de Serviço do Azure.
 2. Utilização
    
-   Os clientes usam de um a três ambientes (para produção, preparo e/ou desenvolvimento), cada um com seu próprio banco de dados. Os bancos de dados do cliente estão em pools de banco de dados elásticos, o que permite à Umbraco fornecer dimensionamento sem a necessidade de provisionamento excessivo.
+   Os clientes usam de um a três ambientes (para produção, preparo e/ou desenvolvimento), cada um com seu próprio banco de dados. Os bancos de dados do cliente estão em pools elásticos, o que permite à Umbraco fornecer dimensionamento eficiente sem a necessidade de provisionamento excessivo.
    
    ![Visão geral do projeto da Umbraco](./media/sql-database-implementation-umbraco/figure2.png)
    
@@ -78,7 +78,7 @@ Com o Banco de Dados SQL do Azure e outros serviços do Azure, os clientes da Um
    Quando um ambiente de projeto é excluído, todos os bancos de dados associados (desenvolvimento, preparo ou ativo) são removidos durante a limpeza da fila do Barramento de Serviço do Azure. Esse processo automatizado restaura os bancos de dados não utilizados no pool de disponibilidade de banco de dados elástico da Umbraco, disponibilizando-os para provisionamento futuro e mantendo a utilização máxima.
 
 ## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>Pools elásticos permitem que a UaaS seja dimensionada com facilidade
-Aproveitando os pools de bancos de dados elásticos do Azure, a Umbraco pode otimizar o desempenho para seus clientes sem provisionamento excessivo ou escasso. Atualmente, a Umbraco tem quase 3.000 bancos de dados em 19 pools de bancos de dados elásticos, com a capacidade de serem dimensionados facilmente conforme a necessidade para acomodar qualquer um dos seus 325.000 clientes existentes ou novos clientes que estão prontos para implantar um CMS na nuvem.
+Aproveitando os pools elásticos do Azure, a Umbraco pode otimizar o desempenho para seus clientes sem que haja provisionamento excessivo ou escasso. Atualmente, a Umbraco tem cerca de 3.000 bancos de dados em 19 pools elásticos, com a capacidade de serem dimensionados facilmente conforme a necessidade, para acomodar qualquer um dos seus 325.000 clientes existentes ou novos clientes que estão prontos para implantar um CMS na nuvem.
 
 Na verdade, de acordo com Morten Christensen, líder técnico da Umbraco, "Agora, a UaaS está com um crescimento de 30 novos clientes por dia. Nossos clientes estão muito satisfeitos com a conveniência de poderem provisionar novos projetos em questão de segundos, publicar instantaneamente atualizações em seus sites ativos de um ambiente de desenvolvimento usando a 'implantação de um clique' e fazer alterações rapidamente caso encontrem erros".
 
@@ -91,7 +91,7 @@ Figura 3. Arquitetura de implantação da UaaS no Microsoft Azure
 ## <a name="the-path-from-datacenter-to-cloud"></a>O caminho do datacenter para a nuvem
 Quando os desenvolvedores da Umbraco inicialmente tomaram a decisão de mudar para um modelo de SaaS, eles sabiam que precisariam de uma maneira econômica e escalonável de criar o serviço.
 
-> "Os pools de banco de dados elásticos são ideais para nossa oferta de SaaS, pois podemos aumentar ou diminuir a capacidade conforme a necessidade. O provisionamento é fácil, e com a nossa configuração, podemos manter a utilização no máximo”.
+> "Os pools elásticos são ideais para nossa oferta de SaaS, pois podemos aumentar ou diminuir a capacidade conforme a necessidade. O provisionamento é fácil, e com a nossa configuração, podemos manter a utilização no máximo”.
 > 
 > — Morten Christensen, líder técnico da Umbraco
 > 
@@ -110,11 +110,11 @@ Para atender a todos os critérios, a Umbraco buscou um parceiro de nuvem com as
 * Presença em todos os mercados geográficos nos quais a UaaS compete (as empresas precisam ter certeza de que elas podem acessar seus dados rapidamente e que seus dados sejam armazenados em um local que atenda aos requisitos normativos regionais)
 
 ## <a name="why-umbraco-chose-azure-for-uaas"></a>Por que a Umbraco escolheu o Azure para a UaaS
-De acordo com Morten Christensen, "Depois de considerar todas as nossas opções, escolhemos o Azure porque ele atende a todos os nossos critérios, da capacidade de gerenciamento e escalabilidade à familiaridade e economia. Configuramos os ambientes em VMs do Azure, e cada ambiente tem sua própria instância do Banco de Dados SQL do Azure, com todas as instâncias em pools de bancos de dados elásticos. Ao separar os bancos de dados entre ambientes de desenvolvimento, preparo e ativo, podemos oferecer aos nossos clientes isolamento de desempenho robusto correspondente ao dimensionamento — uma grande vitória".
+De acordo com Morten Christensen, "Depois de considerar todas as nossas opções, escolhemos o Azure porque ele atende a todos os nossos critérios, da capacidade de gerenciamento e escalabilidade à familiaridade e economia. Configuramos os ambientes em VMs do Azure e cada ambiente tem sua própria instância do Banco de Dados SQL do Azure, com todas as instâncias em pools elásticos. Ao separar os bancos de dados entre ambientes de desenvolvimento, preparo e ativo, podemos oferecer aos nossos clientes isolamento de desempenho robusto correspondente ao dimensionamento — uma grande vitória".
 
 Morten continua, "Antes, tínhamos que provisionar servidores para bancos de dados da Web manualmente. Agora, não precisamos pensar nisso. Tudo é automatizado — do provisionamento à limpeza".
 
-Morten também está satisfeito com os recursos de dimensionamento fornecidos pelo Azure. "Os pools de banco de dados elásticos são ideais para nossa oferta de SaaS, pois podemos aumentar ou diminuir a capacidade conforme a necessidade. O provisionamento é fácil, e com a nossa configuração, podemos manter a utilização no máximo”. Morten afirma, "A simplicidade dos pools elásticos, com a garantia das DTUs baseadas em camada de serviço, nos dá o poder de provisionar novos pools de recursos sob demanda. Recentemente, um de nossos maiores clientes chegou ao pico de 100 DTUs em seu ambiente ativo. Usando o Azure, nosso pools elásticos forneceram aos bancos de dados do cliente os recursos que eles precisavam em tempo real sem precisar prever os requisitos de DTU. De modo simplista, nossos clientes obtém o tempo de mudança que esperavam, e podemos cumprir nossos contratos de nível de serviço de desempenho".
+Morten também está satisfeito com os recursos de dimensionamento fornecidos pelo Azure. "Os pools elásticos são ideais para nossa oferta de SaaS, pois podemos aumentar ou diminuir a capacidade conforme a necessidade. O provisionamento é fácil, e com a nossa configuração, podemos manter a utilização no máximo”. Morten afirma, "A simplicidade dos pools elásticos, com a garantia das DTUs baseadas em camada de serviço, nos dá o poder de provisionar novos pools de recursos sob demanda. Recentemente, um de nossos maiores clientes chegou ao pico de 100 DTUs em seu ambiente ativo. Usando o Azure, nosso pools elásticos forneceram aos bancos de dados do cliente os recursos que eles precisavam em tempo real sem precisar prever os requisitos de DTU. De modo simplista, nossos clientes obtém o tempo de mudança que esperavam, e podemos cumprir nossos contratos de nível de serviço de desempenho".
 
 Mikkel Madsen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure que conecta um cenário comum de SaaS (integrando novos clientes em tempo real em escala) ao nosso padrão de aplicativo (pré-provisionando bancos de dados, tanto de desenvolvimento quanto ativos) sobre a tecnologia subjacente (usando as filas do Barramento de Serviço do Azure em conjunto com o Banco de Dados SQL do Azure)".
 
@@ -122,7 +122,7 @@ Mikkel Madsen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure
 Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz de fornecer aos clientes da UaaS desempenho otimizado de gerenciamento de conteúdo, sem o investimento em recursos de TI exigido por uma solução auto-hospedada. Como Morten afirma, "Adoramos a conveniência e a escalabilidade de desenvolvedor que o Azure nos proporciona, e nossos clientes estão empolgados com os recursos e a confiabilidade. De modo geral, tem sido uma grande vitória para nós!"
 
 ## <a name="more-information"></a>Mais informações
-* Para saber mais sobre os pools de bancos de dados elásticos do Azure, confira os [pools de bancos de dados elásticos](sql-database-elastic-pool.md).
+* Para saber mais sobre os pools elásticos do Azure, consulte [pools elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre redes virtuais, confira [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/).    
@@ -133,6 +133,6 @@ Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

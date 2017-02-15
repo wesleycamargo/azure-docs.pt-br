@@ -8,7 +8,7 @@ manager: drasumic
 editor: 
 ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
-ms.custom: db development
+ms.custom: development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,8 @@ ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bb68239d36203e74faa54859b20a4198ce3cba91
+ms.sourcegitcommit: 239d009a1fc7273a50d335a0d55d61f414d99b11
+ms.openlocfilehash: dac4a96f9b62f390aeb84fe237788350c70ea5cd
 
 
 ---
@@ -26,13 +26,13 @@ Tabelas Temporais podem aumentar o tamanho do banco de dados mais do que tabelas
 
 A retenção de histórico temporal pode ser configurada no nível de tabela individual, que permite aos usuários criar políticas de vencimento flexíveis. A aplicação de retenção temporal é muito simples: ela requer a definição de apenas um parâmetro durante a criação de tabela e alteração de esquema.
 
-Depois de definir a política de retenção, o Banco de Dados SQL do Azure começará a verificar regularmente se há linhas de histórico qualificadas para a limpeza automática de dados. A identificação de linhas correspondentes e a remoção da tabela de histórico ocorrem de forma transparente, na tarefa em segundo plano que é agendada e executada pelo sistema. A condição de idade para as linhas da tabela de histórico é verificada com base na coluna que representa o final do período SYSTEM_TIME. Se o período de retenção, por exemplo, estiver definido como seis meses, as linhas de tabela qualificadas para limpeza atenderão a seguinte condição:
+Após você definir a política de retenção, o Banco de Dados SQL do Azure começa a verificar regularmente se há linhas de histórico qualificadas para limpeza automática de dados. A identificação de linhas correspondentes e a remoção da tabela de histórico ocorrem de forma transparente, na tarefa em segundo plano que é agendada e executada pelo sistema. A condição de idade para as linhas da tabela de histórico é verificada com base na coluna que representa o final do período SYSTEM_TIME. Se o período de retenção, por exemplo, estiver definido como seis meses, as linhas de tabela qualificadas para limpeza atenderão a seguinte condição:
 
 ````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 ````
 
-No exemplo acima, supomos que a coluna **ValidTo** corresponde ao final do período SYSTEM_TIME.
+No exemplo anterior, supomos que a coluna **ValidTo** corresponde ao final do período SYSTEM_TIME.
 
 ## <a name="how-to-configure-retention-policy"></a>Como configurar a política de retenção?
 Antes de configurar a política de retenção para uma tabela temporal, verifique primeiro se a retenção de histórico temporal está habilitada *no nível do banco de dados*.
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ````
 
-O sinalizador de banco de dados **is_temporal_history_retention_enabled** é definido como ON por padrão, mas os usuários podem alterá-lo com a instrução ALTER DATABASE. Ele é automaticamente definido como OFF após a operação [restauração pontual](sql-database-point-in-time-restore-portal.md). Para habilitar a limpeza de retenção de histórico temporal para seu banco de dados, execute a seguinte instrução:
+O sinalizador de banco de dados **is_temporal_history_retention_enabled** é definido como ON por padrão, mas os usuários podem alterá-lo com a instrução ALTER DATABASE. Ele é automaticamente definido como OFF após a operação [restauração pontual](sql-database-point-in-time-restore.md). Para habilitar a limpeza de retenção de histórico temporal para seu banco de dados, execute a seguinte instrução:
 
 ````
 ALTER DATABASE <myDB>
@@ -50,7 +50,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 > [!IMPORTANT]
-> É possível configurar a retenção para tabelas temporais mesmo se **is_temporal_history_retention_enabled** estiver DESATIVADO, mas a limpeza automática de linhas antigas não será disparada nesse caso.
+> Será possível configurar a retenção para tabelas temporais mesmo se **is_temporal_history_retention_enabled** estiver DESATIVADO, mas a limpeza automática de linhas antigas não será disparada nesse caso.
 > 
 > 
 
@@ -158,7 +158,7 @@ A figura a seguir mostra o plano de consulta para uma consulta simples:
 SELECT * FROM dbo.WebsiteUserInfo FROM SYSTEM_TIME ALL;
 ````
 
-O plano de consulta inclui filtro adicional aplicado ao final da coluna do período (ValidTo) no operador "Clustered Index Scan" na tabela de histórico (realçada). Este exemplo supõe que o período de retenção de 1 MÊS foi definido na tabela WebsiteUserInfo.
+O plano de consulta inclui um filtro adicional aplicado ao final da coluna do período (ValidTo) no operador "Clustered Index Scan" na tabela de histórico (realçada). Este exemplo supõe que o período de retenção de um MÊS foi definido na tabela WebsiteUserInfo.
 
 ![Filtro de consulta de retenção](./media/sql-database-temporal-tables-retention-policy/queryexecplanwithretention.png)
 
@@ -169,7 +169,7 @@ No entanto, se você consultar diretamente a tabela de histórico, verá linhas 
 A lógica de negócios não deve contar com a leitura da tabela de histórico além do período de retenção, pois resultados inconsistentes ou inesperados podem ser obtidos. É recomendável usar consultas temporais com a cláusula FOR SYSTEM_TIME para análise de dados em tabelas temporais.
 
 ## <a name="point-in-time-restore-considerations"></a>Considerações da recuperação pontual
-Quando você cria o novo banco de dados [restaurando o banco de dados existente para um momento específico ](sql-database-point-in-time-restore-portal.md), ele tem uma retenção temporal desabilitada no nível do banco de dados. (O sinalizador **is_temporal_history_retention_enabled** está definido como DESATIVADO). Essa funcionalidade permite examinar todas as linhas de histórico na restauração, sem se preocupar se linhas antigas são removidas antes de você chegar a consultá-las. Você pode usá-la para *inspecionar dados históricos além do período de retenção configurado*.
+Quando você cria o novo banco de dados [restaurando o banco de dados existente para um momento específico ](sql-database-point-in-time-restore.md), ele tem uma retenção temporal desabilitada no nível do banco de dados. (O sinalizador **is_temporal_history_retention_enabled** está definido como DESATIVADO). Essa funcionalidade permite examinar todas as linhas de histórico na restauração, sem se preocupar se linhas antigas são removidas antes de você chegar a consultá-las. Você pode usá-la para *inspecionar dados históricos além do período de retenção configurado*.
 
 Digamos que uma tabela temporal tem o período de retenção de um MÊS especificado. Se seu banco de dados foi criado na camada de serviço Premium, você poderá criar a cópia de banco de dados com o estado do banco de dados de até 35 dias anteriores. Isso efetivamente permitiria analisar linhas históricas de até 65 dias anteriores consultando a tabela de histórico diretamente.
 
@@ -181,7 +181,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-Para aprender a usar Tabelas Temporais nos seus aplicativos, confira [Introdução a Tabelas Temporais no Banco de Dados SQL do Azure](sql-database-temporal-tables.md).
+Para aprender a usar Tabelas Temporais em seus aplicativos, consulte [Introdução a Tabelas Temporais no Banco de Dados SQL do Azure](sql-database-temporal-tables.md).
 
 Visite o Channel 9 para ouvir uma [história de sucesso real de implementação temporal do cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e assista a uma [demonstração temporal dinâmica](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
@@ -190,6 +190,6 @@ Para obter informações detalhadas sobre as Tabelas Temporais, leia a [document
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cc9b75557ffafb831d3271d36921bac3da9264ee
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: f9f7872eab6b61afcbdc2d8eb23f1dc8ada82829
 
 
 ---
@@ -27,9 +27,9 @@ ms.openlocfilehash: cc9b75557ffafb831d3271d36921bac3da9264ee
 > 
 > 
 
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer o vídeo via streaming de taxa de bits adaptável para seus clientes. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer o vídeo via streaming de taxa de bits adaptável para seus clientes. Os Serviços de Mídia permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH.
 
-Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão para os quais há suporte pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
+Os Serviços de Mídia fornecem um empacotamento dinâmico que permite entregar o conteúdo codificado para MP4 de taxa de bits adaptável nos formatos de streaming com suporte nos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) Just-In-Time, sem a necessidade de armazenar versões pré-empacotadas de cada um desses formatos de streaming.
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
@@ -67,6 +67,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

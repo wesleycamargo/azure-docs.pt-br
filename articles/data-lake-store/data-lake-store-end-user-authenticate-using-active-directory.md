@@ -134,6 +134,6 @@ Neste artigo, você criou um aplicativo Web do Azure AD e reuniu as informaçõe
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

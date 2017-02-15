@@ -1,13 +1,26 @@
 ---
 layout: LandingPage
+description: "Saiba como criar máquinas virtuais do Windows. A Documentação ajuda você a planejar, implantar e gerenciar um ambiente de computação de máquina virtual na nuvem."
+title: "Documentação, Tutoriais e Referência de API das Máquinas Virtuais do Azure para Windows | Microsoft Docs"
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: cd8dfa8b436cd165b3438a1823a571feebb0f4f4
-ms.openlocfilehash: 0a2b4c08e5da4d9c16e12f33c5f1a3f9ae863498
+ms.sourcegitcommit: c3b5f79fe9ee312b5f45eff460b43224b9c254fe
+ms.openlocfilehash: 927fb368a7d0e0c7c996a591dfe8536ea3509164
+
 
 ---
-#<a name="windows-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Windows
+# <a name="windows-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Windows
 
-VM (Máquinas Virtuais) do Azure é um dos vários tipos de recursos de computação sob demanda escalonáveis oferecidos pelo Azure. Normalmente, você escolhe uma VM quando precisar de mais controle sobre o ambiente de computação do que as outras opções oferecem. Uma VM do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que a executa. E você mantém o controle da configuração, aplicação de patches e instalação do software que é executado na VM.
+Saiba como criar máquinas virtuais do Windows. Tutoriais, referências de API e outras documentações o ajudam a planejar, implantar e gerenciar um ambiente de computação de máquina virtual na nuvem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,16 +161,10 @@ VM (Máquinas Virtuais) do Azure é um dos vários tipos de recursos de computa�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação da Máquina Virtual do Windows </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

@@ -59,7 +59,7 @@
 ### [Guia de design de tabela](storage-table-design-guide.md)
 ### [Exemplos](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Usar arquivos
-### [Visão geral](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Visão geral](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Solucionar problemas dos Arquivos do Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Exemplos](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Usar Discos de Máquina Virtual
@@ -75,13 +75,17 @@
 ### [Lista de verificação de desempenho e escalabilidade](storage-performance-checklist.md)
 ### [Simultaneidade](storage-concurrency.md)
 ## Desenvolver
-### [Exemplos](storage-samples.md)
+### Exemplos
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [Design de aplicativos HA usando RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 ### [Configurar cadeias de conexão](storage-configure-connection-string.md)
 ### [Usar o Emulador de Armazenamento](storage-use-emulator.md)
 ### [Definir e recuperar as propriedades e os metadados](storage-properties-metadata.md)
 ## Gerenciar
 ### [PowerShell](storage-powershell-guide-full.md)
-### [CLI do Azure](storage-azure-cli.md)
+### [CLI do Azure 2.0 (Visualização)](storage-azure-cli.md)
+### [CLI 1.0 do Azure](storage-azure-cli-nodejs.md)
 ### [Automação do Azure](automation-manage-storage.md)
 ## Segurança
 ### [Guia de segurança](storage-security-guide.md)
@@ -148,8 +152,8 @@
 ## [PowerShell](/powershell/storage)
 ## [CLI do Azure](/cli/azure/storage)
 ## .NET
-### [Gerenciador de recursos](/dotnet/api/microsoft.azure.management.storage)
-### [Movimentação de dados](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Gerenciador de Recursos](/dotnet/api/microsoft.azure.management.storage)
+### [Movimentação de dados](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Blobs, Filas, Tabelas e Arquivos](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blobs, Filas, Tabelas e Arquivos](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Blobs, Filas, Tabelas e Arquivos](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Provedor de recursos](/rest/api/storagerp)
 ### [Importar/exportar](/rest/api/storageimportexport)
 
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

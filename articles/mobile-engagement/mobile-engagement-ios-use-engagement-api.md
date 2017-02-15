@@ -5,8 +5,8 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,34 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
+
 
 ---
-# Como usar o API Engagement no iOS
+# <a name="how-to-use-the-engagement-api-on-ios"></a>Como usar o API Engagement no iOS
 Este documento é um complemento para o documento Como integrar o Engagement no iOS: ele fornece detalhes aprofundados sobre como usar a API Engagement para relatar as estatísticas do aplicativo.
 
 Tenha em mente que caso queira o Engagement apenas para relatar as sessões, atividades, falhas e informações técnicas do seu aplicativo, então a maneira mais simples é fazer todos os seus objetos personalizados `UIViewController` herdados da classe `EngagementViewController` correspondente.
 
 Se você quiser fazer mais, por exemplo, se você precisar reportar eventos, erros e trabalhos específicos do aplicativo ou se você tiver que relatar as atividades do seu aplicativo de maneira diferente de um implementado nas classes `EngagementViewController`, você precisará usar a API do Engagement.
 
-A API do Engagement é fornecida pela classe `EngagementAgent`. Uma instância desta classe pode ser recuperada chamando o método estático `[EngagementAgent shared]` (Observe que o objeto retornado `EngagementAgent` é um singleton).
+A API do Engagement é fornecida pela classe `EngagementAgent` . Uma instância desta classe pode ser recuperada chamando o método estático `[EngagementAgent shared]` (Observe que o objeto retornado `EngagementAgent` é um singleton).
 
 Antes de qualquer chamada de API, o objeto `EngagementAgent` deve ser inicializado chamando o método `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
-## Conceitos de Engagement
+## <a name="engagement-concepts"></a>Conceitos de Engagement
 As seguintes partes refinam os [Conceitos de Mobile Engagement](mobile-engagement-concepts.md) usuais para a plataforma iOS.
 
-### `Session` e `Activity`
-Uma *atividade* geralmente está associada com uma tela do aplicativo, isso significa que a *atividade* inicia quando a tela é exibida e é interrompida quando a tela for fechada: esse é o caso quando o SDK Engagement é integrado usando as classes `EngagementViewController`.
+### <a name="session-and-activity"></a>`Session` e `Activity`
+Uma *atividade* geralmente está associada com uma tela do aplicativo, isso significa que a *atividade* se inicia quando a tela é exibida e é interrompida quando a tela for fechada: esse é o caso quando o SDK Engagement é integrado usando as classes `EngagementViewController`.
 
-Mas as *atividades* também podem ser controladas manualmente usando o API Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
+Mas as *atividades* também podem ser controladas manualmente usando a API do Engagement. Isso permite dividir uma determinada tela em várias partes secundárias para obter mais detalhes sobre o uso desta tela (por exemplo para com frequência e por quanto tempo as caixas de diálogo são usadas dentro desta tela).
 
-## Relatório de atividades
-### O usuário inicia uma nova atividade
+## <a name="reporting-activities"></a>Relatório de atividades
+### <a name="user-starts-a-new-activity"></a>O usuário inicia uma nova atividade
             [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
 É necessário chamar `startActivity()` sempre que houver alterações de atividade do usuário. A primeira chamada para essa função inicia uma nova sessão de usuário.
 
-### O usuário encerra sua atividade atual
+### <a name="user-ends-his-current-activity"></a>O usuário encerra sua atividade atual
             [[EngagementAgent shared] endActivity];
 
 > [!WARNING]
@@ -49,8 +53,8 @@ Mas as *atividades* também podem ser controladas manualmente usando o API Engag
 > 
 > 
 
-## Eventos de relatório
-### Eventos de sessão
+## <a name="reporting-events"></a>Eventos de relatório
+### <a name="session-events"></a>Eventos de sessão
 Eventos de sessão são geralmente usados para relatar as ações executadas por um usuário durante a sessão.
 
 **Exemplo sem dados adicionais:**
@@ -84,15 +88,15 @@ Eventos de sessão são geralmente usados para relatar as ações executadas por
        [...]
     }
 
-### Eventos autônomos
+### <a name="standalone-events"></a>Eventos autônomos
 Ao contrário dos eventos de sessão, os eventos autônomos podem ser usados fora do contexto de uma sessão.
 
 **Exemplo:**
 
     [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-## Erros de relatório
-### Erros de sessão
+## <a name="reporting-errors"></a>Erros de relatório
+### <a name="session-errors"></a>Erros de sessão
 Erros de sessão são geralmente usados para relatar os erros que afetam o usuário durante a sessão.
 
 **Exemplo:**
@@ -109,14 +113,14 @@ Erros de sessão são geralmente usados para relatar os erros que afetam o usuá
       [...]
     }
 
-### Erros autônomos
+### <a name="standalone-errors"></a>Erros autônomos
 Ao contrário dos erros de sessão, os erros autônomos podem ser usados fora do contexto de uma sessão.
 
 **Exemplo:**
 
     [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-## Relatório de trabalhos
+## <a name="reporting-jobs"></a>Relatório de trabalhos
 **Exemplo:**
 
 Suponha que você deseja relatar a duração do processo de logon:
@@ -134,7 +138,7 @@ Suponha que você deseja relatar a duração do processo de logon:
     }
     [...]
 
-### Relatar erros durante um trabalho
+### <a name="report-errors-during-a-job"></a>Relatar erros durante um trabalho
 Os erros podem estar relacionados a um trabalho em execução, em vez de serem relacionados a sessão do usuário atual.
 
 **Exemplo:**
@@ -171,7 +175,7 @@ Suponha que você deseja relatar um erro durante o processo de logon:
     };
     [...]
 
-### Eventos durante um trabalho
+### <a name="events-during-a-job"></a>Eventos durante um trabalho
 Os erros podem estar relacionados a um trabalho em execução, em vez de serem relacionados a sessão do usuário atual.
 
 **Exemplo:**
@@ -198,12 +202,12 @@ Suponha que temos uma rede social e usamos um trabalho para relatar o tempo tota
     }
     [...]
 
-## Parâmetros adicionais
+## <a name="extra-parameters"></a>Parâmetros adicionais
 Os dados arbitrários podem ser anexados aos eventos, erros, atividades e trabalhos.
 
 Esses dados podem ser estruturados, eles usam a classe NSDictionary do iOS.
 
-Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`.
+Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(NSNumber class)`, `strings(NSString, NSMutableString)`, `urls(NSURL)`, `data(NSData, NSMutableData)` ou outras instâncias de `NSDictionary`. 
 
 > [!NOTE]
 > Esse parâmetro adicional é serializado em JSON. Se você quiser passar objetos diferentes dos descritos acima, você deve implementar o método a seguir em sua classe:
@@ -214,29 +218,29 @@ Observe que os extras podem conter `arrays(NSArray, NSMutableArray)`, `numbers(N
 > 
 > 
 
-### Exemplo
+### <a name="example"></a>Exemplo
     NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
     [extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### Limites
-#### simétricas
+### <a name="limits"></a>Limites
+#### <a name="keys"></a>simétricas
 Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
-#### Tamanho
+#### <a name="size"></a>Tamanho
 Os adicionais estão limitados à **1024** caracteres por chamada (uma vez codificado no JSON pelo agente de Engagement).
 
 No exemplo anterior, o JSON enviado para o servidor tem 58 caracteres:
 
     {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## Relatório de informações de aplicativo
-Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função `sendAppInfo:`.
+## <a name="reporting-application-information"></a>Relatório de informações de aplicativo
+Você pode relatar manualmente informações (ou quaisquer outras informações específicas do aplicativo) de controle usando a função `sendAppInfo:` .
 
 Observe que essas informações podem ser enviadas de forma incremental: somente o último valor para uma determinada chave será mantido por um determinado dispositivo.
 
@@ -249,19 +253,23 @@ Como os adicionais de evento, a classe `NSDictionary` é usada para abstrair as 
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### Limites
-#### simétricas
+### <a name="limits"></a>Limites
+#### <a name="keys"></a>simétricas
 Cada chave no `NSDictionary` deve corresponder a seguinte expressão regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
 Isso significa que as chaves devem começar com pelo menos uma letra, seguida por letras, dígitos ou sublinhados (\_).
 
-#### Tamanho
+#### <a name="size"></a>Tamanho
 Os adicionais estão limitados à **1024** caracteres por chamada (uma vez codificado no JSON pelo agente de Engagement).
 
 No exemplo anterior, o JSON enviado para o servidor tem 44 caracteres:
 
     {"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

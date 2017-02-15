@@ -24,7 +24,9 @@
 ### Conectar-se por meio de programação
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Gerenciar pontos de extremidade de streaming no portal](media-services-portal-manage-streaming-endpoints.md)
+### [Gerenciar pontos de extremidade de streaming](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Como: atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento](media-services-roll-storage-access-keys.md)
 ### [Cotas e limitações](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Transmissão ao vivo](media-services-manage-channels-overview.md)
 ### [Codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Transmissão ao vivo com codificador na nuvem](media-services-manage-live-encoder-enabled-channels.md)
 ### Tutoriais do codificador de nuvem
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

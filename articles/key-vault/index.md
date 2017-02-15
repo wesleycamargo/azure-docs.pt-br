@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como usar o Cofre de Chaves para criar e manter as chaves que acessam e criptografam seus recursos, aplicativos e soluções de nuvem. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 09d20c4c035a072d78118cb0e2184773f4642c81
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Documentação do Cofre de Chaves
 
-O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre de Chaves, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para garantia extra, você pode importar ou gerar chaves em HSMs.
+Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves que acessam e criptografam seus recursos e soluções.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -150,16 +151,9 @@ O Cofre de Chaves do Azure ajuda a proteger chaves criptográficas e segredos us
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Cofre de Chaves </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

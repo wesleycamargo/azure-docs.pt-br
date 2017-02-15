@@ -104,6 +104,6 @@ Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

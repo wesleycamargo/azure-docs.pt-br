@@ -3,7 +3,7 @@ title: "Log de diagnósticos do Lote do Azure | Microsoft Docs"
 description: "Registre e analisar eventos de log de diagnóstico para recursos de conta do Lote do Azure, como pools e tarefas."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 10/12/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2c66486f9716ed8ac093685b10e9294beb43c381
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
 
 
 ---
@@ -79,13 +79,13 @@ O serviço do Lote emite atualmente os seguintes eventos do Log de Serviço. Ess
 | **Eventos do Log de Serviço** |
 | --- |
 | [Criação de pool][pool_create] |
-| [Início da exclusão do pool][pool_delete_start] |
-| [Exclusão de pool completa][pool_delete_complete] |
-| [Início do redimensionamento do pool][pool_resize_start] |
-| [Redimensionamento de pool completa][pool_resize_complete] |
-| [Início da tarefa][task_start] |
-| [Tarefa concluída][task_complete] |
-| [Falha da tarefa][task_fail] |
+| [Início de exclusão de pool][pool_delete_start] |
+| [Conclusão de exclusão de pool][pool_delete_complete] |
+| [Início de redimensionamento de pool][pool_resize_start] |
+| [Conclusão de redimensionamento de pool][pool_resize_complete] |
+| [Início de tarefa][task_start] |
+| [Conclusão de tarefa][task_complete] |
+| [Falha de tarefa][task_fail] |
 
 ## <a name="next-steps"></a>Próximas etapas
 Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamento do Azure, você também pode transmitir eventos do Log de Serviço do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md), e enviá-los para o [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
@@ -108,6 +108,6 @@ Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

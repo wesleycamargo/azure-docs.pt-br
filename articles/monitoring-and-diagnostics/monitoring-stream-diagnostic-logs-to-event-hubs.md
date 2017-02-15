@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
+ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
 
 
 ---
@@ -54,6 +54,8 @@ Você pode habilitar programaticamente o streaming de Logs de Diagnóstico por m
 > 
 > 
 
+O namespace do barramento de serviço ou do hub de eventos não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+
 ### <a name="via-powershell-cmdlets"></a>Via Cmdlets do PowerShell
 Para habilitar o streaming por meio de [Cmdlets do Azure PowerShell](insights-powershell-samples.md), use o cmdlet `Set-AzureRmDiagnosticSetting` com estes parâmetros:
 
@@ -77,7 +79,7 @@ Para habilitar o streaming por meio do Portal do Azure, navegue até as configur
 
 ![Exportar para Hubs de Eventos no Portal](./media/monitoring-stream-diagnostic-logs-to-event-hubs/portal-export.png)
 
-Para configurá-lo, selecione um Namespace de Barramento de Serviço existente. O namespace selecionado será o local onde os Hubs de Eventos serão criados (se este for seu primeiro streaming de logs de diagnóstico) ou transmitidos (se já houver recursos realizando o streaming dessa categoria log para esse namespace), e a política define as permissões do mecanismo de streaming. Atualmente, o streaming para um Hub de Eventos exige permissões de Gerenciamento, Leitura e Envio. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar uma dessas Configurações de Diagnóstico, o cliente deve ter a permissão ListKey na Regra de Autorização do Barramento de Serviço.
+Para configurá-lo, selecione um Namespace de Barramento de Serviço existente. O namespace selecionado será o local onde os Hubs de Eventos serão criados (se este for seu primeiro streaming de logs de diagnóstico) ou transmitidos (se já houver recursos realizando o streaming dessa categoria log para esse namespace), e a política define as permissões do mecanismo de streaming. Atualmente, o streaming para um Hub de Eventos exige as Gerenciar, Enviar e Escutar. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar uma dessas Configurações de Diagnóstico, o cliente deve ter a permissão ListKey na Regra de Autorização do Barramento de Serviço.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Como eu consumo os dados de log dos Hubs de Eventos?
 Estes são os dados de saída de exemplo dos Hubs de Eventos:
@@ -155,6 +157,9 @@ Estes são os dados de saída de exemplo dos Hubs de Eventos:
 
 Veja uma lista de todos os provedores de recursos que oferecem suporte a streaming para o Hub de Eventos [aqui](monitoring-overview-of-diagnostic-logs.md).
 
+## <a name="stream-data-from-compute-resources"></a>Transmitir dados de recursos de Computação
+Também é possível transmitir logs de diagnóstico de recursos de Computação usando o agente do Diagnóstico do Microsoft Azure. [Consulte este artigo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para saber como configurar isso.
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -162,6 +167,6 @@ Veja uma lista de todos os provedores de recursos que oferecem suporte a streami
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

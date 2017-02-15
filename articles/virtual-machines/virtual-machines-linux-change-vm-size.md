@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2016
-ms.author: mikewasson
+ms.author: mwasson
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 0032c330288ea37508c919b50a41a5e58fc28e90
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: 788efb5d1cbbd5fd20096c54ca702b99eb2b5a18
 
 
 ---
 # <a name="how-to-resize-a-linux-vm"></a>Como redimensionar uma VM Linux
 ## <a name="overview"></a>Visão geral
-Depois de provisionar uma máquina virtual (VM), você pode escalar ou reduzir verticalmente a VM, alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda a VM.
+Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda a VM.
 
 Este artigo mostra como redimensionar uma VM Linux usando a [CLI do Azure][azure-cli].
 
@@ -47,7 +47,7 @@ Para redimensionar uma VM, execute as etapas a seguir.
    
     A VM será reiniciada durante esse processo. Após a reinicialização, os discos do sistema operacional e de dados serão remapeados. Qualquer coisa no disco temporário será perdida.
    
-    O uso da opção `--enable-boot-diagnostics` habilita os [diagnósticos de inicialização][boot-diagnostics] para registrar erros relacionados à inicialização.
+    O uso da opção `--enable-boot-diagnostics` habilita o [diagnóstico de inicialização][boot-diagnostics], para registrar erros relacionados à inicialização.
 3. Caso contrário, se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a máquina virtual, redimensioná-la e, em seguida, reinicie a máquina virtual.
    
     ```azurecli
@@ -64,7 +64,7 @@ Para redimensionar uma VM, execute as etapas a seguir.
    > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para saber mais, veja [Dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 
+Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para obter mais informações, consulte [Dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 
 
 <!-- links -->
 
@@ -75,6 +75,6 @@ Para obter escalabilidade adicional, execute várias instâncias de VM e expanda
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

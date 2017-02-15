@@ -13,16 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 8c295a4207e9d12eb0cb978205a75d536d6a55e7
+ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
+ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
 
 
 ---
 # <a name="import-data-to-documentdb-with-the-database-migration-tool"></a>Importar dados para o Banco de Dados de Documentos com a ferramenta de migração de banco de dados
 Este artigo mostra como usar a ferramenta oficial de migração de dados de código-fonte aberto para importar dados para o [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) de várias fontes, incluindo arquivos JSON, arquivos CSV, coleções do SQL, do MongoDB, do Armazenamento de Tabelas do Azure, Amazon DynamoDB e do DocumentDB.
+
+Se estiver importando dados para uma conta do DocumentDB com suporte para MongoDB, siga as instruções em [Migrar dados para o DocumentDB com suporte de protocolo para o MongoDB](documentdb-mongodb-migrate.md).
 
 Após ler este artigo, você poderá responder as perguntas a seguir:  
 
@@ -78,6 +80,12 @@ Aqui estão alguns exemplos de linha de comando para importar os arquivos JSON:
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbaimport-from-mongodb"></a><a id="MongoDB"></a>Importar do MongoDB
+
+> [!IMPORTANT]
+> Se estiver importando para uma conta do DocumentDB com suporte para MongoDB, siga estas [instruções](documentdb-mongodb-migrate.md).
+> 
+> 
+
 A opção de importador de origem do MongoDB permite importar de uma coleção do MongoDB individual e opcionalmente filtrar documentos usando uma consulta e/ou modificar a estrutura do documento usando uma projeção.  
 
 ![Captura de tela das opções de origem do MongoDB — banco de dados de documentos vs. mongodb](./media/documentdb-import-data/mongodbsource.png)
@@ -91,7 +99,7 @@ A cadeia de conexão está no formato padrão do MongoDB:
 > 
 > 
 
-Digite o nome da coleção por meio da qual os dados serão importados. Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta (por exemplo, {pop: {$gt: 5000}}) e/ou uma projeção (por exemplo, {loc:0}) para filtrar e moldar os dados a serem importados.
+Digite o nome da coleção por meio da qual os dados serão importados. Você pode opcionalmente especificar ou fornecer um arquivo para uma consulta (por exemplo, {pop: {$gt:&5000;}}) e/ou uma projeção (por exemplo, {loc:0}) para filtrar e moldar os dados a serem importados.
 
 Aqui estão alguns exemplos de linha de comando para importar por meio do MongoDB:
 
@@ -102,6 +110,12 @@ Aqui estão alguns exemplos de linha de comando para importar por meio do MongoD
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /s.Query:{pop:{$gt:50000}} /s.Projection:{loc:0} /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:BulkZipsTransform /t.IdField:_id/t.CollectionThroughput:2500
 
 ## <a name="a-idmongodbexportaimport-mongodb-export-files"></a><a id="MongoDBExport"></a>Importar arquivos de exportação do MongoDB
+
+> [!IMPORTANT]
+> Se estiver importando para uma conta do DocumentDB com suporte para MongoDB, siga estas [instruções](documentdb-mongodb-migrate.md).
+> 
+> 
+
 A opção do importador de origem de arquivo JSON de exportação do MongoDB permite que você importe um ou mais arquivos JSON produzidos por meio do utilitário mongoexport.  
 
 ![Captura de tela das opções de origem de exportação do MongoDB — banco de dados de documentos vs. mongodb](./media/documentdb-import-data/mongodbexportsource.png)
@@ -389,7 +403,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 2. Você pode usar uma sintaxe abreviada: collection[3] emitirá o mesmo conjunto de coleções mencionado na etapa 1.
 3. Mais de uma substituição pode ser fornecida. Por exemplo, a coleção [0-1] [0-9] gerará 20 nomes de coleção com zeros à esquerda (collection01... 02,... 03).
 
-Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de 10.000 RUs exigirá uma chave de partição. Se você optar por ter mais de 250.000 RUs, consulte [Limites da conta do DocumentDB aumentados por solicitação](documentdb-increase-limits.md).
+Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de&10;.000 RUs exigirá uma chave de partição. Se você optar por ter mais de 250.000 RUs, consulte [Limites da conta do DocumentDB aumentados por solicitação](documentdb-increase-limits.md).
 
 > [!NOTE]
 > A configuração de taxa de transferência só se aplica à criação da coleção. Se a coleção especificada já existir, sua taxa de transferência não será modificada.
@@ -512,6 +526,6 @@ Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma men
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

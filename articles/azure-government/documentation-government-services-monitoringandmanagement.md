@@ -16,12 +16,12 @@ ms.workload: azure-government
 ms.date: 10/31/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 722c53f819126791073575da04eded2ec5465764
-ms.openlocfilehash: 9d4ba4eff1c9768a11c18cbf531b252d767bc9f2
+ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
+ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
 
 
 ---
-# <a name="azure-government-monitoring-management"></a>Gerenciamento + monitoramento do Azure Governamental
+# <a name="azure-government-monitoring--management"></a>Gerenciamento + monitoramento do Azure Governamental
 Este artigo descreve as variações e as considerações de serviços para o ambiente do Azure Governamental.
 
 ## <a name="automation"></a>Automação
@@ -44,6 +44,37 @@ Atualmente, os seguintes recursos de Backup não estão disponíveis no Azure Go
 
 * Cofres do Azure Resource Manager
 * Gerenciamento usando o Portal do Azure (há suporte para o Portal Clássico do Azure)
+
+As URLs do Backup são diferentes no Azure Governamental:
+
+## <a name="site-recovery"></a>Site Recovery
+O Site Recovery (ASR) está totalmente disponível no Azure Governamental.
+
+Para saber mais, confira [Documentação pública do Site Recovery](../site-recovery/site-recovery-overview.md).
+
+### <a name="variations"></a>Variações
+Atualmente, os seguintes recursos do Site Recovery não estão disponíveis no Azure Governamental:
+
+* Cofres de recuperação de site do Azure Resource Manager
+
+| Site Recovery | Clássico | Gerenciador de Recursos | 
+| --- | --- | --- |
+| VMWare/Físico  | GA | Planejado |
+| Hyper-V | GA | Planejado |
+| Site a Site | GA | Planejado |
+
+Observações: a Tabela se aplica a VA e Iowa. 
+
+As seguintes URLs do ASR são diferentes no Azure Governamental:
+
+| Público do Azure | Azure Government | Observações |
+| --- | --- | --- |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Acesso ao serviço Site Recovery |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Acesso ao serviço de proteção |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Para armazenar instantâneos da VM |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Para baixar o MySQL |
+
+
 
 ## <a name="log-analytics"></a>Log Analytics
 O Log Analytics está disponível no Azure Governamental.
@@ -111,6 +142,6 @@ Para obter informações complementares e atualizações, assine o <a href="http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

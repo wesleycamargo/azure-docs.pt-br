@@ -44,7 +44,7 @@
 ### [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Indexador do Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 ### [Indexador do SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexador do DocumentDB do Azure](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Indexador do DocumentDB do Azure](search-howto-index-documentdb.md)
 ### [Indexar blobs do CSV](search-howto-index-csv-blobs.md)
 ### [Indexar blobs do JSON](search-howto-index-json-blobs.md)
 ### [Configurar conexões do indexador para o SQL Server na VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -61,14 +61,13 @@
 
 # Referência
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [Gerenciamento do .NET](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (Gerenciamento)](/dotnet/api/microsoft.azure.management.search)
+## [Python (Gerenciamento)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Gerenciamento)](/rest/api/searchmanagement)
 
 # Recursos
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=search)
-## Usando APIs de Pesquisa
 ## [Versões de API](search-api-versions.md)
 ## [Serviço REST (Visualização)](search-api-2015-02-28-preview.md)
 ## [Preços](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Github do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

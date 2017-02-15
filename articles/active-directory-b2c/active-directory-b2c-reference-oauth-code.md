@@ -1,22 +1,26 @@
 ---
 title: Azure Active Directory B2C | Microsoft Docs
-description: Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect.
+description: "Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: c371aaab-813a-4317-97df-b62e2f53d865
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51061199e4929406c3ac77a26e2f972686236bd4
+
 
 ---
-# <a name="azure-active-directory-b2c:-oauth-2.0-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
+# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
 A concessão de código de autorização OAuth 2.0 pode ser usada em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Usando a implementação do Azure Active Directory B2C (Azure AD) do OAuth 2.0, você pode adicionar tarefas de inscrição, entrada e outras de gerenciamento de identidade aos seus aplicativos móveis e para área de trabalho. Este guia é independente da linguagem. Ele descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
 
 <!-- TODO: Need link to libraries -->
@@ -30,7 +34,7 @@ O Azure AD B2C estende os fluxos padrão do OAuth 2.0 para fazer mais do que sim
 As solicitações HTTP de exemplo abaixo usam nosso diretório B2C de exemplo, **fabrikamb2c.onmicrosoft.com**, bem como nosso aplicativo e políticas de exemplo. Fique à vontade para experimentar as solicitações usando esses valores ou os substituindo pelos seus próprios.
 Saiba como [obter seu próprio diretório B2C, aplicativos e políticas](#use-your-own-b2c-directory).
 
-## <a name="1.-get-an-authorization-code"></a>1. Obter um código de autorização
+## <a name="1-get-an-authorization-code"></a>1. Obter um código de autorização
 O fluxo do código de autorização começa com o cliente direcionando o usuário para o ponto de extremidade `/authorize`. Essa é a parte interativa do fluxo, em que o usuário realmente irá executar uma ação. Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no parâmetro `scope` e a política a ser executada no parâmetro `p`. Três exemplos são fornecidos abaixo (com quebras de linha para facilitar a leitura), cada um com uma política diferente.
 
 #### <a name="use-a-sign-in-policy"></a>Usar uma política de entrada
@@ -112,7 +116,7 @@ error=access_denied
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 | state |Confira a descrição completa da primeira tabela nesta seção. Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
-## <a name="2.-get-a-token"></a>2. Obter um token
+## <a name="2-get-a-token"></a>2. Obter um token
 Agora que você adquiriu um authorization_code, poderá resgatar `code` para obter um token para o recurso desejado enviando uma solicitação `POST` para o ponto de extremidade `/token`. No Azure AD B2C, o único recurso para o qual você pode solicitar um token é a API Web de back-end do seu aplicativo. A convenção usada para solicitar um token para si mesmo é usar a ID do cliente do aplicativo como o escopo:
 
 ```
@@ -168,7 +172,7 @@ As respostas de erro serão parecidas com esta:
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar os tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 
-## <a name="3.-use-the-token"></a>3. Usar o token
+## <a name="3-use-the-token"></a>3. Usar o token
 Agora que você já adquiriu com êxito um `access_token`, pode usar o token em solicitações para as suas APIs Web de back-end incluindo-o no cabeçalho `Authorization`:
 
 ```
@@ -177,7 +181,7 @@ Host: https://mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="4.-refresh-the-token"></a>4. Atualizar o token
+## <a name="4-refresh-the-token"></a>4. Atualizar o token
 Os tokens de Id e acesso têm vida curta. Você deve atualizá-los depois que eles expirarem para poder continuar a acessar os recursos. Faça isso enviando outra solicitação `POST` ao ponto de extremidade `/token`. Dessa vez, forneça o `refresh_token` em vez do `code`:
 
 ```
@@ -239,6 +243,9 @@ Se você quiser experimentar essas solicitações por conta própria, primeiro d
 * [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um redirect_uri. Você deve incluir uma **cliente nativo** em seu aplicativo.
 * [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

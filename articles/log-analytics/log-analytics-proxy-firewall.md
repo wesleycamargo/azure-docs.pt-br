@@ -4,7 +4,7 @@ description: "Defina as configurações de proxy e firewall quando seus agentes 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: b55ebd80-efd4-4220-971b-c18aea1b1ab2
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/06/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36c8f482a55135623865814bd384ac98ae214fa3
+ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
+ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
 
 
 ---
@@ -31,6 +31,7 @@ Para o Microsoft Monitoring Agent se conectar e se registrar no serviço do OMS,
 | \*.ods.opinsights.azure.com |443 |Sim |
 | \*.oms.opinsights.azure.com |443 |Sim |
 | \*.blob.core.windows.net |443 |Sim |
+| \*.azure-automation.net |443 |Sim |
 | ods.systemcenteradvisor.com |443 | |
 
 Você pode usar o procedimento a seguir para definir configurações de proxy para o Microsoft Monitoring Agent usando o painel de controle. Você precisará usar o procedimento para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Nesse caso, consulte o próximo procedimento [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
@@ -105,6 +106,7 @@ Aqui está uma lista de portas e recursos de servidor de gerenciamento:<br>
 | data.systemcenteradvisor.com |443 | |
 | ods.systemcenteradvisor.com |443 | |
 | \*.ods.opinsights.azure.com |443 |Sim |
+| \*.azure-automation.net |443 |Sim |
 
 <br>
 Aqui está uma lista de portas e recursos do OMS e do console do Operations Manager.<br>
@@ -131,45 +133,46 @@ Use os procedimentos a seguir para registrar o seu grupo de gerenciamento do Ope
 ### <a name="to-configure-the-proxy-server-in-the-operations-manager-console"></a>Para configurar o servidor proxy no console do Operations Manager
 1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
 2. Expanda **Insights Operacionais**, em seguida, selecione **Conexão dos Insights Operacionais**.<br>  
-    ![Conexão do Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
+   ![Conexão do Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om01.png)
 3. Na exibição Conexão do OMS, clique em **Configurar Servidor Proxy**.<br>  
-    ![Conexão do Operations Manager OMS Configurar Servidor Proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
+   ![Conexão do Operations Manager OMS Configurar Servidor Proxy](./media/log-analytics-proxy-firewall/proxy-om02.png)
 4. No Assistente de Configurações dos Insights Operacionais: Servidor Proxy, selecione **Usar um servidor proxy para acessar o Serviço Web dos Insights Operacionais**, em seguida, digite a URL com o número da porta, como por exemplo, **http://myproxy:80**.<br>  
-    ![Endereço de proxy do Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
+   ![Endereço de proxy do Operations Manager OMS](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 ### <a name="to-specify-credentials-if-the-proxy-server-requires-authentication"></a>Para especificar credenciais caso o servidor proxy exija autenticação
  As credenciais e configurações do servidor proxy precisam ser propagadas em computadores gerenciados que se reportarão aos OMS. Esses servidores devem estar no *Grupo de Servidores de Monitoramento do Microsoft System Center Advisor*. As credenciais são criptografadas no registro de cada servidor do grupo.
 
 1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
 2. Em **Configuração RunAs**, selecione **Perfis**.
-3. Abra o perfil **System Center Advisor executado como Proxy de perfil** .  
-    ![imagem do perfil do System Center Advisor Executado Como Proxy](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. No Assistente Executar como Perfil, clique em **Adicionar** para usar uma conta Executar como. Você pode criar uma nova conta Executar como ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy.  
-    ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Para definir a conta a ser gerenciada, escolha **Uma classe, grupo ou objeto selecionado** para abrir a caixa de Pesquisa de Objetos.  
-    ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.  
-    ![imagem da caixa Pesquisa de Objetos](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Clique em **OK** para fechar a caixa Adicionar uma conta Executar como.  
-    ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Conclua o assistente e salve as alterações.  
-    ![imagem do Assistente de Perfil Executar Como](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+3. Abra o perfil **System Center Advisor executado como Proxy de perfil** .<br>  
+   ![imagem do perfil do System Center Advisor Executado Como Proxy](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. No Assistente Executar como Perfil, clique em **Adicionar** para usar uma conta Executar como. Você pode criar uma nova conta Executar como ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy.<br>   
+   ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. Para definir a conta a ser gerenciada, escolha **Uma classe, grupo ou objeto selecionado** para abrir a caixa de Pesquisa de Objetos.<br>  
+   ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.<br>  
+   ![imagem da caixa Pesquisa de Objetos](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Clique em **OK** para fechar a caixa Adicionar uma conta Executar como.<br>  
+   ![imagem do Assistente para Executar Como Perfil](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Conclua o assistente e salve as alterações.<br>  
+   ![imagem do Assistente de Perfil Executar Como](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
 
 ### <a name="to-validate-that-oms-management-packs-are-downloaded"></a>Para validar se os pacotes de gerenciamento do OMS foram baixados
-Se você tiver adicionado soluções ao OMS, poderá exibi-las no console do Operations Manager como pacotes de gerenciamento em **Administração**. Pesquise *System Center Advisor* para encontrá-las rapidamente.  
-    ![pacotes de gerenciamento baixados](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Ou você também pode verificar os pacotes de gerenciamento de OMS usando o seguinte comando do Windows PowerShell no servidor de gerenciamento do Operations Manager:
+Se você tiver adicionado soluções ao OMS, poderá exibi-las no console do Operations Manager como pacotes de gerenciamento em **Administração**. Pesquise *System Center Advisor* para encontrá-las rapidamente.<br>  
+   ![download de pacotes de gerenciamento](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png)  <br>  
+Ou então, você também pode verificar os pacotes de gerenciamento do OMS usando o seguinte comando do Windows PowerShell no servidor de gerenciamento do Operations Manager:
 
-    ```
+   ```  
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
-    ```
+   ```  
 
 ### <a name="to-validate-that-operations-manager-is-sending-data-to-the-oms-service"></a>Para validar se o Operations Manager está enviando dados para o serviço do OMS
 1. No servidor de gerenciamento do Operations Manager, abra o Monitor de Desempenho (perfmon.exe) e selecione **o Monitor de Desempenho**.
 2. Clique em **Adicionar**, em seguida, selecione **Grupos de Gerenciamento do Serviço de Integridade**.
-3. Adicione todos os contadores que começam com **HTTP**.  
-    ![adicionar contadores](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Se a sua configuração do Operations Manager for boa, você verá a atividade dos contadores do Gerenciamento do Serviço de Integridade para eventos e outros itens de dados, com base nos pacotes de gerenciamento adicionados no OMS e a política de coleta de logs configurada.  
-    ![Atividade de exibição de Monitor de desempenho](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+3. Adicione todos os contadores que começam com **HTTP**.<br>  
+   ![adicionar contadores](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. Se a sua configuração do Operations Manager for boa, você verá a atividade dos contadores do Gerenciamento do Serviço de Integridade para eventos e outros itens de dados, com base nos pacotes de gerenciamento adicionados no OMS e a política de coleta de logs configurada.<br>  
+   ![Atividade de exibição de Monitor de desempenho](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidade e obter dados.
@@ -177,6 +180,6 @@ Se você tiver adicionado soluções ao OMS, poderá exibi-las no console do Ope
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

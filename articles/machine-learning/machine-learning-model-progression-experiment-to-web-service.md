@@ -1,12 +1,12 @@
 ---
-title: Como um modelo do Machine Learning evolui de um teste para um serviço Web operacionalizado | Microsoft Docs
-description: Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado.
+title: "Como um modelo do Machine Learning evolui de um teste para um serviço Web operacionalizado | Microsoft Docs"
+description: "Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning evolui de um experimento para um serviço Web operacionalizado
@@ -40,7 +44,7 @@ Embora o Azure Machine Learning Studio seja projetado para ajudar você a desenv
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Desenvolvendo e implantando um serviço Web preditivo
 Estes são os estágios pelos quais passa uma solução típica quando você a desenvolve e implanta usando o Estúdio de Aprendizado de Máquina:
 
-![Fluxo de implantação](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Fluxo de implantação](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Figura 1 - Estágios de um modelo típico de análise preditiva*
 
@@ -68,7 +72,7 @@ O teste de treinamento não é descartado neste processo de conversão. Quando o
 ### <a name="the-web-service"></a>O serviço Web
 Quando estiver satisfeito que seu teste preditivo está pronto, você pode implantar o serviço como um serviço Web clássico ou um novo serviço Web com base no Azure Resource Manager. Para colocar em operação seu modelo implantando-o como um *Serviço Web clássico do Machine Learning*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [clássico]**. Para implantar como *Novo serviço Web de Machine Learning*, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Novo]**. Os usuários podem agora enviar dados para seu modelo usando a API REST do serviço Web e receber os resultados de volta. Para saber mais, confira [Como consumir um serviço Web do Azure Machine Learning implantado por meio de um teste do Machine Learning](machine-learning-consume-web-services.md).
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>O caso não típico: criando um serviço Web não preditivo
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>O caso não típico: criando um serviço Web não preditivo
 Se o seu teste não treinar um modelo de análise preditiva, você não precisará criar um teste de treinamento e um teste de pontuação. Há apenas um teste, e você pode implantá-lo como um serviço Web. O Machine Learning Studio detecta se o teste contém um modelo preditivo analisando os módulos usados.
 
 Depois que você tiver iterado no experimento e estiver satisfeito com ele:
@@ -115,6 +119,9 @@ Para obter exemplos do processo inteiro, consulte:
 * [Tutorial de aprendizado de máquina: Crie sua primeira experiência no Studio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
 * [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

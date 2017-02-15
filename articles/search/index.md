@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como adicionar recursos robustos de pesquisa, incluindo o monitoramento de atividades, para aplicativos Web personalizados ou móveis. Referências e outras documentações de API."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 680083cd9df823bf0ff89a0b4099c411fa0be078
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Documentação do Azure Search
 
-O Azure Search é um serviço de pesquisa de nuvem gerenciado que ajuda a criar uma experiência de pesquisa avançada nos aplicativos personalizados, então, monitora o serviço, índice e atividade de consulta por meio de exibições do portal. Os principais recursos incluem uma pesquisa escalonável de texto completa em vários idiomas, pesquisa geoespacial, filtragem e navegação facetada, consultas de preenchimento automático, realce de ocorrências e analisadores personalizados.
+Saiba mais sobre como adicionar recursos de pesquisa a seus aplicativos Web personalizados ou móveis usando o Azure Search, um serviço de pesquisa de nuvem gerenciado. Os tutoriais, as referências de API e outras documentações mostram como adicionar pesquisa escalonável de texto completa em vários idiomas, pesquisa geoespacial, filtragem e navegação facetada, consultas de preenchimento automático, realce de ocorrências e analisadores personalizados.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,8 +132,8 @@ O Azure Search é um serviço de pesquisa de nuvem gerenciado que ajuda a criar 
                     <div class="cardText">
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">Gerenciamento do .NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Gerenciamento)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Gerenciamento)</a></p>
                    </div>
                 </div>
             </div>
@@ -144,7 +145,7 @@ O Azure Search é um serviço de pesquisa de nuvem gerenciado que ajuda a criar 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/searchservice">referência da API REST</a></p>
+                        <p><a href="/rest/api/searchservice">referência da API REST (a página pode estar em inglês)</a></p>
                         <p><a href="/rest/api/searchmanagement">Referência de API REST (Gerenciamento)</a></p>
                     </div>
                 </div>
@@ -153,16 +154,10 @@ O Azure Search é um serviço de pesquisa de nuvem gerenciado que ajuda a criar 
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Azure Search </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

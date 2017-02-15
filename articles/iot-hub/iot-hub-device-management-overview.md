@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do gerenciamento de Hub IoT | Microsoft Docs"
-description: "Este artigo fornece uma visão geral do gerenciamento de dispositivos no Hub IoT do Azure: ciclo de vida do dispositivo de empresa, reinicialização, redefinição de fábrica, atualização de firmware, configuração, gêmeos de dispositivo, consultas, trabalhos"
+title: "Visão geral do gerenciamento do Hub IoT do Azure | Microsoft Docs"
+description: "Visão geral do gerenciamento de dispositivos no Hub IoT do Azure: ciclo de vida do dispositivo de empresa e padrões de gerenciamento do dispositivo como a reinicialização, redefinição de fábrica, atualização de firmware, configuração, gêmeos de dispositivo, consultas, trabalhos."
 services: iot-hub
 documentationcenter: 
 author: bzurcher
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: bzurcher
+ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 4a80d22f0d306035dc3e710d9a1b04f0624e94d6
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 91dcace2d74d44a5d2ab3b9a1352b2fa052ddc44
 
 
 ---
@@ -79,7 +79,7 @@ O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositi
 * **Atualização de firmware** - o aplicativo de back-end informa ao dispositivo por meio de um método direto que ele iniciou uma atualização de firmware.  O dispositivo inicia um processo de várias etapas para baixar a imagem do firmware, aplicar a imagem do firmware e finalmente se reconectar ao serviço do Hub IoT.  Durante o processo com várias etapas, o dispositivo usa as propriedades reportadas para atualizar o progresso e o status do dispositivo.
   
     ![Gráfico de padrão de atualização de firmware de gerenciamento de dispositivos][img-fwupdate_pattern]
-* **Relatório de progresso e status** - O back-end do aplicativo executa consultas do dispositivo gêmeo, em um conjunto de dispositivos, para reportar o status e o progresso das ações em execução no dispositivo.
+* **Relatório de progresso e status** - o back-end da solução executa consultas do dispositivo gêmeo, em um conjunto de dispositivos, para reportar o status e o progresso das ações em execução no dispositivo.
   
     ![Gráfico de padrão de status e progresso de relatório de gerenciamento de dispositivos][img-report_progress_pattern]
 
@@ -112,6 +112,6 @@ Para continuar a aprender sobre as funcionalidades de gerenciamento de dispositi
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

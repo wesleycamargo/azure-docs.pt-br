@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
-ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
@@ -100,7 +100,7 @@ Clique no resultado para avaliá-lo no portal e ver o motivo da falha.
 
 Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio.
 
-*Parece correto, mas é relatado como uma falha?*  Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
+*Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
 
 ### <a name="open-the-server-request-and-exceptions"></a>Abrir a solicitação de servidor e exceções
 
@@ -239,7 +239,7 @@ Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 
 ## <a name="automation"></a>Automação
-* [Use os scripts do PowerShell para configurar um teste na Web](app-insights-powershell.md#add-an-availability-test) automaticamente.
+* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
@@ -294,6 +294,6 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Depurar trabalhos do U-SQL | Microsoft Docs
-description: 'Saiba como depurar vértice com falha do U-SQL usando o Visual Studio. '
+description: "Saiba como depurar vértice com falha do U-SQL usando o Visual Studio. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4a4cd690645200bc5f208fd0d15fe58537f9b2a4
+
 
 ---
-# Depurar o código C# em U-SQL para trabalhos do Data Lake Analytics
-Saiba como usar as ferramentas do Visual Studio do Azure Data Lake para depurar trabalhos com falhas do U-SQL causadas por bugs no código do usuário.
+# <a name="debug-c-code-in-u-sql-for-data-lake-analytics-jobs"></a>Depurar o código C# em U-SQL para trabalhos do Data Lake Analytics
+Saiba como usar as ferramentas do Visual Studio do Azure Data Lake para depurar trabalhos com falhas do U-SQL causadas por bugs no código do usuário. 
 
 A ferramenta Visual Studio permite que você baixe o código compilado e os dados de vértice necessários do cluster para rastrear e depurar trabalhos com falha.
 
-Sistemas de big data geralmente fornecem o modelo de extensibilidade por meio de linguagens, como Java, C#, Python, etc. Muitos desses sistemas fornecem informações de depuração de tempo de execução limitadas, o que torna difícil depurar erros de tempo de execução no código personalizado. As ferramentas do Visual Studio mais recentes vêm com um recurso chamado "Falha na depuração de vértice". Usando esse recurso, você pode baixar os dados de tempo de execução do Azure para a estação de trabalho local para que você possa depurar com código C# personalizado com falha usando o mesmo tempo de execução e os dados de entrada exatos da nuvem. Depois que os problemas forem corrigidos, você poderá executar novamente o código revisado no Azure por meio das ferramentas.
+Sistemas de big data geralmente fornecem o modelo de extensibilidade por meio de linguagens, como Java, C#, Python, etc. Muitos desses sistemas fornecem informações de depuração de tempo de execução limitadas, o que torna difícil depurar erros de tempo de execução no código personalizado. As ferramentas do Visual Studio mais recentes vêm com um recurso chamado "Falha na depuração de vértice". Usando esse recurso, você pode baixar os dados de tempo de execução do Azure para a estação de trabalho local para que você possa depurar com código C# personalizado com falha usando o mesmo tempo de execução e os dados de entrada exatos da nuvem.  Depois que os problemas forem corrigidos, você poderá executar novamente o código revisado no Azure por meio das ferramentas.
 
 Para uma apresentação em vídeo desse recurso, consulte [Depurar seu código personalizado no Azure Data Lake Analytics](https://mix.office.com/watch/1bt17ibztohcb).
 
@@ -30,11 +34,11 @@ Para uma apresentação em vídeo desse recurso, consulte [Depurar seu código p
 > 
 > 
 
-## Pré-requisitos
-* Ter lido o artigo de [Introdução](data-lake-analytics-data-lake-tools-get-started.md).
+## <a name="prerequisites"></a>Pré-requisitos
+* Ter lido o artigo de [Introdução](data-lake-analytics-data-lake-tools-get-started.md) .
 
-## Criar e configurar projetos de depuração
-Ao abrir um trabalho com falha na ferramenta Data Lake Visual Studio, você receberá um alerta. As informações de erro detalhadas serão mostradas na guia de erros e na barra de alerta amarela na parte superior da janela.
+## <a name="create-and-configure-debug-projects"></a>Criar e configurar projetos de depuração
+Ao abrir um trabalho com falha na ferramenta Data Lake Visual Studio, você receberá um alerta. As informações de erro detalhadas serão mostradas na guia de erros e na barra de alerta amarela na parte superior da janela. 
 
 ![Vértice para download do visual studio para depuração do U-SQL no Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
@@ -50,7 +54,7 @@ Se você tiver registrado assemblies .dll no seu banco de dados do Data Lake Ana
 
 Se você tiver criado uma biblioteca de classes C# separada para o código de U-SQL e registrado assemblies .dll no banco de dados do Data Lake Analytics, você precisará adicionar o projeto C# de origem dos assemblies à solução VertexDebug.
 
-Em alguns casos raros, você pode usar operadores definidos pelo usuário em U-SQL no arquivo code-behind (Script.usql.cs) na solução original. Se você quiser fazê-lo funcionar, precisará criar uma biblioteca C# contendo o código-fonte e alterar o nome do assembly para aquele registrado no cluster. Você pode obter o nome do assembly registrado no cluster, verificando o script que colocou em execução no cluster. Você pode fazer isso abrindo o trabalho U-SQL e clique em "script" no painel do trabalho.
+Em alguns casos raros, você pode usar operadores definidos pelo usuário em U-SQL no arquivo code-behind (Script.usql.cs) na solução original. Se você quiser fazê-lo funcionar, precisará criar uma biblioteca C# contendo o código-fonte e alterar o nome do assembly para aquele registrado no cluster. Você pode obter o nome do assembly registrado no cluster, verificando o script que colocou em execução no cluster. Você pode fazer isso abrindo o trabalho U-SQL e clique em "script" no painel do trabalho. 
 
 **Para configurar a solução**
 
@@ -61,31 +65,36 @@ Em alguns casos raros, você pode usar operadores definidos pelo usuário em U-S
 
 ![Configuração do visual studio para depuração do U-SQL no Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-## Depurar o trabalho
+## <a name="debug-the-job"></a>Depurar o trabalho
 Depois de ter criado uma solução de depuração baixando o vértice e de ter configurado o ambiente, você poderá iniciar a depuração do código U-SQL.
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **LocalVertexHost** recém-criado por você, aponte para **Depurar** e clique em **Iniciar nova instância**. O LocalVertexHost deve ser definido como o projeto de Inicialização. Você pode ver a seguinte mensagem de erro pela primeira vez, a qual pode ignorar. Pode levar um minuto para que a tela de depuração seja exibida.
    
    ![Aviso do visual studio para depuração do U-SQL no Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
-2. Use a experiência de depuração baseada no Visual Studio (observação, variáveis, etc.) para solucionar o problema.
-3. Depois de ter identificado um problema, corrija o código e recompile o projeto C# antes de testá-lo novamente até que todos os problemas tenham sido resolvidos. Depois que a depuração tiver sido concluída com êxito, a janela de saída mostrará a seguinte mensagem
+2. Use a experiência de depuração baseada no Visual Studio (observação, variáveis, etc.) para solucionar o problema. 
+3. Depois de ter identificado um problema, corrija o código e recompile o projeto C# antes de testá-lo novamente até que todos os problemas tenham sido resolvidos. Depois que a depuração tiver sido concluída com êxito, a janela de saída mostrará a seguinte mensagem 
    
-     The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
+     O programa 'LocalVertexHost.exe' foi encerrado com o código 0 (0x0).
 
-## Reenviar o trabalho
+## <a name="resubmit-the-job"></a>Reenviar o trabalho
 Depois de concluir a depuração do código U-SQL, você pode reenviar o trabalho que falhou.
 
 1. Registre novos assemblies .dll no seu banco de dados ADLA.
    
-   1. No Gerenciador de Servidores/Cloud Explorer na ferramenta Data Lake Visual Studio, expanda o nó **Bancos de Dados**
-   2. Clique com o botão direito do mouse em Assemblies para Registrar assemblies.
+   1. No Gerenciador de Servidores/Cloud Explorer na ferramenta Data Lake Visual Studio, expanda o nó **Bancos de Dados** 
+   2. Clique com o botão direito do mouse em Assemblies para Registrar assemblies. 
    3. Registre os novos assemblies .dll no seu banco de dados ADLA.
 2. Ou copie seu código C# para script.usql.cs – arquivo de código por trás do C#.
 3. Reenvie o trabalho.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Tutorial: introdução à linguagem U-SQL da Análise do Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
 * [Tutorial: desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Azure Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

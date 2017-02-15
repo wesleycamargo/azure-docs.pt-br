@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2904376bfe16d1aaa5d0816dd3ee64e13911465
+ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
+ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
 
 
 ---
@@ -43,7 +43,7 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 > 
 
 * As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure.  No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
-* Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo em suas tarefas podem gastar no estado na fila e, em qualquer momento específico, no máximo uma tarefa será executada.
+* Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo que as Tarefas podem gastar no estado na fila e, a qualquer momento específico, no máximo, apenas uma Tarefa será executada.
 * Os seguintes data centers não oferecem o tipo de unidade reservada **S2** : Sul do Brasil, Índia Ocidental, Índia Central e Sul da Índia.
 * Os seguintes data centers não oferecem o tipo de unidade reservada **S3** : Sul do Brasil, Índia Ocidental, Índia Central.
 * O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
@@ -72,6 +72,6 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

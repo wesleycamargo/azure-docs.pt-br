@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2016
+ms.date: 01/25/2017
 ms.author: DavidBosland
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -26,19 +26,19 @@ Em 15 de março de 2016, nós disponibilizaremos a solução CSPs (provedores nu
 Para exibir ou alterar seu status de "Incentivo do Revendedor", siga estas etapas:
 
 1. Faça logon na sua [Conta de publicação do Microsoft Azure](https://publish.windowsazure.com/workspace)
-   
+
    ![Tela inicial do perfil][1]
 2. Clique em **Editores**
-   
+
    ![Tela inicial do perfil - link de editores][2]
 3. Observe as informações do seu perfil sobre CSPs.  Há um **Alternar para dizer que Sim ou não** para o "Incentivo ao Revendedor" - o status padrão é "Sim".
-   
+
    ![Perfil - Editores][3]
 4. Para alterar o status do "Incentivo ao Revendedor", acesse o seu perfil do editor, selecione e salve a sua escolha:
-   
+
    * Selecione **Sim** para escolher fornecer o desconto de 20% para os CSPs que estão revendendo os aplicativos e serviços listados no Azure Marketplace.  Ou selecione **Não** para recusar o programa de incentivo.  Em ambos os casos, o editor recebe o mesmo pagamento.
    * Depois de fazer uma seleção, certifique-se de clicar em **Salvar** no canto superior direito.
-   
+
    ![Perfil - Editores - Caixas de alteração][4]
 
 [1]: ./media/marketplace-publishing-csp-incentive/profile-stock.png

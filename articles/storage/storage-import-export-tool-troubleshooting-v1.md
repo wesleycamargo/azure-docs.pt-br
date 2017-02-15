@@ -1,0 +1,51 @@
+---
+title: "Solução de problemas da Ferramenta de Importação/Exportação do Azure | Microsoft Docs"
+description: "Saiba mais sobre os problemas comuns que os usuários enfrentam ao usar a Ferramenta de Importação/Exportação e como resolvê-los."
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: 
+ms.assetid: b91ca5eb-c557-460a-9afc-0590b38471f9
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/15/2017
+ms.author: muralikk
+translationtype: Human Translation
+ms.sourcegitcommit: a6e5253f9242ce5d9e1be06e24ab2e1a70d1b321
+ms.openlocfilehash: 4cc9e33c63d3fdf4a7d9368b11e802063c67bec7
+
+
+---
+
+# <a name="troubleshooting-the-azure-import-export-tool"></a>Solução de problemas da Ferramenta de Importação/Exportação do Azure
+A ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens de erro em caso de problemas. Este tópico lista alguns problemas comuns que os usuários poderão enfrentar.  
+  
+## <a name="a-copy-session-fails-what-i-should-do"></a>Quando uma sessão de cópia falha o que devo fazer?  
+ Quando uma sessão de cópia falha, há duas opções:  
+  
+ Se o erro for com nova tentativa, por exemplo, se o compartilhamento de rede ficou offline por um curto período e agora está online novamente, será possível retomar a sessão de cópia. Se o erro for sem nova tentativa, por exemplo, se você especificou o diretório do arquivo de origem incorreto nos parâmetros de linha de comando, você precisará anular a sessão de cópia. Consulte [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparando os discos rígidos para um trabalho de importação) para obter mais informações sobre como continuar e anular sessões de cópia.  
+  
+## <a name="i-cant-resume-or-abort-a-copy-session"></a>Não consigo retomar nem anular uma sessão de cópia.  
+ Se a sessão de cópia for a primeira sessão de cópia de uma unidade, a mensagem de erro deverá indicar: “A primeira sessão de cópia não pode ser continuada nem anulada”. Nesse caso, é possível excluir o arquivo de diário antigo e executar o comando novamente.  
+  
+ Se uma sessão de cópia não for a primeira de uma unidade, ela poderá sempre ser continuada ou anulada.  
+  
+## <a name="i-lost-the-journal-file-can-i-still-create-the-job"></a>Perdi o arquivo de diário. Ainda posso criar o trabalho?  
+ O arquivo de diário de uma unidade contém as informações completas da cópia de dados para essa unidade. Ele é necessário para adicionar mais arquivos à unidade e será usado para criar um trabalho de importação. Em caso de perda do arquivo de diário, você precisará refazer todas as sessões de cópia da unidade.  
+  
+## <a name="see-also"></a>Consulte também  
+ [Configurando a ferramenta de Importação/Exportação do Azure](storage-import-export-tool-setup-v1.md)   
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)  (Preparando os discos rígidos para um trabalho de importação)  
+ [Examinando o status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)  (Reparando um trabalho de importação)  
+ [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md) (Reparando um trabalho de exportação)
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

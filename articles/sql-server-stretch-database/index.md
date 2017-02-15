@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar o SQL Server Stretch Database para migrar os dados frios com segurança para o Azure sem alterar as consultas ou os aplicativos. Tutoriais e outra documentação."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3dad35a38c753988615a4c1f2b439de9f95baf0e
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Documentação do SQL Server Stretch Database
 
-O SQL Server Stretch Database migra seus dados passivos de forma transparente e segura para a nuvem do Microsoft Azure. O SQL Server Stretch Database disponibiliza dados pouco utilizados a um custo reduzido, não exige alterações em seus aplicativos ou consultas e mantém seus dados protegidos mesmo durante a migração. O Stretch Database destina-se a bancos de dados transacionais com grandes quantidades de dados utilizados com pouca frequência, geralmente armazenados em uma pequena quantidade de tabelas.
+Saiba como usar o SQL Server Stretch Database para migrar os dados frios de forma transparente e segura para a nuvem do Azure. Os tutoriais e outra documentação ajudam a configurar uma disponibilidade econômica para os bancos de dados com dados pouco usados sem exigir alterações nas consultas ou aplicativos existentes.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,16 +88,10 @@ O SQL Server Stretch Database migra seus dados passivos de forma transparente e 
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-server-stretch-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do SQL Server Stretch Database </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

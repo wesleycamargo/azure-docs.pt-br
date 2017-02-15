@@ -1,12 +1,12 @@
 ---
-title: Notas de versão SDK do Azure para .NET 2.5.1
-description: Notas de versão SDK do Azure para .NET 2.5.1
+title: "Notas de versão SDK do Azure para .NET 2.5.1"
+description: "Notas de versão SDK do Azure para .NET 2.5.1"
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
+
 
 ---
-# <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
+# <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
 Este documento contém as notas de versão do SDK do Azure para a versão do .NET 2.5.1. 
 
-## <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
+## <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
 Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 
 * Novos recursos\cenários relacionados a **Extensões de Ferramentas da Web**. 
@@ -42,7 +46,7 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
     
     Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight Hadoop para Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="<a-id="known_issues_2_5_1"></a>azure-sdk-for-.net-2.5.1-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Limitações e problemas conhecidos do SDK do Azure para .NET 2.5.1
+## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Limitações e problemas conhecidos do SDK do Azure para .NET 2.5.1
 * O recurso de Aplicativos de API do Azure está visível como um destino de implantação para Aplicativos Móveis. Aplicativos Web devem ser o único destino para Aplicativos Móveis até uma versão subsequente. 
 * Provisionamento de Aplicativo de API do Azure pode resultar em êxito, mas falha intermitente em atualizar o andamento na janela de Atividade do Serviço de Aplicativo do Azure. A solução alternativa é verificar o status do novo Aplicativo de API do Azure no Portal do Azure. 
 * A experiência Arquivo > Novo Projeto > Aplicativo de API > F5 resulta em um erro de HTTP porque não há nenhum default/index.html. A solução alternativa é navegar manualmente para a URL /api/values. 
@@ -59,6 +63,9 @@ Estes são os novos recursos e atualizações no SDK do Azure para .NET 2.5.1.
 * Modelos de projeto de Aplicativo de API só estão disponíveis em C#.
 * Consumo do Aplicativo de API através do menu de contexto "Adicionar Cliente do Aplicativo de API do Azure" só têm suporte em C#.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

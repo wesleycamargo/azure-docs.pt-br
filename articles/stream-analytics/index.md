@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Saiba como executar a análise da IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 5fbbb4ad21bbc4c4206d051e9585cd5d9888a545
-ms.openlocfilehash: 7d19b3b972bf5fdd9545f87f48eb924da8333ff7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
@@ -143,7 +143,7 @@ Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Strea
                 <div class="card">
                     <div class="Languages</h3>
                         <p><a href="/dotnet/api/streamanalytics.tests.operationtests">.NET</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Idioma de consulta</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn834998">Linguagem da consulta</a></p>
                     </div>
                 </div>
             </div>
@@ -162,13 +162,7 @@ Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Strea
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Stream Analytics </div>
-    </a>
-</div>
+
 
 
 

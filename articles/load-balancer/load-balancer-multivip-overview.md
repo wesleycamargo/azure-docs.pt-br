@@ -1,12 +1,12 @@
 ---
-title: Múltiplos VIPs para o Azure Load Balancer | Microsoft Docs
-description: Visão geral de Vários VIPs no Azure Load Balancer
+title: "Múltiplos VIPs para o Azure Load Balancer | Microsoft Docs"
+description: "Visão geral de Vários VIPs no Azure Load Balancer"
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: ''
-
+editor: 
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2016
 ms.author: chkuhtz
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 0cedf46bd0b8c352c8a8d87407ed7fbbc58e3b46
 
 ---
+
 # <a name="multiple-vips-for-azure-load-balancer"></a>Múltiplos VIPs para o Azure Load Balancer
+
 O Azure Load Balancer permite que você equilibre a carga de serviços em várias portas, vários endereços IP ou ambos. Você pode usar definições de balanceador de carga públicas e internas para fluxos de balanceamento de carga em um conjunto de VMs.
 
 Este artigo descreve os conceitos básicos dessa capacidade, conceitos importantes e restrições. Se você pretende expor serviços em um endereço IP, encontre instruções simplificadas para configurações do balanceador de carga [público](load-balancer-get-started-internet-portal.md) ou [interno](load-balancer-get-started-ilb-arm-portal.md). A adição de vários VIPs é um complemento a uma única configuração de VIP. Com os conceitos deste artigo, você pode expandir uma configuração simplificada quanto quiser.
@@ -43,7 +48,8 @@ O Azure Load Balancer permite que você misture os dois tipos de regra na mesma 
 
 Vamos explorar esses cenários ainda mais, começando com o comportamento padrão.
 
-## <a name="rule-type-#1:-no-backend-port-reuse"></a>Tipo de regra 1: nenhuma reutilização de porta de back-end
+## <a name="rule-type-1-no-backend-port-reuse"></a>Tipo de regra 1: nenhuma reutilização de porta de back-end
+
 ![Ilustração de vários VIPs](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
 Nesse cenário, os VIPs de front-end serão configurados da seguinte maneira:
@@ -71,9 +77,10 @@ O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
 Cada regra deve produzir um fluxo com uma combinação exclusiva de endereço IP de destino e porta de destino. Ao variar a porta de destino do fluxo, várias regras podem proporcionar fluxos ao mesmo DIP em portas diferentes.
 
-Investigações de integridade são sempre direcionadas ao DIP de uma VM. Você deve garantir que sua investigação reflita a integridade da VM.
+Investigações de integridade são sempre direcionadas ao DIP de uma VM. É necessário garantir que sua investigação reflita a integridade da VM.
 
-## <a name="rule-type-#2:-backend-port-reuse-by-using-floating-ip"></a>Tipo de regra 2: reutilização de porta de back-end usando o IP Flutuante
+## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>Tipo de regra 2: reutilização de porta de back-end usando o IP Flutuante
+
 O Azure Load Balancer oferece a flexibilidade para reutilizar a porta front-end em vários VIPs, independentemente do tipo de regra usado. Além disso, alguns cenários de aplicativos preferem ou exigem a utilização da mesma porta por várias instâncias do aplicativo em uma única VM no pool de back-end. Exemplos comuns de reutilização de porta incluem clusters de alta disponibilidade, dispositivos virtuais de rede e exposição de vários pontos de extremidade TLS sem nova criptografia.
 
 Se você quiser reutilizar a porta de back-end em várias regras, habilite o IP Flutuante na definição da regra.
@@ -94,8 +101,6 @@ Para este cenário, todas as VMs no pool de back-end têm três interfaces de re
 
 > [!IMPORTANT]
 > A configuração das interfaces de lógica é executada no sistema operacional convidado. Essa configuração não é executada ou gerenciada pelo Azure. Sem essa configuração, as regras não funcionarão. As definições de investigação de integridade usam o DIP da VM em vez do VIP lógico. Portanto, o serviço deve fornecer respostas de investigação em uma porta DIP que refletem o status do serviço oferecido no VIP lógico.
-> 
-> 
 
 Vamos supor a mesma configuração de front-end que no cenário anterior:
 
@@ -122,14 +127,17 @@ O destino do fluxo de entrada é o endereço VIP na interface de loopback na VM.
 
 Observe que este exemplo não altera a porta de destino. Embora esse seja um cenário de IP Flutuante, o Azure Load Balancer também oferece suporte à definição de uma regra para reescrever a porta de destino de back-end e diferenciar da porta de destino do front-end.
 
-O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) . Ao longo do tempo, documentaremos mais esses cenários.
+O tipo de regra de IP Flutuante é a base de vários padrões de configuração do balanceador de carga. Um exemplo disponível atualmente é a configuração [AlwaysOn com vários ouvintes](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . Ao longo do tempo, documentaremos mais esses cenários.
 
 ## <a name="limitations"></a>Limitações
+
 * Há suporte para várias configurações de VIP apenas com VMs de IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar o DIP para fluxos de saída. Se o seu aplicativo se associar ao endereço VIP configurado na interface de loopback no sistema operacional convidado, SNAT não estará disponível para reescrever o fluxo de saída e o fluxo falhará.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como transmitir sob demanda ou em tempo real vídeo de qualidade de transmissão com os serviços de mídia, uma plataforma de nuvem extensível com segurança. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 877d92deebfda835eef37cdc8dc1bca21520d892
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3e029a72b1918636ede33db1445ce0550d40ede6
 
 ---
 # <a name="media-services-documentation"></a>Documentação de Serviços de Mídia
 
-Os Serviços de Mídia do Azure são uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Os serviços de mídia se baseiam em APIs REST que permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
-
-Você pode compilar fluxos de trabalho de ponta a ponta usando os Serviços de Mídia. Você também pode optar por usar componentes de terceiros para algumas partes do seu fluxo de trabalho. Por exemplo, você pode codificar usando um codificador de terceiros e, em seguida, carregar, proteger, empacotar e entregar usando os Serviços de Mídia.
+Saiba como transmitir vídeo de qualidade de transmissão com os Serviços de Mídia, uma plataforma de nuvem extensível. Tutoriais, referências de API e outras documentações mostram como oferecer com segurança, sob demanda e ao vivo, fluxos de áudio ou vídeos que são dimensionados para milhões de usuários.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -159,63 +158,50 @@ Você pode compilar fluxos de trabalho de ponta a ponta usando os Serviços de M
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do Azure PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media">PowerShell (Gerenciador de Recursos)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute">PowerShell (Gerenciamento de Serviços)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de Referência Gerenciada do .NET</p>
-                    </div>
+                        <h3>Linguagens</h3>
+                        <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/media/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST dos Serviços de Mídia</p>
+                        <p><a href="/rest/api/media">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação dos Serviços de Mídia </div>
-    </a>
-</div>
+</ul>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

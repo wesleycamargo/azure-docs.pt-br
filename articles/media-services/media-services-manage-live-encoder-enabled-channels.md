@@ -1,6 +1,6 @@
 ---
 title: "Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Docs"
-description: "Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os Serviços de Mídia. O fluxo pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais pontos de extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming, MPEG DASH, HDS."
+description: "Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os Serviços de Mídia. Em seguida, a transmissão pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais Pontos de Extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming e MPEG DASH."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42dc5d5019bfb6a4740b16c8db149718c0cf072a
+ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
+ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 
 
 ---
+
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
@@ -125,7 +126,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 Se o **Tipo de codificador** está definido como **Standard**, as opções válidas são:
 
 * **RTP** (MPEG-TS): fluxo de transporte de MPEG-2 por RTP.  
-*  **RTMP**
+* **RTMP**
 * **MP4 fragmentado** de taxa de bits única (Smooth Streaming)
 
 #### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG TS) - fluxo de transporte de MPEG-2 por RTP.
@@ -191,7 +192,7 @@ Considerações:
 * Perfil Alto 422 (10 bits 4:2:2)
 * Áudio MPEG-2 AAC-LC
 * Mono, Estéreo, Surround (5.1, 7.1)
-* Taxa de amostragem de 44,1 kHz
+* Taxa de amostragem de&44;,1 kHz
 * Empacotamento de ADTS estilo MPEG-2
 * Os codificadores recomendados incluem:
 * Telestream Wirecast
@@ -316,7 +317,7 @@ Opcional. Sinaliza o codificador dinâmico para alternar para a imagem [fixa pad
 
 A imagem usada será aquela especificada por meio da propriedade de ID do ativo de slate padrão no momento da criação do canal. O slate será estendido para ajustar-se ao tamanho da imagem de exibição. 
 
-## <a name="insert-slate-images"></a>Inserir imagens fixas
+## <a name="insert-slate--images"></a>Inserir imagens fixas
 O codificador ao vivo no canal pode ser sinalizado para alternar para uma imagem slate. Ele também pode ser sinalizado para encerrar um slate em curso. 
 
 O codificador ao vivo pode ser configurado para alternar para uma imagem slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo comercial. Se um slate desse tipo não estiver configurado, o vídeo de entrada não é mascarado durante esse intervalo comercial.
@@ -328,9 +329,12 @@ A duração do slate em segundos. Isso deve ser um valor positivo diferente de z
 Quando definida como true, essa configuração configura o codificador ao vivo para inserir uma imagem slate durante um intervalo comercial. O valor padrão é true. 
 
 ### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>ID de ativo de slate padrão
+
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo. 
 
-**Observação**: antes de criar o canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). 
+>
+>[!NOTE] 
+>Antes de criar o Canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). 
 
 * No máximo 1920x1080 na resolução.
 * No máximo 3 megabytes de tamanho.
@@ -434,6 +438,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

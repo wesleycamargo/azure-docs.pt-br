@@ -1,23 +1,29 @@
 ---
-title: Código do Buffer de Anel de XEvent para o Banco de Dados SQL | Microsoft Docs
-description: Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure.
+title: "Código do Buffer de Anel de XEvent para o Banco de Dados SQL | Microsoft Docs"
+description: "Fornece um exemplo de código Transact-SQL que se torna fácil e rápido por meio do uso do destino do Buffer de Anéis, no Banco de Dados SQL do Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 02/03/2017
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+
 
 ---
-# Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino do Buffer de Anéis para eventos estendidos no Banco de Dados SQL
+
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Você deseja um exemplo de código completo da maneira mais fácil e rápida de capturar e relatar informações para um evento estendido durante um teste. O destino mais fácil para os dados do evento estendido é o [destino do Buffer de Anéis](http://msdn.microsoft.com/library/ff878182.aspx).
@@ -25,38 +31,41 @@ Você deseja um exemplo de código completo da maneira mais fácil e rápida de 
 Este tópico apresenta um exemplo de código Transact-SQL que:
 
 1. Cria uma tabela com dados para demonstração.
-2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql\_statement\_starting**.
+2. Cria uma sessão para um evento estendido existente, ou seja, **sqlserver.sql_statement_starting**.
    
    * O evento é limitado a instruções SQL que contêm uma determinada cadeia de caracteres de Atualização: **statement LIKE '%UPDATE tabEmployee%'**.
-   * Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring\_buffer**.
+   * Escolhe enviar a saída do evento para um destino do tipo Buffer de Anéis, ou seja, **package0.ring_buffer**.
 3. Inicia a sessão de evento.
 4. Emite algumas instruções SQL UPDATE simples.
 5. Emite uma instrução SQL SELECT para recuperar a saída de evento do Buffer de Anéis.
    
-   * **sys.dm\_xe\_database\_session\_targets** e outras exibições de gerenciamento dinâmico (DMVs) são ingressadas.
+   * **sys.dm_xe_database_session_targets** e outras exibições de gerenciamento dinâmico (DMVs) são ingressadas.
 6. Interrompe a sessão de evento.
 7. Descarta o destino do Buffer de Anéis, para liberar seus recursos.
 8. Descarta a sessão de evento e a tabela de demonstração.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
+
 * Uma conta e uma assinatura do Azure. Você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualquer banco de dados no qual você possa criar uma tabela.
   
-  * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em alguns minutos.
-* O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. Você pode baixar o ssms.exe mais recente de:
+  * Como alternativa, você pode [criar um banco de dados de demonstração do **AdventureWorksLT**](sql-database-get-started.md) em questão minutos.
+* O SQL Server Management Studio (ssms.exe), idealmente na sua versão de atualização mensal mais recente. 
+  Você pode baixar o ssms.exe mais recente de:
   
   * Tópico [Baixar o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
   * [Um link direto para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
 
-## Exemplo de código
-Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir pode ser executado no Banco de Dados SQL do Azure ou no Microsoft SQL Server. A diferença é a presença do nó “\_database” no nome de algumas exibições de gerenciamento dinâmico (DMVs) na cláusula FROM na Etapa 5. Por exemplo:
+## <a name="code-sample"></a>Exemplo de código
 
-* sys.dm\_xe**\_database**\_session\_targets
-* sys.dm\_xe\_session\_targets
+Com modificações mínimas, o exemplo de código do Buffer de Anéis a seguir pode ser executado no Banco de Dados SQL do Azure ou no Microsoft SQL Server. A diferença é a presença do nó “_database” no nome de algumas exibições de gerenciamento dinâmico (DMVs) na cláusula FROM na Etapa 5. Por exemplo:
+
+* sys.dm_xe**_database**_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 
-```
+```tsql
 GO
 ----  Transact-SQL.
 ---- Step set 1.
@@ -209,14 +218,15 @@ GO
 
 &nbsp;
 
-## Conteúdo do Buffer de Anéis
+## <a name="ring-buffer-contents"></a>Conteúdo do Buffer de Anéis
+
 Nós usamos o ssms.exe para executar o exemplo de código.
 
-Para exibir os resultados, clicamos na célula no título de coluna **target\_data\_XML**.
+Para exibir os resultados, clicamos na célula no título de coluna **target_data_XML**.
 
-Em seguida, no painel de resultados, clicamos na célula no título de coluna **target\_data\_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
+Em seguida, no painel de resultados, clicamos na célula no título de coluna **target_data_XML**. Esse clique criou outra guia de arquivo no ssms.exe, onde o conteúdo da célula de resultado foi exibido como XML.
 
-A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **<event>**.
+A saída é mostrada no bloco a seguir. Parece longo, mas são apenas dois elementos **<event>** .
 
 &nbsp;
 
@@ -308,10 +318,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### Liberar os recursos mantidos pelo seu Buffer de Anéis
+#### <a name="release-resources-held-by-your-ring-buffer"></a>Liberar os recursos mantidos pelo seu Buffer de Anéis
+
 Quando concluir o Buffer de Anéis, é possível removê-lo e liberar seus próprios recursos emitindo um comando **ALTER** semelhante ao seguinte:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     DROP TARGET package0.ring_buffer;
@@ -321,7 +332,7 @@ GO
 
 A definição de sua sessão de evento é atualizada, mas não descartada. Mais tarde, é possível adicionar outra instância do Buffer de Anéis à sessão de evento:
 
-```
+```tsql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     ADD TARGET
@@ -332,7 +343,8 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ```
 
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
+
 O tópico principal para eventos estendidos no Banco de Dados SQL do Azure é:
 
 * [Considerações sobre eventos estendidos no Banco de Dados SQL](sql-database-xevent-db-diff-from-svr.md), que é diferente em alguns aspectos dos eventos estendidos que diferem entre o Banco de Dados SQL do Azure e o Microsoft SQL Server.
@@ -348,4 +360,8 @@ Outros tópicos com exemplos de código para eventos estendidos estão disponív
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

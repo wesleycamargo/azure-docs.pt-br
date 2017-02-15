@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+ms.sourcegitcommit: d9f6c8c73cb7803547053ec495812f993eb44c43
+ms.openlocfilehash: b2f8683be1dea938cba84766efe32287eeebb712
 
 
 ---
@@ -108,7 +108,7 @@ As transmissões de feed podem ser criadas usando processos em segundo plano dos
 
 Os pontos e as curtidas de uma postagem podem ser processados de forma adiada usando essa mesma técnica, a fim de criar um ambiente que, no final das contas, seja consistente.
 
-Os seguidores são mais complicados. O Banco de Dados de Documentos tem um limite de tamanho de documento de 512Kb, portanto, pense em armazenar seguidores como um documento com essa estrutura:
+Os seguidores são mais complicados. O DocumentDB tem um limite de tamanho máximo para documentos e ler/gravar documentos grandes pode afetar a escalabilidade do seu aplicativo. Portanto, pense em armazenar seguidores como um documento com esta estrutura:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -121,7 +121,7 @@ Os seguidores são mais complicados. O Banco de Dados de Documentos tem um limit
         ]
     }
 
-Isso pode funcionar para um usuário com alguns milhares seguidores, mas, no caso de algumas celebridades, essa abordagem eventualmente atingirá o limite de tamanho do documento.
+Isso pode funcionar para um usuário com alguns milhares seguidores, mas, no caso de algumas celebridades, essa abordagem levará a um documento grande e, eventualmente, o limite de tamanho do documento poderá ser atingido.
 
 Para resolver isso, podemos usar uma abordagem mista. Como parte do documento de Estatísticas do Usuário, podemos armazenar o número de seguidores:
 
@@ -234,6 +234,6 @@ Caso contrário, saiba mais sobre o DocumentDB seguindo o [Roteiro de aprendizag
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

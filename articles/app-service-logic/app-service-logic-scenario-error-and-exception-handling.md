@@ -1,13 +1,13 @@
 ---
-title: Logging and error handling in Logic Apps | Microsoft Docs
-description: View a real-life use case of advanced error handling and logging with Logic Apps
-keywords: ''
+title: "Tratamento de logs e de erros nos Aplicativos Lógicos | Microsoft Docs"
+description: "Exibir um caso de uso real de tratamento e registro em log avançados de erros com Aplicativos Lógicos"
+keywords: 
 services: logic-apps
 author: hedidin
 manager: anneta
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,48 +15,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: b-hoedid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d211ab7f34017f7fcfd6150b916a038e7391c51
+
 
 ---
-# <a name="logging-and-error-handling-in-logic-apps"></a>Logging and error handling in Logic Apps
-This article describes how you can extend a logic app to better support exception handling. It is a real-life use case and our answer to the question of, "Does Logic Apps support exception and error handling?"
+# <a name="logging-and-error-handling-in-logic-apps"></a>Registro em log e tratamento de erros nos Aplicativos Lógicos
+Este artigo descreve como você pode estender um aplicativo lógico para dar um suporte melhor ao tratamento de exceções. É um caso de uso real e nossa resposta à pergunta “Os Aplicativos Lógicos dão suporte ao tratamento de exceções e de erros”?
 
 > [!NOTE]
-> The current version of the Logic Apps feature of Microsoft Azure App Service provides a standard template for action responses.
-> This includes both internal validation and error responses returned from an API app.
+> A versão atual do recurso Aplicativos Lógicos do Serviço de Aplicativo do Microsoft Azure fornece um modelo padrão para respostas de ação.
+> Isso inclui validação interna e respostas de erro retornadas de um aplicativo de API.
 > 
 > 
 
-## <a name="overview-of-the-use-case-and-scenario"></a>Overview of the use case and scenario
-The following story is the use case for this article.
-A well-known healthcare organization engaged us to develop an Azure solution that would create a patient portal by using Microsoft Dynamics CRM Online. They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce.  We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+## <a name="overview-of-the-use-case-and-scenario"></a>Visão geral do cenário e do caso de uso
+A história a seguir é o caso de uso para este artigo.
+Uma organização de saúde conhecida nos pediu para desenvolver uma solução do Azure que criasse um portal de paciente usando o Microsoft Dynamics CRM Online. Ela precisava enviar registros de consultas entre o portal de pacientes do Dynamics CRM Online e o Salesforce.  Foi solicitado que usássemos o padrão [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) para todos os registros de pacientes.
 
-The project had two major requirements:  
+O projeto tinha dois requisitos principais:  
 
-* A method to log records sent from the Dynamics CRM Online portal
-* A way to view any errors that occurred within the workflow
+* Um método para registrar em log os registros enviados do portal do Dynamics CRM Online
+* Uma maneira de exibir os erros ocorridos no fluxo de trabalho
 
-## <a name="how-we-solved-the-problem"></a>How we solved the problem
+## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 > [!TIP]
-> You can view a high-level video of the project at the [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
+> Você pode exibir um vídeo de alto nível do projeto no [Grupo de Usuários de Integração](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/ "Integration User Group").
 > 
 > 
 
-We chose [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/ "Azure DocumentDB") as a repository for the log and error records (DocumentDB refers to records as documents). Because Logic Apps has a standard template for all responses, we would not have to create a custom schema. We could create an API app to **Insert** and **Query** for both error and log records. We could also define a schema for each within the API app.  
+Escolhemos o [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/ "Banco de Dados de Documentos do Azure") como um repositório para os registros de log e de erros (O Banco de Dados de Documentos trata os registros como documentos). Como os Aplicativos Lógicos têm um modelo padrão para todas as respostas, não seria necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
-Another requirement was to purge records after a certain date. DocumentDB has a property called  [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (TTL), which allowed us to set a **Time to Live** value for each record or collection. This eliminated the need to manually delete records in DocumentDB.
+Outro requisito era eliminar registros após determinada data. O DocumentDB tem uma propriedade chamada [Vida útil](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida útil") (TTL), que nos permitiu definir um valor **Vida útil** para cada registro ou coleção. Isso elimina a necessidade de excluir manualmente os registros do Banco de Dados de Documentos.
 
-### <a name="creation-of-the-logic-app"></a>Creation of the logic app
-The first step is to create the logic app and load it in the designer. In this example, we are using parent-child logic apps. Let's assume that we have already created the parent and are going to create one child logic app.
+### <a name="creation-of-the-logic-app"></a>Criação do aplicativo lógico
+A primeira etapa é criar o aplicativo lógico e carregá-lo no designer. Neste exemplo, estamos usando aplicativos lógicos pai-filho. Vamos supor que nós criamos o pai e vamos criar um aplicativo lógico filho.
 
-Because we are going to be logging the record coming out of Dynamics CRM Online, let's start at the top. We need to use a Request trigger because the parent logic app triggers this child.
+Já que vamos registrar em log o registro vindo do Dynamics CRM Online, começaremos do início. Precisamos usar um gatilho Solicitação, já que o aplicativo lógico pai irá disparar esse filho.
 
 > [!IMPORTANT]
-> To complete this tutorial, you will need to create a DocumentDB database and two collections (Logging and Errors).
+> Para concluir este tutorial, você precisará criar um Banco de Dados de Documentos e duas coleções (Registro em Log e de Erros).
 > 
 > 
 
-### <a name="logic-app-trigger"></a>Logic app trigger
-We are using a Request trigger as shown in the following example.
+### <a name="logic-app-trigger"></a>Gatilho de aplicativo lógico
+Estamos usando um gatilho Solicitação, conforme mostrado no exemplo a seguir.
 
 ```` json
 "triggers": {
@@ -94,34 +98,34 @@ We are using a Request trigger as shown in the following example.
 ````
 
 
-### <a name="steps"></a>Steps
-We need to log the source (request) of the patient record from the Dynamics CRM Online portal.
+### <a name="steps"></a>Etapas
+Precisamos registrar a origem (solicitação) do registro do paciente do portal do Dynamics CRM Online.
 
-1. We need to get a new appointment record from Dynamics CRM Online.
-    The trigger coming from CRM provides us with the **CRM PatentId**, **record type**, **New or Updated Record** (new or update Boolean value), and **SalesforceId**. The **SalesforceId** can be null because it's only used for an update.
-    We will get the CRM record by using the CRM **PatientID** and the **Record Type**.
-2. Next, we need to add our DocumentDB API app **InsertLogEntry** operation as shown in the following figures.
+1. Precisamos obter um novo registro de consulta do Dynamics CRM Online.
+    O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
+    Obteremos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
+2. Em seguida, precisamos adicionar a operação **InsertLogEntry** do nosso aplicativo de API do Banco de Dados de Documentos como mostrado nas figuras a seguir.
 
-#### <a name="insert-log-entry-designer-view"></a>Insert log entry designer view
-![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
+#### <a name="insert-log-entry-designer-view"></a>Inserir entrada de log no modo de exibição de designer
+![Inserir Entrada de Log](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
-#### <a name="insert-error-entry-designer-view"></a>Insert error entry designer view
-![Insert Log Entry](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
+#### <a name="insert-error-entry-designer-view"></a>Inserir entrada de erro no modo de exibição de designer
+![Inserir Entrada de Log](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
-#### <a name="check-for-create-record-failure"></a>Check for create record failure
-![Condition](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+#### <a name="check-for-create-record-failure"></a>Verificar falha em criar registro
+![Condição](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
-## <a name="logic-app-source-code"></a>Logic app source code
+## <a name="logic-app-source-code"></a>Código-fonte do aplicativo lógico
 > [!NOTE]
-> The following are samples only. Because this tutorial is based on an implementation currently in production, the value of a **Source Node** might not display properties that are related to scheduling an appointment.
+> A seguir, mostraremos exemplos apenas. Como o tutorial se baseia em uma implementação atualmente em produção, o valor de um **Nó de Origem** não pode exibir as propriedades relacionadas ao agendamento de uma consulta.
 > 
 > 
 
-### <a name="logging"></a>Logging
-The following logic app code sample shows how to handle logging.
+### <a name="logging"></a>Registro em log
+O exemplo de código de aplicativo lógico a seguir mostra como lidar com registros em log.
 
-#### <a name="log-entry"></a>Log entry
-This is the logic app source code for inserting a log entry.
+#### <a name="log-entry"></a>Entrada de log
+Este é o código-fonte do aplicativo lógico para a inserção de uma entrada de log.
 
 ``` json
 "InsertLogEntry": {
@@ -147,8 +151,8 @@ This is the logic app source code for inserting a log entry.
 }
 ```
 
-#### <a name="log-request"></a>Log request
-This is the log request message posted to the API app.
+#### <a name="log-request"></a>Solicitação de log
+Essa é a mensagem de solicitação de log postada para o aplicativo de API.
 
 ``` json
     {
@@ -166,8 +170,8 @@ This is the log request message posted to the API app.
 ```
 
 
-#### <a name="log-response"></a>Log response
-This is the log response message from the API app.
+#### <a name="log-response"></a>Resposta de log
+Essa é a mensagem de resposta de log postada para o aplicativo de API.
 
 ``` json
 {
@@ -201,13 +205,13 @@ This is the log response message from the API app.
 
 ```
 
-Now let's look at the error handling steps.
+Agora vejamos as etapas de tratamento de erros.
 
-### <a name="error-handling"></a>Error handling
-The following Logic Apps code sample shows how you can implement error handling.
+### <a name="error-handling"></a>Tratamento de erros
+O exemplo de código de aplicativos lógicos a seguir mostra como você pode implementar o tratamento de erros.
 
-#### <a name="create-error-record"></a>Create error record
-This is the Logic Apps source code for creating an error record.
+#### <a name="create-error-record"></a>Criar registro de erro
+Este é o código-fonte dos Aplicativos Lógicos para a criação de um registro de erro.
 
 ``` json
 "actions": {
@@ -239,10 +243,10 @@ This is the Logic Apps source code for creating an error record.
             "Create_NewPatientRecord": ["Failed" ]
         }
     }
-}          
+}             
 ```
 
-#### <a name="insert-error-into-documentdb--request"></a>Insert error into DocumentDB--request
+#### <a name="insert-error-into-documentdb--request"></a>Inserir erro no Banco de Dados de Documentos - solicitação
 ``` json
 
 {
@@ -264,7 +268,7 @@ This is the Logic Apps source code for creating an error record.
 }
 ```
 
-#### <a name="insert-error-into-documentdb--response"></a>Insert error into DocumentDB--response
+#### <a name="insert-error-into-documentdb--response"></a>Inserir erro no Banco de Dados de Documentos - resposta
 ``` json
 {
     "statusCode": 200,
@@ -302,7 +306,7 @@ This is the Logic Apps source code for creating an error record.
 }
 ```
 
-#### <a name="salesforce-error-response"></a>Salesforce error response
+#### <a name="salesforce-error-response"></a>Resposta de erro do Salesforce
 ``` json
 {
     "statusCode": 400,
@@ -330,10 +334,10 @@ This is the Logic Apps source code for creating an error record.
 
 ```
 
-### <a name="returning-the-response-back-to-the-parent-logic-app"></a>Returning the response back to the parent logic app
-After you have the response, you can pass it back to the parent logic app.
+### <a name="returning-the-response-back-to-the-parent-logic-app"></a>Retornar a resposta ao aplicativo lógico pai
+Assim que você tiver a resposta, poderá passá-la para o aplicativo lógico pai.
 
-#### <a name="return-success-response-to-the-parent-logic-app"></a>Return success response to the parent logic app
+#### <a name="return-success-response-to-the-parent-logic-app"></a>Retornar resposta de êxito para aplicativo lógico pai
 ``` json
 "SuccessResponse": {
     "runAfter":
@@ -345,7 +349,7 @@ After you have the response, you can pass it back to the parent logic app.
             "status": "Success"
     },
     "headers": {
-    "   Content-type": "application/json",
+    "    Content-type": "application/json",
         "x-ms-date": "@utcnow()"
     },
     "statusCode": 200
@@ -354,7 +358,7 @@ After you have the response, you can pass it back to the parent logic app.
 }
 ```
 
-#### <a name="return-error-response-to-the-parent-logic-app"></a>Return error response to the parent logic app
+#### <a name="return-error-response-to-the-parent-logic-app"></a>Retornar resposta de erro para aplicativo lógico pai
 ``` json
 "ErrorResponse": {
     "runAfter":
@@ -377,51 +381,51 @@ After you have the response, you can pass it back to the parent logic app.
 ```
 
 
-## <a name="documentdb-repository-and-portal"></a>DocumentDB repository and portal
-Our solution added additional capabilities with [DocumentDB](https://azure.microsoft.com/services/documentdb).
+## <a name="documentdb-repository-and-portal"></a>Repositório e portal do Banco de Dados de Documentos
+Nossa solução adicionou outros recursos com o [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb).
 
-### <a name="error-management-portal"></a>Error management portal
-To view the errors, you can create an MVC web app to display the error records from DocumentDB. **List**, **Details**, **Edit**, and **Delete** operations are included in the current version.
+### <a name="error-management-portal"></a>Portal de gerenciamento de erros
+Para exibir os erros, você pode criar um aplicativo Web do MVC para exibir os registros de erro do Banco de Dados de Documentos. As operações **Listar**, **Detalhes**, **Editar** e **Excluir** foram incluídas na versão atual.
 
 > [!NOTE]
-> Edit operation: DocumentDB does a replace of the entire document.
-> The records shown in the **List** and **Detail** views are samples only. They are not actual patient appointment records.
+> Operação Editar: o Banco de Dados de Documentos faz uma substituição de todo o documento.
+> Os registros mostrados nos modos de exibição de **Lista** e de **Detalhe** são apenas exemplos. Eles não são registros reais de consultas de pacientes.
 > 
 > 
 
-Following are examples of our MVC app details created with the previously described approach.
+A seguir, temos exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
-#### <a name="error-management-list"></a>Error management list
-![Error List](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
+#### <a name="error-management-list"></a>Lista de gerenciamento de erros
+![Lista de Erros](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
 
-#### <a name="error-management-detail-view"></a>Error management detail view
-![Error Details](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
+#### <a name="error-management-detail-view"></a>Modo de exibição de detalhes do gerenciamento de erros
+![Detalhes do Erro](./media/app-service-logic-scenario-error-and-exception-handling/errordetails.png)
 
-### <a name="log-management-portal"></a>Log management portal
-To view the logs, we also created an MVC web app.  Following are examples of our MVC app details created with the previously described approach.
+### <a name="log-management-portal"></a>Portal de gerenciamento de logs
+Para exibir os logs, também criamos um aplicativo Web do MVC.  A seguir, temos exemplos de nossos detalhes do aplicativo MVC criados com a abordagem descrita anteriormente.
 
-#### <a name="sample-log-detail-view"></a>Sample log detail view
-![Log Detail View](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
+#### <a name="sample-log-detail-view"></a>Modo de exibição de detalhes de log de exemplo
+![Modo de Exibição de Detalhes de Log](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
-### <a name="api-app-details"></a>API app details
-#### <a name="logic-apps-exception-management-api"></a>Logic Apps exception management API
-Our open-source Logic Apps exception management API app provides the following functionality.
+### <a name="api-app-details"></a>Detalhes do aplicativo de API
+#### <a name="logic-apps-exception-management-api"></a>API de gerenciamento de exceções de Aplicativos Lógicos
+Nosso aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos de software livre forneceu a funcionalidade a seguir.
 
-There are two controllers:
+Há dois controladores:
 
-* **ErrorController** inserts an error record (document) in a DocumentDB collection.
-* **LogController** Inserts a log record (document) in a DocumentDB collection.
+* **ErrorController** insere um registro de erro (documento) em uma coleção do Banco de Dados de Documentos.
+* **LogController** insere um registro de log (documento) em uma coleção do Banco de Dados de Documentos.
 
 > [!TIP]
-> Both controllers use `async Task<dynamic>` operations. This allows operations to be resolved at runtime, so we can create the DocumentDB schema in the body of the operation.
+> Ambos os controladores usam operações `async Task<dynamic>`. Isso permite que as operações sejam resolvidas em tempo de execução, de forma que possamos criar o esquema do Banco de Dados de Documentos no corpo da operação.
 > 
 > 
 
-Every document in DocumentDB must have a unique ID. We are using `PatientId` and adding a timestamp that is converted to a Unix timestamp value (double). We truncate it to remove the fractional value.
+Todos os documentos do Banco de Dados de Documentos devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Nós o truncamos para remover o valor fracionário.
 
-You can view the source code of our error controller API [from GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Você pode exibir o código-fonte da nossa API de controlador erro [o GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-We call the API from a logic app by using the following syntax.
+Vamos chamar a API de um aplicativo lógico usando a sintaxe a seguir.
 
 ``` json
  "actions": {
@@ -454,21 +458,24 @@ We call the API from a logic app by using the following syntax.
  }
 ```
 
-The expression in the preceding code sample is checking for the *Create_NewPatientRecord* status of **Failed**.
+A expressão no exemplo de código anterior está verificando o status de *Create_NewPatientRecord*, que é **Falha**.
 
-## <a name="summary"></a>Summary
-* You can easily implement logging and error handling in a logic app.
-* You can use DocumentDB as the repository for log and error records (documents).
-* You can use MVC to create a portal to display log and error records.
+## <a name="summary"></a>Resumo
+* Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
+* Você pode usar o Banco de Dados de Documentos como o repositório de registros de log e de erros (documentos).
+* Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
 
-### <a name="source-code"></a>Source code
-The source code for the Logic Apps exception management API application is available in this [GitHub repository](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "Logic App Exception Management API").
+### <a name="source-code"></a>Código-fonte
+O código-fonte para o aplicativo de API de gerenciamento de exceções de Aplicativos Lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de Gerenciamento de Exceções de Aplicativos Lógicos").
 
-## <a name="next-steps"></a>Next steps
-* [View more Logic Apps examples and scenarios](app-service-logic-examples-and-scenarios.md)
-* [Learn about Logic Apps monitoring tools](app-service-logic-monitor-your-logic-apps.md)
-* [Create a Logic App automated deployment template](app-service-logic-create-deploy-template.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Exibir mais exemplos e cenários dos Aplicativos Lógicos](app-service-logic-examples-and-scenarios.md)
+* [Saiba mais sobre ferramentas de monitoramento de Aplicativos Lógicos](app-service-logic-monitor-your-logic-apps.md)
+* [Criar um modelo de implantação de Aplicativos Lógicos](app-service-logic-create-deploy-template.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,162 +1,264 @@
 ---
-title: Associações de Aplicativos Móveis do Azure Functions | Microsoft Docs
-description: Entenda como usar associações dos Aplicativos Móveis do Azure no Azure Functions.
+title: "Associações de Aplicativos Móveis do Azure Functions | Microsoft Docs"
+description: "Entenda como usar associações dos Aplicativos Móveis do Azure no Azure Functions."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-
+editor: 
+tags: 
+keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+ms.assetid: faad1263-0fa5-41a9-964f-aecbc0be706a
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 10/31/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
+ms.openlocfilehash: c5e1c02984f9773b263c0bee7685c7d5ff62e658
+
 
 ---
-# Associações de Aplicativos Móveis do Azure Functions
+# <a name="azure-functions-mobile-apps-bindings"></a>Associações de Aplicativos Móveis do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações dos Aplicativos Móveis do Azure no Azure Functions.
+Este artigo explica como configurar e codificar associações dos [Aplicativos Móveis do Azure](../app-service-mobile/app-service-mobile-value-prop.md) no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para os Aplicativos Móveis.
 
-[!INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+As associações de entrada e saída para os Aplicativos Móveis permitem [ler e gravar em tabelas de dados](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) em seu aplicativo móvel.
 
-Os Aplicativos Móveis do Serviço de Aplicativo do Azure permitem que você exponha os dados de ponto de extremidade de tabela para clientes móveis. Esses mesmos dados tabulares podem ser usados em associações de entrada e de saída com o Azure Functions. Como ele dá suporte ao esquema dinâmico, um aplicativo móvel de back-end Node.js é ideal para expor dados tabulares para serem usados com suas funções. O esquema dinâmico está habilitado por padrão e deve ser desabilitado em um aplicativo móvel de produção. Para saber mais sobre pontos de extremidade de tabela em um back-end Node.js, consulte [Visão geral: operações de tabela](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations). Nos Aplicativos Móveis, o back-end do Node.js dá suporte à navegação e edição de tabelas no portal. Para obter mais informações, veja [edição no portal](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#in-portal-editing) no tópico SDK do Node.js. Ao usar um aplicativo móvel de back-end do .NET com o Azure Functions, você deverá atualizar manualmente o modelo de dados conforme exigido pela sua função. Para obter mais informações sobre os pontos de extremidade de tabela em um aplicativo móvel de back-end do .NET, veja [Como definir um controlador de tabela](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller) no tópico do SDK de back-end do .NET.
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Criar uma variável de ambiente para a URL de back-end do aplicativo móvel
-As associações de aplicativos móveis atualmente exigem que você crie uma variável de ambiente que retorne a URL do back-end do aplicativo móvel em si. Essa URL pode ser encontrada no [Portal do Azure](https://portal.azure.com) localizando seu aplicativo móvel e abrindo a folha.
+<a name="input"></a>
 
-![Folha de Aplicativos Móveis no Portal do Azure](./media/functions-bindings-mobile-apps/mobile-app-blade.png)
+## <a name="mobile-apps-input-binding"></a>Associação de entrada dos Aplicativos Móveis
+A associação de entrada dos Aplicativos Móveis carrega um registro de um ponto de extremidade de tabela móvel e o passa para a função. Em uma função do C# ou do F#, todas as alterações feitas no registro são enviadas novamente de forma automática para a tabela quando a função é fechada com êxito.
 
-Para definir essa URL como uma variável de ambiente em seu aplicativo de funções:
+A entrada dos Aplicativos Móveis de uma função usa o seguinte objeto JSON na matriz `bindings` de function.json:
 
-1. No seu aplicativo de funções no [Portal do Azure Functions](https://functions.azure.com/signin), clique em **Configurações do aplicativo de funções** > **Ir para configurações do Serviço de Aplicativo**.
-   
-    ![Folha de configurações do aplicativo de funções](./media/functions-bindings-mobile-apps/functions-app-service-settings.png)
-2. Em seu aplicativo de funções, clique em **Todas as configurações**, role para baixo até **Configurações de aplicativo**, em seguida, em **Configurações de aplicativo**, digite um novo **Nome** para a variável de ambiente, cole a URL em **Valor**, certificando-se de usar o esquema HTTPS, clique em **Salvar** e feche a folha do aplicativo de funções para retornar para o portal de Funções.
-   
-    ![Adicionar uma variável de ambiente de configuração de aplicativo](./media/functions-bindings-mobile-apps/functions-app-add-app-setting.png)
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "mobileTable",
+    "tableName": "<Name of your mobile app's data table>",
+    "id" : "<Id of the record to retrieve - see below>",
+    "connection": "<Name of app setting that has your mobile app's URL - see below>",
+    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+    "direction": "in"
+}
+```
 
-Agora você pode definir essa nova variável de ambiente como o campo *conexão* em suas associações.
+Observe o seguinte:
 
-## <a id="mobiletablesapikey"></a> Use uma chave de API para proteger o acesso aos seus pontos de extremidade de tabelas dos Aplicativos Móveis.
-No Azure Functions, as associações de tabelas móveis permitem especificar uma chave de API, que é um segredo compartilhado que pode ser usado para impedir o acesso indesejado de aplicativos que não fazem parte das suas funções. Os Aplicativos Móveis não possuem suporte interno para a autenticação de chave de API. No entanto, você pode implementar uma chave de API em seu aplicativo móvel de back-end do Node.js seguindo os exemplos em [Azure App Service Mobile Apps backend implementing an API key](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) (Back-end de Aplicativos Móveis do Serviço de Aplicativo do Azure implementando uma chave de API). Da mesma forma, você pode implementar uma chave de API em um [aplicativo móvel de back-end .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key).
+* `id` pode ser estático ou se basear no gatilho que invoca a função. Por exemplo, se você usar um [gatilho da fila]() para sua função, o `"id": "{queueTrigger}"` usará o valor de cadeia de caracteres da mensagem da fila como a ID de registro a ser recuperada.
+* `connection` deve conter o nome de uma configuração de aplicativo no aplicativo de funções que, por sua vez, contém a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias no aplicativo móvel. Você [cria uma configuração de aplicativo no aplicativo de funções]() que contém a URL do aplicativo móvel (que se parece com `http://<appname>.azurewebsites.net`) e especifica o nome da configuração do aplicativo na propriedade `connection` na associação de entrada. 
+* Você precisará especificar `apiKey` se [implementar uma chave de API no back-end do aplicativo móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou se [implementar uma chave de API no back-end do aplicativo móvel do .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fazer isso, você [cria uma configuração de aplicativo no aplicativo de funções]() que contém a chave de API e adiciona a propriedade `apiKey` na associação de entrada ao nome da configuração do aplicativo. 
+  
+  > [!IMPORTANT]
+  > Essa chave de API não deve ser compartilhada com seus clientes de aplicativo móvel. Ela só deve ser distribuída com segurança aos clientes do lado do serviço, como o Azure Functions. 
+  > 
+  > [!NOTE]
+  > O Azure Functions armazena suas informações de conexão e as chaves de API como configurações de aplicativo, para que elas não sejam inseridas no repositório de controle do código-fonte. Isso protege as informações confidenciais.
+  > 
+  > 
 
-> [!IMPORTANT]
-> Essa chave de API não deve ser distribuída com seus clientes de aplicativo móvel, só deve ser distribuída com segurança aos clientes no lado do serviço, como o Azure Functions.
-> 
-> 
+<a name="inputusage"></a>
 
-## <a id="mobiletablesinput"></a> Associação de entrada dos Aplicativos Móveis do Azure
-As associações de entrada podem carregar um registro de um ponto de extremidade de tabela móvel e passá-lo diretamente para sua associação. A ID do registro é determinada com base no gatilho que invocou a função. Em uma função do C#, quaisquer alterações feitas no registro são enviadas automaticamente para a tabela quando a função sai com êxito.
+## <a name="input-usage"></a>Uso de entrada
+Esta seção mostra como usar a associação de entrada dos Aplicativos Móveis no código da função. 
 
-#### function.json para associação de entrada dos Aplicativos Móveis
-O arquivo *function.json* dá suporte às seguintes propriedades:
+Quando o registro com a tabela e a ID de registro especificadas é encontrado, ele é passado para o parâmetro [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) nomeado (ou, no Node.js, ele é passado para o objeto `context.bindings.<name>`). Quando o registro não é encontrado, o parâmetro é `null`. 
 
-* `name`: nome da variável usada no código de função para o novo registro.
-* `type`: o tipo de associação deve ser definido como *mobileTable*.
-* `tableName`: a tabela na qual o novo registro será criado.
-* `id`: a ID do registro a ser recuperado. Essa propriedade dá suporte a associações semelhantes a `{queueTrigger}`, que usarão o valor da cadeia de caracteres da mensagem de fila como a ID do registro.
-* `apiKey`: cadeia de caracteres que é a configuração de aplicativo que especifica a chave de API opcional para o aplicativo móvel. Isso será necessário quando seu aplicativo móvel usar uma chave de API para restringir o acesso de cliente.
-* `connection`: cadeia de caracteres que é o nome da variável de ambiente nas configurações do aplicativo que especifica a URL do seu back-end do aplicativo móvel.
-* `direction`: direção da associação, que deve ser definida como *in*.
+Nas funções do C# ou do F#, todas as alterações feitas no registro de entrada (parâmetro de entrada) são enviadas novamente de forma automática para os Aplicativos Móveis quando a função é fechada com êxito. Nas funções do Node.js, use `context.bindings.<name>` para acessar o registro de entrada. Não é possível modificar um registro no Node.js.
 
-Arquivo *function.json* de exemplo:
+<a name="inputsample"></a>
 
+## <a name="input-sample"></a>Amostra de entrada
+Suponha que você tem o seguinte function.json, que recupera um registro de tabela do Aplicativo Móvel com a ID da mensagem do gatilho da fila:
+
+```json
+{
+"bindings": [
     {
-      "bindings": [
-        {
-          "name": "record",
-          "type": "mobileTable",
-          "tableName": "MyTable",
-          "id" : "{queueTrigger}",
-          "connection": "My_MobileApp_Url",
-          "apiKey": "My_MobileApp_Key",
-          "direction": "in"
-        }
-      ],
-      "disabled": false
-    }
-
-#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do C
-Com base no function.json de exemplo acima, a associação de entrada recupera o registro do ponto de extremidade de tabela dos Aplicativos Móveis com a ID que corresponde à cadeia de caracteres de mensagem de fila e transmite-a para o parâmetro *record*. Quando o registro não for encontrado, o parâmetro será nulo. O registro será então atualizado com o novo valor de *Text* quando a função sair.
-
-    #r "Newtonsoft.Json"    
-    using Newtonsoft.Json.Linq;
-
-    public static void Run(string myQueueItem, JObject record)
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
     {
-        if (record != null)
-        {
-            record["Text"] = "This has changed.";
-        }    
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "in"
     }
+],
+"disabled": false
+}
+```
 
-#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
-Com base no function.json de exemplo acima, a associação de entrada recupera o registro do ponto de extremidade de tabela dos Aplicativos Móveis com a ID que corresponde à cadeia de caracteres de mensagem de fila e transmite-a para o parâmetro *record*. Em funções do Node.js, os registros atualizados não são enviados de volta à tabela. Este exemplo de código grava o registro recuperado no log.
+Consulte a amostra específica da linguagem que usa o registro de entrada da associação. As amostras do C# e do F# também modificam a propriedade `text` do registro.
 
-    module.exports = function (context, input) {    
-        context.log(context.bindings.record);
-        context.done();
+* [C#](#inputcsharp)
+* [Node.js](#inputnodejs)
+
+<a name="inputcsharp"></a>
+
+### <a name="input-sample-in-c"></a>Amostra de entrada no C# #
+
+```cs
+#r "Newtonsoft.Json"    
+using Newtonsoft.Json.Linq;
+
+public static void Run(string myQueueItem, JObject record)
+{
+    if (record != null)
+    {
+        record["Text"] = "This has changed.";
+    }    
+}
+```
+
+<!--
+<a name="inputfsharp"></a>
+### Input sample in F# ## 
+
+```fsharp
+#r "Newtonsoft.Json"    
+open Newtonsoft.Json.Linq
+let Run(myQueueItem: string, record: JObject) =
+  inputDocument?text <- "This has changed."
+```
+-->
+
+<a name="inputnodejs"></a>
+
+### <a name="input-sample-in-nodejs"></a>Amostra de entrada no Node.js
+
+```javascript
+module.exports = function (context, myQueueItem) {    
+    context.log(context.bindings.record);
+    context.done();
+};
+```
+
+<a name="output"></a>
+
+## <a name="mobile-apps-output-binding"></a>Associação de saída dos Aplicativos Móveis
+Use a associação de saída dos Aplicativos Móveis para gravar um novo registro em um ponto de extremidade de tabela dos Aplicativos Móveis.  
+
+A saída dos Aplicativos Móveis para uma função usa o seguinte objeto JSON na matriz `bindings` de function.json:
+
+```json
+{
+    "name": "<Name of output parameter in function signature>",
+    "type": "mobileTable",
+    "tableName": "<Name of your mobile app's data table>",
+    "connection": "<Name of app setting that has your mobile app's URL - see below>",
+    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+    "direction": "out"
+}
+```
+
+Observe o seguinte:
+
+* `connection` deve conter o nome de uma configuração de aplicativo no aplicativo de funções que, por sua vez, contém a URL do aplicativo móvel. A função usa essa URL para construir as operações REST necessárias no aplicativo móvel. Você [cria uma configuração de aplicativo no aplicativo de funções]() que contém a URL do aplicativo móvel (que se parece com `http://<appname>.azurewebsites.net`) e especifica o nome da configuração do aplicativo na propriedade `connection` na associação de entrada. 
+* Você precisará especificar `apiKey` se [implementar uma chave de API no back-end do aplicativo móvel do Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) ou se [implementar uma chave de API no back-end do aplicativo móvel do .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Para fazer isso, você [cria uma configuração de aplicativo no aplicativo de funções]() que contém a chave de API e adiciona a propriedade `apiKey` na associação de entrada ao nome da configuração do aplicativo. 
+  
+  > [!IMPORTANT]
+  > Essa chave de API não deve ser compartilhada com seus clientes de aplicativo móvel. Ela só deve ser distribuída com segurança aos clientes do lado do serviço, como o Azure Functions. 
+  > 
+  > [!NOTE]
+  > O Azure Functions armazena suas informações de conexão e as chaves de API como configurações de aplicativo, para que elas não sejam inseridas no repositório de controle do código-fonte. Isso protege as informações confidenciais.
+  > 
+  > 
+
+<a name="outputusage"></a>
+
+## <a name="output-usage"></a>Uso de saída
+Esta seção mostra como usar a associação de saída dos Aplicativos Móveis no código da função. 
+
+Nas funções do C#, use um parâmetro de saída nomeado do tipo `out object` para acessar o registro de saída. Nas funções do Node.js, use `context.bindings.<name>` para acessar o registro de saída.
+
+<a name="outputsample"></a>
+
+## <a name="output-sample"></a>Amostra de saída
+Suponha que você tem o seguinte function.json, que define um gatilho da fila e uma saída dos Aplicativos Móveis:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
+    }
+],
+"disabled": false
+}
+```
+
+Consulte a amostra específica da linguagem que cria um registro no ponto de extremidade de tabela dos Aplicativos Móveis com o conteúdo da mensagem da fila.
+
+* [C#](#outcsharp)
+* [Node.js](#outnodejs)
+
+<a name="outcsharp"></a>
+
+### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+
+```cs
+public static void Run(string myQueueItem, out object record)
+{
+    record = new {
+        Text = $"I'm running in a C# function! {myQueueItem}"
     };
+}
+```
+
+<!--
+<a name="outfsharp"></a>
+### Output sample in F# ## 
+```fsharp
+
+```
+-->
+<a name="outnodejs"></a>
+
+### <a name="output-sample-in-nodejs"></a>Amostra de saída no Node.js
+
+```javascript
+module.exports = function (context, myQueueItem) {
+
+    context.bindings.record = {
+        text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
+    }   
+
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>Próximas etapas
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
-## <a id="mobiletablesoutput"></a>Associação de saída dos Aplicativos Móveis do Azure
-Sua função pode gravar um registro para o ponto de extremidade de tabela dos Aplicativos Móveis usando uma associação de saída.
 
-#### function.json para associação de saída dos Aplicativos Móveis
-O arquivo function.json dá suporte às seguintes propriedades:
 
-* `name`: nome da variável usada no código de função para o novo registro.
-* `type`: o tipo de associação que deve ser definido como *mobileTable*.
-* `tableName`: a tabela na qual o novo registro é criado.
-* `apiKey`: cadeia de caracteres que é a configuração de aplicativo que especifica a chave de API opcional para o aplicativo móvel. Isso será necessário quando seu aplicativo móvel usar uma chave de API para restringir o acesso de cliente.
-* `connection`: cadeia de caracteres que é o nome da variável de ambiente nas configurações do aplicativo que especifica a URL do seu back-end do aplicativo móvel.
-* `direction`: direção da associação, que deve ser definida como *out*.
+<!--HONumber=Nov16_HO3-->
 
-function.json de exemplo:
 
-    {
-      "bindings": [
-        {
-          "name": "record",
-          "type": "mobileTable",
-          "tableName": "MyTable",
-          "connection": "My_MobileApp_Url",
-          "apiKey": "My_MobileApp_Key",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
-
-#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do C
-Este exemplo de código C# insere um novo registro em um ponto de extremidade de tabela dos Aplicativos Móveis com uma propriedade *Text* na tabela especificada na associação acima.
-
-    public static void Run(string myQueueItem, out object record)
-    {
-        record = new {
-            Text = $"I'm running in a C# function! {myQueueItem}"
-        };
-    }
-
-#### Exemplo de código dos Aplicativos Móveis do Azure para um gatilho de fila do Node.js
-Este exemplo de código Node.js insere um novo registro em um ponto de extremidade de tabela dos Aplicativos Móveis com uma propriedade *Text* na tabela especificada na associação acima.
-
-    module.exports = function (context, input) {
-
-        context.bindings.record = {
-            text : "I'm running in a Node function! Data: '" + input + "'"
-        }   
-
-        context.done();
-    };
-
-## Próximas etapas
-[!INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
-
-<!---HONumber=AcomDC_0907_2016-->

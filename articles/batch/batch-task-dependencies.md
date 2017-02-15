@@ -3,7 +3,7 @@ title: "Dependências de tarefas no Lote do Azure | Microsoft Docs"
 description: "Crie tarefas que dependem da conclusão bem-sucedida de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure."
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/28/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
 
 
 ---
@@ -35,7 +35,7 @@ Você pode criar tarefas que dependem de outras tarefas em uma relação um para
 Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
 
 ## <a name="enable-task-dependencies"></a>Habilitar dependências de tarefas
-Para usar as dependências de tarefas no aplicativo do Lote, primeiro você deve informar ao serviço de Lote que o trabalho usa dependências de tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] definindo a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
+Para usar as dependências de tarefas no aplicativo do Lote, primeiro você deve informar ao serviço de Lote que o trabalho usa dependências de tarefas. No .NET do Lote, habilite-o no [CloudJob][net_cloudjob] configurando a propriedade [UsesTaskDependencies][net_usestaskdependencies] como `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -62,7 +62,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Esse trecho de código cria uma tarefa com a ID de "Flowers" que será agendada para ser executada em um nó de computação apenas depois que as tarefas com IDs de "Rain" e "Sun" forem concluídas com êxito.
 
 > [!NOTE]
-> Uma tarefa é considerada concluída quando está no estado **Concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] e o valor da propriedade `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] é `0`.
+> Uma tarefa é considerada concluída quando está no estado **Concluído** e seu **código de saída** é `0`. No .NET do Lote, isso significa que o valor da propriedade [CloudTask][net_cloudtask].[State][net_taskstate] é `Completed` e o valor da propriedade [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask é `0`.
 > 
 > 
 
@@ -71,8 +71,8 @@ Há três cenários de dependência de tarefas básicos que você pode usar no L
 
 | Cenário&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemplo |  |
 |:---:| --- | --- |
-|  [Um-para-um](#one-to-one) |*tarefaB* depende de *tarefaA* <p/> A *tarefaB* não será agendada para execução até que a *tarefaA* seja concluída com êxito |![Diagrama: dependência de tarefa de um-para-um][1] |
-|  [Um-para-muitos](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> A *tarefaC* não será agendada para execução até que a *tarefaA* e a *tarefaB* sejam concluídas com êxito |![Diagrama: dependência de tarefa de um-para-muitos][2] |
+|  [Um-para-um](#one-to-one) |*tarefaB* depende de *tarefaA* <p/> A *tarefaB* não será agendada para execução até que a *tarefaA* seja concluída com êxito |![Diagrama: dependência de tarefa de um para um][1] |
+|  [Um-para-muitos](#one-to-many) |A *tarefaC* depende da *tarefaA* e da *tarefaB* <p/> A *tarefaC* não será agendada para execução até que a *tarefaA* e a *tarefaB* sejam concluídas com êxito |![Diagrama: dependência de tarefa de um para muitos][2] |
 |  [Intervalo de IDs de tarefa](#task-id-range) |A *taskD* depende de diversas tarefas <p/> A *tarefaD* não será agendada para execução até que as tarefas com as IDs *1* a *10* sejam concluídas com êxito |![Diagrama: dependência de intervalo de ids de tarefas][3] |
 
 > [!TIP]
@@ -95,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Um-para-muitos
-Para criar uma tarefa que tenha uma dependência referente à conclusão bem-sucedida de várias tarefas, forneça uma coleção de IDs de tarefas ao método estático [TaskDependencies][net_taskdependencies].[OnId][net_onids] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+Para criar uma tarefa que tenha uma dependência referente à conclusão bem-sucedida de várias tarefas, forneça um conjunto de IDs de tarefas ao método estático [TaskDependencies][net_taskdependencies].[OnIds][net_onids] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -137,14 +137,14 @@ new CloudTask("4", "cmd.exe /c echo 4")
 ```
 
 ## <a name="code-sample"></a>Exemplo de código
-O projeto de exemplo [TaskDependencies][github_taskdependencies] é um dos códigos de exemplo do [Azure Batch code samples][github_samples] no GitHub. Essa solução do Visual Studio 2015 demonstra como habilitar a dependência de tarefas em um trabalho, criar tarefas que dependem de outras tarefas e executar essas tarefas em um pool de nós de computação.
+O projeto de exemplo [TaskDependencies][github_taskdependencies] é um dos [exemplos de código do Lote do Azure][github_samples] no GitHub. Essa solução do Visual Studio 2015 demonstra como habilitar a dependência de tarefas em um trabalho, criar tarefas que dependem de outras tarefas e executar essas tarefas em um pool de nós de computação.
 
 ## <a name="next-steps"></a>Próximas etapas
 ### <a name="application-deployment"></a>Implantação do aplicativo
 O recurso de [pacotes de aplicativos](batch-application-packages.md) do lote fornece uma maneira fácil de implantar e controlar a versão dos aplicativos que as tarefas executam em nós de computação.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalação de aplicativos e preparação de dados
-Confira a postagem [Instalação de aplicativos e preparação de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparação de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, esta postagem é um bom guia sobre as diferentes maneiras de incluir arquivos (incluindo aplicativos e dados de entrada de tarefa) em seus nós de computação.
+Confira a postagem [Instalação de aplicativos e preparo de dados em nós de computação do Lote][forum_post] no Fórum do Lote do Azure para ter uma visão geral dos vários métodos de preparo de nós para execução de tarefas. Escrita por um dos membros da equipe do Lote do Azure, esta postagem é um bom guia sobre as diferentes maneiras de incluir arquivos (incluindo aplicativos e dados de entrada de tarefa) em seus nós de computação.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [github_taskdependencies]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
@@ -163,12 +163,12 @@ Confira a postagem [Instalação de aplicativos e preparação de dados em nós 
 [net_usestaskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.usestaskdependencies.aspx
 [net_taskdependencies]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskdependencies.aspx
 
-[1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependência de um-para-um"
-[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um-para-muitos"
+[1]: ./media/batch-task-dependency/01_one_to_one.png "Diagrama: dependência de um para um"
+[2]: ./media/batch-task-dependency/02_one_to_many.png "Diagrama: dependência de um para muitos"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagrama: dependência de intervalo de ids de tarefas"
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

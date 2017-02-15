@@ -16,6 +16,7 @@
 ## [Criar uma conta de armazenamento](azure-stack-provision-storage-account.md)
 ## [Conectar-se com a CLI](azure-stack-connect-cli.md)
 ## [Conectar-se com o PowerShell](azure-stack-connect-powershell.md)
+## [Instalar Visual Studio](azure-stack-install-visual-studio.md)
 ## [Perguntas frequentes](azure-stack-faq.md)
 
 # Oferecer serviços a locatários
@@ -28,6 +29,7 @@
 # Usar modelos
 ## [Visão geral de modelo](azure-stack-arm-templates.md)
 ## [Desenvolver modelos](azure-stack-develop-templates.md)
+## [Verificar modelos](azure-stack-validate-templates.md)
 ## [Implantar modelos com o portal](azure-stack-deploy-template-portal.md)
 ## [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
 ## [Implantar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Criar e modificar um circuito de Rota Expressa usando o modelo de implantação clássico e o PowerShell| Microsoft Docs
-description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento de um circuito da Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir e desprovisionar seu circuito.
+title: "Criar e modificar um circuito do ExpressRoute usando o modelo de implantação clássico e o PowerShell| Microsoft Docs"
+description: "Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento de um circuito da Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir e desprovisionar seu circuito."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> [Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Gerenciador de Recursos](expressroute-howto-circuit-arm.md)
-> [PowerShell - Clássico](expressroute-howto-circuit-classic.md)
+> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell – Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell - clássico](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -32,13 +36,13 @@ Este artigo fornece uma orientação pelas etapas de criação de um circuito da
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-### <a name="1.-review-the-prerequisites-and-workflow-articles"></a>1. Examine os pré-requisitos e artigos de fluxo de trabalho
+### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Examine os pré-requisitos e artigos de fluxo de trabalho
 Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.  
 
-### <a name="2.-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale a versão mais recente dos módulos do Azure PowerShell
+### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale a versão mais recente dos módulos do Azure PowerShell
 Siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 
-### <a name="3.-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Entre em sua conta do Azure e selecione uma assinatura
+### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Entre em sua conta do Azure e selecione uma assinatura
 1. Execute os seguintes cmdlets em um prompt elevado do Windows PowerShell:
    
         Add-AzureAccount
@@ -51,13 +55,13 @@ Siga as instruções em [Como instalar e configurar o Azure PowerShell](../power
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
-### <a name="1.-import-the-powershell-modules-for-expressroute"></a>1. Importar os módulos do PowerShell para Rota Expressa
+### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Importar os módulos do PowerShell para Rota Expressa
  Se ainda não tiver feito isso, importe os módulos do Azure e de ExpressRoute na sessão do PowerShell para começar a usar os cmdlets de ExpressRoute. Importe os módulos do local onde foram instalados para o computador local. Dependendo do método usado para instalar os módulos, o local pode ser diferente do exemplo a seguir. Modifique o exemplo, se for necessário.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet do PowerShell `Get-AzureDedicatedCircuitServiceProvider` retornará estas informações, que você usará em etapas posteriores:
@@ -72,7 +76,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito da Rota Expressa.         
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
+### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
 O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação.
 
 > [!IMPORTANT]
@@ -98,7 +102,7 @@ A resposta conterá a chave de serviço. Você pode obter descrições detalhada
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4.-list-all-the-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
+### <a name="4-list-all-the-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
 Você pode executar o comando `Get-AzureDedicatedCircuit` para obter uma lista de todos os circuitos da Rota Expressa que criou:
 
     Get-AzureDedicatedCircuit
@@ -131,7 +135,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. *Status* fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
@@ -151,7 +155,7 @@ Um circuito da Rota Expressa deverá estar no seguinte estado para você poder u
     Status                           : Enabled
 
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
 Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
     Get-AzureDedicatedCircuit
@@ -165,7 +169,7 @@ Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7.-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
+### <a name="7-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
 Confira o artigo [Configuração de roteamento do circuito da Rota Expressa (criar e modificar emparelhamentos de circuito)](expressroute-howto-routing-classic.md) para obter instruções passo a passo.
 
 > [!IMPORTANT]
@@ -173,7 +177,7 @@ Confira o artigo [Configuração de roteamento do circuito da Rota Expressa (cri
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Confira [Vincular circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual usando o modelo de implantação clássico para a Rota Expressa, confira [Criar uma rede virtual para a Rota Expressa](expressroute-howto-vnet-portal-classic.md) para obter instruções.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito da Rota Expressa
@@ -325,6 +329,9 @@ Depois de criar seu circuito, faça o seguinte:
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-classic.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

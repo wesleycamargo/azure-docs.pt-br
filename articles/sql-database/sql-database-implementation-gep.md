@@ -1,19 +1,24 @@
 ---
 title: Estudo de caso sobre o Banco de Dados SQL do Azure - GEP | Microsoft Docs
-description: Saiba como a GEP usa o Banco de Dados SQL para atingir mais clientes globais e obter mais eficiência
+description: "Saiba como a GEP usa o Banco de Dados SQL para atingir mais clientes globais e obter mais eficiência"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 7137d38e4e9fef7dfaa309ad81cfed94d547a393
+
 
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>O Azure oferece à GEP alcance global e maior eficiência
@@ -60,7 +65,7 @@ No coração do aplicativo SMART by GEP estão as instâncias do Banco de Dados 
 
 Ao usar o Banco de Dados SQL do Azure, a GEP tem automaticamente melhores recursos de recuperação de desastre do que poderia ter economicamente projetado no local devido aos recursos de tolerância a falhas criados no Banco de Dados SQL do Azure. A GEP usa o recurso de Replicação Geográfica Ativa no Banco de Dados SQL do Azure, em conjunto com várias réplicas secundárias ativas, legíveis e online (Grupos de Disponibilidade AlwaysOn) em diferentes regiões geográficas para formar pares de alta disponibilidade. A replicação dos dados do SMART by GEP entre regiões significa que, no caso de um desastre em toda a região, a GEP pode recuperar facilmente dados dos clientes com um RPO (objetivo de ponto de recuperação) e RTO (objetivo de tempo de recuperação) mínimos.
 
-Cada cliente do SMART by GEP tem duas instâncias do Banco de Dados SQL do Azure: uma para OLTP (processamento de transação online) e uma para análise (como gastos do cliente e análise de relatório). Os pools de banco de dados elásticos do Banco de Dados SQL do Azure permitem que a GEP gerencie facilmente milhares de bancos de dados globalmente para lidar com demandas imprevisíveis de recurso de banco de dados. Os pools elásticos fornecem à GEP um meio de garantir que os bancos de dados de clientes possam ser dimensionados conforme a necessidade, sem provisionamento em excesso ou escasso, ao mesmo tempo que permitem que a GEP controle os custos. Além disso, como esse é um serviço PaaS, a GEP obtém todos os novos recursos do Banco de Dados SQL do Azure com atualizações automáticas.
+Cada cliente do SMART by GEP tem duas instâncias do Banco de Dados SQL do Azure: uma para OLTP (processamento de transação online) e uma para análise (como gastos do cliente e análise de relatório). Os pools elásticos do Banco de Dados SQL do Azure permitem que a GEP gerencie facilmente milhares de bancos de dados globalmente para lidar com demandas imprevisíveis de recursos de banco de dados. Os pools elásticos fornecem à GEP um meio de garantir que os bancos de dados de clientes possam ser dimensionados conforme a necessidade, sem provisionamento em excesso ou escasso, ao mesmo tempo que permitem que a GEP controle os custos. Além disso, como esse é um serviço PaaS, a GEP obtém todos os novos recursos do Banco de Dados SQL do Azure com atualizações automáticas.
 
 ## <a name="unstructured-and-semi-structured-data"></a>Dados não estruturados e semiestruturados
 No entanto, alguns dados de clientes do SMART by GEP precisam ser armazenados de maneira menos rígida. Para esse tipo de dados, a GEP utiliza o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure e o Cache Redis do Azure. O Armazenamento de Blobs do Azure hospeda todos os anexos que os usuários do SMART by GEP carregam no aplicativo. Também é onde o SMART by GEP armazena conteúdo estático, como arquivos CSS (folhas de estilos em cascata) e JavaScript.
@@ -99,6 +104,9 @@ Desde a migração dos datacenters locais para o Azure e a criação do SMART by
 * Sathyan Narasingh, gerente de engenharia da GEP
 * Deepa Velukutty, arquiteto de banco de dados da GEP
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

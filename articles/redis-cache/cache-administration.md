@@ -1,19 +1,23 @@
 ---
 title: Como administrar o Cache Redis do Azure | Microsoft Docs
-description: Saiba como executar tarefas administrativas, como atualizações de reinicialização e agenda para o Cache Redis do Azure
+description: "Saiba como executar tarefas administrativas, como atualizações de reinicialização e agenda para o Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
 author: steved0x
 manager: douge
 editor: tysonn
-
+ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/27/2016
+ms.date: 01/06/2017
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0a0c113c73c1d77a79989d9cddef90cd370fd19
+
 
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Como administrar o Cache Redis do Azure
@@ -62,10 +66,10 @@ O impacto em aplicativos cliente varia de acordo com os nós que você reinicial
 * [Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
 * [Que tipos de preços podem usar a funcionalidade de reinicialização?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
-### <a name="which-node-should-i-reboot-to-test-my-application?"></a>Qual nó devo reinicializar para testar o aplicativo?
+### <a name="which-node-should-i-reboot-to-test-my-application"></a>Qual nó devo reinicializar para testar o aplicativo?
 Para testar a resiliência do aplicativo contra falhas do nó principal do cache, reinicialize o nó **Mestre** . Para testar a resiliência do aplicativo contra falhas do nó secundário, reinicialize o nó **Subordinado** . Para testar a resiliência do aplicativo contra falha total do cache, reinicialize **Ambos** os nós.
 
-### <a name="can-i-reboot-the-cache-to-clear-client-connections?"></a>Posso reinicializar o cache para limpar conexões de cliente?
+### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>Posso reinicializar o cache para limpar conexões de cliente?
 Sim, se você reinicializar o cache, todas as conexões de cliente serão limpas. Isso pode útil quando todas as conexões de cliente são usadas, por exemplo, devido a um erro de lógica ou um bug no aplicativo cliente. Cada tipo de preços tem diferentes [limites de conexão do cliente](cache-configure.md#default-redis-server-configuration) para os vários portes, e quando os limites são atingidos, não são mais aceitas mais conexões de cliente. Reinicializar o cache fornece uma maneira de limpar todas as conexões de cliente.
 
 > [!IMPORTANT]
@@ -73,15 +77,15 @@ Sim, se você reinicializar o cache, todas as conexões de cliente serão limpas
 > 
 > 
 
-### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot?"></a>Perderei dados do cache se eu fizer uma reinicialização?
+### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Perderei dados do cache se eu fizer uma reinicialização?
 Se você reinicializar os nós **Mestre** e **Subordinado**, todos os dados no cache (ou nesse fragmento, se você estiver usando um cache premium com clustering habilitado) serão perdidos. Se você tiver configurado a [persistência de dados](cache-how-to-premium-persistence.md), o backup mais recente será restaurado quando o cache ficar online novamente. Observe que as gravações em cache ocorridas após o backup serão perdidas.
 
 Se você reinicializar apenas um dos nós, normalmente os dados não serão perdidos, mas isso ainda poderá ocorrer. Por exemplo, se o nó mestre for reinicializado e uma gravação de cache estiver em andamento, os dados da gravação do cache serão perdidos. Outro cenário de perda de dados ocorre se você reinicializa um nó e o outro nó ocorre fica inoperante devido a uma falha ao mesmo tempo. Para saber mais sobre as possíveis causas de perda de dados, confira [O que aconteceu com meu dados no Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md).
 
-### <a name="can-i-reboot-my-cache-using-powershell,-cli,-or-other-management-tools?"></a>Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
+### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Posso reinicializar o cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 Sim, para ver as instruções do PowerShell, confira [Para reinicializar um cache Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality?"></a>Que tipos de preços podem usar a funcionalidade de reinicialização?
+### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Que tipos de preços podem usar a funcionalidade de reinicialização?
 A reinicialização está disponível apenas no tipo de preços premium.
 
 ## <a name="schedule-updates"></a>Agendar atualizações
@@ -102,13 +106,13 @@ Para especificar uma janela de manutenção, marque os dias desejados, especifiq
 * [Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
 * [Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
-### <a name="when-do-updates-occur-if-i-don't-use-the-schedule-updates-feature?"></a>Quando as atualizações ocorrerão se eu não usar o recurso de agendamento de atualizações?
+### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>Quando as atualizações ocorrerão se eu não usar o recurso de agendamento de atualizações?
 Se você não especificar uma janela de manutenção, as atualizações poderão ser feitas a qualquer momento.
 
-### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window?"></a>Que tipos de atualizações são feitas durante a janela de manutenção agendada?
+### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>Que tipos de atualizações são feitas durante a janela de manutenção agendada?
 Apenas as atualizações do servidor Redis são realizadas durante a janela de manutenção agendada. A janela de manutenção se aplica a atualizações do Azure ou do sistema operacional da VM.
 
-### <a name="can-i-managed-scheduled-updates-using-powershell,-cli,-or-other-management-tools?"></a>Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
+### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>Posso gerenciar as atualizações agendadas usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
 Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do PowerShell a seguir.
 
 * [Get-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763835.aspx)
@@ -116,12 +120,15 @@ Sim, você pode gerenciar as atualizações agendadas usando os cmdlets do Power
 * [New-AzureRmRedisCacheScheduleEntry](https://msdn.microsoft.com/library/azure/mt763833.aspx)
 * [Remove-AzureRmRedisCachePatchSchedule](https://msdn.microsoft.com/library/azure/mt763837.aspx)
 
-### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality?"></a>Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?
+### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Que tipos de preços podem usar a funcionalidade de agendamento de atualizações?
 As atualizações de agenda estão disponíveis apenas no tipo de preços premium.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Explore mais recursos da [camada premium do Cache Redis do Azure](cache-premium-tier-intro.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

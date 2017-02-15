@@ -1,12 +1,12 @@
 ---
-title: Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric.
+title: "Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 2047b3fa-96b1-4230-af5d-a4c331d973ce
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Solução do Service Fabric no Log Analytics)
@@ -35,14 +39,14 @@ Siga estas três etapas fáceis para instalar e configurar a solução:
 3. Habilite a solução do Service Fabric em seu espaço de trabalho.
 
 ## <a name="configure-oms-to-collect-and-view-service-fabric-logs"></a>Configurar o OMS para coletar e exibir logs do Service Fabric
-Nesta seção, você saberá como configurar o OMS para recuperar os logs do Service Fabric. Os logs permitem que você veja e solucione problemas no cluster ou nos aplicativos e serviços em execução nesse cluster usando o portal do OMS.
+Nesta seção, você saberá como configurar o OMS para recuperar os logs do Service Fabric. Os logs permitem que você visualize e solucione problemas no cluster ou nos aplicativos e serviços em execução nesse cluster usando o portal do OMS.
 
 > [!NOTE]
-> Isso significa que a extensão de Diagnóstico do Azure deve ser configurada para carregar os logs em tabelas de armazenamento que correspondam aos que o OMS vai procurar. Consulte [Como coletar logs com o Diagnóstico do Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) para obter mais informações sobre como coletar logs. Os exemplos de definições de configuração neste artigo mostrarão quais devem ser os nomes das tabelas de armazenamento. Depois que o diagnóstico for configurado no cluster e estiver carregando os logs para uma conta de armazenamento, a próxima etapa será configurar o OMS para coletar esses logs.
+> Isso significa que a extensão de Diagnóstico do Azure deve ser configurada para carregar os logs em tabelas de armazenamento que correspondam aos que o OMS irá procurar. Consulte [Como coletar logs com o Diagnóstico do Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) para obter mais informações sobre como coletar logs. Os exemplos de definições de configuração neste artigo mostrarão quais devem ser os nomes das tabelas de armazenamento. Depois que o diagnóstico for configurado no cluster e estiver carregando os logs para uma conta de armazenamento, a próxima etapa será configurar o OMS para coletar esses logs.
 > 
 > 
 
-Certifique-se de que atualizou a seção **EtwEventSourceProviderConfiguration** no arquivo **template.json** para adicionar entradas no novo EventSources antes de aplicar a atualização de configuração executando **deploy.ps1**. A tabela de upload é igual a (ETWEventTable). No momento, o OMS só pode ler eventos de ETW de aplicativo dessa tabela. No entanto, o suporte para tabelas de ETW personalizadas está em desenvolvimento.
+Certifique-se de que atualizou a seção **EtwEventSourceProviderConfiguration** no arquivo **template.json** para adicionar entradas no novo EventSources antes de aplicar a atualização de configuração executando **deploy.ps1**. A tabela de carregamento é igual a (ETWEventTable). No momento, o OMS só pode ler eventos de ETW de aplicativo dessa tabela. No entanto, o suporte para tabelas de ETW personalizadas está em desenvolvimento.
 
 Estas ferramentas são usadas para executar algumas das operações nesta seção:
 
@@ -349,7 +353,7 @@ Clique no bloco do **Service Fabric** para abrir o painel do Service Fabric. O p
 | --- | --- |
 | Problemas importantes |Uma exibição de problemas como RunAsyncFailures RunAsynCancellations e nós com falha. |
 | Eventos operacionais |Eventos operacionais importantes, como atualização de aplicativos e implantações. |
-| Eventos de serviço confiável |Eventos importantes de serviços confiáveis, como Runasyncinvocations. |
+| Eventos de serviço confiável |Eventos importantes de serviços confiáveis como Runasyncinvocations. |
 | Eventos de ator |Eventos de ator importantes gerados pelos seus microsserviços, como exceções lançadas por um método de ator, ativações e desativações de ator e assim por diante. |
 | Eventos de aplicativo |Todos os eventos de ETW personalizados gerados por seus aplicativos. |
 
@@ -633,6 +637,9 @@ foreach($storageAccount in $storageAccountsToCheck)
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados dos eventos do Service Fabric.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -40,7 +40,7 @@ O Emulador do DocumentDB tem os seguintes requisitos de hardware e software:
   * Windows Server 2012 R2, Windows Server 2016 ou Windows 10
 *   Requisitos mínimos de hardware
   * 2 GB de RAM
-  * Espaço disponível no disco rígido de 10 GB
+  * Espaço disponível no disco rígido de&10; GB
 
 ## <a name="installing-the-documentdb-emulator"></a>Instalando o Emulador do DocumentDB
 Você pode baixar e instalar o Emulador do DocumentDB no [Centro de Download da Microsoft](https://aka.ms/documentdb-emulator). 

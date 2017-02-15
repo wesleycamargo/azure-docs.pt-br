@@ -1,13 +1,13 @@
 ---
-title: Escalar seu trabalho do Stream Analytics com funções de Aprendizado de Máquina do Azure | Microsoft Docs
-description: Saiba como dimensionar corretamente os trabalhos do Stream Analytics (particionamento, quantidade de SU e muito mais) ao usar funções do Aprendizado de Máquina do Azure.
-keywords: ''
-documentationcenter: ''
+title: "Escalar seu trabalho do Stream Analytics com funções do Azure Machine Learning | Microsoft Docs"
+description: "Saiba como dimensionar corretamente os trabalhos do Stream Analytics (particionamento, quantidade de SU e muito mais) ao usar funções do Aprendizado de Máquina do Azure."
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+
 
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar seu trabalho do Stream Analytics com funções do Aprendizado de Máquina do Azure
 Geralmente, é bem fácil configurar um trabalho do Stream Analytics e executar alguns dados de exemplo nele. O que podemos fazer quando precisamos executar o mesmo trabalho com um volume de dados maior? Precisamos entender como configurar o trabalho do Stream Analytics para que ele possa ser escalado. Neste documento, nos concentraremos nos aspectos especiais do dimensionamento de trabalhos do Stream Analytics com funções do Aprendizado de Máquina. Para saber mais sobre como dimensionar trabalhos do Stream Analytics em geral, confira o artigo [Dimensionar os trabalhos do Stream Analytics](stream-analytics-scale-jobs.md).
 
-## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics?"></a>O que é uma função do Aprendizado de Máquina do Azure no Stream Analytics?
+## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Aprendizado de Máquina do Azure no Stream Analytics?
 Uma função do Aprendizado de Máquina no Stream Analytics pode ser usada como uma chamada de função normal na linguagem de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, solicitações de Serviço Web do Aprendizado de Máquina do Azure. Os serviços Web do Aprendizado de Máquina oferecem suporte à inclusão de várias linhas em "lotes", o que é chamado de lote simplificado, na mesma chamada à API de serviço Web, a fim de melhorar a produtividade geral. Confira os artigos a seguir para obter mais detalhes. [Funções do Azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [Serviços Web do Azure Machine Learning](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar seu trabalho do Stream Analytics com funções de Aprendizado de Máquina
@@ -42,7 +46,7 @@ Uma consideração adicional pode ser o número “máximo de chamadas simultân
 
 Para saber mais sobre essa configuração, confira o [artigo sobre dimensionamento de serviços Web do Aprendizado de Máquina](../machine-learning/machine-learning-scaling-webservice.md).
 
-## <a name="example-–-sentiment-analysis"></a>Exemplo – análise de sentimento
+## <a name="example--sentiment-analysis"></a>Exemplo – análise de sentimento
 O exemplo a seguir inclui um trabalho do Stream Analytics com a função do Aprendizado de Máquina de análise de sentimento, conforme descrito no [Tutorial de integração do Aprendizado de Máquina do Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).
 
 A consulta é simples e totalmente particionada, seguida pela função **sentiment** , conforme mostrado abaixo:
@@ -73,18 +77,16 @@ Vamos supor que a latência do serviço Web do Aprendizado de Máquina de análi
 
 Veja abaixo uma tabela sobre a produtividade do trabalho do Stream Analytics para SUs e tamanhos de lote diferentes (em número de eventos por segundo).
 
-| SU |  |  |  | tamanho do lote (latência de AM) |  |
+| tamanho do lote (latência de AM) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-|  | | | | | |
-| 500 (200 ms) |1.000 (200 ms) |5.000 (250 ms) |10.000 (300 ms) |25.000 (500 ms) | |
-| 1 SU |2.500 |5.000 |20.000 |30.000 |50.000 |
-| 3 SUs |2.500 |5.000 |20.000 |30.000 |50.000 |
-| 6 SUs |2.500 |5.000 |20.000 |30.000 |50.000 |
-| 12 SUs |5.000 |10.000 |40.000 |60.000 |100.000 |
-| 18 SUs |7.500 |15.000 |60.000 |90.000 |150.000 |
-| 24 SUs |10.000 |20.000 |80.000 |120.000 |200.000 |
-| … |… |… |… |… |… |
-| 60 SUs |25.000 |50.000 |200.000 |300.000 |500.000 |
+| **1 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **3 SUs** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **6 SUs** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **12 SUs** |5.000 |10.000 |40.000 |60.000 |100.000 |
+| **18 SUs** |7.500 |15.000 |60.000 |90.000 |150.000 |
+| **24 SUs** |10.000 |20.000 |80.000 |120.000 |200.000 |
+| **…** |… |… |… |… |… |
+| **60 SUs** |25.000 |50.000 |200.000 |300.000 |500.000 |
 
 Agora, você já deve ter uma boa compreensão de como as funções do Aprendizado de Máquina funcionam no Stream Analytics. Provavelmente você também compreende que os trabalhos do Stream Analytics "obtêm" dados de fontes de dados, e que cada "obtenção" retorna um lote de eventos para o trabalho do Stream Analytics processar. Como esse modelo de obtenção afeta as solicitações de serviço Web do Aprendizado de Máquina?
 
@@ -120,6 +122,9 @@ Para saber mais sobre o Stream Analytics, confira:
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
+ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
+ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
 
 
 ---
@@ -131,6 +131,7 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Parar o 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autônomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Tente criar um serviço usando os modelos de programação [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
+* Tente implantar um [contêiner Windows](service-fabric-deploy-container.md) ou um aplicativo existente como um [executável convidado](service-fabric-deploy-existing-app.md).
 * Saiba como expor os serviços na Internet com um [front-end de serviço Web](service-fabric-add-a-web-frontend.md).
 * Veja um [laboratório prático](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) e crie um serviço sem estado, configure o monitoramento e relatórios de integridade, e realize uma atualização do aplicativo.
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
@@ -152,6 +153,6 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Parar o 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

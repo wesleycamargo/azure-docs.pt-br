@@ -1,15 +1,21 @@
-| Tipo | O Barramento de | Gatilho | Entrada | Saída |
-| --- | --- | --- | --- | --- |
-| Agenda |Funções do Azure |&#10004; | | |
-| HTTP (REST ou webhook) |Funções do Azure |&#10004; | |&#10004;* |
-| Armazenamento de Blob |Armazenamento do Azure |&#10004; |&#10004; |&#10004; |
-| Eventos |Hubs de eventos do Azure |&#10004; | |&#10004; |
-| Filas |Armazenamento do Azure |&#10004; | |&#10004; |
-| Tabelas |Armazenamento do Azure | |&#10004; |&#10004; |
-| Tabelas |Aplicativos Móveis do Azure | |&#10004; |&#10004; |
-| Banco de dados No SQL |Banco de Dados de Documentos do Azure | |&#10004; |&#10004; |
-| Notificações por Push |Hubs de Notificação do Azure | | |&#10004; |
+| Tipo | O Barramento de | Gatilho | Entrada | Saída |  
+| --- | --- | --- | --- | --- |  
+| [Agenda](../articles/azure-functions/functions-bindings-timer.md)  |Funções do Azure |✔ | | |  
+| [HTTP (REST ou webhook)](../articles/azure-functions/functions-bindings-http-webhook.md) |Funções do Azure |✔ | |✔\* |  
+| [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md) |Armazenamento do Azure |✔ |✔ |✔ |  
+| [Eventos](../articles/azure-functions/functions-bindings-event-hubs.md) |Hubs de eventos do Azure |✔ | |✔ |  
+| [Filas](../articles/azure-functions/functions-bindings-storage-queue.md) |Armazenamento do Azure |✔ | |✔ |  
+| [Filas e tópicos](../articles/azure-functions/functions-bindings-service-bus.md) |Barramento de Serviço do Azure |✔ | |✔ |  
+| [Tabelas](../articles/azure-functions/functions-bindings-storage-table.md) |Armazenamento do Azure | |✔ |✔ |  
+| [Tabelas](../articles/azure-functions/functions-bindings-mobile-apps.md) |Aplicativos Móveis do Azure | |✔ |✔ |  
+| [Banco de dados No SQL](../articles/azure-functions/functions-bindings-documentdb.md) | Banco de Dados de Documentos do Azure | |✔ |✔ |  
+| [Notificações por push](../articles/azure-functions/functions-bindings-notification-hubs.md) |Hubs de Notificação do Azure | | |✔ |  
+| [SMS de texto da Twilio](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 
-(*- A HTTP Out requer um gatilho de HTTP)
+(\*- a associação de saída HTTP um gatilho de HTTP)
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

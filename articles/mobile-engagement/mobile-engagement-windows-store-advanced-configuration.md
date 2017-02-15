@@ -1,37 +1,41 @@
 ---
-title: Configuração avançada com o SDK do Engagement para aplicativos universais do Windows
-description: Opções de configuração avançadas para o Azure Mobile Engagement com os aplicativos universais do Windows
+title: "Configuração avançada com o SDK do Engagement para aplicativos universais do Windows"
+description: "Opções de configuração avançadas para o Azure Mobile Engagement com os aplicativos universais do Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6fbb542a7887151bbfa2b13ec8fe7874d1f455de
+
 
 ---
-# Configuração avançada com o SDK do Engagement para aplicativos universais do Windows
+# <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configuração avançada com o SDK do Engagement para aplicativos universais do Windows
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-advan.mdced-configuration.md)
+> * [Android](mobile-engagement-android-advanced-configuration.md)
 > 
 > 
 
 Este procedimento descreve como definir várias opções de configuração para aplicativos Azure Mobile Engagement do Android.
 
-## Pré-requisitos
-[!INCLUDE [Pré-requisitos](../../includes/mobile-engagement-windows-store-prereqs.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-## Configuração avançada
-### Desabilitar o relatório de falhas automático
+## <a name="advanced-configuration"></a>Configuração avançada
+### <a name="disable-automatic-crash-reporting"></a>Desabilitar o relatório de falhas automático
 Você pode desabilitar a recurso relatório de falhas automático do Engagement. Assim, quando uma exceção sem tratamento ocorrer, o Engagement não fará nada.
 
 > [!WARNING]
@@ -41,10 +45,10 @@ Você pode desabilitar a recurso relatório de falhas automático do Engagement.
 
 Para desabilitar o relatório de falhas automático, personalize a configuração dependendo de como você o tiver declarado:
 
-#### No arquivo `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>No arquivo `EngagementConfiguration.xml`
 Defina a falha do relatório para `false` entre as marcas `<reportCrash>` e `</reportCrash>`.
 
-#### No objeto `EngagementConfiguration` em tempo de execução
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>No objeto `EngagementConfiguration` em tempo de execução
 Defina a falha do relatório como false usando o objeto EngagementConfiguration.
 
         /* Engagement configuration. */
@@ -54,7 +58,7 @@ Defina a falha do relatório como false usando o objeto EngagementConfiguration.
         /* Disable Engagement crash reporting. */
         engagementConfiguration.Agent.ReportCrash = false;
 
-### Desabilitar relatórios em tempo real
+### <a name="disable-real-time-reporting"></a>Desabilitar relatórios em tempo real
 Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo reporta logs com muita frequência, é melhor armazenar os logs em buffer e relatá-los todos de uma vez em uma base de tempo normal. Isso é chamado de "modo de disparo contínuo".
 
 Para fazer isso, chame o método:
@@ -70,7 +74,11 @@ O modo de disparo contínuo aumenta ligeiramente a vida útil da bateria, mas te
 > 
 > 
 
-[here]: http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]: http://docs.nuget.org/docs/start-here/overview
+[aqui]:http://www.nuget.org/packages/Capptain.WindowsCS
+[Site do NuGet]:http://docs.nuget.org/docs/start-here/overview
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

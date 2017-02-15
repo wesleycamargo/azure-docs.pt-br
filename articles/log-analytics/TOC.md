@@ -10,7 +10,7 @@
 ## [Perguntas frequentes do Log Analytics](log-analytics-faq.md)
 
 # Como
-## Integração
+## Coletar dados
 ### Fontes conectadas
 #### [Agentes do Windows](log-analytics-windows-agents.md)
 #### [Agentes do Linux](log-analytics-linux-agents.md)
@@ -27,11 +27,15 @@
 #### [Logs do IIS](log-analytics-data-sources-iis-logs.md)
 #### [Logs personalizados](log-analytics-data-sources-custom-logs.md)
 #### [Campos Personalizados](log-analytics-custom-fields.md)
-## Desenvolver
+## Consultar dados
 ### [Visão geral das pesquisas de log](log-analytics-log-searches.md)
 ### [Referência de pesquisa](log-analytics-search-reference.md)
 ### [Grupos de computadores](log-analytics-computer-groups.md)
 ### [Alertas](log-analytics-alerts.md)
+## Analisar dados
+### [Painéis](log-analytics-dashboards.md)
+### [Exibir Designer](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Soluções
 #### [Visão geral das soluções](log-analytics-add-solutions.md)
 #### [Avaliação do AD](log-analytics-ad-assessment.md)
@@ -52,11 +56,7 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Dados durante a transmissão](log-analytics-wire-data.md)
 #### [Avaliação do SCOM](log-analytics-scom-assessment.md)
-## Analise
-### [Painéis](log-analytics-dashboards.md)
-### [Exibir Designer](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Automatizar
+## Desenvolver
 ### [API do coletor de dados](log-analytics-data-collector-api.md)
 ### [Cmdlets do PowerShell](log-analytics-powershell-workspace-configuration.md)
 ### [API da Pesquisa de Log](log-analytics-log-search-api.md)

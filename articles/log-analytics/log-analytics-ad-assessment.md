@@ -1,19 +1,23 @@
 ---
-title: Otimizar seu ambiente com a solução de Avaliação do Active Directory no Log Analytics | Microsoft Docs
-description: É possível usar a solução Avaliação do Active Directory para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares.
+title: "Otimizar seu ambiente com a solução de Avaliação do Active Directory no Log Analytics | Microsoft Docs"
+description: "É possível usar a solução Avaliação do Active Directory para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+
 
 ---
 # <a name="optimize-your-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente com a solução de Avaliação do Active Directory no Log Analytics
@@ -37,11 +41,11 @@ Use as informações a seguir para instalar e configurar as soluções.
 * É preciso que agentes sejam instalados em controladores de domínio membros do domínio a ser avaliado.
 * A solução de Avaliação do Active Directory requer o .NET Framework 4 instalado em cada computador que tem um agente do OMS.
 * Adicione a solução de Avaliação do Active Directory ao espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
-  
+
   > [!NOTE]
   > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e, em seguida, enviados para o serviço OMS na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Detalhes de coleta de dados da Avaliação do Active Directory
 A Avaliação do Active Directory coletará dados WMI, dados de registro e dados de desempenho usando os agentes que você tiver habilitado.
@@ -73,7 +77,7 @@ A importância de cada recomendação é expressa como um percentual da pontuaç
 
 **Atualização, implantação e migração** - Essa área de foco mostra recomendações para ajudá-lo a atualizar, migrar e implantar o Active Directory em sua infraestrutura existente.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>Você deve visar à pontuação de 100% em cada área de foco?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Você deve visar à pontuação de 100% em cada área de foco?
 Não necessariamente. As recomendações baseiam-se no conhecimento e nas experiências adquiridas pelos engenheiros da Microsoft em milhares de visitas a clientes. No entanto, nenhuma infraestrutura de servidor é igual à outra, assim, recomendações específicas podem ser mais ou menos relevantes para você. Por exemplo, algumas recomendações de segurança poderão ser menos relevantes se as máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para os serviços que fornecem relatórios e coleta de dados ad hoc de baixa prioridade. Problemas importantes para empresas maduras podem ser menos importantes para uma empresa start-up. Você pode preferir identificar quais áreas de foco são suas prioridades e depois examinar como suas pontuações mudam ao longo do tempo.
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
@@ -95,15 +99,15 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
 1. Entre em seu espaço de trabalho e abra a Pesquisa de Log. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: ![recomendações com falha](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
 1. Crie um arquivo chamado IgnoreRecommendations.txt.
 2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Log Analytics ignore em uma linha separada e, em seguida, salve e feche o arquivo.
 3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o OMS ignore as recomendações.
@@ -114,7 +118,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, as recomendações especificadas são marcadas como *Ignoradas* e não aparecerão no painel de avaliação.
 
 1. É possível usar as consultas da Pesquisa de Log a seguir para listar todas as recomendações ignoradas.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -167,6 +171,8 @@ Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados e recomendações da Avaliação do AD.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

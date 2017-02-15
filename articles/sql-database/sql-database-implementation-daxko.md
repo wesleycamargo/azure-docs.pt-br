@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
 
 
 ---
@@ -32,7 +32,7 @@ Desde a migração para o Azure, a CSI Software precisa apenas de duas pessoas n
 
 Molina acrescenta, "Nossos clientes sentiram a mudança imediatamente. Antes dos pools elásticos, de vez em quando eles tinham tempos limite e outros problemas durante os períodos de intermitência. Com os pools elásticos do Azure, eles podem agir conforme a necessidade e usar o software sem problemas".
 
-Além de melhorar o desempenho para os clientes, os pools de banco de dados elástico do Azure liberaram o pessoal da CSI Software para focar no desenvolvimento de novos serviços e recursos, em vez de lidar com operações e gerenciamento. Esses recursos de TI ajudaram a CSI Software a aprimorar a oferta de software corporativo, SpectrumNG, para ajudar a atrair membros de academia, melhorar a eficiência da equipe e dar à equipe e aos membros acesso móvel para tarefas interativas e notificações em tempo real.
+Além de melhorar o desempenho para os clientes, os pools elásticos do Azure liberaram o pessoal da CSI Software para focar no desenvolvimento de novos serviços e recursos, em vez de lidar com operações e gerenciamento. Esses recursos de TI ajudaram a CSI Software a aprimorar a oferta de software corporativo, SpectrumNG, para ajudar a atrair membros de academia, melhorar a eficiência da equipe e dar à equipe e aos membros acesso móvel para tarefas interativas e notificações em tempo real.
 
 O Azure também ajudou a CSI Software a acelerar e melhorar o ciclo de desenvolvimento e QA (garantia de qualidade) habilitando opções de automação. Com a implementação do Azure na empresa, os gerentes de compilação podem empacotar componentes com o clique de um botão. Como Molina descreve, "Como parte do ciclo de liberação, o QA agora é capaz de implantar em um ambiente de teste no Azure, imitando de modo bem próximo nossa pilha de produção. Podemos implantar compilações imediatamente em nosso ambiente de desenvolvimento para verificar as alterações. Uma grande vitória para nós, pois não tínhamos paridade para testar antes disso".
 
@@ -61,10 +61,10 @@ Quanto aos clientes novos, a equipe de TI da CSI Software usa o seguinte process
 
 Hoje, aproximadamente 99% dos clientes da CSI Software são hospedados no Azure, distribuídos em quatro datacenters regionais (Centro-Norte, Centro-Sul, Leste e Oeste). Com datacenters na região geográfica de cada cliente, a latência é mantida no mínimo.
 
-## <a name="azure-elastic-database-pools-free-up-it-resources"></a>Pools de banco de dados elástico do Azure libera recursos de TI
-Vários recursos do Azure ajudaram a CSI Software a mudar: do foco na infraestrutura e nas operações para o foco nos recursos e no desenvolvimento. Talvez o maior benefício tenha sido dos pools de banco de dados elásticos.
+## <a name="azure-elastic-pools-free-up-it-resources"></a>Pools elásticos do Azure liberam recursos de TI
+Vários recursos do Azure ajudaram a CSI Software a mudar: do foco na infraestrutura e nas operações para o foco nos recursos e no desenvolvimento. Talvez o maior benefício tenha sido dos pools elásticos.
 
-Atualmente, a CSI Software fornece aproximadamente 550 bancos de dados para os clientes. Antes dos pools elásticos, era difícil gerenciar muitos bancos de dados em uma estrutura em camadas. Os gerentes de operações precisavam atribuir camadas de desempenho com base nas necessidades dos clientes, o que sobrecarregava significativamente os recursos de TI. Com os pools de banco de dados elásticos, os gerentes podem atribuir locatários a um pool premium ou standard, conforme apropriado, e mover os clientes com base no tamanho e na necessidade. Os clientes sentiram os efeitos dos pools de banco de dados elásticos quase que instantaneamente; antes dos pools elásticos, os clientes tinham tempos limite e outros problemas durante os períodos de maior uso, mas com os pools elásticos, eles podem realizar uma grande quantidade de atividades, conforme a necessidade, e podem continuar usando o SpectrumNG sem problemas.
+Atualmente, a CSI Software fornece aproximadamente 550 bancos de dados para os clientes. Antes dos pools elásticos, era difícil gerenciar muitos bancos de dados em uma estrutura em camadas. Os gerentes de operações precisavam atribuir camadas de desempenho com base nas necessidades dos clientes, o que sobrecarregava significativamente os recursos de TI. Com os pools elásticos, os gerentes podem atribuir locatários a um pool premium ou standard, conforme apropriado e mover os clientes com base no tamanho e na necessidade. Os clientes sentiram os efeitos dos pools elásticos quase que instantaneamente; antes dos pools elásticos, os clientes tinham tempos limite e outros problemas durante os períodos de maior uso, mas com os pools elásticos, eles podem realizar uma grande quantidade de atividades, conforme a necessidade e podem continuar usando o SpectrumNG sem problemas.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>A Replicação Geográfica Ativa do Azure acelere a geração de relatórios
 Vários clientes da CSI Software também estão se beneficiando com a Replicação Geográfica Ativa do Azure. Com a Replicação Geográfica Ativa, é possível configurar até quatro bancos de dados secundários legíveis na mesma região ou em regiões diferentes de datacenter. A CSI Software usa a Replicação Geográfica Ativa de duas maneiras: primeira, os bancos de dados secundários são disponibilizados no caso de interrupção de um datacenter ou de incapacidade de conexão com o banco de dados primário; segunda, os bancos de dados secundários são legíveis e podem ser usados para transferir cargas de trabalho somente leitura, como trabalhos de geração de relatórios. Alguns clientes da CSI Software usam esse benefício para acelerar os fluxos de trabalho de relatório.
@@ -87,7 +87,7 @@ A plataforma usa a SOA (arquitetura orientada a serviços) para obter um único 
 O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do SpectrumNG, que aproveitam o serviço rápido e confiável, mas também uma grande conquista para a equipe de TI e os desenvolvedores da CSI Software. Ao transferir as operações para o Azure na nuvem, a CSI Software reduziu sua sobrecarga em recursos e infraestrutura, acelerou consideravelmente os ciclos de desenvolvimento e não precisa mais gerenciar minuciosamente os bancos de dados a fim de otimizar o desempenho para seus locatários.
 
 ## <a name="more-information"></a>Mais informações
-* Para saber mais sobre os pools de bancos de dados elásticos do Azure, confira os [pools de bancos de dados elásticos](sql-database-elastic-pool.md).
+* Para saber mais sobre os pools elásticos do Azure, consulte [pools elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre as ferramentas de bancos de dados e dimensionamento elástico, confira as [ferramentas de banco de dados elástico e dimensionamento elástico](sql-database-elastic-scale-get-started.md).
 * Para saber mais sobre como migrar um banco de dados do SQL Server, confira o [Assistente de Migração de SQL do Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Para saber mais sobre a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
@@ -98,6 +98,6 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

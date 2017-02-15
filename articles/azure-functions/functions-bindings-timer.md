@@ -5,51 +5,67 @@ services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-
+editor: 
+tags: 
+keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 10/31/2016
 ms.author: chrande; glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
+ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+
 
 ---
-# Gatilho de temporizador do Azure Functions
+# <a name="azure-functions-timer-trigger"></a>Gatilho de temporizador do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. Os gatilhos de temporizador chamam funções com base em uma agenda, única ou recorrente.
+Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. O Azure Functions dá suporte ao disparador para temporizadores. Os gatilhos de temporizador chamam funções com base em uma agenda, única ou recorrente. 
 
-[!INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+O gatilho de timer dá suporte à expansão em várias instâncias. Uma única instância de uma função específica de timer é executada em todas as instâncias.
 
-## function.json para gatilho de temporizador
-O arquivo *function.json* fornece uma expressão de agendamento. Por exemplo, o agendamento a seguir executa a função a cada minuto:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+<a id="trigger"></a>
+
+## <a name="timer-trigger"></a>Gatilho de temporizador
+O gatilho de timer de uma função usa o seguinte objeto JSON na matriz `bindings` de function.json:
 
 ```json
 {
-  "bindings": [
-    {
-      "schedule": "0 * * * * *",
-      "name": "myTimer",
-      "type": "timerTrigger",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
+    "schedule": "<CRON expression - see below>",
+    "name": "<Name of trigger parameter in function signature>",
+    "type": "timerTrigger",
+    "direction": "in"
 }
 ```
 
-O gatilho de temporizador lida com a expansão de várias instâncias automaticamente: apenas uma única instância de uma função específica de temporizador será executada em todas as instâncias.
+O valor de `schedule` é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`. Muitas das expressões cron encontradas online omitem o campo `{second}`. Se você copiar de um deles, precisará ajustá-lo para o campo `{second}`. Para obter exemplos específicos, consulte [Agendar exemplos](#examples) abaixo.
 
-## Formato de expressão de agendamento
-A expressão de agendamento é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`.
+O fuso horário padrão usado com as expressões CRON é a Hora Universal Coordenada (UTC). Se você quiser que sua expressão CRON se baseie em outro fuso horário, crie uma nova configuração de aplicativo para o aplicativo de funções denominada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [Índice de fuso horário da Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
 
-Observe que muitas das expressões cron encontradas online omitem o campo {segundo} e, portanto, se você copiar de um deles, terá de ajustar o campo extra.
+Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Se quiser que seu gatilho de timer seja disparado às 10:00 EST diariamente, você pode usar a seguinte expressão CRON que considera o fuso horário UTC:
 
-Veja alguns outros exemplos de expressão de agendamento:
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+Como alternativa, você pode adicionar uma nova configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, a seguinte expressão CRON poderia ser usada para 10:00 EST: 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+
+<a name="examples"></a>
+
+## <a name="schedule-examples"></a>Exemplos de agendamento
+Aqui estão alguns exemplos de expressões CRON que você pode usar para a propriedade `schedule`. 
 
 Para disparar uma vez a cada cinco minutos:
 
@@ -57,7 +73,7 @@ Para disparar uma vez a cada cinco minutos:
 "schedule": "0 */5 * * * *"
 ```
 
-Para disparar uma vez na parte superior de cada hora:
+Para disparar uma vez a cada hora:
 
 ```json
 "schedule": "0 0 * * * *",
@@ -87,17 +103,91 @@ Para disparar às 9h30 todos os dias da semana:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-## Exemplo de código C# de gatilho de temporizador
-Este exemplo de código G# grava um único log sempre que a função é disparada.
+<a name="usage"></a>
 
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+## <a name="trigger-usage"></a>Uso de gatilho
+Quando uma função de gatilho de timer é chamada, o [objeto timer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função. O JSON a seguir é uma representação de exemplo do objeto timer. 
+
+```json
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");    
+    "Schedule":{
+    },
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
+    },
+    "IsPastDue":false
 }
 ```
 
-## Próximas etapas
-[!INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+<a name="sample"></a>
 
-<!---HONumber=AcomDC_0824_2016-->
+## <a name="trigger-sample"></a>Exemplo de gatilho
+Suponha que você tenha o seguinte gatilho de timer na matriz `bindings` de function.json:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Consulte o exemplo específico da linguagem que lê o objeto de timer para ver se ele está atrasado.
+
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.js](#triggernodejs)
+
+<a name="triggercsharp"></a>
+
+### <a name="trigger-sample-in-c"></a>Exemplo de gatilho em C# #
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+<a name="triggerfsharp"></a>
+
+### <a name="trigger-sample-in-f"></a>Exemplo de gatilho em F# #
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+<a name="triggernodejs"></a>
+
+### <a name="trigger-sample-in-nodejs"></a>Exemplo de gatilho em Node.js
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>Próximas etapas
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
