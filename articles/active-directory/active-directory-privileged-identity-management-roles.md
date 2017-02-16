@@ -1,9 +1,9 @@
 ---
-title: "Funções no PIM | Microsoft Docs"
+title: Regras no Azure AD Privileged Identity Management | Microsoft Docs
 description: "Aprenda quais funções são usadas para identidades com privilégios com a extensão de Privileged Identity Management do Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 01/23/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: b79308a3dfd50ac9fa43398cae7cd583a1442fde
 
 
 ---
-# <a name="roles-in-azure-ad-privileged-identity-management"></a>Funções no Azure AD Privileged Identity Management
+# <a name="roles-in-azure-ad-pim"></a>Funções no Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 Você pode atribuir usuários na sua organização a diferentes funções administrativas no Azure AD. Essas atribuições de função controlam quais tarefas, como adicionar ou remover usuários ou alterar configurações do serviço, os usuários podem executar no Azure AD, Office 365 e outros aplicativos conectados e Microsoft Online Services.  
@@ -92,6 +92,6 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

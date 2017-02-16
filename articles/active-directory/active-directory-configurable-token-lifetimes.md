@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e8b484ec7eff26919d4fb3869baf9f358c2522cb
-ms.openlocfilehash: 6e5d96ff9754954eb745f14c8248609775bbf290
+ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
+ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
 
 
 ---
@@ -41,9 +41,14 @@ Um token de acesso é usado por um cliente para acessar um recurso protegido. Um
 ### <a name="refresh-tokens"></a>Tokens de atualização
 Quando um cliente adquire um token de acesso para acessar um recurso protegido, ele recebe um token de atualização e um token de acesso. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Tokens de atualização são vinculados a combinações de usuário e cliente. Eles podem ser revogados, e sua validade é verificada sempre que são usados.
 
-É importante fazer uma distinção entre clientes públicos e confidenciais. Clientes confidenciais são aplicativos que são capazes de armazenar com segurança uma senha do cliente, permitindo comprovar que as solicitações são provenientes do aplicativo cliente e não de um ator mal-intencionado. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são maiores e não podem ser alterados usando a política de.
+É importante fazer uma distinção entre clientes públicos e confidenciais. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-Devido às limitações do ambiente em que os aplicativos são executados, clientes públicos não podem armazenar com segurança uma senha do cliente. Políticas podem ser configuradas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização (Tempo Máximo Inativo de Token de Atualização).  Além disso, as políticas podem ser usadas para definir um período de tempo além do qual os tokens de atualização não são mais aceitos (Idade Máx. do Token de Atualização).  Ajustar o tempo de vida do token de atualização permite que você controle quando e com que frequência o usuário precisa reinserir as credenciais em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidencial
+Clientes confidenciais são aplicativos que são capazes de armazenar com segurança uma senha do cliente (segredo), permitindo comprovar que as solicitações são provenientes do aplicativo cliente e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois ele pode armazenar um segredo do cliente no servidor Web e, assim, não ser exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são maiores e não podem ser alterados usando a política de.
+
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público 
+
+Clientes públicos não são capazes de armazenar com segurança a senha de um cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ocultar um segredo do proprietário do recurso e, como tal, é considerado um cliente público.  Políticas podem ser configuradas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização (Tempo Máximo Inativo de Token de Atualização).  Além disso, as políticas podem ser usadas para definir um período de tempo além do qual os tokens de atualização não são mais aceitos (Idade Máx. do Token de Atualização).  Ajustar o tempo de vida do token de atualização permite que você controle quando e com que frequência o usuário precisa reinserir as credenciais em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são passados para sites e clientes nativos e contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Tokens de ID são considerados válidos até a expiração.  Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário.  Ajustar o tempo de vida do token de ID permite que você controle com que frequência o aplicativo Web expirará a sessão do aplicativo e exija que o usuário seja autenticado novamente com o Azure AD (de forma silenciosa ou interativa).
@@ -449,6 +454,6 @@ Remove a política da entidade de serviço especificada
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 
