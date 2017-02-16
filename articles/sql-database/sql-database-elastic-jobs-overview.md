@@ -8,7 +8,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
 ms.service: sql-database
-ms.custom: jobs
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6589e094683faa74aef11d4ea01c181e24142b79
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 0d95f9f0e0c5b69aed6ba74a2488e46540589c00
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 6589e094683faa74aef11d4ea01c181e24142b79
 Para gerenciar bancos de dados fragmentados escalados horizontalmente, o recurso de **Trabalhos do Banco de Dados Elástico** (visualização) permite executar um script Transact-SQL (T-SQL) confiável em um grupo de bancos de dados, incluindo:
 
 * um conjunto personalizado de bancos de dados (explicado abaixo)
-* todos os bancos de dados em um [pool do Banco de Dados Elástico](sql-database-elastic-pool.md)
+* todos os bancos de dados em um [pool elástico](sql-database-elastic-pool.md)
 * um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). 
 
 ## <a name="documentation"></a>Documentação
@@ -73,8 +73,8 @@ Defina grupos personalizados de Bancos de Dados SQL do Azure e defina agendas pa
 
 ## <a name="elastic-database-jobs-end-to-end"></a>Trabalhos de Banco de Dados Elástico: ponta a ponta
 1. Instalar os componentes de **trabalhos de banco de dados elástico** . Para saber mais informações, consulte [Instalando trabalhos de banco de dados elástico](sql-database-elastic-jobs-service-installation.md). Se a instalação falhar, confira [como desinstalar](sql-database-elastic-jobs-uninstall.md).
-2. Use as APIs do PowerShell para acessar mais funcionalidades, por exemplo, criando coleções de bancos de dados personalizadas, adicionando agendas e/ou coletando conjuntos de resultados. Usar o Portal para instalação simples e criação/monitoramento de trabalhos limitado para execução com um **Pool de banco de dados elástico**. 
-3. Criar credenciais criptografadas para execução do trabalho e [adicionar o usuário (ou função) para cada banco de dados no grupo](sql-database-security.md).
+2. Use as APIs do PowerShell para acessar mais funcionalidades, por exemplo, criando coleções de bancos de dados personalizadas, adicionando agendas e/ou coletando conjuntos de resultados. Use o portal para instalação simples e criação/monitoramento de trabalhos limitados para execução em um **pool elástico**. 
+3. Criar credenciais criptografadas para execução do trabalho e [adicionar o usuário (ou função) para cada banco de dados no grupo](sql-database-security-overview.md).
 4. Criar um script T-SQL idempotente que pode ser executado em cada banco de dados no grupo. 
 5. Siga estas etapas para criar trabalhos usando o portal do Azure: [Criando e gerenciando trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md). 
 6. Ou use scripts do PowerShell: [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md).
@@ -135,7 +135,7 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
    A qualquer momento durante a execução do trabalho, a API do PowerShell pode ser usada para exibir o estado atual dessa execução. Todos os tempos retornados pelas APIs do PowerShell são representados em formato UTC. Se desejado, uma solicitação de cancelamento pode ser iniciada para interromper um trabalho. 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Instale os componentes](sql-database-elastic-jobs-service-installation.md) e [crie e adicione um log a cada banco de dados no grupo de bancos de dados](sql-database-security.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md). Consulte também a [Introdução aos trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
+[Instale os componentes](sql-database-elastic-jobs-service-installation.md) e [crie e adicione um log a cada banco de dados no grupo de bancos de dados](sql-database-manage-logins.md). Para entender mais a criação de trabalho e o gerenciamento, consulte [criar e gerenciar trabalhos do banco de dados elástico](sql-database-elastic-jobs-create-and-manage.md). Consulte também a [Introdução aos trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -147,6 +147,6 @@ Há vários tipos de tarefas de trabalho que realizarão a execução de trabalh
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

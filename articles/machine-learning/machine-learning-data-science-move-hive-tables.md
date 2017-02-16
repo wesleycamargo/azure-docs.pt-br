@@ -1,5 +1,5 @@
 ---
-title: Criar e carregar dados nas tabelas Hive do armazenamento de blobs | Microsoft Docs
+title: Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure | Microsoft Docs
 description: Criar tabelas Hive e carregar dados em blobs para tabelas hive
 services: machine-learning,storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 30820eede776ebdca36b34c6f6c595ae466d0484
-ms.openlocfilehash: 136e1571c616cb3e8f0b989b690fd8ec18c38b06
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 88203f84752d464b63ef31fc77d668cb8b3497e3
 
 
 ---
-# <a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>Criar e carregar dados nas tabelas Hive do armazenamento de blobs do Azure
+# <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 Neste tópico, são apresentadas consultas genéricas do Hive que criam tabelas do Hive e carregam dados do armazenamento de blobs do Azure. Também são fornecida algumas orientações sobre o particionamento de tabelas Hive e sobre como usar a formatação ORC (Colunar de Linha Otimizado) para melhorar o desempenho da consulta.
 
 Este **menu** vincula-se a tópicos que descrevem a inclusão de dados em ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
@@ -238,6 +238,6 @@ Depois de seguir esse procedimento, você deve ter uma tabela com dados no forma
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

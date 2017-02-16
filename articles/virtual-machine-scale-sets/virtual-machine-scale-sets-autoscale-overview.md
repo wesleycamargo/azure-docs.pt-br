@@ -3,7 +3,7 @@ title: "Dimensionamento automático e conjuntos de dimensionamento de máquinas 
 description: "Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: ff6a29db5450a78840f27cb69abc726a147406a1
-ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
+ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
+ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
 
 
 ---
@@ -29,7 +29,7 @@ O dimensionamento automático é um processo automatizado que ajuda a facilitar 
 Configure o dimensionamento automático em um conjunto de dimensionamento usando um modelo do Azure Resource Manager, Azure PowerShell, CLI do Azure ou portal do Azure.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configure o dimensionamento usando modelos do Resource Manager
-Em vez de implantar e gerenciar cada recurso do seu aplicativo separadamente, use um modelo que implanta todos os recursos em uma única operação coordenada. No modelo, os recursos do aplicativo são definidos e os parâmetros de implantação são especificados para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para saber mais, consulte [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
+Em vez de implantar e gerenciar cada recurso do seu aplicativo separadamente, use um modelo que implanta todos os recursos em uma única operação coordenada. No modelo, os recursos do aplicativo são definidos e os parâmetros de implantação são especificados para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para saber mais, consulte [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 No modelo, você deve especificar o elemento de capacidade:
 
@@ -224,6 +224,6 @@ Para ver um exemplo de como usar o portal do Azure para configurar o dimensionam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

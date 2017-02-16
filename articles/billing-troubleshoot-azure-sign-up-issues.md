@@ -4,7 +4,7 @@ description: "Descreve como solucionar alguns problemas de inscrição no Azure.
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: felixwu
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 ms.assetid: a0907da1-cb2d-41d1-a97f-43841fabe355
@@ -13,16 +13,32 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/24/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e2e22b767ce1d54e7b90158fb6adb877e3a165b8
+ms.sourcegitcommit: 73c4ff6fdbde09dd08d1bcacf0ec87c7fa43f3b2
+ms.openlocfilehash: 7ded94f432f8e61153ee8dfbf2508b288a4ad5fd
 
 
 ---
 # <a name="i-cant-sign-up-for-azure"></a>Não consigo me inscrever no Azure
 Se você não consegue se inscrever no Azure, há várias coisas que podem ser verificadas para solucionar o problema.
+
+## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>A barra de progresso trava na seção "Verificação de identidade por cartão"
+
+Durante a inscrição do Azure, há uma seção chamada "Verificação de identidade por cartão". Se a barra de progresso travar:
+
+![Capture a tela da seção Verificação de identidade por cartão travada durante a inscrição](./media/billing-troubleshoot-azure-sign-up-issues/identity-verification-hangs.PNG)
+
+Esse problema ocorre quando os cookies de terceiros são bloqueados para seu navegador.
+
+### <a name="suggestion"></a>Sugestão
+
+1. Permita cookies de terceiros nas configurações do navegador.
+  * No Edge, vá para Configurações-> Exibir configurações avançadas -> Cookies, selecione "Não bloquear cookies".
+  * No Chrome, vá para Configurações-> Mostrar configurações avançadas -> Privacidade -> Configurações de conteúdo, desmarque "Bloquear cookies de terceiros e dados do site".
+2. Atualize a página de inscrição do Azure e verifique se o problema foi resolvido.
+3. Se a atualização não resolver o problema, feche e reinicie o navegador e tente novamente.
 
 ## <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Nenhuma mensagem de texto ou chamada durante a verificação de conta de inscrição
 * Verifique se o seu número de telefone pode receber SMS.
@@ -39,8 +55,8 @@ Se você não consegue se inscrever no Azure, há várias coisas que podem ser v
 
 > [!NOTE]
 > Você pode alterar o número de telefone preferencial posteriormente [atualizando as informações de seu perfil](billing-how-to-change-azure-account-profile.md).
-> 
-> 
+>
+>
 
 ## <a name="credit-card-declined-or-not-accepted"></a>Cartão de crédito recusado ou não aceito
 Verifique se o método de pagamento que você está usando na inscrição tem suporte para pagamentos ou ativações do Azure.
@@ -77,15 +93,14 @@ Se você não tiver uma chave OSA, entre em contato com um dos Parceiros Microso
 Você já usou uma assinatura do Azure anteriormente? O Contrato de Termos de Uso do Azure limita a ativação gratuita da avaliação para usuários que sejam novos no Azure. Se você já teve qualquer outro tipo de assinatura do Azure, não poderá ativar uma avaliação gratuita.
 
 ### <a name="suggestion"></a>Sugestão
-* Se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere usar uma assinatura pré-paga. 
+* Se você já ativou uma assinatura do Azure anteriormente, e a ativação de avaliação gratuita falhar, considere usar uma assinatura pré-paga.
 * Verifique se você está qualificado para uma oferta de benefício. Saiba mais na [página de detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Os planos de benefícios exigem pré-requisitos específicos.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente. 
+Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

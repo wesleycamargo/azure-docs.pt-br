@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 226134e11a87f6bd847192661d3120b78ea6cf7c
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: ba6129382b6ec367428aa451ee74d5bceaa4ad35
 
 
 ---
@@ -138,35 +138,35 @@ Seu aplicativo agora está sendo executado no Azure e pode retransmitir mensagen
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedado em um Serviço de Nuvem do Azure. Para saber como hospedar esse aplicativo em um site do Azure, consulte [Criar um aplicativo de bate-papo do Node.js com Socket.IO em um Site do Azure][chatwebsite].
+Neste tutorial, você aprendeu como criar um aplicativo de chat básico hospedado em um Serviço de Nuvem do Azure. Para saber como hospedar esse aplicativo em um Site do Azure, confira [Criar um aplicativo de chat do Node.js com Socket.IO em um Site da Web do Azure][chatwebsite].
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-[SLA do Azure]: http://www.windowsazure.com/support/sla/
-[SDK do Azure para o repositório Node.js GitHub]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[SDK do Azure para Node.js]: https://www.windowsazure.com/develop/nodejs/
-[Aplicativo Web do Node.js]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Considerações do Azure]: #windowsazureconsiderations
-[Hospedando o Exemplo de Chat em uma Função de Trabalho]: #hostingthechatexampleinawebrole
-[Resumo e Próximas Etapas]: #summary
+[Azure Considerations]: #windowsazureconsiderations
+[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
+[Summary and Next Steps]: #summary
 [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
-[exemplo de chat]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
+[chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
 [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
 
 
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-[A saída do comando Publish-AzureService]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

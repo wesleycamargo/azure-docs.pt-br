@@ -12,32 +12,39 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d5c33fc7d24eb2b14db9cdf3211a06e6fcc1cb68
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ca8f3ac0dd5301e1fd06abaf3a292872eb631f47
 
 
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-linux-based-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight baseado nem Linux
-Neste documento, conheça as noções básicas de gerenciamento e topologias Storm de monitoramento funcionando no Storm baseado em Linux e clusters HDInsight.
+# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight
+
+Neste documento, conheça as noções básicas de gerenciamento e monitoramento de topologias Storm em execução no Storm em clusters HDInsight.
 
 > [!IMPORTANT]
-> As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
+> As etapas deste artigo exigem um Storm baseado em Linux no cluster HDInsight. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 > 
-> 
+> Para obter informações sobre as topologias de implantação e monitoramento em HDInsight baseado em Windows, consulte [Implantar e gerenciar topologias do Apache Storm no HDInsight baseado em Windows](hdinsight-storm-deploy-monitor-topology.md)
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) para etapas para criar um cluster
+
 * **Familiaridade com SSH e SCP**: para obter mais informações sobre como usar SSH e SCP com o HDInsight, consulte o seguinte:
   
   * **Clientes Linux, Unix ou OS X**: consultem [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+
   * **Clientes Windows**: consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 * **Um cliente SCP**: é fornecido com todos os sistemas Linux, Unix e OS X. Para clientes Windows é recomendável o PSCP, que está disponível na [página de download do PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="start-a-storm-topology"></a>Iniciar uma topologia do Storm
+
 ### <a name="using-ssh-and-the-storm-command"></a>Usando o SSH e o comando Storm
+
 1. Use o SSH para conectar ao cluster HDInsight. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
    
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -45,10 +52,12 @@ Neste documento, conheça as noções básicas de gerenciamento e topologias Sto
     Para obter mais informações sobre como usar o SSH para se conectar ao cluster HDInsight, consulte os seguintes documentos:
    
    * **Clientes Linux, Unix ou OS X**: consultem [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+
    * **Clientes Windows**: consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
 2. Use o comando a seguir para iniciar uma topologia de exemplo:
    
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology WordCount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
    
     Isso iniciará a topologia de WordCount de exemplo no cluster. Ele gerar sentenças e conta a ocorrência de cada palavra nas sentenças aleatoriamente.
    
@@ -60,9 +69,11 @@ Neste documento, conheça as noções básicas de gerenciamento e topologias Sto
    > 
 
 ### <a name="programmatically"></a>Programaticamente
+
 Você pode implantar programaticamente uma topologia para Storm no HDInsight por meio da comunicação com o serviço Nimbus hospedado no seu cluster. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicativo Java que demonstra como implantar e iniciar uma topologia por meio do serviço Nimbus.
 
 ## <a name="monitor-and-manage-using-the-storm-command"></a>Monitorar e gerenciar usando o comando storm
+
 O `storm` utilitário permite que você trabalhe com as topologias de execução na linha de comando. A lista a seguir é de comandos usados normalmente. Use `storm -h` para uma lista completa de comandos.
 
 ### <a name="list-topologies"></a>Topologias de lista
@@ -179,6 +190,6 @@ Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Stor
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

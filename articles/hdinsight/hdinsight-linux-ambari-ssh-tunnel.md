@@ -1,5 +1,5 @@
 ---
-title: "Usar o Túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras"
+title: "Usar o túnel SSH para acessar os serviços do Azure HDInsight | Microsoft Docs"
 description: "Saiba como usar um túnel SSH para navegar com segurança em recursos da Web hospedados em seus nós HDInsight baseados em Linux."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 446212192829cc55fefe4b1a1954e64e123c2c44
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d9e6fe3bd2ddd511791b7b34ff8d7875a13417c0
 
 
 ---
@@ -145,6 +145,6 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

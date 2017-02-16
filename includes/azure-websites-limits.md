@@ -23,7 +23,7 @@
 | [WebJobs](../articles/app-service-web/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Agendador do Azure](https://azure.microsoft.com/services/scheduler/)  | |X |X |X |X |
 | [Monitoramento do ponto de extremidade](../articles/app-service-web/web-sites-monitor.md) | | |X |X |X |
-| [Slots de preparo (visualização)](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
+| [Slots de preparação](../articles/app-service-web/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domínios personalizados por aplicativo</a> | |500 |500 |500 |500 |
 | Contrato de Nível de Serviço | |<p> |99,9% |99,95%<sup>10</sup> |99,95%<sup>10</sup> |
 
@@ -40,6 +40,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

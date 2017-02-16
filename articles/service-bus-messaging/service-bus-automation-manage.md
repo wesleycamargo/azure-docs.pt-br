@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/10/2017
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1912275b05948525486e4e30e2065bd7f63630cb
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 4817cda757b9f85f6225237f79293860c990ca88
 
 
 ---
@@ -31,7 +31,7 @@ A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho a
 Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar no trabalho que agrega valor de negócios, transferindo as tarefas de gerenciamento de nuvem para serem executadas automaticamente pela Automação do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-service-bus"></a>Como a Automação do Azure ajuda a gerenciar o Barramento de Serviço do Azure?
-Você pode gerenciar o Barramento de Serviço com a Automação do Azure usando a [API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/mt639375.aspx). Na Automação do Azure, é possível executar scripts do PowerShell para executar muitas das tarefas do Barramento de Serviço usando a API REST. Você também pode combinar essas chamadas de API REST na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
+Você pode gerenciar o Barramento de Serviço com a Automação do Azure usando a [API REST do Barramento de Serviço](https://docs.microsoft.com/rest/api/servicebus/). Na Automação do Azure, é possível executar scripts do PowerShell para executar muitas das tarefas do Barramento de Serviço usando a API REST. Você também pode combinar essas chamadas de API REST na Automação do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas nos serviços do Azure e sistemas de terceiros.
 
 Veja alguns exemplos de uso do PowerShell para gerenciar o Barramento de Serviço do Azure:
 
@@ -50,6 +50,6 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ele pode 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

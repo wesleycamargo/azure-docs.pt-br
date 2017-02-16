@@ -1,22 +1,28 @@
 ---
-title: Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure | Microsoft Docs
-description: Banco de Dados SQL do Microsoft Azure, migração de banco de dados, Assistente de Banco de Dados do Microsoft Azure
+title: 'SSMS: Migrar o banco de dados SQL Server para o Banco de Dados SQL do Azure | Microsoft Docs'
+description: "Este artigo mostra como usar o assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio para migrar um banco de dados SQL Server compatível diretamente no seu servidor do Banco de Dados SQL do Azure."
+keywords: "Banco de Dados SQL do Microsoft Azure, migração de banco de dados, Assistente de Banco de Dados do Microsoft Azure"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 91d3fd5e-d035-4c55-b1ea-a7ccc8e0f543
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 08/24/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: f4cbfc1a277cbe80edbfbb4dc651adb1972f41b4
+
 
 ---
-# Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure
+# <a name="migrate-sql-server-database-to-sql-database-using-deploy-database-to-microsoft-azure-database-wizard"></a>Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure
 > [!div class="op_single_selector"]
 > * [Assistente de Migração do SSMS](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
 > * [Exportar para um arquivo BACPAC](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -25,9 +31,9 @@ ms.author: carlrab
 > 
 > 
 
-O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio realiza a migração de um [banco de dados SQL Server compatível](sql-database-cloud-migrate.md) diretamente em sua instância de servidor do Banco de Dados SQL do Azure.
+Este artigo mostra como usar o assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio para migrar um [banco de dados SQL Server compatível](sql-database-cloud-migrate.md) diretamente no seu servidor do Banco de Dados SQL do Azure.
 
-## Usar o assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure
+## <a name="use-the-deploy-database-to-microsoft-azure-database-wizard"></a>Usar o assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure
 > [!NOTE]
 > As etapas a seguir pressupõem que você tenha um [servidor de Banco de Dados SQL provisionado](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/).
 > 
@@ -43,32 +49,37 @@ O assistente para Implantar Banco de Dados no Banco de Dados do Microsoft Azure 
 3. Clique com o botão direito do mouse no banco de dados no Pesquisador de Objetos, aponte para **Tarefas** e clique em **Implantar Banco de Dados no Banco de Dados SQL do Microsoft Azure...**
    
     ![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard01.png)
-4. No assistente de implantação, clique em **Avançar** e clique em **Conectar** para configurar a conexão com seu servidor do Banco de Dados SQL.
+4. No assistente de implantação, clique em **Avançar** e em **Conectar** para configurar a conexão com o servidor do Banco de Dados SQL.
    
    ![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard002.png)
-5. Na caixa de diálogo Conectar-se ao Servidor, insira suas informações de conexão para conectar-se ao seu servidor do Banco de Dados SQL.
+5. Na caixa de diálogo Conectar-se ao Servidor, insira suas informações de conexão para conectar-se ao seu servidor do Banco de Dados SQL. Para obter o nome de um servidor existente, vá para [Exibir e atualizar um servidor de Banco de Dados SQL e suas configurações](sql-database-view-update-server-settings.md).
    
     ![Implantar para o Azure por meio do menu de Tarefas](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 6. Forneça as seguintes informações sobre o arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) que este assistente cria durante o processo de migração:
    
-   * Especifique um novo **nome de banco de dados**
+   * Especifique um novo **nome de banco de dados** 
    * A **Edição do Banco de Dados SQL do Microsoft Azure** ([camada de serviço](sql-database-service-tiers.md))
    * O **Tamanho máximo do banco de dados**
    * O **Objetivo de Serviço** (nível de desempenho)
-   * O **Nome de arquivo temporário**
+   * O **Nome de arquivo temporário**  
    
    ![Exportar configurações](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 7. Conclua o assistente. Dependendo do tamanho e da complexidade do banco de dados, a implantação talvez demore de alguns minutos até algumas horas. Se este assistente detectar problemas de compatibilidade, os erros serão exibidos na tela e a migração não continuará. Para obter diretrizes sobre como corrigir problemas de compatibilidade do banco de dados, acesse [corrigir problemas de compatibilidade do banco de dados](sql-database-cloud-migrate-fix-compatibility-issues.md).
 8. Usando o Pesquisador de Objetos, conecte-se ao banco de dados migrado em seu servidor de Banco de Dados SQL do Azure.
 9. Usando o Portal do Azure, exiba seu banco de dados e suas propriedades.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Versão mais recente do SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
 * [Versão mais recente do SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Recursos adicionais
-* [Banco de Dados SQL V12](sql-database-v12-whats-new.md)
+## <a name="additional-resources"></a>Recursos adicionais
+* [Recursos do Banco de Dados SQL](sql-database-features.md)
 * [Funções como suporte parcial ou inexistente no Transact-SQL](sql-database-transact-sql-information.md)
 * [Migrar bancos de dados não SQL Server usando o Assistente de Migração do SQL Server](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

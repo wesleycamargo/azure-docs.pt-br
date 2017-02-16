@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    2. Selecione sua **assinatura**do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas: 
       
-      1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
-      2. Selecione **Criar novo** e insira um nome para um grupo de recursos.
+      - Selecione **Usar existente** para selecionar um grupo de recursos existente.
+      - Selecione **Criar novo** e insira um nome para um grupo de recursos.
          
           Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
    4. Selecione um **local** para o data factory.
@@ -163,6 +163,6 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

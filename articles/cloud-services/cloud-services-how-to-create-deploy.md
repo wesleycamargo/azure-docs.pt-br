@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a3437ce502711a56f7201a87c84e8336b7a3e05
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 71863e52dca951b1fc3847e1bba47977a6e49c7c
 
 
 ---
@@ -32,7 +32,7 @@ O portal clássico do Azure oferece duas maneiras de criar e de implantar um ser
 Este tópico explica como usar o método Criação Rápida para criar um novo serviço de nuvem e usar **Carregar** para carregar e implantar um pacote de serviço de nuvem no Azure. Ao usar esse método, o portal clássico do Azure disponibiliza links convenientes para o cumprimento de todos os requisitos quando você precisar. Se você estiver pronto para implantar o serviço de nuvem ao criá-lo, é possível usar ambos ao mesmo tempo usando a **Criação Personalizada**.
 
 > [!NOTE]
-> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no **Início Rápido** ou no painel. Para obter mais informações, consulte [Fornecimento Contínuo para o Azure usando o Visual Studio Team Services][TFSTutorialForCloudService] ou consulte a ajuda da página **Início Rápido**.
+> Se você planeja publicar o serviço de nuvem do VSTS (Visual Studio Team Services), use a Criação Rápida e configure a publicação do VSTS no **Início Rápido** ou no painel. Para saber mais, confira [Entrega contínua no Azure usando Visual Studio Team Services][TFSTutorialForCloudService] ou confira a ajuda da página **Início Rápido**.
 > 
 > 
 
@@ -40,11 +40,11 @@ Este tópico explica como usar o método Criação Rápida para criar um novo se
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
 * **Definição de serviço**  
-   O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
+  O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 * **Configuração de serviço**  
-   O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+  O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 * **Pacote de serviço**  
-   O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+  O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
 
 Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
@@ -131,6 +131,6 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

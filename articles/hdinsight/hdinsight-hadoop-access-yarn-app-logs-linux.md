@@ -16,18 +16,16 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f03c595977f098f19d396cc460c73e27163f070c
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 1a4bf7e2a77e1b49e0bb68ec8897ec78d39c3b9f
 
 
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Acesso aos logs de aplicativo YARN no HDInsight baseado em Linux
 Este documento explica como acessar os logs de aplicativos YARN (um novo recurso negociador) que termina em um cluster de Hadoop no HDInsight do Azure.
 
-> [!NOTE]
-> As informações neste documento são específicas de clusters HDInsight baseados em Linux. Para obter informações sobre clusters baseados no Windows, consulte [Acesso aos logs do aplicativo YARN no HDInsight baseado no Windows](hdinsight-hadoop-access-yarn-app-logs.md)
-> 
-> 
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Criar um cluster HDInsight baseado em Linux.
@@ -49,7 +47,7 @@ As informações genéricas sobre aplicativos incluem os seguintes tipos de dado
 ## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Logs e aplicativos YARN
 O YARN dá suporte a vários modelos de programação (inclusive MapReduce), por separar o gerenciamento de recursos do agendamento/monitoramento de aplicativos. Isso é feito por meio de um RM (*Gerenciador de Recursos*) global, NMs (*Gerenciadores de Nós*) por nó de trabalho e AMs (*Mestres de Aplicativos*) por aplicativo. O aplicativo AM negocia recursos (CPU, memória, disco e rede) para executar o aplicativo com o Gerenciador de recurso. O RM atua junto com os NMs para conceder esses recursos na forma de *contêineres*. O AM é responsável por controlar o andamento dos contêineres atribuídos pelo RM. Um aplicativo pode exigir um número de contêineres dependendo da natureza do aplicativo.
 
-Além disso, cada aplicativo pode consistir em várias *tentativas (de encerramento) de aplicativo* na presença de panes ou devido a perda de comunicação entre um AM e um RM. Portanto, contêineres são concedidos a uma tentativa específica de um aplicativo. De certa forma, um contêiner fornece o contexto da unidade básica de trabalho executada por um aplicativo YARN; todo o trabalho feito no contexto de um contêiner é executado no nó de trabalho único no qual o contêiner foi alocado. Consulte [Conceitos de YARN][YARN-concepts] para referência adicional.
+Além disso, cada aplicativo pode consistir em várias *tentativas (de encerramento) de aplicativo* na presença de panes ou devido a perda de comunicação entre um AM e um RM. Portanto, contêineres são concedidos a uma tentativa específica de um aplicativo. De certa forma, um contêiner fornece o contexto da unidade básica de trabalho executada por um aplicativo YARN; todo o trabalho feito no contexto de um contêiner é executado no nó de trabalho único no qual o contêiner foi alocado. Confira [Conceitos de YARN][YARN-concepts] para referência adicional.
 
 Os logs de aplicativos (e os logs de contêiner associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma ótima estrutura para coletar, agregar e armazenar logs de aplicativos com o recurso [Agregação de Logs][log-aggregation]. O recurso Agregação de Logs torna o acesso aos logs de aplicativos mais determinista, uma vez que agrega os logs de todos os contêineres em um nó de trabalho e os armazena como um arquivo de log agregado por nó de trabalho no sistema de arquivos padrão após o encerramento de um aplicativo. O aplicativo deve usar centenas ou milhares de contêineres, mas logs para todos os contêineres executados em um nó único de trabalhado sempre serão agregados em um único arquivo, resultando em um arquivo de log por nó de trabalho usado pelo seu aplicativo. A Agregação de Logs está habilitada por padrão nos clusters HDInsight (versão 3.0 ou superior) e os logs agregados se encontram no contêiner padrão de seu cluster no seguinte local:
 
@@ -95,6 +93,6 @@ Depois de criar um túnel SSH, use as etapas a seguir para exibir os logs YARN:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

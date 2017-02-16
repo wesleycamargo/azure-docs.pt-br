@@ -8,19 +8,19 @@ Latest Freshness check:  2015-09-04 , GeneMi.
 -->
 
 
-### Exemplo de arquivo de configuração para segurança da cadeia de conexão
+### <a name="example-config-file-for-connection-string-security"></a>Exemplo de arquivo de configuração para segurança da cadeia de conexão
 Não faz sentido colocar a cadeia de conexão como literais em seu código do C#. É melhor colocar a cadeia de conexão em um arquivo de configuração. Lá você pode editar a cadeia de caracteres a qualquer momento, sem precisar recompilar.
 
-Vamos supor que o seu programa compilado no C# chama-se **ConsoleApplication1.exe** e que esse .exe reside em um diretório **bin\\debug**.
+Vamos supor que o seu programa compilado no C# chama-se **ConsoleApplication1.exe** e que esse .exe reside em um diretório **bin\debug\**.
 
-Neste exemplo, a maioria das partes da cadeia de conexão é armazenada em um arquivo de configuração chamado exatamente **ConsoleApplication1.exe.config**. Este arquivo de configuração também deve residir em **bin\\debug**.
+Neste exemplo, a maioria das partes da cadeia de conexão é armazenada em um arquivo de configuração chamado exatamente **ConsoleApplication1.exe.config**. Este arquivo de configuração também deve residir em **bin\debug\**.
 
 No XML do arquivo de configuração a seguir, você verá uma cadeia de conexão chamada **ConnectionString4NoUserIDNoPassword**. O código do C# procura essa cadeia de caracteres.
 
 Você deve editar os nomes reais nos espaços reservados:
 
-* {seu\_nomeServidor\_aqui}
-* {seu\_nomeBancoDados\_aqui}
+* {seu_nomeServidor_aqui}
+* {seu_nomeBancoDados_aqui}
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -46,8 +46,8 @@ Você deve editar os nomes reais nos espaços reservados:
 
 Para esta ilustração, escolhemos omitir dois parâmetros:
 
-* User ID={seu\_nomeUsuário\_aqui};
-* Password={sua\_senha\_aqui};
+* User ID={seu_nomeUsuário_aqui};
+* Password={sua_senha_aqui};
 
 Você pode incluí-los, mas às vezes é melhor obter esses valores do programa com a entrada de teclado do usuário. Isso depende.
 
@@ -59,4 +59,7 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

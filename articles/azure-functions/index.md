@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como desenvolver e implantar funções na linguagem de sua escolha para executar tarefas em segundo plano ou em uma agenda sem infraestrutura especial."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Documentação do Azure Functions
 
-O Azure Functions é uma solução para executar facilmente pequenos trechos de código ("funções") na nuvem. Você pode escrever o código de que necessita para o problema em questão, sem se preocupar com todo o aplicativo ou a infraestrutura para executá-lo. Você também pode desenvolver na linguagem de sua escolha, como C#, F#, Node.js, Python ou PHP.
+Saiba mais sobre como usar o Functions para desenvolver e implantar pequenos trechos de código na linguagem de sua escolha e na nuvem sem configurar infraestrutura. Os tutoriais, os modelos e outras documentações mostram como criar funções para tarefas que você deseja executar em um thread em segundo plano ou em uma agenda.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Download da Documentação do Azure Functions </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

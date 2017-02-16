@@ -1,4 +1,4 @@
-Nosso cache de token deve funcionar em casos simples, mas o que acontece quando o token expira ou é revogado? O token pode expirar quando o aplicativo não está em execução. Isso significa que o cache de token é inválido. O token também pode expirar enquanto o aplicativo estiver realmente em execução. O resultado é um código de status HTTP 401, "Não autorizado".
+Nosso cache de token deve funcionar em casos simples, mas o que acontece quando o token expira ou é revogado? O token pode expirar quando o aplicativo não está em execução. Isso significa que o cache de token é inválido. O token também pode expirar enquanto o aplicativo estiver realmente em execução. O resultado é um código de status HTTP 401, "Não autorizado". 
 
 Precisamos ser capazes de detectar um token expirado e atualizá-lo. Para fazer isso, usamos um [ServiceFilter](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/ServiceFilter.html) da [biblioteca cliente do Android](http://dl.windowsazure.com/androiddocs/).
 
@@ -10,7 +10,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
         import java.util.concurrent.ExecutionException;
    
         import com.microsoft.windowsazure.mobileservices.MobileServiceException;
-2. Adicione os seguintes membros à classe `ToDoActivity`:
+2. Adicione os seguintes membros à classe `ToDoActivity` : 
    
         public boolean bAuthenticating = false;
         public final Object mAuthenticationLock = new Object();
@@ -45,7 +45,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
    
             return detected;
         }
-4. No arquivo ToDoActivity.java, adicione o seguinte método à classe ToDoActivity. Este método desencadeará a espera e atualizará o token em solicitações de saída quando a autenticação estiver concluída.
+4. No arquivo ToDoActivity.java, adicione o seguinte método à classe ToDoActivity. Este método desencadeará a espera e atualizará o token em solicitações de saída quando a autenticação estiver concluída. 
 
         /**
          * Waits for authentication to complete then adds or updates the token 
@@ -193,7 +193,7 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
             }
         }
 
-    Este filtro de serviço verificará cada resposta ao código de status HTTP 401, “Não autorizado”. Se um 401 for encontrado, um novo login solicita a obtenção de um novo token, que será configurado no thread de IU. Outras chamadas serão bloqueadas até que o logon seja concluído ou até 5 tentativas falharem. Quando o novo token é obtido, a solicitação que desencadeou o 401 será realizada novamente com o novo token e quaisquer chamadas bloqueadas serão realizadas novamente com o novo token.
+    Este filtro de serviço verificará cada resposta ao código de status HTTP 401, “Não autorizado”. Se um 401 for encontrado, um novo login solicita a obtenção de um novo token, que será configurado no thread de IU. Outras chamadas serão bloqueadas até que o logon seja concluído ou até 5 tentativas falharem. Quando o novo token é obtido, a solicitação que desencadeou o 401 será realizada novamente com o novo token e quaisquer chamadas bloqueadas serão realizadas novamente com o novo token. 
 
 1. No arquivo ToDoActivity.java, adicione este código para uma nova classe `ProgressFilter` na classe ToDoActivity:
    
@@ -272,6 +272,11 @@ Nesta seção, você definirá um ServiceFilter que detectará uma resposta de c
             }
         }
 
-       Nesse código, `RefreshTokenCacheFilter` é usado além do `ProgressFilter`. Também durante o `onCreate`, queremos carregar o cache de token. Então `false` é passado para o método `authenticate`.
+       In this code, `RefreshTokenCacheFilter` is used in addition to `ProgressFilter`. Also during `onCreate` we want to load the token cache. So `false` is passed in to the `authenticate` method.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

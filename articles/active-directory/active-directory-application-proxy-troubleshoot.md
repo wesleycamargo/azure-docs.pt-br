@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 654acd092f9e8469d7014e1ff15cb7d812918e8b
-
+ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
+ms.openlocfilehash: e3143d787104ffbba9fb0c3806b187382d9d5c5b
 
 ---
+
+
 # <a name="troubleshoot-application-proxy"></a>Solucionar problemas de Proxy de Aplicativo
 Se ocorrerem erros ao acessar um aplicativo publicado ou em aplicativos de publicação, verifique as seguintes opções para ver se o Proxy de Aplicativo do AD do Microsoft Azure está funcionando corretamente:
 
@@ -53,7 +54,7 @@ Se o registro falhar durante a instalação do assistente do Conector, há duas 
 | Falha no registro de conector: verifique se você habilitou o Proxy de Aplicativo no Portal de Gerenciamento do Azure e se inseriu o nome de usuário e a senha do Active Directory corretamente. Erro: "ocorreram um ou mais erros”. |Se a janela de registro abre e fecha imediatamente sem permitir que você faça logon, você provavelmente obterá este erro. Esse erro ocorre quando há algum erro de rede em seu sistema. |Certifique-se de que é possível conectar-se de um navegador a um site público e que as portas estejam abertas como especificado nos [pré-requisitos do Proxy de Aplicativo](active-directory-application-proxy-enable.md). |
 | Falha no registro do conector: verifique se o computador está conectado à Internet. Erro: “Não havia nenhum ponto de extremidade escutando em `https://connector.msappproxy.net :9090/register/RegisterConnector` para aceitar a mensagem.” Isso geralmente é causado por um endereço incorreto ou ação SOAP. Consulte InnerException, se existir, para obter mais detalhes. " |Se você entrar usando seu nome de usuário e a senha do Azure AD, mas ainda receber esse erro, pode ser que todas as portas acima de 8081 estejam bloqueadas. |Certifique-se de que as portas necessárias estejam abertas. Para saber mais, confira [Pré-requisitos de Proxy de Aplicativo](active-directory-application-proxy-enable.md). |
 | Apagar erro é apresentado na janela de registro. Não é possível continuar, somente é possível fechar a janela. |Você inseriu o nome de usuário ou a senha incorretos. |Tente novamente. |
-| Falha no registro de conector: verifique se você habilitou o Proxy de Aplicativo no Portal de Gerenciamento do Azure e se inseriu o nome de usuário e a senha do Active Directory corretamente. Erro: “AADSTS50059: nenhuma informação de identificação de locatário foi encontrada na solicitação nem está implícita em quaisquer credenciais fornecidas; a pesquisa por URI de principio de serviço falhou. |Você está tentando fazer logon usando uma Conta da Microsoft e não de um domínio que faz parte da ID da organização do diretório que você está tentando acessar. |Certifique-se de que o administrador faça parte do mesmo nome de domínio que o domínio do locatário, por exemplo, se o domínio do Azure AD for contoso.com, o do administrador deverá ser admin@contoso.com. |
+| Falha no registro de conector: verifique se você habilitou o Proxy de Aplicativo no Portal de Gerenciamento do Azure e se inseriu o nome de usuário e a senha do Active Directory corretamente. Erro: ‘AADSTS50059: nenhuma informação de identificação de organização foi encontrada na solicitação nem está implícita em quaisquer credenciais fornecidas; a pesquisa por URI de entidade de serviço falhou. |Você está tentando fazer logon usando uma Conta da Microsoft e não de um domínio que faz parte da ID da organização do diretório que você está tentando acessar. |Certifique-se de que o administrador faça parte do mesmo nome de domínio que o domínio do locatário; por exemplo, se o domínio do AD do Azure for contoso.com, o do administrador deverá ser admin@contoso.com. |
 | Falha ao recuperar a política de execução atual para executar scripts do PowerShell. |Se a instalação do Conector falhar, verifique se a política de execução do PowerShell não está desabilitada. |Abra o Editor de Política de Grupo. Vá para **Configuração do Computador** > **Modelos Administrativos** > **Componentes do Windows** > **Windows PowerShell** e clique duas vezes em **Ativar Execução de Scripts**. Isso pode ser definido como **Não Configurado** ou **Habilitado**. Se estiver definido como **Habilitado**, verifique se a Política de Execução em Opções está definida como **Permitir scripts locais e scripts remotos assinados** ou como **Permitir todos os scripts**. |
 | Falha ao baixar a configuração do Conector. |O certificado de cliente do Conector, que é usado para autenticação, expirou. Isso também pode ocorrer se você tiver o Conector instalado atrás de um proxy. Nesse caso, o Conector não poderá acessar a Internet e não será capaz de fornecer aplicativos a usuários remotos. |Renove a confiança manualmente usando o cmdlet `Register-AppProxyConnector` do Windows PowerShell. Se seu Conector estiver atrás de um proxy, será necessário conceder acesso à Internet para as contas "serviços de rede" e "sistema local" do Conector. Isso pode ser feito concedendo acesso ao Proxy ou configurando-os para ignorar o proxy. |
 | Falha no registro do conector: verifique se você é um Administrador Global do seu Active Directory para registrar o conector. Erro: “a solicitação de registro foi negada”. |O alias com o qual você está tentando fazer logon não é um administrador neste domínio. O Conector sempre é instalado para o diretório que possui o domínio do usuário. |Certifique-se de que o administrador com o qual você está tentando fazer logon tenha as permissões globais para o locatário do AD do Azure. |
@@ -86,6 +87,6 @@ Para ver as últimas notícias e atualizações, confira o [blog Application Pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: bfe0f796c8a15d655f1c5686a0e1e422fee6fbc1
+ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
+ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
 
 
 ---
@@ -132,6 +132,15 @@ A associação de saída usa o seguinte objeto JSON na matriz `bindings` de func
 
 `connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.
 
+## <a name="output-usage"></a>Uso de saída
+Esta seção mostra como usar a associação de saída do Hub de Eventos no seu código de função.
+
+Você pode gerar mensagens de saída para o hub de eventos configurado com os seguintes tipos de parâmetro: 
+
+* `out string`
+* `ICollector<string>` (para gerar várias mensagens)
+* `IAsyncCollector<string>` (versão assíncrona de `ICollector<T>`)
+
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Amostra de saída
@@ -155,7 +164,7 @@ Consulte o exemplo específico por linguagem de gravação de evento na mesma tr
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>Exemplo de saída em C# #
+### <a name="output-sample-in-c"></a>Amostra de saída no C# #
 
 ```cs
 using System;
@@ -165,6 +174,18 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
     String msg = $"TimerTriggerCSharp1 executed at: {DateTime.Now}";
     log.Verbose(msg);   
     outputEventHubMessage = msg;
+}
+```
+
+Ou, para criar várias mensagens:
+
+```cs
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+{
+    string message = $"Event Hub message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputEventHubMessage.Add("1 " + message);
+    outputEventHubMessage.Add("2 " + message);
 }
 ```
 
@@ -186,8 +207,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    context.log('Event Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.done();
+};
+```
+
+Ou, para enviar várias mensagens,
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+    var message = 'Event Hub message created at: ' + timeStamp;
+
+    context.bindings.outputEventHubMessage = [];
+
+    context.bindings.outputEventHubMessage.push("1 " + message);
+    context.bindings.outputEventHubMessage.push("2 " + message);
     context.done();
 };
 ```
@@ -198,6 +234,6 @@ module.exports = function (context, myTimer) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

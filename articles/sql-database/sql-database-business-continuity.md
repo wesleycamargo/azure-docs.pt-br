@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
-ms.author: carlrab;sashan
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
-ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -77,7 +77,7 @@ Use a replicação geográfica ativa caso seu aplicativo atenda a qualquer um de
 * Que o custo adicional da replicação geográfica ativa seja menor que a responsabilidade financeira potencial e das perdas associadas do negócio.
 
 >
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar um banco de dados após um erro de usuário ou de aplicativo
@@ -158,6 +158,6 @@ Para uma discussão sobre as considerações de design de aplicativo para bancos
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

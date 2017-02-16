@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a5154bace333ee89fa40b7a02e2d0020a55dfa6
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: e65a655bc9e85b4797d795c9be6ded9ef253ed86
 
 
 ---
@@ -50,7 +50,7 @@ Enquanto o Azure é responsável por proteger a infraestrutura e a plataforma em
 Uma discussão completa das considerações sobre segurança para aplicativos Web está além do escopo deste documento. Como ponto de partida para mais diretrizes sobre como proteger seu aplicativo, confira [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page), mais especificamente os [10 principais projetos.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que lista as 10 principais falhas de segurança em aplicativos Web, conforme determinado pelos membros do OWASP.
 
 ## <a name="perform-penetration-testing-on-your-app"></a>Executar testes de penetração no aplicativo
-Uma das maneiras mais fáceis de começar a fazer testes de vulnerabilidades no aplicativo do Serviço de Aplicativo é usar a [integração à Tinfoil Security](/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades de um clique no aplicativo. Você pode exibir os resultados do teste em um relatório de fácil compreensão e aprender como corrigir cada vulnerabilidade com instruções passo a passo.
+Uma das maneiras mais fáceis de começar a fazer testes de vulnerabilidades no aplicativo do Serviço de Aplicativo é usar a [integração à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades de um clique no aplicativo. Você pode exibir os resultados do teste em um relatório de fácil compreensão e aprender como corrigir cada vulnerabilidade com instruções passo a passo.
 
 Se preferir realizar seus próprios testes de penetração ou se desejar usar outro pacote de scanners ou provedor, você deverá seguir o [processo de aprovação do teste de penetração do Azure](https://security-forms.azure.com/penetration-testing/terms) e obter aprovação prévia para realizar os testes de penetração desejados.
 
@@ -120,6 +120,6 @@ Para saber mais sobre como registrar em log informações de aplicativos do Serv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

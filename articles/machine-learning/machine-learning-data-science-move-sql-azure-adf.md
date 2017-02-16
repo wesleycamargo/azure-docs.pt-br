@@ -12,20 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 61176151652f9c9d79ebe07d2a4aedf8702e2d16
-ms.openlocfilehash: a329d1ef98e2ab59df2f11b5095fe87a8cc9f94a
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 72daf5bdce0dfcb2e09869c159eb88ee313be575
 
 
 ---
 # <a name="move-data-from-an-on-premise-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o Azure Data Factory (ADF).
 
-O **menu** a seguir leva a tópicos que descrevem com ingerir dados em ambientes de destino em que os dados podem ser armazenados e processados durante o Processo de Ciência de Dados de Equipe.
-
-[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+Para conferir uma tabela que resume diversas opções de movimentação de dados para um Banco de Dados SQL do Azure, consulte [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
 ## <a name="a-nameintroaintroduction-what-is-adf-and-when-should-it-be-used-to-migrate-data"></a><a name="intro"></a>Introdução: O que é o ADF e quando ele deve ser usado para migrar dados?
 O Azure Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O conceito fundamental no modelo do ADF é o pipeline. Um pipeline é um agrupamento lógico de Atividades, e cada uma delas define as ações a serem executadas nos dados contidos em Conjuntos de dados. Serviços vinculados definem as informações necessárias para o Data Factory conectar-se a recursos de dados.
@@ -56,7 +54,7 @@ Este tutorial presume que você tenha:
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Acesso a um **Banco de dados do SQL Azure**. Se você precisa configurar um Banco de Dados SQL do Azure, o [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure ](../sql-database/sql-database-get-started.md) fornece informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
-* **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > Este procedimento usa o [Portal do Azure](https://portal.azure.com/).
@@ -315,7 +313,7 @@ Copie a definição de JSON da tabela em um arquivo chamado *pipelinedef.json* e
 
 Confirme que você pode ver o pipeline no ADF no Portal Clássico do Azure da seguinte forma (quando você clicar no diagrama)
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
+![Pipeline do ADF](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="a-nameadf-pipeline-startastart-the-pipeline"></a><a name="adf-pipeline-start"></a>Iniciar o Pipeline
 O pipeline agora pode ser executado usando o seguinte comando:
@@ -330,6 +328,6 @@ Observe que não utilizamos a funcionalidade fornecida pelo ADF para dados de pi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

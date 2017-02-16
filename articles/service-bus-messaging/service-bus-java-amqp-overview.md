@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/12/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ac7622e14a5341e0559af9e5888a6f65736a12b
+ms.sourcegitcommit: aa641c1324c6075fc24ba091ac7fb785e2156454
+ms.openlocfilehash: ddd7eacc0ba9a63f2d021fed61fd891223918a3e
 
 
 ---
@@ -77,7 +77,7 @@ Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalha
 
 **Figura 2: Tabela de bibliotecas de cliente do AMQP 1.0**
 
-Para obter mais informações sobre como obter e usar essas bibliotecas com o Barramento de Serviço, confira o [Guia do desenvolvedor do Barramento de Serviço para AMQP][Guia do desenvolvedor do Barramento de Serviço para AMQP]. Consulte a seção [Próximas etapas](service-bus-java-amqp-overview.md#next-steps) com links para obter mais informações.
+Para saber mais sobre como obter e usar essas bibliotecas com o Barramento de Serviço, confira o [Guia do desenvolvedor do Barramento de Serviço para AMQP][Service Bus AMQP Developer's Guide]. Consulte a seção [Próximas etapas](service-bus-java-amqp-overview.md#next-steps) com links para obter mais informações.
 
 ## <a name="summary"></a>Resumo
 * O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens aberto e confiável que pode ser usado para criar aplicativos híbridos de mensagens avançados entre plataformas. O AMQP 1.0 é um padrão OASIS.
@@ -88,16 +88,16 @@ Visite os links a seguir para obter mais informações sobre o suporte a AMQP no
 
 * [Como usar o AMQP 1.0 com a API .NET do Barramento de Serviço](service-bus-dotnet-advanced-message-queuing.md)
 * [Como usar a API do JMS ( Java Message Service) com Barramento de Serviço e AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [Guia do desenvolvedor do Barramento de Serviço para AMQP][Guia do desenvolvedor do Barramento de Serviço para AMQP]
+* [Guia do desenvolvedor do Barramento de Serviço para AMQP][Service Bus AMQP Developer's Guide]
 * [Especificação do protocolo OASIS AMQP (Advanced Message Queuing Protocol) versão 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-java-amqp-overview/Example1.png
-[Guia do desenvolvedor do Barramento de Serviço para AMQP]: service-bus-amqp-dotnet.md
+[Service Bus AMQP Developer's Guide]: service-bus-amqp-dotnet.md
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

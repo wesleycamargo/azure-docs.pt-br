@@ -1,10 +1,10 @@
 ---
-title: Redefinir um Gateway de VPN do Azure | Microsoft Docs
-description: "Este artigo o orienta sobre como redefinir o Gateway de VPN do Azure. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager."
+title: "Redefinir um gateway de VPN do Azure para restabelecer túneis IPsec: PowerShell | Microsoft Docs"
+description: "Este artigo orienta você pela redefinição de seu Gateway de VPN do Azure para reestabelecer os túneis IPsec. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
@@ -13,20 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 01/25/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+ms.sourcegitcommit: 691afc6aca6efe074e76eab5129d109cb2e7163f
+ms.openlocfilehash: ce6d77b8ad4a5b81f7a1237267accaa617f0dcf7
 
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Redefinir um Gateway de VPN do Azure usando o PowerShell
+
+Redefinir o gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN S2S. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure.
+
 Este artigo o guia pela redefinição do Gateway de VPN do Azure usando cmdlets do PowerShell. Estas instruções incluem tanto o modelo de implantação clássico quanto o modelo de implantação do Resource Manager.
 
-Redefinir o gateway de VPN do Azure é útil se você perde a conectividade VPN entre locais em um ou mais túneis de VPN S2S. Nessa situação, os dispositivos VPN locais estão funcionando corretamente, mas não são capazes de estabelecer túneis IPsec com os gateways de VPN do Azure. 
-
-Cada gateway de VPN do Azure é composto de duas instâncias VM em execução em uma configuração de modo de espera-ativo. Quando você usa o cmdlet do PowerShell para reiniciar o gateway, ele reinicializa o gateway e aplica novamente as configurações entre instalações a ele. O gateway mantém o endereço IP público que já tem. Isso significa que você não precisa atualizar a configuração do roteador VPN com um novo endereço IP público do gateway de VPN do Azure.  
+Cada gateway de VPN do Azure é um gateway de rede virtual composto por duas instâncias de VM em execução em uma configuração de modo de espera-ativo. Quando você usa o cmdlet do PowerShell para reiniciar o gateway, ele reinicializa o gateway e aplica novamente as configurações entre instalações a ele. O gateway mantém o endereço IP público que já tem. Isso significa que você não precisa atualizar a configuração do roteador VPN com um novo endereço IP público do gateway de VPN do Azure.  
 
 Quando o comando for emitido, a instância ativa atual do gateway de VPN do Azure será reinicializada imediatamente. Haverá um breve intervalo durante o failover da instância ativa (que está sendo reinicializada) à instância em espera. O intervalo deve ser menor que um minuto.
 
@@ -43,14 +44,16 @@ Verifique os itens a seguir antes de redefinir seu gateway:
 * A chave pré-compartilhada deve ser a mesma em ambos o gateway de VPN do Azure e o gateway de VPN local.
 * Se você aplicar a configuração de IPsec/IKE específica, como criptografia, algoritmos de hash e PFS (Perfect Forward Secrecy), verifique se que o gateway de VPN do Azure e o gateway de VPN local têm as mesmas configurações.
 
-## <a name="reset-a-vpn-gateway-using-the-resource-management-deployment-model"></a>Redefinir um Gateway de VPN usando o modelo de implantação do Gerenciamento de Recursos
-O cmdlet do PowerShell Resource Manager para redefinir o gateway é `Reset-AzureRmVirtualNetworkGateway`. O exemplo a seguir redefine o gateway de VPN do Azure, "VNet1GW", no grupo de recursos "TestRG1".
+## <a name="reset---resource-manager"></a>Redefinir - Resource Manager
+
+Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações. O cmdlet do PowerShell Resource Manager para redefinir o gateway é `Reset-AzureRmVirtualNetworkGateway`. O exemplo a seguir redefine o gateway de VPN do Azure, "VNet1GW", no grupo de recursos "TestRG1".
 
     $gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
     Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
-## <a name="reset-a-vpn-gateway-using-the-classic-deployment-model"></a>Redefinir um Gateway de VPN usando o modelo de implantação clássico
-O cmdlet do PowerShell para redefinir o gateway de VPN do Azure é `Reset-AzureVNetGateway`. O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamada "ContosoVNet".
+## <a name="reset---classic"></a>Redefinir - Clássico
+
+Será necessário baixar a versão mais recente dos cmdlets do PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações. O cmdlet do PowerShell para redefinir o gateway de VPN do Azure é `Reset-AzureVNetGateway`. O exemplo a seguir redefine o gateway de VPN do Azure para a rede virtual chamada "ContosoVNet".
 
     Reset-AzureVNetGateway –VnetName “ContosoVNet” 
 
@@ -70,6 +73,6 @@ Confira a [Referência de cmdlet do Gerenciamento de Serviços do PowerShell](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
-ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
+ms.sourcegitcommit: d8faeafc6d4c73c4c71d0bc1554b04302dffdc55
+ms.openlocfilehash: 72186e03a1dc47f67b8f4cdcac55208a61c8e147
 
 
 ---
@@ -74,12 +74,19 @@ pip install azure-datalake-store
     ## Use this only for Azure AD end-user authentication
     from azure.common.credentials import UserPassCredentials
 
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
+
     ## Required for Azure Data Lake Store account management
-    from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
     ## Required for Azure Data Lake Store filesystem management
     from azure.datalake.store import core, lib, multithread
+
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
     ## Use these as needed for your application
     import logging, getpass, pprint, uuid, time
@@ -88,6 +95,14 @@ pip install azure-datalake-store
 3. Salve as alterações a mysample.py.
 
 ## <a name="authentication"></a>Autenticação
+
+Nesta seção, falamos sobre as diferentes maneiras de autenticação com o Azure AD. As opções disponíveis são:
+
+* Autenticação do usuário final
+* Autenticação serviço a serviço
+* Autenticação multifator
+
+Você deve usar essas opções de autenticação para ambos os módulos de gerenciamento de contas e de gerenciamento do sistema.
 
 ### <a name="end-user-authentication-for-account-management"></a>Autenticação de usuário final para o gerenciamento de conta
 
@@ -121,6 +136,29 @@ Use isto para autenticar com o Azure AD para operações do sistema de arquivos 
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### <a name="multi-factor-authentication-for-account-management"></a>Autenticação multifator para o gerenciamento de contas
+
+Use isso para se autenticar com o Azure AD para operações de gerenciamento de conta (criar/excluir conta do Data Lake Store etc.). O trecho a seguir pode ser usado para autenticar seu aplicativo usando a autenticação multifator. Use-o com o aplicativo "Aplicativo Web" Azure AD existente.
+
+    authority_host_url = "https://login.microsoftonline.com"
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Autenticação multifator para gerenciamento do sistema de arquivos
+
+Use isto para autenticar com o Azure AD para operações do sistema de arquivos (criar pasta, carregar arquivo, etc.). O trecho a seguir pode ser usado para autenticar seu aplicativo usando a autenticação multifator. Use-o com o aplicativo "Aplicativo Web" Azure AD existente.
+
+    token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## <a name="create-an-azure-resource-group"></a>Criar um grupo de recursos do Azure
 
 Use o seguinte trecho de código para criar um Grupo de Recursos do Azure:
@@ -137,7 +175,7 @@ Use o seguinte trecho de código para criar um Grupo de Recursos do Azure:
     )
     
     ## Create an Azure Resource Group
-    armGroupResult = resourceClient.resource_groups.create_or_update(
+    resourceClient.resource_groups.create_or_update(
         resourceGroup,
         ResourceGroup(
             location=location
@@ -207,6 +245,6 @@ O trecho de código a seguir primeiro cria o cliente de conta do Data Lake Store
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

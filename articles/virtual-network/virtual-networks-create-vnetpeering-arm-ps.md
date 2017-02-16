@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai; annahar
+ms.author: narayan; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
-ms.openlocfilehash: 7de9b1f207caf582bde153aa931f3996b459d825
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: c2ccb107cbfec16440d5ff5ffe43a9009b5c4e48
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 7de9b1f207caf582bde153aa931f3996b459d825
 
 Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 
     > [!NOTE]
     > Cmdlet do PowerShell para gerenciar o emparelhamento VNet acompanha o [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -237,6 +237,6 @@ Para criar um emparelhamento de VNet entre uma rede virtual clássica e uma rede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga voltado para a Internet com IPv6 no Azure Resource Manager usando a CLI do Azure | Microsoft Docs
+title: Criar um balanceador de carga voltado para a Internet com o IPv6 - CLI do Azure | Microsoft Docs
 description: Saiba como criar um balanceador de carga voltado para a Internet com IPv6 no Azure Resource Manager usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
 
 ---
 
@@ -28,7 +28,7 @@ ms.openlocfilehash: e516ebea287948c52afca6ab3d3e4e61b3c3c080
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+Um Azure Load Balancer é um balanceador de carga de Camada&4; (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 ## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 
@@ -345,6 +345,6 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

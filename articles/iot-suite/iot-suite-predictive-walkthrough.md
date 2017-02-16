@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de manutenção preditiva
 ## <a name="introduction"></a>Introdução
-A solução pré-configurada de manutenção preditiva do IoT Suite é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar essa solução pré-configurada de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços do Azure IoT Suite, incluindo um espaço de trabalho [Aprendizado de Máquina do Azure][lnk_machine_learning]. Esse espaço de trabalho contém testes, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
+A solução pré-configurada de manutenção preditiva do IoT Suite é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar essa solução pré-configurada de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços do Azure IoT Suite, incluindo um espaço de trabalho do [Azure Machine Learning][lnk_machine_learning]. Esse espaço de trabalho contém testes, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
@@ -107,7 +107,7 @@ A postagem de blog [IoT Suite - Under the Hood - Predictive Maintenance (Manuten
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 * [Perguntas frequentes sobre o IoT Suite][lnk-faq]
-* [Segurança de IoT desde o início][lnk-security-groundup]
+* [Segurança IoT desde o início][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

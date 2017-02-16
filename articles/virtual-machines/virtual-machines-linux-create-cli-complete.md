@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
-ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
 
 
 ---
@@ -210,10 +210,10 @@ az vm show --resource-group myResourceGroup --name myVM1
 az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Exporte seu novo ambiente para um modelo com [az resource group export](/cli/azure/resource/group#export) para recriar novas instâncias rapidamente:
+Exporte seu novo ambiente para um modelo com [az group export](/cli/azure/group#export) para recriar novas instâncias rapidamente:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
@@ -230,7 +230,7 @@ Os grupos de recursos do Azure são entidades de implantação lógica que cont�
 az group create --name myResourceGroup --location westeurope
 ```
 
-Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saída como uma lista ou tabela, por exemplo, use [az configure --output](/cli/azure/#configure). Você também pode adicionar `--output` a qualquer comando para realizar uma alteração uma única vez no formato da saída. O exemplo a seguir mostra a saída JSON do comando **az resource group create**:
+Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saída como uma lista ou tabela, por exemplo, use [az configure --output](/cli/azure/#configure). Você também pode adicionar `--output` a qualquer comando para realizar uma alteração uma única vez no formato da saída. O seguinte exemplo mostra a saída JSON do comando **az group create**:
 
 ```json                       
 {
@@ -1079,28 +1079,28 @@ Neste ponto, você está executando suas VMs Ubuntu atrás de um balanceador de 
 
 
 ## <a name="export-the-environment-as-a-template"></a>Exportar o ambiente como um modelo
-Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para você. Use [az resource group export](/cli/azure/resource/group#export) para exportar seu grupo de recursos da seguinte maneira:
+Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para você. Use [az group export](/cli/azure/group#export) para exportar seu grupo de recursos da seguinte maneira:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode preencher esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando **az resource group export** mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
+Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode popular esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando **az group export** mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
 
-Para criar um ambiente a partir de seu modelo, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) da seguinte maneira:
+Para criar um ambiente usando seu modelo, use [az group deployment create](/cli/azure/group/deployment#create) da seguinte maneira:
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup \
+az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
+Pode ser útil ler [mais detalhes sobre a implantações de modelos](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar esse ambiente de exemplo para criar seu aplicativo usando os principais componentes introduzidos aqui.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

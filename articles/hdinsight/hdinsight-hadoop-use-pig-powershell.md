@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2def733a07d3e8132f998c29538df1c7cbacfee4
+ms.sourcegitcommit: 8b88db5bb2c8153953109fcd0511c22042bcf931
+ms.openlocfilehash: bef30df14f6d00c4a7f5f5b3d59ec85b2e4fbe10
 
 
 ---
@@ -34,10 +34,14 @@ Este documento fornece um exemplo de uso do PowerShell do Azure para enviar trab
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Um cluster Azure HDInsight**
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Uma estação de trabalho com o PowerShell do Azure**.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>Executar trabalhos do Pig usando o PowerShell
 O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos do Pig no HDInsight. Internamente, isso é feito por meio de chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
@@ -52,27 +56,22 @@ Os seguintes cmdlets são usados ao executar trabalhos do Pig em um cluster HDIn
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
-1. Usando um editor, salve o código a seguir como **pigjob.ps1**. Você deve substituir **CLUSTERNAME** pelo nome do seu cluster HDInsight.
+1. Usando um editor, salve o código a seguir como **pigjob.ps1**.
    
-        #Login to your Azure subscription
-        Login-AzureRmAccount
-        #Get credentials for the admin/HTTPs account
-        $creds = Get-Credential
-   
-        #Specify the cluster name
-        $clusterName = "CLUSTERNAME"
-   
-        #Get the cluster info so we can get the resource group, storage, etc.
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container = $clusterInfo.DefaultStorageContainer
-        $storageAccountKey = (Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup)[0].Value
-   
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Add-AzureRmAccount
+        }
+
+        # Get cluster info
+        $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $creds=Get-Credential -Message "Enter the login for the cluster"
+
         #Store the Pig Latin into $QueryString
-        $QueryString =  "LOGS = LOAD 'wasbs:///example/data/sample.log';" +
+        $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
         "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
         "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
         "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
@@ -104,16 +103,15 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
         Get-AzureRmHDInsightJobOutput `
             -ClusterName $clusterName `
             -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds
+
 
 1. Abra um novo prompt de comando do Windows PowerShell. Altere os diretórios para o local do arquivo **pigjob.ps1** e use o seguinte comando para executar o script:
    
         .\pigjob.ps1
    
     Primeiro, você receberá uma solicitação para fazer logon em sua assinatura do Azure. Em seguida, receberá uma solicitação para fornecer o nome da conta e senha de Administrador/HTTPs para o cluster HDInsight.
+
 2. Quando o trabalho for concluído, ele deverá retornar informações semelhantes às seguintes:
    
         Start the Pig job ...
@@ -127,6 +125,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
         (FATAL,2)
 
 ## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>Solucionar problemas
+
 Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **pigjob.ps1** , salve o arquivo e execute-o novamente.
 
     # Print the output of the Pig job.
@@ -134,9 +133,6 @@ Se nenhuma informação for retornada quando o trabalho for concluído, um erro 
     Get-AzureRmHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
@@ -158,6 +154,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

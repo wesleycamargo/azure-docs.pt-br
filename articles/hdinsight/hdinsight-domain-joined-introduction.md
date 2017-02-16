@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de proteção do HDInsight | Microsoft Docs"
+title: "Segurança do Hadoop - clusters HDInsight ingressados no domínio - Azure | Microsoft Docs"
 description: Saiba como...
 services: hdinsight
 documentationcenter: 
@@ -16,18 +16,19 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
+ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>Uma introdução aos clusters HDInsight ingressados no domínio (Visualização)
+# <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio (visualização)
+
 O Azure HDInsight até hoje dava suporte apenas a um administrador local de usuário único. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que cargas de trabalho com base em Hadoop ganharam mais popularidade no setor corporativo, a necessidade de recursos de nível empresarial, como controle de acesso baseado em função, suporte a vários usuários e autenticação baseada no Active Directory tornou-se cada vez mais importante. Usando clusters de HDInsight do domínio, você pode criar um cluster HDInsight associado a um domínio do Active Directory, configurar uma lista de funcionários da empresa que podem se autenticar por meio do Azure Active Directory para fazer logon no cluster HDInsight. Qualquer pessoa fora da empresa não pode fazer logon nem acessar o cluster HDInsight. O administrador corporativo pode configurar o controle de acesso baseado em função de segurança do Hive utilizando o [Apache Ranger](http://hortonworks.com/apache/ranger/), restringindo assim o acesso a dados apenas tanto quanto necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e as alterações feitas às políticas de controle de acesso, atingindo assim um alto grau de controle de seus recursos corporativos.
 
 > [!NOTE]
-> Os novos recursos descritos nesta visualização estão disponíveis somente em clusters HDInsight baseados em Linux para carga de trabalho do Hive. As outras cargas de trabalho, como HBase, Spark, Storm e Kafka, serão habilitadas em versões futuras. 
-> 
-> 
+> Os novos recursos descritos nesta visualização estão disponíveis somente em clusters HDInsight baseados em Linux para carga de trabalho do Hive. As outras cargas de trabalho, como HBase, Spark, Storm e Kafka, serão habilitadas em versões futuras.
+>
+>
 
 ## <a name="benefits"></a>Benefícios
 I Enterprise Security contém quatro grandes pilares: segurança do perímetro, autenticação, autorização e criptografia.
@@ -53,11 +54,10 @@ A proteção dos dados é importante para atender aos requisitos de conformidade
 * Para configurar um cluster HDInsight associado a um domínio, confira [Configurar clusters HDInsight associados a domínio](hdinsight-domain-joined-configure.md).
 * Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](hdinsight-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
-* Para executar consultas do Hive usando SSH em clusters do HDInsight Ingressado no Domínio, confira [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster) (Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X).
+* Para executar consultas do Hive usando SSH em clusters do HDInsight Ingressado no Domínio, confira [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined) (Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

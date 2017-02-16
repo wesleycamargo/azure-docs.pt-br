@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c3400063097cdf70398a95e9e39e9097e27992
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 34f84de82cbd6c15bd62abedd05e0eff6ce2dc2f
 
 
 ---
@@ -33,7 +33,7 @@ Os seguintes recursos estão disponíveis nos domínios gerenciados dos Serviço
 * **Usar suas credenciais corporativas/senhas:** senhas de usuários em seu locatário do AD do Azure funcionam com os Serviços de Domínio do AD do Azure. Os usuários podem usar as credenciais corporativas para ingressar em computadores no domínio, fazer logon interativamente ou pela área de trabalho remota e autenticar em relação ao domínio gerenciado.
 * **Suporte de associação LDAP e leitura LDAP:** você pode usar aplicativos que dependem de associações LDAP para autenticar usuários em domínios atendidos pelos Azure AD Domain Services. Além disso, os aplicativos que usam operações de leitura LDAP para consultar atributos de usuário/computador a partir do diretório também podem funcionar nos Serviços de Domínio do AD do Azure.
 * **LDAPS (LDAP seguro):** você pode habilitar o acesso ao diretório sobre LDAPS (LDAP seguro). Acesso por LDAP seguro está disponível na rede virtual por padrão. No entanto, você também pode habilitar o acesso por LDAP seguro pela Internet.
-* **Política de grupo:** você pode usar um único objeto de política de grupo (GPO) para cada um dos usuários e contêineres de computadores, a fim de impor a conformidade com políticas de segurança necessárias para contas de usuário, bem como computadores ingressados no domínio.
+* **Política de grupo:** você pode usar um único objeto de política de grupo (GPO) para cada um dos usuários e contêineres de computadores, a fim de impor a conformidade com políticas de segurança necessárias para contas de usuário, bem como computadores ingressados no domínio. Você também pode criar seus próprios GPOs personalizados e atribuí-los às unidades organizacionais personalizadas para gerenciar a política de grupo.
 * **Gerenciar DNS:** membros do grupo 'Administradores do controlador de domínio do AAD' podem gerenciar o DNS para seu domínio gerenciado usando ferramentas de administração do DNS familiares, como o snap-in do MMC de administração do DNS.
 * **Criar UOs (unidades organizacionais) personalizadas:** membros do grupo 'Administradores do controlador de domínio do AAD' podem criar UOs personalizadas dentro do domínio gerenciado. Esses usuários recebem privilégios administrativos totais sobre UOs personalizadas, de modo que podem adicionar ou remover contas de serviço, computadores, grupos etc. dessas OUs personalizadas.
 * **Disponível em várias regiões do Azure:** consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para saber as regiões do Azure nas quais os Azure AD Domain Services estão disponíveis.
@@ -42,7 +42,6 @@ Os seguintes recursos estão disponíveis nos domínios gerenciados dos Serviço
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

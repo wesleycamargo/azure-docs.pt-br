@@ -1,9 +1,9 @@
 ---
 title: Locais POP da CDN do Azure | Microsoft Docs
-description: "Este tópico lista os locais POP da CDN do Azure."
+description: "Este tópico lista os locais de ponto-de-presença da CDN do Azure."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e7e4ae6b889ef86d03106c9653bf9247ac21636
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
 
 
 ---
@@ -44,11 +44,11 @@ Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e ** Az
 | Austrália e Nova Zelândia |Melbourne, Austrália<br />Sydney, Austrália |**&#x2713;**\* |
 
 ## <a name="see-also"></a>Consulte também
-* [Azure CDN from Verizon Edge Server IP Ranges (Intervalos IP do CDN do Azure do Servidor de Borda Verizon)](https://msdn.microsoft.com/library/mt757330.aspx)
+* [API de Nós do Edge de CDN do Azure para obter os endereços IP mais recentes para colocar na lista de permissões](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

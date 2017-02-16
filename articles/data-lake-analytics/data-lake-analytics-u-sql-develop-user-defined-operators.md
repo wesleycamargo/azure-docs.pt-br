@@ -1,6 +1,6 @@
 ---
 title: "Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Azure Data Lake Analytics | Microsoft Docs"
-description: "Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos da Análise Data Lake. "
+description: "Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos do Data Lake Analytics. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 88a00c2b0a5aac85bbcaef5b21b10f44121c7d38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ef0fa131cc665df68e13ee7be58330f571f3ac90
 
 
 ---
-# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Azure Data Lake
-Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos da Análise Data Lake. Você desenvolverá um operador personalizado para converter nomes de países.
+# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Azure Data Lake Analytics
+Saiba como desenvolver operadores definidos pelo usuário para serem usados e reutilizados em trabalhos do Data Lake Analytics. Você desenvolverá um operador personalizado para converter nomes de países.
+
+Para ver instruções para o desenvolvimento de assemblies de finalidade geral para U-SQL, consulte [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Desenvolver assemblies U-SQL para trabalhos do Azure Data Lake Analytics)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado
 * SDK do Microsoft Azure para .NET versão 2.5 ou posterior.  Instale-o usando o Web Platform Installer.
-* Uma conta da Análise Data Lake.  Veja [Introdução à Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-get-started-portal.md).
+* Uma conta da Análise Data Lake.  Confira [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
 * Acompanhe o tutorial [Introdução ao U-SQL Studio da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md) .
 * Conecte-se ao Azure.
 * Carregar os dados de origem, consulte [Introdução ao U-SQL Studio do Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md). 
@@ -144,6 +146,6 @@ Saiba como desenvolver operadores definidos pelo usuário para serem usados e re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

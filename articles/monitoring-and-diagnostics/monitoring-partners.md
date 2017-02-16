@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+ms.sourcegitcommit: 244cc5e4f053901a8de94adb8fc983edf30ca516
+ms.openlocfilehash: 46b3ade8bb58ccd0637ce4f2cf5c484f599e6173
 
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 | Parceiros |  |  |
 | --- | --- | --- |
-| [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
-| [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
+| [![Logotipo do Parceiro][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] |[![Logotipo do Parceiro][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] |[![Logotipo do Parceiro][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
+| [![Logotipo do Parceiro][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |[![Logotipo do Parceiro][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |[![Logotipo do Parceiro][datadog-logo]<br/>**DataDog**][datadog-anchor] |
+| [![Logotipo do Parceiro][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |[![Logotipo do Parceiro][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |[![Logotipo do Parceiro][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
+| [![Logotipo do Parceiro][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Logotipo do Parceiro][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Logotipo do Parceiro][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>Gerenciador de Logs da Lógica de Alerta
 O Gerenciador de Logs da Lógica de Alerta coleta os logs da VM, Aplicativo e da plataforma Azure para a análise de segurança e retenção. Isso inclui os Logs de Auditoria do Azure via API do Azure Monitor.  Essas informações são usadas para detectar problemas e atender aos requisitos de conformidade.
@@ -75,7 +75,7 @@ OpsGenie age como um distribuidor para os alertas gerados pelo Azure. O OpsGenie
 [Vá para a documentação.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-O PagerDuty, a solução líder do gerenciamento de incidentes, forneceu um excelente suporte para os Alertas do Azure nas métricas. Hoje, o PagerDuty dá suporte a notificações sobre os Alertas do Azure Monitor de Aplicativos do Azure, Notificações de Dimensionamento Automático e Eventos de Log de Auditoria, além de notificações sobre as métricas no nível da plataforma para os serviços do Azure. Esses aperfeiçoamentos oferecem aos usuários maior visibilidade na principal Plataforma Azure, permitindo que eles se beneficiem dos recursos de gerenciamento de incidentes do PagerDuty para a resposta em tempo real. Nossa maior integração do Azure se tornou possível via webhooks, permitindo uma personalização e configuração rápidas e fáceis.
+O PagerDuty, a solução líder do gerenciamento de incidentes, forneceu um excelente suporte para os Alertas do Azure nas métricas. Hoje, o PagerDuty dá suporte a notificações sobre Alertas do Azure Monitor, Notificações de Dimensionamento Automático e Eventos de Log de Auditoria, além de notificações sobre as métricas no nível da plataforma para os serviços do Azure. Esses aperfeiçoamentos oferecem aos usuários maior visibilidade na principal Plataforma Azure, permitindo que eles se beneficiem dos recursos de gerenciamento de incidentes do PagerDuty para a resposta em tempo real. Nossa maior integração do Azure se tornou possível via webhooks, permitindo uma personalização e configuração rápidas e fáceis.
 
 [Vá para a documentação.][pagerduty-doc]
 
@@ -85,10 +85,12 @@ O complemento Splunk para Serviços de Nuvem da Microsoft está [disponível no 
 [Vá para a documentação.][splunk-doc]
 
 ## <a name="sumo-logic"></a>Lógica Sumo
+O Sumo Logic é um serviço de análise de dados do computador seguro e nativo de nuvem que oferece inteligência em tempo real e contínua a partir de dados estruturados, semiestruturados e não estruturados em todo o ciclo de vida e a pilha do aplicativo. Mais de 1.000 clientes em todo o mundo dependem do Sumo Logic a fim de obter análises e informações para compilar, executar e proteger seus aplicativos modernos e infraestruturas de nuvem. Com o Sumo Logic, os clientes contam com a vantagem de um modelo de serviço multilocatário para acelerar o processo de mudança para um modo de inovação contínua, aumentando a vantagem competitiva, o valor dos negócios e o crescimento.
+
 [Saiba mais.][sumologic-doc]
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../resource-group-audit.md)
+* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../azure-resource-manager/resource-group-audit.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 
 <!--Connectors Documentation-->
@@ -103,7 +105,7 @@ O complemento Splunk para Serviços de Nuvem da Microsoft está [disponível no 
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
-[sumologic-anchor]: #sumologic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -135,6 +137,6 @@ O complemento Splunk para Serviços de Nuvem da Microsoft está [disponível no 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

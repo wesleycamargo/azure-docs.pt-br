@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: de9b8b35e12af63ef6c29c87d28beaea81be1e69
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: c81c2f86802c1b1d672105962c196b36fbb2c081
 
 
 ---
@@ -93,7 +93,7 @@ Essas etapas pressupõem que você já criou uma VM do Azure usando o modelo de 
    ![Captura de imagem bem-sucedida](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-A imagem está pronta para ser usada para criar VMs. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você criou. Para obter mais informações, consulte [Usando a CLI do Azure com o modelo de implantação Clássico](../virtual-machines-command-line-tools.md). 
+A imagem está pronta para ser usada para criar VMs. É possível usar o comando `azure vm create` da CLI do Azure e fornecer o nome da imagem que você criou. Para obter mais informações, consulte [Usando a CLI do Azure com o modelo de implantação Clássico](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). 
 
 Como alternativa, use o [Portal Clássico do Azure][Azure classic portal] para criar uma VM personalizada usando o método **Da galeria** e selecionando a imagem que você criou. Para obter mais informações, consulte [Como criar uma VM personalizada][How to Create a Custom Virtual Machine].
 
@@ -107,6 +107,6 @@ Como alternativa, use o [Portal Clássico do Azure][Azure classic portal] para c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

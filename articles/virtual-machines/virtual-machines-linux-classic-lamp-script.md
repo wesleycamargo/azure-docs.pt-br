@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 391411a8ab5d6ebb46710f290ecf5c12e28aa151
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 6fe3bd55b23432a8fddb1ffeeed33bc113b8bd73
 
 
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como implantar uma pilha LAMP usando o modelo do Resource Manager, veja [aqui](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como implantar uma pilha LAMP usando o modelo do Resource Manager, veja [aqui](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 A Extensão de Script Personalizado do Microsoft Azure para Linux é uma maneira de personalizar VMs (máquinas virtuais) executando código arbitrário escrito em qualquer linguagem de script com suporte da VM (por exemplo, Python e Bash). Isso fornece uma maneira muito flexível para automatizar a implantação de aplicativos em várias máquinas.
 
@@ -110,6 +109,6 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

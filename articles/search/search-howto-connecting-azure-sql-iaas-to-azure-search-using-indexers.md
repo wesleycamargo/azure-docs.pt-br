@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 09/26/2016
 ms.author: jackma
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: cfd53c8240244ffbcf34380acb25657fcc8c9562
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 2150735fbf1e1438feeef70f0ea92ed041d0cd24
 
 
 ---
@@ -50,8 +50,8 @@ O Azure Search requer um canal criptografado para todas as solicitações de ind
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurar a conectividade do SQL Server na VM
 Depois de configurar a conexão criptografada exigida pelo Azure Search, existem etapas de configuração adicionais intrínsecas ao SQL Server nas VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando qualquer um destes artigos:
 
-* Para uma VM do **Resource Manager** , veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure usando o Resource Manager](../virtual-machines/virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-* Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/virtual-machines-windows-classic-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Para uma VM do **Resource Manager** , veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure usando o Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md). 
+* Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md).
 
 Em particular, consulte a seção em cada artigo para "conectando pela internet".
 
@@ -91,6 +91,6 @@ Com a configuração acima resolvido, agora você pode especificar um SQL Server
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

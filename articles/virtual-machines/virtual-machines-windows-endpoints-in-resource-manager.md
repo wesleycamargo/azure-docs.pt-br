@@ -1,5 +1,5 @@
 ---
-title: "Pontos de Extremidade Clássicos no Resource Manager | Microsoft Docs"
+title: Entender os ponto de extremidades para uma VM Windows no Azure | Microsoft Docs
 description: "Entenda como os pontos de extremidade do modelo de implantação Clássico agora são implementados no Resource Manager usando regras ACL e Grupos de Segurança de Rede"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1b6342ef22a00a4d760d8b13d1a2945ab3754463
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: eeae1b86b368d494352498905b6dd5aabe4cb042
 
 
 ---
-# <a name="classic-endpoints-in-resource-manager"></a>Pontos de extremidade clássicos no Resource Manager
+# <a name="classic-endpoints-for-windows-vms-with-azure-resource-manager"></a>Pontos de extremidade clássicos para VMs Windows com o Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -35,6 +35,6 @@ Você pode ler informações mais detalhadas sobre as tecnologias abordadas aqui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Guia do desenvolvedor - Pontos de extremidade do Hub IoT do Azure | Microsoft Docs
-description: "Guia de desenvolvedor do Hub IoT do Azure - informações de referência sobre pontos de extremidade de Hub IoT"
+title: Entender os pontos de extremidade do Hub IoT do Azure | Microsoft Docs
+description: "Guia do desenvolvedor ‑ Informações de referência sobre pontos de extremidade do Hub IoT voltados para o dispositivo e para o serviço."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: f2da46ba3fdf9386ad78ade4d2364a4a8990cd6d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 2a61421121697a63ad2d2a32b197904838564207
 
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
-## <a name="list-of-iot-hub-endpoints"></a>Lista de pontos de extremidade do Hub IoT
+## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos de extremidade internos do Hub IoT
 O Hub IoT do Azure é um serviço multilocatário que expõe suas funcionalidades a vários atores. O diagrama a seguir mostra os diversos pontos de extremidade que o Hub IoT expõe.
 
 ![Pontos de extremidade do Hub IoT][img-endpoints]
@@ -37,16 +37,16 @@ A seguir, uma descrição dos pontos de extremidade:
   * *Enviar mensagens do dispositivo para a nuvem*. Use este ponto de extremidade para [enviar mensagens do dispositivo para a nuvem][lnk-d2c].
   * *Receber mensagens da nuvem para o dispositivo*. Um dispositivo usa este ponto de extremidade para receber [mensagens direcionadas da nuvem para o dispositivo][lnk-c2d].
   * *Inicie os uploads de arquivos*. Um dispositivo usa esse ponto de extremidade para receber um URI de SAS do Armazenamento do Azure do Hub IoT para [carregar um arquivo][lnk-upload].
-  * *Recupere e atualize as propriedades do dispositivo gêmeo*. Um dispositivo usa esses pontos de extremidade para acessar as propriedades do [dispositivo gêmeo][lnk-twins].
-  * *Receber solicitações de métodos diretos*. Um dispositivo usa esses pontos de extremidade para escutar as solicitações dos [métodos diretos][lnk-methods].
+  * *Recupere e atualize as propriedades do dispositivo gêmeo*. Um dispositivo usa esse ponto de extremidade para acessar as propriedades do [dispositivo gêmeo][lnk-twins].
+  * *Receber solicitações de métodos diretos*. Um dispositivo usa esse ponto de extremidade para escutar as solicitações dos [métodos diretos][lnk-methods].
     
     Estes pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1][lnk-mqtt], HTTP 1.1 e [AMQP 1.0][lnk-amqp]. Observe que o AMQP também está disponível sobre [WebSockets][lnk-websockets] na porta 443.
     
     Os pontos de extremidade de gêmeos e métodos estão disponíveis somente usando [MQTT v3.1.1][lnk-mqtt].
-* **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade que o seu back-end de aplicativo pode usar para se comunicar com seus dispositivos. Esses pontos de extremidade são atualmente expostos usando apenas o protocolo [AMQP][lnk-amqp], exceto para o ponto de extremidade de invocação de método que é exposto por meio de HTTP 1.1.
+* **Pontos de extremidade do serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade que o seu back-end de solução pode usar para se comunicar com os dispositivos. Esses pontos de extremidade são atualmente expostos usando apenas o protocolo [AMQP][lnk-amqp], exceto para o ponto de extremidade de invocação de método que é exposto por meio de HTTP 1.1.
   
-  * *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [Hubs de Eventos do Azure][lnk-event-hubs]. Um serviço de back-end pode usá-lo para ler todas as [mensagens do dispositivo para a nuvem][lnk-d2c] enviadas por seus dispositivos.
-  * *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de aplicativo envie [mensagens da nuvem para o dispositivo][lnk-c2d] confiáveis e receba confirmações de entrega ou de vencimento correspondentes.
+  * *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com os [Hubs de Eventos do Azure][lnk-event-hubs]. Um serviço de back-end pode usá-lo para ler todas as [mensagens do dispositivo para a nuvem][lnk-d2c] enviadas por seus dispositivos. Você pode adicionar pontos de extremidade de roteamento personalizados ao Hub IoT além desse ponto de extremidade.
+  * *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de solução envie [mensagens da nuvem para o dispositivo][lnk-c2d] confiáveis e receba as confirmações de entrega ou de vencimento correspondentes.
   * *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo. 
   * *Invocação direta de método*. Esse ponto de extremidade permite que um serviço de back-end invoque um [método direto][lnk-methods] em um dispositivo.
 
@@ -54,10 +54,25 @@ O artigo [SDKs do Azure IoT][lnk-sdks] descreve as várias maneiras de acessar e
 
 Por fim, é importante observar que todos os pontos de extremidade do Hub IoT usam o protocolo [TLS][lnk-tls] e que nenhum ponto de extremidade é exposto em canais sem criptografia/desprotegidos.
 
+## <a name="custom-routing-endpoints"></a>Pontos de extremidade de roteamento personalizados
+Você pode vincular os serviços do Azure existentes em sua assinatura ao Hub IoT para serem usados como pontos de extremidade no roteamento de mensagens. Esses pontos de extremidade de serviço são usados como "coletores" para rotas de mensagens. Os dispositivos não podem gravar diretamente nos pontos de extremidade adicionais. Para saber mais sobre rotas de mensagens, confira a entrada do guia do desenvolvedor sobre [como enviar e receber mensagens com o hub IoT][lnk-devguide-messaging].
+
+Atualmente, o Hub IoT é compatível com os seguintes serviços do Azure como pontos de extremidade adicionais:
+
+* Hubs de Eventos
+* Filas de barramento de serviço
+* Tópicos do Service Bus
+
+O Hub IoT precisa de acesso de gravação a esses pontos de extremidade para que o roteamento de mensagens funcione. Se você configurar os pontos de extremidade por meio do Portal do Azure, as permissões necessárias serão adicionadas para você. Certifique-se de configurar os serviços para dar suporte à taxa de transferência esperada. Talvez seja necessário monitorar seus pontos de extremidade adicionais ao configurar a solução IoT e depois fazer os ajustes necessários para a carga real.
+
+Se uma mensagem corresponder a várias rotas e todas apontarem para o mesmo ponto de extremidade, o Hub IoT entregará mensagens para esse ponto apenas uma vez. Portanto, você não precisa configurar a eliminação de duplicação nem no tópico, nem na fila do Barramento de Serviço. Em filas particionados, a afinidade de partição garante a ordenação das mensagens. Não há suporte para filas com sessões habilitadas como pontos de extremidade. Filas particionadas e tópicos com eliminação de duplicação habilitada também não têm suporte.
+
+Para saber os limites do número de pontos de extremidade que você pode adicionar, confira [Cotas e limitação][lnk-devguide-quotas].
+
 ## <a name="field-gateways"></a>Gateways de campo
 Em uma solução IoT, um *gateway de campo* fica entre os dispositivos e os pontos de extremidade do hub IoT. Normalmente, ele se localiza perto dos dispositivos. Os dispositivos se comunicam diretamente com o gateway de campo usando um protocolo com suporte dos dispositivos. O gateway de campo conecta-se com um ponto de extremidade Hub IoT usando um protocolo que tem suporte do Hub IoT. Um gateway de campo pode ser um hardware altamente especializado ou um computador com baixo consumo de energia que executa um software que realiza o cenário de ponta a ponta ao qual o gateway se destina.
 
-É possível usar o [SDK do Gateway do Azure IoT][lnk-gateway-sdk] para implementar um gateway de campo. Este SDK oferece uma funcionalidade específica, como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão para o Hub IoT.
+É possível usar o [SDK do Gateway do Azure IoT][lnk-gateway-sdk] para implementar um gateway de campo. Esse SDK oferece uma funcionalidade específica, como a capacidade de multiplexar a comunicação de vários dispositivos na mesma conexão do Hub IoT.
 
 ## <a name="next-steps"></a>Próximas etapas
 Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
@@ -93,9 +108,10 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

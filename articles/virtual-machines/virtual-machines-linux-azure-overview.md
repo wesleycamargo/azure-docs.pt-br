@@ -1,5 +1,5 @@
 ---
-title: Azure e Linux | Microsoft Docs
+title: "Visão geral das VMs do Linux no Azure | Microsoft Docs"
 description: "Descreve os serviços de Computação, Armazenamento e Rede do Azure com máquinas virtuais Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e9625a14486cdcfbd9a23625b6399cf391574e64
+ms.sourcegitcommit: d860d30620dac88f1db7965503b2ac2aebf4ab21
+ms.openlocfilehash: 351f03e29e91b906da084e5c30c87fc3c963b823
 
 
 ---
@@ -33,7 +33,7 @@ Os recursos do Microsoft Azure são distribuídos em várias regiões geográfic
 ## <a name="availability"></a>Disponibilidade
 Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Isso garantirá que suas VMs sejam distribuídas entre vários domínios de falha em nossos datacenters, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo.
 
-## <a name="azure-virtual-machines-instances"></a>Máquinas Virtuais e instâncias do Azure
+## <a name="azure-virtual-machines--instances"></a>Máquinas Virtuais e instâncias do Azure
 O Microsoft Azure dá suporte à execução de várias distribuições populares do Linux fornecidas e mantidas por diversos parceiros.  Você encontrará distribuições como Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD e muito mais no Azure Marketplace. Trabalhamos ativamente com várias comunidades do Linux para adicionar ainda mais opções à lista de [Distribuições do Linux endossadas pelo Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Se sua distribuição preferencial do Linux não estiver presente na galeria no momento, você poderá "trazer sua própria VM do Linux" [criando e carregando um VHD do Linux no Azure](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -150,6 +150,6 @@ Agora você tem uma visão geral do Linux no Azure.  A próxima etapa é mergulh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

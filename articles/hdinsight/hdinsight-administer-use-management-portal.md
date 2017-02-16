@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: b52cf6f7c472d169608bc3e40096e1891f9a687b
+ms.sourcegitcommit: 59288709e706ba7f0162f5f857019ce2972e2743
+ms.openlocfilehash: 55193e8570f480b9c6b2ef9a0785ddb538749cb5
 
 
 ---
@@ -102,10 +102,10 @@ Não há suporte para a instalação de software personalizado no cluster usando
 
      **Uso**:
 
-     ![Uso do cluster hdinsight do portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+     ![Uso do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. Clique em **Configurações**.
 
-    ![Uso do cluster hdinsight do portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Uso do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Propriedades**: exiba as propriedades do cluster.
    * **Identidade do AAD do Cluster**:
@@ -188,10 +188,10 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
 
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
 
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurar a topologia "mytopology" para usar 5 processos de trabalho,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>o spout "blue-spout" usar 3 executores e
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>o bolt "yellow-bolt" usar 10 executores
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **Para dimensionar clusters**
 
@@ -327,7 +327,7 @@ As credenciais do cluster que você forneceu em sua criação concedem acesso ao
 3. Clique em **Configurações** no menu superior e clique em **Área de Trabalho Remota**.
 4. Insira **Expira em**, **Nome de Usuário de Área de Trabalho Remota** e **Senha de Área de Trabalho Remota** e clique em **Habilitar**.
 
-    ![hdinsight habilitar desabilitar configurar área de trabalho remota](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![Habilitar/desabilitar configuração de área de trabalho remota do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     Os valores padrão para Expira em é uma semana.
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
 
 
 ---
@@ -36,7 +36,7 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando os 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Obtenha a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter as diretrizes passo a passo sobre como configurar seu computador para usar os módulos do PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+* Obtenha a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter as diretrizes passo a passo sobre como configurar seu computador para usar os módulos do PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
@@ -384,6 +384,6 @@ Depois de criar seu circuito, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

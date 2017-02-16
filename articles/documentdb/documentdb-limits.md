@@ -12,24 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: arramac
+ms.date: 12/13/2016
+ms.author: mimig
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db87e15ceb12238dd7b402cd04cfd36c62e3cab7
+ms.sourcegitcommit: d2728682d4fada23d884d0a6b7e2cf4cda38aa33
+ms.openlocfilehash: 32e8fb12e2b80260f7b4c5c6cf4b1b07ec766aca
 
 
 ---
 # <a name="default-quotas-for-documentdb"></a>Cotas padrão para o Banco de Dados de Documentos
-A tabela a seguir descreve as cotas padrão para recursos de banco de dados do Banco de Dados de Documentos do Azure. 
 
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
-
-Cotas listadas com um asterisco (*) [pode ser ajustado entrando em contato com o suporte do Azure](documentdb-increase-limits.md). Aumentos de cotas podem demorar até 24 horas para concluir após o recebimento das informações necessárias. 
+O DocumentDB é um banco de dados de escala global no qual armazenamento e taxa de transferência podem ser dimensionados para manipular qualquer solicitação de seu aplicativo. Se você tiver alguma dúvida sobre a escala fornecida pelo DocumentDB, envie um email para askdocdb@microsoft.com.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: b2e45a77b900092390a2ca66a8d1286193023f29
 
 
 ---
@@ -150,7 +150,7 @@ O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 * **Detalhes**: um valor XML que fornece um relatório de andamento mais detalhado. O relatório de andamento é atualizado periodicamente a medida em que conjuntos de linhas são copiados da origem ao destino. No caso de falhas ou exceções, essa coluna também inclui informações mais detalhadas sobre a falha.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
-O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outro para a função de trabalho. Essas configurações de diagnóstico para o serviço seguem as orientações contidas em [Noções básicas do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem. 
+O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do Azure 2.5 para monitoramento e diagnóstico. Você controla a configuração de diagnóstico conforme explicado aqui: [Habilitando diagnóstico nos Serviços de Nuvem e Máquinas Virtuais do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). O pacote de download inclui duas configurações de diagnóstico: uma para a função web e outra para a função de trabalho. Essas configurações de diagnóstico para o serviço seguem as orientações contidas em [Noções básicas do Serviço de Nuvem no Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Inclui as definições para registrar os Contadores de desempenho, logs do IIS, Logs de Eventos do Windows e logs de eventos do aplicativo de divisão/mesclagem. 
 
 ## <a name="deploy-diagnostics"></a>Implantar Diagnósticos
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell: 
@@ -219,6 +219,6 @@ Você não precisa provisionar um novo banco de dados de metadados para atualiza
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Sintaxe e consulta SQL para DocumentDB | Microsoft Docs
+title: Sintaxe e consulta SQL para Banco de Dados de Documentos | Microsoft Docs
 description: Saiba mais sobre a sintaxe SQL, os conceitos de banco de dados e as consultas SQL para o Banco de Dados de Documentos, um banco de dados NoSQL. O SQL pode ser usado como uma linguagem de consulta JSON no Banco de Dados de Documentos.
 keywords: "sintaxe sql, consulta sql, consultas sql, linguagem de consulta json, conceitos de banco de dados e consultas sql, funções agregadas"
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: a28aace9269bafe9158cccf9bea2dc26f77cf937
-ms.openlocfilehash: 54a763530961073655257251f0381b0b379ae73c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
 
 
 ---
@@ -566,7 +566,7 @@ Este exemplo retorna todos os documentos cujo estado é qualquer um dos valores 
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary-and-coalesce-operators"></a>Operadores Ternário (?) e de União (??)
+### <a name="ternary--and-coalesce--operators"></a>Operadores Ternário (?) e de União (??)
 Os operadores Ternário e de União podem ser usados para compilar expressões condicionais, de modo semelhante a linguagens de programação populares como C# e JavaScript. 
 
 O operador Ternário (?) pode ser muito útil para construir novas propriedades JSON com muita rapidez. Por exemplo, agora você pode criar consultas para classificar os níveis de classe em um formato legível, como Iniciante/Intermediário/Avançado, como é mostrado abaixo.
@@ -882,7 +882,7 @@ A palavra-chave TOP pode ser usada para limitar o número de valores de uma cons
 O TOP pode ser usado com um valor constante (conforme mostrado acima) ou com um valor de variável usando consultas parametrizadas. Para obter mais detalhes, veja as consultas parametrizadas abaixo.
 
 ## <a name="order-by-clause"></a>Cláusula ORDER BY
-Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados. Para obter uma visão mais detalhada de Order By, veja [Passo a passo de Order By no Banco de Dados de Documentos](documentdb-orderby.md).
+Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados.
 
 Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome da cidade do residente.
 
@@ -1334,7 +1334,7 @@ As funções matemáticas executam um cálculo, normalmente com base em valores 
 | [FLOOR (num_expr)](#bk_floor) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
 | [EXP (num_expr)](#bk_exp) | Retorna o expoente da expressão numérica especificada. |
 | [LOG (num_expr [,base])](#bk_log) | Retorna o logaritmo natural da expressão numérica especificada ou o logaritmo usando a base especificada |
-| [LOG10 (num_expr)](#bk_log10) | Retorna o valor logarítmico de base 10 da expressão numérica especificada. |
+| [LOG10 (num_expr)](#bk_log10) | Retorna o valor logarítmico de base&10; da expressão numérica especificada. |
 | [ROUND (num_expr)](#bk_round) | Retorna um valor numérico, arredondado para o valor inteiro mais próximo. |
 | [TRUNC (num_expr)](#bk_trunc) | Retorna um valor numérico, truncado para o valor inteiro mais próximo. |
 | [SQRT (num_expr)](#bk_sqrt) | Retorna a raiz quadrada de expressão numérica especificada. |
@@ -1552,11 +1552,11 @@ O Banco de Dados de Documentos dá suporte às seguintes funções internas do O
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Retorna um valor booliano que indica se a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida.</td>
+  <td>Retorna um valor Booliano que indica se a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Retorna um valor JSON que contém um valor booliano caso a expressão especificada de Ponto, Polígono ou LineString GeoJSON seja válida e, se for inválida, complementarmente o motivo como um valor de cadeia de caracteres.</td>
+  <td>Retorna um valor JSON que contém um valor Booliano caso a expressão especificada de Ponto, Polígono ou LineString GeoJSON é válida e, se for inválida, adicionalmente o motivo como um valor de cadeia de caracteres.</td>
 </tr>
 </table>
 
@@ -2026,7 +2026,7 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
 
 Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` .
 
-Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para obter mais informações, consulte [Níveis de consistência do DocumentDB][níveis de consistência].
+Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para saber mais, veja [Níveis de consistência do DocumentDB][consistency-levels].
 
 Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, "Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
@@ -2169,10 +2169,10 @@ No caminho de gravação:
 * Outro padrão comum é agregar previamente os resultados no caminho "write" (gravação). Isso é especialmente atraente quando o volume de solicitações "read" (leitura) é maior do que as solicitações "write" (gravação). Uma vez agregados previamente, os resultados estão disponíveis com uma solicitação de leitura de ponto único.  A melhor maneira de agregar previamente em um Banco de Dados de Documentos é definir um gatilho que é invocado com cada "write" e atualizar um documento de metadados que tem os resultados mais recentes para a consulta que está sendo materializada. Por exemplo, examine o exemplo [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), que atualiza minSize, maxSize e totalSize do documento de metadados para a coleção. O exemplo pode ser estendido para atualizar um contador, soma, etc.
 
 ## <a name="references"></a>Referências
-1. [Introdução ao Azure DocumentDB][introdução]
+1. [Introdução ao Azure DocumentDB][introduction]
 2. [Especificação da linguagem SQL do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
-4. [Níveis de consistência do DocumentDB][níveis de consistência]
+4. [Níveis de consistência do DocumentDB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Especificação Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
@@ -2184,12 +2184,12 @@ No caminho de gravação:
 13. G. Graefe. Estrutura em cascata para otimização da consulta. IEEE Data Eng. Bull., 18(3): 1995.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
-[introdução]: documentdb-introduction.md
-[níveis de consistência]: documentdb-consistency-levels.md
+[introduction]: documentdb-introduction.md
+[consistency-levels]: documentdb-consistency-levels.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

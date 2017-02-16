@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc58780b3f278ef8a0ad46b507dec8f3e7bf364c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
 
 
 ---
@@ -69,7 +69,7 @@ Verifique se você tem os itens a seguir antes de iniciar a configuração.
 
 * Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma rede virtual configurada. 
-* A versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+* A versão mais recente dos cmdlets do Azure PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ## <a name="configure-forced-tunneling"></a>Configurar o túnel forçado
 O procedimento a seguir ajudará você a especificar um túnel forçado em uma rede virtual. As etapas de configuração correspondem ao arquivo de configuração de rede VNet.
@@ -163,6 +163,6 @@ As etapas vão definir *DefaultSiteHQ* como a conexão de site padrão para o t�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

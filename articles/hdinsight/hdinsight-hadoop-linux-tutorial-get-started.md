@@ -1,6 +1,6 @@
 ---
-title: "Tutorial do Linux: Introdução ao Hadoop e ao Hive | Microsoft Docs"
-description: "Siga este tutorial do Linux para começar a usar o Hadoop no HDInsight. Saiba como configurar clusters do Linux e consultar dados com o Hive."
+title: "Tutorial do Hadoop: Introdução ao Hadoop e Hive no HDInsight | Microsoft Docs"
+description: "Siga este tutorial para começar a usar o Hadoop no HDInsight. Saiba como criar clusters do Linux e consultar dados com o Hive."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -13,22 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/16/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 2863bfb48d0fed706fbd3c3f14dfb6a8d77eb9ea
+ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
+ms.openlocfilehash: 1cf85c16847aad632d52fe72cd827f0ef8e66e91
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Tutorial do Hadoop: introdução ao uso do Hadoop baseado em Linux no HDInsight
-> [!div class="op_single_selector"]
-> * [Baseado em Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-> * [Baseado no Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
-> 
-> 
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Tutorial do Hadoop: Introdução ao uso do Hadoop no HDInsight
 
-Aprenda a criar clusters [Hadoop](http://hadoop.apache.org/) baseados em Linux no HDInsight e a executar trabalhos do Hive no HDInsight. [Apache Hive](https://hive.apache.org/) é o componente mais popular no ecossistema do Hadoop. Atualmente o HDInsight é fornecido com seis tipos de cluster diferentes: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Hive interativo (visualização)](hdinsight-hadoop-use-interactive-hive.md) e [Servidor R](hdinsight-hadoop-r-server-overview.md).  Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os seis tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [Novidades nas versões de cluster Hadoop fornecidas pelo HDInsight?](hdinsight-component-versioning.md)  
+Aprenda a criar clusters [Hadoop](http://hadoop.apache.org/) no HDInsight e a executar trabalhos do Hive no HDInsight. [Apache Hive](https://hive.apache.org/) é o componente mais popular no ecossistema do Hadoop. Atualmente o HDInsight é fornecido com seis tipos de cluster diferentes: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Hive interativo (visualização)](hdinsight-hadoop-use-interactive-hive.md) e [Servidor R](hdinsight-hadoop-r-server-overview.md).  Cada tipo de cluster dá suporte a um conjunto diferente de componentes. Todos os seis tipos de cluster dão suporte ao Hive. Para obter uma lista de componentes com suporte no HDInsight, confira [Novidades nas versões de cluster Hadoop fornecidas pelo HDInsight?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,7 +37,7 @@ Antes de começar este tutorial, você deverá ter o seguinte:
 
 ## <a name="create-cluster"></a>Criar cluster
 
-A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo do Resource Manager é totalmente personalizável; ele facilita a criação de recursos do Azure, como o HDInsight. Não é necessário ter experiência com o modelo do Resource Manager para seguir este tutorial. Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Use o seletor na parte superior da página para escolher opções de criação de cluster.
+A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Nesta seção, você criará um cluster Hadoop no HDInsight usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo do Resource Manager é totalmente personalizável; ele facilita a criação de recursos do Azure, como o HDInsight. Não é necessário ter experiência com o modelo do Resource Manager para seguir este tutorial. Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Use o seletor na parte superior da página para escolher opções de criação de cluster.
 
 O modelo do Gerenciador de Recursos usado neste tutorial está localizado no [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
 
@@ -57,7 +52,7 @@ O modelo do Gerenciador de Recursos usado neste tutorial está localizado no [Gi
     * **Grupo de Recursos**: crie um novo grupo de recursos ou escolha um grupo de recursos existente.  Um grupo de recursos é um contêiner de componentes do Azure.  Nesse caso, o grupo de recursos contém o cluster HDInsight e a conta de Armazenamento do Azure dependente. 
     * **Local**: selecione um local do Azure em que você deseja criar o cluster.  Escolha um local mais próximo a você para obter melhor desempenho. 
     * **Tipo de cluster**: selecione **hadoop** para este tutorial.
-    * **Nome do Cluster**: insira um nome para o cluster Hadoop que você criará.
+    * **Nome do Cluster**: insira um nome para o cluster Hadoop.
     * **Nome e senha de logon do cluster**: o nome de logon padrão é **admin**.
     * **Nome de usuário e senha SSH**: o nome de usuário padrão é **sshuser**.  Você pode renomeá-lo. 
      
@@ -68,7 +63,7 @@ O modelo do Gerenciador de Recursos usado neste tutorial está localizado no [Gi
     * **Tipo de SO**: Linux
     * **Número de nós de trabalho**: 2
 
-     Cada cluster tem uma dependência de conta de armazenamento de Blobs do Azure. Ela é normalmente conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocalizados na mesma região do Azure. A exclusão dos clusters não excluirá a conta de armazenamento. No modelo, o nome da conta de armazenamento padrão é definido como o nome do cluster com "store" acrescentado. 
+     Cada cluster tem uma dependência de conta de armazenamento de Blobs do Azure. Ela é normalmente conhecida como a conta de armazenamento padrão. O cluster HDInsight e sua conta de armazenamento padrão devem estar colocalizados na mesma região do Azure. A exclusão dos clusters não exclui a conta de armazenamento. No modelo, o nome da conta de armazenamento padrão é definido como o nome do cluster com "store" acrescentado. 
 
 3. Selecione **Concordo com os termos e condições declarados acima** e **Fixar no painel**, depois clique em **Comprar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo** no painel do portal. A criação de um cluster demora cerca de 20 minutos. Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. E o portal abre automaticamente o grupo de recursos em uma nova folha. Você pode ver ambos o cluster e o armazenamento padrão listados.
    
@@ -124,7 +119,7 @@ Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dado
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No painel do portal, clique no bloco com o nome do grupo de recursos usado ao criar o cluster.
-3. Clique em **Excluir** na folha de recursos para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir** na folha do cluster. Observe que a exclusão do grupo de recursos excluirá a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
+3. Clique em **Excluir** na folha de recursos para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir** na folha do cluster. Observe que a exclusão do grupo de recursos exclui a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como criar um cluster HDInsight baseado em Linux usando um modelo do Resource Manager e como executar consultas básicas do Hive.
@@ -175,6 +170,6 @@ Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, c
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

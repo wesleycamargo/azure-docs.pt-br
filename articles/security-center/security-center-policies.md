@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Por exemplo, os recursos usados para o desenvolvimento ou teste podem ter requis
    > É recomendável que você ative a coleta de dados para cada uma de suas assinaturas para assegurar que o monitoramento de segurança esteja disponível para todas as VMs novas e existentes. Habilitar a coleta de dados instala o agente de monitoramento. Se você não quiser ativar a coleta de dados agora nesse local, poderá fazer isso posteriormente nas exibições **Integridade** e **Recomendações**. Você também pode habilitar a coleta de dados para somente a assinatura ou selecionar as VMs. Consulte as [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) para saber mais sobre as VMs com suporte.
    > 
    > 
-5. Se sua conta de armazenamento ainda não foi configurada, você poderá ver um aviso como este na tela a seguir quando abrir a **Política de Segurança**:
+5. Se sua conta de armazenamento ainda não foi configurada, você poderá ver um aviso como este na tela a seguir quando abrir a **Política de Segurança**. Se você não escolher uma conta de armazenamento para cada região, ela será criada para você.
    
     ![Seleção de armazenamento](./media/security-center-policies/security-center-policies-fig2.png)
 6. Se você vir esse aviso, clique nesta opção e selecione a região, como mostrado na seguinte tela:
@@ -111,6 +111,6 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

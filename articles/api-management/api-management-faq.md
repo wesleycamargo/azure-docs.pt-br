@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: mijiang
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21c05684055a98fecd214fb8291147d3cfefe13a
-
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
 
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="contact-us"></a>Fale conosco
 * [Como fazer uma pergunta à equipe de Gerenciamento de API do Microsoft Azure?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+
+
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 * [O que significa quando um recurso está em visualização?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Como proteger a conexão entre o gateway de Gerenciamento de API e meus serviços de back-end?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Como copiar minha instância do serviço de Gerenciamento de API para uma nova instância?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -144,11 +146,11 @@ Se usar o Gerenciador de Credenciais do Git ou se estiver tentando clonar um rep
 Sim. O Gerenciamento de API funciona com o Azure ExpressRoute.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?
-Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).
+Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

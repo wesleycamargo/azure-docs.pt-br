@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9acb44fb6b6fac41da4dc05745a68066b0477fb
+ms.sourcegitcommit: 6b82132b24fb2be3f0d8ab5112c712c27edb733e
+ms.openlocfilehash: 4d7754e73abedb704b81fa0001e1957422bde1b3
 
 
 ---
@@ -98,7 +98,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET abai
     DocumentDBBenchmark completed successfully.
 
 
-**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se a taxa de transferência do seu aplicativo cliente estagnar, iniciar várias instâncias do aplicativo nas mesmas máquinas ou em máquinas diferentes ajudará você atingir o limite configurado em instâncias diferentes. Se precisar de ajuda com esta etapa, escreva um email para askdocdb@microsoft.com ou preencha um tíquete de suporte.
+**Etapa 4 (se necessário):** a produtividade relatada (RU/s) da ferramenta deverá ser igual ou maior que a produtividade provisionada da coleção. Caso contrário, o aumento do DegreeOfParallelism em pequenos incrementos pode ajudá-lo a atingir o limite. Se a taxa de transferência do seu aplicativo cliente estagnar, iniciar várias instâncias do aplicativo nas mesmas máquinas ou em máquinas diferentes ajudará você atingir o limite configurado em instâncias diferentes. Se precisar de ajuda com esta etapa, escreva um email para askdocdb@microsoft.com ou preencha um tíquete de suporte no [Portal do Azure](https://portal.azure.com).
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](documentdb-indexing-policies.md) e [Níveis de consistência](documentdb-consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 
@@ -116,6 +116,6 @@ Neste artigo, analisamos como você pode executar testes de documentos e dimensi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Replicar as máquinas virtuais VMware no Azure usando o Site Recovery com o DSC de Automação do Azure | Microsoft Docs"
-description: "Descreve como usar o DSC de Automação do Azure para implantar automaticamente o Serviço de Mobilidade do Azure Site Recovery e o agente do Azure para as máquinas virtuais/físicas no Azure."
+title: "Implantar o serviço de Mobilidade do Site Recovery com o DSC de Automação do Azure | Microsoft Docs"
+description: "Descreve como usar o DSC de Automação do Azure para implantar automaticamente o Serviço de Mobilidade do Azure Site Recovery e o agente do Azure para VM do VMware e replicação do servidor físico no Azure"
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -12,15 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/06/2017
 ms.author: krnese
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5895b772d411f783480275ee990163f662b7ee2
+ms.sourcegitcommit: efacf5d10b80fbeea7bd3d2569d878bd8bfa002b
+ms.openlocfilehash: ac6b72bbb70f838493a7e4857217f7c0e669841c
 
 
 ---
-# <a name="replicate-vmware-virtual-machines-to-azure-by-using-site-recovery-with-azure-automation-dsc"></a>Replicar máquinas virtuais da VMware no Azure usando o Site Recovery com o DSC de Automação do Azure
+# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implantar o serviço de Mobilidade com o DSC de Automação do Azure para replicação da VM
 No Operations Management Suite, oferecemos uma solução abrangente de backup e recuperação de desastre que pode ser usada como parte de seu plano de continuidade de negócios.
 
 Começamos esta jornada com o Hyper-V, usando a Réplica do Hyper-V. Mas expandimos para dar suporte a uma configuração heterogênea porque os clientes têm vários hipervisores e plataformas em suas nuvens.
@@ -50,31 +50,31 @@ Este artigo fornece um exemplo de como você pode usar a DSC (Configuração de 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um repositório para armazenar a configuração necessária
 * Um repositório para armazenar a senha necessária para se registrar no servidor de gerenciamento
-  
+
   > [!NOTE]
   > Uma senha exclusiva é gerada para cada servidor de gerenciamento. Se for implantar vários servidores de gerenciamento, você precisará garantir que a senha correta seja armazenada no arquivo passphrase.txt.
-  > 
-  > 
+  >
+  >
 * O WMF (Windows Management Framework) 5.0 instalado nos computadores que você deseja habilitar para proteção (requisito para o DSC de Automação)
-  
+
   > [!NOTE]
   > Se você quiser usar o DSC para computadores com Windows que tenham o WMF 4.0 instalado, consulte a seção [Usar o DSC em ambientes desconectados](#Use DSC in disconnected environments).
-  > 
-  > 
+  >
+  >
 
 O Serviço de Mobilidade pode ser instalado por meio da linha de comando e aceita vários argumentos. É por isso que você precisa ter os binários (após extraí-los de sua configuração) e armazená-los em algum lugar em que possa recuperá-los usando uma configuração de DSC.
 
 ## <a name="step-1-extract-binaries"></a>Etapa 1: Extrair os binários
 1. Para extrair os arquivos necessários para esta instalação, navegue até o seguinte diretório no servidor de gerenciamento:
-   
+
     **\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**
-   
+
     Nessa pasta, você verá um arquivo MSI chamado:
-   
+
     **Microsoft-ASR_UA_version_Windows_GA_date_Release.exe**
-   
+
     Use o seguinte comando para extrair o instalador:
-   
+
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
 2. Selecione todos os arquivos e envie-os para uma pasta compactada (zipada).
 
@@ -205,8 +205,8 @@ Salve a configuração como **ASRMobilityService**.
 
 > [!NOTE]
 > Lembre-se de substituir o CSIP em sua configuração para refletir o servidor de gerenciamento real, para que o agente seja conectado corretamente e use a senha correta.
-> 
-> 
+>
+>
 
 ## <a name="step-3-upload-to-automation-dsc"></a>Etapa 3: Carregar o DSC de Automação
 Como a configuração DSC que você fez importará um módulo de recursos DSC necessário (xPSDesiredStateConfiguration), você precisa importar esse módulo na Automação antes de carregar a configuração DSC.
@@ -255,8 +255,8 @@ Agora, você publicou e carregou com êxito sua configuração de DSC no DSC de 
 ## <a name="step-4-onboard-machines-to-automation-dsc"></a>Etapa 4: Integrar os computadores no DSC de Automação
 > [!NOTE]
 > Um dos pré-requisitos para concluir esse cenário é que seus computadores com Windows estejam atualizados com a última versão do WMF. Você pode baixar e instalar a versão correta para sua plataforma no [Centro de Download](https://www.microsoft.com/download/details.aspx?id=50395).
-> 
-> 
+>
+>
 
 Agora, você criará uma metaconfiguração para o DSC que será aplicado em seus nós. Para ter êxito com isso, você precisa recuperar a URL do ponto de extremidade e a chave primária de sua conta de Automação selecionada no Azure. Esses valores podem ser localizados em **Chaves** na folha **Todas as configurações** da conta de Automação.
 
@@ -514,7 +514,6 @@ Depois de implantar os agentes do Serviço de Mobilidade, você pode [habilitar 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

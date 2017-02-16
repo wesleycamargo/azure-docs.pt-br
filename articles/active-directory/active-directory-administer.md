@@ -6,18 +6,17 @@ documentationcenter:
 author: MarkusVi
 writer: markvi
 manager: femila
-editor: 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +65,7 @@ Se você ainda não tiver uma assinatura para um serviço de nuvem da Microsoft,
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Gerenciar um diretório padrão de provisionamento do Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Gerenciar um diretório padrão de provisionamento do Azure
 Hoje, um diretório é criado automaticamente ao se inscrever para o Azure, e sua assinatura é associada a esse diretório. Mas se você tiver originalmente se inscrito no Azure antes de outubro de 2013, um diretório não terá sido criado automaticamente. Nesse caso, o Azure pode ter "aterrado" sua conta fornecendo um diretório padrão para ela. Sua assinatura é então associada a esse diretório padrão.
 
 O aterramento de diretórios foi realizado em outubro de 2013 como parte de uma melhoria geral no modelo de segurança do Azure. Ele ajuda a oferecer recursos de identidade institucional a todos os clientes do Azure e garante que todos os recursos do Azure são acessados no contexto de um usuário no diretório. Você não pode usar o Azure sem um diretório. Para fazer isso, qualquer usuário que tenha se inscrito antes de 7 de julho de 2013, mas que não tivesse um diretório, precisava ter um criado. Se você já tivesse criado um diretório, sua assinatura era associada a esse diretório.
@@ -150,6 +149,6 @@ As seguintes condições são verificadas:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

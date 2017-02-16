@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 85752f9286fc7fe8d9cc3acf6be66cca623934f5
-ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
+ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
+ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 
 ---
@@ -35,7 +35,7 @@ Neste tutorial, você usará no notebook Jupyter disponível com os clusters Spa
 
 ## <a name="prepare-the-data"></a>Preparar os dados
 
-Se você tiver criado o cluster HDInsight com o Data Lake Store como armazenamento padrão, será necessário executar esta etapa, pois os processos de criação de cluster adicionam alguns dados de exemplo na conta do Data Lake Store que você especificar ao criar o cluster.
+Se você tiver criado o cluster HDInsight com o Data Lake Store como armazenamento padrão, não será necessário executar esta etapa, pois os processos de criação de cluster adicionam alguns dados de exemplo na conta do Data Lake Store que você especificar ao criar o cluster.
 
 Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adicional e o Blob de Armazenamento do Azure como o armazenamento padrão, copie primeiro alguns dados de exemplo para a conta do Data Lake Store. Use os dados de exemplo do Blob de Armazenamento do Azure associado ao cluster HDInsight. Você pode usar a [ferramenta ADLCopy](http://aka.ms/downloadadlcopy) para fazer isso. Baixe e instale a ferramenta a partir do link.
 
@@ -137,6 +137,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 * [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para um cluster HDInsight Spark Linux](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Nov16_HO5-->
 
 

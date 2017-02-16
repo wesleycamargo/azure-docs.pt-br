@@ -1,10 +1,10 @@
 ---
-title: "Compartilhar um único locatário do Azure AD entre assinaturas do Office 365 e do Azure | Microsoft Docs"
+title: Inscreva-se para o Azure com uma conta do Office 365 | Microsoft Docs
 description: "Aprenda a compartilhar seu locatário do Azure AD do Office 365 e seus usuários com sua assinatura do Azure ou vice-versa"
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing,top-support-issue
 ms.assetid: 129cdf7a-2165-483d-83e4-8f11f0fa7f8b
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: bf9cf92a53bd2db9970c03463cb417310e78224e
-ms.openlocfilehash: edf236a3c9a28552b8c6831a8c7f57bab73c41ed
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: 85db551a80ce6995965aec642f08b3b87248d21b
 
 
 ---
@@ -44,22 +44,19 @@ Para compreender o que acontece quando você adiciona uma assinatura a uma conta
 <a id="s1"></a>
 
 ### <a name="scenario-1-office-365-users-who-plan-to-buy-azure"></a>Cenário 1: usuários do Office 365 que pretendem comprar o Azure
-Nesse cenário, supomos que Clara Barbosa é um usuário que tem uma assinatura do Office 365 e pretende assinar o Azure. Há dois usuários adicionais ativos, Jane e Tricia. Conta de Clara é admin@contoso.onmicrosoft.com.
+Nesse cenário, supomos que Clara Barbosa é um usuário que tem uma assinatura do Office 365 e pretende assinar o Azure. Há dois usuários adicionais ativos, Jane e Tricia. A conta de Clara é admin@contoso.onmicrosoft.com.
 
 ![Centro de administração de usuário do Office 365](./media/billing-use-existing-office-365-account-azure-subscription/1-office365-users-admin-center.png)
 
 Para inscrever-se no Azure, siga estas etapas:
 
-1. Inscreva-se no Azure em [Azure.com](https://azure.microsoft.com/). Clique em **Experimentar gratuitamente**. Na página seguinte, clique em **Iniciar agora**.
+1. Inscreva-se no Azure em [Azure.com](https://azure.microsoft.com/). Clique em **Conta Gratuita**. Na página seguinte, clique em **Iniciar gratuitamente**.
 
     ![Experimentar o Azure gratuitamente.](./media/billing-use-existing-office-365-account-azure-subscription/2-azure-signup-try-free.png)
-2. Clique em **Entrar com sua conta institucional**.
-
-    ![Entre no Azure.](./media/billing-use-existing-office-365-account-azure-subscription/3-sign-in-to-azure.png)
-3. Entre com sua conta do Office 365. Nesse caso, é a conta do Office 365 é de Clara.
+2. Entre com sua conta do Office 365. Nesse caso, é a conta do Office 365 é de Clara.
 
     ![Entre com sua conta do Office 365.](./media/billing-use-existing-office-365-account-azure-subscription/4-sign-in-with-org-account.png)
-4. Preencha as informações e conclua o processo de inscrição.
+3. Preencha as informações e conclua o processo de inscrição.
 
     ![Preencha as informações e conclua a inscrição.](./media/billing-use-existing-office-365-account-azure-subscription/5-azure-sign-up-fill-information.png)
 
@@ -158,6 +155,6 @@ Se você adquiriu as assinaturas do Azure e do Office 365 separadamente no passa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

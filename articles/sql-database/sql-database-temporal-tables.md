@@ -3,7 +3,7 @@ title: "Introdução às Tabelas Temporais no Banco de Dados SQL do Azure | Micr
 description: "Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: bonova
 manager: jhubbard
 editor: 
 ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sql-database
-ms.date: 08/29/2016
-ms.author: carlrab
+ms.date: 01/10/2017
+ms.author: bonova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b83d2561d37cb2dcb799d14774b6350e0681c42
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: e00345ddd9e52e2613789ba78c48e8f993d2415c
 
 
 ---
@@ -27,7 +27,7 @@ As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL
 ## <a name="temporal-scenario"></a>Cenário Temporal
 Este artigo ilustra as etapas para utilizar as Tabelas Temporais em um cenário de aplicativo. Suponha que você queira acompanhar a atividade de usuário em um novo site que está sendo desenvolvido do zero ou em um site existente que você deseja estender com análises de atividade do usuário. Neste exemplo simplificado, estamos supondo que o número de páginas da Web visitadas durante um período é um indicador do que precisa ser capturado e monitorado no banco de dados do site hospedado no Banco de Dados SQL do Azure. O objetivo da análise do histórico da atividade de usuário é obter entradas para reprojetar o site e fornecer uma experiência melhor para os visitantes.
 
-O modelo de banco de dados para esse cenário é muito simples: a métrica de atividade de usuário é representada por um único campo inteiro, **PageVisited**, e é capturada juntamente com informações básicas no perfil do usuário. Além disso, para a análise baseada em tempo, você manteria uma série de linhas para cada usuário, onde cada linha representa o número de páginas visitadas por um usuário específico em um período específico.
+O modelo de banco de dados para esse cenário é muito simples: a métrica de atividade do usuário é representada por um único campo de inteiro, **PageVisited**, e é capturada com informações básicas no perfil do usuário. Além disso, para a análise baseada em tempo, você manteria uma série de linhas para cada usuário, onde cada linha representa o número de páginas visitadas por um usuário específico em um período específico.
 
 ![Esquema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
@@ -69,7 +69,9 @@ Quando você cria a tabela temporal versionada pelo sistema, a tabela de histór
 
 Neste caso em particular, temos o objetivo de realizar análises de tendências baseadas em tempo ao longo de um histórico de dados maior e com conjuntos de dados maiores, de forma que a opção de armazenamento para a tabela de histórico seja um índice columnstore clusterizado. Um columnstore clusterizado oferece compactação e desempenho ótimos para consultas analíticas. As Tabelas Temporais oferecem a flexibilidade de configurar os índices nas tabelas atuais e temporais de forma totalmente independente. 
 
-**Observação**: os índices columnstore só estão disponíveis na camada de serviço premium.
+> [!NOTE]
+> Os índices columnstore só estão disponíveis na camada de serviço premium.
+>
 
 O script a seguir mostra como o índice padrão na tabela de histórico pode ser alterado para o columnstore clusterizado:
 
@@ -199,6 +201,6 @@ Visite o Channel 9 para ouvir uma [história de sucesso real de implementação 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

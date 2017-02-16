@@ -16,13 +16,13 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc256d2a164445a4ebbbaec9876d3fa86b56f65c
+ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
+ms.openlocfilehash: 26a3e54b00b37d4488a3f1c787c44bbbb5078268
 
 
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pool"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do Banco de Dados SQL
-Ao longo dos anos, aprendemos que os serviços de nuvem não são à prova de falhas e que incidentes catastróficos devem ocorrer. O Banco de Dados SQL fornece uma série de recursos para permitir a continuidade dos negócios do seu aplicativo quando esses incidentes ocorrerem. [pools elásticos](sql-database-elastic-pool.md) e bancos de dados independentes são compatíveis com o mesmo tipo de recursos de recuperação de desastre. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
+Ao longo dos anos, aprendemos que os serviços de nuvem não são à prova de falhas e que incidentes catastróficos devem ocorrer. O Banco de Dados SQL fornece uma série de recursos para permitir a continuidade dos negócios do seu aplicativo quando esses incidentes ocorrerem. [Pools elásticos](sql-database-elastic-pool.md) e bancos de dados únicos são compatíveis com o mesmo tipo de recursos de recuperação de desastre. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
 
 Para os fins deste artigo, usaremos o padrão de aplicativo ISV SaaS canônico:
 
@@ -33,7 +33,7 @@ No restante do artigo, discutiremos as estratégias de recuperação de desastre
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização econômica
 <i>Sou uma startup e dependo muito do custo das coisas.  Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>
 
-Para satisfazer o requisito de simplicidade, você deveria implantar todos os bancos de dados do locatário em um pool elástico na região do Azure de sua escolha e implantar os bancos de dados de gerenciamento como bancos de dados autônomos replicados geograficamente. Na recuperação de desastres de locatários, use a restauração geográfica, que é fornecida sem custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, eles deverão ser replicados geograficamente em outra região (etapa 1). O custo da configuração da recuperação de desastres neste cenário é igual ao custo total dos bancos de dados secundários. Essa configuração está ilustrada no diagrama a seguir.
+Para satisfazer o requisito de simplicidade, você deveria implantar todos os bancos de dados do locatário em um pool elástico na região do Azure de sua escolha e implantar os bancos de dados de gerenciamento como bancos de dados únicos replicados geograficamente. Na recuperação de desastres de locatários, use a restauração geográfica, que é fornecida sem custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, eles deverão ser replicados geograficamente em outra região (etapa 1). O custo da configuração da recuperação de desastres neste cenário é igual ao custo total dos bancos de dados secundários. Essa configuração está ilustrada no diagrama a seguir.
 
 ![A figura 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
@@ -71,7 +71,7 @@ Para dar suporte a esse cenário, você deverá separar os locatários de avalia
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Como no primeiro cenário, os bancos de dados de gerenciamento estarão muito ativos. Portanto, use um banco de dados autônomo replicado geograficamente para ele (1). Isso vai garantir o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região em que residem os bancos de dados de gerenciamento primários será a região primária e a região em que residem os bancos de dados de gerenciamento secundários será a região da recuperação de desastres.
+Como no primeiro cenário, os bancos de dados de gerenciamento estarão muito ativos. Portanto, use um banco de dados único replicado geograficamente para ele (1). Isso vai garantir o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região em que residem os bancos de dados de gerenciamento primários será a região primária e a região em que residem os bancos de dados de gerenciamento secundários será a região da recuperação de desastres.
 
 Os bancos de dados de locatário dos clientes pagantes terão bancos de dados ativos no pool "pago" provisionado na região primária. Você deve provisionar um pool secundário com o mesmo nome na região da recuperação de desastres. Cada locatário seria replicado geograficamente para o pool secundário (2). Isso permitirá a recuperação rápida de todos os bancos de dados do locatário usando o failover. 
 
@@ -116,7 +116,7 @@ Para garantir o menor tempo de recuperação durante as interrupções, os banco
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Como nos cenários anteriores, os bancos de dados de gerenciamento estarão muito ativos e, portanto, você deve configurá-los como bancos de dados autônomos replicados geograficamente (1). Isso vai garantir o desempenho previsível de novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região A seria a região primária para os bancos de dados de gerenciamento e a região B seria usada para a recuperação dos bancos de dados de gerenciamento.
+Como nos cenários anteriores, os bancos de dados de gerenciamento estarão muito ativos e, portanto, você deve configurá-los como bancos de dados únicos replicados geograficamente (1). Isso vai garantir o desempenho previsível de novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região A seria a região primária para os bancos de dados de gerenciamento e a região B seria usada para a recuperação dos bancos de dados de gerenciamento.
 
 Os bancos de dados de locatário dos clientes pagantes também serão replicados geograficamente, mas com primários e secundários divididos entre a região A e a região B (2). Dessa forma, os bancos de dados primários do locatário afetados pela interrupção podem fazer failover para a outra região e ficar disponíveis. A outra metade dos bancos de dados de locatário não será afetada. 
 
@@ -176,6 +176,6 @@ Este artigo aborda as estratégias de recuperação de desastres para a camada d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

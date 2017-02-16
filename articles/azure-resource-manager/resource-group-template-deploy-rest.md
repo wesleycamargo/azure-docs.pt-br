@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2016
+ms.date: 01/13/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: cd28ec107c292c20cde11ed635950b42acd5d720
+ms.sourcegitcommit: 593f2d35730bcc03fb9d925be36c4c1423a31a49
+ms.openlocfilehash: 23b634a6acde9837308815d9973e5da80fcde767
 
 
 ---
@@ -34,7 +34,7 @@ Este artigo explica como usar a API REST do Resource Manager com modelos do Reso
 > [!TIP]
 > Para obter ajuda com a depuração de erros durante a implantação, consulte:
 > 
-> * [Exibir operações de implantação com a API REST](resource-manager-troubleshoot-deployments-rest.md) para saber sobre como obter informações que o ajudarão a solucionar o erro
+> * [Exibir operações de implantação](resource-manager-deployment-operations.md) para saber como obter informações que ajudarão a solucionar o erro
 > * [Solucionar erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md) para saber como resolver os erros comuns da implantação
 > 
 > 
@@ -91,16 +91,16 @@ Seu modelo pode ser um arquivo local ou um arquivo externo que está disponível
 [!INCLUDE [resource-manager-parameter-file](../../includes/resource-manager-parameter-file.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
+* Para saber mais sobre como lidar com operações assíncronas de REST, confira [Track asynchronous Azure operations](resource-manager-async-operations.md) (Rastrear operações assíncronas do Azure).
 * Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 * Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
-* Para ver os detalhes sobre como usar uma referência do KeyVault para transmitir valores seguros, consulte [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 * Para uma série de quatro partes sobre como automatizar a implantação, consulte [automatizar implantações de aplicativo para Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta série aborda a arquitetura do aplicativo, acesso e segurança, disponibilidade e dimensionamento e implantação de aplicativos.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

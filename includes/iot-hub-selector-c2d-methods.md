@@ -5,7 +5,7 @@
 > 
 
 ## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Os tutoriais anteriores ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]) ilustram a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O Hub IoT também oferece a capacidade de invocar métodos não duráveis em dispositivos da nuvem. Os métodos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTP no sentido de que é bem sucedida ou falha imediatamente (após um tempo limite especificado pelo usuário) para permitir que o usuário saiba o status da chamada. [Invocar um método direto em um dispositivo][lnk-devguide-methods] descreve métodos em mais detalhes e oferece diretrizes sobre quando usar métodos em vez de mensagens da nuvem para o dispositivo.
+O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Os tutoriais anteriores ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]) ilustram a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O Hub IoT também oferece a capacidade de invocar métodos não duráveis em dispositivos da nuvem. Os métodos representam uma interação de solicitação-resposta com um dispositivo semelhante a uma chamada HTTP no sentido de que é bem sucedida ou falha imediatamente (após um tempo limite especificado pelo usuário) para permitir que o usuário saiba o status da chamada. [Invocar um método direto em um dispositivo][lnk-devguide-methods] descreve métodos em mais detalhes e oferece diretrizes sobre quando usar métodos em vez de mensagens da nuvem para o dispositivo.
 
 Este tutorial mostra como:
 
@@ -27,6 +27,6 @@ Este tutorial mostra como:
 [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
 [Introdução ao Hub IoT]: ../articles/iot-hub/iot-hub-node-node-getstarted.md
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

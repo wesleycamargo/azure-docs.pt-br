@@ -1,5 +1,5 @@
 ---
-title: Fazer logon no Azure da CLI | Microsoft Docs
+title: Fazer logon no Azure a partir da CLI | Microsoft Docs
 description: "Conectar-se à assinatura do Azure a partir da CLI (Interface de Linha de Comando) do Azure para Mac, Linux e Windows"
 editor: tysonn
 manager: timlt
@@ -17,8 +17,8 @@ ms.date: 10/04/2016
 ms.author: rasquill
 "\"/": 
 translationtype: Human Translation
-ms.sourcegitcommit: 03d93ac0416a947d43dca66297588c4c5b656a1d
-ms.openlocfilehash: 18ea4ab3ab6b82fd43ee290ece790d61cabf16a4
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 88414392c4ee03e0b140bba0f73e44b6886c4038
 
 
 ---
@@ -162,12 +162,12 @@ Para fazer logoff, use o seguinte comando:
 Se as assinaturas associadas à conta forem autenticadas apenas com o Active Directory, o logoff excluirá as informações da assinatura do perfil local. No entanto, se um arquivo de configurações de publicação também tiver sido importado para as assinaturas, o logoff excluirá apenas as informações relacionadas ao Active Directory do perfil local.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](virtual-machines/azure-cli-arm-commands.md) e [comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](virtual-machines-command-line-tools.md).
+* Para usar os comandos da CLI do Azure, confira [Comandos da CLI do Azure no modo do Gerenciador de Recursos](virtual-machines/azure-cli-arm-commands.md) e [comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * Para saber mais sobre a CLI do Azure, baixar o código-fonte, relatar problemas ou colaborar com o projeto, visite o [Repositório GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 * Se tiver problemas ao usar a CLI do Azure ou o Azure, visite os [Fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

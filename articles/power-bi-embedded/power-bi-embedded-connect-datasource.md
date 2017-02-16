@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+ms.sourcegitcommit: 5c4b5e09ac5e336504be32533ad011aad102af75
+ms.openlocfilehash: fdc0d76741d5078978e1bfeadd156e84cac3a48a
 
 
 ---
@@ -31,6 +31,19 @@ Estas são as diferenças entre o uso de **Importar** e **DirectQuery**.
 | Tabelas, colunas, *e dados* são importados ou copiados para o conjunto de dados do relatório. Para ver as alterações ocorridas nos dados subjacentes, você deve atualizar ou importar novamente um conjunto de dados completo e atual. |Somente *tabelas e colunas* são importados ou copiados para o conjunto de dados do relatório. Você sempre pode exibir os dados mais atuais. |
 
 Com o Power BI Embedded, você pode usar DirectQuery com fontes de dados de nuvem, mas não em fontes de dados locais no momento.
+
+> [!NOTE]
+> Não há suporte para o Gateway de Dados Local com o Power BI Embedded no momento. Isso significa que não é possível usar o DirectQuery com fontes de dados locais.
+
+## <a name="supported-data-sources"></a>Fontes de dados com suporte
+
+**DirectQuery**
+* Banco de Dados SQL Azure
+* SQL Data Warehouse do Azure
+
+**Importaçãoação**
+
+É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro do Power BI Embedded. É necessário carregar as alterações feitas no arquivo PBIX no Power BI Embedded. Isso ocorre quando não há gateways disponíveis. 
 
 ## <a name="benefits-of-using-directquery"></a>Benefícios do uso do DirectQuery
 Há duas vantagens principais ao usar **DirectQuery**:
@@ -56,9 +69,11 @@ Para garantir que as consultas enviadas à fonte de dados subjacente tenham um d
 * [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

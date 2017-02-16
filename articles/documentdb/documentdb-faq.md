@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
+ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
+ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
 
 
 ---
@@ -46,7 +46,7 @@ O Banco de Dados de Documentos é uma boa escolha para novos aplicativos Web, m�
 ### <a name="how-does-documentdb-offer-predictable-performance"></a>Como o Banco de Dados de Documentos oferece desempenho previsível?
 Uma [unidade de solicitação](documentdb-request-units.md) é a medida de produtividade no Banco de Dados de Documentos. 1 RU corresponde à produtividade do GET de um documento de 1 KB. Toda operação no Banco de Dados de Documentos, incluindo leituras, gravações, consultas SQL e execuções de procedimentos armazenados, tem um valor determinístico de RU baseado na produtividade necessária para concluir a operação. Em vez de pensar em CPU, E/S, memória e como cada uma dessas medidas afeta a produtividade do seu aplicativo, você pode pensar em uma medida de RU única.
 
-Cada coleção do Banco de Dados de Documentos pode ser reservada com produtividade provisionada em termos de RU da produtividade por segundo. Em aplicativos de qualquer escala, você pode avaliar o desempenho das solicitações individuais para medir seus valores de RU e provisionar coleções para lidar com a soma total de unidades de solicitação entre todas as solicitações. Também é possível escalar ou reduzir verticalmente a produtividade de sua coleção conforme as necessidades do aplicativo aumentam. Para saber mais sobre unidades de solicitação e ajuda para determinar as necessidades de sua coleção, leia sobre o [Gerenciamento de desempenho e capacidade](documentdb-manage.md) e experimente a [calculadora de produtividade](https://www.documentdb.com/capacityplanner).
+Cada coleção do Banco de Dados de Documentos pode ser reservada com produtividade provisionada em termos de RU da produtividade por segundo. Em aplicativos de qualquer escala, você pode avaliar o desempenho das solicitações individuais para medir seus valores de RU e provisionar coleções para lidar com a soma total de unidades de solicitação entre todas as solicitações. Também é possível escalar ou reduzir verticalmente a produtividade de sua coleção conforme as necessidades do aplicativo aumentam. Para saber mais sobre unidades de solicitação e ajuda para determinar as necessidades de sua coleção, leia [Estimativa das necessidades de produção](documentdb-request-units.md#estimating-throughput-needs) e teste a [calculadora de taxa de transferência](https://www.documentdb.com/capacityplanner).
 
 ### <a name="is-documentdb-hipaa-compliant"></a>O Banco de Dados de Documentos é compatível com HIPAA?
 Sim, o DocumentDB é compatível com HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
@@ -61,12 +61,12 @@ Não há limite para a quantidade total de produtividade à qual uma coleção p
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/) para obter mais informações. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
 
 ### <a name="is-there-a-free-account-available"></a>Existe uma conta gratuita disponível?
-Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$ 150 em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
+Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$&150; em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
 
 Use o [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) para desenvolver e testar seu aplicativo localmente sem criar uma assinatura Azure. Quando você estiver satisfeito com o funcionamento de seu aplicativo no Emulador do DocumentDB, alterne para uma conta do DocumentDB do Azure na nuvem.
 
 ### <a name="how-can-i-get-additional-help-with-documentdb"></a>Como obter ajuda adicional com o Banco de Dados de Documentos?
-Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), nos [Fóruns de desenvolvedores do MSDN do Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) ou agende um [chat individual com a equipe de engenharia do DocumentDB](http://www.askdocdb.com/). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
+Caso você precise de ajuda, entre em contato conosco no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) ou agende um chat individual com a equipe de engenharia do DocumentDB enviando um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Para se manter atualizado quanto às últimas notícias e recursos do Banco de Dados de Documentos, siga-nos no [Twitter](https://twitter.com/DocumentDB).
 
 ## <a name="set-up-microsoft-azure-documentdb"></a>Configurar o Banco de Dados de Documentos do Microsoft Azure
 ### <a name="how-do-i-sign-up-for-microsoft-azure-documentdb"></a>Como me inscrevo no Microsoft Azure DocumentDB?
@@ -76,7 +76,7 @@ O Microsoft Azure DocumentDB está disponível no [Portal do Azure][azure-portal
 Uma chave mestra é um token de segurança para acessar todos os recursos de uma conta. As pessoas que possuem a chave têm acesso de leitura e gravação a todos os recursos na conta do banco de dados. Seja cauteloso ao distribuir chaves mestra. A chave mestra primária e a secundária estão disponíveis na folha **Chaves** do [Portal do Azure][azure-portal]. Para saber mais sobre as chaves, consulte [Exibir, copiar e regenerar chaves de acesso](documentdb-manage-account.md#keys).
 
 ### <a name="how-do-i-create-a-database"></a>Como crio um banco de dados?
-Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar um banco de dados do DocumentDB](documentdb-create-database.md), um dos [SDKs do DocumentDB](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
+Você pode criar bancos de dados usando o [Portal do Azure](), como descrito em [Criar uma coleção e um banco de dados do DocumentDB](documentdb-create-collection.md), um dos [SDKs do DocumentDB](documentdb-sdk-dotnet.md) ou por meio das [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).  
 
 ### <a name="what-is-a-collection"></a>O que é uma coleção?
 Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada. Uma coleção é uma entidade faturável, em que o [custo](documentdb-performance-levels.md) é determinado pela produtividade e pelo armazenamento usados. As coleções podem abranger uma ou mais partições/servidores e podem ser dimensionadas para lidar com volumes de armazenamento ou taxa de transferência praticamente ilimitados.
@@ -124,6 +124,6 @@ Sim. O [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) fornec
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

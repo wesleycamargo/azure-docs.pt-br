@@ -1,6 +1,6 @@
 ---
-title: "Guia do desenvolvedor – métodos diretos | Microsoft Docs"
-description: "Guia de desenvolvedor de Hub IoT do Azure – use métodos diretos para invocar código em seus dispositivos"
+title: "Entender os métodos diretos do Hub IoT do Azure | Microsoft Docs"
+description: "Guia de desenvolvedor – use métodos diretos para invocar código em seus dispositivos de um aplicativo de serviço."
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: b041fbc6887d78644f94b247c05199fd0f80094a
+ms.sourcegitcommit: 9c2817129162ab17faadf3c5ecf8ef7dcb370c3c
+ms.openlocfilehash: 2c9c4b59077ea7d31677a5e1c690160bf63633a6
 
 
 ---
-# <a name="invoke-a-direct-method-on-a-device"></a>Invocar um método direto em um dispositivo
+# <a name="direct-methods"></a>Métodos diretos
 ## <a name="overview"></a>Visão geral
 O Hub IoT permite invocar métodos diretos em dispositivos da nuvem. Os métodos diretos representam uma interação entre solicitação e resposta com um dispositivo semelhante a uma chamada HTTP, na qual eles são bem-sucedidos ou falham imediatamente (depois que o tempo limite especificado pelo usuário é atingido). Isso é útil para cenários em que a ação imediata é diferente dependendo da capacidade de resposta do dispositivo, como enviar uma ativação por SMS para um dispositivo se o dispositivo está offline (com o SMS sendo mais caro do que uma chamada de método).
 
@@ -43,7 +43,9 @@ Os métodos diretos são implementados no dispositivo e podem precisar ou não d
 
 Os métodos diretos são síncronos e obtêm êxito ou falham após o tempo limite (padrão: 30 segundos, configurável para até 3.600 segundos). Os métodos diretos são úteis em cenários interativos em que você deseja que um dispositivo atue somente, e somente se, o dispositivo estiver online e recebendo comandos, como acender uma luz usando um telefone. Nesses cenários, você deseja ver uma falha ou êxito imediatamente, para que o serviço de nuvem possa atuar quanto ao resultado o mais rápido possível. O dispositivo pode retornar algum corpo de mensagem como resultado do método, mas não é obrigatório que o método faça isso. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
 
-Chamadas de método de dispositivo são somente HTTP do lado da nuvem e somente MQTT do lado do dispositivo.
+O método direto serve somente para HTTP do lado da nuvem, e somente MQTT do lado do dispositivo.
+
+A carga das solicitações e respostas do método é um documento JSON de até 8 KB.
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 Os tópicos de referência a seguir fornecem a você mais informações sobre como usar os métodos diretos.
@@ -60,7 +62,7 @@ Invocações de método direto em um dispositivo são chamadas HTTP, que compree
 ```
 {
     "methodName": "reboot",
-    "timeoutInSeconds": 200,
+    "responseTimeoutInSeconds": 200,
     "payload": {
         "input1": "someInput",
         "input2": "anotherInput"
@@ -68,10 +70,10 @@ Invocações de método direto em um dispositivo são chamadas HTTP, que compree
 }
 ```
 
-  Tempo limite em segundos. Se o tempo limite não tiver sido definido, o padrão será 30 segundos.
+Tempo limite em segundos. Se o tempo limite não tiver sido definido, o padrão será 30 segundos.
 
 ### <a name="response"></a>Resposta
-O back-end recebe uma resposta que inclui:
+O aplicativo de back-end recebe uma resposta que inclui:
 
 * *Código de status HTTP*, que é usado para erros provenientes do Hub IoT, incluindo um erro 404 para dispositivos que não estão conectados
 * *Cabeçalhos* que contêm a etag, ID da solicitação, tipo de conteúdo e codificação de conteúdo
@@ -110,16 +112,16 @@ O dispositivo envia as respostas para `$iothub/methods/res/{status}/?$rid={reque
 O corpo é definido pelo dispositivo e pode ter qualquer status.
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
-Outros tópicos de referência no Guia do desenvolvedor incluem:
+Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
 * [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
-* [SDKs de serviço e dispositivo IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e serviço que interagem com o Hub IoT.
+* [SDKs de dispositivo e serviço do Azure IoT][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
 * [Linguagem de consulta do Hub IoT para dispositivos gêmeos e trabalhos][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu a usar métodos diretos, você pode estar interessado no seguinte tópicos do Guia do desenvolvedor:
+Agora que você aprendeu a usar métodos diretos, pode ser interessante ler o seguinte tópico do Guia do Desenvolvedor do Hub IoT:
 
 * [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
 
@@ -141,6 +143,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO4-->
 
 

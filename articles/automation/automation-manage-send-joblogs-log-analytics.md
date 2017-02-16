@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6a58b75b1bc198e26e7ddc776a668cb2a4bf9553
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 22a8a7541da572445ab0d6a822b56bd9a03339b7
 
 
 ---
@@ -44,7 +44,7 @@ Para começar a enviar seus logs de Automação para Log Analytics, você deve t
    > A conta de Armazenamento *deve* estar na mesma região que a conta de Automação.
    >
    >
-3. Azure PowerShell com versão 1.0.8 ou mais recente dos cmdlets do Insights Operacionais. Para saber mais sobre esta versão e como instalá-la, veja [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+3. Azure PowerShell com versão 1.0.8 ou mais recente dos cmdlets do Insights Operacionais. Para saber mais sobre esta versão e como instalá-la, veja [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 4. Diagnóstico do Azure e Log Analytics do PowerShell.  Para obter mais informações sobre essa versão e como instalá-la, confira [Diagnóstico e Log Analytics do Azure](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
 5. Baixe o script do PowerShell **Enable-AzureDiagnostics.ps1** do [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). Esse script configurará o seguinte:
    * Uma conta de armazenamento para conter o status de trabalho do runbook e dados de fluxo para uma conta de Automação que você especificar.
@@ -156,6 +156,6 @@ Enviando seus dados de status e fluxo de trabalho de Automação para Log Analyt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

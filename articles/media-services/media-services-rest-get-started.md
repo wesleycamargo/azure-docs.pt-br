@@ -12,21 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 328a16f17fbde5197cba5244a7adf9d5d899e925
-ms.openlocfilehash: 9dea8115145f0446c51461e69f66a14b825fe337
+ms.sourcegitcommit: f1b8c68639fd2b778e7e56a6826e91d5bffd4ae8
+ms.openlocfilehash: c6f843e452353edc7c4c7e9bacf653c555145afe
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
 
 Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
 
@@ -36,82 +32,45 @@ A imagem a seguir mostra alguns dos objetos mais usados ao desenvolver aplicativ
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a>
-
+<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos são necessários para começar a desenvolver com os serviços de mídia com APIs REST.
 
+* Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
 * Noções básicas sobre como desenvolver com API REST dos serviços de mídia. Para saber mais, consulte [Visão Geral da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 * Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler).
 
 As tarefas a seguir são mostradas neste guia de início rápido.
 
-1. Criar uma conta de Serviços de Mídia (usando o portal do Azure).
-2. Configurar o ponto de extremidade de streaming (usando o portal do Azure).
-3. Conectar à conta de serviços de mídia com a API REST.
-4. Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
-5. Configurar unidades de streaming com API REST.
-6. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
-7. Publicar o ativo e obter URLs de download progressivo e streaming com API REST.
-8. Reproduzir o conteúdo.
+1. Iniciar pontos de extremidade de streaming (usando o Portal do Azure).
+2. Conectar à conta de serviços de mídia com a API REST.
+3. Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
+4. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
+5. Publicar o ativo e obter URLs de download progressivo e streaming com API REST.
+6. Reproduzir o conteúdo.
+
 
 Para obter detalhes sobre as entidades do REST do AMS usadas neste tópico, consulte [Referência de API REST dos Serviços de Mídia do Azure](/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, consulte [Conceitos dos Serviços de Mídia do Azure](media-services-concepts.md).
 
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure
-As etapas nesta seção mostram como criar uma conta do AMS.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Iniciar pontos de extremidade de streaming usando o portal do Azure
+
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
+
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+
+Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **+Novo** > **Mídia + CDN** > **Serviços de Mídia**.
+2. Na janela Configurações, clique em Pontos de extremidade de streaming.
+3. Clique no ponto de extremidade de streaming padrão.
 
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Em **CRIAR CONTA DOS SERVIÇOS DE MÍDIA** , insira os valores necessários.
+    A janela DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO é exibida.
 
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. Em **Nome da Conta**, insira o nome da nova conta AMS. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.
-   2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
-   3. Em **Grupo de Recursos**, selecione o recurso novo ou existente.  Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. Em **Localização**, selecione a região geográfica que é usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região é usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa.
-   5. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
-
-       Saiba mais sobre o armazenamento [aqui](../storage/storage-introduction.md).
-   6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
-4. Clique em **Criar** na parte inferior do formulário.
-
-    Quando a conta for criada com êxito, o status mudará para **Executando**.
-
-    ![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
-
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurar pontos de extremidade de streaming usando o portal do Azure
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer o vídeo via streaming de taxa de bits adaptável para seus clientes. Os Serviços de Mídia permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH.
-
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
-
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
-
-* Codifique seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 da taxa de bits adaptável (as etapas de codificação serão demonstradas mais tarde neste tutorial).  
-* Crie pelo menos uma unidade de transmissão para o *ponto de extremidade de streaming* a partir da qual você planeja fornecer seu conteúdo. As etapas a seguir mostram como alterar o número de unidades da transmissão.
-
-Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
-
-Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
-
-1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**.
-2. Clique no ponto de extremidade de streaming padrão.
-
-    A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
-3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão** .
-
-    ![Unidades de transmissão](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Clique no botão **Salvar** para salvar as alterações.
-
-   > [!NOTE]
-   > A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
-   >
-   >
+4. Clique no ícone Iniciar.
+5. Clique no botão Salvar para salvar as alterações.
 
 ## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Conectar-se à conta de Serviços de Mídia com a API REST
 Duas coisas são necessárias ao acessar os serviços de mídia do Azure: um token de acesso fornecido pelo Azure Access Control Services (ACS) e o URI dos serviços de mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
@@ -264,7 +223,7 @@ Um dos valores que você precisa fornecer ao criar um ativo é opções de cria�
 
 * **Nenhuma** = **0** - nenhuma criptografia é usada. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
     Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
-* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de&256; bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 * **CommonEncryptionProtected** = **2** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
 * **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
@@ -294,7 +253,7 @@ O exemplo a seguir mostra como criar um ativo.
 
 Se for bem-sucedido, será retornado o seguinte:
 
-    HTP/1.1 201 Created
+    HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 452
     Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
@@ -323,7 +282,7 @@ Se for bem-sucedido, será retornado o seguinte:
     }
 
 ### <a name="create-an-assetfile"></a>Criar um AssetFile
-A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
+A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
 Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação **MESCLAR** HTTP para atualizar o AssetFile com as informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
 
@@ -384,8 +343,8 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
     }
 
 
-### <a name="creating-the-accesspolicy-with-write-permission"></a>Criando o AccessPolicy com permissão de gravação.
-Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Criando o AccessPolicy com permissão de gravação
+Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 O exemplo a seguir mostra como criar um AccessPolicy:
 
@@ -406,7 +365,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 
 **Resposta HTTP**
 
-    If successful, the following response is returned:
+Se for bem-sucedido, será retornada a seguinte resposta:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -434,7 +393,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
 
 ### <a name="get-the-upload-url"></a>Obter a URL de carregamento
 
-Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usa o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usa o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 Uma URL SAS tem o seguinte formato:
 
@@ -504,14 +463,14 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     }
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>Carregar um arquivo em um contêiner de armazenamento de blobs
-Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos.
+Depois de definir AccessPolicy e Localizador, o arquivo real é carregado em um contêiner de armazenamento de blobs do Azure usando as APIs REST do Armazenamento do Azure. Você deve carregar os arquivos como blobs de blocos. Os blobs de páginas não são compatíveis com os Serviços de Mídia do Azure.  
 
 > [!NOTE]
 > Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 >
 >
 
-Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Atualizar o AssetFile
 Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
@@ -537,7 +496,10 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte:
+
+    HTTP/1.1 204 No Content
+    ...
 
 ## <a name="delete-the-locator-and-accesspolicy"></a>Excluir o AccessPolicy e localizador
 **Solicitação HTTP**
@@ -577,134 +539,11 @@ Se for bem-sucedido, será retornado o seguinte:
     HTTP/1.1 204 No Content
     ...
 
-
-## <a name="a-idconfigurestreamingunitsaconfigure-streaming-units-with-rest-api"></a><a id="configure_streaming_units"></a>Configurar unidades de streaming com a API REST
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia permitem as seguintes tecnologias de streaming de taxa de bits adaptável: HLS (HTTP Live Streaming), Smooth Streaming, MPEG DASH.
-
-Os Serviços de Mídia fornecem empacotamento dinâmico, permitindo que você distribua o conteúdo codificado de taxa de bits adaptável MP4 ou Smooth Streaming em formatos de streaming com suporte pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming), sem a necessidade de empacotar novamente nesses formatos de streaming.
-
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
-
-* obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming **por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
-* codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
-
-Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
-
-> [!NOTE]
-> Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
->
->
-
-Para alterar o número de unidades reservadas para streaming, faça o seguinte:
-
-### <a name="get-the-streaming-endpoint-you-want-to-update"></a>Obtenha o ponto de extremidade de streaming que deseja atualizar
-Por exemplo, vamos obter o primeiro ponto de extremidade de streaming em sua conta (você pode ter até dois pontos de extremidade de streaming em estado de execução ao mesmo tempo).
-
-**Solicitação HTTP**:
-
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints()?$top=1 HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-**Resposta HTTP**
-
-Se for bem-sucedido, será retornado o seguinte:
-
-    HTTP/1.1 200 OK
-    . . .
-
-### <a name="scale-the-streaming-endpoint"></a>Dimensionar o ponto de extremidade de streaming
-**Solicitação HTTP**:
-
-    POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-    {"scaleUnits":1}
-
-**Resposta HTTP**
-
-    HTTP/1.1 202 Accepted
-    Cache-Control: no-cache
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 39f96c93-a4b1-43ce-b97e-b2aaa44ee2dd
-    request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-    x-ms-request-id: 3c1ba1c7-281c-4b2d-a898-09cb70a3a424
-    operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 1.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Fri, 16 Jan 2015 22:16:43 GMT
-    Content-Length: 0
-
-
-### <a name="a-idlongrunningopstatusa-check-on-the-status-of-a-long-running-operation"></a><a id="long_running_op_status"></a> Verificar o status de uma operação de execução longa
-A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída. Para verificar o status da operação, use o método **Operations** e especifique a ID da operação. A ID da operação foi retornada na resposta à solicitação **Scale** .
-
-    operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
-
-**Solicitação HTTP**:
-
-    GET https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7') HTTP/1.1
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json;odata=verbose
-    Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421466122&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=TiKGEOTporft4pFGU24sSZRZk5GRAWszFXldl5NXAhY%3d
-    x-ms-version: 2.11
-    Host: wamsbayclus001rest-hs.cloudapp.net
-
-**Resposta HTTP**
-
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 515
-    Content-Type: application/json;odata=verbose;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 829e1a89-3ec2-4836-a04d-802b5aeff5e8
-    request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-    x-ms-request-id: f7ae8a78-af8d-4881-b9ea-ca072cfe0b60
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 1.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Fri, 16 Jan 2015 22:57:39 GMT
-
-    {  
-       "d":{  
-          "__metadata":{  
-             "id":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-             "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/Operations('nb%3Aopid%3AUUID%3Acc339c28-6bba-4f7d-bee5-91ea4a0a907e')",
-             "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Operation"
-          },
-          "Id":"nb:opid:UUID:cc339c28-6bba-4f7d-bee5-91ea4a0a907e",
-          "State":"Succeeded",
-          "TargetEntityId":"nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486",
-          "ErrorCode":null,
-          "ErrorMessage":null
-       }
-    }
-
-
 ## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
 
 Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](/rest/api/media/services/job), [Tarefa](/rest/api/media/services/task)).
 
 Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os Serviços de Mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxa de bit adaptável em um dos seguintes formatos: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH.
-
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
-
-* codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
-* obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
 
 A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos.
 
@@ -878,7 +717,7 @@ Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
   * Um trabalho deve ter, pelo menos, duas tarefas
   * Deve haver pelo menos uma tarefa cujas entradas são a saída de outra tarefa no trabalho.
 
-Para saber mais, consulte [Criar um trabalho de codificação com a API REST dos Serviços de Mídia.](http://msdn.microsoft.com/library/azure/jj129574.aspx)
+Para saber mais, consulte [Criar um trabalho de codificação com a API REST dos Serviços de Mídia.](media-services-rest-encode-asset.md)
 
 ### <a name="monitor-processing-progress"></a>Monitorar o progresso de processamento
 Você pode recuperar o status do trabalho, usando a propriedade State, conforme mostrado no exemplo a seguir.
@@ -995,6 +834,9 @@ Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando
 
 Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
 
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+
 Uma URL de streaming para Smooth Streaming tem o seguinte formato:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
@@ -1019,7 +861,7 @@ Esta seção mostra como executar as seguintes tarefas necessárias para "public
 * Criando uma URL de origem para conteúdo de streaming
 
 ### <a name="creating-the-accesspolicy-with-read-permission"></a>Criando o AccessPolicy com permissão de leitura
-Antes de baixar ou realizar streaming de qualquer conteúdo de mídia primeiro defina um AccessPolicy com permissões de leitura e crie a entidade do localizador apropriada que especifica o tipo de mecanismo de entrega que você deseja habilitar para seus clientes. Para saber mais sobre as propriedades disponíveis, consulte [Propriedades da entidade AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
+Antes de baixar ou realizar streaming de qualquer conteúdo de mídia primeiro defina um AccessPolicy com permissões de leitura e crie a entidade do localizador apropriada que especifica o tipo de mecanismo de entrega que você deseja habilitar para seus clientes. Para saber mais sobre as propriedades disponíveis, consulte [Propriedades da entidade AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
 O exemplo a seguir mostra como especificar o AccessPolicy para permissões de leitura para um determinado ativo.
 
@@ -1117,7 +959,7 @@ Depois de definir AccessPolicy e localizador, você pode baixar arquivos usando 
 >
 >
 
-Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
+Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/Blob-Service-REST-API).
 
 Como resultado do trabalho de codificação que você executou anteriormente (codificação no conjunto de MP4 adaptável), você tem vários arquivos MP4 que pode baixar progressivo. Por exemplo:    
 
@@ -1222,6 +1064,6 @@ Para testar o download progressivo, cole uma URL em um navegador (por exemplo, I
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

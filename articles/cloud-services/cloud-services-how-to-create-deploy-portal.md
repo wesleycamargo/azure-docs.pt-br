@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: f57bdd0c1d8efc37b90430f829184eb3c44aede5
-ms.openlocfilehash: ea31150ef186c9bcd8c943e39a7cb51559e94bd2
+ms.sourcegitcommit: 1ce2e980dc71ede4f8cd8ec7c9166efac7b25d2e
+ms.openlocfilehash: 554ef45d7fba5f2ff314a162ae33c6cc27206933
 
 
 ---
@@ -40,11 +40,11 @@ Este artigo explica como usar o método Criação Rápida para criar um novo ser
 Três componentes são necessários para implantar um aplicativo como um serviço de nuvem no Azure:
 
 * **Definição de serviço**  
-   O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
+  O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
 * **Configuração de serviço**  
-   O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
+  O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 * **Pacote de serviço**  
-   O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
+  O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
 
 Você pode saber mais sobre eles e sobre como criar um pacote [aqui](cloud-services-model-and-package.md).
 
@@ -66,7 +66,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 
 ## <a name="create-and-deploy"></a>Criar e implantar
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **Novo > Máquinas Virtuais**, em seguida, role para baixo e clique em **Serviço de Nuvem**.
+2. Clique em **Novo > Computação**, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Na parte inferior da página de informações que é exibida, clique em **Criar**.
@@ -76,7 +76,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 7. Clique em **Pacote**. Isso abrirá a folha **Carregar um pacote** . Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 
     > [!IMPORTANT]
-    > Os Serviços de Nuvem podem ser associados somente às [contas de armazenamento clássicas](../resource-manager-deployment-model.md). Se você vir uma mensagem informando que não foram encontradas contas de armazenamento para sua assinatura e local, verifique se que você criou uma conta de armazenamento clássica para seu serviço de nuvem nesse local.
+    > Os Serviços de Nuvem podem ser associados somente às [contas de armazenamento clássicas](../azure-resource-manager/resource-manager-deployment-model.md). Se você vir uma mensagem informando que não foram encontradas contas de armazenamento para sua assinatura e local, verifique se que você criou uma conta de armazenamento clássica para seu serviço de nuvem nesse local.
 
 8. Verifique se a opção **Iniciar implantação** está selecionada.
 9. Clique em **OK** que fechará a folha **Carregar um pacote**.
@@ -111,6 +111,6 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

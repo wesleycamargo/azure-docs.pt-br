@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
+ms.sourcegitcommit: 559b38da4ed787f6f7a4462f6add92384bed54f7
+ms.openlocfilehash: 0acdbefcae875c206667260b6df5dfd8882dcc42
 
 
 ---
 # <a name="azure-resiliency-technical-guidance-recovery-from-a-region-wide-service-disruption"></a>Orientações técnicas de resiliência do Azure: recuperação de uma interrupção de serviço em toda a região
-O Azure é dividido fisicamente e logicamente em unidades chamadas de regiões. Uma região consiste em um ou mais datacenters nas proximidades. No momento da redação deste artigo, o Azure tem vinte e quatro regiões pelo mundo.
+O Azure é dividido fisicamente e logicamente em unidades chamadas de regiões. Uma região consiste em um ou mais datacenters nas proximidades. Para obter a lista atual de regiões, confira a [página Regiões do Azure](https://azure.microsoft.com/regions/).
 
 Em raras circunstâncias é possível que instalações em toda a região se tornem inacessíveis, por exemplo, devido a falhas de rede. Ou instalações podem ser inteiramente perdidas, por exemplo, devido a um desastre natural. Esta seção explica os recursos do Azure para criar aplicativos que são distribuídos entre regiões. Essa distribuição ajuda a minimizar a possibilidade de que uma falha em uma região afete outras regiões.
 
@@ -188,6 +188,6 @@ Este artigo faz parte de uma série que tem como foco [Orientações técnicas d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

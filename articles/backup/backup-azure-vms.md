@@ -1,23 +1,27 @@
 ---
-title: Fazer backup de máquinas virtuais do Azure | Microsoft Docs
-description: Descubra suas máquinas virtuais, registre-as e faça backup delas com estes procedimentos para o backup de máquina virtual do Azure.
+title: "Fazer backup de máquinas virtuais do Azure | Microsoft Docs"
+description: "Descubra suas máquinas virtuais, registre-as e faça backup delas com estes procedimentos para o backup de máquina virtual do Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
-editor: ''
-keywords: backup de máquinas virtuais; fazer backup de máquina virtual, backup e recuperação de desastre; backup de vm
-
+editor: 
+keywords: "backup de máquinas virtuais; fazer backup de máquina virtual, backup e recuperação de desastre; backup de vm"
+ms.assetid: c0ab5469-65fd-4af5-ae9b-f5d183f82ce8
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 09/28/2016
 ms.author: trinadhk; jimpark; markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 3532f1196e372f1bb3a5d1d7de539e5e565b75a5
+
 
 ---
-# Fazer backup de máquinas virtuais do Azure
+# <a name="back-up-azure-virtual-machines"></a>Fazer backup de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
 > * [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
 > * [Fazer backup de VMs no cofre de Backup](backup-azure-vms.md)
@@ -29,7 +33,7 @@ Este artigo mostra os procedimentos para fazer backup de uma VM (máquina virtua
 Para obter informações adicionais, confira os artigos em [planejamento da infraestrutura de backup de VM no Azure](backup-azure-vms-introduction.md) e em [máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../resource-manager-deployment-model.md). Um cofre de Backup só pode proteger VMs com implantação clássica. Você não pode proteger VMs implantadas pelo Resource Manager com um cofre de Backup. Confira [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md) para obter detalhes sobre como trabalhar com cofres dos Serviços de Recuperação.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Um cofre de Backup só pode proteger VMs com implantação clássica. Você não pode proteger VMs implantadas pelo Resource Manager com um cofre de Backup. Confira [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md) para obter detalhes sobre como trabalhar com cofres dos Serviços de Recuperação.
 > 
 > 
 
@@ -42,14 +46,15 @@ Fazer o backup de máquinas virtuais do Azure envolve três etapas principais:
 > 
 > 
 
-## Etapa 1 - Descobrir máquinas virtuais do Azure
+## <a name="step-1---discover-azure-virtual-machines"></a>Etapa 1 - Descobrir máquinas virtuais do Azure
 Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura seja identificada antes do registro, execute o processo de descoberta. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região.
 
 1. Entrar no [portal clássico](http://manage.windowsazure.com/)
-2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site. ![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
+2. Na lista de serviços do Azure, clique em **Serviços de Recuperação** para abrir a lista de cofres de Backup e Recuperação de Site.
+    ![Abrir listas de cofres](./media/backup-azure-vms/choose-vault-list.png)
 3. Na lista de cofres de Backup, escolha o cofre para fazer backup de uma VM.
    
-    Se for um novo cofre, o portal abrirá na página **Início Rápido**.
+    Se for um novo cofre, o portal abrirá na página **Início Rápido** .
    
     ![Abrir o menu Itens registrados](./media/backup-azure-vms/vault-quick-start.png)
    
@@ -60,7 +65,8 @@ Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura s
 5. No menu **Tipo**, selecione **Máquina Virtual do Azure**.
    
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
-6. Clique em **DESCOBRIR** na parte inferior da página. ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
+6. Clique em **DESCOBRIR** na parte inferior da página.
+    ![Botão Descobrir](./media/backup-azure-vms/discover-button-only.png)
    
     O processo de descoberta pode ser executado por alguns minutos, enquanto as máquinas virtuais estão sendo tabuladas. Há uma notificação na parte inferior da tela que informa você de que o processo está sendo executado.
    
@@ -72,15 +78,16 @@ Para garantir que qualquer VM (máquina virtual) nova adicionada à assinatura s
    
     Depois de descobrir os novos itens, vá para a Etapa 2 e registre suas VMs.
 
-## Etapa 2 - Registrar as máquinas virtuais do Azure
+## <a name="step-2---register-azure-virtual-machines"></a>Etapa 2 - Registrar as máquinas virtuais do Azure
 Você registra uma máquina virtual do Azure para associá-la ao serviço Backup do Azure. Normalmente, é uma atividade realizada uma única vez.
 
 1. Navegue até o cofre de backup em **Serviços de Recuperação** no portal do Azure e clique em **Itens Registrados**.
 2. Selecione **Máquina Virtual do Azure** no menu suspenso.
    
     ![Selecionar carga de trabalho](./media/backup-azure-vms/discovery-select-workload.png)
-3. Clique em **REGISTRAR** na parte inferior da página. ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
-4. No menu de atalho **Registrar Itens**, selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
+3. Clique em **REGISTRAR** na parte inferior da página.
+    ![Botão Registrar](./media/backup-azure-vms/register-button-only.png)
+4. No menu de atalho **Registrar Itens** , selecione as máquinas virtuais que você deseja registrar. Se houver duas ou mais máquinas virtuais com o mesmo nome, use o serviço de nuvem para fazer a distinção entre elas.
    
    > [!TIP]
    > Várias máquinas virtuais podem ser registradas ao mesmo tempo.
@@ -96,11 +103,11 @@ Você registra uma máquina virtual do Azure para associá-la ao serviço Backup
    
     ![Status de registro 1](./media/backup-azure-vms/register-status01.png)
    
-    Quando a operação for concluída, o status será alterado para refletir o estado *registrado*.
+    Quando a operação for concluída, o status será alterado para refletir o estado *registrado* .
    
     ![Status de registro 2](./media/backup-azure-vms/register-status02.png)
 
-## Etapa 3 - Proteger máquinas virtuais do Azure
+## <a name="step-3---protect-azure-virtual-machines"></a>Etapa 3 - Proteger máquinas virtuais do Azure
 Agora você pode configurar uma política de backup e de retenção para a máquina virtual. Várias máquinas virtuais podem ser protegidas usando uma única ação de proteção.
 
 Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma política padrão interna ao cofre. Essa política padrão é fornecida com uma retenção padrão de 30 dias e agendamento de backup de uma vez por dia.
@@ -109,7 +116,7 @@ Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma
 2. Selecione **Máquina Virtual do Azure** no menu suspenso.
    
     ![Selecionar a carga de trabalho no portal](./media/backup-azure-vms/select-workload.png)
-3. Na parte inferior da página, clique em **PROTEGER**.
+3. Na parte inferior da página, clique em **PROTEGER** .
    
     O **assistente Proteger Itens** é exibido. Esse assistente lista apenas as máquinas virtuais registradas e não protegidas. Selecione as máquinas virtuais que deseja proteger.
    
@@ -151,7 +158,7 @@ Os cofres do Backup do Azure criados depois de maio de 2015 poderão vir com uma
    
     ![Configurar o trabalho de proteção](./media/backup-azure-vms/protect-configureprotection.png)
 
-## Backup inicial
+## <a name="initial-backup"></a>Backup inicial
 Uma vez protegida com uma política, a máquina virtual será exibida na guia **Itens Protegidos** com o status *Protegida (pendente de backup inicial)*. Por padrão, o primeiro backup agendado é o *backup inicial*.
 
 Para disparar o backup inicial imediatamente após a configuração de proteção:
@@ -172,18 +179,23 @@ Quando o backup inicial terminar, o status da máquina virtual na guia **Itens P
 
 ![O backup da máquina virtual é realizado com ponto de recuperação](./media/backup-azure-vms/protect-backedupvm.png)
 
-## Exibindo detalhes e status do backup
-Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel**. A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** a fim de filtrar os trabalhos.
+## <a name="viewing-backup-status-and-details"></a>Exibindo detalhes e status do backup
+Depois de protegido, a contagem de máquina virtual também aumenta no resumo da página **Painel** . A página **Painel** também mostra o número de trabalhos das últimas 24 horas que foram *bem-sucedidos*, que *falharam* e que estão *em andamento*. Na página **Trabalhos**, use os menus **Status**, **Operação** ou **De** e **Para** a fim de filtrar os trabalhos.
 
 ![Status do backup na página Painel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 Os valores no painel são atualizados a cada 24 horas.
 
-## Solucionar erros
+## <a name="troubleshooting-errors"></a>Solucionar erros
 Se você enfrentar problemas durante o backup da sua máquina virtual, examine o [artigo sobre solução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

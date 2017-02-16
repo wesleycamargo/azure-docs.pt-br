@@ -13,57 +13,57 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/04/2017
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5cbbebfcc41ef8c45366c04ddd9a5697f7b91b61
+ms.sourcegitcommit: 69d4439a20fec8caaabdb43444cabd81f7d1b7c8
+ms.openlocfilehash: 6245c2a0f73ff63e3bfb5fe16112f89ed0efdf30
 
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas frequentes sobre o IoT Suite
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Qual é a diferença entre excluir um grupo de recursos no portal do Azure e clicar em excluir em uma solução pré-configurada no site azureiotsuite.com?
-* Se você excluir a solução pré-configurada no site [azureiotsuite.com][lnk-azureiotsuite], excluirá todos os recursos provisionados na criação da solução pré-configurada. Se você tiver adicionado outros recursos ao grupo de recursos, eles também serão excluídos. 
-* Se você excluir o grupo de recursos no [portal do Azure][lnk-azure-portal], excluirá apenas os recursos desse grupo de recursos; também será necessário excluir o aplicativo do Azure Active Directory associado à solução pré-configurada no [portal clássico do Azure][lnk-classic-portal].
+* Se você excluir a solução pré-configurada no site [azureiotsuite.com][lnk-azureiotsuite], todos os recursos provisionados na criação da solução pré-configurada serão excluídos. Se você adicionou mais recursos ao grupo de recursos, esses recursos também serão excluídos. 
+* Se você excluir o grupo de recursos no [Portal do Azure][lnk-azure-portal], somente os recursos nesse grupo serão excluídos. Você também precisa excluir o aplicativo do Azure Active Directory associado à solução pré-configurada no [Portal Clássico do Azure][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Hub IoT posso provisionar em uma assinatura?
-Dez. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite. Porém, por padrão, só pode provisionar dez Hubs IoT por assinatura, conforme descrito em [Limites de assinatura do Azure][link-azuresublimits]. Como resultado, uma vez que cada solução pré-configurada provisiona um novo Hub IoT, você só poderá provisionar até dez soluções pré-configuradas em uma determinada assinatura. 
+Dez. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite mas, por padrão, só será possível provisionar 10 Hubs IoT por assinatura, como descrito em [Limites de assinatura do Azure][link-azuresublimits]. Como resultado, uma vez que cada solução pré-configurada provisiona um novo Hub IoT, você só poderá provisionar até 10 soluções pré-configuradas em uma determinada assinatura. 
 
 ### <a name="how-many-documentdb-instances-can-i-provision-in-a-subscription"></a>Quantas instâncias do Banco de Dados de Documentos posso provisionar em uma assinatura?
-Cinquenta. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite, mas por padrão, só será possível provisionar cinquenta instâncias do DocumentDB por assinatura. 
+Cinquenta. Você pode criar um [tíquete de suporte do Azure][link-azuresupportticket] para aumentar esse limite, mas por padrão, só será possível provisionar 50 instâncias do DocumentDB por assinatura. 
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Quantas APIs do Bing Mapas Gratuitas posso provisionar em uma assinatura?
 Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 para planos Enterprise em uma assinatura do Azure. A solução de monitoramento remoto é provisionada por padrão com o plano Transações Internas de Nível 1. Como resultado, você só poderá provisionar até duas soluções de monitoramento remotas em uma assinatura sem modificações.
 
 ### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>Tenho uma implantação de solução de monitoramento remoto com um mapa estático, como posso adicionar um mapa interativo do Bing?
-1. Obtenha a API do Bing Maps para Enterprise QueryKey no [portal do Azure][lnk-azure-portal]: 
+1. Obtenha a QueryKey da API do Bing Mapas para Empresas no [Portal do Azure][lnk-azure-portal]: 
    
-   1. Navegue até o Grupo de Recursos onde está a API do Bing Maps para Empresa no [portal do Azure][lnk-azure-portal].
-   2. Clique em Todas as Configurações e em Gerenciamento de Chave. 
-   3. Você perceberá duas chaves: MasterKey e QueryKey. Copie o valor de QueryKey.
+   1. Navegue até o Grupo de Recursos onde está a API do Bing Mapas para Empresas no [Portal do Azure][lnk-azure-portal].
+   2. Clique em **Todas as Configurações** e em **Gerenciamento de Chaves**. 
+   3. Você pode ver duas chaves: **MasterKey** e **QueryKey**. Copie o valor de **QueryKey**.
       
       > [!NOTE]
-      > Você não tem uma conta da API do Bing Maps para Empresa? Crie uma no [portal do Azure][lnk-azure-portal] clicando em + Novo, procurando pela API do Bing Mapas para Empresas e seguindo os prompts.
+      > Você não tem uma conta da API do Bing Maps para Empresa? Crie uma no [Portal do Azure][lnk-azure-portal] clicando em + Novo, procurando pela API do Bing Mapas para Empresas e seguindo os prompts de criação.
       > 
       > 
-2. Obtenha o código mais recente em [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
-3. Execute uma implantação local ou em nuvem seguindo as diretrizes de implantação de linha de comando na pasta /docs/ no repositório. 
+2. Obtenha o código mais recente do [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
+3. Execute uma implantação local ou em nuvem seguindo as diretrizes de implantação de linha de comando na pasta /docs/ do repositório. 
 4. Depois de executar uma implantação local ou em nuvem, procure na pasta raiz pelo arquivo *.user.config criado durante a implantação. Abra esse arquivo em um editor de texto. 
-5. Altere a linha a seguir a fim de incluir o valor que você copiou de QueryKey: 
+5. Altere a linha a seguir para incluir o valor que você copiou de **QueryKey**: 
    
    `<setting name="MapApiQueryKey" value="" />`
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar uma solução pré-configurada se possuo o Microsoft Azure para DreamSpark?
-Neste momento, você não pode criar uma solução pré-configurada com uma conta do [Microsoft Azure para DreamSpark][lnk-dreamspark]. No entanto, você pode criar uma [conta de avaliação gratuita do Azure][lnk-30daytrial] em apenas alguns minutos que permitirá a você criar uma solução pré-configurada.
+Atualmente, você não pode criar uma solução pré-configurada com uma conta do [Microsoft Azure para DreamSpark][lnk-dreamspark]. No entanto, você pode criar uma [conta de avaliação gratuita do Azure][lnk-30daytrial] em apenas alguns minutos que permite a você criar uma solução pré-configurada.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso excluir um locatário do AAD?
-Confira postagem de blog de Eric Golpe, [Passo a passo para a exclusão de um locatário do Azure AD][lnk-delete-aad-tennant].
+Veja a postagem do blog de Eric Golpe, [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Passo a passo da exclusão de um locatário do Azure AD).
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximas etapas
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 * [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
-* [Segurança de IoT desde o início][lnk-security-groundup]
+* [Segurança IoT desde o início][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
@@ -80,6 +80,6 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
+ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
 
 
 ---
@@ -33,7 +33,8 @@ Antes de começar este artigo, você deve ter o seguinte:
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Conectar-se ao Azure HDInsight
-Você precisará dos seguintes pacotes Nuget:
+
+Você precisa dos seguintes pacotes NuGet:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
@@ -79,10 +80,6 @@ O exemplo de código a seguir mostra como se conectar ao Azure antes que você p
             /// <summary>
             /// Authenticate to an Azure subscription and retrieve an authentication token
             /// </summary>
-            /// <param name="TenantId">The AAD tenant ID</param>
-            /// <param name="ClientId">The AAD client ID</param>
-            /// <param name="SubscriptionId">The Azure subscription ID</param>
-            /// <returns></returns>
             static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
@@ -136,7 +133,7 @@ Use o seguinte trecho de código para excluir um cluster de forma síncrona ou a
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
 > [!NOTE]
-> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Consulte [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Confira [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
@@ -167,14 +164,14 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
     
     A IU da Web do Storm está disponível no cluster HDInsight:
     
-    ![hdinsight storm dimensionar novo balanceamento](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Redistribuir escala do Storm do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurar a topologia "mytopology" para usar 5 processos de trabalho,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>o spout "blue-spout" usar 3 executores e
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>o bolt "yellow-bolt" usar 10 executores
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 O trecho de código a seguir mostra como redimensionar um cluster de forma síncrona ou assíncrona:
 
@@ -254,13 +251,13 @@ Consulte [Usar o Sqoop com o HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md
 Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de Blob do Azure
-Consulte [Carregar dados no HDInsighthd][hdinsight-upload-data].
+Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Consulte também
 * [Documentação de referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
-* [Criar clusters do HDInsight][hdinsight-provision]
+* [Criar clusters HDInsight][hdinsight-provision]
 * [Carregar dados no HDInsight][hdinsight-upload-data]
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 
@@ -285,6 +282,6 @@ Consulte [Carregar dados no HDInsighthd][hdinsight-upload-data].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 
 
 ---
@@ -74,7 +74,7 @@ As etapas neste artigo usam variáveis declaradas no início de cada seção. Se
 ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Antes de começar
-Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+Antes de começar, você precisa instalar os cmdlets de PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Etapa 1 – Planejar os intervalos de endereços IP
 Nas etapas a seguir, criaremos duas redes virtuais juntamente com as respectivas configurações e sub-redes de gateway. Em seguida, criaremos uma conexão VPN entre as duas VNets. É importante planejar os intervalos de endereços IP para sua configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma.
@@ -434,6 +434,6 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

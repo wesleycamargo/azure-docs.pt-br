@@ -13,16 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/23/2016
+ms.date: 01/19/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
-ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
+ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
+ms.openlocfilehash: 34e173c6b54bc49cf8966de459e6c03c2260cbf8
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado em Linux no HDInsight
-[!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
+# <a name="hbase-tutorial-get-started-using-apache-hbase-in-hdinsight"></a>Tutorial do HBase: Introdução usando o Apache HBase no HDInsight
 
 Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar as tabelas usando o Hive. Para obter informações gerais do HBase, confira [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
 
@@ -207,7 +206,7 @@ Você pode consultar os dados nas tabelas HBase usando o Hive. Esta seção cria
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
         -H "Accept: application/json" \
         -H "Content-Type: application/json" \
-        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
         -v
    
     Você deve codificar em base64 os valores especificados na opção -d.  No exemplo:
@@ -286,6 +285,6 @@ Para obter mais informações, consulte:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

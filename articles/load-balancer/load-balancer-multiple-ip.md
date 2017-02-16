@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 8761e32f22471e00e33605916fc145881c8fe378
-ms.openlocfilehash: fed40bd97114a2f4eafedc5587b4744d73b2a0ff
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 64234747b92379e50edb800d03353be346c4d319
 
 ---
 
@@ -45,7 +45,7 @@ Para registrar-se para a preview, envie um email para [vários IPs](mailto:Multi
 
 Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
-1. Instale o PowerShell do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+1. Instale o PowerShell do Azure. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 2. Crie um grupo de recursos usando as seguinte configurações:
 
     ```powershell
@@ -150,6 +150,6 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

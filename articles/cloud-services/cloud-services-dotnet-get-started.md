@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
@@ -48,7 +48,7 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 ## <a name="prerequisites"></a>Pré-requisitos
 O tutorial assume que você conhece os [conceitos básicos sobre os serviços de nuvem do Azure](cloud-services-choose-me.md) como terminologia de *função web* e de *função de trabalho*.  Também assumimos que você sabe como trabalhar com projetos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou de [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. O aplicativo função Web usa MVC, mas a maior parte do tutorial também aplica-se a Formulários da Web.
 
-Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tem uma conta, você pode [ativar os benefícios de assinante MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se em uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
+Você também pode executar o aplicativo localmente sem uma assinatura do Azure, mas precisará de uma para implantar o aplicativo na nuvem. Se não tem uma conta, você pode [ativar os benefícios de assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 As instruções do tutorial funcionam com qualquer um dos seguintes produtos:
 
@@ -772,6 +772,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

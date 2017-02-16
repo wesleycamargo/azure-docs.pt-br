@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2016
+ms.date: 11/18/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b39a1959496a6705e3ca8c7a86b9ce8072eb768e
+ms.sourcegitcommit: eaacffd5c8a0364631fd49b3fed33036a493eea4
+ms.openlocfilehash: da7443f3bd38ec41ad2d6b0ce6f573525678e6bd
 
 
 ---
@@ -27,7 +27,7 @@ Assim como qualquer outro computador, as máquinas virtuais do Azure usam os dis
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="operating-system-disk"></a>Disco do sistema operacional
-Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como a unidade C: por padrão. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). 
+Cada máquina virtual tem um disco de sistema operacional anexado. Ele é registrado como uma unidade SATA e rotulado como /dev/sda por padrão. Este disco tem uma capacidade máxima de 1023 GB (Gigabytes). 
 
 ## <a name="temporary-disk"></a>Disco temporário
 O disco temporário é criado automaticamente para você. Nas máquinas virtuais Linux, o disco normalmente é /dev/sdb e é formatado e montado em /mnt/resource pelo Agente Linux do Azure.
@@ -80,6 +80,6 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2016
+ms.date: 01/12/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 35a295a8c24475de90fc26687ca00024cfba1079
-ms.openlocfilehash: bccdfd49226261699f89ebca0adf437ff63c1cdf
+ms.sourcegitcommit: d18c204617bfa62797a875b379e3fa4a39dd6806
+ms.openlocfilehash: 73d6f352671165a020a0e3ab3b20fba725d99158
 
 
 ---
@@ -58,9 +58,9 @@ Criamos o conceito da ACU (Unidade de Computação do Azure) para fornecer uma m
 
 | Família de SKU | ACU/núcleo |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
+| [ExtraSmall](#a-series) |50 |
+| [Small-ExtraLarge](#a-series) |100 |
+| [A5-7](#a-series) |100 |
 | [Standard_A1-8v2](#av2-series) |100 |
 | [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -80,101 +80,92 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 * A largura de banda de rede máxima é a largura de banda agregada máxima alocada e atribuída por tipo de VM. A largura de banda máxima fornece diretrizes para selecionar o tipo correto de VM, a fim de garantir que uma capacidade adequada de rede está disponível. Ao mover-se entre Baixa, Moderada, Alta e Muito Alta, a taxa de transferência aumenta de acordo. O desempenho real da rede dependerá de vários fatores, incluindo cargas de rede e aplicativos, bem como configurações de rede do aplicativo.
 
 ## <a name="a-series"></a>Séria A
-| Tamanho | Núcleos de CPU | Memória: GiB | HDD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0,768 |20 |1 |1 x 500 |1 / baixa |
-| Standard_A1 |1 |1,75 |70 |2 |2x500 |1 / moderada |
-| Standard_A2 |2 |3,5 GB |135 |4 |4x500 |1 / moderada |
-| Standard_A3 |4 |7 |285 |8 |8 x 500 |2 / alta |
-| Standard_A4 |8 |14 |605 |16 |16 x 500 |4 / alta |
-| Standard_A5 |2 |14 |135 |4 |4x500 |1 / moderada |
-| Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / alta |
-| Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | HDD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
+| Pequena           | 1         | 1,75         | 225                  | 1 / moderada |
+| Média          | 2         | 3,5 GB       | 490                  | 1 / moderada |
+| Grande           | 4         | 7            | 1000                 | 2 / alta |
+| ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |
+| A5              | 2         | 14           | 490                  | 1 / moderada |
+| A6              | 4         | 28           | 1000                 | 2 / alta |
+| A7              | 8         | 56           | 2040                 | 4 / alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
 Para obter informações e considerações sobre o uso desses tamanhos, confira [Sobre VMs série H ou série A com computação intensiva](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Tamanho | Núcleos de CPU | Memória: GiB | HDD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 / alta |
-| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 / muito alta |
-| Standard_A10 |8 |56 |382 |16 |16 x 500 |2 / alta |
-| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 / muito alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | HDD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| A8*             |8          | 56           | 1817                 | 2 / alta |
+| A9*             |16         | 112          | 1817                 | 4 / muito alta |
+| A10             |8          | 56           | 1817                 | 2 / alta |
+| A11             |16         | 112          | 1817                 | 4 / muito alta |
 
 \*Compatível com RDMA
 
 ## <a name="av2-series"></a>Série Av2
 
-| Tamanho        | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
-|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1 / moderada              |
-| Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2 / moderada              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 x 500              | 4 / alta                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 x 500             | 8 / alta                  |
-| Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4x500              | 2 / moderada              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x 500              | 4 / alta                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x 500             | 8 / alta                  |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_A1_v2  | 1         | 2            | 10                   | 1 / moderada                 |
+| Standard_A2_v2  | 2         | 4            | 20                   | 2 / moderada                 |
+| Standard_A4_v2  | 4         | 8            | 40                   | 4 / alta                     |
+| Standard_A8_v2  | 8         | 16           | 80                   | 8 / alta                     |
+| Standard_A2m_v2 | 2         | 16           | 20                   | 2 / moderada                 |
+| Standard_A4m_v2 | 4         | 32           | 40                   | 4 / alta                     |
+| Standard_A8m_v2 | 8         | 64           | 80                   | 8 / alta                     |
 
 
 ## <a name="d-series"></a>Série D
-| Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1 |1 |3,5 |50 |2 |2x500 |1 / moderada |
-| Standard_D2 |2 |7 |100 |4 |4x500 |2 / alta |
-| Standard_D3 |4 |14 |200 |8 |8 x 500 |4 / alta |
-| Standard_D4 |8 |28 |400 |16 |16 x 500 |8 / alta |
-| Standard_D11 |2 |14 |100 |4 |4x500 |2 / alta |
-| Standard_D12 |4 |28 |200 |8 |8 x 500 |4 / alta |
-| Standard_D13 |8 |56 |400 |16 |16 x 500 |8 / alta |
-| Standard_D14 |16 |112 |800 |32 |32 x 500 |8 / muito alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1     | 1         | 3,5          | 50                   | 1 / moderada |
+| Standard_D2     | 2         | 7            | 100                  | 2 / alta |
+| Standard_D3     | 4         | 14           | 200                  | 4 / alta |
+| Standard_D4     | 8         | 28           | 400                  | 8 / alta |
+| Standard_D11    | 2         | 14           | 100                  | 2 / alta |
+| Standard_D12    | 4         | 28           | 200                  | 4 / alta |
+| Standard_D13    | 8         | 56           | 400                  | 8 / alta |
+| Standard_D14    | 16        | 112          | 800                  | 8 / muito alta |
 
 ## <a name="dv2-series"></a>Série Dv2
-| Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D1_v2 |1 |3,5 |50 |2 |2x500 |1 / moderada |
-| Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / alta |
-| Standard_D3_v2 |4 |14 |200 |8 |8 x 500 |4 / alta |
-| Standard_D4_v2 |8 |28 |400 |16 |16 x 500 |8 / alta |
-| Standard_D5_v2 |16 |56 |800 |32 |32 x 500 |8 / extremamente alta |
-| Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / alta |
-| Standard_D12_v2 |4 |28 |200 |8 |8 x 500 |4 / alta |
-| Standard_D13_v2 |8 |56 |400 |16 |16 x 500 |8 / alta |
-| Standard_D14_v2 |16 |112 |800 |32 |32 x 500 |8 / extremamente alta |
-| Standard_D15_v2 |20 |140 |1.000 |40 |40 x 500 |8 / extremamente alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / moderada |
+| Standard_D2_v2  | 2         | 7            | 100                  | 2 / alta |
+| Standard_D3_v2  | 4         | 14           | 200                  | 4 / alta |
+| Standard_D4_v2  | 8         | 28           | 400                  | 8 / alta |
+| Standard_D5_v2  | 16        | 56           | 800                  | 8 / extremamente alta |
+| Standard_D11_v2 | 2         | 14           | 100                  | 2 / alta |
+| Standard_D12_v2 | 4         | 28           | 200                  | 4 / alta |
+| Standard_D13_v2 | 8         | 56           | 400                  | 8 / alta |
+| Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremamente alta |
+| Standard_D15_v2 | 20        | 140          | 1.000                | 8 / extremamente alta |
 
 ## <a name="g-series"></a>Série G
-| Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_G1 |2 |28 |384 |4 |4 x 500 |1 / alta |
-| Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / alta |
-| Standard_G3 |8 |112 |1.536 |16 |16 x 500 |4 / muito alta |
-| Standard_G4 |16 |224 |3.072 |32 |32 x 500 |8 / extremamente alta |
-| Standard_G5 |32 |448 |6.144 |64 |64 x 500 |8 / extremamente alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_G1     | 2         | 28           | 384                  |1 / alta |
+| Standard_G2     | 4         | 56           | 768                  |2 / alta |
+| Standard_G3     | 8         | 112          | 1.536                |4 / muito alta |
+| Standard_G4     | 16        | 224          | 3.072                |8 / extremamente alta |
+| Standard_G5     | 32        | 448          | 6.144                |8 / extremamente alta |
 
 ## <a name="h-series"></a>Série H
 As máquinas virtuais da série H do Azure são a próxima geração de VMs de computação de alto desempenho voltadas para as necessidades computacionais de alto nível, como modelagem molecular e dinâmica de fluido computacional. Essas VMs de 8 e 16 núcleos baseiam-se na tecnologia do processador Intel Haswell E5-2667 V3 apresentando memória DDR4 e armazenamento local baseado em SSD.
 
 Além de potência de CPU considerável, a série H oferece diversas opções para RDMA e rede de baixa latência usando FDR InfiniBand e várias configurações de memória para dar suporte a requisitos computacionais com uso intensivo de memória.
 
-| Tamanho | Núcleos de CPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | NICs máximas / largura de banda da rede |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |16 |16 x 500 |8 / alta |
-| Standard_H16 |16 |112 |2000 |32 |32 x 500 |8 / muito alta |
-| Standard_H8m |8 |112 |1000 |16 |16 x 500 |8 / alta |
-| Standard_H16m |16 |224 |2000 |32 |32 x 500 |8 / muito alta |
-| Standard_H16r* |16 |112 |2000 |32 |32 x 500 |8 / muito alta |
-| Standard_H16mr* |16 |224 |2000 |32 |32 x 500 |8 / muito alta |
+| Tamanho            | Núcleos de CPU | Memória: GiB  | SSD local: GiB       | NICs máximas / largura de banda da rede |
+|---------------- | --------- | ------------ | -------------------- | ---------------------------- |
+| Standard_H8     | 8         | 56           | 1000                 | 8 / alta |
+| Standard_H16    | 16        | 112          | 2000                 | 8 / muito alta |
+| Standard_H8m    | 8         | 112          | 1000                 | 8 / alta |
+| Standard_H16m   | 16        | 224          | 2000                 | 8 / muito alta |
+| Standard_H16r*  | 16        | 112          | 2000                 | 8 / muito alta |
+| Standard_H16mr* | 16        | 224          | 2000                 | 8 / muito alta |
 
 \*Compatível com RDMA
-
-## <a name="notes-standard-a0---a4-using-cli-and-powershell"></a>Observações: Standard A0 - A4 usando a CLI e o PowerShell
-No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:
-
-* Standard_A0 é ExtraSmall
-* Standard_A1 é pequeno
-* Standard_A2 é médio
-* Standard_A3 é grande
-* Standard_A4 é ExtraLarge
 
 ## <a name="configure-sizes-for-cloud-services"></a>Configurar tamanhos para os Serviços de Nuvem
 Você pode especificar o tamanho da Máquina Virtual de uma instância de função como parte do modelo de serviço descrito pelo [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). O tamanho da função determina o número de núcleos de CPU, a capacidade de memória e o tamanho do sistema de arquivos local alocados para uma instância em execução. Escolha o tamanho da função com base em requisitos de recurso do aplicativo.
@@ -196,12 +187,19 @@ Conforme a natureza de sua carga de trabalho se altera ou novos tamanhos de VM s
 >
 >
 
+## <a name="get-a-list-of-sizes"></a>Obter uma lista de tamanhos
+Você pode usar o PowerShell ou a API REST para obter uma lista de tamanhos. A API REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código a seguir é um comando do PowerShell que listará todos os tamanhos disponíveis atualmente para seu Serviço de Nuvem.
+
+```powershell
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 * Saiba mais [sobre as VMs da série H e da série A com computação intensiva](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabalho como HPC (Computação de Alto Desempenho).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

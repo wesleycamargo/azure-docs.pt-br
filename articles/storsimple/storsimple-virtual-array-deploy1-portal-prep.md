@@ -1,5 +1,5 @@
 ---
-title: "Implantar o Microsoft Azure StorSimple Virtual Array 1 – Preparação do portal | Microsoft Docs"
+title: "Preparação do portal para o StorSimple Virtual Array | Microsoft Docs"
 description: "O primeiro tutorial para implantar o StorSimple Array Virtual envolve a preparação do portal do Azure"
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 97e29de986ab43ee51a311dee8d2cbf66f7408e4
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 019f56c6d76f3977c0681403d58f957ca263ab25
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implantar o StorSimple Virtual Array – Preparar o portal
@@ -172,6 +172,6 @@ A próxima etapa é provisionar uma máquina virtual para a matriz virtual StorS
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

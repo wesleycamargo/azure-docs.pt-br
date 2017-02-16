@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de conexão SSH com uma VM | Microsoft Docs"
+title: "Solucionar problemas de conexão SSH com uma VM do Azure | Microsoft Docs"
 description: "Como solucionar problemas como &quot;conexão SSH com falha&quot; ou &quot;conexão SSH recusada&quot; para uma VM do Azure executando Linux."
 keywords: "conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
 services: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/21/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a585aaf2d40f077a81de299c0aef41844bde7cd1
+ms.sourcegitcommit: 10419c0e76ea647c0ef9e15f4cd0e514795a858e
+ms.openlocfilehash: 0191d6d84476b367e6cad6775738305e534c96a8
 
 
 ---
@@ -48,13 +48,13 @@ Caso você precise de etapas e explicações mais detalhadas para solução de p
 ## <a name="available-methods-to-troubleshoot-ssh-connection-issues"></a>Métodos disponíveis para solucionar problemas de conexão SSH
 Você pode redefinir as credenciais ou configuração de SSH usando um dos seguintes métodos:
 
-* [Portal do Azure](#using-the-azure-portal) – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de SSH ou chave SSH e não tiver as Ferramentas do Azure instaladas.
-* [Comandos da CLI do Azure](#using-the-azure-cli) – se você já estiver na linha de comando, redefina rapidamente as credenciais ou a configuração de SSH.
-* [Extensão VMAccessForLinux do Azure](#using-the-vmaccess-extension) – criar e reutilizar os arquivos de definição json para redefinir as credenciais de usuário ou configuração do SSH.
+* [Portal do Azure](#use-the-azure-portal) – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de SSH ou chave SSH e não tiver as Ferramentas do Azure instaladas.
+* [CLI 1.0 do Azure](#use-the-azure-cli-10) – se você já estiver na linha de comando, redefina rapidamente as credenciais ou a configuração de SSH. Também é possível usar a [CLI 2.0 (Preview) do Azure](#use-the-azure-cli-20-preview)
+* [Extensão VMAccessForLinux do Azure](#use-the-vmaccess-extension) – criar e reutilizar os arquivos de definição json para redefinir as credenciais de usuário ou configuração do SSH.
 
 Após cada etapa de solução de problemas, tente se conectar à VM novamente. Caso você ainda não consiga conectar, tente a próxima etapa.
 
-## <a name="using-the-azure-portal"></a>Usando o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 O portal do Azure fornece uma maneira rápida para redefinir as credenciais de usuário ou configuração do SSH sem instalar as ferramentas no computador local.
 
 No Portal do Azure, selecione sua VM. Role para baixo até a seção **Suporte + Solução de problemas** e selecione **Redefinir senha** como no exemplo a seguir:
@@ -69,8 +69,8 @@ Para redefinir as credenciais de um usuário existente, selecione `Reset SSH pub
 
 Você também pode criar um usuário com privilégios sudo na VM nesse menu. Insira um novo nome de usuário e senha associada ou chave SSH e, em seguida, clique no botão **Redefinir**.
 
-## <a name="using-the-azure-cli"></a>Usando a CLI do Azure
-Se você ainda não fez isso, [instale a CLI do Azure e conecte-se à sua assinatura do Azure](../xplat-cli-install.md). Certifique-se de que você está usando o modo Resource Manager da seguinte forma:
+## <a name="use-the-azure-cli-10"></a>Usar a CLI 1.0 do Azure
+Se você ainda não fez isso, [instale a CLI 1.0 do Azure e conecte-se à sua assinatura do Azure](../xplat-cli-install.md). Certifique-se de que você esteja usando o modo Resource Manager da seguinte forma:
 
 ```azurecli
 azure config mode arm
@@ -93,18 +93,38 @@ Se o SSHD parecer funcionar corretamente, você poderá redefinir a senha para u
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --username myUsername --password myPassword
+     --user-name myUsername --password myPassword
 ```
 
-Se usar autenticação de chave SSH, você poderá redefinir a chave SSH para um determinado usuário. O exemplo a seguir atualiza a chave SSH armazenada em `~/.ssh/azure_id_rsa.pub` para o usuário chamado `myUsername`, na VM denominada `myVM` em `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
+Se usar autenticação de chave SSH, você poderá redefinir a chave SSH para um determinado usuário. O exemplo a seguir atualiza a chave SSH armazenada em `~/.ssh/id_rsa.pub` para o usuário chamado `myUsername`, na VM denominada `myVM` em `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
+## <a name="use-the-azure-cli-20-preview"></a>Usar a CLI 2.0 (Preview) do Azure
+Se você ainda não fez isso, instale a versão mais recente da [CLI 2.0 (Preview) do Azure](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [logon az](/cli/azure/#login).
+
+Se você criar e carregar uma imagem de disco Linux personalizada, verifique se o [Agente Linux do Microsoft Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versão 2.0.5 ou posterior está instalado. Para VMs criadas usando imagens da galeria, é possível que essa extensão de acesso já esteja instalada e configurada para você.
+
+### <a name="reset-ssh-credentials-for-a-user"></a>Redefinir credenciais SSH para um usuário
+O exemplo a seguir usa [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user) para redefinir as credenciais de `myUsername` para o valor especificado em `myPassword`, na VM chamada `myVM` em `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+     --username myUsername --password myPassword
+```
+
+Se usar autenticação de chave SSH, você poderá redefinir a chave SSH para um determinado usuário. O exemplo a seguir usa **az vm access set-linux-user** para atualizar a chave SSH armazenada em `~/.ssh/id_rsa.pub` para o usuário chamado `myUsername`, na VM chamada `myVM` em `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+    --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
-## <a name="using-the-vmaccess-extension"></a>Usando a extensão VMAccess
+## <a name="use-the-vmaccess-extension"></a>Usar a extensão VMAccess
 A Extensão de Acesso de VM para Linux lê um arquivo json que define as ações a executar. Essas ações incluem redefinir o SSHD, redefinir uma chave SSH ou adicionar um usuário. Você ainda usa a CLI do Azure para chamar a extensão VMAccess, mas você pode reutilizar os arquivos json em várias VMs, se desejado. Essa abordagem permite que você crie um repositório de arquivos json que podem então ser chamados para determinado cenários.
 
 ### <a name="reset-sshd"></a>Redefinir SSHD
@@ -154,15 +174,22 @@ azure vm extension set myResourceGroup myVM \
 Se você tiver redefinido as credenciais de usuário e a configuração do SSH ou encontrado um erro ao fazer isso, você poderá tentar reiniciar a VM para solucionar problemas de computação subjacentes.
 
 ### <a name="azure-portal"></a>Portal do Azure
-Para reiniciar uma VM usando o Portal do Azure, selecione sua VM e clique no botão ***Reiniciar** como no exemplo a seguir:
+Para reiniciar uma VM usando o Portal do Azure, selecione sua VM e clique no botão **Reiniciar** como no exemplo a seguir:
 
 ![Reiniciar uma VM no Portal do Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli-10"></a>CLI 1.0 do Azure
 O exemplo a seguir reinicia a VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+O exemplo a seguir usa [az vm restart](/cli/azure/vm#restart) para reiniciar a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
+
+```azurecli
+az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 
@@ -179,11 +206,18 @@ Para reimplantar uma VM usando o Portal do Azure, selecione sua VM e role para b
 
 ![Reimplantar a VM no Portal do Azure](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### <a name="azure-cli"></a>CLI do Azure
+### <a name="azure-cli-10"></a>CLI 1.0 do Azure
 O exemplo a seguir reimplanta a VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
+### <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+O exemplo a seguir usa [az vm redeploy](/cli/azure/vm#redeploy) para reimplantar a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`. Use seus próprios valores, da seguinte maneira:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>VMs criadas com o modelo de implantação clássico
@@ -214,6 +248,6 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

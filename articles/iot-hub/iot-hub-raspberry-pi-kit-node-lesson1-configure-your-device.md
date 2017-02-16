@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68647c83f30fddd69aa920cae6f407f2728e14c8
 
 
 ---
@@ -50,7 +50,7 @@ Para concluir esta operação, você precisará das seguintes partes do seu Kit 
 Você também precisará de:
 
 * Uma conexão com ou sem fio para que o Pi seja conectado.
-* Um adaptador USB-SD ou cartão MiniSD para gravar a imagem do sistema operacional no cartão microSD.
+* Um adaptador USB-SD ou cartão miniSD para gravar a imagem do sistema operacional no cartão microSD.
 * Um computador executando o Windows, Mac ou Linux. O computador é usado para instalar o Raspbian no cartão microSD.
 * Uma conexão com a Internet para baixar as ferramentas e o software necessários.
 
@@ -117,6 +117,6 @@ Neste artigo, você aprendeu como configurar o Pi ao instalar o Raspbian, a cone
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 015b6387491e0347b3a3a0ac87bb6b91b06387f0
-ms.openlocfilehash: fb1cdfee5094198e3380e120f409175c89d23b6d
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 73eec3322f8ee027c68ede89501b8b9fb00961a6
 
 ---
 
@@ -148,7 +148,7 @@ O recurso de extensão final é semelhante ao exemplo de JSON a seguir:
 }
 ```
 
-Se você usar parâmetros de modelo para fornecer valores de propriedade, será necessário criá-los. Ao criar parâmetros de modelo para valores de configuração protegida, use o tipo de parâmetro `SecureObject` para que os valores confidenciais sejam protegidos. Para saber mais sobre como usar parâmetros, confira [Criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
+Se você usar parâmetros de modelo para fornecer valores de propriedade, será necessário criá-los. Ao criar parâmetros de modelo para valores de configuração protegida, use o tipo de parâmetro `SecureObject` para que os valores confidenciais sejam protegidos. Para saber mais sobre como usar parâmetros, confira [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 No exemplo da extensão `IaasDiagnostic`, os parâmetros a seguir seriam criados na seção de parâmetros do modelo do Resource Manager.
 
@@ -167,6 +167,6 @@ Neste ponto, o modelo pode ser implantado usando qualquer método de implantaç�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

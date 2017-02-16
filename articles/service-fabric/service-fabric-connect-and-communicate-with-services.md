@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
+ms.sourcegitcommit: 4e5568bfcc3d488ef07203b7d3ad95f44354cabc
+ms.openlocfilehash: f35a42154e5d14e798a787a3ecd100ab72512b96
 
 
 ---
@@ -24,6 +24,10 @@ ms.openlocfilehash: ae6d85a3b6efddff1bd1df7b9b022d91b8de634e
 No Service Fabric, um serviço é executado em algum lugar em um cluster do Service Fabric, normalmente distribuído entre várias VMs. Ele pode ser movido de um local para outro, pelo proprietário do serviço ou automaticamente pelo Service Fabric. Os serviços não estão estaticamente vinculados a um determinado computador ou endereço.
 
 Um aplicativo do Service Fabric geralmente é composto por vários serviços diferentes, em que cada serviço executa uma tarefa específica. Esses serviços podem se comunicar entre si para formar uma função completa, tal como partes diferentes de renderização de um aplicativo Web. Também existem aplicativos cliente que se conectam e se comunicam com os serviços. Este documento aborda como configurar a comunicação com os serviços do Service Fabric e entre eles.
+
+Este vídeo da Microsoft Virtual Academy também discute a comunicação de serviço: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+<img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="bring-your-own-protocol"></a>Trazer seu próprio protocolo
 O Service Fabric ajuda a gerenciar o ciclo de vida dos seus serviços, mas ele não tome decisões sobre o que seus serviços fazem. Isso inclui a comunicação. Quando seu serviço é aberto pelo Service Fabric, que é a oportunidade do serviço de configurar um ponto de extremidade para solicitações de entrada, usando qualquer protocolo ou pilha de comunicação desejados. O serviço escutará um endereço **IP:port** normal usando qualquer esquema de endereçamento, como um URI. Várias instâncias de serviço ou réplicas podem compartilhar um processo de host, quando então eles precisarão usar portas diferentes ou um mecanismo de compartilhamento de porta, como o driver do kernel http.sys no Windows. Em ambos os casos, cada instância de serviço ou réplica em um processo de host deve ser endereçável exclusivamente.
@@ -135,6 +139,6 @@ Saiba mais sobre os conceitos e as APIs disponíveis no [modelo de comunicação
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

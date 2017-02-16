@@ -13,18 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fd09bb3a750d8d537abb12a386f46be0c60794
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para um modelo do Resource Manager para implantar um aplicativo Web com o Java 8 e o Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para um modelo do Resource Manager para implantar um aplicativo Web com o Java 8 e o Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
 Com o Azure, você pode usar uma máquina virtual para fornecer recursos de servidor. Como um exemplo, uma máquina virtual em execução no Azure pode ser configurada para hospedar um servidor de aplicativos Java, como o Apache Tomcat. Depois de concluir este guia, você saberá como criar uma máquina virtual em execução no Azure e configurá-la para executar um servidor de aplicativos Java.
 
@@ -156,6 +155,6 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

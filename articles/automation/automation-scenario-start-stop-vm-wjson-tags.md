@@ -15,22 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2016
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 4a9886cf5ee80bafd4b36d0d7f6781aea9b36dd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
 
 
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Cenário de Automação do Azure: usando marcações formatadas JSON para criar um agendamento para inicialização e desligamento de VM do Azure
-Muitas vezes, os clientes desejam agendar a inicialização e desligamento de máquinas virtuais para ajudar a reduzir os custos de assinatura ou dar suporte a requisitos técnicos e de negócios.  
+Muitas vezes, os clientes desejam agendar a inicialização e desligamento de máquinas virtuais para ajudar a reduzir os custos de assinatura ou dar suporte a requisitos técnicos e de negócios.
 
-O cenário a seguir permite a você configurar a inicialização e o desligamento automatizados de suas VMs usando uma marcação chamada de Agendamento no nível do grupo de recursos ou da máquina virtual no Azure. Esse agendamento pode ser configurado de domingo a sábado com hora de inicialização e de desligamento.  
+O cenário a seguir permite a você configurar a inicialização e o desligamento automatizados de suas VMs usando uma marcação chamada de Agendamento no nível do grupo de recursos ou da máquina virtual no Azure. Esse agendamento pode ser configurado de domingo a sábado com hora de inicialização e de desligamento.
 
 Temos algumas opções imediatas. Estão incluídos:
 
 * [Conjuntos de escala de máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) com configurações de dimensionamento automático que permitem a você escalar ou reduzir horizontalmente.
 * [DevTest Labs](../devtest-lab/devtest-lab-overview.md) , que tem o recurso interno de agendamento de operações de inicialização e desligamento.
 
-No entanto, essas opções dão suporte somente a cenários específicos e não podem ser aplicadas às VMs de IaaS (infraestrutura como serviço).   
+No entanto, essas opções dão suporte somente a cenários específicos e não podem ser aplicadas às VMs de IaaS (infraestrutura como serviço).
 
 Quando a marcação Agendamento for aplicada a um grupo de recursos, ela também será aplicada a todas as máquinas virtuais dentro daquele grupo de recursos. Se um agendamento também for aplicado diretamente a uma VM, o último agendamento terá precedência na seguinte ordem:
 
@@ -67,7 +67,7 @@ Siga estas etapas para habilitar o agendamento para o runbook Test-ResourceSched
 6. Para o **Início**do agendamento, defina a hora de início como um incremento de hora.
 7. Selecione **Recorrência** e em **Repetir a cada intervalo**, selecione **1 hora**.
 8. Verifique se **Definir expiração** está definido como **Não** e clique em **Criar** para salvar seu novo agendamento.
-9. Na folha de opções **Agendar Runbook**, selecione **Definições de parâmetros e de execução**. Na folha Test-ResourceSchedule **Parâmetros**, insira o nome da sua assinatura no campo **SubscriptionName**.  Esse é o único parâmetro necessário para o runbook.  Quando tiver terminado, clique em **OK**.  
+9. Na folha de opções **Agendar Runbook**, selecione **Definições de parâmetros e de execução**. Na folha Test-ResourceSchedule **Parâmetros**, insira o nome da sua assinatura no campo **SubscriptionName**.  Esse é o único parâmetro necessário para o runbook.  Quando tiver terminado, clique em **OK**.
 
 O agendamento de runbook deverá parecer com o seguinte quando concluído:
 
@@ -78,43 +78,47 @@ Essa solução basicamente usa uma cadeia de caracteres JSON com um formato espe
 
 O runbook faz um loop sobre as máquinas virtuais que possuem agendas anexadas e verifica quais ações devem ser executadas. Veja um exemplo abaixo de como as soluções devem ser formatadas:
 
-    {
-       "TzId": "Eastern Standard Time",
-        "0": {  
-           "S": "11",
-           "E": "17"
-        },
-        "1": {
-           "S": "9",
-           "E": "19"
-        },
-        "2": {
-           "S": "9",
-           "E": "19"
-        },
-    }
+```json
+{
+    "TzId": "Eastern Standard Time",
+    "0": {
+        "S": "11",
+        "E": "17"
+    },
+    "1": {
+        "S": "9",
+        "E": "19"
+    },
+    "2": {
+        "S": "9",
+        "E": "19"
+    },
+}
+```
 
 Veja algumas informações detalhadas sobre esta estrutura:
 
 1. O formato dessa estrutura JSON é otimizado para contornar a limitação de 256 caracteres de um valor de marcação única no Azure.
 2. *TzId* representa o fuso horário da máquina virtual. Essa ID pode ser obtida usando a classe .NET TimeZoneInfo em uma sessão do PowerShell -**[System.TimeZoneInfo]:: GetSystemTimeZones()**.
 
-    ![GetSystemTimeZones no PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
+   ![GetSystemTimeZones no PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
    * Dias da semana são representados com um valor numérico de zero a seis. O valor zero é igual a domingo.
    * A hora de início é representada pelo atributo **S** e seu valor está no formato de 24 horas.
    * A hora de término é representada pelo atributo **E** e seu valor está no formato de 24 horas.
 
-     Se os atributos **S** e **E** tiverem o valor zero (0), a máquina virtual será deixada em seu estado atual no momento da avaliação.   
+     Se os atributos **S** e **E** tiverem o valor zero (0), a máquina virtual será deixada em seu estado atual no momento da avaliação.
 3. Se você quiser ignorar a avaliação de um dia específico da semana, não adicione uma seção para esse dia da semana. No exemplo abaixo, apenas a segunda-feira é avaliada; os outros dias da semana são ignorados:
 
-        {
-          "TzId": "Eastern Standard Time",
-           "1": {
-             "S": "11",
-             "E": "17"
-           }
+    ```json
+    {
+        "TzId": "Eastern Standard Time",
+        "1": {
+            "S": "11",
+            "E": "17"
         }
+    }
+    ```
 
 ## <a name="tag-resource-groups-or-vms"></a>Marcar grupos de recursos ou VMs
 Para desligar as VMs, você precisa marcar as VMs ou os grupos de recursos nos quais elas estão localizadas. Máquinas virtuais que não têm uma marcação de Agenda não são avaliadas. Portanto, elas não iniciadas ou desligadas.
@@ -126,82 +130,110 @@ Siga estas etapas para marcar uma máquina virtual ou um grupo de recursos no po
 
 1. Nivele a cadeia de caracteres JSON e verifique se não há espaços.  A cadeia de caracteres JSON deve ter esta aparência:
 
-        {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```json
+    {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```
+
 2. Selecione o ícone **Marcação** de uma VM ou um grupo de recursos para aplicar este agendamento.
 
-![Opção de marcação de VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
+   ![Opção de marcação de VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-1. As marcas são definidas seguindo um par chave/valor. Digite **Agendamento** no campo **Chave** e cole a cadeia de caracteres JSON no campo **Valor**. Clique em **Salvar**. Agora, a nova marca deve aparecer na lista de marcas do seu recurso.
+3. As marcas são definidas seguindo um par chave/valor. Digite **Agendamento** no campo **Chave** e cole a cadeia de caracteres JSON no campo **Valor**. Clique em **Salvar**. Agora, a nova marca deve aparecer na lista de marcas do seu recurso.
 
-![Marcação de agendamento de VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
+   ![Marcação de agendamento de VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 ### <a name="tag-from-powershell"></a>Marcar do PowerShell
-Todos os runbooks importados contém informações de Ajuda no início do script para descrever como executar runbooks diretamente do PowerShell. Você pode chamar os runbooks Add-ScheduleResource e Update-ScheduleResource do PowerShell. Você pode fazer isso transmitindo parâmetros necessários que permitem a você criar ou atualizar a marcação de Agendamento em uma VM ou em um grupo de recursos fora do portal.  
+Todos os runbooks importados contém informações de Ajuda no início do script para descrever como executar runbooks diretamente do PowerShell. Você pode chamar os runbooks Add-ScheduleResource e Update-ScheduleResource do PowerShell. Você pode fazer isso transmitindo parâmetros necessários que permitem a você criar ou atualizar a marcação de Agendamento em uma VM ou em um grupo de recursos fora do portal.
 
-Para criar, adicionar e excluir marcações pelo PowerShell, primeiramente você precisa [configurar seu ambiente do PowerShell para o Azure](../powershell-install-configure.md). Depois de concluir a instalação, você poderá continuar com as etapas a seguir.
+Para criar, adicionar e excluir marcações pelo PowerShell, primeiramente você precisa [configurar seu ambiente do PowerShell para o Azure](/powershell/azureps-cmdlets-docs). Depois de concluir a instalação, você poderá continuar com as etapas a seguir.
 
 ### <a name="create-a-schedule-tag-with-powershell"></a>Criar uma marcação de agendamento com o PowerShell
-1. Abra uma sessão do PowerShell. Em seguida, use o exemplo abaixo para autenticar com sua conta Executar como e para especificar uma assinatura:   
+1. Abra uma sessão do PowerShell. Em seguida, use o exemplo abaixo para autenticar com sua conta Executar como e para especificar uma assinatura:
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Defina uma tabela de hash de agendamento. Aqui está um exemplo de como deve ser criado:
 
-        $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```powershell
+    $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```
+
 3. Defina os parâmetros exigidos para o runbook. O exemplo a seguir destina-se a uma VM:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "VmName"="VM01";"Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "VmName"="VM01";"Schedule"=$schedule}
+    ```
 
     Se você estiver marcando um grupo de recursos, remova o parâmetro *VMName* da tabela de hash $params da seguinte maneira:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
-        "Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "Schedule"=$schedule}
+    ```
+
 4. Execute o runbook Add-ResourceSchedule com os seguintes parâmetros para criar a marcação Agendamento:
 
-        Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 5. Para atualizar um grupo de recursos ou marcação de máquina virtual, execute o runbook **Update-ResourceSchedule** com os seguintes parâmetros:
 
-        Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 ### <a name="remove-a-schedule-tag-with-powershell"></a>Remover uma marcação de agendamento com o PowerShell
 1. Abra uma sessão do PowerShell e execute o seguinte para autenticar com sua conta Executar como, selecionar e especificar uma assinatura:
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
+
 2. Defina os parâmetros exigidos para o runbook. O exemplo a seguir destina-se a uma VM:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01" `
-        ;"VmName"="VM01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01";"VmName"="VM01"}
+    ```
 
     Se você estiver removendo uma marcação de um grupo de recursos, remova o parâmetro *VMName* da tabela de hash $params da seguinte maneira:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```
+
 3. Execute o runbook Remove-ResourceSchedule para remover a marcação Agendamento:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
+
 4. Para atualizar um grupo de recursos ou marcação de máquina virtual, execute o runbook Remove-ResourceSchedule com os seguintes parâmetros:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 > [!NOTE]
-> Recomendamos monitorar proativamente esses runbooks (e o estado da máquina virtual) para verificar se as máquinas virtuais estão sendo devidamente encerradas e iniciadas.  
->
+> Recomendamos monitorar proativamente esses runbooks (e o estado da máquina virtual) para verificar se as máquinas virtuais estão sendo devidamente encerradas e iniciadas.
 >
 
-Para exibir os detalhes do trabalho do runbook Test-ResourceSchedule no Portal do Azure, selecione o bloco **Trabalhos** do runbook. O resumo do trabalho exibe os parâmetros de entrada e o fluxo de saída, além de informações gerais sobre o trabalho e todas as exceções, caso tenham ocorrido.  
+Para exibir os detalhes do trabalho do runbook Test-ResourceSchedule no Portal do Azure, selecione o bloco **Trabalhos** do runbook. O resumo do trabalho exibe os parâmetros de entrada e o fluxo de saída, além de informações gerais sobre o trabalho e todas as exceções, caso tenham ocorrido.
 
 O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de erro. Selecione o bloco de **Saída** para exibir os resultados detalhados da execução do runbook.
 
-![Saída do Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
+![Saída do Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
@@ -212,6 +244,6 @@ O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de err
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

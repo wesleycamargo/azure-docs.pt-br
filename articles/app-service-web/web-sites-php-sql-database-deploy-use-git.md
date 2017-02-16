@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 58791f5362182596de8b792c408e392d8d6cbb95
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7dbb3ab55607e377abc3c91c7ee3e938248a676
 
 
 ---
 # <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>Criar um aplicativo Web PHP-SQL e implantá-lo no Serviço de Aplicativo do Azure usando Git
-Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress] os [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) e [Git][install-git] instalado no computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo web do PHP no [serviço de aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que se conecta ao banco de dados SQL do Azure e como implantá-lo usando o Git. Este tutorial presume que você tenha [PHP][install-php], [SQL Server Express][install-SQLExpress], [Drivers da Microsoft para SQL Server para PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) e [Git][install-git] instalados em seu computador. Após a conclusão deste guia, você terá um aplicativo Web PHP/SQL em execução no Azure.
 
 > [!NOTE]
 > É possível instalar e configurar PHP, SQL Server Express, os Drivers da Microsoft para SQL Server para PHP usando o [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
@@ -40,7 +40,7 @@ Seguindo este tutorial, você irá criar um aplicativo da web de registro simple
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -89,7 +89,7 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 * **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
 * **createtable.php**: cria a tabela de Banco de Dados SQL para o aplicativo. Este arquivo será usado apenas uma vez.
 
-Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP e SQL Server Expresso definidos em seu computador local e que você habilitou a [Extensão PDO para SQL Server][pdo-sqlsrv].
+Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP e SQL Server Express definidos em sua máquina local, e que você habilitou a [Extensão PDO para SQL Server][pdo-sqlsrv].
 
 1. Crie um Banco de Dados SQL chamado `registration`. Você pode fazer isso a partir do comando `sqlcmd` com estes comandos:
    
@@ -175,7 +175,7 @@ Para executar o aplicativo localmente, siga as etapas abaixo. Observe que essas 
             die(var_dump($e));
         }
    
-    Será necessário que você atualize os valores de <code>$user</code> e <code>$pwd</code> com seu nome de usuário e senha do MySQL local.
+    Mais uma vez, será necessário atualizar os valores de <code>$user</code> e <code>$pwd</code> com seu nome de usuário e senha do MySQL local.
 8. Após o código de conexão do banco de dados, adicione código para inserir informações de registro no banco de dados.
    
         if(!empty($_POST)) {
@@ -280,6 +280,6 @@ Para publicar alterações no aplicativo, siga estas etapas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

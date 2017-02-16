@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Quando você cria um cofre dos Serviços de Recuperação, determina como o arma
 
 Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de arquivos e pastas baixando as credenciais do agente dos Serviços de Recuperação do Microsoft Azure e do cofre.
 
-## <a name="step-3-download-files"></a>Etapa 3: baixar arquivos
+## <a name="step-3---download-files"></a>Etapa 3: baixar arquivos
 1. Clique em **Configurações** no painel do cofre dos Serviços de Recuperação.
    
     ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de 
    
     ![Preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Etapa 4: instalar e registrar o agente
+## <a name="step-4--install-and-register-the-agent"></a>Etapa 4: instalar e registrar o agente
 > [!NOTE]
 > A habilitação do backup pelo portal do Azure estará disponível em breve. Neste momento, você pode usar o agente dos Serviços de Recuperação do Microsoft Azure no local para fazer backup de seus arquivos e pastas.
 > 
@@ -184,6 +184,6 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

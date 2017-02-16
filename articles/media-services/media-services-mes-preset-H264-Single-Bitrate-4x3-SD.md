@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b3a3dc08f410b54626ab44a18e0556f69099b165
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
   
  Este tópico mostra a predefinição `H264 Single Bitrate 4x3 SD` no formato XML e JSON.  
   
- Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
+ Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 1800 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -118,6 +118,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

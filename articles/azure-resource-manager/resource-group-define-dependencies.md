@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 1499ddf06dda6740ccfe1e7b6832998bb33cb1c4
+ms.sourcegitcommit: 5f810a46db4deed9c31db4f7c072c48b0817ebc4
+ms.openlocfilehash: 35ce1f12a3de0a41d400cceebe6aefbadbe51528
 
 
 ---
 # <a name="defining-dependencies-in-azure-resource-manager-templates"></a>Definindo dependências em modelos do Gerenciador de Recursos do Azure
 Para um determinado recurso, pode ser necessário que existam outros recursos antes que o recurso em questão seja implantado. Por exemplo, um SQL Server deve existir antes que você tente implantar um Banco de Dados SQL. Você define essa relação marcando um recurso como dependente do outro. Normalmente, você define uma dependência com o elemento **dependsOn**, mas também pode defini-la por meio da função **reference**. 
 
-O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente.
+O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo. 
 
 ## <a name="dependson"></a>dependsOn
 No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor pode ser uma lista de nomes de recurso separados por vírgula. 
@@ -40,13 +40,20 @@ O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende 
       },
       "dependsOn": [
         "storageLoop",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[variables('loadBalancerName')]",
+        "[variables('virtualNetworkName')]"
       ],
       ...
     }
 
-Para definir uma dependência entre um recurso e os recursos criados por meio de um loop de cópia, defina o elemento dependsOn como o nome do loop. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+No exemplo anterior, uma dependência foi incluída nos recursos criados por meio de um loop de cópia chamado **storageLoop**. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md)
+
+Ao definir dependências, você pode incluir o namespace do provedor de recurso e o tipo de recurso para evitar ambiguidade. Por exemplo, para esclarecer um balanceador de carga e uma rede virtual que possam ter os mesmos nomes que outros recursos, use o seguinte formato:
+
+    "dependsOn": [
+      "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+      "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+    ] 
 
 Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso, uma vez que o desempenho de sua implantação pode ser afetado. Por exemplo, para documentar como os recursos são interconectados, o dependsOn não é a abordagem correta. Você não pode consultar quais recursos foram definidos no elemento dependsOn após a implantação. Ao usar o dependsOn, você potencialmente afeta o tempo de implantação, pois o Resource Manager não implanta paralelamente dois recursos que têm uma dependência. Para documentar relações entre recursos, use a [vinculação de recursos](resource-group-link-resources.md).
 
@@ -110,6 +117,6 @@ Para saber mais, consulte [Função de referência](resource-group-template-func
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

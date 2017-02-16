@@ -1,115 +1,269 @@
 ---
-title: Associações HTTP e de webhook do Azure Functions | Microsoft Docs
-description: Entenda como usar gatilhos e associações HTTP e de webhook no Azure Functions.
+title: "Associações HTTP e de webhook do Azure Functions | Microsoft Docs"
+description: "Entenda como usar gatilhos e associações HTTP e de webhook no Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: mattchenderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
-
+editor: 
+tags: 
+keywords: "azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, HTTP, API, REST"
+ms.assetid: 2b12200d-63d8-4ec1-9da8-39831d5a51b1
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
-ms.author: chrande
+ms.date: 11/18/2016
+ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 412640c0c53ca85dbdc234783ba94afaa807a22a
+ms.openlocfilehash: f1e4ecfd91e161f71115bed31cd41684ed514b5a
+
 
 ---
-# Associações HTTP e de webhook do Azure Functions
+# <a name="azure-functions-http-and-webhook-bindings"></a>Associações HTTP e de webhook do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos e associações HTTP e de webhook no Azure Functions.
+Este artigo explica como configurar e trabalhar com gatilhos e associações HTTP no Azure Functions.
+Com isso, você pode usar o Azure Functions para criar APIs sem servidor e responder a webhooks.
 
-[!INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+O Azure Functions fornece as seguintes associações:
+- Um [gatilho HTTP](#httptrigger) permite invocar uma função com uma solicitação HTTP. Ele pode ser personalizado para responder a [webhooks](#hooktrigger).
+- Uma [associação de saída HTTP](#output) permite responder à solicitação.
 
-## function.json para associações HTTP e de webhook
-O arquivo *function.json* fornece as propriedades pertinentes à solicitação e à resposta.
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Propriedades da solicitação HTTP:
+<a name="httptrigger"></a>
 
-* `name`: nome da variável usada no código de função para o objeto da solicitação (ou o corpo da solicitação no caso de funções do Node.js).
-* `type`: deve ser definido como *httpTrigger*.
-* `direction`: deve ser definido como *in*.
-* `webHookType`: para gatilhos WebHook, os valores válidos são *github*, *slack* e *genericJson*. Para um gatilho HTTP que não seja um WebHook, defina essa propriedade como uma cadeia de caracteres vazia. Para saber mais sobre WebHooks, veja a seção [Gatilhos WebHook](#webhook-triggers) a seguir.
-* `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Veja [Chaves de API](#apikeys) abaixo para saber mais.
+## <a name="http-trigger"></a>Gatilho HTTP
+O gatilho HTTP executará sua função em resposta a uma solicitação HTTP. Você pode personalizá-lo para responder a uma URL específica ou a um conjunto de métodos HTTP. Um gatilho HTTP também pode ser configurado para responder a webhooks. 
 
-Propriedades da resposta HTTP:
+Usando o portal de Functions, você também pode começar agora mesmo usando um modelo predefinido. Selecione **Nova função** e escolha "API e Webhooks" na lista suspensa **Cenário**. Selecione um dos modelos e clique em **Criar**.
 
-* `name`: nome da variável usada no código de função para o objeto de resposta.
-* `type`: deve ser definido como *http*.
-* `direction`: deve ser definido como *out*.
+Por padrão, um gatilho HTTP responderá à solicitação com um código de status HTTP 200 OK e um corpo vazio. Para modificar a resposta, configure uma [associação de saída HTTP](#output)
 
-*function.json* de exemplo:
+### <a name="configuring-an-http-trigger"></a>Configuração de um gatilho HTTP
+Um gatilho HTTP é definido com a inclusão de um objeto JSON semelhante ao que se segue na matriz `bindings` de function.json:
 
 ```json
 {
-  "bindings": [
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "function",
+    "methods": [ "GET" ],
+    "route": "values/{id}"
+},
+```
+A associação dá suporte às seguintes propriedades:
+
+* **name**: obrigatória — o nome da variável usada no código da função para a solicitação ou o corpo da solicitação. Veja [Como trabalhar com um gatilho HTTP no código](#httptriggerusage).
+* **type**: obrigatória — deve ser definida como "httpTrigger".
+* **direction**: obrigatória — deve ser definida como "in".
+* _authLevel_: determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. Veja [Como trabalhar com chaves](#keys) abaixo. O valor pode ser um dos seguintes:
+    * _anonymous_: nenhuma chave API é obrigatória.
+    * _function_: uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.
+    * _admin_: a chave mestra é obrigatória.
+* **methods**: essa é uma matriz dos métodos HTTP para a qual a função responderá. Se não for especificada, a função responderá a todos os métodos HTTP. Veja [Personalização do ponto de extremidade HTTP](#url).
+* **route**: define o modelo da rota, controlando para quais URLs de solicitação sua função responderá. O valor padrão se nenhum for fornecido será `<functionname>`. Veja [Personalização do ponto de extremidade HTTP](#url).
+* **webHookType**: configura o gatilho HTTP para atuar como um receptor de webhook para o provedor especificado. A propriedade _methods_ não deverá ser definida se essa propriedade for escolhida. Veja [Respondendo a webhooks](#hooktrigger). O valor pode ser um dos seguintes:
+    * _genericJson_: um ponto de extremidade de webhook de finalidade geral sem lógica para um provedor específico.
+    * _github_: a função responderá a webhooks GitHub. A propriedade _authLevel_ não deverá ser definida se essa propriedade for escolhida.
+    * _slack_: a função responderá a webhooks Slack. A propriedade _authLevel_ não deverá ser definida se essa propriedade for escolhida.
+
+<a name="httptriggerusage"></a>
+### <a name="working-with-an-http-trigger-from-code"></a>Como trabalhar com um gatilho HTTP no código
+Para funções C# e F#, você pode declarar o tipo de entrada do gatilho para ser `HttpRequestMessage` ou um tipo personalizado. Ao escolher `HttpRequestMessage`, você obterá acesso completo ao objeto de solicitação. Para um tipo personalizado (como um POCO), Functions tentará analisar o corpo da solicitação como JSON para popular as propriedades do objeto.
+
+Para as funções do Node.js, o tempo de execução do Functions fornece o corpo da solicitação em vez de o objeto da solicitação.
+
+Veja [Exemplos de gatilho HTTP](#httptriggersample) para ver os exemplos de uso.
+
+
+<a name="output"></a>
+## <a name="http-response-output-binding"></a>Associação de saída de resposta HTTP
+Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Essa associação requer um gatilho HTTP e permite que você personalize a resposta associada à solicitação do gatilho. Se a associação de saída HTTP não for fornecida, um gatilho HTTP retornará HTTP 200 OK com um corpo vazio. 
+
+### <a name="configuring-an-http-output-binding"></a>Configuração de uma associação de saída HTTP
+Um associação de saída HTTP é definida com a inclusão de um objeto JSON semelhante ao que se segue na matriz `bindings` de function.json:
+
+```json
+{
+    "name": "res",
+    "type": "http",
+    "direction": "out"
+}
+```
+A associação contém as seguintes propriedades:
+
+* **name**: obrigatória — o nome da variável usada no código de função para a resposta. Veja [Como trabalhar com uma associação de saída no código](#outputusage).
+* **type**: obrigatória — deve ser definida como "http".
+* **direction**: obrigatória — deve ser definida como "out".
+
+<a name="outputusage"></a>
+### <a name="working-with-an-http-output-binding-from-code"></a>Como trabalhar com uma associação de saída no código
+Você pode usar o parâmetro de saída (por exemplo, "res") para responder ao chamador http ou webhook. Como alternativa, você pode usar o padrão `Request.CreateResponse()` (C#) ou `context.res` (Node.JS) para retornar a resposta. Para obter exemplos de como usar a segunda opção, veja [Exemplos de gatilho HTTP](#httptriggersample) e [Exemplos de gatilho Webhook](#hooktriggersample).
+
+
+<a name="hooktrigger"></a>
+## <a name="responding-to-webhooks"></a>Resposta a webhooks
+Um gatilho HTTP com a propriedade _webHookType_ será configurada para responder a [webhooks](https://en.wikipedia.org/wiki/Webhook). A configuração básica usa a configuração "genericJson". Isso restringe as solicitações àquelas que usam HTTP POST e com o tipo de conteúdo `application/json`.
+
+O gatilho também pode ser personalizado para um provedor de webhook específico (por exemplo, [GitHub](https://developer.github.com/webhooks/) e [Slack](https://api.slack.com/outgoing-webhooks)). Se um provedor for especificado, o tempo de execução de Functions poderá tratar da lógica de validação do provedor para você.  
+
+### <a name="configuring-github-as-a-webhook-provider"></a>Configuração do Github como um provedor de webhook
+Para responder a webhooks do GitHub, primeiramente crie sua função com um gatilho HTTP e defina a propriedade _webHookType_ como "github". Em seguida, copie a [URL](#url) e a [chave de API](#keys) na página **Adicionar webhook** do seu repositório GitHub. Veja a documentação sobre [como criar webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) do GitHub para saber mais.
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+### <a name="configuring-slack-as-a-webhook-provider"></a>Configuração do Slack como um provedor de webhook
+O webhook do Slack gera um token em vez de permitir que você o especifique, de modo que é preciso configurar uma chave específica de função com o token do Slack. Veja [Como trabalhar com chaves](#keys).
+
+<a name="url"></a>
+## <a name="customizing-the-http-endpoint"></a>Personalização do ponto de extremidade HTTP
+Por padrão, quando você cria uma função para um gatilho HTTP ou WebHook, a função é endereçável com uma rota do formulário:
+
+    http://<yourapp>.azurewebsites.net/api/<funcname> 
+
+Você pode personalizar essa rota usando a propriedade `route` opcional na associação de entrada do gatilho HTTP. Por exemplo, o seguinte arquivo *function.json* define uma propriedade `route` para um gatilho HTTP:
+
+```json
     {
-      "webHookType": "",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "authLevel": "function"
-    },
-    {
-      "name": "res",
-      "type": "http",
-      "direction": "out"
+      "bindings": [
+        {
+          "type": "httpTrigger",
+          "name": "req",
+          "direction": "in",
+          "methods": [ "get" ],
+          "route": "products/{category:alpha}/{id:int?}"
+        },
+        {
+          "type": "http",
+          "name": "res",
+          "direction": "out"
+        }
+      ]
     }
-  ],
-  "disabled": false
-}
 ```
 
-## Gatilhos WebHook
-Um gatilho WebHook é um gatilho HTTP que tem os seguintes recursos projetados para WebHooks:
+Usando esta configuração, a função é agora endereçável com a seguinte rota em vez da rota original.
 
-* Para provedores específicos do WebHook (no momento, o GitHub e o Slack têm suporte), o tempo de execução do Functions valida a assinatura do provedor.
-* Para as funções do Node.js, o tempo de execução do Functions fornece o corpo da solicitação em vez de o objeto da solicitação. Não há nenhum tratamento especial para as funções do C#, já que você controla o que é fornecido ao especificar o tipo de parâmetro. Se você especificar `HttpRequestMessage`, obterá o objeto da solicitação. Se você especificar um tipo POCO, o tempo de execução do Functions tentará analisar um objeto JSON no corpo da solicitação para preencher as propriedades do objeto.
-* Para disparar uma função WebHook, a solicitação HTTP deverá incluir uma chave de API. Para os gatilhos HTTP não WebHook, esse requisito é opcional.
+    http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-Para saber mais sobre como configurar um WebHook do GitHub, veja [GitHub Developer - criando WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
+Isso permite que o código de função dê suporte a dois parâmetros no endereço, "category" e "id". Você pode usar qualquer [Restrição de rota de API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com seus parâmetros. O seguinte código de função em C# faz uso de ambos os parâmetros.
 
-## URL para disparar a função
-Para disparar uma função, você pode enviar para uma URL uma solicitação HTTP que seja uma combinação da URL do aplicativo de funções e do nome da função:
-
+```csharp
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+                                                    TraceWriter log)
+    {
+        if (id == null)
+           return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+        else
+           return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    }
 ```
- https://{function app name}.azurewebsites.net/api/{function name} 
+
+Aqui está o código de função do Node.js para usar os mesmos parâmetros de rota.
+
+```javascript
+    module.exports = function (context, req) {
+
+        var category = context.bindingData.category;
+        var id = context.bindingData.id;
+
+        if (!id) {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: "All " + category + " items were requested."
+            };
+        }
+        else {
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: category + " item with id = " + id + " was requested."
+            };
+        }
+
+        context.done();
+    } 
 ```
 
-## Chaves de API
-Por padrão, uma chave de API deve ser incluída com uma solicitação HTTP para disparar uma função HTTP ou WebHook. A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. Para as funções não WebHook, você pode indicar que uma chave de API não é necessária, definindo a propriedade `authLevel` como "anonymous" no arquivo *function.json*.
-
-Você pode encontrar os valores de chave de API na pasta *D:\\home\\data\\Functions\\secrets* no sistema de arquivos do aplicativo de função. A chave mestra e a chave de função são definidas no arquivo *host.json*, como mostra este exemplo.
+Por padrão, todas as rotas de função são prefixadas com *api*. Você também pode personalizar ou remover o prefixo usando a propriedade `http.routePrefix` em seu arquivo *host.json*. O exemplo a seguir remove o prefixo de rota *api* usando uma cadeia de caracteres vazia para o prefixo no arquivo *host.json*.
 
 ```json
-{
-  "masterKey": "K6P2VxK6P2VxK6P2VxmuefWzd4ljqeOOZWpgDdHW269P2hb7OSJbDg==",
-  "functionKey": "OBmXvc2K6P2VxK6P2VxK6P2VxVvCdB89gChyHbzwTS/YYGWWndAbmA=="
-}
+    {
+      "http": {
+        "routePrefix": ""
+      }
+    }
 ```
 
-A chave de função do *host.json* pode ser usada para disparar qualquer função, mas não irá disparar uma função desabilitada. A chave mestra pode ser usada para disparar qualquer função e irá disparar uma função mesmo se ela estiver desabilitada. Você pode configurar uma função para exigir a chave mestra ao definir a propriedade `authLevel` como "admin".
+Para obter informações detalhadas sobre como atualizar o arquivo *host.json* de sua função, consulte [Como atualizar os arquivos de aplicativo de funções](functions-reference.md#fileupdate). 
 
-Se a pasta *secrets* contiver um arquivo JSON com o mesmo nome da função, a propriedade `key` nesse arquivo também poderá ser usada para disparar a função e essa chave só funcionará com a função a que se refere. Por exemplo, a chave de API para uma função chamada `HttpTrigger` é especificada em *HttpTrigger.json* na pasta *secrets*. Aqui está um exemplo:
+Para obter informações sobre outras propriedades que você pode configurar no seu arquivo *host.json*, consulte [referência host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
-```json
-{
-  "key":"0t04nmo37hmoir2rwk16skyb9xsug32pdo75oce9r4kg9zfrn93wn4cx0sxo4af0kdcz69a4i"
-}
-```
+
+<a name="keys"></a>
+## <a name="working-with-keys"></a>Como trabalhar com chaves
+HttpTriggers pode aproveitar as chaves para aumentar a segurança. Um HttpTrigger padrão pode usá-las como uma chave de API, exigindo que a chave esteja presente na solicitação. Os webhooks podem usar chaves para autorizar solicitações de várias maneiras, dependendo daquilo a que o provedor oferece suporte.
+
+As chaves são armazenadas como parte do seu aplicativo de funções no Azure e criptografadas em repouso. Para exibir suas chaves, criar novas ou reverter chaves para novos valores, navegue para uma de suas funções dentro do portal e selecione "Gerenciar". 
+
+Há dois tipos de chave:
+- **Chaves de administração**: essas chaves são compartilhadas por todas as funções do aplicativo de funções. Quando usadas como uma chave de API, elas permitem acesso a qualquer função no aplicativo de funções.
+- **Chaves de função**: essas chaves se aplicam apenas às funções específicas sob as quais elas foram definidas. Quando usadas como uma chave de API, elas permitem acesso apenas às funções em questão.
+
+Cada chave é denominada para referência, e há uma chave padrão (chamada "default") no nível de função e administração. A **chave mestra** é uma chave de administração padrão chamada "_master" definida para cada aplicativo de funções e não pode ser revogada. Ela fornece acesso administrativo às APIs de tempo de execução. O uso de `"authLevel": "admin"` no JSON de associação exigirá que essa chave seja apresentada na solicitação; qualquer outra chave resultará em falha na autorização.
 
 > [!NOTE]
-> Quando você estiver configurando um gatilho WebHook, não compartilhe a chave mestra com o provedor WebHook. Use uma chave que só funcione com a função que processa o WebHook. A chave mestra pode ser usada para disparar qualquer função, até mesmo as funções desabilitadas.
+> Devido às permissões elevadas concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em aplicativos cliente nativos. Tenha cuidado ao escolher o nível de autorização do administrador.
 > 
 > 
 
-## Código C# de exemplo para uma função de gatilho HTTP
-O código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
+### <a name="api-key-authorization"></a>Autorização da chave de API
+Por padrão, um HttpTrigger requer uma chave de API na solicitação HTTP. Portanto, sua solicitação HTTP geralmente se parecerá como esta:
 
+    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+
+A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, como acima, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. O valor da chave pode ser qualquer chave de função definida para a função ou qualquer chave de administração.
+
+Você pode optar por permitir solicitações sem chaves ou especificar que a chave mestra deve ser usada, bastando alterar a propriedade `authLevel` no JSON de associação (veja [Gatilho HTTP](#httptrigger)).
+
+### <a name="keys-and-webhooks"></a>Chaves e webhooks
+A autorização de webhook é tratada pelo componente receptor do webhook, parte do HttpTrigger, e o mecanismo varia com base no tipo de webhook. No entanto, cada mecanismo depende de uma chave. Por padrão, a chave de função chamada "default" será usada. Se desejar usar outra chave, você precisará configurar o provedor do webhook para enviar o nome da chave com a solicitação de uma das seguintes maneiras:
+
+- **Cadeia de caracteres de consulta**: o provedor passa o nome da chave no parâmetro de cadeia de caracteres de consulta `clientid` (por exemplo, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+- **Cabeçalho da solicitação**: o provedor passa o nome da chave no cabeçalho `x-functions-clientid`.
+
+> [!NOTE]
+> As chaves de função têm precedência sobre as chaves de administração. Se duas chaves forem definidas com o mesmo nome, a chave de função será usada.
+> 
+> 
+
+
+<a name="httptriggersample"></a>
+## <a name="http-trigger-samples"></a>Exemplos de gatilho HTTP
+Suponha que você tenha o seguinte gatilho HTTP na matriz `bindings` de function.json:
+
+```json
+{
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+    "authLevel": "function"
+},
+```
+
+Veja o exemplo específico de linguagem que procura um parâmetro `name` na cadeia de caracteres de consulta ou no corpo da solicitação HTTP.
+
+* [C#](#httptriggercsharp)
+* [F#](#httptriggerfsharp)
+* [Node.js](#httptriggernodejs)
+
+
+<a name="httptriggercsharp"></a>
+### <a name="http-trigger-sample-in-c"></a>Exemplo de gatilho HTTP em C# #
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -135,9 +289,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 }
 ```
 
-## Código F# de exemplo para uma função de gatilho HTTP
-O código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
-
+<a name="httptriggerfsharp"></a>
+### <a name="http-trigger-sample-in-f"></a>Exemplo de gatilho HTTP em F# #
 ```fsharp
 open System.Net
 open System.Net.Http
@@ -160,7 +313,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-Você precisará de um arquivo `project.json` que usa o NuGet para fazer referência a assemblies `FSharp.Interop.Dynamic` e `Dynamitey`, como este:
+Você precisa de um arquivo `project.json` que usa o NuGet para fazer referência aos assemblies `FSharp.Interop.Dynamic` e `Dynamitey`, como este:
 
 ```json
 {
@@ -177,9 +330,8 @@ Você precisará de um arquivo `project.json` que usa o NuGet para fazer referê
 
 Isso usará o NuGet para buscar suas dependências e fará referência a elas em seu script.
 
-## Código Node.js de exemplo para uma função de gatilho HTTP
-Este código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
-
+<a name="httptriggernodejs"></a>
+### <a name="http-trigger-sample-in-nodejs"></a>Exemplo de gatilho HTTP em Node.JS
 ```javascript
 module.exports = function(context, req) {
     context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
@@ -200,9 +352,30 @@ module.exports = function(context, req) {
 };
 ```
 
-## Código C# de exemplo para uma função WebHook do GitHub
-Este código de exemplo registra em log comentários sobre problemas do GitHub.
 
+
+<a name="hooktriggersample"></a>
+## <a name="webhook-samples"></a>Exemplos de webhook
+Suponha que você tenha o seguinte gatilho de webhook na matriz `bindings` de function.json:
+
+```json
+{
+    "webHookType": "github",
+    "name": "req",
+    "type": "httpTrigger",
+    "direction": "in",
+},
+```
+
+Veja o exemplo específico de linguagem que registra comentários de problemas do GitHub.
+
+* [C#](#hooktriggercsharp)
+* [F#](#hooktriggerfsharp)
+* [Node.js](#hooktriggernodejs)
+
+<a name="hooktriggercsharp"></a>
+
+### <a name="webhook-sample-in-c"></a>Exemplo de webhook em C# #
 ```csharp
 #r "Newtonsoft.Json"
 
@@ -224,9 +397,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 }
 ```
 
-## Código F# de exemplo para uma função WebHook do GitHub
-Este código de exemplo registra em log comentários sobre problemas do GitHub.
+<a name="hooktriggerfsharp"></a>
 
+### <a name="webhook-sample-in-f"></a>Exemplo de webhook em F# #
 ```fsharp
 open System.Net
 open System.Net.Http
@@ -248,9 +421,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## Código Node.js de exemplo para uma função WebHook do GitHub
-Este código de exemplo registra em log comentários sobre problemas do GitHub.
+<a name="hooktriggernodejs"></a>
 
+### <a name="webhook-sample-in-nodejs"></a>Exemplo de webhook em Node.JS
 ```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
@@ -259,7 +432,13 @@ module.exports = function (context, data) {
 };
 ```
 
-## Próximas etapas
-[!INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+## <a name="next-steps"></a>Próximas etapas
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

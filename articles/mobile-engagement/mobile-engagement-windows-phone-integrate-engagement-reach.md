@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 72f69e334172ad69bedb9c8fc4d270a607d1598f
 
 
 ---
@@ -116,7 +116,7 @@ O objeto EngagementReach fornece dois métodos para gerenciar o opt-in/opt-out, 
 
 Também é possível decidir desativar o MPNS por meio da configuração do Engagement \<windows-phone-sdk-reach-configuration\>..
 
-> 2.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão expressa do usuário (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por parar de receber notificações por push**. Todas as notificações fornecidas usando o Serviço de Notificação por Push do Windows devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de Aplicativo][Políticas de conteúdo] aplicáveis e com os [Requisitos Adicionais para Tipos Específicos de Aplicativo].
+> 2.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão expressa do usuário (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por parar de receber notificações por push**. Todas as notificações fornecidas usando o Serviço de Notificação por Push da Microsoft devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de aplicativo][Content Policies] e [Requisitos adicionais para tipos específicos de aplicativo] aplicáveis.
 > 
 > 
 
@@ -280,12 +280,12 @@ Você pode definir o retorno de chamada em seu método `Application_Launching` d
 > 
 
 [Políticas de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[Políticas de conteúdo]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[Requisitos Adicionais para Tipos Específicos de Aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[Content Policies]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[Requisitos adicionais para tipos específicos de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

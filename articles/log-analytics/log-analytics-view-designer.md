@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
 
 
 ---
@@ -66,7 +66,7 @@ Para excluir um modo de exibição existente, abra o modo de exibição clicando
 ![Excluir um modo de exibição](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Exportar um modo de exibição existente
-Você pode exportar um modo de exibição para um arquivo JSON que pode importar para outro espaço de trabalho ou usar em um [o modelo do Azure Resource Manager](../resource-group-authoring-templates.md).  Para exportar um modo de exibição existente, abra o modo de exibição clicando em seu bloco, no painel principal do OMS.  Em seguida, clique no botão **Exportar** para criar um arquivo na pasta de download do navegador.  O nome do arquivo será o nome do modo de exibição com a extensão *omsview*.
+Você pode exportar um modo de exibição para um arquivo JSON que pode importar para outro espaço de trabalho ou usar em um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Para exportar um modo de exibição existente, abra o modo de exibição clicando em seu bloco, no painel principal do OMS.  Em seguida, clique no botão **Exportar** para criar um arquivo na pasta de download do navegador.  O nome do arquivo será o nome do modo de exibição com a extensão *omsview*.
 
 ![Exportar um modo de exibição](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -99,6 +99,6 @@ Os modos de exibição têm apenas uma linha de partes da visualização.  Reorg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

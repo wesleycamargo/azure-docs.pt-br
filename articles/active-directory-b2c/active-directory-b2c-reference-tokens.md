@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52360ffc7224ad6ec2009e239ee1aa0b35c7f1cc
+ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
+ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
 
 
 ---
@@ -80,8 +80,9 @@ Observe que as declarações em tokens de ID não são retornadas em uma ordem e
 | Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código é incluído em um token de ID apenas quando o token é emitido junto com um código de autorização OAuth 2.0. Um hash de código pode ser usado para validar a autenticidade de um código de autorização. Confira a [Especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para obter mais detalhes sobre como realizar essa validação. |
 | Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso é incluído em um token de ID apenas quando o token é emitido junto com um token de acesso OAuth 2.0. Um hash de token de acesso pode ser usado para validar a autenticidade de um token de acesso. Confira a [Especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para obter mais detalhes sobre como realizar essa validação. |
 | Nonce |`nonce` |`12345` |Um nonce é uma estratégia usada para reduzir ataques de reprodução de token. O aplicativo pode especificar um nonce em uma solicitação de autorização usando o parâmetro de consulta `nonce` . O valor que você fornecer na solicitação será emitido sem modificações na declaração `nonce` de um token de ID somente. Isso permite ao aplicativo verificar o valor em relação ao valor que ele especificou na solicitação, que associa a sessão do aplicativo a determinado token de ID. O aplicativo deve executar essa validação durante o processo de validação do token de ID. |
-| Assunto |`sub` |`Not supported currently. Use oid claim.` |Essa é uma entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. No entanto, a declaração do assunto ainda não está implementada no Azure AD B2C. Você deve configurar suas políticas para incluir a declaração `oid` de ID de objeto e usar seu valor para identificar os usuários, em vez de usar a declaração de entidade para autorização. |
-| Referência de classe de contexto de autenticação |`acr` |`b2c_1_sign_in` |Esse é o nome da política que foi usada para adquirir o token de ID. |
+| Assunto |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Essa é uma entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. Veja este [artigo](active-directory-b2c-token-session-sso.md) para saber mais. |
+| Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não usado atualmente, exceto no caso de políticas mais antigas. Veja este [artigo](active-directory-b2c-token-session-sso.md) para saber mais. |
+| Política Trustframework |`tfp` |`b2c_1_sign_in` |Esse é o nome da política que foi usada para adquirir o token de ID. |
 | Hora da autenticação |`auth_time` |`1438535543` |Essa declaração é a hora em que um usuário inseriu credenciais pela última vez, representada na época. |
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
@@ -155,6 +156,6 @@ Os tempos de vida de token a seguir são fornecidos para expandir seus conhecime
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

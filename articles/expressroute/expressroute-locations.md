@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/18/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
-ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
+ms.sourcegitcommit: dcee5436a7bb377f37d6db2701c2e5df2e41944f
+ms.openlocfilehash: e7a511efdf89d299ba309b9a812092411a55c08d
 
 
 ---
@@ -35,20 +35,21 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal+, Cidade de Quebec+, Toronto |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal+, Cidade de Quebec+, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
 | **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Mumbai |
+| **Coreia do Sul** | Coreia Central, Sul da Coreia | Busan, Seul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões e limites geopolíticos para nuvens nacionais
 A tabela a seguir fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- | --- |
-| **Nuvem do Governo dos EUA** |Gov Iowa-EUA, Gov Virginia-EUA |Chicago, Dallas, Nova York, Washington, D.C. |
+| **Nuvem do Governo dos EUA** |Gov. EUA - Iowa, Gov. EUA - Virgínia, US DoD Central +, US DoD Leste +  |Chicago, Los Angeles, Nova York, Vale do Silício+, Washington, D.C. |
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
@@ -71,11 +72,11 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Suportado |Suportado |Amsterdã, Hong Kong, Londres, Vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 | **[CenturyLink](http://www.centurylink.com/business/enterprise/services/data-network/mpls-vpn.html)** |Em breve |Em breve |Vale do Silício |
 | **China Telecom Global** |Suportado |Sem suporte |Hong Kong |
-| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Suportado |Suportado |Dallas, Montreal+, Toronto |
+| **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Suportado |Suportado |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportado |Amsterdã, Dublin, Londres, Tóquio |
 | **Comcast** |Suportado |Suportado |Chicago, Vale do Silício, Washington D.C. |
 | **Console**| Suportado | Suportado |Vale do Silício |
-| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Los Angeles |
+| **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportado |Los Angeles, Nova York |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Amsterdã, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, Nova York, Osaka, Paris+, São Paulo, Seattle, Vale do Silício, Cingapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **euNetworks** |Suportado |Suportado |Amsterdã |
 | **GÉANT** |Suportado |Suportado |Amsterdã |
@@ -84,7 +85,8 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Internet Solutions - Cloud Connect** |Suportado |Suportado |Amsterdã, Londres |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Suportado |Suportado |Amsterdã, Londres, Paris |
 | **Jisc** |Suportado |Suportado |Londres |
-| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Las Vegas+, Londres, Seattle, SVale do Silício, Washington, D.C. |
+| **[KPN](http://www.kpn.com/cloudconnect)** | Suportado | Suportado | Amsterdã | 
+| **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Amsterdã, Chicago, Dallas, Las Vegas+, Londres, Seattle, Vale do Silício, Cingapura, Washington, D.C. |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportado |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, Nova Iorque, Seattle, Cingapura, Sydney, Toronto, Washington D.C. |
 | **MTN** |Suportado |Suportado |Londres |
 | **[Dados da Próxima Geração](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
@@ -112,8 +114,9 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Provedor de serviços** | **Microsoft Azure** | **Office 365** | **Locais** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Chicago, Washington D.C. |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova York, Washington, D.C. |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Los Angeles, Nova York, Vale do Silício+, Washington, D.C. |
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Nova York+, Washington, D.C. |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportado | Dallas |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Suportado |Suportado |Chicago, Dallas, Nova York, Washington, D.C. |
 
 ### <a name="china"></a>China
@@ -130,6 +133,7 @@ Para saber mais, confira [Rota Expressa na China](http://www.windowsazure.cn/hom
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Suportado |Sem suporte |Frankfurt |
 | **e-shelter** |Suportado |Sem suporte |Berlim |
 | **Interxion** |Suportado |Sem suporte |Frankfurt |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado  | Sem suporte | Berlim+ |
 
 ## <a name="a-namenonpartnersaconnectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Conectividade por meio de provedores de serviços não listados
 Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
@@ -171,15 +175,15 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 | **Integrador de Sistema** | **Continent** |
 | --- | --- |
-| **[Avanade Inc.](http://www.avanade.com/)** |Ásia, Europa, EUA |
-| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europa |
-| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |EUA |
+| **[Avanade Inc.](http://www.avanade.com/)** | Ásia, Europa, América do Norte, América do Sul |
+| **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** | Europa |
+| **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | América do Norte |
 | **[Consultora de TI](http://itconsult.com.au/microsoft-expressroute)** | Austrália |
 | **[Serviços de Mensagem](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Alemanha) |
-| **[Nelite](http://nelite.com/)** |Europa |
-| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Ásia |
-| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |EUA |
-| **[Project Leadership](http://www.projectleadership.net/azure)** |EUA |
+| **[Nelite](http://nelite.com/)** | Europa |
+| **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Ásia |
+| **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | América do Norte |
+| **[Project Leadership](http://www.projectleadership.net/azure)** | América do Norte |
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -191,6 +195,6 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

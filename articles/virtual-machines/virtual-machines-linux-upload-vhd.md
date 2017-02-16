@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 125833947af591d4f8995d803b5ee922679f6c8e
+ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
+ms.openlocfilehash: edab3b3058a2e28ce74e62434b85b1643f267493
 
 
 ---
@@ -220,7 +220,7 @@ No provedor `Microsoft.Compute/virtualMachines` do seu modelo, haverá um nó `s
           }
 ```
 
-Você pode usar [este modelo existente para criar uma VM de uma imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou ler sobre como [criar seus próprios modelos do Azure Resource Manager](../resource-group-authoring-templates.md). 
+Você pode usar [este modelo existente para criar uma VM de uma imagem personalizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou ler sobre como [criar seus próprios modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 Depois de configurar um modelo, crie suas VMs usando o comando `azure group deployment create` . Especifique o URI do modelo JSON com o parâmetro `--template-uri` :
 
@@ -243,6 +243,6 @@ Depois de preparar e carregar seu disco virtual personalizado, leia mais sobre c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

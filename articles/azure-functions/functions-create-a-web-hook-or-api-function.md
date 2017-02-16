@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,7 +34,7 @@ O vídeo a seguir mostra como executar as etapas básicas deste tutorial
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Criar uma função disparada por webhook por meio do modelo
-Um aplicativo de função hospeda a execução de suas funções no Azure. Antes de criar uma função, você precisa ter uma conta ativa do Azure. Se você ainda não tiver uma conta do Azure, [há contas gratuitas disponíveis](https://azure.microsoft.com/free/). 
+Um aplicativo de função hospeda a execução de suas funções no Azure. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar Funções](https://functions.azure.com/try) ou [criar uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
 1. Vá para o [portal do Azure Functions](https://functions.azure.com/signin) e entre com sua conta do Azure.
 
@@ -50,9 +50,12 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. Antes
 
 1. Copie a **URL de Função** e os valores do **Segredo do GitHub**. Você precisará desses valores ao criar o webhook no GitHub. 
 
-2. Role para baixo até **Executar**, observe o corpo JSON predefinido de um comentário do problema no corpo da Solicitação e clique em **Executar**. 
+2. Clique em **Testar**, observe o corpo JSON predefinido de um comentário do problema no **Corpo da solicitação** e clique em **Executar**. 
+
+    ![Testar função webhook no portal](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Você sempre poderá testar uma nova função baseada em modelo direitamente na guia **Desenvolver** fornecendo todos os dados JSON de corpo esperados e clicando no botão **Executar**. Nesse caso, o modelo tem um corpo predefinido para um comentário do problema. 
+    > [!NOTE]
+    > Você sempre poderá testar uma nova função baseada em modelo direitamente na guia **Desenvolver** fornecendo todos os dados JSON de corpo esperados e clicando no botão **Executar**. Nesse caso, o modelo tem um corpo predefinido para um comentário do problema. 
 
 Em seguida, você criará o webhook real no repositório GitHub.
 
@@ -91,6 +94,6 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

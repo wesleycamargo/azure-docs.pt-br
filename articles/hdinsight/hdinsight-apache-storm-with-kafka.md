@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/09/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: e1c99bbe9d6317d83cc5e71ca4f79d862223aa0a
-ms.openlocfilehash: 080def517b9a443d33148354226a394494a66e03
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Usar o Apache Kafka (visualização) com o Storm no HDInsight
@@ -29,8 +29,6 @@ O Apache Kafka é uma solução de publicação e assinatura de mensagens que es
 > Quando terminar as etapas deste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma assinatura do Azure
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 1.8 ou superior. Ou um equivalente, como [OpenJDK](http://openjdk.java.net/).
   
@@ -324,6 +322,6 @@ Para obter informações sobre como implantar e monitorar topologias no HDInsigh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

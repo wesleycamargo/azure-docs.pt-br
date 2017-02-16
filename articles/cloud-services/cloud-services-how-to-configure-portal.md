@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/07/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d681490c174d73361633a9e0e63208eea993e6
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: 6c07bae5b0e6d16925da661e423cb6d80d4f3f15
 
 
 ---
@@ -52,7 +52,7 @@ Você pode adicionar alertas para o seu serviço de nuvem. Clique em **Configura
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica** , você pode configurar um alerta para os seguintes tipos de dados.
+Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você pode configurar um alerta para os seguintes tipos de dados.
 
 * Leitura de disco
 * Gravação de disco
@@ -81,7 +81,7 @@ Na folha que é aberta, você pode iniciar uma conexão de área de trabalho rem
 ![Botões de instância de serviço de nuvem](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## <a name="reconfigure-your-cscfg"></a>Reconfigurar seu .cscfg
-Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo de [configuração de serviço (cscfg)](cloud-services-model-and-package.md#cscfg) . Primeiro, você precisa baixar o arquivo .cscfg, modificá-lo e carregá-lo.
+Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da [configuração de serviço (cscfg)](cloud-services-model-and-package.md#cscfg). Primeiro, você precisa baixar o arquivo .cscfg, modificá-lo e carregá-lo.
 
 1. Clique no ícone **Configurações** ou no link **Todas as configurações** para abrir a folha **Configurações**.
    
@@ -106,6 +106,6 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

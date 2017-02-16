@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/08/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 53b827f15fcba26630dd470c2c9e5bbc87919c84
-ms.openlocfilehash: 79270aa5650f4ac149b582204b3c0e41d099765b
+ms.sourcegitcommit: 4faf01ca10f263a5ecc18f51659b5004bf4f7c36
+ms.openlocfilehash: 3ca870da1a01bc216604cdd1142ba68dfd5e96e2
 
 
 ---
@@ -68,12 +68,13 @@ O Enterprise Integration oferece suporte a estes padrões do setor:
 * [Validação de mensagem XML](app-service-logic-enterprise-integration-xml.md "Aprenda a validar mensagens XML com Aplicativos lógicos")
 * [Transformação de XML](app-service-logic-enterprise-integration-transform.md "Saiba mais sobre mapas da integração corporativa")
 * [Conectores de integração Enterprise](../connectors/apis-list.md "Saiba mais sobre os conectores do enterprise integration pack")
+* [Metadados da conta de integração](app-service-logic-enterprise-integration-metadata.md "Saiba mais sobre os metadados da conta de integração")
 * [Monitorar mensagens B2B](app-service-logic-monitor-b2b-message.md "Saiba mais sobre o monitoramento de mensagens B2B")
 * [Rastreando mensagens B2B no portal do OMS](app-service-logic-track-b2b-messages-omsportal.md "Saiba mais sobre o acompanhamento de mensagens B2B no portal do OMS")
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ea4948b39b4d17cf3661e54415ff94519127a58
+ms.sourcegitcommit: 4f8d2956e9f0240392ba839b076d632ccc45d728
+ms.openlocfilehash: 3217399ee868707309e96234d4954548b063534a
 
 
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview-use-azure-powershell"></a>Configurar clusters HDInsight ingressados no domínio (Visualização) usando o Azure PowerShell
+# <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>Configurar clusters HDInsight ingressados no domínio (visualização) usando o Azure PowerShell
 Saiba como configurar um cluster Azure HDInsight com o Azure AD (Azure Active Directory) e o [Apache Ranger](http://hortonworks.com/apache/ranger/) usando o Azure PowerShell. Um script do Azure PowerShell é fornecido para tornar a configuração mais rápida e menos sujeita a erros. O HDInsight ingressado em domínio só pode ser configurado em clusters baseados em Linux. Para obter mais informações, consulte [Introduzir clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md).
 
 Uma configuração típica de cluster HDInsight ingressado em um domínio envolve as seguintes etapas:
@@ -39,9 +39,9 @@ O script do PowerShell fornecido executa as etapas 3 a 7. Você deve percorrer a
 
 Um exemplo de topologia final será semelhante ao seguinte:
 
-![Topologia de HDInsight ingressado no domínio](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Topologia de HDInsight ingressado no domínio](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-Já que o Azure AD dá suporte atualmente apenas a VNets (redes virtuais) clássicas e os clusters HDInsight baseados em Linux dão suporte apenas a VNets com base no Azure Resource Manager, a integração do Azure AD do HDInsight requer duas VNets e um emparelhamento entre elas. Para as informações de comparação entre os dois modelos de implantação, veja [Implantação do Azure Resource Manager versus clássica: compreenda os modelos de implantação e o estado de seus recursos](../resource-manager-deployment-model.md). As duas VNets devem estar na mesma região que o Azure AD DS.
+Já que o Azure AD dá suporte atualmente apenas a VNets (redes virtuais) clássicas e os clusters HDInsight baseados em Linux dão suporte apenas a VNets com base no Azure Resource Manager, a integração do Azure AD do HDInsight requer duas VNets e um emparelhamento entre elas. Para as informações de comparação entre os dois modelos de implantação, veja [Implantação do Azure Resource Manager versus clássica: compreenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/resource-manager-deployment-model.md). As duas VNets devem estar na mesma região que o Azure AD DS.
 
 > [!NOTE]
 > Este tutorial presume que você não tenha um Azure AD. Se você tiver um, poderá ignorar a parte contida na etapa 2.
@@ -54,7 +54,7 @@ Você deve ter os seguintes itens para percorrer este tutorial:
 * Familiarize-se com o [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) e sua estrutura de [preços](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 * Certifique-se de que sua assinatura está na lista de permissões para essa visualização pública. Você pode fazer isso enviando um email para hdipreview@microsoft.com com sua ID da assinatura.
 * Um certificado SSL assinado por uma autoridade de autenticação para seu domínio. O certificado é necessário para configurar o LDAP seguro. Os certificados autoassinados não podem ser usados.
-* PowerShell do Azure.  Confira [Instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+* PowerShell do Azure.  Confira [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-an-azure-classic-vnet-for-your-azure-ad"></a>Crie uma VNet clássica do Azure para o Azure AD.
 Para instruções, confira [aqui](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
@@ -105,7 +105,7 @@ O script do PowerShell pode ser baixado no [GitHub](https://github.com/hdinsight
 Durante a criação de zonas DNS reversas, o script solicitará que você insira uma identificação de rede. Essa ID de rede deve ser o prefixo de endereço da rede virtual do Gerenciador de Recursos. Por exemplo, se seu espaço de endereço de sub-rede da rede virtual do Gerenciador de Recursos é 10.2.0.0/24, digite 10.2.0.0/24 quando a ferramenta solicita a ID de rede. 
 
 ## <a name="create-hdinsight-cluster"></a>Criar cluster HDInsight
-Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o Portal do Azure ou então o [modelo do Azure Resource Manager](../resource-group-template-deploy.md). Para outros métodos de criação de cluster e noções básicas sobre as configurações, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo do Resource Manager para criar clusters Hadoop no HDInsight, confira [Criar clusters Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o Portal do Azure ou então o [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Para outros métodos de criação de cluster e noções básicas sobre as configurações, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo do Resource Manager para criar clusters Hadoop no HDInsight, confira [Criar clusters Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 **Para criar um cluster HDInsight ingressado no Domínio usando o Portal do Azure**
 
@@ -156,7 +156,7 @@ Outra opção para criar o cluster HDInsight de domínio é usar um modelo do Az
 
 1. Clique na imagem a seguir para abrir um modelo do Resource Manager no Portal do Azure. O modelo do Resource Manager está localizado em um contêiner de blob público. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Na folha **Parâmetros**, insira os seguintes valores:
    
    * **Assinatura**: (Selecione sua assinatura do Azure).
@@ -183,12 +183,13 @@ Outra opção para criar o cluster HDInsight de domínio é usar um modelo do Az
 Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDInsight, seus dados são armazenados no Armazenamento do Azure, assim você poderá excluir, com segurança, um cluster quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes maiores do que os encargos para armazenamento, faz sentido, do ponto de vista econômico, excluir os clusters quando não estiverem em uso. Para obter instruções sobre como excluir um cluster, confira [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar políticas do Hive e executar consultas do Hive, confira [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurar políticas do Hive para clusters do HDInsight Ingressado no Domínio).
-* Para executar consultas do Hive usando SSH em clusters do HDInsight Ingressado no Domínio, confira [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster) (Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X).
+
+* Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
+* Para usar SSH para conectar-se a clusters do HDInsight Ingressados no Domínio, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

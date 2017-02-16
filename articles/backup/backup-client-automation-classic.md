@@ -1,6 +1,7 @@
 ---
-title: Implantar e gerenciar o backup para o Windows Server/Client usando o PowerShell | Microsoft Docs
-description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
+
+title: Usar o PowerShell para gerenciar backups do Windows Server no Azure | Microsoft Docs
+description: Implantar e gerenciar backups do Windows Server usando o PowerShell.
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
+ms.sourcegitcommit: d8289128414bc67a7c064c827a9bec047f6f22bc
+ms.openlocfilehash: 096c119ad116b87b3e27b71ab9a286d2961cf7df
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: c21c1687221a9e5c218d03ead969f7c52b7fa2ac
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Clássico](backup-client-automation-classic.md)
-> 
-> 
+>
+>
 
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 
@@ -43,8 +44,8 @@ Se você quiser usar seus scripts escritos para o ambiente da versão 0.9.8 no a
 ## <a name="create-a-backup-vault"></a>Criar um cofre de backup
 > [!WARNING]
 > Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Você pode criar um novo cofre de backup usando o cmdlet **New-AzureRMBackupVault** . O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
@@ -123,8 +124,8 @@ Machine registration succeeded.
 
 > [!IMPORTANT]
 > Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
-> 
-> 
+>
+>
 
 ## <a name="networking-settings"></a>Configurações de rede
 Quando a conectividade do computador Windows com a internet for através de um servidor proxy, as configurações de proxy também podem ser fornecidas para o agente. Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
@@ -151,8 +152,8 @@ Server properties updated successfully
 
 > [!IMPORTANT]
 > Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
-> 
-> 
+>
+>
 
 ## <a name="back-up-files-and-folders"></a>Fazer backup de arquivos e pastas
 Todos os seus backups de servidores e clientes Windows para o Azure Backup são controlados por uma política. A política consiste em três partes:
@@ -607,7 +608,6 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

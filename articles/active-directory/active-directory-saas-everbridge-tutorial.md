@@ -1,22 +1,26 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Everbridge | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Everbridge.
+title: "Tutorial: Integração do Azure Active Directory ao Everbridge | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Everbridge."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 11/22/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
+ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>Tutorial: integração do Azure Active Directory ao Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: integração do Azure Active Directory ao Everbridge
 O objetivo desse tutorial é mostrar como integrar o Everbridge ao Azure AD (Azure Active Directory).
 
 A integração do Everbridge ao Azure AD oferece os seguintes benefícios:
@@ -152,7 +156,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-everbridge-tutorial/create_aaduser_09.png)
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -173,17 +177,18 @@ Na lista de usuários, selecione **Brenda Fernandes**.
     c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -248,6 +253,6 @@ Quando você clica no bloco Everbridge no Painel de Acesso, você deve ser conec
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

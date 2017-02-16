@@ -1,6 +1,6 @@
 ---
-title: "Recursos do Mecanismo de Regras de Rede de Distribuição de Conteúdo do Azure | Microsoft Docs"
-description: "Este tópico descreve os recursos e condições de correspondência do Mecanismo de regras"
+title: Recursos do mecanismo de regras CDN do Azure | Microsoft Docs
+description: "Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: a3d8199a9d5d067a4da1e1d40ff99bebc40a5097
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 6703247aa8b4a6d53ff22ea2d4f22eb4a746e370
 
 
 ---
 
-# <a name="features-for-azure-content-delivery-network--cdn-rules-engine"></a>Recursos do Mecanismo de Regras de Distribuição de Conteúdo (CDN) do Azure
+# <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
 A terceira parte de uma regra é o recurso. Um recurso define o tipo de ação que será aplicado ao tipo de solicitação identificado por um conjunto de condições de correspondência.
@@ -207,9 +207,11 @@ Desabilitado|Faz com que os servidores de borda armazenem ativos em cache de aco
 **Comportamento padrão:**
 
 - **HTTP Grande:** Desabilitado
+
 <!---
 - **ADN:** Enabled
 --->
+
 ###<a name="cache-control-header-treatment"></a>Tratamento de Cabeçalho Cache-Control
 **Finalidade:** controla a geração de cabeçalhos de Controle de Cache pelo servidor de borda quando o recurso Idade Máxima Externa está ativo.
 
@@ -560,7 +562,7 @@ Defina um conjunto delimitado por espaços dos códigos de status desejados.
 
 Informações de chave:
 
-- Habilite também o recurso de Ignorar No-Cache de Origem. Se esse recurso não estiver habilitado, respostas não 200 OK não poderão ser armazenadas em cache.
+- Habilite também o recurso de Ignorar No-Cache de Origem. Se esse recurso não estiver habilitado, respostas não&200; OK não poderão ser armazenadas em cache.
 - O conjunto de códigos de status válidos para esse recurso é: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 e 505.
 - Esse recurso não pode ser usado para desabilitar o cache para respostas que geram um código de status 200 OK.
 
@@ -966,7 +968,28 @@ Opção|Descrição
  Destino  |Defina a URL relativa na qual as solicitações acima serão regravadas: <br/>    1. Selecionando um ponto de acesso ao conteúdo que identifica um servidor de origem. <br/>    2. Definindo um caminho relativo usando: <br/>        - Um padrão de expressão regular <br/>        - Variáveis HTTP <br/> <br/> Substitua os valores capturados no padrão de origem no padrão de destino usando $_n_, em que _n_ identifica um valor para a ordem na qual ele foi capturado. Por exemplo, $1 representa o primeiro valor capturado no padrão de origem, enquanto $2 representa o segundo valor. 
  Esse recurso permite que nossos servidores de borda regravem a URL sem executar um redirecionamento tradicional. Isso significa que o solicitante receberá o mesmo código de resposta que obteria se a URL regravada tivesse sido solicitada.
 
-**Cenário de exemplo**
+**Cenário de exemplo 1**
+
+Neste exemplo, demonstraremos como redirecionar uma URL de CNAME de borda que aponta para esta URL base da CDN: http://marketing.azureedge.net/brochures/
+
+As solicitações serão redirecionadas para esta URL CNAME de borda base: http://MyOrigin.azureedge.net/resources/
+
+Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+
+**Cenário de exemplo 2**
+
+Neste exemplo, demonstraremos como redirecionar uma borda CNAME URL de MAIÚSCULAS para minúsculas usando expressões regulares.
+
+Esse redirecionamento de URL pode ser obtido por meio da seguinte configuração:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+
+
+**Pontos principais:**
+
+- O recurso de Reescrita de URL define as URLs de solicitação que serão reescritas. Como resultado, as condições de correspondência adicionais não são necessárias. Embora a condição de correspondência tenha sido definida como "Sempre", somente as solicitações que apontarem para a pasta "folhetos" na origem do cliente de "marketing" serão reescritas.
+
+- Os segmentos da URL que foram capturados da solicitação são acrescentados à nova URL por meio de "$1".
+
+
 
 ###<a name="compatibility"></a>Compatibilidade
 
@@ -998,6 +1021,6 @@ Esse recurso inclui critérios de correspondência que devem ser atendidos para 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdf26c779c73c67f8abc7770415787fd90397e05
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
 
 
 ---
@@ -61,11 +61,11 @@ Para mover os recursos para outra assinatura, inclua o parâmetro **-Destination
 Será solicitado que você confirme se deseja mover os recursos especificados. Digite **Y** para confirmar que deseja mover os recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).    
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).    
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

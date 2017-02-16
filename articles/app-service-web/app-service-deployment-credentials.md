@@ -11,35 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 01/05/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 73753bb96d2c9680ed5d5bdf5eb3780e371c08d3
-ms.openlocfilehash: 53f971624c2c7a7f64eed257aeb0c402461cc7ba
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 43cf4dad58ee0e12a233125049ab4e62411459fe
 
 
 ---
-# <a name="azure-app-service-deployment-credentials"></a>Credenciais de implantação do Serviço de Aplicativo do Azure
-A plataforma do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) é compatível com dois tipos de credencial para implantação de conteúdo.
-* Credenciais de implantação: credenciais no escopo do usuário
-* Perfil de publicação: credenciais no escopo do aplicativo 
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
+O [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](app-service-deploy-local-git.md) e a [implantação de FTP/S](app-service-deploy-ftp.md).
 
-## <a name="a-nameuserscopeauser-scoped-credentials"></a><a name="userscope"></a>Credenciais no escopo do usuário
-As credenciais no escopo do usuário são criadas pelo usuário do Azure e mapeiam diretamente para uma conta da Microsoft, e não para qualquer aplicativo específico do Serviço de Aplicativo. As credenciais de implantação no escopo do usuário podem ser definidas ou redefinidas no [Portal do Azure](https://portal.azure.com), onde cada aplicativo do Serviço de Aplicativo tem um ponto de entrada de edição em **IMPLANTAÇÃO DE APLICATIVO > Credenciais de implantação**. Independentemente do ponto de entrada, as edições para essas credenciais no escopo do usuário se aplicam em toda a conta Microsoft. Essas credenciais são usadas frequentemente para implantação de FTP e Git.
+* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser usado para implantar no Serviço de Aplicativo para qualquer aplicativo e em qualquer assinatura que a conta do Azure tem permissão para acessar. Esses são os conjuntos de credenciais padrão que você configura nos **Serviços de Aplicativos** > **&lt;nome_do_aplicativo>** > **Credenciais de implantação**. Esse também é o conjunto padrão exibido no portal da interface gráfica do usuário (como **Visão geral** e **Propriedades** da [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) do seu aplicativo).
 
-![Credenciais de implantação do Serviço de Aplicativo do Azure](./media/app-service-deployment-credentials/deployment_credentials.png)
- 
-Ao delegar acesso a recursos do Azure por meio de RBAC (Controle de Acesso Baseado em Função) ou permissões de coadministrador, cada usuário do Azure que está recebendo acesso pode usar suas próprias credenciais no escopo do usuário até que o acesso seja revogado. Essas credenciais de implantação não devem ser compartilhadas com outros usuários do Azure.
+    > [!NOTE]
+    > Ao delegar acesso a recursos do Azure por meio de RBAC (Controle de Acesso Baseado em Função) ou permissões de coadministrador, cada usuário do Azure que está recebendo acesso a um aplicativo pode usar suas próprias credenciais no escopo do usuário até que o acesso seja revogado. Essas credenciais de implantação não devem ser compartilhadas com outros usuários do Azure.
+    >
+    >
 
-## <a name="a-nameappscopeaapp-scoped-credentials"></a><a name="appscope"></a>Credenciais no escopo do aplicativo
-As credenciais no escopo do aplicativo são criadas automaticamente pela plataforma do Serviço de Aplicativo. Elas são armazenadas no perfil de publicação XML para cada aplicativo do Serviço de Aplicativo. O perfil de publicação está disponível no [Portal do Azure](https://portal.azure.com) por meio da ação **Obter perfil de publicação** na folha **Visão geral** do aplicativo. Essas credenciais são usadas frequentemente para implantação baseada em WebDeploy. Elas também podem ser usadas para implantação de FTP ou Git. O Visual Studio, que é um ponto de entrada para implantação baseada em WebDeploy é capaz de analisar o perfil de publicação para autenticação.
+* **Credenciais de nível de aplicativo**: um conjunto de credenciais para cada aplicativo. Podem ser usadas para implantar nesse aplicativo somente. As credenciais para cada aplicativo são geradas automaticamente na criação do aplicativo e são encontradas no aplicativo de publicação do perfil. Não é possível configurar manualmente as credenciais, mas é possível redefini-las para um aplicativo a qualquer momento.
 
-![Perfil de publicação do Serviço de Aplicativo do Azure](./media/app-service-deployment-credentials/publish_profile.png)
+## <a name="a-nameuserscopeaset-and-reset-user-level-credentials"></a><a name="userscope"></a>Definir e redefinir credenciais de usuário
 
-Ao delegar acesso a recursos do Azure por meio de RBAC (Controle de Acesso Baseado em Função) ou permissões de coadministrador, cada usuário do Azure que está recebendo acesso pode baixar o mesmo perfil de publicação específico do aplicativo. O perfil de publicação pode ser redefinido a qualquer momento na folha **Visão geral** do aplicativo no Portal do Azure. A redefinição das credenciais no escopo do aplicativo pode ser uma boa ideia após revogar o acesso delegado.
+Você pode configurar as credenciais de usuário na [folha de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de qualquer aplicativo. Independentemente de para qual aplicativo você configura essas credenciais, elas se aplicam a todos os aplicativos e a todas as assinaturas na conta do Azure. 
+
+Para configurar as credenciais de usuário:
+
+1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Credenciais de implantação**.
+
+    > [!NOTE]
+    > No portal, você deve ter pelo menos um aplicativo antes de poder acessar a folha de credenciais de implantação. No entanto, com a [CLI do Azure](app-service-web-app-azure-resource-manager-xplat-cli.md), é possível configurar credenciais de usuário sem um aplicativo existente.
+
+2. Configure o nome de usuário e a senha e, em seguida, clique em **Salvar**.
+
+    ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
+
+Depois que você tiver configurado suas credenciais de implantação, é possível encontrar o nome de usuário de implantação do *Git* na **Visão geral** de seu aplicativo,
+
+![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+
+e o nome de usuário de implantação de *FTP* nas **Propriedades** de seu aplicativo.
+
+![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
+
+> [!NOTE]
+> O Azure não mostra sua senha de implantação de usuário. Se você esquecer a senha, não é possível recuperá-la. No entanto, você pode redefinir suas credenciais seguindo as etapas nesta seção.
+>
+>  
+
+## <a name="a-nameappscopeaget-and-reset-app-level-credentials"></a><a name="appscope"></a>Definir e redefinir credenciais de aplicativo
+Para cada aplicativo no Serviço de Aplicativo, suas credenciais de aplicativo são armazenadas no perfil de publicação XML.
+
+Para definir e redefinir credenciais de aplicativo:
+
+1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Visão geral**.
+
+2. Clique em **...Mais** > **Obter perfil de publicação** e inicie o download de um arquivo .PublishSettings.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_get.png)
+
+3. Abra o arquivo .PublishSettings e localize a marca `<publishProfile>` com o atributo `publishMethod="FTP"`. Em seguida, obtenha seus atributos `userName` e `password`.
+Essas são as credenciais de aplicativo.
+
+    ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
+
+    Assim como as credenciais de usuário, o nome de usuário de implantação de FTP está no formato `<app_name>\<username>` e o nome de usuário de implantação do Git é apenas o `<username>` sem o `<app_name>\` precedente.
+
+Para redefinir as credenciais de aplicativo:
+
+1. No [Portal do Azure](https://portal.azure.com), clique em Serviço de Aplicativo > **&lt;qualquer_aplicativo>** > **Visão geral**.
+
+2. Clique em **...Mais** > **Redefinir perfil de publicação**. Clique em **Sim** para confirmar a redefinição.
+
+    A ação de redefinição invalida quaisquer arquivos .PublishSettings baixados anteriormente.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba como usar essas credenciais para implantar seu aplicativo do [Git local](app-service-deploy-local-git.md) ou usando [FTP/S](app-service-deploy-ftp.md).
 
 
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

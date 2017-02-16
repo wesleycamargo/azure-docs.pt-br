@@ -1,23 +1,26 @@
-
 ---
-title: 'Atualização de aplicativos: parâmetros de atualização | Microsoft Docs'
-description: Descreve os parâmetros relacionados à atualização de um aplicativo do Service Fabric, incluindo verificações de integridade a serem executadas e políticas para desfazer automaticamente a atualização.
+title: "Atualização de aplicativos: parâmetros de atualização | Microsoft Docs"
+description: "Descreve os parâmetros relacionados à atualização de um aplicativo do Service Fabric, incluindo verificações de integridade a serem executadas e políticas para desfazer automaticamente a atualização."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 01/05/2017
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: 5a0362caf0082112b7d9c648c9ecfb893d8ac954
+ms.openlocfilehash: 3f8fb1da14a65454d3c7997de80f399110b3b441
+
 
 ---
-# Parâmetros de atualização de aplicativo
+# <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
 Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Os parâmetros incluem o nome e a versão do aplicativo. Eles são botões que controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha.
 
 <br>
@@ -27,17 +30,18 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 | ApplicationName |Nome do aplicativo que está sendo atualizado. Exemplos: fabric:/VisualObjects, fabric:/ClusterMonitor |
 | TargetApplicationTypeVersion |Versão do tipo de aplicativo visado pela atualização. |
 | FailureAction |A ação tomada pelo Service Fabric se a atualização falhar. O aplicativo pode ser revertido para a versão anterior à atualização (reversão) ou a atualização pode ser interrompida no domínio de atualização atual. No último caso, o modo de atualização também será alterado para Manual. Os valores permitidos são Manual e Reversão. |
-| HealthCheckWaitDurationSec |O tempo de espera (em segundos) após a conclusão da atualização no domínio de atualização antes que o Service Fabric avalie a integridade do aplicativo. Essa duração também pode ser considerada como o tempo pelo qual um aplicativo deve estar em execução antes que possa ser considerado íntegro. Se a verificação de integridade for aprovada, o processo de atualização passa para o próximo domínio de atualização. Se a verificação de integridade falhar, a Malha do Serviço aguarda um intervalo (o UpgradeHealthCheckInterval) antes de tentar novamente a verificação de integridade até que o HealthCheckRetryTimeout seja atingido. O valor padrão recomendado é 0 segundos. |
+| HealthCheckWaitDurationSec |O tempo de espera (em segundos) após a conclusão da atualização no domínio de atualização antes que o Service Fabric avalie a integridade do aplicativo. Essa duração também pode ser considerada como o tempo pelo qual um aplicativo deve estar em execução antes que possa ser considerado íntegro. Se a verificação de integridade for aprovada, o processo de atualização passa para o próximo domínio de atualização.  Se a verificação de integridade falhar, a Malha do Serviço aguarda um intervalo (o UpgradeHealthCheckInterval) antes de tentar novamente a verificação de integridade até que o HealthCheckRetryTimeout seja atingido. O valor padrão recomendado é 0 segundos. |
 | HealthCheckRetryTimeoutSec |A duração (em segundos) em que a Malha de Serviço continua a executar a avaliação de integridade antes de declarar a atualização com falha. O padrão é 600 segundos. Esta duração é iniciada depois que a HealthCheckWaitDuration for atingida. Nesse HealthCheckRetryTimeout, a Malha de Serviço pode executar várias verificações de integridade no aplicativo. O valor padrão é 10 minutos e deve ser adequadamente personalizado para o seu aplicativo. |
 | HealthCheckStableDurationSec |A duração (em segundos) para verificar se o aplicativo é estável antes de passar para o próximo domínio de atualização ou concluir a atualização. Essa duração de espera é usada para impedir que alterações na integridade deixem de ser detectadas logo após a verificação de integridade. O valor padrão é 120 segundos e deve ser adequadamente personalizado para o seu aplicativo. |
 | UpgradeDomainTimeoutSec |Tempo máximo (em segundos) para atualizar um único domínio de atualização. Se esse tempo limite for atingido, a atualização será interrompida e continuará com base na configuração para UpgradeFailureAction. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. |
 | UpgradeTimeout |Um tempo limite (em segundos) que se aplica a toda a atualização. Se esse tempo limite for atingido, a atualização é interrompida e a UpgradeFailureAction será disparada. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. |
-| UpgradeHealthCheckInterval |A frequência com que o status de integridade é verificado. Este parâmetro é especificado na seção ClusterManager do *manifesto* do *cluster*, e não é especificado como parte do cmdlet de atualização. O valor padrão é de 60 segundos. |
+| UpgradeHealthCheckInterval |A frequência com que o status de integridade é verificado. Este parâmetro é especificado na seção ClusterManager do *manifesto* do *cluster* e não é especificado como parte do cmdlet de atualização. O valor padrão é de 60 segundos. |
 
 <br>
 
-## Avaliação de integridade do serviço durante a atualização do aplicativo
-<br> Os critérios de avaliação de integridade são opcionais. Se os critérios de avaliação de integridade não forem especificados ao iniciar uma atualização, o Service Fabric usará as políticas de integridade do aplicativo especificadas no ApplicationManifest.xml da instância do aplicativo.
+## <a name="service-health-evaluation-during-application-upgrade"></a>Avaliação de integridade do serviço durante a atualização do aplicativo
+<br>
+Os critérios de avaliação de integridade são opcionais. Se os critérios de avaliação de integridade não forem especificados ao iniciar uma atualização, o Service Fabric usará as políticas de integridade do aplicativo especificadas no ApplicationManifest.xml da instância do aplicativo.
 
 <br>
 
@@ -51,10 +55,12 @@ Este artigo descreve os vários parâmetros que se aplicam durante a atualizaç�
 | UpgradeReplicaSetCheckTimeout |**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade UpgradeReplicaSetCheckTimeout. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização. **Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda pela disponibilidade de um quorum até um valor de tempo limite máximo (especificado pela propriedade UpgradeReplicaSetCheckTimeout). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 900 segundos durante a reversão. |
 | ForceRestart |Se você atualizar uma configuração ou um pacote de dados sem atualizar o código de serviço, o serviço será reiniciado somente se a propriedade ForceRestart estiver definida como verdadeira. Quando a atualização é concluída, a Malha do Serviço notifica o serviço de que um novo pacote de configuração ou pacote de dados está disponível. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode se reiniciar. |
 
-<br> <br> Os critérios MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e MaxPercentUnhealthyReplicasPerPartition podem ser especificados por tipo de serviço para uma instância do aplicativo. Definir esses parâmetros por serviço permite que um aplicativo contenha tipos de serviços diferentes com políticas de avaliação diferentes. Por exemplo, um tipo de serviço de gateway sem monitoração de estado pode ter um MaxPercentUnhealthyPartitionsPerService que é diferente de um tipo de serviço de mecanismo com monitoração de estado para uma determinada instância de aplicativo.
+<br>
+<br>
+Os critérios MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService e MaxPercentUnhealthyReplicasPerPartition podem ser especificados por tipo de serviço para uma instância do aplicativo. Definir esses parâmetros por serviço permite que um aplicativo contenha tipos de serviços diferentes com políticas de avaliação diferentes. Por exemplo, um tipo de serviço de gateway sem monitoração de estado pode ter um MaxPercentUnhealthyPartitionsPerService que é diferente de um tipo de serviço de mecanismo com monitoração de estado para uma determinada instância de aplicativo.
 
-## Próximas etapas
-[Atualizando seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) explica passo a passo como fazer uma atualização de aplicativo usando o Visual Studio.
+## <a name="next-steps"></a>Próximas etapas
+[Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
 [Atualizando seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) explica passo a passo como fazer uma atualização de aplicativo usando o PowerShell.
 
@@ -64,4 +70,8 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

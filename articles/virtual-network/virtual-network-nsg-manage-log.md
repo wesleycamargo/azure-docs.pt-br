@@ -4,7 +4,7 @@ description: Saiba como habilitar logs operacionais , de eventos e de contadores
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 2e699078-043f-48bd-8aa8-b011a32d98ca
@@ -13,120 +13,112 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/14/2016
+ms.date: 01/03/2017
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 30542a5166dffda4a99fe2fccd9e1c5d6127cabd
+ms.sourcegitcommit: 87755571f560f0b41baabac0dc2c437b2738e75f
+ms.openlocfilehash: e5f0bdeaf1c29e9f8fc844d4c3d85b1f2595d03b
 
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Análise de logs para NSGs (grupos de segurança de rede)
-Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de NSGs. Alguns desses logs podem ser acessados por meio do portal, e todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
-* **Logs de auditoria:** é possível usar os [Logs de Auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como Logs Operacionais) para exibir todas as operações que estão sendo enviadas à(s) sua(s) assinatura(s) do Azure, bem como seu status. Os logs de auditoria são habilitados por padrão e podem ser exibidos no portal de visualização do Azure.
-* **Logs de eventos:** você pode usar esse log para exibir quais regras de NSGs são aplicadas às máquinas virtuais e às funções de instância com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
-* **Logs do contador:** você pode usar esse log para ver quantas vezes cada regra NSG foi aplicada para negar ou permitir tráfego.
+Você pode habilitar as seguintes categorias de log de diagnóstico para NSGs:
 
-> [!WARNING]
-> Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para obter uma melhor compreensão dos dois modelos, consulte o artigo [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md) .
-> 
-> 
+* **Evento:** contém entradas para as regras NSG que são aplicadas às VMs e funções de instância com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
+* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego.
 
-## <a name="enable-logging"></a>Habilitar o registro em log
-O log de auditoria é sempre habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar os logs de eventos e de contador para começar a coletar os dados disponíveis por meio desses logs. Para habilitar os logs, siga as etapas abaixo.
+> [!NOTE]
+> Os logs de diagnóstico estão disponíveis apenas para NSGs implantados por meio do modelo de implantação do Azure Resource Manager. Você não pode habilitar o log de diagnóstico para NSGs implantados por meio do modelo de implantação clássico. Para entender melhor esses dois modelos, leia o artigo [Understanding Azure deployment models](../resource-manager-deployment-model.md) (Noções básicas sobre os modelos de implantação do Azure).
 
-1. Entre no [Portal do Azure](https://portal.azure.com). Se você ainda não tiver um grupo de segurança de rede existente, [crie um NSG](virtual-networks-create-nsg-arm-ps.md) antes de continuar.
-2. Na versão prévia do portal, clique em **Navegar** >> **Grupos de segurança de rede**.
-   
-   ![Portal de visualização - grupos de segurança de rede](./media/virtual-network-nsg-manage-log/portal-enable1.png)
-3. Selecione um grupo de segurança de rede existente.
-   
-    ![Portal de visualização - configurações de grupos de segurança de rede](./media/virtual-network-nsg-manage-log/portal-enable2.png)
-4. Na folha **Configurações**, clique em **Diagnóstico** e, em seguida, no painel **Diagnóstico**, ao lado de **Status**, clique em **Ativado**
-5. Na folha **Configurações**, clique em **Conta de Armazenamento** e selecione uma conta de armazenamento existente ou crie uma nova.  
+O log de atividades (anteriormente conhecido como logs de auditoria ou operacionais) está habilitado por padrão para NSGs criados por meio de qualquer modelo de implantação do Azure. Para determinar quais operações foram concluídas em NSGs no log de atividades, procure as entradas que contêm os seguintes tipos de recurso: Microsoft.ClassicNetwork/networkSecurityGroups, Microsoft.ClassicNetwork/networkSecurityGroups/securityRules, Microsoft.Network/networkSecurityGroups e Microsoft.Network/networkSecurityGroups/securityRules. Leia o artigo [Visão geral do Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) para saber mais sobre os logs de atividade. 
 
-> [AZURE.INFORMATION] Os logs de auditoria não exigem uma conta de armazenamento separada. O uso do armazenamento para logs de eventos e regras gerarão encargos de serviço.
-> 
-> 
+## <a name="enable-diagnostic-logging"></a>Habilitar registro em log de diagnóstico
 
-1. Na lista suspensa em **Conta de Armazenamento**, selecione se deseja registrar em log eventos, contadores ou ambos e clique em **Salvar**.
-   
-    ![Portal de visualização - logs de diagnóstico](./media/virtual-network-nsg-manage-log/portal-enable3.png)
+O log de diagnóstico deve ser habilitado para *cada* NSG do qual você quer coletar dados. O artigo [Visão geral dos Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) explica para onde os logs de diagnóstico podem ser enviados. Caso não tenha um NSG, conclua as etapas no artigo sobre como [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md) para criar um. Você pode habilitar o log de diagnóstico do NSG usando qualquer um dos seguintes métodos:
 
-## <a name="audit-log"></a>Log de auditoria
-Por padrão, esse log (anteriormente conhecido como "log operacional") é gerado pelo Azure.  Os logs são preservados por 90 dias no repositório de Logs de Eventos do Azure. Saiba mais sobre esses logs lendo o artigo [Exibir logs de eventos e de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) .
+### <a name="azure-portal"></a>Portal do Azure
 
-## <a name="counter-log"></a>Log de contador
-Esse log será gerado apenas se você o tiver habilitado para cada NSG, conforme descrito acima. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Cada regra aplicada aos recursos é registrada em log no formato JSON, conforme mostrado abaixo.
+Para usar o portal a fim de habilitar o log, entre no [portal](https://portal.azure.com). Clique em **Mais serviços** e digite *grupos de segurança de rede*. Escolha o NSG para o qual quer habilitar o log. Siga as instruções para recursos de não computação no artigo [Habilite os logs de diagnóstico no portal](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal). Selecione **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** ou ambas as categorias de log.
 
-    {
-        "time": "2015-09-11T23:14:22.6940000Z",
-        "systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
-        "category": "NetworkSecurityGroupRuleCounter",
-        "resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
-        "operationName": "NetworkSecurityGroupCounters",
-        "properties": {
-            "vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
-            "subnetPrefix":"10.0.0.0/24",
-            "macAddress":"001517D9C43C",
-            "ruleName":"DenyAllOutBound",
-            "direction":"Out",
-            "type":"block",
-            "matchedConnections":0
-            }
-    }
+### <a name="powershell"></a>PowerShell
 
-## <a name="event-log"></a>Log de eventos
-Esse log será gerado apenas se você o tiver habilitado para cada NSG, conforme descrito acima. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Os seguintes dados são registrados em log:
+Para usar o PowerShell a fim de habilitar o log, siga as instruções no artigo [Habilitar os Logs de Diagnóstico pelo PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell). Avalie as seguintes informações antes de inserir um comando do artigo:
 
-    {
-        "time": "2015-09-11T23:05:22.6860000Z",
-        "systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
-        "category": "NetworkSecurityGroupEvent",
-        "resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
-        "operationName": "NetworkSecurityGroupEvents",
-        "properties": {
-            "vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
-            "subnetPrefix":"10.0.0.0/24",
-            "macAddress":"001517D9C43C",
-            "ruleName":"AllowVnetOutBound",
-            "direction":"Out",
-            "priority":65000,
-            "type":"allow",
-            "conditions":{
-                "destinationPortRange":"0-65535",
-                "sourcePortRange":"0-65535",
-                "destinationIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32",
-                "sourceIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32"
+- Você pode determinar o valor a ser usado para o parâmetro `-ResourceId` substituindo o seguinte [texto], conforme apropriado, e digitando o comando `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. A saída de ID do comando é semelhante a */subscriptions/[ID da Assinatura]/resourceGroups/[grupo de recursos]/providers/Microsoft.Network/networkSecurityGroups/[nome do NSG]*.
+- Se quiser coletar apenas dados da categoria de log, adicione `-Categories [category]` ao fim do comando no artigo, onde a categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se não quiser usar o parâmetro `-Categories`, a coleta de dados será habilitada para ambas as categorias de log.
+
+### <a name="azure-command-line-interface-cli"></a>CLI (interface de linha de comando) do Azure
+
+Para usar a CLI a fim de habilitar o log, siga as instruções no artigo [Habilitar os Logs de Diagnóstico pela CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli). Avalie as seguintes informações antes de inserir um comando do artigo:
+
+- Você pode determinar o valor a ser usado para o parâmetro `-ResourceId` substituindo o seguinte [texto], conforme apropriado, e digitando o comando `azure network nsg show [resource-group-name] [nsg-name]`. A saída de ID do comando é semelhante a */subscriptions/[ID da Assinatura]/resourceGroups/[grupo de recursos]/providers/Microsoft.Network/networkSecurityGroups/[nome do NSG]*.
+- Se quiser coletar apenas dados da categoria de log, adicione `-Categories [category]` ao fim do comando no artigo, onde a categoria é *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se não quiser usar o parâmetro `-Categories`, a coleta de dados será habilitada para ambas as categorias de log.
+
+## <a name="logged-data"></a>Dados registrados
+
+Os dados formatados pelo JSON são gravados em ambos os logs. Os dados específicos gravados para cada tipo de log são listados nas seguintes seções:
+
+### <a name="event-log"></a>Log de eventos
+Esse log contém informações sobre quais regras NSG são aplicadas às VMs e instâncias de função de serviço de nuvem, com base no endereço MAC. Os seguintes dados de exemplo são registrados para cada evento:
+
+```json
+{
+    "time": "[DATE-TIME]",
+    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "category": "NetworkSecurityGroupEvent",
+    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+    "operationName": "NetworkSecurityGroupEvents",
+    "properties": {
+        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
+        "subnetPrefix":"192.168.1.0/24",
+        "macAddress":"00-0D-3A-92-6A-7C",
+        "primaryIPv4Address":"192.168.1.4",
+        "ruleName":"UserRule_default-allow-rdp",
+        "direction":"In",
+        "priority":1000,
+        "type":"allow",
+        "conditions":{
+            "protocols":"6",
+            "destinationPortRange":"3389-3389",
+            "sourcePortRange":"0-65535",
+            "sourceIP":"0.0.0.0/0",
+            "destinationIP":"0.0.0.0/0"
             }
         }
-    }
+}
+```
 
-## <a name="view-and-analyze-the-audit-log"></a>Exibir e analisar o log de auditoria
-Você pode exibir e analisar dados do log de auditoria usando qualquer um dos seguintes métodos:
+### <a name="rule-counter-log"></a>Log de contador de regra
 
-* **Ferramentas do azure:** recupere informações dos logs de auditoria por meio do Azure PowerShell, a CLI (Interface de Linha de Comando) do Azure, a API REST do Azure ou o portal de visualização do Azure.  Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md) .
-* **Power BI:** se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing) , você poderá testá-lo gratuitamente. Usando o [Pacote de conteúdo dos Logs de Auditoria do Azure para Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/) , você pode analisar seus dados com painéis pré-configurados que você pode usar como estão ou personalizar.
+Esse log contém informações sobre cada regra aplicada aos recursos. Os seguintes dados de exemplo são registrados toda vez que uma regra é aplicada:
 
-## <a name="view-and-analyze-the-counter-and-event-log"></a>Exibir e analisar o log de eventos e de contador
-O [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) do Azure pode coletar o contador e log de eventos de arquivos da sua conta de armazenamento de Blobs e inclui visualizações e recursos avançados de pesquisa para analisar os logs.
+```json
+{
+    "time": "[DATE-TIME]",
+    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "category": "NetworkSecurityGroupRuleCounter",
+    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+    "operationName": "NetworkSecurityGroupCounters",
+    "properties": {
+        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
+        "subnetPrefix":"192.168.1.0/24",
+        "macAddress":"00-0D-3A-92-6A-7C",
+        "primaryIPv4Address":"192.168.1.4",
+        "ruleName":"UserRule_default-allow-rdp",
+        "direction":"In",
+        "type":"allow",
+        "matchedConnections":125
+        }
+}
+```
 
-Você também pode se conectar à sua conta de armazenamento e recuperar as entradas de log JSON para logs de eventos e contador. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-lo no Excel, no PowerBI ou em qualquer outra ferramenta de visualização de dados.
+## <a name="view-and-analyze-logs"></a>Exibir e analisar os logs
 
-> [!TIP]
-> Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C# , você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no Github.
-> 
-> 
-
-## <a name="next-steps"></a>Próximas etapas
-* Visualizar o contador e logs de eventos com o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
-* [Visualizar os logs de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) .
-* [Exibir e analisar logs de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) .
+Para saber como exibir os dados do log de atividade, leia o artigo [Visão Geral dos Logs de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Para saber como exibir os dados do log de diagnóstico, leia o artigo [Visão Geral dos Logs de Diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Se você enviar dados de diagnóstico ao Log Analytics, será possível usar a solução [Azure Networking Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (visualização) para obter informações avançadas. 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

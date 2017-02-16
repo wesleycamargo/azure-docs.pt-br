@@ -1,5 +1,5 @@
 ---
-title: "Endereços IP (clássicos) | Microsoft Docs"
+title: "Tipos de endereços IP no Azure (Clássico) | Microsoft Docs"
 description: "Saiba mais sobre endereços IP (clássicos) públicos e privados no Azure."
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: f4c164ac86c404f11a4bc77bc9346ad6fc45e0a7
+ms.sourcegitcommit: 54277a39601cd7f986a8ff8f517ab02eac77309b
+ms.openlocfilehash: dfc34435ad6e8982c0298301bdefe489c37db8f1
 
 
 ---
-# <a name="ip-addresses-classic-in-azure"></a>Endereços IP (clássico) no Azure
+# <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
 
 Endereços IP públicos são usados para comunicação com a Internet, incluindo serviços públicos do Azure.
@@ -133,7 +133,7 @@ Quando você cria uma VM, um mapeamento para o nome de host para seu endereço I
 
 No caso de um serviço de nuvem *autônomo* , você será capaz de resolver nomes de host de todas as instâncias de VMs/função dentro do mesmo serviço de nuvem apenas. No caso de um serviço de nuvem em uma rede virtual, você será capaz de resolver nomes de host de todas as instâncias de função/VMs na rede virtual.
 
-### <a name="internal-load-balancers-ilb-application-gateways"></a>Balanceadores de carga internos (ILB) e gateways de aplicativo
+### <a name="internal-load-balancers-ilb--application-gateways"></a>Balanceadores de carga internos (ILB) e gateways de aplicativo
 Você pode atribuir um endereço IP privado para a configuração de **front end** de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md) (ILB) ou um [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual (VNet) e de redes remotas conectadas à VNet. Você pode atribuir a um endereço IP privado dinâmico ou estático à configuração de front-end. Você também pode atribuir vários endereços IP privados para habilitar cenários de multi-vip.
 
 ### <a name="at-a-glance"></a>Visão rápida
@@ -182,6 +182,6 @@ A seguir está uma comparação dos recursos de endereçamento IP no Gerenciador
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

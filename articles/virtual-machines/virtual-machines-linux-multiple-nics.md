@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b2cd533ab24feb3ce521db5f8406576f86e460d9
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: 12da49e49782869153dcecbf6e4ca0ec24fa5960
 
 
 ---
@@ -87,7 +87,7 @@ azure vm create \
     --vm-size Standard_DS2_v2 \
     --storage-account-name mystorageaccount \
     --image-urn UbuntuLTS \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
@@ -131,7 +131,7 @@ azure vm create \
     --vm-size Standard_DS2_v2 \
     --storage-account-name mystorageaccount \
     --image-urn UbuntuLTS \
-    --admin-username ops \
+    --admin-username azureuser \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
@@ -145,7 +145,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 }
 ```
 
-Leia mais sobre a [criação de várias instâncias usando *copiar*](../resource-group-create-multiple.md). 
+Leia mais sobre a [criação de várias instâncias usando *copiar*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 Você também pode usar um `copyIndex()` para acrescentar um número a um nome de recurso, o que lhe permite criar `myNic1`, `myNic2` etc. Veja a seguir um exemplo de como acrescentar o valor de índice:
 
@@ -163,6 +163,6 @@ Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

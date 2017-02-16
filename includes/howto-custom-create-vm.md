@@ -1,5 +1,5 @@
-# Como criar uma máquina virtual personalizada
-Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **de Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
+# <a name="how-to-create-a-custom-virtual-machine"></a>Como criar uma máquina virtual personalizada
+Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você criou usando o método **Da Galeria**, porque isso lhe dá mais opções de configuração do que o método **Criação Rápida**. Estas opções incluem:
 
 * Mais escolhas para a imagem usar para criar a máquina virtual (VM)
 * Conectar a VM a uma rede virtual
@@ -13,7 +13,7 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
 
 1. Entre no [Portal do Azure](http://manage.windowsazure.com).
 2. Na barra de comandos, clique em **Nova**.
-3. Clique em **Computar**, clique em **Máquina Virtual**e, em seguida, clique em **Da galeria**.
+3. Clique em **Computar**, clique em **Máquina Virtual** e, em seguida, clique em **Da Galeria**.
 4. Escolha a imagem que você quer usar e, em seguida, clique na seta para continuar.
 5. Se várias versões da imagem estão disponíveis, na **Data de lançamento da versão**, selecione a versão que deseja usar.
 6. Em **Nome de Máquina Virtual**, digite o nome que você deseja usar para a máquina virtual.
@@ -30,21 +30,25 @@ Uma máquina virtual *personalizada* refere-se a uma máquina virtual que você 
     > Para obter mais informações sobre como conectar máquinas virtuais, consulte [Como conectar máquinas virtuais em um serviço de nuvem](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
     > 
     > 
-12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidade, consulte [Sobre grupos de afinidade da rede Virtual (a página pode estar em inglês)](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+12. Em **Região/Grupo de Afinidade/Rede Virtual**, selecione a região, grupo de afinidade ou rede virtual que você deseja usar que contenha a máquina virtual. Para obter mais informações sobre grupos de afinidades, consulte [Sobre grupos de afinidades para rede virtual](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 13. Na **conta de armazenamento**, selecione uma conta de armazenamento existente para o arquivo VHD ou usar uma conta de armazenamento gerado automaticamente. Apenas uma conta de armazenamento por região será criada automaticamente. Todas as outras máquinas virtuais que você criar com essa configuração estarão localizadas nessa conta de armazenamento. Você está limitado a 20 contas de armazenamento.
-14. Se você quiser que a máquina virtual deve pertencer a um conjunto de disponibilidade, na **disponibilidade definida**, selecione **criar conjunto de disponibilidade** ou adicioná-la a um conjunto existente de disponibilidade.
+14. Se você quiser que a máquina virtual pertença a um conjunto de disponibilidade, em **Conjunto de Disponibilidade**, selecione **criar conjunto de disponibilidade** ou a adicione a um conjunto de disponibilidade existente.
     
     **Observação**: as máquinas virtuais contidas um conjunto de disponibilidade são implantadas em domínios de falha diferentes. Saiba como usar várias máquinas virtuais no Microsoft Azure para que seus aplicativos permaneçam disponíveis durante falhas de rede locais, falhas de hardware de disco local e tempo de inatividade planejado.
-15. Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las mais tarde, consulte [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+15. Em **pontos de extremidade**, examine os novos pontos de extremidade que serão criados para permitir conexões para a máquina virtual, como a área de trabalho remota ou um cliente de Secure Shell (SSH). Você pode também adicionar mais pontos de extremidade agora ou criá-los mais tarde. Para obter instruções sobre como criá-las posteriormente, veja [Como configurar pontos de extremidade para uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 16. Em **Agente de VM**, decida se deseja instalar o agente de VM. Este agente fornece o ambiente para a instalação de extensões que podem ajudá-lo a interagir com a máquina virtual. Para obter detalhes, consulte [Gerenciar extensões](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 17. Clique na seta para criar a máquina virtual.
     
     ![A personalização da máquina virtual foi bem-sucedida](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Depois que a máquina virtual é criada, ela é iniciada automaticamente. Quando o portal mostra o status como Executando, você poderá fazer logon na máquina virtual. Para obter instruções, consulte um dos seguintes artigos:
 
-* [Como fazer logon em uma máquina virtual executando o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-* [Como fazer logon em uma máquina virtual executando o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
+* [Como fazer logon em uma máquina virtual que executa o Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Como fazer logon em uma máquina virtual que executa o Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

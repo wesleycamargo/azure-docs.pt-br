@@ -1,6 +1,6 @@
 ---
-title: "Usar propriedades de dispositivos gêmeos | Microsoft Docs"
-description: "Este tutorial mostra como usar propriedades de dispositivos gêmeos"
+title: "Usar as propriedades do dispositivo gêmeo do Hub IoT do Azure (Node) | Microsoft Docs"
+description: "Como usar dispositivos gêmeos do Hub IoT do Azure para configurar dispositivos. Use os SDKs do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e um aplicativo de serviço que modifica a configuração de um dispositivo usando um dispositivo gêmeo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 400eab43a417980abe9df5fa75ee9f9e43b296d0
-ms.openlocfilehash: cc3e2f92550b77fe837afa19f51ea7691422ac9b
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 397dffe8ec93ced9196bce8fcc12a058c6876bd4
 
 
 ---
-# <a name="tutorial-use-desired-properties-to-configure-devices"></a>Tutorial: Usar propriedades desejadas para configurar dispositivos
+# <a name="use-desired-properties-to-configure-devices-node"></a>Usar as propriedades desejadas para configurar os dispositivos (Node)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 No fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
 * **SimulateDeviceConfiguration.js**, um aplicativo de dispositivo simulado que aguarda uma atualização da configuração desejada e reporta o status de um processo simulado de atualização de configuração.
-* **SetDesiredConfigurationAndQuery.js**, um aplicativo Node.js que deve ser executado do back-end e que define a configuração desejada em um dispositivo e consulta o processo de atualização de configuração.
+* **SetDesiredConfigurationAndQuery.js**, um aplicativo de back-end Node.js que define a configuração desejada em um dispositivo e consulta o processo de atualização de configuração.
 
 > [!NOTE]
-> O artigo [SDKs do Azure IoT][lnk-hub-sdks] fornece informações sobre os SDKs do IoT do Azure que você pode usar para compilar dispositivos e aplicativos de back-end.
+> O artigo [SDKs do IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs do IoT do Azure que você pode usar para compilar dispositivos e aplicativos back-end.
 > 
 > 
 
@@ -38,7 +38,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Node.js versão 0.10.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Se você tiver seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**; você poderá então pular para a seção [Criar o aplicativo de dispositivo simulado][lnk-how-to-configure-createapp].
+Caso tenha seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**; você poderá pular para a seção [Criar o aplicativo do dispositivo simulado][lnk-how-to-configure-createapp].
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -47,7 +47,7 @@ Se você tiver seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-tw
 ## <a name="create-the-simulated-device-app"></a>Criar o aplicativo de dispositivo simulado
 Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, aguarda uma atualização de configuração desejada e, em seguida, reporta atualizações sobre o processo simulado de atualização de configuração.
 
-1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration** , crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
    
     ```
     npm init
@@ -58,7 +58,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Usando um editor de texto, crie um novo arquivo **SimulateDeviceConfiguration.js** na pasta **simulatedeviceconfiguration**.
-4. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{device connection string}** pela cadeia de conexão copiada quando você criou a identidade do dispositivo **myDeviceId**:
+4. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{cadeia de conexão do dispositivo}** pela cadeia de conexão do dispositivo copiada quando você criou a identidade do dispositivo **myDeviceId**:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -141,7 +141,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
             });
         };
    
-    O método **initConfigChange** atualiza as propriedades reportadas no objeto do dispositivo gêmeo local com a solicitação de atualização de configuração e define o status para **Pendente**, então atualiza o gêmeo do dispositivo no serviço. Depois de atualizar o dispositivo gêmeo com êxito, ele simula um processo de execução demorada que termina com a execução de **completeConfigChange**. Esse método atualiza propriedades relatadas do dispositivo gêmeo local definindo o status como **Êxito** e removendo o objeto **pendingConfig**. Em seguida, ele atualiza o dispositivo gêmeo no serviço.
+    O método **initConfigChange** atualiza as propriedades relatadas no objeto do dispositivo gêmeo local com a solicitação de atualização de configuração, define o status para **Pendente** e atualiza o dispositivo gêmeo no serviço. Depois de atualizar o dispositivo gêmeo com êxito, ele simula um processo de execução longa que termina com a execução de **completeConfigChange**. Esse método atualiza propriedades relatadas do dispositivo gêmeo local definindo o status como **Êxito** e removendo o objeto **pendingConfig**. Em seguida, ele atualiza o dispositivo gêmeo no serviço.
    
     Observe que, para economizar largura de banda, as propriedades reportadas são atualizadas especificando-se apenas as propriedades a serem modificadas (chamadas de **patch** no código acima), em vez de substituir o documento inteiro.
    
@@ -158,7 +158,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
 Nesta seção, você criará um aplicativo de console do Node. js que atualiza as *propriedades desejadas* no dispositivo gêmeo associado à **myDeviceId** com um novo objeto de configuração de telemetria. Então, ele consulta os gêmeos de dispositivo armazenados no Hub IoT e mostra a diferença entre as configurações desejadas e as reportadas do dispositivo.
 
-1. Crie uma nova pasta vazia denominada **setdesiredandqueryapp**. Na pasta **setdesiredandqueryapp** , crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **setdesiredandqueryapp**. Na pasta **setdesiredandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
    
     ```
     npm init
@@ -169,12 +169,12 @@ Nesta seção, você criará um aplicativo de console do Node. js que atualiza a
     npm install azure-iothub node-uuid --save
     ```
 3. Usando um editor de texto, crie um novo arquivo **SetDesiredAndQuery.js** na pasta **addtagsandqueryapp**.
-4. Adicione o seguinte código ao arquivo **SetDesiredAndQuery.js** e substitua o espaço reservado **{service connection string}** pela cadeia de conexão que você copiou quando criou seu hub:
+4. Adicione o seguinte código ao arquivo **SetDesiredAndQuery.js** e substitua o espaço reservado **{iot hub connection string}** pela cadeia de conexão do Hub IoT que você copiou quando criou seu hub:
    
         'use strict';
         var iothub = require('azure-iothub');
         var uuid = require('node-uuid');
-        var connectionString = '{service connection string}';
+        var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
    
         registry.getTwin('myDeviceId', function(err, twin){
@@ -246,13 +246,13 @@ Nesta seção, você criará um aplicativo de console do Node. js que atualiza a
    > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você definiu uma configuração desejada como *propriedades desejadas* de um aplicativo de back-end e escreveu um aplicativo de dispositivo simulado para detectar essa alteração e simular um processo de atualização de várias etapas, reportando seu status como *propriedades reportadas* ao dispositivo gêmeo.
+Neste tutorial, você definiu uma configuração desejada como *propriedades desejadas* de um aplicativo de back-end e escreveu um aplicativo de dispositivo simulado para detectar essa alteração e simular um processo de atualização de várias etapas, relatando seu status como *propriedades relatadas* ao dispositivo gêmeo.
 
 Veja os recursos a seguir para saber como:
 
-* Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted],
-* agendar ou executar operações em grandes conjuntos de dispositivos, veja o tutorial [Usar trabalhos para agendar e difundir trabalhos][lnk-schedule-jobs].
-* Controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com o tutorial [Usar métodos diretos][lnk-methods-tutorial].
+* Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted].
+* Agendar ou executar operações em grandes conjuntos de dispositivos. Veja o tutorial [Schedule and broadcast jobs][lnk-schedule-jobs] (Agendar e transmitir trabalhos).
+* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o tutorial [Uso de métodos diretos][lnk-methods-tutorial].
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -265,7 +265,7 @@ Veja os recursos a seguir para saber como:
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-node-node-schedule-jobs.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
@@ -278,6 +278,6 @@ Veja os recursos a seguir para saber como:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

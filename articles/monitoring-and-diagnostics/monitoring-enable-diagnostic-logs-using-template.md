@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 30b023429cfdc671ac68175f94ffb48379c58dda
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 00f4ddd7173affb9e557e8c993c9f7432a3152cd
 
 
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitar automaticamente as Configurações de Diagnóstico na criação do recurso usando um modelo do Resource Manager
-Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
+Neste artigo, mostramos como você pode usar um [Modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para definir as Configurações de Diagnóstico em um recurso quando ele é criado. Isso permite iniciar automaticamente o streaming de seus Logs de Diagnóstico e métricas para os Hubs de Eventos, arquivando-os em uma Conta de Armazenamento ou enviando-os para o Log Analytics quando um recurso é criado.
 
 O método para habilitar os Logs de Diagnóstico usando um modelo do Resource Manager depende do tipo de recurso.
 
@@ -33,7 +33,7 @@ Neste artigo, descrevemos como configurar o diagnóstico usando um método.
 Estas são as etapas básicas:
 
 1. Crie um modelo como um arquivo JSON que descreve como criar o recurso e habilite o diagnóstico.
-2. [Implantar o modelo usando qualquer método de implantação](../resource-group-template-deploy.md).
+2. [Implantar o modelo usando qualquer método de implantação](../azure-resource-manager/resource-group-template-deploy.md).
 
 Abaixo, damos um exemplo de arquivo JSON do modelo que você precisa gerar para os recursos de Computação e de Não Computação.
 
@@ -86,13 +86,23 @@ Para os recursos de Não Computação, você precisará fazer duas coisas:
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+O blob de propriedades da Configuração de Diagnóstico segue [o formato descrito neste artigo](https://msdn.microsoft.com/library/azure/dn931931.aspx). A adição da propriedade `metrics` permitirá também o envio de métricas de recurso para essas mesmas saídas.
 
 Aqui está um exemplo completo que cria um Grupo de Segurança da Rede e ativa o streaming para os Hubs de Eventos e o armazenamento em uma conta de armazenamento.
 
@@ -166,6 +176,16 @@ Aqui está um exemplo completo que cria um Grupo de Segurança da Rede e ativa o
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -198,6 +218,6 @@ O processo inteiro, incluindo os exemplos, é descrito [neste documento](../virt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

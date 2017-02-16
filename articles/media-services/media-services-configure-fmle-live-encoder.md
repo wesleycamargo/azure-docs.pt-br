@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 80b391e43417ce09bd8aaaa04e48fcd85baf9323
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: b94b2f867d30fe2c121904821404b8228ee1e899
 
 
 ---
@@ -37,7 +37,7 @@ Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o F
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
-* Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
+* Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie a ferramenta e conecte-se à sua conta do AMS.
 
@@ -47,15 +47,16 @@ Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o F
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
 
-![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-1. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
 
-Verifique se a opção **Iniciar o novo canal agora** está marcada.
+    Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
-1. Clique em **Criar Canal**.
+3. Clique em **Criar Canal**.
+
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
@@ -134,7 +135,8 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
+
+Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
@@ -150,7 +152,9 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 3. Marque a caixa **Iniciar o Programa agora** .
 4. Clique em **Criar Programa**.  
 
-    Observação: a criação do programa leva menos tempo do que a criação do canal.    
+    >[!NOTE]
+    >A criação do programa leva menos tempo do que a criação do canal.
+        
 5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Azure Media Player**.  
 6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
@@ -167,6 +171,6 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

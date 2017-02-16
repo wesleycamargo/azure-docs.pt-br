@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
+ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
 
 
 ---
@@ -51,13 +51,11 @@ Packer e Terraform também oferecem suporte ao Azure Resource Manager, assim tam
 As VMs do conjunto de escala se tornam um substrato estável para os contêineres e exigem apenas atualizações ocasionais de segurança e de sistema operacional. Conforme mencionado, o Serviço de Contêiner do Azure é um bom exemplo de como usar essa abordagem e criar um serviço em torno dele.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
-Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de escala de VM (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais.
-
-[Este](https://github.com/gbowerman/vmsstools) é um exemplo de script de Python que automatiza o processo de atualização de um Conjunto de Dimensionamento de VM, um domínio de atualização por vez. (Advertência: é mais uma prova de conceito do que uma solução pronta para produção. Convém adicionar alguma verificação de erro etc.).
+Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de Dimensionamento de Máquinas Virtuais (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais. O documento do Azure [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) também fornece mais informações sobre quais opções estão disponíveis para executar atualizações de sistema operacional através de um conjunto de dimensionamento de máquinas virtuais.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,31 +12,35 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: 66aec5feaa370aef6dc4a9f83119e26ab47d726a
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
 
 ---
 
 # <a name="api-versions-in-azure-search"></a>Versões de API na Pesquisa do Azure
-A Pesquisa do Azure lança atualizações de recursos regularmente. Às vezes, mas não sempre, essas atualizações exigem que publiquemos uma nova versão de nossa API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.
+O Azure Search lança atualizações de recurso regularmente. Às vezes, mas não sempre, essas atualizações exigem que publiquemos uma nova versão de nossa API para preservar a compatibilidade com versões anteriores. A publicação de uma nova versão permite controlar quando e como as atualizações de serviço de pesquisa são integradas ao seu código.
 
 Como regra, tentamos publicar novas versões somente quando necessário, pois isso pode envolver esforços para atualizar seu código, a fim de usar uma nova versão de API. Apenas publicaremos uma nova versão se for necessário alterar alguns aspectos da API de uma forma que interrompe a compatibilidade com versões anteriores. Isso pode ocorrer devido a correções a recursos existentes ou devido a recursos novos que alteram a área da superfície da API existente.
 
 Seguimos a mesma regra para atualizações do SDK. O SDK da Pesquisa do Azure segue as regras do [controle de versão semântico](http://semver.org/) , o que significa que sua versão tem três partes: principal, secundária e número de build (por exemplo, 1.1.0). Liberaremos uma nova versão principal do SDK somente no caso de alterações que interrompem a compatibilidade com versões anteriores. Para atualizações de recursos contínuas, incrementaremos a versão secundária, e para correções de bug, só aumentaremos a versão de build.
 
+> [!NOTE]
+> Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
+
 ## <a name="snapshot-of-current-versions"></a>Instantâneo das versões atuais
-Veja abaixo um instantâneo das versões atuais de todas as interfaces de programação da Pesquisa do Azure. Mapas e outros detalhes podem ser encontrados nas próximas seções deste documento.
+Veja abaixo um instantâneo das versões atuais de todas as interfaces de programação da Pesquisa do Azure.
 
 | Interfaces | Versão principal mais recente | Status |
 | --- | --- | --- |
-| [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx) |1,1 |Disponível, liberado em fevereiro de 2016 |
-| [Preview do SDK do .NET](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) |2.0-preview |Preview, lançada em agosto de 2016 |
-| [API REST do Serviço](https://msdn.microsoft.com/library/azure/dn798935.aspx) |2016-09-01 |Disponível |
+| [SDK .NET](https://aka.ms/search-sdk) |3.0 |Disponível, liberado em novembro de 2016 |
+| [Preview do SDK do .NET](https://aka.ms/search-sdk-preview) |2.0-preview |Preview, lançada em agosto de 2016 |
+| [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Disponível |
 | [Preview da API REST do Serviço](search-api-2015-02-28-preview.md) |2015-02-28-Preview |Visualização |
-| [API REST de gerenciamento](https://msdn.microsoft.com/library/azure/dn832684.aspx) |2015-08-19 |Disponível |
+| [SDK do Gerenciamento do .NET](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Disponível |
+| [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponível |
 
 Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso facilita direcionar uma versão específica, como uma API de preview. O seguinte exemplo ilustra como o parâmetro `api-version` é especificado:
 
@@ -45,22 +49,9 @@ Para as APIs REST, é necessário incluir a `api-version` em cada chamada. Isso 
 > [!NOTE]
 > Embora cada solicitação tenha uma `api-version`, recomendamos que você use a mesma versão para todas as solicitações de API. Isso ocorre especificamente quando novas versões de API introduzem atributos ou operações que não são reconhecidos por versões anteriores. A combinação de versões de API pode trazer consequências indesejadas e deve ser evitada.
 >
-> A API REST do Serviço e a API REST de Gerenciamento têm controle de versão que não dependem entre si. Qualquer semelhança nos números de versão são uma coincidência.
->
->
+> A API REST do Serviço e a API REST de Gerenciamento têm controle de versão que não dependem entre si. Qualquer semelhança nos números de versão é uma coincidência.
 
 APIs GA (ou Disponíveis) podem ser usadas na produção e estão sujeitas aos SLAs do Azure. Versões prévias têm recursos experimentais que nem sempre são migrados para uma versão GA. **É altamente recomendável não usar APIs de preview em aplicativos de produção.**
-
-## <a name="sdk-version-roadmap"></a>Mapa de versão do SDK
-Cada versão do SDK do .NET é direcionada a uma versão específica da API REST do Serviço. Os recursos são lançados na API REST primeiro e, então, implementados no SDK.
-
-Agora, o SDK do .NET está disponível e já estamos trabalhando na próxima versão. A tabela a seguir traz as versões futuras do SDK, para que você tenha uma ideia das novidades que estão por vir.
-
-| Versão do SDK do .NET | Versão da API REST | Recursos | ETA |
-| --- | --- | --- | --- |
-| 1,1 |2015-02-28 |Sintaxe de consulta Lucene |Fevereiro de 2016 |
-| 2.0-preview |2015-02-28-Preview |Analisadores personalizados, indexadores de Blobs e Tabelas do Azure, mapeamentos de campo, ETags |Agosto de 2016 |
-| 3.x |2016-09-01 |Igual ao 2.0-preview, menos pelo suporte do Indexador de Blob para arquivos CSV e JSON |Novembro de 2016 |
 
 ## <a name="about-preview-and-generally-available-versions"></a>Sobre versões Prévias e Disponíveis para o Público em Geral
 A Pesquisa do Azure sempre faz o pré-lançamento de recursos experimentais por meio da API REST primeiro, e, então, por meio de versões de pré-lançamento do SDK do .NET.
@@ -75,6 +66,6 @@ Disponibilidade geral significa que a Pesquisa do Azure agora está vinculada ao
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

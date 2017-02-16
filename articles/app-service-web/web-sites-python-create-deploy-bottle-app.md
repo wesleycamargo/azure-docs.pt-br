@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2be2e66c035ec90991f71c6632e7bcf056003a08
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f7b54a1a6266d6728ac81e0b709febb1d6f00f9f
 
 
 ---
@@ -29,7 +29,7 @@ Você criará um aplicativo Web usando a estrutura da Web Bottle (veja as versõ
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -335,15 +335,15 @@ Siga esses links para saber mais sobre Bottle e Python Tools para o Visual Studi
 
 Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o MongoDB:
 
-* [Bottle e MongoDB no Azure com Ferramentas Python 2.1 para Visual Studio]
-* [Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.1 para Visual Studio]
+* [Bottle e MongoDB no Azure com Ferramentas Python&2;.1 para Visual Studio]
+* [Bottle e Armazenamento de Tabela do Azure com Ferramentas Python&2;.1 para Visual Studio]
 
 ## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
-[Bottle e MongoDB no Azure com Ferramentas Python 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle e MongoDB no Azure com Ferramentas Python&2;.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle e Armazenamento de Tabela do Azure com Ferramentas Python&2;.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
 
 <!--External Link references-->
 [SDK do Azure para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -360,6 +360,6 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

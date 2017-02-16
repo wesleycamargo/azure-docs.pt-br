@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/28/2016
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: bc8eaf68b89bdefe203fc7ceea7b5241ac3e9dfa
 
 
 ---
@@ -36,7 +36,7 @@ Você pode usar essas ferramentas para executar algumas das operações neste do
 
 * [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado aos Serviços de Nuvem do Azure, mas tem boas informações e exemplos)
 * [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
-* [PowerShell do Azure](../powershell-install-configure.md)
+* [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -222,6 +222,6 @@ Para compreender com mais detalhes quais eventos você deve analisar enquanto so
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

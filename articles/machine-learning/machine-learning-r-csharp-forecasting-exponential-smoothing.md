@@ -1,6 +1,6 @@
 ---
-title: "Ajuste exponencial de previsão | Microsoft Docs"
-description: "Serviço Web: ajuste exponencial de previsão"
+title: "(preterido) Previsão — Ajuste exponencial — Azure | Microsoft Docs"
+description: "(preterido) Serviço Web: Suavização exponencial da previsão"
 services: machine-learning
 documentationcenter: 
 author: yijichen
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/13/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 47ef9bce59b62bbd5b2c630ee101a655814d96d2
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: c3fc7b8d7ba9faf79d80b55514ef09570e0d1655
 
 
 ---
-# <a name="forecasting---exponential-smoothing"></a>Previsão - Ajuste exponencial
+# <a name="deprecated-forecasting---exponential-smoothing"></a>(preterido) Previsão — Ajuste exponencial
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/ets) implementa o Modelo de ajuste exponencial (ETS) para produzir previsões com base nos dados históricos fornecidos pelo usuário. A demanda de um produto específico aumentará neste ano? Posso prever as vendas do meu produto para a temporada de Natal para que eu possa planejar efetivamente meu estoque? Modelos de previsão são adequados para responder a essas perguntas. Considerando os dados passados, esses modelos examinam tendências ocultas e a sazonalidade para prever tendências futuras.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -143,6 +150,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

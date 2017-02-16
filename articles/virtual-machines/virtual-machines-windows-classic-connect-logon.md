@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: b2a66b134d42e0b2d965c1f3ae83f93bed9cdfba
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: f8fb116f14f771947f321f59d9880df4cdfe6859
 
 
 ---
@@ -28,9 +28,8 @@ Deseja conectar-se a uma VM do Linux? Consulte [Como fazer logon em uma máquina
 
 Saiba como [executar essas etapas usando o novo Portal do Azure](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como fazer logon em uma VM usando o modelo do Resource Manager, consulte [aqui](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como fazer logon em uma VM usando o modelo do Resource Manager, consulte [aqui](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="video-walkthrough"></a>Passo a passo em vídeo
 Veja um passo a passo em vídeo deste tutorial. Ele também aborda os pontos de extremidade e as portas públicas e privadas usadas para se conectar a uma VM do Windows no Azure.
@@ -63,6 +62,6 @@ Se essas dicas não funcionarem ou se não forem necessárias, consulte [Solucio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

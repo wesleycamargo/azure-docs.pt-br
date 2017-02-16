@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 9b442a9cb14d87d1f75a3de98602632f6d260b26
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 1724d9d482597cd8491ad1ea86f48beefbfa1531
 
 ---
 
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Cenários avançados com soluções da Autenticação Multifator do Azure e VPNs de terceiros
-A Autenticação Multifator do Azure pode ser usado para realizar conexão perfeita com uma variedade de soluções VPN de terceiros. Este artigo se concentra no dispositivo de VPN Cisco® ASA, o dispositivo de VPN Citrix NetScaler SSL e o dispositivo de VPN Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Criamos guias de configuração para esses três dispositivos comuns, porém o Servidor de Autenticação Multifator pode ser integrado à maioria dos sistemas que usam o RADIUS, LDAP, IIS ou autenticação baseada em declarações do AD FS. Você pode encontrar mais detalhes em [Configurações do servidor MFA](multi-factor-authentication-get-started-server.md#advanced-azure-multi-factor-authentication-server-configurations).
+A Autenticação Multifator do Azure pode ser usado para realizar conexão perfeita com uma variedade de soluções VPN de terceiros. Este artigo se concentra no dispositivo de VPN Cisco® ASA, o dispositivo de VPN Citrix NetScaler SSL e o dispositivo de VPN Juniper Networks Secure Access/Pulse Secure Connect Secure SSL. Criamos guias de configuração para esses três dispositivos comuns, porém o Servidor de Autenticação Multifator pode ser integrado à maioria dos sistemas que usam o RADIUS, LDAP, IIS ou autenticação baseada em declarações do AD FS. Você pode encontrar mais detalhes em [Configurações do servidor MFA](multi-factor-authentication-get-started-server.md#next-steps).
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Dispositivo de VPN Cisco ASA e Azure Multi-Factor Authentication
 O Azure Multi-Factor Authentication integra-se perfeitamente ao seu dispositivo VPN do Cisco® ASA para fornecer segurança adicional para logons de VPN do Cisco AnyConnect® e acesso ao portal.  Isso pode ser feito usando o protocolo LDAP ou RADIUS.  Selecione um dos procedimentos a seguir para baixar os guias passo a passo de configuração detalhados.
@@ -49,6 +49,6 @@ O Azure Multi-Factor Authentication integra-se perfeitamente ao seu dispositivo 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

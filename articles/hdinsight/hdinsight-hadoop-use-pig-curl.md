@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 476af10550075cde145a9cf2153330f063ad17b3
 
 
 ---
@@ -37,6 +37,10 @@ Curl é usado para demonstrar como você pode interagir com o HDInsight usando s
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do Azure HDInsight (Hadoop no HDInsight, baseado em Windows ou Linux)
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -127,6 +131,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

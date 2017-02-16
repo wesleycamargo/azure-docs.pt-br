@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/24/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61985bf2e112fe7b0a46ece07fd56eb14ccc3d45
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d06ec1c7a643c92fd11b532abc26fb1597d969f5
 
 
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 ## <a name="what-happens-when-you-sign-in"></a>O que acontece quando você entra
-Ao entrar pela primeira vez no [azureiotsuite.com][lnk-azureiotsuite], o site determina os níveis de permissão que você tem com base no locatário do AAD (Azure Active Directory) e na assinatura do Azure selecionados no momento.
+Quando você entra pela primeira vez no [azureiotsuite.com][lnk-azureiotsuite], o site determina os níveis de permissão que você tem com base no locatário do AAD (Azure Active Directory) e na assinatura do Azure selecionados no momento.
 
 1. Primeiro site descobre no Azure a quais locatários do AAD você pertence para preencher a lista de locatários vista ao lado do seu nome de usuário conectado. Neste momento, o site poderá obter somente os tokens de usuário para um locatário por vez. Como resultado, quando você alternar para um locatário diferente usando o menu suspenso no canto superior direito, o site conectará você novamente ao novo locatário para obter os tokens para ele.
 2. Em seguida, o site descobre no Azure quais assinaturas estão associadas ao locatário selecionado. Você verá as assinaturas quando criar uma nova solução pré-configurada.
@@ -34,9 +34,9 @@ As seções a seguir descrevem as funções que controlam o acesso às soluçõe
 ## <a name="aad-roles"></a>Funções do AAD
 As funções do AAD controlam as soluções pré-configuradas de provisão de capacidade e gerenciam usuários em uma solução pré-configurada.
 
-É possível encontrar mais informações sobre funções de administrador no AAD em [Atribuindo funções de administrador no Azure Active Directory][lnk-aad-admin], mas este artigo se concentra principalmente nas funções **Administrador Global** e **Membro/Usuário do domínio** conforme usadas por soluções pré-configuradas.
+Você pode encontrar mais informações sobre funções de administrador no AAD em [Atribuindo funções de administrador no Azure AD][lnk-aad-admin], mas esse artigo se concentra principalmente nas funções **Administrador Global** e **Usuário/Membro do Domínio** como usadas por soluções pré-configuradas.
 
-**Administrador global:** pode haver muitos administradores globais por locatário do AAD. Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário. O administrador global pode provisionar uma solução pré-configurada e recebe uma função **ADMINISTRADOR** para o aplicativo dentro do seu locatário do AAD. No entanto, se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão recebida pelo administrador global será **SOMENTE LEITURA IMPLÍCITA**. Os administradores globais podem atribuir funções para aplicativos usando o [Portal Clássico do Azure][lnk-classic-portal].
+**Administrador global:** pode haver muitos administradores globais por locatário do AAD. Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário. O administrador global pode provisionar uma solução pré-configurada e recebe uma função **ADMINISTRADOR** para o aplicativo dentro do seu locatário do AAD. No entanto, se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão recebida pelo administrador global será **SOMENTE LEITURA IMPLÍCITA**. Os administradores globais podem atribuir funções para aplicativos que usam o [Portal Clássico do Azure][lnk-classic-portal].
 
 **Usuário/membro do domínio:** pode haver muitos usuários/membros do domínio por locatário do AAD. Um usuário do domínio pode provisionar uma solução pré-configurada por meio do site [azureiotsuite.com][lnk-azureiotsuite]. A função padrão recebida por ele para o aplicativo provisionado será **ADMINISTRADOR**. Ele pode criar um aplicativo usando o script build.cmd no repositório [azure-iot-remote-monitoring][lnk-rm-github-repo] ou [azure-iot-predictive-maintenance][lnk-pm-github-repo], mas a função padrão recebida será **IMPLICIT READONLY**, pois ele não tem permissão para atribuir funções. Se outro usuário no locatário do AAD criar um aplicativo, receberá a função **SOMENTE LEITURA IMPLÍCITA** por padrão para o aplicativo. Ele não terá a capacidade de atribuir funções de aplicativos; portanto, não poderá adicionar usuários ou funções para usuários para um aplicativo, mesmo se o tiver provisionado.
 
@@ -45,12 +45,12 @@ As funções do AAD controlam as soluções pré-configuradas de provisão de ca
 Para saber mais, consulte os recursos a seguir:
 
 * [Criar ou editar usuários no Azure AD][lnk-create-edit-users]
-* [Atribuir funções de aplicativo no AAD][lnk-assign-app-roles]
+* [Atribuir funções de Aplicativo no AAD][lnk-assign-app-roles]
 
 ## <a name="azure-subscription-administrator-roles"></a>Funções de administrador da assinatura do Azure
 As funções de administrador do Azure controlam a capacidade de mapear uma assinatura do Azure para um locatário do AD.
 
-É possível descobrir mais sobre as funções Co-administrador do Azure, Administrador de Serviços e Administrador da Conta no artigo [How to add or change Azure Co-Administrator, Service Administrator and Account Administrator (Como adicionar ou alterar o Co-administrador do Azure, o Administrador de Serviços e o Administrador da Conta)][lnk-admin-roles].
+Você poderá descobrir mais sobre as funções Coadministrador do Azure, Administrador de Serviços e Administrador da Conta no artigo [Como adicionar ou alterar o Coadministrador do Azure, o Administrador de Serviços e o Administrador da Conta][lnk-admin-roles].
 
 ## <a name="application-roles"></a>Funções de aplicativo
 As funções do aplicativo controlam o acesso a dispositivos em sua solução pré-configurada.
@@ -59,14 +59,14 @@ Existem duas funções definidas e uma implícita definidas no aplicativo criado
 
 * **ADMINISTRADOR:** tem controle total para adicionar, gerenciar e remover dispositivos
 * **SOMENTE LEITURA:** tem a capacidade de exibir dispositivos
-* **SOMENTE LEITURA IMPLÍCITA:** é igual a Somente Leitura, mas é concedida a todos os usuários do seu locatário do AAD. Isso foi feito para conveniência durante o desenvolvimento. É possível remover essa função modificando o arquivo de origem [RolePermissions.cs][lnk-resource-cs].
+* **SOMENTE LEITURA IMPLÍCITA:** é igual a Somente Leitura, mas é concedida a todos os usuários do seu locatário do AAD. Isso foi feito para conveniência durante o desenvolvimento. Você poderá remover essa função ao modificar o arquivo de origem [RolePermissions.cs][lnk-resource-cs].
 
 ### <a name="changing-application-roles-for-a-user"></a>Alterando as funções de aplicativo para um usuário
 Você pode usar o procedimento a seguir para tornar um usuário em seu Active Directory um administrador de sua solução pré-configurada.
 
 Você deve ser um administrador global do AAD para alterar funções para um usuário:
 
-1. Acesse o [Portal clássico do Azure][lnk-classic-portal].
+1. Vá para o [Portal Clássico do Azure][lnk-classic-portal].
 2. Selecione **Active Directory**.
 3. Clique no nome do seu locatário do AAD (este é o diretório que você escolheu em azureiotsuite.com quando provisionou sua solução).
 4. Clique em **Aplicativos**.
@@ -77,7 +77,7 @@ Você deve ser um administrador global do AAD para alterar funções para um usu
 
 ## <a name="faq"></a>Perguntas frequentes
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-do-this"></a>Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário do AAD específico. Como faço isso?
-1. Acesse o [portal clássico do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
+1. Vá para o [Portal Clássico do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
 2. Selecione a assinatura para a qual você deseja alterar o mapeamento de diretórios.
 3. Clique em **Editar Diretório**.
 4. Selecione o **Diretório** que você deseja usar na lista suspensa. Clique na seta para frente.
@@ -95,7 +95,7 @@ Peça ao administrador global para atribuir a você um administrador global do l
 4. Quando solicitado, defina a **tenantid** para seu locatário recém-criado em vez do locatário anterior.
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Quero alterar um Administrador de Serviços ou um Coadministrador quando o logon for feito com uma conta organizacional
-Consulte o artigo de suporte [Changing Service Administrator and Co-Administrator when logged in with an organisational account (Alterando um Administrador de Serviços e um Co-administrador quando o logon for feito com uma conta organizacional)][lnk-service-admins].
+Consulte o artigo de suporte [Alterando um Administrador de Serviços e um Coadministrador quando o logon for feito com uma conta organizacional][lnk-service-admins].
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Por que vejo este erro? "Sua conta não tem as permissões adequadas para criar uma solução. Verifique com o administrador da conta ou tente com uma conta diferente."
 Examine o diagrama a seguir:
@@ -103,7 +103,7 @@ Examine o diagrama a seguir:
 ![][img-flowchart]
 
 > [!NOTE]
-> Se você continuar recebendo o erro após validar que é um administrador global no locatário do AAD e um coadministrador na assinatura, peça ao administrador da conta que remova o usuário e reatribua as permissões necessárias nesta ordem: adicionar o usuário como um administrador global e adicionar o usuário como um coadministrador na assinatura do Azure. Se o problema persistir, entre em contato com [Ajuda e suporte][lnk-help-support].
+> Se você continuar recebendo o erro após validar que é um administrador global no locatário do AAD e um coadministrador na assinatura, peça ao administrador da conta que remova o usuário e reatribua as permissões necessárias nesta ordem: adicionar o usuário como um administrador global e adicionar o usuário como um coadministrador na assinatura do Azure. Se o problema persistir, entre em contato com [Ajuda e Suporte][lnk-help-support].
 > 
 > 
 
@@ -112,7 +112,7 @@ Examine o diagrama a seguir:
 Se você tiver certeza de que tem uma assinatura do Azure, valide o mapeamento do locatário para a sua assinatura e certifique-se de que o locatário correto tenha sido selecionado na lista suspensa. Se você tiver validado o locatário desejado corretamente, siga o diagrama acima e valide o mapeamento de sua assinatura e este locatário do AAD.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para continuar sabendo mais sobre o IoT Suite, veja como é possível [personalizar uma solução pré-configurada][lnk-customize].
+Para continuar aprendendo sobre o IoT Suite, veja como é possível [personalizar uma solução pré-configurada][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 
@@ -131,6 +131,6 @@ Para continuar sabendo mais sobre o IoT Suite, veja como é possível [personali
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

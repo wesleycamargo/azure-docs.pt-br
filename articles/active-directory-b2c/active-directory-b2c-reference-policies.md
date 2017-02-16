@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 55ed7d44006f18fa3573a5bef5e8f24107ca20fa
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 5db03c2ba594963f6c5a2f091f83b9de240fe2ba
 
 
 ---
@@ -162,12 +162,15 @@ Para habilitar a redefinição de senha refinada, você precisará criar uma pol
     > 
     > 
 
+## <a name="how-to-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Como vincular uma política de inscrição ou entrada a uma política de redefinição de senha?
+Quando você cria uma política de inscrição ou entrada (com contas locais), o consumidor verá um link "Esqueceu a senha?" na primeira página da experiência. Clicar nesse link não dispara automaticamente uma política de redefinição de senha. Em vez disso, um código de erro específico `AADB2C90118` retorna em seu aplicativo. Seu aplicativo precisa lidar com isso e invocar uma política de redefinição de senha específica. Confira [aqui](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) um exemplo que demonstra essa abordagem de vinculação de políticas.
+
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

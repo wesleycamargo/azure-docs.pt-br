@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: 848c3fb655688dd55176cff00c728a151fd8f548
 
 
 ---
@@ -60,7 +60,7 @@ A Cópia de instantâneo incremental permite copiar de uma conta de armazenament
 
 Se as condições a seguir forem atendidas,
 
-* O blob foi criado em 1º de janeiro de 2016 ou posteriormente.
+* O blob foi criado em&1;º de janeiro de&2016; ou posteriormente.
 * O blob não foi substituído por [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) ou [Copiar Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) entre dois instantâneos.
 
 **Observação**: este recurso está disponível para os Blobs de Página do Azure Premium e Standard.
@@ -123,6 +123,6 @@ Saiba mais sobre como criar instantâneos de um blob e planejar a infraestrutura
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

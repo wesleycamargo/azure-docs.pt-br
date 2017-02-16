@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
+ms.sourcegitcommit: 28e9cbf05e75055a10c78fd42b5cb27e359b1d65
+ms.openlocfilehash: aad0e6de85a40df8a873aa11e5a33e7064090dce
 
 
 ---
@@ -69,7 +69,7 @@ Nos cabeçalhos de resposta, haverá um **ocp-apim-trace-location** com um valor
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-O rastreamento pode ser baixado do local especificado e revisado, conforme demonstrado na etapa a seguir.
+O rastreamento pode ser baixado do local especificado e revisado, conforme demonstrado na etapa a seguir. Observe que apenas as últimas 100 entradas de log são armazenadas e os locais de log são reutilizados no esquema rotativo. Portanto, se você fizer mais de 100 chamadas com rastreamento habilitado, consequentemente iniciará a substituição dos primeiros rastreamentos em vigor.
 
 ## <a name="inspect-trace"> </a>Inspecionar o rastreamento
 Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL **ocp-apim-trace-location** . Trata-se de um texto no formato JSON que contém entradas semelhantes ao exemplo a seguir.
@@ -269,6 +269,6 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/08/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: 3e53aa3ed3c1612c76aec349e4dabfc064842cb9
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 477c766afbfaccd70313e73e5d2ec5873c12d105
 
 
 ---
@@ -35,6 +35,10 @@ Nesse artigo, você aprenderá como usar o SSH (shell seguro) para se conectar a
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do HDInsight baseado em Linux (Hadoop no HDInsight)
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexão com o SSH
@@ -116,6 +120,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,15 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: c3f383a792994aaf1ff266338ca5b64c7e4362ec
 
 
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+Este artigo aborda perguntas frequentes geradas pela comunidade de usuários dos Serviços de Mídia do Azure (AMS).
+
 ## <a name="general-ams-faqs"></a>Perguntas frequentes sobre o AMS geral
 P: Como você dimensiona indexação?
 
@@ -28,7 +31,7 @@ R: As unidades reservadas são as mesmas para tarefas de codificação e indexa�
 
 P: Carreguei, codifiquei e publiquei um vídeo. Qual seria o motivo pelo qual o vídeo não é reproduzido quando tento transmiti-lo?
 
-R: Um dos motivos mais comuns é que você não tem pelo menos uma unidade de streaming reservada alocada no ponto de extremidade de streaming do qual está tentando reproduzir.  Siga as instruções em [Como dimensionar unidades reservadas de streaming](media-services-portal-scale-streaming-endpoints.md).
+R: Um dos motivos mais comuns é que você não tem o ponto de extremidade de streaming do qual está tentando reproduzir no estado **Executando**.  
 
 P: Posso fazer a composição em um fluxo ao vivo?
 
@@ -48,7 +51,7 @@ R: Para copiar ativos de uma conta de Serviços de Mídia para outra usando. NET
 
 P: quais são os caracteres com suporte para a nomeação de arquivos ao trabalhar com o AMS?
 
-R: os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, só pode haver um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+R: os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 P: como se conectar usando o REST?
 
@@ -56,7 +59,7 @@ R: depois de se conectar com êxito em https://media.windows.net, você receber�
 
 P: Como é possível girar um vídeo durante o processo de codificação.
 
-R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) dá suporte à rotação em ângulos de 90/180/270. O comportamento padrão é "Auto", em que ele tentará detectar os metadados de rotação no arquivo MP4/MOV de entrada e compensá-lo. Inclua o seguinte elemento de **Fontes** em uma das predefinições de json definidas [aqui](http://msdn.microsoft.com/library/azure/mt269960.aspx):
+R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) dá suporte à rotação em ângulos de 90/180/270. O comportamento padrão é "Auto", em que ele tentará detectar os metadados de rotação no arquivo MP4/MOV de entrada e compensá-lo. Inclua o seguinte elemento de **Fontes** em uma das predefinições de json definidas [aqui](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [
@@ -82,6 +85,6 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

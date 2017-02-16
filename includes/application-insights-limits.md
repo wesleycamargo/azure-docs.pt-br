@@ -4,10 +4,10 @@ Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/de
 
 | **Recurso** | **Limite padrão** | **Observação**
 | --- | --- | --- |
-| Total de dados por dia | 100 GB | Você pode reduzir, definindo um limite.
+| Total de dados por dia | 100 GB | Você pode reduzir, definindo um limite. Se precisar de mais, envie um email a AIDataCap@microsoft.com 
 | Dados gratuitos por mês<br/> (Plano de preços básico) | 1 GB | Dados adicionais cobrados por GB
 | Retenção de dados | 90 dias | Para [Pesquisa](../articles/application-insights/app-insights-diagnostic-search.md), [Análise](../articles/application-insights/app-insights-analytics.md) e [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md)
-| Retenção de resultados detalhados do [Teste de disponibilidade de várias etapas](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 30 dias | Resultados detalhados de cada etapa
+| Retenção de resultados detalhados do [Teste de disponibilidade de várias etapas](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 dias | Resultados detalhados de cada etapa
 | Contagem de nomes de [Propriedade](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) e [Métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
 | Tamanho dos nomes de propriedade e métrica | 150 |
 | Tamanho da cadeia de caracteres do valor da propriedade | 8192 |
@@ -23,6 +23,6 @@ Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/de
 
 [Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fbe6b9d58ed675b5056ac716648f654a95232c04
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
 
 
 ---
@@ -32,8 +32,8 @@ Os itens a seguir são necessários para autenticação no Azure.
 
 > [!NOTE]
 > O comprimento da chave do certificado X.509 v3 deve ser pelo menos 2.048 bits. O Azure descartará qualquer certificado que não atenda a esse requisito ou que não seja válido.
-> 
-> 
+>
+>
 
 O Visual Studio usa sua ID da assinatura junto com os dados do certificado como credenciais. As credenciais apropriadas são referenciadas no arquivo de assinatura (arquivo .publishsettings), que contém uma chave pública para o certificado. O arquivo de assinatura pode conter credenciais para mais de uma assinatura.
 
@@ -43,8 +43,8 @@ Se você deseja criar um certificado por conta própria, pode consultar as instr
 
 > [!NOTE]
 > Essas credenciais que o Visual Studio requer para gerenciar seus serviços de nuvem não são as mesmas credenciais necessárias para autenticar uma solicitação nos serviços de armazenamento do Azure.
-> 
-> 
+>
+>
 
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>Modificar ou exportar credenciais de autenticação no Visual Studio
 Você também pode configurar, modificar ou exportar suas credenciais de autenticação na nova caixa de diálogo **Assinatura** que aparece se você realizar uma das seguintes ações:
@@ -56,27 +56,26 @@ O procedimento a seguir pressupõe que a caixa de diálogo **Nova Assinatura** e
 
 ### <a name="to-set-up-authentication-credentials-in-visual-studio"></a>Para configurar credenciais de autenticação no Visual Studio
 1. Na lista **Selecionar um certificado existente para autenticação** , escolha um certificado.
-2. Escolha o botão **Copiar o caminho completo**. O caminho para o certificado (arquivo .cer) é copiado na área de transferência.
-   
+2. Escolha o botão **Copiar o caminho completo**. O caminho para o certificado (arquivo .cer) é copiado para a área de transferência.
+
    > [!IMPORTANT]
    > Para publicar seu aplicativo Azure do Visual Studio, você deve carregar esse certificado no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
-   > 
-   > 
+   >
+   >
 3. Para carregar o certificado no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885):
-   
+
    1. Escolha o link Portal do Azure.
-      
+
         O [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) abre.
    2. Entre no [Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=213885)e selecione o botão **Serviços de Nuvem** .
    3. Escolha o serviço de nuvem que lhe interessa.
-      
+
        A página do serviço se abre.
    4. Na guia **Certificados**, escolha o botão **Carregar**.
    5. Cole o caminho completo do arquivo .cer que você acabou de criar e, em seguida, digite a senha que especificou.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

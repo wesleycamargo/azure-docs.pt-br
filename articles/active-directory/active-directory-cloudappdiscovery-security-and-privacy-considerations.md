@@ -5,36 +5,35 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e14ee89eec9cbc7db7b1253ed46acf1ae93e620d
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 5c4ab6e08c8f1af89ea80ac7f4d58d82ee931ec9
 
 
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considerações de privacidade e segurança no Cloud App Discovery
-A Microsoft está comprometida em proteger a privacidade e segurança de seus dados, oferecendo softwares e serviços que ajudam a gerenciar a segurança de TI da sua organização. <br>
- Reconhecemos que quando você confia seus dados a outras pessoas, essa confiança exige investimentos rigorosos em engenharia de segurança e competências para dar suporte a isso.
-A Microsoft obedece a diretrizes rígidas de conformidade e segurança, desde práticas seguras do ciclo de vida de desenvolvimento do software até o funcionamento de um serviço. <br>
- Segurança e proteção de dados é uma prioridade principal da Microsoft.
+A Microsoft está comprometida em proteger a privacidade e segurança de seus dados, oferecendo softwares e serviços que ajudam a gerenciar a segurança de TI da sua organização.  
+Reconhecemos que quando você confia seus dados a outras pessoas, essa confiança exige investimentos rigorosos em engenharia de segurança e competências para dar suporte a isso.
+A Microsoft obedece a diretrizes rígidas de conformidade e segurança, desde práticas seguras do ciclo de vida de desenvolvimento do software até o funcionamento de um serviço.  
+Segurança e proteção de dados é uma prioridade principal da Microsoft.
 
 Este tópico explica como os dados são coletados, processados e protegidos dentro do Cloud App Discovery do Active Directory do Azure
 
 ## <a name="overview"></a>Visão geral
-Cloud App Discovery é um recurso do AD do Azure e é hospedado no Microsoft Azure. <br>
- O agente de ponto de extremidade do Cloud App Discovery é usado para coletar dados de descoberta de aplicativos de computadores gerenciados por TI. <br>
- Os dados coletados são enviados com segurança por um canal criptografado para o serviço Cloud App Discovery do AD do Azure. <br>
- Os dados de uma organização no Cloud App Discovery ficam visíveis no portal do Azure. <br>
+Cloud App Discovery é um recurso do AD do Azure e é hospedado no Microsoft Azure.  
+O agente de ponto de extremidade do Cloud App Discovery é usado para coletar dados de descoberta de aplicativos de computadores gerenciados por TI.  
+Os dados coletados são enviados com segurança por um canal criptografado para o serviço Cloud App Discovery do AD do Azure.  
+Os dados de uma organização no Cloud App Discovery ficam visíveis no portal do Azure. 
 
-<center>![Como o Cloud App Discovery funciona](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) </center> <br>
+![Como o Cloud App Discovery funciona](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) 
 
 As seções a seguir seguem o fluxo de informações e descrevem como ele é protegido à medida que avança de sua organização para o serviço Cloud App Discovery e, finalmente, para o portal do Cloud App Discovery.
 
@@ -44,26 +43,27 @@ Para usar o recurso Cloud App Discovery do Active Directory do Azure para obter 
 Os administradores do locatário do Active Directory do Azure (ou seu representante) podem baixar o pacote de instalação do agente no portal do Azure. O agente pode ser instalado manualmente em vários computadores da organização usando a política de grupo ou do SCCM.
 
 Para obter mais instruções sobre opções de implantação, consulte [Guia de implantação da política de grupo do Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx).
-<br>
+
 
 ### <a name="data-collected-by-the-agent"></a>Dados coletados pelo agente
-As informações descritas na lista a seguir são coletadas pelo agente quando é feita uma conexão ao aplicativo Web. As informações são coletadas apenas para os aplicativos que o administrador configurou para descoberta. <br>
-Você pode editar a lista de aplicativos na nuvem que o agente monitora por meio da folha Cloud App Discovery no [Portal do Microsoft Azure](https://portal.azure.com/), em **Configurações**->**Coleta de Dados**->**Lista de Coleção de Aplicativos**. Para obter mais detalhes, confira [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
- (Introdução ao Cloud App Discovery)<br>
-**Categoria das informações**: informações do usuário <br>
-**Descrição**: <br>
+As informações descritas na lista a seguir são coletadas pelo agente quando é feita uma conexão ao aplicativo Web. As informações são coletadas apenas para os aplicativos que o administrador configurou para descoberta.  
+Você pode editar a lista de aplicativos na nuvem que o agente monitora por meio da folha Cloud App Discovery no [Portal do Microsoft Azure](https://portal.azure.com/), em **Configurações**->**Coleta de Dados**->**Lista de Coleção de Aplicativos**. Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+
+
+**Categoria das informações**: informações do usuário  
+**Descrição**:  
 O nome de usuário do Windows do processo que fez uma solicitação ao aplicativo Web de destino (por exemplo: DOMÍNIO\nomedousuário), bem como SID (Identificador de Segurança do Windows) do usuário.
 
-**Categoria das Informações**: informações do processo <br>
-**Descrição**: <br>
- o nome do processo que fez a solicitação ao aplicativo Web de destino (por exemplo: "iexplore.exe")
+**Categoria das Informações**: informações do processo  
+**Descrição**:  
+o nome do processo que fez a solicitação ao aplicativo Web de destino (por exemplo: "iexplore.exe")
 
-**Categoria das Informações**: informações do computador <br>
-**Descrição**: <br>
- o nome NetBIOS do computador no qual o agente está instalado.
+**Categoria das Informações**: informações do computador  
+**Descrição**:  
+o nome NetBIOS do computador no qual o agente está instalado.
 
-**Categoria das Informações**: informações de tráfego do aplicativo <br>
-**Descrição**: <br>
+**Categoria das Informações**: informações de tráfego do aplicativo  
+**Descrição**: 
 
 As seguintes informações de conexão:
 
@@ -93,7 +93,6 @@ As seguintes informações de HTTP:
 
 Além dos dados que o agente coleta sobre a atividade de rede, ele também coleta informações anônimas sobre a configuração de software e hardware, relatórios de erros e informações sobre como o agente está sendo usado.
 
-<br><br>
 
 ### <a name="how-the-agent-works"></a>Como funciona o agente
 A instalação do agente inclui dois componentes:
@@ -101,12 +100,12 @@ A instalação do agente inclui dois componentes:
 * Um componente de modo de usuário
 * Um componente de driver no modo kernel (driver da Plataforma para Filtros do Windows)
 
-Quando o agente é instalado, ele armazena um certificado confiável específico de computador no computador que ele usa para estabelecer uma conexão segura com o serviço Cloud App Discovery. <br>
- O agente recupera periodicamente a configuração de política do serviço Cloud App Discovery nessa conexão segura. <br>
- A política inclui informações sobre quais aplicativos de nuvem monitorar e se a atualização automática deve ser habilitada, entre outras coisas.
+Quando o agente é instalado, ele armazena um certificado confiável específico de computador no computador que ele usa para estabelecer uma conexão segura com o serviço Cloud App Discovery.  
+O agente recupera periodicamente a configuração de política do serviço Cloud App Discovery nessa conexão segura.  
+A política inclui informações sobre quais aplicativos de nuvem monitorar e se a atualização automática deve ser habilitada, entre outras coisas.
 
-À medida que o tráfego da Web é enviado e recebido no computador do Internet Explorer e Chrome, o Cloud App Discovery analisa o tráfego e extrai os metadados relevantes (consulte a seção acima, **Dados coletados pelo agente** ). <br>
- A cada minuto, o agente carrega os metadados coletados no serviço Cloud App Discovery por um canal criptografado.
+À medida que o tráfego da Web é enviado e recebido no computador do Internet Explorer e Chrome, o Cloud App Discovery analisa o tráfego e extrai os metadados relevantes (consulte a seção acima, **Dados coletados pelo agente** ).  
+A cada minuto, o agente carrega os metadados coletados no serviço Cloud App Discovery por um canal criptografado.
 
 O componente de driver intercepta o tráfego criptografado e insere a si mesmo no fluxo criptografado. Mais detalhes na seção abaixo, **Interceptando dados de conexões criptografadas (inspeção profunda)** .
 
@@ -143,28 +142,28 @@ Para reduzir as ocorrências desses problemas, acompanhamos os serviços de nuve
 ## <a name="sending-data-to-cloud-app-discovery"></a>Enviando dados para o Cloud App Discovery
 Depois que os metadados foram coletados pelo agente, são armazenados em cache no computador por até um minuto ou até que os dados em cache alcancem um tamanho de 5 MB. Em seguida, são compactado e enviados por uma conexão segura ao serviço Cloud App Discovery.
 
-Se o agente não consegue se comunicar com o serviço Cloud App Discovery por algum motivo, os metadados coletados são armazenados em um cache de arquivo local que só pode ser acessado por usuários com privilégios no computador (como o grupo de administradores). <br>
- O agente tenta automaticamente reenviar os metadados em cache até que sejam recebidos com êxito pelo serviço Cloud App Discovery.
+Se o agente não consegue se comunicar com o serviço Cloud App Discovery por algum motivo, os metadados coletados são armazenados em um cache de arquivo local que só pode ser acessado por usuários com privilégios no computador (como o grupo de administradores).  
+O agente tenta automaticamente reenviar os metadados em cache até que sejam recebidos com êxito pelo serviço Cloud App Discovery.
 
 ## <a name="receiving-the-data-at-the-service-end"></a>Recebendo os dados ao final do serviço
-Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado. <br>
- Os processos de pipeline analíticos do serviço Cloud App Discovery processa metadados para cada cliente separadamente, particionando-o logicamente em todos os estágios do pipeline de análise.
+Os agentes se autenticam no serviço Cloud App Discovery usando o certificado de autenticação de cliente específico do computador mencionado acima e encaminha dados por um canal criptografado.  
+Os processos de pipeline analíticos do serviço Cloud App Discovery processa metadados para cada cliente separadamente, particionando-o logicamente em todos os estágios do pipeline de análise.
 Os metadados analisados conduzem os vários relatórios no portal.
 
 Os metadados não processados e analisados metadados são armazenados por até 180 dias. Além disso, os clientes podem escolher capturar metadados analisados em uma conta de armazenamento de blob do Azure de sua escolha.
 Isso é útil para análise offline de metadados, bem como retenção mais longa dos dados.
 
 ## <a name="accessing-the-data-using-the-azure-portal"></a>Acessando os dados usando o portal do Azure
-Em um esforço para proteger os metadados coletados seguros, por padrão somente os administradores globais do locatário têm acesso ao recurso Cloud App Discovery no portal do Azure. <br>
- No entanto, os administradores podem optar por delegar esse acesso a outros usuários ou grupos.
+Em um esforço para proteger os metadados coletados seguros, por padrão somente os administradores globais do locatário têm acesso ao recurso Cloud App Discovery no portal do Azure.  
+No entanto, os administradores podem optar por delegar esse acesso a outros usuários ou grupos.
 
 > [!NOTE]
 > Para obter mais detalhes, consulte [Introdução ao Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 > 
 > 
 
-<br>
- Qualquer usuário que acesse dados no portal deve ser licenciado com uma licença do Azure AD Premium.
+
+Qualquer usuário que acesse dados no portal deve ser licenciado com uma licença do Azure AD Premium.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
@@ -173,6 +172,6 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

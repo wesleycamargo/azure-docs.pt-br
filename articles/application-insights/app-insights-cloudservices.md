@@ -15,13 +15,13 @@ ms.workload: tbd
 ms.date: 11/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1022f5a2bbb9b61ce7d941de9e2a5582db22b91b
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 925411deed422af00b10ff6787606f5039a5fb23
 
 
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
-Os [aplicativos de serviço de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][iniciar] quanto a disponibilidade, desempenho, falhas e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
+Os [aplicativos de serviço de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] quanto a disponibilidade, desempenho, falhas e uso. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Exemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -56,7 +56,7 @@ O que se segue informa como adaptar seu próprio projeto de serviço de nuvem da
 ## <a name="plan-resources-and-resource-groups"></a>Planejar recursos e grupos de recursos
 A telemetria do seu aplicativo será armazenada, analisada e exibida em um recurso do Azure do tipo Application Insights. 
 
-Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, para conceder acesso a membros da equipe e para implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../resource-group-template-deploy.md) um Serviço de Nuvem do Azure e seus recursos em uma operação de monitoramento do Application Insights.
+Cada recurso pertence somente a um grupo de recursos. Os grupos de recursos são usados para gerenciar custos, para conceder acesso a membros da equipe e para implantar atualizações em uma única transação coordenada. Por exemplo, você pode [escrever um script para implantar](../azure-resource-manager/resource-group-template-deploy.md) um Serviço de Nuvem do Azure e seus recursos em uma operação de monitoramento do Application Insights.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
 O esquema recomendado é criar um recurso separado para cada componente do aplicativo - ou seja, cada função Web e função de trabalho. Você pode analisar cada componente separadamente, mas pode criar um [painel](app-insights-dashboards.md) que reúna os principais gráficos de todos os componentes, para que você possa compará-los e monitorá-los juntos. 
@@ -135,10 +135,10 @@ Execute o aplicativo e entre no Azure. Abra os recursos do Application Insights 
 Adicione mais telemetria: confira as seções a seguir e publique seu aplicativo para obter comentários em tempo real sobre o diagnóstico e de uso. 
 
 #### <a name="no-data"></a>Não há dados?
-* Abra o bloco [Pesquisar][diagnostic] para ver os eventos individuais.
+* Abra o bloco [Pesquisar][diagnostic] para ver eventos individuais.
 * Use o aplicativo abrindo páginas diferentes, para que ele gere alguma telemetria.
 * Aguarde alguns segundos e clique em Atualizar.
-* Confira [Solução de Problemas][qna].
+* Consulte [Solução de problemas][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Exibir eventos de diagnóstico do Azure
 Onde encontrar o diagnóstico:
@@ -228,7 +228,7 @@ Se você tiver um aplicativo de cliente móvel, insira um código para enviar ev
 [O exemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) monitora um serviço que tem uma função web e duas funções de trabalho.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
-Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
+Você compilou para .NET 4.6? O&4;.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar o envio dos Diagnósticos do Azure ao Application Insights](app-insights-azure-diagnostics.md)
@@ -244,10 +244,10 @@ Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções d
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[iniciar]: app-insights-overview.md 
+[start]: app-insights-overview.md 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

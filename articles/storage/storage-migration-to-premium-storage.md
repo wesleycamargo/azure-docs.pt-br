@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ad39a17ae7aa6d7a1e2de0acee7259821e481728
+ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
+ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
 
 
 ---
@@ -44,7 +44,7 @@ Esta seção garante que você se prepare para seguir as etapas de migração ne
 
 ### <a name="prerequisites"></a>Pré-requisitos
 * Você também precisará de uma assinatura do Azure. Se ainda não tiver uma, você poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
-* Para executar os cmdlets PowerShell, você precisará do módulo Microsoft Azure PowerShell. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para obter o ponto e as instruções de instalação.
+* Para executar os cmdlets PowerShell, você precisará do módulo Microsoft Azure PowerShell. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para obter o ponto e as instruções de instalação.
 * Quando planeja usar VMs do Azure em execução no Armazenamento Premium, você precisa usar VMs compatíveis com o Armazenamento Premium. Você pode usar discos de Armazenamento Standard e Premium com VMs compatíveis com o Armazenamento Premium. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerações
@@ -313,7 +313,7 @@ Um exemplo de script de migração é fornecido no fim desta seção. Este scrip
 Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração limpa, você precisa interromper todo o processamento no sistema atual. Só então você pode colocá-lo em estado consistente, podendo então migrar para a nova plataforma. A duração do tempo de inatividade dependerá da quantidade de dados nos discos para migração.
 
 > [!NOTE]
-> Se você estiver criando uma VM do Azure Resource Manager por meio de um Disco de VHD especializado, confira [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) para implantação da VM do Resource Manager usando o disco existente.
+> Se você estiver criando uma VM do Azure Resource Manager por meio de um Disco de VHD especializado, confira [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) para implantação da VM do Resource Manager usando o disco existente.
 >
 >
 
@@ -773,6 +773,6 @@ Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

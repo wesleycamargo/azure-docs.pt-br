@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a9850299610aae6b4d9fdaf5abdf81ff6b361b8b
+ms.sourcegitcommit: b089bc075ec3ec718eb21357bbbc5c4af09f4af1
+ms.openlocfilehash: b01125160875e367b9b6e1d02031c5dd80b41594
 
 
 ---
@@ -81,13 +81,13 @@ O exemplo a seguir implementa uma conta de armazenamento com Redundância Local 
 ## <a name="quickstart-templates"></a>Modelos de início rápido
 Há muitos modelos de início rápido que incluem uma conta de armazenamento. Os modelos a seguir ilustram alguns cenários comuns:
 
-* [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-* [Implantação simples de uma VM do Windows](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-* [Implantação simples de uma VM do Linux](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-* [Criar um perfil de CDN, um ponto de extremidade CDN com uma conta de armazenamento como origem](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-* [Criar um farm de SharePoint de alta disponibilidade com 9 VMs usando a extensão de DSC do Powershell](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-* [Implantação simples de um cluster seguro do Service Fabric de 5 nós com WAD habilitado](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-* [Criar uma máquina virtual de uma imagem do Windows com 4 discos de dados vazios](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
+* [Criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+* [Implantação simples de uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+* [Implantação simples de uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* [Criar um Perfil CDN, um Ponto de Extremidade CDN com uma Conta de Armazenamento como origem]https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+* [Criar um farm de SharePoint de alta disponibilidade com 9 VMs usando a extensão de DSC do Powershell](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+* [Implantação simples de um cluster seguro do Service Fabric de 5 nós com WAD habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)
+* [Criar uma máquina virtual de uma imagem do Windows com 4 discos de dados vazios](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter informações gerais sobre armazenamento, veja [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md).
@@ -96,6 +96,6 @@ Há muitos modelos de início rápido que incluem uma conta de armazenamento. Os
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

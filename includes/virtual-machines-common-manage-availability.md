@@ -44,17 +44,17 @@ Existem melhores práticas a serem seguidas com relação a contas de armazename
 
 1. **Manter todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Os [limites](../articles/storage/storage-scalability-targets.md) da conta de armazenamento devem ser considerados** ao adicionar mais VHDs a uma conta de armazenamento
-3. **Use várias contas de armazenamento para cada conjunto de disponibilidade.** Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade. Várias VMs no mesmo conjunto de disponibilidade NÃO devem compartilhar a mesma conta de armazenamento. É aceitável que VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas acima sejam seguidas
+3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Várias VMs no mesmo conjunto de disponibilidade NÃO devem compartilhar a mesma conta de armazenamento. É aceitável que VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas acima sejam seguidas
 
 <!-- Link references -->
 [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]: #configure-each-application-tier-into-separate-availability-sets
 [Combinar o balanceador de carga com os conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-sets
-[Evite máquinas virtuais de instância única em conjuntos de disponibilidade]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Usar várias contas de armazenamento para cada conjunto de disponibilidade]: #use-multiple-storage-accounts-for-each-availability-set
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

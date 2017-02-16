@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 18accd5252e0ecf19fed23f3c2e4628e60fe370f
+ms.sourcegitcommit: 9ac2a1bf5987fc6fc30e20a1b4a10340eeed3825
+ms.openlocfilehash: 15cf891b9c31e1f2e2b108e631f32883ce2f36a7
 
 
 ---
@@ -43,9 +43,9 @@ As Recomendações apresentam as seguintes limitações de uso:
 
 * Número máximo de modelos por assinatura: 10
 * Número máximo de itens que um catálogo pode conter: 100.000
-* O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
+* O número máximo de pontos de uso mantidos é cerca de&5;.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 * O volume máximo de dados que podem ser enviados no email (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
-* O número de TPS (transações por segundo) para um build de modelo da Recomendação que não está ativo é de cerca de 2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
+* O número de TPS (transações por segundo) para um build de modelo da Recomendação que não está ativo é de cerca de&2; TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
 
 ## <a name="purchase-and-billing"></a>Compra e cobrança
 **Qual é o custo de Recomendações durante o período de lançamento?**
@@ -109,7 +109,7 @@ Experimentar as Recomendações é projetado para ser um processo bastante simpl
 
 As Recomendações exigem que você tenha um log das opções de usuário no que diz respeito ao catálogo. Se você não tiver um log e tiver um site voltado para o cliente, as Recomendações poderão coletar a atividade de usuário para você. 
 
-As Recomendações também exigem um catálogo de produtos ou serviços. Se você não tiver o catálogo, as Recomendações poderão utilizar os dados de uso de clientes reais e extrair um catálogo. Um catálogo "implícito" não incluirá itens que não tenham sido "relatados" como parte das transações de usuário.
+As Recomendações também exigem um catálogo de produtos ou serviços. Se você não tiver o catálogo, as Recomendações poderão utilizar os dados de uso de clientes reais e extrair um catálogo. Um catálogo implícito não incluirá itens que não tenham sido relatados como parte das transações de usuário.
 
 **Como configurar as Recomendações pela primeira vez?**
 
@@ -117,7 +117,7 @@ Depois de [assinar](https://datamarket.azure.com/dataset/amla/recommendations) a
 
 **Onde posso encontrar a documentação da API?** 
 
-A documentação da API é [Recomendações do Machine Learning do Azure – Guia de Início Rápido](machine-learning-recommendation-api-quick-start-guide.md).
+A documentação da API está em [Recomendações do Azure Machine Learning – Guia de Início Rápido](machine-learning-recommendation-api-quick-start-guide.md).
 
 **Quais são as opções que tenho para carregar dados de uso e catálogo para Recomendações?**
 
@@ -140,6 +140,6 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

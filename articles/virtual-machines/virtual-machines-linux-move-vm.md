@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e22b8173e7b0a470c5c45ed6027a717b90aca23
+ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
+ms.openlocfilehash: 2978fee770b70378dfbffcbd97e57a6b82d2e2fa
 
 
 ---
@@ -55,11 +55,11 @@ Será solicitado que você confirme que deseja mover o recurso especificado. Dig
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).    
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).    
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

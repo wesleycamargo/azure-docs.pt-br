@@ -1,22 +1,26 @@
 ---
-title: 'Serviços de Domínio do Azure Active Directory: guia de administração | Microsoft Docs'
-description: Ingresse uma máquina virtual do Windows em um domínio gerenciado usando o Azure PowerShell e o modelo de implantação clássico.
+title: "Azure Active Directory Domain Services: guia de administração | Microsoft Docs"
+description: "Ingresse uma máquina virtual do Windows em um domínio gerenciado usando o Azure PowerShell e o modelo de implantação clássico."
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 9143b843-7327-43c3-baab-6e24a18db25e
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
+
 
 ---
-# Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando o PowerShell
+# <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-powershell"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado usando o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal clássico do Azure - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
 > * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
@@ -26,7 +30,7 @@ ms.author: maheshu
 <br>
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. Os Serviços de Domínio do Azure AD no momento não dá suporte para o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. Os Serviços de Domínio do Azure AD no momento não dá suporte para o modelo do Resource Manager.
 > 
 > 
 
@@ -34,15 +38,15 @@ Estas etapas mostram como personalizar um conjunto de comandos do Azure PowerShe
 
 Estas etapas seguem uma abordagem de preencher lacunas para criar conjuntos de comandos do Azure PowerShell. Esta abordagem poderá ser útil se você ainda não conhece o PowerShell ou se quiser saber quais valores especificar para uma configuração bem-sucedida. Os usuários avançados do PowerShell podem pegar os comandos e substituí-los por seus próprios valores de variáveis (as linhas que começam com "$").
 
-Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do Windows PowerShell.
+Se você ainda não fez isso, use as instruções em [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para instalar o PowerShell do Azure no computador local. Em seguida, abra um prompt de comando do Windows PowerShell.
 
-## Etapa 1: adicionar sua conta
+## <a name="step-1-add-your-account"></a>Etapa 1: adicionar sua conta
 1. No prompt do PowerShell, digite **Add-AzureAccount** e clique em **Enter**.
 2. Digite o endereço de email associado à sua assinatura do Azure e clique em **Continuar**.
 3. Digite a senha da sua conta.
 4. Clique em **Entrar**.
 
-## Etapa 2: Definir a assinatura e a conta de armazenamento
+## <a name="step-2-set-your-subscription-and-storage-account"></a>Etapa 2: Definir a assinatura e a conta de armazenamento
 Defina a assinatura e a conta de armazenamento do Azure executando estes comandos no prompt de comando do Windows PowerShell. Substitua tudo que estiver entre aspas, incluindo os caracteres < e >, pelos nomes corretos.
 
     $subscr="<subscription name>"
@@ -50,9 +54,9 @@ Defina a assinatura e a conta de armazenamento do Azure executando estes comando
     Select-AzureSubscription -SubscriptionName $subscr –Current
     Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Você pode obter o nome de assinatura correto na propriedade SubscriptionName da saída do comando **Get-AzureSubscription**. Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
+Você pode obter o nome de assinatura correto na propriedade SubscriptionName da saída do comando **Get-AzureSubscription** . Você pode obter o nome da conta de armazenamento correto na propriedade Label da saída do comando **Get-AzureStorageAccount**, após executar o comando **Select-AzureSubscription**.
 
-## Etapa 3: Passo a passo - provisionar a máquina virtual e ingressa-la ao domínio gerenciado
+## <a name="step-3-step-by-step-walkthrough---provision-the-virtual-machine-and-join-it-to-the-managed-domain"></a>Etapa 3: Passo a passo - provisionar a máquina virtual e ingressa-la ao domínio gerenciado
 Aqui está o conjunto de comandos do PowerShell do Azure correspondente para criar essa máquina virtual, com linhas em branco entre cada bloco para facilitar a leitura.
 
 Especifique as informações sobre a máquina virtual do Windows a ser provisionada.
@@ -84,7 +88,7 @@ Configure a VM: defina o nome da VM, o tamanho da instância e a imagem a ser us
 
     $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-Obtenha credenciais de administrador local para a VM. Escolha uma senha de administrador local forte. Para verificar a força da senha, consulte [Verificador de senha: usando senhas fortes](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Obtenha credenciais de administrador local para a VM. Escolha uma senha de administrador local forte.
 
     $localadmincred=Get-Credential –Message "Type the name and password of the local administrator account."
 
@@ -110,7 +114,7 @@ Agora, provisione a VM do Windows ingressada no domínio.
 
 <br>
 
-## Script para provisionar uma VM do Windows e automaticamente ingressar em um domínio gerenciado dos Serviços de Domínio do AAD
+## <a name="script-to-provision-a-windows-vm-and-automatically-join-it-to-an-aad-domain-services-managed-domain"></a>Script para provisionar uma VM do Windows e automaticamente ingressar em um domínio gerenciado dos Serviços de Domínio do AAD
 Esse conjunto de comandos do PowerShell cria uma máquina virtual para um servidor de linha de negócios que:
 
 * Usa a imagem do Windows Server 2012 R2 Datacenter.
@@ -149,8 +153,13 @@ Aqui está o script de exemplo completo para criar a máquina virtual do Windows
 
 <br>
 
-## Conteúdo relacionado
+## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de Domínio do Azure AD - guia de Introdução](active-directory-ds-getting-started.md)
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens do dispositivo para a nuvem do Hub IoT (.Net) | Microsoft Docs
-description: "Siga este tutorial para aprender os padrões úteis para processar as mensagens dispositivo para nuvem Hub IoT."
+title: Processar mensagens do dispositivo para nuvem do Hub IoT do Azure usando rotas (.Net) | Microsoft Docs
+description: "Como processar mensagens do dispositivo para nuvem do Hub IoT usando rotas para expedir mensagens para outros serviços de back-end."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -12,49 +12,33 @@ ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 12/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 3b65a12369fbd6f0a2993d875225d49fecb4f39b
+ms.sourcegitcommit: d2da282a849496772fe57b9429fe2a180f37328d
+ms.openlocfilehash: 1ca480c4be2cca2c2558b13d2c3a5e5dea8b561e
 
 
 ---
-# <a name="tutorial-how-to-process-iot-hub-device-to-cloud-messages-using-net"></a>Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT usando o .Net
+# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Processar mensagens do dispositivo para nuvem do Hub IoT usando rotas (.NET)
+
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Outros tutoriais ([Introdução ao Hub IoT] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d]) mostram como usar a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT.
+O Hub IoT do Azure é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Outros tutoriais ([Introdução ao IoT Hub] e [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d]) mostram como usar a funcionalidade básica de mensagem do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT.
 
-Esse tutorial se baseia no código mostrado no tutorial [Introdução ao Hub IoT] e mostra dois padrões escalonáveis que você pode usar para processar mensagens de dispositivo para nuvem:
+Este tutorial se baseia no código mostrado no tutorial [Introdução ao IoT Hub] e mostra como usar o roteamento de mensagem para expedir mensagens do dispositivo para nuvem de maneira fácil, baseada em configuração. O tutorial ilustra como isolar mensagens que exigem ação imediata no back-end da solução para processamento adicional. Por exemplo, um dispositivo pode enviar uma mensagem de alarme que dispara e insere um tíquete em um sistema CRM. Por outro lado, as mensagens de ponto de dados simplesmente são alimentadas no mecanismo de análise. Por exemplo, a telemetria de temperatura de um dispositivo que deve ser armazenado para análise posterior é uma mensagem de ponto de dados.
 
-* O armazenamento confiável de mensagens do dispositivo para a nuvem no [Armazenamento de blobs do Azure]. Um cenário comum é a análise de *caminho frio* , em que você armazena os dados de telemetria em blobs para usar como entrada em processos analíticos. Esses processos podem ser orientados por ferramentas como [Azure Data Factory] ou a pilha [HDInsight (Hadoop)]..
-* O processamento confiável de mensagens *interativas* do dispositivo para nuvem. As mensagens do dispositivo para nuvem são interativas quando disparadas imediatamente para um conjunto de ações no back-end do aplicativo. Por exemplo, um dispositivo pode enviar uma mensagem de alarme que dispara e insere um tíquete em um sistema CRM. Por outro lado, as mensagens de *ponto de dados* simplesmente são alimentadas no mecanismo de análise. Por exemplo, a telemetria de temperatura de um dispositivo que deve ser armazenado para análise posterior é uma mensagem de ponto de dados.
+No final deste tutorial, você executará três aplicativos de console .NET:
 
-Como o Hub IoT expõe um ponto de extremidade compatível com um [Hub de Eventos][lnk-event-hubs] para receber mensagens de dispositivo para a nuvem, este tutorial usa uma instância [EventProcessorHost]. Esta instância:
-
-* Armazena com segurança as mensagens do *ponto de dados* no armazenamento de blobs do Azure.
-* Encaminha mensagens *interativas* do dispositivo para a nuvem a uma [Fila do Barramento de Serviço] do Azure para processamento imediato.
-
-O Barramento de Serviço ajuda a garantir processamento confiável de mensagens interativas, pois fornece pontos de verificação por mensagem e eliminação de duplicação baseada em janela de tempo.
-
-> [!NOTE]
-> Uma instância **EventProcessorHost** é apenas uma maneira de processar mensagens interativas. Outras opções incluem [Azure Service Fabric][lnk-service-fabric] e [Stream Analytics do Azure][lnk-stream-analytics].
-> 
-> 
-
-Ao final deste tutorial, você executará três aplicativos de console do Windows:
-
-* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução ao Hub IoT] , que envia mensagens de ponto de dados do dispositivo para nuvem a cada segundo e mensagens interativas do dispositivo para nuvem a cada 10 segundos. Este aplicativo usa o protocolo AMQP para se comunicar com o Hub IoT.
-* **ProcessDeviceToCloudMessages** usa a classe [EventProcessorHost] para recuperar mensagens do ponto de extremidade compatível com os Hubs de Eventos. Desse modo, ele armazena confiavelmente mensagens de pontos de dados no armazenamento de blobs do Azure e encaminha mensagens interativas a uma fila do Barramento de Serviço.
-* **ProcessD2CInteractiveMessages** remove da fila as mensagens interativas da fila do Barramento de Serviço.
+* **SimulatedDevice**, uma versão modificada do aplicativo criado no tutorial [Introdução ao IoT Hub], que envia mensagens de ponto de dados do dispositivo para a nuvem a cada segundo e mensagens interativas do dispositivo para a nuvem a cada 10 segundos. Este aplicativo usa o protocolo AMQP para se comunicar com o Hub IoT.
+* **ReadDeviceToCloudMessages**, que exibe a telemetria não crítica enviada pelo aplicativo de dispositivo simulado.
+* **ReadCriticalQueue** retira da fila as mensagens críticas enviadas pelo seu aplicativo de dispositivo simulado da fila do Barramento de Serviço conectada ao Hub IoT.
 
 > [!NOTE]
 > O Hub IoT tem suporte de SDK para várias plataformas de dispositivo e linguagens, incluindo C, Java e JavaScript. Para saber como substituir o dispositivo simulado neste tutorial por um dispositivo físico e como conectar dispositivos a um Hub IoT, confira o [Centro de desenvolvedores do Azure IoT].
 > 
 > 
-
-Esse tutorial se aplica diretamente a outras formas de consumir mensagens compatíveis com Hub de Eventos, como projetos do [HDInsight (Hadoop)] . Para obter mais informações,confira [Guia do desenvolvedor do Hub IoT do Azure — dispositivo para nuvem].
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -64,377 +48,161 @@ Para concluir este tutorial, você precisará do seguinte:
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Enviar mensagens interativas de um aplicativo do dispositivo simulado
-Nesta seção, você modificará o aplicativo do dispositivo simulado que você criou no tutorial [Introdução ao Hub IoT] para enviar mensagens interativas do dispositivo para a nuvem ao Hub IoT.
+Nesta seção, você modificará o aplicativo de dispositivo simulado criado no tutorial [Introdução ao IoT Hub] para enviar mensagens ocasionalmente que exigem processamento imediato.
 
-1. No Visual Studio, no projeto **SimulatedDevice**, adicione o método a seguir à classe **Program**.
+- No Visual Studio, no projeto **SimulatedDevice**, substitua o método `SendDeviceToCloudMessagesAsync` pelo código a seguir.
    
     ```
-    private static async void SendDeviceToCloudInteractiveMessagesAsync()
-    {
-      while (true)
-      {
-        var interactiveMessageString = "Alert message!";
-        var interactiveMessage = new Message(Encoding.ASCII.GetBytes(interactiveMessageString));
-        interactiveMessage.Properties["messageType"] = "interactive";
-        interactiveMessage.MessageId = Guid.NewGuid().ToString();
-   
-        await deviceClient.SendEventAsync(interactiveMessage);
-        Console.WriteLine("{0} > Sending interactive message: {1}", DateTime.Now, interactiveMessageString);
-   
-        Task.Delay(10000).Wait();
-      }
-    }
+    private static async void SendDeviceToCloudMessagesAsync()
+        {
+            double avgWindSpeed = 10; // m/s
+            Random rand = new Random();
+
+            while (true)
+            {
+                double currentWindSpeed = avgWindSpeed + rand.NextDouble() * 4 - 2;
+
+                var telemetryDataPoint = new
+                {
+                    deviceId = "myFirstDevice",
+                    windSpeed = currentWindSpeed
+                };
+                var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
+                string levelValue;
+
+                if (rand.NextDouble() > 0.7)
+                {
+                    messageString = "This is a critical message";
+                    levelValue = "critical";
+                }
+                else
+                {
+                    levelValue = "normal";
+                }
+                
+                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("level", levelValue);
+                
+                await deviceClient.SendEventAsync(message);
+                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
+
+                await Task.Delay(1000);
+            }
+        }
     ```
    
-    Esse método é semelhante ao método **SendDeviceToCloudMessagesAsync** no projeto **SimulatedDevice**. A única diferença é que agora você define a propriedade do sistema **MessageId** e uma propriedade de usuário chamada **messageType**.
-    O código atribui um GUID (identificador global exclusivo) para a propriedade **MessageId** . O Barramento de Serviço pode usar este identificador para eliminar a duplicação das mensagens recebidas. O exemplo usa a propriedade **messageType** para distinguir as mensagens interativas das de ponto de dados. Essas informações são transmitidas nas propriedades da mensagem pelo aplicativo, em vez de no corpo da mensagem, para que o processador de evento não precise desserializar a mensagem apenas para executar o roteamento.
-   
+     Isso adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que exige ação imediata do back-end da solução. O aplicativo do dispositivo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
+
    > [!NOTE]
-   > É importante criar o **MessageId** usado para eliminar a duplicação de mensagens interativas no código do dispositivo. As comunicações de rede intermitente, ou outras falhas, podem resultar em várias retransmissões da mesma mensagem deste dispositivo. Você também pode usar uma ID de mensagem semântica, como um hash dos campos de dados da mensagem relevante, no lugar de um GUID.
+   > Você pode usar as propriedades a fim de rotear as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
    > 
    > 
-2. Adicione o seguinte método ao método **Main**, logo antes da linha `Console.ReadLine()`:
-   
-    ````
-    SendDeviceToCloudInteractiveMessagesAsync();
-    ````
    
    > [!NOTE]
    > Para simplificar, esse tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição, como uma retirada exponencial, como sugerido no artigo [Tratamento de falhas transitórias]do MSDN.
    > 
    > 
 
-## <a name="process-device-to-cloud-messages"></a>Processar mensagens de dispositivo para nuvem
-Nesta seção, você criará um aplicativo do console do Windows que processa mensagens do dispositivo para a nuvem do Hub IoT. Um Hub IoT expõe um ponto de extremidade compatível com o Hub de Eventos para permitir que um aplicativo leia mensagens do dispositivo para a nuvem. Este tutorial usa a classe [EventProcessorHost] para processar essas mensagens em um aplicativo de console. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos] .
+## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>Adicionar uma fila ao seu Hub IoT e rotear mensagens para ela
+Nesta seção, você cria uma fila do Barramento de Serviço, conecta-a ao Hub IoT e configura o Hub IoT para enviar mensagens à fila com base na presença de uma propriedade na mensagem. Para saber mais sobre como processar mensagens das filas do Barramento de Serviço, confira [Introdução às filas][Service Bus queue].
 
-Quando você implementa o armazenamento confiável de mensagens de ponto de dados ou encaminha mensagens interativas, o desafio é que o processamento do evento depende do consumidor da mensagem para fornecer os pontos de verificação para seu progresso. Além disso, para alcançar uma alta taxa de transferência ao ler dos Hubs de Eventos, é necessário fornecer um ponto de verificação em lotes grandes. Esta abordagem cria a possibilidade de processamento duplicado para um grande número de mensagens, caso haja uma falha, e de reverter para o ponto de verificação anterior. Neste tutorial, você verá como sincronizar as gravações de Armazenamento do Azure e as janelas de eliminação de duplicação do Barramento de Serviço com os pontos de verificação do **EventProcessorHost** .
+1. Crie uma fila do Barramento de Serviço conforme descrito em [Introdução às filas][Service Bus queue]. A fila deve estar na mesma assinatura e região que o seu Hub IoT. Anote o namespace e o nome da fila.
 
-Para gravar mensagens no Armazenamento do Azure de forma confiável, o exemplo usa o recurso [blobs de blocos][Azure Block Blobs] de confirmação de bloco individual. O processador de eventos acumula mensagens na memória até o momento de fornecer um ponto de verificação. Por exemplo, depois que o buffer acumulado de mensagens atingir o tamanho máximo de bloco de 4 MB, ou depois que a janela de tempo de duplicação do Barramento de Serviço expirar. Então, antes do ponto de verificação, o código confirma novo bloco no blob.
+2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de Extremidade**.
+    
+    ![Pontos de extremidade no Hub IoT][30]
 
-O processador de evento usa o deslocamento de mensagem dos Hubs de Eventos como IDs de bloco. Este mecanismo permite que o processador de eventos execute uma verificação de eliminação de duplicação antes de confirmar o novo bloco de armazenamento, tomando cuidado com uma possível falha entre a confirmação de um bloco e o ponto de verificação.
+3. Na folha de pontos de extremidade, clique em **Adicionar** na parte superior para adicionar a fila ao Hub IoT. Chame o ponto de extremidade de "CriticalQueue" e use o menu suspenso para selecionar a **Fila do Barramento de Serviço**, o namespace do Barramento de Serviço no qual suas filas estão e o nome da sua fila. Quando terminar, clique em **Salvar** na parte inferior.
+    
+    ![Adicionando um ponto de extremidade][31]
+    
+4. Agora clique em **Rotas** no Hub IoT. Clique em **Adicionar** na parte superior da folha para criar uma regra que encaminhe mensagens para a fila que você acabou de adicionar. Selecione **DeviceTelemetry** como a fonte dos dados. Insira `level="critical"` como a condição e escolha a fila que acabou de adicionar como um ponto de extremidade como o ponto de extremidade da rota. Quando terminar, clique em **Salvar** na parte inferior.
+    
+    ![Adicionando uma rota][32]
+    
+    Verifique se a rota de fallback está definida como ATIVADA. Essa é a configuração padrão do Hub IoT.
+    
+    ![Rota de fallback][33]
 
-> [!NOTE]
-> Este tutorial usa uma única conta de Armazenamento do Azure para gravar todas as mensagens recuperadas do Hub IoT. Para decidir se você precisará usar várias contas de armazenamento do Azure em sua solução, confira [Azure Storage scalability Guidelines](Diretrizes de escalabilidade do Armazenamento do Azure).
-> 
-> 
+## <a name="read-from-the-queue-endpoint"></a>Ler no ponto de extremidade da fila
+Nesta seção, você lê as mensagens no ponto de extremidade da fila.
 
-O aplicativo usa o recurso de eliminação de duplicação do Barramento de Serviço para evitar duplicatas quando processa mensagens interativas. O aplicativo do dispositivo simulado carimba cada mensagem interativa com uma única **MessageId**. Estas IDs permitem que o Barramento de Serviço possam garantir que, na janela de tempo de eliminação de duplicação especificada, duas mensagens com a mesma **MessageId** não sejam entregues aos destinatários. Essa eliminação de duplicação, junto com a semântica de conclusão por mensagem fornecida pelas filas do Barramento de Serviço, facilita o processamento confiável de mensagens interativas.
+1. Na solução atual do Visual Studio, crie um projeto do Visual C# do Windows usando o modelo de projeto do **Aplicativo do Console** . Dê ao projeto o nome de **ReadCriticalQueue**.
 
-Para garantir que nenhuma mensagem seja reenviada fora da janela de eliminação de duplicação, o código sincroniza o mecanismo de ponto de verificação **EventProcessorHost** com a janela de eliminação de duplicação de fila do Barramento de Serviço. Esta sincronização é realizada pela imposição de um ponto de verificação pelo menos uma vez sempre a janela de eliminação de duplicação expirar (neste tutorial, a janela é de uma hora).
+2. No Gerenciador de Soluções, clique com o botão direito no projeto **ReadCriticalQueue** e clique em **Gerenciar Pacotes NuGet**. Esta operação faz com que a janela **Gerenciador de Pacotes NuGet** seja exibida.
 
-> [!NOTE]
-> Este tutorial usa uma única fila de Barramento de Serviço particionada para processar todas as mensagens interativas recuperadas do Hub IoT. Para obter mais informações sobre como usar filas do Barramento de Serviço para atender aos requisitos de escalabilidade da sua solução, confira a documentação [Barramento de Serviço do Azure] .
-> 
-> 
+3. Pesquise por **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Essa operação baixa, instala e adiciona uma referência ao Barramento de Serviço do Azure, com todas as suas dependências.
 
-### <a name="provision-an-azure-storage-account-and-a-service-bus-queue"></a>Provisionar uma conta de Armazenamento do Azure e uma fila do Barramento de Serviço
-Para usar a classe [EventProcessorHost] , você deve ter uma conta de armazenamento do Azure para habilitar o **EventProcessorHost** para registrar as informações do ponto de verificação. Você pode usar uma conta de Armazenamento do Azure existente ou seguir as instruções em [Sobre o Armazenamento do Azure] para criar uma nova. Anote a cadeia de conexão da conta de Armazenamento do Azure.
-
-> [!NOTE]
-> Ao copiar e colar a cadeia de conexão da conta de Armazenamento do Azure, verifique se não há nenhum espaço incluído.
-> 
-> 
-
-Você também precisará de uma fila do Barramento de Serviço para habilitar o processamento confiável de mensagens interativas. Você pode criar uma fila programaticamente com uma janela de eliminação de duplicação de uma hora, como explicado em [Como usar filas do Barramento de Serviço][Fila do Barramento de Serviço]. Como alternativa, você pode usar o [Portal clássico do Azure][lnk-classic-portal] seguindo estas etapas:
-
-1. Clique em **Novo** no canto inferior esquerdo. Em seguida, clique em **Serviços de aplicativos** > **Barramento de Serviço** > **Fila** > **Criação Personalizada**. Insira o nome **d2ctutorial**, selecione uma região e use um namespace existente ou crie um novo. Na página seguinte, selecione **Habilitar detecção de duplicidades** e defina a **Janela de tempo do histórico de detecção de duplicidades** como uma hora. Em seguida, clique na marca de seleção no canto inferior direito para salvar a configuração de fila.
-   
-    ![Criar uma fila usando o portal do Azure][30]
-2. Na lista de filas do Barramento de Serviço, clique em **d2ctutorial** e, em seguida, clique em **Configurar**. Crie duas políticas de acesso compartilhado, uma chamada **enviar** com permissões de **Envio** e outra chamada **escutar** com permissões de **Escuta**. Quando terminar, clique em **Salvar** na parte inferior.
-   
-    ![Configurar uma fila no portal do Azure][31]
-3. Clique em **Painel** na parte superior e em **Informações de conexão** na parte inferior. Anote as duas cadeias de conexão.
-   
-    ![Painel de fila no portal do Azure][32]
-
-### <a name="create-the-event-processor"></a>Criar o processador de eventos
-1. Na atual solução do Visual Studio, para criar um projeto do Visual C# do Windows usando o modelo de projeto do **Aplicativo do Console**, clique em **Arquivo** > **Adicionar** > **Novo Projeto**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Chame o projeto de **ProcessDeviceToCloudMessages** e clique em **OK**.
-   
-    ![Novo projeto no Visual Studio][10]
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProcessDeviceToCloudMessages** e, então, clique em **Gerenciar Pacotes NuGet**. A caixa de diálogo **Gerenciador de Pacotes NuGet** será exibida.
-3. Pesquise por **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Esta operação baixa, instala e adiciona uma referência ao [Pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus), com todas as suas dependências.
-4. Pesquise **Microsoft.Azure.ServiceBus.EventProcessorHost**, clique em **Instalar** e aceite os termos de uso. Esta operação baixa, instala e adiciona uma referência ao [Hub de Eventos do Barramento de Serviço do Azure – Pacote NuGet do EventProcessorHost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), com todas as suas dependências.
-5. Clique com o botão direito do mouse no projeto **ProcessDeviceToCloudMessages**, clique em **Adicionar** e clique em **Classe**. Chame a nova classe de **StoreEventProcessor** e clique em **OK** para criar a classe.
-6. Adicione as seguintes instruções na parte superior do arquivo StoreEventProcessor.cs:
-   
-    ```
-    using System.IO;
-    using System.Diagnostics;
-    using System.Security.Cryptography;
-    using Microsoft.ServiceBus.Messaging;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    ```
-7. Substitua o seguinte código no corpo da classe:
-   
-    ```
-    class StoreEventProcessor : IEventProcessor
-    {
-      private const int MAX_BLOCK_SIZE = 4 * 1024 * 1024;
-      public static string StorageConnectionString;
-      public static string ServiceBusConnectionString;
-   
-      private CloudBlobClient blobClient;
-      private CloudBlobContainer blobContainer;
-      private QueueClient queueClient;
-   
-      private long currentBlockInitOffset;
-      private MemoryStream toAppend = new MemoryStream(MAX_BLOCK_SIZE);
-   
-      private Stopwatch stopwatch;
-      private TimeSpan MAX_CHECKPOINT_TIME = TimeSpan.FromHours(1);
-   
-      public StoreEventProcessor()
-      {
-        var storageAccount = CloudStorageAccount.Parse(StorageConnectionString);
-        blobClient = storageAccount.CreateCloudBlobClient();
-        blobContainer = blobClient.GetContainerReference("d2ctutorial");
-        blobContainer.CreateIfNotExists();
-        queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString);
-      }
-   
-      Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-      {
-        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-        return Task.FromResult<object>(null);
-      }
-   
-      Task IEventProcessor.OpenAsync(PartitionContext context)
-      {
-        Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-   
-        if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
-        {
-          currentBlockInitOffset = 0;
-        }
-        stopwatch = new Stopwatch();
-        stopwatch.Start();
-   
-        return Task.FromResult<object>(null);
-      }
-   
-      async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-      {
-        foreach (EventData eventData in messages)
-        {
-          byte[] data = eventData.GetBytes();
-   
-          if (eventData.Properties.ContainsKey("messageType") && (string) eventData.Properties["messageType"] == "interactive")
-          {
-            var messageId = (string) eventData.SystemProperties["message-id"];
-   
-            var queueMessage = new BrokeredMessage(new MemoryStream(data));
-            queueMessage.MessageId = messageId;
-            queueMessage.Properties["messageType"] = "interactive";
-            await queueClient.SendAsync(queueMessage);
-   
-            WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
-            continue;
-          }
-   
-          if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
-          {
-            await AppendAndCheckpoint(context);
-          }
-          await toAppend.WriteAsync(data, 0, data.Length);
-   
-          Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-            context.Lease.PartitionId, Encoding.UTF8.GetString(data)));
-        }
-      }
-   
-      private async Task AppendAndCheckpoint(PartitionContext context)
-      {
-        var blockIdString = String.Format("startSeq:{0}", currentBlockInitOffset.ToString("0000000000000000000000000"));
-        var blockId = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(blockIdString));
-        toAppend.Seek(0, SeekOrigin.Begin);
-        byte[] md5 = MD5.Create().ComputeHash(toAppend);
-        toAppend.Seek(0, SeekOrigin.Begin);
-   
-        var blobName = String.Format("iothubd2c_{0}", context.Lease.PartitionId);
-        var currentBlob = blobContainer.GetBlockBlobReference(blobName);
-   
-        if (await currentBlob.ExistsAsync())
-        {
-          await currentBlob.PutBlockAsync(blockId, toAppend, Convert.ToBase64String(md5));
-          var blockList = await currentBlob.DownloadBlockListAsync();
-          var newBlockList = new List<string>(blockList.Select(b => b.Name));
-   
-          if (newBlockList.Count() > 0 && newBlockList.Last() != blockId)
-          {
-            newBlockList.Add(blockId);
-            WriteHighlightedMessage(String.Format("Appending block id: {0} to blob: {1}", blockIdString, currentBlob.Name));
-          }
-          else
-          {
-            WriteHighlightedMessage(String.Format("Overwriting block id: {0}", blockIdString));
-          }
-          await currentBlob.PutBlockListAsync(newBlockList);
-        }
-        else
-        {
-          await currentBlob.PutBlockAsync(blockId, toAppend, Convert.ToBase64String(md5));
-          var newBlockList = new List<string>();
-          newBlockList.Add(blockId);
-          await currentBlob.PutBlockListAsync(newBlockList);
-   
-          WriteHighlightedMessage(String.Format("Created new blob", currentBlob.Name));
-        }
-   
-        toAppend.Dispose();
-        toAppend = new MemoryStream(MAX_BLOCK_SIZE);
-   
-        // checkpoint.
-        await context.CheckpointAsync();
-        WriteHighlightedMessage(String.Format("Checkpointed partition: {0}", context.Lease.PartitionId));
-   
-        currentBlockInitOffset = long.Parse(context.Lease.Offset);
-        stopwatch.Restart();
-      }
-   
-      private void WriteHighlightedMessage(string message)
-      {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(message);
-        Console.ResetColor();
-      }
-    }
-    ```
-   
-    A classe **EventProcessorHost** chama essa classe para processar mensagens de dispositivo para nuvem recebidas do Hub IoT. O código nessa classe implementa a lógica para armazenar mensagens de forma confiável em um contêiner de blob e encaminhar mensagens interativas para a fila do Barramento de Serviço.
-   
-    O método **OpenAsync** inicializa a variável **currentBlockInitOffset**, que controla o deslocamento atual da primeira mensagem lida por esse processador de eventos. Lembre-se de que cada processador é responsável por uma única partição.
-   
-    O método **ProcessEventsAsync** recebe um lote de mensagens do Hub IoT e o processa da seguinte maneira: ele envia mensagens interativas para a fila do Barramento de Serviço e anexa as mensagens de ponto de dados no buffer de memória denominado **toAppend**. Se o buffer de memória atingir o limite de 4 MB ou se as janelas de tempo da eliminação de duplicação expirarem (uma hora após um ponto de verificação neste tutorial), um ponto de verificação será disparado pelo aplicativo.
-   
-    O método **AppendAndCheckpoint** primeiro gera uma blockId para o bloco a ser anexado. O Armazenamento do Azure requer que todas as IDs de bloco tenham o mesmo comprimento, então o método preenche o deslocamento com zeros à esquerda - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Em seguida, se um bloco com essa ID já estiver no blob, o método o substituirá pelo atual conteúdo do buffer.
-   
-   > [!NOTE]
-   > Para simplificar o código, este tutorial usa um blob único por partição para armazenar as mensagens. Uma solução real implementaria o arquivo sem interrupção, criando arquivos adicionais após um determinado período, ou quando um tamanho estipulado fosse atingido. Lembre-se de que um blob de blocos do Azure pode conter, no máximo, 195 GB de dados.
-   > 
-   > 
-8. Na classe **Program**, adicione a seguinte instrução **using** à parte superior:
-   
-    ```
-    using Microsoft.ServiceBus.Messaging;
-    ```
-9. Modifique o método **Main** na classe **Program** da seguinte forma. Substitua a **{cadeia de conexão do Hub IoT}** pela cadeia de conexão **iothubowner** do tutorial [Introdução ao Hub IoT]. Substitua a cadeia de conexão do armazenamento pela cadeia de conexão que você anotou no início desta seção. Substitua a cadeia de conexão do Barramento de Serviço pelas permissões **Send** na fila denominada **d2ctutorial** que você anotou no início desta seção:
-   
-    ```
-    static void Main(string[] args)
-    {
-      string iotHubConnectionString = "{iot hub connection string}";
-      string iotHubD2cEndpoint = "messages/events";
-      StoreEventProcessor.StorageConnectionString = "{storage connection string}";
-      StoreEventProcessor.ServiceBusConnectionString = "{service bus send connection string}";
-   
-      string eventProcessorHostName = Guid.NewGuid().ToString();
-      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, iotHubD2cEndpoint, EventHubConsumerGroup.DefaultGroupName, iotHubConnectionString, StoreEventProcessor.StorageConnectionString, "messages-events");
-      Console.WriteLine("Registering EventProcessor...");
-      eventProcessorHost.RegisterEventProcessorAsync<StoreEventProcessor>().Wait();
-   
-      Console.WriteLine("Receiving. Press enter key to stop worker.");
-      Console.ReadLine();
-      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-    }
-    ```
-   
-   > [!NOTE]
-   > Para simplificar, este tutorial usa uma única instância da classe [EventProcessorHost] . Para saber mais, veja o [Guia de programação de Hubs de Eventos].
-   > 
-   > 
-
-## <a name="receive-interactive-messages"></a>Receber mensagens interativas
-Nesta seção, você gravará um aplicativo de console do Windows que recebe mensagens interativas da fila do Barramento de Serviço. Para obter mais informações sobre como arquitetar uma solução usando o Barramento de Serviço, confira [Build multi-tier applications with Service Bus][Build multi-tier applications with Service Bus] (Compilar aplicativos multicamadas com o Barramento de Serviço).
-
-1. Na solução atual do Visual Studio, crie um projeto do Visual C# do Windows usando o modelo de projeto do **Aplicativo do Console** . Chame o projeto de **ProcessD2CInteractiveMessages**.
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ProcessD2CInteractiveMessages** e, então, clique em **Gerenciar Pacotes NuGet**. Esta operação faz com que a janela **Gerenciador de Pacotes NuGet** seja exibida.
-3. Pesquise por **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso. Esta operação baixa, instala e adiciona uma referência ao [Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus)com todas as suas dependências.
 4. Adicione a seguinte instrução **using** à parte superior do arquivo **Program.cs**:
    
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Por fim, adicione as seguintes linhas ao método **Main** . Substitua a cadeia de conexão por permissões **Escutar** para a fila chamada **d2ctutorial**:
+
+5. Por fim, adicione as seguintes linhas ao método **Main** . Substitua a cadeia de conexão por permissões **Escutar** para a fila:
    
     ```
-    Console.WriteLine("Process D2C Interactive Messages app\n");
-   
-    string connectionString = "{service bus listen connection string}";
-    QueueClient Client = QueueClient.CreateFromConnectionString(connectionString);
-   
-    OnMessageOptions options = new OnMessageOptions();
-    options.AutoComplete = false;
-    options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
-   
-    Client.OnMessage((message) =>
-    {
-      try
-      {
-        var bodyStream = message.GetBody<Stream>();
-        bodyStream.Position = 0;
-        var bodyAsString = new StreamReader(bodyStream, Encoding.ASCII).ReadToEnd();
-   
-        Console.WriteLine("Received message: {0} messageId: {1}", bodyAsString, message.MessageId);
-   
-        message.Complete();
-      }
-      catch (Exception)
-      {
-        message.Abandon();
-      }
-    }, options);
-   
-    Console.WriteLine("Receiving interactive messages from SB queue...");
-    Console.WriteLine("Press any key to exit.");
+    Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
+    var connectionString = "{service bus listen string}";
+    var queueName = "{queue name}";
+    
+    var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+    client.OnMessage(message =>
+        {
+            Stream stream = message.GetBody<Stream>();
+            StreamReader reader = new StreamReader(stream, Encoding.ASCII);
+            string s = reader.ReadToEnd();
+            Console.WriteLine(String.Format("Message body: {0}", s));
+        });
+        
     Console.ReadLine();
     ```
 
 ## <a name="run-the-applications"></a>Executar os aplicativos
 Agora você está pronto para executar os aplicativos.
 
-1. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**. Selecione **Vários projetos de inicialização** e, em seguida, **Iniciar** como a ação dos projetos **ProcessDeviceToCloudMessages**, **SimulatedDevice** e **ProcessD2CInteractiveMessages**.
-2. Pressione **F5** para iniciar os três aplicativos de console. O aplicativo **ProcessD2CInteractiveMessages** deve processar cada mensagem interativa enviada do aplicativo **SimulatedDevice**.
+1. No Visual Studio, no Gerenciador de Soluções, clique com o botão direito do mouse na solução e selecione **Definir Projetos de Inicialização**. Selecione **Vários projetos de inicialização** e selecione **Iniciar** como a ação para os projetos **ReadDeviceToCloudMessages**, **SimulatedDevice** e **ReadCriticalQueue**.
+2. Pressione **F5** para iniciar os três aplicativos de console. O aplicativo **ReadDeviceToCloudMessages** tem somente mensagens não críticas enviadas do aplicativo **SimulatedDevice** e o aplicativo **ReadCriticalQueue** tem somente mensagens críticas.
    
    ![Três aplicativos de console][50]
 
-> [!NOTE]
-> Para ver as atualizações em seu blob, talvez seja necessário reduzir a constante **MAX_BLOCK_SIZE** na classe **StoreEventProcessor** para um valor menor, como **1024**. Essa alteração é útil porque leva algum tempo para alcançar o limite de tamanho de bloco com os dados enviados pelo aplicativo do dispositivo simulado. Com um tamanho de bloco menor, você não precisa esperar muito tempo para ver o blob ser criado e atualizado. No entanto, usar um tamanho maior de bloco torna o aplicativo mais dimensionável.
-> 
-> 
-
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a processar com segurança as mensagens de ponto de dados e interativas do dispositivo para nuvem usando a classe [EventProcessorHost] .
+Neste tutorial, você aprendeu a expedir confiavelmente mensagens do dispositivo para nuvem usando a funcionalidade de roteamento de mensagens do Hub IoT.
 
-O tutorial [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d] mostra como enviar mensagens para seus dispositivos do back-end.
+O tutorial [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d] mostra como enviar mensagens da solução de back-end para seus dispositivos.
 
 Para ver exemplos de soluções completas que usam o Hub IoT, veja [Azure IoT Suite][lnk-suite].
 
 Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Guia do desenvolvedor do Hub IoT].
 
+Para saber mais sobre o roteamento de mensagens no Hub IoT, confira [Enviar e receber mensagens com o Hub IoT][lnk-devguide-messaging].
+
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
 
-[30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
-[31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
-[32]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue4.png
+[30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
+[31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
+[32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
+[33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
 
-[Armazenamento de blobs do Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
 [Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Fila do Barramento de Serviço]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Guia do desenvolvedor do Hub IoT do Azure — dispositivo para nuvem]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Armazenamento do Azure]: https://azure.microsoft.com/documentation/services/storage/
 [Barramento de Serviço do Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [Guia do desenvolvedor do Hub IoT]: iot-hub-devguide.md
-[Introdução ao Hub IoT]: iot-hub-csharp-csharp-getstarted.md
+[Introdução ao IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro de desenvolvedores do Azure IoT]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -442,13 +210,13 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [Tratamento de falhas transitórias]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
-[Sobre o Armazenamento do Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Introdução aos Hubs de Eventos]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [Event Hubs]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Guia de programação de Hubs de Eventos]: ../event-hubs/event-hubs-programming-guide.md
+[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
@@ -458,6 +226,6 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

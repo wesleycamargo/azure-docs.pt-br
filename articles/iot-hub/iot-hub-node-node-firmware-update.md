@@ -1,6 +1,6 @@
 ---
-title: "Como realizar uma atualização de firmware | Microsoft Docs"
-description: "Este tutorial mostra como realizar uma atualização de firmware"
+title: "Atualização de firmware do dispositivo com o Hub IoT do Azure (Node) | Microsoft Docs"
+description: "Como usar o gerenciamento de dispositivos no Hub IoT do Azure para iniciar uma atualização de firmware do dispositivo. Use os SDKs do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e um aplicativo de serviço que dispara a atualização do firmware."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 632b9b38808e033b1fee2676b353f2649c4a282c
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fdc8dca46f5bd0feb8e6ce24af32327be4c8ebb6
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Tutorial: Como realizar uma atualização de firmware
+# <a name="use-device-management-to-initiate-a-device-firmware-update-node"></a>Usar o gerenciamento de dispositivos para iniciar uma atualização de firmware do dispositivo (Node)
 ## <a name="introduction"></a>Introdução
 No tutorial [Introdução ao gerenciamento de dispositivo][lnk-dm-getstarted], você viu como usar os primitivos [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod] para reiniciar remotamente um dispositivo. Este tutorial usa os mesmos primitivos do Hub IoT, fornece orientações e mostra como fazer uma atualização de firmware simulada de ponta a ponta.  Esse padrão é usado na implementação da atualização de firmware para o dispositivo de exemplo Intel Edison.
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de console que chama o método direto firmwareUpdate no dispositivo simulado por meio do Hub IoT.
+* Criar um aplicativo de console Node.js que chama o método direto firmwareUpdate no aplicativo de dispositivo simulado por meio do Hub IoT.
 * Crie um aplicativo do dispositivo simulado que implementa um método direto de firmwareUpdate que passa por um processo de várias etapas e que espera para baixar a imagem do firmware, baixa a imagem do firmware e, por fim, aplica a imagem de firmware.  Durante a execução de cada etapa, o dispositivo usa as propriedades relatadas para atualizar o progresso.
 
 Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
@@ -40,7 +40,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão.
+Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-node-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão dele.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -72,7 +72,7 @@ Nesta seção, você irá
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo.  
+5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -342,7 +342,7 @@ Agora você está pronto para executar os aplicativos.
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. No prompt de comando da pasta **triggerfwupdateondevice**, execute o seguinte comando para disparar a reinicialização e a consulta remota para o twin do dispositivo localizar o tempo de reinicialização mais recente.
+2. No prompt de comando da pasta **triggerfwupdateondevice**, execute o seguinte comando para disparar a reinicialização e a consulta remota para o dispositivo gêmeo localizar o tempo de reinicialização mais recente.
    
     ```
     node dmpatterns_fwupdate_service.js
@@ -359,12 +359,12 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Saiba mais sobre como usar a Automação para automatizar o gerenciamento de processos e de configuração para economizar tempo e aumentar a confiabilidade das tarefas administrativas comuns."
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
-ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
 
 ---
 # <a name="automation-documentation"></a>Documentação da Automação do Azure
 
-Saiba mais sobre como usar a Automação para economizar tempo e aumentar a confiabilidade das tarefas administrativas normais realizadas em um ambiente de nuvem. Os tutoriais, as referências de API e outras documentações mostram como automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando Configuração de Estado Desejado.
+A Automação do Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas regulares e até mesmo agenda a sua execução automática em intervalos regulares.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -176,6 +175,6 @@ Baixar a Documentação da Automação </div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

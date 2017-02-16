@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5ff81a2b693c8a7b97783d6a43cab204c7ec3eb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 01867f283678171eda8fb9798ea996cae605665a
 
 
 ---
@@ -559,12 +559,12 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 <!-- URLs -->
 
 [Criar e implantar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure]: web-sites-nodejs-develop-deploy-mac.md
-[Centro de Desenvolvedores do Azure]: /develop/nodejs/
+[Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
-[gratuito]: http://windowsazure.com
+[for free]: http://windowsazure.com
 [Git remoto]: http://git-scm.com/docs/git-remote
 
 [CLI do Azure]: ../xplat-cli-install.md
@@ -574,9 +574,9 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 [nconf]: https://www.npmjs.com/package/nconf
 [async]: https://www.npmjs.com/package/async
 
-[Portal do Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[Criar e implantar um aplicativo Node.js em um site do Azure]: web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
 
 <!-- Image References -->
 
@@ -594,6 +594,6 @@ Embora as etapas neste artigo descrevam como usar o Serviço Tabela para armazen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

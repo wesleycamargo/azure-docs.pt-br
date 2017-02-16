@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do protocolo .NET do Azure AD | Microsoft Docs"
+title: "Entender o fluxo de código de autorização do OAuth 2.0 no Azure AD | Microsoft Docs"
 description: "Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OAuth 2.0."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 080fec35d0e303ad652d90f6bbb6da5350495cc7
+ms.sourcegitcommit: 312aff4d85b2ec8f1ef78704950311c19cb21cdf
+ms.openlocfilehash: b96b0770179b7317af1e9fcf8798eb9cc1b7e3bb
 
 
 ---
@@ -379,6 +379,6 @@ Para obter uma descrição dos códigos de erro e a ação recomendada do client
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

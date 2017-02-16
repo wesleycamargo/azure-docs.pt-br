@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: d7e51bee4b9ec4441a080004f938cdc609fd1250
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e4e8cf878d08aab41426fcebe1c43d7a9a97b57d
 
 
 ---
@@ -99,12 +99,12 @@ O HDInsight fornece vários scripts para instalar componentes adicionais em clus
 
 | Nome | Script |
 | --- | --- |
-| **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Veja [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]. |
-| **Instalar R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Veja [Instalar e usar o R em clusters HDInsight][hdinsight-r-scripts]. |
+| **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]. |
+| **Instalar R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalar e usar o R em clusters HDInsight][hdinsight-r-scripts]. |
 | **Instalar Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). |
 | - **Instalar o Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). |
 
-A Ação de script pode ser implantada por meio do portal do Azure, do Azure PowerShell ou usando o SDK .NET do HDInsight.  Para saber mais, veja [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
+A Ação de script pode ser implantada por meio do portal do Azure, do Azure PowerShell ou usando o SDK .NET do HDInsight.  Para obter mais informações, consulte [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize].
 
 > [!NOTE]
 > Os scripts de exemplo funcionam apenas com o cluster HDInsight versão 3.1 ou posterior. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
@@ -187,7 +187,7 @@ Com frequência no desenvolvimento de ação de script, você sentirá a necessi
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Essa instrução define a variável de ambiente **MDS_RUNNER_CUSTOM_CLUSTER** para o valor ‘true’ e também define o escopo dessa variável como todo o computador. Às vezes é importante que as variáveis de ambiente sejam definidas no escopo apropriado – computador ou usuário. Consulte [aqui][1] para saber mais sobre como definir variáveis de ambiente.
+Essa instrução define a variável de ambiente **MDS_RUNNER_CUSTOM_CLUSTER** para o valor ‘true’ e também define o escopo dessa variável como todo o computador. Às vezes é importante que as variáveis de ambiente sejam definidas no escopo apropriado – computador ou usuário. Consulte [aqui][1] para obter mais informações sobre como configurar variáveis de ambiente.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Acesso a locais onde estão armazenados os scripts personalizados
 Scripts usados para personalizar um cluster precisam estar na conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento. Se o seu script acessa recursos localizados em outro lugar, estes precisam acessíveis publicamente (pelo menos somente leitura público). Por exemplo, você pode desejar acessar um arquivo e salvá-lo usando o comando SaveFile-HDI.
@@ -294,9 +294,9 @@ Nesse log, é claro que a ação de script de Spark foi executada na VM denomina
 Se ocorre uma falha na execução, a saída que o descreve também estará contida nesse arquivo de log. As informações fornecidas nesses logs devem ser úteis ao depurar problemas de script que possam surgir.
 
 ## <a name="see-also"></a>Consulte também
-* [Personalizar clusters do HDInsight usando Ação de Script][hdinsight-cluster-customize]
+* [Personalizar os clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]
 * [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]
-* [Instalar e usar o R em clusters HDInsight][hdinsight-r-scripts]
+* [Instalar e usar R em clusters do HDInsight][hdinsight-r-scripts]
 * [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
 * [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
@@ -311,6 +311,6 @@ Se ocorre uma falha na execução, a saída que o descreve também estará conti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5041b2e4102bf8aaf72358e0812a7b045c804048
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 8650ad41d1d6ef3ee94c2792f435b84676a72d27
 
 
 ---
@@ -27,7 +27,7 @@ Muitas APIs dão suporte ao [OAuth 2.0](http://oauth.net/2/) para proteger a API
 Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autorização OAuth 2.0 para contas do desenvolvedor, mas não mostra como configurar um provedor OAuth 2.0. A configuração para cada provedor OAuth 2.0 é diferente, embora as etapas sejam semelhantes e as peças de informações necessárias usadas ao configurar o OAuth 2.0 na sua instância de serviço de Gerenciamento de API sejam as mesmas. Este tópico mostra exemplos ao usar o Active Directory do Azure como um provedor OAuth 2.0.
 
 > [!NOTE]
-> Para obter mais informações sobre como configurar o OAuth 2.0 usando o Azure Active Directory, consulte o exemplo [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
+> Para obter mais informações sobre a configuração do OAuth 2.0 usando o Azure Active Directory, consulte a amostra [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
 > 
 > 
 
@@ -37,7 +37,7 @@ Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o 
 ![Portal do editor][api-management-management-console]
 
 > [!NOTE]
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -66,7 +66,7 @@ Especifique os **tipos de concessão do código de autorização** ao verificar 
 
 Digite a **URL do ponto de extremidade de autorização**. Para o Active Directory do Azure, essa URL será semelhante à URL seguinte, em que `<client_id>` é substituído pela ID do cliente que identifica seu aplicativo para o servidor OAuth 2.0.
 
-    https://login.windows.net/<client_id>/oauth2/authorize
+`https://login.windows.net/<client_id>/oauth2/authorize`
 
 O **método de solicitação de autorização** especifica como a solicitação de autorização é enviada para o servidor OAuth 2.0. O **GET** é selecionado por padrão.
 
@@ -76,7 +76,7 @@ A seção seguinte está onde a **URL de ponto de extremidade do token**, os **m
 
 Para o servidor OAuth 2.0 do Azure Active Directory, a **URL do ponto de extremidade do token** terá o seguinte formato, em que `<APPID>` tem o formato de `yourapp.onmicrosoft.com`.
 
-    https://login.windows.net/<APPID>/oauth2/token
+`https://login.windows.net/<APPID>/oauth2/token`
 
 A configuração padrão para os **métodos de autenticação do cliente** é **Básica** e o **método de envio do token de acesso** é **Cabeçalho de autorização**. Esses valores são configurados nesta seção da forma, junto com o **Escopo padrão**.
 
@@ -155,28 +155,28 @@ Para obter mais informações sobre como usar OAuth 2.0 e Gerenciamento de API, 
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como adicionar e publicar um produto]: api-management-howto-add-products.md
-[Monitoramento e análise]: api-management-monitoring.md
-[Adicionar APIs a um produto]: api-management-howto-add-products.md#add-apis
-[Publicar um produto]: api-management-howto-add-products.md#publish-product
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[referência de política de Gerenciamento de API]: api-management-policy-reference.md
-[Políticas de cache]: api-management-policy-reference.md#caching-policies
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
-[Pré-requisitos]: #prerequisites
-[Configurar um servidor de autorização do OAuth 2.0 no Gerenciamento de API]: #step1
-[Configurar uma API para usar a autorização do usuário do OAuth 2.0]: #step2
-[Testar a autorização do usuário do OAuth 2.0 no Portal do Desenvolvedor]: #step3
-[Próximas etapas]: #next-steps
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

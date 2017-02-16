@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 761f389d25b865212c96d4f06909f903e762937e
-ms.openlocfilehash: 35743c39f73a478ca5970137faa11c0c2e461e78
+ms.sourcegitcommit: 9c6800c54f545d5ae70e9e8c2a3234cb3acecb83
+ms.openlocfilehash: 355baefc2ef50000ddb5a1241d9d28c201deffa1
 
 
 ---
@@ -37,8 +37,7 @@ Para ver os códigos de erro comuns, confira [Códigos de erro de SQL para aplic
 Valores para os pools podem ser encontrados em [limites de armazenamento e eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
-* Os pools elásticos só estão disponíveis em servidores do Banco de Dados SQL V12. Se você tiver um servidor de Banco de Dados SQL V11, [use o PowerShell para atualizar para o V12 e criar um pool](sql-database-upgrade-server-portal.md) em uma única etapa.
+* Azure PowerShell 1.0 ou superior. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Mover um banco de dados para um pool elástico
 Você pode mover um banco de dados para dentro ou para fora de um pool com [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx).
@@ -252,11 +251,6 @@ Este exemplo recupera as métricas de consumo para um determinado pool elástico
 * Normalmente, a alteração das eDTUs mínimas ou das eDTUs máximas por banco de dados é um processo concluído em cinco minutos ou menos.
 * A alteração do limite de eDTUs por pool depende da quantidade total de espaço usado por todos os bancos de dados no pool. As alterações levam, em média, 90 minutos ou menos a cada 100 GB. Por exemplo, se o espaço total usado por todos os bancos de dados no pool for de 200 GB, a latência prevista para alterar os eDTUs do pool será de 3 horas por pool ou menos.
 
-## <a name="migrate-from-v11-to-v12-servers"></a>Migrar de servidores V11 para V12
-Os cmdlets do PowerShell estão disponíveis para iniciar, parar ou monitorar uma atualização para o Banco de Dados SQL do Azure da V11 para a V12 ou de qualquer outra versão anterior à V12.
-
-* [Atualização para o Banco de Dados SQL V12 com o PowerShell](sql-database-upgrade-server-powershell.md)
-
 Para ver a documentação de referência sobre esses cmdlets do PowerShell, confira:
 
 * [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582\(v=azure.300\).aspx)
@@ -271,6 +265,6 @@ O cmdlet Stop- significa cancelar, e não pausar. Não há como retomar uma atua
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Ler mensagens mantidas no Armazenamento de Tabelas do Azure | Microsoft Docs
+title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 4: armazenamento de tabelas | Microsoft Docs"
 description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazenamento de Tabelas do Azure e, em seguida, leia-as na nuvem.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: a1007ac2db53c2c378cf4312b73765ef490e0ad6
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
 
 
 ---
@@ -78,7 +78,7 @@ Atualize o arquivo `config-azure.json` para que o código de exemplo executado n
 
 2. Substitua `[Azure storage connection string]` pela cadeia de conexão do armazenamento do Azure que você obteve.
 
-   `[IoT hub connection string]` já deve ter sido substituído na seção [Ler mensagens do Hub IoT do Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md), na Lição 3.
+   `[IoT hub connection string]` já deve ter sido substituído na seção [Ler mensagens do Hub IoT do Azure](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md), na Lição&3;.
 
 ## <a name="read-messages-in-your-azure-table-storage"></a>Ler mensagens no Armazenamento de Tabelas do Azure
 
@@ -101,6 +101,6 @@ As mensagens que estão sendo enviadas e recebidas são todas exibidas instantan
 Você executou o código de exemplo para ler as mensagens no Armazenamento de Tabelas do Azure salvas pelo aplicativo de Funções do Azure.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

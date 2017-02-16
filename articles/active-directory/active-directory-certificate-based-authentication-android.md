@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d73b4ad270f868b3ec1d99c142f35688a80abbe1
+ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
+ms.openlocfilehash: ed1c66f72b09a14a14c6ecd0bf39cd92f2bd22b8
 
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introdução à autenticação baseada em certificado no Android — Visualização Pública
+# <a name="get-started-with-certificate-based-authentication-on-android"></a>Introdução à autenticação baseada em certificado no Android
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -50,7 +50,7 @@ Em todos os cenários deste tópico, as seguintes tarefas são necessárias:
 | Aplicativos | Suporte |
 | --- | --- |
 | Word/Excel/PowerPoint |![Verificação][1] |
-| OneNote |Em breve |
+| OneNote |![Verificação][1] |
 | OneDrive |![Verificação][1] |
 | Outlook |![Verificação][1] |
 | Yammer |![Verificação][1] |
@@ -70,9 +70,14 @@ Para que o Azure Active Directory revogue um certificado do cliente, o token ADF
 
 O Azure Active Directory adiciona essas declarações ao token de atualização se elas estiverem disponíveis no token ADFS (ou qualquer outro token SAML). Quando o token de atualização precisa ser validado, essas informações são usadas para verificar a revogação. 
 
-Como prática recomendada, você deve atualizar as páginas de erro do ADFS com instruções sobre como obter um certificado de usuário. 
-
+Como prática recomendada, você deve atualizar as páginas de erro do ADFS com instruções sobre como obter um certificado de usuário.  
 Para obter mais detalhes, confira [Personalizando as páginas de entrada do AD FS](https://technet.microsoft.com/library/dn280950.aspx).  
+
+Alguns aplicativos do Office (com autenticação moderna habilitada) enviam '*prompt=login*' ao Azure AD na solicitação. Por padrão, o Azure AD converte isso na solicitação ao ADFS para '*wauth=usernamepassworduri*' (solicita que o ADFS faça a autenticação U/P) e '*wfresh=0*' (solicita que o ADFS ignore o estado do SSO e faça uma nova autenticação). Se você quiser habilitar a autenticação baseada em certificado para esses aplicativos, precisará modificar o comportamento padrão do Azure AD. Basta definir o '*PromptLoginBehavior*' em suas configurações de domínio federado como '*Disabled*'. Você pode usar o cmdlet [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/powershell/msonline/v1/set-msoldomainfederationsettings) para executar essa tarefa:
+
+`Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
+
+
 
 ### <a name="exchange-activesync-clients-support"></a>Suporte aos clientes do Exchange ActiveSync
 Há suporte para determinados aplicativos do Exchange ActiveSync no Android 5.0 (Lollipop) ou superior. Para determinar se seu aplicativo de email dá suporte a esse recurso, contate o desenvolvedor do aplicativo. 
@@ -113,9 +118,9 @@ Veja abaixo os exemplos para adicionar, remover ou modificar uma autoridade de c
 
 ### <a name="configuring-your-azure-ad-tenant-for-certificate-based-authentication"></a>Configurando o locatário do Azure AD para autenticação baseada em certificado
 1. Inicie o Windows PowerShell com os privilégios de administrador. 
-2. Instale o módulo do Azure AD. Você precisa instalar a versão [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) ou superior.  
+2. Instale o módulo do Azure AD. Você precisa instalar a versão [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) ou superior.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. Conecte-se ao locatário de destino: 
    
         Connect-AzureAD 
@@ -208,6 +213,6 @@ A data que você define deve estar no futuro. Se a data não estiver no futuro, 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

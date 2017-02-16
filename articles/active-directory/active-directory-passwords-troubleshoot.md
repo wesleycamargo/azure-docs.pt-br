@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad322aed5e2e6a42a2600a3995be28a99ee14f3a
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
 
 
 ---
@@ -659,7 +659,7 @@ Agora você tenta habilitar/desabilitar o write-back de senha. O assistente cons
               <p>Durante a tentativa de redefinir uma senha em nome de um usuário do Portal de Gerenciamento do Azure, você vê uma mensagem dizendo: "o serviço de redefinição de senha em execução no seu ambiente local não dá suporte a administradores redefinindo senhas de usuário. Atualize para a versão mais recente do Azure AD Connect para resolver o problema."</p>
             </td>
             <td>
-              <p>Isso ocorre quando a versão do mecanismo de sincronização não dá suporte para a operação de write-back de senha específica que foi usada. As versões do Azure AD Connect posteriores a 1.0.0419.0911 dão suporte a todas as operações de gerenciamento de senha, incluindo write-back de redefinição de senha, write-back de alteração de senha e write-back de redefinição de senha iniciadas pelo administrador do Portal de Gerenciamento do Azure.&nbsp; As versões do DirSync mais recentes que 1.0.6862 dão suporte somente a write-back de redefinição de senha. Para resolver esse problema, é altamente recomendável que você instale a versão mais recente do Azure AD Connect ou Azure Active Directory Connect. Para saber mais, veja [Integrando suas identidades locais](active-directory-aadconnect.md) para resolver esse problema e obter o máximo proveito de write-back de senha na sua organização.</p>
+              <p>Isso ocorre quando a versão do mecanismo de sincronização não dá suporte para a operação de write-back de senha específica que foi usada. As versões do Azure AD Connect posteriores a 1.0.0419.0911 dão suporte a todas as operações de gerenciamento de senha, incluindo write-back de redefinição de senha, write-back de alteração de senha e write-back de redefinição de senha iniciadas pelo administrador do Portal de Gerenciamento do Azure.&nbsp; As versões do DirSync mais recentes que 1.0.6862 dão suporte somente a write-back de redefinição de senha. Para resolver esse problema, é altamente recomendável que você instale a versão mais recente do Azure AD Connect ou Azure Active Directory Connect. Para saber mais, veja [Integrando suas identidades locais](connect/active-directory-aadconnect.md) para resolver esse problema e obter o máximo proveito de write-back de senha na sua organização.</p>
             </td>
           </tr>
         </tbody></table>
@@ -1486,7 +1486,7 @@ Se desabilitar e reabilitar o recurso de write-back de senha não resolver o seu
 A reinstalação do pacote do Azure AD Connect resolverá qualquer problema de configuração que possa estar afetando a sua capacidade de se conectar aos nossos serviços em nuvem ou de gerenciar senhas em seu ambiente AD local.
 Recomendamos que você execute esta etapa somente após tentar as duas primeiras etapas descritas acima.
 
-1. Baixe a versão mais recente do Azure AD Connect [aqui](active-directory-aadconnect.md#install-azure-ad-connect).
+1. Baixe a versão mais recente do Azure AD Connect [aqui](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 2. Uma vez que você já tenha instalado o Azure AD Connect, só precisará realizar uma atualização in-loco para atualizar sua instalação do Azure AD na versão mais recente.
 3. Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect.  Não há etapas manuais adicionais necessárias, a menos que você tenha personalizado as regras para sincronização fora da caixa; nesse caso, você deve **fazer o backup antes de prosseguir com a atualização e reimplantá-lo novamente depois de terminar**.
 
@@ -1519,6 +1519,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implantar a Matriz Virtual do Microsoft Azure StorSimple - Provisão no Hyper-V | Microsoft Docs"
+title: Provisionar um StorSimple Virtual Array no Hyper-V | Microsoft Docs
 description: "Esse segundo tutorial sobre a implantação da Matriz Virtual StorSimple envolve o provisionamento de uma matriz virtual no Hyper-V."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 9f70fbaeef95edd6740d54be7650f39a17090bc5
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: eaeb7bf48239fea0c86d8234fe25e3f23cf76653
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Implantar o StorSimple Virtual Array – Provisionar um Virtual Array no Hyper-V
@@ -217,6 +217,6 @@ Caso observe algum outro erro durante a configuração inicial usando a interfac
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

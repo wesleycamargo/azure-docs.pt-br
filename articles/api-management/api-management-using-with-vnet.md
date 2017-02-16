@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
-ms.author: antonba
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: d2c9961e67fd1380ba734b6fa6f5fa859144e8ae
-ms.openlocfilehash: 1e814f0db36c9cad1b4f4f062b1e235994054621
+ms.sourcegitcommit: 40d9b0ee5a24e5503de19daa030bf1e8169dec24
+ms.openlocfilehash: 58be070ea5d5f4ea9f6d9453a1adcc23c4b9b2a2
 
 
 ---
@@ -51,6 +51,11 @@ Selecione o tipo de acesso desejado:
 
 Agora você verá uma lista de todas as regiões em que o serviço de Gerenciamento de API é disponibilizado. Selecione uma VNET e uma sub-rede para cada região. A lista é preenchida com as redes virtuais clássicas e do Resource Manager disponíveis em sua assinatura do Azure que estão instaladas na região que você está configurando.
 
+> [!NOTE]
+> O **Ponto de Extremidade de Serviço**, no diagrama acima, inclui Gateway/Proxy, Portal do Publicador, Portal do Desenvolvedor, GIT e o Ponto de Extremidade de Gerenciamento Direto.
+> O **Ponto de Extremidade de Gerenciamento**, no diagrama acima, é o ponto de extremidade hospedado no serviço para gerenciar a configuração por meio do Portal do Azure e do Powershell.
+> Além disso, observe que, mesmo que o diagrama mostre os endereços IP de seus vários pontos de extremidade, o serviço de Gerenciamento de API responde **somente** em seus nomes de host configurados.
+
 > [!IMPORTANT]
 > Ao implantar uma instância do Gerenciamento de API do Azure a uma VNET do Resource Manager, o serviço deve estar em uma sub-rede dedicada que não contém outros recursos, exceto as instâncias do Gerenciamento de API do Azure. Se for feita uma tentativa de implantar uma instância do Gerenciamento de API do Azure em uma VNET do Resource Manager que contém outros recursos, a implantação falhará.
 > 
@@ -64,6 +69,10 @@ Clique em **Salvar** na parte superior da tela.
 > O endereço VIP da instância do Gerenciamento de API mudará sempre que a VNET for habilitada ou desabilitada.  
 > O endereço VIP também será alterado quando o Gerenciamento de API for movido de **Externo** para **Interno** ou vice-versa
 > 
+
+
+> [!IMPORTANT] 
+> Se você remover o Gerenciamento de API de uma rede virtual ou alterar uma em que ele esteja implantado, a rede virtual usada anteriormente poderá permanecer bloqueada por até 4 horas. Durante esse período, não será possível excluir a rede virtual nem implantar um novo recurso nela.
 
 ## <a name="enable-vnet-powershell"> </a>Habilitar a conexão de VNET usando cmdlets do PowerShell
 Você também pode habilitar a conectividade de VNET usando os cmdlets do PowerShell
@@ -82,6 +91,10 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 * **Configuração personalizada de servidor DNS**: o serviço Gerenciamento de API depende de vários serviços do Azure. Quando o Gerenciamento de API estiver hospedado em uma VNET com um servidor DNS personalizado, será necessário resolver os nomes de host desses serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração de DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para ter uma referência.
 
+> [!IMPORTANT]
+> Se estiver usando um Servidor DNS personalizado para a rede virtual, é aconselhável que você o configure **antes** de implantar um serviço Gerenciamento de API nele. Caso contrário, precisaremos reiniciar o CloudService que hospeda o serviço para que ele aceite as configurações do novo Servidor DNS.
+> 
+
 * **Portas necessárias para o Gerenciamento de API**: o tráfego de entrada e saída para a sub-rede na qual o Gerenciamento de API foi implantado pode ser controlado usando o [Grupo de Segurança de Rede][Network Security Group]. Se qualquer uma dessas portas estiver indisponível, o Gerenciamento de API poderá não funcionar corretamente e poderá se tornar inacessível. A existência de uma ou mais dessas portas bloqueadas é outro problema de configuração incorreta no uso do Gerenciamento de API em uma VNET.
 
 Quando uma instância do serviço Gerenciamento de API está hospedada em uma rede virtual, as portas na tabela a seguir são usadas.
@@ -89,7 +102,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | Porta(s) de Origem/Destino | Direção | Protocolo de transporte | Finalidade | Origem/Destino | Tipo de acesso |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 / 80, 443 |Entrada |TCP |Comunicação do cliente com o Gerenciamento de API |INTERNET / VIRTUAL_NETWORK |Externo |
-| * / 3443 |Entrada |TCP |Ponto de extremidade de gerenciamento |INTERNET / VIRTUAL_NETWORK |Interno e externo |
+| * / 3443 |Entrada |TCP |Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |INTERNET / VIRTUAL_NETWORK |Interno e externo |
 | 80, 443 / 80, 443 |Saída |TCP |Dependência do Armazenamento do Azure e do Barramento de Serviço do Azure |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | 1433 / 1433 |Saída |TCP |Dependência no SQL Azure |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | 9350 - 9354 / 9350 - 9354 |Saída |TCP |Dependência no barramento de serviço |VIRTUAL_NETWORK/INTERNET |Interno e externo |
@@ -97,7 +110,6 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | 6381 - 6383 / 6381 - 6383 |Entrada e Saída |UDP |Dependência de Cache Redis |VIRTUAL_NETWORK / VIRTUAL_NETWORK |Interno e externo |-
 | * / 445 |Saída |TCP |Dependência do Compartilhamento de Arquivos do Azure para GIT |VIRTUAL_NETWORK/INTERNET |Interno e externo |
 | * / * | Entrada |TCP |Balanceador de carga de infraestrutura do Azure | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |Interno e externo |
-| * / * | Saída |TCP |Balanceador de carga de infraestrutura do Azure | VIRTUAL_NETWORK / AZURE_LOAD_BALANCER |Interno e externo |
 
 * **Funcionalidade SSL**: para habilitar a criação e validação de cadeia de certificados SSL o serviço Gerenciamento de API precisa de conectividade de rede de saída para ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com.
 
@@ -134,12 +146,12 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
+[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-connections
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

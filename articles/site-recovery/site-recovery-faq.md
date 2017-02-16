@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 06be4297bd805a77c2901296071bfa344d076c82
+ms.sourcegitcommit: 1832e584c599384948e7174b377552703ce8bbcd
+ms.openlocfilehash: 11a03d932fc70164640c30acb9808c08e3354de8
 
 
 ---
@@ -86,6 +86,13 @@ Sim. Quando você cria um cofre do Site Recovery em uma região de sua escolha, 
 Para máquinas virtuais e servidores físicos que estão sendo replicados entre sites locais, há suporte para a criptografia em trânsito. Para máquinas virtuais e servidores físicos que estão sendo replicados no Azure, há suporte tanto para a criptografia em trânsito quanto para a criptografia em repouso (no Azure).
 
 ## <a name="replication"></a>Replicação
+
+### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>É possível replicar em uma VPN site a site para o Azure?
+O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure em um ponto de extremidade público. Portanto, a replicação não passará por uma VPN site a site. É possível criar uma VPN site a site com uma rede virtual do Azure e que não interferirá na replicação do ASR. 
+
+### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>É possível usar o ExpressRoute para replicar máquinas virtuais no Azure?
+Sim, o ExpressRoute pode ser usado para replicar máquinas virtuais no Azure. O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. É necessário configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#public-peering) para usar o ExpressRoute para replicação do ASR. Após o failover das máquinas virtuais para uma rede virtual do Azure, é possível acessá-las usando a configuração de [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#private-peering) com a rede virtual do Azure. 
+
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Há algum pré-requisito para replicar máquinas virtuais no Azure?
 As máquinas virtuais que você deseja replicar no Azure devem estar em conformidade com os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
@@ -191,6 +198,6 @@ Sim, você pode replicar máquinas virtuais Hyper-V para o Azure, ou entre os si
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

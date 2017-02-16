@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
 Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência das seguintes páginas Web com o esquema de cor e o logotipo da empresa:
 
 * **Página de entrada** - é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o AD do Azure como provedor de identidade. Você interage com essa página durante uma Descoberta de Realm Inicial ou para inserir suas credenciais. A Descoberta de Realm Inicial permite que o sistema redirecione usuários federados para seu STS local (como o AD FS).
@@ -34,7 +34,7 @@ Este tópico explica como você pode personalizar a página de entrada e a pági
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Personalização da página de entrada
+## <a name="customizing-the-sign-in-page"></a>Personalização da página de entrada
 Normalmente, se você precisar de acesso baseado em navegador para seus aplicativos e serviços de nuvem que sua organização assina, use a página de entrada.
 
 Se você tiver as alterações aplicadas à sua página de entrada, poderá demorar até uma hora para que as alterações sejam exibidas.
@@ -224,6 +224,6 @@ Alguns elementos personalizáveis no AD do Azure têm vários casos de uso. Voc�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

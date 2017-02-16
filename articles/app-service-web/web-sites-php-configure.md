@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
-ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: f72b59c0b3091cd2b8ad12f8d94e09364d9b65cd
 
 
 ---
@@ -182,7 +182,7 @@ Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se voc
 Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/php/).
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -207,6 +207,6 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

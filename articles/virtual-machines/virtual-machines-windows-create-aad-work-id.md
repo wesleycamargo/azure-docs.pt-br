@@ -1,5 +1,5 @@
 ---
-title: Criar uma identidade corporativa ou de estudante no AAD | Microsoft Docs
+title: Criar uma identidade corporativa ou de estudante no AAD para Windows | Microsoft Docs
 description: "Saiba como criar uma identidade corporativa ou de estudante no Azure Active Directory para usar com suas máquinas virtuais Windows."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 4df6ed7cd62a5f59057624039522f0f97b335108
+ms.sourcegitcommit: 1d35114800ba024d0c201840722df2c6a74d1d61
+ms.openlocfilehash: 824f8535a3043d5141dd1955e38ad7430b89ba89
 
 
 ---
@@ -33,6 +33,6 @@ No entanto, alterações recentes possibilitam gerenciar sua assinatura com qual
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

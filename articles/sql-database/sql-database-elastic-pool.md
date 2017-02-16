@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -31,9 +31,9 @@ Pools elásticos de bancos de dados SQL fornecem uma solução simples e econôm
 >
 
 ## <a name="how-it-works"></a>Como ele funciona
-Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe seu próprio banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos de forma eficiente e econômica? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools elásticos resolvem esse problema, garantindo que os bancos de dados recebam os recursos de desempenho que precisam e quando precisam. Eles fornecem um mecanismo de alocação de recursos simples dentro de um orçamento previsível. Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatário único: cada cliente recebe seu próprio banco de dados. Cada cliente (banco de dados) tem requisitos de recursos imprevisíveis para memória, E/S e CPU. Com esses picos e quedas de demanda, como você aloca recursos de forma eficiente e econômica? Tradicionalmente, havia duas opções: (1) provisionar em excesso os recursos com base no uso de pico e pagar a mais ou (2) provisionar de forma insuficiente para economizar, em detrimento do desempenho e satisfação do cliente durante picos. Os pools elásticos resolvem esse problema, garantindo que os bancos de dados recebam os recursos de desempenho que precisam e quando precisam. Eles fornecem um mecanismo de alocação de recursos simples dentro de um orçamento previsível. Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elásticos) para bancos de dados em um pool elástico. Consulte a [Introduction to SQL Database](sql-database-technical-overview.md) (Introdução ao Banco de Dados SQL) para saber mais sobre DTUs e eDTUs.
@@ -106,6 +106,6 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a R
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

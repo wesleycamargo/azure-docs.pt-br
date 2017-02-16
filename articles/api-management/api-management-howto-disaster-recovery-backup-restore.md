@@ -1,5 +1,5 @@
 ---
-title: "Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API do Azure | Microsoft Docs"
+title: "Implementar a recuperação de desastre usando backup e restauração no Gerenciamento de API do Azure | Microsoft Docs"
 description: "Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
-ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: ea4aa75a574d787ed9c5b14e7aa3577f02d9d723
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -214,6 +213,6 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

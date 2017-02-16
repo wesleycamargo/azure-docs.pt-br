@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Azure Data Lake Analytics usando o Azure PowerShell | Microsoft Docs"
-description: "Saiba como usar o Azure PowerShell para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando o U-SQL e enviar o trabalho. "
+description: 'Saiba como usar o Azure PowerShell para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando o U-SQL e enviar o trabalho. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: 0994765e37dd8ee1fa6a639a2ed60c913cb170fe
+ms.openlocfilehash: a1244ee080d333338b1f0d9e49d1776822f535ed
 
 
 ---
@@ -31,7 +31,7 @@ Neste tutorial, você desenvolverá um trabalho que lê um arquivo TSV (valores 
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* **Uma estação de trabalho com o PowerShell do Azure**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-data-lake-analytics-account"></a>Criar conta da Análise Data Lake
 Você deve ter uma conta da Análise Data Lake antes de executar trabalhos. Para criar uma conta da Análise Data Lake, você deve especificar o seguinte:
@@ -209,6 +209,6 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

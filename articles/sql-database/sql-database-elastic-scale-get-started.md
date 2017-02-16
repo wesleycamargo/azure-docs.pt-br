@@ -8,6 +8,7 @@ author: ddove
 editor: CarlRabeler
 ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a42f6ed3bce42cbd5841f241c2f735b87252cb3f
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 86391212e70a0f0a8ec0e53dce26b11218a5780c
 
 
 ---
@@ -49,7 +50,7 @@ O aplicativo de exemplo **Banco de Dados Elástico com SQL do Azure – Introdu�
    
     ![progresso][4]
 
-Parabéns – você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as ferramentas de banco de dados elástico no banco de dados do SQL Azure. Analise rapidamente os fragmentos que a amostra criados ao se conectar com o Visual Studio ou o SQL Server Management Studio ao seu Servidor de Banco de Dados do Azure. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
+Parabéns – você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as ferramentas de banco de dados elástico no Banco de Dados SQL do Azure. Analise rapidamente os fragmentos que a amostra criados ao se conectar com o Visual Studio ou o SQL Server Management Studio ao seu Servidor de Banco de Dados do Azure. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -88,10 +89,10 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 * Para medir o desempenho: [Contadores de desempenho do gerenciador de mapas do fragmento](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
-[O aplicativo de exemplo da Escala Elástica]: #The-Elastic-Scale-Sample-Application
+[The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application
 [Download and Run the Sample App]: #Download-and-Run-the-Sample-App
-[Custo]: #Cost
-[Próximas etapas]: #next-steps
+[Cost]: #Cost
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-get-started/newProject.png
@@ -102,6 +103,6 @@ Para saber mais, confira o Mapa de tópicos sobre ferramentas de banco de dados 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

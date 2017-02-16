@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Há várias maneiras de configurar um aplicativo Java em um aplicativo Web do Se
 
 1. Crie um aplicativo e defina as **Configurações do aplicativo**.
    
-    O Serviço de aplicativo oferece várias versões do Tomcat e do Jetty, com a configuração padrão. Se o aplicativo que será hospedado funcionará com uma das versões internas, este método de configuração de um contêiner da Web será o mais fácil e será adequado quando você quiser apenas carregar um arquivo war para um contêiner da Web. Para este método, crie um aplicativo no Portal do Azure e acesse a folha **Configurações do aplicativo** para escolher a versão do Java com o contêiner Web Java desejado. Quando você usa este método, o Java e o contêiner da Web são executados em Arquivos de Programas. Os outros métodos colocam o contêiner da Web e, potencialmente, o JVM em seu espaço em disco. Quando você usa esse modelo, não tem acesso para editar arquivos nesta parte do sistema de arquivos. Isso significa que você não pode fazer coisas como configurar o arquivo*server.xml* ou colocar os arquivos da biblioteca na pasta */lib*. Para saber mais, consulte a seção [Criar e configurar um aplicativo Web Java](#appsettings) mais adiante neste tutorial.
+    O Serviço de aplicativo oferece várias versões do Tomcat e do Jetty, com a configuração padrão. Se o aplicativo que será hospedado funcionará com uma das versões internas, este método de configuração de um contêiner da Web será o mais fácil e será adequado quando você quiser apenas carregar um arquivo war para um contêiner da Web. Para este método, crie um aplicativo no Portal do Azure e acesse a folha **Configurações do aplicativo** para escolher a versão do Java com o contêiner Web Java desejado. Quando você usa este método, o Java e o contêiner da Web são executados em Arquivos de Programas. Os outros métodos colocam o contêiner da Web e, potencialmente, o JVM em seu espaço em disco. Quando você usa esse modelo, não tem acesso para editar arquivos nesta parte do sistema de arquivos. Isso significa que você não pode fazer coisas como configurar o arquivo*server.xml* ou colocar os arquivos da biblioteca na pasta */lib*. Para saber mais, consulte a seção [Criar e configurar um aplicativo Web Java](#portal) mais adiante neste tutorial.
 2. Use um modelo do Azure Marketplace.
    
     O Azure Marketplace inclui modelos que criam e configuram automaticamente aplicativos Web Java com contêineres da Web Tomcat ou Jetty. Os contêineres da Web criados pelos modelos são configuráveis. Para saber mais, consulte a seção [Usar um modelo Java do Azure Marketplace](#marketplace) deste tutorial.
@@ -64,7 +64,7 @@ Esta seção mostra como criar um aplicativo Web e como configurá-lo para Java 
     Esse nome deve ser exclusivo no domínio azurewebsites.net porque a URL do aplicativo Web será {nome}.azurewebsites.net. Se o nome inserido não for exclusivo, um ponto de exclamação vermelho aparecerá na caixa de texto.
 4. Selecione um **Grupo de Recursos** ou crie um novo.
    
-    Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure].
+    Para saber mais sobre os grupos de recursos, confira [Visão geral do Resource Manager].
 5. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
    
     Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure].
@@ -111,7 +111,7 @@ Esta seção mostra como usar o Azure Marketplace para criar um aplicativo Web J
     Esse nome deve ser exclusivo no domínio azurewebsites.net porque a URL do aplicativo Web será {nome}.azurewebsites.net. Se o nome inserido não for exclusivo, um ponto de exclamação vermelho aparecerá na caixa de texto.
 8. Selecione um **Grupo de Recursos** ou crie um novo.
    
-    Para saber mais sobre grupos de recursos, confira [Usando o Portal do Azure para gerenciar os recursos do Azure].
+    Para saber mais sobre os grupos de recursos, confira [Visão geral do Resource Manager].
 9. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
    
     Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure].
@@ -145,12 +145,12 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 [Adicionar um aplicativo ou uma página da Web ao seu aplicativo Web Java]: ./web-sites-java-add-app.md
 [Visão geral dos planos do Serviço de Aplicativo do Azure]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Portal do Azure]: https://portal.azure.com/
-[ativar seus benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[ativar os benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
-[aplicativo Web no Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Aplicativo Web Java]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro de Desenvolvedores do Java]: /develop/java/
-[Usando o Portal do Azure para gerenciar os recursos do Azure]: ../azure-portal/resource-group-portal.md
+[Visão geral do Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Carregar um aplicativo Web Java personalizado no Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,209 +1,375 @@
 ---
-title: Usando a CLI do Azure com o Armazenamento do Azure | Microsoft Docs
-description: "Saiba como usar a interface de linha de comando do Azure (CLI do Azure) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure. A CLI do Azure é uma ferramenta de plataforma cruzada "
+title: "Usando a CLI do Azure 2.0 (Visualização) com o Armazenamento do Azure | Microsoft Docs"
+description: "Saiba como usar a Interface de Linha de Comando do Azure (CLI do Azure) 2.0 (Visualização) com o Armazenamento do Azure para criar e gerenciar contas de armazenamento e trabalhar com blobs e arquivos do Azure. A CLI do Azure 2.0 é uma ferramenta de plataforma cruzada."
 services: storage
 documentationcenter: na
-author: micurd
-manager: jahogg
+author: mmacy
+manager: timlt
 editor: tysonn
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
+ms.assetid: 
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: micurd
+ms.date: 01/04/2017
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6ecd2a2c62a3def120206d10a9a9c55af03dfca9
+ms.sourcegitcommit: 1e2569a6db330c908fe4087c1bc5a475d3e8a575
+ms.openlocfilehash: 0e1f7719c993dda419e3ebae7d50b91bd5effbc2
 
 
 ---
-# <a name="using-the-azure-cli-with-azure-storage"></a>Usando a CLI do Azure com o Armazenamento do Azure
+# <a name="using-the-azure-cli-20-preview-with-azure-storage"></a>Usando a CLI do Azure 2.0 (Visualização) com o Armazenamento do Azure
+
 ## <a name="overview"></a>Visão geral
-A CLI do Azure fornece um conjunto de comandos entre plataformas de software livre para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com) , bem como funcionalidades avançadas de acesso a dados.
 
-Neste guia, exploraremos como usar a [Interface de Linha de Comando do Azure (CLI do Azure)](../xplat-cli-install.md) para executar uma variedade de tarefas de administração e desenvolvimento com o Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a CLI mais recente do Azure antes usar este guia.
+A CLI do Azure 2.0 (Visualização) de software livre e plataforma cruzada fornece um conjunto de comandos para trabalhar com a Plataforma Azure. Ela fornece grande parte das mesmas funcionalidades encontradas no [Portal do Azure](https://portal.azure.com), incluindo acesso a dados avançado.
 
-Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Este guia fornece vários scripts que demonstram o uso da CLI do Azure com o Armazenamento do Azure. Não se esqueça de atualizar as variáveis de script com base na sua configuração antes de executar cada script.
+Neste guia, mostraremos como usar a [CLI do Azure 2.0 (Visualização)](/cli/azure/get-started-with-az-cli2) para executar várias tarefas ao trabalhar com recursos na sua conta de Armazenamento do Azure. É recomendável baixar e instalar ou atualizar para a versão mais recente da CLI 2.0 antes usar este guia.
+
+Os exemplos neste guia supõem o uso do shell Bash no Ubuntu, mas outras plataformas devem funcionar de forma semelhante. 
+
+[!INCLUDE [storage-cli-versions](../../includes/storage-cli-versions.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+Este guia pressupõe que você conhece os conceitos básicos do Armazenamento do Azure. Ele também pressupõe que você é capaz de satisfazer os requisitos de criação de conta especificados abaixo para o serviço do Azure e de Armazenamento.
+
+### <a name="accounts"></a>Contas
+* **Conta do Azure**: se você ainda não tiver uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* **Conta de armazenamento**: veja [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) em [Sobre as contas de armazenamento do Azure](../storage/storage-create-storage-account.md).
+
+### <a name="install-the-azure-cli-20-preview"></a>Instalar a CLI do Azure 2.0 (Visualização)
+
+Baixe e instale a CLI do Azure 2.0 (Visualização) seguindo as instruções descritas em [Instalar a CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2).
+
+> [!TIP]
+> Se você tiver problemas com a instalação, confira a seção [Solucionando problemas de instalação](/cli/azure/install-az-cli2#installation-troubleshooting) do artigo e o guia [Solucionar Problemas de Instalação](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) no GitHub.
+>
+
+## <a name="working-with-the-cli"></a>Trabalhando com a CLI
+
+Depois de instalar a CLI, você poderá usar o comando `az` na sua interface de linha de comando (Bash, Terminal e Prompt de Comando) para acessar os comandos da CLI do Azure. Digite o comando `az` será apresentada uma saída semelhante a:
+
+```
+     /\
+    /  \    _____   _ _ __ ___
+   / /\ \  |_  / | | | \'__/ _ \
+  / ____ \  / /| |_| | | |  __/
+ /_/    \_\/___|\__,_|_|  \___|
+
+
+Welcome to the cool new Azure CLI!
+
+Here are the base commands:
+
+    account   : Commands to manage subscriptions.
+    acr       : Commands to manage Azure container registries.
+    acs       : Commands to manage Azure container services.
+    ad        : Synchronize on-premises directories and manage Azure Active Directory (AAD)
+                resources.
+    appservice: Commands to manage your Azure web apps and App Service plans.
+    cloud     : Manage the Azure clouds registered.
+    component : Commands to manage and update Azure CLI 2.0 (Preview) components.
+    configure : Configure Azure CLI 2.0 Preview or view your configuration. The command is
+                interactive, so just type `az configure` and respond to the prompts.
+    container : Set up automated builds and deployments for multi-container Docker applications.
+    context   : Manage contexts.
+    feature   : Commands to manage resource provider features, such as previews.
+    feedback  : Loving or hating the CLI?  Let us know!
+    group     : Commands to manage resource groups.
+    login     : Log in to access Azure subscriptions.
+    logout    : Log out to remove accesses to Azure subscriptions.
+    network   : Manages Network resources.
+    policy    : Commands to manage resource policies.
+    provider  : Manage resource providers.
+    resource  : Generic commands to manage Azure resources.
+    role      : Use role assignments to manage access to your Azure resources.
+    storage   : Durable, highly available, and massively scalable cloud storage.
+    tag       : Manage resource tags.
+    vm        : Provision Linux and Windows virtual machines in minutes.
+    vmss      : Create highly available, auto-scalable Linux or Windows virtual machines.
+```
+
+Na sua interface de linha de comando, execute o comando `az storage -h` para listar os comandos do grupo `storage` e seus subgrupos. As descrições dos subgrupos fornecem uma visão geral da funcionalidade que a CLI do Azure fornece para trabalhar com seus recursos de armazenamento.
+
+```
+Group
+    az storage: Durable, highly available, and massively scalable cloud storage.
+
+Subgroups:
+    account  : Manage storage accounts.
+    blob     : Object storage for unstructured data.
+    container: Manage blob storage containers.
+    cors     : Manage Storage service Cross-Orgin Resource Sharing (CORS).
+    directory: Manage file storage directories.
+    entity   : Manage table storage entities.
+    file     : File shares that use the standard SMB 3.0 protocol.
+    logging  : Manage Storage service logging information.
+    message  : Manage queue storage messages.
+    metrics  : Manage Storage service metrics.
+    queue    : Effectively scale apps according to traffic using queues.
+    share    : Manage file shares.
+    table    : NoSQL key-value storage using semi-structured datasets.
+```
+
+## <a name="connect-the-cli-to-your-azure-subscription"></a>Conectar a CLI à assinatura do Azure
+
+Para trabalhar com os recursos na sua assinatura do Azure, você deve primeiro fazer logon na conta do Azure com `az login`. Há várias maneiras de fazer logon:
+
+* **Logon Interativo**: `az login`
+* **Faça logon com o nome de usuário e senha**: `az login -u johndoe@contoso.com -p VerySecret`
+  * Isso não funciona com contas da Microsoft ou contas que usam autenticação multifator.
+* **Faça logon com uma entidade de serviço**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+
+## <a name="azure-cli-20-sample-script"></a>Script de exemplo da CLI do Azure 2.0
+
+Em seguida, trabalharemos com um pequeno script shell que emite alguns comandos básicos da CLI do Azure 2.0 para interagir com recursos do Armazenamento do Azure. Primeiro, o script cria um novo contêiner na sua conta de armazenamento e carrega um arquivo existente (como um blob) para esse contêiner. Ele lista todos os blobs no contêiner e, por fim, baixa o arquivo para um destino no computador local que você especificar.
+
+```bash
+#!/bin/bash
+# A simple Azure Storage example script
+
+export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+
+export container_name=<container_name>
+export blob_name=<blob_name>
+export file_to_upload=<file_to_upload>
+export destination_file=<destination_file>
+
+echo "Creating the container..."
+az storage container create -n $container_name
+
+echo "Uploading the file..."
+az storage blob upload -f $file_to_upload -c $container_name -n $blob_name
+
+echo "Listing the blobs..."
+az storage blob list -c $container_name
+
+echo "Downloading the file..."
+az storage blob download -c $container_name -n $blob_name -f $destination_file
+
+echo "Done"
+```
+
+**Configurar e executar o script**
+
+1. Abra o editor de texto de sua preferência, e copie e cole o script anterior no editor.
+
+2. Em seguida, atualize as variáveis do script para refletir suas configurações. Substitua os seguintes valores conforme especificado:
+
+   * **\<storage_account_name\>** O nome da sua conta de armazenamento.
+   * **\<storage_account_key\>** A tecla de acesso primária ou secundária para sua conta de armazenamento.
+   * **\<container_name\>** Um nome para o novo contêiner que será criado, como “azure-cli-sample-container”.
+   * **\<blob_name\>** Um nome para o blob de destino no contêiner.
+   * **\<file_to_upload\>** O caminho para o pequeno arquivo no seu computador local, tal como “~/images/HelloWorld.png”.
+   * **\<destination_file\>** O caminho do arquivo de destino, como “~/downloadedImage.png”.
+
+3. Depois de atualizar as variáveis necessárias, salve o script e sair do editor. As próximas etapas pressupõem que você nomeou seu script como **my_storage_sample.sh**.
+
+4. Marque o script como executável, se necessário: `chmod +x my_storage_sample.sh`
+
+5. Execute o script. Por exemplo, no Bash:`./my_storage_sample.sh`
+
+Você deverá ver uma saída semelhante à seguinte e o **\<destination_file\>** especificado no script deve aparecer no computador local.
+
+```
+Creating the container...
+Success
+---------
+True
+Uploading the file...                                           Percent complete: %100.0
+Listing the blobs...
+Name           Blob Type      Length  Content Type              Last Modified
+-------------  -----------  --------  ------------------------  -------------------------
+test_blob.txt  BlockBlob         771  application/octet-stream  2016-12-21T15:35:30+00:00
+Downloading the file...
+Name
+-------------
+test_blob.txt
+Done
+```
 
 > [!NOTE]
-> O guia fornece exemplos de comando e scripts da CLI do Azure para contas de armazenamento clássico. Consulte [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) para ver comandos da CLI do Azure para contas de armazenamento do Resource Manager.
-> 
-> 
+> A saída anterior está no formato de **tabela**. Você pode especificar qual formato de saída deve ser usado definindo o argumento `--output` nos comandos da sua CLI ou defina-o globalmente usando `az configure`.
+>
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Introdução ao Armazenamento do Azure e à CLI do Azure em 5 minutos
-Nos exemplos deste guia, usamos o Ubuntu, mas outras plataformas de sistema operacional devem funcionar de forma semelhante.
-
-**Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para saber mais sobre as opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
-
-Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Directory)](https://msdn.microsoft.com/library/azure/hh531793.aspx) para obter mais informações sobre as assinaturas do Azure.
-
-**Depois de criar uma assinatura e conta do Microsoft Azure:**
-
-1. Baixe e instale a CLI do Azure seguindo as instruções descritas em [Instalar a CLI do Azure](../xplat-cli-install.md).
-2. Quando a CLI do Azure estiver instalada, você poderá usar o comando azure na sua interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar os comandos da CLI do Azure. Digite o comando `azure` e você deverá ver a saída a seguir.
-   
-    ![Saída de comando do Azure][Image1]
-3. Na interface de linha de comando, digite `azure storage` para listar todos os comandos de armazenamento do Azure e obter uma primeira impressão das funcionalidades fornecidas pela CLI do Azure. Você pode digitar o nome do comando com o parâmetro **-h** (por exemplo, `azure storage share create -h`) para ver os detalhes da sintaxe do comando.
-4. Agora, você terá um script simples que mostra os comandos básicos da CLI do Azure para acessar o Armazenamento do Azure. Primeiramente, o script solicitará que você defina duas variáveis para sua conta e chave de armazenamento. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) nesse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele baixará o arquivo de imagem no diretório de destino, que existe no computador local.
-   
-        #!/bin/bash
-        # A simple Azure storage example
-   
-        export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-        export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
-   
-        export container_name=<container_name>
-        export blob_name=<blob_name>
-        export image_to_upload=<image_to_upload>
-        export destination_folder=<destination_folder>
-   
-        echo "Creating the container..."
-        azure storage container create $container_name
-   
-        echo "Uploading the image..."
-        azure storage blob upload $image_to_upload $container_name $blob_name
-   
-        echo "Listing the blobs..."
-        azure storage blob list $container_name
-   
-        echo "Downloading the image..."
-        azure storage blob download $container_name $blob_name $destination_folder
-   
-        echo "Done"
-5. No computador local, abra o editor de texto de sua preferência (vim, por exemplo). Digite o script acima no editor de texto.
-6. Agora, você precisa atualizar as variáveis de script com base nas suas configurações.
-   
-   * **<nome_da_conta_de_armazenamento>** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
-   * **<chave_da_conta_de_armazenamento>** A chave de acesso da conta de armazenamento.
-   * **<nome_do_contêiner>** Use o nome fornecido no script ou insira um novo nome para o contêiner.
-   * **<imagem_a_ser_carregada>** Insira um caminho para uma imagem em seu computador local, como: "~/images/HelloWorld.png".
-   * **<pastas_de_destino>** Insira um caminho para um diretório local para armazenar os arquivos baixados do armazenamento do Azure, como: "~/downloadImages".
-7. Depois de atualizar as variáveis necessárias no vim, pressione as combinações de teclas "Esc, : , wq!" para salvar o script.
-8. Para executar esse script, basta digitar o nome do arquivo de script no console do bash. Após execução desse script, você deverá ter uma pasta de destino local que inclua o arquivo de imagem baixado. A captura de tela a seguir mostra um exemplo de saída:
-
-Depois que o script é executado, você deve ter uma pasta de destino que inclui o arquivo de imagem baixada.
-
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gerenciar contas de armazenamento com a CLI do Azure
-### <a name="connect-to-your-azure-subscription"></a>Conecte-se à sua assinatura do Azure
-Embora a maioria dos comandos de armazenamento funcione sem uma assinatura do Azure, é recomendável se conectar à sua assinatura na CLI do Azure. Para configurar a CLI do Azure para trabalhar com sua assinatura, siga as etapas em [Conectar uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
+## <a name="manage-storage-accounts"></a>Gerenciar contas de armazenamento
 
 ### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
-Você precisa de uma conta de armazenamento para usar o Armazenamento do Azure. Depois de configurar seu computador para se conectar à sua assinatura, você pode criar uma nova conta de Armazenamento do Azure.
+Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento. Depois de configurar seu computador para se [conectar à sua assinatura](#connect-to-your-azure-subscription), você pode criar uma nova conta de Armazenamento do Azure.
 
-        azure storage account create <account_name>
+```azurecli
+az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
+```
 
-O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
+* `-l` [Obrigatório]: local. Por exemplo, “Oeste dos EUA”.
+* `-n` [Obrigatório]: o nome da conta de armazenamento. O nome deve conter entre 3 e 24 caracteres, usando apenas alfanuméricos minúsculo.
+* `-g` [Obrigatório]: nome do grupo de recursos.
+* `--sku` [Obrigatório]: o SKU da conta de armazenamento. Valores permitidos:
+  * `Premium_LRS`
+  * `Standard_GRS`
+  * `Standard_LRS`
+  * `Standard_RAGRS`
+  * `Standard_ZRS`
 
-### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Definir uma conta de armazenamento padrão do Azure nas variáveis de ambiente
-Você pode ter várias contas de armazenamento na sua assinatura. É possível escolher uma delas e defini-la nas variáveis de ambiente para todos os comandos de armazenamento na mesma sessão. Isso permite executar os comandos de armazenamento da CLI do Azure sem especificar explicitamente a chave e a conta de armazenamento.
+### <a name="set-default-azure-storage-account-environment-variables"></a>Definir as variáveis de ambiente da conta de armazenamento padrão do Azure
+Você pode ter várias contas de armazenamento na sua assinatura do Azure. Para selecionar uma delas para usar em todos os comandos de armazenamento posteriores, você pode definir essas variáveis de ambiente:
 
-        export AZURE_STORAGE_ACCOUNT=<account_name>
-        export AZURE_STORAGE_ACCESS_KEY=<key>
+```azurecli
+export AZURE_STORAGE_ACCOUNT=<account_name>
+export AZURE_STORAGE_ACCESS_KEY=<key>
+```
 
-Outra forma de definir uma conta de armazenamento padrão é usar a cadeia de conexão. Em primeiro lugar, obtenha a cadeia de conexão pelo comando:
+Outra forma de definir uma conta de armazenamento padrão é usar a cadeia de conexão. Em primeiro lugar, obtenha a cadeia de conexão com o comando `show-connection-string`:
 
-        azure storage account connectionstring show <account_name>
+```azurecli
+az storage account show-connection-string -n <account_name> -g <resource_group>
+```
 
-Em seguida, copie a cadeia de conexão de saída e a defina como variável de ambiente:
+Em seguida, copie a cadeia de conexão de saída e defina a variável de ambiente `AZURE_STORAGE_CONNECTION_STRING` (pode ser necessário circunscrever a cadeia de conexão entre aspas):
 
-        export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
-
-## <a name="create-and-manage-blobs"></a>Criar e gerenciar blobs
-O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você esteja familiarizado com o conceitos de Armazenamento de Blob do Azure. Para obter informações detalhadas, confira [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](http://msdn.microsoft.com/library/azure/dd179376.aspx) (Conceitos do serviço Blob).
-
-### <a name="create-a-container"></a>Criar um contêiner
-Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você pode criar um contêiner privado usando o comando `azure storage container create` :
-
-        azure storage container create mycontainer
+```azurecli
+export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+```
 
 > [!NOTE]
-> Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
-> 
-> 
+> Todos os exemplos nas seções a seguir deste artigo pressupõem que você definiu as variáveis de ambiente `AZURE_STORAGE_ACCOUNT` e `AZURE_STORAGE_ACCESS_KEY`.
+>
 
-### <a name="upload-a-blob-into-a-container"></a>Carregar um blob em um contêiner
-O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para saber mais, confira [Noções básicas sobre Blobs de bloco, Blobs de acréscimo e Blobs de página](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+## <a name="create-and-manage-blobs"></a>Criar e gerenciar blobs
+O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você esteja familiarizado com o conceitos de Armazenamento de Blobs do Azure. Para obter informações detalhadas, confira [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) e [Blob Service Concepts](/rest/api/storageservices/fileservices/blob-service-concepts) (Conceitos do serviço Blob).
 
-Para carregar blobs em um contêiner, você poderá usar `azure storage blob upload`. Por padrão, esse comando carrega os arquivos locais para um blob de blocos. Para especificar o tipo de blob, você pode usar o parâmetro `--blobtype` .
+### <a name="create-a-container"></a>Criar um contêiner
+Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você pode criar um contêiner usando o comando `az storage container create`:
 
-        azure storage blob upload '~/images/HelloWorld.png' mycontainer myBlockBlob
+```azurecli
+az storage container create -n <container_name>
+```
+
+Você pode definir um dos três níveis de acesso de leitura para um novo contêiner especificando o argumento `--public-access` opcional:
+
+* `off` (padrão): os dados do contêiner são privados para o proprietário da conta.
+* `blob`: acesso de leitura público para blobs.
+* `container`: acesso de leitura e listagem público para todo o contêiner.
+
+Para obter mais informações, consulte [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
+
+### <a name="upload-a-blob-to-a-container"></a>Carregar um blob para um contêiner
+O Armazenamento de Blobs do Azure dá suporte a blobs de blocos, anexos e páginas. Carregue os blobs para um contêiner usando o comando `blob upload`:
+
+```azurecli
+az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
+```
+
+ Por padrão, o comando `blob upload` carrega os arquivos de *.vhd para blobs de página ou para blobs de blocos. Para especificar outro tipo ao carregar um blob, você pode usar o argumento `--type`; os valores permitido são `append`, `block` e `page`.
+
+ Para obter mais informações sobre os blobs, consulte [Compreendendo os Blobs de Blocos, Anexos e Páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### <a name="download-blobs-from-a-container"></a>Baixar blobs de um contêiner
-O exemplo a seguir demonstra como baixar blobs de um contêiner.
+Este exemplo demonstra como baixar blobs de um contêiner:
 
-        azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
+```azurecli
+az storage blob download -c mycontainer -n myblob.png -f ~/mydownloadedblob.png
+```
 
 ### <a name="copy-blobs"></a>Copiar blobs
 É possível copiar blobs em ou entre regiões e contas de armazenamento de modo assíncrono.
 
-O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra. Neste exemplo, podemos criar um contêiner onde os blobs podem ser acessados pública e anonimamente.
+O exemplo a seguir demonstra como copiar blobs de uma conta de armazenamento para outra. Primeiro criamos um contêiner em outra conta, especificando que seus blobs podem ser acessados publicamente e anonimamente. Em seguida, podemos carregar um arquivo para o contêiner e, por fim, copiar o blob do contêiner para o contêiner **mycontainer** na conta atual.
 
-    azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
+```azurecli
+az storage container create -n mycontainer2 --account-name <accountName2> --account-key <accountKey2> --public-access blob
 
-    azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
+az storage blob upload -f ~/Images/HelloWorld.png -c mycontainer2 -n myBlockBlob2 --account-name <accountName2> --account-key <accountKey2>
 
-    azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
+az storage blob copy start -u https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2 -b myBlobBlob -c mycontainer
+```
 
-Neste exemplo, é executada uma cópia assíncrona. Você pode monitorar o status de cada operação de cópia, executando a operação `azure storage blob copy show` .
-
-Observe que a URL de origem fornecida para a operação de cópia deve ser acessível publicamente ou incluir um token SAS (assinatura de acesso compartilhado).
+A URL do blob de origem (especificada por `-u`) deve ser acessível publicamente ou incluir um token SAS (Assinatura de Acesso Compartilhado).
 
 ### <a name="delete-a-blob"></a>Excluir um blob
-Para excluir um blob, use o comando abaixo:
+Para excluir um blob, use o comando `blob delete`:
 
-        azure storage blob delete mycontainer myBlockBlob2
+```azurecli
+az storage blob delete -c <container_name> -n <blob_name>
+```
 
 ## <a name="create-and-manage-file-shares"></a>Criar e gerenciar compartilhamentos de arquivos
-O Armazenamento de Arquivos do Azure oferece o armazenamento compartilhado para aplicativos com o uso do protocolo SMB padrão. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).
+O Armazenamento de Arquivos do Azure oferece armazenamento compartilhado para aplicativos que usam o protocolo SMB. As máquinas virtuais e os serviços de nuvem do Microsoft Azure, bem como aplicativos locais, podem compartilhar dados de arquivos por meio de compartilhamentos montados. Você pode gerenciar compartilhamentos de arquivos e dados de arquivos por meio da CLI do Azure. Para obter mais informações sobre o Armazenamento de Arquivos do Azure, confira [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md) ou [Como usar o Armazenamento de Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md).
 
 ### <a name="create-a-file-share"></a>Criar um compartilhamento de arquivos
 Um compartilhamento de Arquivos do Azure é um compartilhamento de arquivos do SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento de arquivos. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos, e um compartilhamento pode conter um número ilimitado de arquivos, até os limites de capacidade da conta de armazenamento. O exemplo a seguir cria um compartilhamento de arquivos denominado **myshare**.
 
-        azure storage share create myshare
+```azurecli
+az storage share create -n myshare
+```
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Um diretório fornece uma estrutura hierárquica opcional para um compartilhamento de arquivos do Azure. O exemplo a seguir cria um diretório denominado **myDir** no compartilhamento de arquivos.
 
-        azure storage directory create myshare myDir
+```azurecli
+az storage directory create -n myDir -s myshare
+```
 
 Observe que esse caminho de diretório pode incluir vários níveis, *por exemplo*: **a/b**. No entanto, você deve garantir a existência de todos os diretórios pai. Por exemplo, para o caminho **a/b**, você deve criar o diretório **a** primeiro e, em seguida, o diretório **b**.
 
-### <a name="upload-a-local-file-to-directory"></a>Carregar um arquivo local no diretório
-O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** no diretório **myDir**. Edite o caminho do arquivo para que ele aponte para um arquivo válido em seu computador local:
+### <a name="upload-a-local-file-to-a-share"></a>Carregar um arquivo local para um compartilhamento
+O exemplo a seguir carrega um arquivo de **~/temp/samplefile.txt** para a raiz do compartilhamento de arquivos **myshare**. O argumento `--source` especifica o arquivo local existente para o upload.
 
-        azure storage file upload '~/temp/samplefile.txt' myshare myDir
+```azurecli
+az storage file upload --share-name myshare --source ~/temp/samplefile.txt
+```
 
-Observe que um arquivo no compartilhamento pode ter até 1 TB.
+Assim como na criação do diretório, você pode especificar um caminho de diretório no compartilhamento para carregar o arquivo para um diretório existente dentro do compartilhamento:
 
-### <a name="list-the-files-in-the-share-root-or-directory"></a>Listar os arquivos no diretório ou na raiz de compartilhamento
-É possível listar os arquivos e subdiretórios em um diretório ou uma raiz de compartilhamento usando o comando a seguir:
+```azurecli
+az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
+```
 
-        azure storage file list myshare myDir
+Um arquivo no compartilhamento pode ter até 1 TB.
 
-Observe que o nome do diretório é opcional para a operação de listagem. Se omitido, o comando listará o conteúdo do diretório raiz do compartilhamento.
+### <a name="list-the-files-in-a-share"></a>Listar os arquivos em um compartilhamento
+Você pode listar arquivos e diretórios em um compartilhamento usando o comando `az storage file list`:
 
-### <a name="copy-files"></a>Copiar arquivos
-A partir da versão 0.9.8 da CLI do Azure, você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. A seguir, demonstramos como executar essas operações de cópia usando comandos CLI. Para copiar um arquivo para o novo diretório:
+```azurecli
+# List the files in the root of a share
+az storage file list -s myshare
 
-    azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+# List the files in a directory within a share
+az storage file list -s myshare/myDir
 
-Para copiar um blob para um diretório de arquivos:
+# List the files in a path within a share
+az storage file list -s myshare -p myDir/mySubDir/MySubDir2
+```
 
-    azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+### <a name="copy-files"></a>Copiar arquivos      
+Você pode copiar um arquivo para outro arquivo, um arquivo para um blob ou um blob para um arquivo. Por exemplo, para copiar um arquivo para um diretório em um compartilhamento diferente:        
+        
+```azurecli
+# Get the URL for the source file you want to copy
+az storage file url -s myshare -p /mydir/image.png
+
+# Copy the file to another share
+az storage file copy start \
+    --source-uri https://mystorageaccount.file.core.windows.net/myshare/mydir/image.png \   
+    --destination-share myshare2 --destination-path mydir2/image.png        
+```
+
+> [!NOTE]
+> Há um problema conhecido na CLI 2.0 (Visualização) que impede o uso de `--source-share` e `--source-path`. Você pode usar o argumento `--source-uri` como uma solução alternativa até que esse problema seja resolvido.
+>
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja a seguir alguns artigos e recursos relacionados para saber mais sobre o Armazenamento do Azure.
+Veja alguns recursos adicionais para aprender mais sobre como trabalhar com a CLI do Azure 2.0 (Visualização).
 
-* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Referência de API REST do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-
-[Image1]: ./media/storage-azure-cli/azure_command.png
-
+* [Introdução às CLI do Azure 2.0 (Visualização)](/cli/azure/get-started-with-az-cli2)
+* [Referência de comando da CLI do Azure 2.0 (Visualização)](/cli/azure)
+* [CLI do Azure 2.0 (Visualização) no GitHub](https://github.com/Azure/azure-cli)
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO1-->
 
 

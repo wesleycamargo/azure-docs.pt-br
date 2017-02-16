@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
@@ -41,7 +41,7 @@ Ao prever o momento em que a manutenção é necessária, a Fabrikam pode otimiz
 Para entender como o [Azure IoT Suite][lnk_iot_suite] fornece recursos que os clientes precisam para aproveitar o potencial da manutenção preditiva, examine este [infográfico][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Como a solução de manutenção preditiva é criada
-A solução aproveita um modelo de Aprendizado de Máquina do Azure existente como modelo para mostrar esses recursos trabalhando desde a telemetria de dispositivo coletada até os serviços IoT Suite. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave e publicou o modelo completo, dados<sup>\[1\]</sup> e diretrizes passo a passo sobre como usar o modelo.
+A solução aproveita um modelo de Aprendizado de Máquina do Azure existente como modelo para mostrar esses recursos trabalhando desde a telemetria de dispositivo coletada até os serviços IoT Suite. A Microsoft criou um [modelo de regressão][lnk_regression_model] de um mecanismo de aeronave e publicou o modelo completo, dados<sup>\[1\]</sup> e orientações passo a passo sobre como usar o modelo.
 
 A solução pré-configurada de manutenção prevista do Azure IoT usa o modelo de regressão criado com base neste modelo. Ele é implantado em sua assinatura do Azure e exposto por meio de uma API gerada automaticamente. A solução inclui um subconjunto dos dados de teste que representa quatro (de um total de 100) de mecanismos e as quatro (de um total de 21) transmissões de dados de sensor que fornece um resultado preciso do modelo treinado.
 
@@ -63,13 +63,13 @@ Faça um [passo a passo][lnk-predictive-walkthrough] da solução pré-configura
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
 * [Perguntas frequentes sobre o IoT Suite][lnk-faq]
-* [Segurança de IoT desde o início][lnk-security-groundup]
+* [Segurança IoT desde o início][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

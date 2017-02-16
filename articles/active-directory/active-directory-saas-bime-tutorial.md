@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1adfe732b88a6a48a3aa9ad3ca7785703667e3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 19adbe15694a6413842b23c27851ce582bfd727e
 
 
 ---
@@ -35,7 +35,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-bime-tutorial/IC775552.png "Scenario")
+![Cenário](./media/active-directory-saas-bime-tutorial/IC775552.png "Cenário")
 
 ## <a name="enabling-the-application-integration-for-bime"></a>Habilitando a integração de aplicativos para o Bime
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Bime.
@@ -47,16 +47,16 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-bime-tutorial/IC700994.png "Applications")
+   ![Aplicativos](./media/active-directory-saas-bime-tutorial/IC700994.png "Aplicativos")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-bime-tutorial/IC749321.png "Add application")
+   ![Adicionar aplicativo](./media/active-directory-saas-bime-tutorial/IC749321.png "Adicionar aplicativo")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-bime-tutorial/IC749322.png "Add an application from gallerry")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-bime-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 6. Na **caixa de pesquisa**, digite **Bime**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-bime-tutorial/IC775553.png "Application Gallery")
+   ![Galeria de Aplicativos](./media/active-directory-saas-bime-tutorial/IC775553.png "Galeria de Aplicativos")
 7. No painel de resultados, selecione **Bime** e clique em **Concluir** para adicionar o aplicativo.
    
    ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
@@ -70,23 +70,23 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração do aplicativo **Bime**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-   ![Configurar o logon único](./media/active-directory-saas-bime-tutorial/IC771709.png "Configure single sign-on")
+   ![Configurar logon único](./media/active-directory-saas-bime-tutorial/IC771709.png "Configurar logon único")
 2. Na página **Como você deseja que os usuários façam logon no Bime**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775555.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775555.png "Configurar Logon Único")
 3. Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Logon do Bime**, digite a URL usando o padrão "*https://\<nome-locatário\>.Bimeapp.com*" e clique em **Avançar**.
    
-   ![Configurar a URL do Aplicativo](./media/active-directory-saas-bime-tutorial/IC775556.png "Configure App URL")
+   ![Configurar URL do Aplicativo](./media/active-directory-saas-bime-tutorial/IC775556.png "Configurar URL do Aplicativo")
 4. Na página **Configurar logon único no Bime**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado localmente como **c:\\\Bime.cer**.
    
-   ![Configurar o logon único](./media/active-directory-saas-bime-tutorial/IC775557.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775557.png "Configurar Logon Único")
 5. Em outra janela do navegador da Web, faça logon em seu site de empresa Bime como um administrador.
 6. Na barra de ferramentas, clique em **Administrador** e em **Conta**.
    
-   ![Administrador](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
+   ![Admin](./media/active-directory-saas-bime-tutorial/IC775558.png "Admin")
 7. Na página de configuração da conta, execute as seguintes etapas: 
    
-   ![Configurar o logon único](./media/active-directory-saas-bime-tutorial/IC775559.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775559.png "Configurar Logon Único")
    
    1. Selecione **Habilitar autenticação SAML**.
    2. No portal clássico do Azure, na página do diálogo **Configurar logon único no Bime**, copie o valor da **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon Remoto**.
@@ -99,7 +99,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
    4. Clique em **Salvar**.
 8. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775560.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-bime-tutorial/IC775560.png "Configurar Logon Único")
    
    ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
@@ -110,13 +110,13 @@ No caso do Bime, o provisionamento é uma tarefa manual.
 1. Faça logon em seu locatário do **Bime** .
 2. Na barra de ferramentas, clique em **Administrador** e em **Usuários**.
    
-   ![Administrador](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
+   ![Admin](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
 3. Na **Lista de Usuários**, clique em **Adicionar Novo Usuário** (“+”).
    
-   ![Usuários](./media/active-directory-saas-bime-tutorial/IC775562.png "Users")
+   ![Usuários](./media/active-directory-saas-bime-tutorial/IC775562.png "Usuários")
 4. Na página do diálogo **Detalhes do Usuário** , realize as seguintes etapas:
    
-   ![Detalhes do Usuário](./media/active-directory-saas-bime-tutorial/IC775563.png "User Details")
+   ![Detalhes do Usuário](./media/active-directory-saas-bime-tutorial/IC775563.png "Detalhes do Usuário")
    
    1. Insira Nome, Sobrenome, Logon e Email de uma conta válida do AAD que deseja provisionar.
    2. Clique em Salvar.
@@ -133,16 +133,16 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração do aplicativo **Bime**, clique em **Atribuir usuários**.
    
-   ![Atribuir usuários](./media/active-directory-saas-bime-tutorial/IC775564.png "Assign users")
+   ![Atribuir usuários](./media/active-directory-saas-bime-tutorial/IC775564.png "Atribuir usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-bime-tutorial/IC767830.png "Yes")
+   ![Sim](./media/active-directory-saas-bime-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

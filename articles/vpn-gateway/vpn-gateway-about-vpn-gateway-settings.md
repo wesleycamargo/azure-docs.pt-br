@@ -1,10 +1,10 @@
 ---
-title: "Sobre configurações do Gateway de VPN para gateways de rede virtual | Microsoft Docs"
-description: "Saiba mais sobre as configurações do Gateway de VPN para a Rede Virtual do Azure."
+title: "Configurações de Gateway de VPN para conexões do Azure entre locais | Microsoft Docs"
+description: "Saiba mais sobre as configurações do Gateway de VPN para gateways de rede virtual do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fc3c8469657b50e4e09a1849d9c63f4ef1e0c414
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: 7a4efebcfc1ed38e9efdac293845f4be632e5b08
 
 
 ---
 # <a name="about-vpn-gateway-settings"></a>Sobre as configurações do Gateway de VPN
-Uma solução de conexão de gateway de VPN depende da configuração de vários recursos para enviar tráfego de rede entre redes virtuais e instalações locais. Cada recurso contém definições configuráveis. A combinação de recursos e configurações determina o resultado da conexão.
+Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego criptografado entre sua rede virtual e seu local em uma conexão pública. Você também pode usar o Gateway de VPN para enviar tráfego entre redes virtuais.
 
-As seções neste artigo abordam os recursos e configurações relacionados a um gateway de VPN no modelo de implantação do **Resource Manager** . Você pode achar útil exibir as configurações disponíveis usando diagramas da topologia de conexão. Você pode encontrar descrições e diagramas da topologia para cada solução de conexão no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) . 
+Uma conexão de Gateway de VPN tem base na configuração de vários recursos, cada um deles contendo definições configuráveis. As seções neste artigo abordam os recursos e configurações relacionados a um gateway de VPN para uma rede virtual criada no modelo de implantação do **Resource Manager** . Você pode encontrar descrições e diagramas da topologia para cada solução de conexão no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) .  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Tipos de gateway
 Cada rede virtual pode ter apenas um gateway de rede virtual de cada tipo. Quando estiver criando um gateway de rede virtual, você deve garantir que o tipo de gateway seja o correto para sua configuração.
@@ -145,6 +145,6 @@ Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) para obter m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

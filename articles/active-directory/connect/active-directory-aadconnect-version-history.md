@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/07/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: c7abb31a222a5e817dc7b4f73c9cf54ce4d26255
+ms.sourcegitcommit: 60f41890912eee3be364f5b3a47ded71991ee342
+ms.openlocfilehash: 780fb6d69dab0b27e13f1e358be048f834dfc185
 
 
 ---
@@ -34,30 +34,51 @@ Etapas para atualizar do Azure AD Connect | Métodos diferentes para [atualizar 
 Permissões necessárias | Para obter permissões necessárias para aplicar uma atualização, veja [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade)
 Baixar| [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## <a name="113800"></a>1.1.380.0
+Lançamento: dezembro de 2016
+
+**Problema corrigido:**
+
+* Corrigido o problema onde a regra de declaração issuerid para ADFS está ausente nessa compilação.
+
+>[!NOTE]
+>Este build não estará disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+
 ## <a name="113710"></a>1.1.371.0
 Lançamento: dezembro de 2016
+
+**Problema conhecido:**
+
+* A regra de declaração issuerid para ADFS está ausente nessa compilação. A regra de declaração issuerid será necessária se você estiver federando vários domínios com o Azure AD. Se estiver usando o Azure AD Connect para gerenciar sua implantação local do ADFS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do seu ADFS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar regra de declaração issuerid, confira este artigo sobre [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Suporte a vários domínios para federação com o Azure AD).
 
 **Problema corrigido:**
 
 * A instalação ou atualização do Azure AD Connect falhará se a porta 9090 não estiver aberta para a conexão de saída.
 
+>[!NOTE]
+>Este build não estará disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
+
 ## <a name="113700"></a>1.1.370.0
 Lançamento: dezembro de 2016
+
+**Problemas conhecidos:**
+
+* A regra de declaração issuerid para ADFS está ausente nessa compilação. A regra de declaração issuerid será necessária se você estiver federando vários domínios com o Azure AD. Se estiver usando o Azure AD Connect para gerenciar sua implantação local do ADFS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do seu ADFS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar regra de declaração issuerid, confira este artigo sobre [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Suporte a vários domínios para federação com o Azure AD).
+* A porta 9090 deve estar aberta para a saída para que a instalação seja concluída.
 
 **Novos recursos:**
 
 * Autenticação de Passagem (Visualização).
-
-
-**Problemas conhecidos:**
-
-* A porta 9090 deve estar aberta para a saída para que a instalação seja concluída.
 
 >[!NOTE]
 >Este build não estará disponível para os clientes por meio do recurso Atualização Automática do Azure AD Connect.
 
 ## <a name="113430"></a>1.1.343.0
 Lançado: novembro de 2016
+
+**Problema conhecido:**
+
+* A regra de declaração issuerid para ADFS está ausente nessa compilação. A regra de declaração issuerid será necessária se você estiver federando vários domínios com o Azure AD. Se estiver usando o Azure AD Connect para gerenciar sua implantação local do ADFS, atualizar para essa compilação removerá a regra de declaração issuerid existente da configuração do seu ADFS. Você pode contornar o problema adicionando a regra de declaração issuerid após a instalação/atualização. Para obter detalhes sobre como adicionar regra de declaração issuerid, confira este artigo sobre [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md) (Suporte a vários domínios para federação com o Azure AD).
 
 **Problemas corrigidos:**
 
@@ -356,6 +377,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

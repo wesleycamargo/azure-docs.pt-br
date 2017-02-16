@@ -1,6 +1,6 @@
 ---
 title: "Habilitar sincronização offline para o seu Aplicativo móvel do Azure (iOS)"
-description: "Aprenda a usar os aplicativos móveis do Serviço de Aplicativo para cache e sincronização de dados offline no aplicativo iOS"
+description: "Aprenda a usar os aplicativos móveis do Serviço de Aplicativo para colocar em cache e sincronizar dados offline em seu aplicativo iOS"
 documentationcenter: ios
 author: ysxu
 manager: yochayk
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c213f8f4f8de6f16efe70ac3332ccbc8c428b85b
+ms.sourcegitcommit: f9f5fd28db7babfe400aeb55ba1df9ac5d8d535b
+ms.openlocfilehash: 7aee0f60d331f40514f41c20e09fa2c9d9a21233
 
 
 ---
@@ -38,98 +38,92 @@ O recurso de sincronização de dados offline dos aplicativos móveis do Azure p
 1. Em **QSTodoService.m** (Objective-C) ou **ToDoTableViewController.swift** (Swift), observe que o tipo do membro `syncTable` é `MSSyncTable`. A sincronização offline usa essa interface de tabela de sincronização em vez de `MSTable`. Quando uma tabela de sincronização é usada, todas as operações vão para o repositório local e só são sincronizadas com o back-end remoto com operações de push e pull explícitas.
    
     Para obter uma referência a uma tabela de sincronização, use o método `syncTableWithName` em `MSClient`. Para remover a funcionalidade de sincronização offline, use `tableWithName` em vez disso.
+    
 2. Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. Aqui está o código relevante. 
    
-    **Objective-C**:
+   **Objective-C**:
+
+   No método `QSTodoService.init` :
+   ```objc
+   MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
+   self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+   ```    
+   **Swift**:
+
+   No método `ToDoTableViewController.viewDidLoad` :
+   ```swift
+   let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
+   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+   self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
+   client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
+   ```
+   Isso cria um repositório local usando a interface `MSCoreDataStore`, que é fornecida no SDK do aplicativo móvel. Em vez disso, é possível fornecer um repositório local diferente implementando o protocolo `MSSyncContextDataSource` . Além disso, o primeiro parâmetro de `MSSyncContext` é usado para especificar um manipulador de conflito. Já que passamos `nil`, obteremos o manipulador de conflito padrão, que falha em qualquer conflito.
+
+3. Agora, vamos executar a operação de sincronização em si e obter dados de back-end remoto.
    
-    No método `QSTodoService.init` :
+   **Objective-C**:
 
-            MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-            self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
+   `syncData` primeiro envia novas alterações por push e chama `pullData` para obter dados do back-end remoto. Por sua vez, o método `pullData` obtém novos dados que correspondem a uma consulta:
+   ```objc
+   -(void)syncData:(QSCompletionBlock)completion
+   {
+       // push all changes in the sync context, then pull new data
+       [self.client.syncContext pushWithCompletion:^(NSError *error) {
+           [self logErrorIfNotNil:error];
+           [self pullData:completion];
+       }];
+   }
 
+   -(void)pullData:(QSCompletionBlock)completion
+   {
+       MSQuery *query = [self.syncTable query];
 
-    **Swift**:
+       // Pulls data from the remote server into the local table.
+       // We're pulling all items and filtering in the view
+       // query ID is used for incremental sync
+       [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+           [self logErrorIfNotNil:error];
 
-    No método `ToDoTableViewController.viewDidLoad` :
+           // Let the caller know that we have finished
+           if (completion != nil) {
+               dispatch_async(dispatch_get_main_queue(), completion);
+           }
+       }];
+   }
+   ```
+   **Swift**:
+   ```swift
+   func onRefresh(sender: UIRefreshControl!) {
+      UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
+      self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
+          (error) -> Void in
 
-            let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
-            let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
-            self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
-            client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
+          UIApplication.sharedApplication().networkActivityIndicatorVisible = false
 
+          if error != nil {
+              // A real application would handle various errors like network conditions,
+              // server conflicts, etc via the MSSyncContextDelegate
+              print("Error: \(error!.description)")
 
-    Isso cria um repositório local usando a interface `MSCoreDataStore`, que é fornecida no SDK do aplicativo móvel. Em vez disso, é possível fornecer um repositório local diferente implementando o protocolo `MSSyncContextDataSource` . 
-
-    Além disso, o primeiro parâmetro de `MSSyncContext` é usado para especificar um manipulador de conflito. Já que passamos `nil`, obteremos o manipulador de conflito padrão, que falha em qualquer conflito.
-
-1. Agora, vamos executar a operação de sincronização em si e obter dados de back-end remoto.
-   
-    **Objective-C**:
-   
-    `syncData` primeiro envia novas alterações por push e chama `pullData` para obter dados do back-end remoto. Por sua vez, o método `pullData` obtém novos dados que correspondem a uma consulta:
-
-            -(void)syncData:(QSCompletionBlock)completion
-            {
-                // push all changes in the sync context, then pull new data
-                [self.client.syncContext pushWithCompletion:^(NSError *error) {
-                    [self logErrorIfNotNil:error];
-                    [self pullData:completion];
-                }];
-            }
-
-            -(void)pullData:(QSCompletionBlock)completion
-            {
-                MSQuery *query = [self.syncTable query];
-
-                // Pulls data from the remote server into the local table.
-                // We're pulling all items and filtering in the view
-                // query ID is used for incremental sync
-                [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
-                    [self logErrorIfNotNil:error];
-
-                    // Let the caller know that we have finished
-                    if (completion != nil) {
-                        dispatch_async(dispatch_get_main_queue(), completion);
-                    }
-                }];
-            }
-
-
-      **Swift**:
-
-
-        func onRefresh(sender: UIRefreshControl!) {
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-
-            self.table!.pullWithQuery(self.table?.query(), queryId: "AllRecords") {
-                (error) -> Void in
-
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
-                if error != nil {
-                    // A real application would handle various errors like network conditions,
-                    // server conflicts, etc via the MSSyncContextDelegate
-                    print("Error: \(error!.description)")
-
-                    // We will just discard our changes and keep the servers copy for simplicity
-                    if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
-                        for opError in opErrors {
-                            print("Attempted operation to item \(opError.itemId)")
-                            if (opError.operation == .Insert || opError.operation == .Delete) {
-                                print("Insert/Delete, failed discarding changes")
-                                opError.cancelOperationAndDiscardItemWithCompletion(nil)
-                            } else {
-                                print("Update failed, reverting to server's copy")
-                                opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
-                            }
-                        }
-                    }
-                }
-                self.refreshControl?.endRefreshing()
-            }
-        } 
-
+              // We will just discard our changes and keep the servers copy for simplicity
+              if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
+                  for opError in opErrors {
+                      print("Attempted operation to item \(opError.itemId)")
+                      if (opError.operation == .Insert || opError.operation == .Delete) {
+                          print("Insert/Delete, failed discarding changes")
+                          opError.cancelOperationAndDiscardItemWithCompletion(nil)
+                      } else {
+                          print("Update failed, reverting to server's copy")
+                          opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
+                      }
+                  }
+              }
+          }
+          self.refreshControl?.endRefreshing()
+      }
+   } 
+   ```
 
     Na versão Objective-C, em `syncData`, primeiro chamamos `pushWithCompletion` no contexto de sincronização. Esse método é um membro de `MSSyncContext` (em vez da tabela de sincronização em si) porque enviará as alterações a todas as tabelas. Somente os registros que foram modificados, de alguma forma, localmente (por meio de operações CUD) serão enviados ao servidor. Em seguida, o auxiliar `pullData` é chamado, o que chama `MSSyncTable.pullWithQuery` para recuperar dados remotos e armazená-los no banco de dados local.
 
@@ -214,43 +208,44 @@ Nesta seção, você modificará o aplicativo para que ele não sincronize ao in
 
 1. Em **QSTodoListViewController.m**, altere o método **viewDidLoad** para remover a chamada para `[self refresh]` no final do método. Agora, os dados não serão sincronizados com o servidor na inicialização do aplicativo, mas em vez disso, se tornarão o conteúdo do repositório local.
 2. Em **QSTodoService.m**, modifique a definição de `addItem` para que não ocorra sincronização após o item ser inserido. Remova o bloco `self syncData` e substitua-o pelo seguinte:
-   
-            if (completion != nil) {
-                dispatch_async(dispatch_get_main_queue(), completion);
-            }
-3. Modifique a definição de `completeItem` conforme explicado acima; remova o bloco para `self syncData` e substitua-o pelo seguinte:
-   
-            if (completion != nil) {
-                dispatch_async(dispatch_get_main_queue(), completion);
-            }
 
+   ```objc
+   if (completion != nil) {
+       dispatch_async(dispatch_get_main_queue(), completion);
+   }
+   ```
+3. Modifique a definição de `completeItem` conforme explicado acima; remova o bloco para `self syncData` e substitua-o pelo seguinte:
+   ```objc
+   if (completion != nil) {
+       dispatch_async(dispatch_get_main_queue(), completion);
+   }
+   ```
 **Swift**:
 
 1. Em `viewDidLoad` no **ToDoTableViewController.swift**, comente essas duas linhas para parar a sincronização na inicialização do aplicativo. No momento da redação deste artigo, o aplicativo Todo Swift não atualiza o serviço quando alguém adiciona ou conclui um item, somente na inicialização do aplicativo.
-   
-        self.refreshControl?.beginRefreshing()
-        self.onRefresh(self.refreshControl)
 
+   ```swift
+  self.refreshControl?.beginRefreshing()
+  self.onRefresh(self.refreshControl)
+```
 ## <a name="a-nametest-appatest-the-app"></a><a name="test-app"></a>Testar o aplicativo
 Nesta seção, você se conecta a uma URL inválida para simular um cenário offline. Quando você adicionar itens de dados, eles serão mantidos no repositório local de dados principais, mas não sincronizados com o back-end móvel.
 
 1. Altere a URL do aplicativo móvel em **Qstodoservice** para uma URL inválida e execute novamente o aplicativo:
    
-    **Objective-C** em QSTodoService.m:
-   
-            self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
-   
-    **Swift** em ToDoTableViewController.swift:
-   
-        let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
+   **Objective-C** em QSTodoService.m:
+   ```objc
+   self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
+   ```
+   **Swift** em ToDoTableViewController.swift:
+   ```swift
+   let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
+   ```
 2. Adicione alguns itens ToDo. Feche o simulador (ou feche forçadamente o aplicativo) e reinicie. Verifique se suas mudanças foram mantidas.
-3. Exiba o conteúdo da tabela TodoItem remota:
-   
-   * Para um back-end Node.js, vá para o [portal do Azure](https://portal.azure.com/) e no back-end do aplicativo móvel clique em **Tabelas Fáceis** > **TodoItem** para exibir o conteúdo da tabela `TodoItem`.
-     
-     * Para um back-end do .NET, exiba o conteúdo da tabela com uma ferramenta SQL como o SQL Server Management Studio, ou então com um cliente REST, como o Fiddler ou Postman.
-     
-     Confirme que os novos itens *não* tenham sido sincronizados com o servidor:
+3. Exiba o conteúdo da tabela TodoItem remota: 
+   * Para um back-end Node.js, vá para o [portal do Azure](https://portal.azure.com/) e no back-end do aplicativo móvel clique em **Tabelas Fáceis** > **TodoItem** para exibir o conteúdo da tabela `TodoItem`.  
+   * Para um back-end do .NET, exiba o conteúdo da tabela com uma ferramenta SQL como o SQL Server Management Studio, ou então com um cliente REST, como o Fiddler ou Postman.
+Confirme que os novos itens *não* tenham sido sincronizados com o servidor:
 4. Altere a URL de vola para a correta em **QSTodoService.m** e execute novamente o aplicativo. Faça o gesto de atualização puxando a lista de itens para baixo. Você verá um controle giratório de andamento.
 5. Exiba os dados de TodoItem novamente. Os TodoItems novos e modificados agora devem aparecer.
 
@@ -279,10 +274,10 @@ Quando desejamos sincronizar o repositório local com o servidor, usamos o méto
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
 [Cobertura em nuvem: sincronização offline nos serviços móveis do Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicativos habilitados para uso offline nos Serviços Móveis do Azure]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -41,7 +41,7 @@ A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de tra
 Primeiro, decida se deseja executar um banco de dados individual ou se deseja agrupar bancos de dados que compartilham recursos. Examine as [considerações de pool elástico](sql-database-elastic-pool-guidance.md). Para decidir sobre uma camada de serviço, inicie determinando os recursos de banco de dados mínimos que você precisa:
 
 * Tamanho máximo do banco de dados individual (no máximo 2 GB para o Basic, 250 GB para o Standard e de 500 GB a 1 TB para o Premium nos níveis de desempenho de alto nível)
-* Máximo de armazenamento total no caso de um pool elástico (117 GB para Basic, 1200 para Standard e 750 para Premium)
+* Máximo de armazenamento total no caso de um pool elástico (117 GB para Basic, 1200 GB para Standard e 750 GB para Premium)
 * Número máximo de bancos de dados por pool (400 para Basic, 400 para Standard e 50 para Premium)
 * Período de retenção de backup do banco de dados (7 dias para Basic, 35 dias para Standard e Premium)
 
@@ -49,8 +49,7 @@ Depois de determinar a camada de serviço mínima, você estará pronto para det
 
 Depois de escolher inicialmente um nível de desempenho, você pode e, em seguida, dimensionar o [banco de dados individual](sql-database-scale-up.md) ou o [pool elástico](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) ou reduzir dinamicamente com base na experiência real. Para cenários de migração, você também pode usar a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho de banco de dados individual
@@ -84,6 +83,6 @@ Cada banco de dados dentro de um pool também cumpre as características do banc
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

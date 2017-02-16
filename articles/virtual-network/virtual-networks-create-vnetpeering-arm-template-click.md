@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
-ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 547a2c0ab49c0b79d85bab1bd3abd800c9288ccf
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: 3556e4a10f17490fd08357d644c664a2b74705dd
 
 Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute as etapas abaixo:
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
    
    > [!NOTE]
    > O cmdlet do PowerShell para gerenciar o emparelhamento VNet acompanha o [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
@@ -101,7 +101,7 @@ Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute
    | UseRemoteGateways |Use o gateway de sua VNet emparelhada. A VNet emparelhada deve ter um gateway configurado e AllowGatewayTransit selecionado. Não será possível usar essa opção se você tiver um gateway configurado. |Não |
    
     Cada link no emparelhamento VNet tem o conjunto de propriedades acima. Por exemplo, você pode definir AllowVirtualNetworkAccess para True para o link de emparelhamento VNet da VNet1 para a VNet2, e defini-lo para False para o link de emparelhamento VNet na outra direção.
-4. Para implantar o arquivo de modelo, você pode executar o cmdlet New-AzureRmResourceGroupDeployment para criar ou atualizar a implantação. Para obter mais informações sobre como usar os modelos do Resource Manager, consulte este [artigo](../resource-group-template-deploy.md).
+4. Para implantar o arquivo de modelo, você pode executar o cmdlet New-AzureRmResourceGroupDeployment para criar ou atualizar a implantação. Para obter mais informações sobre como usar os modelos do Resource Manager, consulte este [artigo](../azure-resource-manager/resource-group-template-deploy.md).
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
    
@@ -382,6 +382,6 @@ Após o estabelecimento do emparelhamento entre uma VNet clássica e uma VNet do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

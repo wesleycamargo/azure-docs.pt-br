@@ -1,6 +1,6 @@
 ---
-title: Criar e carregar um VHD do Linux | Microsoft Docs
-description: "Crie e carregue um VHD (disco rígido virtual) do Azure com o modelo de implantação clássico que contém o sistema operacional Linux."
+title: Criar e carregar um VHD Linux para o Azure | Microsoft Docs
+description: "Crie e carregue um VHD (disco rígido virtual) do Azure que contém o sistema operacional Linux usando o modelo de implantação Clássico"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,25 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 12a95742140fb1fdbbb15a042543fde52408b1f6
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: ebdd4df0bd990ee37cb173da8c1f38b60d203158
 
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Criando e carregando um disco rígido virtual que contém o sistema operacional Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Você também pode [carregar uma imagem de disco personalizada usando o Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [carregar uma imagem de disco personalizada usando o Azure Resource Manager](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Esse artigo mostra como carregar um disco rígido virtual (VHD) para que você o use como sua própria imagem para criar outras máquinas virtuais no Azure. Saiba como preparar o sistema operacional para que você o use para criar outras máquinas virtuais com base nessa imagem. 
 
-> [!NOTE]
-> Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
-> 
-> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha os seguintes itens:
@@ -42,10 +37,8 @@ Este artigo pressupõe que você tenha os seguintes itens:
 
 > [!NOTE]
 > Não há suporte para o formato VHDX mais recente no Azure. Ao criar uma VM, especifique VHD como o formato. Se necessário, será possível converter discos VHDX para VHD usando o cmdlet [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) do PowerShell. Além disso, o Azure não dá suporte ao carregamento de VHDs dinâmicos, por isso você precisa converter esses discos para VHDs estáticos antes de carregar. Você pode usar ferramentas como o [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) para converter os discos dinâmicos durante o processo de carregamento no Azure.
-> 
-> 
 
-* **Interface de Linha de Comando do Azure** : instale a [Interface de Linha de Comando do Azure](../virtual-machines-command-line-tools.md) mais recente para carregar o VHD.
+* **Interface de Linha de Comando do Azure** : instale a [Interface de Linha de Comando do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) mais recente para carregar o VHD.
 
 <a id="prepimage"> </a>
 
@@ -72,7 +65,7 @@ Veja também as **[Observações de instalação do Linux](virtual-machines-linu
 ## <a name="step-2-prepare-the-connection-to-azure"></a>Etapa 2: preparar a conexão com o Azure
 Verifique se você está usando a CLI do Azure no modelo de implantação clássico (`azure config mode asm`) e faça logon na sua conta:
 
-```
+```azurecli
 azure login
 ```
 
@@ -84,7 +77,7 @@ Você precisa de uma conta de armazenamento para carregar o arquivo do VHD. Voc�
 
 Use a CLI do Azure para carregar a imagem utilizando o seguinte comando:
 
-```bash
+```azurecli
 azure vm image create <ImageName> `
     --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> `
     --os Linux <PathToVHDFile>
@@ -97,33 +90,33 @@ No exemplo anterior:
 * **VHDName** é o rótulo que aparece no portal para identificar o disco rígido virtual.
 * **PathToVHDFile** é o caminho completo e o nome do arquivo .vhd em seu computador.
 
-Veja a seguir um exemplo completo:
+O comando a seguir mostra um exemplo completo:
 
-```bash
-azure vm image create UbuntuLTS `
-    --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd `
-    --os Linux /home/ahmet/UbuntuLTS.vhd
+```azurecli
+azure vm image create myImage `
+    --blob-url https://mystorage.blob.core.windows.net/vhds/myimage.vhd `
+    --os Linux /home/ahmet/myimage.vhd
 ```
 
 ## <a name="step-4-create-a-vm-from-the-image"></a>Etapa 4: criar uma VM da imagem
-Crie uma VM usando o `azure vm create` da mesma forma que faria com uma VM comum. Especifique o nome que você deu à imagem na etapa anterior. No exemplo a seguir, usamos o nome de imagem **UbuntuLTS** fornecido na etapa anterior:
+Crie uma VM usando o `azure vm create` da mesma forma que faria com uma VM comum. Especifique o nome que você deu à imagem na etapa anterior. No exemplo a seguir, usamos o nome de imagem **myImage** fornecido na etapa anterior:
 
-```bash
+```azurecli
 azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
-    --location "West US" "DeployedUbuntu" UbuntuLTS
+    --location "West US" "myDeployedVM" myImage
 ```
 
 Para criar suas próprias VMs, forneça seu próprio nome de usuário + senha, localização, nome DNS e nome da imagem.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, consulte [Referência da CLI do Azure para o modelo de implantação clássico do Azure](../virtual-machines-command-line-tools.md).
+Para obter mais informações, consulte [Referência da CLI do Azure para o modelo de implantação clássico do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
-[Etapa 1: preparar a imagem a ser carregada]: #prepimage
-[Etapa 2: preparar a conexão com o Azure]: #connect
-[Etapa 3: carregar a imagem no Azure]: #upload
+[Step 1: Prepare the image to be uploaded]: #prepimage
+[Step 2: Prepare the connection to Azure]: #connect
+[Step 3: Upload the image to Azure]: #upload
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

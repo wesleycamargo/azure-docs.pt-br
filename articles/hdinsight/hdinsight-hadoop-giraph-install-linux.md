@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: bd7cc835b251395c71fae4130b5b7057eb80b9e0
 
 
 ---
@@ -26,10 +26,8 @@ ms.openlocfilehash: fe8d1658d2c3de2505f14255f2e30f1ddc537680
 
 Neste tópico, você aprenderá a instalar o Giraph usando a Ação de Script. Depois de instalar o Giraph, você também aprenderá a usar o Giraph em suas aplicações mais comuns: processar gráficos em grande escala.
 
-> [!NOTE]
-> As informações neste artigo são específicas de clusters HDInsight baseados em Linux. Para obter informações sobre como trabalhar com clusters baseado no Windows, consulte [Instalar o Giraph em clusters de Hadoop do HDInsight (Windows)](hdinsight-hadoop-giraph-install.md)
-> 
-> 
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhatisawhat-is-giraph"></a><a name="whatis"></a>O que é o Giraph?
 [Apache Giraph](http://giraph.apache.org/) permite executar processamento de gráficos usando o Hadoop e pode ser usado com o Azure HDInsight. Os gráficos modelam as relações entre objetos, como as conexões entre roteadores em uma rede grande, como a Internet, ou as relações entre as pessoas nas redes sociais (às vezes chamados de gráficos sociais). O processamento de tabelas permite que você faça a análise das relações entre objetos em uma tabela, como:
@@ -152,6 +150,6 @@ Quando a criação do cluster tiver terminado, use as etapas a seguir para execu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

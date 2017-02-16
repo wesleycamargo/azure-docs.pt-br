@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: db3705c26ecb1b939c17829cc121c9ef0f3eaa31
+ms.sourcegitcommit: 0e74a1784f39fe934d36c0391de7d01bf7699868
+ms.openlocfilehash: b0c207190fcfb23cc75c4aaa661c76c561265ef8
 
 
 ---
@@ -177,7 +177,7 @@ Para este tutorial, você adicionará dois nós Pequenos.
 1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), no painel **Ações**, clique em **Adicionar Nó**.
    
     ![Adicionar Nó][add_node1]
-2. No Assistente de Adição de Nó, na página **Selecionar Método de Implantação**, clique **Adicionar Nós do Azure** e em **Avançar**.
+2. No Assistente para Adicionar Nós, na página **Selecionar Método de Implantação**, clique em **Adicionar nós do Windows Azure** e em **Avançar**.
    
     ![Adicionar nó do Azure][add_node1_1]
 3. Na página **Especificar Novos Nós**, selecione o modelo do nó do Azure criado anteriormente (chamado por padrão de **Modelo de Nós do Azure Padrão**). Em seguida, especifique **2** nós de tamanho **Pequeno** e clique em **Avançar**.
@@ -197,7 +197,7 @@ Quando desejar usar os recursos de cluster no Azure, use o Gerenciador de Cluste
 1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), clique em um ou nos dois nós e, em seguida, no painel **Ações**, clique em **Iniciar**.
    
    ![Iniciar nós][add_node4]
-2. Na caixa de diálogo **Iniciar Nós do Azure**, clique em **Iniciar**.
+2. Na caixa de diálogo **Parar nós do Windows Azure**, clique em **Iniciar**.
    
     ![Iniciar nós][add_node5]
    
@@ -250,7 +250,7 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 1. No Gerenciador de Cluster HPC, em **Gerenciamento de Nós**, (chamado de **Gerenciamento de Recursos** em versões recentes do HPC Pack), selecione ambos os nós do Azure. Em seguida, no painel **Ações**, clique **Parar**.
    
     ![Parar os nós][stop_node1]
-2. Na caixa de diálogo **Parar Nós do Azure**, clique em **Parar**.
+2. Na caixa de diálogo **Parar nós do Windows Azure**, clique em **Parar**.
    
     ![Parar os nós][stop_node2]
 3. Os nós farão a transição para a **Parada** . Depois de alguns minutos, o Gerenciador de Cluster de HPC mostra o estado dos nós como **Não implantados**.
@@ -268,7 +268,7 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 * Para outras maneiras de criar um cluster de HPC Pack no Azure, inclusive usando modelos do Azure Resource Manager, veja [Opções de cluster HPC com Microsoft HPC Pack no Azure](../virtual-machines/virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Consulte [Big Compute no Azure: Recursos Técnicos para HPC (Computação de Alto Desempenho) e Lote](../batch/big-compute-resources.md) para obter mais informações sobre o alcance de soluções de nuvem HPT e Big Compute no Azure.
 
-[Visão geral]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
+[Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
 [install_hpc1]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc1.png
 [install_hpc2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc2.png
 [install_hpc3]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/install_hpc3.png
@@ -307,6 +307,6 @@ Depois de testar o cluster, interrompa os nós do Azure para evitar cobranças d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

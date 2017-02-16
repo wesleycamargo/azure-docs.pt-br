@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: b3f564e32105708ddbd9027240c897fdd8ae2ac6
-ms.openlocfilehash: 673b128c628a13c4af6c73c1a2d82953aadfd45a
+ms.sourcegitcommit: 7f64fe625b7c3b7e58f86154b9d601eff03e31d3
+ms.openlocfilehash: 854db453a3af459c0398c4b88a6789c87747e920
 
 
 ---
 # <a name="tracking-b2b-messages-in-oms-portal"></a>Rastreando mensagens B2B no portal do OMS
-A comunicação B2B envolve trocas de mensagens entre dois processos de negócios ou aplicativos em execução. O rastreamento de mensagens B2B no portal do OMS oferece recursos de controle avançados e baseados na Web que permitem exibir se as mensagens foram processadas corretamente.  Você pode rastrear
+A comunicação B2B envolve trocas de mensagens entre dois processos de negócios ou aplicativos em execução. O acompanhamento de mensagens B2B no portal do OMS oferece funcionalidades de acompanhamento avançadas e baseadas na Web, as quais permitem exibir se as mensagens foram processadas corretamente.  Você pode rastrear
 
 * Contagem e o status de mensagens
 * Status de confirmações
@@ -32,9 +32,10 @@ A comunicação B2B envolve trocas de mensagens entre dois processos de negócio
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do Azure; você pode criar uma [conta gratuita](https://azure.microsoft.com/free)
 * Uma Conta de Integração; você pode criar uma [Conta Integração](app-service-logic-enterprise-integration-create-integration-account.md) e habilitar o registro em log; você pode encontrar as etapas [aqui](app-service-logic-monitor-b2b-message.md)
-* Um Aplicativo Lógico; você pode criar um [Aplicativo Lógico](app-service-logic-create-a-logic-app.md) e habilitar o registro em log; veja as etapas [aqui](app-service-logic-monitor-your-logic-apps.md)
+* Um Aplicativo Lógico; você pode criar um [Aplicativo Lógico](app-service-logic-create-a-logic-app.md) e habilitar o registro em log; veja as etapas [aqui](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts)
 
 ## <a name="adding-logic-apps-b2b-solution-to-oms-portal"></a>Adição da solução Aplicativos Lógicos B2B ao portal do OMS
+
 1. Selecione **Mais Serviços** no portal, pesquise **log analytics** e selecione **log analytics**
 ![Pesquisar o log analytics](./media/app-service-logic-track-b2b-messages-omsportal/browseloganalytics.png)  
 
@@ -54,17 +55,39 @@ A comunicação B2B envolve trocas de mensagens entre dois processos de negócio
 7. Navegue na home page para exibir **Mensagens dos Aplicativos Lógicos B2B**
 ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage4.png)
 
-8. Pós-processo de mensagem; as atualizações da home page com contagem de mensagens ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
+## <a name="tracking-data-in-oms-portal"></a>Acompanhamento de dados no portal do OMS
 
-9. A seleção de **Mensagens dos Aplicativos Lógicos B2B** na home page leva aos status de mensagem AS2 e X12.  Os dados se baseados no último dia.
+1. Pós-processo de mensagem; as atualizações da home page com contagem de mensagens ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
+
+2. A seleção de **Mensagens dos Aplicativos Lógicos B2B** na home page leva aos status de mensagem AS2 e X12.  Os dados se baseados no último dia.
 ![Selecionar Mensagens dos Aplicativos Lógicos B2B](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage5.png)
 
-10. A seleção das mensagens AS2 ou X12 por status leva você para a lista de mensagens ![Selecionar status de mensagem AS2](./media/app-service-logic-track-b2b-messages-omsportal/as2messagelist.png)
+3. A seleção das mensagens AS2 ou X12 por status leva você para a lista de mensagens ![Selecionar status de mensagem AS2](./media/app-service-logic-track-b2b-messages-omsportal/as2messagelist.png)
 
     ![Selecionar status de mensagem X12](./media/app-service-logic-track-b2b-messages-omsportal/x12messagelist.png)
 
-11. A seleção de uma linha na lista de mensagens AS2 ou X12 leva você à pesquisa de log.  A pesquisa de log lista todas as ações com a mesma **ID de Execução**
+4. A seleção de uma linha na lista de mensagens AS2 ou X12 leva você à pesquisa de log.  A pesquisa de log lista todas as ações com a mesma **ID de Execução**
 ![Selecionar status da mensagem](./media/app-service-logic-track-b2b-messages-omsportal/logsearch.png)
+
+## <a name="queries-in-oms-portal"></a>Consultas no portal do OMS
+
+Na página de Pesquisa, crie uma consulta e, quando pesquisar, poderá filtrar os resultados usando controles da faceta.
+
+### <a name="how-to-create-a-query"></a>Como criar uma consulta
+
+1. Na pesquisa de log, grave uma consulta e selecione **Salvar**.  Veja [aqui](app-service-logic-track-b2b-messages-omsportal-query-filter-control-number.md) as etapas para gravar uma consulta ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery.png)
+
+2. **Salvar Pesquisa** é aberto.  Dê um **nome**, **categoria** e clique em **Salvar**   
+![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery1.png)
+
+3. Para exibir a consulta, selecione **favoritos**    
+![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery3.png)
+
+    ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery4.png)
+
+### <a name="how-to-use-a-saved-query"></a>Como usar uma consulta salva
+
+1. Na pesquisa de log, selecione **favoritos** para exibir as consultas salvas.  Ao selecionar uma delas, você verá os resultados da consulta ![Selecionar home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

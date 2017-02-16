@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
-ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
+ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
+ms.openlocfilehash: 9dd2696ebf4e2c4749471e5adcbc446c3945babf
 
 
 ---
@@ -50,7 +50,7 @@ Como o sistema de mensagens Premium é executado em um ambiente de tempo de exec
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
 
-A introdução ao sistema de mensagens Premium é simples e o processo é semelhante ao do sistema de mensagens padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou *Premium* em 'Tipo de preços'.
+A introdução ao Sistema de Mensagens Premium é simples e o processo é semelhante ao do Sistema de Mensagens Padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou **Premium** em **Tipo de preços**.
 
 ![criar-premium-namespace][create-premium-namespace]
 
@@ -71,6 +71,6 @@ Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/03/2016
 ms.author: meetb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5f3a4e49646063b41af5a9941f27291762f5336e
+ms.sourcegitcommit: 631baac839f4045c4b0fcf23810d9459c45a4998
+ms.openlocfilehash: 558d6660235a76bc7f5d23e7b28025496c2d8271
 
 
 ---
@@ -31,29 +31,32 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 ## <a name="step-2-configure-development-environment"></a>Etapa 2: configurar o Ambiente de Desenvolvimento
 ### <a name="mac-os"></a>**Mac OS**
-### <a name="install-the-required-modules"></a>Instalar os módulos necessários
-Abra o seu terminal e instale
+Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Digite os comandos a seguir para instalar **brew**, **FreeTDS** e **pyodbc**. pyodbc usa o FreeTDS no MacOS para se conectar aos Bancos de Dados SQL.
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install FreeTDS
-    sudo -H pip install pymssql==2.1.1
+    brew uninstall FreeTDS #if you have an existing installed FreeTDS
+    brew update
+    brew doctor
+    brew install freetds --with-unixodbc
+    sudo pip install pyodbc==3.1.1
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Digite os seguintes comandos para instalar **FreeTDS** e **pymssql**. pymssql usa o FreeTDS para se conectar a bancos de dados SQL.
+Abra seu terminal e navegue até um diretório no qual você planeja criar o script python. Insira os comandos a seguir para instalar o **Microsoft ODBC Driver for Linux** e **pyodbc**. pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL.
 
-    sudo apt-get --assume-yes update
-    sudo apt-get --assume-yes install freetds-dev freetds-bin
-    sudo apt-get --assume-yes install python-dev python-pip
-    sudo pip install pymssql==2.1.1
+    sudo su
+    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
+    exit
+    sudo apt-get update
+    sudo apt-get install msodbcsql mssql-tools unixodbc-dev-utf16
+    sudo pip install pyodbc==3.1.1
 
 ### <a name="windows"></a>**Windows**
-Instale o pymssql [**aqui**](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
+Instale o [Microsoft ODBC Driver 13.1](https://www.microsoft.com/en-us/download/details.aspx?id=53339). pyodbc usa o Microsoft ODBC Driver no Linux para se conectar a Bancos de Dados SQL. 
 
-Certifique-se de que escolheu o arquivo whl correto. Por exemplo: se você estiver usando o Python 2.7 em um computador de 64 bits, escolha: pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Depois de baixar o arquivo .whl, coloque-o na pasta C:/Python27.
+Em seguida, instale o pyodbc usando pip
 
-Agora, instale o driver pymssql usando pip na linha de comando. cd em C:/Python27 e execute o que segue
-
-    pip install pymssql‑2.1.1‑cp27‑none‑win_amd64.whl
+    pip install pyodbc==3.1.1
 
 É possível encontrar instruções para habilitar o uso de pip [aqui](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
 
@@ -63,19 +66,39 @@ Crie um arquivo chamado **sql_sample.py** e cole o código a seguir dentro dele.
     python sql_sample.py
 
 ### <a name="connect-to-your-sql-database"></a>Conectar-se ao seu Banco de Dados SQL
-A função [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) é usada para se conectar ao Banco de Dados SQL.
+A função [pyodbc.connect](https://mkleehammer.github.io/pyodbc/api-connection.html) é usada para se conectar ao Banco de Dados SQL.
 
-    import pymssql
-    conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-
+    import pyodbc
+    server = 'yourserver.database.windows.net'
+    database = 'yourdatabase'
+    username = 'yourusername'
+    password = 'yourpassword'
+    #for mac
+    #driver = '{/usr/local/lib/libtdsodbc.so}'
+    #for linux of windows
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
+    cursor.execute("select @@VERSION")
+    row = cursor.fetchone()
+    if row:
+        print row
 
 ### <a name="execute-an-sql-select-statement"></a>Executar uma instrução SQL SELECT
-A função [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e retorna um conjunto de resultados que pode ser iterado com o uso de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
+A função [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) pode ser usada para recuperar um conjunto de resultados de uma consulta no Banco de Dados SQL. Essencialmente, essa função aceita qualquer consulta e retorna um conjunto de resultados que pode ser iterado com o uso de [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html).
 
-    import pymssql
-    conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-    cursor = conn.cursor()
-    cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')
+    import pyodbc
+    server = 'yourserver.database.windows.net'
+    database = 'yourdatabase'
+    username = 'yourusername'
+    password = 'yourpassword'
+    #for mac
+    driver = '{/usr/local/lib/libtdsodbc.so}'
+    #for linux or windows
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
+    cursor.execute("select @@VERSION")
     row = cursor.fetchone()
     while row:
         print str(row[0]) + " " + str(row[1]) + " " + str(row[2])     
@@ -85,10 +108,18 @@ A função [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssq
 ### <a name="insert-a-row-pass-parameters-and-retrieve-the-generated-primary-key"></a>Inserir uma linha, passar parâmetros e recuperar a chave primária gerada
 No Banco de Dados SQL, a propriedade [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) e o objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) podem ser usados para gerar automaticamente valores de [chave primária](https://msdn.microsoft.com/library/ms179610.aspx). 
 
-    import pymssql
-    conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-    cursor = conn.cursor()
-    cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)")
+    import pyodbc
+    server = 'yourserver.database.windows.net'
+    database = 'yourdatabase'
+    username = 'yourusername'
+    password = 'yourpassword'
+    #for mac
+    #driver = '{/usr/local/lib/libtdsodbc.so}'
+    #for linux or windows
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
+    cursor.execute("select @@VERSION")
     row = cursor.fetchone()
     while row:
         print "Inserted Product ID : " +str(row[0])
@@ -104,9 +135,17 @@ Este exemplo de código demonstra o uso de transações nas quais você:
 
 Cole o código a seguir no sql_sample.py.
 
-    import pymssql
-    conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-    cursor = conn.cursor()
+    import pyodbc
+    server = 'yourserver.database.windows.net'
+    database = 'yourdatabase'
+    username = 'yourusername'
+    password = 'yourpassword'
+    #for mac
+    #driver = '{/usr/local/lib/libtdsodbc.so}'
+    #for linux or windows
+    driver= '{ODBC Driver 13 for SQL Server}'
+    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+    cursor = cnxn.cursor()
     cursor.execute("BEGIN TRANSACTION")
     cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
     cnxn.rollback()
@@ -122,7 +161,6 @@ Cole o código a seguir no sql_sample.py.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

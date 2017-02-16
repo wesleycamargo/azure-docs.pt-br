@@ -1,5 +1,5 @@
 ---
-title: "Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights | Microsoft Docs"
+title: "Diagnosticar falhas e exceções em aplicativos Web com o Azure Application Insights | Microsoft Docs | Microsoft Docs"
 description: "Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 2dbbe59f71500c31de8568de4e92cc41131d0970
 
 
 ---
@@ -445,6 +445,6 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

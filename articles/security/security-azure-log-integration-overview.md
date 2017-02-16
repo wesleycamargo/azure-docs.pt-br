@@ -1,12 +1,12 @@
 ---
-title: Introdução à integração de log do Microsoft Azure | Microsoft Docs
-description: Saiba mais sobre a integração de log do Azure, seus principais recursos e como ela funciona.
+title: "Introdução à integração de log do Microsoft Azure | Microsoft Docs"
+description: "Saiba mais sobre a integração de log do Azure, seus principais recursos e como ela funciona."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TerryLanfear
-
+ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2016
 ms.author: TomSh
+translationtype: Human Translation
+ms.sourcegitcommit: 8bded635f95e640f6a0edba05e5190341ce362c5
+ms.openlocfilehash: d3a8df0bcfbab0afc8eaa5dd13a22fd6b346c443
+
 
 ---
-# Introdução à integração de log do Microsoft Azure (Preview)
+# <a name="introduction-to-microsoft-azure-log-integration-preview"></a>Introdução à integração de log do Microsoft Azure (Preview)
 Saiba mais sobre a integração de log do Azure, seus principais recursos e como ela funciona.
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 PaaS (plataforma como serviço) e IaaS (infraestrutura como serviço) hospedadas no Azure geram uma grande quantidade de dados em logs de segurança. Esses logs contêm informações importantes que podem fornecer inteligência e entendimentos significativos sobre as violações de política, as ameaças internas e externas, os problemas de conformidade normativa e as anomalias na rede, no host e na atividade do usuário.
 
-A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta diagnóstico do Azure de suas máquinas virtuais do Windows *(WAD)*, bem como diagnósticos de soluções de parceiros, como um WAF (Firewall do Aplicativo Web). Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
+A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta o Diagnóstico do Azure nas máquinas virtuais do Windows *(WAD)*, nos Logs de Atividade do Azure, nos alertas da Central de Segurança do Azure e nos logs do Provedor de Recursos do Azure. Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
 
 ![Integração de log do Azure][1]
 
-## Quais logs posso integrar?
+## <a name="what-logs-can-i-integrate"></a>Quais logs posso integrar?
 O Azure produz um log abrangente para cada um de seus serviço. Esses logs são categorizados pelos dois tipos principais:
 
 * **Logs de Controle/Gerenciamento**, que oferecem visibilidade nas operações CRIAR, ATUALIZAR e EXCLUIR do Azure Resource Manager. Os Logs de Auditoria do Azure são um exemplo desse tipo de log.
@@ -36,7 +40,7 @@ A integração do log do Azure atualmente dá suporte para a integração dos Lo
 
 Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você foi apresentado à integração de log do Azure. Para saber mais sobre a integração de log do Azure e os tipos de logs com suporte, confira o seguinte:
 
 * [Integração de Log do Microsoft Azure para os logs do Azure (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Centro de Download para obter os detalhes, os requisitos de sistema e as instruções de instalação da integração de log do Azure.
@@ -49,4 +53,8 @@ Neste documento, você foi apresentado à integração de log do Azure. Para sab
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

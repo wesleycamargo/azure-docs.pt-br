@@ -1,5 +1,5 @@
 ---
-title: "Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Docs"
+title: 'Backup do Azure: Usar o PowerShell para fazer backup de cargas de trabalho de DPM | Microsoft Docs'
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 1/23/2017
 ms.author: jimpark; anuragm;trinadhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c697d72223ea8bbb6b4dfee3955625d652f8e7dc
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 14c848b4740a0fc49a8ba20f119846892bc8ca22
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: c697d72223ea8bbb6b4dfee3955625d652f8e7dc
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Clássico](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
 
@@ -69,27 +69,27 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
 1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **Register-AzureRMResourceProvider** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
-   
+
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. O cofre dos Serviços de Recuperação é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome e o local para o grupo de recursos.  
-   
+
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
 3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
-   
+
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 4. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
-   
+
    > [!TIP]
    > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
-   > 
-   > 
-   
+   >
+   >
+
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -219,8 +219,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
-> 
-> 
+>
+>
 
 Neste ponto, você deve fez todas as alterações necessárias ao objeto ```$setting``` . Lembre-se de confirmar as alterações.
 
@@ -328,7 +328,7 @@ Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica-recovery-point-volume"></a>Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
+### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
 Você também pode alterar o tamanho do volume de Réplica do DPM, e o volume de Cópia de Sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , como no exemplo a seguir: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Confirmando as alterações ao Grupo de Proteção
@@ -376,7 +376,6 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

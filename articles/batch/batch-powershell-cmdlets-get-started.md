@@ -3,7 +3,7 @@ title: "Introdução aos cmdlets do PowerShell do Lote do Azure | Microsoft Docs
 description: "Obter uma rápida introdução aos cmdlets do Azure PowerShell que você pode usar para gerenciar o serviço Lote do Azure"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-ms.date: 10/20/2016
-ms.author: marsma
+ms.date: 01/20/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ Este artigo baseia-se nos cmdlets do Azure PowerShell versão 3.0.0. É recomend
 ## <a name="prerequisites"></a>Pré-requisitos
 Execute as seguintes operações para usar o Azure PowerShell para gerenciar os recursos de Lote.
 
-* [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md)
+* [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs)
 * Execute o cmdlet **Login-AzureRmAccount** para se conectar à sua assinatura (os cmdlets do Lote do Azure são fornecidos no módulo Azure Resource Manager):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ Agora você atualizou as propriedades do pool no serviço de Lote. Para realment
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

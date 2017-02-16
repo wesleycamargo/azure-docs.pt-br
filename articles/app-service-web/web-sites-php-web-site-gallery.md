@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: hero-article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0bb3fcf1963819b5e8787c042fa895348dc69e12
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f48aab02e0229c440848dc8e4a3d26d0d43d96aa
 
 
 ---
@@ -40,7 +40,7 @@ O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares de
 O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados. Se, em vez disso, você quiser usar o Banco de Dados SQL para o banco de dados, consulte [Project Nami](http://projectnami.org/). **Project Nami** também está disponível por meio do Marketplace.
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 > 
@@ -117,6 +117,6 @@ Para obter mais informações sobre como trabalhar com aplicativos Web do Servi�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

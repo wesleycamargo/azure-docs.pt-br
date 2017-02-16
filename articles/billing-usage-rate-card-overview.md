@@ -4,7 +4,7 @@ description: "Fornece uma visão geral conceitual das APIs de Uso de cobrança d
 services: 
 documentationcenter: 
 author: BryanLa
-manager: mbaldwin
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 08/16/2016
+ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0503c140850cbd47cbd80fa8e56d060866846362
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35bd24f8666d2954be37bd27abebbc6c3c8a6a54
 
 
 ---
@@ -32,7 +32,7 @@ O uso de recursos do Azure e APIs RateCard são implementados como um provedor d
 ### <a name="azure-resource-usage-api-preview"></a>API de uso de recursos do Azure (visualização)
 Os clientes e parceiros podem usar a API de uso de recursos do Azure para obter seus dados de consumo previstos do Azure. Os recursos incluem:
 
-* **Controle de Acesso baseado em Funções do Azure** - os clientes e parceiros podem configurar suas políticas de acesso no [portal do Azure](https://portal.azure.com) ou através dos [cmdlets do Azure PowerShell](powershell-install-configure.md) para especificarem quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
+* **Controle de Acesso baseado em Funções do Azure** - os clientes e parceiros podem configurar suas políticas de acesso no [portal do Azure](https://portal.azure.com) ou através dos [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs) para especificarem quais usuários ou aplicativos podem ter acesso aos dados de uso da assinatura. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
 * **Agregações diárias ou por hora** - os chamadores podem especificar se eles desejam seus dados de uso do Azure em buckets por hora ou buckets diários. O padrão é diário.
 * **Metadados da instância fornecidos (inclui as marcações do recurso)** – os detalhes no nível da instância, como o uri de recurso totalmente qualificado (/subscriptions/{subscription-id}/..), juntamente com as informações do grupo de recursos e marcações do recurso serão fornecidos na resposta. Isso ajuda os clientes a alocar de forma determinista e programaticamente o uso por marcas, para casos de uso como cobrança cruzada.
 * **Metadados de recurso fornecidos** -Detalhes de recurso como nome do medidor, categoria do medidor, subcategoria do medidor, unidade e região serão passados na resposta, para fornecer um melhor entendimento do que foi consumido. Também estamos trabalhando para alinhar a terminologia de metadados de recursos entre o portal do Azure, o CSV de uso do Azure, o CSV de cobrança EA e outras experiências públicas, para permitir que os clientes correlacionem dados entre as experiências.
@@ -41,7 +41,7 @@ Os clientes e parceiros podem usar a API de uso de recursos do Azure para obter 
 ### <a name="azure-resource-ratecard-api-preview"></a>API RateCard de Recursos do Azure (visualização)
 Clientes e parceiros podem usar a API RateCard de Recursos do Azure para obter a lista de recursos do Azure disponíveis, juntamente com as informações estimadas de preço para cada. Os recursos incluem:
 
-* **Controle de Acesso baseado em Funções do Azure** - Os clientes e parceiros podem configurar suas políticas de acesso no [portal do Azure](https://portal.azure.com) ou através dos [cmdlets do Azure PowerShell](powershell-install-configure.md) para especificarem quais usuários ou aplicativos podem ter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
+* **Controle de Acesso baseado em Funções do Azure** - Os clientes e parceiros podem configurar suas políticas de acesso no [portal do Azure](https://portal.azure.com) ou através dos [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs) para especificarem quais usuários ou aplicativos podem ter acesso aos dados do RateCard. Os chamadores devem usar tokens padrão do Active Directory do Azure para autenticação. O chamador também deve ser adicionado à função Leitor, Proprietário ou Colaborador para obter acesso aos dados de uso para uma determinada assinatura do Azure.
 * **Suporte para pré-pago, MSDN, ofertas de investimento e crédito monetário (EA não possui suporte)** - Esta API fornece informações de taxa no nível da oferta do Azure versus nível da assinatura.  O chamador dessa API deve passar as informações de oferta para obter taxas e detalhes do recurso.  Como as ofertas de EA possuem taxas personalizadas por registro, seremos capazes de fornecer as taxas EA neste momento.
 
 ## <a name="scenarios"></a>Cenários
@@ -72,6 +72,6 @@ Aqui estão alguns dos cenários possíveis com a combinação das APIs de Uso e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

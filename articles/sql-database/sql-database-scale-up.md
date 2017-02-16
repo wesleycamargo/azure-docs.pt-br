@@ -1,6 +1,6 @@
 ---
-title: "Alterar a camada de serviço e o nível de desempenho de um banco de dados SQL do Azure | Microsoft Docs"
-description: "Alterar a camada de serviço e o nível de desempenho de um banco de dados SQL do Azure mostra como escalar verticalmente seu banco de dados SQL. Alterando o tipo de preço de um banco de dados SQL do Azure."
+title: "Portal do Azure: Alterar o tipo de preço do Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Saiba como usar o Portal do Azure para alterar a camada de serviço e o nível de desempenho de um banco de dados SQL do Azure, bem como para escalar verticalmente para cima e para baixo os recursos e o preço do banco de dados SQL."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -15,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1e297de81be07a107691c54875ca638ae73d43df
-ms.openlocfilehash: 3f283166f09437611aa04d7cadf5b161d0e52f8a
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: 88104e0684281f77da497ef4dd608c6a0c64b274
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-using-the-azure-portal"></a>Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um Banco de Dados SQL com o Portal do Azure
 > [!div class="op_single_selector"]
 > * [**Portal do Azure**](sql-database-scale-up.md)
-> * [PowerShell](sql-database-scale-up-powershell.md)
-> 
+> * [PowerShell](sql-database-scale-up-powershell.md)> 
 > 
 
 As camadas de serviço e níveis de desempenho descrevem as características e recursos disponíveis para o banco de dados SQL e podem ser atualizados conforme as necessidades do seu aplicativo mudam. Para obter detalhes, consulte [Camadas de serviço](sql-database-service-tiers.md).
@@ -88,6 +88,6 @@ Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

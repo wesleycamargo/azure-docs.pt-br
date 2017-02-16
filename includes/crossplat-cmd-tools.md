@@ -1,7 +1,7 @@
-# Como usar as ferramentas de linha de comando do Azure para Mac e Linux
-Saiba como usar as ferramentas de linha de comando do Azure para Mac e Linux para criar e gerenciar serviços no Azure. Os cenários abordados incluem **instalar as ferramentas**, **importar as configurações de publicação**, **criação e gerenciamento de sites do Azure** e **criação e gerenciamento das Máquinas Virtuais do Azure**. Para obter uma documentação de referência abrangente, consulte [Ferramenta de Linha de Comando do Azure para Mac e Linux][reference-docs].
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Como usar as ferramentas de linha de comando do Azure para Mac e Linux
+Saiba como usar as ferramentas de linha de comando do Azure para Mac e Linux para criar e gerenciar serviços no Azure. Os cenários abordados incluem **instalação das ferramentas**, **importação das configurações de publicação**, **criação e gerenciamento de sites do Azure** e **criação e gerenciamento das Máquinas Virtuais do Azure**. Para obter uma documentação de referência abrangente, consulte [Ferramenta de linha de comando do Azure para Mac e Linux][reference-docs]. 
 
-## Sumário
+## <a name="table-of-contents"></a>Sumário
 * [Quais são as ferramentas de linha de comando do Azure para Mac e Linux](#Overview)
 * [Como instalar as ferramentas de linha de comando do Azure para Mac e Linux](#Download)
 * [Como criar uma conta do Azure](#CreateAccount)
@@ -26,7 +26,7 @@ Para uma lista completa dos comandos com suporte, digite `azure -help` na linha 
 A lista a seguir contém informações para instalar as ferramentas de linha de comando, dependendo do seu sistema operacional:
 
 * **Mac**: baixe o [Instalador do SDK do Azure][mac-installer]. Abra o arquivo .pkg baixado e conclua as etapas de instalação quando for solicitado.
-* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] confira [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]) e execute o seguinte comando:
+* **Linux**: instale a versão mais recente do [Node.js][nodejs-org] (confira [Instalar o Node.js por meio do Gerenciador de Pacotes][install-node-linux]) e execute o seguinte comando:
   
         npm install azure-cli -g
   
@@ -49,7 +49,7 @@ Siga as instruções para a criação de uma conta.
 
 <h2><a id="Account"></a>Como baixar e importar as configurações de publicação</h2>
 
-Para começar, você precisa primeiro baixar e importar as configurações de publicação. Isso permitirá que você use as ferramentas para criar e gerenciar os serviços do Azure. Para baixar as configurações de publicação, use o comando `account download`:
+Para começar, você precisa primeiro baixar e importar as configurações de publicação. Isso permitirá que você use as ferramentas para criar e gerenciar os serviços do Azure. Para baixar as configurações de publicação, use o comando `account download` :
 
     azure account download
 
@@ -70,7 +70,7 @@ Para ver uma lista de opções de comandos `account`, use a opção `-help`:
 Depois de importar as configurações de publicação, exclua o arquivo `.publishsettings` por motivos de segurança.
 
 > [!NOTE]
-> Quando você importar as configurações de publicação, as credenciais para acessar sua assinatura do Azure serão armazenadas dentro da pasta `user`. A pasta `user` está protegida pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar sua pasta `user`. Você pode fazer isso das seguintes maneiras:
+> Quando você importar as configurações de publicação, as credenciais para acessar sua assinatura do Azure são armazenadas dentro de sua pasta `user`. A pasta `user` está protegida pelo seu sistema operacional. No entanto, é recomendável que você execute etapas adicionais para criptografar sua pasta `user` . Você pode fazer isso das seguintes maneiras:    
 > 
 > * No Windows, modifique as propriedades da pasta ou use o BitLocker.
 > * No Mac, ative o FileVault para a pasta.
@@ -78,11 +78,11 @@ Depois de importar as configurações de publicação, exclua o arquivo `.publis
 > 
 > 
 
-Agora, você está pronto para começar a criar e gerenciar sites e Máquinas Virtuais do Azure.
+Agora, você está pronto para começar a criar e gerenciar sites e Máquinas Virtuais do Azure.  
 
 <h2><a id="WebSites"></a>Como criar e gerenciar um site do Azure</h2>
 
-### Criar um site
+### <a name="create-a-website"></a>Criar um site
 Para criar um site do Azure, primeiro crie um diretório vazio chamado `MySite` e acesse esse diretório.
 
 Em seguida, execute o seguinte comando:
@@ -96,11 +96,11 @@ Observe que você pode executar o comando `azure site create` com qualquer uma d
 * `--location [location name]`. Esta opção permite que você especifique o local do centro de dados em que seu site é criado (por exemplo, "Oeste dos EUA"). Se você omitir esta opção, será solicitado que escolha um local.
 * `--hostname [custom host name]`. Esta opção permite que você especifique um nome de host personalizado para seu site.
 
-Você pode adicionar conteúdo para o diretório do site. Use o fluxo de git regular (`git add`, `git commit`) para confirmar seu conteúdo. Use o seguinte comando git para transferir o conteúdo do site para o Azure:
+Você pode adicionar conteúdo para o diretório do site. Use o fluxo de git regular (`git add`, `git commit`) para confirmar seu conteúdo. Use o seguinte comando git para transferir o conteúdo do site para o Azure: 
 
     git push azure master
 
-### Configurar a publicação do GitHub
+### <a name="set-up-publishing-from-github"></a>Configurar a publicação do GitHub
 Para configurar a publicação contínua de um repositório GitHub, use a opção `--GitHub` durante a criação de um site:
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
@@ -111,7 +111,7 @@ Quando você configura a publicação do GitHub, a ramificação padrão usada �
 
     azure site repository <branch name>
 
-### Definir configurações de aplicativo
+### <a name="configure-app-settings"></a>Definir configurações de aplicativo
 As configurações de aplicativo são pares de valor chave que estão disponíveis para seu aplicativo em tempo de execução. Quando definidos para um site do Azure, os valores de configuração de aplicativo substituirão as configurações com a mesma chave definida no arquivo Web.config do seu site. Para aplicativos Node.js e PHP, as configurações do aplicativo estão disponíveis como variáveis de ambiente. O exemplo a seguir mostra como definir um par de valor e chave:
 
     azure site config add <key>=<value> 
@@ -128,23 +128,23 @@ Se você desejar alterar o valor de uma chave existente deve primeiro limpar a c
 
     azure site config clear <key> 
 
-### Listar e mostrar sites
+### <a name="list-and-show-sites"></a>Listar e mostrar sites
 Para listar os sites, use o seguinte comando:
 
     azure site list
 
-Para saber mais detalhadamente sobre um site, use o comando `site show`. O exemplo a seguir mostra detalhes de `MySite`:
+Para saber mais detalhadamente sobre um site, use o comando `site show` . O exemplo a seguir mostra detalhes de `MySite`:
 
     azure site show MySite
 
-### Parar, iniciar ou reiniciar um site
+### <a name="stop-start-or-restart-a-site"></a>Parar, iniciar ou reiniciar um site
 Você pode parar, iniciar ou reiniciar um site com os comandos `site stop`, `site start` ou `site restart`:
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### Excluir um site
+### <a name="delete-a-site"></a>Excluir um site
 Por fim, é possível excluir um site com o comando `site delete`:
 
     azure site delete MySite
@@ -157,13 +157,13 @@ Para ver uma lista de comandos `site` completa, use a opção `-help`:
 
 <h2><a id="VMs"></a>Como criar e gerenciar uma máquina virtual do Azure</h2>
 
-uma Máquina Virtual do Azure é criada por meio de uma imagem de máquina virtual (um arquivo .vhd) fornecida por você ou que está disponível na Galeria de imagens. Para ver as imagens disponíveis, use o comando `vm image list`:
+uma Máquina Virtual do Azure é criada por meio de uma imagem de máquina virtual (um arquivo .vhd) fornecida por você ou que está disponível na Galeria de imagens. Para ver as imagens disponíveis, use o comando `vm image list` :
 
     azure vm image list
 
-Você pode provisionar e iniciar uma máquina virtual por meio de uma das imagens disponíveis com o comando `vm create`. O exemplo a seguir mostra como criar uma máquina virtual do Linux (chamada `myVM`) por meio de uma imagem na galeria de imagens (CentOS 6.2). O nome de usuário raiz e a senha para a máquina virtual são `myusername` e `Mypassw0rd`, respectivamente. (Observe que o parâmetro `--location` especifica o datacenter em que a máquina virtual é criada. Se você omitir o parâmetro `--location`, será solicitado que escolha um local.)
+Você pode provisionar e iniciar uma máquina virtual por meio de uma das imagens disponíveis com o comando `vm create` . O exemplo a seguir mostra como criar uma máquina virtual do Linux (chamada `myVM`) por meio de uma imagem na galeria de imagens (CentOS 6.2). O nome de usuário raiz e a senha para a máquina virtual são `myusername` e `Mypassw0rd`, respectivamente. (Observe que o parâmetro `--location` especifica o datacenter em que a máquina virtual é criada. Se você omitir o parâmetro `--location` , será solicitado que escolha um local.)
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-pt-BR-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
 Você pode considerar transmitir o sinalizador `--ssh` (Linux) ou o sinalizador `--rdp` (Windows) a `vm create`, para habilitar conexões remotas com a máquina virtual recém-criada.
 
@@ -171,7 +171,7 @@ Se preferir provisionar uma máquina virtual de uma imagem personalizada, você 
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-Em vez de criar uma imagem de um .vhd local, você pode criar uma imagem de um .vhd armazenado no armazenamento de blob do Azure. Você pode fazer isso com o parâmetro `blob-url`:
+Em vez de criar uma imagem de um .vhd local, você pode criar uma imagem de um .vhd armazenado no armazenamento de blob do Azure. Você pode fazer isso com o parâmetro `blob-url` :
 
     azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
@@ -193,11 +193,11 @@ Para desligar, iniciar, ou reiniciar a máquina virtual, use um dos seguintes co
     azure vm start myVM
     azure vm restart myVM
 
-E, por fim, para excluir a VM, use o comando `vm delete`:
+E, por fim, para excluir a VM, use o comando `vm delete` :
 
     azure vm delete myVM
 
-Para uma lista completa dos comandos para criar e gerenciar máquinas virtuais, use a opção `-h`:
+Para uma lista completa dos comandos para criar e gerenciar máquinas virtuais, use a opção `-h` :
 
     azure vm -h
 
@@ -212,4 +212,8 @@ Para uma lista completa dos comandos para criar e gerenciar máquinas virtuais, 
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

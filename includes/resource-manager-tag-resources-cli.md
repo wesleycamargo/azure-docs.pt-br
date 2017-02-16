@@ -1,71 +1,93 @@
-To add a tag to a resource group, use **azure group set**. If the resource group does not have any existing tags, pass in the tag.
+Para adicionar uma marca a um grupo de recursos, use **azure group set**. Se o grupo de recursos não tiver todas as marcas existentes, passe a marca.
 
-    azure group set -n tag-demo-group -t Dept=Finance
+```azurecli
+azure group set -n tag-demo-group -t Dept=Finance
+```
 
-Tags are updated as a whole. If you want to add a tag to a resource group that has existing tags, pass all the tags. 
+Marcações são atualizadas como um todo. Se desejar adicionar uma marca a um grupo de recursos com marcas existentes, passe todas as marcas. 
 
-    azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+```azurecli
+azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
+```
 
-Tags are not inherited by resources in a resource group. To add a tag to a resource, use **azure resource set**. You must pass the API version number for the resource type that you are adding the tag to. If you need to retrieve the API version, use the following command with the resource provider for the type you are setting:
+Marcas não são herdadas pelos recursos em um grupo de recursos. Para adicionar uma marca a um recurso, use **azure resource set**. Passe o número de versão de API para o tipo de recurso ao qual você está adicionando a marca. Se precisa recuperar a versão de API, use o comando a seguir com o provedor de recursos para o tipo que você está configurando:
 
-    azure provider show -n Microsoft.Storage --json
+```azurecli
+azure provider show -n Microsoft.Storage --json
+```
 
-In the results, look for the resource type you want.
+Nos resultados, procure o tipo de recurso desejado.
 
-    "resourceTypes": [
-    {
-      "resourceType": "storageAccounts",
-      ...
-      "apiVersions": [
-        "2016-01-01",
-        "2015-06-15",
-        "2015-05-01-preview"
-      ]
-    }
-    ...
+```azurecli
+"resourceTypes": [
+{
+  "resourceType": "storageAccounts",
+  ...
+  "apiVersions": [
+    "2016-01-01",
+    "2015-06-15",
+    "2015-05-01-preview"
+  ]
+}
+...
+```
 
-Now, provide that API version, resource group name, resource name, resource type, and tag value as parameters.
+Agora, forneça essa versão de API, nome do grupo de recursos, nome do recurso, tipo de recurso e valor da marca como parâmetros.
 
-    azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
+```azurecli
+azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
+```
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource group and its resources with **azure group show**.
+Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, obtenha um grupo de recursos e seus recursos com **azure group show**.
 
-    azure group show -n tag-demo-group --json
+```azurecli
+azure group show -n tag-demo-group --json
+```
 
-Which returns metadata about the resource group, including any tags applied to it.
+Ele retorna metadados sobre o grupo de recursos, incluindo todas as marcas aplicadas a esse grupo.
 
-    {
-      "id": "/subscriptions/4705409c-9372-42f0-914c-64a504530837/resourceGroups/tag-demo-group",
-      "name": "tag-demo-group",
-      "properties": {
-        "provisioningState": "Succeeded"
-      },
-      "location": "southcentralus",
-      "tags": {
-        "Dept": "Finance",
-        "Environment": "Production",
-        "Project": "Upgrade"
-      },
-      ...
+```azurecli
+{
+  "id": "/subscriptions/4705409c-9372-42f0-914c-64a504530837/resourceGroups/tag-demo-group",
+  "name": "tag-demo-group",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "location": "southcentralus",
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Project": "Upgrade"
+  },
+  ...
+}
+```
 
-You view the tags for a particular resource by using **azure resource show**.
+Você pode exibir as marcações de um recurso específico usando **azure resource show**.
 
-    azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
+```azurecli
+azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
+```
 
-To retrieve all the resources with a tag value, use:
+Para recuperar todos os recursos com um valor de marca, use:
 
-    azure resource list -t Dept=Finance --json
+```azurecli
+azure resource list -t Dept=Finance --json
+```
 
-To retrieve all the resource groups with a tag value, use:
+Para recuperar todos os grupos de recursos com um valor de marca, use:
 
-    azure group list -t Dept=Finance
+```azurecli
+azure group list -t Dept=Finance
+```
 
-You can view the existing tags in your subscription with the following command:
+Você pode exibir as marcas existentes em sua assinatura com o seguinte comando:
 
-    azure tag list
+```azurecli
+azure tag list
+```
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

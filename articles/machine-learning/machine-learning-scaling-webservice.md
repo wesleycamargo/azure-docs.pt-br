@@ -1,6 +1,6 @@
 ---
-title: "Dimensionamento de serviço Web | Microsoft Docs"
-description: "Saiba como dimensionar um serviço Web, aumentando a simultaneidade e adicionando novos pontos de extremidade."
+title: "Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning | Microsoft Docs"
+description: "Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade."
 services: machine-learning
 documentationcenter: 
 author: neerajkh
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/23/2017
 ms.author: neerajkh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+ms.sourcegitcommit: c54b16517b6f08ed8bfddfb6e2c793ec0f292899
+ms.openlocfilehash: 678f747fd1b2e5017d1859fd594c3b4bc465ea41
 
 
 ---
-# <a name="scaling-a-web-service"></a>Dimensionando um serviço Web
+# <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Dimensionando um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade
 > [!NOTE]
 > Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning clássico. 
 > 
@@ -31,7 +31,6 @@ Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 
 
 Se você planeja chamar a API com uma carga maior que o valor suportado de 200 para o Máximo de Chamadas Simultâneas, é preciso criar vários pontos de extremidade no mesmo serviço Web. Você pode, então, distribuir a carga aleatoriamente entre todos eles.
 
-## <a name="add-new-endpoints-for-same-web-service"></a>Adicionar novos pontos de extremidade ao mesmo serviço Web
 O dimensionamento de um serviço Web é uma tarefa comum. Entre os motivos para dimensionar estão oferecer suporte a mais de 200 solicitações simultâneas, aumentar a disponibilidade por meio de vários pontos de extremidade ou fornecer pontos de extremidade separados ao serviço Web. Você pode aumentar a escala adicionando mais pontos de extremidade para o serviço Web por meio do [portal clássico do Azure](https://manage.windowsazure.com/) ou pelo portal do [serviço Web do Azure Machine Learning](https://services.azureml.net/).
 
 Para saber mais sobre a adição de novos pontos de extremidade, consulte [Criando pontos de extremidade](machine-learning-create-endpoint.md).
@@ -46,6 +45,6 @@ As APIs síncronas são normalmente usadas em situações onde uma baixa latênc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

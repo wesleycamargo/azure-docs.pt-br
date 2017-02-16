@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 12/15/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
+ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática
 ## <a name="overview"></a>Visão geral
-Agora, o armazenamento do Azure oferece duas camadas de armazenamento para o Armazenamento de Blobs (armazenamento de objetos), para que você possa armazenar seus dados de uma maneira mais econômica dependendo de como você os utiliza. A **camada de armazenamento dinâmica** do Azure é otimizada para armazenar dados acessados com frequência. A **camada de armazenamento estática** do Azure é otimizada para armazenar dados acessados com menos frequência e de longa duração. Os dados na camada de armazenamento estático podem tolerar uma disponibilidade um pouco menor, mas ainda exigem alta durabilidade e tempo de acesso e taxa de transferência semelhantes aos de dados ativos. Para os dados estáticos, um SLA com disponibilidade um pouco menor e custos mais altos de acesso são compensações aceitáveis, em troca de custos de armazenamento muito menores.
+Agora, o Armazenamento do Azure oferece duas camadas de armazenamento para o armazenamento de objetos de Blobs, para que você possa armazenar os dados de uma maneira mais econômica, dependendo de como os utiliza. A **camada de armazenamento dinâmica** do Azure é otimizada para armazenar dados acessados com frequência. A **camada de armazenamento estática** do Azure é otimizada para armazenar dados acessados com menos frequência e de longa duração. Os dados na camada de armazenamento estático podem tolerar uma disponibilidade um pouco menor, mas ainda exigem alta durabilidade e tempo de acesso e taxa de transferência semelhantes aos de dados ativos. Para os dados estáticos, um SLA com disponibilidade um pouco menor e custos mais altos de acesso são compensações aceitáveis, em troca de custos de armazenamento muito menores.
 
-Hoje, os dados armazenados na nuvem estão aumentando em um ritmo exponencial. Para gerenciar os custos de suas necessidades cada vez maiores de armazenamento, é útil organizar seus dados com base em atributos como frequência de acesso e período de retenção planejado. Os dados armazenados na nuvem podem ser muito diferentes com relação ao modo como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acessados e modificados durante seu ciclo de vida. Alguns dados são acessados com muita frequência no início do seu tempo de vida, mas esse acesso cai drasticamente à medida que os dados envelhecem. Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados após serem armazenados.
+Hoje, os dados armazenados na nuvem estão aumentando em um ritmo exponencial. Para gerenciar os custos de suas necessidades cada vez maiores de armazenamento, é útil organizar seus dados com base em atributos como frequência de acesso e período de retenção planejado. Os dados armazenados na nuvem podem ser diferentes em relação ao modo como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acessados e modificados durante seu ciclo de vida. Alguns dados são acessados com frequência no início do seu tempo de vida, mas esse acesso cai drasticamente à medida que os dados envelhecem. Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados após serem armazenados.
 
 Cada um dos cenários de acesso a dados descritos acima se beneficia de uma camada diferenciada de armazenamento, otimizada para um padrão de acesso específico. Agora, com a introdução das camadas de armazenamento ativas e estáticas, o Armazenamento de Blobs do Azure atende a essa necessidade por camadas de armazenamento diferenciado com modelos de preços separados.
 
@@ -66,7 +66,7 @@ Para aplicativos que exigem apenas armazenamento de blobs de bloco ou acréscimo
 * Você usa uma versão da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) que é anterior a 2014-02-14 ou uma biblioteca de cliente com uma versão inferior a 4.x e não pode atualizar o aplicativo.
 
 > [!NOTE]
-> Atualmente, as contas de armazenamento de Blobs têm suporte na maioria das regiões do Azure, e outras regiões serão adicionadas. Você pode encontrar a lista atualizada de regiões disponíveis na página [Serviços do Azure por Região](https://azure.microsoft.com/regions/#services) .
+> Contas de armazenamento de Blobs atualmente têm suporte em todas as regiões do Azure.
 > 
 > 
 
@@ -220,7 +220,7 @@ Com esse recurso habilitado, as transações por API são agregadas a cada hora 
 
 Para obter uma boa aproximação do consumo de dados e do padrão de acesso, recomendamos escolher um período de retenção para as métricas que representam seu uso regular e extrapolar.
 Uma opção é manter os dados de métricas por sete dias e coletar os dados de cada semana, para analisá-las no final do mês.
-Outra opção é manter os dados de métricas dos últimos 30 dias e coletar e analisar os dados ao final do período de 30 dias.
+Outra opção é manter os dados de métricas dos últimos 30 dias e coletar e analisar os dados ao fim do período de 30 dias.
 
 Para obter detalhes sobre como habilitar, coletar e exibir dados de métricas, confira [Habilitando métricas do Armazenamento do Azure e exibindo dados de métricas](storage-enable-and-view-metrics.md).
 
@@ -248,7 +248,7 @@ Para estimar os custos de transação para contas de armazenamento de Blobs, voc
 
 Para estimar os custos de transação para contas de armazenamento de uso geral, você precisa agregar todas as transações, independentemente da operação/API.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Custos de transferência de dados de acesso aos dados e de replicação geográfica
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Custos de transferência de dados de acesso aos dados e de replicação geográfica
 Embora a análise de armazenamento não forneça a quantidade de dados lida e gravada em uma conta de armazenamento, ela pode ser estimada aproximadamente examinando a tabela de métricas de transação.
 A soma de *'TotalIngress'* de todas as entradas para uma API na tabela de métricas de transação indica a quantidade total de dados de entrada em bytes para essa API em particular.
 Da mesma forma, a soma de *'TotalEgress'* indica a quantidade total de dados de saída, em bytes.
@@ -285,7 +285,7 @@ Você pode criar um aplicativo personalizado para migrar os dados para uma conta
 Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Azure](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente armazenados com o blob. É absolutamente essencial que qualquer mecanismo de cópia assegure que os metadados de blob, e especialmente os metadados relacionados à criptografia, sejam preservados. Se você copiar os blobs sem esses metadados, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, consulte [Criptografia no lado do cliente do Armazenamento do Azure](storage-client-side-encryption.md).
+> Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente armazenados com o blob. É absolutamente essencial que qualquer mecanismo de cópia assegure que os metadados de blob, e especialmente os metadados relacionados à criptografia, sejam preservados. Se você copiar os blobs sem esses metadados, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, confira [Criptografia no Lado do Cliente do Armazenamento do Azure](storage-client-side-encryption.md).
 > 
 > 
 
@@ -318,7 +318,7 @@ Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Az
     As contas de armazenamento de blobs oferecem suporte apenas aos blobs de bloco e aos blobs de acréscimo, e não aos blobs de página. Os discos de máquina virtual do Azure têm o suporte de blobs de página e, como resultado, as contas de armazenamento de blobs não podem ser usadas para armazenar os discos da máquina virtual. No entanto, é possível armazenar backups dos discos de máquina virtual como blobs de bloco em uma conta de Armazenamento de Blobs.
 9. **Precisarei alterar meus aplicativos existentes para usar contas de armazenamento de Blobs?**
    
-    Contas de Armazenamento de Blobs são 100% consistentes com API com contas de armazenamento de uso geral para blobs de bloco e de acréscimo. Contanto que seu aplicativo esteja usando blobs de bloco ou blobs de acréscimo e você esteja usando a versão 2014-02-14 da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou mais recente, o aplicativo deverá funcionar. Se estiver usando uma versão mais antiga do protocolo, você precisará atualizar o aplicativo para usar a nova versão, para que funcione perfeitamente com os dois tipos de contas de armazenamento. Em geral, é sempre recomendável usar a última versão, independentemente do tipo de conta de armazenamento que você usa.
+    Contas de Armazenamento de Blobs são 100% consistentes com API com contas de armazenamento de uso geral para blobs de bloco e de acréscimo. Contanto que o aplicativo esteja usando blobs de bloco ou blobs de acréscimo e você esteja usando a versão 2014-02-14 da [API REST dos Serviços de Armazenamento](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou mais recente, o aplicativo deverá funcionar. Se estiver usando uma versão mais antiga do protocolo, você precisará atualizar o aplicativo para usar a nova versão, para que funcione perfeitamente com os dois tipos de contas de armazenamento. Em geral, é sempre recomendável usar a última versão, independentemente do tipo de conta de armazenamento que você usa.
 10. **Haverá uma alteração na experiência do usuário?**
     
     As contas de Armazenamento de Blobs são bastante parecidas com as contas de armazenamento de finalidade geral para armazenamento de blobs de bloco e de acréscimo, e oferecem suporte a todos os principais recursos do Armazenamento do Azure, incluindo alta durabilidade e disponibilidade, escalabilidade, desempenho e segurança. Além dos recursos e restrições específicos de contas de armazenamento de Blobs e suas camadas de armazenamento, explicados acima, todo o resto permanece o mesmo.
@@ -345,6 +345,6 @@ Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

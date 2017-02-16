@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a551edf6aeaa77798173709deaf78e1a46431ad7
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: fc5ec9d446ea2133fb78de08443fcac75de35ded
 
 
 ---
@@ -96,8 +96,8 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 ## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-[Site do WebMatrix]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
-[WebMatrix para Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
+[WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
+[WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
 [webmatrix-node-completed]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
 [webmatrix-templates]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-templates.png
@@ -116,6 +116,6 @@ Se você tiver problemas com seu aplicativo após ele ter sido implantado no Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 24e675ebd63554be0bbc51e1013c4ade94b56abe
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect realiza 3 tipos de operações dos diretórios que mantém em s
 A seção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD usando o conector do Azure AD. Esse conector pode ser identificado pelo formato de nome, que é "contoso.*onmicrosoft.com*".
 Erros durante a exportação para o Azure AD indicam que a operação \(adicionar, atualizar, excluir, etc.\) tentada pelo \(Mecanismo de Sincronização\) do Azure AD Connect no Azure Active Directory falhou.
 
-![Visão geral de Erros de Exportação](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Visão geral de Erros de Exportação](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Erros de Incompatibilidade de Dados
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -114,7 +114,7 @@ Quando o Azure AD tenta fazer a correspondência flexível entre dois objetos, �
 * Um grupo de segurança habilitado para email é criado no Office 365. O administrador adiciona um novo usuário ou contato no AD local (que ainda não está sincronizado com o Azure AD) com o mesmo valor para o atributo ProxyAddresses que o utilizado no grupo do Office 365.
 
 #### <a name="example-case"></a>Caso de exemplo
-1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento de impostos e fornece um endereço de email como tax@contoso.com. Isso atribui o atributo ProxyAddresses para esse grupo com o valor **smtp:tax@contoso.com**
+1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento fiscal e fornece um endereço de email como tax@contoso.com. Isso atribui o atributo ProxyAddresses para esse grupo com o valor de **smtp:tax@contoso.com**
 2. Um novo usuário ingressa em Contoso.com e uma conta é criada para o usuário local com proxyAddress como **smtp:tax@contoso.com**
 3. Quando o Azure AD Connect sincronizar a nova conta de usuário, ele receberá o erro "ObjectTypeMismatch".
 
@@ -209,7 +209,7 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 ### <a name="possible-scenarios"></a>Cenários possíveis
 1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados.
 2. O thmubnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
-3. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a 500 foi atribuído a um objeto.
+3. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a&500; foi atribuído a um objeto.
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
@@ -221,6 +221,6 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Funções personalizadas no RBAC do Azure | Microsoft Docs"
+title: "Criar funções personalizadas no RBAC do Azure | Microsoft Docs"
 description: "Saiba como definir funções personalizadas com o Controle de Acesso Baseado em Função para um gerenciamento de identidade mais preciso na sua assinatura do Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 2ac01c010979fca0bb3df5d003dd639cd7819651
 
 
 ---
@@ -84,8 +84,8 @@ Use a propriedade **NotActions** se o conjunto de operações que você deseja p
 
 > [!NOTE]
 > Se um usuário receber uma função que exclui uma operação em **NotActions**e receber uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>AssignableScopes
 A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) nos quais a função personalizada ficará disponível para a atribuição. Você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes.
@@ -98,8 +98,8 @@ Exemplos de escopos válidos que podem ser atribuídos incluem:
 
 > [!NOTE]
 > Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Controle de acesso de funções personalizadas
 A propriedade **AssignableScopes** da função personalizada também controla quem pode exibir, modificar e excluir a função.
@@ -122,7 +122,6 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

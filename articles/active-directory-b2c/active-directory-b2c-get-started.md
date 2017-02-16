@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 12/06/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 8838617f9b7281878ac3561a80bbba5e4506f410
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 77b8e707b5743ce2d0b3eb52f75828c9ab0337d9
 
 
 ---
@@ -67,6 +67,14 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualm
    > 
    > 
 
+## <a name="step-4-link-your-azure-ad-b2c-tenant-to-your-azure-subscription"></a>Etapa 4: Vincular seu locatário do Azure AD B2C à sua assinatura do Azure
+Se você estiver planejando usar seu locatário B2C para aplicativos de produção, será necessário vincular seu locatário do Azure AD B2C a sua assinatura do Azure para pagar pelos encargos de uso. Leia [este artigo](active-directory-b2c-how-to-enable-billing.md) para saber como fazer isso.
+
+   > [!IMPORTANT]
+   > Se você não vincular seu locatário do Azure AD B2C à sua assinatura do Azure, verá uma mensagem de aviso ("Nenhuma assinatura vinculada a este locatário B2C ou A assinatura precisa de sua atenção.") na folha de recursos B2C no Portal do Azure. É importante que você execute esta etapa antes de enviar seus aplicativos para produção.
+   > 
+   > 
+
 ## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Acesso fácil à folha de recursos do B2C no portal do Azure
 Para melhorar a capacidade de descoberta, adicionamos um atalho para a folha de recursos do B2C no portal do Azure.
 
@@ -82,6 +90,6 @@ Saiba como registrar um aplicativo com o Azure AD B2C e compilar um aplicativo d
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

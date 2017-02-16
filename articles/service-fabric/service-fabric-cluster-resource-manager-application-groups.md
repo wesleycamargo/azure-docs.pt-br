@@ -12,38 +12,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 775232c406cd44fa1c7cd9094484f11ab42d3ae8
+ms.sourcegitcommit: eef9cbca0479801cbac53ae1ae5713d4dac6a4bf
+ms.openlocfilehash: 57525cd41d518b12f3f465d5dea7247659e3c8b6
 
 
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicativos
-Gerenciador de Recursos de Cluster da malha de serviço geralmente gerencia os recursos de cluster, distribuindo a carga (representada por meio de Métricas) uniformemente em todo o cluster. O Service Fabric também gerencia a capacidade de nós no cluster e o cluster como um todo por meio da noção da capacidade. Isso funciona muito bem para muitos tipos diferentes de cargas de trabalho, mas os padrões que fazem uso intenso de Instâncias de Aplicativos Service Fabric diferentes às vezes trazem requisitos adicionais. Alguns dos requisitos adicionais típicos são:
+O Cluster Resource Manager do Service Fabric geralmente gerencia os recursos de cluster distribuindo a carga (representada por meio de [Métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric também gerencia a capacidade dos nós no cluster e o cluster como um todo por meio da noção da [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). As métricas e a capacidade funcionam muito bem para muitas cargas de trabalho, mas padrões que fazem uso intenso de diferentes Instâncias de Aplicativos do Service Fabric às vezes trazem requisitos adicionais. Alguns dos requisitos adicionais típicos são:
 
-* Habilidade de reservar capacidade para os serviços de uma Instância de Aplicativo em algum número de nós
-* Habilidade de limitar o número total de nós que um determinado conjunto de serviços dentro de um aplicativo pode executar
+* Habilidade de reservar capacidade para os serviços de uma Instância de Aplicativo no cluster
+* Habilidade de limitar o número total de nós em que os serviços em um aplicativo são executados
 * Definindo as capacidades na instância do aplicativo em si para limitar o número ou o consumo de recursos total dos serviços dentro dele
 
-Para atender a esses requisitos, desenvolvemos o suporte para o que chamamos de Grupos de Aplicativos.
+Para atender a esses requisitos, o Cluster Resource Manager do Service Fabric dá suporte a Grupos de Aplicativos.
 
 ## <a name="managing-application-capacity"></a>Gerenciando a capacidade do Aplicativo
-Capacidade do aplicativo pode ser usada para limitar o número de nós estendidos por um aplicativo, bem como a carga de métrica total daquelas instâncias de aplicativos em nós individuais. Ele também pode ser usado para reservar recursos no cluster para o aplicativo.
+A capacidade do aplicativo pode ser usada para limitar o número de nós distribuídos por um aplicativo. Ela também pode limitar a carga de métrica dos serviços dos aplicativos em nós individuais e o total. Ele também pode ser usado para reservar recursos no cluster para o aplicativo.
 
-A capacidade do aplicativo pode ser configurada para novos aplicativos quando eles são criados; também pode ser atualizada para aplicativos existentes criados sem especificar a capacidade de Aplicativo.
+A capacidade do aplicativo pode ser configurada para novos aplicativos quando eles são criados e pode ser atualizada para aplicativos existentes.
 
 ### <a name="limiting-the-maximum-number-of-nodes"></a>Limitando o número máximo de nós
-O caso de uso mais simples para capacidade do Aplicativo é quando uma instanciação de aplicativo precisa ser limitada a um determinado número máximo de nós. Se nenhuma Capacidade de Aplicativo for especificada, o Gerenciador de Recursos de Cluster do Service Fabric instanciará réplicas de acordo com as regras normais (balanceamento ou desfragmentação), o que normalmente significa que seus serviços serão distribuídos em todos os nós disponíveis no cluster, ou se a desfragmentação for ativada em um número arbitrário, mas menor, de nós.
+O caso de uso mais simples para capacidade do Aplicativo é quando uma instanciação de aplicativo precisa ser limitada a um determinado número máximo de nós. Se nenhuma Capacidade do Aplicativo for especificada, o Cluster Resource Manager do Service Fabric criará e posicionará os serviços de acordo com as regras normais (balanceamento ou desfragmentação).
 
-A imagem a seguir mostra o posicionamento em potencial de uma instância do aplicativo sem o número máximo de nós definido e, em seguida, o mesmo aplicativo com um número máximo de nós definido. Observe que não são feitas garantias sobre quais réplicas ou instâncias de quais serviços serão colocadas juntas.
+A imagem a seguir mostra uma instância de aplicativo com e sem um número máximo de nós definido. Não são feitas garantias sobre quais réplicas ou instâncias de quais serviços são colocadas juntas ou quais nós específicos são usados.
 
+<center>
 ![Instância do aplicativo definindo o número máximo de nós][Image1]
+</center>
 
-No exemplo à esquerda, o aplicativo não tem uma Capacidade de Aplicativo definida e ele tem três serviços. O CRM tomou uma decisão lógica de dispersar todas as réplicas em seis nós disponíveis para obter o melhor equilíbrio no cluster. No exemplo à direita, vemos o mesmo aplicativo que está restrito em três nós e em que ponto o CRM do Service Fabric atingiu o melhor equilíbrio para as réplicas dos serviços do aplicativo.
+No exemplo à esquerda, o aplicativo não tem uma Capacidade de Aplicativo definida e ele tem três serviços. O Cluster Resource Manager distribuiu todas as réplicas em seis nós disponíveis para obter o melhor equilíbrio no cluster. No exemplo à direita, vemos o mesmo aplicativo limitado a três nós.
 
-O parâmetro que controla esse comportamento é chamado de MaximumNodes. Esse parâmetro pode ser definido durante a criação de aplicativos ou atualizado para uma instância do aplicativo que já estava em execução, caso em que o CRM do Service Fabric restringirá as réplicas de serviços do aplicativo ao número máximo definido de nós.
+O parâmetro que controla esse comportamento é chamado de MaximumNodes. Esse parâmetro pode ser definido durante a criação do aplicativo ou atualizado para uma instância do aplicativo que já estava em execução.
 
 Powershell
 
@@ -74,34 +76,45 @@ adUpdate.Metrics.Add(appMetric);
 ```
 
 ## <a name="application-metrics-load-and-capacity"></a>Métrica, carga e capacidade do aplicativo
-Grupos de aplicativos também permitem definir métricas associadas a uma determinada instância do aplicativo, bem como a capacidade do aplicativo em relação a essas métricas. Assim, por exemplo, você pode definir que tantos serviços quanto você queira possam ser criados em
+Os grupos de aplicativos também permitem definir métricas associadas a uma determinada instância do aplicativo e a capacidade do aplicativo para essas métricas. Isso permite controlar, reservar e limitar o consumo de recursos dos serviços dentro dessa instância do aplicativo.
 
-Para cada métrica, podem ser definidos dois valores que para descrever a capacidade para aquela instância do aplicativo:
+Para cada métrica do aplicativo, há dois valores que podem ser definidos:
 
-* Capacidade Total do Aplicativo – representa a capacidade total do aplicativo de uma determinada métrica. O CRM do Service Fabric tentará limitar a soma das cargas de métrica dos serviços desse aplicativo para o valor especificado; além disso, se os serviços do aplicativo já estiverem consumindo a carga até esse limite, o Gerenciador de Recursos de Cluster do Service Fabric não permitirá a criação de quaisquer novos serviços ou partições que fariam a carga total ir além desse limite.
-* Capacidade máxima do nó – especifica a carga total máximo de réplicas de serviços dos aplicativos em um único nó. Se a carga total no nó ultrapassar essa capacidade, o CRM do Service Fabric tentará mover réplicas para outros nós para que a restrição de capacidade seja respeitada.
+* **Capacidade Total do Aplicativo** – essa configuração representa a capacidade total do aplicativo para uma determinada métrica. O Cluster Resource Manager não permite a criação de quaisquer novos serviços dentro dessa instância do aplicativo que fariam com que esse valor fosse excedido. Por exemplo, digamos que a instância do aplicativo tinha a capacidade de 10 e já tinha a carga de cinco. Nesse caso, a criação de um serviço com uma carga padrão total de 10 não deve ser permitida.
+* **Capacidade Máxima do Nó** – essa configuração especifica a carga total máxima de réplicas de serviços dentro do aplicativo em um único nó. Se a carga total no nó ultrapassar essa capacidade, o Cluster Resource Manager tentará mover réplicas para outros nós para que a restrição de capacidade seja respeitada.
 
 ## <a name="reserving-capacity"></a>Reserva de capacidade
-Outro uso comum de grupos de aplicativos é garantir que recursos dentro do cluster sejam reservados para uma determinada instância do aplicativo, mesmo que a instância do aplicativo ainda não tenha os serviços dentro dela, ou mesmo que eles ainda não estejam consumindo os recursos. Vamos dar uma olhada em como isso funcionaria.  
+Outro uso comum de grupos de aplicativos é para garantir que os recursos dentro do cluster sejam reservados para uma determinada instância do aplicativo. Isso acontece mesmo se a instância do aplicativo ainda não tem nenhum serviço dentro dela ou mesmo se eles não estiverem consumindo recursos ainda. Vejamos como isso funcionaria.
 
 ### <a name="specifying-a-minimum-number-of-nodes-and-resource-reservation"></a>Especificar um número mínimo de nós e reserva de recursos
 Reservar recursos para uma instância de aplicativo requer especificar alguns parâmetros adicionais: *MinimumNodes* e *NodeReservationCapacity*
 
-* MinimumNodes – assim como especificar um número máximo de destino de nós que podem executar os serviços dentro de um aplicativo, você pode também especificar o número mínimo de nós em que um aplicativo deve ser executado. Essa configuração define efetivamente o número de nós em que os recursos devem ser reservados no mínimo, garantindo a capacidade dentro do cluster como parte da criação da instância do aplicativo.
-* NodeReservationCapacity – a NodeReservationCapacity pode ser definida para cada métrica dentro do aplicativo. Isso define a quantidade de carga métrica reservada para o aplicativo em qualquer nó dentro do qual é colocada qualquer uma das réplicas ou instâncias dos serviços.
+* **MinimumNodes** – assim como especificar um número máximo de nós em que os serviços dentro de um aplicativo podem ser executados, você também pode especificar o número mínimo. Essa configuração define o número de nós em que os recursos devem ser reservados, garantindo a capacidade dentro do cluster como parte da criação da instância do aplicativo.
+* **NodeReservationCapacity** – a NodeReservationCapacity pode ser definida para cada métrica dentro do aplicativo. Essa configuração define a quantidade de carga métrica reservada para o aplicativo em qualquer nó dentro do qual é colocada qualquer uma das réplicas ou instâncias dos serviços.
 
-Vamos examinar um exemplo de reserva de capacidade:
+Vejamos um exemplo de reserva de capacidade:
 
-![Instâncias do aplicativo definindo a capacidade reservada][Image2]
+<center>
+Instâncias do aplicativo definindo a capacidade reservada![][Image2]
+</center>
 
-No exemplo à esquerda, os aplicativos não têm nenhuma Capacidade de Aplicativo definida. O Gerenciador de Recursos de Cluster do Service Fabric equilibrará a réplicas de serviços filho e instâncias do aplicativo juntamente com aquelas de outros serviços (fora do aplicativo) para garantir o equilíbrio do cluster.
+No exemplo à esquerda, os aplicativos não têm nenhuma Capacidade de Aplicativo definida. O Cluster Resource Manager equilibra tudo de acordo com as regras normais.
 
-No exemplo à direita, digamos que o aplicativo tenha sido criado com um MinimumNodes definido como 2, MaximumNodes definido como 3 e uma Métrica de aplicativo definida com uma reserva de 20, capacidade máxima em um nó de 50 e capacidade total do aplicativo de 100, o Service Fabric reservará capacidade em dois nós para o aplicativo azul e não permitirá que outras réplicas no cluster consumam essa capacidade. Essa capacidade reservada do aplicativo será considerada consumida e contada em relação à capacidade restante do cluster.
+No exemplo à direita, digamos que o aplicativo foi criado com as seguintes configurações:
 
-Quando um aplicativo for criado com reserva, o Gerenciador de Recursos de Cluster reservará capacidade igual a MinimumNodes * NodeReservationCapacity no cluster, mas não reservará capacidade em nós específicos até que as réplicas de serviços do aplicativo sejam criadas e colocadas. Isso permite flexibilidade, pois nós são escolhidos para novas réplicas somente quando elas são criadas. A capacidade é reservada em um nó específico quando pelo menos uma réplica é colocada sobre ele.
+* MinimumNodes definido como dois
+* MaximumNodes definido como três
+* Uma métrica de aplicativo definida com
+  * NodeReservationCapacity de 20
+  * MaximumNodeCapacity de 50
+  * TotalApplicationCapacity de 100
+
+O Service Fabric reserva a capacidade em dois nós para o aplicativo azul e não permite que serviços de outras instâncias do aplicativo no cluster consumam essa capacidade. Essa capacidade reservada do aplicativo é considerada consumida e contada em relação à capacidade restante naquele nó e dentro do cluster.
+
+Quando um aplicativo é criado com reserva, o Cluster Resource Manager reserva a capacidade igual a MinimumNodes * NodeReservationCapacity (para cada métrica). No entanto, a capacidade é reservada em um nó específico apenas quando pelo menos uma réplica é colocada nele. Essa reserva posterior permite flexibilidade e melhor utilização de recursos já que os recursos são reservados nos nós apenas quando necessário.
 
 ## <a name="obtaining-the-application-load-information"></a>Obtendo as informações de carga do aplicativo
-Para cada aplicativo que tem capacidade de aplicativos definida, você pode obter as informações sobre a carga de agregada relatada por réplicas de seus serviços. O Service Fabric fornece consultas de API Gerenciada e do PowerShell para essa finalidade.
+Para cada aplicativo que tem capacidade de aplicativos definida, você pode obter as informações sobre a carga de agregada relatada por réplicas de seus serviços.
 
 Por exemplo, a carga pode ser recuperada usando o seguinte cmdlet do PowerShell:
 
@@ -110,7 +123,7 @@ Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
 
 ```
 
-A saída dessa consulta conterá as informações básicas sobre a capacidade do aplicativo que foi especificada para o aplicativo, como Nós Mínimos e Nós Máximos. Também haverá informações sobre o número de nós que o aplicativo está usando no momento. Portanto, para cada métrica de carga, haverá informações sobre:
+A consulta ApplicationLoad retorna as informações básicas sobre a Capacidade do Aplicativo que foi especificada para o aplicativo. Essas informações incluem as informações de Nós Mínimos e Nós Máximos e o número que o aplicativo está ocupando atualmente. Elas também incluem informações sobre cada métrica de carga do aplicativo, incluindo:
 
 * Nome da Métrica: o nome da métrica.
 * Capacidade de Reserva: a Capacidade do Cluster reservada no cluster para esse Aplicativo.
@@ -125,56 +138,35 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicat
 
 ```
 
-Esse comando removerá do aplicativo todos os parâmetros de Capacidade do Aplicativo e o Gerenciador de Recursos de Cluster do Service Fabric começará a tratar esse aplicativo como qualquer outro aplicativo no cluster que não tenha esses parâmetros definidos. O efeito do comando é imediato e o Gerenciador de Recursos de Cluster excluirá todos os parâmetros de Capacidade do Aplicativo para esse aplicativo; especificá-los novamente exigiria chamar Atualizar APIs do Aplicativo com os parâmetros apropriados.
+Esse comando remove todos os parâmetros de Capacidade do Aplicativo do aplicativo. O efeito do comando é imediato. Após a conclusão do comando, o Cluster Resource Manager é revertido para usar o comportamento padrão para o gerenciamento de aplicativos. Os parâmetros da Capacidade do Aplicativo podem ser especificados novamente por meio de Update-ServiceFabricApplication.
 
-## <a name="restrictions-on-application-capacity"></a>Restrições à capacidade do aplicativo
-Há várias restrições aos parâmetros de Capacidade de Aplicativo que devem ser respeitadas. No caso de erros de validação, a criação ou a atualização do aplicativo será rejeitada com um erro.
-Todos os parâmetros de inteiro devem ser números não negativos.
-Além disso, para parâmetros individuais, as restrições são as seguintes:
+### <a name="restrictions-on-application-capacity"></a>Restrições à capacidade do aplicativo
+Há várias restrições aos parâmetros de Capacidade de Aplicativo que devem ser respeitadas. Se houver erros de validação, a criação ou atualização do aplicativo será rejeitada com um erro e não ocorrerá nenhuma alteração.
 
+* Todos os parâmetros de inteiro devem ser números não negativos.
 * MinimumNodes nunca deve ser maior que MaximumNodes.
 * Se as capacidades de uma métrica de carga forem definidas, elas deverão seguir estas regras:
-  * A Capacidade de Reserva do Nó não deve ser maior que a Capacidade Máxima do Nó. Por exemplo, você não pode limitar a capacidade para a "CPU" métrica no nó a 2 unidades e tentar reservar 3 unidades em cada nó.
-  * Se MaximumNodes for especificado, o produto de MaximumNodes e a Capacidade Máxima do Nó não deverão ser maiores que a Capacidade Total do Aplicativo. Por exemplo, se você definir a Capacidade Máxima do Nó para métrica de carga "CPU" para 8 e definir o Máximo de Nós para 10, a Capacidade Total do Aplicativo deverá ser maior do que 80 para essa métrica de carga.
+  * A Capacidade de Reserva do Nó não deve ser maior que a Capacidade Máxima do Nó. Por exemplo, você não pode limitar a capacidade para a "CPU" métrica no nó a duas unidades e tentar reservar três unidades em cada nó.
+  * Se MaximumNodes for especificado, o produto de MaximumNodes e a Capacidade Máxima do Nó não deverão ser maiores que a Capacidade Total do Aplicativo. Por exemplo, digamos que a Capacidade Máxima do Nó da métrica de carga "CPU" seja definida como oito. Suponhamos também que você defina os Nós Máximos como&10;. Nesse caso, a Capacidade Total do Aplicativo deve ser maior do que 80 para esta métrica de carga.
 
-As restrições são aplicadas tanto durante a criação do aplicativo (no lado do cliente) quanto durante a atualização do aplicativo (no lado do servidor). Durante a criação, este é um exemplo de uma clara violação dos requisitos, já que MaximumNodes < MinimumNodes, e o comando falhará no cliente antes que a solicitação sequer seja enviada ao cluster do Service Fabric:
-
-``` posh
-New-ServiceFabricApplication –Name fabric:/MyApplication1 –MinimumNodes 6 –MaximumNodes 2
-```
-
-Um exemplo de atualização inválida é o seguinte. Se pegarmos um aplicativo existente e atualizarmos o máximo de nós para algum valor, a atualização passará:
-
-``` posh
-Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MaximumNodes 2
-```
-
-Depois disso, poderemos tentar atualizar nós mínimos:
-
-``` posh
-Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes 6
-```
-
-O cliente não tem contexto suficiente sobre o aplicativo, assim, ele permitirá que a atualização passe para o cluster do Service Fabric. No entanto, no cluster, o Service Fabric validará o novo parâmetro junto com os parâmetros existentes e a operação de atualização falhará, pois o valor para os nós mínimos é maior que o valor para os nós máximos. Nesse caso, os parâmetros de capacidade do aplicativo permanecerão inalterados.
-
-Essas restrições são colocadas em vigor para o Gerenciador de Recursos de Cluster poder fornecer a melhor disposição dos réplicas dos serviços de aplicativos.
+As restrições são aplicadas tanto durante a criação do aplicativo (no lado do cliente) quanto durante a atualização do aplicativo (no lado do servidor).
 
 ## <a name="how-not-to-use-application-capacity"></a>Como não usar a Capacidade do Aplicativo
-* Não use a Capacidade do Aplicativo para restringir o aplicativo a um subconjunto específico de nós: embora o Service Fabric garanta que o Máximo de Nós seja respeitado para cada aplicativo que tenha a Capacidade de Aplicativo especificada, os usuários não poderão decidir em quais nós ele será instanciado. Isso pode ser feito usando restrições de posicionamento para serviços.
-* Não use a Capacidade do Aplicativo para garantir que dois serviços do mesmo aplicativo sempre sejam colocados lado a lado. Isso pode ser feito por meio de relacionamento de afinidade entre serviços, e a afinidade pode ser limitada somente aos serviços que de fato devem ser colocados juntos.
+* Não tente usar os recursos de Grupo de Aplicativos para restringir o aplicativo a um subconjunto de nós _específico_. Em outras palavras, você pode especificar que o aplicativo seja executado em no máximo cinco nós, mas não quais cinco nós específicos no cluster. A restrição de um aplicativo a nós específicos pode ser obtida usando restrições de posicionamento para os serviços.
+* Não tente usar a Capacidade do Aplicativo para garantir que dois serviços do mesmo aplicativo sejam colocados lado a lado. A garantia de que os serviços são executados no mesmo nó pode ser obtida usando a afinidade ou com restrições de posicionamento dependendo dos requisitos específicos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de Serviços](service-fabric-cluster-resource-manager-configure-services.md)
-* Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)
+* Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis no Cluster Resource Manager em [Saiba mais sobre o a configuração dos serviços](service-fabric-cluster-resource-manager-configure-services.md)
+* Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
 * Comece do princípio e [veja uma introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 * Para obter mais informações sobre como as métricas funcionam em geral, leia sobre [Métricas de Carga do Service Fabric](service-fabric-cluster-resource-manager-metrics.md)
-* O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* O Cluster Resource Manager tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

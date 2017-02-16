@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas de backup de máquinas virtuais do Azure | Microsoft Docs"
-description: "Solucionar problemas de backup e restauração de máquinas virtuais do Azure"
+title: "Solucionar problemas de erros de backup do Azure no Portal Clássico | Microsoft Docs"
+description: "Solucione problemas de backup e restauração de máquinas virtuais do Azure no Portal Clássico."
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 1/23/2017
 ms.author: trinadhk;jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e2c22d2833a7905ba6001178be8709ec81c26000
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: 2149407ff4e04f6a52a45c419382617810a63633
 
 
 ---
@@ -39,7 +39,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
 | Registrar |O número de discos de dados anexados à máquina virtual excedeu o limite com suporte. Retire alguns discos de dados dos anexos nesta máquina virtual e repita a operação. O backup do Azure dá suporte a até 16 discos de dados anexados a uma máquina virtual do Azure para backup |Nenhum |
-| Registrar |O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. |É possível obter esse erro devido a uma das seguintes configuração de VM sem suporte no LRS Premium. <br>  pode ser feito usando o cofre de serviços de recuperação. [Saiba mais](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
+| Registrar |O Backup do Microsoft Azure encontrou um erro interno. Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contate o Suporte da Microsoft. |É possível obter esse erro devido a uma das seguintes configuração de VM sem suporte no LRS Premium. <br> pode ser feito usando o cofre de serviços de recuperação. [Saiba mais](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
 | Registrar |Falha no registro com o tempo limite da operação Instalar agente |Verifique se a versão do sistema operacional da máquina virtual tem suporte. |
 | Registrar |A execução do comando falhou - há outra operação em andamento neste item. Aguarde até que a operação anterior seja concluída |Nenhum |
 | Registrar |Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup |Nenhum |
@@ -48,7 +48,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 ## <a name="backup"></a>Backup
 | Operação de backup | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
-| Backup |Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Saiba mais sobre [depuração de problemas de instantâneo de VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br>  Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
+| Backup |Não pôde se comunicar com o agente VM para status do instantâneo. A subtarefa VM instantâneo VM atingiu o tempo limite. - Consulte o guia de solução de problemas sobre como resolver esse problema. |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. Saiba mais sobre [depuração de problemas de instantâneo de VM](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
 | Backup |Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft |Verifique se há um problema temporário ao acessar o armazenamento de VM. Verifique o [Status do Azure](https://azure.microsoft.com/en-us/status/) para ver se há qualquer problema ativo relacionado a computação/armazenamento/rede na região. Repita até que o problema de publicação de backup seja mitigado. |
 | Backup |Não foi possível executar a operação porque a VM não existe mais. |O backup não pode ser executado porque a VM configurada para o backup foi excluída. Pare outros backups no modo de exibição de Itens protegidos, selecione o item protegido e clique em Parar Proteção. Você pode manter dados selecionando a opção de dados Reter Backup. Posteriormente, você poderá retomar a proteção para essa máquina virtual clicando em configurar proteção no modo de exibição Itens Registrados |
 | Backup |Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente de VM é um pré-requisito para a extensão de Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro |<ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM esteja definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
@@ -56,14 +56,14 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Backup |Falha na instalação da extensão. Erro "COM+ não pôde se comunicar com o Coordenador de transações distribuídas da Microsoft |Isso geralmente significa que o serviço COM+ não está em execução. Entre em contato com o suporte da Microsoft para obter ajuda sobre como corrigir esse problema. |
 | Backup |Falha na operação de instantâneo. Erro de operação do VSS "Esta unidade está bloqueada pela Criptografia de Unidade de Disco BitLocker. Você deve desbloquear esta unidade no Painel de Controle. |Desative o BitLocker para todas as unidades na VM e observe se o problema VSS é resolvido |
 | Backup |Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup |Nenhum |
-| Backup |Máquina Virtual do Azure não encontrada. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li>Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem], <br>(OU) <li>  Desabilite a proteção para esta VM para que os trabalhos de backup subsequentes não sejam disparados. </ol> |
+| Backup |Máquina Virtual do Azure não encontrada. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li>Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desabilite a proteção para esta VM para que os trabalhos de backup subsequentes não sejam disparados. </ol> |
 | Backup |O agente de máquina virtual não está presente na máquina virtual - instale o pré-requisito necessário, agente de VM e reinicie a operação. |[Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 
 ## <a name="jobs"></a>Trabalhos
 | Operação | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
 | Cancelar trabalho |Não há suporte para cancelamento deste tipo de trabalho - Aguarde até que o trabalho seja concluído. |Nenhum |
-| Cancelar trabalho |O trabalho não está em um estado cancelável - aguarde até que o trabalho seja concluído. <br>OU<br>  o trabalho selecionado não está em um estado cancelável - aguarde até que o trabalho seja concluído. |Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
+| Cancelar trabalho |O trabalho não está em um estado cancelável - aguarde até que o trabalho seja concluído. <br>OU<br> o trabalho selecionado não está em um estado cancelável - aguarde até que o trabalho seja concluído. |Muito provavelmente o trabalho está quase concluído; Aguarde até que o trabalho seja concluído |
 | Cancelar trabalho |Não é possível cancelar o trabalho porque ele não está em andamento - há suporte para cancelamento apenas de trabalhos que estão em andamento. Tente cancelar um trabalho em andamento. |Isso ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento |
 | Cancelar trabalho |Falha ao cancelar o trabalho - aguarde até que o trabalho seja concluído. |Nenhum |
 
@@ -71,7 +71,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Operação | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
 | Restaurar |A restauração falhou com erro interno de nuvem |<ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, isso significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem para o qual você está tentando restaurar está configurado com ReservedIP e as VMs existentes no serviço de nuvem estão no estado parado.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do Powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Você está tentando restaurar uma máquina virtual com as configurações de rede especiais a seguir no mesmo serviço de nuvem. <br>– Máquinas virtuais sob configuração do balanceador de carga (interno e externo)<br>– Máquinas virtuais com vários IPs reservados<br>– Máquinas virtuais com várias NICs<br>Selecione um novo serviço de nuvem na interface do usuário ou confira as [considerações sobre a restauração](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) para VMs com configurações de rede especiais</ol> |
-| Restaurar |O nome DNS selecionado já existe - especifique um nome DNS diferente e tente novamente. |O nome DNS aqui se refere ao nome do serviço de nuvem (geralmente terminando em .cloudapp.net). Isso precisa ser exclusivo. Se você encontrar esse erro, precisa escolher um nome de VM diferente durante a restauração. <br><br>  Este erro é mostrado apenas para os usuários do portal do Azure. A operação de restauração por meio do PowerShell obtém êxito porque apenas restaura os discos e não cria a VM. O erro será enfrentado quando a VM está explicitamente criada por você após a operação de restauração no disco. |
+| Restaurar |O nome DNS selecionado já existe - especifique um nome DNS diferente e tente novamente. |O nome DNS aqui se refere ao nome do serviço de nuvem (geralmente terminando em .cloudapp.net). Isso precisa ser exclusivo. Se você encontrar esse erro, precisa escolher um nome de VM diferente durante a restauração. <br><br> Este erro é mostrado apenas para os usuários do portal do Azure. A operação de restauração por meio do PowerShell obtém êxito porque apenas restaura os discos e não cria a VM. O erro será enfrentado quando a VM está explicitamente criada por você após a operação de restauração no disco. |
 | Restaurar |A configuração de rede virtual especificada não está correta - especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
 | Restaurar |O serviço de nuvem especificado está usando um IP reservado, o que não corresponde à configuração da máquina virtual que está sendo restaurada - especifique um serviço de nuvem diferente que não está usando o IP reservado ou escolha outro ponto de recuperação para restaurar. |Nenhum |
 | Restaurar |O serviço de nuvem atingiu o limite no número de pontos de extremidade de entrada - Repita a operação especificando um serviço de nuvem diferente ou usando um ponto de extremidade existente. |Nenhum |
@@ -117,6 +117,6 @@ Como verificar a versão do Agente de VM em VMs do Windows:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

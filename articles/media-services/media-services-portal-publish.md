@@ -1,5 +1,5 @@
 ---
-title: "  Publicar conteúdo com o Portal do Azure | Microsoft Docs"
+title: "  Publicar conteúdo com o Portal do Azure | Microsoft Docscs"
 description: "Este tutorial orienta você pelas etapas de publicar o conteúdo com o portal do Azure."
 services: media-services
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96a8342dc782a9270a6de5b67387c35ea45b860e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
 
 
 ---
@@ -62,7 +62,7 @@ Para obter mais informações, consulte [Visão geral sobre fornecimento de cont
 > 
 > 
 
-Para atualizar uma data de validade em um localizador, use as APIs [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
+Para atualizar uma data de validade em um localizador, use as APIs [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Observe que, quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
 Para usar o portal para publicar um ativo, faça o seguinte:
@@ -90,7 +90,6 @@ Algumas considerações se aplicam:
 * Verifique se que o vídeo foi publicado.
 * Esse **Media player** * reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir a partir de um ponto de extremidade da transmissão não padrão, clique para copiar a URL e use outra reprodução. Por exemplo, o [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * O ponto de extremidade de streaming do qual você estiver transmitindo deverá estar em execução.  
-* Para transmitir de um ponto de extremidade de streaming, você deve adicionar pelo menos uma unidade de streaming. Para obter mais informações, consulte [este](media-services-portal-scale-streaming-endpoints.md) tópico.   
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
@@ -103,6 +102,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

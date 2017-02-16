@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a3766215c00da9d055a1efb4b534f7522f9ded25
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
 
 
 ---
@@ -114,7 +114,7 @@ Você pode iniciar criando a estrutura de diretório, conforme descrito na seç�
 ### <a name="add-the-applications-code-and-configuration-files"></a>Adicionar os arquivos de configuração e código do aplicativo
 Depois de criar a estrutura de diretório, você pode adicionar os arquivos de configuração e código do aplicativo aos diretórios de code e config. Também é possível criar diretórios adicionais ou subdiretórios nos diretórios code ou config.
 
-O Service Fabric faz uma cópia do conteúdo do diretório raiz do aplicativo, portanto, não há estrutura predefinida a usar que não criar dois diretórios principais, código e configurações. (Você pode escolher nomes diferentes, se desejar. Mais detalhes estão na próxima seção.)
+O Service Fabric faz uma `xcopy` do conteúdo do diretório raiz do aplicativo, portanto, não há estrutura predefinida a usar que não criar dois diretórios principais, código e configurações. (Você pode escolher nomes diferentes, se desejar. Mais detalhes estão na próxima seção.)
 
 > [!NOTE]
 > Inclua todos os arquivos e dependências de que o aplicativo precisa. O Service Fabric copia o conteúdo do pacote de aplicativos em todos os nós do cluster nos quais os serviços do aplicativo serão implantados. O pacote deve conter todos os códigos que o aplicativo precisa para ser executado. Não presuma que as dependências já estão instaladas.
@@ -320,6 +320,16 @@ Se navegar até o diretório usando o Gerenciador de Servidores, você poderá l
 
 ![Local do log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## <a name="creating-a-guest-executable-using-yeoman-for-service-fabric-on-linux"></a>Criando um executável convidado usando o Yeoman para o Service Fabric no Linux
+
+O procedimento para criar e implantar um executável convidado no Linux é igual à implantação de um aplicativo csharp ou java. 
+
+1. Em um terminal, digite `yo azuresfguest`.
+2. Nome do seu aplicativo.
+3. Escolha o tipo de seu primeiro serviço e dê um nome para ele. Escolha **Binário Convidado** para um executável convidado (e **Contêiner Convidado** para um contêiner) e forneça os detalhes, incluindo o caminho do executável e os parâmetros que devem ser usados para invocá-lo.
+
+O Yeoman pode ter criado um pacote de aplicativos com os devidos arquivos de aplicativo e manifesto juntamente com a instalação e desinstalação dos scripts.
+
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Consulte os seguintes artigos para tarefas e informações relacionadas.
 
@@ -330,6 +340,6 @@ Neste artigo, você aprendeu como empacotar um executável convidado e implantá
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

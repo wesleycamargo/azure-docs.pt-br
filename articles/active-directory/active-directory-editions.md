@@ -146,7 +146,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 * [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (Mecanismo de sincronização que amplia os diretórios locais ao Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (Mecanismo de sincronização que amplia os diretórios locais ao Azure Active Directory)
 **Tipo:** recursos comuns
 
 **Disponibilidade:**
@@ -273,7 +273,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 * [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no sistema operacional Windows Server, se o servidor estiver executando uma cópia licenciada válida do Windows Server, o Microsoft Identity Manager pode ser instalado e usado no servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
 
 **Tipo:** recursos premium
@@ -333,7 +333,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Ingresso do Azure Active Directory - apenas recursos relacionados ao Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Ingresso do Azure Active Directory - apenas recursos relacionados ao Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 **Tipo:** ingresso do Azure Active Directory – apenas recursos relacionados ao Windows 10
 

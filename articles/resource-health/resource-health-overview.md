@@ -15,8 +15,8 @@ ms.workload: Supportability
 ms.date: 06/01/2016
 ms.author: BernardoAMunoz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6de24842669e29ea7d6796f63fa2a8ae36930531
+ms.sourcegitcommit: d777bc6bd477c5b6645fc8bd7b6d57a5d2f89e22
+ms.openlocfilehash: e465e2c1503add186a4b134e85bd9aab61d5c0ad
 
 
 ---
@@ -43,7 +43,7 @@ A folha Integridade de recursos no Portal do Azure fornece informações detalha
 Após fazer logon no Portal do Azure, há duas maneiras de acessar a folha Integridade de recursos: 
 
 ### <a name="open-the-resource-blade"></a>Abrir a folha Recursos
-Abra a folha Recursos de um recurso específico. Na folha Configurações aberta ao lado da folha Recursos, clique em Integridade de Recursos para abrir a folha Integridade de recursos. 
+Abra a folha Recursos de um recurso específico. Na folha à esquerda que é aberta próxima à folha Recurso, clique em Integridade do Recurso em Suporte + Solução de Problemas para abrir a folha Integridade do recurso. 
 
 ![Folha Integridade de recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
 
@@ -54,7 +54,7 @@ Abra a folha Ajuda e Suporte clicando no ponto de interrogação no canto superi
 
 ![Ajuda + suporte](./media/resource-health-overview/HelpAndSupport.png)
 
-Clicar no bloco abre a folha de assinatura de Integridade de recursos, que lista todos os recursos em sua assinatura. Ao lado de cada recurso, há um ícone que indica sua integridade. Clicar em cada recurso abrirá a folha Integridade de recursos.
+Na folha à esquerda que é aberta próxima à folha Ajuda + Suporte, clique em Integridade de Recurso em Suporte + Solução de Problemas. Clicar nessa opção abre a folha de assinatura de Integridade do recurso, que lista todos os recursos em sua assinatura. Ao lado de cada recurso, há um ícone que indica sua integridade. Clicar em cada recurso abrirá a folha Integridade de recursos.
 
 **Bloco de integridade de recursos**
 
@@ -110,6 +110,6 @@ Estamos sempre abertos a comentários e sugestões! Envie-nos suas [sugestões](
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

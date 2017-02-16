@@ -1,5 +1,5 @@
 ---
-title: "Como cortar um vídeo | Microsoft Docs"
+title: "Como cortar vídeos com o Media Encoder Standard - Azure | Microsoft Docs"
 description: "Este artigo mostra como cortar vídeos com o Codificador de Mídia Padrão."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 5be8472e242db6d17306ba086e4fe06e769018d7
 
 
 ---
@@ -29,7 +29,7 @@ Suponha que você tenha como entrada um vídeo que tem uma resolução de 1920 x
 
 O corte no MES é uma fase de pré-processamento e, portanto, os parâmetros de corte na predefinição de codificação se aplicam ao vídeo de entrada original. A codificação é um estágio posterior, e as configurações de largura/altura se aplicam ao vídeo *pré-processado* , não ao vídeo original. Ao projetar a predefinição, você precisa fazer o seguinte: (a) selecionar os parâmetros de corte com base no vídeo de entrada original e (b) selecionar as configurações de codificação com base no vídeo cortado. Se as configurações de codificação não forem correspondentes ao vídeo cortado, a saída não será como esperado.
 
-O tópico [a seguir](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) mostra como criar um trabalho de codificação com o MES e especificar uma predefinição personalizada para a tarefa de codificação. 
+O tópico [a seguir](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) mostra como criar um trabalho de codificação com o MES e especificar uma predefinição personalizada para a tarefa de codificação. 
 
 ## <a name="creating-a-custom-preset"></a>Criando uma predefinição personalizada
 No exemplo mostrado no diagrama:
@@ -145,7 +145,6 @@ Veja os roteiros de aprendizagem dos Serviços de Mídia do Azure para ajudá-lo
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

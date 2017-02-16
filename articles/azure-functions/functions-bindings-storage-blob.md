@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 01/11/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 880ea646b1e976975f610ce81d0b372e81d2e34a
+ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
+ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
 
 
 ---
@@ -37,7 +37,7 @@ Este artigo explica como configurar e codificar associações de blob do Armazen
 <a name="trigger"></a>
 
 ## <a name="storage-blob-trigger"></a>Gatilho de blob de armazenamento
-O gatilho de blob do Azure Storage permite monitorar um contêiner de armazenamento de blobs novos e atualizados e reagir a eles. 
+O gatilho de blob do Armazenamento do Azure permite monitorar um contêiner de armazenamento para blobs novos e atualizados, bem como executar seu código de função quando alterações são detectadas. 
 
 O gatilho de blob do Armazenamento de uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
 
@@ -54,7 +54,7 @@ O gatilho de blob do Armazenamento de uma função usa os seguintes objetos JSON
 Observe o seguinte:
 
 * Para `path`, consulte [Padrões de nome](#pattern) para descobrir como formatar os padrões de nome de blob.
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
 
 Além disso, consulte um destes subtítulos a seguir para obter mais informações:
 
@@ -328,16 +328,16 @@ A saída de blob de Armazenamento de uma função usa os seguintes objetos JSON 
 {
   "name": "<Name of output parameter in function signature>",
   "type": "blob",
-  "direction": "out"
+  "direction": "out",
   "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
+  "connection": "<Name of app setting - see below>"
 }
 ```
 
 Observe o seguinte:
 
 * `path` deve conter o nome do contêiner e o nome do blob de gravação. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, você pode usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um blob no `samples-workitems` contêiner com um nome que corresponda ao nome de blob especificado na mensagem de gatilho.   
-* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+* `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually]() (definir essa configuração de aplicativo manualmente). 
 
 <a name="outputusage"></a>
 
@@ -358,6 +358,8 @@ Em funções do C#, também é possível executar a saída para qualquer um dos 
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (para gerar vários blobs)
+* `IAsyncCollector<T>` (versão assíncrona de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -370,6 +372,6 @@ Consulte [amostra de entrada](#inputsample).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

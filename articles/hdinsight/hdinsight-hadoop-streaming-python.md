@@ -16,18 +16,13 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 0223b2f8228560480077ae4d28819ac20bd88d79
 
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>Desenvolver programas de transmissão do Python para HDInsight
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapeamento e redução em outras linguagens além do Java. Neste artigo, você aprenderá como usar o Python para executar operações de MapReduce.
-
-> [!NOTE]
-> Embora o código Python neste documento possa ser usado com um cluster HDInsight baseado no Windows, as etapas neste documento são específicas de clusters baseados em Linux.
-> 
-> 
 
 Esse artigo se baseia em informações e exemplos publicados por Michael Noll em [Escrevendo um programa de MapReduce do Hadoop em Python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
@@ -35,6 +30,10 @@ Esse artigo se baseia em informações e exemplos publicados por Michael Noll em
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um Hadoop baseado em Linux no cluster HDInsight
+
+  > [!IMPORTANT]
+  > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Um editor de texto
   
   > [!IMPORTANT]
@@ -211,6 +210,6 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

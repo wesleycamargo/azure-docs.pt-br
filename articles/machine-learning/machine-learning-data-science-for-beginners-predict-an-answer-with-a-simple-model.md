@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 9db45dd89d59a1d8e33f0523eefc336eec35a444
 
 
 ---
@@ -27,7 +27,7 @@ Aprenda como criar um modelo simples de regressão para prever o preço de um di
 
 Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
 > 
 > 
 
@@ -136,6 +136,6 @@ Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendiz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

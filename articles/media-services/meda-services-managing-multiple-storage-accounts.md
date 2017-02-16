@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 5724a9c66bef01972f41e66a84844aae9b300296
 
 
 ---
@@ -37,10 +37,10 @@ Ao anexar diversas contas de armazenamento para sua conta de Serviços de Mídia
 
 Outras considerações:
 
-Os serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao construir URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, só pode haver um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+Os serviços de Mídia usam o valor da propriedade **IAssetFile.Name** ao construir URLs para o conteúdo de streaming (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade Name não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um ‘.’ Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 
 ## <a name="to-attach-a-storage-account-with-azure-service-management-rest-api"></a>Para anexar uma conta de armazenamento com a API REST do Gerenciamento de Serviços do Azure
-Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). O exemplo de código no tópico [Como: Usar a API REST de Gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento à conta dos Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails** , que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
+Atualmente, a única maneira de anexar diversas contas de armazenamento é usando [API REST do Gerenciamento de Serviços do Azure](https://docs.microsoft.com/rest/api/media/management/media-services-management-rest). O exemplo de código no tópico [Como: Usar a API REST de Gerenciamento dos Serviços de Mídia](https://msdn.microsoft.com/library/azure/dn167656.aspx) define o método **AttachStorageAccountToMediaServiceAccount** que anexa uma conta de armazenamento à conta dos Serviços de Mídia especificada. O código no mesmo tópico define o método **ListStorageAccountDetails** , que lista todas as contas de armazenamento anexadas à conta dos Serviços de Mídia especificada.
 
 ## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento
 O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar as seguintes tarefas:
@@ -257,6 +257,6 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

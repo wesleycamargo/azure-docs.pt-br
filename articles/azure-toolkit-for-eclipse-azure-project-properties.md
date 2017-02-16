@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f85c2079fb4d2ace43c2142e4c6c6926d4b56b26
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 480a0f1c15dda00d7335c8d0ff02143a4e37abaa
 
 
 ---
@@ -35,26 +35,26 @@ Na página de propriedades, você pode alterar os seguintes itens:
 * **Sistema operacional de destino:** o sistema operacional a ser usado quando seu projeto é implantado no Azure.
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para o Eclipse][Instalação do Kit de Ferramentas do Azure para o Eclipse] 
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Criando um aplicativo Hello World para Azure no Eclipse][Criando um aplicativo Hello World para Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Propriedades da função do Azure][Propriedades da função do Azure]
+[Propriedades da função do Azure][Azure Role Properties]
 
-[Lista de contas de Armazenamento do Azure][Lista de contas do Armazenamento do Azure]
+[Lista de contas de armazenamento do Azure][Azure Storage Account List]
 
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Propriedades da função do Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Lista de contas do Armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Criando um aplicativo Hello World para Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -64,6 +64,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

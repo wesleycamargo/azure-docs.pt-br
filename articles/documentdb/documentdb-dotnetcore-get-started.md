@@ -1,12 +1,11 @@
 ---
 title: 'Tutorial do NoSQL: SDK do .NET Core do DocumentDB | Microsoft Docs'
 description: "Um tutorial do NoSQL que cria um banco de dados online e um aplicativo de console C# usando o SDK do .NET Core do DocumentDB. O Banco de Dados de Documentos é um banco de dados NoSQL para JSON."
-keywords: tutorial do nosql, banco de dados online, aplicativo de console c#
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
@@ -16,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
+ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
 
 
 ---
@@ -48,6 +47,9 @@ Abordaremos:
 Você não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Vá para a [seção Obter a solução completa](#GetSolution) a fim de ver as instruções rápidas.
 
 Em seguida, use os botões de votação na parte superior ou inferior desta página para nos enviar comentários. Se quiser que entremos em contato com você diretamente, inclua seu endereço de email em seu comentário.
+
+> [!NOTE]
+> O SDK do .NET Core do DocumentDB usado neste tutorial ainda não é compatível com aplicativos da Plataforma Universal do Windows (UWP). Para obter uma versão de visualização do SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
 Agora vamos começar!
 
@@ -556,11 +558,10 @@ Para restaurar as referências do DocumentDB do SDK do .NET Core no Visual Studi
 * Saiba mais sobre o modelo de programação na seção Desenvolvimento da [Página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

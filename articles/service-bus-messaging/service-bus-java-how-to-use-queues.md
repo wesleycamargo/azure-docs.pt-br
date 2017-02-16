@@ -1,5 +1,5 @@
 ---
-title: "Como usar as filas do Barramento de Serviço (Java) | Microsoft Docs"
+title: "Como usar as filas do Barramento de Serviço do Azure com Java | Microsoft Docs"
 description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java."
 services: service-bus-messaging
 documentationcenter: java
@@ -11,48 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29cab1dff7ffc0f42ee8c605e3817b855967eb53
+ms.sourcegitcommit: 43197f7402795c37fa7ed43658bc3b8858a41080
+ms.openlocfilehash: 8568978a558b09220eff14a13ccefb3e60c18e87
 
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são escritas em Java e usam o [SDK do Azure para Java][SDK do Azure para Java]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
+Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são gravadas em Java e usam o [SDK do Azure para Java][Azure SDK for Java]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
 
-## <a name="what-are-service-bus-queues"></a>O que são as filas do Barramento de Serviço?
-Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado** . Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento.
-De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
-
-![Conceitos de fila](./media/service-bus-java-how-to-use-queues/sb-queues-08.png)
-
-Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para uma grande variedade de cenários:
-
-* Comunicação entre as funções Web e de trabalho em um aplicativo multicamada do Azure.
-* Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma solução híbrida.
-* Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
-
-O uso de filas permite que você escale horizontalmente seus aplicativos com mais facilidade e proporciona mais resiliência em sua arquitetura.
-
-## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
-Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
-
-Para criar um namespace:
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][SDK do Azure para Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se estiver usando o Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Adicione as seguintes instruções `import` à parte superior do arquivo Java:
 
-```
+```java
 // Include the following imports to use Service Bus APIs
 import com.microsoft.windowsazure.services.servicebus.*;
 import com.microsoft.windowsazure.services.servicebus.models.*;
@@ -65,7 +48,7 @@ Operações de gerenciamento para as filas do Barramento de Serviço podem ser r
 
 A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir filas. O exemplo abaixo mostra como um objeto **ServiceBusService** pode ser usado para criar uma fila chamada "TestQueue" com um namespace chamado "HowToSample":
 
-```
+```java
 Configuration config =
     ServiceBusConfiguration.configureWithSASAuthentication(
             "HowToSample",
@@ -90,7 +73,7 @@ catch (ServiceException e)
 
 Existem métodos em **QueueInfo** que permitem que as propriedades da fila sejam ajustadas (por exemplo, para definir o valor da "vida útil" (TTL) padrão a ser aplicado às mensagens enviadas para a fila). O exemplo a seguir mostra como criar uma fila denominada `TestQueue` com um tamanho máximo de 5 GB:
 
-````
+````java
 long maxSizeInMegabytes = 5120;
 QueueInfo queueInfo = new QueueInfo("TestQueue");
 queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
@@ -102,7 +85,7 @@ Observe que você pode usar o método **listQueues** em objetos **ServiceBusCont
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
 Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto **ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem à fila `TestQueue` que criamos acima no namespace `HowToSample`:
 
-```
+```java
 try
 {
     BrokeredMessage message = new BrokeredMessage("MyMessage");
@@ -116,11 +99,11 @@ catch (ServiceException e)
 }
 ```
 
-As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades padrão (como [Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage] e o serializador adequado será, então, usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto `TestQueue`**MessageSender** obtido no trecho de código anterior:
 
-```
+```java
 for (int i=0; i<5; i++)
 {
      // Create message, passing a string message for the body.
@@ -144,7 +127,7 @@ No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de d
 
 O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** (não o modo padrão). O exemplo abaixo executa um loop infinito e processa mensagens assim que elas chegam em nossa "TestQueue":
 
-```
+```java
 try
 {
     ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
@@ -205,18 +188,17 @@ Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o a
 Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter mais informações.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Queues, topics, and subscriptions] para saber mais.
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
-[SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
-[Kit de ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
-[Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
-[BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

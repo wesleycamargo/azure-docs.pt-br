@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar os Active Directory Domain Services para adicionar máquinas virtuais do Azure a um domínio sem usar controladores de domínio e gerenciá-los com as políticas de grupo."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentação do Active Directory Domain Services
 
-O Azure AD DS (Domain Services) fornece serviços de domínio gerenciado, como ingresso no domínio, política de grupo, LDAP, autenticação Kerberos/NTLM e outros, que são totalmente compatíveis com o Active Directory do Windows Server.  Este serviço habilita os usuários a implantarem uma ampla gama de soluções de computação de maneira ágil.
+Saiba como usar os Active Directory Domain Services para adicionar máquinas virtuais do Azure a um domínio sem usar controladores de domínio. Tutoriais e outras documentações mostram como gerenciar máquinas virtuais usando políticas de grupo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Baixar a Documentação do Active Directory Domain Services </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

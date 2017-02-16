@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: c4c8242a5bd85159c139b1ee0fd2e51b984cf98c
-ms.openlocfilehash: baf4ea9e53a45fbbe486d2597987ffcf9493612a
+ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
+ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
 
 
 ---
@@ -24,16 +24,25 @@ ms.openlocfilehash: baf4ea9e53a45fbbe486d2597987ffcf9493612a
 *Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
 
 
+Este tópico fornece respostas para as perguntas mais comuns em conjunto com a retenção de dados para os relatórios de atividade diferente no Azure Active Directory. 
 
-Este artigo fornece uma visão geral de retenção de dados para diferentes relatórios de Atividade presentes no Azure Active Directory. 
+Como você pode iniciar a coleta de dados de atividade?
 
-Para relatórios de Atividade, para os clientes Premium e Premium 2, começamos coletar os dados de atividade assim que você se inscreve em uma licença Premium. Para clientes gratuitos, podemos começar a coletar os dados de atividades assim que você fizer logon no portal ou usar nossas APIs de relatórios pela primeira vez. 
+| Edição do Azure AD | Início da Coleta |
+| :--              | :--   |
+|Premium e Premium 2 | Quando você se inscreve em uma licença |
+| Grátis | Na primeira vez que você abrir a [folha do Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou usar as [APIs de relatório](https://aka.ms/aadreports)  |
 
-Se você já estiver vendo relatórios no Portal Clássico do Azure, você verá os dados imediatamente no Portal do Azure (novo). Se você ainda não ativou os relatórios no portal antigo fazendo logon no Azure Active Directory no Portal do Azure e deseja ver esses relatórios de atividade, pode levar até duas horas para que você possa ver os dados. Vamos começar a coletar os dados assim que você fizer logon na folha do Azure Active Directory.
 
-Para sinais de Segurança, podemos começar a coletar os dados assim que você optar por usar o Centro de Proteção de Identidade. 
+Quando os dados de atividade estarão disponíveis no portal do Azure?
 
+- **Imediatamente** - se você já estiver trabalhando com relatórios no portal clássico do Azure
+- **Em até 2 horas** - se você ainda não tiver ativado os relatórios no portal clássico do Azure
 
+Como você pode iniciar a coleta de sinais de segurança?  
+Para sinais de segurança, o processo de coleta é iniciado quando você aceita usar o Centro de Proteção de Identidade. 
+
+Por quanto tempo os dados coletados são armazenados?
 
 **Relatórios de atividades**    
 
@@ -52,6 +61,6 @@ Para sinais de Segurança, podemos começar a coletar os dados assim que você o
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO5-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: c3a92451195bb3eab79fd1153678527913ffdefd
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 93be5aa26cc66d7cfc89b88f9273cb40acaa1b17
 
 
 ---
@@ -35,7 +35,7 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
-* Verifique se há um Ponto de Extremidade de Transmissão em execução com pelo menos uma unidade de transmissão alocada. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
+* Verifique se há um Ponto de Extremidade de Streaming em execução. Para obter mais informações, veja [Gerenciar Pontos de Extremidade de Transmissão em uma conta de Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md)
 * Instale a versão mais recente da ferramenta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie a ferramenta e conecte-se à sua conta do AMS.
 
@@ -45,16 +45,17 @@ Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a f
 * Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 
 ## <a name="create-a-channel"></a>Criar um canal
-1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...**  no menu.
+1. Na ferramenta AMSE, navegue até a guia **Ao Vivo** e clique com o botão direito do mouse na área de canais. Selecione **Criar canal...** no menu.
 
-![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-1. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
+2. Especifique um nome de canal; o campo de descrição é opcional. Nas Configurações do Canal, selecione **Standard** para a opção Codificação Ativa, com o Protocolo de Entrada definido para **RTMP**. Você pode deixar todas as outras configurações como estão.
 
-Verifique se a opção **Iniciar o novo canal agora** está marcada.
+    Verifique se a opção **Iniciar o novo canal agora** está marcada.
 
-1. Clique em **Criar Canal**.
-   ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. Clique em **Criar Canal**.
+
+   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 > [!NOTE]
 > O canal pode levar até 20 minutos para ser iniciado.
@@ -108,7 +109,8 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
    * Perfil: Principal
    * Quadro chave: a cada 60 quadros
 
-     **Áudio**
+    **Áudio**
+
    * Taxa de bits de destino: 192 kbits/s
    * Taxa de amostragem: 44,100 kHz
 
@@ -141,9 +143,10 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 >
 
 ## <a name="test-playback"></a>Reprodução de teste
-1. Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
 
-    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
+
+    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
@@ -157,7 +160,9 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
 3. Marque a caixa **Iniciar o Programa agora** .
 4. Clique em **Criar Programa**.  
 
-    Observação: a criação do programa leva menos tempo do que a criação do canal.    
+   >[!NOTE]
+   >A criação do programa leva menos tempo do que a criação do canal.
+       
 5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Azure Media Player**.  
 6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
@@ -174,6 +179,6 @@ Veja o tópico [solução de problemas](media-services-troubleshooting-live-stre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

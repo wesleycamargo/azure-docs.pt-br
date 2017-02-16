@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 01/19/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d83a1f9755d22512834d23b8fd12f740c4198a85
+ms.sourcegitcommit: f3be777497d842f019c1904ec1990bd1f1213ba2
+ms.openlocfilehash: 166ff7f3586932494984e87fc0df7d3d3d914c82
 
 
 ---
@@ -28,16 +28,24 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 * **Um Hadoop baseado em Windows ou Linux em clusters do HDInsight**. Consulte [Provisionamento do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Provisionamento do Hadoop baseado em Windows no HDInsight](hdinsight-provision-clusters.md) para obter mais informações.
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **[Maven](http://maven.apache.org/)**
+
 * **[Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior**
 
 ## <a name="create-and-build-the-project"></a>Criar e compilar o projeto
+
 1. Use o comando a seguir para criar um novo projeto Maven:
    
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
    
     Esse comando criará um novo diretório chamado **scaldingwordcount**e criará o scaffolding para um aplicativo Scala.
+
 2. No diretório **scaldingwordcount**, abra o arquivo **pom.xml** e substitua o conteúdo pelo seguinte:
    
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -134,15 +142,22 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    
     Este arquivo descreve o projeto, as dependências e os plug-ins. Aqui estão as entradas importantes:
    
-   * **maven.compiler.source** e **maven.compiler.target**: define a versão Java para este projeto
-   * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto
-   * **scalding-core_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
-   * **maven-scala-plugin**: plug-in para compilar aplicativos Scala
+   * **maven.compiler.source** e **maven.compiler.target**: define a versão Java para este projeto.
+
+   * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto.
+
+   * **scalding-core_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop.
+
+   * **maven-scala-plugin**: plug-in para compilar aplicativos Scala.
+
    * **maven-shade-plugin**: plug-in para criar jars sombreadas (fat). Este plug-in aplica filtros e transformações; especificamente:
      
      * **filtros**: os filtros aplicados modificam as metainformações incluídas com o arquivo jar. Para evitar a assinatura de exceções em tempo de execução, isso exclui vários arquivos de assinatura que podem ser incluídos com dependências.
+
      * **execuções**: a configuração de execução da fase de pacote especifica a classe **com.twitter.scalding.Tool** como a classe principal para o pacote. Sem ela, você precisaria especificar com.twitter.scalding.Tool, além da classe que contém a lógica de aplicativo, ao executar o trabalho com o comando hadoop.
+    
 3. Exclua o diretório **src/teste** , pois você não criará testes com este exemplo.
+
 4. Abra o arquivo **src/main/scala/com/microsoft/example/App.scala** e substitua o conteúdo pelo seguinte:
    
         package com.microsoft.example
@@ -166,7 +181,9 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
         }
    
     Isso implementa um trabalho básico de contagem de palavras.
+
 5. Salve e feche os arquivos.
+
 6. Use o seguinte comando a partir do diretório **scaldingwordcount** para compilar e empacotar o aplicativo:
    
         mvn package
@@ -174,10 +191,10 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
     Quando esse trabalho for concluído, o pacote que contém o aplicativo WordCount poderá ser encontrado em **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
 ## <a name="run-the-job-on-a-linux-based-cluster"></a>Executar o trabalho em um cluster baseado em Linux
+
 > [!NOTE]
 > As etapas a seguir usam o SSH e o comando Hadoop. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
-> 
-> 
+
 
 1. Use o comando a seguir para carregar o pacote para seu cluster HDInsight:
    
@@ -195,8 +212,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    
    > [!NOTE]
    > Se você usou uma senha para proteger sua conta SSH, você será solicitado pela senha. Se você usou uma chave SSH, talvez precise usar o parâmetro `-i` e o caminho para a chave privada. Por exemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
-   > 
-   > 
+
 3. Uma vez conectado ao nó principal, use o seguinte comando para executar o trabalho de contagem de palavras
    
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
@@ -223,6 +239,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
         wrought 7
 
 ## <a name="run-the-job-on-a-windows-based-cluster"></a>Executar o trabalho em um cluster baseado em Windows
+
 As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -234,81 +251,86 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
         Id                             Type       ...
         --                             ----
         someone@example.com            User       ...
+
 2. Se você tiver várias assinaturas, forneça a ID da assinatura que deseja usar para implantação.
    
         Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
    
    > [!NOTE]
    > Você pode usar `Get-AzureRMSubscription` para obter uma lista de todas as assinaturas associadas à sua conta, o que inclui a Id de assinatura de cada uma delas.
-   > 
-   > 
+
 3. Use o seguinte script para carregar e executar o trabalho WordCount. Substitua `CLUSTERNAME` pelo nome de seu cluster HDInsight e verifique se `$fileToUpload` é o caminho correto para o arquivo **scaldingwordcount-1.0-SNAPSHOT.jar**.
    
-        #Cluster name, file to be uploaded, and where to upload it
-        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
-        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
-        $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
-   
-        #Login to your Azure subscription
-        Login-AzureRmAccount
-        #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
-        #Get the cluster info so we can get the resource group, storage, etc.
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $resourceGroup = $clusterInfo.ResourceGroup
-        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-        $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=(Get-AzureRmStorageAccountKey `
-            -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup)[0].Value
-   
-        #Create a storage content and upload the file
-        $context = New-AzureStorageContext `
-            -StorageAccountName $storageAccountName `
-            -StorageAccountKey $storageAccountKey
-   
-        Set-AzureStorageBlobContent `
-            -File $fileToUpload `
-            -Blob $blobPath `
-            -Container $container `
-            -Context $context
-   
-        #Create a job definition and start the job
-        $jobDef=New-AzureRmHDInsightMapReduceJobDefinition `
-            -JobName ScaldingWordCount `
-            -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
-            -ClassName com.microsoft.example.WordCount `
-            -arguments "--hdfs", `
-                        "--input", `
-                        "wasbs:///example/data/gutenberg/davinci.txt", `
-                        "--output", `
-                        "wasbs:///example/wordcountout"
-        $job = Start-AzureRmHDInsightJob `
-            -clustername $clusterName `
-            -jobdefinition $jobDef `
-            -HttpCredential $creds
-        Write-Output "Job ID is: $job.JobId"
-        Wait-AzureRmHDInsightJob `
-            -ClusterName $clusterName `
-            -JobId $job.JobId `
-            -HttpCredential $creds
-        #Download the output of the job
-        Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-00000 `
-            -Container $container `
-            -Destination output.txt `
-            -Context $context
-        #Log any errors that occured
-        Get-AzureRmHDInsightJobOutput `
-            -Clustername $clusterName `
-            -JobId $job.JobId `
-            -DefaultContainer $container `
-            -DefaultStorageAccountName $storageAccountName `
-            -DefaultStorageAccountKey $storageAccountKey `
-            -HttpCredential $creds `
-            -DisplayOutputType StandardError
+   ```powershell
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
+
+    # Get cluster info
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    $creds=Get-Credential -Message "Enter the login for the cluster"
+    $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
+    $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
+
+    #Get the cluster info so we can get the resource group, storage, etc.
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $resourceGroup = $clusterInfo.ResourceGroup
+    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+    $container=$clusterInfo.DefaultStorageContainer
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
+        -Name $storageAccountName `
+        -ResourceGroupName $resourceGroup)[0].Value
+
+    #Create a storage content and upload the file
+    $context = New-AzureStorageContext `
+        -StorageAccountName $storageAccountName `
+        -StorageAccountKey $storageAccountKey
+
+    Set-AzureStorageBlobContent `
+        -File $fileToUpload `
+        -Blob $blobPath `
+        -Container $container `
+        -Context $context
+
+    #Create a job definition and start the job
+    $jobDef=New-AzureRmHDInsightMapReduceJobDefinition `
+        -JobName ScaldingWordCount `
+        -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
+        -ClassName com.microsoft.example.WordCount `
+        -arguments "--hdfs", `
+                    "--input", `
+                    "wasbs:///example/data/gutenberg/davinci.txt", `
+                    "--output", `
+                    "wasbs:///example/wordcountout"
+    $job = Start-AzureRmHDInsightJob `
+        -clustername $clusterName `
+        -jobdefinition $jobDef `
+        -HttpCredential $creds
+    Write-Output "Job ID is: $job.JobId"
+    Wait-AzureRmHDInsightJob `
+        -ClusterName $clusterName `
+        -JobId $job.JobId `
+        -HttpCredential $creds
+    #Download the output of the job
+    Get-AzureStorageBlobContent `
+        -Blob example/wordcountout/part-00000 `
+        -Container $container `
+        -Destination output.txt `
+        -Context $context
+    #Log any errors that occured
+    Get-AzureRmHDInsightJobOutput `
+        -Clustername $clusterName `
+        -JobId $job.JobId `
+        -HttpCredential $creds `
+        -DisplayOutputType StandardError
+   ```
    
      Quando você executa o script, recebe uma solicitação para inserir o nome de usuário e a senha de administrador para seu cluster HDInsight. Os erros que ocorrem durante a execução do trabalho serão registrados no console.
+
 4. Após a conclusão do trabalho, o resultado será baixado no arquivo **output.txt** no diretório atual. Execute o comando a seguir para exibir os resultados:
    
         cat output.txt
@@ -339,6 +361,6 @@ Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9f062f1cc855a47bb75668e99330e98bb2395b2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b7a74df9bfcf75b00af5aaf21e9f74610712ab47
 
 
 ---
@@ -32,7 +32,7 @@ O aplicativo será semelhante ao seguinte:
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 * Uma distribuição de um servidor Web baseado em Java ou servidor de aplicativo, como o Apache Tomcat, o GlassFish, o JBoss Application Server, o Jetty ou o IBM® WebSphere® Application Server Liberty Core
 * Uma assinatura do Azure, que pode ser adquirida em <http://azure.microsoft.com/pricing/purchase-options/>.
-* O Kit de Ferramentas do Azure para Eclipse. Para saber mais, veja [Instalação do Kit de Ferramentas do Azure para Eclipse][Instalação do Kit de Ferramentas do Azure para Eclipse].
+* O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Para criar um aplicativo Hello World
 Primeiro, vamos começar com a criação de um projeto Java.
@@ -74,13 +74,13 @@ Assim que você tiver um aplicativo Web Java pronto para testar, poderá usar o 
    5. Para **SO de Destino**, selecione a versão do sistema operacional que você deseja usar para sua implantação.
    6. Em **Ambiente de destino**, para o objetivo deste tutorial, selecione **Preparo**. (Quando você estiver pronto para implantar em seu site de produção, convém alterar isso para **Produção**.)
    7. Opcional: verifique se **Substituir implantação anterior** está marcado se você quiser que a nova implantação substitua automaticamente a implantação anterior. Quando você habilitar essa opção, não enfrentará os problemas "409 - Conflito" ao publicar no mesmo local.
-       Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitação do Acesso Remoto para Implantações do Azure no Eclipse][Habilitação do Acesso Remoto para Implantações do Azure no Eclipse].
+       Observe que a caixa de diálogo **Publicar no Azure** contém uma seção para **Acesso Remoto**. Por padrão, o Acesso Remoto não está habilitado, e não habilitaremos ele para este exemplo. Para habilitar o Acesso Remoto, seria necessário digitar um nome de usuário e senha para utilização ao fazer logon remotamente. Para saber mais sobre o Acesso Remoto, confira [Habilitar o Acesso Remoto para Implantações do Azure no Eclipse][Enabling Remote Access for Azure Deployments in Eclipse].
        A caixa de diálogo **Publicar no Azure** será semelhante à seguinte:  ![][ic719488]
 5. Clique em **Publicar** para publicar no Ambiente de preparo.
     Quando receber uma solicitação para executar uma compilação completa, clique em **Sim**. Isso pode levar alguns minutos na primeira compilação.
     Um **Log de Atividades do Azure** será exibido na seção de modos de exibição com guias do Eclipse.
     ![][ic719489]
-    Você pode usar esse log, bem como o modo de exibição de **Console**, para ver o andamento da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] e usar a seção **Serviços de Nuvem** para monitorar o status.
+    Você pode usar esse log, bem como o modo de exibição de **Console**, para ver o andamento da implantação. Uma alternativa é fazer logon no [Portal de Gerenciamento do Azure][Azure Management Portal] e usar a seção **Serviços de Nuvem** para monitorar o status.
 6. Quando sua implantação tiver êxito, o **Log de Atividades do Azure** mostrará o status **Publicada**. Clique em **Publicada**, conforme mostra a imagem a seguir, e o navegador abrirá uma instância de sua implantação.
     ![][ic719490]
 
@@ -115,7 +115,7 @@ Para alterar o JDK, ou o servidor de aplicativos, ou a lista de aplicativos em u
 3. Expanda o submenu **Azure** no menu de contexto
 4. Clique em **Configuração do Servidor**
 
-Independentemente de você ter iniciado essas etapas de configuração do servidor editando um projeto de implantação existente do Azure, conforme exibido acima, ou criando um novo a partir do zero, você verá o mesmo tipo de caixa de diálogo permitindo a configuração do JDK, dos componentes de servidor e do aplicativo. Para saber mais sobre como alterar as configurações nessas caixas de diálogo, por exemplo, alterar o JDK, o servidor de aplicativos e adicionar ou remover aplicativos em uma implantação, confira o artigo [Propriedades de configuração do servidor][Propriedades de configuração do servidor].
+Independentemente de você ter iniciado essas etapas de configuração do servidor editando um projeto de implantação existente do Azure, conforme exibido acima, ou criando um novo a partir do zero, você verá o mesmo tipo de caixa de diálogo permitindo a configuração do JDK, dos componentes de servidor e do aplicativo. Para saber mais sobre como alterar as configurações nessas caixas de diálogo, por exemplo, alterar o JDK, o servidor de aplicativos e adicionar ou remover aplicativos em uma implantação, confira o artigo [Propriedades de configuração do servidor][Server configuration properties].
 
 ## <a name="windows-only-to-deploy-your-application-to-the-compute-emulator"></a>Somente Windows: para implantar seu aplicativo no emulador de computação
 > [!NOTE]
@@ -155,24 +155,24 @@ Selecione a assinatura e o serviço de nuvem que contém sua implantação, esco
 (Uma alternativa ao uso do kit de ferramentas para excluir a implantação é usar a seção **Serviços de Nuvem** do Portal de Gerenciamento do Azure: navegue até sua implantação, selecione-a e, em seguida, clique no botão **Excluir**. Isso interromperá e, em seguida, excluirá a implantação. Se você quiser apenas interromper a implantação e não excluí-la, clique no botão **Parar** em vez do botão **Excluir**, mas, como foi mencionado acima, se você não excluir a implantação, os encargos continuarão acumulando para sua implantação, mesmo que ela seja interrompida).
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][Instalação do Kit de Ferramentas do Azure para Eclipse] 
+[Instalação do Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Novidades no Kit de Ferramentas do Azure para o Eclipse][Novidades no Kit de Ferramentas do Azure para o Eclipse]
+[Novidades no Kit de Ferramentas do Azure para Eclipse][What's New in the Azure Toolkit for Eclipse]
 
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Propriedades da função do Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Habilitação do Acesso Remoto para Implantações do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Propriedades de configuração do servidor]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Enabling Remote Access for Azure Deployments in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699538
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Server configuration properties]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -197,6 +197,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

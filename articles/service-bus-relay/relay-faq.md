@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre retransmissão | Microsoft Docs"
+title: Perguntas frequentes (FAQ) sobre o Azure Relay | Microsoft Docs
 description: "Responde a algumas perguntas frequentes sobre Retransmissão do Azure."
 services: service-bus-relay
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: jotaub,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 849d7995e9c74bc929c4f791ae9155ca18ddb77b
-ms.openlocfilehash: 12702f585605a88ed6e753a0ff301095e8629e05
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
 
 
 ---
@@ -37,7 +37,7 @@ O serviço denominado anteriormente como **Retransmissão** agora se chama *Retr
 Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como são cobradas as Conexões Híbridas e a Retransmissão do WCF?
-Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Visão geral sobre preços]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
+Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Como sou cobrado por Conexões Híbridas?
 Aqui estão três cenários de exemplo:
@@ -90,14 +90,17 @@ Você pode usar comandos do PowerShell (encontrados no artigo [aqui](../service-
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs de Retransmissão do Azure e suas ações sugeridas?
-O artigo [Exceções de retransmissão][Exceções de retransmissão] descreve algumas exceções às ações sugeridas.
+O artigo [Exceções de retransmissão][Relay exceptions] descreve algumas exceções às ações sugeridas.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma Assinatura de Acesso Compartilhado e quais idiomas oferecem suporte para a geração de uma assinatura?
-As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para saber mais sobre como gerar suas próprias assinaturas no Node, PHP, Java e C\#, confira o artigo [Assinaturas de Acesso Compartilhado][Assinaturas de Acesso Compartilhado].
+As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para saber mais sobre como gerar suas próprias assinaturas no Node, PHP, Java e C\#, veja o artigo [Assinaturas de Acesso Compartilhado][Shared Access Signatures].
 
-[Visão geral sobre preços]: https://azure.microsoft.com/pricing/details/service-bus/
-[Exceções de retransmissão]: relay-exceptions.md
-[Assinaturas de Acesso Compartilhado]: ../service-bus-messaging/service-bus-sas-overview.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas-overview.md
+
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível fazer uma lista de pontos de extremidade de Retransmissão?
+Sim. O cliente de Retransmissão faz conexões com o serviço de Retransmissão usando nomes de domínio totalmente qualificado. Isso permite aos clientes adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que oferecem suporte à lista de permissões de DNS.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar um namespace](relay-create-namespace-portal.md)
@@ -106,6 +109,6 @@ As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/17/2016
+ms.date: 01/04/2017
 ms.author: alanwar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7064de917505223eadc07cde67c373de1cac36ef
+ms.sourcegitcommit: 3ed67788fbbe0c4fb820cfd1525d8c9ee5154446
+ms.openlocfilehash: 5da5707900b35be69018ba4e9c8efb05d8a74a9d
 
 
 ---
@@ -46,9 +46,11 @@ StatefulRunAsyncFailure é emitido sempre que a tarefa RunAsync() do serviço la
 
 StatefulRunAsyncSlowCancellation é emitido sempre que uma solicitação de cancelamento da tarefa RunAsync leva mais de quatro segundos. Quando um serviço leva muito tempo para concluir o cancelamento, ele afeta a capacidade de o serviço ser reiniciado rapidamente em outro nó. Isso pode afetar a disponibilidade geral do serviço.
 
+## <a name="next-steps"></a>Próximas etapas
+* [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Uma página de dicas úteis de algoritmo de Aprendizado de Máquin
 keywords: "folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina"
 services: machine-learning
 documentationcenter: 
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 412c9ceb2e063a253f3e9d03dcf2735a7f373e15
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b7cbaec88b79cbc6f43fd32b85d104eada403da
 
 
 ---
@@ -42,8 +42,8 @@ Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em
 
 ## <a name="more-help-with-algorithms"></a>Obter ajuda com algoritmos
 * Para obter uma discussão mais detalhada sobre os diferentes tipos de algoritmos de aprendizado de máquina, como eles são usados e como usar esta página de dicas úteis para escolher o algoritmo correto, confira [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
-* Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar modelo][initialize-model] na Ajuda de módulo e no algoritmo do Machine Learning Studio.
-* Para obter uma lista completa de algoritmos e módulos no Machine Learning Studio, consulte a [Lista de A-Z de módulos do Machine Learning Studio][a-z-list] na Ajuda de módulo e no algoritmo do Machine Learning Studio.
+* Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar Modelo][initialize-model] na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
+* Para obter uma lista completa de algoritmos e módulos no Machine Learning Studio, confira [Lista de A-Z de módulos do Machine Learning Studio][a-z-list] na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
 * Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -90,6 +90,6 @@ Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

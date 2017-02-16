@@ -1,5 +1,5 @@
 ---
-title: Carga de trabalho do data warehouse
+title: "Saiba mais sobre as operações do Azure SQL Data Warehouse | Microsoft Docs"
 description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess;mausher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43ee395fab826549ddd9ede3c3aa45aa8e97c7dd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
 
 
 ---
@@ -65,13 +65,13 @@ Uma maneira de disponibilizar dados para relatórios e análise é enviar os dad
 * Para análise, você pode criar um cubo de análise no data warehouse e realizar a análise no data warehouse ou pré-processar os dados e exportá-los para o servidor de análise para análise futura.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][criar um SQL Data Warehouse] e [carregar dados de amostra][carregar dados de amostra] rapidamente.
+Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de amostra][load sample data] rapidamente.
 
 <!--Image references-->
 
 <!--Article references-->
-[carregar dados de amostra]: ./sql-data-warehouse-load-sample-databases.md
-[criar um SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -79,6 +79,6 @@ Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um S
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

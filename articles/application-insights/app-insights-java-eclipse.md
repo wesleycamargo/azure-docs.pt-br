@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Application Insights com Java no Eclipse"
+title: "Introdução ao Azure Application Insights com Java no Eclipse | Microsoft Docs"
 description: Use o plug-in Eclipse para adicionar o monitoramento de desempenho e uso a seu site Java com o Application Insights
 services: application-insights
 documentationcenter: java
@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: cfdb24ea2d461d85cfdf508a9bfabe288ef86e3c
 
 
 ---
@@ -23,12 +23,12 @@ ms.openlocfilehash: 1f7f06647cc437ccbf70a8871e96ddbe98f83247
 O SDK do Application Insights envia telemetria por meio do seu aplicativo Web Java para que você possa analisar o uso e o desempenho. O plug-in Eclipse para o Application Insights instala automaticamente o SDK em seu projeto para que você obtenha telemetria já pronta, além de uma API que você pode usar para escrever telemetria personalizada.   
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, o plug-in funciona para projetos Maven e projetos dinâmicos da Web no Eclipse. ([Adicione o Application Insights para outros tipos de projeto Java][java].)
+Atualmente, o plug-in funciona para projetos Maven e projetos dinâmicos da Web no Eclipse. ([Adicione o Application Insights a outros tipos de projeto Java][java].)
 
 Você precisará de:
 
 * Oracle JRE 1.6 ou posterior
-* Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/). (Você pode começar com a [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).)
+* Uma assinatura do [Microsoft Azure](https://azure.microsoft.com/). 
 * [Um IDE do Eclipse para desenvolvedores do Java EE](http://www.eclipse.org/downloads/), Indigo ou posterior.
 * Windows 7 ou posterior, ou Windows Server 2008 ou posterior
 
@@ -204,18 +204,18 @@ Insira algumas linhas de código em seu aplicativo Web Java para descobrir o que
 
 Você pode inserir o código tanto no JavaScript da página da Web quanto no Java do lado do servidor.
 
-[Saiba mais sobre telemetria personalizada][acompanhar]
+[Saiba mais sobre a telemetria personalizada][track]
 
 ## <a name="next-steps"></a>Próximas etapas
 #### <a name="detect-and-diagnose-issues"></a>Detectar e diagnosticar problemas
 * [Adicione telemetria do cliente Web][usage] para obter a telemetria de desempenho do cliente Web.
 * [Configure os testes da Web][availability] para certificar-se de manter seu aplicativo operante e responsivo.
-* [Pesquise o diagnóstico de eventos][diagnostic] para ajudar a diagnosticar os problemas.
-* [Capturar rastreamentos do Log4J ou do Logback][javalogs]
+* [Pesquise eventos e logs][diagnostic] para ajudar a diagnosticar problemas.
+* [Capturar rastreamentos do Log4J ou Logback][javalogs]
 
 #### <a name="track-usage"></a>Acompanhar uso
-* [Adicione telemetria do cliente Web][usage] para monitorar as exibições de página e as métricas de usuário básico.
-* [Acompanhe métricas e eventos personalizados][acompanhar] para saber como o aplicativo é usado, tanto no cliente quanto no servidor.
+* [Adicione telemetria do cliente Web][usage] para monitorar modos de exibição de página e métricas de usuário básico.
+* [Acompanhe métricas e eventos personalizados][track] para saber mais sobre como o aplicativo é usado, tanto no cliente quanto no servidor.
 
 <!--Link references-->
 
@@ -224,12 +224,12 @@ Você pode inserir o código tanto no JavaScript da página da Web quanto no Jav
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[acompanhar]: app-insights-api-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/27/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
+ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 
 ---
@@ -100,6 +100,9 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 * MP3 (MPEG-1 Audio Layer 3)
 * Áudio do Windows Media
 
+>[!NOTE]
+>Se você codificar para Dolby® Digital (AC3), a saída só poderá ser gravada em um arquivo ISO MP4.
+
 ## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte a legenda codificada
 Na ingestão, o **fluxo de trabalho do Media Encoder Premium** dá suporte a:
 
@@ -131,6 +134,6 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

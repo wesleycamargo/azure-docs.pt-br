@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47d2b871ea8f169a04250c7d00c996bd27516600
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
 
 
 ---
@@ -26,8 +26,8 @@ Leia o processo completamente antes de começar e compreender onde e por que cad
 ## <a name="developing-building-blocks"></a>Desenvolvimento de blocos de construção
 Você deve decidir sobre os blocos de construção de sua solução antes de prosseguir com o modelo de solução no Portal de Publicação. Abaixo estão alguns links para os documentos que podem ajudá-lo no processo:
 
-1. [Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure](../best-practices-resource-manager-design-templates.md)
-2. [Criando modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
+1. [Práticas recomendadas para criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
+2. [Criando modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 3. Modelos de Início Rápido do Azure:
    * [https://azure.microsoft.com/pt-br/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
@@ -39,6 +39,6 @@ Agora que examinou os pré-requisitos e concluiu as tarefas necessárias, você 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

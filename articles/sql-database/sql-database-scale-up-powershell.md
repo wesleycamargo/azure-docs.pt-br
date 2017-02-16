@@ -1,6 +1,6 @@
 ---
-title: "Alterar a camada de serviço e o nível de desempenho de um Banco de Dados SQL do Azure usando PowerShell | Microsoft Docs"
-description: "Alterar a camada de serviço e o nível de desempenho de um banco de dados SQL do Azure mostra como escalar verticalmente seu banco de dados SQL com o PowerShell. Alterando o tipo de preço de um banco de dados SQL do Azure com o PowerShell."
+title: "PowerShell: alterar o tipo de preço do Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Saiba como usar o PowerShell para alterar a camada de serviço e o nível de desempenho de um banco de dados SQL do Azure, bem como para escalar verticalmente para cima e para baixo os recursos e o preço do banco de dados SQL."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,16 +16,15 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aea3bcbd6ac73a05b00b7b79b2dc47bf06d67f6f
+ms.sourcegitcommit: 5b1a96149924c6170ea4561b9639f6b85b15ddd3
+ms.openlocfilehash: c45d9200dd25d18d45602c377c682875d04c64cb
 
 
 ---
 # <a name="change-the-service-tier-and-performance-level-pricing-tier-of-a-sql-database-with-powershell"></a>Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-scale-up.md)
-> * [**PowerShell**](sql-database-scale-up-powershell.md)
-> 
+> * [**PowerShell**](sql-database-scale-up-powershell.md)> 
 > 
 
 As camadas de serviço e níveis de desempenho descrevem as características e recursos disponíveis para o banco de dados SQL e podem ser atualizados conforme as necessidades do seu aplicativo mudam. Para obter detalhes, consulte [Camadas de serviço](sql-database-service-tiers.md).
@@ -104,6 +103,6 @@ Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -Reso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

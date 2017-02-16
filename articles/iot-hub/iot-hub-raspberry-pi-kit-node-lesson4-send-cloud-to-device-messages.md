@@ -1,5 +1,7 @@
 ---
-title: Execute o aplicativo de exemplo para receber mensagens de nuvem para dispositivo | Microsoft Docs
+featureFlags:
+- usabilla
+title: "Conectar o Raspberry Pi (Nó) ao IoT do Azure - Lição 4: nuvem para o dispositivo | Microsoft Docs"
 description: "O aplicativo de exemplo é executado em seu Pi e monitora mensagens de entrada de seu Hub IoT. Uma nova tarefa gulp envia mensagens para seu Pi de seu Hub IoT para piscar o LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 4a42967ceddcd1ad8d6fdd861367a6060578353b
-ms.openlocfilehash: 06ade85c7f24ed4b55de3d57a86ad747f5ae9f2f
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 92ee9d6faae9f539c663395e47714609a146f2df
 
 
 ---
@@ -91,6 +93,6 @@ Você enviou com êxito mensagens do Hub IoT para o Pi para piscar o LED. A pró
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

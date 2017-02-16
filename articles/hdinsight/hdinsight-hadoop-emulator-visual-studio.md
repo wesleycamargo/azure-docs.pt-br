@@ -1,5 +1,5 @@
 ---
-title: Usar as ferramentas do Microsoft Azure Data Lake para Visual Studio com a Hortonworks Sandbox | Microsoft Docs
+title: Ferramentas do Azure Data Lake para Visual Studio com a Hortonworks Sandbox | Microsoft Docs
 description: "Saiba como usar as ferramentas do Azure Data Lake para Visual Studio com a Hortonworks Sandbox (em execução em uma VM local). Com essas ferramentas, você pode criar e executar trabalhos Hive e Pig na área restrita e exibir a saída e o histórico do trabalho."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/15/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 4b0572d8fb3b81fd4bd2a34794141f137b50eed0
-ms.openlocfilehash: 42f53e0c725ed7744c2e3d919c960c42e4cebc0c
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
 
 
 ---
@@ -43,6 +43,7 @@ Certifique-se de que a Hortonworks Sandbox está em execução e execute as etap
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conectar as ferramentas à área restrita
 
 1. Abra o Visual Studio e selecione **Exibir**, **Gerenciador de Servidores**.
+
 2. No **Gerenciador de Servidores**, clique com o botão direito do mouse na entrada **HDInsight** e selecione **Conectar ao Emulador do HDInsight**.
 
     ![Conectar ao Emulador do HDInsight](./media/hdinsight-hadoop-emulator-visual-studio/connect-emulator.png)
@@ -209,6 +210,6 @@ Em seguida, você pode criar a tabela usando um formulário. Você pode ver o Hi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

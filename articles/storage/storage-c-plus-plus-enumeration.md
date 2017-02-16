@@ -1,5 +1,5 @@
 ---
-title: Listar recursos de Armazenamento do Azure com a Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ | Microsoft Docs
+title: Listar recursos de Armazenamento do Azure com a Biblioteca de Cliente de Armazenamento para C++ | Microsoft Docs
 description: "Saiba como usar a APIs de listagem na Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++ para enumerar contêineres, blobs, filas, tabelas e entidades."
 documentationcenter: .net
 services: storage
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: dineshm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 085796493df86a2e86a88266d9b3aacf12cb6541
+ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
+ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
 
 
 ---
-# <a name="list-azure-storage-resources-in-c"></a>Listar recursos de armazenamento do Azure em C++
+# <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 As operações de listagem são fundamentais para muitos cenários de desenvolvimento com o Armazenamento do Azure. Este artigo descreve como enumerar os objetos no Armazenamento do Azure usando a listagem APIs fornecidas na Biblioteca de Cliente do Armazenamento do Microsoft Azure para C++ com mais eficiência.
 
 > [!NOTE]
@@ -206,6 +206,6 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

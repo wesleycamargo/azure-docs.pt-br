@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3cec0fd2547b68ff3795fd7a4c22fe927eb2a4f
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
 
 
 ---
@@ -109,42 +109,58 @@ Os exemplos a seguir usam a ferramenta Git Bash do [Git para Windows](http://www
 
 Abra sua ferramenta Git na pasta desejada e execute o comando a seguir para clonar o repositório git em seu computador local usando o comando fornecido pelo portal do editor.
 
-    git clone https://bugbashdev4.scm.azure-api.net/ 
+```
+git clone https://bugbashdev4.scm.azure-api.net/
+```
 
 Quando solicitado, forneça o nome de usuário e a senha.
 
 Se ocorrer algum erro, tente modificar seu comando `git clone` para incluir o nome de usuário e a senha, conforme exibido no exemplo a seguir.
 
-    git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:password@bugbashdev4.scm.azure-api.net/
+```
 
 Se isso resultar em erro, tente codificar na URL a parte da senha do comando. Uma maneira rápida de fazer isso é abrir o Visual Studio e emitir o seguinte comando na **Janela Imediata**. Para abrir a **Janela Imediata**, abra qualquer solução ou projeto no Visual Studio (ou crie um novo aplicativo de console vazio) e escolha **Janelas**, **Imediata** no menu **Depuração**.
 
-    ?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
+?System.NetWebUtility.UrlEncode("password from publisher portal")
+```
 
 Use a senha codificada juntamente com seu nome de usuário e o local do repositório para construir o comando do git.
 
-    git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
+git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+```
 
 Assim que o repositório for clonado, você poderá exibi-lo e trabalhar com ele no sistema de arquivos local. Para obter mais informações, veja [Referência da estrutura de pastas e arquivos do repositório Git local](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para atualizar seu repositório local com a configuração mais recente da instância do serviço
 Se você fizer alterações na instância de seu serviço de Gerenciamento de API no portal do editor, ou usando a API REST, será necessário salvar essas alterações no repositório antes de poder atualizar seu repositório local com as alterações mais recentes. Para fazer isso, clique em **Salvar configuração no repositório** na guia **Repositório de configuração** no portal do editor e emita o seguinte comando em seu repositório local.
 
-    git pull
+```
+git pull
+```
 
 Antes de executar o `git pull` , certifique-se de que você esteja na pasta de seu repositório local. Se você acabou de concluir o comando `git clone` , será necessário alterar o diretório de seu repositório executando um comando parecido com o seguinte.
 
-    cd bugbashdev4.scm.azure-api.net/
+```
+cd bugbashdev4.scm.azure-api.net/
+```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Para enviar por push as alterações de seu repositório local para o repositório do servidor
 Para enviar por push as alterações de seu repositório local para o repositório do servidor, você deve confirmar as alterações e, em seguida, enviá-las ao repositório do servidor. Para confirmar as alterações, abra sua ferramenta de comando do Git, alterne para o diretório de seu repositório local e execute os comandos a seguir.
 
-    git add --all
-    git commit -m "Description of your changes"
+```
+git add --all
+git commit -m "Description of your changes"
+```
 
 Para enviar por push todas as confirmações para o servidor, execute o comando a seguir.
 
-    git push
+```
+git push
+```
 
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implantar quaisquer alterações da configuração do serviço na instância do serviço de Gerenciamento de API
 Após a confirmação de suas alterações locais e o envio para o repositório do servidor, você pode implantá-las na instância de seu serviço de Gerenciamento de API.
@@ -190,19 +206,21 @@ Esses arquivos podem ser criados, excluídos, editados e gerenciados em seu sist
 ### <a name="root-api-management-folder"></a>Pasta api-management raiz
 A pasta `api-management` raiz contém um arquivo `configuration.json` com informações de alto nível sobre a instância do serviço no seguinte formato.
 
-    {
-      "settings": {
-        "RegistrationEnabled": "True",
-        "UserRegistrationTerms": null,
-        "UserRegistrationTermsEnabled": "False",
-        "UserRegistrationTermsConsentRequired": "False",
-        "DelegationEnabled": "False",
-        "DelegationUrl": "",
-        "DelegatedSubscriptionEnabled": "False",
-        "DelegationValidationKey": ""
-      },
-      "$ref-policy": "api-management/policies/global.xml"
-    }
+```json
+{
+  "settings": {
+    "RegistrationEnabled": "True",
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": "False",
+    "UserRegistrationTermsConsentRequired": "False",
+    "DelegationEnabled": "False",
+    "DelegationUrl": "",
+    "DelegatedSubscriptionEnabled": "False",
+    "DelegationValidationKey": ""
+  },
+  "$ref-policy": "api-management/policies/global.xml"
+}
+```
 
 As primeiras quatro configurações (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` e `UserRegistrationTermsConsentRequired`) são mapeadas para as seguintes configurações na guia **Identidades** da seção **Segurança**.
 
@@ -303,6 +321,6 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

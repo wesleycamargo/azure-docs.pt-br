@@ -8,7 +8,7 @@ manager: jhubbard
 author: tmullaney
 ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
-ms.custom: shared databases; app development; auth and access
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26a2056ee413ebbf081643d6e8ea455120799e58
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 19afc13a1715890316b34ed1128b594105c53c69
 
 
 ---
@@ -215,7 +215,7 @@ GO
 ```
 
 > [!TIP]
-> Para os projetos mais complexos que precisam adicionar o predicado a centenas de tabelas, você poderá usar um procedimento auxiliar armazenado que gera uma política de segurança automaticamente adicionando um predicado a todas as tabelas em um esquema. Consulte [Aplicar Segurança em Nível de Linha a todas as tabelas – script auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
+> Para os projetos mais complexos que precisam adicionar o predicado a centenas de tabelas, você poderá usar um procedimento auxiliar armazenado que gera uma política de segurança automaticamente adicionando um predicado a todas as tabelas em um esquema. Confira [Apply Row-Level Security to all tables - helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script) (Aplicar segurança no nível de linha a todas as tabelas – script auxiliar (blog)).  
 > 
 > 
 
@@ -304,7 +304,7 @@ GO
 Ferramentas de banco de dados elástico e segurança em nível de linha podem ser usadas em conjunto para expandir a camada de dados de um aplicativo com suporte para fragmentos multilocatários e de um locatário. Fragmentos multilocatários podem ser usados para armazenar dados com mais eficiência (principalmente em casos em que uma grande quantidade de locatários têm apenas algumas linhas de dados), enquanto fragmentos de um locatário podem ser usados para dar suporte a locatários premium com requisitos de desempenho e isolamento mais rígidos.  Para obter mais informações, confira [a referência à Segurança em Nível de Linha](https://msdn.microsoft.com/library/dn765131). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [O que é um Pool de Banco de Dados Elástico do Azure?](sql-database-elastic-pool.md)
+* [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Autenticação em aplicativos multilocatários usando o Azure AD e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
@@ -321,6 +321,6 @@ Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

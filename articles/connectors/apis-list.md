@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ Use os conectores corporativos para criar aplicativos lógicos para cenários B2
 
 | corporativo<br/>conectores |  |
 | --- | --- |
-|![Ícone de API][MQicon]<br/>**MQ**|![Ícone de API][SAPicon]<br/>**SAP**|
+|![Ícone de API][MQicon]<br/>**MQ**|![Ícone de API][SAPicon]<br/>**SAP**<br/>[sapconnector]|
 
 
 
@@ -151,6 +151,7 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 [youtubedoc]: ./connectors-create-api-youtube.md "Conecta-se ao YouTube e pode interagir com vídeos e canais."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Conecta-se ao SparkPost e pode ser usado para comunicação."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Usa o conector de sistema de arquivos para se comunicar com o sistema de arquivos local."
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "Saiba mais sobre o conector do SAP"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Os conectores também podem ser usados como ações em seus aplicativos. Ações
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

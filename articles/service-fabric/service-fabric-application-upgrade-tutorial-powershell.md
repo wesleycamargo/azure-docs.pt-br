@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/15/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 568d32f713fa4af1e0841fbf457014c5705be265
+ms.sourcegitcommit: 1825e1400b95eb2a810082b6a3f15324261084b0
+ms.openlocfilehash: 210f368598f0073f11c9d6f9be2fb2220eed29e0
 
 
 ---
@@ -33,7 +33,9 @@ O mais usado e o método de atualização recomendado é a atualização sem int
 
 Uma atualização do aplicativo monitorada pode ser executada usando APIs, PowerShell ou REST nativos ou gerenciados. Para obter instruções sobre como executar uma atualização usando o Visual Studio, confira [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Com as atualizações monitoradas sem interrupção do Service Fabric, o administrador de aplicativos pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falha (por exemplo, uma reversão automática). Esta seção fornece um passo a passo de uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell.
+Com as atualizações monitoradas sem interrupção do Service Fabric, o administrador de aplicativos pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falha (por exemplo, uma reversão automática). Esta seção fornece um passo a passo de uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell. O vídeo do Microsoft Virtual Academy a seguir também explica o processo de atualização de um aplicativo: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
+<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Etapa 1: criar e implantar o exemplo de Objetos Visuais
 Crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **Publicar**.  Para obter mais informações, confira o [Tutorial de atualização de aplicativos do Service Fabric](service-fabric-application-upgrade-tutorial.md).  Se preferir, você pode usar o PowerShell para implantar o seu aplicativo.
@@ -74,7 +76,7 @@ Agora, o arquivo *ApplicationManifest.xml* (localizado no projeto **VisualObject
 
 Agora, compile o projeto selecionando apenas o projeto **ActorService**, clicando com o botão direito do mouse e selecionando **Compilar** no Visual Studio. Se você selecionar **Recompilar todos**, deverá atualizar as versões de todos os projetos, pois o código pode ter sido alterado. Agora, vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em ***VisualObjectsApplication***, selecionando o menu do Service Fabric e escolhendo **Pacote**. Essa ação cria um pacote de aplicativos que pode ser implantado.  Seu aplicativo atualizado está pronto para ser implantado.
 
-## <a name="step-3-decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3: decida sobre diretivas de integridade e parâmetros de atualização
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3: decida sobre diretivas de integridade e parâmetros de atualização
 Familiarize-se com os [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e o [processo de atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, os tempos limite e o critério de integridade aplicados. Para este passo a passo, o critério de avaliação de integridade do serviço é definido como o padrão (e valores recomendados), o que significa que todos os serviços e as instâncias devem estar *íntegros* após a atualização.  
 
 Vamos, no entanto, aumentar *HealthCheckStableDuration* para 60 segundos (de modo que os serviços estejam íntegros pelo menos 20 segundos antes que a atualização prossiga para o próximo domínio de atualização).  Vamos definir também *UpgradeDomainTimeout* para 1.200 segundos e *UpgradeTimeout* para 3.000 segundos.
@@ -139,6 +141,6 @@ Corrija problemas comuns em atualizações de aplicativo consultando as etapas e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

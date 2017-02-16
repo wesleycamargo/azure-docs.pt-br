@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2956ce36ab851de6dd4a6c0725044cf832c213a0
-ms.openlocfilehash: 16a735bf5c0c85a41b960c20dc9ff8877f9a3855
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 321b1630680f8bd4271f863b2cbe39be1a00cb89
 
 
 ---
@@ -28,7 +28,7 @@ Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Criar uma entidade de serviço para acessar os recursos de um aplicativo
 Você precisa ter o [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) mais recente instalado e em execução. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
-O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../resource-group-authenticate-service-principal.md).
+O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -78,6 +78,6 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

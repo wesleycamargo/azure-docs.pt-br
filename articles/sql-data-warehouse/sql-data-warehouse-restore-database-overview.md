@@ -1,5 +1,5 @@
 ---
-title: "Restauração do SQL Data Warehouse | Microsoft Docs"
+title: "Restaurar um Azure data warehouse - local e com redundância geográfica | Microsoft Docs"
 description: "Visão geral das opções de restauração para recuperar um banco de dados no SQL Data Warehouse do Azure."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2147967edc1dadcc8bda5e5a33bbdedd62a22b4f
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 104986e88ededf2137725fe258b6ce51f608b37d
 
 
 ---
 # <a name="sql-data-warehouse-restore"></a>Restauração do SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
+> * [Visão geral][Overview]
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
@@ -59,7 +59,7 @@ Yes, for the next seven calendar days. When you delete a data warehouse, SQL Dat
 Caso você esteja usando o armazenamento com redundância geográfica, é possível restaurar o data warehouse para o seu [data center emparelhado](../best-practices-availability-paired-regions.md) em uma região geográfica diferente. O data warehouse é restaurado a partir do último backup diário. 
 
 ## <a name="restore-timeline"></a>Restaurar linha do tempo
-É possível restaurar um banco de dados para qualquer ponto de restauração disponível nos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível.
+É possível restaurar um banco de dados para qualquer ponto de restauração disponível nos últimos sete dias. Os instantâneos iniciam a cada&4;-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível.
 
 ## <a name="restore-costs"></a>Restaurar custos
 O custo de armazenamento para o data warehouse restaurado é cobrado na taxa de Armazenamento Premium do Azure. 
@@ -90,8 +90,8 @@ Para executar uma restauração de data warehouse, restaure usando:
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
-[Visão geral]: ./sql-data-warehouse-restore-database-overview.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
@@ -103,6 +103,6 @@ Para executar uma restauração de data warehouse, restaure usando:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

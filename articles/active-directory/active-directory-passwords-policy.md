@@ -1,6 +1,6 @@
 ---
 title: "Políticas e restrições de senha do Azure Active Directory | Microsoft Docs"
-description: "Descreve as políticas que se aplicam a senhas no Active Directory do Azure, incluindo caracteres permitidos, comprimento e expiração"
+description: "Descreve as políticas que se aplicam a senhas no Azure Active Directory, incluindo caracteres permitidos, comprimento e expiração"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0c80622734c1be69092386f6ed40d7f590a0f8d1
-ms.openlocfilehash: f207c8fde53f0c0f132066bcd319bd048b0da8fe
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
 
 
 ---
@@ -67,6 +67,6 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO5-->
 
 

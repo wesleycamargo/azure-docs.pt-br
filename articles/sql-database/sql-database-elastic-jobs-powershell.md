@@ -1,5 +1,5 @@
 ---
-title: "Criar e gerenciar trabalhos do Banco de Dados Elástico usando o PowerShell"
+title: "Criar e gerenciar trabalhos elásticos usando o PowerShell | Microsoft Docs"
 description: PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure
 services: sql-database
 documentationcenter: 
@@ -7,7 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: 5dc7bd506060ec04691abae3054fa3514893e953
 
 
 ---
-# <a name="create-and-manage-a-sql-database-elastic-database-jobs-using-powershell-preview"></a>Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)
+# <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerenciar trabalhos elástico do Banco de Dados SQL usando o PowerShell (visualização)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
@@ -358,7 +358,7 @@ Recupere todas as execuções do trabalho de nível superior, incluindo execuç�
 Recupere todas as execuções de trabalhos filho de uma ID de execução de trabalho fornecida, incluindo execuções de trabalhos inativos:
 
     $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
 
 Recupere todas as execuções de trabalho criadas usando uma combinação de agenda/trabalho, incluindo trabalhos inativos:
 
@@ -372,13 +372,13 @@ Recupere todos os trabalhos direcionados a um mapa de fragmentos especificado, i
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
     $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recupere todos os trabalhos direcionados a uma coleção personalizada especificada, incluindo trabalhos inativos:
 
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+    Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
 Recupere a lista de execuções de tarefas de trabalho contidas na execução de um trabalho específico:
 
@@ -484,7 +484,7 @@ Para disparar a exclusão de trabalho, use o cmdlet [**Remove-AzureSqlJob**](htt
     Remove-AzureSqlJob -JobName $jobName
 
 ## <a name="to-create-a-custom-database-target"></a>Para criar um destino de banco de dados personalizado
-Você pode definir os destinos de banco de dados personalizado para execução direta ou para inclusão em um grupo de bancos de dados personalizado. Por exemplo, como os **pools de Banco de Dados Elástico** ainda não têm suporte direto usando as APIs do PowerShell, você pode criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizada que englobe todos os bancos de dados no pool.
+Você pode definir os destinos de banco de dados personalizado para execução direta ou para inclusão em um grupo de bancos de dados personalizado. Por exemplo, como os **pools elásticos** ainda não têm suporte direto usando as APIs do PowerShell, você pode criar um destino de banco de dados personalizado e um destino de coleção de bancos de dados personalizado que englobe todos os bancos de dados no pool.
 
 Defina as variáveis a seguir para refletirem as informações de banco de dados desejadas:
 
@@ -586,7 +586,7 @@ Use o [New-AzureSqlJobTrigger](https://msdn.microsoft.com/library/mt346069.aspx)
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger
     -ScheduleName $scheduleName
-    –JobName $jobName
+    -JobName $jobName
     Write-Output $jobTrigger
 
 ### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Para remover uma associação agendada para impedir o trabalho de ser executado segundo a agenda
@@ -652,6 +652,6 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

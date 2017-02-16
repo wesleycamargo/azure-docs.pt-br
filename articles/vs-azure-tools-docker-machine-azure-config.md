@@ -15,8 +15,8 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
+ms.sourcegitcommit: c327fc0f8175f3fe62f9a0975b7fbad1437bbbe0
+ms.openlocfilehash: 4309d2dffacb9baf2563c8a4fcd1984beabdeef0
 
 
 ---
@@ -24,9 +24,9 @@ ms.openlocfilehash: e34cb21da7d08db0cd65db211102788232ac422f
 A execução de contêineres do [Docker](https://www.docker.com/) exige uma VM host executando o daemon do docker.
 Este tópico descreve como usar o comando [docker-machine](https://docs.docker.com/machine/) para criar novas VMs Linux, configuradas com o daemon do Docker, em execução no Azure. 
 
-**Observação** 
+**Observação:** 
 
-* *Este artigo depende versão 0.7.0 ou posterior do docker-machine*
+* *Este artigo depende do docker-machine 0.9.0-rc2 ou superior*
 * *Em breve, os contêineres do Windows terão suporte por meio do docker-machine*
 
 ## <a name="create-vms-with-docker-machine"></a>Criar VMs com o computador Docker
@@ -45,10 +45,15 @@ O driver do Azure precisará da ID de sua assinatura. Você pode usar a [CLI do 
 Digite `docker-machine create --driver azure` para ver as opções e seus valores padrão.
 Você também consultar [Documentação do Driver do Docker Azure](https://docs.docker.com/machine/drivers/azure/) para saber mais. 
 
-O exemplo a seguir conta com os valores padrão, mas ele abre opcionalmente a porta 80 na VM para acesso à internet. 
+O exemplo a seguir conta com os [valores padrão](https://github.com/docker/machine/blob/master/drivers/azure/azure.go#L22), mas como opção, define estes valores: 
+
+* azure-dns para o nome associado ao IP público e certificados gerados.  A VM pode ser interrompida com segurança, liberar o IP dinâmico e fornecer a capacidade de reconexão depois que a VM inicia novamente com um novo IP.  O prefixo de nome precisa ser exclusivo para essa região UNIQUE_DNSNAME_PREFIX.westus.cloudapp.azure.com.
+* abrir a porta 80 na VM para acesso de saída à Internet
+* tamanho da VM para utilizar o armazenamento Premium mais rápido
+* armazenamento Premium usado para o disco de vm
 
 ```
-docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-open-port 80 mydockerhost
+docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_ID> --azure-dns <Your UNIQUE_DNSNAME_PREFIX> --azure-open-port 80 --azure-size Standard_DS1_v2 --azure-storage-type "Premium_LRS" mydockerhost 
 ```
 
 ## <a name="choose-a-docker-host-with-docker-machine"></a>Escolha um host docker com docker-machine
@@ -119,6 +124,6 @@ Para desenvolver aplicativos de núcleo do .NET com o Visual Studio, consulte [F
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

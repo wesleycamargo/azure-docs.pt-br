@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre VMs do Windows | Microsoft Docs
+title: "Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs"
 description: "Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
+ms.sourcegitcommit: fc445f1879ba1f8862c048bbb0753c824758630c
+ms.openlocfilehash: 18c4f70a3872e7e4c509f55db6276653ba48722d
 
 
 ---
@@ -126,6 +126,6 @@ As seguintes senhas não são permitidas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -46,7 +46,7 @@ Há alguns pontos a considerar quando você estiver usando o SQL Azure com o Rem
 
 Saiba [como configurar um firewall do banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). Um trecho do artigo declara “Inicialmente, todo acesso ao seu servidor do Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL”.
 
-Além disso, quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall no nível do servidor e (se necessário) no nível do banco de dados: “Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure”. Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
+Além disso, quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall no nível do servidor e (se necessário) no nível do banco de dados: “Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure.” Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
 
 Siga as instruções passo a passo em [Como definir as configurações de firewall no Banco de Dados SQL usando o Portal do Azure](../sql-database/sql-database-configure-firewall-settings.md) para especificar o intervalo de IPs. Quando você estiver configurando as regras do Firewall do SQL, forneça o intervalo de IP da sub-rede especificada para a coleção do Azure RemoteApp. Isso deve permitir que os servidores ARA se conectem ao banco de dados SQL, embora eles tenham Endereços IP atribuídos dinamicamente.
 
@@ -60,6 +60,6 @@ Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

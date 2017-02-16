@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao gerenciamento de dispositivos | Microsoft Docs"
-description: "Este tutorial mostra como começar com o gerenciamento de dispositivos no Hub IoT do Azure"
+title: "Introdução ao gerenciamento de dispositivo do Hub IoT do Azure (Node) | Microsoft Docs"
+description: "Como usar o gerenciamento de dispositivos do Hub IoT para iniciar uma reinicialização do dispositivo remoto. Use o SDK do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado que inclui um método direto e um aplicativo de serviço que invoca o método direto."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 829164eaa856d824ed1f37c43799dabb8f0a0868
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: e1bb89ba369818d7ba0e92a54a4712033f648187
 
 
 ---
-# <a name="tutorial-get-started-with-device-management"></a>Tutorial: Introdução ao gerenciamento de dispositivo
+# <a name="get-started-with-device-management-node"></a>Introdução ao gerenciamento de dispositivos (Node)
 ## <a name="introduction"></a>Introdução
 Os aplicativos em nuvem do IoT podem usar primitivos no Hub IoT do Azure, ou seja, o dispositivo gêmeo e métodos diretos, para iniciar remotamente e monitorar as ações de gerenciamento de dispositivo nos dispositivos.  Este artigo fornece orientações e código para como um dispositivo e um aplicativo em nuvem do IoT funcionam juntos para iniciar e monitorar uma reinicialização do dispositivo remota usando o Hub IoT.
 
@@ -38,7 +38,7 @@ Este tutorial mostra como:
 
 * Usar o portal do Azure para criar um Hub IoT e criar uma identidade de dispositivo em seu Hub IoT.
 * Criar um aplicativo de dispositivo simulado que tem um método direto que permite a realização, que pode ser chamada pela nuvem.
-* Criar um aplicativo de console que chama um método direto de reinicialização no dispositivo simulado por meio do Hub IoT.
+* Criar um aplicativo de console Node.js que chama um método direto de reinicialização no aplicativo de dispositivo simulado por meio do Hub IoT.
 
 Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
@@ -81,7 +81,7 @@ Nesta seção, você irá
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo.  Substitua a cadeia de conexão de dispositivo pela cadeia de conexão do seu dispositivo.  
+5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  Substitua a cadeia de conexão de dispositivo pela cadeia de conexão do seu dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -260,7 +260,7 @@ Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gatewa
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-fwupdate]: iot-hub-node-node-firmware-update.md
@@ -276,6 +276,6 @@ Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gatewa
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

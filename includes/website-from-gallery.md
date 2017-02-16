@@ -1,4 +1,4 @@
-O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares desenvolvidos pela Microsoft, por outras empresas e por iniciativas de software livre. Os aplicativos Web criados no Azure Marketplace não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+O Azure Marketplace disponibiliza uma ampla gama de aplicativos Web populares desenvolvidos pela Microsoft, por outras empresas e por iniciativas de software livre. Os aplicativos Web criados no Azure Marketplace não exigem a instalação de qualquer software que não seja o navegador usado para se conectar ao [Portal de Visualização do Azure](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 Neste tutorial, você aprenderá:
 
@@ -14,9 +14,9 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 > 
 > 
 
-## Criar um aplicativo Web no portal
+## <a name="create-a-web-app-in-the-portal"></a>Criar um aplicativo Web no portal
 1. Faça logon no Portal de Visualização do Azure.
-2. Abra o Azure Marketplace clicando no ícone do **Marketplace**:
+2. Abra o Azure Marketplace clicando no ícone do **Marketplace** :
    
     ![Ícone do Marketplace][marketplace]
    
@@ -27,23 +27,23 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
    
     ![WordPress da lista][7]
 4. Depois de ler a descrição do aplicativo WordPress, selecione **Criar**.
-5. Clique em **Aplicativo Web** e forneça os valores necessários para configurar seu aplicativo Web.
+5. Clique em **Aplicativo Web**e forneça os valores necessários para configurar seu aplicativo Web.
    
     ![configurar o aplicativo][8]
-6. Clique em **Banco de Dados** e forneça os valores necessários para configurar seu banco de dados MySQL.
+6. Clique em **Banco de Dados**e forneça os valores necessários para configurar seu banco de dados MySQL. 
    
     ![configurar o banco de dados][database]
 7. Forneça um nome para um novo grupo de recursos.
    
     ![Definir grupo de recursos][groupname]
-8. Se necessário, clique em **ASSINATURA** e especifique a assinatura a ser usada.
-9. Quando terminar de definir o aplicativo Web, clique em **Criar** e aguarde até que o novo aplicativo Web seja criado.
+8. Se necessário, clique em **ASSINATURA**e especifique a assinatura a ser usada. 
+9. Quando terminar de definir o aplicativo Web, clique em **Criar**e aguarde até que o novo aplicativo Web seja criado.
    
    Quando o aplicativo tiver sido criado, você verá o novo grupo de recursos que contém o banco de dados e o aplicativo Web.
    
    ![mostrar grupo][resourcegroup]
 
-## Inicie e gerencie seu aplicativo Web do WordPress
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Inicie e gerencie seu aplicativo Web do WordPress
 1. Clique no seu novo aplicativo Web para ver detalhes sobre ele.
    
     ![iniciar painel][10]
@@ -51,8 +51,8 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
    
     ![URL do site][browse]
 3. Se você não tiver instalado o WordPress, insira as informações de configuração apropriadas exigidas pelo WordPress e clique em **Instalar WordPress** para finalizar a configuração e abra a página de logon do aplicativo Web.
-4. Clique em **Logon** e insira suas credenciais.
-5. Você terá um novo aplicativo Web do WordPress semelhante ao aplicativo Web abaixo.
+4. Clique em **Logon** e insira suas credenciais.  
+5. Você terá um novo aplicativo Web do WordPress semelhante ao aplicativo Web abaixo.    
    
     ![seu site do WordPress][13]
 
@@ -70,4 +70,7 @@ Você criará um blog do WordPress que usa um modelo padrão. A ilustração a s
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

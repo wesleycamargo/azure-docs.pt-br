@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 9c8410a847d943c5baee3e08397ebf24072b3f78
+ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
+ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
 
 
 ---
@@ -60,7 +60,7 @@ Com as etapas a seguir, restaure uma máquina virtual em uma nova VM a partir de
    * Especifique o nome da máquina virtual: em um determinado serviço de nuvem, o nome da máquina virtual deve ser exclusivo. Não há suporte para substituição de VM existente. 
    * Selecione um serviço de nuvem para a VM: isso é obrigatório para a criação de uma VM. Você pode optar por usar um serviço de nuvem existente ou criar um novo serviço de nuvem.
      
-        Qualquer nome de serviço de nuvem escolhido deve ser globalmente exclusivo. Normalmente, o nome do serviço de nuvem é associado a uma URL para o público na forma de [cloudservice].cloudapp.net. O Azure não permitirá que você crie um novo serviço de nuvem se o nome já tiver sido usado. Se você optar por criar, selecione criar novo serviço de nuvem, ele receberá o mesmo nome que a máquina virtual – nesse caso, o nome da VM escolhido deve ser exclusivo a ser aplicado ao serviço de nuvem associado.
+        Qualquer nome de serviço de nuvem escolhido deve ser globalmente exclusivo. Normalmente, o nome do serviço de nuvem é associado a uma URL para o público na forma de [cloudservice].cloudapp.net. O Azure não permitirá que você crie um novo serviço de nuvem se o nome já tiver sido usado. Se você optar por criar um novo serviço de nuvem, ele receberá o mesmo nome que a máquina virtual; nesse caso, o nome da VM escolhido deve ser exclusivo o suficiente para ser aplicado ao serviço de nuvem associado.
      
         Só exibimos serviços de nuvem e redes virtuais que não estejam associados a nenhum grupo de afinidade nos detalhes da instância de restauração. [Saiba mais](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 2. Selecione uma conta de armazenamento para a VM: isso é obrigatório para a criação de uma VM. Você pode selecionar entre contas de armazenamento existentes na mesma região que o cofre de backup do Azure. Não há suporte para contas de armazenamento com redundância de zona ou do tipo de armazenamento Premium.
@@ -157,6 +157,6 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

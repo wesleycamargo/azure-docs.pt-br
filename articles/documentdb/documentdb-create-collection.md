@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 01/13/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
-ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
+ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
+ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
 
 
 ---
@@ -33,18 +33,18 @@ Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Ban
 2. Na folha **Conta do DocumentDB** da conta selecionada, clique em **Adicionar Coleção**.
 
     ![Captura de tela realçando as contas do Banco de Dados de Documentos no Jumpbar, a conta na folha do Banco de Dados de Documentos e o banco de dados na folha da conta do Banco de Dados de Documentos, nas lentes dos Bancos de Dados](./media/documentdb-create-collection/docdb-database-creation-3.png)
-3. Na folha **Adicionar Coleção**, na caixa **ID**, insira a ID da nova coleção. Os nomes de coleção devem ter entre 1 e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita. Quando o nome for validado, uma marca de seleção verde será exibida na caixa de identificação.
+3. Na folha **Adicionar Coleção**, na caixa **ID da Coleção**, insira a ID da nova coleção. Os nomes de coleção devem ter entre 1 e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita. Quando o nome for validado, uma marca de seleção verde será exibida na caixa de identificação.
 
     ![Captura de tela realçando o botão Adicionar Coleção na folha do Banco de Dados, as configurações na folha Adicionar Coleção e o botão OK — portal do Azure para Banco de Dados de Documentos — criador do banco de dados baseado na nuvem para bancos de dados JSON NoSQL](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
-4. Por padrão, **Tipo de Preço** é definido como **Standard** para que você possa personalizar a taxa de transferência e o armazenamento para sua coleção. Para obter mais informações sobre o tipo de preço, veja [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).  
-5. Selecione um **Modo de particionamento** para a coleção, **Partição Única** ou **Particionado**.
+4. Por padrão, a **Capacidade de Armazenamento** é definida para **250 GB** para manipular coleções particionadas.
 
-    Uma **partição única** tem uma capacidade de armazenamento reservado de 10 GB e pode ter níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo (RU/s). Uma RU corresponde à taxa de transferência de uma leitura de um documento de 1 KB. Para obter mais informações sobre unidades de solicitação, confira [Unidades de solicitação](documentdb-request-units.md).
+    Defina a capacidade de armazenamento para **10 GB** se você quiser uma [única coleção de partição](documentdb-partition-data.md#single-partition-and-partitioned-collections) com níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo (RU/s). Uma RU corresponde à taxa de transferência de uma leitura de um documento de 1 KB. Para obter mais informações sobre unidades de solicitação, confira [Unidades de solicitação](documentdb-request-units.md).
 
-    Uma **coleção particionada** pode ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e pode ter níveis de produtividade começando em 10.100 RU/s. Para obter mais informações sobre coleções particionadas, veja [Partição única e coleções particionadas](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Defina a capacidade de armazenamento para **250 GB** se quiser que uma [coleção particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) possa ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e possa ter níveis de taxa de transferência começando em 10.100 RU/s.
 
-    Por padrão, a taxa de transferência para uma nova coleção de partição única é definida como 1000 RU/s com uma capacidade de armazenamento de 10 GB. Para uma coleção particionada, a taxa de transferência da coleção é definida como 10100 RU/s sem limite superior na capacidade ou na taxa de transferência.
-6. Se você estiver criando uma coleção particionada, selecione a **Chave de Partição** para a coleção. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. Para obter mais informações sobre como selecionar uma chave de partição, veja [Design para particionamento](documentdb-partition-data.md#designing-for-partitioning).
+    Defina a capacidade de armazenamento como **Personalizada** se quiser provisionar uma quantidade diferente de 10 GB ou 250 GB. O DocumentDB tem escala praticamente ilimitada. Portanto, inclua o tamanho do armazenamento solicitado e o valor da taxa de transferência na solicitação de suporte.
+
+6. Na caixa **Chave de Partição**, digite uma chave de partição para a coleção. Ela é necessária para coleções particionadas e opcional para coleções de partição única. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. Para obter mais informações sobre como selecionar uma chave de partição, veja [Design para particionamento](documentdb-partition-data.md#designing-for-partitioning).
 7. Na folha **Banco de dados**, crie um novo banco de dados ou use uma existente. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita. Para validar o nome, clique fora da caixa de texto. Quando o nome for validado, uma marca de seleção verde será exibida na caixa.
 8. Clique em **OK** na parte inferior da tela para criar uma nova coleção.
 9. A nova coleção agora aparece na lente **Coleções** na folha **Visão geral**.
@@ -83,6 +83,6 @@ Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

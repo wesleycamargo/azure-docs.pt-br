@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: f91f694dc8660cc55a9aa02bb4941083441d8acf
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5a0cd9ac88f30bb5f1ccba43260b86392dba6d7b
 
 
 ---
@@ -58,7 +58,7 @@ Você pode escolher entre quatro camadas: **Gratuita**, **Padrão 1**, **Padrão
 > 
 
 ### <a name="iot-hub-units"></a>Unidades do Hub IoT
-Uma unidade de Hub IoT inclui um determinado número de mensagens por dia. O número total de mensagens com suporte para esse hub é o número de unidades multiplicado pelo número de mensagens por dia nessa camada. Por exemplo, se você quiser que o Hub IoT dê suporte à entrada de 700.000 mensagens, escolha duas unidades da camada S1.
+O número de mensagens permitidas por unidade ao dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o Hub IoT dê suporte à entrada de 700.000 mensagens, escolha duas unidades da camada S1.
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>Dispositivo para partições de nuvem e grupo de recursos
 Você pode alterar o número de partições para um Hub IoT. As partições padrão são definidas como 4; no entanto, você pode escolher um número diferente de partições em uma lista suspensa.
@@ -86,7 +86,7 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 **Políticas de acesso compartilhado**: essas políticas definem as permissões para que dispositivos e serviços se conectem ao Hub IoT. Você pode acessar essas políticas clicando em **Políticas de acesso compartilhado** em **Geral**. Nessa folha, você pode modificar as políticas existentes ou adicionar uma nova política.
 
 ### <a name="create-a-policy"></a>Criar uma política
-* Clique em **Adicionar** para abrir uma folha. Aqui você poderá inserir o nome da nova política e as permissões que deseja associar a essa política, como mostrado na figura a seguir.
+* Clique em **Adicionar** para abrir uma folha. Aqui, você poderá inserir o nome da nova política e as permissões que quer associar a essa política, como mostrado na seguinte figura:
   
     Há várias permissões que podem ser associadas a essas políticas compartilhadas. As duas primeiras políticas, **Leitura do Registro** e **Gravação do Registro**, concedem direitos de acesso de leitura e gravação ao repositório de identidade do dispositivo ou ao registro de identidade. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
   
@@ -95,11 +95,14 @@ Você poderá alterar as configurações de um Hub IoT existente depois que ele 
 
 ![][10]
 
-## <a name="messaging"></a>Mensagens
-Clique em **Sistema de Mensagens** para exibir uma lista de propriedades do sistema de mensagens para o Hub IoT que está sendo modificado. Existem dois tipos principais de propriedades que você pode modificar ou copiar: **Nuvem para o Dispositivo** e **Dispositivo para a Nuvem**.
+## <a name="endpoints"></a>Pontos de extremidade
+Clique em **Pontos de extremidade** para exibir uma lista de pontos de extremidade do Hub IoT que está sendo modificado. Existem dois tipos principais de ponto de extremidade: aqueles que são criados no Hub IoT e aqueles que você adicionou ao Hub IoT depois de sua criação.
 
-* Configurações **Nuvem para Dispositivo**: essa configuração tem duas subconfigurações: **TTL (vida útil) da Nuvem para Dispositivo** e **Tempo de retenção** para as mensagens. Quando o Hub IoT é criado, essas duas configurações são criadas com um valor padrão de uma hora. Para ajustar esses valores, use os controles deslizantes ou digite os valores.
-* **Dispositivo para a Nuvem** : essa configuração tem várias subconfigurações, algumas das quais são nomeadas/atribuídas quando o Hub IoT é criado e só podem ser copiadas para outras subconfigurações que sejam personalizáveis. Essas configurações estão listadas na próxima seção.
+### <a name="built-in-endpoints"></a>Pontos de extremidade internos
+Há dois pontos de extremidade internos principais: **Comentários da nuvem para dispositivo** e **Eventos**.
+
+* Configurações **Comentários da nuvem para dispositivo**: essa configuração tem duas subconfigurações: **TTL (vida útil) da Nuvem para Dispositivo** e **Tempo de retenção** para as mensagens. Quando o Hub IoT é criado, essas duas configurações são criadas com um valor padrão de uma hora. Para ajustar esses valores, use os controles deslizantes ou digite os valores.
+* Configurações **Eventos**: essa configuração tem várias subconfigurações, algumas das quais são nomeadas/atribuídas quando o Hub IoT é criado e só podem ser copiadas para outras subconfigurações que sejam personalizáveis. Essas configurações estão listadas na próxima seção.
 
 **Partições**: esse valor é definido quando o Hub IoT é criado e pode ser alterado por meio dessa configuração.
 
@@ -115,6 +118,22 @@ Clique em **Sistema de Mensagens** para exibir uma lista de propriedades do sist
 > 
 
 ![][11]
+
+### <a name="custom-endpoints"></a>Pontos de extremidade personalizados
+Você pode adicionar pontos de extremidade personalizados ao Hub IoT usando o portal. Na folha de pontos de extremidade, clique em **Adicionar** na parte superior da folha para abrir a folha **Adicionar ponto de extremidade**. Insira as informações necessárias na folha e clique em **OK**. O ponto de extremidade personalizado é mostrado na folha de pontos de extremidade principal.
+
+![][13]
+
+Você pode ler mais sobre pontos de extremidade personalizados em [Referência — Pontos de extremidade do Hub IoT][lnk-devguide-endpoints].
+
+## <a name="routes"></a>Rotas
+Clique em **Rotas** para gerenciar como o Hub IoT H envia suas mensagens do dispositivo para a nuvem.
+
+![][14]
+
+Você pode adicionar mais rotas ao Hub IoT clicando em **Adicionar** na parte superior da folha, inserindo as informações necessárias na folha e clicando em **OK**. A rota é mostrada na folha de pontos de extremidade principal. É possível editar uma rota clicando nela na lista de rotas e modificando-a. Para habilitar uma rota, clique nela na lista de rotas e defina o botão habilitar/desabilitar como **Desativado**. Clique em **OK** na parte inferior da folha para salvar a alteração.
+
+![][15]
 
 ## <a name="pricing-and-scale"></a>Preços e dimensionamento
 O preço de um Hub IoT existente pode ser alterado por meio das configurações de **Preço** , com as seguintes exceções:
@@ -148,6 +167,9 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
 [11]: ./media/iot-hub-create-through-portal/messaging-settings.png
 [12]: ./media/iot-hub-create-through-portal/pricing-error.png
+[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
+[14]: ./media/iot-hub-create-through-portal/routes-list.png
+[15]: ./media/iot-hub-create-through-portal/route-edit.png
 
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
@@ -156,9 +178,10 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-securing]: iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

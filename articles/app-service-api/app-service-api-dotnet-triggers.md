@@ -15,37 +15,37 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3970e39dab23f65c623e134d9e38df9831b37f8
+ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
+ms.openlocfilehash: cf020b0f5f14d73635cf44e0157b53b35eb00d60
 
 
 ---
 # <a name="azure-app-service-api-app-triggers"></a>Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
 > [!NOTE]
 > Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Visão geral
 Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
 
-Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802). 
+Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
 Observe que você precisará baixar o seguinte pacote do nuget para que o código neste artigo seja compilado e executado: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>O que são gatilhos de aplicativo de API?
-É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API. 
+É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API.
 
-Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../app-service-logic/app-service-logic-connector-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
+Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../connectors/connectors-create-api-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Gatilho de sondagem versus gatilho de envio
 Atualmente, há suporte para dois tipos de gatilhos:
 
-* Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado 
-* Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado 
+* Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado
+* Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado
 
 ### <a name="poll-trigger"></a>Gatilho de sondagem
-Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado. 
+Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
 
 As informações sobre os pacotes de solicitação e resposta a seguir ilustram alguns aspectos fundamentais do contrato de gatilho de sondagem.
 
@@ -302,7 +302,7 @@ Para metadados estáticos, você pode editar diretamente o arquivo */metadata/ap
 
 Para aplicativos de API usando metadados dinâmicos, você pode editar o arquivo SwaggerConfig.cs para adicionar um filtro de operação que possa adicionar essas extensões.
 
-    GlobalConfiguration.Configuration 
+    GlobalConfiguration.Configuration
         .EnableSwagger(c =>
             {
                 ...
@@ -343,7 +343,6 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

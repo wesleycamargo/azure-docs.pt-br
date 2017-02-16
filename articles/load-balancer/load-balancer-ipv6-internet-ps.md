@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga para a Internet com IPv6 usando o PowerShell para o Gerenciador de Recursos | Microsoft Docs
+title: Criar um balanceador de carga voltado para a Internet com o IPv6 - PowerShell | Microsoft Docs
 description: Saiba como criar um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 6bc3f58f5e825ccc85255e3e0bf6025adceb18e1
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 5eff828095cd58732c78d4af43b5ff5420dfe8fd
 
 ---
 
@@ -28,7 +28,7 @@ ms.openlocfilehash: 6bc3f58f5e825ccc85255e3e0bf6025adceb18e1
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+Um Azure Load Balancer é um balanceador de carga de Camada&4; (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 ## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 
@@ -237,6 +237,6 @@ Para obter mais informações sobre como criar uma VM, consulte [Criar e pré-co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

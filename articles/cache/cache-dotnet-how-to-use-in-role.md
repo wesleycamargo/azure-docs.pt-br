@@ -12,21 +12,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/20/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57851e6dc52e331eefde0a940987d2a68f98f0bf
+ms.sourcegitcommit: ec9e12667bc82043fbdc0b3f113533cf518f39be
+ms.openlocfilehash: 9593f49d98794e72728e0683e34a407e39144a5d
 
 
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>Como usar o Cache na Função para Cache do Azure
-Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Next Steps][Next Steps].
-
 > [!IMPORTANT]
-> De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure serão desativados em 30 de novembro de 2016. A nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
+> De acordo com o [comunicado](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)do ano passado, o Serviço de Cache Gerenciado do Azure e o serviço Cache na Função do Azure **foram desativados** em 30 de novembro de 2016. A nossa recomendação é usar o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/). Para saber mais sobre a migração, confira [Migrar do Serviço de Cache gerenciado para o Cache Redis do Azure](../redis-cache/cache-migrate-to-redis.md).
 > 
 > 
+
+Este guia mostra como começar a usar o **Cache na Função para Cache do Azure**. Os exemplos são escritos em código C\# e utilizam a API .NET. Os cenários abordados incluem a **configuração de um cluster de cache**, **configuração de clientes de cache**, **adição e remoção de objetos do cache, armazenando o estado de sessão ASP.NET no cache ** e **habilitação do cache de saída da página ASP.NET usando o cache**. Para saber mais sobre como usar o Cache na Função, consulte a seção [Próximas etapas][Next Steps].
+
+
 
 <a name="what-is"></a>
 
@@ -62,7 +64,7 @@ Além disso, o caching em instâncias de função oferece estas opções configu
 * Opcionalmente, configurar alta disponibilidade em caches individuais.
 * Usar recursos de caching expandido, como regiões, marcação e notificações.
 
-Este guia fornece uma visão geral da introdução ao Cache na Função. Para obter mais informações sobre esses recursos que estão além do escopo deste guia de introdução, consulte [Visão geral do Cache na Função][Visão geral do Cache na Função].
+Este guia fornece uma visão geral da introdução ao Cache na Função. Para obter mais informações sobre esses recursos que estão além do escopo deste guia de introdução, consulte [Visão geral do Cache na Função][Overview of In-Role Cache].
 
 <a name="getting-started-cache-role-instance"></a>
 
@@ -74,31 +76,31 @@ O Cache na Função fornece uma maneira de habilitar caching usando a memória q
 
 Para usar o caching em instâncias de função, você precisa configurar um cluster de cache e, em seguida, configurar os clientes de cache para que possam acessar o cluster de cache.
 
-* [Configurar o cluster de cache][Configurar o cluster de cache]
-* [Configurar os clientes de cache][Configurar os clientes de cache]
+* [Configurar o cluster de cache][Configure the cache cluster]
+* [Configurar os clientes de cache][Configure the cache clients]
 
 <a name="enable-caching"></a>
 
 ## <a name="configure-the-cache-cluster"></a>Configurar o cluster de cache
 Para configurar um cluster de cache de **Função Colocalizada** , selecione a função na qual você deseja hospedar o cluster de cache. Clique com o botão direito do mouse nas propriedades da função no **Gerenciador de Soluções** e escolha **Propriedades**.
 
-![Cache de função 1][RoleCache1]
+![Cache de função&1;][RoleCache1]
 
 Alterne para a guia **Caching**, marque a caixa de seleção **Habilitar Caching** e especifique as opções de cache desejadas. Quando o caching está habilitado em uma **Função de Trabalho** ou **Função Web ASP.NET**, a configuração padrão é o caching de **Função Colocalizada** com 30% da memória das instâncias de função alocadas para o caching. Um cache padrão é configurado automaticamente, e os caches nomeados adicionais podem ser criados se desejados, e esses caches compartilharão a memória alocada.
 
-![Cache de função 2][RoleCache2]
+![Cache de função&2;][RoleCache2]
 
 Para configurar um cluster de cache de **Função dedicada**, adicione uma **Função de Trabalho do Cache** a seu projeto.
 
-![Cache de função 7][RoleCache7]
+![Cache de função&7;][RoleCache7]
 
 Quando uma **Função de Trabalho de Cache** é adicionada a um projeto, a configuração padrão é cache de **Função Dedicada**.
 
-![Cache de função 8][RoleCache8]
+![Cache de função&8;][RoleCache8]
 
 Quando o cache estiver habilitado, a conta de armazenamento do cluster de cache pode ser configurada. O Cache na Função requer uma conta de Armazenamento do Azure. Essa conta de armazenamento é usada para armazenar dados de configuração sobre o cluster de cache que é acessado de todas as máquinas virtuais que fazem parte do cluster de cache. Essa conta de armazenamento é especificada na guia **Caching** da página de propriedades da função de cluster de cache, acima de **Configurações de Cache Nomeado**.
 
-![Cache de função 10][RoleCache10]
+![Cache de função&10;][RoleCache10]
 
 > Se essa conta de armazenamento não estiver configurada, as funções não serão iniciadas. 
 > 
@@ -106,17 +108,17 @@ Quando o cache estiver habilitado, a conta de armazenamento do cluster de cache 
 
 O tamanho do cache é determinado por uma combinação do tamanho da VM da função, a contagem da instância da função e, se o cluster de cache está configurado como uma função dedicada ou cluster de cache de função colocalizado.
 
-> Esta seção fornece uma visão simplificada sobre como configurar o tamanho do cache. Para obter mais informações sobre o tamanho do cache e outras considerações sobre o planejamento da capacidade, consulte [Considerações sobre o planejamento da capacidade do Cache na Função][Considerações sobre o planejamento da capacidade do Cache na Função].
+> Esta seção fornece uma visão simplificada sobre como configurar o tamanho do cache. Para obter mais informações sobre o tamanho do cache e outras considerações sobre o planejamento da capacidade, consulte [Considerações sobre o planejamento da capacidade do Cache na Função][In-Role Cache Capacity Planning Considerations].
 > 
 > 
 
 Para configurar o tamanho da máquina virtual e o número de instâncias de função, clique com o botão direito do mouse nas propriedades da função no **Gerenciador de Soluções** e escolha **Propriedades**.
 
-![Cache de função 1][RoleCache1]
+![Cache de função&1;][RoleCache1]
 
 Alterne para a guia **Configuração** . A **Contagem de instâncias** padrão é 1, e o **Tamanho da VM** padrão é **Pequena**.
 
-![Cache de função 3][RoleCache3]
+![Cache de função&3;][RoleCache3]
 
 A memória total dos tamanhos de VM é a seguinte: 
 
@@ -125,11 +127,11 @@ A memória total dos tamanhos de VM é a seguinte:
 * **Grande**: 7 GB
 * **Extra grande**: 14 GB
 
-> Esses tamanhos de memória representam a quantidade total de memória disponível para a máquina virtual que é compartilhada entre o SO, o processo de cache, o cache de dados e os aplicativos. Para obter mais informações sobre como configurar tamanhos de máquina virtual, consulte [Como configurar tamanhos de máquinas virtuais][Como configurar tamanhos de máquinas virtuais]. Observe que o cache não é suportado em tamanhos de máquinas virtuais **Extra pequeno** .
+> Esses tamanhos de memória representam a quantidade total de memória disponível para a máquina virtual que é compartilhada entre o SO, o processo de cache, o cache de dados e os aplicativos. Para obter mais informações sobre como configurar tamanhos de máquina virtual, consulte [Como configurar tamanhos de máquinas virtuais][How to Configure Virtual Machine Sizes]. Observe que o cache não é suportado em tamanhos de máquinas virtuais **Extra pequeno** .
 > 
 > 
 
-Quando o cache de **Função Colocalizada** estiver especificado, o tamanho do cache será determinado utilizando a porcentagem especificada de memória da máquina virtual. Quando caching de **Função Dedicada** estiver especificado, toda a memória disponível da máquina virtual será usada para caching. Se duas instâncias de função estiverem configuradas, a memória combinada das máquinas virtuais será usada. Isso forma um cluster de cache onde a memória de caching disponível é distribuída entre várias instâncias de função, mas é apresentada aos clientes do cache como um único recurso. Configurar instâncias de função adicionais aumenta o tamanho do cache da mesma maneira. Para determinar as configurações necessárias para provisionar um cache do tamanho desejado, você pode usar a Planilha de Planejamento da Capacidade coberta em [Considerações sobre o planejamento da capacidade do Cache na Função][Considerações sobre o planejamento da capacidade do Cache na Função].
+Quando o cache de **Função Colocalizada** estiver especificado, o tamanho do cache será determinado utilizando a porcentagem especificada de memória da máquina virtual. Quando caching de **Função Dedicada** estiver especificado, toda a memória disponível da máquina virtual será usada para caching. Se duas instâncias de função estiverem configuradas, a memória combinada das máquinas virtuais será usada. Isso forma um cluster de cache onde a memória de caching disponível é distribuída entre várias instâncias de função, mas é apresentada aos clientes do cache como um único recurso. Configurar instâncias de função adicionais aumenta o tamanho do cache da mesma maneira. Para determinar as configurações necessárias para provisionar um cache do tamanho desejado, você pode usar a Planilha de Planejamento da Capacidade coberta em [Considerações sobre o planejamento da capacidade de Cache na Função][In-Role Cache Capacity Planning Considerations].
 
 Depois que o cluster de cache estiver configurado, você poderá configurar os clientes de cache para permitir o acesso ao cache.
 
@@ -138,7 +140,7 @@ Depois que o cluster de cache estiver configurado, você poderá configurar os c
 ## <a name="configure-the-cache-clients"></a>Configurar os clientes de cache
 Para acessar um cache de Cache na Função, os clientes devem estar na mesma implantação. Se o cluster de cache for um cluster de cache de função dedicado, os clientes serão outras funções na implantação. Se o cluster de cache for um cluster de cache de função colocalizado, os clientes poderão ser outras funções na implantação ou as próprias funções que hospedam o cluster de cache. É fornecido um pacote NuGet que pode ser usado para configurar cada função de cliente que acessa o cache. Para configurar uma função para acessar um cluster de cache usando o pacote NuGet de Caching, clique com o botão direito do mouse no projeto de função no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**. 
 
-![Cache de função 4][RoleCache4]
+![Cache de função&4;][RoleCache4]
 
 Selecione **Cache na Função**, clique em **Instalar** e, em seguida, clique em **Aceito**.
 
@@ -146,11 +148,11 @@ Selecione **Cache na Função**, clique em **Instalar** e, em seguida, clique em
 > 
 > 
 
-![Cache de função 5][RoleCache5]
+![Cache de função&5;][RoleCache5]
 
 O pacote NuGet faz várias coisas: adiciona a configuração necessária ao arquivo de configuração da função, adiciona uma configuração em nível de diagnóstico do cliente do cache ao arquivo ServiceConfiguration.cscfg do aplicativo do Azure e adiciona as referências ao assembly necessárias.
 
-> Para funções web ASP.NET, o pacote NuGet de Cache também adiciona duas seções comentadas ao web.config. A primeira seção permite que o estado da sessão seja armazenado no cache, e a segunda seção habilita a saída do cache da página ASP.NET. Para saber mais, consulte [Como armazenar o estado da sessão ASP.NET no cache] e [Como armazenar o cache de saída de página ASP.NET no cache][Como armazenar o cache de saída de página ASP.NET no cache].
+> Para funções web ASP.NET, o pacote NuGet de Cache também adiciona duas seções comentadas ao web.config. A primeira seção permite que o estado da sessão seja armazenado no cache, e a segunda seção habilita a saída do cache da página ASP.NET. Para saber mais, veja [Como armazenar o estado da sessão ASP.NET no cache] e [Como armazenar o cache de saída de página ASP.NET no cache][How To: Store ASP.NET Page Output Caching in the Cache].
 > 
 > 
 
@@ -199,7 +201,7 @@ O pacote NuGet também adiciona uma configuração de **ClientDiagnosticLevel** 
       </ConfigurationSettings>
     </Role>
 
-> O Cache na Função fornece um nível de diagnóstico de servidor de cache e de cliente de cache. O nível de diagnóstico é uma única configuração que configura o nível das informações de diagnóstico coletadas para o caching. Para obter mais informações, consulte [Solução de problemas e diagnóstico do Cache na Função][Solução de problemas e diagnóstico do Cache na Função]
+> O Cache na Função fornece um nível de diagnóstico de servidor de cache e de cliente de cache. O nível de diagnóstico é uma única configuração que configura o nível das informações de diagnóstico coletadas para o caching. Para obter mais informações, consulte [Solução de problemas e diagnóstico do Cache na Função][Troubleshooting and Diagnostics for In-Role Cache]
 > 
 > 
 
@@ -223,11 +225,11 @@ Depois que o projeto de cliente estiver configurado para caching, você poderá 
 ## <a name="working-with-caches"></a>Trabalhando com caches
 As etapas desta seção descrevem como realizar tarefas comuns com o caching.
 
-* [Como criar um objeto DataCache][Como criar um objeto DataCache]
-* [Como adicionar e recuperar um objeto do cache][Como adicionar e recuperar um objeto do cache]
-* [Como especificar a expiração de um objeto no cache][Como especificar a expiração de um objeto no cache]
+* [Como criar um objeto DataCache][How To: Create a DataCache Object]
+* [Como adicionar e recuperar um objeto do cache][How To: Add and Retrieve an Object from the Cache]
+* [Como especificar a expiração de um objeto no cache][How To: Specify the Expiration of an Object in the Cache]
 * [Como armazenar o estado da sessão ASP.NET no cache][Como armazenar o estado da sessão ASP.NET no cache]
-* [Como armazenar o cache de saída de página ASP.NET no cache][Como armazenar o cache de saída de página ASP.NET no cache]
+* [Como armazenar o cache de saída de página ASP.NET no cache][How To: Store ASP.NET Page Output Caching in the Cache]
 
 <a name="create-cache-object"></a>
 
@@ -236,7 +238,7 @@ Para trabalhar de forma programática com um cache, você precisa de uma referê
 
     using Microsoft.ApplicationServer.Caching;
 
-> Se o Visual Studio não reconhecer os tipos na instrução "using" mesmo depois da instalação do pacote NuGet de Cache, que adiciona as referências necessárias, verifique se o perfil de destino do projeto é o .NET Framework 4,0 ou superior e selecione um dos perfis que não especificam o **Perfil do Cliente**. Para obter instruções sobre como configurar clientes de cache, consulte [Configurar os clientes de cache][Configurar os clientes de cache].
+> Se o Visual Studio não reconhecer os tipos na instrução "using" mesmo depois da instalação do pacote NuGet de Cache, que adiciona as referências necessárias, verifique se o perfil de destino do projeto é o .NET Framework 4,0 ou superior e selecione um dos perfis que não especificam o **Perfil do Cliente**. Para obter instruções sobre como configurar clientes de cache, consulte [Configurar os clientes de cache][Configure the cache clients].
 > 
 > 
 
@@ -295,7 +297,7 @@ O método **Put** adiciona o objeto com a chave especificada ao cache se ele nã
 ## <a name="how-to-specify-the-expiration-of-an-object-in-the-cache"></a>Como especificar a expiração de um objeto no cache
 Por padrão, os itens no cache expiram 10 minutos depois que são colocados no cache. Isso pode ser configurado na configuração **Vida Útil (min)** nas propriedades da função que hospeda o cluster de cache.
 
-![Cache de função 6][RoleCache6]
+![Cache de função&6;][RoleCache6]
 
 Existem três tipos de **Tipo de Expiração**: **Nenhum**, **Absoluto** e **Janela Deslizante**. Esses tipos configuram como a opção **Vida Útil (min)** é usada para determinar a expiração. O **Tipo de Expiração** padrão é **Absoluto**, o que significa que o temporizador da contagem regressiva de expiração de um item começa quando o item é colocado no cache. Depois que o período de tempo especificado tiver decorrido para um item, o item expira. Se **Janela Deslizante** for especificado, a contagem regressiva da expiração de um item será zerada cada vez que o item for acessado no cache, e o item não vai expirar até que o período de tempo especificado tiver decorrido desde o seu último acesso. Se **Nenhum** for especificado, a opção **Vida Útil (min)** deverá ser definida como **0**, e os itens não expirarão e permanecerão válidos enquanto estiverem no cache.
 
@@ -315,7 +317,7 @@ Para exibir o intervalo de tempo limite restante de um item no cache, o método 
 <a name="store-session"></a>
 
 ## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>Como armazenar o estado da sessão ASP.NET no cache
-O Provedor de Estado de Sessão para Cache na Função é um mecanismo de armazenamento fora do processo para aplicativos ASP.NET. Esse provedor permite que você armazene o estado da sessão em um cache do Azure, em vez de na memória ou em um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][Introdução ao Cache na Função]. Quando o pacote NuGet de Cache está instalado, ele adiciona uma seção comentada no web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Estado de Sessão para Cache na Função.
+O Provedor de Estado de Sessão para Cache na Função é um mecanismo de armazenamento fora do processo para aplicativos ASP.NET. Esse provedor permite que você armazene o estado da sessão em um cache do Azure, em vez de na memória ou em um banco de dados do SQL Server. Para usar o provedor de estado de sessão de cache, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][Getting Started with In-Role Cache]. Quando o pacote NuGet de Cache está instalado, ele adiciona uma seção comentada no web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Estado de Sessão para Cache na Função.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -330,18 +332,18 @@ O Provedor de Estado de Sessão para Cache na Função é um mecanismo de armaze
       </sessionState>
     </system.web>-->
 
-> Se o web.config não contiver essa seção comentada depois da instalação do pacote NuGet de caching, verifique se o Gerenciador de Pacotes NuGet mais recente está instalado em [Instalação do Gerenciador de Pacotes NuGet][Instalação do Gerenciador de Pacotes NuGet] e desinstale e reinstale o pacote.
+> Se o web.config não contiver essa seção comentada depois da instalação do pacote NuGet de Caching, verifique se o Gerenciador de Pacotes NuGet mais recente está instalado em [Instalação do Gerenciador de Pacotes NuGet][NuGet Package Manager Installation] e, em seguida, desinstale e reinstale o pacote.
 > 
 > 
 
 Para habilitar o Provedor de Estado de Sessão para o Cache na Função, remova os comentários da seção especificada. O cache padrão é especificado no trecho de código fornecido. Para usar um outro cache, especifique o cache desejado no atributo **cacheName** .
 
-Para saber mais sobre como usar o provedor de estado de sessão do serviço de cache, consulte [Provedor de Estado de Sessão de Cache na Função][Provedor de Estado de Sessão de Cache na Função].
+Para saber mais sobre como usar o provedor de estado de sessão do serviço de cache, consulte [Provedor de Estado de Sessão de Cache na Função][Session State Provider for In-Role Cache].
 
 <a name="store-page"></a>
 
 ## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>Como armazenar o cache de saída de página ASP.NET no cache
-O Provedor de Cache de Saída do Cache na Função é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de cache de saída, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][Introdução ao Cache na Função]. Quando o pacote NuGet de Caching está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Cache na Função.
+O Provedor de Cache de Saída do Cache na Função é um mecanismo de armazenamento fora do processo para dados do cache de saída. Esses dados são especificamente para respostas HTTP completas (cache de saída de página). O provedor conecta-se ao novo saída cache provedor ponto de extensibilidade que foi introduzido no ASP.NET 4. Para usar o provedor de estado de cache de saída, primeiro configure o cluster de cache e, em seguida, configure o aplicativo ASP.NET para cache usando o pacote NuGet de Cache conforme descrito em [Introdução ao Cache na Função][Getting Started with In-Role Cache]. Quando o pacote NuGet de Caching está instalado, ele adiciona a seguinte seção comentada ao web.config que contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída para Cache na Função.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -356,7 +358,7 @@ O Provedor de Cache de Saída do Cache na Função é um mecanismo de armazename
       </outputCache>
     </caching>-->
 
-> Se o web.config não contiver essa seção comentada depois da instalação do pacote NuGet de caching, verifique se o Gerenciador de Pacotes NuGet mais recente está instalado em [Instalação do Gerenciador de Pacotes NuGet][Instalação do Gerenciador de Pacotes NuGet] e desinstale e reinstale o pacote.
+> Se o web.config não contiver essa seção comentada depois da instalação do pacote NuGet de Caching, verifique se o Gerenciador de Pacotes NuGet mais recente está instalado em [Instalação do Gerenciador de Pacotes NuGet][NuGet Package Manager Installation] e, em seguida, desinstale e reinstale o pacote.
 > 
 > 
 
@@ -366,39 +368,39 @@ Adicione uma diretiva **OutputCache** a cada página da qual você deseja armaze
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-Neste exemplo, os dados da página em cache permanecerão no cache por 60 segundos, e outra versão da página será armazenada em cache para cada combinação de parâmetros. Para obter mais informações sobre as opções disponíveis, consulte [Diretiva OutputCache][Diretiva OutputCache].
+Neste exemplo, os dados da página em cache permanecerão no cache por 60 segundos, e outra versão da página será armazenada em cache para cada combinação de parâmetros. Para saber mais sobre as opções disponíveis, confira [Diretiva OutputCache][OutputCache Directive].
 
-Para obter mais informações sobre como usar o Provedor de Cache de Saída para Cache na Função, consulte [Provedor de Cache de Saída de Cache na Função][Provedor de Cache de Saída de Cache na Função].
+Para obter mais informações sobre como usar o Provedor de Cache de Saída para Cache na Função, consulte [Provedor de Cache de Saída de Cache na Função][Output Cache Provider for In-Role Cache].
 
 <a name="next-steps"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu o básico do Cache na Função, siga os links para saber como realizar tarefas de cache mais complexas.
 
-* Consulte a referência do MSDN: [Cache na Função][Cache na Função]
-* Saiba como migrar para o Cache na Função: [Migrar para o Cache na Função][Migrar para o Cache na Função]
-* Confira os exemplos: [Exemplos de Cache na Função][Exemplos de Cache na Função]
-* Assista à sessão [Desempenho máximo: acelere seus aplicativos de Serviços de Nuvem com o Caching do Azure][Desempenho máximo: acelere seus aplicativos de Serviços de Nuvem com o Caching do Azure] no TechEd 2013 sobre Cache na Função
+* Consulte a referência do MSDN: [Cache na Função][In-Role Cache]
+* Saiba como migrar para o Cache na Função: [Migrar para o Cache na Função][Migrate to In-Role Cache]
+* Confira os exemplos: [Exemplos de Cache na Função][In-Role Cache Samples]
+* Assista à sessão [Desempenho máximo: acelere seus aplicativos de Serviços de Nuvem com o Caching do Azure][Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching] no TechEd 2013 sobre Cache na Função
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
-[O que é Cache na Função?]: #what-is
-[Criar um Cache do Azure]: #create-cache
-[Qual tipo de cache é mais adequado para mim?]: #choosing-cache
-[Introdução ao Serviço de Cache na Função]: #getting-started-cache-service
-[Preparar seu Projeto do Visual Studio para Usar Cache na Função]: #prepare-vs
-[Configurar seu aplicativo para usar Caching]: #configure-app
-[Introdução ao Cache na Função]: #getting-started-cache-role-instance
-[Configurar o cluster de cache]: #enable-caching
-[Configurar o tamanho do cache desejado]: #cache-size
-[Configurar os clientes de cache]: #NuGet
-[Trabalhando com caches]: #working-with-caches
-[Como criar um objeto DataCache]: #create-cache-object
-[Como adicionar e recuperar um objeto do cache]: #add-object
-[Como especificar a expiração de um objeto no cache]: #specify-expiration
+[What is In-Role Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Getting Started with the In-Role Cache Service]: #getting-started-cache-service
+[Prepare Your Visual Studio Project to Use In-Role Cache]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Getting Started with In-Role Cache]: #getting-started-cache-role-instance
+[Configure the cache cluster]: #enable-caching
+[Configure the desired cache size]: #cache-size
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
 [Como armazenar o estado da sessão ASP.NET no cache]: #store-session
-[Como armazenar o cache de saída de página ASP.NET no cache]: #store-page
-[Ter Como Meta um Perfil do .NET Framework com Suporte]: #prepare-vs-target-net
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
+[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
 
 <!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
@@ -412,31 +414,31 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
 
 <!-- LINKS -->
-[Como configurar tamanhos de máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Como configurar um cliente de cache de forma programática]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Como definir a capacidade de cache de uma página de forma programática]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Como definir a capacidade de cache de uma página ASP.NET de forma declarativa]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Considerações sobre o planejamento da capacidade do Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Exemplos de Cache na Função]: http://msdn.microsoft.com/library/jj189876.aspx
-[Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Cache na Função]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Desempenho máximo: acelere seus aplicativos de Serviços de Nuvem com o Caching do Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Migrar para o Cache na Função]: http://msdn.microsoft.com/library/hh914163.aspx
-[Instalação do Gerenciador de Pacotes NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Provedor de Cache de Saída de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
-[Diretiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-[Visão geral do Cache na Função]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Provedor de Estado de Sessão de Cache na Função]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
-[Blog da equipe]: http://blogs.msdn.com/b/windowsazure/
-[Solução de problemas e diagnóstico do Cache na Função]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
-[Cache do Azure AppFabric: estado de sessão do caching]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Cache compartilhado do Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[In-Role Cache Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
+[In-Role Cache Samples]: http://msdn.microsoft.com/library/jj189876.aspx
+[In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
+[In-Role Cache]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[Migrate to In-Role Cache]: http://msdn.microsoft.com/library/hh914163.aspx
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Overview of In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
+[Session State Provider for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Qual oferta de Cache do Azure é a correta para mim?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
-
-
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

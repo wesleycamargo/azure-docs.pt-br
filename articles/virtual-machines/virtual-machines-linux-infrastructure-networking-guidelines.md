@@ -1,5 +1,5 @@
 ---
-title: Diretrizes da infraestrutura de rede | Microsoft Docs
+title: Diretrizes de infraestrutura de rede do Azure | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7bf465a884a5adcf86d0039d096a3ba8663b6979
+ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
+ms.openlocfilehash: 906ea9308ffee9dc719e1f17171deaba394a26d6
 
 
 ---
-# <a name="networking-infrastructure-guidelines"></a>Diretrizes da infraestrutura de rede
+# <a name="azure-networking-infrastructure-guidelines"></a>Diretrizes de infraestrutura de rede do Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo se concentra em compreender as etapas de planejamento necessárias para a rede virtual no Azure, e a conectividade entre ambientes locais existentes.
@@ -106,6 +106,6 @@ Assim como acontece com uma infraestrutura de rede física local, a rede virtual
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
-ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
 
 
 ---
@@ -51,6 +51,39 @@ Muitas arquiteturas incluem uma API da Web que precisa chamar outra API da Web d
 
 Este cenário de API Web encadeada pode ter suporte usando a concessão Credencial de Portador Jwt do OAuth 2.0, também conhecido como fluxo Em nome de. No entanto, o fluxo Em Nome de não está implementado atualmente no Azure AD B2C.
 
+## <a name="restrictions-on-reply-urls"></a>Restrições em URLs de resposta
+No momento, os aplicativos registrados no Azure AD B2C estão restritos a um conjunto limitado de valores para URLs de resposta. O URL de resposta para serviços e aplicativos Web deve começar com o esquema `https`, e todos os valores de URL de resposta devem compartilhar um único domínio DNS. Por exemplo, você não pode registrar um aplicativo Web que tenha uma destas URLs diretas:
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+O sistema de registro compara o nome DNS completo da URL de resposta existente ao nome DNS da URL de resposta que você está adicionando. A solicitação para adicionar o nome DNS falhará se alguma das condições abaixo for verdadeira:
+
+* Se o nome DNS completo da URL de resposta nova não coincidir com o nome DNS da URL de resposta existente.
+* Se o nome DNS completo da URL de resposta nova não for um subdomínio da URL de resposta existente.
+
+Por exemplo, se o aplicativo tiver esta URL de resposta:
+
+`https://login.contoso.com`
+
+Você pode adicionar a ele, desta forma:
+
+`https://login.contoso.com/new`
+
+Nesse caso, os nome DNS corresponde exatamente. Ou você pode fazer isto:
+
+`https://new.login.contoso.com`
+
+Nesse caso, você está se referindo a um subdomínio DNS logon.contoso.com. Se você quiser ter um aplicativo com login-east.contoso.com e login-west.contoso.com como URLs de resposta, deverá adicionar as seguintes URLs de resposta nesta ordem:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+Os dois últimos podem ser adicionados porque eles são subdomínios da primeira URL de resposta, contoso.com. Essa limitação será removida em uma versão futura.
+
+Para saber como registrar um aplicativo no Azure AD B2C, consulte [Como registrar seu aplicativo com o Azure Active Directory B2C](active-directory-b2c-app-registration.md).
+
 ## <a name="restriction-on-libraries-and-sdks"></a>Restrição em bibliotecas e SDKs
 O conjunto de bibliotecas da Microsoft com suporte que funcionam com o Azure AD B2C é bastante limitado no momento. Temos suporte para aplicativos Web e serviços baseados no .NET, bem como aplicativos Web e serviços do NodeJS.  Também temos uma biblioteca de cliente .NET de visualização conhecida como MSAL, que pode ser usada com o Azure AD B2C em outros aplicativos .NET e Windows.
 
@@ -62,7 +95,7 @@ Nossos tutoriais de início rápido do iOS e do Android usam bibliotecas de soft
 O Azure AD B2C dá suporte a OAuth 2.0 e OpenID Connect. No entanto, nem todos os recursos e capacidades de cada protocolo foram implementados. Para entender melhor o escopo da funcionalidade de protocolo com suporte no Azure AD B2C, leia nossa [referência do protocolo OAuth 2.0 e OpenID Connect](active-directory-b2c-reference-protocols.md). Suporte a protocolo SAML e WS-Fed não está disponível.
 
 ## <a name="restriction-on-tokens"></a>Restrição em tokens
-Muitos dos tokens emitidos pelo Azure AD B2C são implementados, como Tokens da Web JSON ou JWTs. No entanto, nem todas as informações contidas no JWTs (conhecidas como "declarações") são exatamente como deveriam ser ou não existem. Alguns exemplos incluem "sub" e as declarações de "preferred_username".  Como os valores, o formato ou o significado de declarações se alteram ao longo do tempo, os tokens para as políticas existentes permanecerão inalterados. Você pode utilizar seus valores em aplicativos de produção.  À medida que os valores forem alterados, lhe daremos a oportunidade de configurar essas alterações para cada uma de suas políticas.  Para entender melhor os tokens emitidos atualmente pelo serviço do AD B2C do Azure, leia nossa [referência de token](active-directory-b2c-reference-tokens.md).
+Muitos dos tokens emitidos pelo Azure AD B2C são implementados, como Tokens da Web JSON ou JWTs. No entanto, nem todas as informações contidas no JWTs (conhecidas como "declarações") são exatamente como deveriam ser ou não existem. Um exemplo é a declaração "preferred_username".  Como os valores, o formato ou o significado de declarações se alteram ao longo do tempo, os tokens para as políticas existentes permanecerão inalterados. Você pode utilizar seus valores em aplicativos de produção.  À medida que os valores forem alterados, lhe daremos a oportunidade de configurar essas alterações para cada uma de suas políticas.  Para entender melhor os tokens emitidos atualmente pelo serviço do AD B2C do Azure, leia nossa [referência de token](active-directory-b2c-reference-tokens.md).
 
 ## <a name="restriction-on-nested-groups"></a>Restrição em grupos aninhados
 Associações de grupo aninhado não têm suporte nos locatários Azure AD B2C . Não estamos planejando adicionar esse recurso.
@@ -93,9 +126,13 @@ Solicitações para políticas de entrada (com MFA ativado) falham intermitentem
 * Use a "política de inscrição ou entrada" em vez da "política de entrada".
 * Reduza o número de **declarações de aplicativo** solicitadas na sua política.
 
+## <a name="issues-with-windows-desktop-wpf-apps-using-azure-ad-b2c"></a>Problemas com aplicativos WPF de Área de Trabalho do Windows usando o Azure AD B2C
+Às vezes, as solicitações provenientes de um aplicativo WPF de Área de Trabalho do Windows para o Azure AD B2C falham com a seguinte mensagem de erro: "Falha na conclusão da caixa de diálogo de autenticação baseada em navegador. Motivo: o protocolo é desconhecido e nenhum protocolo conectável correspondente foi inserido".
+
+Isso ocorre devido ao tamanho dos códigos de autorização fornecidos pelo Azure AD B2C; o tamanho é correlacionado com o número de declarações solicitadas em um token. Uma solução alternativa para esse problema é reduzir o número de declarações solicitadas no token e consultar a API do Graph separadamente para outras declarações.
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar e gerenciar os clusters HDInsight usando a IU da Web do Apache Ambari | Microsoft Docs
+title: Monitorar e gerenciar o Azure HDInsight usando a uusando a IU da Web do Ambari | Microsoft Docs
 description: "Aprenda a usar o Ambari para monitorar e gerenciar clusters HDInsight baseados em Linux. Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com clusters HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b3c84bdd32d9daec2d50d8126c26e8d7ecc894b1
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 443e9e9d45417fb428ef4b81e9a66e04a1e4809e
 
 
 ---
@@ -29,9 +29,12 @@ O Apache Ambari simplifica o gerenciamento e monitoramento de um cluster Hadoop,
 Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com um cluster HDInsight.
 
 ## <a name="a-idwhatisawhat-is-ambari"></a><a id="whatis"></a>O que é o Ambari?
-O <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar esses recursos em seus aplicativos usando as <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>.
+O <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica o gerenciamento do Hadoop, fornecendo uma IU da Web fácil de usar que pode ser utilizada para provisionar, gerenciar e monitorar clusters Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">APIs REST do Ambari</a>.
 
-A interface de usuário do Ambari Web é fornecido por padrão com clusters HDInsight baseados em Linux. 
+A IU da Web do Ambari é fornecida por padrão com clusters HDInsight que usam o sistema operacional Linux.
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 
 ## <a name="connectivity"></a>Conectividade
 A IU da Web do Ambari está disponível no seu cluster HDInsight em HTTPS://CLUSTERNAME.azurehdidnsight.net, onde **CLUSTERNAME** é o nome do cluster. 
@@ -217,6 +220,6 @@ As Exibições do Ambari permitem que os desenvolvedores conectem elementos de i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

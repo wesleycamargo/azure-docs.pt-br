@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
+ms.sourcegitcommit: cd32cb7d2247676795f345448960d547eafba084
+ms.openlocfilehash: 9290258998f6756dce55a764e020fb3278c2f8a6
 
 
 ---
@@ -44,10 +44,11 @@ Para criar o experimento:
 5. Tipo de modelo de censo.
 6. Na parte inferior da tela do experimento, clique em **Executar**.
 7. Clique em **Configurar o Serviço Web** e selecione **Readaptação do Serviço Web**. 
+
+A seguir, o teste inicial.
    
    ![Experimento inicial.][2]
 
-Diagrama 2: Experimento inicial.
 
 ## <a name="create-a-predictive-experiment-and-publish-as-a-web-service"></a>Criar um Teste de Preditivo e publicar como um serviço Web
 Em seguida, crie um Experimento Predicativo.
@@ -79,7 +80,7 @@ Em ambos os casos, após o teste terminar a execução, o fluxo de trabalho resu
 
 ![Fluxo de trabalho resultante após a execução.][4]
 
-Diagrama de 3: Fluxo de trabalho resultante após a execução.
+
 
 ## <a name="retrain-the-model-with-new-data-using-bes"></a>Você quer readaptar o modelo com novos dados
 Para este exemplo, você está usando C# para criar o aplicativo de readaptação. Você também pode usar o código de exemplo do Python ou R para realizar essa tarefa.
@@ -185,6 +186,6 @@ Se você tiver implantado um Novo serviço Web clicando em **Implantar o Serviç
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

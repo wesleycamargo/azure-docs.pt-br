@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e7eecd1387823100af2e44f918450db3301f55fd
+ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
+ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
 
 
 ---
@@ -41,7 +41,7 @@ Começando com o Serviço web e experimentos existentes, você precisa executar 
    6. Atualize o serviço Web com a nova definição de serviço Web.
 
 ## <a name="deploy-the-training-experiment"></a>Implantar o teste de treinamento
-Para implantar o teste de treinamento como um serviço Web de readaptação, você deve adicionar as entradas e saídas do serviço Web ao modelo. Ao conectar um módulo da *Saída do Serviço Web* ao módulo *[Modelo de Treinamento][train-model]*, você habilita o teste de treinamento a fim de produzir um novo modelo de treinamento que pode ser usado em seu experimento de previsão. Se você tiver um *Modelo de Avaliação*, também poderá anexar a saída do serviço Web para obter os resultados da avaliação como saída.
+Para implantar o teste de treinamento como um serviço Web de readaptação, você deve adicionar as entradas e saídas do serviço Web ao modelo. Ao conectar um módulo *Saída do Serviço Web* ao módulo *[Modelo de Treinamento][train-model]* do teste, você habilita o teste de treinamento a fim de produzir um novo modelo de treinamento que pode ser usado em seu teste preditivo. Se você tiver um *Modelo de Avaliação*, também poderá anexar a saída do serviço Web para obter os resultados da avaliação como saída.
 
 Para atualizar seu experimento de treinamento:
 
@@ -182,7 +182,7 @@ Você deve usar o cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com
 ## <a name="update-the-web-service"></a>Atualizar o serviço Web
 Finalmente, use o cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) para atualizar o teste de previsão.
 
-    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
 [1]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png
 [4]: ./media/machine-learning-retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png
@@ -193,6 +193,6 @@ Finalmente, use o cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

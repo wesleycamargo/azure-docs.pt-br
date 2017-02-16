@@ -1,12 +1,14 @@
 ---
-title: "Introdução ao Raspberry Pi 3 | Microsoft Docs"
-description: "Introdução ao Raspberry Pi 3, crie seu Hub IoT do Azure e conecte o Pi ao Hub IoT."
+title: Conectar um Raspberry Pi 3 ao Hub IoT do Azure | Microsoft Docs
+description: "Introdução ao dispositivo Raspberry Pi 3, crie seu Hub IoT do Azure e conecte seu Pi ao Hub IoT."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
 keywords: "hub iot do Azure, introdução à internet das coisas, kit de ferramentas do iot"
+experimental: true
+experiment_id: xshi-happypathemu-20161202
 ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
 ms.devlang: node
@@ -16,12 +18,15 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e453ad240c7f537ef2d150564996827ebcb9474d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d04f9d219451d683b572df43f73944011d686797
 
 
 ---
-# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Introdução ao Raspberry Pi 3 (Node.JS)
+# <a name="get-started-with-raspberry-pi-3-nodejs"></a>Introdução ao Raspberry Pi 3 (Node.js)
+> [!div class="op_single_selector"]
+> * [Node.JS](iot-hub-raspberry-pi-kit-node-get-started.md)
+> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 Neste tutorial, você começará aprendendo as noções básicas de como trabalhar com o Raspberry Pi 3 que está executando Raspbian. Em seguida, aprenderá a conectar seus dispositivos diretamente à nuvem usando o [Hub IoT do Azure](iot-hub-what-is-iot-hub.md). Para obter exemplos do Windows 10 IoT Core, acesse o [Centro de Desenvolvimento do Windows](http://www.windowsondevices.com/).
 
@@ -129,6 +134,6 @@ Se você tiver problemas durante as lições, poderá procurar soluções no art
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

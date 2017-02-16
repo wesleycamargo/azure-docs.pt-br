@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
 # <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>Conectar um aplicativo Web no Serviço de Aplicativo do Azure ao Cache Redis por meio do protocolo Memcache
-Neste artigo, você verá como conectar um aplicativo Web do WordPress no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) ao [Cache Redis do Azure][12] usando o protocolo [Memcache][13]. Se tiver um aplicativo Web existente que usa um servidor Memcached para cache na memória, você poderá migrá-lo para o Serviço de Aplicativo do Azure e usar a solução de cache de terceiros no Microsoft Azure com pouca ou nenhuma alteração no código do aplicativo. Além disso, você pode usar sua experiência com o Memcache para criar aplicativos distribuídos altamente escalonáveis no Serviço de Aplicativo do Azure com o Cache Redis do Azure para cache em memória, usando estruturas de aplicativos populares, como .NET, PHP, Node.js, Java e Python.  
+Neste artigo, você verá como conectar um aplicativo Web do WordPress no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) ao [CAche Redis do Azure][12] usando o protocolo [Memcache][13]. Se tiver um aplicativo Web existente que usa um servidor Memcached para cache na memória, você poderá migrá-lo para o Serviço de Aplicativo do Azure e usar a solução de cache de terceiros no Microsoft Azure com pouca ou nenhuma alteração no código do aplicativo. Além disso, você pode usar sua experiência com o Memcache para criar aplicativos distribuídos altamente escalonáveis no Serviço de Aplicativo do Azure com o Cache Redis do Azure para cache em memória, usando estruturas de aplicativos populares, como .NET, PHP, Node.js, Java e Python.  
 
 Os aplicativos Web do Serviço de Aplicativo habilitam esse cenário de aplicativo com o shim do Memcache de aplicativos Web, que é um servidor Memcached local que atua como um proxy Memcache para armazenar em cache as chamadas ao Cache Redis do Azure. Isso habilita qualquer aplicativo que se comunica usando o protocolo Memcache a armazenar dados em cache com o Cache Redis. Esse shim do Memcache funciona no nível do protocolo; portanto, ele pode ser usado por qualquer aplicativo ou estrutura de aplicativo, desde que se comunique usando o protocolo Memcache.
 
@@ -38,7 +38,7 @@ Siga as etapas descritas nestes artigos:
 Depois que o site do WordPress escalonável for implantado e uma instância do Cache Redis for provisionada, você estará pronto para prosseguir com a habilitação do shim do Memcache em aplicativos Web do Serviço de Aplicativo do Azure.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>Habilitar o shim do Memcache de aplicativos Web
-Para configurar o shim do Memcache, você deve criar três configurações de aplicativo. Isso pode ser feito usando diversos métodos, incluindo o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o [portal clássico][3], os [Cmdlets do Azure PowerShell][5] ou a [Interface de Linha de Comando do Azure][5]. Para os fins desta postagem, vou usar o Portal do [Azure][4] para definir as configurações do aplicativo. Os valores a seguir podem ser recuperados da folha **Configurações** de sua instância do Cache Redis.
+Para configurar o shim do Memcache, você deve criar três configurações de aplicativo. Isso pode ser feito usando diversos métodos, incluindo o [Portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), o [portal clássico][3], os [Cmdlets do Azure PowerShell][5] ou a [Interface de Linha de Comando do Azure][5]. Para os fins desta postagem, vou usar o [Portal do Azure][4] para definir as configurações do aplicativo. Os valores a seguir podem ser recuperados da folha **Configurações** de sua instância do Cache Redis.
 
 ![Folha de configurações de Cache Redis do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -136,7 +136,7 @@ Agora que o arquivo **object-cache.php**p está na pasta **wp-content**, o cache
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Verificando se o plug-in de cache de objetos do Memcache está funcionando
 Todas as etapas para habilitar o shim do Memcache de aplicativos Web foram concluídas. Só resta verificar se os dados estão populando sua instância do Cache Redis.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Habilitar o suporte à porta não SSL no Cache Redis do Azure
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Habilitar o suporte à porta não SSL no Cache Redis do Azure
 > [!NOTE]
 > Quando este artigo foi escrito, a CLI do Redis não dava suporte à conectividade SSL; portanto, as etapas a seguir são necessárias.
 > 
@@ -158,7 +158,7 @@ Você verá que a porta não SSL agora está definida. Clique em **Salvar**.
 
 ![Acessar o Portal não SSL do Cache Redis do Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Conectar ao Cache Redis do Azure por meio de redis-cli
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>Conectar ao Cache Redis do Azure por meio de redis-cli
 > [!NOTE]
 > Essa etapa pressupõe que o Redis esteja instalado localmente em seu computador de desenvolvimento. [Instale o Redis localmente usando estas instruções][9].
 > 
@@ -177,10 +177,10 @@ Substitua **&lt;nomedohost-para-cache-redis&gt;** pelo nome do host real xxxxx.r
 A chamada para listar as chaves deve retornar um valor. Caso contrário, tente navegar até o aplicativo Web e tente novamente.
 
 ## <a name="conclusion"></a>Conclusão
-Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado para ajudar a aumentar a taxa de transferência. Lembre-se: o shim do Memcache de aplicativos Web pode ser usado com qualquer cliente Memcache, independentemente da linguagem de programação ou da estrutura de aplicativo. Para fornecer comentários ou fazer perguntas sobre o shim do Memcache de aplicativos Web, poste nos [Fóruns do MSDN][10] ou no [Stackoverflow][11].
+Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado para ajudar a aumentar a taxa de transferência. Lembre-se: o shim do Memcache de aplicativos Web pode ser usado com qualquer cliente Memcache, independentemente da linguagem de programação ou da estrutura de aplicativo. Para fornecer comentários ou fazer perguntas sobre o shim do Memcache de aplicativos Web, poste nos [Fóruns do MSDN][10] ou no[Stackoverflow][11].
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -191,7 +191,7 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ Parabéns! O aplicativo do WordPress agora tem um cache na memória centralizado
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

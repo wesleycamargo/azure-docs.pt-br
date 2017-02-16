@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
+ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
 
 
 ---
@@ -138,8 +138,8 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## <a name="node-version-package-management"></a>Versão do Node e gerenciamento de pacote
-A versão do Node está bloqueada em `5.9.1`no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
+## <a name="node-version--package-management"></a>Versão do Node e gerenciamento de pacote
+A versão do Node está bloqueada em `6.5.0`no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
 
 Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate). 
 
@@ -155,7 +155,7 @@ Depois que os pacotes necessários forem instalados, você os importa para a fun
 ```javascript
 // Import the underscore.js library
 var _ = require('underscore');
-var version = process.version; // version === 'v5.9.1'
+var version = process.version; // version === 'v6.5.0'
 
 module.exports = function(context) {
     // Using our imported underscore.js library
@@ -198,6 +198,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

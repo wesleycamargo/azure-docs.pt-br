@@ -1,5 +1,5 @@
 ---
-title: "Funções Web PHP e de trabalho | Microsoft Docs"
+title: "Criar funções Web e de trabalho do Azure para PHP | Microsoft Docs"
 description: "Um guia para a criação de funções da Web do PHP e de trabalho em um serviço de nuvem do Azure e para a configuração do tempo de execução do PHP."
 services: 
 documentationcenter: php
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: d3fc1370751065eb954abe249017ef204038bd07
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: b6b802092165926cdfeab67849df26167ad96ebf
 
 
 ---
@@ -216,6 +216,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

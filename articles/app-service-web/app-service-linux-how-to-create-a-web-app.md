@@ -1,5 +1,5 @@
 ---
-title: "Como criar um aplicativo Web com o Serviço de Aplicativo no Linux | Microsoft Docs"
+title: "Criar um aplicativo web em execução no Linux | Microsoft Docs"
 description: "Fluxo de trabalho da criação de aplicativo Web para Serviço de Aplicativo no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
 services: app-service
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d87315ec97631c7ad3f0163aeaa0abde11b7416
+ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
+ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
 
 
 ---
-# <a name="create-a-web-app-with-app-service-on-linux"></a>Criar um aplicativo Web com o Serviço de Aplicativo no Linux
+# <a name="create-an-azure-web-app-running-on-linux"></a>Criar um aplicativo web em execução no Linux
 ## <a name="use-the-azure-portal-to-create-your-web-app"></a>Usar o portal do Azure para criar o aplicativo Web
 Você pode começar a criar seu aplicativo Web em Linux no [portal do Azure](https://portal.azure.com), conforme mostrado na imagem a seguir:
 
@@ -49,7 +49,7 @@ Você também pode usar o FTP para carregar o aplicativo no site. É possível o
 
 ## <a name="next-steps"></a>Próximas etapas
 * [O que é Serviço de Aplicativo no Linux?](app-service-linux-intro.md)
-* [Como usar a configuração PM2 para Node.js em Aplicativos Web no Linux](app-service-linux-using-nodejs-pm2.md)
+* [Usando a configuração PM2 para Node.js em Aplicativos Web no Linux](app-service-linux-using-nodejs-pm2.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png
@@ -59,6 +59,6 @@ Você também pode usar o FTP para carregar o aplicativo no site. É possível o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

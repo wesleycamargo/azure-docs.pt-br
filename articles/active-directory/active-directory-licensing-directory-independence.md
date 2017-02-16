@@ -51,6 +51,6 @@ Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

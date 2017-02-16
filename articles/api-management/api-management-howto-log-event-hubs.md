@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0bcb8473b2f7fb381ba9f12fb8458e14b4d82c58
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
 
 
 ---
@@ -53,7 +53,7 @@ Os agentes do Gerenciamento de API são configurados usando a [API REST do Geren
 
 Para criar um agente de log, faça uma solicitação HTTP PUT usando o modelo de URL a seguir.
 
-    https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
+`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview`
 
 * Substitua `{your service}` pelo nome da sua instância do serviço de Gerenciamento de API.
 * Substitua `{new logger name}` pelo nome desejado para o novo agente. Você fará referência a esse nome quando configurar a política [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
@@ -66,14 +66,16 @@ Adicione os cabeçalhos a seguir à solicitação.
 
 Especifique o corpo da solicitação usando o modelo a seguir.
 
-    {
-      "type" : "AzureEventHub",
-      "description" : "Sample logger description",
-      "credentials" : {
-        "name" : "Name of the Event Hub from the Azure Classic Portal",
-        "connectionString" : "Endpoint=Event Hub Sender connection string"
-        }
+```json
+{
+  "type" : "AzureEventHub",
+  "description" : "Sample logger description",
+  "credentials" : {
+    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
+}
+```
 
 * `type` deve ser definido como `AzureEventHub`.
 * `description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
@@ -101,9 +103,11 @@ Posicione o cursor na seção da política `inbound` e clique na política **Reg
 
 ![Editor de políticas][event-hub-policy]
 
-    <log-to-eventhub logger-id ='logger-id'>
-      @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
-    </log-to-eventhub>
+```xml
+<log-to-eventhub logger-id ='logger-id'>
+  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+</log-to-eventhub>
+```
 
 Substitua `logger-id` pelo nome do agente de Gerenciamento de API que você configurou na etapa anterior.
 
@@ -143,6 +147,6 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Cenários de dados envolvendo o Data Lake Store | Microsoft Docs"
+title: "Cenários de dados envolvendo o Repositório Data Lake | Microsoft Docs"
 description: "Entenda os diferentes cenários e as ferramentas usando quais dados podem ser ingeridos, processados, baixados e visualizados em um Repositório Data Lake"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 15460ef4add0e0ab94e776ffb715b86d39b89659
+ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
+ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
 
 
 ---
@@ -33,7 +33,7 @@ Neste artigo, analisamos esses estágios com relação ao Repositório Azure Dat
 ## <a name="ingest-data-into-data-lake-store"></a>Ingerir dados no Repositório Data Lake
 Esta seção destaca as diferentes fontes de dados e as diferentes maneiras que os dados podem ser ingeridos em uma conta do Repositório Data Lake.
 
-![Ingerir dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/ingest-data.png "Ingest data into Data Lake Store")
+![Ingerir dados no Data Lake Store](./media/data-lake-store-data-scenarios/ingest-data.png "Ingerir dados no Data Lake Store")
 
 ### <a name="ad-hoc-data"></a>Dados ad hoc
 Representam conjuntos de dados menores que são usados para criar protótipos de um aplicativo de big data. Há diferentes maneiras de ingerir dados ad hoc, dependendo da fonte dos dados.
@@ -91,14 +91,14 @@ Carregar conjuntos de dados que incluem vários terabytes usando os métodos des
 * **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../storage/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Azure Storage Blobs para o Data Lake Store.
 
   > [!NOTE]
-  > Ao usar o serviço Importar/Exportar, os tamanhos dos arquivos nos discos que você envia ao datacenter do Azure não devem ultrapassar 200 GB.
+  > Ao usar o serviço Importação/Exportação, os tamanhos dos arquivos nos discos que você envia ao datacenter do Azure não devem ultrapassar 195 GB.
   >
   >
 
 ## <a name="process-data-stored-in-data-lake-store"></a>Processar dados armazenados no Repositório Data Lake
 Depois que os dados estiverem disponíveis no Repositório Data Lake, você poderá fazer uma análise nesses dados usando os aplicativos de big data compatíveis. Atualmente, é possível usar o Azure HDInsight e a Análise do Azure Data Lake para executar trabalhos de análise de dados nos dados armazenados em um Repositório Data Lake.
 
-![Analisar dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/analyze-data.png "Analyze data in Data Lake Store")
+![Analisar os dados no Data Lake Store](./media/data-lake-store-data-scenarios/analyze-data.png "Analisar os dados no Data Lake Store")
 
 Você pode analisar os exemplos a seguir.
 
@@ -111,7 +111,7 @@ Você também pode querer baixar ou mover dados do Repositório Azure Data Lake 
 * Mover dados para outros repositórios para fazer interface com os pipelines de processamento de dados existentes. Por exemplo, você pode querer mover os dados do Repositório Data Lake para o Banco de Dados SQL do Azure ou SQL Server local.
 * Baixar dados no computador local para processamento em ambientes IDE durante a criação de protótipos de aplicativo.
 
-![Gerar dados do Repositório Data Lake](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Store")
+![Gerar dados no Data Lake Store](./media/data-lake-store-data-scenarios/egress-data.png "Gerar dados no Data Lake Store")
 
 Nesses casos, você pode usar qualquer uma das opções a seguir:
 
@@ -128,13 +128,13 @@ Você também pode usar os métodos a seguir para escrever seu próprio script/a
 ## <a name="visualize-data-in-data-lake-store"></a>Visualizar dados no Repositório Data Lake
 Você pode usar uma combinação de serviços para criar representações visuais de dados armazenados no Repositório Data Lake.
 
-![Visualizar dados no Repositório Data Lake](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
+![Visualizar dados no Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizar dados no Data Lake Store")
 
 * É possível começar usando o [Azure Data Factory para mover dados do Data Lake Store para um SQL Data Warehouse do Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
 * Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar a representação visual dos dados.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

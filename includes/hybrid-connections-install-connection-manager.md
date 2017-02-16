@@ -9,8 +9,12 @@ O Gerenciador de Conexões Híbridas permite que seu computador local se conecte
     Isso instala uma instância personalizada do Gerenciador de Conexão, que já está pré-configurado para trabalhar com a conexão híbrida que você acabou de criar.
 3. Conclua o restante das etapas de configuração para o Gerenciador de Conexão.
    
-    Depois que a instalação estiver concluída, o status da conexão híbrida mudará para **1 Instância Conectada**. Pode ser necessário atualizar o navegador e aguardar alguns minutos.
+    Depois que a instalação estiver concluída, o status da conexão híbrida mudará para **1 Instância Conectada**. Pode ser necessário atualizar o navegador e aguardar alguns minutos. 
 
 A configuração da conexão híbrida agora está concluída.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

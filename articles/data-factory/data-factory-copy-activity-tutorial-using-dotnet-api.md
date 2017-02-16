@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/27/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 
 ---
@@ -50,58 +50,41 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 1. Inicie o **PowerShell**.
 2. Execute o comando a seguir e insira o nome de usuário e a senha que você usa para entrar no portal do Azure.
 
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
+        Login-AzureRmAccount
 3. Execute o comando a seguir para exibir todas as assinaturas dessa conta.
 
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
+        Get-AzureRmSubscription
 4. Execute o comando a seguir para selecionar a assinatura com a qual deseja trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua assinatura do Azure.
 
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
    > [!IMPORTANT]
    > Anote **SubscriptionId** e **TenantId** da saída desse comando.
 
 5. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** executando o comando a seguir no PowerShell.
 
-    ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Se o grupo de recursos já existe, especifique se deseja atualizá-lo (S) ou mantê-lo como (N).
 
     Se você utilizar um grupo de recursos diferente, precisará usar o nome do seu grupo de recursos no lugar de ADFTutorialResourceGroup neste tutorial.
 6. Criar um aplicativo do Azure Active Directory.
 
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-    ```
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 
     Se você receber o erro a seguir, especifique uma URL diferente e execute o comando novamente.
-    
-    ```PowerShell
-    Another object with the same value for property identifierUris already exists.
-    ```
+
+        Another object with the same value for property identifierUris already exists.
 7. Crie a entidade de serviço do AD.
 
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 8. Adicione a entidade de serviço à função de **Colaborador do Data Factory** .
 
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
+        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 9. Obtenha a ID do aplicativo.
 
-    ```PowerShell
-    $azureAdApplication 
-    ```
+        $azureAdApplication
+
     Anote a ID do aplicativo (**applicationID** da saída).
 
 Você deve ter quatro valores após estas etapas:
@@ -491,10 +474,7 @@ Você deve ter quatro valores após estas etapas:
 16. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 17. Confirme se há pelo menos um arquivo no contêiner **adftutorial** no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo **Emp.txt** no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 
-    ```
-    John, Doe
-    Jane, Doe
-    ```
+       John, Doe    Jane, Doe
 18. Execute o exemplo, clicando em **Depurar** -> **Iniciar Depuração** no menu. Quando você vir **Obter detalhes de execução de uma fatia de dados**, aguarde alguns minutos e pressione **ENTER**.
 19. Use o Portal do Azure para verificar se a data factory **APITutorialFactory** foi criada com os seguintes artefatos:
    * Serviço vinculado: **LinkedService_AzureStorage**
@@ -509,6 +489,6 @@ Você deve ter quatro valores após estas etapas:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 
 ---
@@ -173,7 +173,7 @@ Use o procedimento a seguir para remover um módulo do controlador com falha do 
 1. Segure a trava do módulo entre o polegar e o dedo indicador.
 2. Aperte gentilmente o polegar e o dedo indicador para liberar a trava do controlador.
    
-    ![ Liberando a trava do controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![Liberando a trava do controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberando a trava do controlador
 3. Use a trava como alça para deslizar o controlador para fora do chassi.
@@ -250,6 +250,6 @@ Saiba mais sobre [substituição de componentes de hardware do StorSimple](stors
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

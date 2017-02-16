@@ -1,5 +1,5 @@
 ---
-title: "RBAC: funções internas | Microsoft Docs"
+title: "Ações e NotActions - Funções no RBAC do Azure | Microsoft Docs"
 description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/25/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
+ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
 
 
 ---
@@ -28,8 +28,8 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 
 > [!NOTE]
 > As definições de função do Azure estão em constante evolução. Este artigo é mantido tão atualizado quanto possível, mas você sempre poderá encontrar as últimas definições de funções no Azure PowerShell. Usar os cmdlets `(get-azurermroledefinition "<role name>").actions` ou `(get-azurermroledefinition "<role name>").notactions` como aplicável.
-> 
-> 
+>
+>
 
 | Nome da função | Descrição |
 | --- | --- |
@@ -555,7 +555,6 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

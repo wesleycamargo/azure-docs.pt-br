@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
 
 
 ---
@@ -152,13 +152,13 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* Se houver problemas com a implantação, uma próxima etapa será examinar [Solução de problemas comuns de implantação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

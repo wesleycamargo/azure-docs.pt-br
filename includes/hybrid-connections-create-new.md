@@ -1,15 +1,15 @@
 
 1. No computador local, acesse o [Portal de Gerenciamento do Azure](http://manager.windowsazure.com) (esse é o portal antigo).
 2. Na parte inferior do painel de navegação, selecione **+NOVO** > **Serviços de Aplicativos** > **Serviço BizTalk** > **Criação Personalizada**.
-3. Forneça um **Nome de Serviço BizTalk** e selecione uma **Edição**.
+3. Forneça um **Nome de Serviço BizTalk** e selecione uma **Edição**. 
    
     Este tutorial usa **mobile1**. Você precisará fornecer um nome exclusivo para seu novo Serviço BizTalk.
-4. Uma vez que o Serviço BizTalk foi criado, selecione a guia **Conexões Híbridas** e clique em **Incluir**.
+4. Uma vez que o Serviço BizTalk tenha sido criado, selecione a guia **Conexões Híbridas** e clique em **Adicionar**.
    
     ![Incluir Conexão Híbrida](./media/hybrid-connections-create-new/3.png)
    
     Isso cria uma nova conexão híbrida.
-5. Forneça um **Nome** e **Nome de Host** para sua conexão híbrida e configure a **Porta** como `1433`.
+5. Forneça um **Nome** e **Nome de Host** para sua conexão híbrida e configure a **Porta** como `1433`. 
    
     ![Configurar a Conexão Híbrida](./media/hybrid-connections-create-new/4.png)
    
@@ -21,4 +21,8 @@
 
 Em seguida, você precisará instalar o Gerenciador de Conexão Híbrida no computador local.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

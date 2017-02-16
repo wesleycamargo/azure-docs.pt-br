@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d0433f7f2e88dcbf5e0969f0a6c8d2689816b2d1
+ms.sourcegitcommit: a2b4c14fa7f167e9a7e0cddeedbf18579117c478
+ms.openlocfilehash: 7d8ce3c869c7e3734fa1d4bc27e52325dafc651a
 
 
 ---
 # <a name="azure-ad-connect-faq"></a>Perguntas frequentes do Azure AD Connect
 ## <a name="general-installation"></a>Instalação geral
 **P: a instalação funcionará se o Administrador Global do AD do Azure tem 2FA habilitado?**  
- Há suporte para isso nas compilações de fevereiro de 2016.
+Há suporte para isso nas compilações de fevereiro de 2016.
 
 **P: existe uma forma de instalar o Azure Connect AD autônomo?**  
- Somente há suporte para instalar o Azure Connect AD usando o assistente de instalação. Não há suporte para uma instalação silenciosa e autônoma.
+Somente há suporte para instalar o Azure Connect AD usando o assistente de instalação. Não há suporte para uma instalação silenciosa e autônoma.
 
 **P: Eu tenho uma floresta em que um domínio não pode ser contatado. Como instalo o Azure AD Connect?**  
- Há suporte para isso nas compilações de fevereiro de 2016.
+Há suporte para isso nas compilações de fevereiro de 2016.
 
 **P: O agente de integridade do AD DS funciona no núcleo do servidor?**  
- Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte commandlet do PowerShell: 
+Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte commandlet do PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -41,10 +41,10 @@ ms.openlocfilehash: d0433f7f2e88dcbf5e0969f0a6c8d2689816b2d1
 Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 5 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Isso também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
 
 **P: Os SLDs (domínios de rótulo único) têm suporte?**  
- Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usando SLDs.
+Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usando SLDs.
 
 **P: Há suporte a nomes NetBios com pontos?**  
- Não, o Azure AD Connect não oferece suporte a florestas/domínios locais em que o nome NetBios contém um ponto "." no nome.
+Não, o Azure AD Connect não oferece suporte a florestas/domínios locais em que o nome NetBios contém um ponto "." no nome.
 
 ## <a name="federation"></a>Federação
 **P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365?**  
@@ -55,20 +55,26 @@ Use as diretrizes descritas no artigo [Renovar certificados](active-directory-aa
 
 ## <a name="environment"></a>Ambiente
 **P: É possível renomear o servidor após a instalação do Azure AD Connect?**  
- Não. Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
+Não. Alterar o nome do servidor fará com que o mecanismo de sincronização não consiga se conectar ao banco de dados SQL e o serviço não poderá iniciar.
 
 ## <a name="identity-data"></a>Dados de identidade
 **P: O atributo UPN (userPrincipalName) no AD do Azure não coincide com o UPN local - por quê?**  
- Consulte estes artigos:
+Consulte estes artigos:
 
 * [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou a ID de logon alternativa](https://support.microsoft.com/en-us/kb/2523192)
 * [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/en-us/kb/2669550)
 
 Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize o userPrincipalName da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](active-directory-aadconnectsyncservice-features.md).
 
+**P: Há suporte para a correspondência suave de objetos de Grupo/Contato do Azure AD no local com objetos de Grupo/Contato existentes do Azure AD?**  
+Não, não há suporte para esse recurso no momento.
+
+**P: Há suporte para o atributo ImmutableId definido manualmente em objetos de Grupo/Contato existentes do Azure AD para correspondência rígida com objetos de Grupo/Contato do AD locais?**  
+Não, não há suporte para esse recurso no momento.
+
 ## <a name="custom-configuration"></a>Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?**  
- Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
+Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
 
 **P: Posso usar a opção "Exportação do servidor/importação do servidor" encontrada no *Synchronization Service Manager* para mover a configuração entre servidores?**  
 Não. Essa opção não irá recuperar todos os parâmetros de configuração e não deve ser usada. Em vez disso, você deve usar o assistente para criar a configuração básica no segundo servidor e usar o editor de regra de sincronização para gerar scripts do PowerShell para mover qualquer regra personalizada entre servidores. Veja [Mover configuração personalizada do servidor ativo para o servidor de preparo](active-directory-aadconnect-upgrade-previous-version.md#move-custom-configuration-from-active-to-staging-server).
@@ -91,6 +97,6 @@ Não. Essa opção não irá recuperar todos os parâmetros de configuração e 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

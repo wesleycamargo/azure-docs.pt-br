@@ -4,7 +4,7 @@ description: "Aprenda as noções básicas para criar e trabalhar com o Kafka no
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 01/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 70d910f61fa414a0c58a22057133ef3b899dac05
+ms.sourcegitcommit: 34c1138a9c3b9313a12ffbf4bc4c3141db0a016e
+ms.openlocfilehash: 98b11144c049f9db780c7665610c83a753f23b21
 
 ---
 # <a name="get-started-with-apache-kafka-preview-on-hdinsight"></a>Introdução ao Apache Kafka (visualização) no HDInsight
@@ -71,6 +71,11 @@ Use as seguintes etapas para criar um cluster Kafka no HDInsight:
     Por fim, use o botão **Selecionar** para salvar as configurações.
      
     ![Selecione o tipo de cluster](./media/hdinsight-apache-kafka-get-started/cluster-type.png)
+
+    > [!NOTE]
+    > Se sua assinatura do Azure não tiver acesso à visualização do Kafka, as instruções sobre como obter acesso à visualização serão exibidas. As instruções exibidas são semelhantes à seguinte imagem:
+    >
+    > ![mensagem de visualização: se deseja implantar um cluster gerenciado do Apache Kafka no HDInsight, envie-nos um email para solicitar acesso à visualização](./media/hdinsight-apache-kafka-get-started/no-kafka-preview.png)
 
 4. Use **Credenciais** para configurar o logon do cluster e as credenciais do usuário SSH.  Use o botão **Selecionar** para salvar as configurações.
    
@@ -320,6 +325,6 @@ Neste documento, você aprendeu os fundamentos do trabalho com o Apache Kafka no
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Ciência de Dados Escalonáveis no Azure Data Lake: um Passo a Passo de ponta a ponta | Microsoft Docs"
+title: "Ciência de Dados Escalonáveis com o Azure Data Lake: um passo a passo de ponta a ponta | Microsoft Docs"
 description: "Como usar o Azure Data Lake para realizar tarefas de classificação binária e de exploração de dados em um conjunto de dados."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/30/2017
 ms.author: bradsev;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c625752b40cffd0e7f791bd3a360f4bfb4622e7
+ms.sourcegitcommit: 34441f27e842214d009d64fbc658ff5b7c05df5d
+ms.openlocfilehash: e2aab1363c6a2ffef529f0708cb3bec9c095cf59
 
 
 ---
-# <a name="scalable-data-science-in-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados escalonáveis no Azure Data Lake: um passo a passo de ponta a ponta
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de Dados Escalonáveis com o Azure Data Lake: um passo a passo de ponta a ponta
 Este passo a passo mostra como usar o Azure Data Lake para exploração de dados e tarefas de classificação binária em uma amostra do conjunto de dados de tarifas e corridas de táxi de Nova York para prever se uma gorjeta será ou não paga por uma tarifa. Ele orienta você pelas etapas do [Processo de Ciência de Dados de Equipe](http://aka.ms/datascienceprocess), de ponta a ponta, da aquisição de dados até o treinamento de modelo e, em seguida, para a implantação de um serviço Web que publica o modelo.
 
 ### <a name="azure-data-lake-analytics"></a>Análise Azure Data Lake
@@ -53,14 +53,6 @@ Antes de começar esses tópicos, você deve ter o seguinte:
 > 
 > 
 
-* Inscrever-se para o Azure Data Lake Preview
-
-> [!NOTE]
-> Você precisa obter aprovação para usar o ADLS (Repositório Azure Data Lake) e o ADLA (Análise Azure Data Lake), já que esses serviços estão em preview. Quando você criar seu primeiro ADLS ou ADLA, será solicitado que você se inscreva. Para se inscrever, clique em **Inscrever-se para visualização**, leia o contrato e clique em **OK**. Aqui, por exemplo, é a página de inscrição do ADLS:
-> 
-> 
-
- ![2](./media/machine-learning-data-science-process-data-lake-walkthrough/2-ADLA-preview-signup.PNG)
 
 ## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Preparar ambiente de ciência de dados para o Azure Data Lake
 Para preparar o ambiente de ciência de dados para este passo a passo, crie os seguintes recursos:
@@ -72,13 +64,15 @@ Para preparar o ambiente de ciência de dados para este passo a passo, crie os s
 * Ferramentas do Azure Data Lake para Visual Studio (Recomendado)
 
 Esta seção fornece instruções sobre como criar cada um desses recursos. Se optar por usar tabelas de Hive com o Azure Machine Learning, em vez do Python, para compilar um modelo, você também precisará provisionar um cluster HDInsight (Hadoop). Esse procedimento alternativo está descrito na seção apropriada abaixo.
-<br/>
 
-> AZURE.NOTE O **Azure Data Lake Store** pode ser criado separadamente ou quando você cria a **Azure Data Lake Analytics** como o armazenamento padrão. As instruções são referenciadas para criar cada um desses recursos separadamente abaixo, mas a conta de armazenamento do Data Lake não precisa ser criada separadamente.
-> <br/>
+
+> [!NOTE]
+> O **Azure Data Lake Store** pode ser criado separadamente ou quando você cria a **Azure Data Lake Analytics** como o armazenamento padrão. As instruções são referenciadas para criar cada um desses recursos separadamente abaixo, mas a conta de armazenamento do Data Lake não precisa ser criada separadamente.
+>
 > 
-> ### <a name="create-an-azure-data-lake-store"></a>Criar um Repositório Azure Data Lake
-> 
+
+### <a name="create-an-azure-data-lake-store"></a>Criar um Repositório Azure Data Lake
+
 
 Crie um ADLS no [Portal do Azure](http://portal.azure.com). Para obter detalhes, consulte [Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de configurar a Identidade AAD do Cluster na folha **Fonte de Dados** da folha **Configuração Opcional** ali descrita. 
 
@@ -695,6 +689,6 @@ O roteiro de aprendizagem do [TDSP (Processo de Ciência de Dados de Equipe)](ht
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

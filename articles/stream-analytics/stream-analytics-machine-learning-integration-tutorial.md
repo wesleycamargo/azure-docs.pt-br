@@ -1,5 +1,5 @@
 ---
-title: "Análise de Sentimento usando o Azure Stream Analytics e o Azure Machine Learning | Microsoft Docs"
+title: "Integração do Azure Stream Analytics e do Machine Learning | Microsoft Docs"
 description: "Como usar uma função definida pelo usuário e o Aprendizado de Máquina em um trabalho do Stream Analytics"
 keywords: 
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/04/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fd5d7e2bf8d9cf68f1c3e9fe98656a8cfe0d1f15
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: e7c9e684a9e879b4795312c59b90176846cad82d
 
 
 ---
@@ -134,6 +134,6 @@ Você também pode exibir as métricas relacionadas à função de Aprendizado d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

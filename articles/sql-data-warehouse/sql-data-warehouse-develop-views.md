@@ -1,5 +1,5 @@
 ---
-title: "Exibições no SQL Data Warehouse | Microsoft Docs"
+title: "Usando exibições do T-SQL no Azure SQL Data Warehouse | Microsoft Docs"
 description: "Dicas para usar exibições Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eada95920b3f539c70776964eb62ff9e4d219ddd
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 902929fba9e2486d97323ab52505ba6db3fe0aab
 
 
 ---
@@ -66,13 +66,13 @@ Os modos de exibição no SQL Data Warehouse são somente metadados.  Consequent
 * não há exibições indexadas no SQL Data Warehouse
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][Visão geral de desenvolvimento do SQL Data Warehouse].
-Para a sintaxe `CREATE VIEW`, consulte [CREATE VIEW][CREATE VIEW].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][SQL Data Warehouse development overview].
+Para ver a sintaxe `CREATE VIEW` , consulte [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [CREATE VIEW]: https://msdn.microsoft.com/en-us/library/ms187956.aspx
@@ -81,6 +81,6 @@ Para a sintaxe `CREATE VIEW`, consulte [CREATE VIEW][CREATE VIEW].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

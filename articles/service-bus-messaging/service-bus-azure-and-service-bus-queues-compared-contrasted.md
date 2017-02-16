@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 09/23/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0740427b1cd990fb94e82f1f045cc9e7f11468cd
+ms.sourcegitcommit: a925285f94fc7b1a53e605f19bb8c1ff81ce6718
+ms.openlocfilehash: c9088b2472a6e72367666391a322068c1fdf662e
 
 
 ---
@@ -130,7 +130,7 @@ Esta seção compara recursos avançados fornecidos pelas Filas do Azure e filas
 * Para localizar mensagens "suspeitas" nas Filas do Azure, ao remover uma mensagem, o aplicativo examina a propriedade **[DequeueCount](https://msdn.microsoft.com/library/azure/dd179474.aspx)** da mensagem. Se **DequeueCount** estiver acima de um determinado limite, o aplicativo moverá a mensagem para uma fila de "mensagens mortas" definida pelo aplicativo.
 * As Filas do Azure permitem que você obtenha um log detalhado de todas as transações executadas na fila, bem como as métricas agregadas. Essas duas opções são úteis para depurar e entender como o aplicativo usa as Filas do Azure. Elas também são úteis para o ajuste de desempenho do aplicativo e redução dos custos do uso de filas.
 * O conceito de "sessões de mensagens" com suporte do Barramento de Serviço habilita mensagens que pertencem a um determinado grupo lógico a serem associadas a um destinatário específico que, por sua vez, cria uma afinidade de sessão entre as mensagens e seus respectivos destinatários. Você pode habilitar essa funcionalidade avançada no Barramento de Serviço definindo a propriedade [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) em uma mensagem. Os receptores podem escutar em uma ID de sessão específica e receber mensagens que compartilham o identificador de sessão especificado.
-* A funcionalidade de detecção de duplicação com suporte das filas do Barramento de Serviço remove automaticamente mensagens duplicadas enviadas a uma fila ou um tópico, com base no valor da propriedade [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
+* A funcionalidade de detecção de duplicação com suporte das filas do Barramento de Serviço remove automaticamente mensagens duplicadas enviadas a uma fila ou um tópico, com base no valor da propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx).
 
 ## <a name="capacity-and-quotas"></a>Capacidade e cotas
 Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da perspectiva de [capacidade e cotas](service-bus-quotas.md) que podem ser aplicáveis.
@@ -145,11 +145,11 @@ Esta seção compara as Filas do Azure e as filas do Barramento de Serviço da p
 
 ### <a name="additional-information"></a>Informações adicionais
 * O Barramento de Serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no Barramento de Serviço, confira [Cotas do Barramento de Serviço](service-bus-quotas.md).
-* Você pode criar filas do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Portal do Azure].
+* Você pode criar filas do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado (que é o padrão), o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 * 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal].
 * Com as Filas do Azure, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64**. Se você codificar a mensagem em **Base64**, a carga de usuário poderá ser de até 48 KB, em vez de 64 KB.
 * Com as filas do Barramento de Serviço, cada mensagem armazenada em uma fila é composta por duas partes: um cabeçalho e um corpo. O tamanho total da mensagem não pode exceder o tamanho máximo da mensagem com suporte da camada de serviço.
 * Quando os clientes se comunicam com as filas do Barramento de Serviço pelo protocolo TCP, o número máximo de conexões simultâneas para uma única fila do Barramento de Serviço é limitado a 100. Esse número é compartilhado entre remetentes e receptores. Se essa cota for atingida, as solicitações subsequentes de conexões adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Esse limite não é imposto a clientes que se conectam às filas usando a API baseada em REST.
-* Se precisar de mais de 10.000 filas em um único namespace do Barramento de Serviço, você poderá entrar em contato com a equipe de suporte do Azure e solicitar um aumento. Para escalar mais de 10.000 filas com o Barramento de Serviço, também é possível criar namespaces adicionais usando o [Portal do Azure][Portal do Azure].
+* Se precisar de mais de 10.000 filas em um único namespace do Barramento de Serviço, você poderá entrar em contato com a equipe de suporte do Azure e solicitar um aumento. Para escalar para além de 10.000 filas com o Barramento de Serviço, você também pode criar namespaces adicionais usando o [Portal do Azure][Azure portal].
 
 ## <a name="management-and-operations"></a>Gerenciamento e operações
 Esta seção compara os recursos de gerenciamento fornecidos pelas Filas do Azure e filas do Barramento de Serviço.
@@ -226,11 +226,11 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 * [Usando o serviço de enfileiramento do Azure](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 * [Noções básicas sobre cobrança de armazenamento no Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

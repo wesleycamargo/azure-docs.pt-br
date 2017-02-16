@@ -4,7 +4,7 @@ description: "Este artigo contém etapas para usar o makecert para criar os cert
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,30 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2016
+ms.date: 01/19/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b44f46273c6ddb439ec3793f193986011c222ee3
+ms.sourcegitcommit: 64c6e8fa5288ce9a25bcb434217511425aebfe21
+ms.openlocfilehash: beb873c99d956eafebecc69f9afc480c558efabb
 
 
 ---
 # <a name="working-with-self-signed-certificates-for-point-to-site-connections"></a>Trabalhando com certificados autoassinados para conexões de Ponto a site
-Este artigo ajuda você a criar um certificado autoassinado usando **makecert**e a gerar certificados de cliente por meio dele. As etapas a seguir são relacionadas ao makecert no Windows 10. O makecert foi validado para criar certificados compatíveis com conexões P2S. 
+Este artigo ajuda você a criar um certificado autoassinado usando **makecert** e a gerar certificados de cliente por meio dele. Para conexões de P2S, o método preferido para os certificados é usar a solução de certificado corporativo. Não deixe de emitir os certificados de cliente com o formato de valor de nome comum 'name@yourdomain.com',, em vez do formato 'NetBIOS nome de domínio\nome de usuário'.
 
-Para conexões P2S, o método preferencial para os certificados é usar a solução de certificado corporativo, certificando-se de emitir os certificados de cliente com o formato de valor de nome comum 'name@yourdomain.com',, em vez do formato "Nome de domínio NetBIOS\nome de usuário".
-
-Se você não tiver uma solução corporativa, um certificado autoassinado será necessário para permitir que clientes P2S se conectem a uma rede virtual. Estamos cientes de que o makecert foi preterido, mas ele ainda é um método válido para criar certificados autoassinados compatíveis com conexões P2S. Estamos trabalhando em outra solução para a criação de certificados autoassinados, mas desta vez, makecert é o método preferencial.
+Se você não tiver uma solução corporativa, um certificado autoassinado será necessário para permitir que clientes P2S se conectem a uma rede virtual. Embora seja possível usar o PowerShell para criar um certificado, o certificado gerado usando o PowerShell não contém os campos exigidos pelo Azure para autenticação P2S. O makecert foi validado para criar certificados compatíveis com conexões P2S. O makecert foi substituído em configurações P2S.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
-O makecert é uma maneira de criar um certificado autoassinado. As etapas abaixo o orientarão na criação de um certificado autoassinado usando o makecert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
+As etapas abaixo o orientarão na criação de um certificado autoassinado usando o makecert. Essas etapas não são específicas do modelo de implantação. Elas são válidas tanto para o Gerenciador de Recursos quanto para o clássico.
 
 ### <a name="to-create-a-self-signed-certificate"></a>Para criar um certificado autoassinado
 1. Em um computador com Windows 10, baixe e instale o [SDK (Software Development Kit) do Windows para Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
 2. Após a instalação, localize o utilitário makecert.exe nesse caminho: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
    
     Exemplo: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
-3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Execute o seguinte comando, como administrador. Substitua  *ARMP2SRootCert* e *ARMP2SRootCert.cer* com o nome que você deseja usar para o certificado.<br><br>O certificado estará em seus Certificados - Usuário Atual\Pessoal\Certificados.
+3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Execute o seguinte comando, como administrador. Substitua *ARMP2SRootCert* e *ARMP2SRootCert.cer* com o nome que você deseja usar para o certificado.<br><br>O certificado estará em seus Certificados - Usuário Atual\Pessoal\Certificados.
    
         makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
@@ -45,7 +43,7 @@ Como parte da configuração do Gateway de VPN para conexões Ponto a Site, a ch
 
 1. Para obter um arquivo .cer do certificado, abra **certmgr.msc**. Clique com o botão direito no certificado raiz autoassinado, clique em** todas as tarefas** e clique em **exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**, escolha , **Não exportar a chave privada** e clique em **Avançar**.
-3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base 64 (.CER).** Em seguida, clique em **Avançar**. 
+3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base&64; (.CER).** Em seguida, clique em **Avançar**. 
 4. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
 5. Clique em **Concluir** para exportar o certificado.
 
@@ -87,7 +85,7 @@ Cada cliente que você deseja conectar à sua rede virtual usando uma conexão P
 2. Na página **Arquivo** a importar, não faça nenhuma alteração. Clique em **Próximo**.
 3. Na página **Proteção da chave privada**, insira a senha do certificado, caso tenha usado uma, ou verifique se a entidade de segurança que está instalando o certificado está correta e clique em **Avançar**.
 4. Na página **Repositório de Certificados**, deixe a localização padrão e clique em **Avançar**.
-5. Clique em **Concluir**. No **Aviso de Segurança** da instalação do certificado, clique em **Sim**. O certificado foi importado com êxito.
+5. Clique em **Concluir**. No **Aviso de Segurança** da instalação do certificado, clique em **Sim**. Clique em 'Sim' sem medo, pois você gerou o certificado. O certificado foi importado com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 Continue com a configuração de Ponto a Site. 
@@ -98,6 +96,6 @@ Continue com a configuração de Ponto a Site.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

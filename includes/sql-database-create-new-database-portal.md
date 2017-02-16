@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Criar um novo Banco de Dados SQL do Azure
+## <a name="create-a-new-azure-sql-database"></a>Criar um novo Banco de Dados SQL do Azure
 Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL do Azure em um servidor lógico de Banco de Dados SQL novo ou existente.
 
 1. Se você não estiver conectado, conecte-se ao [Portal do Azure](http://portal.azure.com).
@@ -33,7 +33,7 @@ Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL 
    * Tipo de preços: se você estiver começando, use o valor padrão S0.
    * Agrupamento: isso será aplicado somente se um banco de dados vazio for escolhido.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![Novo banco de dados](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. Clique em **Criar**. Veja na área de notificação que a implantação foi iniciada.
    
     ![Novo banco de dados](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,4 +41,8 @@ Use as etapas a seguir no portal do Azure para criar um novo banco de dados SQL 
    
      ![Novo banco de dados](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

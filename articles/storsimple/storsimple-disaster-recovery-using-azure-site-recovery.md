@@ -1,6 +1,6 @@
 ---
-title: Automatizar a DR para compartilhamentos de arquivos no StorSimple usando o Azure Site Recovery| Microsoft Docs
-description: "Descreve as etapas e práticas recomendadas para criar uma solução de recuperação de desastre para compartilhamentos de arquivos hospedados no armazenamento do StorSimple."
+title: Automatizar a DR de compartilhamento de arquivos do StorSimple com o Azure Site Recovery | Microsoft Docs
+description: "Descreve as etapas e práticas recomendadas para criar uma solução de recuperação de desastre para compartilhamentos de arquivos hospedados no armazenamento do Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/16/2016
 ms.author: vidarmsft
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: d454c138b75bbf3227dd1d5f52594e3c78e15766
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: a0817ac21afb83745ec2cc213fc6029fa395d479
 
 
 ---
@@ -102,7 +102,7 @@ Esta etapa exige que você prepare o ambiente do servidor de arquivos local, cri
    7. Selecione a guia **Configurar** e anote o endereço IP do dispositivo.
    8. Em suas VMs locais, acesse o **iniciador iSCSI** novamente e digite o IP na seção Conexão Rápida. Clique em **Conexão Rápida** (o dispositivo agora deve estar conectado).
    9. Abra o Portal de Gerenciamento do Azure e selecione a guia **Volumes e Dispositivos** . Clique em **Configuração Automática**. O volume que você acabou de criar deverá aparecer.
-   10. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.**  (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
+   10. No portal, selecione a guia **Dispositivos** e, em seguida, selecione **Criar um Novo Dispositivo Virtual.** (Este dispositivo virtual será usado se ocorrer um failover). Esse novo dispositivo virtual pode ser mantido em estado offline para evitar custos extras. Para colocar o dispositivo virtual offline, acesse a seção **Máquinas Virtuais** no Portal e desligue-o.
    11. Volte para as VMs locais e abra o Gerenciamento de Disco (pressione a tecla Windows + X e selecione **Gerenciamento de Disco**).
    12. Você notará alguns discos extras (dependendo do número de volumes que você criou). Clique com o botão direito do mouse no primeiro, selecione **Inicializar Disco** e selecione **OK**. Clique com o botão direito do mouse na seção **Não Alocado**, selecione **Novo Volume Simples**, atribua uma letra da unidade e conclua o assistente.
    13. Repita a etapa l para todos os discos. Agora você pode ver todos os discos **neste computador** no Windows Explorer.
@@ -304,6 +304,6 @@ Ao usar o Azure Site Recovery, você poderá criar um plano de recuperação de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: O que o Azure Multi-Factor Authentication significa para mim?
+title: "Introdução à verificação em duas etapas | Microsoft Docs"
 description: "Esta é a página do Azure Multi-Factor Authentication que ajudará os usuários finais a seguir adiante com o Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 12/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da55d4adaf00277a303a53a2b807ca3a28d2dbe0
+ms.sourcegitcommit: 4ff028f88e984f28bc0f4a228aabed1fabc90560
+ms.openlocfilehash: dd9b0692dbc044e4bed26cfe7e9e4be11450a595
 
 
 ---
@@ -32,26 +32,24 @@ Sendo assim, a primeira coisa que você precisa fazer é concluir o processo de 
 * **Aplicativo móvel com um código de notificação ou verificação** : se estiver usando o aplicativo móvel, escolha entre receber uma notificação a qual responder ou um código de verificação.
 
 > [!NOTE]
-> Esteja ciente de que seu departamento de TI pode desabilitar uma ou mais das opções acima.  Se esse for o caso, essas opções não serão disponibilizadas durante o processo de registro.
-> 
-> 
+> Esteja ciente de que seu departamento de TI pode desabilitar uma ou mais das opções acima.  Se esse for o caso, essas opções não serão disponibilizadas durante o processo de registro.  
 
-Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro.  Use o link [Experiência de Configuração](../multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
+Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro.  Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
 
 ## <a name="how-to-get-going-with-multi-factor-authentication"></a>Como seguir adiante com o Multi-Factor Authentication
 Selecione um dos tópicos a seguir para começar.
 
 | Tópico | Descrição |
 |:--- |:--- |
-| [Experiência de Configuração](../multi-factor-authentication-end-user-first-time.md) |Descreve o processo de configurar o Multi-Factor Authentication pela primeira vez. |
-| [Experiência de conexão](../multi-factor-authentication-end-user-signin.md) |Mostra o que você pode esperar quando se conectar usando vários métodos, como telefone ou aplicativo. |
-| [Alterando suas configurações](../multi-factor-authentication-end-user-manage-settings.md) |Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido. |
-| [Ajuda com senhas de aplicativo](../multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e usar senhas de aplicativo. |
-| [Usar o aplicativo móvel](../multi-factor-authentication-microsoft-authenticator.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) |Descreve o processo de configurar o Multi-Factor Authentication pela primeira vez. |
+| [Experiência de conexão](multi-factor-authentication-end-user-signin.md) |Mostra o que você pode esperar quando se conectar usando vários métodos, como telefone ou aplicativo. |
+| [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido. |
+| [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e usar senhas de aplicativo. |
+| [Usar o aplicativo móvel](microsoft-authenticator-app-how-to.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

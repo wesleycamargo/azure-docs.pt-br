@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7df0243622af7166a57a6ec81ed356022246a3ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
 
 
 ---
@@ -528,7 +528,7 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 2. Certifique-se de que o dispositivo esteja conectado corretamente: verifique a cabeamento de rede no backplane do dispositivo. O cabeamento é específico para o modelo do dispositivo. Para saber mais, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) ou [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados pelo fornecedor OEM para portas Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+   > Se você estiver usando portas de rede 10 GbE, precisará usar os adaptadores de QSFP-SFP e os cabos SFP fornecidos. Para obter mais informações, consulte a [lista de cabos, comutadores e transceptores recomendados para portas de 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
    > 
    > 
 3. Verifique a integridade da interface de rede:
@@ -566,6 +566,6 @@ O erro pode ter sido causado por qualquer uma das seguintes opções:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

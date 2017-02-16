@@ -1,6 +1,6 @@
 ---
-title: "Previsão - ETS + STL | Microsoft Docs"
-description: "Previsão - ETS + STL"
+title: "(preterido) Previsão — ETS + STL — Azure | Microsoft Docs"
+description: "(preterido) Previsão – ETS + STL"
 services: machine-learning
 documentationcenter: 
 author: xueshanz
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: yijichen
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7a8877257ba03de22e0f74253885585c02d2bd10
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: cdf6661a36e38bf7a6fca241682be796712bd5d9
 
 
 ---
-# <a name="forecasting---ets--stl"></a>Previsão - ETS + STL
+# <a name="deprecated-forecasting---ets--stl"></a>(preterido) Previsão – ETS + STL
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/demand_forecast) implementa os modelos de Decomposição de tendência sazonal (STL) e Ajuste exponencial (ETS) para produzir previsões com base nos dados históricos fornecidos pelo usuário. A demanda de um produto específico aumentará neste ano? Posso prever as vendas do meu produto para a temporada de Natal para que eu possa planejar efetivamente meu estoque? Modelos de previsão são adequados para responder a essas perguntas. Considerando os dados passados, esses modelos examinam tendências ocultas e a sazonalidade para prever tendências futuras. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -141,6 +148,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

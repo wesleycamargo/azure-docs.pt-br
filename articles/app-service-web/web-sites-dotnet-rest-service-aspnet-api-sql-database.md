@@ -1,5 +1,5 @@
 ---
-title: "Criar um serviço REST usando a API Web ASP.NET e o Banco de Dados SQL no Serviço de Aplicativo do Azure"
+title: Criar uma API REST no Azure com ASP.NET e uma BD SQL | Microsoft Docs
 description: Um tutorial que ensina como implantar um aplicativo que usa a API Web ASP.NET em um aplicativo Web do Azure usando o Visual Studio.
 services: app-service\web
 documentationcenter: .net
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2188a56fee942cd58b20b92fb77891708ab62d24
+ms.sourcegitcommit: 3f6bb2604d6f20e299ae5583a0ad215f02b9b803
+ms.openlocfilehash: 016d44cb57d5ad76dc0b115be6fbac6835d84396
 
 
 ---
@@ -493,7 +493,7 @@ O aplicativo mostra os dados de semente e fornece links de edição, detalhes e 
 
     ![Caixa de diálogo Salvar API Web][addwebapi007]
 
-    **Aviso de Segurança**: neste ponto, o aplicativo não é seguro e está vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade. Para saber mais, veja [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks] (Evitando ataques de CSRF [solicitação intersite forjada]).
+    **Aviso de Segurança**: neste ponto, o aplicativo não é seguro e está vulnerável a ataques CSRF. Mais à frente no tutorial, removeremos essa vulnerabilidade. Para obter mais informações, confira [Evitando ataques de solicitação intersite forjada (CSRF)][prevent-csrf-attacks].
 ## <a name="add-xsrf-protection"></a>Adicionar proteção XSRF
 A solicitação entre sites forjada (também conhecida como XSRF ou CSRF) é um ataque contra aplicativos web hospedados, no qual um site mal-intencionado pode influenciar a interação entre um navegador cliente e um site confiável para esse navegador. Esses ataques são possibilitados porque os navegadores da web enviarão tokens de autenticação automaticamente com toda solicitação para um site. O exemplo canônico é um cookie de autenticação, como o tíquete de autenticação de formulários do ASP.NET. No entanto, os sites que usam qualquer mecanismo de autenticação persistente (como a autenticação do Windows, Basic e assim por diante) podem ser alvos desses ataques.
 
@@ -663,7 +663,7 @@ Ao ver que o item inserido foi salvo e exibido na página do gerenciador de cont
 O aplicativo agora está sendo executado na nuvem, usando o Banco de dados SQL para armazenar seus dados. Depois de concluir o teste do aplicativo no Azure, exclua-o. O aplicativo é público e não tem um mecanismo para limitar o acesso.
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -685,10 +685,10 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[Adicionar um provedor de OAuth]: #addOauth
-[Adicionar funções ao banco de dados de associação]:#mbrDB
-[Criar um Script de Implantação de Dados]:#ppd
-[Atualizar o Banco de Dados de Associação]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Add Roles to the Membership Database]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 [setupdbenv]: #bkmk_setupdevenv
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -742,9 +742,9 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 [addwebapi004]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-added-contact.png
 [addwebapi006]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-save-returned-contacts.png
 [addwebapi007]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/dntutmobile-webapi-contacts-in-notepad.png
-[Adicionar proteção XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-[Adicionar proteção XSRF]: #xsrf
+[Add XSRF Protection]: #xsrf
 [ImportPublishSettings]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ImportPublishProfile.png
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
@@ -755,6 +755,6 @@ Deixe comentários sobre o que você gostou ou do que você gostaria de ver melh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

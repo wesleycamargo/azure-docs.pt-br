@@ -16,31 +16,26 @@ ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+ms.sourcegitcommit: 1ddfbd3b8d9ca695b08739c7f0716a8e8de82725
+ms.openlocfilehash: 23bf15555569c2c2f5ce9db1bead5da539df571d
 
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Hadoop no HDInsight
 Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado em Linux e exporte os dados para um Banco de Dados SQL do Azure usando o Sqoop.
 
-> [!NOTE]
-> Embora diversas partes deste documento possam ser usadas com clusters HDInsight baseados no Windows (Python e Hive, por exemplo), muitas etapas deste documento são específicas de clusters baseados em Linux. Para conhecer as etapas que funcionarão em um cluster baseado no Windows, confira [Analisar dados de atraso de voos usando o Hive no HDInsight](hdinsight-analyze-flight-delay-data.md)
-> 
-> 
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um cluster HDInsight**. Confira [Introdução ao uso do Hadoop com o Hive no HDInsight em Linux](hdinsight-hadoop-linux-tutorial-get-started.md) para obter as etapas da criação de um novo cluster HDInsight baseado em Linux.
 * **Banco de dados SQL do Azure**. Você usará um banco de dados SQL do Azure como um repositório de dados de destino. Se você ainda não tem um Banco de Dados SQL, confira [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md).
 * **CLI do Azure**. Se você não tiver instalado a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) para ver mais etapas.
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="download-the-flight-data"></a>Baixar os dados de voos
-1. Vá para [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Navegue para [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
 2. Na página, selecione os valores a seguir:
    
    | Nome | Valor |
@@ -243,11 +238,11 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial
 Agora você compreende como carregar um arquivo para o armazenamento de Blob do Azure, como preencher uma tabela Hive usando os dados do armazenamento de Blob do Azure, como executar consultas do Hive e como usar o Sqoop para exportar dados do HDFS para o banco de dados SQL do Azure. Para saber mais, consulte os seguintes artigos:
 
 * [Introdução ao HDInsight][hdinsight-get-started]
-* [Usar o hive com o HDInsight][hdinsight-use-hive]
+* [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Oozie com o HDInsight][hdinsight-use-oozie]
-* [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop]
+* [Use o Sqoop com o HDInsight][hdinsight-use-sqoop]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
-* [Desenvolver programas Java MapReduce para o HDInsight][hdinsight-develop-mapreduce]
+* [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 * [Desenvolver programas de streaming do Hadoop em Python para o HDInsight][hdinsight-develop-streaming]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -278,6 +273,6 @@ Agora você compreende como carregar um arquivo para o armazenamento de Blob do 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

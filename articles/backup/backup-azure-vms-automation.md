@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/16/2017
 ms.author: markgal; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: f6a1346b84521806e5523e331b2aeb11648bbe6d
-ms.openlocfilehash: a7d2a73760cd015a5a67551f6f6ada8568ed75b8
+ms.sourcegitcommit: 3a560e836de9cf70bf448b30b091ad92372bce06
+ms.openlocfilehash: 909b16d2e8c72fa29f45e1bdfc778612e00ebbd8
 
 
 ---
@@ -37,7 +37,7 @@ Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e 
 Ele guiará você sobre como usar o PowerShell para proteger uma VM e como restaurar dados de um ponto de recuperação.
 
 ## <a name="concepts"></a>Conceitos
-Se você não estiver familiarizado com o serviço de Backup do Azure, para ter uma visão geral do serviço, confira [O que é o Backup do Azure?](backup-introduction-to-azure-backup.md)  Antes de começar, é importante ter noções básicas sobre os pré-requisitos necessários para trabalhar com o Backup do Azure e as limitações da atual solução de backup de VM.
+Se você não estiver familiarizado com o serviço de Backup do Azure, para ter uma visão geral do serviço, confira [O que é o Backup do Azure?](backup-introduction-to-azure-backup.md) Antes de começar, é importante ter noções básicas sobre os pré-requisitos necessários para trabalhar com o Backup do Azure e as limitações da atual solução de backup de VM.
 
 Para usar efetivamente o PowerShell, é necessário compreender a hierarquia de objetos e de onde começar.
 
@@ -199,6 +199,11 @@ PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
+> [!NOTE]
+> Se você estiver na nuvem de Governo do Azure, use o valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para o parâmetro **-ServicePrincipalName** no cmdlet Set-AzureRmKeyVaultAccessPolicy.
+> 
+> 
+
 Para VMs baseadas no ASM
 
 ```
@@ -230,7 +235,8 @@ WorkloadName     Operation            Status               StartTime            
 V2VM              Backup               InProgress            4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-> [AZURE.NOTE: o fuso horário dos campos StartTime e EndTime no PowerShell é UTC. No entanto, quando a hora é exibida no Portal do Azure, ela é ajustada para seu fuso horário local.
+> [!NOTE]
+> O fuso horário dos campos StartTime e EndTime mostrado no PowerShell é UTC. No entanto, quando a hora é exibida no Portal do Azure, ela é ajustada para seu fuso horário local.
 > 
 > 
 
@@ -323,8 +329,13 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Depois de restaurar os discos, vá para a próxima seção para saber mais sobre como criar a VM.
 
-### <a name="create-a-vm-from-restored-disks"></a>Criar uma máquina virtual de discos restaurados
+## <a name="create-a-vm-from-restored-disks"></a>Criar uma máquina virtual de discos restaurados
 Depois de ter restaurado os discos, use estas etapas para criar e configurar uma máquina virtual do disco.
+
+> [!NOTE]
+> Se você estiver criando VMs criptografadas usando discos restaurados, sua função deve ter permissão para executar **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Veja [Funções personalizadas no Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) para saber mais.
+> 
+> 
 
 1. Consulte as propriedades do disco restaurado para obter os detalhes do trabalho.
    
@@ -384,6 +395,6 @@ Se você preferir usar o PowerShell para interagir com os recursos do Azure, con
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

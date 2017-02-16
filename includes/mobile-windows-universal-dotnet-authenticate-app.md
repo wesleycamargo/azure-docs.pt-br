@@ -49,11 +49,11 @@
                 await RefreshTodoItems();
             }
         }
-4. No projeto do aplicativo da Windows Store, abra o arquivo de projeto MainPage.xaml e adicione o seguinte elemento **Botão** um pouco antes do elemento que define o botão **Salvar**:
+4. No projeto do aplicativo da Windows Store, abra o arquivo de projeto MainPage.xaml e adicione o seguinte elemento **Button** um pouco antes do elemento que define o botão **Salvar**:
    
         <Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
-5. No projeto do aplicativo Loja do Windows Phone, adicione o elemento **Botão** a **ContentPanel** após o elemento **TextBox**:
+5. No projeto do aplicativo Loja do Windows Phone, adicione o elemento **Button** a **ContentPanel** após o elemento **TextBox**:
    
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
             Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
@@ -75,9 +75,13 @@
         }
    
     Se o método **OnActivated** já existir, bastará adicionar o bloco de código `#if...#endif`.
-7. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido.
+7. Pressione a tecla F5 para executar o aplicativo da Windows Store, clique no botão **Entrar** e entre no aplicativo com o provedor de identidade escolhido. 
    
-       Ao entrar com êxito, o aplicativo deve ser executado sem erros e você deve ser capaz de consultar seu back-end e fazer atualizações nos dados.
-8. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial** e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+8. Clique com o botão direito do mouse no projeto do aplicativo da Loja do Windows Phone, clique em **Definir como projeto inicial**e repita as etapas anteriores para verificar se o aplicativo da Loja do Windows Phone também executa corretamente.  
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

@@ -1,6 +1,6 @@
 ---
-title: "Guia do desenvolvedor – linguagem de consulta do Hub IoT | Microsoft Azure"
-description: "Guia do desenvolvedor do Hub IoT do Azure – descrição da linguagem de consulta do Hub IoT parecida com SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos de seu Hub IoT"
+title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
+description: "Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos do seu Hub IoT."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 627de0ca1647e98e08165521e7d3a519e1950296
-ms.openlocfilehash: 8007c6864368868d9cb489236d958eeada8789bd
+ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
+ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
 
 
 ---
@@ -27,7 +27,7 @@ O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação d
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem.
 
-## <a name="getting-started-with-device-twin-queries"></a>Introdução às consultas de dispositivos gêmeos
+## <a name="get-started-with-device-twin-queries"></a>Introdução às consultas com dispositivos gêmeos
 Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do dispositivo gêmeo.
 Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte estrutura:
 
@@ -90,7 +90,7 @@ Os operadores boolianos e as comparações aritméticas também têm suporte, po
         WHERE tags.location.region = 'US'
             AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
-recupera todos os dispositivos gêmeos localizados nos Estados Unidos configurados para enviar telemetria com menos frequência do que a cada minuto. Como uma conveniência, também é possível usar constantes de matriz em conjunto com os operadores **IN** e **NIN** (não in). Por exemplo,
+recupera todos os dispositivos gêmeos localizados nos Estados Unidos configurados para enviar telemetria com menos frequência do que a cada minuto. Como uma conveniência, também é possível usar constantes de matriz com os operadores **IN** e **NIN** (não in). Por exemplo,
 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
@@ -126,10 +126,10 @@ retorna a contagem dos dispositivos em cada status de configuração de telemetr
             }
         ]
 
-O exemplo acima ilustra uma situação em que três dispositivos relataram a configuração bem-sucedida, dois ainda estão aplicando a configuração e um relatou um erro.
+O exemplo anterior ilustra uma situação em que três dispositivos relataram a configuração bem-sucedida, dois ainda estão aplicando a configuração e um relatou um erro.
 
 ### <a name="c-example"></a>Exemplo de C#
-A funcionalidade de consulta é exposta pelo [SDK de serviço do C#][lnk-hub-sdks] na classe **RegistryManager**.
+A funcionalidade de consulta é exposta pelo [SDK de serviço de C#][lnk-hub-sdks] na classe **RegistryManager**.
 Aqui está um exemplo de uma consulta simples:
 
         var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
@@ -143,10 +143,10 @@ Aqui está um exemplo de uma consulta simples:
         }
 
 Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **GetNextAsTwinAsync** várias vezes.
-É importante observar que o objeto de consulta expõe vários **Next\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho, ou Json simples a ser usado ao utilizar projeções.
+Observe que o objeto de consulta expõe vários **Avançar\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho ou JSON simples usado ao utilizar projeções.
 
-### <a name="node-example"></a>Exemplo de nó
-A funcionalidade de consulta é exposta pelo [SDK de serviço de nó][lnk-hub-sdks] no objeto **Registry**.
+### <a name="nodejs-example"></a>Exemplo do Node.js
+A funcionalidade de consulta é exposta pelo [SDK de serviço IoT do Azure para Node.js][lnk-hub-sdks] no objeto **Registry**.
 Aqui está um exemplo de uma consulta simples:
 
         var query = registry.createQuery('SELECT * FROM devices', 100);
@@ -167,12 +167,12 @@ Aqui está um exemplo de uma consulta simples:
         query.nextAsTwin(onResults);
 
 Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **nextAsTwin** várias vezes.
-É importante observar que o objeto de consulta expõe vários **next\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho, ou Json simples a ser usado ao utilizar projeções.
+Observe que o objeto de consulta expõe vários **avançar\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho ou JSON simples usado ao utilizar projeções.
 
 ### <a name="limitations"></a>Limitações
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
-## <a name="getting-started-with-jobs-queries"></a>Introdução às consultas de trabalhos
+## <a name="get-started-with-jobs-queries"></a>Introdução às consultas de trabalhos
 Os [Trabalhos][lnk-jobs] fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
 Logicamente,
 
@@ -206,7 +206,7 @@ Logicamente,
 Atualmente, essa coleção pode ser consultada como **devices.jobs** na linguagem de consulta do Hub IoT.
 
 > [!IMPORTANT]
-> Atualmente, a propriedade jobs nunca retornam ao consultar dispositivos gêmeos (ou seja, consultas que contém 'FROM devices'). Ela só pode ser acessada diretamente com consultas usando `FROM devices.jobs`.
+> Atualmente, a propriedade jobs nunca é retornada ao consultar dispositivos gêmeos (ou seja, consultas que contém “FROM devices”). Ela só pode ser acessada diretamente com consultas usando `FROM devices.jobs`.
 >
 >
 
@@ -235,12 +235,44 @@ Também é possível recuperar os resultados por dispositivo de um único trabal
 ### <a name="limitations"></a>Limitações
 No momento, as consultas em **devices.jobs** não dão suporte a:
 
-* Projeções, portanto, apenas `SELECT *` é possível;
-* Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho, conforme mostrado acima,
-* Realização de agregações, por exemplo, count, avg, group by.
+* Projeções, portanto, apenas `SELECT *` é possível.
+* Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho (consulte a seção anterior).
+* Realização de agregações, tal como count, avg e group by.
+
+## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Começar a usar expressões de consulta de rotas de mensagem do dispositivo para a nuvem
+
+Usando as [rotas do dispositivo para nuvem][lnk-devguide-messaging-routes], você pode configurar o Hub IoT para distribuir mensagens de dispositivo para a nuvem para diferentes pontos de extremidade com base em expressões avaliadas em relação a mensagens individuais.
+
+A [condição][lnk-query-expressions] da rota usa a mesma linguagem de consulta que o Hub IoT como condições em consultas gêmeas e de trabalho. As condições de rota são avaliadas nas propriedades da mensagem, assumindo a seguinte representação JSON:
+
+        {
+            "userProperty1": "",
+            "userProperty2": ""
+        }
+
+Lembre-se que os nomes de propriedade não diferenciam maiúsculas de minúsculas.
+
+> [!NOTE]
+> Todas as propriedades de mensagem são cadeias de caracteres. As propriedades do sistema, conforme descrito no [guia do desenvolvedor][lnk-devguide-messaging-format], não estão disponíveis para serem usadas em consultas no momento.
+>
+>
+
+Por exemplo, se você usar uma propriedade `messageType`, poderá querer rotear toda a telemetria para um ponto de extremidade e todos os alertas para outro. Você pode escrever a expressão a seguir para rotear a telemetria:
+
+        messageType = 'telemetry'
+
+E a expressão a seguir para rotear as mensagens de alerta:
+
+        messageType = 'alert'
+
+Também há suporte para expressões e funções boolianas. Esse recurso permite distinguir entre o nível de severidade, por exemplo:
+
+        messageType = 'alerts' AND as_number(severity) <= 2
+
+Consulte a seção [Expressão e condições][lnk-query-expressions] para ver a lista completa de funções e operadores com suporte.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. No caso de agregações, os resultados desta etapa são agrupados como especificado na cláusula GROUP BY e, para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Nas agregações, os resultados desta etapa são agrupados como especificado na cláusula GROUP BY e, para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
         SELECT <select_list>
         FROM <from_specification>
@@ -251,14 +283,15 @@ Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM cláus
 A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices**, para consultar dispositivos gêmeos, ou **FROM devices.jobs**, para consultar os detalhes de trabalho por dispositivo.
 
 ## <a name="where-clause"></a>Cláusula WHERE
-A cláusula **WHERE <filter_condition>** é opcional. Ela especifica as condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
+A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 
 As condições permitidas são descritas na seção [Expressões e condições][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Cláusula SELECT
-A cláusula SELECT (**SELECT <select_list>**) é obrigatória e especifica quais valores serão retornados pela consulta. Ela especifica os valores JSON a serem usados para gerar novos objetos JSON para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON, construído com os valores especificados na cláusula SELECT.
+A cláusula SELECT (**SELECT <select_list>**) é obrigatória e especifica quais valores são recuperados pela consulta. Ela especifica os valores JSON a serem usado para gerar novos objetos JSON.
+Para cada elemento do subconjunto filtrado (e opcionalmente agrupado) da coleção FROM, a fase de projeção gera um novo objeto JSON, construído com os valores especificados na cláusula SELECT.
 
-Esta é a gramática da cláusula SELECT:
+Veja a seguir a gramática da cláusula SELECT:
 
         SELECT [TOP <max number>] <projection list>
 
@@ -309,7 +342,7 @@ Em um alto nível, uma *expressão*:
 * Avalia para uma instância de um tipo JSON (por exemplo, booliano, número, cadeia de caracteres, matriz ou objeto) e
 * É definida pela manipulação de dados provenientes do documento JSON de dispositivo e constantes usando as funções e operadores internos.
 
-*Condições* são expressões que são avaliadas como um booliano, ou seja, qualquer constante diferente de booliana **true** é considerada como **false** (incluindo **null**, **undefined**, qualquer instância de matriz ou objeto, qualquer cadeia de caracteres e claramente o booliano **false**).
+*Condições* são expressões que retornam um valor booliano. Qualquer constante diferente de booliana **true** é considerada como **false** (incluindo **null**, **undefined**, qualquer instância de matriz ou objeto, qualquer cadeia de caracteres e claramente o booliano **false**).
 
 A sintaxe de expressões é:
 
@@ -341,9 +374,9 @@ onde:
 
 | Símbolo | Definição |
 | --- | --- |
-| attribute_name |Qualquer propriedade do documento JSON na coleção FROM. |
-| binary_operator |Qualquer operador binário de acordo com a seção Operadores. |
-| function_name| A única função com suporte é `is_defined()` |
+| attribute_name | Qualquer propriedade do documento JSON na coleção **FROM**. |
+| binary_operator | Qualquer operador binário listado na seção [Operadores](#operators). |
+| function_name| Qualquer função listada na seção [Funções](#functions). |
 | decimal_literal |Um float expresso em notação decimal. |
 | hexadecimal_literal |Um número expresso pela cadeia de caracteres '0x' seguida por uma cadeia de caracteres de dígitos hexadecimais. |
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples (apóstrofe: ') ou aspas duplas (aspas: "). Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
@@ -357,23 +390,74 @@ Há suporte para os seguintes operadores:
 | Lógico |AND, OR, NOT |
 | Comparação |=, !=, <, >, <=, >=, <> |
 
+### <a name="functions"></a>Funções
+Ao consultar gêmeos e trabalhos, a única função com suporte é:
+
+| Função | Descrição |
+| -------- | ----------- |
+| IS_DEFINED(propriedade) | Retorna um valor booliano que indica se um valor foi atribuído à propriedade (incluindo `null`). |
+
+Em condições de rotas, há suporte para as seguintes funções matemáticas:
+
+| Função | Descrição |
+| -------- | ----------- |
+| ABS(x) | Retorna o valor absoluto (positivo) da expressão numérica especificada. |
+| EXP(x) | Retorna o valor exponencial da expressão numérica especificada (e^x). |
+| POWER(x,y) | Retorna o valor da expressão especificada para a potência indicada (x^y).|
+| SQUARE(x) | Retorna o quadrado do valor numérico especificado. |
+| CEILING(x) | Retorna o menor valor de número inteiro maior ou igual à expressão numérica especificada. |
+| FLOOR(x) | Retorna o maior inteiro menor ou igual à expressão numérica especificada. |
+| SIGN(x) | Retorna o sinal positivo (+1), zero (0) ou negativo (-1) da expressão numérica especificada.|
+| SQRT(x) | Retorna o quadrado do valor numérico especificado. |
+
+Em condições de rotas, há suporte para as seguintes funções de verificação de tipo e conversão de tipo:
+
+| Função | Descrição |
+| -------- | ----------- |
+| AS_NUMBER | Converte a cadeia de caracteres de entrada em um número. `noop` se a entrada for um número; `Undefined` se a cadeia de caracteres não representar um número.|
+| IS_ARRAY | Retorna um valor booliano que indica se o tipo da expressão especificada é uma matriz. |
+| IS_BOOL | Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano. |
+| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. |
+| IS_NULL | Retorna um valor booliano que indica se o tipo da expressão especificada é nulo. |
+| IS_NUMBER | Retorna um valor booliano que indica se o tipo da expressão especificada é um número. |
+| IS_OBJECT | Retorna um valor booliano que indica se o tipo da expressão especificada é um objeto JSON. |
+| IS_PRIMITIVE | Retorna um valor booliano que indica se o tipo da expressão especificada é um primitivo (cadeia de caracteres, booliano, numérico ou `null`). |
+| IS_STRING | Retorna um valor booliano que indica se o tipo da expressão especificada é uma cadeia de caracteres. |
+
+Em condições de rotas, há suporte para as seguintes funções de cadeias de caracteres:
+
+| Função | Descrição |
+| -------- | ----------- |
+| CONCAT(x, …) | Retorna uma cadeia de caracteres que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| LENGTH(x) | Retorna o número de caracteres da expressão de cadeia de caracteres especificada.|
+| LOWER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres maiúsculos em minúsculos. |
+| UPPER(x) | Retorna uma expressão de cadeia de caracteres depois de converter dados de caracteres minúsculos em maiúsculos. |
+| SUBSTRING(cadeia de caracteres, início [, tamanho]) | Retorna parte de uma expressão de cadeia de caracteres começando na posição baseada em zero do caractere especificado e continua até o comprimento especificado ou até o final da cadeia de caracteres. |
+| INDEX_OF (cadeia de caracteres, fragmento) | Retorna a posição inicial da primeira ocorrência da segunda expressão de cadeia de caracteres dentro da primeira expressão de cadeia de caracteres especificada, ou -1 se a cadeia de caracteres não for encontrada.|
+| STARTS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
+| ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
+| CONTAINS(x,y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres contém a segunda. |
+
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-device-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messaging.md#routing-rules
+[lnk-devguide-messaging-format]: iot-hub-devguide-messaging.md#message-format
+
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a7320a7e5052ffb4171307bc8636182447ddfc50
+ms.sourcegitcommit: 3fb7a0361717d4616ec21e55c0a202ed8bf8991d
+ms.openlocfilehash: a537a71a43b49d510a12d1293d8ee898d66efe63
 
 
 ---
@@ -29,7 +29,7 @@ No Kit de Ferramentas do Azure para o Eclipse, é possível habilitar a afinidad
 1. Clique com o botão direito do mouse na função no Explorador de Projetos do Eclipse, clique em **Azure** e em **Balanceamento de Carga**.
 2. No diálogo **Propriedades de balanceamento de carga de WorkerRole1** :
    1. Verifique **Habilitar a afinidade de sessão HTTP (sessões autoadesivas) para esta função.**
-   2. Para **Ponto de extremidade de entrada a ser usado**, selecione um ponto de extremidade de entrada a ser usado, por exemplo, **http (pública: 80, privada: 8080)**. Seu aplicativo deve usar esse ponto de extremidade como seu ponto de extremidade HTTP. Você pode habilitar vários pontos de extremidade para a sua função, mas selecionar apenas um para dar suporte às sessões adesivas.
+   2. Para **Ponto de extremidade de entrada a ser usado**, selecione um ponto de extremidade de entrada a ser usado, por exemplo, **http (pública:&80;, privada:&8080;)**. Seu aplicativo deve usar esse ponto de extremidade como seu ponto de extremidade HTTP. Você pode habilitar vários pontos de extremidade para a sua função, mas selecionar apenas um para dar suporte às sessões adesivas.
    3. Recompile seu aplicativo.
 
 Quando habilitadas, se você tiver mais de uma instância de função, as solicitações HTTP provenientes de um determinado cliente continuarão sendo manipuladas pela mesma instância de função.
@@ -42,26 +42,23 @@ O Kit de Ferramentas para o Eclipse permite isso instalando um módulo IIS espec
 * O tempo para inicializar cada função levará mais tempo.
 * Um ponto de extremidade interno, para funcionar como um novo roteador de tráfego, como mencionado acima, será adicionado.
 
-Para ver um exemplo de como manter os dados de sessão quando a afinidade de sessão é habilitada, veja [Como manter os dados da sessão com a afinidade de sessão][Como manter os dados da sessão com a afinidade de sessão].
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Criar um aplicativo Hello World do Azure no Eclipse][Criar um aplicativo Hello World do Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para o Eclipse][Instalação do Kit de Ferramentas do Azure para o Eclipse] 
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Como manter os dados da sessão com a afinidade de sessão][Como manter os dados da sessão com a afinidade de sessão]
-
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Criar um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Como manter os dados da sessão com a afinidade de sessão]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -71,6 +68,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,136 +1,149 @@
 ---
-title: Perfil Aninhados do Gerenciador de Tráfego | Microsoft Docs
-description: Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure
+title: "Perfis aninhados do Gerenciador de Tráfego | Microsoft Docs"
+description: "Este artigo explica o recurso “Perfis Aninhados” do Gerenciador de Tráfego do Azure"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: tysonn
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/25/2016
-ms.author: sewhee
+ms.date: 10/11/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 3e48a28aa1ecda6792e79646a33875c8f01a878f
+ms.openlocfilehash: fdf22a3f8d0ba6f1838af4f5e6924c8c0a18ef64
 
 ---
-# Perfis aninhados do Gerenciador de Tráfego
-O Gerenciador de Tráfego inclui uma variedade de métodos de roteamento de tráfego, permitindo que você controle como ele escolhe qual ponto de extremidade deve receber tráfego de cada usuário final. Eles estão descritos nos [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md) e permitem que este atenda aos requisitos mais comuns de roteamento de tráfego.
 
-Cada perfil do Gerenciador de Tráfego especifica um único método de roteamento de tráfego. No entanto, há ocasiões em que os aplicativos mais complexos requerem roteamento de tráfego mais sofisticado do que pode ser fornecido por um único perfil do Gerenciador de Tráfego.
+# <a name="nested-traffic-manager-profiles"></a>Perfis aninhados do Gerenciador de Tráfego
 
-Para dar suporte a esses aplicativos complexos, o Gerenciador de Tráfego permite que perfis do Gerenciador de Tráfego sejam combinados, ou *aninhados*, permitindo que os benefícios de mais de um método de roteamento de tráfego seja usado por um único aplicativo. Perfis aninhados permitem criar esquemas de roteamento de tráfego mais flexíveis e poderosos para dar suporte às necessidades de implantações maiores e mais complexas.
+O Gerenciador de Tráfego inclui uma variedade de métodos de roteamento de tráfego que permitem controlar como o Gerenciador de Tráfego escolhe qual ponto de extremidade deve receber o tráfego de cada usuário final. Para obter mais informações, consulte [Métodos de roteamento de tráfego do Gerenciador de Tráfego](traffic-manager-routing-methods.md).
 
-Além disso, perfis aninhados permitem substituir o comportamento padrão do Gerenciador de Tráfego em determinados casos, como no roteamento de tráfego dentro de uma região ou durante o failover ao usar o roteamento de tráfego de Desempenho.
+Cada perfil do Gerenciador de Tráfego especifica um único método de roteamento de tráfego. No entanto, há cenários que exigem um roteamento de tráfego mais sofisticado do que o roteamento fornecido por um único perfil do Gerenciador de Tráfego. Aninhe perfis do Gerenciador de Tráfego para combinar os benefícios de mais de um método de roteamento de tráfego. Os perfis aninhados permitem que você substitua o comportamento padrão do Gerenciador de Tráfego para dar suporte a implantações de aplicativo maiores e mais complexas.
 
-O restante desta página explica, por meio de uma sequência de exemplos, como perfis aninhados do Gerenciador de Tráfego podem ser usados em uma variedade de cenários. Concluímos com algumas perguntas frequentes sobre perfis aninhados
+Os exemplos a seguir ilustram como usar os perfis aninhados do Gerenciador de Tráfego em vários cenários.
 
-## Exemplo 1: combinando roteamento de tráfego de “Desempenho” e “Ponderado”
-Suponha que seu aplicativo está implantado em várias regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego de “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemplo 1: combinando roteamento de tráfego de “Desempenho” e “Ponderado”
+
+Suponha que você implantou um aplicativo nas seguintes regiões do Azure: Oeste dos EUA, Europa Ocidental e Ásia Oriental. Você usa o método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego para distribuir o tráfego para a região mais próxima do usuário.
 
 ![Perfil único do Gerenciador de Tráfego][1]
 
-Agora, suponha que você deseja avaliar uma atualização do serviço com alguns poucos usuários antes de distribuí-lo de forma mais abrangente. Para tal, é recomendável usar o método roteamento de tráfego "ponderado", que pode direcionar um pequeno percentual do tráfego para a implantação de avaliação. Com um único perfil, não é possível combinar roteamentos de tráfego “Ponderado” e de “Desempenho”. Com os perfis aninhados, você pode fazer ambos.
+Agora, suponha que você deseja testar uma atualização ao serviço antes de distribuí-la mais amplamente. Você deseja usar o método de roteamento de tráfego “ponderado” para direcionar um pequeno percentual do tráfego para a implantação de teste. Você configura a implantação de teste junto com a implantação de produção existente na Europa Ocidental.
 
-Desta forma: suponha que você queira avaliar a nova implantação na Europa Ocidental. Você configura a implantação de avaliação junto com a implantação de produção existente e cria um perfil do Gerenciador de Tráfego usando apenas esses dois pontos de extremidade e o método de roteamento de tráfego "Ponderado". Em seguida, você adiciona esse perfil “filho” como um ponto de extremidade para o perfil “pai”, que ainda usa o método de roteamento de tráfego de Desempenho e também contém as outras implantações globais como pontos de extremidade.
+Não é possível combinar roteamentos de tráfego “Ponderado” e por “Desempenho” em um único perfil. Para dar suporte a esse cenário, você cria um perfil do Gerenciador de Tráfego usando os dois pontos de extremidade da Europa Ocidental e o método de roteamento de tráfego “Ponderado”. Em seguida, você adiciona esse perfil “filho” como um ponto de extremidade ao perfil “pai”. O perfil pai ainda usa o método de roteamento de tráfego por Desempenho e contém as outras implantações globais como pontos de extremidade.
 
 O diagrama a seguir ilustra esse exemplo:
 
 ![Perfis aninhados do Gerenciador de Tráfego][2]
 
-Com essa organização, o tráfego direcionado por meio do perfil pai será distribuído entre regiões como normal. Na Europa Ocidental, o tráfego será direcionado entre as implantações de produção e avaliação de acordo com os pesos atribuídos.
+Nessa configuração, o tráfego direcionado por meio do perfil pai distribui o tráfego entre regiões normalmente. Na Europa Ocidental, o perfil aninhado distribui o tráfego para os pontos de extremidade de produção e de teste de acordo com os pesos atribuídos.
 
-Observe que, quando o perfil pai usa o método de roteamento de tráfego de "Desempenho", é necessário conhecer a localização de cada ponto de extremidade. Para pontos de extremidade aninhados, como pontos de extremidade externos, essa localização deve ser especificada como parte da configuração do ponto de extremidade. Escolha a região do Azure mais próxima da sua implantação; as opções disponíveis são as regiões do Azure, pois esses são os locais com suporte na Tabela de Latência de Internet. Para obter mais detalhes, consulte [Método de roteamento de tráfego de “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+Quando o perfil pai usa o método de roteamento de tráfego por “Desempenho”, uma localização deve ser atribuída a cada ponto de extremidade. A localização é atribuída quando você configura o ponto de extremidade. Escolha a região do Azure mais próxima de sua implantação. As regiões do Azure são os valores de localização com suporte na Tabela de Latência da Internet. Para obter mais informações, consulte [Método de roteamento de tráfego por “Desempenho” do Gerenciador de Tráfego](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-## Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
-O Gerenciador de Tráfego monitora ativamente a integridade de cada ponto de extremidade de serviço. Se um ponto de extremidade for considerado não íntegro, o Gerenciador de Tráfego direcionará os usuários para pontos de extremidade alternativos, preservando a disponibilidade geral do seu serviço. Esse comportamento de failover e monitoramento do ponto de extremidade se aplica a todos os métodos de roteamento de tráfego. Consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md) para obter mais detalhes.
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemplo 2: monitoramento de ponto de extremidade em Perfis Aninhados
 
-Para perfis aninhados, aplicam-se algumas regras especiais de monitoramento de ponto de extremidade. Quando um perfil pai estiver configurado com um perfil filho como um ponto de extremidade aninhado, o pai não realiza verificações de integridade no filho diretamente. Em vez disso, a integridade de pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho, e essas informações são propagadas para a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado dentro do perfil pai. Isso determina se o perfil pai direcionará o tráfego para o filho. Os detalhes completos da maneira exata de como a integridade do ponto de extremidade aninhado no perfil pai é calculada por meio da integridade do perfil filho são mostrados [abaixo](#faq).
+O Gerenciador de Tráfego monitora ativamente a integridade de cada ponto de extremidade de serviço. Se um ponto de extremidade não estiver íntegro, o Gerenciador de Tráfego direcionará os usuários para pontos de extremidade alternativos a fim de preservar a disponibilidade do serviço. Esse comportamento de failover e monitoramento do ponto de extremidade se aplica a todos os métodos de roteamento de tráfego. Para obter mais informações, consulte [Monitoramento do Ponto de Extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md). O monitoramento de ponto de extremidade funciona de forma diferente para perfis aninhados. Com perfis aninhados, o perfil pai não executa verificações de integridade no filho diretamente. Em vez disso, a integridade dos pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho. Essas informações de integridade são propagadas até a hierarquia do perfil aninhado. O perfil pai usa essa integridade agregada para determinar se o tráfego será direcionado ao perfil filho. Consulte a seção [Perguntas frequentes](#faq) deste artigo para obter detalhes completos sobre o monitoramento de integridade dos perfis aninhados.
 
-Retornando ao Exemplo 1, suponha que a implantação de produção na Europa Ocidental falhe. Por padrão, o perfil “filho” vai direcionar todo o tráfego para a implantação de avaliação. Se isso também falhar, o perfil pai determinará que, como nenhum ponto de extremidade filho está íntegro, o perfil filho não deverá receber tráfego e ocorrerá o failover todo o tráfego da Europa Ocidental para outras regiões.
+Voltando ao exemplo anterior, suponha que a implantação de produção na Europa Ocidental falhe. Por padrão, o perfil “filho” direciona todo o tráfego para a implantação de teste. Se a implantação de teste também falhar, o perfil pai determinará que o perfil filho não deve receber o tráfego, pois nenhum ponto de extremidade filho está íntegro. Em seguida, o perfil pai distribui o tráfego para as outras regiões.
 
 ![Failover de perfil aninhado (comportamento padrão)][3]
 
-Você pode ficar satisfeito com essa medida ou preocupado, pois a implantação de Avaliação não deveria ser usada como um failover para todo o tráfego da Europa Ocidental, preferindo o failover para as outras regiões caso a implantação de produção na Europa Ocidental falhe, *independentemente* da integridade da implantação de avaliação. Ao configurar o perfil filho como um ponto de extremidade no perfil pai, também é possível especificar o parâmetro “MinChildEndpoints”, que determina o número mínimo de pontos de extremidade devem estar disponíveis no perfil filho. Abaixo desse limite (cujo padrão é 1), o perfil pai considerará todo o perfil filho como indisponível e direcionará o tráfego para os outros pontos de extremidade do perfil pai.
+Talvez você esteja satisfeito com essa organização. Ou você pode estar preocupado porque todo o tráfego para Europa Ocidental agora vai para a implantação de teste, em vez de um tráfego de subconjunto limitado. Independentemente da integridade da implantação de teste, você desejará executar failover para as outras regiões quando a implantação de produção na Europa Ocidental falhar. Para habilitar esse failover, é possível especificar o parâmetro “MinChildEndpoints” ao configurar o perfil filho como um ponto de extremidade no perfil pai. O parâmetro determina o número mínimo de pontos de extremidade disponíveis no perfil filho. O valor padrão é '1'. Para este cenário, você pode definir o valor de MinChildEndpoints como 2. Abaixo desse limite, o perfil pai considera o perfil filho inteiro como indisponível e direciona o tráfego para os outros pontos de extremidade.
 
-O exemplo a seguir ilustra: com MinChildEndpoints definido como 2, se alguma das implantações da Europa Ocidental falhar, o perfil pai determinará que o perfil filho não deverá receber tráfego e os usuários serão direcionados para as outras regiões.
+A seguinte figura ilustra essa configuração:
 
-![Failover de perfil com “MinChildEndpoints” = 2][4]
+![Failover de Perfil Aninhado com “MinChildEndpoints” = 2][4]
 
-Observe que, quando o perfil filho usa o método de roteamento de tráfego de “Prioridade”, todo o tráfego enviado para esse filho é recebido por um único ponto de extremidade. Portanto, não há muita vantagem em definir MinChildEndpoints como algo diferente de “1” neste caso.
+> [!NOTE]
+> O método de roteamento de tráfego por “Prioridade” distribui todo o tráfego para um único ponto de extremidade. Portanto, não há muita utilidade em uma configuração de MinChildEndpoints diferente de “1” para um perfil filho.
 
-## Exemplo 3: regiões de failover priorizadas no roteamento de tráfego de "Desempenho"
-Com um único perfil usando o roteamento de tráfego de "Desempenho", se um ponto de extremidade (por exemplo, da Europa Ocidental) falhar, todo o tráfego que seria direcionado para este ponto de extremidade será distribuído entre os outros pontos de extremidade em todas as regiões. Esse é o comportamento padrão para o método de roteamento de tráfego de “Desempenho”, projetado para evitar o carregamento excessivo do ponto de extremidade mais próximo, causando a propagação de uma série de falhas.
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemplo 3: regiões de failover priorizadas no roteamento de tráfego de "Desempenho"
 
-![Tráfego de roteamento de “Desempenho” com failover padrão][5]
+O comportamento padrão do método de roteamento de tráfego por “Desempenho” é projetado para evitar o carregamento excessivo do ponto de extremidade mais próximo, causando a propagação de uma série de falhas. Quando um ponto de extremidade falha, todo o tráfego que seria direcionado ao ponto de extremidade é distribuído de maneira uniforme para os outros pontos de extremidade em todas as regiões.
 
-No entanto, suponha que você prefira que o failover do tráfego da Europa Ocidental vá para o Oeste dos EUA preferencialmente, sendo direcionado para outro local apenas se ambos os pontos de extremidade estiverem indisponíveis. É possível fazer isso criando um perfil filho que usa o método de roteamento de tráfego de “Prioridade”, conforme mostrado:
+![Roteamento de tráfego por “desempenho” com failover padrão][5]
+
+No entanto, suponha que você prefere o failover de tráfego da Europa Ocidental para o Oeste dos EUA e direciona o tráfego para outras regiões somente quando os pontos de extremidade não estão disponíveis. Você pode criar essa solução usando um perfil filho com o método de roteamento de tráfego por “Prioridade”.
 
 ![Tráfego de roteamento de “Desempenho” com failover preferencial][6]
 
-Como o ponto de extremidade da Europa Ocidental tem prioridade maior que o ponto de extremidade do Oeste dos EUA, todo o tráfego será enviado para o ponto de extremidade da Europa Ocidental quando ambos estiverem online. Se a Europa Ocidental falhar, seu tráfego será direcionado para o Oeste dos EUA. O tráfego da Europa Ocidental seria direcionado para a Ásia Oriental somente se o Oeste dos EUA também falhasse.
+Como o ponto de extremidade da Europa Ocidental tem prioridade maior que o ponto de extremidade do Oeste dos EUA, todo o tráfego é enviado para o ponto de extremidade da Europa Ocidental quando os dois pontos de extremidade estão online. Se a Europa Ocidental falhar, seu tráfego será direcionado para o Oeste dos EUA. Com o perfil aninhado, o tráfego é direcionado para a Ásia Oriental somente quando há uma falha na Europa Ocidental e no Oeste dos EUA.
 
-Você pode repetir esse padrão para todas as regiões, substituindo todos os três pontos de extremidade no perfil pai por três perfis filho, cada um deles oferecendo uma sequência de failover priorizada.
+É possível repetir esse padrão para todas as regiões. Substitua os três pontos de extremidade no perfil pai por três perfis filho, cada um deles fornecendo uma sequência de failover priorizada.
 
-## Exemplo 4: controlando o roteamento de tráfego de “Desempenho” entre vários pontos de extremidade na mesma região
-Suponha que o método de roteamento de tráfego de “Desempenho” seja usado em um perfil com mais de um ponto de extremidade em uma determinada região, como o Oeste dos EUA. Por padrão, o tráfego direcionado para essa região será distribuído uniformemente entre todos os pontos de extremidade disponíveis nessa região.
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exemplo 4: controlando o roteamento de tráfego de “Desempenho” entre vários pontos de extremidade na mesma região
 
-![Tráfego de roteamento de “Desempenho” com distribuição de tráfego na região (comportamento padrão)][7]
+Suponha que o método de roteamento de tráfego por “Desempenho” é usado em um perfil que tem mais de um ponto de extremidade em determinada região. Por padrão, o tráfego direcionado para essa região é distribuído uniformemente entre todos os pontos de extremidade disponíveis nessa região.
 
-Esse padrão pode ser alterado usando perfis aninhados do Gerenciador de Tráfego. Em vez de adicionar vários pontos de extremidade ao Oeste dos EUA, esses pontos de extremidade podem ser colocados em um perfil filho separado, e o perfil filho é adicionado ao pai como o único ponto de extremidade no Oeste dos EUA. As configurações no perfil filho podem então ser usadas para controlar a distribuição de tráfego com o Oeste dos EUA, habilitando, por exemplo, o roteamento de tráfego ponderado ou baseado em prioridade dentro dessa região.
+![Roteamento de tráfego por “desempenho” com distribuição de tráfego na região (comportamento padrão)][7]
 
-![Tráfego de roteamento de “Desempenho” com distribuição de tráfego na região personalizado][8]
+Em vez de adicionar vários pontos de extremidade na Europa Ocidental, esses pontos de extremidade são fechados em um perfil filho separado. O perfil filho é adicionado ao pai como o único ponto de extremidade da Europa Ocidental. As configurações no perfil filho podem controlar a distribuição de tráfego com a Europa Ocidental, habilitando o roteamento de tráfego ponderado ou baseado em prioridade nessa região.
 
-## Exemplo 5: configurações de monitoramento por ponto de extremidade
-Suponha que você está usando o Gerenciador de Tráfego para migrar o tráfego entre um site da Web local herdado e uma nova versão baseada em nuvem hospedada no Azure. Para o site herdado, é recomendável usar a página inicial (caminho “/”) para monitorar a integridade do site, porém, para a nova versão baseada em nuvem, você está implementando uma página de monitoramento personalizada que inclui verificações adicionais (caminho “/monitor.aspx”).
+![Roteamento de tráfego por “desempenho” com distribuição de tráfego na região personalizado][8]
+
+## <a name="example-5-per-endpoint-monitoring-settings"></a>Exemplo 5: configurações de monitoramento por ponto de extremidade
+
+Suponha que você está usando o Gerenciador de Tráfego para migrar diretamente o tráfego de um site local herdado para uma nova versão baseada em Nuvem hospedada no Azure. Para o site herdado, você deseja usar o URI da home page para monitorar a integridade do site. Mas para a nova versão baseada em Nuvem, você está implementando uma página personalizada de monitoramento (caminho “/monitor.aspx”) que inclui verificações adicionais.
 
 ![Monitoramento do ponto de extremidade do Gerenciador de Tráfego (comportamento padrão)][9]
 
-As configurações de monitoramento em um perfil do Gerenciador de Tráfego se aplicam a todos os pontos de extremidade no perfil, o que significa que você precisaria ter usado anteriormente o mesmo caminho em ambos os sites. Com os perfis aninhados do Gerenciador de Tráfego, agora você pode usar um perfil filho por site para definir as diferentes configurações de monitoramento por site:
+As configurações de monitoramento em um perfil do Gerenciador de Tráfego se aplicam a todos os pontos de extremidade em um único perfil. Com perfis aninhados, você usa um perfil filho diferente por site para definir diferentes configurações de monitoramento.
 
 ![Monitoramento do ponto de extremidade do Gerenciador de Tráfego com definições por ponto de extremidade][10]
 
-## Perguntas frequentes
-### Como posso configurar perfis aninhados?
-Perfis aninhados do Gerenciador de Tráfego podem ser configurados usando ARM (Azure Resource Manager) e APIs REST do ASM (Azure Service Management), cmdlets do PowerShell e comandos da CLI do Azure de plataforma cruzada. Também há suporte por meio do Portal do Azure, no entanto, não há suporte para eles no Portal “Clássico”.
+## <a name="faq"></a>Perguntas frequentes
 
-### A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?
+### <a name="how-do-i-configure-nested-profiles"></a>Como posso configurar perfis aninhados?
+
+Os perfis aninhados do Gerenciador de Tráfego podem ser configurados usando o Azure Resource Manager e as APIs REST clássicas do Azure, cmdlets do Azure PowerShell e comandos da CLI do Azure de plataforma cruzada. Também há suporte para eles no novo portal do Azure. Não há suporte para eles no portal clássico.
+
+### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>A quantas camadas de aninhamento o Gerenciador de Tráfego dá suporte?
+
 Você pode aninhar perfis em até 10 níveis de profundidade. “Loops” não são permitidos.
 
-### Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?
+### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile"></a>Posso combinar outros tipos de ponto de extremidade com perfis filho aninhados no mesmo perfil do Gerenciador de Tráfego?
+
 Sim. Não há nenhuma restrição sobre como combinar os pontos de extremidade de diferentes tipos em um perfil.
 
-### Como o modelo de cobrança se aplica a perfis aninhados?
+### <a name="how-does-the-billing-model-apply-for-nested-profiles"></a>Como o modelo de cobrança se aplica a perfis aninhados?
+
 Há não impacto negativo sobre os preços ao usar perfis aninhados.
 
-A cobrança do Gerenciador de Tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS (para obter detalhes completos, consulte nossa [página de preço](https://azure.microsoft.com/pricing/details/traffic-manager/)). Veja aqui como isso se aplica a perfis aninhados:
+A cobrança do Gerenciador de Tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS
 
-* Verificações de integridade de ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. Pontos de extremidade no perfil filho que estão monitorando os serviços subjacentes são cobrados normalmente.
-* Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é cobrada apenas no perfil pai.
+* Verificações de integridade de ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado como de costume.
+* Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em um perfil pai que retorna um ponto de extremidade de um perfil filho é contada apenas no perfil pai.
 
-### Há impacto no desempenho para perfis aninhados?
-Não há nenhum impacto no desempenho ao usar perfis aninhados.
+Para obter detalhes completos, consulte a [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-Os servidores de nome do Gerenciador de Tráfego atravessa a hierarquia de perfil internamente durante o processamento de cada consulta DNS, para que uma consulta DNS para um perfil pai possa receber uma resposta DNS com um ponto de extremidade de um perfil filho.
+### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
 
-Portanto, um único registro CNAME é usado, o mesmo usado em um único perfil do Gerenciador de Tráfego. **Não** é necessário ter uma cadeia de registros CNAME para cada perfil na hierarquia, portanto, não ocorre nenhum penalidade no desempenho.
+Nº Não há nenhum impacto no desempenho ao usar perfis aninhados.
 
-### Como o Gerenciador de Tráfego computa a integridade de um ponto de extremidade aninhado em um perfil pai com base na integridade do perfil filho?
-Quando um perfil pai estiver configurado com um perfil filho como um ponto de extremidade aninhado, o pai não realiza verificações de integridade no filho diretamente. Em vez disso, a integridade de pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho, e essas informações são propagadas para a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado dentro do perfil pai. Isso determina se o perfil pai direcionará o tráfego para o filho.
+Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
 
-A tabela a seguir descreve o comportamento de verificações de integridade do Gerenciador de Tráfego para um ponto de extremidade aninhado em um perfil pai que aponta para um perfil filho.
+### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile"></a>Como o Gerenciador de Tráfego calcula a integridade de um ponto de extremidade aninhado em um perfil pai?
+
+O perfil pai não executa verificações de integridade no filho diretamente. Em vez disso, a integridade dos pontos de extremidade do perfil filho é usada para calcular a integridade geral do perfil filho. Essas informações são propagadas até a hierarquia do perfil aninhado para determinar a integridade do ponto de extremidade aninhado. O perfil pai usa essa integridade agregada para determinar se o tráfego pode ser direcionado para o filho.
+
+A tabela a seguir descreve o comportamento das verificações de integridade do Gerenciador de Tráfego de um ponto de extremidade aninhado.
 
 | Status do Monitor de perfil filho | Status do monitor de ponto de extremidade pai | Observações |
 | --- | --- | --- |
-| Desabilitado. O perfil filho foi desabilitado pelo usuário. |Parada |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
-| Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints. CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints. Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido como muito alto, o ponto de extremidade sempre será degradado. |
-| Online. Pelo menos um ponto de extremidade de perfil filho está no estado Online e nenhum está no estado Degradado. |Veja acima. | |
-| CheckingEndpoints. Pelo menos um ponto de extremidade de perfil filho é “CheckingEndpoint”; nenhum é “Online” nem “Degradado” |Mesmo que acima. | |
-| Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado, ou então esse é um perfil sem nenhum ponto de extremidade |Parada | |
+| Desabilitado. O perfil filho foi desabilitado. |Parada |O estado do ponto de extremidade pai é Parado, não Desabilitado. O estado Desabilitado é reservado para indicar que você desabilitou o ponto de extremidade no perfil pai. |
+| Degradado. Pelo menos um ponto de extremidade do perfil filho está no estado Degradado. |Online: o número de pontos de extremidade Online no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>CheckingEndpoint: o número de pontos de extremidade Online mais CheckingEndpoint no perfil filho é pelo menos o valor de MinChildEndpoints.<BR>Degradado: caso contrário. |O tráfego é roteado para um ponto de extremidade do status CheckingEndpoint. Se MinChildEndpoints estiver definido com um valor muito alto, o ponto de extremidade estará sempre degradado. |
+| Online. Pelo menos, um ponto de extremidade do perfil filho está em um estado Online. Nenhum ponto de extremidade está no estado Degradado. |Veja acima. | |
+| CheckingEndpoints. Pelo menos, um ponto de extremidade do perfil filho é um 'CheckingEndpoint'. Nenhum ponto de extremidade está ‘Online’ ou ‘Degradado’ |Mesmo que acima. | |
+| Inativo. Todos os pontos de extremidade de perfil filho estão com status Desabilitado ou Parado ou esse é um perfil que não tem nenhum ponto de extremidade. |Parada | |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
+
 Saiba mais sobre [como o Gerenciador de Tráfego funciona](traffic-manager-how-traffic-manager-works.md)
 
 Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
@@ -147,4 +160,8 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

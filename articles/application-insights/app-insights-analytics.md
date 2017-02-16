@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
+ms.sourcegitcommit: 70f77fd155627ef1d06cf466d19768a0eaad6856
+ms.openlocfilehash: 4d3393b935d2ebd24bccd0fe040f1948402f6e5b
 
 
 ---
@@ -25,6 +25,7 @@ O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [
 * **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não estiver enviando dados para o Application Insights.
 * **[Roteiro dos usuários do SQL](https://aka.ms/sql-analytics)** converte as linguagens mais comuns.
+* **[Referência de linguagem](app-insights-analytics-reference.md)** Aprenda a usar todos os recursos eficientes da linguagem de consulta do Analytics.
 
 ## <a name="queries-in-analytics"></a>Consultas na Análise
 Uma consulta comum é uma tabela de *origem* seguida por vários *operadores* separados por `|`. 
@@ -80,6 +81,6 @@ Abra o Analytics na [folha de visão geral](app-insights-dashboards.md) de seu a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

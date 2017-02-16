@@ -16,8 +16,8 @@ ms.workload: billing
 ms.date: 01/07/2017
 ms.author: mobandyo;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 720fe67c3be86f27c2cf9c490b389408c96439e0
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: b1ba5617296019106aa1b236483ae26b8063b1d8
 
 
 ---
@@ -67,7 +67,7 @@ Casos de uso comuns de IFTM do Cloudyn habilitados pela integração da API de U
 ## <a name="video"></a>Vídeo
 Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloudyn para Azure e as APIs de cobrança do Azure, para ter uma ideia de seus dados de consumo do Azure.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Cloudyn-Provides-Cloud-ITFM-Tools-Via-Microsoft-Azure-APIs/player]
 > 
 > 
 
@@ -93,6 +93,6 @@ Aqui está um breve vídeo que mostra como um cliente do Azure pode o usar Cloud
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

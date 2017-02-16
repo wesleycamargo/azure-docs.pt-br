@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 117c65ebcc566aa1898dc8655ee608cb42673d79
+ms.sourcegitcommit: c934f78e514230958fad8b2aa9be4d2e56a3a835
+ms.openlocfilehash: 41b98df79b9ab9ee179ab8984d14c9e9c15fa646
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 117c65ebcc566aa1898dc8655ee608cb42673d79
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento. 
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o [modelo de implantação do Gerenciador de Recursos](virtual-networks-static-private-ip-arm-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o [modelo de implantação do Gerenciador de Recursos](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 
@@ -111,6 +111,6 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

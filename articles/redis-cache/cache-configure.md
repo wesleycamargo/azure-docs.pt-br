@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/20/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 15997f889228ca1668f4aa4752ba6f6b0f157873
-ms.openlocfilehash: ee99c3ef9ac5ce4716214736c782cede30e2c662
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
 
 
 ---
@@ -71,7 +71,7 @@ O Cache Redis do Azure fornece as seguintes configurações no **Menu Recursos**
 
 ### <a name="activity-log"></a>Log de atividades
 
-Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para saber mais sobre como trabalhar com logs de auditoria, confira [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) e [Operações de auditoria com o Resource Manager](../resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
+Clique em **Log de auditoria** para exibir as ações executadas em seu cache. Você também pode usar a filtragem para expandir essa exibição a fim de incluir outros recursos. Para saber mais sobre como trabalhar com logs de auditoria, confira [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md) e [Operações de auditoria com o Resource Manager](../azure-resource-manager/resource-group-audit.md). Para saber mais sobre como monitorar eventos do Cache Redis do Azure, confira [Operações e alertas](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Controle de acesso (IAM)
 
@@ -79,7 +79,7 @@ A seção **Controle de acesso (IAM)** dá suporte ao RBAC (controle de acesso b
 
 ### <a name="tags"></a>Marcas
 
-A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
+A seção **Marcas** o ajuda a organizar seus recursos. Para obter mais informações, veja [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnosticar e resolver problemas
@@ -113,7 +113,7 @@ Clique em **Teclas de acesso** para exibir ou regenerar as teclas de acesso para
 ![Chaves de acesso de Cache Redis](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### <a name="advanced-settings"></a>Configurações avançadas
-As configurações a seguir são definidas na folha **Configurações avançadas** .
+As configurações a seguir são definidas na folha **Configurações avançadas**.
 
 * [Portas de acesso](#access-ports)
 * [Maxmemory-policy e maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
@@ -265,11 +265,11 @@ Clique em **Propriedades** para exibir informações sobre o cache, incluindo o 
 ![Propriedades de Cache Redis](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Bloqueios
-A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../resource-group-lock-resources.md).
+A seção **Bloqueios** permite bloquear uma assinatura, um recurso ou um grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
 ### <a name="automation-script"></a>Script de automação
 
-Clique em **Script de automação** para compilar e exportar um modelo de seus recursos implantados para implantações futuras. Para saber mais sobre como trabalhar com modelos, confira [Implantar recursos com modelos do Azure Resource Manager](../resource-group-template-deploy.md).
+Clique em **Script de automação** para compilar e exportar um modelo de seus recursos implantados para implantações futuras. Para saber mais sobre como trabalhar com modelos, confira [Implantar recursos com modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="administration-settings"></a>Configurações de administração
 As configurações na seção **Administração** permitem que você execute as tarefas administrativas a seguir para seu cache premium. 
@@ -468,7 +468,7 @@ Você pode mover o cache para uma nova assinatura clicando em **Mover**.
 
 ![Mover o Cache Redis](./media/cache-configure/redis-cache-move.png)
 
-Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../resource-group-move-resources.md).
+Para saber mais sobre como mover os recursos de um grupo de recursos para outro, e de uma assinatura para outra, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como trabalhar com os comandos do Redis, confira [Como faço para executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands).
@@ -476,6 +476,6 @@ Para saber mais sobre como mover os recursos de um grupo de recursos para outro,
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

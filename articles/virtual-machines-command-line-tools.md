@@ -13,20 +13,25 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: c8cc44cf132bb82c217a81ab94f27ed391a4248d
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
-Você também pode [ler sobre todos os comandos de modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usar a CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) do clássico para o modelo do Resource Manager.
 
 Este artigo fornece a sintaxe e as opções de comandos da CLI do Azure que, normalmente, seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação clássica. É possível acessar esses comandos executando a CLI no modo ASM (Gerenciamento de Serviços). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. 
+
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../articles/azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [ler sobre os comandos da CLI do modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usar a CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) do modelo clássico para o do Resource Manager.
+>
+>Para trabalhar no modelo do Resource Manager, você também pode experimentar o [CLI 2.0 (Preview) do Azure](/cli/azure/install-az-cli2), nossa CLI de próxima geração para várias plataformas.
+>
+
 
 Para começar, primeiro [instale a CLI do Azure](xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](xplat-cli-connect.md).
 
@@ -2354,6 +2359,6 @@ Remove uma entrada de servidor DNS da configuração de rede.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

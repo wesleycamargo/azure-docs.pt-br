@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: 4115a3638519896c3710ddc33dd0caa2e8d9d720
-ms.openlocfilehash: 05e33c56e6aa6bedfa2e6b8ff18fe182d87ed80e
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
 
 
 ---
@@ -416,7 +416,7 @@ Neste ponto, a função está pronta. Volte para a guia **Desenvolver** e salve 
 ### <a name="azure-logic-app"></a>Aplicativo lógico do Azure
 Em seguida, você deve criar um aplicativo lógico do Azure que obtém os eventos que a função envia à fila do Barramento de Serviço, analisa o conteúdo e envia um email com base em uma condição que está sendo correspondida.
 
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md) indo até **Novo -> Aplicativo Lógico**.
+[Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) indo até **Novo -> Aplicativo Lógico**.
 
 Após o aplicativo lógico ser criado, navegue até ele e selecione **editar**. No editor do aplicativo lógico, escolha **Fila do Barramento de Serviço** e insira as credenciais do Barramento de Serviço para conectá-lo à fila.
 
@@ -440,6 +440,6 @@ Nesse ponto, você tem um pipeline de ponta a ponta que procura novos logs de au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

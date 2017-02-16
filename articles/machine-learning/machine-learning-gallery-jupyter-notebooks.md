@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0d44e625d3898f014a9723ff005c00b3aaedcf1
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 1573ae126f8b76983abe98b37b9ac4072e70d9d0
 
 
 ---
@@ -34,7 +34,7 @@ Os notebooks na Galeria fornecem tutoriais e explicações detalhadas de técnic
  A página **[Notebooks Jupyter](https://gallery.cortanaintelligence.com/notebooks)**
  exibe uma lista dos notebooks mais conhecidos.
 Clique em **Ver todos** para exibir todos os notebooks.
-Nessa página, você pode navegar por todos os notebooks na Galeria ou pode pesquisar selecionando critérios de filtro à esquerda da página e inserindo os termos de pesquisa na parte superior.
+Nessa página, você pode procurar todos os notebooks na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
  Clique em qualquer notebook para abrir a página de detalhes do notebook e ler mais informações. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para o notebook de modo a convidar outros usuários para exibir a página.
 
@@ -75,6 +75,6 @@ O notebook estará listado, com outros notebooks, na página **Notebooks** do St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

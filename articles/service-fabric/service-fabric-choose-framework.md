@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/05/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 008ad40e93e5ce22e4c182114a940f4a5133a2f2
+ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
+ms.openlocfilehash: b56d75d49e0b95025dd1a0bae532f677958eac8d
 
 
 ---
@@ -43,10 +43,12 @@ Criada com base no Reliable Services, a estrutura Reliable Actor é uma estrutur
 Como o Reliable Actors em si é uma estrutura de aplicativo baseada no Reliable Services, ele é totalmente integrado com a plataforma Service Fabric e se beneficia do conjunto completo de recursos oferecidos pela plataforma.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre os Reliable Actors](service-fabric-reliable-actors-introduction.md) ou comece escrevendo [o seu primeiro serviço do Reliable Actor](service-fabric-reliable-actors-get-started.md)
+[Saiba mais sobre Reliable Actors](service-fabric-reliable-actors-introduction.md) ou comece [escrevendo seu primeiro serviço de Reliable Actors](service-fabric-reliable-actors-get-started.md)
+[Saiba mais sobre como colocar seus serviços em contêiner no Windows ou Linux](service-fabric-deploy-container.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

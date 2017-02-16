@@ -1,6 +1,6 @@
 ---
-title: Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
-description: Saiba como migrar de grupos de afinidades para VNets regionais
+title: "Migrar uma rede virtual do Azure de um grupo de afinidade para uma região | Clássico | Microsoft Docs"
+description: "Saiba como migrar uma rede virtual de um grupo de afinidade para uma região."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 198a726229f4950906e79272da6913f1a1afd15d
+ms.sourcegitcommit: f74379c3e310a7bbcf659ef610727bff19639022
+ms.openlocfilehash: c495af3e818758cc5fe99af9b5f07506a16b59ef
 
 
 ---
-# <a name="how-to-migrate-from-affinity-groups-to-a-regional-virtual-network-vnet"></a>Como migrar de grupos de afinidades para uma rede virtual regional (VNet)
+# <a name="how-to-migrate-a-virtual-network-from-an-affinity-group-to-a-region"></a>Como migrar uma rede virtual de um grupo de afinidade para uma região
 Você pode usar um grupo de afinidades para garantir que recursos criados dentro do mesmo grupo de afinidades sejam fisicamente hospedados por servidores que estejam próximos uns dos outros, permitindo que esses recursos se comuniquem mais rapidamente. Antigamente, os grupos de afinidades eram um requisito para a criação de redes virtuais (VNets). Na época, o serviço gerenciador de rede que gerenciava as VNets podia funcionar somente dentro de um conjunto de servidores físicos ou unidade de escala. As melhorias de arquitetura aumentaram o escopo de gerenciamento de rede para uma região.
 
 Como resultado dessas melhorias na arquitetura, os grupos de afinidade não são mais recomendados ou obrigatórios para redes virtuais. O uso de grupos de afinidades para VNets está sendo substituído por regiões. As VNets que estão associadas a regiões são chamadas de VNets regionais.
@@ -74,6 +74,6 @@ Quando uma máquina virtual é implantada, ela é implantada em uma única unida
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

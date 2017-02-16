@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 502991093c2f3c38f37a6cb4e3770459b7d5ee78
-ms.openlocfilehash: 9a06ba91dea57ef2298f2b0651a01e56f0b5c4ae
+ms.sourcegitcommit: 5ef6819df027fac095dddd7c69cb27d6eff636b8
+ms.openlocfilehash: 823e551bd60d252786c917fd1aefa9e2c06f03a0
 
 
 ---
@@ -26,7 +26,7 @@ Este artigo descreve como você pode usar a Atividade de Cópia no Azure Data Fa
 Você pode especificar se deseja usar o PolyBase ao carregar dados no SQL Data Warehouse do Azure. Sugerimos que você use o PolyBase para obter o melhor desempenho ao carregar os dados no SQL Data Warehouse do Azure. A seção [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) (Usar o PolyBase para carregar dados para o Azure SQL Data Warehouse) apresenta os detalhes. Para ver um passo a passo com um caso de uso, veja [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Azure Data Factory).
 
 ## <a name="copy-data-wizard"></a>Assistente de cópia de dados
-A maneira mais fácil de criar um pipeline que copia dados de/para o Azure SQL Data Warehouse é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
+A maneira mais fácil de criar um pipeline que copia dados de/para o Azure SQL Data Warehouse é usar o Assistente de cópia de dados. Consulte o [Tutorial: carregar dados no SQL Data Warehouse com o Data Factory](../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para ver uma rápida explicação passo a passo sobre como criar um pipeline usando o Assistente para cópia de dados.
 
 
 Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados entre o Azure SQL Data Warehouse e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
@@ -473,7 +473,7 @@ Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as co
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Inteiro (número de linhas) |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/>  Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 | sqlWriterCleanupScript |Especifique uma consulta da Atividade de Cópia a executar para que os dados de uma fatia específica sejam removidos. Para obter detalhes, consulte a [seção de repetição](#repeatability-during-copy). |Uma instrução de consulta. |Não |
 | allowPolyBase |Indica se deve usar o PolyBase (quando aplicável) em vez de mecanismo BULKINSERT para carregar dados no Azure SQL Data Warehouse. <br/><br/>Atualmente, apenas o conjunto de dados do **blob do Azure** com o **formato** definido para **TextFormat** como um conjunto de dados de origem. <br/><br/>Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições. |True  <br/>False (padrão) |Não |
 | polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |&nbsp; |Não |
@@ -492,7 +492,7 @@ Se você não especificar sqlReaderQuery nem sqlReaderStoredProcedureName, as co
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Use PolyBase to load data into Azure SQL Data Warehouse
 Usar o **PolyBase** é uma maneira eficiente de carregar grandes quantidades de dados no Azure SQL Data Warehouse com alta taxa de transferência. Você pode notar um grande ganho na taxa de transferência usando PolyBase em vez do mecanismo BULKINSERT padrão. Veja [número de referência do desempenho de cópia](data-factory-copy-activity-performance.md#performance-reference) com comparação detalhada.
 
-* Se o formato da fonte de dados for compatível com o PolyBase, você poderá copiar diretamente do repositório de dados da fonte no SQL Data Warehouse usando o PolyBase. Veja **[Cópia direta usando o PolyBase](#direct-copy-using-polybase)** com detalhes. Para ver um passo a passo com um caso de uso, veja [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Azure Data Factory).
+* Se o formato de dados de origem for compatível com o PolyBase, você poderá copiar diretamente do armazenamento de dados de origem no SQL Data Warehouse do Azure usando o PolyBase. Veja **[Cópia direta usando o PolyBase](#direct-copy-using-polybase)** com detalhes. Para ver um passo a passo com um caso de uso, veja [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Azure Data Factory).
 * Se o formato da fonte de dados não for originalmente compatível com o PolyBase, você poderá aproveitar a **[Cópia de preparo usando o PolyBase](#staged-copy-using-polybase)**, que também fornece melhor produtividade primeiramente convertendo os dados de modo automático em um formato compatível com o PolyBase, armazenando-os no Armazenamento de Blobs do Azure e depois carregando no SQL Data Warehouse.
 
 Defina a propriedade **allowPolyBase** como **true**, conforme mostrado no exemplo a seguir para o Azure Data Factory usar o PolyBase para copiar dados para o Azure SQL Data Warehouse. Quando você definir allowPolyBase para true, poderá especificar determinadas propriedades do PolyBase usando o grupo de propriedades **polyBaseSettings** . Consulte a seção [SqlDWSink](#SqlDWSink) para obter detalhes sobre as propriedades que você pode usar com polyBaseSettings.
@@ -668,6 +668,6 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

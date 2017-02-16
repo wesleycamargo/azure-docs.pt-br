@@ -15,13 +15,13 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6337e171e29e11da14b22fdda0814ac84be7deb1
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: d0015760fe086b00a264aabd38cc2625f55f4926
 
 
 ---
 # <a name="create-a-logic-app-deployment-template"></a>Criar um modelo de implantação do aplicativo lógico
-Após um aplicativo lógico ter sido criado, talvez você queira criá-lo como um modelo do Azure Resource Manager. Dessa forma, você pode facilmente implantar o aplicativo lógico em qualquer ambiente ou grupo de recursos em que você possa precisar dele. Para ver uma introdução aos modelos do Resource Manager, confira os artigos em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) e [implantando recursos usando modelos do Azure Resource Manager](../resource-group-template-deploy.md).
+Após um aplicativo lógico ter sido criado, talvez você queira criá-lo como um modelo do Azure Resource Manager. Dessa forma, você pode facilmente implantar o aplicativo lógico em qualquer ambiente ou grupo de recursos em que você possa precisar dele. Para ver uma introdução aos modelos do Resource Manager, confira os artigos em [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [implantando recursos usando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Modelo de implantação do aplicativo lógico
 Um aplicativo lógico tem três componentes básicos:
@@ -41,8 +41,8 @@ Algumas ferramentas podem ajudar você a criar um modelo de implantação de apl
 
 > [!NOTE]
 > As conexões devem estar dentro do mesmo grupo de recursos que o aplicativo lógico.
-> 
-> 
+>
+>
 
 ### <a name="install-the-logic-app-template-powershell-module"></a>Instalar o módulo do PowerShell do modelo de aplicativo lógico
 A maneira mais fácil de instalar o módulo é por meio da [Galeria do PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), com o comando `Install-Module -Name LogicAppTemplate`.  
@@ -65,7 +65,7 @@ Depois que o PowerShell for instalado, você poderá gerar um modelo usando o se
 Depois de criar o modelo de aplicativo lógico, você pode continuar a adicionar ou modificar os parâmetros de que pode precisar. Por exemplo, se sua definição incluir uma ID do recurso para uma função do Azure ou um fluxo de trabalho aninhado que você planeja colocar em uma única implantação, você poderá adicionar mais recursos ao modelo e parametrizar as IDs conforme necessário. O mesmo aplica-se a quaisquer referências às APIs personalizadas ou pontos de extremidade Swagger que você espera implantar com cada grupo de recursos.
 
 ## <a name="deploy-a-logic-app-template"></a>Implantar um modelo de aplicativo lógico
-Você pode implantar seu modelo usando qualquer número de ferramentas, incluindo o PowerShell, a API REST, o Visual Studio, o Release Management para Visual Studio e a Implantação de Modelo do Portal do Azure. Consulte este artigo sobre [implantação de recursos usando modelos do Azure Resource Manager](../resource-group-template-deploy.md) para obter informações adicionais. Recomenda-se também criar um [arquivo de parâmetro](../resource-group-template-deploy.md#parameter-file) para armazenar valores para o parâmetro.
+Você pode implantar seu modelo usando qualquer número de ferramentas, incluindo o PowerShell, a API REST, o Visual Studio, o Release Management para Visual Studio e a Implantação de Modelo do Portal do Azure. Consulte este artigo sobre [implantação de recursos usando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) para obter informações adicionais. Recomenda-se também criar um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#parameters) para armazenar valores para o parâmetro.
 
 ### <a name="authorize-oauth-connections"></a>Autorizar Conexões OAuth
 Após a implantação, o aplicativo lógico funciona de ponta a ponta com parâmetros válidos. No entanto, ainda será necessário autorizar as conexões OAuth para gerar um token de acesso válido. Você pode fazer isso abrindo o aplicativo lógico no designer e, em seguida, autorizando as conexões. Ou, se você deseja automatizar, você poderá usar um script para dar consentimento a cada conexão OAuth. Há um script de exemplo no GitHub sob o projeto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
@@ -74,7 +74,7 @@ Após a implantação, o aplicativo lógico funciona de ponta a ponta com parâm
 Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta como o Release Management para Visual Studio com um modelo de implantação de aplicativo lógico. O Visual Studio Team Services inclui uma tarefa [Implantar Grupo de Recursos do Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que pode ser adicionada a qualquer build ou pipeline da versão. Você precisa ter uma [entidade de serviço](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) da autorização a implantar e pode, então, gerar a definição da versão.
 
 1. No Release Management, para criar uma nova definição, selecione **Vazio** para iniciar com uma definição vazia.
-   
+
     ![Criar uma definição de nova e vazia][1]   
 2. Escolha quaisquer recursos necessários para essa finalidade. Esse provavelmente será o modelo de aplicativo lógico gerado manualmente ou como parte do processo de build.
 3. Adicione uma tarefa de **Implantação do Grupo de Recursos do Azure** .
@@ -86,6 +86,6 @@ Um cenário comum para implantar e gerenciar um ambiente é usar uma ferramenta 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

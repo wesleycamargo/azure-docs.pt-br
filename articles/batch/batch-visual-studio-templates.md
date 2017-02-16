@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
 
 
 ---
@@ -59,7 +59,7 @@ Para usar os modelos do Lote, você precisará do seguinte:
     
     * Gerenciador de Trabalhos do Lote do Azure com o Divisor de Trabalho
     * Processador de Tarefas do Lote do Azure
-  * Baixe os modelos da galeria online para o Visual Studio: [modelos de projeto do Lote do Microsoft Azure][vs_gallery_templates]
+  * Baixe os modelos da galeria online para o Visual Studio: [Modelos de projeto do Lote do Microsoft Azure][vs_gallery_templates]
 * Se você planeja usar o recurso [Pacotes de aplicativos](batch-application-packages.md) para implantar o Gerenciador de trabalho e o processador de tarefas nos nós de computação do Lote, será necessário vincular uma conta de armazenamento à sua conta do Lote.
 
 ## <a name="preparation"></a>Preparação
@@ -154,7 +154,7 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> A seção anotada nos métodos `Split()` é a única seção do código do modelo do Gerenciador de trabalho que você pode modificar adicionando a lógica para dividir os trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, primeiro você precisa ter certeza de que está familiarizado com o funcionamento do Lote e experimente alguns dos [exemplos de código do Lote][github_samples].
+> A seção anotada nos métodos `Split()` é a única seção do código do modelo do Gerenciador de trabalho que você pode modificar adicionando a lógica para dividir os trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, primeiro você precisará ter certeza de que está familiarizado com o funcionamento do Lote e experimente alguns dos [exemplos de código do Lote][github_samples].
 > 
 > 
 
@@ -454,6 +454,6 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

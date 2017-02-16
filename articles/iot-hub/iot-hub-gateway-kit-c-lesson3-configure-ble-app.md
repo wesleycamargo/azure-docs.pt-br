@@ -1,5 +1,5 @@
 ---
-title: "Executar um aplicativo de exemplo para receber dados de SensorTag e enviá-lo para o Hub IoT do Azure | Microsoft Docs"
+title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 3: executar aplicativo de exemplo| Microsoft Docs"
 description: Execute um aplicativo de exemplo BLE para receber dados do BLE SensorTag em seu Hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: fab1eb0dc765ced95e3bec7c12c7dfa0ca91bb19
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
 
 
 ---
@@ -161,6 +161,6 @@ Você configurou com êxito a conectividade entre a SensorTag e o NUC da Intel e
 [Ler mensagens de seu Hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

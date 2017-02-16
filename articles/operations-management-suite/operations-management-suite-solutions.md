@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede557e1678aa6c24f50bd120552345dcd00cdc3
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: d6bf108a4d03855171d2b9c5552c57f8ee6f1f9b
 
 
 ---
@@ -65,7 +65,7 @@ Os membros da comunidade podem enviar soluções de gerenciamento para Modelos d
 7. Clique em **Comprar** para instalar a solução.
 
 ### <a name="deploy-azure-resource-manager-template"></a>Implantar o modelo do Azure Resource Manager
-Soluções que você obtêm da comunidade ou que você [cria por conta própria](#creating-a-solution) são implementadas como um modelo do Resource Manager e você pode usar qualquer um dos métodos padrão para [implantar um modelo](../resource-group-template-deploy-portal.md).  Observe que, antes de instalar a solução, você deve criar e vincular o [Espaço de trabalho do OMS e a conta de automação](#oms-workspace-and-automation-account).
+Soluções que você obtêm da comunidade ou que você [cria por conta própria](#creating-a-solution) são implementadas como um modelo do Resource Manager e você pode usar qualquer um dos métodos padrão para [implantar um modelo](../azure-resource-manager/resource-group-template-deploy-portal.md).  Observe que, antes de instalar a solução, você deve criar e vincular o [Espaço de trabalho do OMS e a conta de automação](#oms-workspace-and-automation-account).
 
 ## <a name="oms-workspace-and-automation-account"></a>Espaço de trabalho do OMS e Conta de automação
 A maioria das soluções de gerenciamento exige que um [espaço de trabalho do OMS](../log-analytics/log-analytics-manage-access.md) contenha modos de exibição e que uma [Conta de automação](../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados. O espaço de trabalho e a conta devem atender aos seguintes requisitos.
@@ -116,6 +116,6 @@ Diretrizes completas sobre como criar soluções de gerenciamento estão dispon�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

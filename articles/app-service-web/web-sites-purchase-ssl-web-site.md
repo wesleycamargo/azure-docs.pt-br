@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: a86b3e7c653d0767e91ebfaaeaa650b0328c291c
 
 
 ---
@@ -111,7 +111,7 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
    
    * **Verificação do Serviço de Aplicativo** 
      
-     * Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.**  Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. 
+     * Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.** Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. 
         Por exemplo, neste caso, **contosocertdemo.com** é um domínio personalizado atribuído ao Aplicativo do Serviço de Aplicativo chamado **"ContosoCertDemo"** e, portanto, é o único Aplicativo do Serviço de Aplicativo listado aqui. Se houvesse uma implantação em várias regiões, todos os aplicativos de todas as regiões seriam listados.
        
         O método de verificação SÓ está disponível para compras de certificado Standard (Básico). Para os Certificados Curinga, ignore e vá para a opção B, C ou D abaixo.
@@ -200,13 +200,13 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 * [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

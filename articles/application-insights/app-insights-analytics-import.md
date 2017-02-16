@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 98ace6ab2bc2a55bc0101284f5c7675fb1bbed68
-ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
+ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
+ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
 
 
 ---
@@ -28,7 +28,7 @@ No momento, você pode importar arquivos CSV (valores separados por vírgulas) o
 
 Há três situações em que a importação para o Analytics é útil:
 
-* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as 10 páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
+* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as&10; páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
 * **Correlacione a telemetria de aplicativo** com outras fontes, como tráfego de rede, dados de servidor ou arquivos de log da CDN.
 * **Aplique o Analytics a um fluxo de dados separado.** O Analytics do Application Insights é uma ferramenta poderosa, que funciona bem com fluxos esparsos com carimbo de data e hora, muito melhor do que com o SQL em muitos casos. Se você tiver tal fluxo de outra origem, pode analisá-lo com o Analytics.
 
@@ -102,7 +102,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
 2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
 3. Faça uma chamada REST para notificar o Application Insights que os dados estão em espera.
 
- * Ponto de extremidade: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Ponto de extremidade: `https://dc.services.visualstudio.com/v2/track`
  * Método HTTP: POST
  * Conteúdo:
 
@@ -114,7 +114,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -128,7 +128,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
 Os espaços reservados são:
 
 * `Blob URI with Shared Access Key`: você obtém isso no procedimento para criar uma chave. É específico do blob.
-* `Data source name`: o nome que você atribuiu à fonte de dados. Os dados desse blob devem obedecer ao esquema definido para esta fonte.
+* `Schema ID`: a ID de esquema gerada para seu esquema definido. Os dados desse blob devem obedecer o esquema.
 * `DateTime`: a hora em que a solicitação foi enviada, em UTC. Aceitamos os seguintes formatos: ISO8601 (como "2016-01-01 13:45:01"); RFC822 ("Qua, 14 dez 16 14:57:01 +0000"); RFC850 ("Quarta-feira, 14-dez-16 14:57:00 UTC"); RFC1123 ("Qua, 14 dez 2016 14:57:00 +0000").
 * `Instrumentation key` de seu recurso do Application Insights.
 
@@ -249,7 +249,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -258,7 +258,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -274,7 +274,10 @@ namespace IngestionClient
             HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -285,11 +288,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -332,6 +334,6 @@ Use este código para cada blob.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

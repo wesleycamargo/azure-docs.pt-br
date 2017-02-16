@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: afce238686f5b35a094f0792f8197b686d317fa5
-ms.openlocfilehash: b75e80b66e00be0022102c06113eb414f5b4b6e9
+ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
+ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
 
 
 ---
@@ -75,7 +75,9 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 ## <a name="slow-performance-when-accessing-file-storage-from-windows-or-linux"></a>Desempenho lento ao acessar o Armazenamento de Arquivos do Windows ou do Linux
 * Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
 * Se você sabe o tamanho final de um arquivo que está estendendo com gravação e o software não tem problemas de compatibilidade com o final ainda não escrito que contém zeros, defina o tamanho do arquivo antecipadamente em vez de ter cada gravação sendo uma gravação estendida.
-
+* Use o método de cópia correto:
+      * Use o AZCopy para todas as transferências entre dois compartilhamentos de arquivo. Para obter mais detalhes, veja [Transferir dados com o Utilitário da Linha de Comando AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy#file-copy).
+      * Use o Robocopy entre um compartilhamento de arquivos e um computador local. Veja [Robocopy com multi-thread para cópias mais rápidas](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) para obter mais detalhes.
 <a id="windowsslow"></a>
 
 ## <a name="slow-performance-when-accessing-the-file-storage-from-windows-81-or-windows-server-2012-r2"></a>Desempenho lento ao acessar o Armazenamento de Arquivos do Windows 8.1 ou do Server 2012 R2
@@ -103,7 +105,7 @@ Nunca crie ou abra um arquivo de E/S em cache que esteja solicitando acesso de g
 
 <a id="error53"></a>
 
-## <a name="error-53-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>"Erro 53" ao tentar montar ou desmontar um compartilhamento de arquivos do Azure
+## <a name="error-53-or-error-67-when-you-try-to-mount-or-unmount-an-azure-file-share"></a>“Erro 53” ou “Erro 67” ao tentar montar ou desmontar um Compartilhamento de Arquivos do Azure
 Esse problema pode ser causado pelas seguintes condições:
 
 ### <a name="cause-1"></a>Causa 1
@@ -113,7 +115,7 @@ Esse problema pode ser causado pelas seguintes condições:
 Conectar-se de um cliente que atenda aos requisitos do Windows 8, do Windows Server 2012 ou de versões posteriores, ou que se conectem de uma máquina virtual que está no mesmo data center da conta do Armazenamento do Azure que é usada para o compartilhamento de arquivos do Azure.
 
 ### <a name="cause-2"></a>Causa 2
-Um "Erro de sistema 53" ao montar um compartilhamento de arquivos do Azure pode ocorrer quando a comunicação de saída na porta 445 para arquivos do data center dos Arquivos do Azure está bloqueada. Clique [aqui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver o resumo de provedores que permitem ou proíbem o acesso da porta 445.
+Pode ocorrer um “Erro do Sistema 53” ou “Erro do Sistema 67” ao montar um compartilhamento de arquivos do Azure se a comunicação de saída na porta 445 para o centro de dados dos Arquivos do Azure estiver bloqueada. Clique [aqui](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) para ver o resumo de provedores que permitem ou proíbem o acesso da porta 445.
 
 Comcast e algumas organizações de TI bloqueiam essa porta. Para entender se esse é o motivo da mensagem "Erro de sistema 53", você pode usar o Portqry para consultar o ponto de extremidade TCP:445. Se o ponto de extremidade TCP:445 é exibido como filtrado, a porta TCP está bloqueada. Veja um exemplo de consulta:
 
@@ -153,7 +155,7 @@ Monte o compartilhamento de uma linha de comando de não administrador. Como alt
 
 <a id="slashfails"></a>
 
-## <a name="my-storage-account-contains-and-the-net-use-command-fails"></a>Minha conta de armazenamento contém "/" e o comando net use falha
+## <a name="my-storage-account-contains--and-the-net-use-command-fails"></a>Minha conta de armazenamento contém "/" e o comando net use falha
 ### <a name="cause"></a>Causa
 Quando o comando **net use** é executado no prompt de comando (cmd.exe), ele é analisado adicionando "/" como uma opção de linha de comando. Isso faz com que o mapeamento de unidade falhe.
 
@@ -242,6 +244,6 @@ Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

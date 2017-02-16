@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 04833ac3adae6ed7dd8c1c61c2ca5b63ea97660b
+ms.sourcegitcommit: d4fa4187b25dcbb7cf3b75cb9186b5d245c89227
+ms.openlocfilehash: fe07622d3a3e60c6d3520b6983195b410c3edc6a
 
 
 ---
@@ -109,14 +109,14 @@ Você deve criar novas VMs SUSE usando arquivos de modelo JSON no novo modelo do
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-Para obter mais detalhes sobre os arquivos de modelo JSON, veja [Criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md) e [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+Para obter mais detalhes sobre os arquivos de modelo JSON, veja [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
 Para obter mais detalhes sobre o CLI e o Azure Resource Manager, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Chave de licença e hardware do SAP
 Para a certificação oficial SAP-Azure, um novo mecanismo foi introduzido para calcular a chave de hardware do SAP usada para a licença do SAP. O kernel do SAP precisou ser adaptado para fazer uso dele. As versões anteriores de kernel do SAP para Linux não incluíam essa alteração de código. Portanto, pode acontecer que, em certas situações (por exemplo, no redimensionamento da VM do Azure), a chave de hardware do SAP tenha sido alterada e a licença do SAP não fosse mais válida. Isso é resolvido nos kernels do SAP para Linux mais recentes. Para obter detalhes, consulte nota do SAP 1928533.
 
-## <a name="suse-sapconf-package-tuned-adm"></a>SUSE sapconf package / tuned-adm
+## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf package / tuned-adm
 O SUSE fornece um pacote chamado "sapconf", que gerencia um conjunto de configurações específicas do SAP. Para obter mais detalhes sobre o que este pacote faz e como instalá-lo e usá-lo, veja [Como usar sapconf para preparar o SUSE Linux Enterprise Server para executar sistemas SAP](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) e [Como preparar um SUSE Linux Enterprise Server para executar sistemas SAP ou o que é sapconf?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Enquanto isso, há uma nova ferramenta que substitui sapconf - tuned-adm. Há mais detalhes sobre essa ferramenta nos dois links a seguir.
@@ -159,6 +159,6 @@ Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Criar um Hub IoT usando a API REST do provedor de recursos | Microsoft Docs
-description: "Siga este tutorial para começar a usar o REST API do provedor de recursos e criar um Hub IoT."
+title: Criar um Hub IoT do Azure usando a API REST do provedor de recursos | Microsoft Docs
+description: Como usar a API REST do provedor de recursos para criar um Hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 44d73863ebe968a025654f501a820bdf0f9b3c49
+ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
+ms.openlocfilehash: 826e359ebeaf9af4df3c3b1559549a57e8228f72
 
 
 ---
-# <a name="tutorial-create-an-iot-hub-using-a-c-program-and-the-resource-provider-rest-api"></a>Tutorial: Criar um Hub IoT usando um programa em C# e a API REST do provedor de recursos
+# <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um Hub IoT usando a API REST do provedor de recursos (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Introdução
@@ -34,8 +34,8 @@ Você pode usar a [API REST do provedor de recursos do Hub IoT][lnk-rest-api] pa
 Para concluir este tutorial, você precisará do seguinte:
 
 * Microsoft Visual Studio 2015.
-* Uma conta ativa do Azure. <br/>Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] ou posterior.
+* Uma conta ativa do Azure. <br/>Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* [Azure PowerShell 1.0][lnk-powershell-install] ou posterior.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -136,7 +136,7 @@ Use a [API REST do provedor de recursos do Hub IoT][lnk-rest-api] para criar um 
 6. Adicione o seguinte código ao final do método **CreateIoTHub** para recuperar as chaves do Hub IoT criado e imprimi-las no console:
    
     ```
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
     var keysresults = client.PostAsync(listKeysUri, null).Result;
    
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);
@@ -179,7 +179,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
@@ -190,6 +190,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 
 
-O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a [extensão de VM do Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) no [Agente Azure Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
+O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados de aplicativo e computar recursos compartilhados. Você pode usar a [extensão de VM do Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) no [Agente Linux do Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar uma VM do Docker que hospede diversos contêineres para seus aplicativos no Azure.
 
 Este tópico descreve:
 
@@ -12,11 +12,11 @@ Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 
 * [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
 * [Como usar a extensão de VM do Docker com o portal clássico do Azure]
-* [Como começar rapidamente com o Docker no Marketplace do Azure]
+* [Como começar rapidamente com o Docker no  Marketplace do Azure]
 
 Para saber mais sobre a extensão e como ela funciona, consulte o [Guia do usuário de extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
 
-## Contêineres Docker e Linux
+## <a name="docker-and-linux-containers"></a>Contêineres Docker e Linux
 O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que usa [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como uma forma de isolar dados e computar recursos compartilhados, e oferece outros serviços que lhe permitem criar ou compilar aplicativos rapidamente e distribuí-los entre outros contêineres Docker.
 
 Contêineres Docker e Linux não são [Hipervisores](http://en.wikipedia.org/wiki/Hypervisor) como o Windows Hyper-V e o [KVM](http://www.linux-kvm.org/page/Main_Page) no Linux (há muitos outros exemplos). Hipervisores virtualizam o sistema operacional subjacente para habilitar sistemas operacionais completos (chamados de *máquinas virtuais*) a serem executados dentro do hipervisor como se fossem um aplicativo.
@@ -36,10 +36,10 @@ Para participar de um debate de alto nível sobre contêineres e suas vantagens,
 
 Para obter mais informações sobre o Docker e seu funcionamento, confira [O que é o Docker?](https://www.docker.com/whatisdocker/)
 
-#### Práticas recomendadas para a segurança do contêiner do Linux e do Docker
-Como os contêineres compartilham o acesso ao kernel do computador hóspede, se códigos mal-intencionados conseguirem acessar a raiz, eles poderão também acessar não só o computador hóspede, mas todos os outros contêineres. Para ir além da segurança proporcionada ao sistema de contêineres pela configuração padrão, a [Docker recomenda](https://docs.docker.com/articles/security/) o uso de uma política de grupo para adição ou [segurança baseada em funções](http://en.wikipedia.org/wiki/Role-based_access_control), como [SELinux](http://selinuxproject.org/page/Main_Page) ou [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por exemplo, além de recomendar a redução ao máximo das funcionalidades do kernel concedidas aos contêineres. Além disso, há muitos outros documentos na Internet que descrevem abordagens de segurança ao usar contêineres como o Docker.
+#### <a name="docker-and-linux-container-security-best-practices"></a>Práticas recomendadas para a segurança do contêiner do Linux e do Docker
+Como os contêineres compartilham o acesso ao kernel do computador hóspede, se códigos mal-intencionados conseguirem acessar a raiz, eles poderão também acessar não só o computador hóspede, mas todos os outros contêineres. Para ir além da segurança proporcionada ao sistema de contêineres pela configuração padrão, o [Docker recomenda](https://docs.docker.com/articles/security/) o uso de uma política de grupo para adição ou [segurança baseada em funções](http://en.wikipedia.org/wiki/Role-based_access_control), como [SELinux](http://selinuxproject.org/page/Main_Page) ou [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por exemplo, além de recomendar a redução ao máximo das funcionalidades do kernel concedidas aos contêineres. Além disso, há muitos outros documentos na Internet que descrevem abordagens de segurança ao usar contêineres como o Docker.
 
-## Como usar a Extensão de VM Docker com o Azure
+## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Como usar a Extensão de VM do Docker com o Azure
 A extensão de máquina virtual Docker é um componente que, quando instalado na instância VM que você criou, instala o mecanismo Docker e gerencia a comunicação remota com a máquina virtual. Há duas maneiras de instalar a extensão de VM: você pode criar sua VM usando o portal de gerenciamento ou você pode criá-la a partir da interface de linha de comando do Azure (CLI do Azure).
 
 Você pode usar o portal para adicionar a extensão de máquina virtual Docker a qualquer máquina virtual Linux compatível (no momento, somente as imagens Ubuntu 14.04 LTS posteriores a julho têm suporte). No entanto, ao usar a linha de comando CLI do Azure, você pode instalar a extensão de VM do Docker e criar e fazer upload de seus certificados de comunicação Docker enquanto cria a instância VM.
@@ -49,17 +49,20 @@ Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 * [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
 * [Como usar a extensão de VM do Docker com o portal clássico do Azure]
 
-## Extensões de máquina virtual para Linux e Windows
-A [extensão de VM do Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [extensão do Agente de VM Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) permitem que você modifique e gerencie a máquina virtual, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess, por exemplo, permite redefinir a senha de administrador ou a chave SSH.
+## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Extensões de máquina virtual para Linux e Windows
+A [extensão de VM do Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [extensão do Agente de VM Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) permitem que você modifique e gerencie a máquina virtual, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess, por exemplo, permite redefinir a senha de administrador ou a chave SSH.
 
-Para obter uma lista completa, consulte [Extensões de VM do Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
+Para obter uma lista completa, consulte [Extensões de VM do Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!--Anchors-->
 [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Como usar a extensão de VM do Docker com o portal clássico do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
-[Como começar rapidamente com o Docker no Marketplace do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
+[Como começar rapidamente com o Docker no  Marketplace do Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
 [Contêineres Docker e Linux]: #Docker-and-Linux-Containers
 [Como usar a Extensão de VM do Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensões de máquina virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

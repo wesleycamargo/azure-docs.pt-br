@@ -13,14 +13,12 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 0475c0f209cde80177df7dbf23eaf8dd17a44752
-ms.openlocfilehash: b5754a08e0683344cc97bdc664ed26ef9a9cf34d
+ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
+ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
 
 
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculação de uma assinatura do Azure a um locatário do Azure B2C para pagar encargos de uso
-> [!IMPORTANT]
-> em breve. Esse recurso não está disponível para todos os locatários do B2C.
 
 Os encargos de uso em andamento para o Azure Active Directory B2C (ou Azure AD B2C) são cobrados de uma assinatura do Azure. É necessário para o administrador de locatários vincule explicitamente o locatário do Azure AD B2C a uma assinatura do Azure depois de criar o locatário do B2C em si.  Esse link é obtido com a criação do recurso “Locatário do Azure AD B2C " na assinatura de destino do Azure. Vários locatários do B2C podem ser vinculados a uma única assinatura do Azure juntamente com outros recursos do Azure (por exemplo, VMs, armazenamento de dados, LogicApps)
 
@@ -69,6 +67,9 @@ Clicando no recurso de locatário do B2C, será possível
 
 ![Configurações de Recursos do B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
+## <a name="known-issues"></a>Problemas conhecidos
+- Exclusão de locatário B2C. Se um locatário B2C for criado, excluído e recriado com o mesmo nome de domínio, exclua e crie novamente também o recurso de "Vinculação" com o mesmo nome de domínio.  Você encontrará esse recurso de "Vinculação" em "Todos os recursos" no locatário de assinatura por meio do Portal do Azure.
+- Restrições autoimpostas sobre o local do recurso regional.  Em casos raros, um usuário pode ter estabelecido uma restrição regional para a criação de recursos do Azure.  Essa restrição pode impedir a criação do Link entre uma assinatura do Azure e um locatário B2C. Para atenuar, reduza essa restrição.
 
 ## <a name="next-steps"></a>Próximas etapas
 Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement.
@@ -84,6 +85,6 @@ Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

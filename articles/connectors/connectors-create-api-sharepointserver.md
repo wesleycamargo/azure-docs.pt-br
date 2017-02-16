@@ -1,10 +1,10 @@
 ---
 title: "Usar o Conector do SharePoint Online em seus Aplicativos Lógicos | Microsoft Docs"
-description: "Introdução ao uso do Conector do SharePoint Online do Serviço de Aplicativo do Azure em seus aplicativos lógicos."
+description: "Introdução ao uso do Conector do SharePoint Online em seus Aplicativos lógicos"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76b6f627efdf189b873d9a6bdd722e73e837077d
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: c462c98e2ecef1afe62ef921265b8842b6ae717d
 
 
 ---
@@ -29,7 +29,7 @@ O Conector do SharePoint fornece uma maneira de trabalhar com listas do SharePoi
 > 
 > 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>Vamos conversar sobre gatilhos e ações
 O Conector do SharePoint pode ser usado como uma ação; ele tem gatilho(s). Todos os conectores dão suporte a dados nos formatos JSON e XML. 
@@ -532,7 +532,7 @@ Nenhuma das propriedades é obrigatória.
 | value |array |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)  
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
@@ -542,6 +542,6 @@ Nenhuma das propriedades é obrigatória.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

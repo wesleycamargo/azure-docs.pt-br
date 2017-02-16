@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b8ab951046e031e5b1f8ae428ba7dc6ea936066e
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 7b3c6da0e158c2824a5feb084a13eafe265762ce
 
 
 ---
@@ -27,7 +27,7 @@ Esse tutorial descreve como hospedar um site Ruby on Rails no Azure usando uma m
 Este tutorial foi validado usando o Ubuntu Server 14.04 LTS. Se você usar uma distribuição Linux diferente, talvez seja necessário modificar as etapas para instalar o Rails.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 > 
 > 
 
@@ -44,7 +44,7 @@ Para criar a VM, você pode usar o portal clássico do Azure ou a CLI (interface
 Depois que a VM for provisionada, clique no nome da VM e clique em **Painel**. Localize o ponto de extremidade do SSH, listado sob **detalhes de SSH**.
 
 ### <a name="azure-cli"></a>CLI do Azure
-Siga as etapas em [Criar uma máquina virtual que execute o Linux][vm-instructions].
+Siga as etapas em [Como criar uma máquina virtual personalizada que executa o Linux][vm-instructions].
 
 Depois que a VM for provisionada, você pode obter o ponto de extremidade do SSH executando o seguinte comando:
 
@@ -90,7 +90,7 @@ Você deve ver saídas semelhantes às seguintes.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
-1. Vá para o [Portal clássico do Azure][management-portal] e selecione sua VM.
+1. Vá para o [Portal Clássico do Azure][management-portal] e selecione sua VM.
    
     ![lista da máquina virtual][vmlist]
 2. Selecione **PONTOS DE EXTREMIDADE** na parte superior da página e clique em **+ ADICIONAR PONTO DE EXTREMIDADE** na parte inferior da página.
@@ -122,7 +122,7 @@ Para saber mais sobre o Ruby on Rails, visite os [Guias do Ruby on Rails][rails-
 Para usar os serviços do Azure de seu aplicativo Ruby, consulte:
 
 * [Armazenar dados desestruturados usando blobs][blobs]
-* [Armazenar pares chave/valor usando tabelas][tables]
+* [Armazenar pares de chave/valor usando tabelas][tables]
 * [Fornecer conteúdo de alta largura de banda com a Rede de Distribuição de Conteúdo][cdn-howto]
 
 <!-- WA.com links -->
@@ -146,6 +146,6 @@ Para usar os serviços do Azure de seu aplicativo Ruby, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

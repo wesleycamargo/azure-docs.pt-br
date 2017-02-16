@@ -1,5 +1,5 @@
 ---
-title: "Migrar máquinas virtuais IaaS do Azure de uma região do Azure para outra com o Site Recovery | Microsoft Docs"
+title: "Migrar VMs IaaS do Azure entre regiões do Azure | Microsoft Docs"
 description: "Use o Azure Site Recovery para migrar máquinas virtuais IaaS do Azure de uma região do Azure para outra."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 921da3b0fe82248ab32d0b8e23f234f942f5eb05
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 3db1ec50b357c5bf6da51aaaf0f04ccb65d1bb05
 
 
 ---
@@ -53,6 +53,6 @@ Saiba mais sobre outros cenários de replicação em [O que é o Azure Site Reco
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

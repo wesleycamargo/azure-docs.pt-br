@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 67b5ea270bc8bcbe22aa4a3cbdd15b7affbbb4e6
+ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
+ms.openlocfilehash: 3aa4f497a928fe4bb894f01202b116429e6f5649
 
 
 ---
@@ -73,7 +73,7 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 
 **Lista de verificação dos requisitos de desempenho do aplicativo**
 
-| **Requisitos de desempenho** | **Percentil 50** | **Percentil 90** | **Percentil 99** |
+| **Requisitos de desempenho** | **Percentil&50;** | **Percentil&90;** | **Percentil&99;** |
 | --- | --- | --- | --- |
 | Máx. Transações por segundo | | | |
 | % de operações de Leitura | | | |
@@ -91,8 +91,8 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 | Memória Média | | | |
 | Profundidade da Fila | | | |
 
-> **Observação importante:**  
->  você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho posteriormente.
+> [!NOTE]
+> você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho posteriormente.
 >
 >
 
@@ -107,11 +107,11 @@ Os contadores do PerfMon estão disponíveis para processador, memória e cada d
 
 | Contador | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS ou Transações por segundo** |Número de solicitações de E/S emitidas para o disco de armazenamento por segundo. |Leituras de Disco/s  <br>  Gravações de Disco/s |tps  <br> r/s  <br>  w/s |
-| **Leituras e gravações de discos** |% de operações de Leitura e Gravação executadas no disco. |% de Tempo de Leitura de Disco  <br>  % de Tempo de Gravação de Disco |r/s  <br>  w/s |
-| **Taxa de transferência** |Volume de dados lidos ou gravados no disco por segundo. |Bytes Lidos no Disco/s  <br>  Bytes Gravados no Disco/s |kB_read/s <br> kB_wrtn/s |
-| **Latência** |Tempo total para concluir uma solicitação de E/S no disco. |Média por Segundo do Disco/Leitura  <br>  Média por segundo do disco/Gravação |await  <br>  svctm |
-| **Tamanho de E/S** |O tamanho das solicitações de E/S emitidas para os discos de armazenamento. |Média de Bytes do Disco/Leitura  <br>  Média de Bytes do Disco/Gravação |avgrq-sz |
+| **IOPS ou Transações por segundo** |Número de solicitações de E/S emitidas para o disco de armazenamento por segundo. |Leituras de Disco/s  <br> Gravações de Disco/s |tps  <br> r/s  <br> w/s |
+| **Leituras e gravações de discos** |% de operações de Leitura e Gravação executadas no disco. |% de Tempo de Leitura de Disco  <br> % de Tempo de Gravação de Disco |r/s  <br> w/s |
+| **Taxa de transferência** |Volume de dados lidos ou gravados no disco por segundo. |Bytes Lidos no Disco/s  <br> Bytes Gravados no Disco/s |kB_read/s <br> kB_wrtn/s |
+| **Latência** |Tempo total para concluir uma solicitação de E/S no disco. |Média por Segundo do Disco/Leitura  <br> Média por segundo do disco/Gravação |await  <br> svctm |
+| **Tamanho de E/S** |O tamanho das solicitações de E/S emitidas para os discos de armazenamento. |Média de Bytes do Disco/Leitura  <br> Média de Bytes do Disco/Gravação |avgrq-sz |
 | **Profundidade da Fila** |Número de solicitações de E/S pendentes aguardando serem lidas ou gravadas no disco de armazenamento. |Comprimento da Fila do Disco Atual |avgqu-sz |
 | **IOPS Máxima** |Quantidade de memória exigida para execução perfeita do aplicativo |% de Bytes Confirmados em Uso |Usar o vmstat |
 | **IOPS Máxima** |Quantidade de CPU exigida para a execução perfeita do aplicativo |% do Tempo do Processador |%util |
@@ -126,18 +126,18 @@ Ao longo desta seção, consulte a lista de verificação de requisitos de aplic
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Otimizando a IOPS, a Taxa de Transferência e a latência em segundos
 A tabela abaixo resume os fatores de desempenho e as etapas para otimizar a IOPS, Taxa de Transferência e Latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
 
-|  | **IOPS** | **Taxa de transferência** | **Latência** |
+| &nbsp; | **IOPS** | **Taxa de transferência** | **Latência** |
 | --- | --- | --- | --- |
 | **Cenário de exemplo** |Aplicativo OLTP corporativo que exige taxa muito alta de transações por segundo. |Aplicativo de data warehouse corporativo que processa grandes volumes de dados. |Aplicativos quase em tempo real que exigem respostas instantâneas às solicitações de usuário, como jogos online. |
-| Fatores de desempenho | | | |
-| **Tamanho de E/S** |E/S menores geram IOPS mais altas. |E/S maiores geram Taxa de Transferência mais altas. | |
+| Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
+| **Tamanho de E/S** |E/S menores geram IOPS mais altas. |E/S maiores geram Taxa de Transferência mais altas. | &nbsp;|
 | **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior que o requisito do seu aplicativo. Veja os tamanhos de VM e respectivos limites de IOPS aqui. |Use um tamanho de VM com limite de Taxa de Transferência maior que o requisito do seu aplicativo. Veja os tamanhos de VM e respectivos limites de Taxa de Transferência aqui. |Use um tamanho de VM que ofereça limites de escala maiores que o requisito do seu aplicativo. Veja os tamanhos de VM e os respectivos limites aqui. |
 | **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior que o requisito de seu aplicativo. Veja os tamanhos de disco e respectivos limites de IOPS aqui. |Use um tamanho de disco com limite de Taxa de Transferência maior que o requisito do seu aplicativo. Veja os tamanhos de disco e respectivos limites de Taxa de Transferência aqui. |Use um tamanho de disco que ofereça limites de escala maiores que o requisito do seu aplicativo. Veja os tamanhos de disco e respectivos limites aqui. |
 | **Limites de escala de VM e disco** |O limite de IOPS do tamanho da VM escolhido deve ser maior que o total de IOPS impulsionado pelos discos do Armazenamento Premium anexados a ela. |O limite de Taxa de Transferência do tamanho da VM escolhido deve ser maior que o total de Taxa de Transferência impulsionado pelos discos do Armazenamento Premium anexados a ela. |Os limites de escala do tamanho da VM escolhido devem ser maiores que o total de limites de escala de discos do Armazenamento Premium anexados. |
-| **Cache de disco** |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter IOPS mais alta de leitura. | |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter latências de leitura bem baixas. |
-| **Distribuição de disco** |Use vários discos e distribua-os em conjunto para obter um limite combinado mais alto de IOPS e Taxa de Transferência. Observe que o limite combinado por VM deve ser maior do que os limites combinados de discos premium anexados. | | |
-| **Tamanho da distribuição** |Tamanho menor de distribuição para padrão pequeno de E/S aleatório visto em aplicativos OLTP. Por exemplo, use o tamanho de distribuição de 64 KB para aplicativo OLTP do SQL Server. |Tamanho maior de distribuição para padrão grande de E/S sequencial visto em aplicativos de data warehouse. Por exemplo, use o tamanho de distribuição de 256 KB para aplicativo de data warehouse do SQL Server. | |
-| **Multithreading** |Use multithreading para enviar por push números maiores de solicitações ao Armazenamento Premium que levarão à IOPS e Taxa de Transferência mais altas. Por exemplo, no SQL Server, defina um valor MAXDOP alto para alocar mais CPUs para o SQL Server. | | |
+| **Cache de disco** |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter IOPS mais alta de leitura. | &nbsp; |Habilite o Cache ReadOnly nos discos do Armazenamento Premium com operações pesadas de leitura para obter latências de leitura bem baixas. |
+| **Distribuição de disco** |Use vários discos e distribua-os em conjunto para obter um limite combinado mais alto de IOPS e Taxa de Transferência. Observe que o limite combinado por VM deve ser maior do que os limites combinados de discos premium anexados. | &nbsp; | &nbsp; |
+| **Tamanho da distribuição** |Tamanho menor de distribuição para padrão pequeno de E/S aleatório visto em aplicativos OLTP. Por exemplo, use o tamanho de distribuição de 64 KB para aplicativo OLTP do SQL Server. |Tamanho maior de distribuição para padrão grande de E/S sequencial visto em aplicativos de data warehouse. Por exemplo, use o tamanho de distribuição de 256 KB para aplicativo de data warehouse do SQL Server. | &nbsp; |
+| **Multithreading** |Use multithreading para enviar por push números maiores de solicitações ao Armazenamento Premium que levarão à IOPS e Taxa de Transferência mais altas. Por exemplo, no SQL Server, defina um valor MAXDOP alto para alocar mais CPUs para o SQL Server. | &nbsp; | &nbsp; |
 | **Profundidade da Fila** |Profundidade da fila maior gera IOPS mais alta. |Uma Profundidade da Fila maior gera uma Taxa de Transferência mais alta. |Profundidade da fila menor gera latências mais baixas. |
 
 ## <a name="nature-of-io-requests"></a>Natureza das solicitações de E/S
@@ -160,7 +160,7 @@ Se estiver usando um aplicativo que permita alterar o tamanho de E/S, use esta r
 
 Veja um exemplo de como é possível calcular a IOPS e a Taxa de Transferência/largura de banda do seu aplicativo. Considere um aplicativo usando um disco P30. A IOPS e a Taxa de Transferência/largura de banda máximas que um disco P30 pode atingir é de 5.000 IOPS e 200 MB por segundo, respectivamente. Agora, se seu aplicativo exigir a IOPS máxima do disco P30 e você usar um tamanho de E/S menor, como 8 KB, a largura de banda resultante que você poderá obter será de 40 MB por segundo. No entanto, se seu aplicativo exigir a Taxa de Transferência/largura de banda máxima do disco P30 e você usar um tamanho de E/S maior, como 1024 KB, a IOPS resultante será menor, 200 IOPS. Sendo assim, ajuste o tamanho de E/S, de tal modo que ele atenda aos requisitos de IOPS e Taxa de Transferência/largura de banda do aplicativo. A tabela abaixo resume os diferentes tamanhos de E/S e a IOPS e a Taxa de Transferência correspondentes para um disco P30.
 
-| **Requisito de aplicativo** | **Tamanho de E/S** | **IOPS** | **Taxa de Transferência/Largura de Banda** |
+| Requisito de aplicativo | Tamanho de E/S | IOPS | Taxa de Transferência/Largura de Banda |
 | --- | --- | --- | --- |
 | IOPS Máxima |8 KB |5.000 |40 MB por segundo |
 | Taxa de Transferência Máxima |1024 KB |200 |200 MB por segundo |
@@ -169,7 +169,7 @@ Veja um exemplo de como é possível calcular a IOPS e a Taxa de Transferência/
 
 Para obter IOPS e Largura de Banda mais altas do que o valor máximo de um único disco do Armazenamento Premium, use vários discos premium distribuídos em conjunto. Por exemplo, distribua dois discos P30 para obter uma IOPS de 10.000 IOPS ou um combinado de Taxa de Transferência de 400 MB por segundo. Como explicado na próxima seção, você deve usar um tamanho de VM que ofereça suporte à IOPS e à Taxa de Transferência de disco combinado.
 
-> **Observação**  
+> [!NOTE]
 > À medida que você aumenta a IOPS ou a Taxa de Transferência, a outra também aumenta. Fique dentro dos limites de Taxa de Transferência ou de IOPS do disco ou da VM ao aumentar uma das duas.
 >
 >
@@ -183,30 +183,30 @@ As VMs de alta escala estão disponíveis em diferentes tamanhos com diferentes 
 
 | Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco da VM | Máx. de discos de dados | Tamanho do cache | IOPS | Limites de E/S do cache da largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |SO = 1023 GB  <br>  SSD local = 224 GB |32 |576 GB |50.000 IOPS  <br>  512 MB por segundo |4.000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |SO = 1023 GB  <br>  SSD local = 896 GB |64 |4224 GB |80.000 IOPS  <br>  2.000 MB por segundo |5.000 IOPS e 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |SO = 1023 GB  <br> SSD local = 224 GB |32 |576 GB |50.000 IOPS  <br> &512; MB por segundo |4.000 IOPS e 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |SO = 1023 GB  <br> SSD local = 896 GB |64 |4224 GB |80.000 IOPS  <br> &2;.000 MB por segundo |5.000 IOPS e 50 MB por segundo |
 
 Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Escolha um tamanho de VM que possa atender aos requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
 *Limites de Escala*  
- Os limites máximos de IOPS por VM e por disco são diferentes e independentes um do outro. Verifique se o aplicativo está impulsionando a IOPS dentro dos limites da VM, bem como os discos premium anexados a ela. Caso contrário, o desempenho do aplicativo será limitado.
+Os limites máximos de IOPS por VM e por disco são diferentes e independentes um do outro. Verifique se o aplicativo está impulsionando a IOPS dentro dos limites da VM, bem como os discos premium anexados a ela. Caso contrário, o desempenho do aplicativo será limitado.
 
 Por exemplo, suponha que o requisito de um aplicativo seja de 4.000 IOPS. Para chegar a isso, você provisiona um disco P30 em uma VM DS1. O disco P30 pode oferecer até 5.000 IOPS. No entanto, a VM DS1 é limitada a 3.200 IOPS. Consequentemente, o desempenho do aplicativo será restrito pelo limite da VM de 3.200 IOPS e haverá degradação do desempenho. Para evitar essa situação, escolha um tamanho de disco e VM que atenda aos requisitos do aplicativo.
 
 *Custo da operação*  
- Em muitos casos, é possível que o custo geral de operação usando o Armazenamento Premium seja menor do que usando o Armazenamento Padrão.
+Em muitos casos, é possível que o custo geral de operação usando o Armazenamento Premium seja menor do que usando o Armazenamento Padrão.
 
-Por exemplo, considere um aplicativo que exija 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM de IaaS Standard\_D14 do Azure que possa fornecer um máximo de 16.000 IOPS usando 32 discos de armazenamento padrão de 1 TB. Cada disco de armazenamento padrão de 1TB pode atingir um máximo de 500 IOPS. O custo estimado dessa VM por mês será de US$ 1.570. O custo mensal de 32 discos de armazenamento padrão será de US$ 1.638. O custo mensal total estimado será de US$ 3.208.
+Por exemplo, considere um aplicativo que exija 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM de IaaS Standard\_D14 do Azure que possa fornecer um máximo de 16.000 IOPS usando 32 discos de armazenamento padrão de 1 TB. Cada disco de armazenamento padrão de 1TB pode atingir um máximo de 500 IOPS. O custo estimado dessa VM por mês será de US$&1;.570. O custo mensal de 32 discos de armazenamento padrão será de US$ 1.638. O custo mensal total estimado será de US$&3;.208.
 
-No entanto, se você tiver hospedado o mesmo aplicativo no Armazenamento Premium, será preciso uma VM menor e menos discos de Armazenamento Premium, reduzindo, assim, o custo geral. Uma VM Standard\_DS13 pode atender ao requisito de 16.000 IOPS usando quatro discos P30. A VM DS13 tem um máximo de 25.600 IOPS e cada disco P30 tem um máximo de 5.000 IOPS. Em geral, essa configuração pode alcançar 5.000 x 4 = 20.000 IOPS. O custo estimado dessa VM por mês será de US$ 1.003. O custo mensal de quatro discos P30 de armazenamento premium será de US$ 544,34. O custo total mensal estimado será de US$ 1.544.
+No entanto, se você tiver hospedado o mesmo aplicativo no Armazenamento Premium, será preciso uma VM menor e menos discos de Armazenamento Premium, reduzindo, assim, o custo geral. Uma VM Standard\_DS13 pode atender ao requisito de 16.000 IOPS usando quatro discos P30. A VM DS13 tem um máximo de 25.600 IOPS e cada disco P30 tem um máximo de 5.000 IOPS. Em geral, essa configuração pode alcançar 5.000 x 4 = 20.000 IOPS. O custo estimado dessa VM por mês será de US$&1;.003. O custo mensal de quatro discos P30 de armazenamento premium será de US$&544;,34. O custo total mensal estimado será de US$&1;.544.
 
 A tabela abaixo resume o detalhamento do custo desse cenário para Armazenamento Premium e Standard.
 
-|  | **Standard** | **Premium** |
+| &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Custo de VM por mês** |US$ 1.570,58 (Standard\_D14) |US$ 1.003,66 (Standard\_DS13) |
-| **Custo de discos por mês** |US$ 1.638,40 (32 discos x 1 TB) |US$ 544,34 (4 discos x P30) |
-| **Custo geral por mês** |US$ 3.208,98 |US$ 1.544,34 |
+| **Custo de VM por mês** |US$&1;.570,58 (Standard\_D14) |US$&1;.003,66 (Standard\_DS13) |
+| **Custo de discos por mês** |US$ 1.638,40 (32 discos x 1 TB) |US$&544;,34 (4 discos x P30) |
+| **Custo geral por mês** |US$&3;.208,98 |US$&1;.544,34 |
 
 *Distribuições do Linux*  
 
@@ -226,19 +226,19 @@ Atualmente, o Armazenamento Premium do Azure oferece três tamanhos de disco. Ca
 Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P30 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
 
 *Limites de Escala (IOPS e Taxa de Transferência)*  
- Os limites de IOPS e Taxa de Transferência de cada tamanho de disco Premium são diferentes e independentes dos limites de escala da VM. Verifique se o total de IOPS e Taxa de Transferência dos discos estão dentro dos limites de escala do tamanho escolhido de VM.
+Os limites de IOPS e Taxa de Transferência de cada tamanho de disco Premium são diferentes e independentes dos limites de escala da VM. Verifique se o total de IOPS e Taxa de Transferência dos discos estão dentro dos limites de escala do tamanho escolhido de VM.
 
 Por exemplo, se o requisito de um aplicativo for de, no máximo, 250 MB/s de Taxa de Transferência e você estiver usando uma VM DS4 com um único disco P30. A VM DS4 pode fornecer uma Taxa de Transferência de 256 MB/s. No entanto, um único disco P30 tem um limite de Taxa de Transferência de 200 MB/s. Consequentemente, o aplicativo será restrito a 200 MB/s devido ao limite do disco. Para superar esse limite, provisione mais de um disco de dados à VM.
 
-> **Observação:**  
->  as leituras atendidas pelo cache não estão incluídas na IOPS e Taxa de Transferência do disco, portanto, não estão sujeitas aos limites de disco. O cache tem seu limite de IOPS e Taxa de Transferência separado por VM.
+> [!NOTE]
+> as leituras atendidas pelo cache não estão incluídas na IOPS e Taxa de Transferência do disco, portanto, não estão sujeitas aos limites de disco. O cache tem seu limite de IOPS e Taxa de Transferência separado por VM.
 >
 > Por exemplo, inicialmente as leituras e gravações são de 60 MB/s e 40 MB/s, respectivamente. Ao longo do tempo, o cache aquece e atende cada vez mais leituras no cache. Assim, você pode obter Taxa de Transferência de gravação mais alta do disco.
 >
 >
 
 *Número de discos*  
- Determine o número de discos que você precisará ao avaliar os requisitos de aplicativo. Cada tamanho de VM também tem um limite de número de discos que você pode anexar à VM. Normalmente, é duas vezes o número de núcleos. Verifique se o tamanho de VM que você escolheu pode oferecer suporte ao número de discos necessário.
+Determine o número de discos que você precisará ao avaliar os requisitos de aplicativo. Cada tamanho de VM também tem um limite de número de discos que você pode anexar à VM. Normalmente, é duas vezes o número de núcleos. Verifique se o tamanho de VM que você escolheu pode oferecer suporte ao número de discos necessário.
 
 Lembre-se de que os discos do Armazenamento Premium têm recursos de desempenho mais alto comparados aos discos do Armazenamento Padrão. Portanto, se estiver migrando seu aplicativo da VM de IaaS do Azure usando Armazenamento Padrão para Armazenamento Premium, provavelmente você precisará de poucos discos premium para atingir o mesmo desempenho ou mais alto para seu aplicativo.
 
@@ -268,13 +268,13 @@ Veja a seguir as configurações recomendadas de cache de disco para discos de d
 | ReadWrite |Configure o cache do host como ReadWrite somente se o aplicativo tratar adequadamente a gravação de dados em cache em discos persistentes quando necessário. |
 
 *ReadOnly*  
- Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, você pode obter baixa latência de leitura e IOPS de leitura e Taxa de Transferência muito altas para seu aplicativo. Isso se deve a dois motivos:
+Ao configurar o cache ReadOnly em discos de dados do Armazenamento Premium, você pode obter baixa latência de leitura e IOPS de leitura e Taxa de Transferência muito altas para seu aplicativo. Isso se deve a dois motivos:
 
 1. As leituras executadas no cache, que está na memória da VM e na SSD local, são muito mais rápidas do que as leituras no disco de dados, que está no armazenamento blob do Azure.  
 2. O Armazenamento Premium não conta as leituras atendidas no cache para IOPS e Taxa de Transferência do disco. Portanto, o aplicativo é capaz de atingir um total mais alto de IOPS e Taxa de Transferência.
 
 *ReadWrite*  
- Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte ao cache ReadWrite também nos discos de dados. Se estiver usando o cache ReadWrite, você deverá ter uma maneira adequada de gravar os dados do cache nos discos persistentes. Por exemplo, o SQL Server manipula a gravação de dados em cache nos discos de armazenamento persistentes por sua própria conta. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
+Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte ao cache ReadWrite também nos discos de dados. Se estiver usando o cache ReadWrite, você deverá ter uma maneira adequada de gravar os dados do cache nos discos persistentes. Por exemplo, o SQL Server manipula a gravação de dados em cache nos discos de armazenamento persistentes por sua própria conta. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
 
 Por exemplo, você pode aplicar essas diretrizes ao SQL Server em execução no Armazenamento Premium seguindo estes passos.
 
@@ -294,14 +294,14 @@ Importante: usando a interface de usuário do Gerenciador de Servidores, você p
 No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 *Tamanho da distribuição*  
- Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
+Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
 
 Por exemplo, se uma solicitação de E/S gerada pelo seu aplicativo for maior que o tamanho da distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for a hora de acessar esses dados, ele terá que procurar em mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo de tal comportamento pode levar à degradação substancial de desempenho. Por outro lado, se o tamanho da solicitação de E/S for menor que o tamanho da distribuição e se ela for de natureza aleatória, as solicitações de E/S poderão ser adicionadas no mesmo disco, causando um afunilamento e, por fim, a degradação do desempenho de E/S.
 
-De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
+De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
 
-> **Observação:**  
->  você pode usar a distribuição com um máximo de 32 discos do armazenamento premium em uma VM série DS e 64 discos do armazenamento premium em uma VM série GS.
+> [!NOTE]
+> você pode usar a distribuição com um máximo de 32 discos do armazenamento premium em uma VM série DS e 64 discos do armazenamento premium em uma VM série GS.
 >
 >
 
@@ -328,14 +328,14 @@ Normalmente, aplicativos prontos para uso não permitem que você altere a profu
 Alguns aplicativos fornecem configurações para influenciar a profundidade da fila. Por exemplo, a configuração MAXDOP (grau máximo de paralelismo) do SQL Server explicada na seção anterior. MAXDOP é uma forma de influenciar a profundidade da fila e o multithreading, embora isso não altere diretamente o valor da profundidade da fila do SQL Server.
 
 *Profundidade Alta de Fila*  
- Uma profundidade alta de fila alinha mais operações no disco. O disco sabe da próxima solicitação na fila antecipadamente. Consequentemente, o disco pode agendar operações com antecedência e processá-las em uma sequência ideal. Uma vez que o aplicativo está enviando mais solicitações ao disco, este pode processar mais E/S paralelamente. No fim, o aplicativo poderá atingir IOPS mais alta. Uma vez que o aplicativo está processando mais solicitações, a Taxa de Transferência total do aplicativo também aumenta.
+Uma profundidade alta de fila alinha mais operações no disco. O disco sabe da próxima solicitação na fila antecipadamente. Consequentemente, o disco pode agendar operações com antecedência e processá-las em uma sequência ideal. Uma vez que o aplicativo está enviando mais solicitações ao disco, este pode processar mais E/S paralelamente. No fim, o aplicativo poderá atingir IOPS mais alta. Uma vez que o aplicativo está processando mais solicitações, a Taxa de Transferência total do aplicativo também aumenta.
 
 Normalmente, um aplicativo pode atingir a taxa máxima de transferência com 8 a pouco mais de 16 E/S pendentes por disco anexado. Se a profundidade de fila for um, o aplicativo não está enviando E/S suficiente ao sistema, e ele processará menos quantidade em um determinado período. Em outras palavras, Taxa de Transferência menor.
 
 Por exemplo, no SQL Server, definir o valor MAXDOP de uma consulta para "4" informa ao SQL Server que ele pode usar até quatro núcleos para executar a consulta. O SQL Server determinará qual é o melhor valor de profundidade de fila e o número de núcleos para a execução da consulta.
 
 *Profundidade Ideal de Fila*  
- Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila.  
+Um valor muito alto de profundidade de fila também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará impulsionar uma IOPS muito alta. A menos que o aplicativo tenha discos persistentes com provisão suficiente de IOPS, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre a IOPS, a Latência e a Profundidade da Fila.  
     ![](media/storage-premium-storage-performance/image6.png)
 
 Você não deve configurar a profundidade da fila para algum valor alto, mas para um valor ideal, o que pode fornecer IOPS suficiente ao aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS será, QD = 5000 x 0,001 = 5.
@@ -352,13 +352,13 @@ Os parâmetros de comparação são o processo de simular diferentes cargas de t
 
 Usamos ferramentas comuns de parâmetros de comparação, Iometer e FIO, para Windows e Linux, respectivamente. Essas ferramentas geram vários threads que simulam uma carga de trabalho parecida com uma produção e avaliam o desempenho do sistema. Usando as ferramentas, você pode configurar parâmetros como tamanho do bloco e profundidade da fila, que normalmente você não pode mudar para um aplicativo. Isso proporciona mais flexibilidade para impulsionar o desempenho máximo em uma VM de alta escala provisionada com discos premium para diferentes tipos de carga de trabalho de aplicativo. Para saber mais sobre cada ferramenta de parâmetro de comparação, acesse [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
 
-Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Armazenamento Premium à VM. Dos 11 discos, configure 10 discos com cache de host como "None" e distribua-os em um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você poderá ver o desempenho máximo de Leitura e Gravação de uma VM DS14 padrão. Para ver as etapas detalhadas sobre como criar uma VM DS14 com discos premium, acesse [Criar e usar conta de Armazenamento Premium para um disco de dados da máquina virtual](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Armazenamento Premium à VM. Dos 11 discos, configure 10 discos com cache de host como "None" e distribua-os em um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você poderá ver o desempenho máximo de Leitura e Gravação de uma VM DS14 padrão. Para obter as etapas detalhadas sobre como criar uma VM DS14 com discos premium, acesse [Criar e usar uma conta de Armazenamento Premium para um disco de dados da máquina virtual](storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 *Aquecendo o cache*  
- O disco com o cache de host ReadOnly poderá oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso garante que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente atinjam o cache, e não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
+O disco com o cache de host ReadOnly poderá oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso garante que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente atinjam o cache, e não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
 
 > **Importante:**  
->  você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
+> você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
 >
 >
 
@@ -366,16 +366,16 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Ar
 [Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
 
 *Arquivo de teste*  
- O Iometer usa um arquivo de teste que é armazenado no volume no qual você executará o teste de parâmetros de comparação. Ele orienta as leituras e gravações nesse arquivo de teste para avaliar a IOPS e a Taxa de Transferência do disco. O Iometer criará esse arquivo de teste caso você não tenha fornecido um. Crie um arquivo de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
+O Iometer usa um arquivo de teste que é armazenado no volume no qual você executará o teste de parâmetros de comparação. Ele orienta as leituras e gravações nesse arquivo de teste para avaliar a IOPS e a Taxa de Transferência do disco. O Iometer criará esse arquivo de teste caso você não tenha fornecido um. Crie um arquivo de teste de 200 GB chamado iobw.tst nos volumes CacheReads e NoCacheWrites.
 
 *Especificações de Acesso*  
- As especificações, o tamanho da E/S de solicitação, a % de leitura/gravação, a % aleatória/sequencial são configurados usando a guia "Especificações de Acesso" no Iometer. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Crie as especificações de acesso e "Salve" com um nome apropriado como – RandomWrites\_8K, RandomReads\_8K. Selecione a especificação correspondente ao executar o cenário de teste.
+As especificações, o tamanho da E/S de solicitação, a % de leitura/gravação, a % aleatória/sequencial são configurados usando a guia "Especificações de Acesso" no Iometer. Crie uma especificação de acesso para cada um dos cenários descritos abaixo. Crie as especificações de acesso e "Salve" com um nome apropriado como – RandomWrites\_8K, RandomReads\_8K. Selecione a especificação correspondente ao executar o cenário de teste.
 
 Um exemplo de especificações de acesso para o cenário de IOPS de gravação máxima é mostrado abaixo,   
     ![](media/storage-premium-storage-performance/image8.png)
 
 *Especificações de teste de IOPS máxima*  
- Para demonstrar a IOPS máxima, use o tamanho de solicitação menor. Use o tamanho de solicitação de 8 K e crie especificações para gravações e leituras aleatórias.
+Para demonstrar a IOPS máxima, use o tamanho de solicitação menor. Use o tamanho de solicitação de 8 K e crie especificações para gravações e leituras aleatórias.
 
 | Especificação de acesso | Tamanho da solicitação | Aleatório % | Leitura % |
 | --- | --- | --- | --- |
@@ -383,7 +383,7 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
 | RandomReads\_8K |8 K |100 |100 |
 
 *Especificações de Teste de Taxa de Transferência Máxima*  
- Para demonstrar a Taxa de Transferência máxima, use o tamanho de solicitação maior. Use o tamanho de solicitação de 64 K e crie especificações para gravações e leituras aleatórias.
+Para demonstrar a Taxa de Transferência máxima, use o tamanho de solicitação maior. Use o tamanho de solicitação de 64 K e crie especificações para gravações e leituras aleatórias.
 
 | Especificação de acesso | Tamanho da solicitação | Aleatório % | Leitura % |
 | --- | --- | --- | --- |
@@ -391,7 +391,7 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
 | RandomReads\_64K |64 K |100 |100 |
 
 *Executando o Teste Iometer*  
- Execute as etapas abaixo para aquecer o cache
+Execute as etapas abaixo para aquecer o cache
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
 
@@ -417,11 +417,11 @@ Depois de aquecer o disco do cache, prossiga com os cenários de teste listados 
 | Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
 | Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8K | | |
+| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Máx. MB/s de leitura |CacheReads |RandomWrites\_64K |524 MB/s |
 | Máx. MB/s de gravação |NoCacheWrites |RandomReads\_64K |524 MB/s |
 | MB/s combinado |CacheReads |RandomWrites\_64K |1000 MB/s |
-| NoCacheWrites |RandomReads\_64K | | |
+| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
 Veja abaixo as capturas de tela dos resultado do teste Iometer para cenários combinados de IOPS e Taxa de Transferência.
 
@@ -438,12 +438,14 @@ Antes de começar, [baixe o FIO](https://github.com/axboe/fio) e instale-o em su
 
 Execute o comando a seguir para o Ubuntu,
 
-        apt-get install fio
+```
+apt-get install fio
+```
 
 Usaremos quatro threads de trabalho para impulsionar operações de gravação e quatro threads de trabalho para impulsionar as operações de leitura nos discos. Os trabalhos de gravação orientarão o tráfego no volume "nocache", que tem 10 discos com o cache definido como "None". Os trabalhos de leitura orientarão o tráfego no volume "readcache", que tem um disco com o cache definido como "ReadOnly".
 
 *IOPS máxima de gravação*  
- Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de gravação. Dê o nome de "fiowrite.ini".
+Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de gravação. Dê o nome de "fiowrite.ini".
 
 ```
 [global]
@@ -475,13 +477,15 @@ Observe os itens importantes a seguir que estão de acordo com as diretrizes de 
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:  
 
-    sudo fio --runtime 30 fiowrite.ini
+```
+sudo fio --runtime 30 fiowrite.ini
+```
 
 Enquanto o teste é executado, você poderá ver o número de IOPS de gravação fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo seu limite máximo de IOPS de gravação, isto é, 50.000 IOPS.  
     ![](media/storage-premium-storage-performance/image11.png)
 
 *IOPS máxima de leitura*  
- Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
+Crie o arquivo de trabalho com as especificações a seguir para obter IOPS máxima de leitura. Dê o nome de "fioread.ini".
 
 ```
 [global]
@@ -513,13 +517,15 @@ Observe os itens importantes a seguir que estão de acordo com as diretrizes de 
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
 
-    sudo fio --runtime 30 fioread.ini
+```
+sudo fio --runtime 30 fioread.ini
+```
 
 Enquanto o teste for executado, você poderá ver o número de IOPS de leitura fornecido pela VM e pelos discos premium. Conforme mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 64.000 IOPS de leitura. Essa é uma combinação do desempenho do cache e do disco.  
     ![](media/storage-premium-storage-performance/image12.png)
 
 *IOPS Máxima de Leitura e Gravação*  
- Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
+Crie o arquivo de trabalho com as especificações a seguir para obter a IOPS Máxima de Leitura e Gravação. Dê o nome de "fioreadwrite.ini".
 
 ```
 [global]
@@ -568,13 +574,15 @@ Observe os itens importantes a seguir que estão de acordo com as diretrizes de 
 
 Execute o seguinte comando para iniciar o teste FIO por 30 segundos:
 
-    sudo fio --runtime 30 fioreadwrite.ini
+```
+sudo fio --runtime 30 fioreadwrite.ini
+```
 
 Enquanto o teste for executado, você poderá ver o número de IOPS de leitura e gravação combinadas fornecido pela VM e pelos discos premium. Como mostrado no exemplo abaixo, a VM DS14 está fornecendo mais de 100.000 IOPS de leitura e gravação combinadas. Essa é uma combinação do desempenho do cache e do disco.  
     ![](media/storage-premium-storage-performance/image13.png)
 
 *Taxa de Transferência Máxima Combinada*  
- Para atingir a Taxa de Transferência máxima de Leitura e Gravação combinadas, use um tamanho de bloco maior e uma profundidade de fila grande com vários threads executando leituras e gravações. É possível usar um tamanho de bloco de 64 KB e uma profundidade de fila de 128.
+Para atingir a Taxa de Transferência máxima de Leitura e Gravação combinadas, use um tamanho de bloco maior e uma profundidade de fila grande com vários threads executando leituras e gravações. É possível usar um tamanho de bloco de 64 KB e uma profundidade de fila de 128.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o Armazenamento Premium do Azure:
@@ -583,11 +591,11 @@ Saiba mais sobre o Armazenamento Premium do Azure:
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 
-* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

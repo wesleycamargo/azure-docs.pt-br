@@ -1,6 +1,7 @@
 ---
-title: Determinar a compatibilidade do Banco de Dados SQL usando o SqlPackage.exe | Microsoft Docs
-description: "Banco de Dados SQL do Microsoft Azure, migração de banco de dados, compatibilidade com o Banco de Dados SQL, SqlPackage"
+title: 'SQLPackage: Compatibilidade de banco de dados SQL Server do Azure | Microsoft Docs'
+description: "Neste artigo, você aprenderá a determinar se um banco de dados SQL Server é compatível para migrar para o Banco de Dados SQL usando o SqlPackage"
+keywords: "Banco de Dados SQL do Microsoft Azure, migração de banco de dados, compatibilidade com o Banco de Dados SQL, SqlPackage"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 06563b181a8d4ff568eb7cce15189defab0225ca
-ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
+ms.sourcegitcommit: 6728693290e2c1d6c970c60c7d8ef674764e053c
+ms.openlocfilehash: 834dae604fa87f753e8d050ce7cdfa7e9613f462
 
 
 ---
@@ -48,7 +49,7 @@ Neste artigo, você aprenderá a determinar se um banco de dados do SQL Server �
    | < nome_do_esquema.nome_da_tabela > |as tabelas cujos dados serão enviados para o arquivo de destino |
    | < arquivo_de_saída > |o nome do arquivo e o local do arquivo de saída com erros, se houver algum |
    
-    O motivo da presença do argumento /p:TableName é que só queremos testar a compatibilidade de banco de dados para exportar para o Banco de Dados SQL do Azure V12, em vez de exportar os dados de todas as tabelas. Infelizmente, o argumento de exportação para sqlpackage.exe não permite a extração de zero tabelas. Você precisa especificar pelo menos uma tabela, como uma única tabela pequena. O < arquivo_de_saída > contém o relatório de erros. A cadeia de caracteres ">2>&1" redireciona a saída padrão e o erro padrão resultantes da execução do comando para o arquivo de saída especificado.
+    O motivo da presença do argumento /p:TableData é que só queremos testar a compatibilidade de banco de dados para exportar para o Banco de Dados SQL do Azure V12, em vez de exportar os dados de todas as tabelas. Infelizmente, o argumento de exportação para sqlpackage.exe não permite a extração de zero tabelas. Você precisa especificar pelo menos uma tabela, como uma única tabela pequena. O < arquivo_de_saída > contém o relatório de erros. A cadeia de caracteres "2>&1" redireciona a saída padrão e o erro padrão resultantes da execução do comando para o arquivo de saída especificado.
    
     ![Exportar um aplicativo da camada de dados no menu de Tarefas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -70,6 +71,6 @@ Neste artigo, você aprenderá a determinar se um banco de dados do SQL Server �
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

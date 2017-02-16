@@ -1,5 +1,5 @@
 ---
-title: "Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady | Microsoft Docs"
+title: "Proteger o conteúdo do HLS com o Microsoft PlayReady ou o Apple FairPlay | Microsoft Docs"
 description: "Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o Apple FairPlay. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 61ac849c20fa21181bd41289da896b4d53e0b9c3
 
 
 ---
@@ -566,6 +566,6 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

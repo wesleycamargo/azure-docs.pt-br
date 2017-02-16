@@ -12,19 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/24/2016
+ms.date: 1/4/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ac624ea4427edf03e4530e879df96fee950ff80
+ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
+ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 
 
 ---
 # <a name="preview-service-fabric-and-containers"></a>Preview: Service Fabric e contêineres
 > [!NOTE]
-> Esse recurso está em preview para o Linux e não está disponível no Windows Server 2016 no momento. Ele estará em preview para o Windows Server na próxima versão do Service Fabric após o Windows Server 2016 GA e com suporte em versão subsequente depois disso.
-> 
-> 
+> Este recurso está no modo de visualização para Linux e Windows Server 2016. 
+>   
 
 ## <a name="introduction"></a>Introdução
 O Azure Service Fabric é um [orquestrador](service-fabric-cluster-resource-manager-introduction.md) de serviços em um cluster de computadores. Os serviços podem ser desenvolvidos de várias maneiras, desde usando os [modelos de programação do Service Fabric ](service-fabric-choose-framework.md) até implantando [executáveis convidados](service-fabric-deploy-existing-app.md). Por padrão, o Service Fabric implanta e ativa esses serviços como processos. Processos fornecem a ativação mais rápida e o uso de densidade mais alto dos recursos em um cluster. O Service Fabric também pode implantar serviços em imagens de contêiner. É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo. Você tem o melhor dos dois mundos, dependendo do cenário.
@@ -93,6 +92,6 @@ Neste artigo, você aprendeu sobre contêineres, que o Service Fabric é um orqu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do protocolo .NET do Azure AD | Microsoft Docs"
+title: "Entender o fluxo de código de autorização do OpenID Connect no Azure AD | Microsoft Docs"
 description: "Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OpenID Connect."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 11eaa26aa93f59f96736ee50ede6102d7e7a03e8
+ms.sourcegitcommit: 312aff4d85b2ec8f1ef78704950311c19cb21cdf
+ms.openlocfilehash: 47d7534969773803d0f4809a1aca920b6bea8d81
 
 
 ---
@@ -203,6 +203,6 @@ Após você conseguir uma autorização `code` e um `id_token`, poderá conectar
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

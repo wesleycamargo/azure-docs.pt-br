@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: b-hoedid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 115d35bd56918ad8e93a9032cbff6e84a7b70e0c
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 5f3e1f264d126ab5b1fdda312f8e4f47d0b114e7
 
 
 ---
@@ -26,7 +26,7 @@ Este artigo surgiu de uma pergunta que eu vi publicada em um dos fóruns da comu
 
 Trabalhei com o BizTalk Server por muitos anos e esse é um cenário muito comum ao usar o [Adaptador LOB do WCF](https://msdn.microsoft.com/library/bb798128.aspx). Portanto, decidi verificar se eu poderia duplicar essa funcionalidade no Banco de Dados de Documentos para documentos novos e/ou modificados.
 
-Este artigo fornece uma visão geral dos componentes da solução de notificação de alteração, que inclui um [gatilho](documentdb-programming.md#trigger) e um [Aplicativo Lógico](../app-service-logic/app-service-logic-what-are-logic-apps.md). Há trechos de código importantes embutidos e toda a solução está disponível no [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
+Este artigo fornece uma visão geral dos componentes da solução de notificação de alteração, que inclui um [gatilho](documentdb-programming.md#trigger) e um [Aplicativo Lógico](../logic-apps/logic-apps-what-are-logic-apps.md). Há trechos de código importantes embutidos e toda a solução está disponível no [GitHub](https://github.com/HEDIDIN/DocDbNotifications).
 
 ## <a name="use-case"></a>Caso de uso
 A história a seguir é o caso de uso para este artigo.
@@ -77,7 +77,7 @@ As etapas são as seguintes:
 Agora que você tem uma ideia sobre a função do fluxo de trabalho, vamos dar uma olhada em como implementá-lo.
 
 ### <a name="lets-start-with-the-main-logic-app"></a>Vamos começar com o Aplicativo Lógico principal
-Se você não estiver familiarizado com os Aplicativos Lógicos, eles estão disponíveis no [Azure Marketplace](https://portal.azure.com/), e você pode saber mais sobre eles em [O que são Aplicativos Lógicos?](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+Se você não estiver familiarizado com os Aplicativos Lógicos, eles estão disponíveis no [Azure Marketplace](https://portal.azure.com/), e você pode saber mais sobre eles em [O que são Aplicativos Lógicos?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 Ao criar um novo Aplicativo Lógico, você recebe a pergunta **Como você deseja iniciar?**
 
@@ -747,7 +747,7 @@ Sua última etapa é enviar uma notificação por email
 
 Nessa ação, você envia uma notificação por email.  Você está usando [SendGrid](https://sendgrid.com/marketing/sendgrid-services?cvosrc=PPC.Bing.sendgrib&cvo_cid=SendGrid%20-%20US%20-%20Brand%20-%20&mc=Paid%20Search&mcd=BingAds&keyword=sendgrib&network=o&matchtype=e&mobile=&content=&search=1&utm_source=bing&utm_medium=cpc&utm_term=%5Bsendgrib%5D&utm_content=%21acq%21v2%2134335083397-8303227637-1649139544&utm_campaign=SendGrid+-+US+-+Brand+-+%28English%29).   
 
-O código para isso foi gerado usando um modelo do Aplicativo Lógico e o SendGrid que estão no [repositório do Github 101-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
+O código para isso foi gerado usando um modelo do Aplicativo Lógico e o SendGrid que estão no [repositório do Github&101;-logic-app-sendgrid](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid).
 
 A operação HTTP é um POST. 
 
@@ -1132,6 +1132,6 @@ Para saber mais sobre o Banco de Dados de Documentos, visite o [Roteiro de apren
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

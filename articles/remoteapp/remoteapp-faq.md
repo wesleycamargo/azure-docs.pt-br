@@ -3,7 +3,7 @@ title: Perguntas frequentes do RemoteApp do Azure | Microsoft Docs
 description: Aprenda respostas para as perguntas mais frequentes sobre o RemoteApp do Azure.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Se você não encontrar as informações necessárias ou se tiver uma pergunta a
 * **Qual é o custo do RemoteApp?** Verifique os [Detalhes de preços do Azure RemoteApp ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **Um tipo de coleção custa mais do que o outro?**  Sim, pode custar, dependendo dos requisitos de coleção. Uma coleção híbrida requer uma conexão do RemoteApp do Azure à sua rede local. Se você usar uma VNET/Rota Expressa existente, não há nenhum custo adicional. Mas se você usar uma nova Rede Virtual do Azure e um gateway ou ExpressRoute, você será cobrado pelo [gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway) ou [Express Route](https://azure.microsoft.com/pricing/details/expressroute/). Esse custo (detalhado nos links) é acrescido ao seu custo mensal do RemoteApp do Azure.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Coleções - para o que há suporte, o que você deve usar e outros
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Coleções - para o que há suporte, o que você deve usar e outros
 * **Há suporte para aplicativos personalizados da linha de negócios (LOB)?**  Sim. Para usar um aplicativo personalizado no RemoteApp do Azure, crie uma [imagem personalizada de modelo](remoteapp-create-custom-image.md)e, em seguida, carregue-a para a coleção do RemoteApp.
 * **Meu aplicativo de LOB personalizado funcionará no RemoteApp do Azure?**  A melhor maneira de avaliar isso é testando-o. Confira o [Centro de Compatibilidade da Área de Trabalho Remota](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **Qual método de implantação (nuvem ou híbrido) é o melhor para a minha organização?**  As coleções híbridas fornecem a experiência mais completa se você deseja integração total com o logon único (SSO) e conectividade segura de rede local. As coleções de nuvem fornecem uma maneira fácil e ágil de isolar a sua implantação usando vários métodos de autenticação. Leia mais sobre as [Opções de implantação](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Se você não encontrar as informações necessárias ou se tiver uma pergunta a
 
 * **Por que não posso dar o meu acesso de conta do Active Directory do Azure?**  Os usuários do Azure Active Directory devem ser do diretório associado à sua assinatura. Você pode exibir ou modificar esse diretório na guia Configurações no portal. Consulte [Alterar o locatário do Active Directory do Azure usado pelo RemoteApp](remoteapp-changetenant.md) para obter mais informações.
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Clientes - qual dispositivo posso usar para acessar o RemoteApp do Azure?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Clientes - qual dispositivo posso usar para acessar o RemoteApp do Azure?
 Você pode encontrar informações de cliente válidas, incluindo etapas para instalar os diferentes clientes, em [Acessar seus aplicativos no Azure RemoteApp](remoteapp-clients.md).
 
 * **Para quais dispositivos e sistemas operacionais os aplicativos cliente dão suporte?**
@@ -126,6 +126,6 @@ Você sabia que, além de classificar este artigo e fazer comentários, você po
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

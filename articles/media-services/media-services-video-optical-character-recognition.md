@@ -1,5 +1,5 @@
 ---
-title: "Usar a Análise de Mídia do Azure para converter o conteúdo de texto em arquivos de vídeo em texto digital | Microsoft Docs"
+title: Digitalizar o texto com o OCR do Azure Media Analytics | Microsoft Docs
 description: "O OCR (reconhecimento óptico de caracteres) da Análise de Mídia do Azure permite que você converta o conteúdo de texto de arquivos de vídeo em texto digital editável e pesquisável.  Isso permite que você automatize a extração de metadados significativos do sinal de vídeo de sua mídia."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 39fc755a632ae8e06109a3ea996521310424ba82
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
 
 
 ---
@@ -342,6 +342,6 @@ O programa a seguir mostra como:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

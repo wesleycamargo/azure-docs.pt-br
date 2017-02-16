@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/02/2016
-ms.author: chrande
+ms.date: 01/18/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: 36cf563a8318acb9371c48ba7d29e24694446e45
+ms.sourcegitcommit: 770cac8809ab9f3d6261140333ec789ee1390daf
+ms.openlocfilehash: bf9bd2a1b5acdf5a4a4f862bef693f8c60c63a33
 
 
 ---
@@ -46,14 +46,14 @@ O gatilho da fila do Armazenamento para uma função usa os seguintes objetos JS
 }
 ```
 
-`connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually]() (definir essa configuração de aplicativo manualmente).
+`connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No portal do Azure, você pode definir essa configuração de aplicativo no **integrar** guia quando você cria uma conta de armazenamento ou selecione um existente. Para criar manualmente essa configuração de aplicativo, veja [Gerenciar as configurações do Serviço de Aplicativo](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 [Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos da fila de armazenamento.  
 
 ### <a name="handling-poison-queue-messages"></a>Tratamento de mensagens suspeitas na fila
-Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes por padrão (incluindo a primeira tentativa) para uma determinada mensagem da fila. Se todas as cinco tentativas falharem, o Functions adicionará uma mensagem em uma fila do Armazenamento chamada *&lt;originalqueuename>-poison*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária. 
+Quando uma função do gatilho de fila falhar, o Azure Functions repetirá essa função até cinco vezes para uma determinada mensagem da fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o Functions adicionará uma mensagem em uma fila do Armazenamento chamada *&lt;originalqueuename>-poison*. Você pode gravar uma função para processar as mensagens da fila de mensagens suspeitas registrando-as ou enviando uma notificação de que a atenção manual é necessária. 
 
-Se quiser manipular mensagens suspeitas manualmente, você poderá obter o número de vezes que uma mensagem foi selecionada para processamento ao verificar `dequeueCount` (confira [Queue trigger metadata](#meta) (Enfileirar metadados de gatilho)).
+Para manipular mensagens suspeitas manualmente, você poderá obter o número de vezes que uma mensagem foi selecionada para processamento ao verificar `dequeueCount` (confira [Enfileirar metadados de gatilho](#meta)).
 
 <a name="triggerusage"></a>
 
@@ -63,11 +63,10 @@ Onde `T` é o tipo de dados em que você deseja desserializar os dados e `paramN
 
 A mensagem da fila pode ser desserializada para qualquer um destes tipos:
 
-* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para mensagens serializadas para JSON.
-  Se você declarar um tipo de entrada personalizado (por exemplo, `FooType`), o Azure Functions tentará desserializar os dados JSON para o tipo especificado.
+* [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - usado para mensagens serializadas para JSON. Quando você declarar um tipo personalizado de entrada, o tempo de execução tenta desserializar o objeto JSON. 
 * Cadeia de caracteres
-* Matriz de bytes 
-* `CloudQueueMessage` (C#) 
+* Matriz de bytes
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx) (somente C#)
 
 <a name="meta"></a>
 
@@ -148,7 +147,7 @@ public static void Run(string myQueueItem,
 
 ```javascript
 module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item' context.bindings.myQueueItem);
+    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -177,45 +176,46 @@ A saída da fila do Armazenamento de uma função usa os seguintes objetos JSON 
 }
 ```
 
-`connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, confira [configure this app setting manually]() (definir essa configuração de aplicativo manualmente).
+`connection` deve conter o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar manualmente essa configuração de aplicativo, veja [Gerenciar as configurações do Serviço de Aplicativo](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings).
 
 <a name="outputusage"></a>
 
-## <a name="output-usage"></a>Uso da saída
-Nas funções do C#, escreva uma mensagem da fila usando o parâmetro `out` nomeado em sua assinatura da função, como `out <T> <name>`, onde `T` é o tipo de dados em que você deseja serializar a mensagem, e `paramName` é o nome especificado na [associação de saída](#output). Nas funções de Node.js, acesse a saída usando `context.bindings.<name>`.
+## <a name="output-usage"></a>Uso de saída
+Nas funções do C#, escreva uma mensagem de fila usando o parâmetro `out` nomeado na assinatura da função, como `out <T> <name>`. Nesse caso, `T` é o tipo de dados que deseja serializar a mensagem, e `paramName` é o nome que você especificou no [ligação de saída](#output). Nas funções de Node.js, acesse a saída usando `context.bindings.<name>`.
 
 Você pode exibir uma mensagem da fila usando qualquer um dos tipos de dados no seu código:
 
-* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para serialização JSON.
-  Se você declarar um tipo de saída personalizada (por exemplo, `out FooType paramName`), o Azure Functions tentará serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução do Functions criará uma mensagem da fila como um objeto nulo.
-* Cadeia de caracteres – (`out string paramName`) útil para mensagens de teste. o tempo de execução do Functions criará uma mensagem somente se o parâmetro da cadeia de caracteres não for nulo quando a função for encerrada.
-* Matriz de bytes – (`out byte[]`) 
-* `out CloudQueueMessage` – somente C# 
+* Qualquer [objeto](https://msdn.microsoft.com/library/system.object.aspx):`out MyCustomType paramName`  
+Usado para serialização JSON.  Quando você declara um tipo de saída personalizada, o tempo de execução tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução criará uma mensagem da fila como um objeto nulo.
+* Cadeia de caracteres: `out string paramName`  
+Usado para mensagens de teste. o tempo de execução só criará uma mensagem quando o parâmetro da cadeia de caracteres não for nulo quando a função for encerrada.
+* Matriz de bytes: `out byte[]` 
 
-No C#, você também pode se associar a `ICollector<T>` ou `IAsyncCollector<T>`, onde `T` é um dos tipos com suporte.
+Esses tipos de saída adicionais são suportados uma função c#:
+
+* [CloudQueueMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.aspx): `out CloudQueueMessage` 
+* `ICollector<T>`ou `IAsyncCollector<T>` onde `T` é um dos tipos com suporte.
 
 <a name="outputsample"></a>
 
-## <a name="output-sample"></a>Exemplo de saída
-Suponha que você tem o function.json a seguir, que define um [gatilho da fila do Armazenamento](functions-bindings-storage-queue.md), uma entrada de blob do Armazenamento e uma saída de blob do Armazenamento:
+## <a name="output-sample"></a>Amostra de saída
+Suponha que você tem o function.json a seguir, que define um [gatilho de fila de armazenamento](functions-bindings-storage-queue.md), uma entrada de blob de armazenamento e uma saída de blob de armazenamento:
 
-O *function.json* de exemplo para uma associação de saída de fila de armazenamento que usa um gatilho de fila e grava uma mensagem de fila:
+O *function.json* de exemplo para uma associação de saída de fila de armazenamento que usa um gatilho manual e grava a entrada em uma mensagem de fila:
 
 ```json
 {
   "bindings": [
     {
-      "name": "myQueueItem",
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "type": "queueTrigger",
-      "direction": "in"
+      "type": "manualTrigger",
+      "direction": "in",
+      "name": "input"
     },
     {
-      "name": "myQueue",
-      "queueName": "samples-workitems-out",
-      "connection": "MyStorageConnection",
       "type": "queue",
+      "name": "myQueueItem",
+      "queueName": "myqueue",
+      "connection": "my_storage_connection",
       "direction": "out"
     }
   ],
@@ -233,19 +233,19 @@ Confira o exemplo específico a um idioma que grava uma mensagem da fila de saí
 ### <a name="output-sample-in-c"></a>Exemplo de saída em C# #
 
 ```cs
-public static void Run(string myQueueItem, out string myQueue, TraceWriter log)
+public static void Run(string input, out string myQueueItem, TraceWriter log)
 {
-    myQueue = myQueueItem + "(next step)";
+    myQueueItem = "New message: " + input;
 }
 ```
 
 Ou, para enviar várias mensagens,
 
 ```cs
-public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWriter log)
+public static void Run(string input, ICollector<string> myQueueItem, TraceWriter log)
 {
-    myQueue.Add(myQueueItem + "(step 1)");
-    myQueue.Add(myQueueItem + "(step 2)");
+    myQueueItem.Add("Message 1: " + input);
+    myQueueItem.Add("Message 2: " + "Some other message.");
 }
 ```
 
@@ -263,7 +263,8 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = context.bindings.myQueueItem + "(next step)";
+    // Define a new message for the myQueueItem output binding.
+    context.bindings.myQueueItem = "new message";
     context.done();
 };
 ```
@@ -272,20 +273,21 @@ Ou, para enviar várias mensagens,
 
 ```javascript
 module.exports = function(context) {
-    context.bindings.myQueue = [];
-
-    context.bindings.myQueueItem.push("(step 1)");
-    context.bindings.myQueueItem.push("(step 2)");
+    // Define a message array for the myQueueItem output binding. 
+    context.bindings.myQueueItem = ["message 1","message 2"];
     context.done();
 };
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Para obter um exemplo de uma função que usa gatilhos de fila aStorage e associações, consulte [criar uma função do Azure conectada a um serviço do Azure](functions-create-an-azure-connected-function.md).
+
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

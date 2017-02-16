@@ -1,5 +1,5 @@
 ---
-title: Criptografar discos em uma VM do Linux | Microsoft Docs
+title: Criptografar discos em uma VM do Linux no Azure | Microsoft Docs
 description: "Como criptografar discos em uma VM do Linux usando a CLI do Azure e o modelo de implantação do Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/11/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5dd20630580f09049c88ffd9107f7fa8e8e43816
-ms.openlocfilehash: 15b3c7c910f5f55da31a8a7113b4d66714f1c908
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
 
 
 ---
@@ -91,7 +91,7 @@ azure keyvault key show myKeyVault myKey
 Criptografe seus discos da seguinte maneira, digitando seus próprios nomes de parâmetro completamente:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -103,7 +103,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 A CLI do Azure não fornece erros detalhados durante o processo de criptografia. Para obter informações adicionais de solução de problemas, examine `/var/log/azure/Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux/0.x.x.x/extension.log`. Como o comando anterior tem muitas variáveis e você não recebe indicação suficiente sobre como o processo falha, um exemplo de comando completo seria o seguinte:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -250,7 +250,7 @@ azure keyvault key show myKeyVault myKey
 Criptografe seus discos virtuais usando a saída dos comandos `azure keyvault show` e `azure keyvault key show` da seguinte maneira:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -262,7 +262,7 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 Como o comando anterior tem muitas variáveis, o exemplo a seguir é o comando completo para referência:
 
 ```azurecli
-azure vm enable-disk-encryption -g myResourceGroup -n MyVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id 147bc426-595d-4bad-b267-58a7cbd8e0b6 \
   --aad-client-secret P@ssw0rd! \
   --disk-encryption-key-vault-url https://myKeyVault.vault.azure.net/ \ 
@@ -294,7 +294,7 @@ azure vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
 Execute novamente o comando para criptografar os discos virtuais, dessa vez, adicionando o parâmetro `--sequence-version` e incrementando o valor de nossa primeira execução da seguinte maneira:
 
 ```azurecli
-azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM \
+azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
   --aad-client-id myApplicationID --aad-client-secret myApplicationPassword \
   --disk-encryption-key-vault-url myKeyVaultVaultURI \
   --disk-encryption-key-vault-id myKeyVaultID \
@@ -312,6 +312,6 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --vm-name myVM 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Crie clusters Hadoop baseados no Windows no HDInsight usando o SDK do .NET | Microsoft Docs
-description: Aprenda a criar clusters do HDInsight usando para o HDInsight do Azure usando o SDK do .NET.
+description: Saiba como criar clusters Hadoop baseados no Windows no HDInsight usando o SDK do .NET.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,18 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 21f2a14c1514c3f70787613c5f0962dc3eabd7b1
+ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
+ms.openlocfilehash: 4f597fad719637e66d64143c302334b1c62e226e
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-net-sdk"></a>Crie clusters Hadoop baseados no Windows no HDInsight usando o SDK do .NET
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Saiba como criar clusters do HDInsight usando o SDK do .NET. Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Saiba como criar um cluster Hadoop baseados no Windows no HDInsight usando o SDK do .NET. 
+
+As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre a criação de clusters baseados em Linux, veja [Criar clusters Hadoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -163,7 +169,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * [Executar trabalhos do Pig no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
 * [Executar trabalhos do Sqoop no HDInsight usando o SDK do .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
 * [Executar trabalhos do Oozie no HDInsight](hdinsight-use-oozie.md)
-* [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation] – Descubra o SDK do HDInsight
+* [Documentação do SDK do Azure HDInsight][hdinsight-sdk-documentation] ‑ Descubra o SDK do HDInsight
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -174,7 +180,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 
 
 ## <a name="appx-a-create-dependent-components"></a>Apêndice A Criar componentes dependentes
-Use o seguinte script do Azure PowerShell para criar os componentes dependentes necessários pelo aplicativo .NET nesse tutorial.
+O seguinte script do Azure PowerShell pode ser usado para criar os componentes dependentes necessários pelo aplicativo .NET nesse tutorial.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -245,6 +251,6 @@ Use o seguinte script do Azure PowerShell para criar os componentes dependentes 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

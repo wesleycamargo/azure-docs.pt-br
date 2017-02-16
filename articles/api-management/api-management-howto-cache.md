@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ Este guia mostra como adicionar o caching das respostas para sua API e configura
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
 ## <a name="configure-caching"> </a>Configurar uma operação para caching
 Nesta etapa, você examinará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Eco.
 
 > [!NOTE]
-> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, confira [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -80,20 +80,22 @@ Exibe as políticas para esta operação no editor de políticas.
 
 A definição de política para esta operação inclui as políticas que definem a configuração de cache, que foram revisadas usando a guia **Cache** na etapa anterior.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
@@ -138,7 +140,7 @@ Insira **25** no campo **param2** e clique em **HTTP Get**.
 Observe que agora o valor de **sampleheader** na resposta será **value2**. Como os resultados da operação têm uma chave de acordo com a cadeia de consulta, a resposta em cache anterior não foi retornada.
 
 ## <a name="next-steps"> </a>Próximas etapas
-* Para saber mais sobre as políticas de cache, veja [Políticas de cache][Políticas de cache] na [Referência de política do Gerenciamento de API][Referência de política do Gerenciamento de API].
+* Para saber mais sobre as políticas de cache, veja [Políticas de cache][Caching policies] na [Referência de política do Gerenciamento de API][API Management policy reference].
 * Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -153,25 +155,25 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como adicionar e publicar um produto]: api-management-howto-add-products.md
-[Monitoramento e análise]: api-management-monitoring.md
-[Adicionar APIs a um produto]: api-management-howto-add-products.md#add-apis
-[Publicar um produto]: api-management-howto-add-products.md#publish-product
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[referência de política de Gerenciamento de API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Políticas de cache]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Configurar uma operação para caching]: #configure-caching
-[Examinar as políticas de cache]: #caching-policies
-[Chamar uma operação e testar o cache]: #test-operation
-[Próximas etapas]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -18,7 +18,7 @@ Em um nível elevado, usar dispositivos gêmeos permite que o back-end da soluç
 
 Neste tutorial, o back-end de aplicativo altera a configuração de telemetria de um dispositivo de destino e, como resultado disso, o aplicativo do dispositivo segue um processo de várias etapas para aplicar uma atualização de configuração (por exemplo, exigir a reinicialização de um módulo de software), que este tutorial simula com um atraso simples).
 
-O back-end armazena a configuração nas propriedades desejadas do gêmeo do dispositivo da seguinte maneira:
+O back-end de solução armazena a configuração nas propriedades desejadas do gêmeo do dispositivo da seguinte maneira:
 
         {
             ...
@@ -94,6 +94,6 @@ Este tutorial mostra como:
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: c1c23ab46d9b4e43154a62080cb8865b246489f9
-ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a86b041424ce1757fd45c7a39350f4c4e66ee265
 
 
 ---
@@ -30,22 +30,13 @@ ms.openlocfilehash: 2e11486203f04d671548b6132e61f804acb7f90a
 >
 >
 
-Dimensionar o desempenho escalando horizontalmente recursos de computação e memória para atender às demandas de mudança de sua carga de trabalho. Economizar custos reduzindo recursos durante horários que não sejam de pico ou pausando a computação.
-
-Esta coleção de tarefas usa o portal do Azure para:
-
-* Computação de escala
-* Pausar computação
-* Retomar a computação
-
-Para obter mais informações, consulte [Visão geral sobre gerenciar computação][Visão geral sobre gerenciar computação].
 
 ## <a name="scale-compute-power"></a>Dimensionar poder de computação
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 Para alterar recursos de computação:
 
-1. Abra o [portal do Azure][portal do Azure], abra o banco de dados e clique em **Escala**.
+1. Abra o [Portal do Azure][Azure portal], abra seu banco de dados e clique em **Escala**.
 
     ![Clique em Escala.][1]
 2. Na folha Escala, mova o controle deslizante para a esquerda ou direita para alterar a configuração de DWU.
@@ -62,7 +53,7 @@ Para alterar recursos de computação:
 
 Para pausar um banco de dados:
 
-1. Abra o [portal do Azure][portal do Azure] e abra seu banco de dados. Observe que o Status é **Online**.
+1. Abra o [Portal do Azure][Azure portal] e abra seu banco de dados. Observe que o Status é **Online**.
 
     ![Status online][6]
 2. Para suspender os recursos de computação e de memória, clique em **Pausar**e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
@@ -80,7 +71,7 @@ Para pausar um banco de dados:
 
 Para retomar um banco de dados:
 
-1. Abra o [portal do Azure][portal do Azure] e abra seu banco de dados. Observe que o Status é **Em pausa**.
+1. Abra o [Portal do Azure][Azure portal] e abra seu banco de dados. Observe que o Status é **Em pausa**.
 
     ![Pausar banco de dados][4]
 2. Para retomar o banco de dados, clique em **Iniciar**e uma mensagem de confirmação será exibida. Clique em **sim** para confirmar ou em **não** para cancelar.
@@ -94,7 +85,7 @@ Para retomar um banco de dados:
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, consulte [Visão geral de gerenciamento][Visão geral de gerenciamento].
+Para obter mais informações, confira [Visão geral de gerenciamento][Management overview].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -106,18 +97,18 @@ Para obter mais informações, consulte [Visão geral de gerenciamento][Visão g
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[portal do Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

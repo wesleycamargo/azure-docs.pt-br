@@ -1,5 +1,5 @@
 ---
-title: Dicas de desempenho do DocumentDB | Microsoft Docs
+title: Dicas de desempenho - Azure DocumentDB NoSQL | Microsoft Docs
 description: "Saiba mais sobre as opções de configuração do cliente para melhorar o desempenho do Banco de Dados de Documentos do Azure"
 keywords: como melhorar o desempenho do banco de dados
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 5b4efb2d6dedb43436745f5e8055cae44e4a58ac
+ms.sourcegitcommit: 25c48bbd0edafa4c6e4e478c471e11b6d69e00c7
+ms.openlocfilehash: e34571efac5d1a5e75d5e5d2cab75c91dbce71c8
 
 
 ---
@@ -37,6 +37,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    2. Modo Direto
 
       O Modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo Gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Banco de Dados de Documentos.   Por isso, o Modo Direto oferece um melhor desempenho devido a menos saltos de rede.
+<a id="use-tcp"></a>
 2. **Política de conexão: usar o protocolo TCP**
 
     Ao aproveitar o Modo Direto, há duas opções de protocolo disponíveis:
@@ -173,6 +174,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
              }
 
     A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta acima retornar 1.000 documentos de 1KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
     Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará antecipadamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho x-ms-retry-after-ms indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
@@ -197,6 +199,6 @@ Além disso, para saber mais sobre como criar seu aplicativo para a escala e o a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

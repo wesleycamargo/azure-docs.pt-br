@@ -1,6 +1,6 @@
 ---
-title: Dimensione seu cluster ACS com a CLI do Azure | Microsoft Docs
-description: "Como dimensionar o cluster do Serviço de Contêiner do Azure usando a CLI do Azure."
+title: "Dimensionar o cluster do Serviço de Contêiner do Azure | Microsoft Docs"
+description: "Como dimensionar o cluster do Serviço de Contêiner do Azure usando a CLI do Azure ou o Portal do Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -14,130 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/10/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb
+ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
+ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
 
 
 ---
-# <a name="scale-an-azure-container-service"></a>Dimensionar um Serviço de Contêiner do Azure
-Você pode escalar horizontalmente o número de nós que seu Serviço de Contêiner do Azure (ACS) tem, usando a ferramenta de CLI do Azure. Quando você usar a CLI do Azure para dimensionar, a ferramenta retorna um novo arquivo de configuração que representa a alteração aplicada ao contêiner.
+# <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um cluster do Serviço de Contêiner do Azure
+Depois de [implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md), talvez você precise alterar o número de nós do agente. Por exemplo, mais agentes podem ser necessários para que você possa executar mais aplicativos ou instâncias de contêiner. 
 
-## <a name="about-the-command"></a>Sobre o comando
-A CLI do Azure deve estar no modo Azure Resource Manager para interagir com os contêineres do Azure. Você pode mudar para o modo do Gerenciador de Recursos chamando `azure config mode arm`. O comando `acs` tem um comando filho chamado `scale`, que realiza todas as operações de escala para um serviço de contêiner. Você pode obter ajuda sobre os vários parâmetros usados no comando escala executando `azure acs scale --help`, que gera algo semelhante a isto:
+É possível alterar o número de nós de agente no cluster usando o Portal do Azure ou a CLI 2.0 (Preview) do Azure. A CLI 2.0 (Preview) do Azure é a [CLI de última geração](/cli/azure/old-and-new-clis) para o modelo de implantação do Resource Manager.
+
+> [!NOTE]
+> Atualmente, não há suporte para o dimensionamento dos nós de agente em um cluster Kubernetes do serviço de contêiner.
+
+
+## <a name="scale-with-the-azure-portal"></a>Dimensionar com o Portal do Azure
+
+1. No [Portal do Azure](https://portal.azure.com), procure **Serviços de contêiner** e clique no serviço de contêiner que você quer modificar.
+2. Na folha **Serviço de contêiner**, clique em **Agentes**.
+3. Em **Contagem de VM**, insira o número desejado de nós de agentes.
+
+    ![Dimensionar um pool no portal](./media/container-service-scale/container-service-scale-portal.png)
+
+4. Para salvar a configuração, clique em **Salvar**.
+
+
+
+## <a name="scale-with-the-azure-cli-20-preview"></a>Dimensionar com a CLI 2.0 (Preview) do Azure
+
+Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 (Preview) do Azure mais recente e conectou-se a uma conta do Azure (`az login`).
+
+
+### <a name="see-the-current-agent-count"></a>Conferir a conta do agente atual
+Para ver o número de agentes atualmente no cluster, execute o comando `az acs show`. Isso mostra a configuração do cluster. Por exemplo, o seguinte comando mostra a configuração do serviço de contêiner chamado `containerservice-myACSName` no grupo de recursos `myResourceGroup`:
 
 ```azurecli
-azure acs scale --help
-
-help:    The operation to scale a container service.
-help:
-help:    Usage: acs scale [options] <resource-group> <name> <new-agent-count>
-help:
-help:    Options:
-help:      -h, --help                               output usage information
-help:      -v, --verbose                            use verbose output
-help:      -vv                                      more verbose with debug output
-help:      --json                                   use json output
-help:      -g, --resource-group <resource-group>    resource-group
-help:      -n, --name <name>                        name
-help:      -o, --new-agent-count <new-agent-count>  New agent count
-help:      -s, --subscription <subscription>        The subscription identifier
-help:
-help:    Current Mode: arm (Azure Resource Management)
+az acs show -g myResourceGroup -n containerservice-myACSName
 ```
 
-## <a name="use-the-command-to-scale"></a>Use o comando para dimensionar
-Para dimensionar um serviço de contêiner, primeiro você precisa saber o **grupo de recursos** e o **nome do Serviço de Contêiner do Azure (ACS)**, e também especificar a nova contagem de agentes. Usando um valor menor ou maior, você pode, respectivamente, reduzir verticalmente ou escalar verticalmente.
+O comando retorna o número de agentes no valor `Count` em `AgentPoolProfiles`.
 
-Você talvez queira saber qual a contagem atual de agentes para um serviço de contêiner antes de dimensionar. Use o comando `azure acs show <resource group> <ACS name>` para retornar a configuração do ACS. Observe o resultado <mark>Contagem</mark>.
 
-#### <a name="see-current-count"></a>Veja a contagem atual
-```azurecli
-azure acs show containers-test containerservice-containers-test
+### <a name="use-the-az-acs-scale-command"></a>Usar o comando az acs scale
+Para alterar o número de nós de agente, execute o comando `az acs scale` e forneça o **grupo de recursos**, o **nome do serviço de contêiner** e a **nova contagem de agente** desejada. Ao usar um número menor ou maior, você pode reduzir e escalar verticalmente, respectivamente.
 
-info:    Executing command acs show
-data:
-data:     Id                 : /subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test
-data:     Name               : containerservice-containers-test
-data:     Type               : Microsoft.ContainerService/ContainerServices
-data:     Location           : westus
-data:     ProvisioningState  : Succeeded
-data:     OrchestratorProfile
-data:       OrchestratorType : DCOS
-data:     MasterProfile
-data:       Count            : 1
-data:       DnsPrefix        : myprefixmgmt
-data:       Fqdn             : myprefixmgmt.westus.cloudapp.azure.com
-data:     AgentPoolProfiles
-data:       #0
-data:         Name           : agentpools
-data:         <mark>Count          : 1</mark>
-data:         VmSize         : Standard_D2
-data:         DnsPrefix      : myprefixagents
-data:         Fqdn           : myprefixagents.westus.cloudapp.azure.com
-data:     LinuxProfile
-data:       AdminUsername    : azureuser
-data:       Ssh
-data:         PublicKeys
-data:           #0
-data:             KeyData    : ssh-rsa <ENCODED VALUE>
-data:     DiagnosticsProfile
-data:       VmDiagnostics
-data:         Enabled        : true
-data:         StorageUri     : https://<storageid>.blob.core.windows.net/
-```  
-
-#### <a name="scale-to-new-count"></a>Dimensionar para a nova a contagem
-Como provavelmente já é óbvio, você pode dimensionar o serviço de contêiner chamando `azure acs scale` e fornecendo o **grupo de recursos**, **nome do ACS** e a **contagem de agentes**. Quando você dimensiona um serviço de contêiner, a CLI do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração do serviço de contêiner, incluindo a nova contagem de agentes.
+Por exemplo, para alterar o número de agentes no cluster anterior para 10, digite o seguinte comando:
 
 ```azurecli
-azure acs scale containers-test containerservice-containers-test 10
+azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+```
 
-info:    Executing command acs scale
-data:    {
-data:        id: '/subscriptions/<guid>/resourceGroups/containers-test/providers/Microsoft.ContainerService/containerServices/containerservice-containers-test',
-data:        name: 'containerservice-containers-test',
-data:        type: 'Microsoft.ContainerService/ContainerServices',
-data:        location: 'westus',
-data:        provisioningState: 'Succeeded',
-data:        orchestratorProfile: { orchestratorType: 'DCOS' },
-data:        masterProfile: {
-data:            count: 1,
-data:            dnsPrefix: 'myprefixmgmt',
-data:            fqdn: 'myprefixmgmt.westus.cloudapp.azure.com'
-data:        },
-data:        agentPoolProfiles: [
-data:            {
-data:                name: 'agentpools',
-data:                <mark>count: 10</mark>,
-data:                vmSize: 'Standard_D2',
-data:                dnsPrefix: 'myprefixagents',
-data:                fqdn: 'myprefixagents.westus.cloudapp.azure.com'
-data:            }
-data:        ],
-data:        linuxProfile: {
-data:            adminUsername: 'azureuser',
-data:            ssh: {
-data:                publicKeys: [
-data:                    { keyData: 'ssh-rsa <ENCODED VALUE>' }
-data:                ]
-data:            }
-data:        },
-data:        diagnosticsProfile: {
-data:            vmDiagnostics: { enabled: true, storageUri: 'https://<storageid>.blob.core.windows.net/' }
-data:        }
-data:    }
-info:    acs scale command OK
-``` 
+A CLI 2.0 (Preview) do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração do serviço de contêiner, incluindo a nova contagem de agentes.
+
+Para obter mais opções de comando, execute `az acs scale --help`.
+
+
+## <a name="scaling-considerations"></a>Considerações de dimensionamento
+
+
+* O número de nós de agente deve estar entre 1 e 100, inclusive. 
+
+* A cota de núcleos pode limitar o número de nós de agente em um cluster.
+
+* As operações de dimensionamento do nó de agente são aplicadas a um conjunto de dimensionamento de máquinas virtuais do Azure que contém o pool de agentes. Em um cluster DC/OS, somente nós de agente no pool privado são dimensionados pelas operações mostradas neste artigo.
+
+* Dependendo do orquestrador que você implanta no cluster, é possível dimensionar separadamente o número de instâncias de um contêiner em execução no cluster. Por exemplo, em um cluster DC/OS, use o [Marathon UI](container-service-mesos-marathon-ui.md) para alterar o número de instâncias de um aplicativo contêiner.
+
+* Atualmente, não há suporte para o dimensionamento automático dos nós de agente em um cluster do serviço de contêiner.
+
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Implantar um cluster](container-service-deployment.md)
+* Confira [mais exemplos](container-service-create-acs-cluster-cli.md) de como usar os comandos da CLI 2.0 (Preview) do Azure com o Serviço de Contêiner do Azure.
+* Saiba mais sobre os [pools de agentes DC/OS](container-service-dcos-agents.md) no Serviço de Contêiner do Azure.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

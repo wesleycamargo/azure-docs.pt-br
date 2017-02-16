@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+ms.sourcegitcommit: 24143b6866c4393b18636669b5b4281a0d18c3d1
+ms.openlocfilehash: 64e8c8b284f21320601208c798d354df2496274c
 
 
 ---
@@ -271,7 +271,7 @@ Os usuários do Catálogo de Dados do Azure podem publicar os metadados usando u
       <td>✓ </td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2>XIBIÇÕES de cálculo e Exibições analíticas. Não há suporte para Exibições de atributo.</font></td>
+      <td><font size=2>Somente Exibições de cálculo e Exibições analíticas. Não há suporte para Exibições de atributo.</font></td>
     </tr>
 
     <tr>
@@ -419,12 +419,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 ## <a name="data-source-reference-specification"></a>Especificação de referência da fonte de dados
 > [!NOTE]
 > A coluna "Estrutura DSL" na tabela a seguir lista apenas as propriedades de conexão do recipiente de propriedades "address", que são usadas pelo Catálogo de Dados do Azure (ou seja, o recipiente de propriedades "address" pode conter outras propriedades de conexão da fonte de dados que o Catálogo de Dados do Azure persiste, mas não usa).
-> 
+>
 > <table>
 > <tr>
 > <td><b>Tipo de Fonte</b></td>
 > <td><b>Tipo de Ativo</b></td>
-> <td><b>Tipo(s) de objeto</b></td>
+> <td><b>Tipos de Objeto</b></td>
 > <td><b>Estrutura DSR<b></td>
 > </tr>
 > <tr>
@@ -1169,11 +1169,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table> 
+> </table>>
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

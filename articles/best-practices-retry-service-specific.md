@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
 
 
 ---
@@ -1101,6 +1101,6 @@ Para exemplos de como usar o Bloco de Aplicativos para Tratamento de Falhas Tran
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

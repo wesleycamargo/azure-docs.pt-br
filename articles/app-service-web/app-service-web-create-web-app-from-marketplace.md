@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -42,7 +42,7 @@ O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados.
 > [!NOTE]
 > Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio][activate] ou [inscrever-se em uma avaliação gratuita][free trial].
 > 
-> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo, sem exigência de cartão de crédito e sem compromissos.
+> Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo]. Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo, sem exigência de cartão de crédito e sem compromissos.
 > 
 > 
 
@@ -70,14 +70,14 @@ O site do WordPress implantado neste tutorial usa o MySQL para o banco de dados.
 3. Se você tiver mais de uma assinatura, escolha a que deseja usar.
    
     ![Configurar a assinatura para o aplicativo Web][ConfigSubscription]
-4. Selecione um **grupo de recursos** ou crie um novo.
+4. Selecione um **Grupo de Recursos** ou crie um novo.
    
     Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager][ResourceGroups].
    
     ![Configurar o grupo de recursos para o aplicativo Web][ConfigResourceGroup]
 5. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
    
-    Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure][AzureAppServicePlans].
+    Para saber mais sobre os planos do Serviço de Aplicativo, veja [Visão geral dos planos do Serviço de Aplicativo do Azure][AzureAppServicePlans].
    
     ![Configurar o plano de serviço para o aplicativo Web][ConfigServicePlan]
 6. Clique em **Banco de Dados** e, em seguida, na folha **Novo Banco de Dados MySQL**, forneça os valores necessários para configurar o banco de dados MySQL.
@@ -127,7 +127,7 @@ Neste tutorial, você viu como criar e implantar um aplicativo Web de exemplo no
 
 Para obter mais informações sobre como trabalhar com aplicativos Web do Serviço de Aplicativo, consulte os links no lado esquerdo da página (para janelas de navegador amplas) ou na parte superior da página (para janelas de navegador estreitas).
 
-Para obter mais informações sobre o desenvolvimento de aplicativos Web do WordPress no Azure, consulte [Desenvolvendo o WordPress no Serviço de Aplicativo do Azure][WordPressOnAzure].
+Para obter mais informações sobre o desenvolvimento de aplicativos Web do WordPress no Azure, veja [Desenvolvendo o WordPress no Serviço de Aplicativo do Azure][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -136,8 +136,8 @@ Para obter mais informações sobre o desenvolvimento de aplicativos Web do Word
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
-[ativar]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[avaliação gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
@@ -168,6 +168,6 @@ Para obter mais informações sobre o desenvolvimento de aplicativos Web do Word
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

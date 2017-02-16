@@ -27,7 +27,7 @@ Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensou
 
 ## <a name="about-your-contributions-to-azure-content"></a>Sobre as suas contribuições ao conteúdo do Azure
 ### <a name="minor-corrections"></a>Correções secundárias
-As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
+As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](/enterprise-mobility-security/termsofuse).
 
 ### <a name="larger-submissions"></a>Contribuições maiores
 Se enviar uma solicitação pull com alterações novas ou significativas para a documentação e para os exemplos de código, enviaremos um comentário no GitHub solicitando que você envie um CLA (Contrato de Licença de Contribuição) online caso você não seja um funcionário da Microsoft. Precisamos que você preencha o formulário online antes de aceitarmos sua solicitação pull.
@@ -87,6 +87,6 @@ Acesse o [índice do nosso guia do colaborador](contributor-guide/contributor-gu
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

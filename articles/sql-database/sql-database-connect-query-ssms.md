@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 11/22/2016
 ms.author: sstein;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: c0d085d03c1eebe0cff4f0ad48825991ea40619c
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: a6b147521525fad343376db0454f786a77b55c42
 
 
 ---
@@ -67,12 +67,12 @@ Este artigo mostra como se conectar a um banco de dados SQL do Azure usando o SQ
 
 - Você pode usar instruções T-SQL para criar e gerenciar bancos de dados no Azure da mesma forma que faz no SQL Server. Se você já sabe como usar o T-SQL com o SQL Server, consulte [Informações de Transact-SQL de Banco de Dados SQL do Azure](sql-database-transact-sql-information.md) para obter um resumo das diferenças.
 - Se não tiver experiência com o T-SQL, consulte [Tutorial: Escrevendo instruções Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) e a [Referência do Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx).
-- Para começar a criação de usuários de banco de dados e administradores de usuários de banco de dados, confira [Introdução à segurança do Banco de Dados SQL](sql-database-get-started-security.md)
+- Para começar a criação de usuários de banco de dados e administradores de usuários de banco de dados, confira [Introdução à segurança do Banco de Dados SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

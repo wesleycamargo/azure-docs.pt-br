@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Introdução a um Provedor de Autenticação Multifator do Azure
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Introdução a um Provedor de Autenticação Multifator do Azure
 A autenticação em duas etapas está disponível por padrão para os administradores globais que têm o Azure Active Directory e os usuários do Office 365. No entanto, se você quiser aproveitar os [recursos avançados](multi-factor-authentication-whats-next.md), então, deverá adquirir a versão completa da Autenticação Multifator do Azure (MFA).
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Um provedor de Autenticação Multifator do Azure será requerido para baixar o 
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Para criar um Provedor do Multi-Factor Auth
+## <a name="to-create-a-multi-factor-auth-provider"></a>Para criar um Provedor do Multi-Factor Auth
 Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Azure.
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
@@ -64,6 +64,6 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

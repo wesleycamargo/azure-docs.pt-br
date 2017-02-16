@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a0f4c9c5942ee75b9ca4f3924198e8a8ad8ccc7
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: c2bf44dc23a3b330994e51317b6b021fab6eef1f
 
 
 ---
@@ -93,11 +93,17 @@ Na Pesquisa do Azure, as atualizações estruturais em um índice exigirão uma 
 
 As edições que não exigem a recriação incluem adicionar um novo campo, alterar os perfis de pontuação, mudar as sugestões ou alterar os analistas de linguagem. Consulte [Atualizar Índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para obter mais informações.
 
-## <a name="next-step"></a>Próxima etapa
+## <a name="query-an-index-using-search-explorer"></a>Consultar um índice usando o Search Explorer
+
+O portal inclui **Search Explorer** para que você possa consultar um índice sem precisar escrever nenhum código. Você pode usar o Search Explorer em qualquer índice.
+
+A experiência de pesquisa se baseia nas configurações padrão, como a [sintaxe simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e padrão[searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). Os resultados são retornados em JSON para que você possa inspecionar o documento inteiro.
+
+## <a name="next-steps"></a>Próximas etapas
 Consulte estes links para saber mais sobre os indexadores:
 
 * [Indexação do Banco de Dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexação do DocumentDB](../documentdb/documentdb-search-indexer.md)
+* [Indexação do DocumentDB](search-howto-index-documentdb.md)
 * [Indexação do Armazenamento de Blobs (preview)](search-howto-indexing-azure-blob-storage.md)
 * [Indexação do Armazenamento de Tabelas (preview)](search-howto-indexing-azure-tables.md)
 
@@ -107,6 +113,6 @@ Consulte estes links para saber mais sobre os indexadores:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 8da474fbc9eae750bbd2e1f6908046d2e7e7be55
-ms.openlocfilehash: 42e1d0cdde66f4bf4a6f3b23421e137716d05beb
+ms.sourcegitcommit: 6d05de6ac944b69402583e939d6b498515945461
+ms.openlocfilehash: f8b13b2b39cf0c860ad59f43eb341c5924804dd9
 
 
 ---
@@ -449,7 +449,7 @@ REFERENCE ASSEMBLY JSONBlog.[NewtonSoft.Json];
 REFERENCE ASSEMBLY JSONBlog.[Microsoft.Analytics.Samples.Formats];
 ```
 
-E se você quiser usar a funcionalidade XML, adicione uma referência do assembly do sistema e um assembly ao assembly registrado:
+E se você quiser usar a funcionalidade XML, adicione uma referência do assembly do sistema e uma referência ao assembly registrado:
 
 ```
 REFERENCE SYSTEM ASSEMBLY [System.Xml];
@@ -932,9 +932,9 @@ Instância `MyType` — a instância do tipo
 Gravador `IColumnWriter`/leitor `IColumnReader` – o fluxo da coluna subjacente.  
 Contexto `ISerializationContext` – enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou destino para o fluxo durante a serialização. 
  
-    * *Intermediário* - especifica que o contexto de origem ou de destino não é um armazenamento persistente
+   * *Intermediário* - especifica que o contexto de origem ou de destino não é um armazenamento persistente
 
-    * *Persistência* - especifica que o contexto de origem ou de destino é um armazenamento persistente
+   * *Persistência* - especifica que o contexto de origem ou de destino é um armazenamento persistente
 
 Como um tipo C# regular, a definição de UDT do U-SQL pode incluir substituições para operadores como +/==/!= etc. Pode incluir métodos estáticos, entre outros. Por exemplo, se formos usar esse UDT como um parâmetro para a função agregada MIN do U-SQL, teremos que definir a substituição do operador <.
 
@@ -1288,7 +1288,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ### <a name="udts-from-built-in-types"></a>UDTs de tipos internos
 Em breve
 
-## <a name="user-defined-aggregates-udagg"></a>Agregações definidas pelo usuário – UDAGG
+## <a name="user-defined-aggregates--udagg"></a>Agregações definidas pelo usuário – UDAGG
 As agregações definidas pelo usuário são quaisquer funções relacionadas à agregação que não são enviadas para uso imediato com o U-SQL. O exemplo pode ser uma agregação para executar um cálculo matemático personalizado, executar concatenações de cadeia de caracteres ou manipulações com cadeias de caracteres, etc.
 
 A definição de classe base da agregação definida pelo usuário é
@@ -1424,7 +1424,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 Nesse cenário de caso de uso, concatenamos os GUIDs de classe para usuários específicos.
 
-## <a name="user-defined-objects-udo"></a>Objetos definidos pelo usuário – UDO
+## <a name="user-defined-objects--udo"></a>Objetos definidos pelo usuário – UDO
 O U-SQL fornece um recurso para definir objetos de programação personalizados que chamamos de Objetos Definidos pelo Usuário ou UDO.
 
 Veja a seguir a lista de UDO no U-SQL
@@ -2374,7 +2374,7 @@ Veja abaixo um exemplo do combinador
     }
 ```
 
-Nesse cenário de caso de uso, estamos criando o relatório de análise para o varejista. O objetivo é encontrar todos os produtos que custam mais de US$ 20.000 e vendidos por meio de sites da internet mais rapidamente do que pelo varejista comum dentro de determinado período.
+Nesse cenário de caso de uso, estamos criando o relatório de análise para o varejista. O objetivo é encontrar todos os produtos que custam mais de US$&20;.000 e vendidos por meio de sites da internet mais rapidamente do que pelo varejista comum dentro de determinado período.
 
 Veja abaixo o script base U-SQL. Você pode comparar a lógica entre JOIN regular e um combinador:
 
@@ -2608,6 +2608,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

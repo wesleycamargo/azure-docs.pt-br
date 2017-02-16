@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 6d9839d7-9303-48d2-be0f-21ce84f95a94
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 09/08/2016
 ms.author: sstein
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5916e527e078fbd6c6ee6ce0da7707611b20eafc
+ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
+ms.openlocfilehash: 0f2a77892b6ed6c2b1f78e5c6ccefafdca3b5ed5
 
 
 ---
@@ -34,7 +35,7 @@ Este artigo mostra como copiar um banco de dados SQL com o PowerShell para o mes
 Para concluir este artigo, você precisa do seguinte:
 
 * Um banco de dados SQL do Azure (um banco de dados para cópia). Se você não tiver um banco de dados SQL, crie um executando as etapas neste artigo: [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
-* Versão mais recente do Azure PowerShell. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* Versão mais recente do Azure PowerShell. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 Muitos recursos novos do Banco de Dados SQL só terão suporte quando você estiver usando o [modelo de implantação do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), portanto, os exemplos usam os [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) para o Resource Manager. Os cmdlets do Banco de Dados SQL do Azure (clássico) do [modelo de implantação clássico existente](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) têm suporte para a compatibilidade com versões anteriores, mas é recomendável usar os cmdlets do Resource Manager.
 
@@ -122,6 +123,6 @@ O script a seguir pressupõe que todos os grupos de recursos, os servidores e o 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

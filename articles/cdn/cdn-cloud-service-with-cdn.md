@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d5c371c8753b4ddaffcbf373d078b819fd2d687
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
 
 
 ---
@@ -50,8 +50,8 @@ Este tutorial tem os seguintes pré-requisitos:
 > [!NOTE]
 > Você de uma conta do Azure para concluir este tutorial:
 > 
-> * Você pode [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) - Você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e utilizar os serviços gratuitos do Azure, como os Sites.
-> * Você pode [ativar benefícios para assinantes do MSDN](/pricing/member-offers/msdn-benefits-details/) - Todos os meses, sua assinatura do MSDN oferece créditos que podem ser usados para serviços pagos do Azure.
+> * Você pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) - Você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e utilizar os serviços gratuitos do Azure, como os Sites.
+> * Você pode [ativar benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Todos os meses, sua assinatura do MSDN oferece créditos que podem ser usados para serviços pagos do Azure.
 > 
 > 
 
@@ -603,6 +603,6 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f1955e3e1618c6228bfa5439ca66155148ff1cb3
-ms.openlocfilehash: 3eb3ea76fa577dfcc360e209a645b45e0cb4ab34
+ms.sourcegitcommit: e4851e872349fa6483e1f1a340d0968e845a3518
+ms.openlocfilehash: c286b748822d6667f5682c13b7d4c870a3caab65
 
 
 ---
@@ -134,7 +134,7 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para exibir os logs de atividade, consulte [Operações de auditoria com o Resource Manager](resource-group-audit.md).
-* Para solucionar os erros de implantação, confira [Solução de problemas das implantações dos grupos de recursos com o Portal do Azure](resource-manager-troubleshoot-deployments-portal.md).
+* Para exibir detalhes sobre uma implantação, confira [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para implantar recursos por meio do portal, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md).
 * Para gerenciar o acesso aos recursos, confira [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
@@ -142,6 +142,6 @@ Excluir um grupo de recursos exclui todos os recursos contidos nele. Você tamb�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

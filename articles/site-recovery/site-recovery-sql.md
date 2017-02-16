@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/21/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 04ebda0187791772814e40401643583036ca6afa
+ms.sourcegitcommit: ea2078722beb7c76c59f1f6cfe3bf82aac5e4a77
+ms.openlocfilehash: 20e64a0f9319596167c1f8d1a0b22c0fa8c514c7
 
 
 ---
@@ -30,7 +30,7 @@ Muitas cargas de trabalho usam o SQL Server como base. Aplicativos como o ShareP
 
 * **SQL Server autônomo**: o SQL Server e todos os bancos de dados são hospedados em um único computador (físico ou virtual). Quando virtualizado, o cluster de host é usado para alta disponibilidade local. Nenhuma alta disponibilidade em nível de convidado é implementada.
 * **Instâncias de cluster de Failover (sempre em FCI) do SQL Server**: dois ou mais nós de instâncias do SQL Server com discos compartilhados são configurados em um cluster de Failover do Windows. Se qualquer uma das instâncias de cluster estiver inativa, o cluster pode ter failover do SQL Server em outra instância. Essa configuração é usada normalmente para HA em um site primário. Isso não protege contra falhas ou interrupção na camada de armazenamento compartilhado. O disco compartilhado pode ser implementado usando ISCSI, Fiber Channel ou VHDx Compartilhado.
-* **Grupos de Disponibilidade AlwaysOn do SQL**: nessa configuração, 2 nós podem ser configurados em um cluster sem compartilhamento, com bancos de dados SQL Server configurados em um grupo de disponibilidade, com replicação síncrona e failover automático.
+* **Grupos de Disponibilidade AlwaysOn do SQL**: nessa configuração,&2; nós podem ser configurados em um cluster sem compartilhamento, com bancos de dados SQL Server configurados em um grupo de disponibilidade, com replicação síncrona e failover automático.
 
 O SQL Server também fornece tecnologias nativas para recuperação de desastre nas edições Enterprise para recuperar bancos de dados para um site remoto. Neste artigo, vamos aproveitar e integrar essas tecnologias de recuperação de desastres SQL nativas:
 
@@ -89,11 +89,11 @@ Será necessário adicionar o Active Directory no site de recuperação secundá
 
 As instruções neste documento supõem que exista um controlador de domínio disponível no local secundário. [Ler mais](site-recovery-active-directory.md) sobre como proteger o Active Directory com o Site Recovery.
 
-## <a name="integrate-protection-with-sql-server-always-on-on-premises-to-azure"></a>Integrar proteção com o SQL Server Always-On (local no Azure)
+## <a name="integrate-protection-with-sql-server-always-on-in-classic-azure-portal-on-premises-to-azure"></a>Integrar proteção ao SQL Server Always-On no Portal Clássico do Azure (local para Azure)
 O Site Recovery dá suporte nativamente ao AlwaysOn do SQL. Se você tiver criado um grupo de disponibilidade do SQL com uma máquina virtual do Azure configurada como 'Secundária', você pode usar o Site Recovery para gerenciar o failover dos Grupos de disponibilidade.
 
 > [!NOTE]
-> Essa funcionalidade está atualmente em visualização e disponível quando os servidores de host do Hyper-V no datacenter principal são gerenciados por um [Servidor de Configuração](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Agora, esse recurso não está disponível no novo portal do Azure.
+> Essa funcionalidade está atualmente em visualização e disponível quando os servidores de host do Hyper-V no datacenter principal são gerenciados por um [Servidor de Configuração](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Agora, esse recurso não está disponível no novo portal do Azure. Siga as etapas [desta seção](site-recovery-sql.md#protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal) se você estiver usando o novo Portal do Azure. 
 >
 >
 
@@ -106,7 +106,7 @@ Aqui está o que você precisa para integrar o SQL AlwaysOn com a Recuperação 
 * A comunicação remota do PowerShell deve ser habilitada no computador do SQL Server local. O servidor do VMM ou o Servidor de Configuração deve ser capaz de fazer chamadas remotas do PowerShell para o SQL Server.
 * Uma conta de usuário deve ser adicionada no SQL Server local, esses grupos de usuário do SQL com pelo menos essas permissões:
   * ALTER AVAILABILITY GROUP: permissões [aqui](https://msdn.microsoft.com/library/hh231018.aspx) e [aqui](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
-  * ALTERAR BANCO DE DADOS - permissões[aqui](https://msdn.microsoft.com/library/ff877956.aspx#Security)
+  * ALTERAR BANCO DE DADOS - permissões [aqui](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 * Uma conta Executar como deve ser criada no Servidor VMM ou uma conta deve ser criada no Servidor de Configuração usando o CSPSConfigtool.exe para o usuário mencionado na etapa anterior
 * O módulo PS do SQL deve ser instalado em SQL Servers em execução local e em máquinas virtuais do Azure
 * O Agente de VM deve ser instalado nas máquinas virtuais em execução no Azure
@@ -146,7 +146,7 @@ Depois de adicionar o SQL Server, ele aparecerá na guia **SQL Servers** .
 
 #### <a name="step-3-create-a-recovery-plan"></a>Etapa 3: criar um plano de recuperação
 A próxima etapa é criar um plano de recuperação usando as máquinas virtuais e os grupos de disponibilidade.
-Selecione o mesmo Servidor VMM ou Servidor de Configuração usado na Etapa 1 como a origem e o Microsoft Azure como destino.
+Selecione o mesmo Servidor VMM ou Servidor de Configuração usado na Etapa&1; como a origem e o Microsoft Azure como destino.
 
 ![Criar Plano de Recuperação](./media/site-recovery-sql/create-rp1.png)
 
@@ -158,7 +158,7 @@ Você pode personalizar ainda mais o plano de recuperação movendo máquinas vi
 
 ![Personalizar o Plano de Recuperação](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="step-4-fail-over"></a>Etapa 4: failover
+#### <a name="step-4--fail-over"></a>Etapa 4: failover
 Há outras opções de failover disponíveis após a adição de um Grupo de Disponibilidade a um Plano de recuperação.
 
 | Failover | Detalhes |
@@ -174,7 +174,7 @@ Considere estas opções de failover.
 | **Opção 1** |1. Execute um failover de teste das camadas de aplicativo e de front-end.<br/><br/>2. Atualize a camada de aplicativos para acessar a cópia da réplica no modo somente leitura e executar um teste somente leitura do aplicativo. |
 | **Opção 2** |1. Crie uma cópia da instância da réplica de máquina virtual do SQL Server (usando o clone do VMM para site a site ou Backup do Azure) e ative-a em uma rede de teste<br/><br/> 2. Execute o failover de teste usando o plano de recuperação. |
 
-Etapa 5: Failback
+#### <a name="step-5-fail-back"></a>Etapa 5: Failback
 
 Se você quiser transformar o Grupo de Disponibilidade no SQL Server local novamente em Primário, faça isso disparando o Failover Planejado no Plano de Recuperação e escolhendo a direção do Microsoft Azure para o Servidor VMM local.
 
@@ -183,18 +183,41 @@ Se você quiser transformar o Grupo de Disponibilidade no SQL Server local novam
 >
 >
 
-### <a name="protect-machines-without-a-vmm-server-or-a-configuration-server"></a>Proteger os computadores sem um Servidor VMM ou um Servidor de Configuração
+### <a name="protect-machines-in-new-azure-portal-or-without-a-vmm-server-or-a-configuration-server-in-classic-azure-portal"></a>Proteger as máquinas no novo Portal do Azure ou sem um servidor VMM ou um Servidor de Configuração no Portal Clássico do Azure
 Para os ambientes que não são gerenciados por um Servidor VMM ou um Servidor de Configuração, é possível usar Runbooks de Automação do Azure para configurar um failover com script dos Grupos de Disponibilidade do SQL. A seguir, as etapas dessa configuração:
 
 1. Crie um arquivo local para o script realizar um failover de um grupo de disponibilidade. Este exemplo de script especifica um caminho até o grupo de disponibilidade na réplica do Azure e realiza seu failover nessa instância de réplica. Esse script será executado na réplica de máquina virtual do SQL Server passando com a extensão de script personalizada.
 
-     Param(   [string]$SQLAvailabilityGroupPath   )   import-module sqlps   Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
-2. Carregue o script em um blob em uma conta de armazenamento do Azure. Use este exemplo:
+        Param(
+        [string]$SQLAvailabilityGroupPath
+        )
+        import-module sqlps
+        Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
 
-     $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"   Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-3. Crie um runbook de automação do Azure para invocar os scripts na réplica de máquina virtual do SQL Server no Azure. Use este exemplo de script para fazer isso. [Saiba mais](site-recovery-runbook-automation.md) sobre como usar runbooks de automação em planos de recuperação.
+1. Carregue o script em um blob em uma conta de armazenamento do Azure. Use este exemplo:
 
-     workflow SQLAvailabilityGroupFailover   {
+        $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
+        Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+
+1. Crie um runbook de automação do Azure para invocar os scripts na réplica de máquina virtual do SQL Server no Azure. Use este exemplo de script para fazer isso. [Saiba mais](site-recovery-runbook-automation.md) sobre como usar runbooks de automação em planos de recuperação.
+
+1. Ao criar um plano de recuperação para o aplicativo, adicione uma etapa com script "inicialização pré-Grupo 1", que invoca o runbook de automação para realizar o failover de grupos de disponibilidade.
+
+
+1. **Failover de Teste**: o AlwaysOn do SQL não oferece suporte nativo ao Failover de Teste. Portanto, esta é a maneira recomendada de fazer isso:
+    1. Instale o [Backup do Azure](../backup/backup-azure-vms.md) na máquina virtual que hospeda a réplica do Grupo de Disponibilidade no Azure. 
+    1. Antes de disparar o failover de teste do plano de recuperação, recupere a máquina virtual no backup feito na Etapa&1;
+    1. Execute o failover de teste do plano de recuperação
+
+
+> [!NOTE]
+> O script abaixo pressupõe que o Grupo de Disponibilidade SQL está hospedado em uma máquina virtual do Azure Clássico e que o nome da máquina virtual restaurada na Etapa&2; é SQLAzureVM-Test. Modifique o script com base no nome que você usa para a máquina virtual recuperada.
+> 
+> 
+
+
+     workflow SQLAvailabilityGroupFailover
+     {
 
          param (
              [Object]$RecoveryPlanContext
@@ -217,9 +240,28 @@ Para os ambientes que não são gerenciados por um Servidor VMM ou um Servidor d
 
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
-                #Skipping TFO in this version.
-                #We will update the script in a follow-up post with TFO support
-                Write-output "tfo: Skipping SQL Failover";
+                    Write-output "tfo"
+                    
+                    Write-Output "Creating ILB"
+                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
+                    Write-Output "ILB Created"
+
+                    #Update the script with name of the virtual machine recovered using Azure Backup
+                    Write-Output "Adding SQL AG Endpoint"
+                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+
+                    Write-Output "Added Endpoint"
+        
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
+                       
+                    Write-Output "UnInstalling custom script extension"
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Write-Output "Installing custom script extension"
+                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
+                    
+                    Write-output "Starting AG Failover"
+                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
+                    Write-output "Completed AG Failover"
                 }
           else
                 {
@@ -230,7 +272,7 @@ Para os ambientes que não são gerenciados por um Servidor VMM ou um Servidor d
 
                 Write-Output "Installing custom script extension"
                 #Install the Custom Script Extension on teh SQL Replica VM
-                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM;
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
 
                 Write-output "Starting AG Failover";
                 #Execute the SQL Failover script
@@ -246,7 +288,6 @@ Para os ambientes que não são gerenciados por um Servidor VMM ou um Servidor d
 
          }
      }
-4. Ao criar um plano de recuperação para o aplicativo, adicione uma etapa com script "inicialização pré-Grupo 1", que invoca o runbook de automação para realizar o failover de grupos de disponibilidade.
 
 ## <a name="integrate-protection-with-sql-alwayson-on-premises-to-on-premises"></a>Integrar proteção AlwaysOn do SQL (local para local)
 Se o SQL Server estiver usando grupos de disponibilidade para alta disponibilidade, ou uma instância do cluster de failover, recomendamos também o uso dos grupos de disponibilidade no site de recuperação. Observe que essa orientação serve para aplicativos que não usam transações distribuídas.
@@ -301,6 +342,6 @@ Para clusters padrão do SQL, a realização do failback após um failover não 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: a6b5e865e9a57b1eaf8ad08aa70466f772bdb244
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
 
 
 ---
@@ -27,9 +27,9 @@ ms.openlocfilehash: a6b5e865e9a57b1eaf8ad08aa70466f772bdb244
 Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
 
 > [!IMPORTANT]
-> O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. Se você estiver usando um cluster HDInsight baseado em Linux, consulte [Executar consultas Hive usando a Exibição do Hive](hdinsight-hadoop-use-hive-ambari-view.md).
-> 
-> 
+> O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+>
+> Para HDInsight 3.4 ou superior, confira [Executar consultas do Hive no Modo de Exibição Hive do Ambari](hdinsight-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive em um navegador da Web.
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
@@ -125,6 +125,6 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

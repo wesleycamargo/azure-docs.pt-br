@@ -1,9 +1,9 @@
 ---
-title: "Aprenda a codificar ou decodificar arquivos simples usando o Enterprise Integration Pack e o Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Use os recursos do Enterprise Integration Pack e Aplicativos Lógicos para codificar ou decodificar arquivos simples"
+title: "Codificar ou decodificar arquivos simples nos aplicativos lógicos do Azure | Microsoft Docs"
+description: "Como usar o codificador ou decodificador de arquivos simples no Enterprise Integration Pack em seus aplicativos lógicos"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
 editor: 
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
-ms.author: deonhe
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: d5ced06f5d4eb9255c4f39dfd8216d2d56a0dd50
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: b9b0f1970a5c7edeb9986c0d60c8bc249c50f2ac
 
 
 ---
-# <a name="enterprise-integration-with-flat-files"></a>Integração corporativa com arquivos simples
-## <a name="overview"></a>Visão geral
+# <a name="overview-of-enterprise-integration-with-flat-files"></a>Visão geral da integração corporativa com arquivos simples
+
 Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, veja o [documentação dos aplicativos lógicos](logic-apps-what-are-logic-apps.md "Saiba mais sobre os Aplicativos Lógicos").  
 
-## <a name="how-to-create-the-flat-file-encoding-connector"></a>Como criar o conector de codificação de arquivo simples
+## <a name="create-the-flat-file-encoding-connector"></a>Como criar o conector de codificação de arquivo simples
 Execute estas etapas para adicionar um conector de codificação de arquivo simples ao seu aplicativo lógico.
 
 1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um Aplicativo lógico"). Esta conta contém o esquema que será usado para codificar os dados XML.  
@@ -53,11 +53,10 @@ Neste ponto, você já configurou seu conector de codificação de arquivo simpl
 
 Agora você pode testar seu conector fazendo uma solicitação ao ponto de extremidade HTTP e incluindo o conteúdo XML no corpo da solicitação.  
 
-## <a name="how-to-create-the-flat-file-decoding-connector"></a>Como criar o conector de decodificação de arquivo simples
+## <a name="create-the-flat-file-decoding-connector"></a>Como criar o conector de decodificação de arquivo simples
+
 > [!NOTE]
 > Para concluir estas etapas, você precisa ter um arquivo de esquema já carregado na conta de integração.
-> 
-> 
 
 1. Adicione um gatilho **Solicitação - quando uma solicitação HTTP é recebida** ao seu Aplicativo Lógico.  
    ![Captura de tela do gatilho a ser selecionado](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
@@ -89,6 +88,6 @@ Agora você pode testar seu conector fazendo uma solicitação ao ponto de extre
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
