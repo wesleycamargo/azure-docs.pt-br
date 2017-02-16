@@ -146,6 +146,6 @@ Agora que você aprendeu a usar o Pig com o HDInsight, use os links abaixo para 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

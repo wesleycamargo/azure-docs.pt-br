@@ -81,6 +81,6 @@ Depois de aprender sobre o monitoramento de integridade do Application Gateway, 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

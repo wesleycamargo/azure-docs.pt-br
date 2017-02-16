@@ -45,7 +45,7 @@ A seção a seguir mostra a definição de UDR de front-end no arquivo **azurede
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"   
+      "displayName": "UDR - FrontEnd"    
     },
     "properties": {
       "routes": [
@@ -409,6 +409,6 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

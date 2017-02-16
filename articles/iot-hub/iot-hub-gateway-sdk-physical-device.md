@@ -507,6 +507,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

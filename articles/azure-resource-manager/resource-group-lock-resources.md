@@ -101,6 +101,6 @@ O Azure PowerShell fornece outros comandos para trabalhar com bloqueios, tais co
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

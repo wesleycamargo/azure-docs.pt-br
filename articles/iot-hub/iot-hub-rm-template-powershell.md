@@ -160,6 +160,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

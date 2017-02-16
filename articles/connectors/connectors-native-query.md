@@ -83,6 +83,6 @@ Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/log
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -113,6 +113,6 @@ Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá g
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

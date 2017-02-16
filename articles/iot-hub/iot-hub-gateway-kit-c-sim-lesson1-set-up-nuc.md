@@ -138,6 +138,6 @@ Parabéns! Você terminou de configurar o NUC da Intel como um gateway. Agora vo
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

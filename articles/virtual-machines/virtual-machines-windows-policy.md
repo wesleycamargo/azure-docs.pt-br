@@ -105,6 +105,6 @@ Depois de criar a política, você precisará aplicá-la a um escopo definido. O
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -183,6 +183,6 @@ O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e past
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

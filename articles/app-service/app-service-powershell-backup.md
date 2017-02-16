@@ -154,6 +154,6 @@ Também é possível direcionar um objeto de backup para o cmdlet Remove-AzureRm
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
