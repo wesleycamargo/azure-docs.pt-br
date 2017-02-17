@@ -6,17 +6,14 @@
 
 # Introdução
 
-## Criar um SQL Data Warehouse
-### [portal do Azure](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Tutorial para iniciantes](sql-data-warehouse-get-started-tutorial.md)
 ## [práticas recomendadas](sql-data-warehouse-best-practices.md)
 ## [Gerenciar](sql-data-warehouse-overview-manage.md)
 ## [Obtenha suporte](sql-data-warehouse-get-started-create-support-ticket.md)
 
 # Como
 
-## Fazer backup e restauração
+## Backup e restauração
 
 ### [Visão geral do Backup](sql-data-warehouse-backups.md)
 ### [Visão geral de Restauração](sql-data-warehouse-restore-database-overview.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalar Visual Studio](sql-data-warehouse-install-visual-studio.md)
+
+## Criação
+### [Portal do Azure](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Desenvolver
 
@@ -78,6 +80,7 @@
 
 ### [Visão geral](sql-data-warehouse-overview-load.md)
 ### [Dados de amostra](sql-data-warehouse-load-sample-databases.md)
+### [Repositório Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP do SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
@@ -145,6 +148,6 @@
 ### [Gerenciamento de dados](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

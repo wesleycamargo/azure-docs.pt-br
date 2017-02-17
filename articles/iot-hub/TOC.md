@@ -97,6 +97,28 @@
 #### [Opcional: alterar o comportamento do LED](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Solucionar problemas](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Introdução ao Arduino (Nó)
+### [Introdução à placa Arduino: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Lição 1: Configurar seu dispositivo
+#### [Configurar seu dispositivo](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Obter as ferramentas (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Obter as ferramentas (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Obter as ferramentas (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Criar e implantar o aplicativo de intermitência](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Lição 2: Criar seu hub IoT
+#### [Obter as ferramentas do Azure (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Obter as ferramentas do Azure (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Obter as ferramentas do Azure (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [Criar seu hub IoT e registrar seu Raspberry Pi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Lição 3: Enviar mensagens do dispositivo para a nuvem
+#### [Criar um aplicativo de funções do Azure e uma conta de armazenamento](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [Executar o aplicativo de exemplo para enviar mensagens](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Ler mensagens mantidas no armazenamento](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Lição 4: Enviar mensagens da nuvem para o dispositivo
+#### [Executar o aplicativo de exemplo para receber mensagens](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: alterar o comportamento do LED](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Solucionar problemas](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Introdução ao SDK do Gateway (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introdução ao SDK do Gateway (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -111,7 +133,7 @@
 ##### [Obter as ferramentas (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
 ##### [Obter as ferramentas (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
 ##### [Obter as ferramentas (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
-##### [Criar um hub IoT e registrar seu dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+##### [Criar um Hub IoT e registrar seu dispositivo](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
 #### Lição 3: Receber mensagens do dispositivo simulado
 ##### [Configurar e executar o aplicativo BLE de exemplo](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
@@ -219,9 +241,11 @@
 ## [Java (Dispositivos)](/java/api/com.microsoft.azure.iothub)
 ## [SDKs do Azure IoT](http://azure.github.io/azure-iot-sdks/)
 ## [SDK do gateway](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (Provedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (Identidades do dispositivo)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [API REST do REST (Dispositivo de mensagens)](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (Provedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (Identidades do dispositivo)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (Dispositivos Gêmeos)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
+## [REST (Mensagens do Dispositivo)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (Trabalhos)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Relacionados
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +264,6 @@
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

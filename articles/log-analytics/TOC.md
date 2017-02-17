@@ -8,6 +8,7 @@
 ## [Proxy e firewall](log-analytics-proxy-firewall.md)
 ## [Dados de uso](log-analytics-usage.md)
 ## [Perguntas frequentes do Log Analytics](log-analytics-faq.md)
+## [Provedores de serviço](log-analytics-service-providers.md)
 
 # Como
 ## Coletar dados
@@ -15,7 +16,7 @@
 #### [Agentes do Windows](log-analytics-windows-agents.md)
 #### [Agentes do Linux](log-analytics-linux-agents.md)
 #### [Máquinas Virtuais do Azure](log-analytics-azure-vm-extension.md)
-#### [Armazenamento do Azure](log-analytics-azure-storage.md)
+#### [Recursos do Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gerenciador de Configurações](log-analytics-sccm.md)
 #### [Gateway do OMS](log-analytics-oms-gateway.md)
@@ -45,6 +46,9 @@
 #### [Controle de alterações](log-analytics-change-tracking.md)
 #### [Contêineres](log-analytics-containers.md)
 #### [Cofre de Chaves](log-analytics-azure-key-vault.md)
+#### Mensagens dos Aplicativos Lógicos B2B
+##### [Solução de Mensagens dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Esquema de controle personalizado dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Avaliação de malware](log-analytics-malware.md)
 #### [Análise de Rede](log-analytics-azure-networking-analytics.md)
 #### [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md)
@@ -59,6 +63,7 @@
 ## Desenvolver
 ### [API do coletor de dados](log-analytics-data-collector-api.md)
 ### [Cmdlets do PowerShell](log-analytics-powershell-workspace-configuration.md)
+### [Modelos do Gerenciador de Recursos](log-analytics-template-workspace-configuration.md)
 ### [API da Pesquisa de Log](log-analytics-log-search-api.md)
 ### [API de Alerta](log-analytics-api-alerts.md)
 
@@ -71,6 +76,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

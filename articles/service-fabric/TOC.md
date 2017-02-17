@@ -161,6 +161,7 @@
 ### [Exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
 
 ## Monitorar e diagnosticar
+### [Monitorar e diagnosticar aplicativos](service-fabric-diagnostics-overview.md)
 ### Monitorar e diagnosticar serviços localmente
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -208,6 +209,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
