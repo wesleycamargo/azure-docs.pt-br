@@ -1,6 +1,6 @@
 ---
-title: "Planejar a capacidade para proteger máquinas virtuais e servidores físicos no Azure Site Recovery | Microsoft Docs"
-description: "Planejar a capacidade de replicação para o Azure Site Recovery"
+title: "Estimar a capacidade de replicação no Azure | Microsoft Docs"
+description: Use este artigo para estimar a capacidade ao replicar com o Azure Site Recovery
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 8fca992488746bc50a7342644de62b862a9aaea7
-ms.openlocfilehash: a427969378d2454246217d48bafe6f360e93df0f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
 
 
 ---
@@ -65,9 +65,9 @@ Você pode executar a ferramenta em vários modos:
    * **Número de discos de blob necessários** retorna o número de discos que serão criados no armazenamento do Azure.
    * **Número de contas de armazenamento premium necessárias** fornece o número total de contas de armazenamento premium necessárias para proteger as VMs. Uma VM de origem com IOPS alto (acima de 20 mil) precisa de uma conta de armazenamento premium. Uma conta de armazenamento premium pode armazenar até 80 mil IOPS.
    * **IOPS total no armazenamento premium** é calculado de acordo com o tamanho da unidade de IOPS de 256.000 no total de contas de armazenamento premium.  Para o Planejador Rápido, o número é calculado com base em todos os discos de VMs de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
-   * **Número de servidores de configuração necessários** mostra quantos servidores de configuração são necessários para a implantação. 
+   * **Número de servidores de configuração necessários** mostra quantos servidores de configuração são necessários para a implantação.
    * **Número de servidores em processo adicionais necessários** mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
-   * **Armazenamento adicional de 100% na origem** mostra se o armazenamento adicional é necessário no local de origem.
+   * **Armazenamento adicional de&100;% na origem** mostra se o armazenamento adicional é necessário no local de origem.
 
    ![Saída](./media/site-recovery-capacity-planner/output.png)
 
@@ -117,7 +117,7 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
 
     > [!NOTE]
     > O IOPS no armazenamento standard e premium é calculado no nível da VM e não no disco. Uma máquina virtual padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. No entanto, se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM estiver dentro dos limites de VM standard do Azure com suporte (tamanho da VM, número de discos, número de adaptadores, CPU e memória), o planejador escolherá uma VM standard e não uma da série DS ou GS. Você precisa atualizar manualmente a célula de tamanho do Azure de mapeamento com a VM da série DS ou GS apropriada.
-   
+
 
 1. Depois que todos os detalhes estiverem prontos, clique em **Enviar dados para a ferramenta de planejamento** para abrir o **Planejador de Capacidade**. As cargas de trabalho são realçadas para mostrar se estão qualificadas ou não para proteção.
 
@@ -129,6 +129,6 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

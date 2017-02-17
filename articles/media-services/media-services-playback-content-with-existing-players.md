@@ -1,5 +1,5 @@
 ---
-title: "Reprodução de conteúdo | Microsoft Docs"
+title: "Usar players existentes para reproduzir seu conteúdo - Azure | Microsoft Docs"
 description: "Este tópico lista os players existentes que você pode usar para reproduzir conteúdo."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
-ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
@@ -62,7 +62,7 @@ Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplaye
 Para testar as URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou
-* **Player 3ivx HLS** no Windows.
+* **Player&3;ivx HLS** no Windows.
 
 ## <a name="developing-video-players"></a>Desenvolvendo players de vídeo
 Para obter informações sobre como desenvolver seus próprios players, consulte [Desenvolvendo players de vídeo](media-services-develop-video-players.md)
@@ -77,6 +77,6 @@ Para obter informações sobre como desenvolver seus próprios players, consulte
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

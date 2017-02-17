@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: b7890150da382e4ef08323654c076ff8236e3e79
+ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
+ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
 
 
 ---
@@ -268,7 +268,7 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 
 - - -
 > [!NOTE]
-> Veja um aplicativo Web em ação. [Experimente o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) imediatamente e crie um aplicativo inicializador de curta duração, sem necessidade de cartão de crédito e sem compromisso.
+> Veja um aplicativo Web em ação. [Experimente o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) imediatamente e crie um aplicativo inicializador de curta duração, sem necessidade de cartão de crédito e sem compromisso.
 > 
 > 
 
@@ -295,6 +295,6 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

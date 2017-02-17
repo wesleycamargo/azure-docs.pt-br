@@ -1,5 +1,5 @@
 ---
-title: Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
+title: Autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure | Microsoft Docs
 description: "Aprenda a autorizar os usuários usando o OAuth 2.0 no Gerenciamento de API."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 8650ad41d1d6ef3ee94c2792f435b84676a72d27
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: e43027cdea291f34aa60ad123e0de86b385efb30
 
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
@@ -177,6 +176,6 @@ Para obter mais informações sobre como usar OAuth 2.0 e Gerenciamento de API, 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

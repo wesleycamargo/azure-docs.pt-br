@@ -1,5 +1,5 @@
 ---
-title: "Replicar máquinas virtuais do Hyper-V em nuvens de VMM para um site de VMM secundário usando o portal do Azure | Microsoft Docs"
+title: "Replicar VMs do Hyper-V no VMM para um site secundário com o Azure Site Recovery | Microsoft Docs"
 description: "Descreve como implantar o Azure Site Recovery para orquestrar a replicação, o failover e a recuperação de VMs do Hyper-V em nuvens do VMM para um local de VMM secundário usando o portal do Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 4e1521d1a49a83c4936bf64ba0177c5834a6c374
-ms.openlocfilehash: 0737a9015ff1584a8c82681dbb809f86ae44f48c
+ms.sourcegitcommit: 32c6e6d5f18dd0ec105b7ba66bb2ff1aed10558a
+ms.openlocfilehash: b3ac842794665030a7c99383b221a5e61282dd81
 
 
 ---
@@ -42,7 +42,7 @@ Para uma implantação completa, é altamente recomendado realizar as etapas do 
 
 | **Área** | **Detalhes** |
 | --- | --- |
-| **Cenário de implantação 2** |Replicar VMs do Hyper-V em hosts Hyper-V entre nuvens do VMM|
+| **Cenário de implantação&2;** |Replicar VMs do Hyper-V em hosts Hyper-V entre nuvens do VMM|
 | **Requisitos de local** | Servidores VMM locais que executam, no mínimo, o System Center 2012 SP1 com as últimas atualizações.<br/><br/> Recomendamos um servidor VMM em cada site, mas é possível replicar entre nuvens no mesmo servidor VMM. [Saiba mais](site-recovery-single-vmm.md)<br/><br/> O servidor VMM tem uma ou mais nuvens que contém hosts Hyper-V.<br/><br/> Servidores Hyper-V que executam, no mínimo, o Windows Server 2012 com as últimas atualizações.<br/><br/> Os servidores VMM e o host Hyper-V precisam de acesso à Internet.<br/><br/> [URLs necessárias](#on-premises-prerequisites) (diretamente ou via proxy)  |
 | **Limitações de local** | Não há suporte para proxy baseado em HTTPS
 | **Requisitos do Azure** | Conta do Azure<br/><br/> Cofre dos Serviços de Recuperação |
@@ -99,7 +99,7 @@ Aqui está o que será necessário nos sites primário e secundário locais para
 
 | **Pré-requisitos** | **Detalhes** |
 | --- | --- |
-| **VMM** | Recomendamos a implantação com um servidor VMM no site primário e de um servidor VMM no site secundário.<br/><br/> Você pode [replicar entre nuvens em um único servidor VMM](site-recovery-single-vmm.md). Para fazer isso, você precisará de pelo menos duas nuvens configuradas no servidor VMM.<br/><br/> Os servidores VMM devem estar executando pelo menos o System Center 2012 SP1 com as atualizações mais recentes.<br/><br/> Cada servidor VMM deve estar em uma ou mais nuvens. Todas as nuvens devem ter o perfil de Capacidade do Hyper-V definido. <br/><br/>As nuvens devem conter um ou mais grupos de hosts do VMM.<br/><br/> [Saiba mais](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) sobre a configuração de nuvens do VMM.<br/><br/>  Servidores VMM precisam de acesso à Internet. |
+| **VMM** | Recomendamos a implantação com um servidor VMM no site primário e de um servidor VMM no site secundário.<br/><br/> Você pode [replicar entre nuvens em um único servidor VMM](site-recovery-single-vmm.md). Para fazer isso, você precisará de pelo menos duas nuvens configuradas no servidor VMM.<br/><br/> Os servidores VMM devem estar executando pelo menos o System Center 2012 SP1 com as atualizações mais recentes.<br/><br/> Cada servidor VMM deve estar em uma ou mais nuvens. Todas as nuvens devem ter o perfil de Capacidade do Hyper-V definido. <br/><br/>As nuvens devem conter um ou mais grupos de hosts do VMM.<br/><br/> [Saiba mais](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) sobre a configuração de nuvens do VMM.<br/><br/> Servidores VMM precisam de acesso à Internet. |
 | **Hyper-V** | Os servidores Hyper-V devem executar, no mínimo, o Windows Server 2012 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/> Um servidor Hyper-V deve conter uma ou mais VMs.<br/><br/>  Os servidores host Hyper-V devem estar localizados em grupos de hosts nas nuvens VMM primárias e secundárias.<br/><br/> Se você estiver executando o Hyper-V em um cluster no Windows Server 2012 R2, instale a [atualização 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> Se estiver executando o Hyper-V em um cluster no Windows Server 2012, observe que o agente de cluster não será criado automaticamente se você tiver um cluster baseado em endereço IP estático. Você precisará configurar o agente de cluster manualmente. [Leia mais](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Provedor** | Durante a implantação do Site Recovery, você instala o Provedor do Azure Site Recovery em servidores VMM. O Provedor se comunica com o Site Recovery em HTTPS 443 para orquestrar a replicação. A replicação de dados ocorre entre os servidores Hyper-V primário e secundário na LAN ou em uma conexão VPN.<br/><br/> O Provedor em execução no servidor VMM precisa de acesso a estas URLs:<br/><br/> ``*.accesscontrol.windows.net``<br/><br/> ``*.backup.windowsazure.com``<br/><br/> ``*.hypervrecoverymanager.windowsazure.com``<br/><br/>  ``*.store.core.windows.net``<br/><br/> ``*.blob.core.windows.net`` <br/><br/> ``https://www.msftncsi.com/ncsi.txt``<br/><br/> ``time.windows.com``<br/><br/> ``time.nist.gov``<br/><br/> Permita a comunicação de firewall dos servidores VMM nos [Intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e permita o protocolo HTTPS (443). |
 
@@ -271,7 +271,7 @@ Selecione o servidor VMM e a nuvem de destino.
 4. Em **Tipo de autenticação** e **Porta de autenticação**, especifique como o tráfego é autenticado entre os servidores host Hyper-V primário e de recuperação. Selecione **Certificado** , a menos que você tenha um ambiente Kerberos em funcionamento. A Recuperação de Site do Azure configurará automaticamente os certificados para autenticação HTTPS. Você não precisa fazer nada manualmente. Por padrão, as portas 8083 e 8084 (para certificados) serão abertas no Firewall do Windows nos servidores host Hyper-V. Se você selecionar **Kerberos**, um tíquete Kerberos será usado para autenticação mútua dos servidores host. Observe que esta configuração só é relevante para servidores de host Hyper-V no Windows Server 2012 R2.
 5. Em **Frequência de cópia**, especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 6. Em **Retenção do ponto de recuperação**, especifique, em horas, qual será a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
-7. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que contêm instantâneos consistentes com o aplicativo. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Se você habilitar instantâneos consistentes com o aplicativo, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
+7. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a&12; horas) são criados os pontos de recuperação que contêm instantâneos consistentes com o aplicativo. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Se você habilitar instantâneos consistentes com o aplicativo, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
 8. Em **Compactação da transferência de dados**, especifique se os dados replicados transferidos devem ser compactados.
 9. Selecione **Excluir VM de réplica** para especificar que a máquina virtual de réplica deverá ser excluída se você desabilitar a proteção para a VM de origem. Se você habilitar essa configuração, quando você desabilitar a proteção para a VM de origem, ela será removida do console de Recuperação de Site, as configurações de Recuperação de Site para o VMM serão removidas do console do VMM e a réplica será excluída.
 10. Em **Método de replicação inicial**, se você estiver replicando na rede, especifique se deseja iniciar a replicação inicial ou agendá-la. Para economizar largura de banda de rede, talvez você deseje agendá-la fora de seus horários mais ocupados. Em seguida, clique em **OK**.
@@ -448,6 +448,6 @@ Depois que a implantação estiver configurada e em funcionamento, [saiba mais](
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

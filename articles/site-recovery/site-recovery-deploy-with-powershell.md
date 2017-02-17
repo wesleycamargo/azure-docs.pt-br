@@ -1,6 +1,6 @@
 ---
-title: "Replicar máquinas virtuais Hyper-V em nuvens do VMM usando o Azure Site Recovery e o PowerShell | Microsoft Docs"
-description: "Saiba como automatizar a replicação de máquinas virtuais Hyper-V em nuvens do VMM usando o Site Recovery e o PowerShell."
+title: "Replicar VMs do Hyper-V no Azure no Portal Clássico com o PowerShell |Microsoft Docs"
+description: "Automatizar a replicação de máquinas virtuais do Hyper-V em nuvens do VMM usando o Site Recovery e o PowerShell no Portal Clássico"
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,15 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 667f796ff6c411389847f5200ebdc28db1ee1973
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: d3bf50e9e686acdac33ffaf9d781f02193406298
 
 
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell---classic"></a>Replicar máquinas virtuais do Hyper-V em nuvens VMM no Azure usando o PowerShell - Clássico
+# <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Replicar VMs do Hyper-V no Azure com o PowerShell no Portal Clássico
 > [!div class="op_single_selector"]
 > * [Portal do Azure](site-recovery-vmm-to-azure.md)
 > * [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -77,7 +77,7 @@ Se desejar implantar o mapeamento de rede, você precisará do seguinte:
 * [Saiba mais](site-recovery-network-mapping.md) sobre o mapeamento de rede:
 
 ### <a name="powershell-prerequisites"></a>Pré-requisitos do PowerShell
-Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para saber mais sobre como configurar o PowerShell, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
+Verifique se você tem o PowerShell do Azure pronto para uso. Se você já estiver usando o PowerShell, precisará atualizar para a versão 0.8.10 ou posterior. Para saber mais sobre como configurar o PowerShell, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs). Depois de instalar e configurar o PowerShell, você poderá exibir todos os cmdlets disponíveis para o serviço [aqui](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Para obter dicas que podem ajudar você a usar os cmdlets, por exemplo, como os valores de parâmetro, as entradas e saídas são tratadas normalmente no Azure PowerShell, confira [Introdução aos cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -408,6 +408,6 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

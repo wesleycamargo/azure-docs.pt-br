@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 7d122d04dfd9cb1f565e86b60f2180f9534588c9
+ms.sourcegitcommit: 4818c0c036c7e462af5b8d99f1085f8d9025156c
+ms.openlocfilehash: 7b4db2f215b8f7369694a45533d0c862b8f8d08e
 
 
 ---
@@ -51,7 +51,7 @@ Alguns aspectos a serem considerados incluem:
     Essa é uma ferramenta indispensável de solução de problemas que mostra o estado dos seus recursos do Azure Resource Manager. Clique na sua assinatura e examine o Grupo de Recursos em que você está solucionando problemas. No Provedor de recursos de computação, examine o conjunto de escala de VM criado e verifique a Exibição de Instância, que mostra o estado de uma implantação. Verifique também a exibição de instância de VMs no conjunto de escala de VM. Vá para o provedor de recursos Microsoft.Insights e verifique se as regras de dimensionamento automático parecem corretas.
 * A extensão de Diagnóstico está funcionando e emitindo os dados de desempenho?
   
-    **Atualização:** O dimensionamento automático do Azure foi aperfeiçoado para usar um pipeline de métricas baseado em host que não requer mais a instalação de uma extensão de diagnóstico. Isso significa que os próximos parágrafos já não se aplicam se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Exemplos de modelos do Azure que foram convertidos para usar o pipeline de host: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale. 
+    **Atualização:** O dimensionamento automático do Azure foi aperfeiçoado para usar um pipeline de métricas baseado em host que não requer mais a instalação de uma extensão de diagnóstico. Isso significa que os próximos parágrafos já não se aplicam se você criar um aplicativo de dimensionamento automático usando o novo pipeline. Este é um exemplo de modelos do Azure que foram convertidos para usar o pipeline do host: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     A utilização de métricas baseada em host para o dimensionamento automático é melhor pelos seguintes motivos:
   
@@ -79,12 +79,12 @@ Alguns aspectos a serem considerados incluem:
     
     Depois que você passou por essas etapas, se ainda estiver tendo problemas de dimensionamento automático, pode tentar os fóruns no [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), ou o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure) ou abrir uma chamada de suporte. Prepare-se para compartilhar o modelo e uma exibição dos dados de desempenho.
 
-[auditoria]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
-[explorar]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
+[audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png
+[explorer]: ./media/virtual-machine-scale-sets-troubleshoot/image1.png
 [tables]: ./media/virtual-machine-scale-sets-troubleshoot/image4.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

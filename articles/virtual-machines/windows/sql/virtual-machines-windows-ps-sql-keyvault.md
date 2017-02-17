@@ -1,5 +1,5 @@
 ---
-title: "Configurar a integração do Cofre da Chave do Azure para SQL Server em VMs do Azure (Gerenciador de Recursos)"
+title: Integrar o Key Vault ao SQL Server em VMs do Windows no Azure | Microsoft Docs
 description: "Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre da Chave do Azure com máquinas virtuais do SQL Server criadas com o Gerenciador de Recursos."
 services: virtual-machines-windows
 documentationcenter: 
@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
+ms.workload: iaas-sql-server
 ms.date: 10/25/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 097b2bc4ce0726b2d1f0c9414035af767125cb69
+ms.sourcegitcommit: 7a285920888bdfb46922d8708cf778229efff0a3
+ms.openlocfilehash: 3a10beb423ee0068508ddb06262aeba5e575bf94
 
 
 ---
@@ -68,6 +68,6 @@ Quando terminar, clique no botão **OK** na parte inferior da folha **Configura�
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

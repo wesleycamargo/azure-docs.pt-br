@@ -1,5 +1,5 @@
 ---
-title: "Banco de Dados SQL do Azure de desempenho para bancos de dados únicos | Microsoft Docs"
+title: "Desempenho do Banco de Dados SQL do Azure para bancos de dados únicos | Microsoft Docs"
 description: "Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
-ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 2e930dbb8dd2c15162d2ec81a123f57209134554
 
 
 ---
@@ -109,7 +109,10 @@ Novamente, essas consultas retornam uma contagem pontual. Se coletar várias amo
 Para análise de Banco de Dados SQL, você pode obter estatísticas históricas sobre as sessões. Consulte **sys.resource_stats** e use a coluna **active_session_count**. Consulte a próxima sessão para obter mais informações sobre como usar esta exibição.
 
 ## <a name="monitor-resource-use"></a>Monitorar o uso de recursos
-Duas exibições podem ajudar a monitorar o uso de recursos para um banco de dados SQL em relação à sua camada de serviço:
+
+Você pode monitorar o uso de recursos usando a [Análise de Desempenho de Consultas de Banco de Dados SQL](sql-database-query-performance.md) e [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx).
+
+Você também pode monitorar o uso com estes dois modos de exibição:
 
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
@@ -438,6 +441,6 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

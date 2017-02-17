@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS | Microsoft Docs"
+title: "SAP NetWeaver em VMs do Linux no Azure – Implantação do DBMS | Microsoft Docs"
 description: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS"
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 7cbb85e3f6705770a3eab7cc5a0da5070f2a170e
-ms.openlocfilehash: 14874e43c06d426d43e3369e9217978dd8115ed7
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: db6d4de6f88672f2258fdeac8416c795bc0c4613
 
 
 ---
@@ -349,11 +349,11 @@ O posicionamento de arquivos de banco de dados e arquivos de log e o tipo de Arm
 Dependendo da série da VM do Azure, os discos locais no nó de computação mostram diferentes desempenhos que podem ser categorizados como:
 
 * A0-A7: desempenho muito limitado. Não pode ser usado para nada além do arquivo de paginação do Windows
-* A8-A11: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série D: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série DS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série G: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série GS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
+* A8-A11: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série D: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série DS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série G: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série GS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
 
 As instruções acima estão sendo aplicadas aos tipos de VM que são certificados com a SAP. A série de VMs com IOPS e taxa de transferência excelentes se qualifica para o aproveitamento por alguns recursos do DBMS, como tempdb ou espaço de tabela temporário.
 
@@ -602,7 +602,7 @@ Essa funcionalidade permite que você faça o backup diretamente no Armazenament
 
 A vantagem nesse caso é que não é necessário gastar VHDs para armazenar backups do SQL Server. Então você tem menos VHDs alocados e a largura de banda total de IOPS do VHD pode ser usada para arquivos de log e de dados. Observe que o tamanho máximo de um backup é limitado ao máximo de 1 TB, conforme documentado na seção "Limitações" neste artigo: <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. Se o tamanho do backup, apesar do uso da compactação de backup do SQL Server, exceder 1 TB de tamanho, a funcionalidade descrita no capítulo [SQL Server 2012 SP1 CU3 e versões anteriores][dbms-guide-5.5.2] neste documento deverá ser usada.
 
-A [documentação relacionada](https://msdn.microsoft.com/library/dn449492.aspx) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for maior que 25 GB. A recomendação neste artigo é baseada simplesmente em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
+A [documentação relacionada](https://msdn.microsoft.com/library/dn449492.aspx) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for maior que&25; GB. A recomendação neste artigo é baseada simplesmente em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
 
 A documentação sobre como esse tipo de backup é configurado e utilizado pode ser encontrada [neste](https://msdn.microsoft.com/library/dn466438.aspx) tutorial
 
@@ -764,7 +764,7 @@ Você precisará balancear a configuração mais complexa do AlwaysOn, comparado
 ### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Resumo do SQL Server para SAP no Azure geral
 Há muitas recomendações neste guia e recomendamos que você o leia mais de uma vez antes de planejar sua implantação do Azure. Em geral, no entanto, não se esqueça de seguir os dez principais pontos específicos do DBMS no Azure gerais:
 
-[comentário]: <> (produtividade superior 2.3 a que? De um VHD?)
+[comentário]: <> (produtividade superior&2;.3 a que? De um VHD?)
 1. Use a versão mais recente do DBMS, como SQL Server 2014, que tem mais vantagens no Azure. Para o SQL Server, esse é o SQL Server 2012 SP1 CU4, que inclui o recurso de backup no armazenamento do Azure. No entanto, em conjunto com o SAP, recomendamos pelo menos o SQL Server 2014 SP1 CU1 ou o SQL Server 2012 SP2 e o CU mais recente.
 2. Planeje cuidadosamente sua estrutura de sistema da SAP no Azure para balancear o layout do arquivo de dados e as restrições do Azure:
    * Não tenha muitos VHDs, mas tenha espaço suficiente para garantir que você pode atingir seus IOPS necessários.
@@ -1394,6 +1394,6 @@ Veja também o capítulo [Resumo geral do SQL Server para SAP no Azure][dbms-gui
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

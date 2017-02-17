@@ -1,28 +1,25 @@
 ---
-title: "Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git"
+title: "Configurar o serviço de Gerenciamento de API usando o Git - Azure | Microsoft Docs"
 description: "Saiba como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git"
 services: api-management
 documentationcenter: 
 author: steved0x
 manager: erikre
-editor: 
+editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 96d100d69a7f4989153b293d1fa1ab249a82c1c2
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 801fe10ad20c48fb965d3f80956d7979c9c2314e
 
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
-> [!IMPORTANT]
-> A configuração do Git para o Gerenciamento de API está atualmente em visualização. Funcionalmente ele está completo, mas está em visualização porque estamos realmente buscando comentários sobre esse recurso. É possível que venhamos a fazer uma grande mudança em resposta aos comentários dos clientes. Portanto, recomendamos que não dependa do recurso para uso em ambientes de produção. Se você tiver dúvidas ou comentários, informe-nos pelo endereço `apimgmt@microsoft.com`.
 > 
 > 
 
@@ -40,7 +37,7 @@ Quando você faz alterações em seu serviço usando o portal do editor, cmdlets
 
 As etapas a seguir fornecem uma visão geral do gerenciamento de sua instância de serviço de Gerenciamento de API usando o Git.
 
-1. Habilitar o acesso ao Git em seu serviço
+1. Acessar a configuração GIT em seu serviço
 2. Salvar o banco de dados de configuração de seu serviço em seu repositório Git
 3. Clonar o repositório Git em seu computador local
 4. Obter o repositório mais recente em seu computador local, confirmar e enviar as alterações de volta ao seu repositório
@@ -48,20 +45,14 @@ As etapas a seguir fornecem uma visão geral do gerenciamento de sua instância 
 
 Este artigo descreve como habilitar e usar o Git para gerenciar a configuração de seu serviço e fornece uma referência para os arquivos e pastas no repositório Git.
 
-## <a name="to-enable-git-access"></a>Para habilitar o acesso ao Git
-Você pode exibir rapidamente o status da configuração do Git exibindo o ícone do Git no canto superior direito do portal do editor. Neste exemplo, o acesso ao Git ainda não foi habilitado.
+## <a name="access-git-configuration-in-your-service"></a>Acessar a configuração GIT em seu serviço
+Você pode exibir rapidamente o status da configuração do Git exibindo o ícone do Git no canto superior direito do portal do editor. Neste exemplo, a mensagem de status indica que há alterações não salvas no repositório. Isso ocorre porque o banco de dados de configuração do serviço de Gerenciamento de API ainda não foi salvo no repositório.
 
 ![Status do Git][api-management-git-icon-enable]
 
 Para exibir e definir as configurações do Git, clique no ícone do Git ou clique no menu **Segurança** e navegue até a guia **Repositório de configuração**.
 
 ![Habilitar o GIT][api-management-enable-git]
-
-Para habilitar o acesso ao Git, marque a caixa de seleção **Habilitar acesso ao Git** .
-
-Após um momento, a alteração é salva e uma mensagem de confirmação é exibida. Observe que o ícone do Git ficou colorido para indicar que o acesso ao Git está habilitado e a mensagem de status agora indica que há alterações não salvas no repositório. Isso ocorre porque o banco de dados de configuração do serviço de Gerenciamento de API ainda não foi salvo no repositório.
-
-![Git habilitado][api-management-git-enabled]
 
 > [!IMPORTANT]
 > Quaisquer segredos que não sejam definidos como propriedades serão armazenados no repositório e permanecerão em seu histórico até que você desabilite e habilite novamente o acesso ao Git. As propriedades fornecem um local seguro para o gerenciamento de valores constantes de cadeia de caracteres, incluindo segredos, em todas as configurações e políticas de API. Portanto, não é necessário armazená-los diretamente nas instruções de sua política. Para saber mais, confira [Como usar as propriedades nas políticas de Gerenciamento de API do Azure](api-management-howto-properties.md).
@@ -321,6 +312,6 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

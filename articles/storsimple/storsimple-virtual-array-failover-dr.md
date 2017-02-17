@@ -1,5 +1,5 @@
 ---
-title: "Failover de dispositivo e recuperação de desastre para a Matriz Virtual Microsoft Azure StorSimple | Microsoft Docs"
+title: "Failover de dispositivo e recuperação de desastre da StorSimple Virtual Array | Microsoft Docs"
 description: Saiba mais sobre como realizar failover em sua StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 34de93b8133649aaedc3cb89a8cd478eda92c7aa
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
 
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array
@@ -76,7 +76,7 @@ Antes do início da recuperação de desastre, o dispositivo realiza verificaç�
   
   * nomes válidos de ACR.
   * IQN válido (que não exceda 220 caracteres).
-  * senhas CHAP válidas (com 12 a 16 caracteres).
+  * senhas CHAP válidas (com&12; a&16; caracteres).
 
 Se alguma das pré-verificações anteriores falhar, você não poderá continuar com a recuperação de desastre. Resolva esses problemas e tente realizar a recuperação de desastre novamente.
 
@@ -131,7 +131,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
     
     1. O campo de dispositivo de origem é preenchido automaticamente. Observe o tamanho total dos dados para o dispositivo de origem. O tamanho dos dados deve ser menor do que a capacidade disponível no dispositivo de destino. Examine os detalhes associados ao dispositivo de origem, como o nome do dispositivo, a capacidade total e os nomes dos compartilhamentos submetidos a failover.
 
-    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**.  Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
+    2. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino**. Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
 
     3. Verifique se **Estou ciente de que esta operação fará failover dos dados para o dispositivo de destino**. 
 
@@ -182,6 +182,6 @@ Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interfa
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

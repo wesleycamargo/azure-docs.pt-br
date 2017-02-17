@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 377c0d78db83a013e2063d50fcf45ba5beb2a989
-ms.openlocfilehash: 17e5621c6b7816062c2096b35a99c9e5b36b50d3
+ms.sourcegitcommit: 3b3250c17f0086ee0fd25b5c7fb8822eb52a26f8
+ms.openlocfilehash: 25865776748ae0605310eb86aefca2afebac2799
 
 
 ---
@@ -710,6 +710,8 @@ Essas configurações também devem ser válidas para a conta LocalSystem acessa
 4. Abra a guia Conexões e clique em Configurações da LAN
 5. Desabilite "Detectar configurações automaticamente"
 6. Habilite "Usar um servidor proxy para LAN" e insira a porta e o endereço proxy
+7. Clique em Avançado
+8. Adicione o endereço IP 168.63.129.16 à lista de exceções
 
 #### <a name="linux"></a>Linux
 Defina o proxy correto no arquivo de configuração do Agente Convidado do Microsoft Azure, que fica localizado em /etc/waagent.conf. Os parâmetros a seguir precisam ser definidos:
@@ -963,6 +965,6 @@ Se a solução de problemas usando Nota SAP [1999351] não ajudar, execute novam
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

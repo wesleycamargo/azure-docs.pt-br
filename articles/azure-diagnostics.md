@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: eba5adfcbba4800632e197d3f25760a857137a88
+ms.sourcegitcommit: 7814e02df5c6aa0ea9c38e3a048dd52e39436c3c
+ms.openlocfilehash: 349a7d82a96868f65598597c1db192484da9b34d
 
 
 ---
-# <a name="what-is-microsoft-azure-diagnostics"></a>O que é o Diagnóstico do Microsoft Azure
+# <a name="what-is-azure-diagnostics"></a>O que é o Diagnóstico do Azure
 O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem, as Máquinas Virtuais do Azure que executam o Microsoft Windows e o Service Fabric. Outros serviços do Azure têm seu próprios diagnósticos separados.
 
 ## <a name="data-you-can-collect"></a>Dados que você pode coletar
@@ -82,6 +82,6 @@ Comece em [Monitorar um aplicativo do Service Fabric](service-fabric/service-fab
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 
