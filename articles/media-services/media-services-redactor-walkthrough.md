@@ -1,5 +1,5 @@
 ---
-title: "Passo a passo de edição facial | Microsoft Docs"
+title: "Passo a passo de edição facial com o Azure Media Analytics | Microsoft Docs"
 description: "Este tópico mostra instruções passo a passo sobre como executar um fluxo de trabalho de edição completo usando o AMSE (Explorador dos Serviços de Mídia do Azure) e o Azure Media Redactor Visualizer (ferramenta de código-fonte aberto)."
 services: media-services
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/30/2016
 ms.author: rli; juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: d693bc0de2f8a03d67b346f3b2d4693284ae4d71
-ms.openlocfilehash: b9bd117d2b2a4bb710c98d4a8771727d3f5d06b6
+ms.sourcegitcommit: 8d8575decb177001cefbb7f159841b64c3f84f41
+ms.openlocfilehash: d9bb513a7f5acc0ba41902795b159564b2562842
 
 
 ---
-# <a name="face-redaction-walkthrough"></a>Passo a passo de edição facial
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Passo a passo de edição facial com o Azure Media Analytics
 
 ## <a name="overview"></a>Visão geral
 
@@ -67,7 +67,7 @@ A saída incluirá um arquivo json de anotações com dados de localização de 
 
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Opcional) Carregue um arquivo ‘idlist.txt’, que inclui uma lista delimitada por nova linha das IDs que você deseja editar. 
+2. (Opcional) Carregue um arquivo “Dance_idlist.txt”, que inclui uma lista delimitada por nova linha das IDs que você deseja editar. 
 
     ![Redação de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
@@ -132,6 +132,6 @@ Se você for um desenvolvedor que está tentando analisar os dados de anotação
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

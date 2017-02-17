@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
+ms.sourcegitcommit: 482205d4b28099def12173bc253ce1c5d7725587
+ms.openlocfilehash: 6b454e42f60e779763d08d2d4bc8c9db5531e555
 
 
 ---
@@ -30,7 +30,14 @@ ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
 > 
 > 
 
-Este artigo explica como preparar seu ambiente para fazer backup das cargas de trabalho usando o Servidor de Backup do Azure. Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho de aplicativo como VMs do Hyper-V, o Microsoft SQL Server, o SharePoint Server, o Microsoft Exchange e os clientes de um único console. Você também pode proteger as informações como cargas de trabalho de um servidor (IaaS), como as VMs no Azure.
+Este artigo explica como preparar seu ambiente para fazer backup das cargas de trabalho usando o Servidor de Backup do Azure. Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho de aplicativo como VMs do Hyper-V, o Microsoft SQL Server, o SharePoint Server, o Microsoft Exchange e os clientes de um único console. 
+
+> [!NOTE]
+> O Servidor de Backup do Azure agora pode proteger VMs do VMware e fornece recursos de segurança aprimorada. Você precisa instalar o produto conforme explicado nas seções abaixo e aplicar a Atualização 1 e o Agente de Backup do Azure mais recente. Para saber mais sobre o backup do VMware usando o Servidor de Backup do Azure, visite o [blog de instruções](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/). Para saber mais sobre os recursos de segurança, consulte a [Documentação dos recursos de segurança de backup do Azure](backup-azure-security-feature.md).
+> 
+> 
+
+Você também pode proteger as informações como cargas de trabalho de um servidor (IaaS), como as VMs no Azure.
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece informações e procedimentos para a restauração de VMs implantadas usando o modelo do Gerenciador de Recursos.
@@ -266,6 +273,6 @@ Você pode usar estes artigos para obter um entendimento mais profundo sobre a p
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
