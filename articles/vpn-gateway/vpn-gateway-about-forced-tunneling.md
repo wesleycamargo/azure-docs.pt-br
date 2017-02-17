@@ -1,10 +1,10 @@
 ---
-title: "Configurar o túnel forçado para conexões Site a Site usando o modelo de implantação clássico | Microsoft Docs"
+title: "Configurar o túnel forçado para conexões Site a Site: clássico | Microsoft Docs"
 description: "Como redirecionar ou &quot;forçar&quot; todo o tráfego direcionado à Internet para sua localização local."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 33ca336c6ae3ffc68997d21c4d7da9275ff48a00
+ms.sourcegitcommit: 5183fc3b4e7ec3fe6060a6a9551656332300995f
+ms.openlocfilehash: 75cd2b7073d5cda6fc90aa963a9ad321e6992743
 
 
 ---
@@ -163,6 +163,6 @@ As etapas vão definir *DefaultSiteHQ* como a conexão de site padrão para o t�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

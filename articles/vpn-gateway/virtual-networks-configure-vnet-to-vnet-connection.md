@@ -1,10 +1,10 @@
 ---
-title: "Configurar uma conexão de VNet a VNet do modelo de implantação clássica | Microsoft Docs"
+title: "Conectar uma rede virtual do Azure a outra rede virtual: clássico | Microsoft Docs"
 description: "Como conectar redes virtuais do Azure entre si usando o PowerShell e o Portal Clássico do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: fb25351de7f4b64ab36d5a1f2629677f0acece47
-ms.openlocfilehash: 3d1d6ea9ea933c5aaf27b58b9f49a5b845f610ce
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: 863b308125a7a9ae2b9d9104d150bd2474c064b3
 
 
 ---
@@ -60,7 +60,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
   * Se você tem várias assinaturas do Azure, agora é possível se conectar a cargas de trabalho de assinaturas diferentes com segurança entre redes virtuais.
   * Para empresas ou provedores de serviço, é possível habilitar a comunicação entre organizações usando a tecnologia VPN segura no Azure.
 
-### <a name="vnet-to-vnet-faq-for-classic-vnets"></a>Perguntas frequentes sobre VNet a VNet, para VNets clássicas
+### <a name="vnet-to-vnet-considerations-for-classic-vnets"></a>Considerações de Rede Virtual a Rede Virtual para Redes virtuais clássicas
 * As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes.
 * As redes virtuais podem estar na mesma região ou em regiões diferentes do Azure (locais).
 * Um serviço de nuvem ou um ponto de extremidade de balanceamento de carga não pode abranger redes virtuais, mesmo que elas estejam conectadas entre si.
@@ -169,7 +169,7 @@ Configure um gateway de Roteamento Dinâmico para cada rede virtual. Essa config
 2. Na página **Especificar o espaço de endereço** , clique na marca de seleção no canto inferior direito sem fazer alterações.
 
 ## <a name="step-7---create-the-vpn-connection"></a>Etapa 7 – Criar a conexão VPN
-Quando todas as etapas anteriores forem concluídas, defina as chaves pré-compartilhadas IPsec/IKE e crie a conexão. Esse conjunto de etapas usa o PowerShell e não pode ser configurado no portal. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações de como instalar os cmdlets do Azure PowerShell. Certifique-se de baixar a versão mais recente dos cmdlets de SM (Gerenciamento de Serviços). 
+Quando todas as etapas anteriores forem concluídas, defina as chaves pré-compartilhadas IPsec/IKE e crie a conexão. Esse conjunto de etapas usa o PowerShell e não pode ser configurado no portal. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações de como instalar os cmdlets do Azure PowerShell. Certifique-se de baixar a versão mais recente dos cmdlets de SM (Gerenciamento de Serviços). 
 
 1. Abra o Windows PowerShell e faça logon.
    
@@ -200,6 +200,6 @@ Você pode adicionar máquinas virtuais às suas redes virtuais. Consulte a [Doc
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

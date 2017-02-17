@@ -1,5 +1,5 @@
 ---
-title: "Tomcat em uma máquina virtual | Microsoft Docs"
+title: "Executar o servidor de aplicativos Java em uma VM clássica do Azure | Microsoft Docs"
 description: "Este tutorial usa os recursos criados com o modelo de implantação clássico e mostra como criar uma Máquina virtual do Windows e configurá-la para executar o servidor de aplicativos do Apache Tomcat."
 services: virtual-machines-windows
 documentationcenter: java
@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 75388bba3084099fcea8d9ec1f3a2c1e909e914f
+ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
+ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
 
 
 ---
@@ -78,7 +78,7 @@ Você pode copiar um servidor de aplicativos Java em sua máquina virtual ou ins
 Para o objetivo deste tutorial, o Tomcat será instalado.
 
 1. Depois de se conectar à máquina virtual, abra uma sessão do navegador para [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
-2. Clique duas vezes no link **Instalador de serviço do Windows de 32 bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
+2. Clique duas vezes no link **Instalador de serviço do Windows de&32; bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
 3. Quando solicitado, opte por executar o instalador.
 4. No assistente de **Configuração do Apache Tomcat** , siga os prompts para instalar o Tomcat. Para o objetivo deste tutorial, aceitar os padrões será o suficiente. Quando você chegar à caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, poderá marcar opcionalmente **Executar o Apache Tomcat** para que o Tomcat inicie agora. Clique em **Concluir** para concluir o processo de configuração do Tomcat.
 
@@ -155,6 +155,6 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

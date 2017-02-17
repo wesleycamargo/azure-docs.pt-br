@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: 2ac01c010979fca0bb3df5d003dd639cd7819651
+ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
+ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 
 
 ---
@@ -54,9 +54,10 @@ Este é um exemplo de uma função personalizada para monitorar e reiniciar as m
 }
 ```
 ## <a name="actions"></a>Ações
-A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
+A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Cadeias de caracteres de operação seguem o formato de `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
 
 * `*/read` concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.
+* `Microsoft.Compute/*` concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.
 * `Microsoft.Network/*/read` concede acesso a operações de leitura a todos os tipos de recursos no provedor de recursos Microsoft.Network do Azure.
 * `Microsoft.Compute/virtualMachines/*` concede acesso a todas as operações de máquinas virtuais e seus tipos de recursos filhos.
 * `Microsoft.Web/sites/restart/Action` concede acesso para reinicialização de sites.
@@ -69,7 +70,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Captura de tela PowerShell - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![PowerShell screenshot - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -122,6 +123,6 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

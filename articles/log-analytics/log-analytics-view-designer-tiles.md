@@ -1,5 +1,5 @@
 ---
-title: "Referência Sobre Blocos do Designer de Modos de Exibição do Log Analytics | Microsoft Docs"
+title: "Referência de bloco do Criador de Modos de Exibição no OMS Log Analytics | Microsoft Docs"
 description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
-ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 
 
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do designer de modos de exibição do Log Analytics
+# <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do Criador de Modos de Exibição do Log Analytics
 O Designer de Modos de Exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
@@ -180,6 +180,6 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

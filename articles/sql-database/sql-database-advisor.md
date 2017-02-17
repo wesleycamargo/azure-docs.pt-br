@@ -1,5 +1,5 @@
 ---
-title: "Recomendações de desempenho para o Banco de dados SQL do Azure | Microsoft Docs"
+title: "Consulta de recomendações de ajuste de desempenho - Banco de dados SQL do Azure | Microsoft Docs"
 description: "O Advisor do Banco de Dados SQL do Azure fornece recomendações para seus Bancos de Dados SQL existentes que podem melhorar o desempenho de consulta atual."
 services: sql-database
 documentationcenter: 
@@ -16,21 +16,16 @@ ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 5df30f24a8e7370ac33c72641f05138776e24bb0
-ms.openlocfilehash: 55502f346eaf5ccf76d6f1c03487e95f0b93e3f5
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: a8d0b08abc7e3c688f9ab79499b3459b33f06848
 
 
 ---
 # <a name="sql-database-advisor"></a>Advisor do Banco de Dados SQL
-> [!div class="op_single_selector"]
-> * [Visão Geral do Advisor do Banco de Dados SQL](sql-database-advisor.md)
-> * [Portal](sql-database-advisor-portal.md)
-> 
-> 
 
 O Banco de Dados SQL do Azure aprende e adapta-se ao seu aplicativo e fornece recomendações personalizadas permitindo que você maximize o desempenho dos bancos de dados SQL. O Assistente do Banco de Dados SQL fornece recomendações para criar e descartar índices, parametrizar consultas e corrigir problemas de esquema. O assistente avalia o desempenho ao analisar seu o histórico de uso do banco de dados SQL. As recomendações mais adequadas para executar a carga de trabalho normal do seu banco de dados são recomendadas. 
 
-As recomendações a seguir estão disponíveis para servidores V12 (as recomendações não estão disponíveis para servidores V11). Atualmente, você pode definir as recomendações de criação e remoção de índice para que elas sejam aplicadas automaticamente. Consulte [Gerenciamento automático de índices](sql-database-advisor-portal.md#enable-automatic-index-management) para ver mais detalhes.
+As recomendações a seguir estão disponíveis para servidores de Banco de Dados SQL do Azure. Atualmente, você pode definir as recomendações de criação e remoção de índice para que elas sejam aplicadas automaticamente. Consulte [Gerenciamento automático de índices](sql-database-advisor-portal.md#enable-automatic-index-management) para ver mais detalhes.
 
 ## <a name="create-index-recommendations"></a>Criar recomendações de índice
 **Criar Índice** aparecem quando o serviço de Banco de Dados SQL detecta um índice ausente que, se criado, pode beneficiar sua carga de trabalho de bancos de dados (somente índices não clusterizados).
@@ -79,6 +74,6 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

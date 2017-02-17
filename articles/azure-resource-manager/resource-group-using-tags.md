@@ -1,6 +1,6 @@
 ---
-title: "Usando marcações para organizar os recursos do Azure | Microsoft Docs"
-description: "Mostra como aplicar marcas para organizar os recursos para cobrança e gerenciamento."
+title: "Marcar recursos do Azure para organização lógica | Microsoft Docs"
+description: "Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -12,22 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2017
+ms.date: 02/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 87973df7bb1b81c2d1cbdeb31e2fabb584f7e625
-ms.openlocfilehash: 61e47f479b7cb05e1aca06e12ff5997769b2097d
+ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
+ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 
 
 ---
-# <a name="using-tags-to-organize-your-azure-resources"></a>Usando marcas para organizar os recursos do Azure
-O Gerenciador de Recursos permite que você organize os recursos logicamente por meio da aplicação de marcas. As marcas consistem em pares de chave/valor que identificam recursos com propriedades definidas por você. Para marcar recursos como pertencentes à mesma categoria, aplique a mesma marca a esses recursos.
-
-Quando você exibir os recursos com uma determinada marcação, verá os recursos de todos os grupos de recursos. Você não está limitado aos recursos no mesmo grupo de recursos, o que permite que você organize seus recursos de forma independente das relações de implantação. As marcações podem ser úteis quando você precisar organizar os recursos de gerenciamento ou de cobrança.
-
-Cada marca que você adiciona a um recurso ou grupo de recursos é adicionada automaticamente à taxonomia de toda a assinatura. Você também pode pré-popular a taxonomia para sua assinatura com nomes de marca, enquanto os valores que você deseja usar como recursos serão marcados no futuro.
-
-Cada recurso ou grupo de recursos pode ter no máximo 15 marcas. O nome da marca é limitado a 512 caracteres e o valor da marca é limitado a 256 caracteres.
+# <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
+[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
 > [!NOTE]
 > Você só pode aplicar marcas em recursos com suporte a operações do Gerenciador de Recursos. Se você tiver criado uma máquina virtual, uma rede virtual ou um armazenamento por meio do modelo de implantação clássica (como por meio do portal clássico do Azure), não poderá aplicar uma marcação a esse recurso. Para dar suporte à marcação, implante esses recursos novamente por meio do Resource Manager. Todos os outros recursos oferecem suporte à marcação.
@@ -35,77 +29,76 @@ Cada recurso ou grupo de recursos pode ter no máximo 15 marcas. O nome da marca
 > 
 
 ## <a name="templates"></a>Modelos
-Para marcar um recurso durante a implantação, adicione o elemento **marcações** ao recurso que você está implantando e forneça o nome e o valor da marcação. O nome e o valor da marca não precisam existir previamente em sua assinatura. Você pode fornecer até 15 marcas para cada recurso.
 
-O exemplo a seguir mostra uma conta de armazenamento com uma marca.
-
-```json
-"resources": [
-    {
-        "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2015-06-15",
-        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "dept": "Finance"
-        },
-        "properties": 
-        {
-            "accountType": "Standard_LRS"
-        }
-    }
-]
-```
-
-Atualmente, o Gerenciador de Recursos não dá suporte ao processamento de um objeto para os valores e nomes de marca. Em vez disso, transmita um objeto para os valores de marcação, porém ainda será necessário especificar os nomes de marcação conforme mostrado no seguinte exemplo:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "tagvalues": {
-      "type": "object",
-      "defaultValue": {
-        "dept": "Finance",
-        "project": "Test"
-      }
-    }
-  },
-  "resources": [
-  {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "examplestorage",
-    "tags": {
-      "dept": "[parameters('tagvalues').dept]",
-      "project": "[parameters('tagvalues').project]"
-    },
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "accountType": "Standard_LRS"
-    }
-  }]
-}
-```
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="powershell"></a>PowerShell
-[!INCLUDE [resource-manager-tag-resources](../../includes/resource-manager-tag-resources-powershell.md)]
+[!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+
+2.0 de CLI do Azure (visualização), você pode adicionar marcas de recursos e grupo de recursos e recursos de consulta por valores de marca.
+
+Ao aplicar marcas a um recurso ou grupo de recursos, você pode substituir as marcas existentes nesse recurso ou grupo de recursos. Portanto, você deve usar uma abordagem diferente com base em se o recurso ou o grupo de recursos tem marcas existentes que você deseja preservar. Para adicionar marcas à:
+
+* grupo de recursos sem marcas existentes.
+
+  ```azurecli
+  az group update -n TagTestGroup --set tags.Environment=Test tags.Dept=IT
+  ```
+
+* recurso sem marcas existentes.
+
+  ```azurecli
+  az resource tag --tags Dept=IT Environment=Test -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+  ``` 
+
+Para adicionar marcas a um recurso que já tenha marcas, primeiro recupere as marcas existentes: 
+
+```azurecli
+az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+Isso retorna o seguinte formato:
+
+```
+Dept        : Finance
+Environment : Test
+```
+
+Reaplicar as marcas existentes para o recurso e, em seguida, adicione as novas marcas.
+
+```azurecli
+az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+``` 
+
+Para obter os grupos de recursos com uma marca específica, use `az group list`.
+
+```azurecli
+az group list --tag Dept=IT
+```
+
+Para obter todos os recursos com marca e valor específicos, use `az resource list`.
+
+```azurecli
+az resource list --tag Dept=Finance
+```
+
+## <a name="azure-cli-10"></a>CLI 1.0 do Azure
 [!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
 ## <a name="rest-api"></a>API REST
 O portal e o PowerShell usam a [API REST do Gerenciador de Recursos](https://docs.microsoft.com/rest/api/resources/) em segundo plano. Se você precisar integrar a marcação a outro ambiente, você pode obter marcas com um GET na ID do recurso e atualizar o conjunto de marcas com uma chamada de PATCH.
 
 ## <a name="tags-and-billing"></a>Marcas e cobrança
-Para serviços com suporte, você pode usar marcas para agrupar os dados de cobrança. Por exemplo, Máquinas Virtuais implantadas com o Azure Resource Manager permitem definir e aplicar marcações para organizar o uso de cobrança para máquinas virtuais. Se você estiver executando várias VMs para organizações diferentes, poderá usar as marcas para o uso do grupo por centro de custo.  
-Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
+Marcas permitem que você agrupe os dados de cobrança. Por exemplo, se você estiver executando várias VMs para organizações diferentes, use as marcas para a utilização do grupo por centro de custo. Você também pode usar marcas para categorizar os custos pelo ambiente de tempo de execução, como por exemplo, o uso de cobrança para VMs em execução no ambiente de produção.
 
-Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../billing-usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Baixe o arquivo de uso no [portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para saber mais sobre o acesso programático às informações de cobrança, confira [Obter informações sobre o consumo de recursos do Microsoft Azure](../billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
+Você pode recuperar as informações sobre as marcações por meio das [APIs RateCard e Uso de Recursos do Azure](../billing/billing-usage-rate-card-overview.md) ou do arquivo de uso CSV (com valores separados por vírgula). Baixe o arquivo de uso no [portal de contas do Azure](https://account.windowsazure.com/) ou no [portal de EA](https://ea.azure.com). Para saber mais sobre o acesso programático às informações de cobrança, confira [Obter informações sobre o consumo de recursos do Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Para operações de API REST, confira [Referência da API REST de cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+
 
 Quando você baixa o CSV de uso para serviços que dão suporte a marcações com cobrança, as marcações aparecerão na coluna **Marcações** . Para saber mais, confira [Entenda sua fatura do Microsoft Azure](../billing/billing-understand-your-bill.md).
 
@@ -121,6 +114,6 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

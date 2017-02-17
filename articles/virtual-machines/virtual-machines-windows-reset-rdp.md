@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 6700ea97bea02d68329b923f8715d84e5df1de33
+ms.sourcegitcommit: 8062106872bd50cd265fc4e64bc6f4c0fb2dbb1d
+ms.openlocfilehash: b7458e13174dc03f2c4cab707c033d96a80628e6
 
 
 ---
@@ -44,7 +44,11 @@ Para VMs criadas com o modelo de implantação Clássico:
 - [Redefinir usando o Azure PowerShell](#vmaccess-extension-and-powershell---classic)
 
 ## <a name="azure-portal---resource-manager"></a>Portal do Azure – Resource Manager
-Selecione sua VM clicando em **Procurar** > **Máquinas virtuais** > *sua máquina virtual do Windows* > **Todas as configurações** > **Redefinir senha**. A folha de redefinição de senha é exibida:
+Para expandir o menu do portal, clique nas três barras no canto superior esquerdo e clique em **Máquinas virtuais**:
+
+![Navegue até sua VM do Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-VM.png)
+
+Selecione sua máquina virtual do Windows e clique em **Suporte + Solução de Problemas** > **Redefinir senha**. A folha de redefinição de senha é exibida:
 
 ![Página Redefinir senha](./media/virtual-machines-windows-reset-rdp/Portal-RM-PW-Reset-Windows.png)
 
@@ -100,11 +104,15 @@ Se você ainda não consegue se conectar remotamente à máquina virtual, veja m
 
 
 ## <a name="azure-portal---classic"></a>Portal do Azure – Clássico
-Para as máquinas virtuais criadas usando o modelo de implantação clássico, você pode usar o [Portal do Azure](https://portal.azure.com) para redefinir o serviço de Área de Trabalho Remota. Clique em **Procurar** > **Máquinas virtuais (clássico)** > *sua máquina virtual do Windows* > **Redefinir Acesso....**. A página a seguir será exibida.
+Para as máquinas virtuais criadas usando o modelo de implantação clássico, você pode usar o [Portal do Azure](https://portal.azure.com) para redefinir o serviço de Área de Trabalho Remota. Para expandir o menu do portal, clique nas três barras no canto superior esquerdo e clique em **Máquinas virtuais (clássico)**:
+
+![Navegue até sua VM do Azure](./media/virtual-machines-windows-reset-rdp/Portal-Select-Classic-VM.png)
+
+Selecione sua máquina virtual do Windows e clique em **Redefinir Remota... **. A caixa de diálogo a seguir aparece para redefinir a configuração da Área de Trabalho Remota:
 
 ![Página Redefinir configuração de RDP](./media/virtual-machines-windows-reset-rdp/Portal-RDP-Reset-Windows.png)
 
-Você também pode tentar redefinir o nome e a senha da conta do administrador local. Clique em **Procurar** > **Máquinas virtuais (clássico)** > *sua máquina virtual do Windows* > **Todas as Configurações** > **Redefinir senha**. A página a seguir será exibida.
+Você também pode redefinir o nome e a senha da conta de administrador local. Em sua VM, clique em **Suporte + Solução de Problemas** > **Redefinir senha**. A folha de redefinição de senha é exibida:
 
 ![Página Redefinir senha](./media/virtual-machines-windows-reset-rdp/Portal-PW-Reset-Windows.png)
 
@@ -174,6 +182,6 @@ Se a extensão de acesso a VM do Azure não responder e não for possível redef
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

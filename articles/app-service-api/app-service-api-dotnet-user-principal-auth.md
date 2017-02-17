@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cbac2de7334b8733c17b2db5b407eecb925bcc2f
+ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
+ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
 
 
 ---
@@ -182,7 +182,7 @@ Nesta seção, você alterará o front-end do AngularJS para que ele use a ADAL 
 
 Faça as alterações a seguir em arquivos no projeto ToDoListAngular.
 
-1. Abra o arquivo *index.html* .
+1. Abra o arquivo *index.cshtml*.
 2. Remova as marcas de comentários das linhas que fazem referência à ADAL (Biblioteca de Autenticação do Active Directory) para scripts JS.
    
         <script src="app/scripts/adal.js"></script>
@@ -284,6 +284,6 @@ Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

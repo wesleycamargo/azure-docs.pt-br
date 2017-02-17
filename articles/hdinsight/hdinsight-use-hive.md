@@ -216,6 +216,6 @@ Agora que você aprendeu a usar a transmissão de trabalhos do MapReduce com o H
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

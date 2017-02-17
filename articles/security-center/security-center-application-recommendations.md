@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 12/01/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 174546d59124296711731de6c8d8929bada56baf
-ms.openlocfilehash: dda826daa18182c1d415037faed5e832680392e1
+ms.sourcegitcommit: 2286437f4ab13384f895e906ccda48ac1b4c553d
+ms.openlocfilehash: dfc7d14b95082842ba658bd94b15c8191ee5dca3
 
 
 ---
@@ -28,7 +28,7 @@ Este artigo aborda as recomendações que se referem aos aplicativos.  As recome
 ## <a name="available-application-recommendations"></a>Recomendações disponíveis do aplicativo
 | Recomendações | Descrição |
 | --- | --- |
-| [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md) |Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. Dispositivos WAF (criados usando o modelo de implantação do Gerenciador de Recursos) precisam ser implantados em uma rede virtual separada. Dispositivos WAF (criados usando o modelo de implantação clássico) são restritos ao uso de um grupo de segurança de rede. No futuro, esse suporte será estendido para uma implantação totalmente personalizada de um dispositivo WAF (clássica). |
+| [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md) |Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443).</br></br>A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e no Ambiente do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).</br></br>Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. |
 | [Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, as alterações de configuração necessárias serão concluídas. |
 
 ## <a name="see-also"></a>Confira também
@@ -46,6 +46,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

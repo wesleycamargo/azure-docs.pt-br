@@ -1,5 +1,5 @@
 ---
-title: Criar e configurar um Application Gateway com um ILB (Balanceador de Carga Interno) em uma rede virtual | Microsoft Docs
+title: Usando o Gateway de Aplicativo do Azure com o balanceador de carga interno | Microsoft Docs
 description: "Esta página fornece instruções para configurar um Application Gateway do Azure com um ponto de extremidade do Balanceador de Carga Interno"
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: bb514e1a65fc051d6a36123820c68998bed36fb9
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
 
 
 ---
@@ -226,6 +226,6 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

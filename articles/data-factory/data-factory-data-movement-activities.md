@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: ef5c1f296a0a4ee6476db663e85c49c351f826b9
-ms.openlocfilehash: 53a2012a1d928c961cbfbdcea485ae18d776360f
+ms.sourcegitcommit: da98bc3e4dda1a05cba38701c0042f1c023c419a
+ms.openlocfilehash: 40b172356b3171557d6309a6bb2984fba34f485d
 
 
 ---
@@ -66,11 +66,12 @@ Se precisar mover dados para dentro e fora de um armazenamento de dados ao qual 
 ### <a name="supported-file-formats"></a>Formatos de arquivo com suporte
 Você pode usar a Atividade de Cópia para **copiar arquivos no estado em que se encontram** entre dois repositórios de dados baseados em arquivo, como Blob do Azure, Azure Data Lake Store, Amazon S3, FTP, Sistema de Arquivos e HDFS. Para fazer isso, você pode pular a [seção de formato](data-factory-create-datasets.md) nas definições de conjunto de dados de entrada e saída. Os dados são copiados com eficiência sem qualquer serialização/desserialização.
 
-A Atividade de Cópia também lê e grava em arquivos em formatos especificados: **texto, Avro, ORC, Parquet e JSON**. Você pode fazer as seguintes atividades de cópia, por exemplo:
+A Atividade de Cópia também lê e grava em arquivos em formatos especificados: há suporte para **texto, Avro, ORC, Parquet e JSON** e para o codec de compactação **GZip, Deflate, BZip2 e ZipDeflate**. Você pode fazer as seguintes atividades de cópia, por exemplo:
 
-* Copiar dados em formato de texto (CSV) do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
+* Copiar dados em formato de texto (CSV) compactado por GZip do Blob do Azure e gravá-los no Banco de Dados SQL Azure.
 * Copiar arquivos no formato de texto (CSV) do Sistema de Arquivos local e gravá-los no Blob do Azure no formato Avro.
-* Copiar dados no Banco de Dados SQL do Azure e gravá-los no HDFS local no formato ORC.
+* Copiar dados no SQL Server local e gravar ao no Azure Data Lake Store no formato ORC.
+* Copiar os arquivos compactados do Sistema de Arquivos local e, em seguida, descompactá-los no Azure Data Lake Store.
 
 ## <a name="a-nameglobalaglobally-available-data-movement"></a><a name="global"></a>Movimentação de dados globalmente disponível
 O Azure Data Factory está disponível apenas nas regiões Oeste dos EUA, Leste dos EUA e Europa Setentrional. No entanto, o serviço que possibilita a Atividade de cópia está disponível globalmente nas seguintes regiões e regiões geográficas. A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Confira [Serviços por região](https://azure.microsoft.com/regions/#services) para ver a disponibilidade do Data Factory e da Movimentação de Dados em uma região.
@@ -103,10 +104,10 @@ Quando os armazenamentos de dados de origem e de coletor residem na nuvem, o Dat
 | . | Índia Ocidental | Índia Central |
 | . | Sul da Índia | Índia Central |
 
+Como alternativa, você pode indicar explicitamente a região do serviço Data Factory a ser usada para realizar a cópia especificando a propriedade `executionLocation` em Atividade de Cópia `typeProperties`. Os valores com suporte para essa propriedade estão listados acima da coluna **Região usada para movimentação de dados**. Observe que seus dados passarão para essa região durante a cópia. Por exemplo, para copiar entre os repositórios do Azure no Reino Unido, você pode especificar `executionLocation` como "Norte da Europa" para rotear pelo Norte da Europa.
 
 > [!NOTE]
-> Se a região do repositório de dados de destino não estiver na lista anterior, a Atividade de Cópia falhará em vez de passar por uma região alternativa.
->
+> Se a região do repositório de dados de destino não estiver na lista anterior ou não puder ser detectada, a Atividade de Cópia falhará em vez de passar por uma região alternativa, a menos que `executionLocation` seja especificado. A lista de regiões com suporte será expandida ao longo do tempo.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Copiar dados entre um armazenamento de dados local e um armazenamento de dados em nuvem
@@ -193,6 +194,6 @@ O mapeamento de um sistema de tipo nativo para o tipo .NET do armazenamento de d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introdução à integração de log do Microsoft Azure | Microsoft Docs"
+title: Integre os registros de recursos do Azure nos seus sistemas SIEM | Microsoft Docs
 description: "Saiba mais sobre a integração de log do Azure, seus principais recursos e como ela funciona."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2016
+ms.date: 01/23/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 8bded635f95e640f6a0edba05e5190341ce362c5
-ms.openlocfilehash: d3a8df0bcfbab0afc8eaa5dd13a22fd6b346c443
+ms.sourcegitcommit: b5edb42f7fac6943a72e02a85a4cbc32300b9f38
+ms.openlocfilehash: 62b5469d06974dfbe1b243091d34e1141416c971
 
 
 ---
@@ -26,7 +26,7 @@ Saiba mais sobre a integração de log do Azure, seus principais recursos e como
 ## <a name="overview"></a>Visão geral
 PaaS (plataforma como serviço) e IaaS (infraestrutura como serviço) hospedadas no Azure geram uma grande quantidade de dados em logs de segurança. Esses logs contêm informações importantes que podem fornecer inteligência e entendimentos significativos sobre as violações de política, as ameaças internas e externas, os problemas de conformidade normativa e as anomalias na rede, no host e na atividade do usuário.
 
-A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta o Diagnóstico do Azure nas máquinas virtuais do Windows *(WAD)*, nos Logs de Atividade do Azure, nos alertas da Central de Segurança do Azure e nos logs do Provedor de Recursos do Azure. Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
+A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. A integração do log do Azure coleta o Diagnóstico do Azure nas máquinas virtuais do Windows *(WAD)*, nos Logs de Atividade do Azure, nos alertas da central de segurança do Azure e nos logs do Provedor de Recursos do Azure. Esta integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança.
 
 ![Integração de log do Azure][1]
 
@@ -55,6 +55,6 @@ Neste documento, você foi apresentado à integração de log do Azure. Para sab
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

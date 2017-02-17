@@ -1,5 +1,5 @@
 ---
-title: "Replicação do Armazenamento do Azure | Microsoft Docs"
+title: "Replicação de dados no Armazenamento do Azure | Microsoft Docs"
 description: "Os dados na sua conta de Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. Opções de replicação incluem LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona), GRS (armazenamento com redundância geográfica) RA-GRS (armazenamento com redundância geográfica com acesso de leitura)."
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8253e4c58cf9f1900a6e76885af3abac32c78cb0
+ms.sourcegitcommit: 349be81b5d1d5ccc1510360974b4e3b10471cf7f
+ms.openlocfilehash: 13cd31bdce89ae898a6e22a1d27b5aed819ccc0a
 
 
 ---
@@ -82,7 +82,7 @@ Com o GRS, as regiões primária e secundária gerenciam réplicas entre domíni
 Considerações:
 
 * Como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária.
-* A réplica não estará disponível, a menos que a Microsoft inicie o failover para a região secundária.
+* A réplica não estará disponível, a menos que a Microsoft inicie o failover para a região secundária. Se a Microsoft iniciar um failover para a região secundária, você terá acesso de leitura e gravação aos dados após o failover ter sido concluído. Para obter mais informações, confira [Guia de Recuperação de Desastres](storage-disaster-recovery-guidance.md). 
 * Se um aplicativo quiser ler na região secundária, o usuário deverá habilitar o RA-GRS.
 
 Quando você cria uma conta de armazenamento, pode selecionar a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela a seguir mostra os emparelhamentos de regiões primárias e secundárias.
@@ -129,9 +129,12 @@ Quando você habilita o acesso somente leitura aos dados na região secundária,
 Considerações:
 
 * Seu aplicativo precisa gerenciar com qual ponto de extremidade está interagindo ao usar o RA-GRS.
+* Como a replicação assíncrona envolve um atraso, no caso de um desastre regional, é possível que as alterações que ainda não foram replicadas para a região secundária sejam pedidas se os dados não puderem ser recuperados da região primária.
+* Se a Microsoft iniciar um failover para a região secundária, você terá acesso de leitura e gravação aos dados após o failover ter sido concluído. Para obter mais informações, confira [Guia de Recuperação de Desastres](storage-disaster-recovery-guidance.md). 
 * O RA-GRS é para fins de alta disponibilidade. Para obter as diretrizes de escalabilidade, examine a [lista de verificação de desempenho](storage-performance-checklist.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Criando aplicativos altamente disponíveis usando o armazenamento de RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 * [Sobre as contas de armazenamento do Azure](storage-create-storage-account.md)
 * [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md)
@@ -141,6 +144,6 @@ Considerações:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

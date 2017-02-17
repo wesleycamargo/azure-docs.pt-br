@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9921bce954186ba5d3fa21312aa596dcddfe827f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f4ae3395c44f175603556711bfe2f90f0f987c94
 
 
 ---
@@ -27,8 +27,8 @@ Uma notificação por email é enviada na primeira ocorrência diária de um ale
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Fornecer detalhes de contato de segurança**.
@@ -36,7 +36,7 @@ Uma notificação por email é enviada na primeira ocorrência diária de um ale
 2. Isso abrirá a folha **Fornecer detalhes de contato de segurança**. Selecione a assinatura do Azure para fornecer informações de contato em.
    ![forneça detalhes de contato de segurança][2]
 3. Uma segunda folha **Fornecer detalhes de contato de segurança** será aberta.
-   
+
    * Insira o endereço de email de contato de segurança ou endereços separados por vírgulas. Não há um limite para o número de endereços de email que você pode inserir.
    * Insira um número de telefone internacional de contato de segurança.
    * Para receber emails sobre alertas de gravidade alta, ative a opção **Enviar-me emails sobre alertas**.
@@ -60,6 +60,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

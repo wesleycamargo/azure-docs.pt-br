@@ -1,6 +1,6 @@
 ---
-title: "Designer de exibição do Log Analytics | Microsoft Docs"
-description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
+title: "Criar exibições para analisar dados no Log Analytics do OMS | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie Exibições personalizadas que são exibidas no portal do Azure e no OMS e que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: efe0eeb6c9389545f51f22bbf0a2d6389939c375
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
 
 
 ---
-# <a name="log-analytics-view-designer"></a>Designer de modos de exibição do Log Analytics
-O Designer de modos de exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
+# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Use o Designer de modos de exibição para criar exibições personalizadas no Log Analytics
+O Designer de modos de exibição do [Log Analytics]() permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
@@ -99,6 +99,6 @@ Os modos de exibição têm apenas uma linha de partes da visualização.  Reorg
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

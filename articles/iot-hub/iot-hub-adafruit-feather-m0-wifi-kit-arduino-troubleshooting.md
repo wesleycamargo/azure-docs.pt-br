@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas do Kit de início de IoT do Azure do Adafruit Feather M0 WiFi | Microsoft Docs"
+title: Conectar o Arduino (C) ao IoT do Azure - Solucionar problemas | Microsoft Docs
 description: "Página de solução de problemas para a experiência do Adafruit Feather M0 WiFi Arduino"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 5d7eed340d2021c58f68c69100be5a9e13655146
-ms.openlocfilehash: 21ded74f54f71865d6480d8b29dc225a2b18e958
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 448dc0370014ad295ed820d796f7af2eb5fe698e
 
 
 ---
@@ -109,6 +109,6 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 [sample-repository]: https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

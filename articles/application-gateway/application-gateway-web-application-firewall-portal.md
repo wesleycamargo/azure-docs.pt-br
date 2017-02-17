@@ -1,10 +1,10 @@
 ---
-title: Criar um gateway de aplicativo com o firewall do aplicativo Web usando o portal | Microsoft Docs
+title: Criar um gateway de aplicativo do Azure com o firewall do aplicativo Web | Microsoft Docs
 description: Saiba como criar um Gateway de Aplicativo com o firewall do aplicativo Web usando o portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 216b3890cde6f41c33aa34f23d7e103322d9b502
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 9ba454ad2988c1ebb6410d78f79e46ed020a4bc5
 
 
 ---
+
 # <a name="create-an-application-gateway-with-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicativo com o firewall do aplicativo Web usando o portal
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão. O aplicativo Web protege contra muitas das 10 principais vulnerabilidades da Web OWASP.
 
-O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
+O Azure Application Gateway é um balanceador de carga de camada&7;. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local.
 O aplicativo fornece muitos recursos do Controlador de Entrega de Aplicativos (ADC), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de Secure Sockets Layer (SSL), as sondas de integridade personalizadas, suporte para vários sites e muitos outros.
 Para localizar uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
@@ -47,8 +46,6 @@ No segundo cenário, você aprenderá a [criar um gateway de aplicativo com o fi
 
 > [!NOTE]
 > A configuração adicional do Application Gateway, incluindo investigações de integridade personalizadas, endereços de pool de back-end e regras adicionais são configuradas após o Application Gateway ser configurado e não durante a implantação inicial.
-> 
-> 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -79,8 +76,6 @@ As configurações para atualizar um gateway de aplicativo existente para dar su
 
 > [!NOTE]
 > Para exibir logs de firewall do aplicativo Web, o diagnóstico deve ser habilitado e ApplicationGatewayFirewallLog selecionado. É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Os gateways pequenos não estão disponíveis ao usar o firewall do aplicativo Web.
-> 
-> 
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>criar um gateway de aplicativo com o firewall do aplicativo Web
 
@@ -114,8 +109,6 @@ As informações necessárias para as configurações básicas são:
 
 > [!NOTE]
 > É possível escolher uma contagem de instâncias de 1 para fins de teste. É importante saber que qualquer contagem de instâncias em duas instâncias não é coberta por um SLA e, portanto, não são recomendadas. Não há suporte para gateways pequenos para cenários de firewall do aplicativo Web.
-> 
-> 
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -212,6 +205,6 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

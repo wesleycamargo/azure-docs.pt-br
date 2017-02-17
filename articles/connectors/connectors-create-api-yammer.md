@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 104edc61f964f5e0b6c2144a39201283b71145a2
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: c69f7af9f9427eb295481657eaefcdad76b48ccb
 
 
 ---
@@ -35,7 +35,7 @@ Com o Yammer, você pode:
 * Use gatilhos para quando há uma nova mensagem em um grupo ou um feed a seguir.
 * Use as ações para postar uma mensagem, obter todas as mensagens e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando uma nova mensagem for exibida, você poderá enviar um email usando o Office 365.
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 O Yammer inclui os gatilhos e as ações a seguir. 
@@ -180,7 +180,7 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. 
 | full_name |string |não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 [1]: ./media/connectors-create-api-yammer/connectionconfig1.png
 [2]: ./media/connectors-create-api-yammer/connectionconfig2.png 
@@ -190,6 +190,6 @@ Se a ID do grupo for fornecida, a mensagem será postada no grupo especificado. 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

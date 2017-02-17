@@ -1,5 +1,5 @@
 ---
-title: "Glossário do Hub IoT do Azure | Microsoft Docs"
+title: "Glossário de termos do Hub IoT do Azure | Microsoft Docs"
 description: "Guia do Desenvolvedor ‑ Um glossário de termos comuns relacionadas ao Hub IoT do Azure."
 services: iot-hub
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1f795dd5b3d99731b2e683085d889ed7943d6281
-ms.openlocfilehash: 3661ad7374fd91cf7bbc485b8ce0805b78518899
+ms.sourcegitcommit: 85fd7b0e867ebe5fff937ff9fc83b688649fcfba
+ms.openlocfilehash: 70feb409d05b26a4d874bad2d1984fda5db32216
 
 
 ---
@@ -27,7 +27,11 @@ Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
 O [AMQP (Advanced Message Queueing Protocol)](https://www.amqp.org/) é um dos protocolos de mensagens com suporte do [Hub IoT](#iot-hub) para comunicação com dispositivos. Para saber mais sobre os protocolos de mensagens com suporte do Hub IoT, consulte [Enviar e receber mensagens com o Hub IoT](iot-hub-devguide-messaging.md).
 
 ## <a name="azure-cli"></a>CLI do Azure
-A [CLI (Interface de linha de comando) do Azure](../xplat-cli-install.md) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure.
+A [CLI do Azure](../xplat-cli-install.md) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão da CLI é implementada usando o Node.js.
+
+## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+A [CLI do Azure 2.0 (Visualização)](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão de visualização da CLI é implementada usando Python.
+
 
 ## <a name="azure-iot-device-sdks"></a>SDKs do dispositivo IoT do Azure
 Há _SDKs de dispositivo_ disponíveis para vários idiomas que permitem que você crie [aplicativos de dispositivo](#device-app) que interagem com um hub IoT. Os tutoriais do Hub IoT mostram como usar esses SDKs de dispositivo. Você pode encontrar o código-fonte e obter mais informações sobre os SDKs de dispositivo neste [repositório](https://github.com/Azure/azure-iot-sdks) GitHub.
@@ -56,6 +60,9 @@ O [Armazenamento do Azure](../storage/storage-introduction.md) é uma solução 
 ## <a name="back-end-app"></a>Aplicativo de back-end
 No contexto do [Hub IoT](#iot-hub), um aplicativo de back-end é um aplicativo que se conecta a um dos pontos de extremidade voltados para o serviço em um hub IoT. Por exemplo, um aplicativo de back-end pode recuperar mensagens do [dispositivo para nuvem](#device-to-cloud) ou gerenciar o [registro de identidade](#identity-registry). Normalmente, um aplicativo de back-end é executado na nuvem, mas em muitos dos tutoriais dos aplicativos de back-end há aplicativos de console em execução no seu computador de desenvolvimento local.
 
+## <a name="built-in-endpoints"></a>Pontos de extremidade internos
+Cada hub IoT inclui internos [endpoint](iot-hub-devguide-endpoints.md) que é evento Hubs compatível. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de dispositivo para nuvem desse ponto de extremidade.
+
 ## <a name="cloud-gateway"></a>Gateway de nuvem
 Um gateway de nuvem permite a conectividade para os dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub). Um gateway de nuvem é hospedado na nuvem em comparação a um [gateway de campo](#field-gateway) executado no local para seus dispositivos. Um caso de uso típico para um gateway de nuvem é implementar a conversão de protocolo para seus dispositivos.
 
@@ -66,6 +73,9 @@ Refere-se às mensagens enviadas de um hub IoT para um dispositivo conectado. Ge
 Você pode usar cadeias de conexão no código do aplicativo para encapsular as informações necessárias para se conectar a um ponto de extremidade. Uma cadeia de conexão normalmente inclui o endereço das informações de segurança e de ponto de extremidade, mas os formatos da cadeia de conexão variam de acordo com os serviços. Há dois tipos de cadeia de conexão associados ao serviço do Hub IoT:
 - *Cadeias de conexão do dispositivo* permitem que os dispositivos se conectem aos pontos de extremidade voltados para o dispositivo em um Hub IoT.
 - *Cadeias de conexão do Hub IoT* permitem que os aplicativos de back-end se conectem aos pontos de extremidade voltados para o serviço em um Hub IoT.
+
+## <a name="custom-endpoints"></a>Pontos de extremidade personalizados
+Você pode criar [pontos de extremidade](iot-hub-devguide-endpoints.md) em um hub IoT entregar as mensagens enviadas por uma [regra de roteamento](#routing-rules). Pontos de extremidade personalizados se conectar diretamente a um hub de eventos, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
 ## <a name="custom-gateway"></a>Gateway personalizado
 Um gateway permite a conectividade para os dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub). Você pode usar o [SDK Gateway IoT do Azure](#azure-iot-gateway-sdk) para criar gateways personalizados que implementem a lógica personalizada para lidar com mensagens e conversões de protocolo personalizado.
@@ -95,10 +105,10 @@ Refere-se a informações de estado do dispositivo, como o método de conectivid
 Os dados do dispositivo referem-se aos dados por dispositivo armazenados no [registro de identidade](#identity-registry) do Hub IoT. É possível importar e exportar esses dados.
 
 ## <a name="device-explorer"></a>Gerenciador de dispositivos
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry) e envie e receba mensagens para seus dispositivos.
+O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry) e envie e receba mensagens para seus dispositivos.
 
 ## <a name="device-identities-rest-api"></a>API REST de identidades de dispositivo
-A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) permite que você gerencie seus dispositivos registrados no [registro de identidade](#identity-registry) usando uma API REST. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/iothub/iothubresource) permite que você gerencie seus dispositivos registrados no [registro de identidade](#identity-registry) usando uma API REST. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-identity"></a>Identidade do dispositivo
 A identidade do dispositivo é o identificador exclusivo atribuído a cada dispositivo registrado no [registro de identidade](#identity-registry).
@@ -110,7 +120,7 @@ O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao ge
 O [hub IoT](#iot-hub) permite que os padrões comuns de gerenciamento de dispositivos, incluindo reinicialização, execução de redefinições de fábrica e execução de atualizações de firmware nos seus dispositivos.
 
 ## <a name="device-messaging-rest-api"></a>API REST de mensagens de dispositivo
-Você pode usar a [API REST de mensagens de dispositivo](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis) de um dispositivo para enviar mensagens de dispositivo para a nuvem a um hub IoT e receber mensagens da [nuvem para o dispositivo](#cloud-to-device) de um hub IoT. Normalmente, você deve usar um dos [SDKs de dispositivo](#azure-iot-device-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+Você pode usar a [API REST de mensagens de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime) de um dispositivo para enviar mensagens de dispositivo para a nuvem a um hub IoT e receber mensagens da [nuvem para o dispositivo](#cloud-to-device) de um hub IoT. Normalmente, você deve usar um dos [SDKs de dispositivo](#azure-iot-device-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 O provisionamento de dispositivos é o processo de adição dos [dados de dispositivo](#device-data) iniciais para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao [registro de identidades](#identity-registry) do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
@@ -121,6 +131,9 @@ Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON q
 ## <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 As [consultas de dispositivo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre [trabalhos](#job) em execução em seu hub IoT.
 
+## <a name="device-twins-rest-api"></a>Gêmeos de dispositivo API REST
+Você pode usar o [dispositivo gêmeos API REST](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) da solução de back-end para gerenciar seu Gêmeos de dispositivo. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method). Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+
 ## <a name="device-twin-synchronization"></a>Sincronização de dispositivos gêmeos
 A sincronização de dispositivos gêmeos usa as [propriedades desejadas](#desired-properties) em dispositivos gêmeos para configurar seus dispositivos e recuperar as [propriedades relatadas](#reported-properties) de dispositivos para armazenar no dispositivo gêmeo.
 
@@ -128,7 +141,7 @@ A sincronização de dispositivos gêmeos usa as [propriedades desejadas](#desir
 Um [método direto](iot-hub-devguide-direct-methods.md) é uma maneira de disparar um método a fim de executá-lo em um dispositivo chamando uma API em seu hub IoT.
 
 ## <a name="endpoint"></a>Ponto de extremidade
-Um hub IoT expõe vários [pontos de extremidade](iot-hub-devguide-endpoints.md) que permitem que seus aplicativos se conectem ao hub IoT. Há pontos de extremidade voltados para dispositivos que permitem que dispositivos executem operações como o envio de mensagens do [dispositivo para a nuvem](#device-to-cloud) e o recebimento de mensagens da [nuvem para o dispositivo](#cloud-to-device). Há pontos de extremidade de serviço voltados para serviço que permitem que [aplicativos de back-end](#back-end-app) executem operações como o gerenciamento de [identidade de dispositivo](#device-identity) e o gerenciamento de dispositivos gêmeos.
+Um hub IoT expõe vários [pontos de extremidade](iot-hub-devguide-endpoints.md) que permitem que seus aplicativos se conectem ao hub IoT. Há pontos de extremidade voltados para dispositivos que permitem que dispositivos executem operações como o envio de mensagens do [dispositivo para a nuvem](#device-to-cloud) e o recebimento de mensagens da [nuvem para o dispositivo](#cloud-to-device). Há pontos de extremidade de gerenciamento de voltados para serviço que permitem que [aplicativos de back-end](#back-end-app) executem operações como o gerenciamento de [identidade de dispositivo](#device-identity) e o gerenciamento de dispositivos gêmeos. Há voltado para o serviço [pontos de extremidade internos](#built-in-endpoints) para ler mensagens de dispositivo para a nuvem. Você pode criar [pontos de extremidade personalizados](#custom-endpoints) para receber mensagens de dispositivo para nuvem enviadas por uma [regra de roteamento](#routing-rules).
 
 ## <a name="event-hubs-service"></a>Serviço Hubs de Eventos
 [Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de entrada de dados altamente dimensionável que pode incluir milhões de eventos por segundo. O serviço permite processar e analisar as grandes quantidades de dados produzidas por aplicativos e dispositivos conectados. Para obter uma comparação com o serviço Hub IoT, veja [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure](iot-hub-compare-event-hubs.md).
@@ -167,10 +180,13 @@ Você pode usar a [API REST do provedor de recursos do Hub IoT](https://docs.mic
 O Azure IoT Suite reúne em um pacote vários serviços do Azure com soluções pré-configuradas. Essas soluções pré-configuradas permitem que você realize rapidamente implementações de ponta a ponta de cenários comuns de IoT. Para saber mais, confira [O que é o Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="iothub-explorer"></a>iothub-explorer
-O [iothub explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
+O [iothub explorer](https://github.com/azure/iothub-explorer) é uma ferramenta de linha de comando de plataforma cruzada. A ferramenta permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry), envie e receba mensagens e arquivos de seus dispositivos e monitore as operações do hub IoT.
 
 ## <a name="job"></a>Trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa trabalhos para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
+
+## <a name="job-api"></a>API de Trabalho
+A [api de trabalho](https://docs.microsoft.com/rest/api/iothub/jobapi) é uma API REST que permite o gerenciamento de [trabalhos](#job) em execução em seu Hub IoT.
 
 ## <a name="module"></a>Módulo
 No [SDK do Gateway IoT do Azure](iot-hub-linux-gateway-sdk-get-started.md), um [módulo](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) é um componente que executa uma tarefa específica. As tarefas podem incluir a ingestão de uma mensagem de um dispositivo, transformando uma mensagem, ou o envio de uma mensagem, para um hub IoT. Um agente é responsável pelo encaminhamento de mensagens entre os módulos. O SDK do Gateway IoT do Azure inclui um conjunto de módulos de exemplo. Você também pode criar seus próprios módulos personalizados.
@@ -194,7 +210,7 @@ Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de
 Há várias [cotas](iot-hub-devguide-quotas-throttling.md) que se aplicam ao uso do [Hub IoT](#iot-hub), muitas delas variam de acordo com a camada do hub IoT. O [Hub IoT](#iot-hub) também aplica [limitações](iot-hub-devguide-quotas-throttling.md) ao uso do serviço em tempo de execução.
 
 ## <a name="reported-configuration"></a>Configuração relatada
-No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), a configuração relatada refere-se ao conjunto completo de propriedades e de metadados no dispositivo gêmeo que deve ser relatado pelo dispositivo para o back-end da solução.
+No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), a configuração relatada refere-se ao conjunto completo de propriedades e de metadados no dispositivo gêmeo que deve ser relatado para o back-end da solução.
 
 ## <a name="reported-properties"></a>Propriedades reportadas
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as propriedades relatadas compõem uma subseção do dispositivo gêmeo usado com [propriedades desejadas](#desired-properties) para sincronizar a configuração ou a condição do dispositivo. As propriedades relatadas só podem ser definidas pelo [aplicativo de dispositivo](#device-app) e podem ser lidas e consultadas pelo [aplicativo de back-end](#back-end-app).
@@ -204,6 +220,9 @@ O [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para 
 
 ## <a name="retry-policy"></a>Política de repetição
 Use uma política de repetição para tratar [erros transitórios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) quando você se conectar a um serviço de nuvem.
+
+## <a name="routing-rules"></a>Regras de roteamento
+Configurar [as regras de roteamento](iot-hub-devguide-messaging.md#routing-rules) em seu hub IoT para rotear mensagens de dispositivo para a nuvem para um [ponto de extremidade interno](#built-in-endpoints) ou [pontos de extremidade personalizados](#custom-endpoints) para processamento pelo back-end da sua solução.
 
 ## <a name="sasl-plain"></a>SASL SIMPLES
 SASL SIMPLES é um protocolo que o protocolo [AMQP](#advanced-message-queue-protocol) usa para transferir tokens de segurança.
@@ -239,6 +258,6 @@ Você pode usar um serviço de token para implementar um mecanismo de autentica�
 Um dispositivo pode usar um certificado X.509 para se autenticar no [Hub IoT](#iot-hub). O uso de um certificado x.509 é uma alternativa ao uso de um [token SAS](#shared-access-signature).
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

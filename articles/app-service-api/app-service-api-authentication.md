@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: df2b27fd7016294f14d2ad87325a2acf24c15d85
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: cd66296718d8ae3cd2bcd69c66f54684f57d7ece
 
 
 ---
@@ -83,7 +83,7 @@ Para cenários de serviço a serviço, proteja o aplicativo de API chamado usand
 
 Se quiser lidar com um cenário de serviço a serviço sem usar a autenticação do Serviço de Aplicativo, você poderá usar a autenticação de certificados de cliente ou a autenticação básica. Para saber mais sobre certificados de cliente no Azure, veja [Como configurar a Autenticação Mútua TLS para aplicativos Web](../app-service-web/app-service-web-configure-tls-mutual-auth.md). Para saber mais sobre a autenticação básica no ASP.NET, confira [Filtros de autenticação na API Web 2 ASP.NET](http://www.asp.net/web-api/overview/security/authentication-filters).
 
-A autenticação de conta de serviço de um aplicativo lógico do Serviço de Aplicativo para um aplicativo de API é um caso especial, que é explicado em [Usando a API personalizada hospedada no Serviço de Aplicativo com aplicativos lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md).
+A autenticação de conta de serviço de um aplicativo lógico do Serviço de Aplicativo para um aplicativo de API é um caso especial, que é explicado em [Usando a API personalizada hospedada no Serviço de Aplicativo com aplicativos lógicos](../logic-apps/logic-apps-custom-hosted-api.md).
 
 ## <a name="mobile-client-authentication"></a>Autenticação de cliente móvel
 Para saber mais sobre como lidar com a autenticação de clientes móveis, confira a [documentação sobre autenticação para aplicativos móveis](../app-service-mobile/app-service-mobile-ios-get-started-users.md). A autenticação do Serviço de Aplicativo funciona da mesma forma para aplicativos móveis e para aplicativos de API.
@@ -112,6 +112,6 @@ Este artigo explicou os recursos de autenticação e de autorização do Serviç
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

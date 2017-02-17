@@ -8,16 +8,16 @@ manager: erikre
 editor: monicar
 tags: azure-service-management
 ms.assetid: c681e7a7-eeda-48aa-bc35-6277f4828244
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 10/04/2016
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 761126cb6a5e119e07d4d8fd7b04f6ea50856f6e
+ms.sourcegitcommit: 4f7527119f0e0955303858a52b638f6dbf483267
+ms.openlocfilehash: 60bd5469b4d22bac87e8794bcb6e1d3713645415
 
 
 ---
@@ -67,11 +67,12 @@ Para saber mais sobre edições e recursos com suporte do SQL Server, consulte o
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Recursos de BI instalados nas imagens da galeria de Máquinas Virtuais do SQL Server
 A tabela a seguir resume os recursos de Business Intelligence instalados nas imagens comuns da galeria de Máquinas Virtuais do Microsoft Azure para o SQL Server
 
-* SQL Server 2016 RC3
-* SQL Server 2014 SP1 Enterprise
-* SQL Server 2014 SP1 Standard
-* SQL Server 2012 SP2 Enterprise
-* SQL Server 2012 SP2 Standard
+* SQL Server 2016 SP1 Enterprise
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
+* SQL Server 2014 SP2 Standard
+* SQL Server 2012 SP3 Enterprise
+* SQL Server 2012 SP3 Standard
 
 | Recurso de BI do SQL Server | Instalado na galeria de imagens | Observações |
 | --- | --- | --- |
@@ -103,8 +104,6 @@ A tabela a seguir resume os recursos de Business Intelligence instalados nas ima
   
   > [!NOTE]
   > O mecanismo de banco de dados SQL Server é exigido nos cenários de BI com suporte. Em uma topologia de VM de servidor único, o mecanismo de banco de dados deve estar em execução na mesma VM.
-  > 
-  > 
   
     Para saber mais, consulte o seguinte: [Desinstalar o Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [Desinstalar uma instância do Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Verifique se há novas ‘Atualizações importantes’ no **Windows Update** . As imagens de máquina virtual do Microsoft Azure são atualizadas frequentemente; no entanto, é possível que atualizações importantes fiquem disponíveis no **Windows Update** após a última atualização da imagem da VM.
@@ -140,8 +139,6 @@ A imagem da galeria de máquinas virtuais do SQL Server inclui a instalação do
 
 > [!NOTE]
 > Para obter conteúdo semelhante que usa scripts do Windows PowerShell para configurar o servidor de relatório, consulte [Usar o PowerShell para criar uma VM do Azure com um servidor de relatório no modo nativo](virtual-machines-windows-classic-ps-sql-report.md).
-> 
-> 
 
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>Conectar-se à máquina virtual e iniciar o Gerenciador de Configuração do Reporting Services
 Há dois fluxos de trabalho comuns para se conectar a uma máquina virtual do Azure:
@@ -160,7 +157,7 @@ Há dois fluxos de trabalho comuns para se conectar a uma máquina virtual do Az
 
 **Inicie o Gerenciador de Configuração do Reporting Services.**
 
-1. No **Windows Server 2012**:
+1. No **Windows Server 2012/2016**:
 2. Na tela **Iniciar**, digite **Reporting Services** para ver uma lista de aplicativos.
 3. Clique com o botão direito do mouse no **Gerenciador de Configuração do Reporting Services** e clique em **Executar como Administrador**.
 4. No **Windows Server 2008 R2**:
@@ -346,8 +343,6 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 > [!NOTE]
 > [Enviar comentários e informações de contato pelo Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
-> 
-> 
 
 ### <a name="community-content"></a>Conteúdo da comunidade
 * [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
@@ -355,6 +350,6 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

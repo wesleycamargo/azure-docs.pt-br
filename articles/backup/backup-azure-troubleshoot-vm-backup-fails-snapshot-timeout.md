@@ -4,7 +4,7 @@ description: "Sintomas, causas e resoluções de falhas do Backup do Azure relac
 services: backup
 documentationcenter: 
 author: genlin
-manager: cfreeman
+manager: cshepard
 editor: 
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-ms.author: jimpark; markgal; genli
+ms.author: genli;markgal;
 translationtype: Human Translation
 ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
 ms.openlocfilehash: 707d666eb6c23fb926c31711daddfb22979513bc

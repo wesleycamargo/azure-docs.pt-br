@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
+ms.sourcegitcommit: f9814fc0011153a25489d60d696bb567edfcebc4
+ms.openlocfilehash: a4cde433850ab3627f870b51f5a897c6f846c2f0
 
 
 ---
@@ -29,16 +29,6 @@ ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Dimensionar o desempenho escalando horizontalmente recursos de computação e memória para atender às demandas de mudança de sua carga de trabalho. Economizar custos reduzindo recursos durante horários que não sejam de pico ou pausando a computação.
-
-Esta coleção de tarefas usa o portal do Azure para:
-
-* Computação de escala
-* Pausar computação
-* Retomar a computação
-
-Para saber mais sobre isso, consulte [Visão geral sobre o gerenciamento de computação][Manage compute overview].
 
 ## <a name="before-you-begin"></a>Antes de começar
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Instale a versão mais recente do Azure PowerShell
@@ -141,6 +131,6 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

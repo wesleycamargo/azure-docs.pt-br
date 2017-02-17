@@ -1,5 +1,5 @@
 ---
-title: Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem para o Hub IoT do Azure | Microsoft Docs
+title: "Conectar o Intel Edison (Nó) ao IoT do Azure - Lição 3: enviar mensagens| Microsoft Docs"
 description: Implante e execute um aplicativo de exemplo para o Intel Edison que envia mensagens ao seu Hub IoT e pisque o LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: cb18052f74528e245264bb2f400b625fe550ed85
-ms.openlocfilehash: b158dc91186496d9b8ebd0d4ce0478c7ae45935a
+ms.sourcegitcommit: adf5b10721a28432e6b37ef73c6a7e7ec9f93cdd
+ms.openlocfilehash: ddc40f2e3467cb406a7336924f9577d52061c42e
 
 
 ---
@@ -111,6 +111,6 @@ Você implantou e executou o novo aplicativo de exemplo de piscar no Edison para
 [read-messages-persisted-in-azure-storage]: iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

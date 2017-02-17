@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/19/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
-ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
+ms.sourcegitcommit: cbd5ca0444a1d0f9ad67864ae9507d5659191a05
+ms.openlocfilehash: aea3600cafeb297822280d7dc7ec9d13cce76ca1
 
 
 ---
@@ -34,28 +34,30 @@ ms.openlocfilehash: aa7b7ff406d06016aa6c4ee956dbf10a856a0e24
 >
 
 ## <a name="introduction"></a>Introdução
+
+### <a name="azure-machine-learning"></a>Aprendizado de Máquina do Azure
 [Aprendizado de Máquina do Azure](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, testar e implantar soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
 
 1. **Crie um teste de treinamento**. Conclua esta etapa usando o Estúdio AM do Azure. O Estúdio AM do Azure é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise preditiva usando dados de treinamento.
 2. **Convertê-lo em um teste preditivo**. Quando o modelo foi treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, você preparará e simplificará seu teste para a pontuação.
 3. **Implantá-lo como um serviço da Web**. Você pode publicar seu experimento de pontuação como um serviço Web do Azure. Você pode enviar dados ao seu modelo por desse ponto de extremidade de serviço Web e receber previsões de resultado do modelo.  
 
-O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do [Azure Machine Learning][azure-machine-learning] publicado para a análise preditiva. Consulte os artigos [Introdução ao Azure Data Factory](data-factory-introduction.md) e [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para começar a introdução ao serviço do Azure Data Factory.
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
+O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a **movimentação** e a **transformação** dos dados. Você pode criar soluções de integração de dados usando o serviço Data Factory que podem receber dados de vários repositórios de dados, transformar/processar os dados e publicar os dados resultantes nos repositórios de dados.
 
-Usando a **Atividade de Execução em Lote** em um pipeline do Azure Data Factory, você pode invocar um serviço Web de AM do Azure para fazer previsões sobre dados em lote. Consulte a seção [Invocando um serviço web de AM do Azure usando a Atividade de Execução em Lote](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) para obter detalhes.
+O serviço Data Factory permite criar pipelines de dados que movem e transformam dados e depois executar os pipelines em um agendamento especificado (por hora, diariamente, semanalmente, etc.). Ele também fornece visualizações avançadas para exibir a linhagem e as dependências entre os pipelines de dados e monitorar todos os seus pipelines de dados em uma única exibição unificada, a fim de identificar os problemas e configurar alertas de monitoramento facilmente.
+
+Consulte os artigos [Introdução ao Azure Data Factory](data-factory-introduction.md) e [Criar seu primeiro pipeline](data-factory-build-your-first-pipeline.md) para começar a introdução ao serviço do Azure Data Factory.
+
+### <a name="data-factory-and-machine-learning-together"></a>Data Factory e Machine Learning juntos
+O Azure Data Factory permite que você crie facilmente pipelines que usam o serviço Web do [Azure Machine Learning][azure-machine-learning] publicado para a análise preditiva. Usando a **Atividade de Execução em Lote** em um pipeline do Azure Data Factory, você pode invocar um serviço Web de AM do Azure para fazer previsões sobre dados em lote. Consulte a seção [Invocando um serviço web de AM do Azure usando a Atividade de Execução em Lote](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) para obter detalhes.
 
 Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM do Azure precisam ser treinados novamente usando novos conjuntos de dados de entrada. Você pode treinar novamente um modelo do AM do Azure de um pipeline do Data Factory executando as seguintes etapas:
 
 1. Publique o experimento de treinamento (e não um experimento preditivo) como um serviço Web. Essa etapa é feita no Estúdio AM do Azure como você fez para expor o experimento preditivo como um serviço Web no cenário anterior.
 2. Use a Atividade de Execução de Lote do AM do Azure para chamar o serviço Web para o experimento de treinamento. Basicamente, você pode usar a atividade de Execução de Lote do AM do Azure para invocar o serviço Web de treinamento e o serviço Web de pontuação.
 
-Depois de concluir o treinamento, você deseja atualizar o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado. Siga estas etapas:
-
-1. Adicione um ponto de extremidade não padrão ao serviço Web de pontuação. O ponto de extremidade padrão do serviço Web não pode ser atualizado, portanto você precisa criar um ponto de extremidade não padrão usando o Portal do Azure. Consulte o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para obter informações conceituais e de procedimentos.
-2. Atualize os serviços vinculados do AM do Azure existentes para pontuação para usar o ponto de extremidade não padrão. Comece a usar o novo ponto de extremidade para usar o serviço Web atualizado.
-3. Use a **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado.  
-
-Veja a seção [Atualizando modelos do AM do Azure usando a Atividade do Recurso de Atualização](#updating-azure-ml-models-using-the-update-resource-activity) para obter detalhes.
+Depois de concluir o treinamento, atualize o serviço Web de pontuação (experimento preditivo exposto como um serviço Web) com o modelo recém-treinado usando a **Atividade de recurso de Atualização de AM do Azure**. Veja a seção [Atualização de modelos usando a Atividade do Recurso de Atualização](#updating-models-using-update-resource-activity) para obter detalhes.
 
 ## <a name="invoking-a-web-service-using-batch-execution-activity"></a>Invocar um serviço Web usando a Atividade de Execução em Lote
 Você usa o Azure Data Factory para orquestrar o processamento e movimentação de dados e realizar a execução de lote usando o Aprendizado de Máquina do Azure. Estas são as etapas de nível superior:
@@ -64,8 +66,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 
    1. **URI de Solicitação** para a API de Execução do Lote. Encontre o URI da Solicitação clicando no link **EXECUÇÃO EM LOTE** na página de serviços Web.
    2. **Chave de API** para o serviço Web publicado do Aprendizado de Máquina do Azure. Encontre a chave de API clicando no serviço Web que você publicou.
-
-      1. Use a atividade **AzureMLBatchExecution** .
+   3. Use a atividade **AzureMLBatchExecution** .
 
       ![Painel de Aprendizado de Máquina](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
@@ -549,18 +550,67 @@ Ao longo do tempo, os modelos de previsão nos experimentos de pontuação do AM
 
 A tabela a seguir descreve os serviços Web usados neste exemplo.  Confira [Readaptar os modelos do Aprendizado de Máquina de forma programática](../machine-learning/machine-learning-retrain-models-programmatically.md) para obter detalhes.
 
-| Tipo de serviço Web | description |
-|:--- |:--- |
-| **Serviço Web de treinamento** |Recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo .ilearner em um Armazenamento de Blobs do Azure.  O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão |
-| **Serviço Web de pontuação** |Recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. Crie o segundo **ponto de extremidade não padrão e atualizável** usando o [Portal do Azure](https://manage.windowsazure.com). Você pode criar mais pontos de extremidade, mas este exemplo usa apenas o ponto de extremidade atualizável não padrão. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. |
+- **Treinamento do serviço Web** - recebe dados de treinamento e produz modelos treinados. A saída do novo treinamento é um arquivo .ilearner em um Armazenamento de Blobs do Azure. O **ponto de extremidade padrão** é criado automaticamente para você quando o experimento de treinamento é publicado como um serviço Web. Você pode criar mais pontos de extremidade, mas o exemplo usa apenas o ponto de extremidade padrão.
+- **Pontuação do serviço Web** - recebe exemplos de dados sem rótulo de e faz previsões. A saída de previsão pode ter diversas formas, como um arquivo .csv ou linhas em um banco de dados SQL do Azure, dependendo da configuração do experimento. O ponto de extremidade padrão é criado automaticamente para você quando o teste preditivo é publicado como um serviço Web. 
 
 A figura a seguir descreve o relacionamento entre os pontos de extremidade de treinamento e de pontuação no AM do Azure.
 
 ![SERVIÇOS WEB](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Você pode invocar o **training web service** usando o **Atividade de Execução de Lote do AM do Azure**. A invocação de um serviço Web de treinamento é igual à invocação de um serviço Web do AM do Azure ML (serviço Web de pontuação) para pontuação de dados. As seções anteriores abordam em detalhes como invocar um serviço Web de AM do Azure de um pipeline do Azure Data Factory.
+Você pode invocar o **training web service** usando o **Atividade de Execução de Lote do AM do Azure**. A invocação de um serviço Web de treinamento é igual à invocação de um serviço Web do AM do Azure ML (serviço Web de pontuação) para pontuação de dados. As seções anteriores abordam em detalhes como invocar um serviço Web de AM do Azure de um pipeline do Azure Data Factory. 
 
-Você pode invocar o **scoring web service** usando o **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado. Como mencionado na tabela acima, você deve criar e usar o ponto de extremidade não padrão atualizável. Além disso, atualize quaisquer serviços vinculados existentes em seu data factory a fim de usar o ponto de extremidade não padrão para que eles sempre usem o modelo mais recente recuperado.
+Você pode invocar o **scoring web service** usando o **Atividade de Recurso de Atualização de AM do Azure** para atualizar o serviço Web com o modelo recém-treinado. Os exemplos a seguir fornecem as definições de serviço vinculado: 
+
+### <a name="scoring-web-service-is-a-classic-web-service"></a>Serviço web de pontuação é um serviço web clássico
+Se o serviço web de pontuação é um **serviço web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o [portal do Azure](https://manage.windowsazure.com). Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, faça o seguinte:
+
+* Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
+* Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).
+
+![ponto de extremidade atualizável](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+
+O exemplo a seguir fornece um exemplo de definição de JSON para o serviço AzureML vinculado. O serviço vinculado usa o apiKey para autenticação.  
+
+```json
+{
+    "name": "updatableScoringEndpoint2",
+    "properties": {
+        "type": "AzureML",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
+            "apiKey": "endpoint2Key",
+            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+        }
+    }
+}
+```
+
+### <a name="scoring-web-service-is-a-new-type-of-web-service-azure-resource-manager"></a>Serviço web de pontuação é um novo tipo de serviço da web (Azure Resource Manager)
+Se o serviço web é o novo tipo de serviço da web que expõe um ponto de extremidade do Azure Resource Manager, você não precisa adicionar o segundo **não-padrão** ponto de extremidade. O **updateResourceEndpoint** no serviço vinculado está no formato: 
+
+```
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+```
+
+Você pode obter valores para espaços reservados na URL ao consultar o serviço da web sobre o [Portal de serviços da Web do Azure Machine Learning](https://services.azureml.net/). O novo tipo de ponto de extremidade de recursos de atualização requer um token do AAD (Azure Active Directory). Especifique **servicePrincipalId** e **servicePrincipalKey**no serviço vinculado do AzureML. Consulte [como criar entidade de serviço e atribuir permissões para gerenciar recursos do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Aqui está um exemplo de definição de serviço AzureML vinculado: 
+
+```json
+{
+    "name": "AzureMLLinkedService",
+    "properties": {
+        "type": "AzureML",
+        "description": "The linked service for AML web service.",
+        "typeProperties": {
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
+            "apiKey": "xxxxxxxxxxxx",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
+            "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
+            "servicePrincipalKey": "xxxxx",
+            "tenant": "mycompany.com"
+        }
+    }
+}
+```
 
 O cenário a seguir fornece mais detalhes. Ele tem um exemplo de readaptação e atualização de modelos de AM do Azure de um pipeline do Azure Data Factory.
 
@@ -679,22 +729,16 @@ O trecho de código do JSON a seguir define um serviço vinculado do Aprendizado
     "properties": {
         "type": "AzureML",
         "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": "endpoint2Key",
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
+            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/00000000eb0abe4d6bbb1d7886062747d7/services/00000000026734a5889e02fbb1f65cefd/jobs?api-version=2.0",
+            "apiKey": "sooooooooooh3WvG1hBfKS2BNNcfwSO7hhY6dY98noLfOdqQydYDIXyf2KoIaN3JpALu/AKtflHWMOCuicm/Q==",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/myWebService?api-version=2016-05-01-preview",
+            "servicePrincipalId": "fe200044-c008-4008-a005-94000000731",
+            "servicePrincipalKey": "zWa0000000000Tp6FjtZOspK/WMA2tQ08c8U+gZRBlw=",
+            "tenant": "mycompany.com"
         }
     }
 }
 ```
-
-Antes de criar e implantar um serviço vinculado do AM do Azure, siga as etapas do artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para criar um segundo ponto de extremidade (não padrão e atualizável) para o serviço Web pontuação.
-
-Depois de criar o ponto de extremidade atualizável não padrão, faça o seguinte:
-
-* Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
-* Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).
-
-![ponto de extremidade atualizável](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
 #### <a name="placeholder-output-dataset"></a>Conjunto de dados de saída de espaço reservado:
 A atividade de Atualização do recurso do AM do Azure não gera qualquer saída. No entanto, o Azure Data Factory exige um conjunto de dados de saída para gerar a agenda de um pipeline. Portanto, usamos um conjunto de dados fictício/espaço reservado neste exemplo.  
@@ -876,6 +920,6 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 13d0a71762d3cba05c3dccb647d0890862307327
-ms.openlocfilehash: 9593804ba5baa4ffe4cf49e21b5698c5fd3d157e
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 409e1a104fa73d911ea508cbff311cb48fc20f9f
 
 
 ---
@@ -29,7 +29,7 @@ O conector do Outlook.com permite que você gerencie seus emails, calendários e
 >
 >
 
-É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 O conector do Outlook.com pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
@@ -746,10 +746,10 @@ Atualizar contato: atualiza parcialmente um contato
 | DisplayName |string |Não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

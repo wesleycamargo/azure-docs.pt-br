@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Kit de Início do Gateway IoT do Azure | Microsoft Docs"
+title: "Dispositivo simulado e Gateway do IoT do Azure - Introdução | Microsoft Docs"
 description: "Introdução ao Kit de Início do Gateway IoT, criar seu Hub IoT do Azure e conectar o Gateway ao Hub IoT"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: c62e0cc560af18945c371af000ec08c0ddc7cd5a
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 06161c2950fbe99d2e4f9c1b416695a5f9f18ca4
 
 
 ---
@@ -35,7 +35,7 @@ Neste tutorial, você começa aprendendo as noções básicas de como trabalhar 
 ***
 
 ## <a name="lesson-1-configure-your-nuc"></a>Lição 1: Configurar sua NUC
-![Diagrama de ponta a ponta da Lição 1](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
+![Diagrama de ponta a ponta da Lição&1;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson1.png)
 
 Nesta lição, você configura a NUC da Intel (próxima unidade de computação) no Kit como um Gateway IoT do Azure, instala o pacote do SDK do Gateway IoT do Azure na NUC e executa um aplicativo de exemplo para verificar a funcionalidade de gateway.
 
@@ -44,7 +44,7 @@ Nesta lição, você configura a NUC da Intel (próxima unidade de computação)
 Vá para [Configurar a NUC da Intel como um gateway IoT](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
 ## <a name="lesson-2-create-your-iot-hub"></a>Lição 2: Criar seu Hub IoT
-![Diagrama de ponta a ponta da Lição 2](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
+![Diagrama de ponta a ponta da Lição&2;](media/iot-hub-gateway-kit-lessons/e2e-sim-Lesson2.png)
 
 Nesta lição, você instala os softwares e as ferramentas no computador host. Em seguida, você cria sua conta gratuita do Azure, provisiona seu Hub IoT do Azure e cria seu primeiro dispositivo no Hub IoT.
 
@@ -109,6 +109,6 @@ Se tiver problemas durante as lições, procure por soluções no artigo [Soluç
 Visite a [Zona do desenvolvedor de Kit do Gateway IoT da Intel](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) para saber mais.
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de nomenclatura de infraestrutura do Azure | Microsoft Docs
+title: Diretrizes de nomenclatura de infraestrutura do Azure - Linux | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à nomenclatura em serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: 16447489a2923851a0f404c247d7b8132d68fe4c
+ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
+ms.openlocfilehash: 1ccde46c7adafdaa4a9efca450a3dd2efde8413a
 
 
 ---
@@ -107,6 +107,6 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

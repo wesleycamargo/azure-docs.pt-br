@@ -52,6 +52,6 @@ Para saber mais sobre como planejar sua implantação do Hub IoT, consulte:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

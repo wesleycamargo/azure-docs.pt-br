@@ -1,5 +1,5 @@
 ---
-title: Criar um Hub IoT do Azure e registrar seu dispositivo | Microsoft Docs
+title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 2: registrar dispositivo | Microsoft Docs"
 description: 
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 7765f122476c51011ab12613e615e5fea0bc58f4
-ms.openlocfilehash: 4b878ebe3222c4ab1c41051c659ba8333bf94c32
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: a895f18b4cefc01f12613e701c71bd471bb369c3
 
 
 ---
@@ -108,6 +108,6 @@ Você criou um Hub IoT do Azure e registrou seu dispositivo lógico com uma iden
 [Configurar e executar um aplicativo de exemplo BLE](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

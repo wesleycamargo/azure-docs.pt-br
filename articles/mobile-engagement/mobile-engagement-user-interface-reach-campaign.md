@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: 75c2b2a467a03b51519cad530bf3d03ed32c4300
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d5110a33e13802fd6e5e0f075c7d3ddd521a1ef9
 
 
 ---
@@ -120,7 +120,7 @@ Você pode usar a seção Notificação para definir as configurações básicas
 Você pode usar a seção Conteúdo para modificar o conteúdo de Anúncios, Pesquisas, Envio de Dados por Push e Blocos (somente no Windows Phone). A configuração de conteúdo de campanhas de envio é específica para o tipo de campanha. 
 
 ### <a name="see-also"></a>Consulte também
-* [Documentação da interface do usuário – Alcance – Enviar conteúdo por push][Link 29]
+* [Documentação da Interface do Usuário ‑ Alcance ‑ Enviar conteúdo por push][Link 29]
 
 ![Reach-Campaign5][24]
 
@@ -135,7 +135,7 @@ Você pode usar a seção Público-alvo para definir uma lista padrão de itens 
 * Envie por push apenas para seus usuários ativos (caixa de seleção "Envolver apenas os usuários que podem ser contatados por meio de envio por push nativo" e "Envolver apenas os usuários ativos") para que somente os usuários que ainda tenham o aplicativo instalado e que o utilizem sejam verificados.
   Quando seu público-alvo for definido, você poderá usar o botão de simulação para descobrir quantos usuários receberão esse envio por push. Isso irá calcular o número de usuários conhecidos potencialmente direcionados para esse público-alvo (essa é uma estimativa com base em uma amostra aleatória de usuários). Lembre-se de que os usuários que desinstalaram o aplicativo também fazem parte desse público-alvo, mas não poderão ser alcançados.
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 * [Documentação da interface do usuário – Alcance – Novo Critério de Envio por Push][Link 28]
 
 ![Reach-Campaign6][25]
@@ -157,8 +157,8 @@ Você pode usar a seção Período para definir quando o envio por push será fe
 > [!NOTE]
 > Campanhas sem uma data de término podem armazenar localmente em cachês de envios e ainda exibi-los após as suas campanhas completas manualmente. Para evitar esse comportamento, especifique uma hora de término para as campanhas.
 
-### <a name="see-also"></a>Confira também
-* [Alcance – Instruções – Agendamento][Link 3] 
+### <a name="see-also"></a>Consulte também
+* [Alcance ‑ Instruções – Agendamento][Link 3] 
 
 ![Reach-Campaign8][27]
 
@@ -172,7 +172,7 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 > Nenhum dado do lado do servidor é registrado quando você usa o botão “testar” envios, os dados são registrados apenas para campanhas de envio real.
 
 ### <a name="see-also"></a>Consulte também
-* [Documentação da interface do usuário – Minha Conta][Link 14]
+* [Documentação da Interface do Usuário ‑ Minha Conta][Link 14]
 
 ![Reach-Campaign9][28]
 
@@ -270,6 +270,6 @@ Você pode usar a seção Teste para fazer esse envio por push para o seu própr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

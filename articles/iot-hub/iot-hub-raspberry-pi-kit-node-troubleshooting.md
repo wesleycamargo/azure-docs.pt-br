@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas | Microsoft Docs"
+title: Conectar o Raspberry Pi (C) ao IoT do Azure - Solucionar problemas | Microsoft Docs
 description: "Página de solução de problemas para experiência Raspberry Pi Node.js"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 2c5e2955584b165ca0ca95ce424a2050fb3f6ccd
 
 
 ---
@@ -123,6 +123,7 @@ Se você tiver provisionado com êxito o Hub IoT do Azure com a CLI do Azure e p
 ### <a name="device-explorer"></a>Gerenciador de dispositivos
 O [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](iot-hub-devguide.md):
 
+
 * *Gerenciamento de identidade do dispositivo* para provisionar e gerenciar dispositivos registrados com seu hub IoT.
 * *Receber do dispositivo para nuvem* para que você possa monitorar as mensagens enviadas de seu dispositivo ao seu Hub IoT.
 * *Enviar do dispositivo para nuvem* para que você possa enviar mensagens para seus dispositivos de seu Hub IoT.
@@ -153,6 +154,6 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

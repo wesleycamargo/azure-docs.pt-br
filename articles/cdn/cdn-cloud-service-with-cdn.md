@@ -1,9 +1,9 @@
 ---
-title: "Integrar um serviço de nuvem com a CDN do Azure | Microsoft Docs"
-description: "Um tutorial que ensina como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
+title: "Integrar um serviço de nuvem do Azure com a CDN do Azure | Microsoft Docs"
+description: "Aprenda como implantar um serviço de nuvem que serve o conteúdo de um ponto de extremidade CDN do Azure integrado"
 services: cdn, cloud-services
 documentationcenter: .net
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: tysonn
 ms.assetid: b3c0108f-9ec5-43a8-8fd0-40eafbd32637
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 750488e2855546418dd27ca511b9f8b3d06aa1da
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 6355c98f5c50d03b54cb4977bff4e51b8dfa669f
 
 
 ---
@@ -603,6 +603,6 @@ A classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

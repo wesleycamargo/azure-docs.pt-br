@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar extensões de máquina virtual | Microsoft Docs"
+title: "Gerenciar extensões de máquina virtual com base no Windows | Microsoft Docs"
 description: "Descreve como adicionar, localizar, atualizar e remover extensões para máquinas virtuais do Azure, no modelo de implantação clássica."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: e2de6eeb58bd3135032992d9fd0f69d026c0aecc
+ms.sourcegitcommit: 7ee387dde3f910fac2fe9195681c8fb8a0443d41
+ms.openlocfilehash: 4735857df57d293a6c1cc0d5ef6522c091b9e9e2
 
 
 ---
@@ -32,6 +32,6 @@ Descreve como localizar, adicionar, modificar ou remover extensões de VM com m�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

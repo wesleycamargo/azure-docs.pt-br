@@ -1,5 +1,5 @@
 ---
-title: Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager | Microsoft Docs
+title: Criar o Azure HDInsight (Hadoop) usando modelos | Microsoft Docs
 description: Aprenda a criar clusters do Azure HDInsight usando modelos do Azure Resource Manager.
 services: hdinsight
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/02/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
-ms.openlocfilehash: 78276ecfbeb339721c76af40428a452681c3407d
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 1816b7f5bb95669197891315ca57f93fd779c5c3
 
 
 ---
-# <a name="create-linux-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Criar clusters Hadoop no HDInsight usando modelos do Azure Resource Manager
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Aprenda a criar clusters HDInsight usando modelos de ARM (Gerenciador de Recursos do Azure). Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a criar clusters do HDInsight usando modelos do Azure Resource Manager. Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -59,9 +59,9 @@ Para encontrar o esquema JSON de determinados elementos, você pode seguir o pro
 
     O portal cria um modelo do Resource Manager com base em suas configurações.
 
-   ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
+## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 
-O procedimento a seguir cria o cluster HDInsight baseados em Linux.
+O procedimento a seguir cria um cluster Hadoop no HDInsight:
 
 **Para implantar um cluster usando o modelo do Resource Manager**
 
@@ -151,7 +151,7 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appx-a-resource-manager-template"></a>Appx-A: modelo do Resource Manager
-O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop baseado em Linux com a conta de armazenamento do Azure dependente.
+O modelo a seguir do Azure Resource Manager cria um cluster Hadoop baseado em Linux com a conta de armazenamento do Azure dependente.
 
 > [!NOTE]
 > O exemplo inclui informações de configuração para o metastore do Hive e o metastore do Oozie.  Remova a seção ou configure a seção antes de usar o modelo.
@@ -359,6 +359,6 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

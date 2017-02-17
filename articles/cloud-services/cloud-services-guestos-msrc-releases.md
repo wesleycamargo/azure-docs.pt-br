@@ -33,14 +33,14 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Atualização de segurança cumulativa do Internet Explorer |2.58, 3.46, 4.39 |13 de dezembro de 2016 |
 | MS16-145 |[3204062] |Atualização de segurança cumulativa do Microsoft Edge |5.4 |13 de dezembro de 2016 |
-| MS16-146 |[3204066]   |Atualização de Segurança do Componente Gráfico da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
-| MS16-147 |[3204063]   |Atualização de Segurança para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
-| MS16-149 |[3205655]   |Atualização de segurança para Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
-| MS16-150 |[3205642]   |Atualização de Segurança para Modo de Kernel Seguro |5.4 |13 de dezembro de 2016 |
-| MS16-151 |[3205651]   |Atualização de segurança para drivers do modo Kernel|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
-| MS16-152 |[3199709]   |Atualização de Segurança para Windows Kernel |5.4 |13 de dezembro de 2016 |
+| MS16-146 |[3204066]    |Atualização de Segurança do Componente Gráfico da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-147 |[3204063]    |Atualização de Segurança para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-149 |[3205655]    |Atualização de segurança para Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-150 |[3205642]    |Atualização de Segurança para Modo de Kernel Seguro |5.4 |13 de dezembro de 2016 |
+| MS16-151 |[3205651]    |Atualização de segurança para drivers do modo Kernel|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-152 |[3199709]    |Atualização de Segurança para Windows Kernel |5.4 |13 de dezembro de 2016 |
 | MS16-153 |[3207328] |Atualização de segurança para o Driver do Sistema de Arquivos de Log Comum|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
-| MS16-155 |[3205640]   |Atualização de Segurança do .NET Framework |5.4 |13 de dezembro de 2016 |
+| MS16-155 |[3205640]    |Atualização de Segurança do .NET Framework |5.4 |13 de dezembro de 2016 |
 | N/D |[3197868] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.58 |13 de dezembro de 2016 |
 | N/D |[3197877] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows Server 2012 |3,46 |13 de dezembro de 2016 |
 | N/D |[3197874] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.39 |13 de dezembro de 2016 |
@@ -50,11 +50,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Atualização de segurança cumulativa do Microsoft Edge |5,3 |8 de novembro de 2016 |
 | MS16-130 |[3199172] |Atualização de segurança para Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
-| MS16-131 |[3199151]   |Atualização de segurança para Controle de Vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-131 |[3199151]    |Atualização de segurança para Controle de Vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
 | MS16-132 |[3199120] |Atualização de segurança para Componente da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
 | MS16-134 |[3193706] |Atualização de segurança para o Driver do Sistema de Arquivos de Log Comum |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
 | MS16-135 |[3199135] |Atualização de segurança para drivers do modo Kernel |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
-| MS16-137 |[3199173]   |Atualização de Segurança para os Métodos de Autenticação do Windows |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-137 |[3199173]    |Atualização de Segurança para os Métodos de Autenticação do Windows |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
 | MS16-138 |[3199647] |Atualização de segurança para a Unidade de disco rígido virtual da Microsoft |5.3, 4.38, 3.45 |8 de novembro de 2016 |
 | MS16-139 |[3199720] |Atualização de Segurança para Windows Kernel |2.57 |8 de novembro de 2016 |
 | MS16-140 |[3193479] |Atualização de segurança do Gerenciador de Inicialização |5.3, 4.38, 3.45 |8 de novembro de 2016 |
@@ -721,6 +721,6 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

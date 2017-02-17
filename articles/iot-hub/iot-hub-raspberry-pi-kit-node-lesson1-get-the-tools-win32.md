@@ -1,5 +1,5 @@
 ---
-title: Obtenha as ferramentas (Windows 7 ou posterior) | Microsoft Docs
+title: "Conecte o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: obter ferramentas (Windows) | Microsoft Docs"
 description: "Baixe e instale as ferramentas e software necessários para o primeiro aplicativo de exemplo para o Pi no Windows 7 e versões posteriores."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 63d4a4a5cbc0d7313c5b527e5ec417d1b968483a
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 73df1a85cbcf7ee54fe625b6a150f89366ea2c14
 
 
 ---
@@ -77,6 +77,6 @@ Você instalou as ferramentas de desenvolvimento e software necessários para o 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

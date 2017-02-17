@@ -1,10 +1,10 @@
 ---
 title: " Usar o Conector do Slack em seus Aplicativos Lógicos | Microsoft Docs"
-description: "Começar a usar o Conector do Slack nos seus aplicativos lógicos do Serviço de Aplicativo do Microsoft Azure"
+description: "Introdução ao uso do conector do Slack de atraso em seu aplicativo lógico"
 services: 
 documentationcenter: 
 author: msftman
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cacaa4a4a0089e1c3df54ae466af251026e1a55b
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: 404776283ee10aa9410d002597e054757516bcab
 
 
 ---
@@ -33,7 +33,7 @@ Com o conector do Slack, você pode:
 
 * Usá-lo para criar aplicativos lógicos
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="lets-talk-about-triggers-and-actions"></a>Vamos conversar sobre gatilhos e ações
 O conector do Slack pode ser usado como uma ação. Ele não tem gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML. 
@@ -109,7 +109,7 @@ Siga estas etapas para entrar na Margem de atraso e concluir a configuração da
 
 - - -
 ## <a name="object-definitions"></a>Definições de objeto:
- **Message**: mensagem do Yammer
+ **Mensagem**: Mensagem do Slack
 
 Propriedades necessárias para a mensagem:
 
@@ -141,7 +141,7 @@ Nenhuma das propriedades é obrigatória.
 | liked_by |não definido |
 | system_message |booleano |
 
- **PostOperationRequest**: representa uma solicitação de postagem para que o Conector do Yammer poste no Yammer
+ **PostOperationRequest**: representa uma solicitação POST para o conector do Slack postar no Slack
 
 Propriedades obrigatórias para PostOperationRequest:
 
@@ -231,7 +231,7 @@ Nenhuma das propriedades é obrigatória.
 | full_name |string |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 ## <a name="object-definitions"></a>Definições de objeto:
  **WebResultModel**: resultados da pesquisa da Web do Bing
@@ -400,7 +400,7 @@ Nenhuma das propriedades é obrigatória.
 | is_user-deleted |booleano |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 [1]: ./media/connectors-create-api-slack/connectionconfig1.png
 [2]: ./media/connectors-create-api-slack/connectionconfig2.png 
@@ -411,6 +411,6 @@ Nenhuma das propriedades é obrigatória.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

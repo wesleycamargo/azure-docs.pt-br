@@ -1,5 +1,5 @@
 ---
-title: Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem para o Hub IoT do Azure | Microsoft Docs
+title: "Conectar o Arduino (C) ao IoT do Azure - Lição 3: executar exemplo | Microsoft Docs"
 description: Implante e execute um aplicativo de exemplo no Adafruit Feather M0 WiFi que envia mensagens ao Hub IoT e pisca o LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 9e8084fe26229ef9ed1676c0a3c34e0ee7be88b1
-ms.openlocfilehash: 569a28ae496f196c0f59be499cdef36550cc2ffa
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 631a6677e4801b1c3475b9e8f2726219dd101132
 
 
 ---
@@ -151,6 +151,6 @@ Você implantou e executou o novo aplicativo de exemplo de piscar em sua placa A
 [read-messages-persisted-in-azure-storage]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

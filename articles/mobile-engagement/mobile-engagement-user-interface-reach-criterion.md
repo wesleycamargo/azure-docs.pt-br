@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: b3d88826050bcdf272e732cb0b51ee2e2618e586
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: afa6625e4c3ebe2a408b4bd956c8d2eb9ac6a34b
 
 
 ---
@@ -25,16 +25,16 @@ Direcionar seu público-alvo por critérios específicos com o botão "Novos Cri
 
 **Consulte também:**
 
-* [Documentação da interface do usuário – Alcance – Nova Campanha de Push][Link 27]
+* [Documentação da Interface do Usuário ‑ Alcance ‑ Nova Campanha por Push][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>Os critérios de público-alvo podem incluir:
-* **Aspectos técnicos: ** você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Consulte também:** [UI Documentation - Analytics (Documentação da Interface do Usuário – Análise)][Link 15],  [UI Documentation - Monitor (Documentação da Interface do Usuário – Monitorar)][Link 16]
-* **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular (“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK). **Consulte também:** [SDK Documentation - iOS -  Integration (Documentação do SDK – iOS – Integração)][Link 5], [SDK Documentation - Android -  Integration (Documentação do SDK – Android – Integração)][Link 5]
-* **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite direcionar melhor para seu público-alvo depois de duas ou três campanhas de alcance em relação ao que poderia ser feito da primeira vez. Também pode ser usado para filtrar os usuários que já receberam uma notificação com conteúdo semelhante, definindo uma campanha para NÃO ser enviada aos usuários que já receberam uma campanha anterior específica. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [UI Documentation -  Reach - Push Content (Documentação da interface do usuário – Alcance – Conteúdo Push)][Link 29]
-* **Instalar Rastreamento:** você pode rastrear informações com base no local onde seus usuários instalaram o seu Aplicativo. **Consulte também:** [Documentação da interface do usuário -  Configurações][Link 20]
+* **Aspectos técnicos: ** você pode direcionar com base nas mesmas informações técnicas que pode ver nas seções Análise e Monitoramento. **Veja também:** [Documentação da Interface do Usuário ‑ Análise][Link 15], [Documentação da Interface do Usuário ‑ Monitoramento][Link 16]
+* **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular (“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK). **Consulte também:** [Documentação do SDK ‑ iOS ‑ Integração][Link 5], [Documentação do SDK ‑ Android ‑ Integração][Link 5]
+* **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite direcionar melhor para seu público-alvo depois de duas ou três campanhas de alcance em relação ao que poderia ser feito da primeira vez. Também pode ser usado para filtrar os usuários que já receberam uma notificação com conteúdo semelhante, definindo uma campanha para NÃO ser enviada aos usuários que já receberam uma campanha anterior específica. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [Documentação da Interface do Usuário ‑ Alcance ‑ Enviar Conteúdo por Push][Link 29]
+* **Instalar Rastreamento:** você pode rastrear informações com base no local onde seus usuários instalaram o seu Aplicativo. **Consulte também:** [Documentação da interface do usuário ‑ Configurações][Link 20]
 * **Perfil do Usuário:** você pode direcionar com base nas informações de usuário padrão e pode direcionar com base em informações do aplicativo personalizado que você criou. Isso inclui usuários que estão conectados no momento e os usuários que responderam perguntas específicas que você fez a eles para definir o próprio aplicativo, em vez de apenas a forma como eles responderam a campanhas anteriores. Todas as Informações do Aplicativo definidas para seu aplicativo são mostradas nesta lista.
-* Segmentos: também será possível direcionar com base em segmentos que você tenha criado com base no comportamento de um usuário específico com diversos critérios. Todos os segmentos definidos para o seu aplicativo aparecem nessa lista. **Consulte também:** [Documentação da interface do usuário – Segmentos][Link 18]
-* **Informações do Aplicativo:** as Marcas de Informações de Aplicativo Personalizadas podem ser criadas nas “Configurações" para controlar o comportamento do usuário. **Consulte também:** [Documentação da interface do usuário -  Configurações][Link 20]
+* Segmentos: também será possível direcionar com base em segmentos que você tenha criado com base no comportamento de um usuário específico com diversos critérios. Todos os segmentos definidos para o seu aplicativo aparecem nessa lista. **Consulte também:** [Documentação da Interface do Usuário ‑ Segmentos][Link 18]
+* **Informações do Aplicativo:** as Marcas de Informações de Aplicativo Personalizadas podem ser criadas nas “Configurações" para controlar o comportamento do usuário. **Consulte também:** [Documentação da interface do usuário ‑ Configurações][Link 20]
 
 ## <a name="example"></a>Exemplo:
 Se você quiser enviar por push um anúncio apenas para o subconjunto de seus usuários que executaram uma ação no aplicativo de compra.
@@ -179,6 +179,6 @@ Se você quiser enviar por push um anúncio apenas para o subconjunto de seus us
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

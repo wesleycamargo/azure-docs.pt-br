@@ -119,6 +119,6 @@ Naturalmente, você pode usar `docker-compose ps` para examinar apenas os contê
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

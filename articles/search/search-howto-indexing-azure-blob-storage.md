@@ -12,16 +12,16 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/24/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2b62ddb83b35194b9fcd23c60773085a9551b172
-ms.openlocfilehash: 041b47ed2aba11d45ed6ae02dadb73916046dd78
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: 60c8296e1287419dedf5b5f01f2ddb7ab86b5d11
 
 ---
 
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
-Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. O novo indexador de blob da Pesquisa do Azure torna esse processo rápido e direto.
+Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar. 
 
 ## <a name="supported-document-formats"></a>Formatos de documento com suporte
 O indexador de blob pode extrair o texto dos seguintes formatos de documento:
@@ -45,17 +45,15 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 
 * [Portal do Azure](https://ms.portal.azure.com)
-* [API REST](https://msdn.microsoft.com/library/azure/dn946891.aspx) do Azure Search
-* SDK do .NET do Azure Search [versão 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure Search
+* [SDK do .NET](https://aka.ms/search-sdk) do Azure Search
 
 > [!NOTE]
 > Alguns recursos (por exemplo, mapeamentos de campo) ainda não estão disponíveis no portal e precisam ser usados por meio de programação.
 >
 >
 
-Neste artigo, vamos definir um indexador usando a API REST. Primeiro, vamos criar uma fonte de dados, depois, criar um índice e, por fim, configurar o indexador.
-
-Em seguida, vamos apresentar os detalhes sobre como o indexador de blobs analisa os blobs, como selecionar quais blobs serão indexados, como lidar com blobs de tipos de conteúdo sem suporte e as definições de configuração disponíveis. 
+Aqui, demonstraremos o fluxo usando a API REST. 
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 Uma fonte de dados especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que identificam com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Uma fonte de dados pode ser usada por vários indexadores no mesmo serviço de pesquisa.
@@ -64,10 +62,10 @@ Para a indexação de blobs, a fonte de dados deve ter as seguintes propriedades
 
 * **name** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
 * **type** deve ser `azureblob`.
-* **credentials** fornece a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Você pode obter a cadeia de conexão no Portal do Azure navegando até a folha da conta de armazenamento desejada > **Configurações** > **Chaves** e usar o valor "Cadeia de Conexão Primária" ou "Cadeia de Conexão Secundária".
+* **credentials** fornece a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Consulte [Como especificar credenciais](#Credentials) abaixo para obter detalhes.
 * **container** especifica um contêiner em sua conta de armazenamento. Por padrão, todos os blobs no contêiner são recuperáveis. Se você quiser apenas blobs de índice em um diretório virtual específico, especifique o diretório usando o parâmetro opcional **query**.
 
-O exemplo a seguir ilustra uma definição da fonte de dados:
+Para criar uma fonte de dados:
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -76,16 +74,30 @@ O exemplo a seguir ilustra uma definição da fonte de dados:
     {
         "name" : "blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
 
-Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>Como especificar credenciais ####
+
+Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras: 
+
+- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
+- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. As SAS devem ter as permissões de lista e leitura nos contêineres e objetos (blobs neste caso).
+-  **Assinatura de acesso compartilhado do contêiner**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. As SAS devem ter a lista e permissões de leitura no contêiner.
+
+Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> Se você usar credenciais SAS, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais SAS expirarem, o indexador irá falhar com uma mensagem de erro semelhante à `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="step-2-create-an-index"></a>Etapa 2: Criar um índice
-O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.  
+O índice especifica os campos em um documento, atributos e outras construções que modelam a experiência de pesquisa.
 
-Para a indexação de blob, verifique se o índice tem um campo `content` de pesquisa para armazenar o blob.
+Veja como criar um índice com um campo `content` pesquisável para armazenar o texto extraído dos blobs:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
@@ -99,10 +111,12 @@ Para a indexação de blob, verifique se o índice tem um campo `content` de pes
           ]
     }
 
-Para obter mais informações sobre Criar a API de Índice, consulte [Criar Índice](https://msdn.microsoft.com/library/dn798941.aspx)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Etapa 3: Criar um indexador
-Um indexador conecta as fontes de dados com os índices de pesquisa de destino e fornece informações de agendamento para que você possa automatizar a atualização dos dados. Depois do índice e da fonte de dados ser criados, será relativamente simples criar um indexador que referencia a fonte de dados e um índice de destino. Por exemplo:
+Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fornece um agendamento para automatizar a atualização de dados. 
+
+Uma vez que o índice e a fonte de dados forem criados, será possível criar o indexador:
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -115,9 +129,9 @@ Um indexador conecta as fontes de dados com os índices de pesquisa de destino e
       "schedule" : { "interval" : "PT2H" }
     }
 
-Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto permitido é de 5 minutos. O agendamento é opcional - se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
+Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto com suporte é de 5 minutos. O agendamento é opcional – se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexador](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="how-azure-search-indexes-blobs"></a>Como o Azure Search indexa os blobs
 
@@ -147,13 +161,14 @@ Não é necessário definir os campos para todas as propriedades acima em seu í
 >
 >
 
-### <a name="picking-the-document-key-field-and-dealing-with-different-field-names"></a>Escolha do campo de chave do documento e tratamento de nomes de campo diferentes
+<a name="DocumentKeys"></a>
+### <a name="defining-document-keys-and-field-mappings"></a>Definir chaves de documento e mapeamentos de campo
 Na Pesquisa do Azure, a chave do documento identifica exclusivamente um documento. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo Edm.String. O campo de chave é necessário para cada documento adicionado ao índice (é, na verdade, o único campo obrigatório).  
 
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
 * **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) para essa finalidade).
-* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://msdn.microsoft.com/library/azure/dn857353.aspx).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a [função](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
+* **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a [função](search-indexer-field-mappings.md#base64EncodeFunction) `base64Encode`.
 * Se nenhuma das opções acima funcionar para você, adicione uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
 
 > [!IMPORTANT]
@@ -344,6 +359,6 @@ Caso você tenha solicitações de recursos ou ideias para melhorias, entre em c
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

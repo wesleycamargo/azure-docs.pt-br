@@ -1,5 +1,5 @@
 ---
-title: Ler mensagens de seu Hub IoT do Azure | Microsoft Docs
+title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 3: ler mensagens | Microsoft Docs"
 description: "Execute um código de exemplo no computador host para ler as mensagens de seu Hub IoT."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 09b0e0321b08a11622633e727cf8be54c1707436
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 0a5dd7e010ba46b724bb6a2526dc2a2730acc10f
 
 
 ---
@@ -101,6 +101,6 @@ Você executou um código de exemplo para ler mensagens de seu Hub IoT. Você es
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

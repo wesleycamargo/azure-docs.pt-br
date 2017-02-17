@@ -90,6 +90,6 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

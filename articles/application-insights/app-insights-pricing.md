@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: b1691d78e4914bd5cf9c75e32f36afceb997a622
+ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
+ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
 
 
 ---
@@ -40,7 +40,7 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
 
 * No plano Básico, você é cobrado pelo volume de dados: o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
 * O primeiro GB para cada aplicativo é gratuito, portanto, se você estiver apenas testando ou desenvolvendo, é pouco provável que precise pagar.
-* A [Exportação Contínua](app-insights-export-telemetry.md) e o [Conector do Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) estão disponíveis por uma cobrança extra por GB no plano Básico, embora sejam gratuitos até o início de março de 2017.
+* [Exportação contínua](app-insights-export-telemetry.md) está disponível para um encargo de GB de extra no plano básico, embora ele é gratuito até de 2017 início de março.
 
 ### <a name="enterprise-plan"></a>Plano Enterprise
 
@@ -66,7 +66,7 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
 
 * O comportamento preciso da contagem de nós depende de qual SDK do Application Insights seu aplicativo está usando. 
   * No SDK versões 2.2 e posteriores, tanto o Application Insights [SDK do Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) quanto o [SDK Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) relatarão cada host de aplicativo como um nó, por exemplo, o nome do computador para o servidor físico e hosts de VM ou o nome da instância no caso de serviços de nuvem.  A única exceção é o caso de aplicativos usando apenas o [.NET Core](https://dotnet.github.io/) e o SDK do Core do Application Insights; nesse caso, somente um nó será relatado para todos os hosts porque o nome do host não está disponível. 
-  * Para versões anteriores do SDK, o [SDK Web}(https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará exatamente como as versões mais recentes do SDK, no entanto, o [SDK do Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) reportará apenas um nó, independentemente do número de hosts de aplicativos reais. 
+  * Para versões anteriores do SDK, o [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) se comportará exatamente como as versões mais recentes do SDK, no entanto, o [SDK do Core](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) reportará apenas um nó, independentemente do número de hosts de aplicativos reais. 
   * Observe que se seu aplicativo estiver usando o SDK para definir roleInstance para um valor personalizado, esse mesmo valor será, por padrão, usado para determinar a contagem de nós. 
   * Se você está usando uma nova versão do SDK com um aplicativo que é executado em dispositivos móveis ou computadores cliente, é possível que a contagem de nós retorne um número muito grande (do grande número de dispositivos móveis ou computadores cliente). 
 
@@ -174,6 +174,6 @@ Aplicativos existentes podem continuar a usar os tipos de preço antigos até de
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
