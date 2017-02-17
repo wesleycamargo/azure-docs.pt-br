@@ -1,5 +1,5 @@
 ---
-title: "Replicar as máquinas virtuais VMware e os servidores físicos no Azure com o Azure Site Recovery no portal do Azure | Microsoft Docs"
+title: "Replicar VMs do VMware e servidores físicos para o Azure | Microsoft Docs"
 description: "Descreve como implantar o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de máquinas virtuais VMware e servidores físicos Windows/Linux locais no Azure usando o portal do Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 20ffa261ef17847a665e7c83defeb19e9029fb63
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: 82dbfe13577d135e3e0192f3f5fca6e085c389d3
 
 
 ---
@@ -41,7 +41,7 @@ Para uma implantação completa, é altamente recomendado realizar as etapas do 
 
 | **Área** | **Detalhes** |
 | --- | --- |
-| **Cenário de implantação 2** |Replicar VMs VMware ou servidores físicos (Windows/Linux) no Azure, usando o portal do Azure |
+| **Cenário de implantação&2;** |Replicar VMs VMware ou servidores físicos (Windows/Linux) no Azure, usando o portal do Azure |
 | **Requisitos de local** |Computador local que executa o servidor de configuração, servidor em processo e servidor de destino mestre.<br/><br/> O servidor de configuração precisa de uma conexão com a Internet e do acesso (diretamente ou via proxy) a URLs específicas. [Detalhes completos](#configuration-server-or-additional-process-server-prerequisites). |
 | **Requisitos do Azure** |Conta do Azure<br/><br/> Cofre dos Serviços de Recuperação <br/><br/> Conta de armazenamento LRS ou GRS na região do cofre<br/><br/> Conta de armazenamento standard ou premium<br/><br/> Rede virtual do Azure na região do cofre. [Detalhes completos](#azure-prerequisites). |
 | **Limitações do Azure** |Se usar GRS, você precisará de outra conta LRS para registro em log<br/><br/> As contas de armazenamento criadas no portal do Azure não podem ser movidas entre grupos de recursos.<br/><br/> No momento, não há suporte para replicação para as contas de armazenamento premium na Índia Central e no Sul da Índia. |
@@ -57,7 +57,7 @@ Para uma implantação completa, é altamente recomendado realizar as etapas do 
 ## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery no portal do Azure
 O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos: o Azure Resource Manager e o clássico. O Azure também tem dois portais – o portal clássico do Azure e o portal do Azure.
 
-Este artigo descreve como implantar no portal do Azure, que fornece novos recursos e uma experiência simplificada de implantação. O portal clássico pode ser usado para manter os cofres existentes. Não é possível criar novos cofres usando o portal clássico. 
+Este artigo descreve como implantar no portal do Azure, que fornece novos recursos e uma experiência simplificada de implantação. O portal clássico pode ser usado para manter os cofres existentes. Não é possível criar novos cofres usando o portal clássico.
 
 
 ## <a name="site-recovery-in-your-business"></a>Site Recovery em sua empresa
@@ -86,7 +86,7 @@ O gráfico mostra como esses componentes interagem.
 
 ![Arquitetura](./media/site-recovery-vmware-to-azure/v2a-architecture-henry.png)
 
-**Figura 1: VMware/físicos no Azure**
+**VMware/físicos no Azure**
 
 ## <a name="azure-prerequisites"></a>Pré-requisitos do Azure
 Aqui está o que é necessário no Azure.
@@ -249,7 +249,7 @@ Configure o servidor de configuração e registre-o no cofre dos Serviços de Re
 9. Em **Localização de Instalação**, selecione a localização em que você deseja instalar os binários e armazenar o cache. Você pode selecionar uma unidade que tem ao menos 5 GB de armazenamento disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
 
     ![Local de instalação](./media/site-recovery-vmware-to-azure/combined-wiz8.png)
-10. Em **Seleção da Rede**, especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será usada por um servidor Web que orquestra operações de replicação. A 443 não deve ser usada para receber tráfego de replicação.
+10. Em **Seleção da Rede**, especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será usada por um servidor Web que orquestra operações de replicação. A&443; não deve ser usada para receber tráfego de replicação.
 
     ![Seleção da Rede](./media/site-recovery-vmware-to-azure/combined-wiz9.png)
 
@@ -453,6 +453,10 @@ Você também pode usar o cmdlet [Set-OBMachineSetting](https://technet.microsof
 Certifique-se de que os computadores que você deseja replicar estejam preparados para a instalação do serviço de Mobilidade e, em seguida, habilite a replicação.
 
 ### <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade
+
+  > [!TIP]
+  > O Azure Site Recovery agora oferecce suporte à instalação do Serviço de Mobilidade usando as ferramentas de implantação de software, como o System Center Configuration Manager. Leia mais sobre como [Automatizar a implantação do Serviço de Mobilidade](site-recovery-install-mobility-service-using-sccm.md) .  
+
 A primeira etapa da habilitação da proteção para máquinas virtuais e servidores físicos é a instalação do Serviço de mobilidade. Isso pode ser feito de duas maneiras:
 
 * **Processar envio por push de servidor**: ao habilitar a replicação em um computador, envie por push e instale o componente do serviço de Mobilidade pelo servidor de processo. Observe que a instalação por push não ocorrerá se os computadores já estiverem executando uma versão atualizada do componente.
@@ -501,7 +505,7 @@ Os instaladores estão disponíveis no servidor de Configuração em **C:\Progra
 
 | Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade |
 | --- | --- |
-| Windows Server (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server (somente&64; bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -625,10 +629,10 @@ Quando você habilita a replicação, por padrão, todos os discos em um computa
 É recomendável que você verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure deve estar em conformidade com os [Requisitos de máquina virtual do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 1. Clique em **Configurações** > **Itens replicados** > e selecione o computador. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
-2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
+1. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
 
     ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/test-failover2.png)
-3. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho de destino. Modifique o nome para que ele fique em conformidade com os requisitos do Azure, se for necessário.
+1. Em **Computação e Rede** > **Propriedades de computação**, você pode especificar o nome da VM do Azure e o tamanho de destino. Modifique o nome para que ele fique em conformidade com os requisitos do Azure, se for necessário.
    Você também pode exibir e adicionar as informações sobre a rede de destino, a sub-rede e o endereço IP que será atribuído à VM do Azure. Observe o seguinte:
 
    * Você pode definir o endereço IP de destino. Se você não fornecer um endereço, o computador com failover usará o DHCP. Se você definir um endereço que não esteja disponível no failover, o failover não funcionará. O mesmo endereço IP de destino poderá ser usado para failover de teste caso o endereço esteja disponível na rede de failover de teste.
@@ -641,54 +645,7 @@ Quando você habilita a replicação, por padrão, todos os discos em um computa
    * Se a máquina virtual tiver vários adaptadores de rede, o primeiro deles mostrado na lista se tornará o adaptador de rede *Padrão* na máquina virtual do Azure.
 
      ![Habilitar a replicação](./media/site-recovery-vmware-to-azure/test-failover4.png)
-4. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
-
-## <a name="step-7-test-the-deployment"></a>Etapa 7: testar a implantação
-Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais.
-
-### <a name="prepare-for-failover"></a>Preparar para failover
-* Para executar um failover de teste, é recomendável que você crie uma nova rede do Azure que esteja isolada da rede de produção do Azure (esse é o comportamento padrão quando você cria uma nova rede no Azure). [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução de failovers de teste.
-* Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Para testar totalmente a implantação, você precisa de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Certifique-se de que o servidor de configuração esteja em execução. Caso contrário, o failover falhará.
-* Se você tiver excluído discos da replicação, talvez seja necessário criar esses discos manualmente no Azure após o failover para que o aplicativo seja executado conforme esperado.
-* Se você quiser executar um failover não planejado em vez de um teste de failover, observe o seguinte:
-
-  * Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo. Se estiver replicando VMs VMware, você poderá especificar que o Site Recovery faça o melhor para desligar os computadores de origem. Dependendo do estado do site primário, isso pode ou não funcionar. Se você estiver replicando servidores físicos, o Site Recovery não oferecerá essa opção.
-  * Quando você executa um failover não planejado, ele interrompe a replicação de dados de computadores primários para que qualquer delta de dados não seja transferido após o início de um failover não planejado. Além disso se você executar um failover não planejado em um plano de recuperação, ele será executado até ser concluído, mesmo se ocorrer um erro.
-
-## <a name="failover"></a>Failover
-Depois que a replicação inicial for concluída para os computadores, você pode invocar failovers conforme a necessidade. O Site Recovery dá suporte a vários tipos de failovers – failover de teste, failover planejado e failover não planejado.
-[Saiba mais](site-recovery-failover.md) sobre tipos diferentes de failovers e descrições detalhadas sobre quando e como executar cada um deles.
-
-> [!NOTE]
-> Se sua intenção é migrar máquinas virtuais para o Azure, é altamente recomendável que você use uma [Operação de failover planejado](site-recovery-failover.md#run-an-unplanned-failover) para migrar as máquinas virtuais para o Azure. Depois que o aplicativo migrado é validado no Azure usando o failover de teste, use as etapas mencionadas em [Concluir a migração](#Complete-migration-of-your-virtual-machines-to-Azure) para concluir a migração de máquinas virtuais. Você não precisa executar uma confirmação ou exclusão. Concluir a migração conclui a migração, remove a proteção para a máquina virtual e interrompe a cobrança do Azure Site Recovery para a máquina.
->
->
-
-### <a name="run-an-unplanned-failover"></a>Executar um failover não planejado
-Este procedimento descreve como executar um “failover não planejado” para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia Máquinas Virtuais. Antes de começar, verifique se todas as máquinas virtuais das quais deseja fazer failover concluíram a replicação inicial.
-
-1. Selecione **Planos de Recuperação > nome_planoderecuperação**.
-2. Na folha Plano de recuperação, clique em **Failover Não Planejado**.
-3. Na página **Failover Não Planejado**, escolha os locais de origem e de destino.
-4. Selecione **Desligue as máquinas virtuais e sincronize os dados mais recentes** para especificar que a Recuperação de Site deve tentar desligar as máquinas virtuais protegidas e sincronizar os dados para que ocorra o failover da versão mais recente dos dados.
-5. Após o failover, as máquinas virtuais entram em um estado de confirmação pendente.  Clique em **Confirmar** para confirmar o failover.
-
-[Saiba mais](site-recovery-failover.md#run-an-unplanned-failover)
-
-## <a name="complete-migration-of-your-virtual-machines-to-azure"></a>Concluir a migração de máquinas virtuais para o Azure
-> [!NOTE]
-> As etapas a seguir se aplicarão apenas se você estiver migrando máquinas virtuais para o Azure
->
->
-
-1. Executar failover não planejado, como mencionado [aqui](site-recovery-failover.md#run-an-unplanned-failover)
-2. Em **Configurações > Itens replicados**, clique com o botão direito do mouse na máquina virtual e selecione **Concluir a Migração**
-
-    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-3. Clique em **OK** para concluir a migração. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou usando o trabalho Concluir a Migração em **Configurações > Trabalhos do Site Recovery**.
-
+1. Em **Discos**, é possível ver o sistema operacional e os discos de dados na VM que serão replicados.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
 Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faça o seguinte:
@@ -698,7 +655,6 @@ Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faç
 * Para acesso pela Internet, habilite o RDP, certifique-se de que as regras de TCP e UDP sejam adicionadas para o **Público** e verifique se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para todos os perfis.
 * Para acesso por meio de uma conexão site a site, habilite o RDP no computador e verifique se o RDP foi permitido no **Firewall do Windows** -> **Aplicativos e recursos permitidos** para as redes **Domínio** e **Particular**.
 * Instale o [Agente de VM do Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) no computador local.
-* [Instale o serviço de Mobilidade manualmente](#install-the-mobility-service-manually) nos computadores em vez de usar o servidor em processo para enviar o serviço por push automaticamente. Isso é necessário porque a instalação por push só ocorre depois que o computador está habilitado para replicação.
 * Certifique-se de que a política de SAN do sistema operacional esteja definida como OnlineAll. [Saiba mais](https://support.microsoft.com/kb/3031135)
 * Desative o serviço IPSec antes de executar o failover.
 
@@ -725,30 +681,56 @@ Se você quiser acessar uma VM do Azure que esteja executando o Linux após o fa
 
 Se você tiver um grupo de segurança de rede associado à VM ou à sub-rede da VM, verifique se o grupo tem uma regra de saída para permitir o HTTP/HTTPS. Além disso, verifique se o DNS da rede de failover da VM está configurado corretamente. Caso contrário, o failover poderá atingir o tempo limite com o erro -“PreFailoverWorkflow task WaitForScriptExecutionTask atingiu o tempo limite”. [Saiba mais](site-recovery-monitoring-and-troubleshooting.md#recovery).
 
-## <a name="run-a-test-failover"></a>Execute um teste de failover
+
+
+## <a name="step-7--run-a-test-failover"></a>Etapa 7: executar um failover de teste
+Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais.
+
 1. Para fazer failover em um único computador, em **Configurações** > **Itens Replicados**, clique na VM > ícone **+Failover de Teste**.
 
     ![Failover de Teste](./media/site-recovery-vmware-to-azure/test-failover1.png)
-2. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
-3. Em **Failover de Teste**, selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
-4. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** no nome do cofre **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
-5. Quando o failover atingir o status **Concluir teste** , faça o seguinte:
+1. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
+1. Em **Failover de Teste**, selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
+1. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** no nome do cofre **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
+1. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
+1. Se você tiver se [preparado para conexões após o failover](#prepare-to-connect-to-azure-vms-after-failover), deverá poder se conectar à VM do Azure.
+1. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em **Observações** , registre e salve todas as observações associadas ao failover de teste. Isso excluirá as máquinas virtuais que foram criadas durante o failover de teste. 
 
-   1. Visualize a máquina virtual de réplica no portal do Azure. Verifique se a máquina virtual foi iniciada com êxito.
-   2. Se tiver configurado para máquinas virtuais de acesso a rede local, você poderá iniciar uma conexão de área de trabalho remota para a máquina virtual.
-   3. Clique em **Concluir teste** para concluí-lo.
+Para obter mais detalhes, consulte o documento [Failover de teste para o Azure](site-recovery-test-failover-to-azure.md).
 
-       ![Failover de Teste](./media/site-recovery-vmware-to-azure/test-failover6.png)
-   4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-   5. Clique em **O failover de teste está concluído** para limpar automaticamente o ambiente de teste. Depois de isso ser feito, o failover de teste mostrará o status **Concluído** .
-   6. Neste ponto, todos os elementos ou máquinas virtuais criadas automaticamente pela Recuperação de Site durante o teste de failover são excluídos. Quaisquer elementos adicionais que você criou para o failover de teste não serão excluídos.
+## <a name="failover"></a>Failover
+Depois que a replicação inicial for concluída para os computadores, você pode invocar failovers conforme a necessidade. O Site Recovery dá suporte a vários tipos de failovers – failover de teste e failover não planejado.
+[Saiba mais](site-recovery-failover.md) sobre tipos diferentes de failovers e descrições detalhadas sobre quando e como executar cada um deles.
 
-      > [!NOTE]
-      > Se um failover de teste continuar por mais de duas semanas, ele será concluído à força.
-      >
-      >
-6. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
-7. Se você tiver se [preparado para conexões após o failover](#prepare-to-connect-to-azure-vms-after-failover), deverá poder se conectar à VM do Azure.
+
+> [!NOTE]
+> Se sua intenção é migrar máquinas virtuais para o Azure, é altamente recomendável que você use uma [Operação de failover não planejado](site-recovery-failover.md#run-an-unplanned-failover) para migrar as máquinas virtuais para o Azure. Depois que o aplicativo migrado é validado no Azure usando o failover de teste, use as etapas mencionadas em [Concluir a migração](#Complete-migration-of-your-virtual-machines-to-Azure) para concluir a migração de máquinas virtuais. Você não precisa executar uma confirmação ou exclusão. Concluir a migração conclui a migração, remove a proteção para a máquina virtual e interrompe a cobrança do Azure Site Recovery para a máquina.
+
+
+### <a name="run-an-unplanned-failover"></a>Executar um failover não planejado
+Este procedimento descreve como executar um “failover não planejado” para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia Máquinas Virtuais. Antes de começar, verifique se todas as máquinas virtuais das quais deseja fazer failover concluíram a replicação inicial.
+
+1. Selecione **Planos de Recuperação > nome_planoderecuperação**.
+2. Na folha Plano de recuperação, clique em **Failover Não Planejado**.
+3. Na página **Failover Não Planejado**, escolha os locais de origem e de destino.
+4. Selecione **Desligue as máquinas virtuais e sincronize os dados mais recentes** para especificar que a Recuperação de Site deve tentar desligar as máquinas virtuais protegidas e sincronizar os dados para que ocorra o failover da versão mais recente dos dados.
+5. Após o failover, as máquinas virtuais entram em um estado de confirmação pendente.  Clique em **Confirmar** para confirmar o failover.
+
+[Saiba mais](site-recovery-failover.md#run-an-unplanned-failover)
+
+## <a name="complete-migration-of-your-virtual-machines-to-azure"></a>Concluir a migração de máquinas virtuais para o Azure
+> [!NOTE]
+> As etapas a seguir se aplicarão apenas se você estiver migrando máquinas virtuais para o Azure
+>
+>
+
+1. Executar failover não planejado, como mencionado [aqui](site-recovery-failover.md#run-an-unplanned-failover)
+2. Em **Configurações > Itens replicados**, clique com o botão direito do mouse na máquina virtual e selecione **Concluir a Migração**
+
+    ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
+3. Clique em **OK** para concluir a migração. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou usando o trabalho Concluir a Migração em **Configurações > Trabalhos do Site Recovery**.
+
+
 
 ## <a name="monitor-your-deployment"></a>Monitorar a implantação
 Veja como você pode monitorar as definições de configuração, o status e a integridade para a implantação da Recuperação de Site:
@@ -816,6 +798,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

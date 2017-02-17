@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes do Azure AD Connect Health
+title: Perguntas frequentes sobre o Azure Active Directory Connect Health - Azure | Microsoft Docs
 description: "Encontre respostas para perguntas frequentes sobre o Azure AD Connect Health. Estas perguntas frequentes abordam dúvidas sobre como usar o serviço, incluindo o modelo de cobrança, recursos, limitações e suporte."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: vakarand
+ms.date: 02/06/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2f990f4c888da91422a6a6e9873307cbb483e782
-ms.openlocfilehash: b6687bc0ccde0e257338a939f39e343f75a6f5df
+ms.sourcegitcommit: 85458f4477dadb83a6a2627ef490471ca38ac634
+ms.openlocfilehash: a8ef669bdb28bfe66dacb42798a1ae65bcffdb4e
 
 
 ---
@@ -35,7 +35,7 @@ O impacto da instalação do ADFS de Agentes do Microsoft Azure AD Connect Healt
 
 Os números a seguir são uma aproximação.
 
-* O consumo da CPU: ~ 1% de aumento
+* O consumo da CPU: ~&1;% de aumento
 * Consumo de memória: 10% da memória total do sistema
 
 > [!NOTE]
@@ -95,6 +95,23 @@ Quando você remove um agente de um servidor, o servidor não é automaticamente
 Se você tiver criado um servidor com uma nova imagem ou um novo servidor com os mesmos detalhes (como o nome do computador), e se não tiver removido o servidor já registrado do portal do Azure AD Connect Health e instalado o agente no novo servidor, poderá ver duas entradas com o mesmo nome.  
 Nesse caso, você deve excluir a entrada que pertence ao servidor mais antigo manualmente. Os dados para esse servidor devem estar desatualizados.
 
+## <a name="migration-questions"></a>Perguntas sobre migração
+
+Esta seção se aplica somente aos clientes, que foram notificados sobre uma migração próxima de seus dados de serviço do Azure AD Connect Health.
+
+**P: Será necessário registrar novamente meus agentes ou redefinir as configurações de notificação após a migração?**
+
+Não, as configurações de notificação e informações de registro do agente serão movidas como parte da migração. 
+
+**P: Quanto tempo após a migração eu começarei a ver os dados no portal?**
+
+Os dados começarão a aparecer no portal dentro de uma hora após a migração. 
+
+**P: O que acontece com meus alertas ativos existentes?**
+
+Todos os alertas aplicáveis serão reativados dentro de uma hora após a migração.
+
+
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
@@ -107,6 +124,6 @@ Nesse caso, você deve excluir a entrada que pertence ao servidor mais antigo ma
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

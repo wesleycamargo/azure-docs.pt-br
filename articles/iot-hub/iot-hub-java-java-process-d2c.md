@@ -1,6 +1,6 @@
 ---
 title: Processar mensagens do Hub IoT do Azure da nuvem para o dispositivo (Java) | Microsoft Docs
-description: "Como processar mensagens do dispositivo para a nuvem do Hub IoT lendo o ponto de extremidade compatível com um Hub IoT. Crie um aplicativo de serviço Java que usa uma instância do EventProcessorHost."
+description: "Como processar mensagens do dispositivo para nuvem do Hub IoT usando regras de direcionamento e pontos de extremidade personalizados para enviar mensagens para outros serviços de back-end."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 5ede1fdd040b2f59383dda27d6fb26b87c2d7f02
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 616bca96eaff12fa1929605f3480098bd8b867c2
 
 
 ---
@@ -49,7 +49,7 @@ Para concluir este tutorial, você precisará do seguinte:
 Você também precisa ter um conhecimento básico do [Armazenamento do Azure] e do [Barramento de Serviço do Azure].
 
 ## <a name="send-interactive-messages-from-a-simulated-device-app"></a>Enviar mensagens interativas de um aplicativo do dispositivo simulado
-Nesta seção, você modificará o aplicativo de dispositivo simulado criado no tutorial [Introdução ao Hub IoT] para ocasionalmente enviar mensagens que exijam processamento imediato.
+Nesta seção, você modificará o aplicativo de dispositivo simulado criado no tutorial [Introdução ao Hub IoT] para enviar mensagens ocasionalmente que exigem processamento imediato.
 
 1. Use um editor de texto para abrir o arquivo simulated-device\src\main\java\com\mycompany\app\App.java. Este arquivo contém o código do aplicativo **simulated-device** que você criou no tutorial [Introdução ao Hub IoT] .
 2. Substitua a classe **MessageSender** pelo seguinte código:
@@ -98,7 +98,7 @@ Nesta seção, você modificará o aplicativo de dispositivo simulado criado no 
     Isso adiciona aleatoriamente a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo simulado, que simula uma mensagem que exige ação imediata do back-end da solução. O aplicativo passa essas informações nas propriedades da mensagem, e não no corpo da mensagem, de modo que o Hub IoT pode rotear a mensagem para o destino apropriado.
    
    > [!NOTE]
-   > Você pode usar as propriedades a fim de rotear as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
+   > Você pode usar as propriedades a fim de direcionar as mensagens para vários cenários, incluindo processamento de ampliação, além do exemplo de afunilamento mostrado aqui.
    > 
    > 
 
@@ -120,19 +120,19 @@ Nesta seção, você cria uma fila do Barramento de Serviço, conecta-a ao Hub I
 
 1. Crie uma fila do Barramento de Serviço conforme descrito em [Introdução às filas][Service Bus queue]. Anote o namespace e o nome da fila.
 
-2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de Extremidade**.
+2. No Portal do Azure, abra o Hub IoT e clique em **Pontos de extremidade**.
     
     ![Pontos de extremidade no Hub IoT][30]
 
-3. Na folha de pontos de extremidade, clique em **Adicionar** na parte superior para adicionar a fila ao Hub IoT. Chame o ponto de extremidade de "CriticalQueue" e use o menu suspenso para selecionar a **Fila do Barramento de Serviço**, o namespace do Barramento de Serviço no qual suas filas estão e o nome da sua fila. Quando terminar, clique em **Salvar** na parte inferior.
+3. Na folha **Pontos de extremidade**, clique em **Adicionar** na parte superior para adicionar a fila ao Hub IoT. Chame o ponto de extremidade de **CriticalQueue** e use o menu suspenso para selecionar **Fila do Barramento de Serviço**, o namespace do Barramento de Serviço no qual suas filas estão e o nome da sua fila. Quando terminar, clique em **Salvar** na parte inferior.
     
     ![Adicionando um ponto de extremidade][31]
     
-4. Agora clique em **Rotas** no Hub IoT. Clique em **Adicionar** na parte superior da folha para criar uma regra que encaminhe mensagens para a fila que você acabou de adicionar. Selecione **DeviceTelemetry** como a fonte dos dados. Insira `level="critical"` como a condição e escolha a fila que acabou de adicionar como um ponto de extremidade como o ponto de extremidade da rota. Quando terminar, clique em **Salvar** na parte inferior.
+4. Agora clique em **Rotas** no Hub IoT. Clique em **Adicionar** na parte superior da folha para criar uma regra que encaminhe mensagens para a fila que você acabou de adicionar. Selecione **DeviceTelemetry** como a fonte dos dados. Insira `level="critical"` como a condição e escolha a fila que acabou de adicionar como um ponto de extremidade personalizado como o ponto de extremidade de regra do direcionamento. Quando terminar, clique em **Salvar** na parte inferior.
     
     ![Adicionando uma rota][32]
     
-    Verifique se a rota de fallback está definida como ATIVADA. Essa é a configuração padrão do Hub IoT.
+    Verifique se a rota de fallback está definida como **ATIVADA**. Essa é a configuração padrão de um Hub IoT.
     
     ![Rota de fallback][33]
 
@@ -230,6 +230,6 @@ Para saber mais sobre o roteamento de mensagens no Hub IoT, confira [Enviar e re
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

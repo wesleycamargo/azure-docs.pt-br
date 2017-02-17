@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de backup de máquinas virtuais do Azure | Microsoft Docs"
+title: "Solucionar problemas de erros de backup com máquinas virtuais do Azure | Microsoft Docs"
 description: "Solucionar problemas de backup e restauração de máquinas virtuais do Azure"
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2016
-ms.author: trinadhk;jimpark;
+ms.date: 01/18/2017
+ms.author: trinadhk;markgal;jpallavi;
 translationtype: Human Translation
-ms.sourcegitcommit: 6fa4e4b2ed8818cfb55a3ac039c8134f7e2a6096
-ms.openlocfilehash: 9fc01460d653ffecc16c916d5538ef20bf699135
+ms.sourcegitcommit: 2224ddf52283d7da599b1b4842ca617d28b28668
+ms.openlocfilehash: e40a31b7226bd94a3d0e07f528a87f4f686e5bdc
 
 
 ---
@@ -36,17 +36,18 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | Não pôde se comunicar com o agente VM para status do instantâneo. - Certifique-se de que a VM tenha acesso à internet. Além disso, atualize o agente da VM conforme mencionado no guia de solução de problemas em http://go.microsoft.com/fwlink/?LinkId=800034 |Esse erro é gerado se há um problema com o agente de VM ou se o acesso à rede para a infraestrutura do Azure está bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) sobre depuração de problemas de instantâneo de VM.<br> Se o agente de VM não está causando problemas, reinicie a máquina virtual. Às vezes um estado incorreto de VM pode causar problemas e reiniciar a VM redefine esse "estado inválido" |
 | Falha na operação de extensão dos serviços de recuperação. -Certifique-se de que o agente de máquina virtual mais recente esteja presente na máquina virtual e o serviço do agente esteja em execução. Tente novamente a operação de backup e, se ele falhar, entre em contato com o suporte da Microsoft. |Esse erro é disparado quando o agente da VM está desatualizado. Consulte a seção "Atualização do agente da VM" logo abaixo para atualizar o agente da VM. |
 | A máquina virtual não existe. - Certifique-se de que a máquina virtual exista ou selecione uma máquina virtual diferente. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li> Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem],<br>(OU)<br></li><li>Pare a proteção da máquina virtual sem excluir os dados de backup. [Mais detalhes:](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Falha na execução do comando. - Outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente |Está em execução um backup existente ou um trabalho de restauração para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. |
-| A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. |Isso ocorre quando há muitos dados a serem copiados. Verifique se você tem menos de 16 discos de dados. |
+| Falha na execução do comando. - Outra operação está em andamento neste item. Aguarde até que a operação anterior seja concluída e tente novamente |Está em execução um backup existente para a máquina virtual e não é possível iniciar um novo trabalho enquanto o trabalho existente estiver sendo executado. |
+| A cópia de VHDs do Cofre de backup atingiu o tempo limite - tente a operação novamente dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. | Isso ocorre se houver um erro transitório no lado de armazenamento ou se o serviço de backup não estiver obtendo IOPS suficientes da conta de armazenamento que hospeda a VM para transferir dados dentro do período de espera no cofre. Verifique se você seguiu [Práticas recomendadas](backup-azure-vms-introduction.md#best-practices) ao configurar o backup. Tente mover a VM para uma conta de armazenamento diferente que não está carregada e tente efetuar novamente a cópia de segurança.|
 | Falha no backup com um erro interno - tente novamente a operação dentro de alguns minutos. Se o problema persistir, contate o Suporte da Microsoft |Você pode obter esse erro por 2 motivos:  <ol><li> Há um problema temporário ao acessar o armazenamento de VM. Verifique o [Status do Azure](https://azure.microsoft.com/en-us/status/) para ver se há qualquer problema ativo relacionado a computação, armazenamento ou rede na região. Repita o trabalho de backup depois que o problema for resolvido. <li>A VM original foi excluída e, portanto, o ponto de recuperação não pode ser usado. Para manter os dados de backup de uma VM excluída, mas remover os erros de backup: desproteja a VM e escolha a opção para manter os dados. Essa ação interrompe o trabalho de backup agendado e as mensagens de erro recorrentes. |
 | Falha ao instalar a extensão dos Serviços de Recuperação do Azure no item selecionado - o agente da VM é um pré-requisito para a Extensão dos Serviços de Recuperação do Azure. Instale o agente de VM do Azure e reinicie a operação de registro |<ol> <li>Verifique se o agente de VM foi instalado corretamente. <li>Certifique-se de que o sinalizador de configuração da VM tenha sido definido corretamente.</ol> [Leia mais](#validating-vm-agent-installation) sobre como instalar o agente da VM e como validar a instalação do agente da VM. |
 | Falha na instalação da extensão. Erro "COM+ não pôde se comunicar com o Coordenador de transações distribuídas da Microsoft |Isso geralmente significa que o serviço COM+ não está em execução. Entre em contato com o suporte da Microsoft para obter ajuda sobre como corrigir esse problema. |
 | Falha na operação de instantâneo. Erro de operação do VSS "Esta unidade está bloqueada pela Criptografia de Unidade de Disco BitLocker. Você deve desbloquear esta unidade no Painel de Controle. |Desative o BitLocker para todas as unidades na VM e observe se o problema VSS é resolvido |
-| Não há suporte para máquinas virtuais com discos rígidos virtuais no armazenamento Premium para backup |Nenhuma. |
+| A VM não está em um estado que permite que os backups. |<ul><li>Verifique se a máquina virtual está em um estado transitório entre execução e desligar, para baixo. Se for, aguarde o estado da VM seja uma delas e disparar backup novamente. <li> Se a VM for uma VM do Linux e se usar o módulo de kernel [Linux com Segurança Reforçada], você precisará excluir o caminho do Agente Linux (_/var/lib/waagent_) de política de segurança para garantir que a extensão de backup seja instalada.  |
 | Máquina Virtual do Azure não encontrada. |Isso acontece quando a VM primária é excluída, mas a política de backup continua a procurar por uma VM para fazer backup. Para corrigir esse erro:  <ol><li>Recrie a máquina virtual com o mesmo nome e com o mesmo nome do grupo de recursos [nome do serviço de nuvem], <br>(OU) <li> Desative a proteção para esta VM para que os trabalhos de backup não sejam criados. </ol> |
 | O agente de máquina virtual não está presente na máquina virtual - instale qualquer pré-requisito necessário e o agente de VM e, depois, reinicie a operação. |[Leia mais](#vm-agent) sobre a instalação do agente de VM e como validar a instalação do agente de VM. |
 | Falha na operação de instantâneo devido a Gravadores VSS em estado inválido |Você precisa reiniciar os gravadores VSS (Serviço de Cópias de Sombra de Volume) que estão em estado inválido. Para fazer isso, em um prompt de comandos com privilégios elevados, execute _vssadmin list writers_. A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS cujo estado não for "[1] estável", reinicie o gravador VSS executando os comandos a seguir em um prompt de comandos com privilégios elevados<br> _net stop serviceName_ <br> _net start serviceName_|
 | Falha na operação de instantâneo devido a uma falha de análise da configuração |Isso acontece devido a permissões alteradas no diretório MachineKeys: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Execute o comando abaixo e verifique se as permissões no diretório MachineKeys são as permissões padrão:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> As permissões padrão são:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>Se você vir permissões no diretório MachineKeys diferentes do padrão, siga etapas a seguir para corrigir as permissões, excluir o certificado e disparar o backup.<ol><li>Corrigir as permissões no diretório MachineKeys.<br>Usando as Propriedades de Segurança do Explorer e as Configurações de Segurança Avançadas no diretório, redefina as permissões para os valores padrão, remova qualquer objeto de usuário adicional (diferente do padrão) do diretório e verifique se as permissões 'Everyone' tinham acesso especial para:<br>– Listar pastas / ler dados <br>– Atributos de leitura <br>– Atributos de leitura estendidos <br>– Criar arquivos / gravar dados <br>– Criar pastas / acrescentar dados<br>– Atributos de gravação<br>– Atributos de gravação estendidos<br>– Permissões de leitura<br><br><li>Excluir o certificado com o campo "Emitido para" = Gerenciamento de Serviços do Microsoft Azure para Extensões<ul><li>[Abra o console de Certificados](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Exclua o certificado (em Pessoal -> Certificados) com o campo "Emitido para" = "Gerenciamento de Serviços do Microsoft Azure para Extensões"</ul><li>Disparar Backup de VM. </ol>|
+| Falha na validação pois a máquina virtual é criptografada somente com BEK. Os backups podem ser habilitados somente para máquinas virtuais criptografadas com BEK e KEK. |A máquina virtual deve ser criptografado usando a Chave de Criptografia BitLocker e a Chave de Criptografia. Depois disso, o backup deve ser habilitado. |
 
 ## <a name="jobs"></a>Trabalhos
 | Detalhes do erro | Solução alternativa |
@@ -69,6 +70,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 | O tipo de conta de armazenamento especificado para a operação de restauração não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauração está online |Isso pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
 | A Cota do Grupo de Recursos foi alcançada - Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhum |
 | A subrede selecionada não existe - selecione uma subrede que exista |Nenhum |
+| O Serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver o problema, primeiro restaure discos, usando as etapas mencionadas na seção **Restaurar discos de backup** em [Escolha da configuração da VM](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Depois disso, use as etapas do PowerShell mencionadas em [Criar uma máquina virtual de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs completas de discos restaurados. |
 
 ## <a name="policy"></a>Política
 | Detalhes do erro | Solução alternativa |
@@ -97,7 +99,7 @@ Para VMs do Windows:
 Para VMs do Linux:
 
 * Siga as instruções em [Atualizando o agente de VM do Linux](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-É **altamente recomendável** a atualização do agente somente por meio do repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente não estiver disponível para a sua distribuição, entre em contato com o suporte de distribuição para obter instruções sobre como instalar o agente mais recente. Você pode verificar as informações mais recentes do [agente do Linux do Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório GitHub. 
+É **altamente recomendável** a atualização do agente somente por meio do repositório de distribuição. Não é recomendável baixar o código do agente diretamente do GitHub e atualizá-lo. Se o agente mais recente não estiver disponível para a sua distribuição, entre em contato com o suporte de distribuição para obter instruções sobre como instalar o agente mais recente. Você pode verificar as informações mais recentes do [agente do Linux do Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) no repositório GitHub.
 
 ### <a name="validating-vm-agent-installation"></a>Validando a instalação do Agente de VM
 Como verificar a versão do Agente de VM em VMs do Windows:
@@ -152,6 +154,6 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão do desempenho de consulta de Banco de Dados SQL do Azure"
+title: "Análise de desempenho de consultas para o Banco de dados SQL do Azure | Microsoft Docs"
 description: O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure.
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: ddb43393695ae74711bea0ff66b644ddd7787571
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -32,7 +32,6 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A Visão do Desempenho de Consulta está disponível somente com o Banco de Dados SQL do Azure V12.
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
@@ -229,6 +228,6 @@ Para obter recomendações adicionais sobre como aprimorar o desempenho do seu b
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

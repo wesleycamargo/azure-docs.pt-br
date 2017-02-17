@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Planejamento e Implementação | Microsoft Docs"
+title: "SAP NetWeaver em VMs do Linux no Azure – Planejamento e implantação | Microsoft Docs"
 description: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Planejamento e Implementação"
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 407b189af12116d633ed505facf4bcfde9be5822
-ms.openlocfilehash: c17fc1f83c93b09a0afde9e80d1980e0f53f574e
+ms.sourcegitcommit: d835d5825268a4ec0fa5b761f9b5714e3236b0ce
+ms.openlocfilehash: 1177321875aa41bc5604b587c4b99fbf81f8637a
 
 
 ---
@@ -1930,6 +1930,6 @@ Os pontos principais de alta disponibilidade para sistemas SAP no Azure são:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

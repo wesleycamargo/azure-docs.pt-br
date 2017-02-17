@@ -1,5 +1,5 @@
 ---
-title: "Criar um ambiente Linux completo usando a CLI 2.0 Visualização do Azure | Microsoft Docs"
+title: Criar um ambiente Linux usando a CLI 2.0 do Azure | Microsoft Docs
 description: "Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI 2.0 Visualização do Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: b02be35b0a3e97dbab32467eb8f654ea9609e7aa
+ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
+ms.openlocfilehash: d8308ed6ec03457bd0ec30d34166631357e2b60f
 
 
 ---
@@ -1101,6 +1101,6 @@ Agora, você está pronto para começar a trabalhar com vários componentes de r
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
