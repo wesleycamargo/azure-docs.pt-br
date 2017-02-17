@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 794b1e5deca6c3bda078e3ea9006d334bc3a8052
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: fee05b9cfb176714e3313ea2e969958bb4cb19f8
 
 
 ---
@@ -47,13 +47,13 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 * [Solucionando problemas de gerenciamento de senha do AD do Azure](active-directory-passwords-troubleshoot.md)
 * [Perguntas frequentes sobre o gerenciamento de senha do AD do Azure](active-directory-passwords-faq.md)
 
-## <a name="whats-next"></a>O que vem a seguir
-* [Administrando o AD do Azure](active-directory-administer.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Administrando o Azure AD](active-directory-administer.md)
 * [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 * [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

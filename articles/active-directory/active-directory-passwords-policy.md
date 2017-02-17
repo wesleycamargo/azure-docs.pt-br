@@ -1,6 +1,6 @@
 ---
 title: "Políticas e restrições de senha do Azure Active Directory | Microsoft Docs"
-description: "Descreve as políticas que se aplicam a senhas no Azure Active Directory, incluindo caracteres permitidos, comprimento e expiração"
+description: "Descreve as políticas que se aplicam a senhas no Active Directory do Azure, incluindo caracteres permitidos, comprimento e expiração"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1e3ba55fd8c63f1189e06d1aa0bbf5f334e68459
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
 
 
 ---
@@ -25,8 +25,8 @@ Este artigo descreve as políticas de senha e requisitos de complexidade associa
 
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Políticas UserPrincipalName que se aplicam a todas as contas de usuário
 Cada conta de usuário que precisa entrar no sistema de autenticação do Azure AD deve ter um valor de atributo UPN (nome principal do usuário) exclusivo associado a essa conta. A tabela a seguir descreve as políticas que se aplicam a contas de usuário de origem do Active Directory no local (sincronizadas na nuvem) e a contas de usuário somente em nuvem.
@@ -66,7 +66,6 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
-ms.openlocfilehash: a1dd2b1d7cda42be5ecd3a42f62e6794e15d0be2
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
 
 
 ---
@@ -64,7 +64,7 @@ Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azu
 
 ## <a name="connect-in-excel"></a>Conectar-se no Excel
 
-A conexão com o Azure Analysis Services no Excel tem suporte pelo uso de Obter Dados no Excel 2016 ou no Power Query em versões anteriores. O [provedor MSOLAP.7](https://aka.ms/msolap) é necessário. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot.
+A conexão com o Azure Analysis Services no Excel tem suporte pelo uso de Obter Dados no Excel 2016 ou no Power Query em versões anteriores. O [provedor MSOLAP.7](analysis-services-data-providers.md) é necessário. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot.
 
 1. No Excel 2016, na faixa de opções **Dados**, clique em **Obter Dados Externos** > **De Outras Fontes** > **Do Analysis Services**.
 2. No Assistente de Conexão de Dados, em **Nome do Servidor**, cole o nome do servidor a partir da área de transferência. Em seguida, em **Credenciais de logon**, selecione **Usar o seguinte Nome de Usuário e Senha** e digite o nome de usuário da organização, por exemplo nancy@adventureworks.com,, e a senha.
@@ -98,6 +98,6 @@ A autenticação integrada selecionará o cache de credencial do Azure Active Di
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

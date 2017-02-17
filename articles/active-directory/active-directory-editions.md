@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -377,7 +377,7 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 * [Autenticação baseada em certificado no iOS](active-directory-certificate-based-authentication-ios.md)
 * [Autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>O que vem a seguir
+## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 * [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
@@ -387,6 +387,6 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 531927178699d6534c37dca6616fe8fdaa19e5fe
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: aa4c6400bcd16c90654c40e14b7a8ed239a4d8aa
 
 
 ---
@@ -31,7 +31,7 @@ A folha (página) de visão geral para seu aplicativo mostra um resumo das princ
 
 ![Rotas principais para exibir sua telemetria](./media/app-insights-dashboards/010-oview.png)
 
-Você pode personalizar qualquer um dos outros gráficos e fixá-los em um painel. Dessa forma, você pode reunir os gráficos principais de aplicativos diferentes.
+Você pode personalizar qualquer um dos gráficos e grades e fixá-los em um painel. Dessa forma, você pode reunir a telemetria da chave de aplicativos diferentes em um painel central.
 
 ## <a name="dashboards"></a>Painéis
 A primeira coisa que você vê depois de entrar no [Portal do Microsoft Azure](https://portal.azure.com) é um painel. Aqui, você pode reunir os gráficos que são mais importantes para você em todos os seus recursos do Azure, incluindo a telemetria do [Azure Application Insights](app-insights-overview.md).
@@ -119,8 +119,8 @@ A folha de visão geral é o gateway para obter mais informações sobre seu apl
 INVESTIGAR
 
 * [**Mapa de aplicativos**](app-insights-app-map.md) - mapa ativo mostrando os componentes do aplicativo, derivado das informações de dependência.
-* [**Diagnóstico proativo**](app-insights-proactive-diagnostics.md) -examine os alertas de desempenho recentes.
-* [**Live Stream**](app-insights-metrics-explorer.md#live-metrics-stream) - um conjunto fixo de métricas quase instantâneas, úteis ao implantar um novo build ou depurar.
+* [**Detecção Inteligente**](app-insights-proactive-diagnostics.md) - Examine os alertas de desempenho recentes.
+* [**Live Stream**](app-insights-live-stream.md) - um conjunto fixo de métricas quase instantâneas, úteis ao implantar um novo build ou depurar.
 * [**Disponibilidade/testes da Web**](app-insights-monitor-web-app-availability.md) -envie solicitações regulares ao seu aplicativo Web no mundo inteiro.*
 * [**Falhas, Desempenho**](app-insights-web-monitor-performance.md) -exceções, taxas de falha e tempos de resposta para solicitações ao seu aplicativo e para solicitações de seu aplicativo para [dependências](app-insights-asp-net-dependencies.md).
 * [**Desempenho**](app-insights-web-monitor-performance.md) - tempo de resposta, tempos de resposta de dependência.
@@ -157,6 +157,6 @@ SUPORTE
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

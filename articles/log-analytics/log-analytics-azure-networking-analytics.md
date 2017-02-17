@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
+ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: a5d0587a9b7c6ea228caa8ab23307f5f46d122ef
-ms.openlocfilehash: 840239d3bc7fd8c2ce68d0cce15f844c1f2693e7
+ms.sourcegitcommit: d3f61bd28880a8e008872857d3fdc4b3bd23c2a2
+ms.openlocfilehash: 1597492506bfef44128d0483fa38dca3ff5c0980
 
 
 ---
@@ -30,11 +30,6 @@ Você pode usar a solução de análise de Gateway de Aplicativo do Azure no Log
 Você pode usar a solução de análise de Grupo de Segurança de Rede do Azure no Log Analytics para examinar:
 
 * Logs do Grupo de Segurança de Rede do Azure
-
-> [!NOTE]
-> A Análise de Gateway de Aplicativo do Azure e a análise do Grupo de Segurança de Rede do Azure são [soluções de visualização](log-analytics-add-solutions.md#preview-management-solutions-and-features).
-> 
-> 
 
 Para usar as soluções, habilite os diagnósticos para logs do Gateway de Aplicativo do Azure e para Grupos de Segurança de Rede do Azure e direcione o diagnóstico para um espaço de trabalho do Log Analytics. Não é necessário gravar os logs no Armazenamento de Blobs do Azure.
 
@@ -211,12 +206,15 @@ Para usar as soluções atualizadas:
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 
+## <a name="troubleshooting"></a>Solucionar problemas
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados de diagnóstico detalhados do Azure.
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
