@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/13/2017
+ms.date: 02/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 7f63344455fafafc3a966c45742ba52d23177fa5
-ms.openlocfilehash: 8c25c33535ce942ac63b9a259aa9e61765129d0a
+ms.sourcegitcommit: 714c71e42593a6a038e77bfaaf2f6d7380c4f3ab
+ms.openlocfilehash: 52b75df326c1756f7bbacfc5453515c848a23870
 
 
 ---
@@ -95,6 +95,11 @@ Se você precisar instalar o HDInsight em uma Rede Virtual protegida, será nece
 
 > [!IMPORTANT]
 > Os endereços IP que devem ser permitidos são específicos à região em que o cluster HDInsight e a Rede Virtual residem. Use os valores a seguir para encontrar os endereços IP para a região que você está usando.
+
+Região __Sul do Brasil__:
+
+* 191.235.84.104
+* 191.235.87.113
 
 Região __Leste do Canadá__:
 
@@ -360,6 +365,6 @@ Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Vi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

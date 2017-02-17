@@ -1,6 +1,6 @@
 ---
-title: "Preparando seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos | Microsoft Docs"
-description: "Verificar se o ambiente está preparado para fazer backup de máquinas virtuais no Azure"
+title: "Backup do Azure: preparação para backup de máquinas virtuais | Microsoft Docs"
+description: "Assegure-se de que o ambiente esteja preparado para fazer backup de máquinas virtuais no Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2017
-ms.author: trinadhk; jimpark; markgal;
+ms.date: 1/30/2017
+ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 026bfabbf53b408d0e997c0fe21845c4b53ca8b0
-ms.openlocfilehash: d8d0ade0b3088805576cfb3fdc78eb2e4fec698a
+ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
+ms.openlocfilehash: e2ceb33cc8027759ccb4b5183513da849a7d60c6
 
 
 ---
@@ -74,7 +74,7 @@ Para criar um cofre dos serviços de recuperação:
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Clique no botão Procurar e digite Serviços de Recuperação. Quando você vir a opção segura Serviços de Recuperação, clique nela para abrir a folha de cofre de Serviços de Recuperação.](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
     A lista de cofres dos Serviços de Recuperação é exibida.
 3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
@@ -191,7 +191,7 @@ Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, 
 | Opção | Vantagens | Desvantagens |
 | --- | --- | --- |
 | Intervalos de IPs na lista de autorizados |Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i>. |É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento. |
-| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
+| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento.<br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
 Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
@@ -307,6 +307,6 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

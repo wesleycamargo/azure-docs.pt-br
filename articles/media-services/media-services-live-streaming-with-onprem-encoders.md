@@ -1,5 +1,5 @@
 ---
-title: "Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits | Microsoft Docs"
+title: "Transmissão ao vivo com codificadores locais, que criam fluxos de múltiplas taxas de bits – Azure | Microsoft Docs"
 description: "Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo com múltiplas taxas de bits de um codificador local. Em seguida, a transmissão pode ser entregue para aplicativos de reprodução do cliente por meio de um ou mais Pontos de Extremidade de Streaming, usando um dos seguintes protocolos de streaming adaptáveis: HLS, Smooth Streaming e MPEG DASH."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: da2cd6f9dd0c33cf6354c7c949076216d21c83ae
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 4ebc53439735aa47c5191f7dccb77a3060e0f5f9
 
 
 ---
@@ -252,6 +252,6 @@ Para saber mais sobre codificadores locais ativos, consulte [Usando codificadore
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

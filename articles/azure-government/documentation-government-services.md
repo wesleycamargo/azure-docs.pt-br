@@ -1,23 +1,22 @@
 ---
 title: "Serviços do Azure Governamental | Microsoft Docs"
 description: "Oferece uma visão geral dos serviços disponíveis no Azure Governamental"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: zakramer
 manager: liki
-editor: 
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/14/2016
+ms.date: 01/29/2017
 ms.author: zakramer
 translationtype: Human Translation
-ms.sourcegitcommit: 083ffff3a99c82a518bcc370e6d40c7500ba6907
-ms.openlocfilehash: f48fd6856346e1fd0be12fec2391d0c16287f106
+ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
+ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
 
 
 ---
@@ -37,12 +36,13 @@ Para obter a lista mais atual dos serviços, consulte [Produtos por região](htt
 * Serviços de Nuvem
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Rede](documentation-government-networking.md)
-* Rede Virtual
-* Balanceador de carga
-* Gateway de Aplicativo
-* Gateway de VPN
-* Gerenciador de Tráfego
 * [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
+* [Suporte a comunidades BGP](documentation-government-networking.md#support-for-bgp-communities)
+* Rede Virtual
+* [Balanceador de Carga](documentation-government-networking.md#support-for-load-balancer)
+* Application Gateway
+* [Gerenciador de Tráfego](documentation-government-networking.md#support-for-traffic-manger)
+* [Gateway de VPN](documentation-government-networking.md#support-for-vpn-gateway)
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Armazenamento](documentation-government-services-storage.md)
 * [Armazenamento do Azure](documentation-government-services-storage.md#azure-storage)
@@ -88,7 +88,7 @@ Para obter a lista mais atual dos serviços, consulte [Produtos por região](htt
 * [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
 * [Recuperação de Site](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * Agendador
-* Gerenciador de Tráfego
+* [Gerenciador de Tráfego](documentation-government-networking.md#support-for-traffic-manger)
 * Monitoramento e diagnóstico
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -97,6 +97,6 @@ Para obter informações complementares e atualizações, assine o [Blog do Micr
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

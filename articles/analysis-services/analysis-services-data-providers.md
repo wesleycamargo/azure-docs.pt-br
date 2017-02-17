@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 4dbd2c87d648f6923772b070fdfe7379de22e6c5
-ms.openlocfilehash: e1adeaca702de3bad1c2e572f89ade9eba753173
+ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
+ms.openlocfilehash: 41e2556437004699991363096147379d0ffa967c
 
 
 ---
@@ -28,7 +28,7 @@ Os provedores de dados, também conhecidos como bibliotecas de cliente, são nec
 
 O Analysis Services utiliza três provedores de dados. O ADOMD.NET e o AMO (Objetos de Gerenciamento do Analysis Services) são provedores de dados gerenciados. O provedor OLE DB do Analysis Services (MSOLAP DLL) é um provedor de dados nativo. Normalmente, os três provedores são instalados ao mesmo tempo. O Azure Analysis Services exige as versões mais recentes dos provedores de dados. 
 
-Os aplicativos cliente da Microsoft, como o Power BI Desktop e o Excel, instalam os três provedores de dados. No entanto, dependendo da versão do Excel, ou se as versões mais novas do Excel e do Power BI Desktop são ou não atualizadas mensalmente, os provedores de dados instalados podem não ser atualizados para as últimas versões exigidas pelo Azure Analysis Service. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos exigem a instalação manual dos provedores. Os provedores de dados de instalação manual estão incluídos nos feature packs do SQL Server como pacotes distribuíveis. No entanto, eles são associados à versão do SQL Server e podem não ser os mais recentes.  
+Os aplicativos cliente da Microsoft, como o Power BI Desktop e o Excel, instalam os três provedores de dados. No entanto, dependendo da versão do Excel, ou se as versões mais novas do Excel e do Power BI Desktop são ou não atualizadas mensalmente, os provedores de dados instalados podem não ser atualizados para as últimas versões exigidas pelo Azure Analysis Service. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos exigem a instalação manual dos provedores. Os provedores de dados de instalação manual estão incluídos nos pacotes de recursos do SQL Server como pacotes distribuíveis, no entanto, eles são associados à versão do SQL Server e podem não ser os mais recentes.  
 
 Os provedores de dados para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de fonte de dados, confira [Conexões de fonte de dados](analysis-services-datasource.md).
  
@@ -44,6 +44,6 @@ Com os provedores de dados mais recentes instalados, seu aplicativo cliente est�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

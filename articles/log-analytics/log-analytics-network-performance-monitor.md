@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/31/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
-ms.openlocfilehash: 794d9b7d5031730f9ea0f8daae251c825f7b05b0
+ms.sourcegitcommit: d1cae87bb312ef903d099b8be59ad39a5b83d468
+ms.openlocfilehash: 4b683ef50ca1046686213b55c32e07b5fb8cca68
 
 
 ---
@@ -149,6 +149,51 @@ A *Regra padrão* é criada pelo sistema e cria um evento de integridade sempre 
 6. Clique em **Salvar** para salvar a configuração.  
    ![criar regra de monitoramento personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
+### <a name="choose-the-right-protocol-icmp-or-tcp"></a>Escolher o protocolo certo – ICMP ou TCP
+
+O Monitor de Desempenho de Rede (NPM) usa transações sintéticas para calcular métricas de desempenho de rede como perda de pacote e latência de link. Para entender isso melhor, considere um agente NPM conectado a uma extremidade de um link de rede. Esse agente NPM envia pacotes de teste para um segundo agente NPM conectado a outra extremidade da rede. O segundo agente responde com pacotes de resposta. Esse processo é repetido algumas vezes. Medindo o número de respostas e o tempo necessário para receber cada resposta, o primeiro agente NPM avalia a latência de link e os descartes de pacotes.
+
+O formato, o tamanho e a sequência desses pacotes são determinados pelo protocolo que você escolheu ao criar regras de monitoramento. Com base no protocolo dos pacotes, os dispositivos de rede intermediários (roteadores, comutadores etc.) podem processar esses pacotes de maneira diferente. Consequentemente, a opção de protocolo afeta a precisão dos resultados. E a escolha de protocolo também determina se será necessário executar alguma etapa manual após implantar a solução NPM.
+
+O NPM permite que você escolha entre os protocolos TCP e ICMP para executar transações sintéticas.
+Se você escolher o ICMP quando criar uma regra de transação sintética, os agentes NPM usarão mensagens de eco ICMP para calcular a latência de rede e a perda de pacote. O Eco ICMP usa a mesma mensagem enviada pelo utilitário Ping convencional. Quando você usa o TCP como protocolo, os agentes NPM enviam um pacote TCP SYN pela rede. Isso é seguido pela conclusão de um handshake TCP e, em seguida, a remoção da conexão usando pacotes RST.
+
+#### <a name="points-to-consider-before-choosing-the-protocol"></a>Pontos a serem considerados antes de escolher o protocolo
+Antes de escolher um protocolo para uso, considere as seguintes informações:
+
+##### <a name="discovering-multiple-network-routes"></a>Descobrindo várias rotas de rede
+O TCP é mais preciso ao descobrir várias rotas e exige menos agentes em cada sub-rede. Por exemplo, um ou dois agentes que usem TCP podem descobrir todos os caminhos redundantes entre sub-redes. Entretanto, você precisa de vários agentes usando o ICMP para alcançar resultados semelhantes. Usando o ICMP e, se você tiver *N* número de rotas entre duas sub-redes, precisará de mais de 5*N* agentes na sub-rede de origem ou de destino.
+
+##### <a name="accuracy-of-results"></a>Precisão dos resultados
+Roteadores e comutadores tendem a atribuir a prioridade mais baixa para pacotes de eco ICMP em comparação com pacotes TCP. Em determinadas situações, quando os dispositivos de rede estão sobrecarregados, os dados obtidos pelo TCP refletem mais a perda e a latência apresentadas pelos aplicativos. Isso ocorre porque a maioria do tráfego do aplicativo flui pelo TCP. Nesses casos, o ICMP fornece resultados menos precisos em comparação ao TCP.
+
+##### <a name="firewall-configuration"></a>Configuração do firewall
+O protocolo TCP exige que os pacotes TCP sejam enviados a uma porta de destino. A porta padrão usada por agentes NPM é 8084, mas você pode alterar isso quando configurar agentes. Portanto, você precisa garantir que seus firewalls de rede ou regras de NSG (no Azure) estejam permitindo o tráfego na porta. Você também precisa certificar-se de que o firewall local nos computadores em que os agentes são instalados esteja configurado para permitir o tráfego nesta porta.
+
+Você pode usar scripts do PowerShell para configurar regras de firewall em computadores que executam o Windows, no entanto, você precisa configurar manualmente o firewall da rede.
+
+Por outro lado, o ICMP não funciona usando a porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Portanto, se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
+
+> [!NOTE]
+> Caso você não tenha certeza de qual protocolo usar, escolha o ICMP para começar. Se você não estiver satisfeito com os resultados, poderá sempre mudar para TCP mais tarde.
+
+
+#### <a name="how-to-switch-the-protocol"></a>Como mudar o protocolo
+
+Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a qualquer momento, editando a regra de monitoramento padrão.
+
+##### <a name="to-edit-the-default-monitoring-rule"></a>Para editar a regra de monitoramento padrão
+1.  Navegue até **Desempenho da Rede** > **Monitorar** > **Configurar** > **Monitorar** e, em seguida, clique em **Regra padrão**.
+2.  Role até a seção **Protocolo** e selecione o protocolo que você deseja usar.
+3.  Clique em **Salvar** para aplicar a configuração.
+
+Mesmo se a regra padrão for usar um protocolo específico, você poderá criar novas regras com um protocolo diferente. Você pode até mesmo criar uma combinação de regras em que algumas das regras usem ICMP e a outra use TCP.
+
+
+
+
+
+
 ## <a name="data-collection-details"></a>Detalhes da coleta de dados
 O Monitor de Desempenho de Rede usa pacotes de handshake TCP SYN-SYNACK-ACK para coletar informações de perda e latência, e o rastreamento de rotas também é usado para obter informações sobre a topologia.
 
@@ -246,6 +291,6 @@ Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investiga
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
