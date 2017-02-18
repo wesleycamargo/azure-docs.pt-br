@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas | Microsoft Docs"
+title: Conectar Raspberry Pi (C) ao IoT do Azure - Solucionar problemas | Microsoft Docs
 description: "Página de solução de problemas para experiência Raspberry Pi Node.js"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 755961b8a0b141a716530f75e21b65c00fa8d2d8
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 52d76bb967471ae49b55b0fcb930c223984b39e3
 
 
 ---
@@ -123,6 +123,6 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

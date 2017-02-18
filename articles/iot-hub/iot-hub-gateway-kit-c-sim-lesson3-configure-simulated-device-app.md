@@ -1,5 +1,5 @@
 ---
-title: Executar um aplicativo de exemplo do dispositivo simulado para enviar dados para o Hub IoT do Azure | Microsoft Docs
+title: "Dispositivo simulado e Gateway do IoT do Azure - Lição 3: executar aplicativo de exemplo| Microsoft Docs"
 description: Executar um aplicativo de exemplo do dispositivo simulado para enviar dados de temperatura para o Hub IoT
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 94bffa363f7979b7dc37363328a358f0b139307d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 873f3cef8cb1d115f77f0d3fa2c4b50391f66d91
 
 
 ---
@@ -139,6 +139,6 @@ Você configurou e executou com êxito o aplicativo de exemplo de upload de nuve
 [Ler mensagens de seu Hub IoT](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

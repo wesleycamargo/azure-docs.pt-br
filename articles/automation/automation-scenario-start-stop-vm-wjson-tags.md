@@ -1,5 +1,5 @@
 ---
-title: "Usando marcações formatadas JSON para criar um agendamento para inicialização e desligamento de VM do Azure | Microsoft Docs"
+title: Usar marcas formatada em JSON para agendar o estado da VM do Azure | Microsoft Docs
 description: "Este artigo demonstra como usar cadeias de caracteres JSON em marcações para automatizar o agendamento do desligamento e inicialização de VM."
 services: automation
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2016
+ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d4098199cec948541eddba8fa88242606e2ec5c
+ms.sourcegitcommit: 00d348306f76194bb44e5252be5c956a48192768
+ms.openlocfilehash: 69f05a8c0fc88201fc365546870585de5a419f1d
 
 
 ---
@@ -244,6 +244,6 @@ O **Resumo do Trabalho** inclui mensagens de fluxos de saída, de aviso e de err
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

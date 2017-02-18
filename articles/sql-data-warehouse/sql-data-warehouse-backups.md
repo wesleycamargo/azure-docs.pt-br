@@ -1,5 +1,5 @@
 ---
-title: Backups do SQL Data Warehouse | Microsoft Docs
+title: "Backups do SQL Data Warehouse do Azure - instantâneos, redundância geográfica | Microsoft Docs"
 description: "Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica."
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 71f2798871c946b1edce467e1f491e0d62b342c6
-ms.openlocfilehash: fb61dd8b33581740557be6e5902bbe573f11999c
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
 
 
 ---
@@ -116,6 +116,6 @@ O uso principal para backups do SQL data warehouse é restaurar o data warehouse
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

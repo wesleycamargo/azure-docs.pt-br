@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Kit de Início do Gateway IoT do Azure | Microsoft Docs"
+title: "Dispositivo SensorTag e Gateway de IoT do Azure - Introdução | Microsoft Docs"
 description: "Introdução ao Kit de Início do Gateway IoT, crie seu Hub IoT do Azure e conecte o SensorTag e o Gateway ao Hub IoT"
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ab8f4f7bbb823cc56783a0cb39bb22157c74087f
-ms.openlocfilehash: fb45ef6239827ea2860b707b2bb5016ea680ad17
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: dd14d137c23fbccb3616b60db8a63e668ae7ea80
 
 
 ---
@@ -109,6 +109,6 @@ Se tiver problemas durante as lições, procure por soluções no artigo [Soluç
 Visite a [Zona do desenvolvedor de Kit do Gateway IoT da Intel](http://software.intel.com/iot/microsoft-azure) para saber mais.
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

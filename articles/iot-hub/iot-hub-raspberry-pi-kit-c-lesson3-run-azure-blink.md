@@ -1,5 +1,5 @@
 ---
-title: Executar o aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem | Microsoft Docs
+title: "Conectar o Raspberry Pi (C) ao IoT do Azure - Lição 3: executar exemplo | Microsoft Docs"
 description: Implante e execute um aplicativo de exemplo para o Raspberry Pi 3 que envie mensagens ao seu Hub IoT e pisque o LED.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 946e80b450fdda244a48e2c4d2aa87a7822be456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 985ba895bfcad1611bebe80a6c2fc8ffed780da5
 
 
 ---
@@ -112,6 +112,6 @@ Você implantou e executou o novo aplicativo de exemplo de piscar no Pi para env
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

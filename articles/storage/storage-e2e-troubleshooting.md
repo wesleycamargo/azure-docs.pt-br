@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem | Microsoft Docs"
+title: "Solucionando problemas do Armazenamento do Azure com Analisador de Mensagem e Diagnóstico | Microsoft Docs"
 description: "Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft"
 services: storage
 documentationcenter: dotnet
@@ -11,11 +11,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: f2cd7f0882f31de5f4bb99f772c38a0fff28cd59
 
 
 ---
@@ -374,6 +374,6 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 * [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

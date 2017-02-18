@@ -1,6 +1,6 @@
 ---
-title: Criando modelos do Azure Resource Manager | Microsoft Docs
-description: Crie modelos do Gerenciador de Recursos do Azure usando sintaxe JSON declarativa para implantar aplicativos no Azure.
+title: "Criar modelos para implantação do Azure | Microsoft Docs"
+description: Descreve a estrutura e as propriedades dos modelos do Azure Resource Manager usando a sintaxe JSON declarativa.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/03/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: a3a1fc856dc4fb39e3d3b765e943662799c75398
-ms.openlocfilehash: 62b51e2c6235011019d0ad837fe58388cf85e8d0
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 52fe8e3ce0c9c94c918818784fd735b5a6486ed8
 
 
 ---
@@ -55,7 +55,7 @@ Em sua estrutura mais simples, um modelo contém os seguintes elementos:
 Examinaremos as seções do modelo em detalhes mais adiante neste tópico.
 
 ## <a name="expressions-and-functions"></a>Expressões e funções
-A sintaxe básica do modelo é JSON. No entanto, as expressões e as funções estendem o JSON que está disponível no modelo. Com expressões, você cria valores que não são valores literais rígidos. As expressões são colocadas entre colchetes, [ e ], e avaliadas quando o modelo é implantado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete [, você deverá usar dois colchetes [[.
+A sintaxe básica do modelo é JSON. No entanto, as expressões e as funções estendem o JSON que está disponível no modelo. Com expressões, você cria valores que não são valores literais rígidos. As expressões são colocadas entre colchetes, `[` e `]`, e avaliadas quando o modelo é implantado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete `[`, você deverá usar dois colchetes `[[`.
 
 Normalmente, você usa expressões com funções para executar operações e configurar a implantação. Assim como no JavaScript, as chamadas de função são formatadas como **functionName(arg1,arg2,arg3)**. Você faz referência às propriedades usando os operadores dot e [index].
 
@@ -64,7 +64,7 @@ O seguinte exemplo mostra como usar várias das funções ao construir valores:
 ```json
 "variables": {
    "location": "[resourceGroup().location]",
-   "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+   "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
 }
 ```
@@ -98,7 +98,7 @@ Você define parâmetros com a seguinte estrutura:
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| type |Sim |Tipo do valor do parâmetro. Consulte a lista de tipos permitidos abaixo. |
+| type |Sim |Tipo do valor do parâmetro. Consulte a lista de tipos permitidos após esta tabela. |
 | defaultValue |Não |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
@@ -119,7 +119,7 @@ Os valores e tipos permitidos são:
 
 Para especificar um parâmetro como opcional, forneça um defaultValue (pode ser uma cadeia de caracteres vazia). 
 
-Se você especificar um nome de parâmetro que corresponda a um dos parâmetros no comando para implantar o modelo, você precisará fornecer um valor para um parâmetro com o sufixo **FromTemplate**. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo igual ao parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet], você será solicitado a fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
+Se você especificar um nome de parâmetro em seu modelo que corresponda a um parâmetro no comando de implantação do modelo, haverá uma possível ambiguidade nos valores fornecidos. O Resource Manager resolve essa confusão adicionando o sufixo **FromTemplate** ao parâmetro do modelo. Por exemplo, se você incluir um parâmetro chamado **ResourceGroupName** em seu modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzureRmResourceGroupDeployment][deployment2cmdlet]. Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, você deve evitar essa confusão não dando aos parâmetros o mesmo nome dos parâmetros usados para operações de implantação.
 
 > [!NOTE]
 > Todas as senhas, chaves e outros segredos devem usar o tipo **secureString** . Se você passar dados confidenciais em um objeto JSON, use o tipo **secureObject**. Os parâmetros de modelo com o tipo secureString ou secureObject não podem ser lidos após a implantação de recursos. 
@@ -241,7 +241,7 @@ Você define recursos com a seguinte estrutura:
      "copy": {
        "name": "<name-of-copy-loop>",
        "count": "<number-of-iterations>"
-     }
+     },
      "resources": [
        "<array-of-child-resources>"
      ]
@@ -257,10 +257,10 @@ Você define recursos com a seguinte estrutura:
 | location |Varia |Locais geográficos com suporte do recurso fornecido. Você pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que esteja perto de seus usuários. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exige um local, mas alguns deles (como uma atribuição de função) não. |
 | marcas |Não |Marcas que são associadas ao recurso. |
 | comentários |Não |Suas anotações para documentar os recursos em seu modelo |
-| dependsOn |Não |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, são implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Recursos que não são definidos neste modelo já devem existir. Para saber mais, confira [Definindo as dependências nos modelos do Gerenciador de Recursos do Azure](resource-group-define-dependencies.md). |
-| propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Gerenciador de Recursos](resource-manager-supported-services.md). |
+| dependsOn |Não |Recursos que devem ser implantados antes deste recurso. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem correta. Quando os recursos não dependem uns dos outros, são implantados paralelamente. O valor pode ser uma lista separada por vírgulas de nomes de recursos ou identificadores exclusivos de recursos. Somente lista recursos que são implantados neste modelo. Recursos que não são definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias, pois elas podem reduzir sua implantação e criar dependências circulares. Para obter orientação sobre como configurar as dependências, confira [Definir as dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md). |
+| propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Para obter links para a documentação do esquema de recursos ou a API REST, consulte [Provedores, regiões, versões de API e esquemas do Resource Manager](resource-manager-supported-services.md). |
 | cópia |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
-| recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Você pode fornecer apenas os tipos de recurso permitidos pelo esquema do recurso pai. O nome totalmente qualificado do tipo de recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência no recurso pai não é implícita; você deve definir explicitamente essa dependência. |
+| recursos |Não |Recursos filho que dependem do recurso que está sendo definido. Forneça apenas os tipos de recurso permitidos pelo esquema do recurso pai. O tipo totalmente qualificado do recurso filho inclui o tipo de recurso pai, como **Microsoft.Web/sites/extensions**. A dependência do recurso pai não é implícita. Você deve definir explicitamente essa dependência. |
 
 Saber quais valores especificar para **apiVersion**, **tipo** e **localização** não é exatamente óbvio. Felizmente, você pode determinar esses valores por meio do Azure PowerShell ou do Azure CLI.
 
@@ -290,15 +290,21 @@ Para obter localizações com suporte para um tipo de recurso, use:
 
 Para obter todos os provedores de recursos com o **Azure CLI**, use:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Na lista retornada, localize os provedores de recursos que lhe interessam. Para obter tipos de recursos para um provedor de recursos (como Armazenamento), use:
 
-    azure provider show Microsoft.Storage
+```azurecli
+azure provider show Microsoft.Storage
+```
 
 Para obter versões de API e localizações com suporte, use:
 
-    azure provider show Microsoft.Storage --details --json
+```azurecli
+azure provider show Microsoft.Storage --details --json
+```
 
 Para saber mais sobre os provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Resource Manager](resource-manager-supported-services.md).
 
@@ -428,6 +434,6 @@ Para obter mais informações sobre como trabalhar com a saída, consulte [Compa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

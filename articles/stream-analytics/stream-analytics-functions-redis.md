@@ -1,5 +1,5 @@
 ---
-title: "Saída para um Cache Redis do Azure, usando o Azure Functions, do Azure Stream Analytics | Microsoft Docs"
+title: Processamento em tempo real do Stream Analytics para Azure Functions | Microsoft Docs
 description: "Saiba como usar uma função do Azure conectada a uma Fila do Barramento de Serviço para preencher um Cache Redis do Azure da saída de um trabalho do Stream Analytics."
 keywords: "transmissão de dados, cache redis, fila do barramento de serviço"
 services: stream-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e792f8c8b1ffddbd534b1660421e4cc89a63d35a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
 
 
 ---
@@ -207,6 +207,6 @@ Para se manter atualizado sobre todas as notícias e recursos mais recentes, sig
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

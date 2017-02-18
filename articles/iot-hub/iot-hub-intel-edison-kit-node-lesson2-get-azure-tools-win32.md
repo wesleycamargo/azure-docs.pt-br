@@ -1,5 +1,5 @@
 ---
-title: "Obter ferramentas do Azure para o Kit de início de IoT do Azure (Windows 7 e posterior) | Microsoft Docs"
+title: "Conectar o Intel Edison (Nó) ao IoT do Azure - Lição 2: ferramentas do Azure (Windows) | Microsoft Docs"
 description: "Instale o Python e a interface de linha de comando do Azure (CLI do Azure) no Windows 7 e versões posteriores."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: f45b3bf00d619376ac07418f0c02eca5f3241939
-ms.openlocfilehash: db954667527381952a37fadcbebe449c99e71a70
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: 181d7113bda6e9d39bc24c1892940803fc03fd6b
 
 
 ---
@@ -81,6 +81,6 @@ Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de di
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

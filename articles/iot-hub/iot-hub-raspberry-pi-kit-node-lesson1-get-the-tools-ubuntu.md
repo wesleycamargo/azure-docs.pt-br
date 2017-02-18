@@ -1,5 +1,5 @@
 ---
-title: Obtenha as ferramentas (Ubuntu 16.04) | Microsoft Docs
+title: "Conecte o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: obter ferramentas (Ubuntu) | Microsoft Docs"
 description: "Baixe e instale as ferramentas e software necessários para o primeiro aplicativo de exemplo para o Pi no Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: 31b5ac4e60eaafcc134ee702a4d47c4ea735df39
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a43690c4fd35a701472b9a1c747e969d1d3a2ea4
 
 
 ---
@@ -81,6 +81,6 @@ Você instalou as ferramentas de desenvolvimento e software necessários para o 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

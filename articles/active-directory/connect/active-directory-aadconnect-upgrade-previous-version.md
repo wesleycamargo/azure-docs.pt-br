@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: d8818035349c8e78c1f2bb39a05e1afb2c854cc9
+ms.sourcegitcommit: 1f7ec5d53512dcfbff17269802c8889eae0ad744
+ms.openlocfilehash: 5dd69a0b9357a601070765817a814dae3e7e5c05
 
 
 ---
@@ -34,6 +34,11 @@ Há algumas estratégias diferentes para atualizar o Azure AD Connect.
 | [Migração swing](#swing-migration) |Com dois servidores, é possível preparar um dos servidores com a nova versão ou configuração e alterar o servidor ativo quando você estiver pronto. |
 
 Para obter as permissões necessárias, confira as [permissões necessárias para a atualização](active-directory-aadconnect-accounts-permissions.md#upgrade).
+
+> [!NOTE]
+> Depois que você tiver ativado o novo servidor do Azure AD Connect para iniciar a sincronização de alterações para o Azure AD, não deverá reverter usando o DirSync ou o Azure AD Sync. Fazer downgrade do Azure AD Connect para clientes herdados, incluindo o DirSync e o Azure AD Sync, não tem suporte e pode levar a problemas como a perda de dados no Azure AD. 
+> 
+> 
 
 ## <a name="in-place-upgrade"></a>Atualização in-loco
 Uma atualização in-loco funciona para mudar do Azure AD Sync ou do Azure AD Connect. Ela não funcionará para o DirSync ou para uma solução com o FIM + Azure AD Connector.
@@ -76,7 +81,7 @@ O que você deve garantir que seja configurado da mesma maneira em ambos os serv
 * Os mesmos recursos opcionais, como a sincronização de senha e o write-back de senha.
 
 **Mover regras de sincronização**  
- Para mover uma regra de sincronização personalizada, faça o seguinte:
+Para mover uma regra de sincronização personalizada, faça o seguinte:
 
 1. Abra o **Editor de Regras de Sincronização** em seu servidor ativo.
 2. Selecione a regra personalizada. Clique em **Exportar**. Isso abre uma janela do bloco de notas. Salve o arquivo temporário com uma extensão PS1. Isso o transforma em um script do PowerShell. Copie o arquivo ps1 para o servidor de preparo.  
@@ -91,6 +96,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

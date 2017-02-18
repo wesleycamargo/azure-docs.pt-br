@@ -1,5 +1,5 @@
 ---
-title: Prepare o computador host e o Hub IoT do Azure | Microsoft Docs
+title: "Dispositivo simulado e Gateway do IoT do Azure - Lição 2: obter ferramentas (Ubuntu) | Microsoft Docs"
 description: Instale as ferramentas e o software no computador host executando o Ubuntu, crie um Hub IoT e registrar seu dispositivo no Hub IoT.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 1c4f44787a7200a1c3634b258df32d30152daa90
-ms.openlocfilehash: 6feb4f6fa72aeb3d43211ad8c3973ad2b96671ec
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: f09ad1624f8a7ce4e1b13217d085cfc172d870ca
 
 
 ---
@@ -124,6 +124,6 @@ Você instalou todos os softwares e as ferramentas necessárias no computador ho
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

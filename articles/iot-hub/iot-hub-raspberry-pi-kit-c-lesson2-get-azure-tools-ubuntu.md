@@ -1,5 +1,5 @@
 ---
-title: Obtenha as ferramentas do Azure (Ubuntu 16.04) | Microsoft Docs
+title: "Conectar Raspberry Pi (C) ao IoT do Azure - Lição 2: ferramentas do Azure (Ubuntu) | Microsoft Docs"
 description: Instale o Python e a CLI do Azure (Interface de Linha de Comando do Azure) no Ubuntu.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 5ae42a718a67d52364dd4b083f65a45a668e643d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 4c31bb14f2b32d71f14a89576922b9701b226e66
 
 
 ---
@@ -74,6 +74,6 @@ Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de di
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

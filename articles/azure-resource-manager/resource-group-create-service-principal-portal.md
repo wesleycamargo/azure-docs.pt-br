@@ -1,5 +1,5 @@
 ---
-title: "Criar uma entidade de serviço no portal | Microsoft Docs"
+title: Criar identidade para o aplicativo do Azure no portal | Microsoft Docs
 description: "Descreve como criar um novo aplicativo do Active Directory e uma nova entidade de serviço que possam ser usados com o controle de acesso baseado em função no Gerenciador de Recursos do Azure, para gerenciar o acesso aos recursos."
 services: azure-resource-manager
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/17/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4312002b311ec17f175f6eb6bc45fbe1ce7c7a01
-ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 3b132bbc89f64928f971f92365691d40c1aab420
 
 
 ---
@@ -28,7 +28,13 @@ ms.openlocfilehash: 3232aa0356353e3856286c38d931543a254fd9fd
 >
 >
 
-Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Active Directory (AD) e atribuir as permissões necessárias a ele. Este tópico mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
+Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Active Directory (AD) e atribuir as permissões necessárias a ele. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
+
+* Você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
+* Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades. 
+* Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.
+
+Este tópico mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
  
 ## <a name="required-permissions"></a>Permissões necessárias
 Para concluir este tópico, você deve ter permissões suficientes para registrar um aplicativo com o Active Directory e atribuir o aplicativo a uma função em sua assinatura do Azure. Vamos verificar se você tem as permissões corretas para executar essas etapas.
@@ -157,9 +163,19 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
      ![pesquisar aplicativo](./media/resource-group-create-service-principal-portal/search-app.png)
 9. Selecione **OK** para finalizar a atribuição da função. Agora você vê o aplicativo na lista de usuários atribuídos a uma função para esse escopo.
 
-Seu aplicativo agora está configurado no Active Directory. Você tem uma ID e a chave a ser usada para fazer logon como o aplicativo. O aplicativo está atribuído a uma função que oferece determinadas ações que ele pode executar. Você pode procurar os aplicativos de exemplo para saber mais sobre como realizar tarefas no código do aplicativo.
+## <a name="log-in-as-the-application"></a>Faça logon como o aplicativo
 
-## <a name="sample-applications"></a>Aplicativos de exemplo
+Seu aplicativo agora está configurado no Active Directory. Você tem uma ID e a chave a ser usada para fazer logon como o aplicativo. O aplicativo está atribuído a uma função que oferece determinadas ações que ele pode executar. 
+
+Para fazer logon por meio do PowerShell, confira [Fornecer credenciais por meio do PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
+
+Para fazer logon por meio da CLI do Azure, confira [Fornecer credenciais por meio da CLI do Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
+
+Para obter o token de acesso para operações REST, confira [Criar a solicitação](/rest/api/#create-the-request).
+
+Examine os seguintes aplicativos de exemplo para saber mais sobre como fazer logon por meio do código do aplicativo.
+
+### <a name="sample-applications"></a>Aplicativos de exemplo
 Os aplicativos de exemplo a seguir mostram como fazer logon como o aplicativo do AD.
 
 **.NET**
@@ -194,6 +210,6 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como o aplicativo do
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

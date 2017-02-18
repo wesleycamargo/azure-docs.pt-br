@@ -1,5 +1,5 @@
 ---
-title: "Visão geral da Service Fabric | Microsoft Docs"
+title: "Visão geral da Service Fabric no Azure | Microsoft Docs"
 description: "Uma visão geral do Service Fabric no qual os aplicativos são compostos por muitos microsserviços para fornecer dimensionamento e resiliência. O Service Fabric é uma plataforma de sistemas distribuídos usada para compilar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem."
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 01/05/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 6b3c49f6721ffc149bbb7f0433ff67f529abf938
-ms.openlocfilehash: c61541d65fe2f84bdd629d8b8d8c7ce00a049133
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 0e899225063e77ccef254e8aaacbf0390faa25e3
 
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Visão geral do Azure Service Fabric
-O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de middleware de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de camada 1 e nível corporativo.
+O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. O Service Fabric resolve os desafios significativos de desenvolvimento e gerenciamento de aplicativos em nuvem. Desenvolvedores e administradores podem evitar problemas complexos de infraestrutura e se concentrarem na implementação de cargas de trabalho essenciais e exigentes que são escalonáveis, confiáveis e gerenciáveis. O Service Fabric representa a plataforma de middleware de última geração para criação e gerenciamento de aplicativos escalonáveis de nuvem de camada&1; e nível corporativo.
 
 Este breve vídeo do Channel9 apresenta o Service Fabric e os microsserviços: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
 <img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
@@ -79,7 +79,7 @@ O Service Fabric oferece suporte para o gerenciamento de todo o ciclo de vida do
 
 As funcionalidades de gerenciamento de ciclo de vida do aplicativo do Service Fabric permitem que os administradores de aplicativos e os operadores de TI usem fluxos de trabalho simples com pouco envolvimento humano para provisionar, implantar e aplicar patch e monitorar aplicativos. Esses fluxos de trabalho internos reduzem enormemente a carga em operações de TI para manter os aplicativos disponíveis continuamente.
 
-A maioria dos aplicativos consiste em uma combinação de microsserviços com e sem estado e outros executáveis/tempos de execução que são implantados juntos. Tendo tipos fortes nos aplicativos e microsserviços empacotados, o Service Fabric permite a implantação de várias instâncias de aplicativo. Cada instância é gerenciada e atualizada independentemente. Vale destacar que o Service Fabric pode implantar *qualquer* executável ou tempo de execução e torná-lo confiável. Por exemplo, o Service Fabric implanta ASP.NET Core 1, Node.js, máquinas virtuais Java, scripts ou qualquer outro item que componha seu aplicativo.
+A maioria dos aplicativos consiste em uma combinação de microsserviços com e sem estado e outros executáveis/tempos de execução que são implantados juntos. Tendo tipos fortes nos aplicativos e microsserviços empacotados, o Service Fabric permite a implantação de várias instâncias de aplicativo. Cada instância é gerenciada e atualizada independentemente. Vale destacar que o Service Fabric pode implantar *qualquer* executável ou tempo de execução e torná-lo confiável. Por exemplo, o Service Fabric implanta .NET, ASP.NET Core&1;, Node.js, máquinas virtuais Java, scripts, Angular ou qualquer outro item que componha seu aplicativo.
 
 Para saber mais sobre o gerenciamento do ciclo de vida do aplicativo, leia [Ciclo de vida do aplicativo](service-fabric-application-lifecycle.md). Para obter mais informações sobre como implantar qualquer código, consulte [Implantar um executável convidado](service-fabric-deploy-existing-app.md).
 
@@ -91,7 +91,7 @@ Você também pode assistir a este vídeo da Microsoft Virtual Academy para ter 
 Ao usar a Malha do Serviço, você pode:
 
 * Desenvolver aplicativos massivamente escalonáveis, que são autorrecuperáveis.
-* Desenvolva aplicativos compostos por microsserviços usando o modelo de programação do Service Fabric. Ou você pode simplesmente hospedar executáveis convidados e outras estruturas de aplicativo de sua escolha, como ASP.NET Core 1 ou Node.js.
+* Desenvolva aplicativos compostos por microsserviços usando o modelo de programação do Service Fabric. Ou você pode simplesmente hospedar executáveis convidados e outras estruturas de aplicativo de sua escolha, como ASP.NET Core ou Node.js.
 * Desenvolva microsserviços com e sem monitoração de estado altamente confiáveis.
 * Implante e orquestre contêineres que incluam contêineres do Windows e contêineres do Docker em um cluster. Esses contêineres podem conter executáveis de convidado ou microsserviços com e sem estado confiáveis. Em ambos os casos, você obtém o mapeamento da porta do contêiner para a porta do host, detectabilidade do contêiner e failover automático.
 * Simplifique o design do seu aplicativo usando microsserviços com monitoramento de estado em vez de caches e filas.
@@ -106,6 +106,7 @@ Ao usar a Malha do Serviço, você pode:
 * Monitorar e diagnosticar a integridade de seus aplicativos e definir políticas para realizar reparos automáticos.
 * Escale horizontalmente ou reduza horizontalmente o número de nós em um cluster e escale verticalmente ou reduza verticalmente o tamanho de cada nó. Ao dimensionar os nós, seus aplicativos são dimensionados automaticamente e distribuídos de acordo com os recursos disponíveis.
 * Observe o balanceador de recursos de auto-recuperação administrar a redistribuição de aplicativos no cluster. O Service Fabric se recupera de falhas e otimiza a distribuição a distribuição de carga com base nos recursos disponíveis.
+* Use o serviço de análise de falha para executar testes de caos em seu serviço para localizar problemas e falhas antes de executar colocar o serviço em produção.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
@@ -114,11 +115,12 @@ Ao usar a Malha do Serviço, você pode:
   * [Visão geral da terminologia](service-fabric-technical-overview.md)
 * Configurando o [ambiente de desenvolvimento](service-fabric-get-started.md)  
 * [Como escolher uma estrutura do modelo de programação](service-fabric-choose-framework.md) para seu serviço
+* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

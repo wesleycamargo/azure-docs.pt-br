@@ -1,5 +1,5 @@
 ---
-title: Obtenha as ferramentas (macOS 10.10) | Microsoft Docs
+title: "Conectar o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: obter ferramentas (macOS) | Microsoft Docs"
 description: "Baixe e instale as ferramentas e software necessários para o primeiro aplicativo de exemplo para o Pi no macOS."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: cd3d9a6db98f5239fc6231464605848789751c7d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: f157a68f502f018bab83a377367f92ce20f89adf
 
 
 ---
@@ -86,6 +86,6 @@ Você instalou as ferramentas de desenvolvimento e software necessários para o 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

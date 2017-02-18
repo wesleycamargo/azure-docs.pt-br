@@ -1,5 +1,5 @@
 ---
-title: "Criar uma máquina virtual para um aplicativo Web| Microsoft Docs"
+title: "Criar uma máquina virtual do Windows para um aplicativo Web| Microsoft Docs"
 description: Criando uma VM para um projeto Web usando o Visual Studio e o Windows.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: d70167b64e5f2e35273922ba308ca6266a7c2510
+ms.sourcegitcommit: ed43a0ae9d1b184bfe059103cd2bee00c975537d
+ms.openlocfilehash: f7ab198bd72d23aa1bcc4c6516d9f2de281dec6e
 
 
 ---
@@ -30,6 +30,6 @@ ms.openlocfilehash: d70167b64e5f2e35273922ba308ca6266a7c2510
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

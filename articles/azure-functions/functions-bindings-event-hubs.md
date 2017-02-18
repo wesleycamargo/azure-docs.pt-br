@@ -17,19 +17,20 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
-ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
+ms.sourcegitcommit: c8e9f9709d13295c9414e525f1f60abf0d0accb7
+ms.openlocfilehash: 0bfbfd3828aacdee0b6630ced034f2c1e0451abd
 
 
 ---
 # <a name="azure-functions-event-hub-bindings"></a>Associações do Hub de Eventos do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar associações do [Hub de Eventos do Azure](../event-hubs/event-hubs-overview.md) no Azure Functions. O Azure Functions dá suporte a associações de gatilho e de saída para os Hubs de Eventos.
+Este artigo explica como configurar e codificar associações do [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) no Azure Functions.
+O Azure Functions dá suporte a associações de gatilho e de saída para os Hubs de Eventos.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Se você for novo nos Hubs de Evento do Azure, consulte a [Visão geral do Hub de Eventos do Azure](../event-hubs/event-hubs-overview.md).
+Se você for novo nos Hubs de Evento do Azure, consulte a [Visão geral do Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).
 
 <a name="trigger"></a>
 
@@ -44,13 +45,14 @@ O gatilho de hub de eventos usa o seguinte objeto JSON na matriz `bindings` de f
     "name": "<Name of trigger parameter in function signature>",
     "direction": "in",
     "path": "<Name of the Event Hub>",
-    "consumerGroup": "Consumer group to use - see below", 
+    "consumerGroup": "Consumer group to use - see below",
     "connection": "<Name of app setting with connection string - see below>"
 }
 ```
 
-`consumerGroup` é uma propriedade opcional usada para definir o [grupo de consumidores](../event-hubs/event-hubs-overview.md#consumer-groups) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado.  
-`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.
+`consumerGroup` é uma propriedade opcional usada para definir o [grupo de consumidores](../event-hubs/event-hubs-what-is-event-hubs.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado.  
+`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos.
+Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.
 
 [Configurações adicionais](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) podem ser fornecidas em um arquivo host.json para ajustar ainda mais gatilhos do hub de eventos.  
 
@@ -116,9 +118,9 @@ module.exports = function (context, myEventHubMessage) {
 <a name="output"></a>
 
 ## <a name="event-hub-output-binding"></a>Associação de saída do Hub de Eventos
-Use a associação de saída do Hub de Eventos para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele. 
+Use a associação de saída do Hub de Eventos para gravar eventos em uma transmissão de evento do hub de eventos. É necessário ter permissão de envio para um hub de eventos a fim de gravar eventos nele.
 
-A associação de saída usa o seguinte objeto JSON na matriz `bindings` de function.json: 
+A associação de saída usa o seguinte objeto JSON na matriz `bindings` de function.json:
 
 ```json
 {
@@ -130,12 +132,13 @@ A associação de saída usa o seguinte objeto JSON na matriz `bindings` de func
 }
 ```
 
-`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.
+`connection` deve ser o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos.
+Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.
 
 ## <a name="output-usage"></a>Uso de saída
 Esta seção mostra como usar a associação de saída do Hub de Eventos no seu código de função.
 
-Você pode gerar mensagens de saída para o hub de eventos configurado com os seguintes tipos de parâmetro: 
+Você pode gerar mensagens de saída para o hub de eventos configurado com os seguintes tipos de parâmetro:
 
 * `out string`
 * `ICollector<string>` (para gerar várias mensagens)
@@ -183,7 +186,7 @@ Ou, para criar várias mensagens:
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
 {
     string message = $"Event Hub message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.Info(message);
     outputEventHubMessage.Add("1 " + message);
     outputEventHubMessage.Add("2 " + message);
 }
@@ -233,7 +236,6 @@ module.exports = function(context) {
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

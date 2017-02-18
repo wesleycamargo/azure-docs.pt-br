@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d408b5affc166ae4fae6b94ab3e069b51ecfdd3c
+ms.sourcegitcommit: e7f09966e2b15735081cf2ac4d244a7ae8b92df8
+ms.openlocfilehash: 397bbc7d556338ff347d59d000fe7442acda560a
 
 
 ---
@@ -1084,7 +1084,7 @@ O Bloco de Aplicativos para Tratamento de Falhas Transitórias tem as estratégi
 
 | **Estratégia** | **Configuração** | **Valor padrão** | **Significado** |
 | --- | --- | --- | --- |
-| **Exponencial** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />verdadeiro |O número de tentativas de repetição.<br />O tempo mínimo de retirada. O número mais alto desse valor ou da retirada calculada será usado como o intervalo de repetição.<br />O tempo mínimo de retirada. O número mais baixo desse valor ou da retirada calculada será usado como o intervalo da repetição.<br />O valor usado para calcular o delta aleatório para o atraso exponencial entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
+| **Exponencial** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />verdadeiro |O número de tentativas de repetição.<br />O tempo máximo de retirada. O número mais alto desse valor ou da retirada calculada será usado como o intervalo de repetição.<br />O tempo mínimo de retirada. O número mais baixo desse valor ou da retirada calculada será usado como o intervalo da repetição.<br />O valor usado para calcular o delta aleatório para o atraso exponencial entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 | **Incremental** |retryCount<br />initialInterval<br />incremento<br /><br />fastFirstRetry<br /> |10<br />1 segundo<br />1 segundo<br /><br />verdadeiro |O número de tentativas de repetição.<br />O intervalo inicial que será aplicado para a primeira tentativa.<br />O valor de tempo incremental que será usado para calcular o intervalo progressivo entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 | **Linear (intervalo fixo)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 segundo<br />verdadeiro |O número de tentativas de repetição.<br />O intervalo entre repetições.<br />Se a primeira tentativa de repetição será feita imediatamente. |
 
@@ -1101,6 +1101,6 @@ Para exemplos de como usar o Bloco de Aplicativos para Tratamento de Falhas Tran
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

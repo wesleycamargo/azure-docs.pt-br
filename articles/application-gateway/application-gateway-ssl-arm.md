@@ -1,5 +1,5 @@
 ---
-title: Configurar um gateway de aplicativo para descarregamento SSL usando o Azure Resource Manager | Microsoft Docs
+title: Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs
 description: "Esta página fornece instruções para criar um gateway de aplicativo com descarregamento SSL usando o Gerenciador de Recursos do Azure"
 documentationcenter: na
 services: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: a6100af0ba746ea244a2ccc6e1ddf843a8be416e
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 2982cf9154780166f1363ae6380702299c717236
 
 
 ---
@@ -266,6 +266,6 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

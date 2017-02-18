@@ -1,5 +1,5 @@
 ---
-title: Modelos vinculados com o Resource Manager | Microsoft Docs
+title: "Conectar modelos relacionados para implantação do Azure | Microsoft Docs"
 description: "Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 922b08ab343d6aa0fd4b67d720e2f195e9dfac0f
-ms.openlocfilehash: 8f316ef559b9d1287ece7475192ec0b7a80af4e7
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 7bc5e1102b60db0bdf7a8310d0816f65bcfec3a1
 
 
 ---
-# <a name="using-linked-templates-with-azure-resource-manager"></a>Usando modelos vinculados com o Gerenciador de Recursos do Azure
+# <a name="using-linked-templates-when-deploying-azure-resources"></a>Usando modelos vinculados ao implantar os recursos do Azure
 Em um modelo do Azure Resource Manager, você pode vincular a outro modelo, o que permite decompor sua implantação em um conjunto de modelos orientados para fins específicos. Assim como com a decomposição de um aplicativo em várias classes de código, a decomposição oferece benefícios em termos de teste, reutilização e legibilidade.  
 
 Você pode passar parâmetros de um modelo principal a um modelo vinculado e esses parâmetros podem corresponder diretamente aos parâmetros ou variáveis expostos pelo modelo de chamada. O modelo vinculado também pode passar uma variável de saída de volta para o modelo de origem, permitindo uma troca de dados bidirecional entre os modelos.
@@ -328,6 +328,6 @@ Você recebe uma solicitação para fornecer o token SAS como um parâmetro. Voc
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

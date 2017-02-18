@@ -1,5 +1,5 @@
 ---
-title: HA e DR de Hub IoT do Azure | Microsoft Docs
+title: "Alta disponibilidade e recuperação de desastres do Hub IoT do Azure | Microsoft Docs"
 description: "Descreve os recursos do Hub IoT e do Azure que ajudam a criar soluções IoT do Azure altamente disponíveis habilitadas para recuperação de desastre."
 services: iot-hub
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: f133300d88b0ffc10b287879ec78f4c63e9ba62d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
 
 
 ---
@@ -29,10 +29,10 @@ Além de HA entre regiões, o Hub IoT implementa mecanismos de failover para rec
 | Funcionalidade | RPO |
 | --- | --- |
 | Disponibilidade de serviço para operações de registro e comunicação |Possível perda de CName |
-| Dados de identidade no registro de identidade |Perda de dados de 0 a 5 minutos |
+| Dados de identidade no registro de identidade |Perda de dados de&0; a&5; minutos |
 | Mensagens do dispositivo para a nuvem |Todas as mensagens não lidas são perdidas |
 | Mensagens de monitoramento de operações |Todas as mensagens não lidas são perdidas |
-| Mensagens da nuvem para o dispositivo |Perda de dados de 0 a 5 minutos |
+| Mensagens da nuvem para o dispositivo |Perda de dados de&0; a&5; minutos |
 | Fila de comentários da nuvem para o dispositivo |Todas as mensagens não lidas são perdidas |
 
 ## <a name="regional-failover-with-iot-hub"></a>Failover regional com o Hub IoT
@@ -62,6 +62,6 @@ Para saber mais sobre o Hub IoT do Azure, siga estes links:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

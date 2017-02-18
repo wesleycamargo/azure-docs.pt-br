@@ -1,5 +1,5 @@
 ---
-title: "Soluções de recuperação de desastre na nuvem - Replicação geográfica ativa do Banco de Dados SQL | Microsoft Docs"
+title: "Atualizações de aplicativo sem interrupção - Banco de dados SQL do Azure | Microsoft Docs"
 description: "Saiba como usar a replicação geográfica do Banco de Dados SQL do Azure para dar suporte a atualizações online de seu aplicativo na nuvem."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
+ms.sourcegitcommit: 66c37501b053cd9a8b4487c34e8914b75f3058ee
+ms.openlocfilehash: a99d3f9b8df5cfff98e76fe3931304221b2ca6f4
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: d7f3d972755ec326c28fcdb95fd0600dd8ca1a91
 > 
 > 
 
-Saiba como usar a [Replicação Geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar a rolagem de atualizações de seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, examinamos dois métodos diferentes de orquestrar o processo de atualização e discutiremos os benefícios e as desvantagens de cada opção. Para os fins deste artigo, usaremos um aplicativo simples que consiste em um site conectado a um banco de dados autônomo como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2, sem impactos significativos na experiência do usuário final. 
+Saiba como usar a [Replicação Geográfica](sql-database-geo-replication-overview.md) no Banco de Dados SQL para habilitar a rolagem de atualizações de seu aplicativo na nuvem. Como a atualização é uma operação com interrupção, ele deve fazer parte de seu design e planejamento de continuidade dos negócios. Neste artigo, examinamos dois métodos diferentes de orquestrar o processo de atualização e discutiremos os benefícios e as desvantagens de cada opção. Para os fins deste artigo, usaremos um aplicativo simples que consiste em um site conectado a um banco de dados individual como sua camada de dados. Nosso objetivo é atualizar a versão 1 do aplicativo para a versão 2, sem impactos significativos na experiência do usuário final. 
 
 Ao avaliar as opções de atualização, você deve considerar os seguintes fatores:
 
@@ -155,6 +155,6 @@ As páginas abaixo ajudarão você a saber mais sobre as operações específica
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

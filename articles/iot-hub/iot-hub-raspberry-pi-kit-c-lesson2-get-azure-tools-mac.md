@@ -1,5 +1,5 @@
 ---
-title: Obtenha as ferramentas do Azure (macOS 10.10) | Microsoft Docs
+title: "Conectar o Raspberry Pi (C) ao IoT do Azure - Lição 2: ferramentas do Azure (macOS) | Microsoft Docs"
 description: Instale o Python e a CLI do Azure (Interface de Linha de Comando do Azure) no macOS.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: e8da9d89e2af04a3c3ad3272d2af5060b23f9249
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: f0615f10adaf3bd03bc9a3b446830f2906875a89
 
 
 ---
@@ -78,6 +78,6 @@ Você instalou a CLI do Azure. Sua próxima tarefa é criar sua identidade de di
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

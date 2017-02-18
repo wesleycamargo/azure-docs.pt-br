@@ -1,5 +1,5 @@
 ---
-title: Acesso condicional para Aplicativos Publicados com o Proxy de Aplicativo do AD do Azure
+title: Acesso condicional a aplicativos no local - Azure AD | Microsoft Docs
 description: "Aborda como configurar o acesso condicional para os aplicativos que você publica para serem acessados remotamente usando o Proxy de Aplicativo do AD do Azure."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3b1ec45073a7d9abb7eb12c009ce60357a0d1545
+ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
+ms.openlocfilehash: 72b823998ebd570acc34e6a7ca034f64881db0c4
 
 
 ---
-# <a name="working-with-conditional-access"></a>Trabalhando com acesso condicional
+# <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>Trabalhando com acesso condicional no Proxy de Aplicativo do AD do Azure
 Você pode configurar regras de acesso para conceder acesso condicional a aplicativos publicados usando o Proxy de Aplicativo. Isso permite a você:
 
 * Exigir a autenticação multifator por aplicativo
@@ -43,11 +43,11 @@ Regras de acesso são avaliadas quando um usuário acessa um aplicativo federado
 3. Clique em **Aplicativos** e role para baixo até a seção **Regras de Acesso**. A seção de regras de acesso será mostrada apenas para aplicativos publicados usando o Proxy de Aplicativo que usem autenticação federada.
 4. Habilitar a regra selecionando **Habilitar Regras de Acesso** para **Ativado**.
 5. Especifique os usuários e grupos para os quais as regras serão aplicadas. Use o botão **Adicionar Grupo** para selecionar um ou mais grupos aos quais a regra de acesso será aplicada. Essa caixa de diálogo também pode ser usada para remover os grupos selecionados.  Quando as regras são selecionadas para serem aplicadas aos grupos, as regras de acesso só serão impostas para os usuários que pertençam a um dos grupos de segurança especificados.  
-   
+
    * Para excluir explicitamente grupos de segurança da regra, marque **Exceto** e especifique um ou mais grupos. Os usuários que são membros de um grupo na lista Exceto não serão solicitados a realizar a multi-factor authentication.  
    * Se um usuário tiver sido configurado usando o recurso de autenticação multifator por usuário, essa configuração terá precedência sobre as regras de autenticação multifator do aplicativo. Isso significa que, para um usuário que foi configurado por uma multi-factor authentication por usuário, será necessário executar a multi-factor authentication, mesmo que eles tenham sido isentos das regras de multi-factor authentication do aplicativo. Saiba mais sobre a [autenticação multifator e as configurações por usuário](../multi-factor-authentication/multi-factor-authentication.md).
 6. Selecione a regra de acesso que você deseja definir:
-   
+
    * **Requer autenticação multifator**: os usuários aos quais se aplicam as regras de acesso deverão concluir a autenticação multifator antes de acessar o aplicativo ao qual a regra se aplica.
    * **Requer autenticação multifator quando não está no trabalho**: os usuários que tentarem acessar o aplicativo a partir de um endereço IP confiável não precisarão realizar a autenticação multifator. Os intervalos de endereços IP confiáveis podem ser configurados na página de configurações de multi-factor authentication.
    * **Bloquear o acesso quando não estiver no trabalho**: Os usuários que tentarem acessar o aplicativo de fora da rede corporativa não poderão acessar o aplicativo.
@@ -69,7 +69,6 @@ Para obter as últimas notícias e atualizações, confira o [blog do Proxy de A
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

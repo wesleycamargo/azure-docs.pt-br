@@ -1,5 +1,5 @@
 ---
-title: Modelos do Visual Studio para o Lote do Azure | Microsoft Docs
+title: Usar modelos do Visual Studio para iniciar seu projeto do Lote - Azure | Microsoft Docs
 description: "Saiba como esses modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure"
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
 
 
 ---
@@ -454,6 +454,6 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

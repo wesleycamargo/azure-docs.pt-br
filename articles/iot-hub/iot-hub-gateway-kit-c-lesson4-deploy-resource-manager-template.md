@@ -1,5 +1,5 @@
 ---
-title: "Salvar mensagens na nuvem do Azure e lê-las na nuvem | Microsoft Docs"
+title: "Dispositivo SensorTag e Gateway do IoT do Azure - Lição 4: criar aplicativo de funções | Microsoft Docs"
 description: Salve mensagens da NUC da Intel para o hub IoT, grave-as no Armazenamento de Tabelas do Azure e, em seguida, leia-as na nuvem.
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 65a25dd7a2f6a8d518217512f9e10fc9008ee728
-ms.openlocfilehash: 73c5268ece75776a3c5007b612f84bd29cc7784d
+ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
+ms.openlocfilehash: 3672804218dbbe3a545536b8c4baccb2b9171cdc
 
 
 ---
@@ -89,6 +89,6 @@ Você criou o aplicativo de funções do Azure para processar as mensagens de hu
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

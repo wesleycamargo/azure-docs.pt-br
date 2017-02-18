@@ -1,5 +1,5 @@
 ---
-title: "Implantar várias instâncias dos recursos | Microsoft Docs"
+title: "Implantar várias instâncias dos recursos do Azure | Microsoft Docs"
 description: "Use a operação de cópia e matrizes em um modelo do Gerenciador de Recursos do Azure para iterar várias vezes durante a implantação de recursos."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 28bda592a685de4b2b938da21c3f3aa0a60e632d
-ms.openlocfilehash: 241a22429e8e0fbd2625292890baf4b2c3d77d81
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
 
 
 ---
-# <a name="create-multiple-instances-of-resources-in-azure-resource-manager"></a>Criar várias instâncias de recursos no Gerenciador de Recursos do Azure
+# <a name="deploy-multiple-instances-of-resources-in-azure-resource-manager-templates"></a>Implantar várias instâncias de recursos nos modelos do Azure Resource Manager
 Este tópico mostra como iterar em seu modelo do Gerenciador de Recursos do Azure para criar várias instâncias de um recurso.
 
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex e length
@@ -556,6 +556,6 @@ Agora, crie o modelo pai que tem uma instância estática do modelo aninhado e f
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

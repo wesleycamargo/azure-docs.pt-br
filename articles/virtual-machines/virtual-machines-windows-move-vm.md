@@ -1,5 +1,5 @@
 ---
-title: Mover uma VM do Windows | Microsoft Docs
+title: "Mover um recurso de máquina virtual do Windows no Azure | Microsoft Docs"
 description: "Mova uma VM Windows para outro grupo de recursos ou outra assinatura do Azure no modelo de implantação do Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
-ms.openlocfilehash: 2464b54f70dc38b79a883b08664f4f165ec4c2d3
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: cccbddd6993e3011e3e76bc84ffc212f3f8b1d55
 
 
 ---
@@ -66,6 +66,6 @@ Você pode mover vários tipos diferentes de recursos entre grupos de recursos e
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
