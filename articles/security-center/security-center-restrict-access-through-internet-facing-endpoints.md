@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9316339551fdc6b8b266886b120fea5d7c1ef28f
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
 
 
 ---
@@ -27,23 +27,28 @@ Essa recomendação é gerada para qualquer porta que não seja da Web que tenha
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Restringir o acesso por meio de ponto de extremidade para a Internet**.
+
    ![Restringir o acesso por meio de ponto de extremidade para a Internet][1]
-2. Isso abre a folha **Restringir o acesso por meio de ponto de extremidade para a Internet**. Essa folha lista as VMs (máquinas virtuais) com as regras de entrada que criam um problema potencial de segurança. Selecionar uma máquina virtual.
+2. Isso abre a folha **Restringir o acesso por meio de ponto de extremidade para a Internet**. Essa folha lista as VMs (máquinas virtuais) com as regras de entrada que criam um problema potencial de segurança. Selecione uma VM.
+
    ![Selecionar uma máquina virtual][2]
 3. A folha **NSG** exibe informações de Grupo de Segurança de Rede, as regras de entrada relacionadas e a VM associada. Selecione **Editar regras de entrada** para prosseguir com a edição de uma regra de entrada.
+
    ![Folha Grupo de Segurança de Rede][3]
 4. Na folha **Regras de segurança de entrada** , selecione a regra de entrada a editar. Neste exemplo, vamos selecionar **AllowWeb**.
+
    ![Regras de segurança de entrada][4]
-   
+
    Observe que você também pode selecionar **Regras padrão** para ver o conjunto de regras padrão contidas em todos os NSGs. As regras padrão não podem ser excluídas, mas como recebem uma prioridade mais baixa, elas podem ser substituídas pelas regras que você criar. Saiba mais sobre [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules).
+
    ![Regras padrão][5]
 5. Na folha **AllowWeb**, edite as propriedades da regra de entrada para que a **Origem** seja um endereço IP ou bloco de endereços IP. Para saber mais sobre as propriedades da regra de entrada, consulte [Regras de NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   
+
    ![Editar regra de entrada][6]
 
 ## <a name="see-also"></a>Consulte também
@@ -72,6 +77,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

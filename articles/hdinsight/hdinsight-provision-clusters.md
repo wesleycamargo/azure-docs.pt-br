@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ede2e4ec5f3414d1c8a17f4c120011eba0d9a6ca
-ms.openlocfilehash: 14dcb8fe12bb516bc27b27f94992801d935811c8
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: f014b92516879a0255dda3736bf5af6142555d92
 
 
 ---
@@ -27,10 +27,8 @@ ms.openlocfilehash: 14dcb8fe12bb516bc27b27f94992801d935811c8
 
 Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para processamento distribuído de tarefas no cluster. O Azure abstrai os detalhes da implementação da instalação e configuração de nós individuais. Portanto, você precisa fornecer informações de configuração geral. Neste artigo, você aprenderá a usar essas definições de configuração.
 
-As informações contidas neste documento são específicas de clusters HDInsight do Azure baseados em Windows. Para saber mais sobre clusters baseados em Linux, veja [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). As informações contidas neste documento são específicas de clusters HDInsight do Azure baseados em Windows. Para saber mais sobre clusters baseados em Linux, veja [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 
 
@@ -300,6 +298,6 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

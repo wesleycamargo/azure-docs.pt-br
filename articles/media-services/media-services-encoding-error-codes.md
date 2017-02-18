@@ -1,5 +1,5 @@
 ---
-title: "Códigos de erro de codificação | Microsoft Docs"
+title: "Códigos de erro de codificação dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este tópico lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação."
 services: media-services
 documentationcenter: 
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: 7c5281bd3e846a78ef7e602219df6566fb032f72
+ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
+ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
 
 
 ---
 
-## <a name="encoding-error-codes"></a>Códigos de erro de codificação
+# <a name="encoding-error-codes"></a>Códigos de erro de codificação
 
 A tabela a seguir lista os códigos de erro que podem ser retornados caso um erro tenha sido encontrado durante a execução de tarefas de codificação.  Para obter detalhes do erro em seu código do .NET, use a classe [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Para obter detalhes do erro em seu código REST, use a API REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
 
@@ -55,6 +55,6 @@ Para obter ajuda da equipe dos **Serviços de Mídia** , abra um [tíquete de su
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

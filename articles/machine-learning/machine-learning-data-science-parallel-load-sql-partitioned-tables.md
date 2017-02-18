@@ -1,5 +1,5 @@
 ---
-title: "Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL | Microsoft Docs"
+title: "Compilar e otimizar tabelas para importação paralela rápida de dados para um SQL Server em uma VM do Azure | Microsoft Docs"
 description: "Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
-ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
 
 
 ---
@@ -24,11 +24,9 @@ ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar um novo banco de dados e um conjunto de grupos de arquivos
-* [Criar um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx) (se ainda não houver um)
-* Adicionar grupos de arquivos de banco de dados ao banco de dados que vai conter os arquivos físicos particionados
-  
-  Isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx), se for novo, ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx), se o banco de dados já existir
-* Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados
+* [Crie um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não houver um.
+* Adicione grupos de arquivos de banco de dados ao banco de dados que contém os arquivos físicos particionados. Isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx), se for novo, ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx), se o banco de dados já existir.
+* Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados.
   
   > [!NOTE]
   > Especifique o grupo de arquivos de destino que contém os dados dessa partição e os nomes dos arquivos de banco de dados físico em que serão armazenados os dados do grupo de arquivos.
@@ -185,6 +183,6 @@ Para obter um exemplo passo a passo completo do Processo de Análise do Cortana 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

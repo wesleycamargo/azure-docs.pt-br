@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -51,7 +51,7 @@ Você pode configurar o CORS no portal do Azure ou usando as ferramentas do [Azu
    Depois que você clicar em **Salvar**, o aplicativo de API aceitará chamadas JavaScript das URLs especificadas.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Configurar CORS usando as ferramentas do Azure Resource Manager
-Você também pode configurar o CORS para um aplicativo de API usando os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) em ferramentas de linha de comando, como o [Azure PowerShell](/powershell/azureps-cmdlets-docs) e a [CLI do Azure](../xplat-cli-install.md). 
+Você também pode configurar o CORS para um aplicativo de API usando os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) em ferramentas de linha de comando, como o [Azure PowerShell](/powershell/azureps-cmdlets-docs) e a [CLI do Azure](../xplat-cli-install.md). 
 
 Para ver um exemplo de um modelo do Azure Resource Manager que define a propriedade do CORS, abra o [arquivo azuredeploy.json no repositório do aplicativo de exemplo deste tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Localize a seção do modelo que se parece com o exemplo a seguir:
 
@@ -252,6 +252,6 @@ Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativ
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

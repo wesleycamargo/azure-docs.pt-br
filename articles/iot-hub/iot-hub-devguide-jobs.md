@@ -1,6 +1,6 @@
 ---
-title: "Guia do desenvolvedor – trabalhos | Microsoft Docs"
-description: "Guia do desenvolvedor do Hub IoT do Azure - agendar trabalhos para execução em vários dispositivos conectados ao seu hub"
+title: Entender os trabalhos de Hub IoT do Azure | Microsoft Docs
+description: "Guia do desenvolvedor – agendar trabalhos para execução em vários dispositivos conectados ao seu Hub IoT. Os trabalhos podem atualizar marcações e propriedades desejadas e invocar métodos diretos em vários dispositivos."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d57e52d2b97d226b62a356798a9e0b5fcabd1a00
+ms.sourcegitcommit: eac5027f39d15e355d1c9f60a31ded567272d5fa
+ms.openlocfilehash: b94ceac2298509817020b32b65125c5f767d8089
 
 
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
 ## <a name="overview"></a>Visão geral
-Conforme descrito em artigos anteriores, o Hub IoT do Azure permite diversos blocos de construção ([marcas e propriedades do dispositivo gêmeo][lnk-twin-devguide] e [métodos diretos][lnk-dev-methods]).  Normalmente, aplicativos back-end do IoT permitem que administradores e operadores do dispositivo atualizem e interajam com dispositivos IoT em massa e em um horário agendado.  Os trabalhos encapsulam a execução de atualizações do dispositivo gêmeo e de métodos diretos em um conjunto de dispositivos e em um horário agendado.  Por exemplo, um operador poderia usar um aplicativo back-end que iniciaria e controlaria um trabalho a fim de reinicializar um conjunto de dispositivos no edifício 43, no terceiro andar, em um horário que não interromperia as operações do edifício.
+Conforme descrito em artigos anteriores, o Hub IoT do Azure permite diversos blocos de construção ([marcas e propriedades do dispositivo gêmeo][lnk-twin-devguide] e [métodos diretos][lnk-dev-methods]).  Normalmente, os aplicativos back-end permitem que administradores e operadores do dispositivo atualizem e interajam com dispositivos IoT em massa e em um horário agendado.  Os trabalhos encapsulam a execução de atualizações do dispositivo gêmeo e de métodos diretos em um conjunto de dispositivos e em um horário agendado.  Por exemplo, um operador poderia usar um aplicativo back-end que iniciaria e controlaria um trabalho a fim de reinicializar um conjunto de dispositivos no edifício 43, no terceiro andar, em um horário que não interromperia as operações do edifício.
 
 ### <a name="when-to-use"></a>Quando usar
 Considere o uso de trabalhos quando: uma solução back-end precisar agendar e acompanhar o andamento de qualquer uma das seguintes atividades a seguir em um conjunto de dispositivos:
@@ -32,7 +32,7 @@ Considere o uso de trabalhos quando: uma solução back-end precisar agendar e a
 * Chamar métodos diretos
 
 ## <a name="job-lifecycle"></a>Ciclo de vida do trabalho
-Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT.  Você pode iniciar um trabalho por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) e consultar o andamento de um trabalho em execução por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Após o início de um trabalho, a consulta aos trabalhos permitirá que o aplicativo back-end atualize o status dos trabalhos em execução.
+Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT.  Você pode iniciar um trabalho por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e consultar o andamento de um trabalho em execução por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Após o início de um trabalho, a consulta aos trabalhos permite que o aplicativo back-end atualize o status dos trabalhos em execução.
 
 > [!NOTE]
 > Quando você inicia um trabalho, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -46,7 +46,7 @@ Os tópicos de referência a seguir fornecem a você mais informações sobre co
 Veja a seguir os detalhes da solicitação HTTP 1.1 para execução de um [método direto][lnk-dev-methods] em um conjunto de dispositivos usando um trabalho:
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -59,20 +59,28 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 para execução de um [méto
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+A condição de consulta também pode ser em uma única ID de dispositivo ou em uma lista de IDs de dispositivos, conforme mostrado abaixo
+
+**Exemplos**
+```
+queryCondition = "deviceId = 'MyDevice1'"
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+A [Linguagem de consulta de Hub IoT][lnk-query] aborda a linguagem de consulta de Hub IoT em detalhes adicionais.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Trabalhos para atualização das propriedades do dispositivo gêmeo
 Veja a seguir os detalhes da solicitação HTTP 1.1 de atualização das propriedades do dispositivo gêmeo usando um trabalho:
 
     ```
-    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
@@ -82,8 +90,7 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 de atualização das proprie
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
@@ -93,7 +100,7 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 de atualização das proprie
 Veja a seguir os detalhes da solicitação HTTP 1.1 para [consultar trabalhos][lnk-query]:
 
     ```
-    GET /jobs/v2/query?api-version=2016-09-30-preview[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -123,7 +130,7 @@ Veja a seguir uma lista de propriedades e descrições correspondentes que podem
 | **concluído**: o trabalho foi concluído. | |
 | **deviceJobStatistics** |Estatísticas sobre a execução do trabalho. |
 
-Durante a visualização, o objeto deviceJobStatistics fica disponível somente após a conclusão do trabalho.
+Propriedades **deviceJobStatistics**.
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -134,12 +141,12 @@ Durante a visualização, o objeto deviceJobStatistics fica disponível somente 
 | **deviceJobStatistics.pendingCount** |Número de dispositivos com execução pendente do trabalho. |
 
 ### <a name="additional-reference-material"></a>Material de referência adicional
-Outros tópicos de referência no Guia do desenvolvedor incluem:
+Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
 
 * [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
 * [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
-* [SDKs de dispositivo e serviço do Azure IoT][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e serviço que interagem com o Hub IoT.
-* [Linguagem de consulta do Hub IoT para gêmeos de dispositivo e trabalhos][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre gêmeos de dispositivo e trabalhos.
+* [SDKs de dispositivo e serviço do Azure IoT][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
+* [Linguagem de consulta do Hub IoT para dispositivos gêmeos e trabalhos][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
 * [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -162,6 +169,6 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

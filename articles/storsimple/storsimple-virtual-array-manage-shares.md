@@ -1,5 +1,5 @@
 ---
-title: Gerenciador de Dispositivos StorSimple - Gerenciar compartilhamentos na Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+title: Gerenciar compartilhamentos do StorSimple Virtual Array | Microsoft Docs
 description: "Descreve o Gerenciador de Dispositivos StorSimple e explica como usá-lo para gerenciar compartilhamentos em sua Matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 90b932453c83d15e7e33eb0653f0f7ceaf7eeff4
+ms.sourcegitcommit: 19177fe13db2aefcef7fcf37ea8fef2fa99c728f
+ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
 
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Use o serviço do Gerenciador de Dispositivos StorSimple para gerenciar compartilhamentos na Matriz Virtual StorSimple
@@ -74,9 +74,9 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
 
 1. Na folha Resumo do serviço StorSimple, clique em **+ Adicionar compartilhamento** na barra de comandos. Isso abre a folha **Adicionar compartilhamento**.
 
-![Adicionar compartilhamento](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Adicionar compartilhamento](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-1. Na folha **Adicionar compartilhamento**, faça o seguinte:
+2. Na folha **Adicionar compartilhamento**, faça o seguinte:
    
     1. No **Nome do compartilhamento** , insira um nome exclusivo para o compartilhamento. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
 
@@ -87,8 +87,8 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
     4. No campo **Capacidade** , especifique o tamanho do compartilhamento. Um compartilhamento em camadas deve ter entre 500 GB e 20 TB e um compartilhamento fixo local deve ter entre 50 GB e 2 GB.
 
     5. No campo **Definir permissões padrão completas a**, atribua as permissões para o usuário ou para o grupo que está acessando esse compartilhamento. Especifique o nome do usuário ou grupo de usuários no formato _john@contoso.com_. É recomendável que você use um grupo de usuários (em vez de um único usuário) para conceder privilégios de administrador para acessar esses compartilhamentos. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
-2. Quando você tiver terminado de configurar o compartilhamento, clique em **Criar**. Um compartilhamento será criado com as configurações especificadas e você verá uma notificação. Por padrão, o backup estará habilitado para o compartilhamento.
-3. Para confirmar se o compartilhamento foi criado com êxito, vá para a página **Compartilhamentos** . Você deve ver o compartilhamento listado.
+3. Quando você tiver terminado de configurar o compartilhamento, clique em **Criar**. Um compartilhamento será criado com as configurações especificadas e você verá uma notificação. Por padrão, o backup estará habilitado para o compartilhamento.
+4. Para confirmar se o compartilhamento foi criado com êxito, vá para a página **Compartilhamentos** . Você deve ver o compartilhamento listado.
    
     ![Criação do compartilhamento bem-sucedida](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
@@ -146,6 +146,6 @@ Saiba como [clonar um compartilhamento StorSimple](storsimple-virtual-array-clon
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

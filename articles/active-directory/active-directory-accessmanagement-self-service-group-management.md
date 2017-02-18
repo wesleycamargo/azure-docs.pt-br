@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/3/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: be84686351255585c3484f5ab8dad37b92462e2b
 
 
 ---
@@ -41,7 +41,7 @@ Você também pode usar **Usuários que podem usar o autoatendimento para grupos
 
 Você também pode usar a caixa **Grupo que pode usar autoatendimento para grupos de segurança** para especificar um nome personalizado para um grupo cujos membros podem usar o autoatendimento.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
@@ -52,7 +52,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

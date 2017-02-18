@@ -1,6 +1,6 @@
 ---
-title: Executar trabalhos do Spark nos dados armazenados no Azure Data Lake Store | Microsoft Docs
-description: Executar trabalhos do Spark nos dados armazenados no Azure Data Lake Store
+title: Usar o Apache Spark para analisar os dados no Azure Data Lake Store | Microsoft Docs
+description: Usar o Power BI para analisar os dados armazenados no Azure Data Lake Store
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
-ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e9780d487043a86df5a627b92579b67154c59279
 
 
 ---
@@ -77,7 +77,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
 4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o trecho de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
@@ -85,7 +85,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
     Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
-     ![Status de um trabalho do bloco de anotações do Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
+     ![Status de um trabalho de bloco de anotações Jupyter](./media/hdinsight-apache-spark-use-with-data-lake-store/hdispark.jupyter.job.status.png "Status de um trabalho de bloco de anotações Jupyter")
 
 5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Store. Você pode acessar os dados na conta do Repositório Data Lake usando o seguinte padrão de URL.
 
@@ -114,18 +114,18 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
          # Register the data fram as a table to run queries against
          hvacdf.registerTempTable("hvac")
 
-6. Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+6. Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
          %%sql
          SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
 7. Depois que o trabalho for concluído com êxito, a saída tabular a seguir será exibida por padrão.
 
-      ![Saída de tabela do resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Table output of query result")
+      ![Saída do resultado de consulta de tabela](./media/hdinsight-apache-spark-use-with-data-lake-store/tabular.output.png "Saída do resultado de consulta de tabela")
 
      Você também pode ver os resultados em outras visualizações. Por exemplo, um gráfico de área para a mesma saída seria semelhante ao seguinte.
 
-     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Area graph of query result")
+     ![Gráfico de área de resultado da consulta](./media/hdinsight-apache-spark-use-with-data-lake-store/area.output.png "Gráfico de área de resultado da consulta")
 
 8. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
@@ -138,6 +138,6 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure | Microsoft Docs"
+title: "Desenvolver aplicativos Web do Node.js para o Serviço de Aplicativo do Azure | Microsoft Docs"
 description: "Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure."
 services: app-service\web
 documentationcenter: nodejs
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
-ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
+ms.sourcegitcommit: 763e956004f460f2f6d0fa7325a6f6b5fca3fd5a
+ms.openlocfilehash: ab16eb45f86f81af719fcd0a4b65f19576f01f01
 
 
 ---
-# <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
+# <a name="develop-nodejs-web-apps-for-azure-app-service"></a>Desenvolver aplicativos Web do Node.js para o Serviço de Aplicativo do Azure
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Este tutorial mostra como criar um aplicativo [Node.js] simples e implantá-lo no [Serviço de Aplicativo do Azure] de um ambiente de linha de comando, como cmd.exe ou bash. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional que possa executar o Node.js.
@@ -45,7 +45,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 * Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita] ou [ativar seus benefícios de assinante do Visual Studio].
 
 > [!NOTE]
-> Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
+> Você pode [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
 > 
 > 
 
@@ -303,6 +303,6 @@ Para habilitar o Node-Inspector, siga estas etapas:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

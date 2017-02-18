@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,13 +87,21 @@ O Banco de Dados de Documentos permite gravar a lógica do aplicativo como progr
 
 A execução do JavaScript dentro do Banco de Dados de Documentos é baseada nos conceitos suportados pelos sistemas do banco de dados relacional, com o JavaScript sendo uma substituição moderna para Transact-SQL. Toda lógica do JavaScript é executada em uma transação ACID ambiente com isolamento de instantâneo. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>Há algum cursos online sobre o DocumentDB?
+
+Sim, há um curso da [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) sobre o Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Próximas etapas
 Já possui uma conta do Azure? Se você já tiver uma conta do Azure, poderá começar a usar o DocumentDB no [Portal do Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [criando uma conta de banco de dados do DocumentDB](documentdb-create-account.md).
 
 Não tem uma conta do Azure? Você pode:
 
 * Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/free/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. 
-* Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
+* Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$&150; em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
 * Baixe o [Emulador de DocumentDB do Azure](documentdb-nosql-local-emulator.md) para desenvolver seu aplicativo localmente.
 
 Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você. 
@@ -103,6 +111,6 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

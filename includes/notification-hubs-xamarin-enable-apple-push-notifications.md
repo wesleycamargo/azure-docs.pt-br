@@ -67,7 +67,7 @@ Crie uma nova ID de aplicativo explícita para o aplicativo na Apple e configure
    > O nome em seu certificado pode ser diferente, mas ele será prefixado com **Serviços de Notificação por Push do iOS para Desenvolvimento da Apple:**.
    > 
    > 
-10. No Acesso ao Conjunto de Chaves, clique com o botão direito do mouse no novo certificado push criado na categoria **Certificados** . Clique em **Exportar**, nomeie o arquivo, selecione o formato **.p12** e clique em **Salvar**.
+10. No Acesso ao Conjunto de Chaves, pressione Ctrl e clique no novo certificado push criado na categoria **Certificados** . Clique em **Exportar**, nomeie o arquivo, selecione o formato **.p12** e clique em **Salvar**.
     
     Anote o nome do arquivo e o local do certificado .p12 exportado. Ele será usado para habilitar a autenticação com o APNS carregando-o no Portal Clássico do Azure.
 
@@ -91,6 +91,6 @@ Crie uma nova ID de aplicativo explícita para o aplicativo na Apple e configure
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

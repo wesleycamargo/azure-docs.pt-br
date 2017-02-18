@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT. | Microsoft Docs"
+title: Fluxos de dados IoT em tempo real e Stream Analytics do Azure | Microsoft Docs
 description: Marcas e dados de sensor de fluxos IoT com o processamento de dados em tempo real e Stream Analytics
 keywords: "solução iot, introdução ao ioT"
 services: stream-analytics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/19/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4a725d55594885a5d9d4a62b4bf5fe6fd402849
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 9624405d8bc454e886e8011c1cb4920fdf7e0640
 
 
 ---
@@ -105,7 +105,7 @@ Observe que a consulta, que diferencia maiúsculas de minúsculas, compara um va
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>Consulta: alerta para disparar o fluxo de trabalho de negócios
 Vamos tornar nossa consulta mais detalhada. Para cada tipo de sensor, se você deseja monitorar a temperatura média por 30 segundos e exibir os resultados somente se a temperatura média estiver acima de 100 graus. Escreveremos a consulta a seguir e depois clicaremos em **Teste** para ver os resultados. A consulta está no arquivo ThresholdAlerting.txt.
 
-![Consulta de filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+![Consulta de filtro de&30; segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Agora, você pode ver os resultados que contêm apenas 245 linhas e nomes dos sensores nos quais a temperatura média é superior a 100. Esta consulta agrupa o fluxo de eventos por **dspl**, que é o nome de sensor, sobre uma **Janela em Cascata** de 30 segundos. Consultas temporais devem declarar como queremos que o tempo progrida. Usando a cláusula **TIMESTAMP BY**, especificamos a coluna **OUTPUTTIME** para associar tempos a todos os cálculos temporais. Para obter informações detalhadas, leia os artigos do MSDN sobre [Gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Funções de janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
@@ -122,6 +122,6 @@ O objetivo deste tutorial é demonstrar como escrever consultas de linguagem de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

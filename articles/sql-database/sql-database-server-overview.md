@@ -10,14 +10,14 @@ ms.assetid:
 ms.service: sql-database
 ms.custom: servers
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
+ms.sourcegitcommit: 79a9e72d29b5522dc3960b79bae7876f21acb4c5
+ms.openlocfilehash: 07181e5d35703cddf8a896badd45e7485c9e07a2
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 Este tópico fornece diretrizes e considerações para trabalhar com servidores lógicos do SQL Azure. Para obter informações sobre bancos de dados SQL do Azure, consulte [Bancos de dados SQL](sql-database-overview.md).
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>O que é um servidor lógico do Banco de Dados SQL do Azure?
-Um servidor lógico do Banco de Dados SQL do Azure atua como um ponto administrativo central para vários bancos de dados. No Banco de Dados SQL, um servidor é um constructo lógico diferente de uma instância do SQL Server com a qual você talvez esteja familiarizado no mundo local. Especificamente, o serviço do Banco de Dados SQL não faz garantias da localização dos bancos de dados em relação a seus servidores lógicos e não expõe nenhum acesso ou recursos no nível da instância. Para obter mais informações sobre os servidores lógicos do SQL Azure, consulte [Servidores lógicos](sql-database-server-overview.md). 
+Um servidor lógico do Banco de Dados SQL do Azure atua como um ponto administrativo central para vários bancos de dados. No Banco de Dados SQL, um servidor é um constructo lógico diferente de uma instância do SQL Server com a qual você talvez esteja familiarizado no mundo local. Especificamente, o serviço do Banco de Dados SQL não faz garantias da localização dos bancos de dados em relação a seus servidores lógicos e não expõe nenhum acesso ou recursos no nível da instância.  
 
 Um servidor lógico do Banco de Dados do Azure:
 
@@ -85,6 +85,6 @@ Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando v
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

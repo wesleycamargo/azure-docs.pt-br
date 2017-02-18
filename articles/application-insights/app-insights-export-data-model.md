@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e4576409641db73ad8920a1eec2eea1e3580109f
-ms.openlocfilehash: fc8a3efd079d84aea4cac63de401d46347f9e3d7
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: feaa76e81f64b224f62e583541bf2ef376793a38
 
 
 ---
@@ -155,7 +155,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | internal.data.id |string | |
 
 ## <a name="events"></a>Eventos
-Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
+Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 | basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Mensagens de rastreamento
-Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e pelos [adaptadores de log](app-insights-asp-net-trace-logs.md).
+Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e pelos [adaptadores de log](app-insights-asp-net-trace-logs.md).
 
 | path | Tipo | Observações |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] urlData.host |string |Comprimento máximo 200 |
 
 ## <a name="requests"></a>Solicitações
-Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
+Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
 | Caminho | Tipo | Observações |
 | --- | --- | --- |
@@ -354,6 +354,6 @@ Exceto quando indicado o contrário, as durações são representadas em décimo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

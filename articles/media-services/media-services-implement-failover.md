@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 7a99b931a30c04e13d535caa2abd46980c4a3fb3
+ms.sourcegitcommit: 84d42efc54f7dcbde8330360941969a5b0884a1a
+ms.openlocfilehash: ed249f63098a82b935016ccac3e0416951cb1b0a
 
 
 ---
@@ -46,7 +46,6 @@ Em seguida, para manipular qualquer interrupção, você poderá criar um CDN so
 
 As seguintes considerações se aplicam:
 
-* A versão atual do SDK dos Serviços de Mídia não dá suporte à criação de um localizador com uma ID de localizador especificado. Para realizar essa tarefa, usaremos a API REST dos Serviços de Mídia.
 * A versão atual do SDK dos Serviços de Mídia não dá suporte à geração programática de informações do IAssetFile que associaria um ativo aos arquivos de ativo. Para realizar essa tarefa, usaremos a API REST dos Serviços de Mídia CreateFileInfos. 
 * Ativos de armazenamento criptografado (AssetCreationOptions.StorageEncrypted) não têm suporte para replicação (já que a chave de criptografia será diferente nas duas contas dos Serviços de Mídia). 
 * Se desejar aproveitar o empacotamento dinâmico, verifique se o ponto de extremidade de streaming do qual você deseja transmitir seu conteúdo está no estado **Executando**.
@@ -950,6 +949,6 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

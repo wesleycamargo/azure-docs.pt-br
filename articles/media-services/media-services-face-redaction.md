@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/01/2017
 ms.author: juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 3feaac838fe89e54a3b561b7572a9eb3393edc4c
-ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
+ms.sourcegitcommit: 5b8d989d950c17d867f30a6fa8a464a8750e2303
+ms.openlocfilehash: 98922addf7aa8bfc77033be29bf137b362378661
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 3b0f6127e2b64989d83efce8c5a930ffee481a01
 
 Este tópico fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
 
-No momento, o MP do **Azure Media Redactor** está em versão de Visualização. Ele está disponível em todas as regiões públicas do Azure, bem como em data centers do Governo dos EUA e da China. Esta visualização está disponível gratuitamente no momento. Na versão atual, há um limite de 10 minutos de duração do vídeo processado.
+No momento, o MP do **Azure Media Redactor** está em versão de Visualização. Ele está disponível em todas as regiões públicas do Azure, bem como em data centers do Governo dos EUA e da China. Esta visualização está disponível gratuitamente no momento. 
 
 ## <a name="face-redaction-modes"></a>Modos de edição facial
 A edição facial trabalha detectando rostos em cada quadro de vídeo e controlando o objeto de rosto para frente e para trás no tempo, para que a mesma pessoa possa ser desfocada também de outros ângulos. O processo de edição automatizada é muito complexo e nem sempre produz 100% do resultado desejado. Portanto, o Media Analytics oferece duas maneiras de modificar o resultado final.
@@ -103,7 +103,7 @@ O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa se
 | Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
-| Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
+| Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase&1;, com modificações opcionais. |
 | Ativo de entrada |foo_IDList.txt (opcional) |Nova lista opcional separada por linhas de IDs de rostos para editar. Se deixado em branco, todas as faces são desfocadas. |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Ativo de saída |foo_redacted.mp4 |Vídeo com desfoque aplicado com base nas anotações |
@@ -308,6 +308,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

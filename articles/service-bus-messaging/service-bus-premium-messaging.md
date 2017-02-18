@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 01/18/2017
 ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: dfd1ae52cc56a4d4b4c7ee3f69f0c454be607401
-ms.openlocfilehash: 9dd2696ebf4e2c4749471e5adcbc446c3945babf
+ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
+ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
-O Sistema de Mensagens do Barramento de Serviço, que inclui entidades de mensagens, como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
+O Sistema de Mensagens do Barramento de Serviço, que inclui entidades como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
 
 A camada *Premium* do Sistema de Mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do Sistema de Mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
 
@@ -54,7 +54,7 @@ A introdução ao Sistema de Mensagens Premium é simples e o processo é semelh
 
 ![criar-premium-namespace][create-premium-namespace]
 
-Você também pode criar um [namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Você também pode criar um [Namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

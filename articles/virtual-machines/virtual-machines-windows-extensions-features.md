@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 259ad6e8481545c48865fbb108956b70251ade7c
-ms.openlocfilehash: 16d5b3347e01718a9976b6fa5e6d0b92c073da21
+ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
+ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
 
 
 ---
@@ -47,7 +47,7 @@ Cada extensão da máquina virtual pode ter seu próprio conjunto de pré-requis
 ### <a name="azure-vm-agent"></a>Agente de VM do Azure
 O Agente de VM do Azure gerencia a interação entre uma máquina virtual do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de máquinas virtuais do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Azure Marketplace e pode ser instalado em sistemas operacionais compatíveis.
 
-Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Para saber mais sobre os sistemas operacionais com suporte e as instruções de instalação, confira [Agente de máquina virtual do Azure](virtual-machines-windows-agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 Muitas extensões de VM diferentes estão disponíveis para uso com as máquinas virtuais do Azure. Para ver uma lista completa, execute o comando a seguir com o módulo do Azure Resource Manager PowerShell. Especifique o local desejado ao executar esse comando.
@@ -288,6 +288,6 @@ Uma extensão também pode ser removida usando o Portal do Azure. Para fazer iss
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

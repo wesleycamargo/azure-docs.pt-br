@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 3451e6d13119bacc66e9ccd861862edea5a5b4fe
 
 
 ---
@@ -147,7 +147,7 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 [Portal do Azure]: https://portal.azure.com/
 [ativar os benefícios de assinante do Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Experimentar o Serviço de Aplicativo]: https://azure.microsoft.com/try/app-service/
 [Aplicativo Web Java]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro de Desenvolvedores do Java]: /develop/java/
 [Visão geral do Resource Manager]: ../azure-resource-manager/resource-group-overview.md
@@ -169,6 +169,6 @@ Para saber mais sobre o desenvolvimento de aplicativos Java no Azure, consulte o
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

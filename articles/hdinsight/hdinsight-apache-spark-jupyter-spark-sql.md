@@ -1,5 +1,5 @@
 ---
-title: "Criar um cluster Spark no Azure HDInsight e usar o Spark SLQ no Jupyter para análise interativa | Microsoft Docs"
+title: "Introdução ao cluster Apache Spark no Azure HDInsight | Microsoft Docs"
 description: "Instruções passo a passo sobre como criar rapidamente um cluster Apache Spark no HDInsight e depois usar o Spark SQL nos blocos de anotações do Jupyter para executar consultas interativas."
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/01/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 791b6a5a07bb87302cb382290a355c9a14c63ff0
-ms.openlocfilehash: cc1d484d40dce0b1c64f2e8cdebb9377a38705cb
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: d8d9c5111a19bb165c25d2796d6b6e933d75042a
 
 
 ---
 # <a name="get-started-create-apache-spark-cluster-in-azure-hdinsight-and-run-interactive-queries-using-spark-sql"></a>Introdução: criar o cluster Apache Spark no Azure HDInsight e executar consultas interativas usando o Spark SQL
+
 Saiba como criar um cluster [Apache Spark](hdinsight-apache-spark-overview.md) no HDInsight e, em seguida, usar o notebook do [Jupyter](https://jupyter.org) para executar consultas interativas no cluster Spark.
 
    ![Introdução ao uso do Apache Spark no HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Tutorial Introdução ao uso do Apache Spark no HDInsight. Etapas ilustradas: criar uma conta de armazenamento; criar um cluster; executar instruções do Spark SQL")
@@ -30,7 +31,8 @@ Saiba como criar um cluster [Apache Spark](hdinsight-apache-spark-overview.md) n
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free).
-* **Um cliente Secure Shell (SSH)**: Linux, Unix, e sistemas OS X fornecem um cliente SSH por meio do comando `ssh`. Para sistemas Windows, consulte [Usar o SSH com Hadoop baseado em Linux no HDInsight do Windows com PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix ou OS X, consulte [Usar o SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+* **Um cliente Secure Shell (SSH)**: Linux, Unix, e sistemas OS X fornecem um cliente SSH por meio do comando `ssh`. Para clientes Windows, confira [Usar o SSH com Hadoop no HDInsight do Windows com PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md); para Linux, Unix ou OS X, confira [Usar o SSH com Hadoop no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 > [!NOTE]
 > Este artigo usa um modelo do Azure Resource Manager para criar um cluster Spark que usa [Blobs do Armazenamento do Azure como o armazenamento de cluster](hdinsight-hadoop-use-blob-storage.md). Você também pode criar um cluster Spark que usa o [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md) como um armazenamento adicional, além de Blobs do Armazenamento do Azure como o armazenamento padrão. Para obter instruções, confira [Criar um cluster HDInsight com o Repositório Data Lake](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -68,10 +70,10 @@ Nesta seção, você usa um bloco de anotações do Jupyter para executar consul
 * **PySpark** (para aplicativos escritos em Python)
 * **Spark** (para aplicativos escritos em Scala)
 
-Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em blocos de anotações do Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels) , você pode ler mais detalhes sobre os benefícios de usar o kernel PySpark. No entanto, alguns dos principais benefícios de usar o kernel PySpark são:
+Neste artigo, você usará o kernel do PySpark. Para obter mais informações sobre os dois kernels, consulte [clusters kernels de blocos de anotações do Jupyter de uso com o Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md). Alguns dos principais benefícios de usar o kernel PySpark são:
 
-* Não é necessário definir os contextos de Spark e Hive. Elas são definidas automaticamente para você.
-* Você pode usar diferentes mágicas de célula, como `%%sql`, para executar diretamente consultas SQL ou do Hive, sem nenhum trecho de código anterior.
+* Os contextos de Spark e Hive são definidos automaticamente.
+* Use diferentes mágicas de célula, como `%%sql`, para executar diretamente consultas SQL ou do Hive, sem nenhum trecho de código anterior.
 * A saída das consultas SQL ou do Hive é visualizada automaticamente.
 
 ### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>Criar um bloco de anotações do Jupyter com o kernel PySpark
@@ -80,7 +82,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 2. No menu à esquerda, clique em **Grupos de recursos**.
 3. Clique no grupo de recursos que você criou na seção anterior. Você poderá usar a função Pesquisar se houver muitos grupos de recursos. Você pode ver dois recursos no grupo, o cluster HDInsight e a conta de armazenamento padrão.
 4. Clique no cluster para abri-lo.
- 
+
 2. Em **Links rápidos**, clique em **Painéis de cluster**e, em seguida, clique em **Anotações do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
 
    ![Painéis do cluster HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-azure-portal-cluster-dashboards.png "Painéis do cluster HDInsight")
@@ -95,7 +97,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 
    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 
-   Um novo bloco de anotações é criado e aberto com o nome Untitled(Untitled.pynb). 
+   Um novo bloco de anotações é criado e aberto com o nome Untitled(Untitled.pynb).
 
 4. Clique no nome do bloco de anotações na parte superior e, se desejar, digite um nome amigável.
 
@@ -128,13 +130,13 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
         hvacdf.registerTempTable("hvac")
 
     Os clusters Spark no HDInsight são fornecidos com um arquivo de dados de exemplo, **hvac.csv**, em **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
-    
+
 7. Execute o seguinte código para consultar os dados:
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 
-   Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+   Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
    A saída tabular a seguir é exibida por padrão.
 
@@ -165,7 +167,7 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
@@ -188,6 +190,6 @@ Neste artigo, você usará o kernel PySpark. No artigo [Kernels disponíveis em 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

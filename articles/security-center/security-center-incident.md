@@ -1,10 +1,10 @@
 ---
-title: "Manipulação de incidente de segurança na Central de Segurança do Azure | Microsoft Docs"
+title: "Gerenciamento de alertas de segurança na Central de Segurança do Azure | Microsoft Docs"
 description: "Este documento ajuda você a usar os recursos da Central de Segurança do Azure para gerenciar incidentes de segurança."
 services: security-center
 documentationcenter: na
 author: YuriDio
-manager: swadhwa
+manager: mbaldwin
 editor: 
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
+ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
 
 
 ---
@@ -32,25 +32,25 @@ Na Central de Segurança, um incidente de segurança é uma agregação de todos
 Você pode examinar os incidentes atuais de segurança observando o bloco de alertas de segurança. Acesse o Portal do Azure e execute as etapas abaixo para ver mais detalhes sobre cada incidente de segurança:
 
 1. No painel Central de Segurança, você verá o bloco **Alertas de segurança** .
-   
+
     ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Clique nesse bloco para expandi-lo e se um incidente de segurança for detectado, ele aparecerá no gráfico de alertas de segurança, como mostrado abaixo:
-   
+
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Observe que a descrição de incidentes de segurança tem um ícone diferente em comparação com outros alertas. Clique para exibir mais detalhes sobre o incidente.
-   
+
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. Na folha **incidente**, você verá mais detalhes sobre esse incidente de segurança, que inclui uma descrição completa, sua gravidade (que nesse caso é alta), estado atual (nesse caso ainda é *ativo*, o que implica que o usuário não executou uma ação para ele - isso pode ser feito clicando com o botão direito no incidente na folha **Alertas de segurança**), recurso atacado (nesse caso *VM1*), as etapas de correção do incidente e no painel inferior, você tem os alertas que foram incluídos no incidente. Se você quiser obter mais informações sobre cada alerta, basta clicar nele e outra folha será aberta, como mostrado abaixo:
-   
+
     ![Incidente de segurança](./media/security-center-incident/security-center-incident-fig4.png)
 
 As informações nessa folha variam de acordo com o alerta. Leia [Gerenciamento e resposta aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) para saber mais sobre como gerenciar esses alertas. Algumas considerações importantes sobre esse recurso:
 
-* Um novo filtro permite que você personalize para exibir para apenas Incidentes, somente Alertas ou ambos. 
-* O mesmo alerta pode existir como parte de um Incidente (se aplicável), bem como para ser visível como um alerta autônomo. 
+* Um novo filtro permite que você personalize para exibir para apenas Incidentes, somente Alertas ou ambos.
+* O mesmo alerta pode existir como parte de um Incidente (se aplicável), bem como para ser visível como um alerta autônomo.
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu a usar os recursos de incidente de segurança na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -64,7 +64,6 @@ Neste documento, você aprendeu a usar os recursos de incidente de segurança na
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

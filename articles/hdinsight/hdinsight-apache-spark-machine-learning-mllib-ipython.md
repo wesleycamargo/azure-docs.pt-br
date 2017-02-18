@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/07/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 91897cb8ee5bc69bacc354a62bebafd8beb47c0c
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: d39f9b4f55f93745afea48a4b581d76e57a824c3
 
 
 ---
-# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Aprendizado de máquina: Análise preditiva nos dados de inspeção de alimentos usando o MLlib com o cluster do Apache Spark no HDInsight 
+# <a name="machine-learning-predictive-analysis-on-food-inspection-data-using-mllib-with-apache-spark-cluster-on-hdinsight"></a>Aprendizado de máquina: Análise preditiva nos dados de inspeção de alimentos usando o MLlib com o cluster do Apache Spark no HDInsight
 
 > [!TIP]
 > Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os trechos de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um bloco de anotações, crie um cluster Spark, inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), em seguida, execute o bloco de anotações ** Aprendizado de Máquina do Spark - análise de previsão sobre os dados de inspeção de alimentos com MLLib.ipynb** na pasta **Python**.
@@ -181,7 +181,7 @@ Podemos usar `sqlContext` para executar transformações de dados estruturados. 
 
     ![Saída da consulta SQL](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "Saída da consulta SQL")
 
-    Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+    Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 1. Você também pode usar Matplotlib, uma biblioteca usada para construir a visualização de dados para criar um gráfico. Como o gráfico deve ser criado a partir do dataframe **countResultsdf** mantido localmente, o trecho de código deve começar com a mágica `%%local`. Isso garante que o código seja executado localmente no servidor do Jupyter.
 
         %%local
@@ -362,6 +362,6 @@ Depois de concluir a execução do aplicativo, você deve encerrar o notebook pa
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

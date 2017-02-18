@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
+ms.sourcegitcommit: 02d810db5433370802b866424c24464d64171ef0
+ms.openlocfilehash: 6921965c3286209e024ba59637da0c485b4a0c71
 
 
 ---
@@ -162,7 +162,7 @@ Fatias diárias que se iniciam às **6h** , em vez da meia-noite do padrão.
 ### <a name="how-can-i-rerun-a-slice"></a>Como executo novamente uma fatia?
 Você pode executar novamente uma fatia de uma das seguintes maneiras:
 
-* Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Veja [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#performing-batch-actions) para obter instruções.   
+* Use o Aplicativo Monitorar e Gerenciar para executar uma janela de atividade ou fatia novamente. Veja [Executar novamente as janelas de atividades selecionadas](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **Executar** na barra de comando na folha **FATIA DE DADOS** para a fatia no portal do Azure.
 * Execute o cmdlet **Set-AzureRmDataFactorySliceStatus** com Status definido como **Aguardando** para a fatia.   
 
@@ -203,6 +203,6 @@ Se você realmente desejar parar todas as execuções imediatamente, a única ma
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

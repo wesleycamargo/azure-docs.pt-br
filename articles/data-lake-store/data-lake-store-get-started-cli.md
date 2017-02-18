@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Data Lake Store usando a interface de linha de comando entre plataformas | Microsoft Docs"
+title: "Use a interface de linha de comando para começar com o Azure Data Lake Store | Microsoft Docs"
 description: "Usar a linha de comando da plataforma cruzada do Azure para criar uma conta do Repositório Data Lake e executar operações básicas"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -33,9 +33,14 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 >
 >
 
+> [!NOTE]
+> Para carregar e baixar grandes quantidades de dados (arquivos grandes, uma grande quantidade de arquivos ou ambos), recomendamos o uso do [SDK do Python](data-lake-store-get-started-python.md), do [SDK do .NET](data-lake-store-get-started-net-sdk.md) ou do [Azure PowerShell](data-lake-store-get-started-powershell.md). Essas opções têm um desempenho melhor, pois usam vários threads para paralelizar a movimentação de dados.
+> 
+>  
+
 Saiba como usar a interface de linha de comando do Azure ara criar uma conta do Repositório Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para saber mais sobre o Data Lake Store, veja [Visão geral do Data Lake Store](data-lake-store-overview.md).
 
-A CLI do Azure é implementada no Node. js. Ela pode ser usada em qualquer plataforma que dê suporte ao Node.js, incluindo Windows, Mac e Linux. A CLI do Azure é de software livre. O código-fonte é gerenciado no GitHub em <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Este artigo aborda apenas o uso da CLI do Azure com o Repositório Data Lake. Para obter um orientação geral sobre como usar a CLI do Azure, veja [Como usar a CLI do Azure][azure-command-line-tools].
+A CLI do Azure é implementada no Node. js. Ela pode ser usada em qualquer plataforma que dê suporte ao Node.js, incluindo Windows, Mac e Linux. A CLI do Azure é de software livre. O código-fonte é gerenciado no GitHub em <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Este artigo aborda apenas o uso da CLI do Azure com o Repositório Data Lake. Para obter um orientação geral sobre como usar a CLI do Azure, confira [Como usar a CLI do Azure][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
@@ -177,6 +182,6 @@ Quando solicitado, insira **Y** para excluir a conta.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

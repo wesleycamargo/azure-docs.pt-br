@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4e86c1c1460f7b6eb312f10a0666f92b33697763
-ms.openlocfilehash: f6356a5a647940796c337e345a8b901dae9eb9b4
+ms.sourcegitcommit: 9ea90a7e2f69344fa86e20bc869f5b8af629a226
+ms.openlocfilehash: 77de5a58dc792ff2d65855e726dd35d9824276cb
 
 
 ---
@@ -37,8 +37,8 @@ Você irá:
 
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- [Azure CLI 1.0](app-service-web-get-started-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (visualização)](app-service-web-get-started.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 1.0](app-service-web-get-started-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI do Azure 2.0 (Visualização)](app-service-web-get-started.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Git](http://www.git-scm.com/downloads).
@@ -46,14 +46,14 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 * Uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Você pode [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
+> Você pode [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
 > 
 > 
 
 ## <a name="deploy-a-web-app"></a>Implantar um aplicativo Web
 Vamos implantar um aplicativo Web no Serviço de Aplicativo do Azure.
 
-1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute `git --version` e `azure --version` para verificar se o Git e a CLI do Azure estão instalados em seu computador.
+1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute `git --version` e `az --version` para verificar se o Git e a CLI do Azure estão instalados em seu computador.
    
     ![Testar a instalação das ferramentas da CLI para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
@@ -161,6 +161,6 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

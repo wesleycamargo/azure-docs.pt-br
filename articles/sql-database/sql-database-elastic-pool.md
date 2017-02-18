@@ -4,26 +4,26 @@ description: "Gerencie centenas ou milhares de bancos de dados usando um pool. U
 keywords: "pool elástico, bancos de dados sql"
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/11/2017
-ms.author: CarlRabeler
+ms.date: 02/01/2017
+ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
+ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
+ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
 
 
 ---
-# <a name="what-is-an-azure-elastic-pool"></a>O que é um pool elástico do Azure?
-Pools elásticos de bancos de dados SQL fornecem uma solução simples e econômica para gerenciar as metas de desempenho de vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
+# <a name="what-is-an-azure-sql-elastic-pool"></a>O que é um pool elástico do SQL do Azure?
+Um pool elástico do SQL recebe um número definido de eDTUs por um preço definido, em um servidor lógico do Azure, compartilhados entre um pool de bancos de dados no servidor. Pools elásticos de bancos de dados SQL fornecem uma solução simples e econômica para gerenciar as metas de desempenho de vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
 
 > [!NOTE]
 > Os pools elásticos têm uma disponibilidade geral (GA) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão em preview.  A GA dos pools elásticos nessa região ocorrerá assim que possível.
@@ -106,6 +106,6 @@ Para aplicativos que têm requisitos de restauração mais agressivos do que a R
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

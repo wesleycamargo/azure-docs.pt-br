@@ -1,5 +1,5 @@
 ---
-title: "Barramento de Serviço do Azure | Microsoft Docs"
+title: "Visão geral dos conceitos básicos do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Uma introdução ao uso do Barramento de Serviço para conectar os aplicativos do Azure a outro software."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8f82ce3494822b13943ad000c24582668bb55fe8
-ms.openlocfilehash: 74d032b37a856b141350fb6a1f73b7067624f926
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
 
 
 ---
@@ -53,7 +53,7 @@ Suponha que você queira conectar dois aplicativos usando uma fila do Barramento
 
 O processo é simples: um remetente enviar uma mensagem para uma fila do Service Bus e um receptor pega essa mensagem em um momento posterior. Uma fila pode ter apenas um único destinatário, como a Figura 2 mostra. Ou vários aplicativos podem ler na mesma fila. Na última situação, cada mensagem é lida por apenas um destinatário. Para um serviço de vários casts, você deve usar um tópico.
 
-Cada mensagem tem duas partes: um conjunto de propriedades, cada um par chave/valor e uma carga de mensagem. A carga pode ser binária, texto ou até mesmo XML. Como eles são usados depende de que um aplicativo está tentando fazer. Por exemplo, um aplicativo de envio de uma mensagem sobre uma venda recente pode incluir as propriedades *Vendedor = "Ana"* e *Valor = 10000*. O corpo da mensagem pode conter uma imagem digitalizada do contrato assinado da venda ou, se não houver um, apenas permanecerão vazio.
+Cada mensagem tem duas partes: um conjunto de propriedades, cada um par chave/valor e uma carga de mensagem. A carga pode ser binária, texto ou até mesmo XML. Como eles são usados depende de que um aplicativo está tentando fazer. Por exemplo, um aplicativo de envio de uma mensagem sobre uma venda recente pode incluir as propriedades *Vendedor = "Ana"* e *Valor =&10000;*. O corpo da mensagem pode conter uma imagem digitalizada do contrato assinado da venda ou, se não houver um, apenas permanecerão vazio.
 
 Um receptor pode ler uma mensagem de uma fila do Service Bus de duas maneiras diferentes. A primeira opção, chamada *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, remove uma mensagem da fila e a exclui imediatamente. Isso é simples, mas se o receptor falhar antes de terminar de processar a mensagem, a mensagem será perdida. Porque ele é removido da fila, nenhum outro receptor pode acessá-lo. 
 
@@ -119,6 +119,6 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

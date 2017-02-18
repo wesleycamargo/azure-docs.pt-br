@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
+ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
+ms.openlocfilehash: 41b19d0ed2d77fc94ec7b3a7905b51e8e25e0585
 
 
 ---
@@ -98,10 +98,10 @@ Independentemente de onde estiverem, cada blob que você criar pertencerá a um 
 
 O contêiner de blob padrão armazena informações específicas do cluster como logs e o histórico do trabalho. Não compartilhe um contêiner de armazenamento de blob padrão com vários clusters HDInsight. Isso pode corromper o histórico de trabalho e o cluster se comportará de forma inadequada. É recomendável usar um contêiner diferente para cada cluster e colocar os dados compartilhados em uma conta de armazenamento vinculada especificada na implantação de todos os clusters relevantes, e não na conta de armazenamento padrão. Para obter mais informações sobre como configurar contas de armazenamento vinculadas, veja [Criar clusters HDInsight][hdinsight-creation]. No entanto, você pode reutilizar um contêiner de armazenamento padrão depois que o cluster HDInsight original for excluído. Para clusters HBase, você pode realmente manter os dados e o esquema de tabela do HBase criando um novo cluster HBase com o contêiner de armazenamento de blob padrão usado por um cluster HBase que foi excluído.
 
-### <a name="using-the-azure-portal"></a>Usando o Portal do Azure
+### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 Ao criar um cluster HDInsight no Portal, você tem as opções de usar uma conta de armazenamento existente ou criar uma nova conta de armazenamento:
 
-![hdinsight hadoop criação fonte de dados](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![Fonte de dados de criação do hadoop do HDInsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ### <a name="using-azure-cli"></a>Usando a CLI do Azure
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
@@ -219,7 +219,7 @@ Use o seguinte comando para listar os cmdlets relacionados ao blob:
 Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Baixar arquivos
-O script a seguir baixa blob de blocos na pasta atual. Antes de executar o script, altere o diretório de uma pasta na qual você tenha permissão de gravação.
+O script a seguir baixa um blob de blocos na pasta atual. Antes de executar o script, altere o diretório de uma pasta na qual você tenha permissão de gravação.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
@@ -305,6 +305,6 @@ Para obter mais informações, consulte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/17/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: c5049cbe98dbb04deae4a2b9dc098938aa65495a
 
 
 ---
@@ -36,9 +36,9 @@ ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 Este tutorial mostra como criar e monitorar um data factory do Azure usando a API REST. O pipeline no data factory usa uma Atividade de Cópia para copiar dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL.
 
 > [!NOTE]
-> Este artigo não cobre todas as APIs REST do Data Factory. Confira [Referência de API REST do Data Factory](https://msdn.microsoft.com/library/azure/dn906738.aspx) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
+> Este artigo não cobre todas as APIs REST do Data Factory. Confira [Referência de API REST do Data Factory](/rest/api/datafactory/) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 > 
-> 
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Percorra o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito** .
@@ -512,7 +512,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que usa **Az
     Write-Host $results
     ```
 
-**Parabéns!**  Você criou com êxito um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
+**Parabéns!** Você criou com êxito um data factory do Azure, com um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL do Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorar o pipeline
 Nesta etapa, você pode usar a API REST do Data Factory para monitorar fatias produzidas pelo pipeline.
@@ -564,8 +564,6 @@ Neste tutorial, você usou uma API REST para criar um data factory do Azure e co
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
-[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
@@ -578,6 +576,6 @@ Neste tutorial, você usou uma API REST para criar um data factory do Azure e co
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

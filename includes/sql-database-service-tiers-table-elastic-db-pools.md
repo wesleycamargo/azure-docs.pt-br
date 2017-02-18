@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Máximo de eDTUs por banco de dados | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* O banco de dados elástico compartilha o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados
+\* Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados. O armazenamento máximo por pool refere-se ao máximo de armazenamento dos arquivos de dados no pool e não inclui o espaço usado pelos arquivos de log.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

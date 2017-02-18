@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a7d0b98e1c582230c756d1c893d9cc549a5a2893
-ms.openlocfilehash: ec38012c15d1970a56881fa64d8655b09487eae5
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
 
 
 ---
@@ -50,7 +50,7 @@ Veja as ferramentas que você pode usar:
 
 * [Stream Analytics do Azure](../stream-analytics/stream-analytics-data-lake-output.md) – os eventos ingeridos nos Hubs de Eventos podem ser gravados no Azure Data Lake usando uma saída do Azure Data Lake Store.
 * [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md) : é possível gravar dados diretamente do cluster Storm no Data Lake Store.
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – É possível receber eventos dos Hubs de Eventos e gravá-los no Data Lake Store usando o [SDK para .NET do Data Lake Store](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – É possível receber eventos dos Hubs de Eventos e gravá-los no Data Lake Store usando o [SDK para .NET do Data Lake Store](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Dados relacionais
 Você também pode originar dados nos bancos de dados relacionais. Durante um período, os bancos de dados relacionais coletam grandes volumes de dados que podem fornecer informações importantes se processados por meio de um pipeline de big data. É possível usar as ferramentas a seguir para mover tais dados para o Repositório Data Lake.
@@ -135,6 +135,6 @@ Você pode usar uma combinação de serviços para criar representações visuai
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -80,6 +80,6 @@ fetch(url, { headers: headers })
 O Fetch está disponível como um [pacote npm](https://www.npmjs.com/package/whatwg-fetch) ou para download do navegador do [CDNJS](https://cdnjs.com/libraries/fetch). Você também pode usar jQuery ou outra API AJAX para buscar as informações.  Os dados são recebidos como um objeto JSON.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 52cf33c5b9f3c3818ef66b97f22d148f0bf7c859
-ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
+ms.sourcegitcommit: 0a4eb02e50c90f41bdc4f2db2af87e2b194da25a
+ms.openlocfilehash: cf9a0e3d763efc7d944ebe3688bfef9ae6711520
 
 
 ---
@@ -31,7 +31,12 @@ ms.openlocfilehash: 8efed4445977f1d75ede02ccc761138ba3a33928
 >
 >
 
-Neste artigo, você usa o Microsoft Visual Studio para criar seu primeiro data factory do Azure.
+Neste artigo, você usa o Microsoft Visual Studio para criar seu primeiro data factory do Azure. Para fazer o tutorial usando outras ferramentas/SDKs, selecione uma das opções da lista suspensa.
+
+> [!NOTE]
+> O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, veja [Tutorial: Copiar dados do Armazenamento de Blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> 
+> É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
@@ -247,8 +252,6 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** 
     ```
      No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
 
-    No trecho de JSON, você cria um pipeline que consiste de uma única atividade que usa o Hive para processar dados em um cluster HDInsight.
-
     O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, denominado **AzureStorageLinkedService1**) e na pasta do **script** no contêiner **adfgetstarted**.
 
     A seção **defines** é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração do Hive (por exemplo, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
@@ -293,7 +296,7 @@ Pontos importantes a serem considerados:
 
 - Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
     - No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory.
-        ```PowerShell   
+        ```PowerShell    
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Você pode executar o comando a seguir para confirmar se o provedor do Data Factory está registrado.
@@ -515,14 +518,14 @@ Neste artigo, você criou um pipeline com uma atividade de transformação (ativ
 ## <a name="see-also"></a>Consulte também
 | Tópico | Descrição |
 |:--- |:--- |
-| [Atividades de transformação de dados](data-factory-data-transformation-activities.md) |Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. |
-| [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
+| [Atividades de transformação de dados](data-factory-data-transformation-activities.md) |Este artigo fornece uma lista de atividades de transformação de dados (como a transformação do Hive do HDInsight usado neste tutorial) com suporte do Azure Data Factory. |
+| [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

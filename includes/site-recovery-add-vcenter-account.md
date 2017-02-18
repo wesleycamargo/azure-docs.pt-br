@@ -1,4 +1,4 @@
-1. No seu servidor de configuração, inicie CSPSConfigtool.exe. Está disponível como um atalho na área de trabalho e localizada na pasta [INSTALL LOCATION]\home\svsystems\bin.
+1. No seu servidor de configuração, inicie CSPSConfigtool.exe. Está disponível como um atalho na área de trabalho e localizada na pasta *local da instalação*\home\svsystems\bin.
 2. Clique em **Gerenciar Contas** > **Adicionar Conta**.
 
     ![Adicionar Conta](./media/site-recovery-add-vcenter-account/credentials1.png)
@@ -7,9 +7,9 @@
     ![Detalhes](./media/site-recovery-add-vcenter-account/credentials2.png)
 
     > [!Note]
-  > Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, clique em **Servidores de Configuração** > Nome do servidor > **Atualizar Servidor**.
+  > Pode levar 15 minutos ou mais para que o nome da conta apareça no portal. Para atualizar imediatamente, clique em **Servidores de Configuração** > ***nome do servidor*** > **Atualizar Servidor**.
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

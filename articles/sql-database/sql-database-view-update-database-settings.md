@@ -1,54 +1,12 @@
 ---
-title: "Exibir e atualizar um Banco de Dados SQL do Azure e suas configurações | Microsoft Docs"
-description: "Referência rápida sobre como exibir e atualizar as configurações do Banco de Dados SQL do Azure usando o Portal do Azure e o PowerShell."
-services: sql-database
-documentationcenter: 
-author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: sql-database
-ms.custom: single databases
-ms.devlang: NA
-ms.workload: data-management
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.date: 02/01/2017
-ms.author: carlrab
+redirect_url: /azure/sql-database/sql-database-manage-single-databases-portal
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: ca19e7c98aa957ce1505a1411fb653a5ea378298
+ms.sourcegitcommit: 95f4002db8f901f9de21db3243910a758687a34f
+ms.openlocfilehash: c24d974b74f4dccf4825862f99f3c023ad075e52
+
+--- 
 
 
----
-# <a name="view-and-update-an-azure-sql-database-and-its-settings"></a>Exibir e atualizar um Banco de Dados SQL do Azure e suas configurações
-
-Você pode exibir e atualizar um Banco de Dados SQL do Azure e suas configurações usando o [Portal do Azure](sql-database-manage-portal.md), [PowerShell](sql-database-manage-powershell.md), [SQL Server Management Studio](sql-database-manage-azure-ssms.md), a API REST ou C#. 
-
-## <a name="view-and-update-sql-database-settings-using-the-azure-portal"></a>Exibir e atualizar as configurações de Banco de Dados SQL usando o Portal do Azure
-
-1. Abra a folha **Banco de Dados SQL** no [Portal do Azure](https://portal.azure.com/). 
-
-    ![bancos de dados sql](./media/sql-database-get-started/sql-databases.png)
-
-2. Clique no Banco de Dados com o qual você deseja trabalhar e, em seguida, clique na configuração desejada na folha de Banco de Dados SQL.
-
-    ![nova folha de banco de dados de exemplo](./media/sql-database-get-started/new-sample-db-blade.png)
-
-> [!TIP]
-> Para ver um tutorial de introdução ao uso do Portal do Azure, veja [Introdução aos servidores do Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md).
->
-
-## <a name="additional-resources"></a>Recursos adicionais
-* Para obter uma visão geral das ferramentas de gerenciamento, consulte [Visão geral das ferramentas de gerenciamento](sql-database-manage-overview.md).
-* Para saber como realizar tarefas de gerenciamento adicionais usando o Portal do Azure, consulte [Gerenciar Bancos de Dados SQL do Azure usando o Portal do Azure](sql-database-manage-portal.md).
-* Para saber como realizar tarefas de gerenciamento adicionais usando o PowerShell, consulte [Gerenciar Bancos de Dados SQL do Azure usando o PowerShell](sql-database-manage-powershell.md).
-* Para saber como realizar tarefas de gerenciamento adicional usando o SQL Server Management Studio, consulte [SQL Server Management Studio](sql-database-manage-azure-ssms.md). 
-* Para obter informações sobre o serviço do Banco de Dados SQL, consulte [O que é o Banco de Dados SQL](sql-database-technical-overview.md). 
-* Para obter informações sobre os servidores de Banco de Dados do Azure e recursos de banco de dados, confira [Recursos](sql-database-features.md).
-
-
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

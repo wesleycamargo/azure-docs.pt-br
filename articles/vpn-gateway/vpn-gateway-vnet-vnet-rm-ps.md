@@ -1,10 +1,10 @@
 ---
-title: Conectar VNets do Azure com o Gateway de VPN e o PowerShell | Microsoft Docs
+title: 'Conectar uma rede virtual do Azure a outra rede virtual: PowerShell | Microsoft Docs'
 description: Este artigo mostra como conectar redes virtuais em conjunto usando o PowerShell e o Gerenciador de Recursos do Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
+ms.sourcegitcommit: eadb1f29da69e7f6fcc2c7c19ba67f4e3072c346
+ms.openlocfilehash: eb21e6cc47da18d2e6fa5cbb00c3b71bf36173c6
 
 
 ---
-# <a name="configure-a-vnet-to-vnet-connection-for-resource-manager-using-powershell"></a>Configurar uma conexão de VNet com VNet para o Resource Manager usando o PowerShell
+# <a name="configure-a-vnet-to-vnet-connection-using-powershell"></a>Configurar uma conexão entre redes virtuais usando o PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
@@ -36,7 +36,7 @@ Este artigo explica as etapas para criar uma conexão entre redes virtuais no mo
 ### <a name="deployment-models-and-methods-for-vnet-to-vnet-connections"></a>Modelos de implantação e métodos para conexões de VNet a VNet
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-A tabela a seguir mostra os modelos de implantação e os métodos de configurações de VNet-para-VNet disponíveis no momento. Quando houver um artigo com etapas de configuração disponível, o vincularemos diretamente desta tabela.
+A tabela a seguir mostra os modelos de implantação e os métodos de configurações de VNet-para-VNet disponíveis no momento. Quando houver um artigo com etapas de configuração disponível, o vincularemos diretamente desta tabela. 
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -60,7 +60,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
   
   * Na mesma região, você pode configurar aplicativos multicamadas com várias redes virtuais conectadas devido aos requisitos administrativos ou de isolamento.
 
-### <a name="vnet-to-vnet-faq"></a>Perguntas Frequentes sobre VNet a VNet
+### <a name="vnet-to-vnet-considerations"></a>Considerações de Rede Virtual a Rede Virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
@@ -434,6 +434,6 @@ Neste exemplo, como os gateways estão em assinaturas diferentes, dividirmos est
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: 8122ed46a81f84f5b897986b9e69ab112e2079da
+ms.sourcegitcommit: a3bdeb6fea306babc9358134c37044843b9bdd1c
+ms.openlocfilehash: e31c947ee275d34b1f59909fb009ce5a73b42785
 
 
 ---
@@ -82,7 +82,7 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-1. Verifique se a tabela foi criada com êxito. Você pode usar a mágica do `%%sql` para executar as consultas do Hive diretamente. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-pyspark-or-spark-kernels).
+1. Verifique se a tabela foi criada com êxito. Você pode usar a mágica do `%%sql` para executar as consultas do Hive diretamente. Para obter mais informações sobre a mágica de `%%sql` , bem como outras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-kernels.md#choose-between-the-kernels).
 
         %%sql
         SHOW TABLES
@@ -209,6 +209,6 @@ Depois de salvar os dados como uma tabela Hive, você pode usar o Power BI para 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

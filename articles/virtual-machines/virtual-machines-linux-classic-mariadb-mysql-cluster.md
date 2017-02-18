@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: 91090ad383d6a03e6d978376d8dd45dc05eac7e8
-ms.openlocfilehash: 504e810146d6787eac9be661a93c7a0ec2ff183f
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 72aed50d3dd86c5875d3b741a6fff16cb8f17a2d
 
 
 ---
@@ -44,7 +44,7 @@ Este artigo descreve como concluir as etapas a seguir:
 ![Arquitetura do sistema](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> Este tópico usa as ferramentas da [CLI do Azure](../xplat-cli-install.md), certifique-se de baixá-las e conectá-las à sua assinatura do Azure de acordo com as instruções. Se você precisar de uma referência aos comandos disponíveis na CLI do Azure, confira a [Referência de comando da CLI do Azure](../virtual-machines-command-line-tools.md). Você também precisará [criar uma chave SSH para autenticação] e anotar o local do arquivo .pem.
+> Este tópico usa as ferramentas da [CLI do Azure](../xplat-cli-install.md), certifique-se de baixá-las e conectá-las à sua assinatura do Azure de acordo com as instruções. Se você precisar de uma referência aos comandos disponíveis na CLI do Azure, confira a [Referência de comando da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Você também precisará [criar uma chave SSH para autenticação] e anotar o local do arquivo .pem.
 >
 >
 
@@ -367,6 +367,6 @@ Pode ser interessante ver [outra maneira de clusterizar o MySQL no Linux](virtua
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

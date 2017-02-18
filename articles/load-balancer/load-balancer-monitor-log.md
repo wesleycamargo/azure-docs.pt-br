@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: b7d141e8fc7f7580b5b17b2152dfe418a0ca130e
+ms.sourcegitcommit: ca52a8cfdc4262f55a1fed439f29631966211a00
+ms.openlocfilehash: c605b2f0b49fcc26955e73c931192ada5e407525
 
 ---
 
-# <a name="log-analytics-for-azure-load-balancer-preview"></a>Análise de log para o Balanceador de Carga do Azure (Preview)
+# <a name="log-analytics-for-azure-load-balancer"></a>Análise de log para Balanceador de Carga do Azure
 
 Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar problemas de balanceadores de carga. Alguns desses logs podem ser acessados por meio do portal. Todos os logs podem ser extraídos de um armazenamento de blobs do Azure e exibidos em diferentes ferramentas, como o Excel e o PowerBI. Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
 
@@ -29,7 +29,7 @@ Você pode usar diferentes tipos de log no Azure para gerenciar e solucionar pro
 * **Logs de investigação de integridade:** você pode usar esse log para verificar o status da verificação da integridade de investigação, quantas instâncias estão online no back-end do balanceador de carga e a porcentagem de máquinas virtuais que está recebendo tráfego da rede do balanceador de carga. Esse log é gravado na alteração do evento de status da investigação.
 
 > [!IMPORTANT]
->  Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/resource-manager-deployment-model.md).
+> Atualmente, a análise de log funciona somente para balanceadores de carga voltados para a Internet. Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
@@ -148,6 +148,6 @@ Você precisa se conectar à sua conta de armazenamento e recuperar as entradas 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Usando a Central de Segurança do Azure para uma resposta a incidentes | Microsoft Docs"
+title: "Responder a incidentes de segurança com a Central de Segurança do Azure | Microsoft Docs"
 description: "Este documento explica como usar a Central de Segurança do Azure para um cenário de resposta a incidentes."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -52,7 +52,7 @@ Para esse cenário, focaremos nas funções do personas a seguir que fazem parte
 
 A Laura está no setor de operações de segurança. Suas responsabilidades incluem:
 
-* Monitorar e responder às ameaças de segurança 24 horas por dia.
+* Monitorar e responder às ameaças de segurança&24; horas por dia.
 * Expandir o proprietário das cargas de trabalho de nuvem ou o analista de segurança quando necessário.
 
 Sam é analista de segurança e suas responsabilidades incluem:
@@ -78,13 +78,13 @@ Laura se conectou ao portal do Azure e está trabalhando no console da Central d
 
 1. Clique no bloco **Alertas de segurança** e acesse a folha **Alertas de segurança**.
     ![Folha Alerta de segurança](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > Para este cenário, Laura fará uma avaliação sobre o alerta de Atividade do SQL mal-intencionada, como visto na figura anterior.
-   > 
-   > 
+   >
+   >
 2. Clique no alerta **Atividade do SQL mal-intencionada** e examine os recursos atacados na folha **Atividades do SQL mal-intencionadas**: ![Detalhes do incidente](./media/security-center-incident-response/security-center-incident-response-fig5.png) 
-   
+
     Nessa folha, Laura pode fazer anotações sobre os recursos atacados, quantas vezes esse ataque aconteceu e quando ele foi detectado.
 3. Clique no **recurso atacado** para obter mais informações sobre o ataque.
 
@@ -103,7 +103,6 @@ Montar uma equipe antes que ocorra um incidente é muito importante para sua org
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

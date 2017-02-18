@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 7418595e6f070f15c9ebeac759bffe692da5d143
+ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
+ms.openlocfilehash: afecb15f36525c53a66f30047dffe8a3e8f36107
 
 
 ---
@@ -81,12 +81,12 @@ Especifique o corpo da solicitação usando o modelo a seguir.
 * `description` fornece uma descrição opcional do agente e pode ser uma cadeia de caracteres de comprimento zero, se desejado.
 * `credentials` contém `name` e `connectionString` do seu Hub de Eventos do Azure.
 
-Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado 
+Quando você fizer a solicitação, se o agente for criado, um código de status `201 Created` será retornado
 
 > [!NOTE]
 > Para outros códigos de retorno possíveis e seus motivos, confira [Criar um agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Para saber como executar outras operações, por exemplo, listar, atualizar e excluir, confira a documentação da entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx) .
-> 
-> 
+>
+>
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurar políticas log-to-eventhubs
 Depois que o agente de log estiver configurado no Gerenciamento de API, você poderá configurar suas políticas log-to-eventhubs para registrar os eventos desejados em log. A política log-to-eventhubs pode ser usada na seção de política de entrada ou na seção de política de saída.
@@ -117,8 +117,8 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure
-  * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
 * Saiba mais sobre a integração do Gerenciamento de API e Hubs de eventos
   * [Referência de entidade do agente](https://msdn.microsoft.com/library/azure/mt592020.aspx)
@@ -127,8 +127,8 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 
 ## <a name="watch-a-video-walkthrough"></a>Assista a um passo a passo em vídeo
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Integrate-Azure-API-Management-with-Event-Hubs/player]
-> 
-> 
+>
+>
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -141,12 +141,6 @@ Clique em **Salvar** para salvar a configuração da política atualizada. Assim
 
 
 
-
-
-
-
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

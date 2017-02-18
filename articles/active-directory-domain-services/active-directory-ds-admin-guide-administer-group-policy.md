@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2016
+ms.date: 01/27/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2f3ea8b6be032b732b5ab1c587843f10387a4efb
-ms.openlocfilehash: 56397e33fb86cd839899a4009f2be95402a09b14
+ms.sourcegitcommit: 76987a6e91ae688b3856567073a7d27472e5ba09
+ms.openlocfilehash: 9245eb870f592ee0a1f1d6956ce3d573f4902485
 
 
 ---
@@ -83,15 +83,40 @@ Você pode usar o console de gerenciamento de Política de Grupo na máquina vir
 2. Clique em **Gerenciamento de Política de Grupo** para iniciar o console de Gerenciamento de Política de Grupo.
 
     ![Console de Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
-3. Clique para expandir os nós **Floresta: contoso100.com** e **Domínios** e ver as políticas de grupo do seu domínio gerenciado. Há dois GPOs (Objetos de Política de Grupo) internos — um para cada um dos contêineres "Computadores do AADDC" e "Usuários do AADDC" no domínio gerenciado.
+
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Tarefa 4 - Personalizar objetos de política de grupo internos
+Há dois GPOs (Objetos de Política de Grupo) internos — um para cada um dos contêineres "Computadores do AADDC" e "Usuários do AADDC" no domínio gerenciado. Você pode personalizar esses GPOs internos para configurar a política de grupo no domínio gerenciado.
+
+1. No console **Gerenciamento de Política de Grupo**, clique para expandir os nós **Floresta: contoso100.com** e **Domínios** para ver as políticas de grupo de seus domínios gerenciados.
 
     ![GPOs internos](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-4. Você pode personalizar esses GPOs internos para configurar as políticas de grupo no domínio gerenciado. Clique com botão direito do mouse no GPO e clique em **Editar...** para personalizar o GPO interno. A ferramenta Editor de Configuração de Política de Grupo permite que você personalize o GPO.
+2. Você pode personalizar esses GPOs internos para configurar as políticas de grupo no domínio gerenciado. Clique com botão direito do mouse no GPO e clique em **Editar...** para personalizar o GPO interno. A ferramenta Editor de Configuração de Política de Grupo permite que você personalize o GPO.
 
     ![Editar GPO interno](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-5. Agora você pode usar o console do **Editor de Gerenciamento de Política de Grupo** para editar o GPO interno. Por exemplo, a captura de tela a seguir mostra como personalizar o GPO interno "Computadores do AADDC".
+3. Agora você pode usar o console do **Editor de Gerenciamento de Política de Grupo** para editar o GPO interno. Por exemplo, a captura de tela a seguir mostra como personalizar o GPO interno "Computadores do AADDC".
 
     ![Personalizar GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Tarefa 5 – Criar um objeto de política de grupo (GPO) personalizado
+Você pode criar ou importar seus próprios objetos de política de grupo personalizados. Também pode vincular GPOs personalizados a uma UO personalizada que você criou no seu domínio gerenciado. Para saber mais sobre como criar unidades organizacionais personalizadas, confira [Criar uma UO personalizada em um domínio gerenciado](active-directory-ds-admin-guide-create-ou.md).
+
+> [!NOTE]
+> É preciso ser um membro do grupo "Administradores do AAD DC" para administrar a Política de Grupo no domínio gerenciado.
+>
+>
+
+1. No console **Gerenciamento de Política de Grupo**, clique para selecionar a unidade organizacional (UO) personalizada. Clique com o botão direito do mouse na UO e clique em **Criar um GPO neste domínio e vinculá-lo aqui...**.
+
+    ![Criar um GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+2. Especifique um nome para o novo GPO e clique em **OK**.
+
+    ![Especifique um nome para o GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com botão direito do mouse no GPO e clique em **Editar... ** no menu.
+
+    ![GPO recém-criado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+4. Você pode personalizar o GPO recém-criado usando o **Editor de gerenciamento de política de grupo**.
+
+    ![Personalizar o novo GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
 Mais informações sobre como usar o [Console de Gerenciamento de Política de Grupo](https://technet.microsoft.com/library/cc753298.aspx) estão disponíveis no Technet.
@@ -104,6 +129,6 @@ Mais informações sobre como usar o [Console de Gerenciamento de Política de G
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

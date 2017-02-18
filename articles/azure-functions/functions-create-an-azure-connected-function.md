@@ -1,6 +1,6 @@
 ---
-title: "Criar uma Função do Azure vinculada a um serviço do Azure | Microsoft Docs"
-description: "Crie uma Função do Azure, um aplicativo sem servidor, que interage com outros Serviços do Azure."
+title: "Criar uma função que se conecta aos serviços do Azure | Microsoft Docs"
+description: "Usar Azure Functions para criar um aplicativo sem servidor que se conecta a outros serviços do Azure."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,24 +14,21 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Criar uma Função do Azure conectada a um serviço do Azure
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Use as Azure Functions para criar uma função que se conecta a outros serviços do Azure
 
-Este tópico mostra como você pode criar uma Função do Azure que escuta mensagens em uma fila do Armazenamento do Azure e copia as mensagens para linhas em uma tabela do Armazenamento do Azure. Uma função disparada por temporizador é usada para carregar as mensagens na fila. Uma segunda função lê da fila e grava as mensagens na tabela. Ambas a fila e a tabela são criadas para você por Azure Functions com base nas definições de associação. 
+Este tópico mostra como você pode criar uma função nas Azure Functions que escuta mensagens em uma fila do Armazenamento do Azure e copia as mensagens para linhas em uma tabela do Armazenamento do Azure. Uma função disparada por temporizador é usada para carregar as mensagens na fila. Uma segunda função lê da fila e grava as mensagens na tabela. Ambas a fila e a tabela são criadas para você por Azure Functions com base nas definições de associação. 
 
-Para tornar as coisas mais interessantes, uma função é escrita em JavaScript e a outra é escrita em script C#. Isso demonstra como um aplicativo de funções pode ter funções em várias linguagens.
+Para tornar as coisas mais interessantes, uma função é escrita em JavaScript e a outra é escrita em script C#. Isso demonstra como um aplicativo de funções pode ter funções em várias linguagens. 
 
-## <a name="watch-the-video"></a>Assista ao vídeo
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Você pode ver esse cenário demonstrado em um [vídeo no Channel 9](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player).
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Criar uma função que grava na fila
 
@@ -186,9 +183,9 @@ Agora que você tem mensagens sendo adicionadas à fila, você pode criar outra 
 Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-   Referência do programador para codificação de funções e definição de gatilhos e de associações.
+  Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Testando o Azure Functions](functions-test-a-function.md)  
-   Descreve várias ferramentas e técnicas para testar suas funções.
+  Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
 
@@ -197,6 +194,6 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

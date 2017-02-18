@@ -1,5 +1,5 @@
 ---
-title: Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope
+title: Monitorar APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope | Microsoft Docs
 description: "O exemplo de aplicativo que demonstra a política log-to-eventhub, conectando o Gerenciamento de API do Azure, os Hubs de Eventos do Azure e o Runscope para registro em log e monitoramento de HTTP"
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2016
-ms.author: apipm
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 7fafc85fe2997841b01ded693c532fea527f90de
-ms.openlocfilehash: 678f1aa97a4cfe93f2db569d4ddf20fcaf6fa39f
-
+ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
+ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope
@@ -275,8 +274,8 @@ O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure
-  * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+  * [Introdução aos Hubs de Eventos do Azure](../event-hubs/event-hubs-c-getstarted-send.md)
+  * [Receber mensagens com EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guia de programação dos Hubs de Eventos](../event-hubs/event-hubs-programming-guide.md)
 * Saiba mais sobre a integração do Gerenciamento de API e Hubs de eventos
   * [Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure](api-management-howto-log-event-hubs.md)
@@ -285,7 +284,6 @@ O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o 
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Implantar a Matriz Virtual do Microsoft Azure StorSimple - configurar como servidor de arquivos | Microsoft Docs
+title: Configurar a StorSimple Virtual Array como um servidor de arquivos | Microsoft Docs
 description: "Este terceiro tutorial na implantação de StorSimple Virtual Array lhe instrui a configurar um dispositivo virtual como servidor de arquivos."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 5d250042d47b4dfdb6d6e95b93384b1acb323816
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 16af5829053567b5c67c755e6a4ca50f966fbfdd
 
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server"></a>Implantar o StorSimple Virtual Array –Preparar como servidor de arquivos
@@ -211,6 +211,6 @@ Aprenda como [usar a interface do usuário da Web local para administrar sua Sto
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

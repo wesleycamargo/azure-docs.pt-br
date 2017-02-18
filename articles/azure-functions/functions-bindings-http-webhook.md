@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
 translationtype: Human Translation
-ms.sourcegitcommit: 412640c0c53ca85dbdc234783ba94afaa807a22a
-ms.openlocfilehash: f1e4ecfd91e161f71115bed31cd41684ed514b5a
+ms.sourcegitcommit: 29df0e2198be05a64b6a90f1adf30a0c3b218d93
+ms.openlocfilehash: b40fa2d511910668438ba33291d16202dec8c8a8
 
 
 ---
@@ -211,10 +211,10 @@ HttpTriggers pode aproveitar as chaves para aumentar a segurança. Um HttpTrigge
 As chaves são armazenadas como parte do seu aplicativo de funções no Azure e criptografadas em repouso. Para exibir suas chaves, criar novas ou reverter chaves para novos valores, navegue para uma de suas funções dentro do portal e selecione "Gerenciar". 
 
 Há dois tipos de chave:
-- **Chaves de administração**: essas chaves são compartilhadas por todas as funções do aplicativo de funções. Quando usadas como uma chave de API, elas permitem acesso a qualquer função no aplicativo de funções.
+- **Chaves de host**: essas chaves são compartilhadas por todas as funções do aplicativo de funções. Quando usadas como uma chave de API, elas permitem acesso a qualquer função no aplicativo de funções.
 - **Chaves de função**: essas chaves se aplicam apenas às funções específicas sob as quais elas foram definidas. Quando usadas como uma chave de API, elas permitem acesso apenas às funções em questão.
 
-Cada chave é denominada para referência, e há uma chave padrão (chamada "default") no nível de função e administração. A **chave mestra** é uma chave de administração padrão chamada "_master" definida para cada aplicativo de funções e não pode ser revogada. Ela fornece acesso administrativo às APIs de tempo de execução. O uso de `"authLevel": "admin"` no JSON de associação exigirá que essa chave seja apresentada na solicitação; qualquer outra chave resultará em falha na autorização.
+Cada chave é nomeada para referência e há uma chave padrão (chamada "default") no nível de função e de host. A **chave mestra** é uma chave de host padrão chamada "_master", definida para cada aplicativo de funções e não pode ser revogada. Ela fornece acesso administrativo às APIs de tempo de execução. O uso de `"authLevel": "admin"` no JSON de associação exigirá que essa chave seja apresentada na solicitação; qualquer outra chave resultará em falha na autorização.
 
 > [!NOTE]
 > Devido às permissões elevadas concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em aplicativos cliente nativos. Tenha cuidado ao escolher o nível de autorização do administrador.
@@ -226,7 +226,7 @@ Por padrão, um HttpTrigger requer uma chave de API na solicitação HTTP. Porta
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, como acima, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. O valor da chave pode ser qualquer chave de função definida para a função ou qualquer chave de administração.
+A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, como acima, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. O valor da chave pode ser qualquer chave de função definida para a função ou qualquer chave de host.
 
 Você pode optar por permitir solicitações sem chaves ou especificar que a chave mestra deve ser usada, bastando alterar a propriedade `authLevel` no JSON de associação (veja [Gatilho HTTP](#httptrigger)).
 
@@ -237,7 +237,7 @@ A autorização de webhook é tratada pelo componente receptor do webhook, parte
 - **Cabeçalho da solicitação**: o provedor passa o nome da chave no cabeçalho `x-functions-clientid`.
 
 > [!NOTE]
-> As chaves de função têm precedência sobre as chaves de administração. Se duas chaves forem definidas com o mesmo nome, a chave de função será usada.
+> As chaves de função têm precedência sobre as chaves de host. Se duas chaves forem definidas com o mesmo nome, a chave de função será usada.
 > 
 > 
 
@@ -439,6 +439,6 @@ module.exports = function (context, data) {
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

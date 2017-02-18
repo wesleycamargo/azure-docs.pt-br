@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: b79308a3dfd50ac9fa43398cae7cd583a1442fde
+ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
+ms.openlocfilehash: d21bf547c80c533481254a8a9640b5dcef6a66c2
 
 
 ---
@@ -63,7 +63,7 @@ Se você desejar conceder acesso para gerenciar no próprio PIM a outro usuário
 ## <a name="roles-not-managed-in-pim"></a>Funções não gerenciadas no PIM
 Funções no Exchange Online ou SharePoint Online, exceto por aquelas mencionadas acima, não são representadas no Azure AD e, portanto, não são visíveis no PIM. Para obter mais informações sobre como alterar as atribuições de função refinadas nesses serviços do Office 365, consulte [Permissões no Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de Acesso Baseado em Funções do Azure](role-based-access-control-configure.md).
+As assinaturas e grupos de recursos do Azure também não são representados no Azure AD. Para gerenciar as assinaturas do Azure, consulte [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md) e para obter mais informações sobre o RBAC do Azure, consulte [Controle de Acesso Baseado em Funções do Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
@@ -71,7 +71,7 @@ As assinaturas e grupos de recursos do Azure também não são representados no 
 ## <a name="user-roles-and-signing-in"></a>Funções de usuário e entrada
 Para alguns serviços e aplicativos da Microsoft, atribuir um usuário a uma função pode não ser suficiente para permitir que aquele usuário seja um administrador.
 
-O acesso ao portal clássico do Azure requer que o usuário seja um administrador ou coadministrador de serviços em uma assinatura do Azure, mesmo se o usuário não precisar gerenciar as assinaturas do Azure.  Por exemplo, para gerenciar as definições de configuração do Azure AD no portal clássico, um usuário deve ser um administrador global no Azure AD e um coadministrador de assinatura em uma assinatura do Azure.  Para saber como adicionar usuários às assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md).
+O acesso ao portal clássico do Azure requer que o usuário seja um administrador ou coadministrador de serviços em uma assinatura do Azure, mesmo se o usuário não precisar gerenciar as assinaturas do Azure.  Por exemplo, para gerenciar as definições de configuração do Azure AD no portal clássico, um usuário deve ser um administrador global no Azure AD e um coadministrador de assinatura em uma assinatura do Azure.  Para saber como adicionar usuários às assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 O acesso ao Microsoft Online Services pode exigir que o usuário também tenha uma licença atribuída antes de poder abrir o portal do serviço ou realizar tarefas administrativas.
 
@@ -92,6 +92,6 @@ O acesso ao Microsoft Online Services pode exigir que o usuário também tenha u
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

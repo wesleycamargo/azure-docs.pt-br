@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 40dd75832302d7d88e852e2ea93821750675607e
+ms.openlocfilehash: 4deb60c25bf13d1f31b58f002a7edea0672eca25
 
 
 ---
@@ -49,7 +49,7 @@ O Serviço de Aplicativo oferece vários *tipos de aplicativo*, cada um dos quai
 * [**Aplicativos Web**](../app-service-web/app-service-web-overview.md) - para hospedar sites e aplicativos Web.
 * [**Aplicativos Móveis**](../app-service-mobile/app-service-mobile-value-prop.md) Para hospedar os back-ends do aplicativo móvel.
 * [**Aplicativos da API**](../app-service-api/app-service-api-apps-why-best-platform.md) - Para hospedar as APIs RESTful.
-* [**Aplicativos Lógicos**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - Para automatizar os processos de negócios e integrar os sistemas e dados nas nuvens sem escrever código.
+* [**Aplicativos Lógicos**](../logic-apps/logic-apps-what-are-logic-apps.md) - Para automatizar os processos de negócios e integrar os sistemas e dados nas nuvens sem escrever código.
 
 A palavra *aplicativo* aqui refere-se aos recursos de hospedagem dedicados à execução de uma carga de trabalho. Usando "aplicativo Web" como exemplo, você provavelmente já está acostumado a pensar em um aplicativo Web como os recursos de computação e o código do aplicativo que, juntos, fornecem funcionalidade a um navegador. Porém, no Serviço de Aplicativo, um *aplicativo Web* consiste nos recursos de computação que o Azure fornece para hospedar o código do aplicativo. 
 
@@ -72,7 +72,7 @@ Os Planos do Serviço de Aplicativo definem:
 
 Todos os aplicativos atribuídos a um **Plano do Serviço de Aplicativo** compartilham os recursos definidos pelo plano, permitindo que você economize ao hospedar vários aplicativos.
 
-O seu **Plano do Serviço de Aplicativo** pode variar dos SKUs **Gratuito** e **Compartilhado** para os SKUs **Básico**, **Standard** e **Premium**, dando a você mais recursos e funções ao longo do caminho. Depois que seu plano do Serviço de Aplicativo é definido como **Básico** ou superior, também é possível controlar o **tamanho** e dimensionar a contagem de VMs.
+O seu **Plano do Serviço de Aplicativo** pode ser dimensionado dos SKUs **Gratuito** e **Compartilhado** para os SKUs **Básico**, **Standard** e **Premium**, dando a você mais recursos e funções ao longo do caminho. Depois que seu plano do Serviço de Aplicativo é definido como **Básico** ou superior, também é possível controlar o **tamanho** e dimensionar a contagem de VMs.
 
 O **SKU** e a **Escala** do plano do Serviço de Aplicativo determina o custo e não o número de aplicativos hospedados nele. 
 
@@ -82,18 +82,18 @@ Se precisar de mais escalabilidade e isolamento da rede, execute os aplicativos 
 Para saber mais sobre os custos do Serviço de Aplicativo, confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Serviço de Aplicativo orientado a teste
-[Crie um aplicativo Web, um aplicativo móvel ou um aplicativo lógico de exemplo](http://go.microsoft.com/fwlink/?LinkId=523751) e use-o por 1 hora, sem nenhum cartão de crédito, comprometimento ou inconvenientes.
+[Crie um aplicativo Web, um aplicativo móvel ou um aplicativo lógico de exemplo](https://azure.microsoft.com/try/app-service/) e use-o por&1; hora, sem nenhum cartão de crédito, comprometimento ou inconvenientes.
 
 Ou abra uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/)e experimente um de nossos tutoriais de introdução:
 
 * [Tutorial: criar um aplicativo Web](../app-service-web/app-service-web-get-started.md)
 * [Tutorial: criar um aplicativo móvel](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Tutorial: criar um aplicativo de API](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Tutorial: criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Tutorial: criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

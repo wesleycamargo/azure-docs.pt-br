@@ -6,22 +6,26 @@
 2. Clique na guia **Procurar**, pesquise "Retransmissão do Microsoft Azure" e selecione o item **Retransmissão do Microsoft Azure**. Clique em **Instalar** para concluir a instalação e feche essa caixa de diálogo.
 
 ### <a name="write-some-code-to-receive-messages"></a>Escrever código para receber mensagens
-1. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
+1. Substitua as instruções `using` existentes na parte superior do arquivo Program.cs pelas instruções a seguir:
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Adicione constantes à classe `Program` para os detalhes da Conexão Híbrida. Substitua os espaços reservados nos colchetes pelos valores adequados que foram obtidos na criação da Conexão Híbrida.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Adicione um novo método chamado `ProcessMessagesOnConnection` à classe `Program` semelhante ao seguinte:
+3. Adicione um novo método chamado `ProcessMessagesOnConnection` à classe `Program`:
    
-    ```cs
+    ```csharp
     // Method is used to initiate connection
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
@@ -70,9 +74,9 @@
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Adicione outro novo método chamado `RunAsync` à classe `Program` semelhante ao seguinte:
+4. Adicione outro novo método chamado `RunAsync` à classe `Program`, como a seguir:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         var cts = new CancellationTokenSource();
@@ -117,13 +121,13 @@
     ```
 5. Adicione a linha de código a seguir ao método `Main` na classe `Program`.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     É assim que deve ser o Program.cs:
    
-    ```cs
+    ```csharp
     namespace Server
     {
         using System;
@@ -238,6 +242,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

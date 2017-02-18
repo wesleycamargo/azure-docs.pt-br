@@ -1,35 +1,37 @@
 ---
-title: "Introdução às conexões híbridas de retransmissão | Microsoft Docs"
+title: "Introdução às conexões híbridas de retransmissão do Azure no .NET | Microsoft Docs"
 description: "Como escrever um aplicativo de console em C# para Conexões Híbridas"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introdução às Conexões Híbridas de Retransmissão
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Este tutorial fornece uma introdução ao [Azure retransmissão híbrida conexões](relay-what-is-it.md#hybrid-connections)e mostra como criar um aplicativo cliente que envia mensagens para um aplicativo de escuta correspondente. 
+
 ## <a name="what-will-be-accomplished"></a>O que será realizado
-Como as Conexões híbridas exigem um componente de cliente e de servidor, criaremos dois aplicativos de console neste tutorial. Siga estas etapas:
+Como as Conexões Híbridas exigem um componente de cliente e de servidor, o tutorial cria dois aplicativos de console. As etapas são:
 
 1. Criar um namespace de retransmissão usando o Portal do Azure.
 2. Criar uma Conexão Híbrida usando o Portal do Azure.
-3. Escrever um aplicativo de console do servidor para enviar mensagens.
-4. Escrever um aplicativo de console de cliente para enviar mensagens.
+3. Escreva um aplicativo de console do servidor (ouvinte) para receber mensagens.
+4. Escreva um aplicativo de console de cliente (remetente) para enviar mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2015.
@@ -38,7 +40,7 @@ Como as Conexões híbridas exigem um componente de cliente e de servidor, criar
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Criar um namespace usando o portal do Azure
-Se você já tiver um namespace de retransmissão criado, vá até a seção [Criar uma Conexão Híbrida usando o Portal do Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
+Se você já tiver um namespace de Retransmissão criado, vá até a seção [Criar uma Conexão Híbrida usando o portal do Azure](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
@@ -74,6 +76,6 @@ Parabéns, você criou um aplicativo de Conexões Híbridas completo.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: ac73b5c2ece8044d9f75e017428c43259f8a9357
 
 
 ---
@@ -47,8 +47,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 * Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Promapp da galeria 
 2. Configurar e testar o logon único do AD do Azure
@@ -105,19 +104,18 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     ![Logon Único do AD do Azure][7] 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Logon único do AD do Azure][8] 
+    ![Logon Único do AD do Azure][8] 
    
-     a. Na caixa de texto **URL de Logon**, digite a URL utilizada pelos usuários para entrar no site do Promapp (por exemplo: *https://nomedaempresa.promapp.com/instancename*).
-
-     b. Clique em **Avançar**.
+   1. Na caixa de texto **URL de Logon**, digite a URL utilizada pelos usuários para entrar no site do Promapp (por exemplo: *https://nomedaempresa.promapp.com/instancename*).
+   2. Clique em **Próximo**.
 
 1. Na página **Configurar logon único no Promapp** , realize as seguintes etapas:
    
-    ![Logon único do AD do Azure][9] 
+    ![Logon Único do AD do Azure][9] 
    
-    a. Clique em Baixar certificado e salve o certificado localmente no computador.
+   1. Clique em Baixar certificado e salve o certificado localmente no computador.
+   2. Clique em **Próximo**.
    
-    b. Clique em **Avançar**.
 2. Faça logon no site da empresa Promapp como administrador. 
 3. No menu na parte superior, clique em **Administrador**. 
    
@@ -127,13 +125,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     ![Logon único do AD do Azure][13]
 5. No diálogo **Segurança** , execute as seguintes etapas:
    
-    ![Logon único do AD do Azure][14] 
+    ![Logon Único do AD do Azure][14] 
    
-    a. No portal clássico do Azure, na caixa de diálogo **Configurar logon único no Promapp**, copie a **URL de Logon Remoto**, cole-a na caixa de texto **URL de Logon Único** e clique em **Salvar**.
-   
-    b. Para **SSO - Modo Logon Único**, selecione **Opcional** e clique em **Salvar**.
-   
-    c. Copie o certificado baixado no bloco de notas, abra o conteúdo do certificado sem a primeira linha (*---BEGIN CERTIFICATE---*) e a última linha (*---END CERTIFICATE---*), cole-o na caixa de texto **Certificado SSO-x. 509** e clique em **Salvar**.
+   1. No portal clássico do Azure, na caixa de diálogo **Configurar logon único no Promapp**, copie a **URL de Logon Remoto**, cole-a na caixa de texto **URL de Logon Único** e clique em **Salvar**.
+   2. Para **SSO - Modo Logon Único**, selecione **Opcional** e clique em **Salvar**.
+   3. Copie o certificado baixado no bloco de notas, abra o conteúdo do certificado sem a primeira linha (*---BEGIN CERTIFICATE---*) e a última linha (*---END CERTIFICATE---*), cole-o na caixa de texto **Certificado SSO-x.&509;** e clique em **Salvar**.
 6. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**. 
    
     ![Logon Único do AD do Azure][10]
@@ -162,23 +158,20 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-promapp-tutorial/create_aaduser_05.png)  
    
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
+   1. Em Tipo de Usuário, selecione Novo usuário na organização.
+   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+   3. Clique em **Próximo**.
    
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-promapp-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+   1. Na caixa de texto **Nome**, digite **Brenda**.   
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   e. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-promapp-tutorial/create_aaduser_07.png) 
@@ -186,9 +179,8 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-promapp-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+   1. Anote o valor da **Nova Senha**.
+   2. Clique em **Concluído**.   
 
 ### <a name="creating-a-promapp-test-user"></a>Criar um usuário de teste Promapp
 O aplicativo Promapp dá suporte ao provisionamento Just-in-Time.
@@ -259,6 +251,6 @@ Quando você clica no bloco Promapp no Painel de Acesso, você deve ser conectad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
