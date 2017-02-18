@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 25c48bbd0edafa4c6e4e478c471e11b6d69e00c7
-ms.openlocfilehash: e34571efac5d1a5e75d5e5d2cab75c91dbce71c8
+ms.sourcegitcommit: 532cfeb5115feb7558018af73968576dac17ff88
+ms.openlocfilehash: 28ca2d86f5008ee26376d76f3411cac05ffdfde4
 
 
 ---
@@ -129,6 +129,18 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 10. **Aumentar o número de threads/tarefas**
 
     Consulte [Aumentar o número de threads/tarefas](#increase-threads) na seção Rede.
+    
+11. **Usar o processamento do host de 64 bits**
+
+    O SDK do DocumentDB funciona em um processo de host de 32 bits; No entanto, se você estiver usando consultas entre partições, processamento de host de 64 bits é recomendado para melhorar o desempenho. O seguinte tipo de aplicativos tem o processo de host de 32 bits como o padrão, portanto para alterá-la para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    
+    - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **Preferir 32 bits** na janela **Propriedades do Projeto**, na guia **Compilar**. 
+    
+    - Para projetos de teste com base em VSTest, isso pode ser feito selecionando **teste**->**configurações de teste**->**padrão arquitetura de processador X64**, do **Visual Studio Test** opção de menu.
+    
+    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando o **usar a versão de 64 bits do IIS Express para sites da web e projetos**, em **ferramentas**->**opções**->**projetos e soluções**->**projetos da Web**.
+    
+    - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo o **plataforma de 64 bits** no **configurações do aplicativo** no portal do Azure.
 
 ## <a name="indexing-policy"></a>Política de indexação
 1. **Usar a indexação lenta para as taxas de ingestão de tempo máximo mais rápidas**
@@ -199,6 +211,6 @@ Além disso, para saber mais sobre como criar seu aplicativo para a escala e o a
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

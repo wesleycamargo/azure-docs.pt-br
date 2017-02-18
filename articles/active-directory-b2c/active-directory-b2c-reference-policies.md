@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 5db03c2ba594963f6c5a2f091f83b9de240fe2ba
+ms.sourcegitcommit: 33521eca953c0e14a7fdaa99edef2997397286eb
+ms.openlocfilehash: cd79a485feddc68924f9b7f5e7d8d614b4e28d28
 
 
 ---
@@ -167,10 +167,11 @@ Quando você cria uma política de inscrição ou entrada (com contas locais), o
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
+* [Desabilitar a verificação de email durante a inscrição do consumidor](active-directory-b2c-reference-disable-ev.md)
 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

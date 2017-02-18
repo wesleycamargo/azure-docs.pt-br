@@ -1,6 +1,6 @@
 ---
-title: "Referência do desenvolvedor de NodeJS do Azure Functions | Microsoft Docs"
-description: Entenda como desenvolver Azure Functions usando NodeJS.
+title: "Referência do desenvolvedor de JavaScript do Azure Functions | Microsoft Docs"
+description: Entenda como desenvolver Azure Functions usando JavaScript.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
-ms.author: chrande
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 6f558761f85bd0f9f4e8be38192df1c1ccf16c4e
-ms.openlocfilehash: d4d43e646734d3496cd9d35d1d7aa6a39852533a
+ms.sourcegitcommit: e660f3313ba6805356eef30b3a17ac609fc9043e
+ms.openlocfilehash: 880fdbd6fc51f16add2f2497402d8b01047d0847
 
 
 ---
-# <a name="azure-functions-nodejs-developer-reference"></a>Referência do desenvolvedor de NodeJS do Azure Functions
+# <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 > [!div class="op_single_selector"]
 > * [Script C#](functions-reference-csharp.md)
 > * [Script em F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
+> * [JavaScript](functions-reference-node.md)
 > 
 > 
 
-A experiência de Node/JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de bindings.
+A experiência de JavaScript para o Azure Functions torna mais fácil exportar uma função que é passada para um objeto `context` se comunicar com o tempo de execução e para receber e enviar dados por meio de associações.
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
@@ -198,6 +198,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

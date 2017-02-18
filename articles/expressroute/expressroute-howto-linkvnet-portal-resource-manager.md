@@ -1,5 +1,5 @@
 ---
-title: "Vincular uma rede virtual a um circuito do ExpressRoute usando o modelo de implantação do Resource Manager e o portal do Azure| Microsoft Docs"
+title: 'Vincular uma rede virtual a um circuito ExpressRoute: portal do Azure | Microsoft Docs'
 description: "Este documento apresenta uma visão geral de como vincular redes virtuais (VNets) a circuitos da Rota Expressa."
 services: expressroute
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/27/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b3a8cdab9e609994b1c4c4d50e9571718e8091de
-ms.openlocfilehash: 8043f0d5a4c9fbd301e7565e7d62be09dd77abd8
+ms.sourcegitcommit: 75b7cee2485d1d68fee8dcd65ade84995dcdb9be
+ms.openlocfilehash: aa473abd00fbddb01e50577cea8984c6f3e9a7f3
 
 
 ---
@@ -48,36 +48,90 @@ Este artigo ajudará você a vincular as redes virtuais (VNets) aos circuitos de
 Você pode vincular até 10 redes virtuais a um circuito de Rota Expressa padrão. Todas as redes virtuais deverão estar na mesma região geopolítica ao usar um circuito de Rota Expressa padrão. Você poderá vincular uma rede virtual fora da região geopolítica do circuito da Rota Expressa ou conectar um grande número de redes virtuais ao circuito de Rota Expressa, se tiver habilitado o complemento premium da Rota Expressa. Confira as [perguntas frequentes](expressroute-faqs.md) para obter mais detalhes sobre o complemento premium.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Conectar uma rede virtual na mesma assinatura a um circuito
+
 ### <a name="to-create-a-connection"></a>Para criar uma conexão
+
 1. Certifique-se de que o circuito de Rota Expressa e emparelhamento privado do Azure foram configurados com êxito. Siga as instruções nos artigos [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e [Configurar o roteamento](expressroute-howto-routing-arm.md). O circuito de Rota Expressa deve se parecer com a imagem a seguir.
-   
-    ![Captura de tela de circuito da Rota Expressa](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+    ![Captura de tela de circuito do ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
    
    > [!NOTE]
    > As informações de configuração do BGP não aparecerão se o provedor de camada 3 tiver configurado seus emparelhamentos. Se o circuito estiver no estado de provisionamento, você poderá criar conexões.
    > 
-   > 
 2. Agora, você pode começar a provisionar uma conexão para vincular seu gateway de rede virtual ao circuito de Rota Expressa. Clique em **Conexão** > **Adicionar** para abrir a folha **Adicionar conexão** e, em seguida, configure os valores. Consulte o seguinte exemplo de referência.
+    ![Adicionar captura de tela de conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
 
-    ![Adicionar a captura de tela de conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)  
-
-
-1. Depois que sua conexão foi configurada com êxito, seu objeto de conexão mostrará as informações para a conexão.
-   
-    ![Captura de tela de objeto de conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+3. Depois que sua conexão foi configurada com êxito, seu objeto de conexão mostrará as informações para a conexão.
+     ![Captura de tela de objeto de conexão](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ### <a name="to-delete-a-connection"></a>Para excluir uma conexão
 Você pode excluir uma conexão selecionando o ícone **Excluir** na folha de sua conexão.
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
-Neste momento, você não pode conectar as redes virtuais nas assinaturas usando o Portal do Azure. No entanto, você pode usar o PowerShell para fazer isso. Confira o artigo [PowerShell](expressroute-howto-linkvnet-arm.md) para obter mais informações.
+Você pode compartilhar um circuito da Rota Expressa entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos da Rota Expressa entre várias assinaturas.
+
+Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização. Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito da Rota Expressa para se conectar de volta à respectiva rede local. Um único departamento (neste exemplo: TI) pode ter o circuito da Rota Expressa. Outras assinaturas dentro da organização podem usar o circuito de Rota Expressa.
+
+> [!NOTE]
+> As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito da Rota Expressa. Todas as redes virtuais compartilham a mesma largura de banda.
+> 
+> 
+![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
+
+### <a name="administration"></a>Administração
+O *proprietário do circuito* é um usuário avançado autorizado do recurso de circuito da Rota Expressa. O proprietário do circuito pode criar autorizações que podem ser resgatadas pelos *usuários do circuito*. *Usuários do circuito* são proprietários de gateways de rede virtual (que não estão na mesma assinatura que o circuito da Rota Expressa). *Circuit users* podem resgatar autorizações (uma autorização por rede virtual).
+
+O *proprietário do circuito* tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização faz com que todas as conexões de links sejam excluídas da assinatura cujo acesso foi revogado.
+
+### <a name="circuit-owner-operations"></a>Operações do proprietário do circuito
+
+**Criando uma autorização**
+
+O proprietário do circuito cria uma autorização. Isso resulta na criação de uma chave de autorização que pode ser usada por um usuário do circuito para conectar seus gateways de rede virtual ao circuito da Rota Expressa. Uma autorização é válida apenas para uma conexão.
+
+1. Na folha ExpressRoute, clique em **Autorizações** e, em seguida, digite um **nome** para a autorização e clique em **Salvar**.
+![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+
+2. Após a gravação da configuração, copie a **ID do Recurso** e a **Chave de Autorização**.
+![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+
+**Excluindo autorizações**
+
+Você pode excluir uma conexão selecionando o ícone Excluir na folha de sua conexão.
+
+### <a name="circuit-user-operations"></a>Operações do usuário do circuito
+
+   > [!NOTE]
+   > O usuário do circuito precisa da ID do recurso e de uma chave de autorização do proprietário do circuito. 
+
+**Resgatando as autorizações de conexão**
+
+1.  Clique no botão **+Novo**.
+    ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+
+2.  Procure por **"Conexão"** no Marketplace, selecione-a e clique em **Criar**.
+    ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+
+3.  Verifique se o **Tipo de conexão** está definido como "ExpressRoute".
+
+4.  Preencha os detalhes e clique em **OK** na guia Conceitos básicos.
+    ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+
+5.  Na guia **Configurações**, selecione **Gateway de rede Virtual** e marque a caixa de seleção **Resgatar autorização**.
+
+6.  Insira a **Chave de autorização** e o **URI do circuito par** e nomeie a conexão. Clique em **OK**
+    ![Conectividade entre assinaturas](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+
+7.  Examine as informações na guia **Resumo** e clique em **OK**
+
+**Liberando as autorizações da conexão**
+
+É possível liberar uma autorização excluindo a conexão que vincula o circuito da Rota Expressa à rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/28/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 51c5694379d3f35ed2595f0cafeb00c6cc527854
-ms.openlocfilehash: 94549905816707fa3dcce3c3e443122162a2c4e8
+ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
+ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
 
 
 ---
@@ -43,7 +43,7 @@ Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco
 ![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
 **Modelo de recursos hierárquico**   
 
-Para começar a trabalhar com os recursos, você deve [criar uma conta do DocumentDB](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode ser formada por um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.  
+Para começar a trabalhar com os recursos, [crie uma conta do banco de dados](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode ser formada por um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.  
 
 | Recurso | Descrição |
 | --- | --- |
@@ -464,6 +464,6 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

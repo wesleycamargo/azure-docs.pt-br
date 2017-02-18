@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: a631b409fed14bcfce39ca4180b00a0d23d5caf2
-ms.openlocfilehash: 52cd04e34f17884a39979279798debbe8f018aa2
+ms.sourcegitcommit: b781d7b8cbf3f6b9a0a92f4368491404ee033f91
+ms.openlocfilehash: a6612d59d9504b1befd691f3b784ac9378c2b414
 
 
 ---
@@ -80,7 +80,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 | As tabelas |![Não](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Não](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Sim](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![Não](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Não](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Usar o Cofre de Chaves do Azure
-Após a instalação da solução, veja os dados do Key Vault clicando no bloco **Azure Key Vault** na página **Visão geral** do Log Analytics.
+Após a instalação da solução, consulte os dados do Key Vault clicando no bloco **Azure Key Vault** na página **Visão geral** do Log Analytics.
 
 ![imagem do bloco Cofre de Chaves do Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
@@ -150,12 +150,15 @@ Para usar a solução atualizada:
 
 Os dados coletados antes da alteração não estão visíveis na nova solução. Você pode continuar a consultar esses dados usando os nomes de campo e tipo antigos.
 
+## <a name="troubleshooting"></a>Solucionar problemas
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 * Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados do Cofre de Chaves do Azure.
 
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

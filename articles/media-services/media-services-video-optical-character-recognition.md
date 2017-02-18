@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/01/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: c50b183582038cba90298ba391eb33825cd765bd
+ms.sourcegitcommit: 5b5095610085019ad3fee7f4394f0c87f3740bed
+ms.openlocfilehash: 8d78a0f93a1e65eda7bfefbf910b56e0218a42c5
 
 
 ---
@@ -35,6 +35,10 @@ Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV
 
 ## <a name="task-configuration"></a>Configuração de tarefa
 Configuração de tarefa (predefinição). Ao criar uma tarefa com o **OCR de Mídia do Azure**, é necessário especificar uma predefinição de configuração usando JSON ou XML. 
+
+>[!NOTE]
+>O mecanismo de OCR demora apenas uma região de imagem com 40 pixels mínimos ao máximo 32.000 pixels como uma entrada válida na altura e na largura.
+>
 
 ### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
@@ -342,6 +346,6 @@ O programa a seguir mostra como:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

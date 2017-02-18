@@ -4,7 +4,7 @@ description: "Esse segundo tutorial sobre a série de implantação da StorSimpl
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/12/2017
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 2c9411312f561d03ab6bd29e8e007db309cb5f00
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 655c00e3042cca78872df052cb89bab43fbc35a4
 
 ---
 # <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-vmware"></a>Implantar a StorSimple Virtual Array – Provisionar uma Matriz Virtual no VMware
@@ -43,7 +43,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 * O sistema de host é capaz de dedicar os recursos a seguir para provisionar seu dispositivo virtual:
 
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM.
+  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a menos de 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 
@@ -66,7 +66,7 @@ Para criar um dispositivo virtual, você precisará de:
 * Cliente VMware vSphere em seu sistema para gerenciar o host ESXi.
 
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM.
+  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a menos de 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos.
   * Uma interface de rede conectada à rede capaz de rotear o tráfego para a Internet. A largura de banda de Internet mínima deve ser de 5 Mbps para permitir o funcionamento ideal do dispositivo.
   * Um disco virtual de 500 GB para dados.
 
@@ -77,6 +77,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
 
    1. Certifique-se de ter baixado o arquivo de imagem mais recente. Se você baixou a imagem anteriormente, baixe-a novamente para garantir que você tenha a imagem mais recente. A imagem mais recente tem dois arquivos (em vez de um).
    2. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
+
 2. Faça logon no servidor ESXi usando o cliente vSphere. Você precisa ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -243,6 +244,6 @@ Caso observe algum outro erro durante a configuração inicial usando a interfac
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

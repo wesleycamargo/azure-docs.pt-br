@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 6d05de6ac944b69402583e939d6b498515945461
-ms.openlocfilehash: f8b13b2b39cf0c860ad59f43eb341c5924804dd9
+ms.sourcegitcommit: 847081123123c849033c9de2b3c4359042d41359
+ms.openlocfilehash: da29f6015502e4ce5a63ca1c47106dc346026803
 
 
 ---
@@ -289,7 +289,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 ### <a name="using-code-behind"></a>Usando Code-behind
 Para usar a mesma funcionalidade na seção Code-behind do programa U-SQL, definimos a função C# ToDateTime.
 
-Veja a seção do script base U-SQL acima que precisa ser alterada:
+Aqui está a seção de script U-SQL base, em que fizemos alterações necessárias:
 
 ```sql
      @rs1 =
@@ -391,8 +391,9 @@ A vantagem do code-behind é que a ferramenta passa a ser responsável pelas seg
 
 Você pode ver o prólogo e o epílogo gerados quando abrir o script:
 
-![generated-prologue](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
-**Figura 2**: Prólogo e epílogo gerados automaticamente para Code-behind
+![prólogo gerado](./media/data-lake-analytics-u-sql-programmability-guide/generated-prologue.png)
+
+**Figura 2**: prólogo e epílogo gerados automaticamente para code-behind
 <br />
 
 Algumas das desvantagens do code-behind são
@@ -422,7 +423,7 @@ A caixa de diálogo de registro (veja a Etapa 2 na Figura 5) fornece a opção d
 
 Usamos essas opções nos exemplos abaixo. A [postagem recente no blog sobre processamento de imagem](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/18/introducing-image-processing-in-u-sql/) é outro exemplo que mostra o uso de um assembly predefinido que pode usar essas opções para registro.
 
-Agora você pode fazer referência aos assemblies registrados de qualquer script U-SQL que tenha permissões para o banco de dados dos assemblies registrados (veja o código no script U-SQL na Figura 4). É preciso adicionar uma referência para cada assembly registrado separadamente. Os arquivos de recursos adicionais serão implantados automaticamente. Esse script não deve ter mais um arquivo code-behind para o código nos assemblies referenciados, mas ainda pode fornecer outro código.
+Agora você pode fazer referência aos assemblies registrados de qualquer script U-SQL que tenha permissões para o banco de dados dos assemblies registrados (veja o código no script U-SQL na Figura 4). É preciso adicionar uma referência para cada assembly registrado separadamente. Os arquivos de recursos adicionais serão implantados automaticamente. Esse script não deve ter mais um arquivo code-behind para o código nos assemblies referenciados, mas o arquivo code-behind ainda pode fornecer outro código.
 
 ### <a name="registering-assemblies-via-adl-tools-in-visual-studio-and-in-u-sql-scripts"></a>Registro de assemblies usando Ferramentas do ADL no Visual Studio e nos scripts U-SQL
 Embora as Ferramentas do ADL no Visual Studio facilitem o registro de um assembly, você também pode fazer isso com um script (da mesma forma que as ferramentas o fazem para você) se estiver, por exemplo, desenvolvendo em uma plataforma diferente, já tendo compilado os assemblies que quer carregar e registrar. Basicamente, basta seguir estas etapas:
@@ -439,7 +440,8 @@ Nosso [site do Github para U-SQL](https://github.com/Azure/usql/) oferece um con
 Primeiro, baixamos o [projeto do Visual Studio](https://github.com/Azure/usql/tree/master/Examples/DataFormats) para nosso ambiente de desenvolvimento local (por exemplo, fazendo uma cópia local com a ferramenta GitHub para Windows). Em seguida, abrimos a solução no Visual Studio e clicamos com o botão direito do mouse no projeto, conforme explicado acima, para registrar o assembly. Embora esse assembly tenha duas dependências, temos que incluir apenas a dependência Newtonsoft, uma vez que System.Xml já está disponível no Azure Data Lake (ainda que ela tenha que ser explicitamente referenciada). A Figura 6 mostra como nomeamos o assembly (observe que você também pode escolher um nome diferente sem pontos) e adicionamos a dll da Newtonsoft. Cada um dos assemblies agora será individualmente registrado no banco de dados especificado (por exemplo, JSONBlog).
 
 ![register-assembly](./media/data-lake-analytics-u-sql-programmability-guide/register-assembly.png)
-**Figura 6**: Como registrar o assembly Microsoft.Analytics.Samples.Formats no Visual Studio
+
+**Figura 6**: como registrar o assembly Microsoft.Analytics.Samples.Formats no Visual Studio
 <br />
 
 Se você ou outras pessoas, com quem você compartilhou os assemblies registrados fornecendo a elas acesso de leitura ao banco de dados, agora quiserem usar o recurso JSON em seus próprios scripts, adicione as duas referências abaixo ao script:

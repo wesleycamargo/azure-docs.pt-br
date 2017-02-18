@@ -1,5 +1,5 @@
 ---
-title: Gerenciar uma conta do DocumentDB usando o Portal do Azure | Microsoft Docs
+title: Gerenciar uma conta do Banco de Dados de Documentos usando o Portal do Azure | Microsoft Docs
 description: Saiba como gerenciar sua conta do Banco de Dados de Documentos pelo Portal do Azure. Encontre um guia sobre como usar o Portal do Azure para exibir, copiar, excluir e acessar contas.
 keywords: Portal do Azure, banco de dados de documentos, azure, Microsoft azure
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/03/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
+ms.sourcegitcommit: e82d677c9d53ec5d28a40a7def4b911081765ca5
+ms.openlocfilehash: 0a249d63df35f9c3334a658672777e9b1359265e
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: f38b5d6127897ba2b083e0f3bb41562650214ae9
 Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do DocumentDB no portal do Azure.
 
 ## <a name="a-idconsistencyamanage-documentdb-consistency-settings"></a><a id="consistency"></a>Gerenciar as configurações de consistência do Banco de Dados de Documentos
-A seleção do nível certo de consistência depende da semântica do aplicativo. Você deve se familiarizar com os níveis de consistência disponíveis no DocumentDB lendo [Níveis de consistência para maximizar a disponibilidade e o desempenho no DocumentDB][consistency]. O DocumentDB fornece garantias de consistência, disponibilidade e desempenho, em cada nível de consistência disponível para sua conta de banco de dados. A configuração da conta do banco de dados com um nível de consistência Strong exige que seus dados sejam confinados em uma única região do Azure, e não globalmente disponíveis. Por outro lado, os níveis de consistência flexíveis — bounded staleness, session ou eventual — permitem associar qualquer número de regiões do Azure à sua conta de banco de dados. As etapas simples a seguir mostram como selecionar o nível de consistência padrão para sua conta de banco de dados. 
+A seleção do nível certo de consistência depende da semântica do aplicativo. Você deve se familiarizar com os níveis de consistência disponíveis no DocumentDB lendo [Como usar os níveis de consistência para maximizar a disponibilidade e o desempenho no DocumentDB][consistency]. O DocumentDB fornece garantias de consistência, disponibilidade e desempenho, em cada nível de consistência disponível para sua conta de banco de dados. A configuração da conta do banco de dados com um nível de consistência Strong exige que seus dados sejam confinados em uma única região do Azure, e não globalmente disponíveis. Por outro lado, os níveis de consistência flexíveis — bounded staleness, session ou eventual — permitem associar qualquer número de regiões do Azure à sua conta de banco de dados. As etapas simples a seguir mostram como selecionar o nível de consistência padrão para sua conta de banco de dados. 
 
 ### <a name="to-specify-the-default-consistency-for-a-documentdb-account"></a>Para especificar a consistência padrão para uma conta do Banco de Dados de Documentos
 1. No [portal do Azure](https://portal.azure.com/), acesse sua conta do DocumentDB.
@@ -77,7 +77,7 @@ Se tiver aplicativos ou serviços de nuvem usando a conta do Banco de Dados de D
 > 
 > 
 
-## <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
+## <a name="get-the--connection-string"></a>Obtenha a cadeia de conexão
 Para recuperar sua cadeia de conexão, faça o seguinte: 
 
 1. No [portal do Azure](https://portal.azure.com), acesse sua conta do DocumentDB.
@@ -87,12 +87,12 @@ Para recuperar sua cadeia de conexão, faça o seguinte:
 Se você estiver usando a cadeia de conexão na [Ferramenta de migração do DocumentDB](documentdb-import-data.md), acrescente o nome do banco de dados ao final da cadeia de conexão. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
 ## <a name="a-iddeletea-delete-a-documentdb-account"></a><a id="delete"></a> Excluir uma conta do Banco de Dados de Documentos
-Para remover uma conta do DocumentDB do Portal do Azure que não está mais sendo usada, use o comando **Excluir Conta** na folha **Conta do DocumentDB**.
+Para remover uma conta do DocumentDB do Portal do Azure que não está mais sendo usada, clique com o botão direito do mouse no nome da conta e depois clique em **Excluir Conta**.
 
 ![Como excluir uma conta do Banco de Dados de Documentos no Portal do Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 1. No [portal do Azure](https://portal.azure.com/), acesse a conta do DocumentDB que quer excluir.
-2. Na folha **Conta do DocumentDB**, clique em **Mais** e em **Excluir Conta**. Ou então, clique com o botão direito do mouse no nome do banco de dados e clique em **Excluir Conta**.
+2. Na folha **Conta do DocumentDB**, clique com o botão direito do mouse na conta e depois clique em **Excluir Conta**. 
 3. Na folha de confirmação resultante, digite o nome da conta do DocumentDB para confirmar que você quer excluir a conta.
 4. Clique no botão **Excluir** .
 
@@ -119,6 +119,6 @@ Para saber mais sobre o Banco de Dados de Documentos, consulte a documentação 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

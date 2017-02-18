@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: b808a791abc843a93d772b1eeafc9f6280196185
+ms.sourcegitcommit: 7e77858b36d07049333422d4454c29a9e1acb748
+ms.openlocfilehash: bdec7eb0b32cd8853dc01791466abf48c61a5fe8
 
 
 ---
@@ -44,27 +44,37 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
 
 ## <a name="manual-steps"></a>Etapas manuais
 > [!NOTE]
-> Antes de criar sua própria imagem personalizada do Ubuntu para o Azure, considere usar as imagens em [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) como alternativa.
+> Antes de tentar criar sua própria imagem personalizada do Ubuntu para o Azure, considere usar as imagens criadas previamente e testadas de [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) em vez disso.
 > 
 > 
 
 1. No painel central do Gerenciador do Hyper-V, selecione a máquina virtual.
+
 2. Clique em **Conectar** para abrir a janela da máquina virtual.
+
 3. Substitua os repositórios atuais na imagem para usar os repositórios do Azure no Ubuntu. As etapas variam um pouco dependendo da versão do Ubuntu.
    
-   Antes de editar o /etc/apt/sources.list, é recomendável fazer um backup:
+    Antes de editar `/etc/apt/sources.list`, é recomendável fazer um backup:
    
-   # <a name="sudo-cp-etcaptsourceslist-etcaptsourceslistbak"></a>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-   Ubuntu 12,04:
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    Ubuntu 12,04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   Ubuntu 14.04:
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 14.04:
    
-   # <a name="sudo-sed--i-sa-za-zarchiveubuntucomazurearchiveubuntucomg-etcaptsourceslist"></a>sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
+    Ubuntu 16.04:
+   
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
+
 4. As imagens do Ubuntu Azure estão seguindo o kernel *Habilitação de Hardware* (HWE). Atualize o sistema operacional para o kernel mais recente, executando os seguintes comandos:
-   
+
     Ubuntu 12,04:
    
         # sudo apt-get update
@@ -82,22 +92,42 @@ Este artigo pressupõe que você já instalou um sistema operacional Ubuntu Linu
         (recommended) sudo apt-get dist-upgrade
    
         # sudo reboot
-5. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra "/etc/default/grub" em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
+
+    Ubuntu 16.04:
+   
+        # sudo apt-get update
+        # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
+        (recommended) sudo apt-get dist-upgrade
+
+        # sudo reboot
+
+    **Consulte também:**
+    - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+    - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
+
+
+5. Modifique a linha de inicialização para o Grub para incluir parâmetros adicionais de kernel para o Azure. Para fazer isso, abra `/etc/default/grub` em um editor de texto, localize a variável chamada `GRUB_CMDLINE_LINUX_DEFAULT` (ou adicione-a, se necessário) e edite-a para incluir os seguintes parâmetros:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
-   
-    Salve e feche o arquivo e execute '`sudo update-grub`'. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte técnico do Azure com problemas de depuração.
+
+    Salve e feche esse arquivo e execute `sudo update-grub`. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte técnico do Azure com problemas de depuração.
+
 6. Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
+
 7. Instale o Agente Linux do Azure:
    
-   # <a name="sudo-apt-get-update"></a>sudo apt-get update
-   # <a name="sudo-apt-get-install-walinuxagent"></a>sudo apt-get install walinuxagent
-   Observe que a instalação do pacote `walinuxagent` removerá os pacotes `NetworkManager` e `NetworkManager-gnome`, se estiverem instalados.
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
+
+    >[!Note]
+    O `walinuxagent` pacote pode remover o `NetworkManager` e `NetworkManager-gnome` pacotes, se estiverem instalados.
+
 8. Execute os comandos a seguir para desprovisionar a máquina virtual e prepará-la para provisionamento no Azure:
    
-   # <a name="sudo-waagent--force--deprovision"></a>sudo waagent -force -deprovision
-   # <a name="export-histsize0"></a>export HISTSIZE=0
-   # <a name="logout"></a>logout
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
+
 9. Clique em **Ação -> Desligar** no Gerenciador do Hyper-V. Agora, seu VHD Linux está pronto para ser carregado no Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -112,6 +142,6 @@ Kernel de Habilitação de Hardware do Ubuntu (HWE):
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

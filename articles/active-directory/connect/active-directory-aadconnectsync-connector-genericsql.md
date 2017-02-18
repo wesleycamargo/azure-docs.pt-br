@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c4eef02a10cbb646e3d96ed444a0b3d957e0361d
-ms.openlocfilehash: 8a6c84ba559545cd1b786fc42cbbb7b190585e66
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: da12e642dc4d41fc74fe7b0f3722090da7818405
 
 
 ---
@@ -47,7 +47,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
-* Drivers de cliente ODBC de 64 bits
+* Drivers de cliente ODBC de&64; bits
 
 ### <a name="permissions-in-connected-data-source"></a>Permissões na fonte de dados conectada
 Para criar ou executar qualquer uma das tarefas com suporte no conector SQL genérico, você deve ter:
@@ -157,7 +157,7 @@ O conector SQL genérico dá suporte aos seguintes métodos de importação Delt
   * A estratégia de marca-d'água não dá suporte a exclusão de objetos.
 * **Instantâneo**(funciona somente com o Microsoft SQL Server) [Gerando exibições de Delta usando instantâneos](https://technet.microsoft.com/library/cc720640.aspx)
 * **Acompanhamento de alterações**(funciona somente com o Microsoft SQL Server) [About Acompanhamento de alterações](https://msdn.microsoft.com/library/bb933875.aspx)  
-   Limitações:
+  Limitações:
   * Atributo de âncora e DN devem ser parte da chave primária para o objeto selecionado na tabela.
   * Consulta SQL não tem suporte durante importação e exportação com acompanhamento de alterações.
 
@@ -234,7 +234,7 @@ Faça o seguinte:
 
 ![runstep5](./media/active-directory-aadconnectsync-connector-genericsql/runstep5.png)
 
-* Consultas com vários conjunto de resultados não têm suporte.
+* Consultas com vários conjuntos de resultados não têm suporte.
 * A consulta SQL dá suporte a paginação e fornece o índice inicial e final como uma variável para dar suporte à paginação.
 
 ### <a name="delta-import"></a>Importação de delta
@@ -259,7 +259,7 @@ O conector SQL genérico oferece suporte à exportação usando quatro métodos:
 * Consulta SQL
 
 **Tabela/Exibição**  
- se você escolher a opção de Tabela/Exibição, o conector gerará as respectivas consultas para fazer a Exportação.
+se você escolher a opção de Tabela/Exibição, o conector gerará as respectivas consultas para fazer a Exportação.
 
 **Procedimentos armazenados**  
 ![runstep8](./media/active-directory-aadconnectsync-connector-genericsql/runstep8.png)
@@ -287,7 +287,6 @@ Se você escolher a opção de consulta SQL, a Exportação exigirá três consu
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

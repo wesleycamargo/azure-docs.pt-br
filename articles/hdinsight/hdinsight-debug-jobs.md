@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bc5c3eb66f1f87dec9b0236be85a4fc96c598db3
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: bcf2791f0e1788d7d18a4efc123066aaf633d549
 
 
 ---
@@ -116,7 +116,7 @@ Para saber mais sobre os logs de aplicativos, confira [Como simplificar o gerenc
 
 ## <a name="view-cluster-health-and-job-logs"></a>Exibir logs de trabalho e integridade do cluster
 ### <a name="access-hadoop-ui"></a>Acessar a interface de usuário do Hadoop
-No Portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**.
+No portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**.
 
 ![Iniciar painel do cluster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
@@ -125,7 +125,7 @@ Quando solicitado, insira as credenciais de administrador do cluster. No Console
 ![Iniciar a interface do usuário do Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
 ### <a name="access-the-yarn-ui"></a>Acessar a interface do usuário do Yarn
-No Portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU DO YARN**.
+No portal do Azure, clique em um nome de cluster HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta que se abre, clique em **IU DO YARN**.
 
 Você pode usar a interface do usuário do YARN para fazer o seguinte:
 
@@ -136,12 +136,12 @@ Você pode usar a interface do usuário do YARN para fazer o seguinte:
 * **Monitore o status do trabalho**. No painel esquerdo, expanda **Cluster**, em seguida, clique em **Aplicativos** para listar todos os trabalhos no cluster. Se você quiser examinar os trabalhos em um estado específico (como novo, enviado, em execução, etc.), clique no link apropriado em **Aplicativos**. Você pode seguir clicando no nome do trabalho para saber mais detalhes sobre ele, como saída, logs, etc.
 
 ### <a name="access-the-hbase-ui"></a>Acessar a interface do usuário do HBase
-No Portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta aberto, clique em **IU do HBase**.
+No portal do Azure, clique em um nome de cluster HBase do HDInsight para abrir a folha do cluster. Na folha do cluster, clique em **Painel**. Quando solicitado, insira as credenciais de administrador do cluster. No Console de Consulta aberto, clique em **IU do HBase**.
 
 ## <a name="hdinsight-error-codes"></a>Códigos de erro do HDInsight
 As mensagens de erro detalhadas nesta seção são fornecidas para ajudar os usuários do Hadoop no Azure HDInsight a entenderem possíveis condições de erro que podem encontrar ao administrar o serviço usando o Azure PowerShell e para avisá-los sobre as etapas que podem ser executadas para se recuperar do erro.
 
-Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure quando ele for usado para gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. 
+Algumas dessas mensagens de erro também podem ser vistas no portal do Azure ao gerenciar clusters HDInsight. Mas outras mensagens de erro que você pode encontrar são menos granulares devido às restrições nas ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas nos contextos onde a atenuação é óbvia. 
 
 ### <a name="a-idatleastonesqlmetastoremustbeprovidedaatleastonesqlmetastoremustbeprovided"></a><a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Descrição**: forneça os detalhes do Banco de Dados SQL do Azure para pelo menos um componente para usar as configurações personalizadas para as metastores do Hive e do Oozie.
@@ -269,7 +269,7 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 
 ### <a name="a-idmorethanoneheadnodeamorethanoneheadnode"></a><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode
 * **Descrição**: a configuração do cluster é inválida. Encontrada mais de uma configuração de nó de cabeçalho.  
-* **Atenuação**: edite a configuração para que apenas um nó de cabeçalho seja especificado.
+* **Mitigação**: edite a configuração para que apenas um nó de cabeçalho seja especificado.
 
 ### <a name="a-idoperationtimedoutretryrequestaoperationtimedoutretryrequest"></a><a id="OperationTimedOutRetryRequest"></a>OperationTimedOutRetryRequest
 * **Descrição**: a operação não pôde ser concluída dentro do tempo permitido ou do número máximo de tentativas possível. Tente novamente a solicitação.  
@@ -331,6 +331,6 @@ Algumas dessas mensagens de erro também podem ser vistas no Portal do Azure qua
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

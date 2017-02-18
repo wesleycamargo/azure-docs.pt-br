@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 8fdd2993e6b3f0345948f35753ebb7a20ed174e3
-ms.openlocfilehash: d5764ee2a8447de70798c24a3152a854327ae89d
+ms.sourcegitcommit: 1c1da3c7b1d5e096e03ac3814275f29afeffcaeb
+ms.openlocfilehash: ad03b71052be46bdb64432b007aa471d120db0fa
 
 
 ---
@@ -30,7 +30,7 @@ Os recursos de colaboração B2B do Azure AD permitem que as organizações de t
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
-Na versão atual (no [Portal Clássico do Azure](https://manage.windowsazure.com)), para estabelecer uma relação com uma organização, os profissionais de TI e os profissionais de informações podem adicionar usuários de outra organização um de cada vez ou alguns de cada vez por meio do portal ou da API do Gerenciador de Convite. Agora, os administradores podem usar as novas experiências do portal no Azure (https://portal.azure.com) e o PowerShell para isso. E os profissionais de informações podem usar as experiências do Painel de Acesso em http://myapps.microsoft.com. Os desenvolvedores podem criar aplicativos usando a API do Gerenciador de Convite B2B do Azure AD para adicionar usuários de colaboração B2B e personalizar os fluxos de trabalho de convite e integração.
+Na versão atual de visualização, para estabelecer uma relação com uma organização, os profissionais de TI e os profissionais de informações podem adicionar usuários de outra organização um de cada vez ou alguns de cada vez por meio do portal ou da API do Gerenciador de Convite. Os administradores podem usar as novas experiências do portal do Azure (https://portal.azure.com) e o PowerShell para isso. E os profissionais de informações podem usar as experiências do Painel de Acesso em http://myapps.microsoft.com. Os desenvolvedores podem criar aplicativos usando a API do Gerenciador de Convite B2B do Azure AD para adicionar usuários de colaboração B2B e personalizar os fluxos de trabalho de convite e integração.
 
 Os usuários de colaboração B2B normalmente são integrados por meio de um processo de convite + resgate. Veja como ele funciona.
 
@@ -83,8 +83,16 @@ Vocês têm usado os recursos de colaboração B2B que tínhamos na visualizaç�
 
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
+* [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
+* [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-how-it-works.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
+* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
+* [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
+* [Perguntas frequentes sobre colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
+* [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
+* [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 

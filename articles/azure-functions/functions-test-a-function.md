@@ -14,103 +14,86 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/10/2016
+ms.date: 02/02/2017
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: b3b0251436497cfdfb36369a05e01519c631e351
+ms.sourcegitcommit: 3603f58a9df1f0222a75b863ad2c1ab1b6e13fb2
+ms.openlocfilehash: c6868566e513c5cd2c76be3305ca6c9035d58acd
 
 
 ---
 # <a name="testing-azure-functions"></a>Testando os Azure Functions
 ## <a name="overview"></a>Visão geral
-Neste tutorial, trataremos de diferentes abordagens para testar funções. Definiremos uma função de gatilho http que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. O código do modelo da **função Node.js HttpTrigger** dá suporte a um parâmetro de cadeia de caracteres de consulta `name`. Também podemos adicionar código para dar suporte a esse parâmetro junto com as informações do `address` para o usuário no corpo da solicitação.
+Este tópico demonstra as várias maneiras de testar as funções, que inclui as seguintes abordagens gerais:
+
++ Ferramentas baseadas em HTTP, como rotação, carteiro e até mesmo um navegador da web para disparadores baseados na web. 
++ Gerenciador de armazenamento para testar com base no armazenamento do Azure.
++ Guia de teste no portal de funções.
++ Função Timer disparada.
++ Testando o aplicativo ou estrutura.  
+
+Todos os métodos de testes mostrados usam uma função de gatilho HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. Você irá criar esta função na primeira seção.
 
 ## <a name="create-a-function-for-testing"></a>Criar uma função para teste
-Durante a maior parte deste tutorial, usaremos uma versão ligeiramente modificada do modelo da **função Nodejs HttpTrigger** disponível ao criar uma nova função.  Você poderá examinar o [Tutorial para criar sua primeira Função do Azure](functions-create-first-azure-function.md) se precisar de ajuda para criar uma nova função.  Basta escolher o modelo da **Função Nodejs HttpTrigger** ao criar a função de teste no [Portal do Azure].
+Durante a maior parte deste tutorial, usaremos uma versão ligeiramente modificada do modelo da função JavaScript HttpTrigger disponível ao criar uma nova função.  Você poderá examinar o [Tutorial para criar sua primeira Função do Azure](functions-create-first-azure-function.md) se precisar de ajuda para criar uma nova função.  Basta escolher o modelo da **Função JavaScript HttpTrigger** ao criar a função de teste no [Portal do Azure].
 
 O modelo da função padrão é basicamente uma função de Olá, mundo que retorna o nome do corpo da solicitação do parâmetro de cadeia de caracteres da consulta, `name=<your name>`.  Atualizaremos o código para permitir também que você forneça o nome e um endereço como conteúdo JSON no corpo da solicitação. Em seguida, a função os retornará para o cliente quando disponível.   
 
 Atualize a função com o seguinte código que usaremos para teste:
 
 ```javascript
-module.exports = function(context, req) {
-    context.log("Node.js HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
-    context.log("Request Headers = " + JSON.stringify(req.headers));    
+module.exports = function (context, req) {
+    context.log("HTTP trigger function processed a request. RequestUri=%s", req.originalUrl);
+    context.log("Request Headers = " + JSON.stringify(req.headers));
+    var res;
 
     if (req.query.name || (req.body && req.body.name)) {
         if (typeof req.query.name != "undefined") {
             context.log("Name was provided as a query string param...");
-            ProcessNewUserInformation(context, req.query.name);
+            res = ProcessNewUserInformation(context, req.query.name);
         }
         else {
             context.log("Processing user info from request body...");
-            ProcessNewUserInformation(context, req.body.name, req.body.address);
+            res = ProcessNewUserInformation(context, req.body.name, req.body.address);
         }
     }
     else {
-        context.res = {
+        res = {
             status: 400,
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
+    context.done(null, res);
 };
+function ProcessNewUserInformation(context, name, address) {
+    context.log("Processing user information...");
+    context.log("name = " + name);
+    var echoString = "Hello " + name;
+    var res;
 
-function ProcessNewUserInformation(context, name, address)
-{    
-    context.log("Processing User Information...");            
-    context.log("name = " + name);            
-    echoString = "Hello " + name;
-
-    if (typeof address != "undefined")
-    {
+    if (typeof address != "undefined") {
         echoString += "\n" + "The address you provided is " + address;
-        context.log("address = " + address);            
+        context.log("address = " + address);
     }
-
-    context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: echoString
-        };
+    res = {
+        // status: 200, /* Defaults to 200 */
+        body: echoString
+    };
+    return res;
 }
 ```
 
 ## <a name="test-a-function-with-tools"></a>Testar uma função com Ferramentas
-### <a name="test-with-curl"></a>Testar com cURL
-Muitas vezes ao testar software, não é necessário procurar além da linha de comando para ajudar a depurar seu aplicativo, e isso não é diferente com funções.
-
-Para testar a função acima, copie o **URL da Função** do portal. Ela estará no seguinte formato:
-
-    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-Esta é a URL para disparar sua função; podemos testar isso usando o comando cURL na linha de comando para fazer uma solicitação Get (`-G` ou `--get`) em nossa função:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
-
-Esse exemplo específico acima exige um parâmetro de cadeia de caracteres de consulta que pode ser passado como Dados (`-d`) no comando cURL:
-
-    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
-
-Pressione Enter e você verá a saída da função na linha de comando.
-
-![](./media/functions-test-a-function/curl-test.png)
-
-Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao executar a função:
-
-    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
-    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
-    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
-    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+Fora do portal do Azure, há várias ferramentas que podem ser usados para disparar as funções para teste. Esses incluem HTTP, ferramentas, baseado na interface do usuário e de linha de comando; de teste Ferramentas de acesso do armazenamento do Azure e até mesmo um navegador da web simples.
 
 ### <a name="test-with-a-browser"></a>Testar com um navegador
-Funções que não requerem parâmetros, ou precisam apenas de parâmetros de cadeia de caracteres de consulta, podem ser testadas usando um navegador.
+O navegador da web é uma maneira simples de funções de gatilho via HTTP. Você pode usar um navegador para solicitações GET que não exigem uma carga de corpo e usam apenas parâmetros de cadeia de caracteres de consulta.
 
 Para testar a função que definimos acima, copie a **URL da Função** do portal. Ela estará no seguinte formato:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Acrescente o parâmetro de cadeia de caracteres de consulta `name` da seguinte maneira, usando um nome real para o espaço reservado `<Enter a name here>`.
+Acrescente o parâmetro `name` à cadeia de consulta usando um nome real para o espaço reservado `<Enter a name here>`. 
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
@@ -118,21 +101,23 @@ Cole a URL no seu navegador e você obterá uma resposta semelhante à seguinte.
 
 ![](./media/functions-test-a-function/browser-test.png)
 
+Este exemplo é o navegador Chrome, que encapsula a cadeia de caracteres retornada em XML. Outros navegadores exibem apenas o valor de cadeia de caracteres.
+
 Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao executar a função:
 
     2016-03-23T07:34:59  Welcome, you are now connected to log-streaming service.
     2016-03-23T07:35:09.195 Function started (Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
-    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Wes from a browser
+    2016-03-23T07:35:10.338 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==&name=Glenn from a browser
     2016-03-23T07:35:10.338 Request Headers = {"cache-control":"max-age=0","connection":"Keep-Alive","accept":"text/html","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T07:35:10.338 Name was provided as a query string param.
     2016-03-23T07:35:10.338 Processing User Information...
     2016-03-23T07:35:10.369 Function completed (Success, Id=61a8c5a9-5e44-4da0-909d-91d293f20445)
 
 ### <a name="test-with-postman"></a>Testar com o Postman
-A ferramenta recomendada para a testar maioria das funções é o Postman. Para instalar o Postman, consulte [Obter o Postman](https://www.getpostman.com/). O Postman fornece controle sobre muito mais atributos de uma solicitação HTTP.
+A ferramenta recomendada para a maioria das funções de teste é carteiro, que integra o navegador Chrome. Para instalar o Postman, consulte [Obter o Postman](https://www.getpostman.com/). O Postman fornece controle sobre muito mais atributos de uma solicitação HTTP.
 
 > [!TIP]
-> Use o cliente REST com o qual você está familiarizado. Aqui estão algumas alternativas ao Postman:  
+> Use o HTTP que estiver mais familiarizado com a ferramenta de teste. Aqui estão algumas alternativas ao Postman:  
 >
 > * [Fiddler](http://www.telerik.com/fiddler)  
 > * [Paw](https://luckymarmot.com/paw)  
@@ -162,7 +147,7 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
     2016-03-23T08:04:51  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:04:57.107 Function started (Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
-    2016-03-23T08:04:57.763 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
+    2016-03-23T08:04:57.763 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/WesmcHttpTriggerNodeJS1?code=XXXXXXXXXX==
     2016-03-23T08:04:57.763 Request Headers = {"cache-control":"no-cache","connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:04:57.763 Processing user info from request body...
     2016-03-23T08:04:57.763 Processing User Information...
@@ -170,10 +155,36 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
+### <a name="test-with-curl-from-the-command-line"></a>Teste com rotação da linha de comando 
+Muitas vezes ao testar software, não é necessário procurar além da linha de comando para ajudar a depurar seu aplicativo, e isso não é diferente com funções. Observe que a rotação está disponível por padrão nos sistemas baseados em Linux. No Windows, você deve primeiro baixar e instalar o [cURL ferramenta](https://curl.haxx.se/). 
+
+Para testar a função acima, copie o **URL da Função** do portal. Ela estará no seguinte formato:
+
+    https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+Esta é a URL para disparar sua função; podemos testar isso usando o comando cURL na linha de comando para fazer uma solicitação GET (`-G` ou `--get`) em nossa função:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
+
+Esse exemplo específico acima exige um parâmetro de cadeia de caracteres de consulta que pode ser passado como Dados (`-d`) no comando cURL:
+
+    curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
+
+Execute o comando e você verá a seguinte saída da função na linha de comando:
+
+![](./media/functions-test-a-function/curl-test.png)
+
+Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao executar a função:
+
+    2016-04-05T21:55:09  Welcome, you are now connected to log-streaming service.
+    2016-04-05T21:55:30.738 Function started (Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+    2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
+    2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
+
 ### <a name="test-a-blob-trigger-using-storage-explorer"></a>Testar um gatilho de blob usando o Gerenciador de Armazenamento
 Você pode testar uma função de gatilho de blob usando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
 
-1. No [Portal do Azure] para seu aplicativo Functions, crie uma nova função de gatilho F# ou Blob do nó. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
+1. No [Portal do Azure] para seu aplicativo Functions, crie uma nova função de gatilho de blob do C#, do F# ou do JavaScript. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
 
         files
 2. Clique no botão **+** para selecionar ou criar a conta de armazenamento que você deseja usar. Em seguida, clique em **Criar**.
@@ -193,6 +204,8 @@ Você pode testar uma função de gatilho de blob usando o [Gerenciador de Armaz
         2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>Testar uma função dentro de funções
+O portal do Azure Functions foi projetado para permitir que você teste as funções de timer e HTTP acionadas. Você também pode criar funções para disparar outras funções que você está testando.
+
 ### <a name="test-with-the-functions-portal-run-button"></a>Testar com o botão Executar do portal de funções
 O portal fornece um botão **Executar** que permitirá que você faça alguns testes limitados. Você pode fornecer um corpo de solicitação usando o botão Executar, porém não é possível fornecer parâmetros de cadeia de caracteres de consulta ou atualizar os cabeçalhos de solicitação.
 
@@ -209,7 +222,7 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
     2016-03-23T08:03:12  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:03:17.357 Function started (Id=753a01b0-45a8-4125-a030-3ad543a89409)
-    2016-03-23T08:03:18.697 Node.js HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
+    2016-03-23T08:03:18.697 HTTP trigger function processed a request. RequestUri=https://functions841def78.azurewebsites.net/api/wesmchttptriggernodejs1
     2016-03-23T08:03:18.697 Request Headers = {"connection":"Keep-Alive","accept":"*/*","accept-encoding":"gzip","accept-language":"en-US"}
     2016-03-23T08:03:18.697 Processing user info from request body...
     2016-03-23T08:03:18.697 Processing User Information...
@@ -233,7 +246,7 @@ Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fi
 >
 >
 
-1. No [Portal do Azure] para seu aplicativo de Funções, clique em **Nova Função** > **QueueTrigger – C#**.
+1. No [Portal do Azure] para seu aplicativo de Funções, clique em **Nova Função** > **QueueTrigger - C#**.
 2. Inserir o nome da fila a ser monitorada pela função de fila
 
         queue-newusers
@@ -242,7 +255,7 @@ Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fi
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Criar um gatilho de temporizador para remover uma mensagem na fila
 1. Abra o [Portal do Azure] em uma nova janela do navegador e navegue para seu aplicativo de Função.
-2. Clique em **Nova Função** > **TimerTrigger – C#**. Digite uma expressão cron para definir com que frequência o código do temporizador executará testes na sua função de fila. Em seguida, clique em **Criar**. Se você quiser que o teste seja executado cada 30 segundos, use a seguinte [expressão CRON](https://wikipedia.org/wiki/Cron#CRON_expression):
+2. Clique em **Nova Função** > **TimerTrigger - C#**. Digite uma expressão cron para definir com que frequência o código do temporizador executará testes na sua função de fila. Em seguida, clique em **Criar**. Se você quiser que o teste seja executado cada 30 segundos, use a seguinte [expressão CRON](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
 3. Clique na guia **Integrar** para o novo gatilho de temporizador.
@@ -288,16 +301,17 @@ Na janela do navegador para a função de fila, você verá a cada mensagem que 
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
 ## <a name="test-a-function-with-code"></a>Testar uma função com Código
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Testar uma função de gatilho HTTP com Código: Node.js
-Você pode usar o código Node.js para executar uma solicitação http para testar sua Função do Azure.
+Haverá alguns casos em que você precisa criar um aplicativo externo ou estrutura para testar suas funções.
 
+### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Testar uma função de gatilho HTTP com Código: Node.js
+Você pode usar um aplicativo Node.js para executar uma solicitação HTTP para testar sua função.
 Lembre-se de definir:
 
 * O `host` nas opções de solicitação para o host do aplicativo de função
 * O nome da função no `path`.
 * Seu código de acesso (`<your code>`) em `path`.
 
-Exemplo de Código:
+Exemplo de código:
 
 ```javascript
 var http = require("http");
@@ -352,7 +366,7 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
     2016-03-23T08:08:55  Welcome, you are now connected to log-streaming service.
     2016-03-23T08:08:59.736 Function started (Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
-    2016-03-23T08:09:01.153 Node.js HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
+    2016-03-23T08:09:01.153 HTTP trigger function processed a request. RequestUri=http://functionsExample.azurewebsites.net/api/WesmcHttpTriggerNodeJS1/?code=XXXXXXXXXX==
     2016-03-23T08:09:01.153 Request Headers = {"connection":"Keep-Alive","host":"functionsExample.azurewebsites.net"}
     2016-03-23T08:09:01.153 Name not provided as query string param. Checking body...
     2016-03-23T08:09:01.153 Request Body Type = object
@@ -431,6 +445,6 @@ Na janela do navegador para a função de fila, você verá a cada mensagem que 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

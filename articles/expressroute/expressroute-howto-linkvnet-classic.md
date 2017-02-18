@@ -1,5 +1,5 @@
 ---
-title: "Vincular uma rede virtual a um circuito do ExpressRoute usando o modelo de implantação clássico e o PowerShell | Microsoft Docs"
+title: "Vincular uma rede virtual a um circuito ExpressRoute: PowerShell: clássico: Azure| Microsoft Docs"
 description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação clássico e o PowerShell."
 services: expressroute
 documentationcenter: na
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+ms.sourcegitcommit: 1276a64d375ff452f3d29a8f7910475256499ac8
+ms.openlocfilehash: 0c16907f306228c4361e55d21dcb0c834ce7de25
 
 
 ---
-# <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vincular uma rede virtual a um circuito de Rota Expressa
+# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Conectar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
-> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell – Resource Manager](expressroute-howto-linkvnet-arm.md)
-> * [PowerShell - clássico](expressroute-howto-linkvnet-classic.md)
+> * [Resource Manager - Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Clássico - PowerShell](expressroute-howto-linkvnet-classic.md)
+> * [Vídeo – Portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > 
 > 
 
@@ -162,6 +163,6 @@ Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequen
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

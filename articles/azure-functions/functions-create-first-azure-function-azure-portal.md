@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 02/02/2017
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
-ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
+ms.sourcegitcommit: ab0b218a99ab3ff98edfa075eabbd3eb2c2bd1d4
+ms.openlocfilehash: 996fc80ff926117dc12180efe1949b3dbeba3f91
 
 
 ---
@@ -28,9 +28,7 @@ O Azure Functions consiste em uma experiência de computação sob demanda contr
 Este tópico mostra como usar o portal do Azure para criar uma Azure Function "hello world" simples do Node.js que é invocada por um gatilho HTTP. Antes de criar uma função no portal do Azure, você deve criar um aplicativo de funções explicitamente no Serviço de Aplicativo do Azure. Para que o aplicativo de funções seja criado para você automaticamente, confira [os outros tutoriais de início rápido do Azure Functions](functions-create-first-azure-function.md), que é uma experiência de início rápido mais simples e inclui vídeo.
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
-Um aplicativo de funções hospeda a execução de suas funções no Azure. Siga estas etapas para criar um aplicativo de funções no portal do Azure.
-
-Um aplicativo de função hospeda a execução de suas funções no Azure. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar Funções](https://functions.azure.com/try) ou [criar uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
+Um aplicativo de função hospeda a execução de suas funções no Azure. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar Funções](https://functions.azure.com/try) ou [criar uma conta do Azure gratuita](https://azure.microsoft.com/free/). Siga estas etapas para criar um aplicativo de funções no portal do Azure.
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 2. Clique em **+Novo** > **Computação** > **Aplicativo de Funções**, selecione sua **Assinatura**, digite um **Nome do aplicativo** exclusivo que identifica seu aplicativo de funções e especifique as seguintes configurações:
@@ -42,6 +40,8 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. Se vo
    * **Conta de armazenamento**: cada aplicativo de funções requer uma conta de armazenamento. Você pode usar uma conta de armazenamento existente ou criar uma nova. 
      
      ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
+
+    Observe que você deve inserir um **Nome de aplicativo** válido, que pode conter apenas letras, números e hifens. Sublinhado (**_**) não é um caractere permitido.
 
 3. Clique em **Criar** para provisionar e implantar o novo aplicativo de funções.  
 
@@ -57,35 +57,16 @@ Estas etapas criam uma função no guia de início rápido do Azure Functions.
 2. (Opcional) Neste ponto no início rápido, é possível fazer um tour rápido pelos recursos do Azure Functions no portal.    Depois de concluir ou ignorar o tour, teste sua nova função usando o gatilho HTTP.
 
 ## <a name="test-the-function"></a>Testar a função
-Como os inícios rápidos do Azure Functions contêm código funcional, você poderá testar imediatamente sua nova função.
-
-1. Na guia **Desenvolver**, examine a janela **Código** e observe que esse código Node.js espera uma solicitação HTTP com um valor *name* passado no corpo da mensagem ou em uma cadeia de consulta. Quando a função é executada, esse valor é retornado na mensagem de resposta.
-   
-2. Clique em **Testar** para exibir o painel de solicitação de teste HTTP interno para a função.
- 
-    ![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
-
-2. Na caixa de texto **Corpo da solicitação**, altere o valor da propriedade *name* para seu nome e clique em **Executar**. Veja que a execução é disparada por uma solicitação HTTP de teste, as informações são gravadas em logs de streaming e a resposta "hello" é exibida na **Saída**. 
-
-3. Para disparar a execução da mesma função de outra janela ou guiado navegador, copie o valor de **URL da Função** da guia **Desenvolver** e cole-o na barra de endereços de um navegador. Acrescente o valor de cadeia de caracteres de consulta `&name=yourname` ao URL e pressione inserir. As mesmas informações são gravadas nos logs e o navegador exibe a resposta "hello" como antes.
+[!INCLUDE [Functions quickstart test](../../includes/functions-quickstart-test.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Este início rápido demonstra uma execução simples de uma função básica disparada por HTTP. Para saber mais sobre como usar o Azure Functions em seus aplicativos, consulte os tópicos a seguir:
-
-* [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-   Referência do programador para codificação de funções e definição de gatilhos e de associações.
-* [Testando o Azure Functions](functions-test-a-function.md)  
-   Descreve várias ferramentas e técnicas para testar suas funções.
-* [Como escalar o Azure Functions](functions-scale.md)  
-  Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano do Serviço de Aplicativo com base no consumo e como escolher o plano certo. 
-* [O que é o Serviço de Aplicativo do Azure?](../app-service/app-service-value-prop-what-is.md)  
-   O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
+[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

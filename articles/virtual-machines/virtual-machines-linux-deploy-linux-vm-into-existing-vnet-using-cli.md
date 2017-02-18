@@ -1,9 +1,9 @@
 ---
-title: Implantar uma VM do Linux em uma Rede Virtual existente do Azure usando a CLI | Microsoft Docs
-description: Implante uma VM do Linux em uma Rede Virtual existente usando a CLI.
+title: "Como implantar a VM do Linux em uma rede existente com a CLI do Azure 2.0 (visualização) | Microsoft Docs"
+description: "Aprenda a implantar uma máquina virtual Linux em uma rede virtual existente usando a CLI do Azure 2.0 (visualização)"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: vlivech
+author: iainfoulds
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,147 +13,164 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
-ms.author: v-livech
+ms.date: 01/31/2017
+ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 9b053a618dd7a4e198b558402eb09ffdfbe2919a
-ms.openlocfilehash: b2153097ef33ec323070253e379050f9024449f5
+ms.sourcegitcommit: 63485f0c9e151db22f23d291e2a4425dd01fb7ee
+ms.openlocfilehash: b22ac95ee11fe059d36a9416434a14814da1ee7d
 
 
 ---
 
-# <a name="deploy-a-linux-vm-into-an-existing-azure-virtual-network-using-the-cli"></a>Implantar uma VM do Linux em uma Rede Virtual existente do Azure usando a CLI
+# <a name="deploy-a-linux-vm-into-an-existing-virtual-network-using-the-azure-cli-20-preview"></a>Implante uma VM do Linux em uma rede virtual existente usando a CLI do Azure 2.0 (visualização)
 
-Este artigo mostra como usar marcas de CLI para implantar uma VM em uma VNet (Rede Virtual) existente.  Esses requisitos são:
+Este artigo mostra como usar a CLI do Azure 2.0 (visualização) para implantar uma máquina virtual (VM) em uma rede virtual existente. Esses requisitos são:
 
 - [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 - [arquivos de chave SSH pública e privada](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
+
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+
+- [CLI do Azure 1.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI 2.0 do Azure (Visualização)](#quick-commands) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+
+
 ## <a name="quick-commands"></a>Comandos rápidos
+Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](#detailed-walkthrough).
 
-Se você precisar executar a tarefa rapidamente, a seção a seguir fornecerá detalhes dos comandos necessários. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
+Para criar esse ambiente personalizado, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
 
-Pré-requisitos: Grupo de Recursos, VNet, NSG com SSH de entrada e Sub-rede. Substitua os exemplos por suas próprias configurações.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `myVnet` e `myVM`.
 
-### <a name="deploy-the-vm-into-the-vnet-nsg-and-connect-the-vnic"></a>Implantar a VM na VNET, no NSG e conectar a VNic
+**Pré-requisitos:** grupo de recursos do Azure, rede virtual e sub-rede, grupo de segurança de rede com o SSH de entrada e uma placa de interface de rede virtual.
+
+### <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implantar a VM na infra-estrutura de rede virtual
 
 ```azurecli
-azure vm create myVM \
--g myResourceGroup \
--l westus \
--y linux \
--Q Debian \
--o myStorageAcct \
--u myAdminUser \
--M ~/.ssh/id_rsa.pub \
--n myVM \
--F myVNet \
--j mySubnet \
--N myVNic
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image Debian \
+    --admin-username ops \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics myNic \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup
 ```
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 
-É recomendável que os ativos do Azure como VNETs e NSGs sejam recursos estáticos e de longa duração que raramente são implantados.  Após a implantação de uma VNET, ela pode ser reutilizada por novas implantações sem nenhum efeito negativo sobre a infraestrutura.  Ao considerar uma VNET como um comutador de rede de hardware tradicional, você não precisará configurar um novo comutador de hardware a cada implantação.  Com uma VNET configurada corretamente, podemos continuar implantando novos servidores nela repetidamente e com pouca ou nenhuma alteração necessária durante a vida útil da VNET.
+Recomendamos que os ativos do Azure, como as redes virtuais e os grupos de segurança de rede, sejam recursos estáticos e de longa duração que raramente são implantados. Após a implantação de uma rede virtual, ela pode ser reutilizada por novas implantações sem nenhum efeito negativo sobre a infraestrutura. Imagine uma rede virtual como um comutador de rede de hardware tradicional, você não precisa configurar um novo comutador de hardware a cada implantação. Com uma rede virtual configurada corretamente, podemos continuar implantando novas VMs nela repetidamente com pouca ou nenhuma alteração necessária durante a vida útil da rede virtual.
 
-## <a name="create-the-resource-group"></a>Criar o Grupo de recursos
+Para criar esse ambiente personalizado, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
 
-Primeiro, criaremos um Grupo de Recursos para organizar tudo o que criamos neste passo a passo.  Para obter mais informações sobre os Grupos de Recursos do Azure, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `myVnet` e `myVM`.
+
+## <a name="create-the-resource-group"></a>Criar o grupo de recursos
+
+Primeiro, criamos um grupo de recursos do Azure para organizar tudo o que criamos neste passo a passo. Para saber mais sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Crie o grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westus`:
 
 ```azurecli
-azure group create myResourceGroup \
---location westus
+az group create \
+    --name myResourceGroup \
+    --location westus
 ```
 
-## <a name="create-the-vnet"></a>Criar a VNET
+## <a name="create-the-virtual-network"></a>Criar a rede virtual
 
-A primeira etapa é criar uma VNET na qual as VMs serão iniciadas.  A VNET contém uma sub-rede para este passo a passo.  Para obter mais informações sobre as VNETs do Azure, consulte [Criar uma rede virtual usando a CLI do Azure](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Permite criar uma rede virtual do Azure para iniciar as VMs. Para saber mais sobre as redes virtuais do Azure, confira [Criar uma rede virtual usando a CLI do Azure](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#create). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnet`:
 
 ```azurecli
-azure network vnet create myVNet \
---resource-group myResourceGroup \
---address-prefixes 10.10.0.0/24 \
---location westus
+az network vnet create \
+    --resource-group myResourceGroup \
+    --location westus \
+    --name myVnet \
+    --address-prefix 10.10.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefix 10.10.1.0/24
 ```
 
-## <a name="create-the-nsg"></a>Criar o NSG
+## <a name="create-the-network-security-group"></a>Crie o grupo de segurança de rede
 
-A Sub-rede é criada por trás de um Grupo de Segurança de Rede existente e, portanto, criamos o NSG antes da Sub-rede.  Os NSGs do Azure são equivalentes a um firewall na camada de rede.  Para obter mais informações sobre os NSGs do Azure, consulte [Como criar NSGs na CLI do Azure](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Os grupos de segurança de rede do Azure são equivalentes a um firewall na camada de rede. Para saber mais sobre os grupos de segurança de rede, confira [Como criar grupos de segurança de rede na CLI do Azure](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#create). O seguinte exemplo cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
-azure network nsg create myNSG \
---resource-group myResourceGroup \
---location westus
+az network nsg create \
+    --resource-group myResourceGroup \
+    --location westus \
+    --name myNetworkSecurityGroup
 ```
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>Adicionar uma regra de permissão de SSH de entrada
 
-A VM do Linux precisa de acesso da Internet e, portanto, é necessária uma regra permitindo que o tráfego da porta 22 de entrada passe pela rede para a porta 22 na VM do Linux.
+A VM do Linux precisa de acesso da Internet e, portanto, é necessária uma regra permitindo que o tráfego da porta 22 de entrada passe pela rede para a porta 22 na VM do Linux. Adicione uma regra de entrada para o grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule#create). O exemplo a seguir cria uma regra chamada `myNetworkSecurityGroupRuleSSH`:
 
 ```azurecli
-azure network nsg rule create inboundSSH \
---resource-group myResourceGroup \
---nsg-name myNSG \
---access Allow \
---protocol Tcp \
---direction Inbound \
---priority 100 \
---source-address-prefix Internet \
---source-port-range 22 \
---destination-address-prefix 10.10.0.0/24 \
---destination-port-range 22
+az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup \
+    --name myNetworkSecurityGroupRuleSSH \
+    --protocol tcp \
+    --direction inbound \
+    --priority 1000 \
+    --source-address-prefix '*' \
+    --source-port-range '*' \
+    --destination-address-prefix '*' \
+    --destination-port-range 22 \
+    --access allow
 ```
 
-## <a name="add-a-subnet-to-the-vnet"></a>Adicionar uma sub-rede à VNET
+## <a name="attach-the-subnet-to-the-network-security-group"></a>Anexar a sub-rede para o grupo de segurança de rede
 
-As VMs na VNET devem estar localizadas em uma sub-rede.  Cada VNET pode ter várias sub-redes.  Crie a sub-rede e associe-a ao NSG para adicionar um firewall à sub-rede.
+As regras do grupo de segurança de rede podem ser aplicadas a uma sub-rede ou interface de rede virtual específica. Vamos anexar o grupo de segurança de rede à nossa sub-rede. Anexe a sua sub-rede ao grupo de segurança de rede com [az network vnet subnet update](/cli/azure/network/vnet/subnet#update):
 
 ```azurecli
-azure network vnet subnet create mySubNet \
---resource-group myResourceGroup \
---vnet-name myVNet \
---address-prefix 10.10.0.0/26 \
---network-security-group-name myNSG
+az network vnet subnet update \
+    --resource-group myResourceGroup \
+    --vnet-name myVnet \
+    --name mySubnet \
+    --network-security-group myNetworkSecurityGroup
 ```
 
-Agora, a Sub-rede é adicionada à VNET e associada ao NSG e à regra do NSG.
+## <a name="add-a-virtual-network-interface-card-to-the-subnet"></a>Adicionar uma placa de interface de rede virtual à sub-rede
 
-
-## <a name="add-a-vnic-to-the-subnet"></a>Adicionar uma VNic à sub-rede
-
-As VNics (placas de rede virtual) são importantes, pois você pode reutilizá-las conectando-as a VMs diferentes, o que mantém a VNic como um recurso estático, enquanto as VMs podem ser temporárias.  Crie uma VNic e associe-a à Sub-rede criada na etapa anterior.
+Placas de interface de rede virtual (VNics) são importantes uma vez que você pode reutilizá-las, conectando-as em VMs diferentes. Essa reutilização permite que você mantenha a VNic como um recurso estático, enquanto as VMs podem ser temporárias. Crie uma VNic e associe-a à sub-rede com [az network nic create](/cli/azure/network/nic#create). O exemplo a seguir cria uma VNic chamada `myNic`:
 
 ```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
+az network nic create \
+    --resource-group myResourceGroup \
+    --location westus \
+    --name myNic \
+    --vnet-name myVnet \
+    --subnet mySubnet
 ```
 
-## <a name="deploy-the-vm-into-the-vnet-and-nsg"></a>Implantar a VM na VNET e no NSG
+## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implantar a VM na infra-estrutura de rede virtual
 
-Agora temos uma VNET, uma sub-rede nela e um NSG atuando como um firewall, para proteger nossa sub-rede bloqueando todo o tráfego de entrada, exceto pela porta 22 para o SSH.  Agora a VM pode ser implantada nessa infraestrutura de rede existente.
+Agora temos uma rede virtual, uma sub-rede e um grupo de segurança de rede atuando como um firewall, para proteger nossa sub-rede bloqueando todo o tráfego de entrada, exceto pela porta 22 para o SSH. Agora a VM pode ser implantada nessa infraestrutura de rede existente.
 
-Usando a CLI do Azure e o comando `azure vm create`, a VM do Linux é implantada no Grupo de Recursos do Azure, na VNET, na Sub-rede e na VNic existentes.  Para obter mais informações sobre como usar a CLI para implantar uma VM completa, consulte [Criar um ambiente completo do Linux usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+Crie a sua VM com [az vm create](/cli/azure/vm#create). Para saber mais sobre como usar a CLI do Azure 2.0 (visualização) para implantar uma VM completa, confira [Criar um ambiente completo do Linux usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ```azurecli
-azure vm create myVM \
---resource-group myResourceGroup \
---location westus \
---os-type linux \
---image-urn Debian \
---storage-account-name mystorageaccount \
---admin-username myAdminUser \
---ssh-publickey-file ~/.ssh/id_rsa.pub \
---vnet-name myVNet \
---vnet-subnet-name mySubnet \
---nic-name myVNic
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image Debian \
+    --admin-username ops \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics myNic \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup
 ```
 
-Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o Azure a implantar a VM na rede existente.  Em outras palavras, depois que uma VNET e uma sub-rede forem implantadas, elas poderão ser mantidas como recursos estáticos ou permanentes na região do Azure.  
+Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o Azure a implantar a VM na rede existente. Em outras palavras, depois que uma rede virtual e uma sub-rede são implantadas, elas podem ser mantidas como recursos estáticos ou permanentes na sua região do Azure. Neste exemplo, nós não criamos nem atribuímos um endereço IP público à VNic, portanto essa VM não é publicamente acessível pela Internet. Para saber mais, confira [Criar uma VM com um IP público estático usando a CLI do Azure](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre as maneiras de criar máquinas virtuais no Azure, confira os seguintes recursos:
 
 * [Usar um modelo do Azure Resource Manager para criar uma implantação específica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -161,6 +178,6 @@ Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o A
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

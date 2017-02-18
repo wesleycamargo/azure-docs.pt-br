@@ -1,10 +1,10 @@
 ---
-title: "Mova os circuitos de ExpressRoute do Clássico para o Gerenciador de Recursos | Microsoft Docs"
-description: "Esta página descreve como mover um circuito clássico para o modelo de implantação do Gerenciador de Recursos."
+title: "Mova os circuitos de ExpressRoute do clássico para o Resource Manager | Microsoft Docs"
+description: "Esta página descreve como mover um circuito clássico para o modelo de implantação do Resource Manager usando o PowerShell."
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
@@ -13,112 +13,115 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
-ms.author: ganesr
+ms.date: 02/03/2017
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+ms.sourcegitcommit: 6d11b75fdd33260be3d975d9bc25fdac3cf22b49
+ms.openlocfilehash: 73f42b25d667f07205e7e67556c367f1a0e6e215
 
 
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos de Rota Expressa do modelo de implantação Clássico para o Gerenciador de Recursos
-## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
-* Você precisará da versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0).
+# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos de ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
+
+Para usar um circuito do ExpressRoute para os modelos de implantação clássico e do Resource Manager, você deve mover o circuito para o modelo de implantação do Resource Manager. As seções a seguir explica as etapas para mover o circuito usando o PowerShell.
+
+## <a name="before-you-begin"></a>Antes de começar
+* Verifique se você tem a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para saber mais, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs):
 * Certifique-se de que você leu os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
-* Antes de proceder, examine as informações fornecidas em [Movendo um circuito de Rota Expressa do Clássico para o Gerenciador de Recursos](expressroute-move.md). Certifique-se de que você compreendeu totalmente os limites e limitações do que é possível.
-* Se você quiser mover um circuito de Rota Expressa do Azure do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager, você deverá ter o circuito totalmente configurado e operacional no modelo de implantação clássico.
+* Examine as informações fornecidas em [Como mover um circuito de ExpressRoute do clássico para o Resource Manager](expressroute-move.md). Certifique-se de entender completamente os limites e limitações.
+* Verifique se o circuito está totalmente operacional no modelo de implantação clássico.
 * Verifique se você tem um grupo de recursos que foi criado no modelo de implantação do Gerenciador de Recursos.
 
-## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Mova o circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
-Você deverá mover um circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos para que você possa usá-lo tanto no modelo de implantação Clássico quanto no do Gerenciador de Recursos. Podemos fazer isso executando os comandos do PowerShell a seguir.
+## <a name="move-an-expressroute-circuit"></a>Mover um circuito de ExpressRoute
 
 ### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: Coletar detalhes do circuito do modelo de implantação clássico
-Você precisa coletar informações sobre o circuito de Rota Expressa primeiro.
+Entre no ambiente clássico do Azure e obtenha a chave de serviço.
 
-Entre no ambiente clássico do Azure e obtenha a chave de serviço. Você pode usar o seguinte trecho do PowerShell para coletar as informações:
+1. Entre na sua conta do Azure.
 
-    # Sign in to your Azure account
-    Add-AzureAccount
+        Add-AzureAccount
 
-    # Select the appropriate Azure subscription
-    Select-AzureSubscription "<Enter Subscription Name here>"
+2. Selecione a assinatura do Azure apropriada.
 
-    # Import the PowerShell modules for Azure and ExpressRoute
-    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+        Select-AzureSubscription "<Enter Subscription Name here>"
 
-    # Get the service keys of all your ExpressRoute circuits
-    Get-AzureDedicatedCircuit
+3. Importar os módulos do PowerShell para Azure e ExpressRoute.
 
-Copie a **chave de serviço** do circuito que você deseja mover para o modelo de implantação do Gerenciador de Recursos.
+        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
+        Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Etapa 2: Entrar no ambiente do Gerenciador de Recursos e criar um novo grupo de recursos
-Você pode criar um novo grupo de recursos usando o seguinte trecho:
+4. Use o cmdlet abaixo para obter as chaves de serviço para todos os seus circuitos do ExpressRoute. Após a recuperação das chaves, copie a **chave de serviço** do circuito que você deseja mover para o modelo de implantação do Resource Manager.
 
-    # Sign in to your Azure Resource Manager environment
-    Login-AzureRmAccount
+        Get-AzureDedicatedCircuit
 
-    # Select the appropriate Azure subscription
-    Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Etapa 2: Entrar e criar um grupo de recursos
+Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
 
-    #Create a new resource group if you don't already have one
-    New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
+1. Entre no ambiente do Azure Resource Manager.
 
-Você também poderá usar um grupo de recursos existente, se já tiver um.
+        Login-AzureRmAccount
+
+2. Selecione a assinatura do Azure apropriada.
+
+        Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+
+3. Modifique o trecho a seguir para criar um novo grupo de recursos se você ainda não tiver um grupo de recursos.
+
+        New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
 
 ### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mover o circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
-Agora você está pronto para mover o circuito de Rota Expressa do modelo de implantação Clássico para o do Gerenciador de Recursos. Examine as informações fornecidas em [Movendo circuitos de Rota Expressa do modelo de implantação Clássico para o Gerenciador de Recursos](expressroute-move.md) antes de continuar.
+Agora você está pronto para mover o circuito de ExpressRoute do modelo de implantação clássico para o do Resource Manager. Antes de prosseguir, examine as informações fornecidas em [Como mover circuitos de ExpressRoute do modelo de implantação clássico para o Resource Manager](expressroute-move.md).
 
-Você pode fazê-lo executando o seguinte trecho:
+Para mover o circuito, modifique e execute o trecho a seguir:
 
     Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 
 > [!NOTE]
 > Após a movimentação, o novo nome que está relacionado no cmdlet anterior será usado para o recurso de endereço. O circuito essencialmente será renomeado.
 > 
-> 
 
-## <a name="enable-an-expressroute-circuit-for-both-deployment-models"></a>Habilitar um circuito de Rota Expressa para ambos os modelos de implantação
-Você deve mover seu circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos antes de controlar o acesso para o modelo de implantação.
+## <a name="modify-circuit-access"></a>Modificar o acesso de circuito
 
-Execute o seguinte cmdlet para habilitar o acesso a ambos os modelos de implantação:
+### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Para habilitar o acesso ao circuito de ExpressRoute para ambos os modelos de implantação
+Depois de mover o circuito do ExpressRoute clássico para o modelo de implantação do Gerenciador de recursos, você pode habilitar o acesso a ambos os modelos de implantação. Execute os cmdlets a seguir para habilitar o acesso a ambos os modelos de implantação:
 
-    # Get details of the ExpressRoute circuit
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+1. Obtenha os detalhes do circuito.
 
-    #Set "Allow Classic Operations" to TRUE
-    $ckt.AllowClassicOperations = $true
+        $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
 
-    # Update circuit
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+2. Defina "Permitir operações clássicas" como TRUE.
 
-Depois que a operação for concluída com êxito, você poderá exibir o circuito no modelo de implantação clássico.
+        $ckt.AllowClassicOperations = $true
 
-Execute o seguinte para obter os detalhes do circuito de Rota Expressa:
+3. Atualize o circuito. Depois que a operação for concluída com êxito, você poderá exibir o circuito no modelo de implantação clássico.
 
-    get-azurededicatedcircuit
+        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Você deve ser capaz de ver a chave de serviço relacionada. Agora você pode gerenciar links para o circuito de Rota Expressa usando os comandos de modelo clássico de implantação padrão para redes virtuais clássicas e comandos padrão do ARM para redes virtuais ARM. Os artigos a seguir explicam como gerenciar links para o circuito de Rota Expressa:
+4. Execute o cmdlet a seguir para obter os detalhes do circuito de ExpressRoute. Você deve ser capaz de ver a chave de serviço relacionada. 
 
-* [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação do Gerenciador de Recursos](expressroute-howto-linkvnet-arm.md)
-* [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação clássico](expressroute-howto-linkvnet-classic.md)
+        get-azurededicatedcircuit
 
-## <a name="disable-the-expressroute-circuit-to-the-classic-deployment-model"></a>Desabilitar o circuito de Rota Expressa para o modelo de implantação clássico
-Execute o seguinte cmdlet para desabilitar o acesso ao modelo de implantação clássico:
+5. Agora você pode gerenciar links para o circuito do ExpressRoute usando os comandos do modelo de implantação clássico para redes virtuais clássicas e os comandos do Gerenciador de recursos para VNets do Gerenciador de recursos. Os artigos a seguir explicam como gerenciar links para o circuito de Rota Expressa:
 
-    # Get details of the ExpressRoute circuit
-    $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+    * [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação do Gerenciador de Recursos](expressroute-howto-linkvnet-arm.md)
+    * [Vincule sua rede virtual ao circuito de Rota Expressa no modelo de implantação clássico](expressroute-howto-linkvnet-classic.md)
 
-    #Set "Allow Classic Operations" to FALSE
-    $ckt.AllowClassicOperations = $false
+### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>Para desabilitar o circuito de ExpressRoute para o modelo de implantação clássico
+Execute os cmdlets a seguir para desabilitar o acesso ao modelo de implantação clássico.
 
-    # Update circuit
-    Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+1. Obtenha detalhes do circuito de ExpressRoute.
 
-Depois que a operação for concluída com êxito, você não poderá exibir o circuito no modelo de implantação clássico.
+        $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+
+2. Defina "Permitir operações clássicas" como FALSE.
+
+        $ckt.AllowClassicOperations = $false
+
+3. Atualize o circuito. Depois que a operação for concluída com êxito, você não poderá exibir o circuito no modelo de implantação clássico.
+
+        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de criar seu circuito, faça o seguinte:
 
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
@@ -126,6 +129,6 @@ Depois de criar seu circuito, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

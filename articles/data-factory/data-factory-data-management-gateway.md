@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/25/2017
 ms.author: abnarain
 translationtype: Human Translation
-ms.sourcegitcommit: 355de60c6a06f4694b8bce4a6ff3b6c2f65b2233
-ms.openlocfilehash: f4ec798bcd1da7f2067929382c37915022fc1eed
+ms.sourcegitcommit: 3d66640481d8e1f96d3061077f0c97da5fa6bf4e
+ms.openlocfilehash: a0ccdffa5347c4f3cda16ec75b75da3eb3199539
 
 
 ---
@@ -164,8 +164,8 @@ O gateway usa o servidor proxy para se conectar ao serviço de nuvem. Clique no 
 Há três opções de configuração:
 
 * **Não usar proxy**: o gateway não usa explicitamente qualquer proxy para se conectar aos serviços de nuvem.
-* **Usar proxy do sistema**: o gateway usa a configuração de proxy que é definida em diahost.exe.config.  Se nenhum proxy estiver configurado em diahost.exe.config., o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
-* **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo gateway, em vez de usar as configurações em diahost.exe.config.  Endereço e porta são necessários.  O Nome de Usuário e a Senha são opcionais, dependendo da configuração de autenticação do seu proxy.  Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
+* **Usar proxy do sistema**: o gateway usa a configuração de proxy que é definida em diahost.exe.config e em diawp.exe.config.  Se nenhum proxy estiver configurado em diahost.exe.config e em diawp.exe.config, o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy.
+* **Usar proxy personalizado**: configure a definição do proxy HTTP a ser usado pelo gateway, em vez de usar as configurações em diahost.exe.config e diawp.exe.config.  Endereço e porta são necessários.  O Nome de Usuário e a Senha são opcionais, dependendo da configuração de autenticação do seu proxy.  Todas as configurações são criptografadas com o certificado de credencial do gateway e armazenadas localmente no computador host do gateway.
 
 O Serviço de Host do Gateway de Gerenciamento de Dados é reiniciado automaticamente depois que você salva as configurações de proxy atualizadas.
 
@@ -185,8 +185,8 @@ Você pode exibir e atualizar o proxy HTTP usando a ferramenta Gerenciador de Co
 >
 >
 
-### <a name="configure-proxy-server-settings-in-diahostexeconfig"></a>Configurar definições do servidor proxy em diahost.exe.config
-Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, o gateway usará a configuração de proxy em diahost.exe.config.  Se nenhum proxy for especificado em diahost.exe.config., o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy. O procedimento a seguir fornece instruções para atualizar o arquivo de configuração.
+### <a name="configure-proxy-server-settings"></a>Definir configurações do servidor proxy 
+Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, o gateway usará a configuração de proxy em diahost.exe.config e diawp.exe.config.  Se nenhum proxy for especificado em diahost.exe.config., o gateway se conectará ao serviço de nuvem diretamente sem passar pelo proxy. O procedimento a seguir fornece instruções para atualizar o arquivo diahost.exe.config.  
 
 1. No Explorador de Arquivos, faça uma cópia de segurança de C:\Arquivos de Programas\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config para fazer backup do arquivo original.
 2. Inicie o Notepad.exe executando como administrador e abra o arquivo de texto "C:\Arquivos de Programas\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config." Você pode encontrar a marcação padrão para system.net conforme mostrado no código abaixo:
@@ -206,7 +206,11 @@ Se você escolher a configuração **Usar proxy do sistema** para o proxy HTTP, 
    Propriedades adicionais são permitidas dentro da marca de proxy para especificar as configurações necessárias como scriptLocation. Confira [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) (Elemento proxy [Configurações de Rede]) na sintaxe.
 
          <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. Salve o arquivo de configuração no local original e reinicie o Serviço de Host do Gateway de Gerenciamento de Dados, que assimila as alterações. Para reiniciar o serviço: use o miniaplicativo de serviços no painel de controle ou no Gerenciador de **Configurações do Gateway de Gerenciamento de Dados** > clique no botão **Parar Serviço** e depois em **Iniciar Serviço**. Se o serviço não iniciar, é provável que uma sintaxe de marca XML incorreta tenha sido adicionada ao arquivo de configuração de aplicativo que foi editado.     
+3. Salve o arquivo de configuração no local original e reinicie o Serviço de Host do Gateway de Gerenciamento de Dados, que assimila as alterações. Para reiniciar o serviço: use o miniaplicativo de serviços no painel de controle ou no Gerenciador de **Configurações do Gateway de Gerenciamento de Dados** > clique no botão **Parar Serviço** e depois em **Iniciar Serviço**. Se o serviço não iniciar, é provável que uma sintaxe de marca XML incorreta tenha sido adicionada ao arquivo de configuração de aplicativo que foi editado.
+
+> [!IMPORTANT]
+> Não se esqueça de atualizar **ambos** diahost.exe.config e diawp.exe.config.  
+     
 
 Além dos desses pontos, você também precisa verificar se o Microsoft Azure está lista de autorizados da sua empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -447,6 +451,6 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

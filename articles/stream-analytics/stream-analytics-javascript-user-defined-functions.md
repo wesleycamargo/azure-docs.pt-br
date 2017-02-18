@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 822f0870396e1fa5fe2dfee3bae410aad3da1122
-ms.openlocfilehash: 959fd48cb7d7f21385f6eea21f79ad26e8164bc0
+ms.sourcegitcommit: 83b267a610a1d910fab09f8e42f079d269e3f0bb
+ms.openlocfilehash: e11e6070002275544fa5a82923cdcad4412e40b7
 
 ---
 
@@ -28,7 +28,7 @@ As UDFs do JavaScript dão suporte a funções escalares sem monitoração de es
 
 Aqui estão alguns cenários de exemplo em que você considerará as UDFs do JavaScript úteis:
 * Análise e manipulação de cadeia de caracteres com funções de expressão regular, por exemplo, Regexp_Replace() e Regexp_Extract()
-* Decodificação de dados de codificação, por exemplo, conversão de binário em hexadecimal
+* Decodificação e codificação de dados, por exemplo, conversão de binário em hexadecimal
 * Cálculos matemáticos com funções matemáticas do JavaScript
 * Operações de matriz como classificação, junção, localização e preenchimento
 
@@ -61,7 +61,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 
 6.  Clique no botão **Salvar**, sua função aparecerá na lista de funções. 
 
-7.  Clique na nova função **hex2Int** e você pode verificar a definição da função. Observe que em todas as funções o prefixo “UDF” será adicionado na frente do alias da função. Você precisará chamar a função **com o prefixo** em sua consulta do Stream Analytics, neste caso **UDF.hex2Int**.
+7.  Clique na nova função **hex2Int** e você pode verificar a definição da função. Observe que todas as funções terão o prefixo “UDF” adicionado na frente do alias da função. Você precisará chamar a função **com o prefixo** em sua consulta do Stream Analytics, neste caso **UDF.hex2Int**.
  
 ## <a name="calling-javascript-udf-in-a-query"></a>Chamando a UDF do JavaScript em uma consulta
 
@@ -79,7 +79,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
         InputStream
     ```
 
-3.  Clique com o botão direito do mouse na entrada do trabalho para carregar o arquivo de dados de exemplo 
+3.  Clique com o botão direito do mouse na entrada do trabalho para carregar o arquivo de dados de exemplo.
  
 4.  Clique em **Testar** para testar sua consulta.
 
@@ -156,6 +156,7 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 
 
 <!--HONumber=Feb17_HO1-->

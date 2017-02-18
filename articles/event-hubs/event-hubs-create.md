@@ -1,0 +1,73 @@
+---
+title: Criar um Hub de Eventos do Azure | Microsoft Docs
+description: Criar um namespace de Hubs de Eventos do Azure e um Hub de Eventos usando o portal do Azure
+services: event-hubs
+documentationcenter: na
+author: jtaubensee
+manager: timlt
+editor: 
+ms.assetid: ff99e327-c8db-4354-9040-9c60c51a2191
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/25/2017
+ms.author: jotaub
+translationtype: Human Translation
+ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
+ms.openlocfilehash: ca5c8b489345dcd0523897895de346509db08a28
+
+---
+
+# <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Criar um namespace de Hubs de Eventos e um Hub de Eventos usando o portal do Azure
+
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
+1. Faça logon no [portal do Azure][Azure portal] e clique em **Novo** na parte superior esquerda da tela.
+1. Clique em **Internet das Coisas** e, em seguida, clique em **Hubs de Eventos**.
+   
+    ![](./media/event-hubs-create/create-event-hub9.png)
+1. Na folha **Criar um namespace** , insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+   
+    ![](./media/event-hubs-create/create-event-hub1.png)
+1. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico ou Standard). Além disso, escolha uma assinatura do Azure, o grupo de recursos e o local no qual o recurso será criado. 
+1. Clique em **Criar** para criar o namespace.
+1. Na lista de namespaces do Hubs de Eventos, clique no namespace recém-criado.      
+   
+    ![](./media/event-hubs-create/create-event-hub2.png)
+1. Na folha do namespace, clique em **Hubs de Eventos**.
+   
+    ![](./media/event-hubs-create/create-event-hub3.png)
+
+## <a name="create-an-event-hub"></a>Criar um Hub de Evento
+
+1. Na parte superior da folha, clique em **Adicionar Hub de Eventos**.
+   
+    ![](./media/event-hubs-create/create-event-hub4.png)
+1. Digite um nome para seu Hub de Eventos e clique em **Criar**.
+   
+    ![](./media/event-hubs-create/create-event-hub5.png)
+1. Na lista de Hubs de Eventos, clique no nome do Hub de Eventos recém-criado. 
+    
+     ![](./media/event-hubs-create/create-event-hub6.png)
+1. Novamente na folha do namespace (e não na folha do Hub de Eventos específico), clique em **Políticas de acesso compartilhado** e clique em **RootManageSharedAccessKey**.
+    
+     ![](./media/event-hubs-create/create-event-hub7.png)
+1. Clique no botão de cópia para copiar a cadeia de conexão **RootManageSharedAccessKey** na área de transferência. Salve essa cadeia de conexão para usá-la posteriormente no tutorial.
+    
+     ![](./media/event-hubs-create/create-event-hub8.png)
+
+Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa para enviar e receber eventos.
+
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais sobre os Hubs de Eventos, consulte estes links:
+
+* [Visão Geral dos Hubs de Eventos](event-hubs-overview.md)
+* [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
+
+[Azure portal]: https://portal.azure.com/
+
+
+<!--HONumber=Feb17_HO1-->
+
+

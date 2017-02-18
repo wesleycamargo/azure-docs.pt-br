@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 66128b255dac89569ff776cca9ab678c3105f171
-ms.openlocfilehash: 1fddb126c7dbedc11b04dd66d563026f0b3d4f01
+ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
+ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
 
 
 ---
@@ -44,6 +44,10 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 * [Erro "Host inativo" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
 * [Erro de montagem 115 ao tentar montar os Arquivos do Azure na VM Linux](#error15)
 * [A VM Linux está sofrendo atrasos aleatórios em comandos do tipo "ls"](#delayproblem)
+* [Erro 112 - erro de tempo limite](#error112)
+
+**Acesso de outros aplicativos**
+* [Pode referenciar o compartilhamento de arquivos do azure para meu aplicativo por meio de um trabalho Web?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -236,14 +240,32 @@ Verifique o **serverino** na sua entrada "/etc/fstab":
 
 //azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
 
-Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure novamente fazendo com que a opção **serverino** esteja selecionada.
+Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure novamente fazendo com que a opção **serverino** esteja selecionada.+
 
+<a id="error112"></a>
+## <a name="error-112---timeout-error"></a>Erro 112 - erro de tempo limite
+
+Esse erro indica que as falhas de comunicação que impedem a restabelecer uma conexão TCP com o servidor quando a opção de montagem "soft" é usado, que é o padrão.
+
+### <a name="cause"></a>Causa
+
+Esse erro pode ser causado por uma Linux reconectar-se o problema ou outros problemas que impedem a reconexão, como erros de rede. Especificando uma montagem de disco rígida será forçar o cliente a esperar até que uma conexão é estabelecida ou interrompida explicitamente e pode ser usada para evitar erros devido a tempos limite de rede. No entanto, os usuários devem estar cientes de que isso pode levar a esperas indefinidas e deve tratar a interrupção de uma conexão conforme necessário.
+
+### <a name="workaround"></a>Solução alternativa
+
+Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, manter um arquivo no compartilhamento de arquivos do Azure que você escreve para a cada 30 segundos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão.
+
+<a id="webjobs"></a>
+
+## <a name="accessing-from-other-applications"></a>Acesso de outros aplicativos
+### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Pode referenciar o compartilhamento de arquivos do azure para meu aplicativo por meio de um trabalho Web?
+Não é possível montar compartilhamentos SMB em área restrita do serviço de aplicativo. Como alternativa, você pode mapear o compartilhamento de arquivos do Azure como uma unidade mapeada e permitir que o aplicativo para acessá-lo como uma letra de unidade.
 ## <a name="learn-more"></a>Saiba mais
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Linux](storage-how-to-use-files-linux.md)
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

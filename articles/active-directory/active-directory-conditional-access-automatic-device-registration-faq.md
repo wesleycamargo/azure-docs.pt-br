@@ -11,11 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/04/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 918c2b096b9b6d935c8d5bc2588a978cdf8878cf
-ms.openlocfilehash: 0c4f1489893f464eee1f76e94f2b35650f06e44e
+ms.sourcegitcommit: 3e87a3b4086d3a2b0dec5ec7d954864922f51279
+ms.openlocfilehash: c262134df624b548b99c22bd749bb56fcda6fb1b
 
 
 ---
@@ -53,15 +53,15 @@ Apenas os seguintes dispositivos são listados nas informações de usuário:
 
 **P: Por que um dispositivo que eu excluí no Portal do Azure ou usando o Windows PowerShell ainda está listado como registrado?**
 
-**R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. Se você quiser registrar o dispositivo novamente, uma ação manual precisará ser realizada no dispositivo. 
+**R:** Esse comportamento é intencional. O dispositivo não terá acesso aos recursos na nuvem. Se você quiser remover o dispositivo e registre novamente, uma ação manual deve ser a ser executada no dispositivo. 
 
 Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:
 
 1.  Abra o prompt de comando como administrador.
 
-2.  Digite **dsregcmd.exe /leave**.
+2.  Tipo **dsregcmd.exe /debug /leave**
 
-3.  Digite **dsregcmd.exe**.
+3.  **Logon e entrar para disparar a tarefa de tarefa que registra o dispositivo novamente.** 
 
 Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:
 
@@ -134,6 +134,12 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 ---
 
+**P: onde posso encontrar instruções para a configuração de registro automático do dispositivo?**
+
+**R:** Para obter as instruções detalhadas, confira [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+---
+
 **P: Onde posso encontrar informações de solução de problemas sobre o registro de dispositivo automático?**
 
 **R:** Para encontrar informações de solução de problemas, consulte:
@@ -147,6 +153,6 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

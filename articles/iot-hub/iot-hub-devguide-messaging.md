@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 768e21205e341f4915f8be50129fd246285a2efc
+ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
+ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
 
 
 ---
@@ -97,7 +97,7 @@ O Hub IoT também permite que você gerencie grupos de consumidores no ponto de 
 
 Por padrão, todas as mensagens que não correspondem explicitamente a uma regra de roteamento de mensagem são gravadas no ponto de extremidade interno. Se você desabilitar esta rota de fallback, as mensagens que não corresponderão explicitamente a nenhuma regra de roteamento de mensagem são descartadas.
 
-Você pode modificar todas essas propriedades, seja de maneira programática por meio das [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis] ou usando o [portal do Azure][lnk-management-portal].
+Você pode modificar o tempo de retenção, seja de maneira programática por meio das [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis] ou usando o [portal do Azure][lnk-management-portal].
 
 ### <a name="anti-spoofing-properties"></a>Propriedades antifalsificação
 Para evitar a falsificação em mensagens do dispositivo para a nuvem, o Hub IoT carimba todas as mensagens com as seguintes propriedades:
@@ -437,6 +437,6 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

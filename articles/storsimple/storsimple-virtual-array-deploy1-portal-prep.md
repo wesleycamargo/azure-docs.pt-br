@@ -4,7 +4,7 @@ description: "O primeiro tutorial para implantar o StorSimple Array Virtual envo
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 019f56c6d76f3977c0681403d58f957ca263ab25
+ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
+ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
 
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implantar o StorSimple Virtual Array – Preparar o portal
@@ -72,7 +72,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 * O sistema de host é capaz de dedicar os recursos abaixo para provisionar seu dispositivo virtual:
   
   * Um mínimo de quatro núcleos.
-  * Pelo menos 8 GB de RAM.
+  * Pelo menos 8 GB de RAM. Se você planeja configurar a matriz virtual como servidor de arquivos, 8 GB oferece suporte a 2 milhões de arquivos. Você precisa de 16 GB de RAM para dar suporte a 2-4 milhões de arquivos do plano.
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 
@@ -172,6 +172,6 @@ A próxima etapa é provisionar uma máquina virtual para a matriz virtual StorS
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

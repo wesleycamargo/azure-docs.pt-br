@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: eaca6a05cdbc1dc5b9a62d8f60da689d06f315cc
+ms.sourcegitcommit: ab139ce55ba293526a3ccfb6bcd6cd5838b383f9
+ms.openlocfilehash: 0be5bb571f3d8fe6d5d9fcde2fe64e9147837445
 
 
 ---
@@ -31,7 +31,7 @@ As imagens Linux na Galeria do Azure ou no Marketplace são fornecidas por algun
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="supported-distributions-versions"></a>Distribuições e versões com suporte
+## <a name="supported-distributions--versions"></a>Distribuições e versões com suporte
 A tabela a seguir lista as distribuições e versões do Linux com suporte no Azure. Confira também o [suporte para imagens do Linux no Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) para obter mais informações.
 
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são módulos de kernel que a Microsoft contribui diretamente para o kernel upstream do Linux.  Os drivers LIS também são internos ao kernel da distribuição por padrão ou, para distribuições com base em RHEL/CentOS mais antigas estão disponíveis como um download separado [aqui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Confira [este artigo](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) para saber mais sobre os drivers LIS.
@@ -45,8 +45,8 @@ O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e
 | Debian |Debian 7.9+, 8.2+ |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ e <p> SLES para SAP 11 SP3+ |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE 13.2+ |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| SUSE Linux Enterprise |SLES 11 SP4, SLES 12 SP1+ e <p> SLES para SAP |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| openSUSE |openSUSE Leap 42.1+ |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>Parceiros
@@ -92,6 +92,6 @@ Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

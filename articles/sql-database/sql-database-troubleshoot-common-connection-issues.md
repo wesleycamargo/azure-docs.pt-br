@@ -4,7 +4,7 @@ description: "Etapas para identificar e resolver erros comuns de conexão do Ban
 services: sql-database
 documentationcenter: 
 author: dalechen
-manager: felixwu
+manager: cshepard
 editor: 
 ms.assetid: ac463d1c-aec8-443d-b66e-fa5eadcccfa8
 ms.service: sql-database
@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
+ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 48ccd940efb75427461c3a8018aa6b31f46a626e
+ms.sourcegitcommit: c033c1b32ad7b69565f870636110d317d01266df
+ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
 
 
 ---
@@ -61,8 +61,8 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do 
 * Erro do usuário: por exemplo, parâmetros de conexão digitados incorretamente, como o nome do servidor na cadeia de conexão.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
-1. Configure as [regras de firewall](sql-database-configure-firewall-settings.md) para permitir o endereço IP do cliente.
-2. Em todos os firewalls entre o cliente e a Internet, certifique-se de que a porta 1433 está aberta para conexões de saída. Examine [Configurar o Firewall do Windows para permitir acesso ao SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) para obter ponteiros adicionais.
+1. Configure as [regras de firewall](sql-database-configure-firewall-settings.md) para permitir o endereço IP do cliente. Para fins de teste temporárias, configure uma regra de firewall usando 0.0.0.0 como o intervalo de endereços IP inicial e usando 255.255.255.255 como o intervalo de endereço IP final. Isso abrirá o servidor para todos os endereços IP. Se isso resolve o problema de conectividade, remova essa regra e criar uma regra de firewall para um endereço IP adequadamente limitado ou o intervalo de endereços. 
+2. Em todos os firewalls entre o cliente e a Internet, certifique-se de que a porta 1433 está aberta para conexões de saída. Revisão [configurar o Firewall do Windows para permitir acesso ao SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) e [híbrida identidade necessárias portas e protocolos](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) ponteiros adicionais relacionadas a portas adicionais que você precisa abrir para autenticação do Azure Active Directory.
 3. Verifique a cadeia de conexão e outras configurações de conexão. Confira a seção Cadeia de Conexão do [tópico sobre problemas de conectividade](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4. Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, confira [Recuperar-se de uma paralisação](sql-database-disaster-recovery.md) para obter as etapas de recuperação de uma nova região.
 
@@ -77,9 +77,8 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 | 4 |[Solucionar problemas de conectividade com o Banco de Dados SQL do Microsoft Azure](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database) |Esta ferramenta ajuda a identificar e solucionar erros de conexão. |
 | 5 |[Solução de problemas de “O banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde”](sql-database-troubleshoot-connection.md) |Descreve como identificar e resolver um erro 40613: “O banco de dados &lt;x&gt; no servidor &lt;y&gt; não está disponível no momento. Tente a conexão novamente mais tarde." |
 | 6 |[Códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL: erro de conexão de banco de dados e outros problemas](sql-database-develop-error-messages.md) |Fornece informações sobre os códigos de erro de SQL para aplicativos cliente do Banco de Dados SQL, como erros comuns de conexão de banco de dados, problemas de cópia de banco de dados e erros gerais. |
-| 7 |[Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados autônomos](sql-database-performance-guidance.md) |Fornece orientações para ajudá-lo a determinar qual camada de serviço é adequada para seu aplicativo. Também fornece recomendações para ajustar seu aplicativo para obter o maior proveito de seu Banco de Dados SQL do Azure. |
+| 7 |[Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) |Fornece orientações para ajudá-lo a determinar qual camada de serviço é adequada para seu aplicativo. Também fornece recomendações para ajustar seu aplicativo para obter o maior proveito de seu Banco de Dados SQL do Azure. |
 | 8 |[Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md) |Fornece links para exemplos de código de várias tecnologias que você pode usar para se conectar e interagir com o Banco de Dados SQL do Azure. |
-| 9 |Página Atualizar para o Banco de Dados SQL v12 do Azure ([portal do Azure](sql-database-upgrade-server-portal.md), [PowerShell](sql-database-upgrade-server-powershell.md)) |Fornece instruções para atualizar servidores e bancos de dados existentes do Banco de Dados SQL do Azure V11 para o Banco de Dados SQL do Azure V12 usando o Portal do Azure ou o PowerShell. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar problemas de desempenho no Banco de Dados SQL do Azure](sql-database-troubleshoot-performance.md)
@@ -97,6 +96,6 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

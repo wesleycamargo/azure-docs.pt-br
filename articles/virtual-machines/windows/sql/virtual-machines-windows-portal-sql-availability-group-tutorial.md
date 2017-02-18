@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/10/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 54dcec29b9ec6a6e518658e9be15c4ed63917bd4
-ms.openlocfilehash: c59bf8bfdee095ebc0a9afe07f2c43beb77e772d
+ms.sourcegitcommit: 5e41a20f563eab6b236eaa6eaf0ce1d20ebfa493
+ms.openlocfilehash: d8982dda38df92c94e7dac4b5a1cf451bab3a5ce
 
 
 ---
@@ -55,7 +55,8 @@ Antes de iniciar o tutorial, você precisará [Concluir os pré-requisitos para 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-## <a name="a-namecreateclusteracreate-the-cluster"></a><a name="CreateCluster"></a>Criar o cluster
+<a name="CreateCluster"></a>
+## Criar o cluster
 
 Depois de concluir os pré-requisitos, a primeira etapa é criar um cluster de failover do Windows Server que inclui dois SQL Servers e um servidor testemunha.  
 
@@ -504,6 +505,6 @@ A conexão SQLCMD se conecta automaticamente a qualquer instância do SQL Server
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Automatizar a implantação de recursos no Azure Functions | Microsoft Docs"
-description: "Saiba como criar um modelo do Azure Resource Manager que implanta o Aplicativo de Funções para o Microsoft Azure."
+title: "Como automatizar a implantação de recursos no aplicativo Azure Functions | Microsoft Docs"
+description: Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo Azure Functions.
 services: Functions
 documtationcenter: na
 author: mattchenderson
@@ -17,41 +17,41 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: cfowler;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: d11ef8865d21dfe4e56bcb6fa08ce58c53f3d309
-ms.openlocfilehash: 7c55a1d34df71c2c958f42f43810fbce7bd74e5d
+ms.sourcegitcommit: 360abaa575e473e18e55d0784730f4bd5635f3eb
+ms.openlocfilehash: 979537bfe6b0e14a9208871fc9862661d2fb2e6c
 
 
 ---
 
-# <a name="automate-the-deployment-of-resources-for-your-azure-functions-app"></a>Automatizar a implantação de recursos para seu aplicativo do Azure Functions
+# <a name="automate-resource-deployment-for-your-azure-functions-app"></a>Como automatizar a implantação de recursos no aplicativo Azure Functions
 
-Neste tópico, você aprenderá a criar um modelo do Azure Resource Manager que implanta um aplicativo de funções. Você aprenderá como definir a linha de base de recursos necessários para uma função do Azure e os parâmetros que são especificados quando a implantação é executada. Dependendo do [disparadores e associações](functions-triggers-bindings.md) que são usadas em sua função, você pode exigir recursos adicionais de implantação para abranger todo o seu aplicativo como infraestrutura como código.
+Você pode usar um Azure Resource Manager para implantar um aplicativo Azure Functions. Aprenda a definir a linha de base de recursos necessários para um aplicativo Azure Functions e os parâmetros especificados durante a implantação. Dependendo dos [disparadores e associações](functions-triggers-bindings.md) no seu aplicativo de funções, para uma infraestrutura bem-sucedida, como configuração de código do seu aplicativo, você talvez precise implantar recursos adicionais.
 
-Para saber mais sobre a criação de modelos, veja [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Para obter exemplos de um modelo completo, [Criar função do Azure baseado em consumo](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) e/ou [criar uma função do Azure do plano do serviço de aplicativo com base em](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json)
+Para ver exemplos de modelos completos, veja [Criar um aplicativo Azure Functions com base no plano de consumo](https://github.com/Azure/azure-quickstart-templates/blob/052db5feeba11f85d57f170d8202123511f72044/101-function-app-create-dynamic/azuredeploy.json) e [Criar um aplicativo Azure Functions com base no plano do serviço de aplicativo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json).
 
-## <a name="what-is-deployed"></a>O que é implantado
+## <a name="required-resources"></a>Recursos necessários
 
-Com os exemplos abaixo, você criará uma aplicativo de função do Azure da linha de base. Os recursos necessários para um aplicativo de função são as seguintes:
+Você pode usar os exemplos neste artigo para criar um aplicativo Azure Functions de linha de base. Você precisará desses recursos para o seu aplicativo:
 
-* Conta do [Armazenamento do Azure](../storage/index.md)
-* Plano de hospedagem (plano de consumo ou plano do serviço de aplicativo)
-* Função de aplicativo (Microsoft.Web/Site de tipo **functionapp**)
+* Conta de [Armazenamento do Azure](../storage/index.md)
+* Plano de hospedagem (plano de consumo ou plano do Serviço de Aplicativo do Azure)
+* Aplicativo de funções (`type`: **Microsoft.Web/Site**, `kind`: **functionapp**)
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parameters
 
-Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada Parâmetros, que contém todos os valores de parâmetro. Você deve definir parâmetros para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre.
+Você pode usar o Azure Resource Manager para definir parâmetros para os valores que deseja especificar quando o modelo é implantado. Uma seção de **parâmetros** de modelo tem todos os valores de parâmetro. Defina os parâmetros para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre.
 
-[Variáveis](../azure-resource-manager/resource-group-authoring-templates.md#variables) são úteis para valores que não são alterados com base em uma implantação individual ou parâmetros que requerem transformação antes usados em um modelo (por exemplo, para passar as regras de validação).
+[Variáveis](../azure-resource-manager/resource-group-authoring-templates.md#variables) são úteis para valores que não são alterados com base em uma implantação individual, e para parâmetros que requerem transformação antes de serem usados em um modelo (por exemplo, para passar as regras de validação).
 
 Ao definir parâmetros, use o campo **allowedValues** para especificar quais valores um usuário pode fornecer durante a implantação. Use o campo **defaultValue** para atribuir um valor para o parâmetro, se nenhum valor for fornecido durante a implantação.
 
-Vamos descrever os parâmetros para nosso modelo.
+Um modelo do Azure Resource Manager requer os seguintes valores de parâmetros.
 
 ### <a name="appname"></a>appName
 
-O nome da função que você deseja criar.
+O nome do aplicativo Azure Functions que você deseja criar.
 
 ```json
 "appName": {
@@ -61,13 +61,13 @@ O nome da função que você deseja criar.
 
 ### <a name="location"></a>location
 
-O local no qual deseja implantar o aplicativo de função.
+Onde implantar o aplicativo de funções.
 
 > [!NOTE]
-> O **defaultValue** parâmetro é usado para herdar o local do grupo de recursos, ou se um valor de parâmetro não for especificado durante a implantação do Powershell ou CLI. Se a implantação do Portal, uma caixa suspensa é fornecida para selecionar o **allowedValues**.
+> Use o parâmetro **defaultValue** para herdar o local do grupo de recursos, ou se um valor de parâmetro não for especificado durante a implantação do Powershell ou CLI do Azure . Se você implantar seu aplicativo no portal do Azure, selecione um valor na caixa da lista suspensa de parâmetros **allowedValues**.
 
 > [!TIP]
-> Para obter uma lista atualizada de regiões do Azure Functions está disponível em visite o [produtos disponíveis por região](https://azure.microsoft.com/regions/services/) página.
+> Para obter uma lista atualizada de regiões onde você pode usar o Azure Functions, acesse a página [Produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
 ```json
 "location": {
@@ -104,7 +104,7 @@ O local no qual deseja implantar o aplicativo de função.
       "type": "string",
       "defaultValue": "master",
       "metadata": {
-        "description": "Sourcecode Repo branch"
+        "description": "Source code repository branch"
       }
     }
 ```
@@ -116,16 +116,16 @@ O local no qual deseja implantar o aplicativo de função.
     "type": "bool",
     "defaultValue": false,
     "metadata": {
-        "description": "Use 'true' if you are deploying from the base repo, 'false' if you are deploying from your own fork. If you're using 'false', make sure you have admin permissions to the repo. If you get an error, you should add GitHub integration to another web app manually, so that you get a GitHub access token associated with your Azure Subscription."
+        "description": "Use 'true' if you are deploying from the base repo. Use 'false' if you are deploying from your own fork. If you use 'false', make sure that you have Administrator rights in the repo. If you get an error, manually add GitHub integration to another web app, to associate a GitHub access token with your Azure subscription."
     }
 }
 ```
 
-## <a name="variables"></a>Variáveis
+## <a name="variables"></a>variáveis
 
-Além dos parâmetros, modelos do Azure Resource Manager também têm um conceito de variáveis que podem incorporar parâmetros para criar configurações mais específicas a ser usado pelo seu modelo.
+Modelos do Azure Resource Manager usam variáveis para incorporar os parâmetros, então você pode usar configurações mais específicas em seu modelo.
 
-No exemplo abaixo, você pode ver que estamos aproveitando variáveis para serem aplicadas [funções de modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) pegar o nome do aplicativo fornecido e convertê-la em minúsculas para garantir que o [requisitos de nomenclatura](../storage/storage-create-storage-account.md#create-a-storage-account) do armazenamento do Azure contas forem atendidas.
+No próximo exemplo, para atender aos [requisitos de nomenclatura](../storage/storage-create-storage-account.md#create-a-storage-account) da conta de armazenamento do Azure, usamos variáveis para aplicar as [funções de modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) para converter o valor **appName** inserido em minúsculas.
 
 ```json
 "variables": {
@@ -138,7 +138,7 @@ No exemplo abaixo, você pode ver que estamos aproveitando variáveis para serem
 
 ### <a name="storage-account"></a>Conta de armazenamento
 
-Uma conta de armazenamento do Azure é um recurso necessário no Azure Functions.
+Uma conta de armazenamento do Azure é necessária para o aplicativo Azure Functions.
 
 ```json
 {
@@ -152,9 +152,9 @@ Uma conta de armazenamento do Azure é um recurso necessário no Azure Functions
 }
 ```
 
-### <a name="hosting-plan-consumption-vs-app-service-plan"></a>Plano de hospedagem: plano do serviço de aplicativo do consumo vs
+### <a name="hosting-plan-consumption-vs-app-service"></a>Plano de hospedagem: consumo x Serviço de Aplicativo
 
-Há situações em que a criação de funções em que convém suas funções para ser totalmente gerenciados dimensionamento ou seja dimensionada sob demanda pela plataforma (consumo). Como alternativa, você pode escolher o dimensionamento de usuário gerenciado no qual as funções executam 24/7 em hardware dedicado (plano do serviço de aplicativo) em que o número de instâncias pode ser manual ou automaticamente configurado. A decisão de usar um plano em vez de outro pode se basear recursos disponíveis no plano, ou uma decisão que é orientada pela arquitetura pelo custo. Para saber mais sobre os diferentes planos de hospedagem, leia o artigo [Dimensionamento do Azure Functions](functions-scale.md).
+Em alguns cenários, convém dimensionar suas funções sob demanda pela plataforma, também chamado de dimensionamento totalmente gerenciado (usando um plano de hospedagem de consumo). Ou você pode escolher dimensionamento gerenciado pelo usuário para as suas funções. Em dimensionamento gerenciado pelo usuário, as suas funções são executadas 24x7 em um hardware dedicado (usando um plano de hospedagem de serviço de aplicativo). O número de instâncias pode ser definido manual ou automaticamente. A escolha do plano de hospedagem pode ser baseada nos recursos disponíveis no plano ou na arquitetura por custo. Confira [dimensionamento do Azure Functions](functions-scale.md) para saber mais sobre planos de hospedagem.
 
 #### <a name="consumption-plan"></a>Plano de consumo
 
@@ -172,7 +172,7 @@ Há situações em que a criação de funções em que convém suas funções pa
 }
 ```
 
-#### <a name="app-service-plan"></a>Plano do serviço de aplicativo
+#### <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 
 ```json
 {
@@ -190,14 +190,14 @@ Há situações em que a criação de funções em que convém suas funções pa
 }
 ```
 
-### <a name="function-app-site"></a>Aplicativo de funções (site)
+### <a name="functions-app-a-site"></a>Aplicativo de funções (em um site)
 
-Depois que tiver sido selecionada a opção de escala, é hora de criar o contêiner que manterá todas as suas funções, isso é conhecido como o aplicativo de função.
+Depois de selecionar uma opção de dimensionamento, crie um aplicativo de funções. O aplicativo é o contêiner que mantém todas as suas funções.
 
-Um aplicativo de função tem muitos recursos filho no qual você pode tirar proveito de inclusão **configurações do aplicativo** e **opções de controle do código-fonte**. Você pode optar por remover o **sourcecontrols** recurso filho em favor de outro [opção de implantação](functions-continuous-deployment.md).
+Um aplicativo de funções tem muitos recursos filho que podem ser usados na sua implantação, incluindo configurações do aplicativo e opções de controle de código-fonte. Você também pode optar por remover o recurso filho **sourcecontrols** e usar uma outra [opção de implantação](functions-continuous-deployment.md).
 
 > [!IMPORTANT]
-> É importante entender como os recursos são implantados no Azure para garantir que você crie uma infra-estrutura bem-sucedida como configuração de código de seu aplicativo ao usar o Azure Resource Manager. Neste exemplo, você observará que existem configurações de nível superior que está sendo aplicada usando **siteConfig**, eles são importantes para definir um nível superior, conforme eles transmitem significar ao mecanismo de tempo de execução e a implantação do Azure Functions que são necessários antes do recurso de filho **sourcecontrols/web** é aplicado. Enquanto essas configurações podem ser configuradas no recurso de nível filho **config/appSettings**, há cenários em que seu aplicativo de função e funções precisará ser implantada *antes de* o **config/appsettings** são aplicadas como suas funções são uma dependência de outro recurso, por exemplo um [aplicativo lógico](../logic-apps/index.md).
+> É importante entender como os recursos são implantados no Azure para que você possa criar uma infraestrutura bem-sucedida como configuração do código do seu aplicativo ao usar o Azure Resource Manager. No exemplo a seguir, as configurações de nível superior são aplicadas usando **siteConfig**. É importante definir essas configurações em um nível superior porque transmitem informações para o mecanismo de implantação e de tempo de execução do Azure Functions. Informações de nível superior são necessárias antes do recurso filho **sourcecontrols/web** ser aplicado. Embora seja possível definir essas configurações no nível de recurso filho **config/appSettings**, em alguns cenários, o aplicativo de funções e as funções precisam ser implantados *antes* de **config/appSettings** ser aplicado. Nesses casos, por exemplo, em [Aplicativos Lógicos](../logic-apps/index.md), suas funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -252,18 +252,18 @@ Um aplicativo de função tem muitos recursos filho no qual você pode tirar pro
 }
 ```
 > [!TIP]
-> Este modelo usa o [projeto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) configuração do aplicativo, que é a configuração do diretório base no qual o mecanismo de implantação de funções (Kudu) irá procurar código implantável. Neste exemplo, definimos esse valor como `src` já que nosso GitHub repositório contém uma pasta `src` da qual nossas funções são filhas. Se você tiver um repositório no qual as funções são diretamente na raiz do repositório, ou não estiver implantando do controle de origem, essa configuração de aplicativo podem ser removida.
+> Este modelo usa o valor das configurações do aplicativo [Projeto](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file), que determinam o diretório-base cujo mecanismo de implantação de funções (Kudu) procura o código implantável. Em nosso repositório, nossas funções estão em uma subpasta da pasta **src**. Assim, no exemplo anterior, definimos o valor de configurações do aplicativo para `src`. Se as funções estão na raiz do seu repositório, ou se não está implantando do controle de origem, você pode remover esse valor de configurações do aplicativo.
 
-## <a name="deploying-your-template"></a>Implantando o modelo
+## <a name="deploy-your-template"></a>Implantar o modelo
 
-* [Powershell](../azure-resource-manager/resource-group-template-deploy.md)
-* [CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
 
-Substitua ```<url-encoded-path-to-azuredeploy-json>``` com um [codificada de URL](https://www.bing.com/search?q=url+encode) versão do caminho raw de seu `azuredeploy.json` arquivo no GitHub.
+Substitua ```<url-encoded-path-to-azuredeploy-json>``` por uma versão [codificada de URL](https://www.bing.com/search?q=url+encode) do caminho bruto de seu `azuredeploy.json` arquivo no GitHub.
 
 #### <a name="markdown"></a>Markdown
 
@@ -279,13 +279,14 @@ Substitua ```<url-encoded-path-to-azuredeploy-json>``` com um [codificada de URL
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você tem a capacidade de implantar um aplicativo de função no código, aproveite a oportunidade para saber mais sobre como desenvolver e configurar o Azure Functions:
+Saiba mais sobre como desenvolver e configurar o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Como definir configurações de aplicativos do Azure Functions](functions-how-to-use-azure-function-app-settings.md)
-* [Criar sua primeira Função do Azure](functions-create-first-azure-function.md)
+* [Como criar a sua primeira função do Azure](functions-create-first-azure-function.md)
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

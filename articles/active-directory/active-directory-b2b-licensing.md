@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/01/2017
+ms.date: 02/02/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6295d643207f9aef31a88515668b99b51c49de
-ms.openlocfilehash: 28abb802f0581e504e8d3eb729f0ea5fffac3d20
+ms.sourcegitcommit: 887505f7b7309a3925505484c167448b9d4868e6
+ms.openlocfilehash: 144e196492bc4bdfbbdda34ca88531295cc8716a
 
 
 ---
@@ -50,7 +50,14 @@ O cliente que possui o locatário que está convidando deve ser o único a deter
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
+* [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-how-it-works.md)
 * [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
+* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
+* [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
+* [Perguntas frequentes sobre colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
+* [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
+* [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: markvi;andkjell
+ms.date: 02/08/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 14b6b817c071ba833d2f49ca289151520e1e32f0
+ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
+ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
 
 
 ---
@@ -44,8 +44,6 @@ O assistente de instalação fornece uma configuração que deve funcionar nos c
 
 > [!WARNING]
 > As regras de sincronização integrada têm uma impressão digital. Se você fizer uma alteração a essas regras, a impressão digital não corresponderá mais. Você pode ter problemas no futuro, quando tentar aplicar uma nova versão do Azure AD Connect. Faça alterações somente como é descrito neste artigo.
-> 
-> 
 
 ### <a name="disable-an-unwanted-sync-rule"></a>Desabilite uma Regra de sincronização indesejada
 Não exclua uma regra de sincronização integrada. Ela será recriada durante a próxima atualização.
@@ -57,6 +55,8 @@ Em alguns casos, o assistente de instalação produz uma configuração que não
 Na figura acima, o assistente de instalação encontrou um esquema antigo do Exchange 2003 na floresta de contas. Esta extensão de esquema foi adicionada antes da floresta de recursos ter sido introduzida no ambiente da Fabrikam. Para garantir que nenhum atributo da implementação do Exchange antigo seja sincronizado, a regra de sincronização deve ser desabilitada conforme mostrado.
 
 ### <a name="change-an-out-of-box-rule"></a>alterar uma regra integrada
+A única vez em que você deve alterar uma regra pronta para uso é quando você precisa alterar a regra de associação. Se você precisar alterar um fluxo de atributos, deverá criar uma regra de sincronização com precedência maior do que as regras prontas para uso. A única regra é praticamente necessário clone é a regra **em do AD – usuário Join**. Você pode substituir todas as outras regras com uma regra de prioridade mais alta.
+
 Se você precisar fazer alterações em uma regra integrada, deverá fazer uma cópia da regra integrada e desabilitar a regra original. Em seguida, faça as alterações desejadas à regra clonada. O Editor de Regra de Sincronização ajuda você com essas etapas. Quando você abre uma regra integrada, vê essa caixa de diálogo:   
 ![Aviso de regra integrada](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -73,7 +73,6 @@ Na regra clonada, faça as alterações necessárias no escopo, na associação 
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

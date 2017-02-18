@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: ea4aa75a574d787ed9c5b14e7aa3577f02d9d723
+ms.sourcegitcommit: 809fc7a5454c814d1d3edb8ebcdd40978952bc2c
+ms.openlocfilehash: d05404ed6893978a857a3ad66d5129998272ebbd
 
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
@@ -29,7 +29,7 @@ Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Az
 > [!NOTE]
 > O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
 >
-> Observe que cada backup expira após 7 dias. Se você tentar restaurar um backup após o período de expiração de 7 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired` .
+> Observe que cada backup expira após 30 dias. Se você tentar restaurar um backup após o período de expiração de 30 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
 >
 >
 
@@ -213,6 +213,6 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 
