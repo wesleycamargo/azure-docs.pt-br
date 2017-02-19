@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
-ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
 
 
 ---
@@ -38,7 +38,7 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 | Operações de dados – auditoria |Disponível. Veja mais informações [aqui](data-lake-store-diagnostic-logs.md) . |Disponível |
 | Dados de criptografia em repouso |Transparente, lado do servidor <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure</li></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure (em breve)</li></ul><li>Criptografia do cliente</li></ul> |
 | Operações de gerenciamento (por exemplo, Criar Conta) |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |
-| SDKs de desenvolvedor |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
+| SDKs de desenvolvedor |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Desempenho de Carga de Trabalho de Análise |Desempenho otimizado para cargas de trabalho de análise paralela. Alta taxa de transferência e IOPS. |Não otimizado para cargas de trabalho de análise |
 | Limites de tamanho |Sem limites para tamanhos de conta, tamanhos de arquivo ou número de arquivos |Limites específicos documentados [aqui](../azure-subscription-service-limits.md#storage-limits) |
 | Redundância geográfica |Com redundância local (várias cópias dos dados em uma região do Azure) |LRS (localmente redundante), GRS (globalmente redundante), RA-GRS (acesso de leitura globalmente redundante). Veja mais informações [aqui](../storage/storage-redundancy.md) |
@@ -53,6 +53,6 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: fb244491ec243399393320d0dbefb078273448d9
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 5b81c3cdabe7b02a2049d7d1a5e227f5886bdbad
 
 
 ---
@@ -42,10 +42,6 @@ Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que co
 
 Este tópico poderá ser útil para desenvolvedores que trabalham em aplicativos que entregam mídia protegida. O tópico mostra como configurar o serviço de distribuição de chaves com políticas de autorização para que somente clientes autorizados possam receber as chaves de criptografia. Ele também mostra como usar criptografia dinâmica.
 
-> [!NOTE]
-> Para começar a usar criptografia dinâmica, é necessário primeiro obter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Criptografia dinâmica AES-128 e fluxo de trabalho de serviço de distribuição de chaves
 
@@ -81,6 +77,11 @@ Para obter informações detalhadas, consulte [Carregar arquivos em uma conta do
 
 ## <a name="a-idencodeassetaencode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável
 Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento ou manifesto, o servidor de Streaming OnDemand garantirá que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. Para saber mais, consulte o tópico [Visão geral sobre o empacotamento dinâmico](media-services-dynamic-packaging-overview.md) .
+
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+>
+>Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.
 
 Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -631,6 +632,6 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

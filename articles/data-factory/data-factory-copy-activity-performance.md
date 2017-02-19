@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
-ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
+ms.sourcegitcommit: c3d96d11894f0009db004b1089c05559cafd2d43
+ms.openlocfilehash: ee79612cc30f1dfefcf7dcd8af7aed7836dd528c
 
 
 ---
@@ -156,12 +156,13 @@ Por padrão, o Data Factory usa uma única DMU de nuvem para fazer uma única ex
 Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são: 1 (padrão), 2, 4 e 8. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados.
 
 > [!NOTE]
-> Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). Uma configuração 8 e superior atualmente funciona somente quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Store/Amazon S3 para o Armazenamento de Blobs/Data Lake Store/Banco de Dados SQL do Azure** e o tamanho do arquivo é maior ou igual a 16 MB, individualmente.
+> Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). Uma configuração 8 e superior atualmente funciona somente quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Store/Amazon S3/FTP na nuvem para o Armazenamento de Blobs/Data Lake Store/Banco de Dados SQL do Azure** e o tamanho do arquivo é maior ou igual a 16 MB, individualmente.
 >
 >
 
 Para usar melhor essas duas propriedades e para melhorar a taxa de transferência de movimentação de dados, consulte os [casos de uso de exemplo](#case-study-use-parallel-copy). Você não precisa configurar **parallelCopies** para aproveitar o comportamento padrão. Se você configurar e **parallelCopies** for muito pequeno, várias DMUs de nuvem poderão não ser totalmente utilizadas.  
 
+### <a name="billing-impact"></a>Impacto de cobrança
 É **importante** lembrar que você é cobrado com base no tempo total da operação de cópia. Se um trabalho de cópia costumava levar uma hora com a unidade de nuvem e agora leva 15 minutos com quatro unidades de nuvem, a fatura geral fica quase igual. Por exemplo, você usa quatro unidades de nuvem. A primeira unidade de nuvem gasta 10 minutos, a segunda, 10 minutos, a terceira, 5 minutos e a quarta, 5 minutos, tudo em uma execução da Atividade de Cópia. Você é cobrado pelo tempo de cópia total (movimentação de dados), que é de 10 + 10 + 5 + 5 = 30 minutos. Usar **parallelCopies** não afeta a cobrança.
 
 ## <a name="staged-copy"></a>Cópia em etapas
@@ -410,6 +411,6 @@ Aqui estão as referências de monitoramento e ajuste do desempenho para alguns 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

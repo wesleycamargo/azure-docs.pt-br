@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: d06a5c281b9390ae7d7f3a9ef18b27b62355a33f
+ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
+ms.openlocfilehash: 46156a3331585b47761432c13462dffeb0b7eeb5
 
 
 ---
@@ -142,7 +142,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 }
 ```
 
-Leia mais sobre a [criação de várias instâncias usando *copiar*](../resource-group-create-multiple.md). 
+Leia mais sobre a [criação de várias instâncias usando *copiar*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 Você também pode usar um `copyIndex()` para acrescentar um número a um nome de recurso, o que lhe permite criar `myNic1`, `MyNic2` etc. Veja a seguir um exemplo de como acrescentar o valor de índice:
 
@@ -160,6 +160,6 @@ Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

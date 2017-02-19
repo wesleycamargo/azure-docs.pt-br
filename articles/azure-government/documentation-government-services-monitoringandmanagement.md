@@ -1,23 +1,22 @@
 ---
 title: Gerenciamento + monitoramento do Azure Governamental | Microsoft Docs
 description: "Este guia oferece uma comparação das funcionalidades e das orientações sobre como desenvolver aplicativos para o Azure Governamental."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/31/2016
+ms.date: 1/13/2017
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 3e460dd2aaf51ef2ba9840513d236ce313320c80
-ms.openlocfilehash: 39a87bdbef7c532f9e50f1e71e9c12797bc9a33c
+ms.sourcegitcommit: ec62cc79aeffa21e5d9d772dcd2da6f973c18d81
+ms.openlocfilehash: 3d9f2308d20e723da324be7e3aec3106ff5ff846
 
 
 ---
@@ -30,7 +29,7 @@ A Automação está geralmente disponível no Azure Governamental.
 ### <a name="variations"></a>Variações
 Atualmente, os seguintes recursos da Automação não estão disponíveis no Azure Governamental.
 
-* Criação de uma credencial de Princípio de Serviço para autenticação
+* Criação de uma credencial de Entidade de Serviço para autenticação
 
 Para saber mais, veja [documentação pública da Automação](../automation/automation-intro.md).
 
@@ -39,15 +38,7 @@ O backup está totalmente disponível no Azure Governamental.
 
 Para saber mais, confira [Backup do Azure Governamental](documentation-government-services-backup.md).
 
-### <a name="variations"></a>Variações
-Atualmente, os seguintes recursos de Backup não estão disponíveis no Azure Governamental:
-
-* Cofres do Azure Resource Manager
-* Gerenciamento usando o Portal do Azure (há suporte para o Portal Clássico do Azure)
-
-As URLs do Backup são diferentes no Azure Governamental:
-
-## <a name="site-recovery"></a>Site Recovery
+## <a name="site-recovery"></a>Recuperação de Site
 O Site Recovery (ASR) está totalmente disponível no Azure Governamental.
 
 Para saber mais, confira [Documentação pública do Site Recovery](../site-recovery/site-recovery-overview.md).
@@ -56,14 +47,16 @@ Para saber mais, confira [Documentação pública do Site Recovery](../site-reco
 Atualmente, os seguintes recursos do Site Recovery não estão disponíveis no Azure Governamental:
 
 * Cofres de recuperação de site do Azure Resource Manager
+* Notificação por email
 
-| Site Recovery | Clássico | Gerenciador de Recursos | 
+| Recuperação de Site | Clássico | Gerenciador de Recursos |
 | --- | --- | --- |
-| VMWare/Físico  | GA | Planejado |
-| Hyper-V | GA | Planejado |
-| Site a Site | GA | Planejado |
+| VMWare/Físico  | GA | GA |
+| Hyper-V | GA | GA |
+| Site a Site | GA | GA |
 
-Observações: a Tabela se aplica a VA e Iowa. 
+>[!NOTE]
+>A tabela se aplica ao Gov. EUA - Virgínia e ao Gov. EUA - Iowa.
 
 As seguintes URLs do ASR são diferentes no Azure Governamental:
 
@@ -74,8 +67,6 @@ As seguintes URLs do ASR são diferentes no Azure Governamental:
 | *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | Para armazenar instantâneos da VM |
 | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | Para baixar o MySQL |
 
-
-
 ## <a name="log-analytics"></a>Log Analytics
 O Log Analytics está disponível no Azure Governamental.
 
@@ -84,7 +75,7 @@ Os recursos e as soluções do Log Analytics a seguir não estão disponíveis a
 
 * As soluções que estão em visualização no Microsoft Azure, incluindo:
   * Solução de monitoramento de rede
-  * Solução de Monitoramento da Dependência de Aplicativos
+  * Mapa do Serviço
   * Solução do Office 365
   * Solução de Análise de Atualização do Windows 10
   * Solução do Application Insights
@@ -127,21 +118,11 @@ As seguintes funcionalidades do Log Analytics se têm um comportamento diferente
 
 Para saber mais, confira [Documentação pública do Log Analytics](../log-analytics/log-analytics-overview.md).
 
-## <a name="site-recovery"></a>Recuperação de Site
-O Site Recovery está totalmente disponível no Azure Governamental.
-
-Para saber mais, confira [Documentação pública do Site Recovery](../site-recovery/site-recovery-overview.md).
-
-### <a name="variations"></a>Variações
-Atualmente, os seguintes recursos do Site Recovery não estão disponíveis no Azure Governamental:
-
-* Cofres de recuperação de site do Azure Resource Manager
-
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
