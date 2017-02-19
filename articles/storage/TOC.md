@@ -43,7 +43,15 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-# Como
+## Armazenamento em disco 
+### [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Criar uma VM do Linux usando a CLI do Azure 2.0 (Visualização)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [Anexar um disco gerenciado em uma VM do Windows usando o PowerShell](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Adicionar um disco gerenciado a uma VM Linux](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Windows](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Criar cópia de VHD armazenado como um Disco Gerenciado usando instantâneos no Linux](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
+# Como:
 ## [Criar uma conta de armazenamento](storage-create-storage-account.md)
 ## Usar blobs
 ### [Visão geral do serviço](https://msdn.microsoft.com/library/dd179376.aspx)
@@ -62,13 +70,21 @@
 ### [Visão geral](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Solucionar problemas dos Arquivos do Azure](storage-troubleshoot-file-connection-problems.md)
 ### [Exemplos](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Usar Discos de Máquina Virtual
+## Usar discos
+### [Discos e VHDs para VMs Windows](storage-about-disks-and-vhds-windows.md)
+### [Discos e VHDs para VMs Linux](storage-about-disks-and-vhds-linux.md)
+### [Visão Geral do Azure Managed Disks](storage-managed-disks-overview.md)
+### [Migrar VMs do Azure para Azure Managed Disks](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [Migrar do AWS e outras plataformas para os Managed Disks](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Perguntas frequentes sobre Discos de VM IaaS do Azure](storage-faq-for-disks.md)
 ### Armazenamento Premium
-#### [Armazenamento de alto desempenho para cargas de trabalho de VM](storage-premium-storage.md)
-#### [Migrar para o Armazenamento Premium](storage-migration-to-premium-storage.md)
+#### [Armazenamento Premium de alto desempenho para Discos de VM](storage-premium-storage.md)
 #### [Design para alto desempenho](storage-premium-storage-performance.md)
 ### Armazenamento Standard
-#### [Fazer backup dos discos da VM com instantâneos incrementais](storage-incremental-snapshots.md)
+#### [Armazenamento Standard econômico e discos de VM gerenciados e não gerenciados](storage-standard-storage.md)
+### Usando discos não gerenciados
+#### [Migrar para o Armazenamento Premium](storage-migration-to-premium-storage.md)
+#### [Fazer backup dos discos de VM não gerenciados com instantâneos incrementais](storage-incremental-snapshots.md)
 ## Planejar e projetar
 ### [Replicação](storage-redundancy.md)
 ### [Escalabilidade e metas de desempenho](storage-scalability-targets.md)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

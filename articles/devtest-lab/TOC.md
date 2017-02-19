@@ -21,16 +21,18 @@
 ### [Adicionar um repositório de artefatos](devtest-lab-add-artifact-repo.md)
 ### [Criar artefatos personalizados](devtest-lab-artifact-author.md)
 
-## Gerenciar bases de VM
+## Gerenciar modelos e bases de VM
+### [Criar ambientes de várias VMs com modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
+### [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Comparando imagens versus fórmulas](devtest-lab-comparing-vm-base-image-types.md)
+### [Gerenciar fórmulas](devtest-lab-manage-formulas.md)
+### [Criar uma imagem personalizada a partir de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Criar uma imagem personalizada de um VHD usando o portal do Azure](devtest-lab-create-template.md)
+### [Criar uma imagem personalizada de um VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 ### [Carregar o arquivo VHD usando AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Carregar o arquivo VHD usando o PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Carregar o arquivo VHD usando o Gerenciador de Armazenamento](devtest-lab-upload-vhd-using-storage-explorer.md)
-### [Criar uma imagem personalizada de um VHD usando o portal do Azure](devtest-lab-create-template.md)
-### [Criar uma imagem personalizada de um VHD usando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-### [Criar uma imagem personalizada a partir de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
-### [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md)
-### [Gerenciar fórmulas](devtest-lab-manage-formulas.md)
+
 
 
 # Recursos
@@ -41,6 +43,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -23,6 +23,7 @@
 ### [Aplicativos lógicos como pontos de extremidade escaláveis](logic-apps-http-endpoint.md)
 ### [Loops, escopos e debatching](logic-apps-loops-and-scopes.md)
 ### [Usando sua API personalizada](logic-apps-custom-hosted-api.md)
+### [Use a instrução switch](logic-apps-switch-case.md)
 ### [Manipulação de exceção](logic-apps-exception-handling.md)
 ### [Cenário de manipulação de exceção](logic-apps-scenario-error-and-exception-handling.md)
 ### [Tratamento de tipos de conteúdo](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

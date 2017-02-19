@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentação da CDN do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar a CDN (Rede de Distribuição de Conteúdo) para fornecer conteúdo de data centers globais para qualquer dispositivo. Tutoriais, referências de API e outras documentações."
+services: cdn
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 565971021beec4afde15c17737ee82b812ba894d
-ms.openlocfilehash: fe5c35945f14c5023f070f25fd76e47d7952ce54
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
 
 ---
 # <a name="cdn-documentation"></a>Documentação da CDN
@@ -101,7 +112,7 @@ Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornec
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/cdn/">referência da API REST</a></p>
+                        <p><a href="/rest/api/cdn/">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -110,16 +121,10 @@ Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornec
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação da CDN do Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

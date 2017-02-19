@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentação dos Aplicativos Lógicos do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como desenvolver aplicativos lógicos que automatizam e simplificam os fluxos de trabalho comerciais no local e na nuvem. Tutoriais, modelos e referências de API."
+services: logic-apps
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: logic-apps
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
-ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
+ms.sourcegitcommit: 2c45896d603913d21bebb5f5a157bb60ad9e73ac
+ms.openlocfilehash: f85fbd5c9cce81c5934abce25ccd343810bcc4dd
 
 ---
+
 # <a name="logic-apps-documentation"></a>Documentação dos Aplicativos Lógicos
 
 Saiba como desenvolver Aplicativos Lógicos que simplificam e integram fluxos de trabalho escalonáveis na nuvem. Referências de API, modelos e tutoriais ajudam a criar e implantar fluxos de trabalho de negócios automatizados no local e na nuvem.
@@ -150,6 +162,6 @@ Saiba como desenvolver Aplicativos Lógicos que simplificam e integram fluxos de
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

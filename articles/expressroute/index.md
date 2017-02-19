@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentação do Azure ExpressRoute - Tutoriais, Referência de API | Microsoft Docs"
 description: "Aprenda a configurar e gerenciar uma conexão do ExpressRoute privada para serviços de nuvem da Microsoft em sua infraestrutura local ou do recurso de colocação."
+services: expressroute
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: expressroute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
+ms.sourcegitcommit: 6eb84236ff7814ab7dfade718693060d7e7383b9
+ms.openlocfilehash: a060970a2f2870a40d4925b8eeccf4fec4af1aa4
 
 ---
+
 #<a name="expressroute-documentation"></a>Documentação do ExpressRoute
 
 Aprenda a usar o ExpressRoute para configurar uma conexão privada rápida aos serviços de nuvem da Microsoft de sua infraestrutura local ou do recurso de colocação. Tutoriais, APIs REST e outras documentações ajudam a configurar e gerenciar um circuito do ExpressRoute.
@@ -102,6 +114,6 @@ Aprenda a usar o ExpressRoute para configurar uma conexão privada rápida aos s
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

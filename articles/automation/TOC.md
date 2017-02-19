@@ -44,6 +44,7 @@
 ### [Módulos de Integração](automation-integration-modules.md)
 ### [Agendas](automation-schedules.md)
 ### [Variáveis](automation-variables.md)
+### [Atualizar os módulos do Azure PowerShell](automation-update-azure-modules.md)
 ## Automatizar cenários
 ### [Galeria de Runbook](automation-runbook-gallery.md)
 ### [Iniciar/parar máquinas virtuais](automation-solution-startstopvm-graphical.md)
@@ -81,6 +82,6 @@
 ## [Vídeo de introdução à Automação](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

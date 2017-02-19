@@ -90,7 +90,7 @@
 ### [Integrar ao Azure Search](../search/search-howto-index-documentdb.md)
 ### [Mover dados com o Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Analisar dados em tempo real com o Stream Analytics do Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Obter notificações com Aplicativos Lógicos](documentdb-change-notification.md)
+### [Obter o registro FHIR HL7 alterado usando Aplicativos Lógicos](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Processar dados de sensor em tempo real](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualizar seus dados com o Power BI](documentdb-powerbi-visualize.md)
 ### [Aproveitar o driver ODBC para visualização de dados](documentdb-nosql-odbc-driver.md)

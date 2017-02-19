@@ -1,9 +1,10 @@
-# [Introdução](billing-getting-started.md)
+# Introdução
+## [Evitar custos inesperados](billing-getting-started.md)
 ## [Inscrever-se com conta do Office 365](billing-use-existing-office-365-account-azure-subscription.md)
-## [Limites e cotas](../azure-subscription-service-limits.md)
+## [Limites e cotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 # Como
 ## Monitorar o uso e os custos
-### [Baixar fatura e uso](billing-download-azure-invoice-daily-usage-date.md)
+### [Obter fatura e uso](billing-download-azure-invoice-daily-usage-date.md)
 ### [Entenda sua cobrança](billing-understand-your-bill.md)
 ### [Entenda cobranças de serviço externo](billing-understand-your-azure-marketplace-charges.md)
 ### [Configurar alertas de cobrança](billing-set-up-alerts.md)
@@ -32,6 +33,7 @@
 
 # Recursos
 ## [Contate o suporte](../azure-supportability/how-to-create-azure-support-request.md)
+
 
 <!--HONumber=Feb17_HO2-->
 

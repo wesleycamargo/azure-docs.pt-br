@@ -1,13 +1,25 @@
 ---
+title: "Documentação da Automação do Azure - Tutoriais, Referência de API | Microsoft Docs"
+description: "Saiba mais sobre como usar a Automação para automatizar o gerenciamento de processos e de configuração para economizar tempo e aumentar a confiabilidade das tarefas administrativas comuns."
+services: automation
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c9444c341bc5746c96719e6ebfa464f294adf2f8
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Documentação da Automação do Azure
 
-A Automação do Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas regulares e até mesmo agenda a sua execução automática em intervalos regulares.
+Saiba mais sobre como usar a Automação para economizar tempo e aumentar a confiabilidade das tarefas administrativas normais realizadas em um ambiente de nuvem. Os tutoriais, as referências de API e outras documentações mostram como automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando Configuração de Estado Desejado.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -132,7 +144,7 @@ A Automação do Azure fornece uma maneira para os usuários automatizarem taref
                     <div class="cardText">
                         <h3>Linha de comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell Clássico</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -165,16 +177,10 @@ A Automação do Azure fornece uma maneira para os usuários automatizarem taref
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação da Automação </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

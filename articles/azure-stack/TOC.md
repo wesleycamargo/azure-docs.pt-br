@@ -69,15 +69,18 @@
 ## [Implantar máquinas virtuais do Linux](azure-stack-linux.md)
 ## [Gerenciar atualizações](azure-stack-updates.md)
 ## [Desenvolver para o Azure Stack](azure-stack-developer.md)
-## Implantar o provedor de recursos do MySQL ou SQL
-### [Usar bancos de dados MySQL como PaaS no Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
-### [Implantar o Adaptador de provedor de recursos do SQL Server no Azure Stack](azure-stack-sql-resource-provider-deploy.md)
+## Oferta do SQL ou MySQL como PaaS
+### [Implantar provedor de recursos do MySQL](azure-stack-mysql-resource-provider-deploy.md)
+### [Implantar provedor de recursos do SQL](azure-stack-sql-resource-provider-deploy.md)
 
-## Planejar e implantar o Serviço de Aplicativo
+## Oferta de Serviço de Aplicativo como PaaS
 ### [Serviço de aplicativo na visão geral do Azure Stack](azure-stack-app-service-overview.md)
 ### [Antes de começar](azure-stack-app-service-before-you-get-started.md)
+### [Implantar provedor de recursos do Serviço de Aplicativo](azure-stack-app-service-deploy.md)
 ### [Adicionar mais funções de trabalho da Web](azure-stack-app-service-add-worker-roles.md)
-### [Adicionar um provedor de recursos do serviço de aplicativo ao Azure Stack](azure-stack-app-service-deploy.md)
+### [Habilitar uma publicação de FTP](azure-stack-app-service-enable-ftp.md)
+### [Configurar fontes de implantação](azure-stack-app-service-configure-deployment-sources.md)
+
 
 # Solucionar problemas
 ## [Solucionar problemas do Azure Stack](azure-stack-troubleshooting.md)
@@ -88,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

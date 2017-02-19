@@ -50,10 +50,10 @@
 
 # Recursos
 ## [Exemplos do PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Exemplos (Visualização) da CLI do Azure 2.0](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Exemplos de CLI 1.0 do Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista de métricas com suporte](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

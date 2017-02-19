@@ -1,6 +1,6 @@
 # Visão geral
-## [Mensagens](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Retransmissão](../service-bus-relay/relay-what-is-it.md)
+## [Mensagens](/azure/service-bus-messaging)
+## [Retransmissão](/azure/service-bus-relay)
 # Referência
 ## [Cmdlets do Gerenciador de Recursos do PowerShell](/powershell/resourcemanager)
 ## [API de Referência Gerenciada do Barramento de Serviço](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
