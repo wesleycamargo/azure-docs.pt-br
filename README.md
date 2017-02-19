@@ -12,7 +12,6 @@ Obrigado por seu interesse na documentação do Azure.
 * [Organização do repositório](#repository-organization)
 * [Como usar o GitHub, o Git e este repositório](#use-github-git-and-this-repository)
 * [Como usar o markdown para formatar seu tópico](#how-to-use-markdown-to-format-your-topic)
-* [Comentários e suporte](./contributor-guide/feedback-and-comments.md)
 * [Mais recursos](#more-resources)
 * [Índice de todos os artigos do guia do colaborador](contributor-guide/contributor-guide-index.md) (abre uma nova página)
 
@@ -27,7 +26,7 @@ Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensou
 
 ## <a name="about-your-contributions-to-azure-content"></a>Sobre as suas contribuições ao conteúdo do Azure
 ### <a name="minor-corrections"></a>Correções secundárias
-As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Contribuições maiores
 Se enviar uma solicitação pull com alterações novas ou significativas para a documentação e para os exemplos de código, enviaremos um comentário no GitHub solicitando que você envie um CLA (Contrato de Licença de Contribuição) online caso você não seja um funcionário da Microsoft. Precisamos que você preencha o formulário online antes de aceitarmos sua solicitação pull.
@@ -87,6 +86,6 @@ Acesse o [índice do nosso guia do colaborador](contributor-guide/contributor-gu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

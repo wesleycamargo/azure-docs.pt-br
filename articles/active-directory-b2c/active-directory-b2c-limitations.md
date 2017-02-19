@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 0f0805c8363226b6fab6463c668d750e8e7c9265
+ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
+ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
 
 
 ---
@@ -27,9 +27,6 @@ Há vários recursos e funcionalidades do Azure AD (Azure Active Directory) B2C 
 Se você tiver problemas durante a [criação de um locatário do Azure AD B2C](active-directory-b2c-get-started.md), veja [Criar um locatário do Azure AD ou um locatário do Azure AD B2C -- problemas e resoluções](active-directory-b2c-support-create-directory.md) para obter diretrizes.
 
 Observe que há problemas conhecidos quando você exclui um locatário B2C existente e o recria com o mesmo nome de domínio. Você precisa criar um locatário B2C com um nome de domínio diferente.
-
-## <a name="note-about-b2c-tenant-quotas"></a>Observação sobre cotas de locatário B2C
-Por padrão, o número de usuários em um locatário do B2C é limitado a 50.000 usuários. Se você precisar aumentar a cota de seu locatário do B2C, contate o suporte.
 
 ## <a name="branding-issues-on-verification-email"></a>Problemas de identidade visual no email de verificação
 O email de verificação padrão contém a identidade visual da Microsoft. Nós a removeremos no futuro. Por enquanto, você poderá removê-la usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
@@ -133,6 +130,6 @@ Isso ocorre devido ao tamanho dos códigos de autorização fornecidos pelo Azur
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

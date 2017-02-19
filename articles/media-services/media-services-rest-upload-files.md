@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
+ms.sourcegitcommit: d58462cbd6578093e00c93c7e2753efc1493441d
+ms.openlocfilehash: 8f17399846eafcac8b86a9b7d7baa7a029005c8c
 
 
 ---
@@ -31,11 +31,11 @@ ms.openlocfilehash: cbdb5bf62af1ff0f4670c9c3b597146a2a57f565
 Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
 
 > [!NOTE]
-> As seguintes considerações se aplicam ao escolher um nome de arquivo de ativo:
+> As seguintes considerações se aplicam:
 > 
 > * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter quaisquer dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
 > * O comprimento do nome não deve ser maior do que 260 caracteres.
-> 
+> * Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
 > 
 
 O fluxo de trabalho básico para o carregamento de Ativos é dividido nas seguintes seções:
@@ -506,11 +506,13 @@ O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP PO
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 
+## <a name="next-steps"></a>Próximas etapas
 
+Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).
 
-## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+Você também pode usar as Azure Functions para disparar um trabalho de codificação baseado em um arquivo que chega no contêiner configurado. Para obter mais informações, confira [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
 
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
@@ -521,6 +523,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

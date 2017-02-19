@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 8294842893742dcbc7a987421b454ceb7691450c
+ms.sourcegitcommit: 74b077f6f09d53c9232e5b209a5dd811364ee3f5
+ms.openlocfilehash: c995e0de46c67c5c5d243739b2d36266267bdade
 
 
 ---
@@ -340,7 +340,7 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 
 * Não copie o conteúdo padrão do Azure AD B2C nem tente modificá-lo. É melhor criar seu conteúdo HTML5 do zero e usar o conteúdo padrão como referência.
 * Em todas as páginas (exceto nas páginas Erro) atendidas pelas políticas de Entrada, de Inscrição e de Edição de perfil, as folhas de estilo que você fornecer terão de substituir as folhas de estilo padrão que adicionamos a essas páginas nos fragmentos do <head> . Em todas as páginas atendidas pelas políticas de Inscrição ou entrada e de Redefinição de senha, além de nas páginas Erros em todas as políticas, você deverá fornecer a definição de estilo por conta própria.
-* Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar novas funcionalidades.
+* Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) para solicitar novas funcionalidades.
 * Versões do navegador para as quais há suporte:
   * Internet Explorer 11, 10, Edge
   * Suporte limitado para o Internet Explorer 9, 8
@@ -349,6 +349,6 @@ Se você estiver planejando usar o recurso de personalização de interface do u
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

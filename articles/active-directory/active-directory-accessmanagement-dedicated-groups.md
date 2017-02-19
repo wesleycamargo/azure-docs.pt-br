@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3cacf9edde4ed2cabf996e390bb1e00113bc47cb
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
 
 
 ---
@@ -25,11 +25,11 @@ No Azure Active Directory (AD do Azure), o recurso de grupos dedicados automatic
 
 > [!NOTE]
 > Grupos dedicados requerem que uma licença do Azure AD Premium seja atribuída ao
-> 
+>
 > * administrador que gerencia a regra em um grupo
 > * todos os usuários selecionados pela regra para serem membros do grupo
-> 
-> 
+>
+>
 
 **Para habilitar grupos dedicados**
 
@@ -49,15 +49,15 @@ Para um grupo que exclui todos os Convidados, use uma regra como a seguinte:
 
                 (user.userType -ne "Guest")
 
-Para saber mais sobre como criar regras *avançadas* (regras que podem conter várias comparações) para a associação dinâmica de grupo, veja [Uso de atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md).
+Para saber mais sobre como criar regras *avançadas* (regras que podem conter várias comparações) para a associação dinâmica de grupo, confira [Uso de atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
+### <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
 
 
 
