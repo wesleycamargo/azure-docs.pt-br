@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4f6feb844774fba00e3c46438f686e61b52d03d3
 
 
 ---
@@ -34,7 +34,7 @@ Este tutorial mostra como carregar dados no SQL Data Warehouse usando o AzCopy e
 * Criar objetos de banco de dados para definir os dados
 * Executar uma consulta T-SQL para carregar os dados
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
@@ -43,7 +43,7 @@ Para acompanhar este tutorial, você precisará de
 
 * Um banco de dados do SQL Data Warehouse.
 * Uma conta de armazenamento do Azure do tipo Padrão-LRS (Armazenamento com Redundância Local Padrão), Padrão-GRS (Armazenamento com Redundância Geográfica Padrão) ou Padrão-RAGRS (Armazenamento de Redundância Geográfica com Acesso de Leitura Padrão).
-* Utilitário de linha de comando AzCopy. Baixe e instale a [versão mais recente do AzCopy][versão mais recente do AzCopy] , instalado com as Ferramentas do Armazenamento do Microsoft Azure.
+* Utilitário de linha de comando AzCopy. Baixe e instale a [versão mais recente do AzCopy][latest version of AzCopy], instalada com as Ferramentas do Armazenamento do Microsoft Azure.
   
     ![Ferramentas do Armazenamento do Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -106,7 +106,7 @@ Para copiar seus dados para o armazenamento de blobs do Azure:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Confira também [Introdução ao utilitário de linha de comando AzCopy][versão mais recente do AzCopy].
+Confira também [Introdução ao utilitário de linha de comando do AzCopy][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Explorar o contêiner de armazenamento de blobs
 Para ver o arquivo carregado no armazenamento de blobs:
@@ -126,11 +126,11 @@ O PolyBase usa tabelas externas para acessar dados no Armazenamento de Blobs do 
 
 O exemplo nesta etapa usa essas instruções Transact-SQL para criar uma tabela externa.
 
-* [Criar Chave Mestra (Transact-SQL)][Criar Chave Mestra (Transact-SQL)] para criptografar o segredo da credencial com escopo do banco de dados.
-* [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)][Criar Credencial com Escopo do Banco de Dados (Transact-SQL)] para especificar as informações de autenticação de sua conta de armazenamento do Azure.
-* [Criar Fonte de Dados Externa (Transact-SQL)][Criar Fonte de Dados Externa (Transact-SQL)] para especificar o local de seu armazenamento de blobs do Azure.
-* [Criar Formato de Arquivos Externos (Transact-SQL)][Criar Formato de Arquivos Externos (Transact-SQL)] para especificar o formato dos seus dados.
-* [Criar Tabela Externa (Transact-SQL)][Criar Tabela Externa (Transact-SQL)] para especificar a definição de tabela e o local dos dados.
+* [Criar Chave Mestra (Transact-SQL)][Create Master Key (Transact-SQL)] para criptografar o segredo da credencial com escopo do banco de dados.
+* [Criar Credencial com Escopo do Banco de Dados (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)] para especificar as informações de autenticação de sua conta de armazenamento do Azure.
+* [Criar Fonte de Dados Externa (Transact-SQL)][Create External Data Source (Transact-SQL)] para especificar o local de seu armazenamento de blobs do Azure.
+* [Criar Formato de Arquivo Externo (Transact-SQL)][Create External File Format (Transact-SQL)] para especificar o formato dos dados.
+* [Criar Tabela Externa (Transact-SQL)][Create External Table (Transact-SQL)] para especificar a definição de tabela e o local dos dados.
 
 Execute esta consulta no banco de dados do SQL Data Warehouse. Ela criará uma tabela externa chamada DimDate2External no esquema dbo que aponta para os dados de exemplo de DimDate2.txt no armazenamento de blobs do Azure.
 
@@ -210,7 +210,7 @@ No Pesquisador de Objetos do SQL Server no Visual Studio, você pode ver o forma
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Etapa 3: carregar dados no SQL Data Warehouse
 Depois de criar a tabela externa, você poderá carregar os dados em uma nova tabela ou inseri-los em uma tabela existente.
 
-* Para carregar os dados em uma nova tabela, execute a instrução [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] . A nova tabela terá as colunas nomeadas na consulta. Os tipos de dados das colunas corresponderão aos tipos de dados na definição da tabela externa.
+* Para carregar os dados em uma nova tabela, execute a instrução [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. A nova tabela terá as colunas nomeadas na consulta. Os tipos de dados das colunas corresponderão aos tipos de dados na definição da tabela externa.
 * Para carregar os dados em uma tabela existente, use a instrução [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
@@ -237,25 +237,25 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Para saber mais, confira [Estatísticas][Estatísticas].  
+Para saber mais, confira [Estatísticas][Statistics].  
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira o [Guia do PolyBase][Guia do PolyBase] para saber mais sobre como desenvolver uma solução que use o PolyBase.
+Confira o [Guia do PolyBase][PolyBase guide] para saber mais sobre como desenvolver uma solução que use o PolyBase.
 
 <!--Image references-->
 
 
 <!--Article references-->
-[Tutorial sobre o PolyBase no SQL Data Warehouse]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Carregar dados com bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Guia do PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[versão mais recente do AzCopy]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[fonte/coletor com suporte]: https://msdn.microsoft.com/library/dn894007.aspx
-[atividade de cópia]: https://msdn.microsoft.com/library/dn835035.aspx
-[Adaptador de destino do SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -276,6 +276,6 @@ Confira o [Guia do PolyBase][Guia do PolyBase] para saber mais sobre como desenv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

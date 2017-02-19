@@ -1,10 +1,10 @@
 ---
-title: "Criar uma rede virtual com uma conexão de Gateway de VPN site a site usando o portal clássico do Azure | Microsoft Docs"
-description: "Criar uma Rede Virtual com uma conexão de Gateway de VPN site a site para configurações entre locais e híbridas usando o modelo de implantação clássico."
+title: "Conectar a sua rede local para uma rede virtual do Azure: VPN Site a Site: portal clássico | Microsoft Docs"
+description: "Etapas para criar uma conexão IPsec de sua rede local para uma rede virtual do Azure pela Internet pública. Essas etapas o ajudarão a criar uma conexão de Gateway de VPN Site a Site entre locais usando o Portal clássico e o modelo de implantação clássico."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Criar uma VNet com uma conexão Site a Site usando o Portal Clássico do Azure
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Criar uma rede virtual com uma conexão Site a Site usando o portal clássico
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 Este artigo mostra como criar uma rede virtual e uma conexão de gateway de VPN Site a Site com sua rede local usando o modelo de implantação clássica e o portal clássico. As conexões Site a Site podem ser usadas para configurações híbridas e entre instalações.
 
-![Diagrama Site a Site](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![Diagrama de conexão Site a Site de Gateway de VPN entre locais](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
 ### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Modelos e métodos de implantação para conexões Site a Site
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
@@ -102,6 +102,6 @@ Configure o gateway de rede virtual para criar uma conexão site a site segura. 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

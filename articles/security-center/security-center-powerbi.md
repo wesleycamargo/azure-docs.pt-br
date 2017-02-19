@@ -12,47 +12,47 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 397f20446e113dd89b5ffa3d5680e7a3a9885476
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 10e58a76644b5e4d50f05a2db03f4af193cc5152
 
 
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Obtenha percepções de dados da Central de Segurança do Azure com o Power BI
-O [Painel do Power BI](http://aka.ms/azure-security-center-power-bi) para a Central de Segurança do Azure o habilita a visualizar, analisar e filtrar recomendações e alertas de segurança de qualquer lugar, incluindo seu dispositivo móvel. Use o painel do Power BI para revelar tendências e padrões, exibir alertas de segurança por recurso ou endereço IP de origem e riscos de segurança não tratados por recurso ou idade. 
+O [Painel do Power BI](http://aka.ms/azure-security-center-power-bi) para a Central de Segurança do Azure o habilita a visualizar, analisar e filtrar recomendações e alertas de segurança de qualquer lugar, incluindo seu dispositivo móvel. Use o painel do Power BI para revelar tendências e padrões, exibir alertas de segurança por recurso ou endereço IP de origem e riscos de segurança não tratados por recurso ou idade.
 
 Você também pode combinar recomendações e alertas de segurança do Security Center com outros dados de maneiras interessantes, por exemplo, usando dados dos [Logs de auditoria do Azure](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) e da [Auditoria do Banco de Dados SQL do Azure](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/). Ambos oferecem Painéis do Power BI, e você também pode exportar esses dados para o Excel para produzir relatórios facilmente sobre o estado de segurança de seus recursos de nuvem.
 
 ## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Como usar o painel da Central de Segurança do Azure para acessar o Power BI
-Você também pode usar o painel da Central de Segurança do Azure para acessar relatórios do Power BI. Siga as etapas abaixo para executar esta tarefa: 
+Você também pode usar o painel da Central de Segurança do Azure para acessar relatórios do Power BI. Siga as etapas abaixo para executar esta tarefa:
 
 1. No painel **Central de Segurança do Azure**, clique no botão **Explorar no Power BI**.
-   
-    ![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
+
+    ![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 2. A folha **Explorar no Power BI** será aberta no lado direito, como mostrado na tela a seguir:
-   
+
     ![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
-3. Se você estiver criando o painel do Power BI pela primeira vez, poderá escolher uma das seguintes opções na folha **Explorar no Power BI** : 
-   
+3. Se você estiver criando o painel do Power BI pela primeira vez, poderá escolher uma das seguintes opções na folha **Explorar no Power BI** :
+
    * **Painel de informações da segurança**: escolha essa opção se você quiser criar um painel que inclua o status de segurança, threads e detecções. Esta opção é a mais comum para a função DevOps responsável pela análise de seu status de proteção e alertas detectados nas assinaturas.
    * **Painel de gerenciamento da política**: escolha essa opção se você quiser explorar o gerenciamento e a imposição da política.  Esta opção é a mais comum para a TI Central, que está mais focada na governança. Ela pode usar esse painel para ganhar visibilidade e ter ideias sobre a conformidade da política de segurança em toda a organização.
    * Se você já tiver um painel do Power BI, clique em **Ir para o painel do Power BI atual**.
 4. Neste exemplo, clique na opção **Painel de informações de segurança** . Se esta for a primeira vez que você estiver criando um painel do Power BI para a Central de Segurança, será solicitada a instalação do pacote de conteúdo. Clique no botão **Obter** na janela **Pacotes de conteúdo do Power BI** como mostrado abaixo:
-   
+
     ![Painel de Informações de Segurança da Central de Segurança do Azure](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 5. A janela **Conectar ao Azure Security Center Security Insights** é exibida. Verifique se o Método de **autenticação** é **oAuth2**, como mostrado abaixo, e clique no botão **Entrar**.
-   
+
     ![Autenticação](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
 6. Você pode ser solicitado a autenticar novamente com suas credenciais do Azure. Depois de autenticar, seu painel será criado. Depois de criar o painel, você verá um relatório com uma estrutura semelhante à mostrada na tela a seguir:
-   
+
     ![Painel do Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
 
 > [!NOTE]
 > Uma atualização do relatório é agendada para ocorrer diariamente. Se houver uma falha dessa atualização, leia [Possíveis problemas de atualização com o Power BI da Central de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/)para saber mais sobre como solucionar problemas.
-> 
-> 
+>
+>
 
 Aqui, você pode ver o número de alertas de segurança e recomendações, além do número de VMs, bancos de dados SQL do Azure e recursos da rede que estão sendo monitorados pela Central de Segurança do Azure.
 
@@ -73,8 +73,8 @@ Se você clicar em qualquer linha do gráfico, as outras ficarão acinzentadas e
 
 > [!NOTE]
 > Se você quiser personalizar seus relatórios adicionando campos extras ou alterando os visuais existentes, poderá editar o relatório. Leia [Interagir com um relatório no Modo de Edição no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-interact-with-a-report-in-editing-view/) para saber mais.
-> 
-> 
+>
+>
 
 Os blocos **Alertas ao Longo do Tempo, Recursos Atacados** e **IPs do Invasor** terão resultados semelhante ao clicar em cada um deles. Isso ocorre porque o relatório agrega informações sobre essas três variáveis e chama-as de **Recursos sob Ataque** , como mostrado na tela abaixo:
 
@@ -88,27 +88,27 @@ Nesse ponto, você pode também salvar uma cópia do relatório, imprimi-lo ou p
 Conecte os [Serviços do Pacote de Conteúdo do Power BI](https://msit.powerbi.com/groups/me/getdata/services) no Power BI e siga as etapas abaixo:
 
 1. Na janela **Pacote de Conteúdo do Power BI** , você verá duas opções, conforme mostrado abaixo.
-   
+
     ![Pacote de Conteúdo do Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
-   
+
    > [!NOTE]
    > Se já executou a primeira parte deste artigo, você verá somente uma opção, o que é Gerenciamento de Política da Central de Segurança do Azure.
-   > 
-   > 
+   >
+   >
 2. Para este exemplo, clique em **Obter** no bloco **Gerenciamento de Política da Central de Segurança do Azure**.
 3. Na janela **Conectar Gerenciamento de Política da Central de Segurança do Azure**, selecione **oAuth2** no menu suspenso **Método de Autenticação**, como mostrado abaixo e clique no botão **Entrar**.
-   
+
     ![Janela de Gerenciamento de Política](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 4. Você será redirecionado para uma página de autenticação, na qual deverá digitar as credenciais que está usando para conectar a Central de Segurança do Azure. Após o processo de autenticação ser concluído, o Power BI iniciará a importação dos dados para criar seus relatórios. Durante esse período, você verá a seguinte mensagem no canto direito do navegador:
-   
+
     ![Conectar-se a Central de Segurança do Azure usando o Power BI](./media/security-center-powerbi/security-center-powerbi-fig4.png)
-   
+
    > [!NOTE]
-   > Quando o painel estiver sendo criado pela primeira vez, isso poderá demorar um pouco mais, principalmente para os cenários nos quais você tem várias assinaturas. 
-   > 
-   > 
+   > Quando o painel estiver sendo criado pela primeira vez, isso poderá demorar um pouco mais, principalmente para os cenários nos quais você tem várias assinaturas.
+   >
+   >
 5. Com o processo concluído, o painel Power BI da Central de Segurança do Azure carregará o relatório **Gerenciamento de Política** semelhante ao mostrado abaixo:
-   
+
     ![Painel de gerenciamento da política](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
 ## <a name="see-also"></a>Confira também
@@ -122,7 +122,6 @@ Neste documento, você aprendeu a usar o Power BI na Central de Segurança do Az
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

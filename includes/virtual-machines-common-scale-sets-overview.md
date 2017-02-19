@@ -16,7 +16,7 @@ Um conjunto de modelos de exemplo para conjuntos de dimensionamento de VM pode s
 
 Nas páginas de detalhes para esses modelos, você verá um botão que vincula ao recurso de implantação do portal. Para implantar o conjunto de dimensionamento de VM, clique no botão e preencha todos os parâmetros obrigatórios no portal. Se você não tiver certeza se um recurso oferece suporte a letras maiúsculas ou combinadas, é mais seguro usar sempre valores de parâmetro em letras minúsculas. Também é uma prática dissecar vídeo de um modelo de conjunto de dimensionamento de VM aqui:
 
-[Dissecação de Modelo do Conjunto de Dimensionamento de VM](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+[Dissecação de Modelo do Conjunto de Dimensionamento de VM](https://channel9.msdn.com/Blogs/Azure/VM-Scale-Set-Template-Dissection/player)
 
 ## <a name="scaling-a-vm-scale-set-out-and-in"></a>Expandindo e reduzindo um conjunto de dimensionamento de VM
 Para aumentar ou diminuir o número de máquinas virtuais em um conjunto de dimensionamento de VM, basta alterar a propriedade *capacity* e reimplantar o modelo. Essa simplicidade facilita escrever sua própria camada de dimensionamento personalizada se você quiser definir eventos de escala personalizada que não têm suporte do dimensionamento automático do Azure.
@@ -64,7 +64,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 ## <a name="vm-scale-set-frequently-asked-questions"></a>Conjunto de dimensionamento de VM - Perguntas frequentes
 **P.** Quantas VMs você pode ter em um conjunto de dimensionamento de VM?
 
-**A.** 100, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40, desde que as imagens personalizadas sejam limitadas a uma única conta de armazenamento durante a visualização.
+**A.** &100;, se você usar imagens de plataforma que podem ser distribuídas entre várias contas de armazenamento. Se você usar imagens personalizadas, até 40, desde que as imagens personalizadas sejam limitadas a uma única conta de armazenamento durante a visualização.
 
 **P** Que outros limites de recurso existem para conjuntos de dimensionamento de VM?
 
@@ -118,6 +118,6 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

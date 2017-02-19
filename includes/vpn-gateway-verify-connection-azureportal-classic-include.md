@@ -1,4 +1,4 @@
-No portal do Azure, você pode exibir o status da conexão para um gateway de Rede Virtual clássica navegando até a conexão. Há várias maneiras de fazer isso. As etapas a seguir mostram uma maneira de navegar para a conexão e verificar.
+No portal do Azure, você pode exibir o status da conexão para um gateway de VPN de rede virtual clássica navegando até a conexão. As etapas a seguir mostram uma maneira de navegar para a conexão e verificar.
 
 1. No [portal do Azure](http://portal.azure.com), clique em **Todos os recursos** e navegue até o gateway de rede virtual.
 2. Na folha da rede virtual, clique em **Visão geral** para acessar a seção **Conexões VPN** da folha.
@@ -12,6 +12,6 @@ No portal do Azure, você pode exibir o status da conexão para um gateway de Re
 
     ![Mais informações sobre o status da conexão](./media/vpn-gateway-verify-connection-azureportal-classic/connections4.png "Mais informações sobre o status da conexão")
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
