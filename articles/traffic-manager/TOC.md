@@ -16,9 +16,10 @@
 # Como
 ## [Configurar um método de roteamento](traffic-manager-configure-routing-method.md)
 ## [Testar suas configurações](traffic-manager-testing-settings.md)
-## [Solucionar problemas de um ponto de extremidade degradado](traffic-manager-troubleshooting-degraded.md)
-## [Combinando serviços de balanceamento de carga](traffic-manager-load-balancing-azure.md)
+## [Combinar serviços de balanceamento de carga](traffic-manager-load-balancing-azure.md)
 ## [Usar recursos de rede](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Solucionar problemas
+### [Solucionar problemas de um ponto de extremidade degradado](traffic-manager-troubleshooting-degraded.md)
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
