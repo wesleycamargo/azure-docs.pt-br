@@ -13,17 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1f40d6119d5fefc48c1e12d510423f996239fe14
+ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
+ms.openlocfilehash: dd28e295df7acead773f9076d790e0e96b66adb9
 
 
 ---
 # <a name="availability-and-reliability-of-windows-based-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop baseados em Windows no HDInsight
-> [!NOTE]
-> As etapas usadas neste documento são específicas aos clusters HDInsight baseados em Windows. Se você estiver usando um cluster baseado em Linux, veja [Disponibilidade e confiabilidade dos clusters Hadoop baseados em Linux no HDInsight](hdinsight-high-availability-linux.md) para obter informações específicas do Linux.
+> [!IMPORTANT]
+> As etapas usadas neste documento são específicas aos clusters HDInsight baseados em Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Se você estiver usando um cluster baseado em Linux, veja [Disponibilidade e confiabilidade dos clusters Hadoop baseados em Linux no HDInsight](hdinsight-high-availability-linux.md) para obter informações específicas do Linux.
 >
 >
 
@@ -58,7 +58,7 @@ Para determinar qual nó principal está ativo e verificar o estado dos serviço
 Na captura de tela, o nó principal ativo é *headnode0*.
 
 ## <a name="access-log-files-on-the-secondary-head-node"></a>Acessar arquivos de log no nó principal secundário
-Para acessar registros de trabalhos no nó principal secundário caso ele tenha se tornado o nó principal ativo, a navegação na interface do usuário do JobTracker ainda funciona como o faz no nó ativo primário. Para acessar o JobTracker, você deve se conectar ao cluster Hadoop usando o protocolo RDP, conforme descrito na seção anterior. Depois de acessar remotamente o cluster, clique duas vezes no ícone **Status do Nó de Nome do Hadoop** localizado na área de trabalho e clique em **Logs de NameNode** para obter o diretório de logs no nó de cabeçalho secundário.
+Para acessar registros de trabalhos no nó principal secundário caso ele tenha se tornado o nó principal ativo, a navegação na interface do usuário do JobTracker ainda funciona como o faz no nó ativo primário. Para acessar o JobTracker, você deve se conectar ao cluster Hadoop usando o protocolo RDP, conforme descrito na seção anterior. Após se conectar ao cluster por meio do protocolo RDP, clique duas vezes no ícone **Status do Nó de Nome do Hadoop**, localizado na área de trabalho e, em seguida, clique em **Logs de NameNode** para obter o diretório de logs no nó de cabeçalho secundário.
 
 ![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
@@ -106,6 +106,6 @@ Para o SDK, a história é semelhante. A criação e o provisionamento de um clu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

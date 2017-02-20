@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2017
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
-ms.openlocfilehash: 8df9faed82a6cf11001e083b7849dd7654bf3c24
+ms.sourcegitcommit: becd7fbcfa094257408ed96eda0c62deefceb44d
+ms.openlocfilehash: 59067ef58d276265e0431119986774ff14212067
 
 
 ---
@@ -36,6 +36,9 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador de serviço de gerenciamento de API](#api-management-service-contributor) |Pode gerenciar os serviços de gerenciamento de API |
 | [Colaborador de componente do Application Insights](#application-insights-component-contributor) |Pode gerenciar os componentes do Application Insights |
 | [Operador de automação](#automation-operator) |Capaz de iniciar, parar, suspender e reiniciar trabalhos |
+| [Colaborador de Backup](#backup-contributor) | Pode gerenciar o backup no cofre dos Serviços de Recuperação |
+| [Operador de Backup](#backup-operator) | Pode gerenciar o backup, exceto a remoção de backup, no cofre dos Serviços de Recuperação |
+| [Leitor de Backup](#backup-reader) | Pode exibir todos os serviços de gerenciamento de backup  |
 | [Colaborador do BizTalk](#biztalk-contributor) |Pode gerenciar os serviços BizTalk |
 | [Colaborador do DB MySQL ClearDB](#cleardb-mysql-db-contributor) |Pode gerenciar bancos de dados MySQL ClearDB |
 | [Colaborador](#contributor) |Pode gerenciar tudo, exceto o acesso. |
@@ -117,6 +120,98 @@ Capaz de iniciar, parar, suspender e reiniciar trabalhos
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="backup-contributor"></a>Colaborador de Backup
+Pode gerenciar todas as ações de gerenciamento de backup, exceto criar o cofre de Serviços de Recuperação e fornecer acesso a outras pessoas
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Gerenciar os resultados da operação no gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Criar e gerenciar contêineres de backup em malhas de backup do cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Criar e gerenciar metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/* | Criar e gerenciar políticas de backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Criar e gerenciar itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Criar e gerenciar contêineres que armazenam itens de backup |
+| Microsoft.RecoveryServices/Vaults/certificates/* | Criar e gerenciar certificados relacionados a backup em um cofre de Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/* | Criar e gerenciar informações estendidas relacionadas ao cofre | 
+| Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Criar e gerenciar identidades registradas |
+| Microsoft.RecoveryServices/Vaults/usages/* | Criar e gerenciar o uso do cofre dos Serviços de Recuperação |
+| Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
+| Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="backup-operator"></a>Operador de Backup
+Pode gerenciar todas as ações de gerenciamento de backup, exceto a criação de cofres, removendo backups e fornecendo acesso a outras pessoas
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.Network/virtualNetworks/read | Ler redes virtuais |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Ler resultados de operações de gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Ler resultados de operações de proteção de contêineres |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executar operações de backup sob demanda em um item submetido a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Ler o resultado de operações executadas em itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | Ler o status de operações executadas em itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Ler itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Ler o ponto de recuperação de um item submetido a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Executar uma operação de restauração usando um ponto de recuperação de um item submetido a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item de backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Ler contêineres que armazenam o item de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/* | Criar e gerenciar trabalhos de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Ler metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Criar e gerenciar os Resultados das operações de gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Ler resultados de operações executadas em políticas de backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read | Ler políticas de backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Criar e gerenciar itens para backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Ler itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Ler contêineres submetidos a backup que armazenam itens de backup |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read | Ler informações estendidas relacionadas ao cofre | 
+| Microsoft.RecoveryServices/Vaults/extendedInformation/write | Gravar informações estendidas relacionadas ao cofre | 
+| Microsoft.RecoveryServices/Vaults/read | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/* | Gerenciar operações de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | Ler resultados de operações executadas em itens registrados do cofre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Ler itens registrados do cofre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Gravar itens registrados no cofre |
+| Microsoft.RecoveryServices/Vaults/usages/read | Ler o uso do cofre de Serviços de Recuperação |
+| Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Ler grupos de recursos |
+| Microsoft.Storage/storageAccounts/read | Ler contas de armazenamento |
+| Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+
+### <a name="backup-reader"></a>Leitor de Backup
+Pode monitorar o gerenciamento de backup em um cofre de Serviços de Recuperação
+
+| **Ações** | |
+| --- | --- |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read  | Ler resultados de operações de gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read  | Ler resultados de operações de proteção de contêineres |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | Ler o resultado de operações executadas em itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | Ler o status de operações executadas em itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | Ler itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | Ler contêineres que armazenam o item de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | Ler resultados de trabalhos de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobs/read  | Ler os trabalhos de backup |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportar trabalhos de backup para uma planilha do Excel |
+| Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | Ler metadados relacionados ao gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | Ler resultados de operações de gerenciamento de backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | Ler resultados de operações executadas em políticas de backup |
+| Microsoft.RecoveryServices/Vaults/backupPolicies/read  | Ler políticas de backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  Ler itens submetidos a backup |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | Ler contêineres submetidos a backup que armazenam itens de backup |
+| Microsoft.RecoveryServices/Vaults/extendedInformation/read  | Ler informações estendidas relacionadas ao cofre |
+| Microsoft.RecoveryServices/Vaults/read  | Ler cofres dos Serviços de Recuperação |
+| Microsoft.RecoveryServices/Vaults/refreshContainers/read  | Ler o resultado de uma operação de descoberta para buscar contêineres recém-criados |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read  | Ler resultados de operações executadas em itens registrados do cofre |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registrados do cofre |
+| Microsoft.RecoveryServices/Vaults/usages/read  |  Ler o uso do cofre de Serviços de Recuperação |
 
 ### <a name="biztalk-contributor"></a>Colaborador do BizTalk
 Pode gerenciar os serviços BizTalk
@@ -555,6 +650,6 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

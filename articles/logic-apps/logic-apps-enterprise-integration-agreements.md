@@ -1,6 +1,6 @@
 ---
-title: "Visão geral dos parceiros e o Enterprise Integration Pack | Microsoft Docs"
-description: "Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos"
+title: "Contratos de comunicação B2B – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Crie contratos para que parceiros possam se comunicar em cenários B2B no Aplicativo Lógico do Azure e no Enterprise Integration Pack"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,65 +13,72 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: 383dad6470e51b7033ada543bc85967ac001b3c2
-ms.openlocfilehash: 15c70f8b83e8d74e078140d92feadaa67916d4f1
+ms.sourcegitcommit: 8dd90542440322e6d57406cd950fa0a13bd4fe1d
+ms.openlocfilehash: 1068b5bd5f2c86de0c82f5a96cb2718645c0a3d3
 
 
 ---
-# <a name="learn-about-agreements-and-enterprise-integration-pack"></a>Saiba mais sobre contratos e o Enterprise Integration Pack
-## <a name="overview"></a>Visão geral
-Os contratos são a base das comunicações de B2B (business-to-business), permitindo que as entidades de negócios se comuniquem diretamente usando protocolos padrão da indústria.  
+# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos entre parceiros para comunicação B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
-## <a name="what-is-an-agreement"></a>O que é um contrato?
-Um contrato, no que diz respeito ao Enterprise Integration Pack, é um acordo de comunicação entre parceiros comerciais B2B. Um contrato se baseia na comunicação que os dois parceiros desejam atingir e é específico com relação a transporte ou protocolo.
+Os contratos permitem que entidades de negócios se comuniquem diretamente usando protocolos padrão da indústria e são a base da comunicação B2B (entre empresas). Ao habilitar cenários B2B para aplicativos lógicos com o Enterprise Integration Pack, um contrato é um acordo de comunicação entre parceiros comerciais B2B. Esse contrato se baseia na comunicação que os dois parceiros desejam estabelecer e é específico com relação a transporte ou protocolo.
 
-A integração corporativa dá suporte a três padrões de protocolo/transporte:  
+A integração corporativa dá suporte a estes padrões de protocolo/transporte:
 
 * [AS2](logic-apps-enterprise-integration-as2.md)
 * [X12](logic-apps-enterprise-integration-x12.md)
 * [EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="why-use-agreements"></a>Por que usar contratos
-Alguns dos benefícios comuns do uso de contratos são:
 
-* Permite que diferentes organizações e empresas troquem informações em um formato conhecido.  
-* Melhora a eficiência ao conduzir transações B2B  
-* Fácil de criar, gerenciar e usar durante a criação de aplicativos de integração corporativa  
+Estes são alguns benefícios comuns do uso de contratos:
+
+* Permite que diferentes organizações e empresas troquem informações em um formato conhecido.
+* Melhora a eficiência ao conduzir transações B2B
+* Fácil de criar, gerenciar e usar durante a criação de aplicativos de integração corporativa
 
 ## <a name="how-to-create-agreements"></a>Como criar contratos
-* [Criar um contrato AS2](logic-apps-enterprise-integration-as2.md)   
-* [Criar um contrato X12](logic-apps-enterprise-integration-x12.md)   
-* [Criar um contrato EDIFACT](logic-apps-enterprise-integration-edifact.md)  
+
+* [Criar um contrato AS2](logic-apps-enterprise-integration-as2.md)
+* [Criar um contrato X12](logic-apps-enterprise-integration-x12.md)
+* [Criar um contrato EDIFACT](logic-apps-enterprise-integration-edifact.md)
 
 ## <a name="how-to-use-an-agreement"></a>Como usar um contrato
-Depois de criar um contrato, você pode usá-lo por meio do Portal do Azure para criar [Aplicativos lógicos](logic-apps-what-are-logic-apps.md "Saiba mais Aplicativos lógicos") com recursos de B2B.
+
+É possível criar [aplicativos lógicos](logic-apps-what-are-logic-apps.md "Saiba mais sobre Aplicativos Lógicos") com recursos de B2B usando um contrato criado por você.
 
 ## <a name="how-to-edit-an-agreement"></a>Como editar um contrato
-Você pode editar qualquer contrato seguindo essas etapas:  
 
-1. Selecione a conta de Integração que contém o contrato que você deseja modificar.  
-2. Selecione o bloco **Contratos**  
-3. Selecione o contrato que você deseja modificar na folha **Contratos**  
-4. Selecione **Editar** no menu acima   
-5. No menu Editar que é aberto, faça suas alterações e selecione o botão **OK** para salvá-las  
+Você pode editar qualquer contrato seguindo essas etapas:
+
+1. Selecione a conta de integração que contém o contrato que você deseja atualizar.
+
+2. Escolha o bloco **Contratos**.
+
+3. Na folha **Contratos**, selecione o contrato.
+
+4. Escolha **Editar**. Faça as alterações.
+
+5. Para salvá-las, clique em **OK**.
 
 ## <a name="how-to-delete-an-agreement"></a>Como excluir um contrato
-Você pode excluir qualquer contrato seguindo estas etapas de dentro da conta de integração que contém o contrato que você deseja excluir:   
 
-1. Selecione o bloco **Contratos**  
-2. Selecione o contrato que você deseja excluir na folha **Contratos**  
-3. Selecione **Excluir** no menu acima  
-4. Confirme que você realmente deseja excluir o contrato  
-5. Observe que o contrato não está mais listado na folha Contratos  
+É possível excluir qualquer contrato seguindo estas etapas:
+
+1. Selecione a conta de integração que contém o contrato que você deseja excluir.
+2. Escolha o bloco **Contratos**.
+3. Na folha **Contratos**, selecione o contrato.
+4. Clique em **Excluir**.
+5. Confirme que você realmente deseja excluir o contrato selecionado.
+
+    A folha Contratos não mostrará o contrato excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um contrato AS2](logic-apps-enterprise-integration-as2.md)  
+* [Criar um contrato AS2](logic-apps-enterprise-integration-as2.md)
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 86f339b1a8f8c18fd898dc06b87245b265b3adb1
-ms.openlocfilehash: 5c88d709756c50b99bfd7e09c03e5653d41f4879
+ms.sourcegitcommit: 541c06240f0c437ad92ea955caee67456851a6e1
+ms.openlocfilehash: 59aee407be91279276ec6eaafed608e354030676
 
 
 ---
@@ -25,10 +25,8 @@ ms.openlocfilehash: 5c88d709756c50b99bfd7e09c03e5653d41f4879
 
 Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar as tabelas usando o Apache Hive. Para obter informações gerais do HBase, confira [Visão geral do HBase do HDInsight][hdinsight-hbase-overview].
 
-As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre os clusters baseados em Linux, consulte [Tutorial do HBase: Introdução ao uso do Apache HBaseno HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
-
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). As informações neste documento são específicas de clusters HDInsight baseados em Windows. Para saber mais sobre os clusters baseados em Linux, consulte [Tutorial do HBase: Introdução ao uso do Apache HBaseno HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -79,11 +77,11 @@ Atualmente, há duas maneiras de acessar o HBase. Esta seção aborda o uso do s
 
 Para a maioria das pessoas, os dados aparecem no formato de tabela:
 
-![dados tabulares do hbase hdinsight][img-hbase-sample-data-tabular]
+![Dados tabulares do HBase HDInsight][img-hbase-sample-data-tabular]
 
 No HBase, que é uma implementação de BigTable, os mesmos dados são assim:
 
-![dados bigtable do hbase hdinsight][img-hbase-sample-data-bigtable]
+![Dados BigTable do HBase HDInsight][img-hbase-sample-data-bigtable]
 
 Depois de concluir o procedimento a seguir, ele fará mais sentido.  
 
@@ -107,7 +105,7 @@ Depois de concluir o procedimento a seguir, ele fará mais sentido.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![shell do hbase do hadoop hdinsight][img-hbase-shell]
+    ![Shell HBase do Hadoop HDInsight][img-hbase-shell]
 6. Obter uma única linha
    
         get 'Contacts', '1000'
@@ -326,6 +324,6 @@ Para obter mais informações, consulte:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

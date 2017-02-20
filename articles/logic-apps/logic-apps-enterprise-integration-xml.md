@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do processo de XML no Enterprise Integration Pack | Microsoft Docs"
-description: "Saiba como processar e validar mensagens XML usando o Enterprise Integration Pack e aplicativos lógicos"
+title: "Processar um XML – Aplicativo Lógico do Azure | Microsoft Docs"
+description: "Processar e validar mensagens XML no Aplicativo Lógico do Azure e em cenários B2B usando o Enterprise Integration Pack"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,30 +13,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2016
-ms.author: deonhe
+ms.author: estfan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 0312aa6e4a303d15454385b94107a07809257ab3
+ms.sourcegitcommit: 683fe55c16862c3f7df8741d491edd9ba238351d
+ms.openlocfilehash: 015e387c1b252165017c4a68b26d07ef89d54ef6
 
 
 ---
 # <a name="xml-processing"></a>Processamento de XML
-O Enterprise Integration Pack facilita a validação e o processamento dos documentos XML que você troca com parceiros de negócios. Veja a seguir as maneiras com as quais você pode processar essas mensagens XML usando aplicativos lógicos:  
+Valide e processe documentos XML trocados com parceiros em cenários B2B mais facilmente usando o Enterprise Integration Pack com o Aplicativo Lógico do Azure. Veja a seguir as maneiras pelas quais você pode processar mensagens XML:
 
-* [Validação de XML](logic-apps-enterprise-integration-xml-validation.md "Saiba mais sobre a validação de mensagens XML") - Validação de XML fornece a habilidade de validar uma mensagem proveniente de um ponto de extremidade de origem contra um esquema específico.
-* [Transformação XML](../logic-apps/logic-apps-enterprise-integration-transform.md "Saiba mais sobre mapas e transformações de mensagens XML") - Transformação XML fornece a habilidade de converter uma mensagem XML com base nos requisitos de um ponto de extremidade de destino.   
-* [Codificação e decodificação de arquivos simples](logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre a codificação/decodificação de arquivos simples") -A codificação/decodificação de arquivos simples fornece a capacidade de codificar ou decodificar um arquivo simples. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - Fornece a capacidade de aprimorar uma mensagem e extrair propriedades específicas dela. As propriedades extraídas podem ser usadas para rotear a mensagem a um destino ou a um ponto de extremidade intermediário.    
+* [Validação de XML](logic-apps-enterprise-integration-xml-validation.md "Saiba mais sobre a validação de mensagens XML") – Validar uma mensagem proveniente de um ponto de extremidade de origem em relação a um esquema específico.
+* [Transformação XML](../logic-apps/logic-apps-enterprise-integration-transform.md "Saiba mais sobre mapas e transformações de mensagens XML") – Converter uma mensagem XML com base nos requisitos de um ponto de extremidade de destino.
+* [Codificação e decodificação de arquivos simples](logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre a codificação/decodificação de arquivos simples") Codificar ou decodificar arquivos simples. 
+* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) – Aprimorar uma mensagem e extrair propriedades específicas dela. Então, será possível usar as propriedades extraídas para rotear a mensagem a um destino ou a um ponto de extremidade intermediário.
 
-## <a name="try-it-for-yourself"></a>Experimente
-Por que não experimentá-lo? Clique [aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) para implantar um aplicativo lógico seu totalmente operacional usando os recursos XML dos Aplicativos Lógicos 
+## <a name="try-out-xml-processing"></a>Experimente o processamento de XML
+[Implantar um aplicativo lógico totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) usando recursos de XML no Aplicativo Lógico do Azure.
 
 ## <a name="learn-more"></a>Saiba mais
-[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
+[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

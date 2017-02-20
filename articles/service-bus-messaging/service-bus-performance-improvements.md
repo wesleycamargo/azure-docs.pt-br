@@ -1,6 +1,6 @@
 ---
-title: "Melhores práticas para melhorar o desempenho usando o Barramento de Serviço | Microsoft Docs"
-description: "Descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas."
+title: "Práticas recomendadas para melhorar o desempenho usando o Barramento de Serviço do Azure| Microsoft Docs"
+description: "Descreve como usar o Barramento de Serviço para otimizar o desempenho na troca de mensagens agenciadas."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,29 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 02/02/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
+ms.openlocfilehash: 8f9bcee4cf1ce0b226c93a40017487122f59daaa
 
 
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
-Este tópico descreve como usar o Sistema de Mensagens do Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas. A primeira parte deste tópico descreve os diferentes mecanismos oferecidos para ajudar a melhorar o desempenho. A segunda parte oferece orientação sobre como usar o Barramento de Serviço de uma maneira que possa oferecer o melhor desempenho em um determinado cenário.
+Este artigo descreve como usar o [Sistema de Mensagens do Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) para otimizar o desempenho na troca de mensagens agenciadas. A primeira parte deste tópico descreve os diferentes mecanismos oferecidos para ajudar a melhorar o desempenho. A segunda parte oferece orientação sobre como usar o Barramento de Serviço de uma maneira que possa oferecer o melhor desempenho em um determinado cenário.
 
 Ao longo deste tópico, o termo "cliente" refere-se a qualquer entidade que acesse o Barramento de Serviço. Um cliente pode assumir a função de um remetente ou de um receptor. O termo "remetente" é usado para um cliente de fila ou de tópico do Barramento de Serviço que envia mensagens para uma fila ou um tópico do Barramento de Serviço. O termo "receptor" refere-se a um cliente de fila ou de assinatura do Barramento de Serviço que recebe mensagens de uma fila ou uma assinatura do Barramento de Serviço.
 
 Estas seções apresentam vários conceitos usados pelo Barramento de Serviço para melhorar o desempenho.
 
 ## <a name="protocols"></a>Protocolos
-O Barramento de Serviço permite que os clientes enviem e recebam mensagens por meio de três protocolos
+O Barramento de Serviço permite que os clientes enviem e recebam mensagens por meio de um destes três protocolos:
 
 1. Advanced Message Queuing Protocol (AMQP)
 2. Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
-3. HTTP
+3. http
 
-AMQP e SBMP são mais eficientes, pois eles mantêm a conexão com o Barramento de Serviço enquanto existe a fábrica do sistema de mensagens. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o uso do AMQP ou do SBMP.
+AMQP e SBMP são mais eficientes, pois mantêm a conexão com o Barramento de Serviço enquanto a fábrica do sistema de mensagens existir. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o uso do AMQP ou do SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizando fábricas e clientes
 Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient] ou [MessageSender][MessageSender], são criados por meio de um objeto [MessagingFactory][MessagingFactory], que também oferece gerenciamento interno de conexões. Você não deve fechar fábricas do sistema de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando a mesma fábrica e objetos de cliente para diversas operações. É possível usar com segurança o objeto [QueueClient][QueueClient] para enviar mensagens de operações assíncronas simultâneas e de vários threads. 
@@ -44,7 +44,7 @@ A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo.
 
 * **Operações assíncronas**: o cliente agenda operações realizando operações assíncronas. A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. Este é um exemplo de uma operação de envio assíncrono:
   
-  ```
+ ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
   BrokeredMessage m2 = new BrokeredMessage(body);
   
@@ -62,7 +62,7 @@ A execução de uma operação (enviar, receber, excluir etc.) leva algum tempo.
   
   Este é um exemplo de uma operação de recebimento assíncrono:
   
-  ```
+  ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
   
@@ -87,13 +87,13 @@ Ao definir o modo de recebimento como [ReceiveAndDelete][ReceiveAndDelete], as d
 O Barramento de Serviço não dá suporte a transações para operações de receber e excluir. Além disso, a semântica do bloqueio de pico é necessária para todos os cenários em que o cliente deseje adiar uma mensagem ou enviá-la para as [mensagens mortas](service-bus-dead-letter-queues.md).
 
 ## <a name="client-side-batching"></a>Envio em lote no lado do cliente
-O envio em lote no lado do cliente permite que um cliente de fila ou de tópico atrase o envio de uma mensagem por um determinado período. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. O envio em lote no lado do cliente também faz com que um cliente de fila/assinatura agrupe em lote diversas solicitações **Concluir** em uma única solicitação. O envio em lote está disponível apenas para operações **Enviar** e **Concluir** assíncronas. As operações síncronas são imediatamente enviadas para o serviço Barramento de Serviço. O envio em lote não ocorre para as operações de pico ou de recebimento, e também não ocorre entre clientes.
+O envio em lote no lado do cliente permite que um cliente de fila ou de tópico atrase o envio de uma mensagem por um determinado período. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. O envio em lote do lado do cliente também faz com que um cliente de fila ou assinatura agrupe em lote diversas solicitações **Concluir** em uma única solicitação. O envio em lote está disponível apenas para operações **Enviar** e **Concluir** assíncronas. As operações síncronas são imediatamente enviadas para o serviço Barramento de Serviço. O envio em lote não ocorre para as operações de pico ou de recebimento, e também não ocorre entre clientes.
 
 Por padrão, um cliente usa um intervalo de lote de 20 ms. Você pode alterar o intervalo de lote definindo a propriedade [BatchFlushInterval][BatchFlushInterval] antes de criar a fábrica de mensagens. Essa configuração afeta todos os clientes criados por essa fábrica.
 
 Para desabilitar o envio em lote, defina a propriedade [BatchFlushInterval][BatchFlushInterval] como **TimeSpan.Zero**. Por exemplo:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -103,11 +103,11 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 O envio em lote não afeta o número de operações faturáveis do sistema de mensagens e está disponível somente para o protocolo de cliente do Barramento de Serviço. O protocolo HTTP não dá suporte ao envio em lote.
 
 ## <a name="batching-store-access"></a>Acesso ao repositório do envio em lote
-Para aumentar a taxa de transferência de uma fila/tópico/assinatura, o Barramento de Serviço agrupa várias mensagens ao gravar em seu repositório interno. Se habilitada em uma fila ou tópico, a gravação de mensagens no repositório ocorrerá em lote. Se habilitada em uma fila ou assinatura, a exclusão de mensagens no repositório ocorrerá em lote. Se o acesso ao repositório em lote estiver habilitado para uma entidade, o Barramento de Serviço atrasará uma operação de gravação do repositório em relação àquela entidade por até 20 ms. As operações de armazenamento adicionais que ocorrerem durante esse intervalo serão adicionadas ao lote. O acesso ao repositório em lote só afetará as operações **Enviar** e **Concluir**; as operações de receber não são afetadas. O acesso ao repositório em lote é uma propriedade em uma entidade. O envio em lote ocorrerá em todas as entidades que permitirem o acesso ao repositório em lote.
+Para aumentar a taxa de transferência de uma fila, tópico ou assinatura, o Barramento de Serviço agrupa várias mensagens ao gravar em seu repositório interno. Se habilitada em uma fila ou tópico, a gravação de mensagens no repositório ocorrerá em lote. Se habilitada em uma fila ou assinatura, a exclusão de mensagens no repositório ocorrerá em lote. Se o acesso ao repositório em lote estiver habilitado para uma entidade, o Barramento de Serviço atrasará uma operação de gravação do repositório em relação àquela entidade por até 20 ms. As operações de armazenamento adicionais que ocorrerem durante esse intervalo serão adicionadas ao lote. O acesso ao repositório em lote só afetará as operações **Enviar** e **Concluir**; as operações de receber não são afetadas. O acesso ao repositório em lote é uma propriedade em uma entidade. O envio em lote ocorrerá em todas as entidades que permitirem o acesso ao repositório em lote.
 
 Quando uma nova fila, um novo tópico ou uma nova assinatura for criada, o acesso ao repositório em lote será habilitado por padrão. Para desabilitar o acesso ao repositório em lote, defina a propriedade [EnableBatchedOperations][EnableBatchedOperations] como **false** antes de criar a entidade. Por exemplo:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -120,7 +120,7 @@ A pré-busca permite que o cliente de fila ou de assinatura carregue mensagens a
 
 Quando uma mensagem for pré-buscada, ela será bloqueada pelo serviço. Ao fazer isso, a mensagem pré-buscada não poderá ser recebida por um receptor diferente. Se o receptor não puder concluir a mensagem antes da expiração do bloqueio, a mensagem ficará disponível para outros destinatários. A cópia pré-buscada da mensagem permanecerá no cache. O receptor que consumir a cópia armazenada em cache expirada receberá uma exceção ao tentar concluir essa mensagem. Por padrão, o bloqueio da mensagem expira após 60 segundos. Esse valor pode ser estendido para 5 minutos. Para impedir o consumo de mensagens expiradas, o tamanho do cache sempre deverá ser menor do que o número de mensagens que podem ser consumidas por um cliente no intervalo de tempo limite de bloqueio.
 
-Ao usar a expiração de bloqueio padrão de 60 segundos, um bom valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] será de 20 vezes as taxas máximas de processamento de todos os receptores da fábrica. Por exemplo, uma fábrica cria 3 receptores e cada receptor pode processar até 10 mensagens por segundo. A contagem de pré-busca não deve exceder 20\*3\*10 = 600. Por padrão, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] é definido como 0, o que significa que nenhuma mensagem adicional será buscada do serviço.
+Ao usar a expiração de bloqueio padrão de 60 segundos, um bom valor para [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] será de 20 vezes as taxas máximas de processamento de todos os receptores da fábrica. Por exemplo, uma fábrica cria 3 receptores e cada receptor pode processar até 10 mensagens por segundo. A contagem de pré-busca não deve exceder 20 X 3 X 10 = 600. Por padrão, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] é definido como 0, o que significa que nenhuma mensagem adicional será buscada do serviço.
 
 A pré-busca de mensagens aumenta a taxa de transferência geral de uma fila ou uma assinatura porque reduz o número geral de operações de mensagem, ou as viagens de ida e volta. A busca da primeira mensagem, no entanto, demorará mais (devido ao tamanho maior da mensagem). O recebimento de mensagens pré-buscadas será mais rápido porque essas mensagens já foram baixadas pelo cliente.
 
@@ -131,7 +131,7 @@ A pré-busca não afeta o número de operações faturáveis do sistema de mensa
 ## <a name="express-queues-and-topics"></a>Filas e tópicos expressos
 As entidades expressas permitem a existência de cenários de alta taxa de transferência e de latência reduzida. Com as entidades expressas, caso uma mensagem seja enviada para uma fila ou um tópico, ela não será armazenada imediatamente no repositório de mensagens. Em vez disso, ela será armazenada em cache na memória. Se uma mensagem permanecer na fila por mais de alguns segundos, será automaticamente gravada em armazenamento estável, que o protegerá contra perda devido a uma interrupção. A gravação da mensagem em um cache de memória aumenta a taxa de transferência e reduz a latência porque não há nenhum acesso ao armazenamento estável no momento em que a mensagem é enviada. As mensagens consumidas em alguns segundos não são gravadas no repositório de mensagens. O exemplo a seguir cria um tópico expresso.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -142,7 +142,7 @@ Se uma mensagem com informações importantes que não devem ser perdidas for en
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de filas ou tópicos particionados
 Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][EnablePartitioning] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;
@@ -150,14 +150,14 @@ namespaceManager.CreateQueue(qd);
 ```
 
 ## <a name="use-of-multiple-queues"></a>Uso de várias filas
+
 Se não for possível usar uma fila ou tópico particionado, ou se a carga esperada não puder ser manipulada por uma única fila ou tópico particionada, você deverá usar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade em vez de usar o mesmo cliente para todas as entidades.
 
-## <a name="development--testing-features"></a>Recursos de desenvolvimento e teste
-O Barramento de Serviço tem um recurso usado especificamente para desenvolvimento que **nunca deve ser usado em configurações de produção**.
+## <a name="development-and-testing-features"></a>Recursos de desenvolvimento e teste
 
-[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+O Barramento de Serviço tem um recurso usado especificamente para desenvolvimento que **nunca deve ser usado em configurações de produção**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
-* Quando novas regras ou filtros são adicionados ao tópico, EnableFilteringMessagesBeforePublishing pode ser usado para verificar se a nova expressão de filtro está funcionando conforme o esperado.
+Quando novas regras ou filtros são adicionados ao tópico, é possível usar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para verificar se a nova expressão de filtro está funcionando conforme o esperado.
 
 ## <a name="scenarios"></a>Cenários
 As seções a seguir descrevem cenários típicos de mensagens e as configurações preferenciais do Barramento de Serviço. As taxas de transferência são classificadas como pequena (menos de 1 mensagem/segundo), moderada (1 mensagem/segundo ou mais, mas menos de 100 mensagens por segundo) e alta (100 mensagens/segundo ou mais). O número de clientes é classificado como pequeno (5 ou menos), moderado (de 5 a 20) e grande (mais de 20).
@@ -243,21 +243,22 @@ Para maximizar a taxa de transferência, faça o seguinte:
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][Partitioned messaging entities].
 
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-[MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
-[MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
-[PeekLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[ReceiveAndDelete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx
-[BatchFlushInterval]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.netmessagingtransportsettings.batchflushinterval.aspx
-[EnableBatchedOperations]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations.aspx
-[QueueClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.prefetchcount.aspx
-[SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
-[ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
-[EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
+[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
+[MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
+[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
+[PeekLock]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[ReceiveAndDelete]: /dotnet/api/microsoft.servicebus.messaging.receivemode
+[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.netmessagingtransportsettings#Microsoft_ServiceBus_Messaging_NetMessagingTransportSettings_BatchFlushInterval
+[EnableBatchedOperations]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableBatchedOperations
+[QueueClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PrefetchCount
+[SubscriptionClient.PrefetchCount]: /dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
+[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
+[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
 [Partitioned messaging entities]: service-bus-partitioning.md
+[TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

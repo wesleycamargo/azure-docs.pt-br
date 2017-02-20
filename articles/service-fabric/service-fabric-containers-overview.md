@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/6/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 9349c6c60801c87726eb9f848706b39b08eb2b5d
-ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
+ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
+ms.openlocfilehash: abf5e4bc69aa32ca9af8998ef81de20baae24560
 
 
 ---
@@ -26,7 +26,10 @@ ms.openlocfilehash: 7c6d232bce7ac9d364ad9d7b26c3164e00fc18ac
 >   
 
 ## <a name="introduction"></a>Introdução
-O Azure Service Fabric é um [orquestrador](service-fabric-cluster-resource-manager-introduction.md) de serviços em um cluster de computadores. Os serviços podem ser desenvolvidos de várias maneiras, desde usando os [modelos de programação do Service Fabric ](service-fabric-choose-framework.md) até implantando [executáveis convidados](service-fabric-deploy-existing-app.md). Por padrão, o Service Fabric implanta e ativa esses serviços como processos. Processos fornecem a ativação mais rápida e o uso de densidade mais alto dos recursos em um cluster. O Service Fabric também pode implantar serviços em imagens de contêiner. É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo. Você tem o melhor dos dois mundos, dependendo do cenário.
+O Azure Service Fabric é um [orquestrador](service-fabric-cluster-resource-manager-introduction.md) de serviços entre um cluster de computadores, com anos de uso e otimização em grande escala dos serviços da Microsoft. Os serviços podem ser desenvolvidos de várias maneiras, desde usando os [modelos de programação do Service Fabric ](service-fabric-choose-framework.md) até implantando [executáveis convidados](service-fabric-deploy-existing-app.md). Por padrão, o Service Fabric implanta e ativa esses serviços como processos. Processos fornecem a ativação mais rápida e o uso de densidade mais alto dos recursos em um cluster. O Service Fabric também pode implantar serviços em imagens de contêiner. É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo. 
+
+## <a name="containers-and-service-fabric-roadmap"></a>Mapa dos contêineres e do Service Fabric
+Nas próximas versões, o Service Fabric continuará a adicionar suporte extensivo para contêineres no Windows e no Linux, incluindo melhorias em redes, restrições de recursos, segurança, diagnósticos, drivers de volume e suporte de ferramentas, especialmente no Visual Studio, para que a experiência de usar imagens de contêiner para implantar serviços seja de primeira classe. Assim, você tem a opção de escolher qualquer contêiner para empacotar o código existente (por exemplo, aplicativos IIS MVC) ou os modelos de programação do Service Fabric e, como o Service Fabric os trata da mesma forma, é possível combiná-los em seus aplicativos, proporcionando flexibilidade na implantação de códigos. Você tem o melhor dos dois mundos, dependendo do cenário.
 
 ## <a name="what-are-containers"></a>O que são contêineres?
 Contêineres são componentes encapsulados e implantados individualmente executados como instâncias isoladas no mesmo kernel para beneficiarem-se da virtualização que um sistema operacional oferece. Isso significa que cada aplicativo e seu tempo de execução, suas dependências e suas bibliotecas de sistema são executados dentro de um contêiner com acesso privado e completo à exibição isolada própria do contêiner dos constructos do sistema operacional. Junto com a portabilidade, esse nível de isolamento de segurança e de recursos é o principal benefício para o uso de contêineres com o Service Fabric, que, caso contrário, executa serviços em processos.
@@ -49,7 +52,7 @@ Para um passo a passo sobre como fazer isso, leia [Implantar um contêiner do Do
 ### <a name="windows-server-containers"></a>Contêineres do Windows Server
 O Windows Server 2016 fornece dois tipos diferentes de contêineres que diferem no nível de isolamento fornecido. Contêineres do Windows Server e contêineres do Docker são semelhantes porque ambos têm isolamento de sistema de arquivos e namespace, mas compartilham o kernel com o host no qual estão sendo executados. No Linux, esse isolamento tradicionalmente foi fornecido por cgroups e namespaces, e contêineres do Windows Server se comportam da mesma forma.
 
-Contêineres do Windows Hyper-V fornecem mais segurança e isolamento porque nenhum contêiner compartilha o kernel do sistema operacional com outros contêineres ou com o host. Com esse nível mais alto de isolamento de segurança, os contêineres do Hyper-V são especialmente almejados em cenários hostis multilocatários.
+Contêineres do Windows Hyper-V fornecem mais segurança e isolamento porque nenhum contêiner compartilha o kernel do sistema operacional com outros contêineres ou com o host. Com esse nível mais alto de isolamento de segurança, os contêineres do Hyper-V são indicados para cenários hostis e multilocatários.
 
 Para um passo a passo sobre como fazer isso, leia [Implantar um contêiner do Windows no Service Fabric](service-fabric-deploy-container.md).
 
@@ -60,8 +63,8 @@ A figura a seguir mostra os diferentes tipos de virtualização e níveis isolam
 Estes são exemplos típicos em que um contêiner é uma boa opção:
 
 * **Comparar e deslocar IIS**: se você tiver aplicativos [ASP.NET MVC](https://www.asp.net/mvc) existentes que deseje continuar usando, coloque-os em um contêiner, em vez de migrá-los para ASP.NET Core. Esses aplicativos ASP.NET MVC dependem do IIS (Serviços de Informações da Internet). Você pode empacotá-los em imagens de contêiner da imagem do IIS pré-criada e implantá-los com o Service Fabric. Consulte [Imagens de Contêiner no Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) para obter informações sobre como criar imagens do IIS.
-* **Combinar contêineres e microsserviços do Service Fabric**: use uma imagem existente do contêiner para parte do seu aplicativo. Por exemplo, você pode usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado compilados com Reliable Services para obter a computação mais intensiva de back-end. Um exemplo desse cenário inclui aplicativos de jogos.
-* **Reduzir o impacto de serviços "vizinhos ruidosos"**: você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços puderem consumir muitos recursos e afetarem o desempenho dos outros (como uma operação demorada semelhante a consulta), considere colocar esses serviços em contêineres que tenham governança de recursos.
+* **Combinar contêineres e microsserviços do Service Fabric**: use uma imagem existente do contêiner para parte do seu aplicativo. Por exemplo, é possível usar o [contêiner NGINX](https://hub.docker.com/_/nginx/) para o front-end da Web do seu aplicativo e serviços com estado para obter a computação mais intensiva de back-end.
+* **Reduzir o impacto de serviços "vizinhos ruidosos"**: você pode usar a capacidade de governança de recursos de contêineres para restringir os recursos que um serviço usa em um host. Se os serviços consumirem muitos recursos e afetarem o desempenho dos outros (como uma operação demorada, parecida com uma consulta), considere colocar esses serviços em contêineres com governança de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte ao Service Fabric para contêineres
 Atualmente, o Service Fabric dá suporte à implantação de contêineres de Docker em contêineres do Linux e do Windows Server no Windows Server 2016. O suporte para contêineres do Hyper-V será adicionado em uma versão futura.
@@ -92,6 +95,6 @@ Neste artigo, você aprendeu sobre contêineres, que o Service Fabric é um orqu
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e6d559a78fbd73be1dd5e745496515ce71404cad
-ms.openlocfilehash: ea7000d3e56c5132dba3f144c7bad671d0e3054a
+ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
+ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
 
 
 ---
@@ -246,15 +246,31 @@ Usando as [rotas do dispositivo para nuvem][lnk-devguide-messaging-routes], voc�
 A [condição][lnk-query-expressions] da rota usa a mesma linguagem de consulta que o Hub IoT como condições em consultas gêmeas e de trabalho. As condições de rota são avaliadas nas propriedades da mensagem, assumindo a seguinte representação JSON:
 
         {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": ""
+
             "userProperty1": "",
             "userProperty2": ""
         }
+
+As propriedades do sistema de mensagens são fixadas previamente com o símbolo `'$'`.
+As propriedades do usuário sempre serão acessadas com seu nome. Se um nome de propriedade de usuário coincidir com uma propriedade do sistema (como `$to`), a propriedade de usuário será recuperada com a expressão `$to`.
+Você sempre pode acessar a propriedade do sistema usando colchetes `{}`: por exemplo, é possível usar a expressão `{$to}` para acessar a propriedade de sistema `to`. Nomes de propriedade entre colchetes sempre recuperam a propriedade do sistema correspondente.
 
 Lembre-se que os nomes de propriedade não diferenciam maiúsculas de minúsculas.
 
 > [!NOTE]
 > Todas as propriedades de mensagem são cadeias de caracteres. As propriedades do sistema, conforme descrito no [guia do desenvolvedor][lnk-devguide-messaging-format], não estão disponíveis para serem usadas em consultas no momento.
->
 >
 
 Por exemplo, se você usar uma propriedade `messageType`, poderá querer rotear toda a telemetria para um ponto de extremidade e todos os alertas para outro. Você pode escrever a expressão a seguir para rotear a telemetria:
@@ -458,6 +474,6 @@ Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

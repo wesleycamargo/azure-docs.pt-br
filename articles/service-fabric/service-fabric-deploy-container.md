@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/4/2017
+ms.date: 2/6/2017
 ms.author: msfussell
 translationtype: Human Translation
-ms.sourcegitcommit: d7aa8568dd6fdd806d8ad70e408f108c722ec1ce
-ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
+ms.sourcegitcommit: 93e0493e6a62a70a10b8315142765a3c3892acd1
+ms.openlocfilehash: a29dd68c5daeaa290b351e6e04417f604bc30ddb
 
 
 ---
@@ -30,7 +30,7 @@ ms.openlocfilehash: c444ed85e2108a1b54d468f410c446aa6032e2a2
 Este artigo o orienta pelo processo de compilação de serviços contidos em contêineres do Windows.
 
 > [!NOTE]
-> Este recurso está no modo de visualização para Linux e Windows Server 2016.
+> Este recurso está em versão prévia para o Windows Server 2016.
 >  
 
 O Service Fabric tem vários recursos de contêiner que ajudam na compilação de aplicativos que são compostos por microsserviços que estão em contêineres. 
@@ -57,18 +57,32 @@ O Visual Studio fornece um modelo de serviço do Service Fabric para ajudar voc�
 
 1. Escolha **Arquivo** > **Novo Projeto** e crie um aplicativo de Service Fabric.
 2. Escolha **Contêiner Convidado** como o modelo de serviço.
-3. Escolha **Nome da Imagem** e forneça o caminho para a imagem no seu repositório de contêineres como em https://hub.docker.com/ Por exemplo, myrepo/myimage:v1 
+3. Escolha **Nome da Imagem** e forneça o caminho para a imagem no seu repositório de contêineres, como em https://hub.docker.com/, por exemplo, myrepo/myimage:v1 
 4. Dê um nome ao seu serviço e clique em **OK**.
 5. Se seu serviço em contêiner precisar de um ponto de extremidade para comunicação, você poderá adicionar o protocolo, a porta e o tipo ao arquivo ServiceManifest.xml. Por exemplo: 
      
     `<Endpoint Name="MyContainerServiceEndpoint" Protocol="http" Port="80" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
     
-    Ao fornecer `UriScheme`, o ponto de extremidade do contêiner é registrado automaticamente no serviço de Nomenclatura do Service Fabric para capacidade de descoberta. A porta pode ser fixa (como mostrado no exemplo acima) ou alocada dinamicamente (deixado em branco e uma porta é alocada desde o intervalo de portas de aplicativo designado), assim como você faria com qualquer serviço.
+    Ao fornecer `UriScheme`, o ponto de extremidade do contêiner é registrado automaticamente no serviço de Nomenclatura do Service Fabric para capacidade de descoberta. A porta pode ser fixa (como mostrado no exemplo anterior) ou alocada dinamicamente (deixada em branco e uma porta é alocada do intervalo de portas de aplicativo designado), assim como você faria com qualquer serviço.
     Você também precisa configurar o mapeamento de porta, da porta para o host, do contêiner especificando uma política `PortBinding` no manifesto do aplicativo, conforme descrito abaixo.
-6. Se seu contêiner precisar de governança de recursos, adicione `ResourceGovernancePolicy`. Veja um exemplo abaixo.
-8. Se seu contêiner precisar autenticar com um repositório privado, adicione `RepositoryCredentials`. Veja um exemplo abaixo.
+6. Se seu contêiner precisar de governança de recursos, adicione `ResourceGovernancePolicy`.
+8. Se seu contêiner precisar autenticar com um repositório privado, adicione `RepositoryCredentials`.
 7. Agora você pode usar o pacote e a ação de publicação no seu cluster local no caso do Windows Server 2016 com suporte ao contêiner ativado. 
 8. Quando estiver pronto, você poderá publicar o aplicativo em um cluster remoto ou fazer check-in da solução para o controle do código-fonte. 
+
+Para obter um aplicativo de exemplo, [confira os códigos de exemplo de contêiner do Service Fabric no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+
+## <a name="creating-a-windows-server-2016-cluster"></a>Criar um cluster do Windows Server 2016
+Para implantar aplicativos contidos, é necessário criar um cluster que execute o Windows Server 2016 com o suporte para contêineres habilitado. Tal implantação pode ser realizada no seu computador de desenvolvimento local ou por meio do Azure Resource Manager (ARM), no Azure. 
+
+Para implantar um cluster usando o ARM, escolha a opção de imagem do **Windows Server 2016 com Contêineres** no Azure. Consulte o artigo [Criar um cluster do Service Fabric usando o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Verifique se você está usando as seguintes configurações do ARM:
+
+```xml
+"vmImageOffer": { "type": "string","defaultValue": "WindowsServer"     },
+"vmImageSku": { "defaultValue": "2016-Datacenter-with-Containers","type": "string"     },
+"vmImageVersion": { "defaultValue": "latest","type": "string"     },  
+```
+Também é possível usar o [modelo de&5; Nós do ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) para criar um cluster. Como alternativa, confira a [postagem no blog do Leok](https://loekd.blogspot.com/2017/01/running-windows-containers-on-azure.html) sobre como usar o Service Fabric e os contêineres do Windows.
 
 <a id="manually"></a>
 
@@ -286,9 +300,11 @@ Aqui está um exemplo de manifesto de serviço (especificado no manifesto do apl
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você implantou um serviço em contêiner, saiba como gerenciar seu ciclo de vida lendo [ciclo de vida de aplicativos do Service Fabric](service-fabric-application-lifecycle.md).
 
+* [Visão geral do Service Fabric e contêineres](service-fabric-containers-overview.md)
 
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

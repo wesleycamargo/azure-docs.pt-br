@@ -1,6 +1,6 @@
 ---
 title: "Habilitar Transparent Data Encryption na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar Transparent Data Encryption**."
+description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Habilitar a Transparent Data Encryption**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6944454190d2744cd7cd9a25d9876c5c7427b5f8
+ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
 
 
 ---
@@ -27,8 +27,8 @@ Essa recomendação se aplica apenas ao serviço do SQL Azure, não incluindo o 
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Habilitar Transparent Data Encryption**.
@@ -37,9 +37,9 @@ Essa recomendação se aplica apenas ao serviço do SQL Azure, não incluindo o 
    ![Selecionar o banco de dados SQL no qual habilitar a TDE][2]
 3. Na folha **Criptografia de dados transparentes**, selecione **ATIVAR** em Criptografia de dados e selecione **Salvar** na faixa de opções superior da folha.
    ![Ativar TDE][3]
-   
+
    Quando a TDE for habilitada no banco de dados SQL selecionado, o **Status da criptografia** será alterado para **Criptografado**.    
-   
+
    ![Status de criptografia][4]
 
 ## <a name="see-also"></a>Consulte também
@@ -66,6 +66,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

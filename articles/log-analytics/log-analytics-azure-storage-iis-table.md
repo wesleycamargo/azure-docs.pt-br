@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/01/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+ms.sourcegitcommit: 79f5bad314b230df27c73fb7e60e173778c96865
+ms.openlocfilehash: da31e1ceebfecf766828fa761b01f4e346cd13aa
 
 
 ---
@@ -69,8 +69,6 @@ Use o procedimento a seguir para habilitar os diagnósticos do Azure em uma máq
    4. Defina o **Status** como **ATIVO**.
    5. Selecione cada log de diagnóstico que deseja coletar.
    6. Clique em **OK**.
-
-Usando o PowerShell do Azure, você pode especificar mais precisamente os eventos gravados no armazenamento do Azure. Veja [Coletar dados usando diagnósticos do Azure gravados no armazenamento de tabelas ou então Logs do IIS gravados no blob](log-analytics-azure-storage-json.md).
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Habilitar diagnóstico do Azure em uma função web para coleta de eventos e log do IIS
 Consulte [How To Enable Diagnostics in a Cloud Service (Como habilitar o diagnóstico em um serviço de nuvem)](../cloud-services/cloud-services-dotnet-diagnostics.md) para ver etapas gerais sobre como habilitar o diagnóstico do Azure. As instruções abaixo usam essas informações e as personalizam para uso com o Log Analytics.
@@ -192,12 +190,12 @@ Revise o exemplo de script a seguir, copie-o, modifique-o conforme necessário, 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Use arquivos JSON no Armazenamento de Blobs](log-analytics-azure-storage-json.md) para ler os logs de serviços do Azure que gravam diagnósticos no armazenamento de blobs no formato JSON.
+* [Coletar logs e métricas para serviços do Azure](log-analytics-azure-storage.md) para serviços do Azure com suporte.
 * [Habilitar Soluções](log-analytics-add-solutions.md) para fornecer informações sobre os dados.
 * [Usar consultas de pesquisa](log-analytics-log-searches.md) para analisar os dados.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

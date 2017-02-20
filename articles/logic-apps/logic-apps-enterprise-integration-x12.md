@@ -1,9 +1,9 @@
 ---
-title: "Visão geral de X12 e do Enterprise Integration Pack | Microsoft Docs"
-description: "Saiba como usar contratos X12 para criar aplicativos lógicos"
+title: "Criar um contrato X12 no aplicativo lógico do Azure | Microsoft Docs"
+description: "Aprenda a criar um contrato X12 para o Enterprise Integration Pack | Aplicativo Lógico do Azure"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: padmavc
 manager: anneta
 editor: cgronlun
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
@@ -12,67 +12,63 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2016
-ms.author: deonhe
+ms.date: 01/31/2017
+ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 0d4e716242ce2474e0d8097cfbaa4bb546004ed9
+ms.sourcegitcommit: 1a982309fe771c0c244c691ae648bd5f4844a825
+ms.openlocfilehash: f7b61b85cadfabde6637e46f0e65108a29901198
 
 
 ---
 # <a name="enterprise-integration-with-x12"></a>Integração corporativa com o X12
-> [!NOTE]
-> Esta página cobre os recursos de X12 dos Aplicativos Lógicos. Para obter informações sobre X12 clique [aqui](../logic-apps/logic-apps-enterprise-integration-edifact.md).
-> 
-> 
 
-## <a name="create-an-x12-agreement"></a>Criar um contrato X12
+## <a name="prereqs"></a>Pré-requisitos
 Para poder trocar mensagens X12, você precisará criar um contrato X12 e armazená-lo em sua conta de integração. As etapas a seguir orientarão você pelo processo de criação de um contrato X12.
 
-### <a name="heres-what-you-need-before-you-get-started"></a>Veja o que você precisa antes de começar
 * Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) definida em sua assinatura do Azure  
-* Pelo menos dois [parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md) já definidos em sua conta de integração  
+* Pelo menos dois [parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md) configurados com o qualificador EDI X12 em identidades comerciais.   
+* [Esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obrigatório a ser carregado na [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md)
 
-> [!NOTE]
-> Ao criar um contrato, o conteúdo do arquivo do contrato deve corresponder ao tipo de contrato.    
-> 
-> 
-
-Depois que você ter [criado uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [adicionado parceiros](../logic-apps/logic-apps-enterprise-integration-partners.md), poderá criar um contrato X12 seguindo estas etapas:  
-
-### <a name="from-the-azure-portal-home-page"></a>Na página inicial do Portal do Azure
+## <a name="create-an-x12-agreement"></a>Criar um contrato X12
 Depois de fazer logon no [Portal do Azure](http://portal.azure.com "Portal do Azure"):  
 
-1. Selecione **Procurar** no menu à esquerda.  
+1. Entre no [portal do Azure](http://portal.azure.com "portal do Azure")
+2. Selecione **Mais serviços** e digite **integração** na caixa de pesquisa de filtro. Selecione **Contas de Integração** na lista de resultados:    
+![](./media/logic-apps-enterprise-integration-agreements/overview-1.png)    
+3. Selecione a conta de integração à qual você deseja adicionar o certificado:    
+![](./media/logic-apps-enterprise-integration-overview/overview-3.png)   
+4. Selecione o bloco **Contratos** . Caso você não veja o bloco de contratos, adicione-o:     
+![](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)   
+5. Selecione o botão **Adicionar** na folha Contratos que se abre.   
+![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+6. Insira um **Nome** para seu contrato, em seguida, selecione o **Tipo de Contrato**, **Parceiro de Host**, **Identidade do Host**,  **Parceiro Convidado**, **Identidade do Convidado**, na folha Contratos aberta.    
+![](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-> [!TIP]
-> Se você não vir o link **Procurar** , talvez seja necessário expandir o menu primeiro. Faça isso selecionando o link **Mostrar menu** que está localizado na parte superior esquerda do menu recolhido.  
+| Propriedade | Descrição |
+| --- | --- |
+| Nome |Nome do contrato |
+| Tipo de contrato | Deve ser X12 |
+| Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato |
+| Identidade do Host |Um identificador para o parceiro host |
+| Parceiro Convidado |Um contrato precisa dos parceiros host e convidado. O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
+| Identidade do Convidado |Um identificador para o parceiro convidado |
+| Configurações de Recebimento |Essas propriedades se aplicam a todas as mensagens recebidas por um contrato |
+| Configurações de Envio |Essas propriedades se aplicam a todas as mensagens enviadas por um contrato |  
+
+> [!NOTE]
+> A resolução do contrato X12 depende da correspondência entre o identificador e qualificador de remetente e o identificador e qualificador do receptor definidos no parceiro e na mensagem de entrada.  Se houver alterações desses valores no parceiro, edite o contrato.
 > 
 > 
 
-![](./media/logic-apps-enterprise-integration-overview/overview-1.png)    
+## <a name="receive-settings"></a>Configurações de Recebimento
 
-1. Digite *integração* na caixa de pesquisa do filtro, em seguida, selecione **Contas de Integração** na lista de resultados.       
-   ![](./media/logic-apps-enterprise-integration-x12/x12-1-3.png)    
-2. Na folha **Contas de Integração** que é aberta, selecione a conta de integração na qual você criará o contrato. Se você não vir nenhuma lista de contas de integração, [crie uma primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "All about integration accounts").  
-   ![](./media/logic-apps-enterprise-integration-x12/x12-1-4.png)  
-3. Selecione o bloco **Contratos** . Se você não vir o bloco de contratos, adicione-o primeiro.   
-   ![](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)     
-4. Selecione o botão **Adicionar** na folha Contratos que se abre.  
-   ![](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)  
-5. Insira um **Nome** para seu contrato, em seguida, selecione o **Tipo de Contrato**, **Parceiro de Host**, **Identidade do Host**,  **Parceiro Convidado**, **Identidade do Convidado**, na folha Contratos aberta.  
-   ![](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
-6. Depois de ter definido as propriedades das configurações de recebimento, selecione o botão **OK**  
-   Continuando:  
-7. Selecione **Configurações de Recebimento** para configurar como as mensagens recebidas por este contrato devem ser manipuladas.  
-8. O controle de Configurações de Recebimento é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Envelopes, Números de Controle, Validações e Configurações Internas. Configure essas propriedades com base no seu contrato com o parceiro com o qual você trocará mensagens. Veja a seguir uma exibição desses controles e configure-os com base em como você deseja que este contrato identifique e manipule as mensagens recebidas:   
-   ![](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
-
-![](./media/logic-apps-enterprise-integration-x12/x12-3.png)  
-
-1. Selecione o botão **OK** para salvar suas configurações.  
+1. Selecione **Configurações de Recebimento** para configurar como as mensagens recebidas por este contrato devem ser manipuladas.  
+2. O controle de Configurações de Recebimento é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Envelopes, Números de Controle, Validações e Configurações Internas. Configure essas propriedades com base no seu contrato com o parceiro com o qual você trocará mensagens. Veja a seguir uma exibição desses controles e configure-os com base em como você deseja que este contrato identifique e manipule as mensagens recebidas  
 
 ### <a name="identifiers"></a>Identificadores
+
+![](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+
 | Propriedade | Descrição |
 | --- | --- |
 | ISA1 (Qualificador de Autorização) |Selecione o valor do Qualificador de autorização na lista suspensa. |
@@ -81,68 +77,91 @@ Depois de fazer logon no [Portal do Azure](http://portal.azure.com "Portal do Az
 | ISA4 |Opcional. Insira o valor de Informações de segurança. Se o valor inserido para ISA3 é diferente de 00, insira no mínimo um caractere alfanumérico e no máximo 10. |
 
 ### <a name="acknowledgments"></a>Agradecimentos
+
+![](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| TA1 esperado |Marque essa caixa de seleção para retornar uma confirmação técnica (TA1) ao remetente do intercâmbio. Essas confirmações são enviadas ao remetente do intercâmbio com base nas configurações de envio do contrato. |
-| FA esperado |Marque essa caixa de seleção para retornar uma confirmação funcional (FA) ao remetente do intercâmbio. Selecione se deseja as confirmações 997 ou 999, com base nas versões de esquema com as quais você está trabalhando. Essas confirmações são enviadas ao remetente do intercâmbio com base nas configurações de envio do contrato. |
-| Incluir Loop AK2/IK2 |Marque essa caixa de seleção para habilitar a geração de loops AK2 em confirmações funcionais para conjuntos de transações aceitos. Observação: essa caixa de seleção somente será habilitada se você marcar a caixa de seleção FA pertinente. |
+| TA1 esperado |Retorna uma confirmação técnica ao emissor de intercâmbio |
+| FA esperado |Retorna uma confirmação funcional ao emissor de intercâmbio. Então, selecione se deseja as confirmações 997 ou 999, com base na versão de esquema |
+| Incluir Loop AK2/IK2 |Habilita a geração de loops AK2 em confirmações funcionais para conjuntos de transação aceitos |
+
 
 ### <a name="schemas"></a>Esquemas
 Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de Remetente (GS2). O pipeline de recebimento desmontará a mensagem recebida associando os valores de ST1 e GS2 na mensagem recebida aos valores definidos aqui e o esquema da mensagem recebida com o esquema definido aqui.
+
+![](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
 | Propriedade | Descrição |
 | --- | --- |
 | Versão |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
 | Aplicativo do Remetente (GS02) |Selecione o aplicativo do remetente |
-| Esquema |Selecione o arquivo de esquema que você deseja usar. Arquivos de esquema estão localizados na sua conta de integração. |
+| Esquema |Selecione o arquivo de esquema que você deseja usar. Os esquemas são adicionados em sua conta de integração |
+
+> [!NOTE]
+> Configurar o [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obrigatório a ser carregado na [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+> 
+> 
 
 ### <a name="envelopes"></a>Envelopes
+
+![](./media/logic-apps-enterprise-integration-x12/x12-34.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
 | Uso de ISA11 |Use este campo para especificar o separador em um conjunto de transações:</br></br>Selecione o identificador Padrão para usar a notação decimal "." em vez da notação decimal no documento de entrada no pipeline de recebimento EDI.</br></br>Selecione o separador de Repetição para especificar o separador para as ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetida. Por exemplo, (^) geralmente é usado como separador de repetição. Para esquemas HIPPA, só é possível usar (^). |
 
 ### <a name="control-numbers"></a>Números de Controle
+
+![](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Recusar duplicatas de Números de Controle de Intercâmbio |Marque essa opção para bloquear intercâmbios duplicados. Se essa opção for selecionada, o Portal dos Serviços BizTalk verificará se o número de controle de intercâmbio (ISA13) do intercâmbio recebido não corresponde ao número de controle de intercâmbio. Se uma correspondência for detectada, o pipeline de recebimento não processará o intercâmbio.<br/>Se você optou por não permitir números de controle de intercâmbio duplicados, poderá especificar o número de dias em que a verificação é executada, fornecendo o valor apropriado para Verificar ISA13 duplicados a cada x dias. |
-| Recusar duplicatas de Números de controle de grupo |Marque essa opção para bloquear intercâmbios com números de controle de grupo duplicados. |
-| Recusar duplicatas de Números de controle de Conjuntos de transações |Marque essa opção para bloquear intercâmbios com números de controle de conjuntos de transações duplicados. |
+| Recusar duplicatas de Números de Controle de Intercâmbio |Bloqueia intercâmbios duplicados. Verifica o número de controle de intercâmbio (ISA13) para o número de controle de intercâmbio recebido. Se uma correspondência for detectada, o pipeline de recebimento não processará o intercâmbio. Você pode especificar o número de dias em que a verificação é executada, fornecendo o valor apropriado para *Verificar ISA13 duplicados a cada x dias* |
+| Recusar duplicatas de Números de controle de grupo |Bloqueia intercâmbios com números de controle de grupo duplicados |
+| Recusar duplicatas de Números de controle de Conjuntos de transações |Bloqueia intercâmbios com números de controle de conjunto de transação duplicados |
 
 ### <a name="validations"></a>Validações
+
+![](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |O tipo de mensagem EDI, como uma Ordem de Compra 850 ou uma Confirmação de Implementação 999. |
+| Tipo de Mensagem |Tipos de mensagem EDI, como uma Ordem de Compra 850 ou uma Confirmação de Implementação 999. |
 | Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
 | Validação Estendida |Se o tipo de dados não for EDI, a validação será realizada nos requisitos de elementos de dados e na permissão de repetições, enumerações e validação de tamanho de elementos de dados (mín./máx.). |
 | Permitir Zeros à Esquerda/Direita |Qualquer caractere adicional de espaço e zeros à esquerda ou à direita serão mantidos. Eles não são removidos. |
 | Política de Separador à Direita |Gera separadores à direita no intercâmbio recebido. As opções incluem Não Permitido, Opcional e Obrigatório. |
 
 ### <a name="internal-settings"></a>Configurações Internas
+
+![](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Converter o formato decimal implícito Nn para o valor numérico de base 10 |Converte um número de EDI que é especificado no formato Nn em um valor numérico de base&10; no XML intermediário do Portal de Serviços BizTalk. |
+| Converter o formato decimal implícito Nn para o valor numérico de base 10 |Converte um número de EDI que é especificado no formato Nn em um valor numérico de base&10; |
 | Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
-| Processamento em lote de entrada |Dividir o intercâmbio em conjuntos de transações – suspender conjuntos de transações com erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transação. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, os Serviços BizTalk suspenderão somente esses conjuntos de transação. </br></br>Dividir o intercâmbio em conjuntos de transações – suspender intercâmbios com erro: analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, os Serviços BizTalk suspenderão o intercâmbio inteiro.</br></br>Preservar intercâmbio – suspender conjuntos de transação com erro: deixa o intercâmbio intacto, criando um documento XML para o intercâmbio em lote inteiro. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, os Serviços BizTalk suspenderão somente esses conjuntos de transação, continuando o processamento dos demais.</br></br>Preservar intercâmbio - suspender intercâmbios com erro: deixa o intercâmbio intacto, criando um documento XML para o intercâmbio em lote inteiro. Com essa opção, se um ou mais conjuntos de transações do intercâmbio falharem na validação, os Serviços BizTalk suspenderão o intercâmbio inteiro.</br></br> |
+| Dividir Intercâmbio como conjuntos de transação – suspender conjuntos de transação com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado ao conjunto de transações. Suspende somente as transações em que a validação falhar |
+| Dividir Intercâmbio como conjuntos de transação – suspender intercâmbio com erro|Analisa cada conjunto de transações em um intercâmbio dentro de um documento XML separado ao aplicar o envelope apropriado. Suspenderá o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação | 
+| Preservar Intercâmbio – suspender conjuntos transação com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro. Suspende somente os conjuntos de transação com falha na validação, enquanto continua a processar todos os outros conjuntos de transação |
+| Preservar Intercâmbio – suspender intercâmbio com erro |Mantém o intercâmbio intacto, cria um documento XML para o intercâmbio em lote inteiro.  Suspenderá o intercâmbio inteiro se um ou mais conjuntos de transações no intercâmbio falharem na validação |
 
+Depois de ter definido as propriedades das configurações de recebimento, selecione o botão **OK**  
+   
 O contrato está pronto para manipular mensagens recebidas que estão em conformidade com o esquema selecionado.
 
-Para definir as configurações que manipulam as mensagens enviadas aos parceiros:  
+## <a name="send-settings"></a>Configurações de Envio
 
 1. Selecione **Configurações de Envio** para configurar como as mensagens enviadas por este contrato devem ser manipuladas.  
 
-O controle Configurações de Envio é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Envelopes, Números de Controle, Conjuntos de Caracteres, Separadores e Validação. 
+2. O controle de Configurações de Envio é dividido nas seções a seguir, incluindo Identificadores, Confirmação, Esquemas, Envelopes, Números de Controle, Conjuntos de Caracteres e Separadores e Validação.  Configure essas propriedades com base no seu contrato com o parceiro com o qual você trocará mensagens. Veja a seguir uma exibição desses controles e configure-os com base em como você deseja que este contrato identifique e manipule as mensagens enviadas.
 
-Veja a seguir uma exibição desses controles. Faça as seleções com base em como você deseja manipular as mensagens enviadas aos parceiros por meio deste contrato:    
-![](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
-
-![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
-
-![](./media/logic-apps-enterprise-integration-x12/x12-6.png)  
-
-1. Selecione o botão **OK** para salvar suas configurações.  
 
 ### <a name="identifiers"></a>Identificadores
+
+![](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+
 | Propriedade | Descrição |
 | --- | --- |
 | Qualificador de Autorização (ISA1) |Selecione o valor do Qualificador de autorização na lista suspensa. |
@@ -151,6 +170,9 @@ Veja a seguir uma exibição desses controles. Faça as seleções com base em c
 | ISA4 |Insira o valor de Informações de segurança. Se esse valor é diferente de 00, insira no mínimo um valor alfanumérico e no máximo 10 na caixa de texto Valor (ISA4). |
 
 ### <a name="acknowledgment"></a>Confirmação
+
+![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+
 | Propriedade | Descrição |
 | --- | --- |
 | TA1 esperado |Marque essa caixa de seleção para retornar uma confirmação técnica (TA1) ao remetente do intercâmbio. Essa configuração especifica que o parceiro host que está enviando a mensagem solicitou uma confirmação do parceiro convidado no contrato. Essas confirmações são esperadas pelo parceiro host com base nas Configurações de Recebimento do contrato. |
@@ -158,51 +180,88 @@ Veja a seguir uma exibição desses controles. Faça as seleções com base em c
 | Versão de FA |Selecione a versão de FA |
 
 ### <a name="schemas"></a>Esquemas
+
+![](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+
 | Propriedade | Descrição |
 | --- | --- |
 | Versão |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
-| Esquema |Selecione o esquema a ser usado. Esquema estão localizados na sua conta de integração. Para acessar seus esquemas, vincule sua conta de integração ao seu aplicativo lógico. |
+| Esquema |Selecione o esquema a ser usado. Esquema estão localizados na sua conta de integração. Se você selecionar o esquema pela primeira vez, ele configurará automaticamente o tipo de transação e a versão  |
+
+> [!NOTE]
+> Configurar o [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obrigatório a ser carregado na [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md)
+> 
+> 
 
 ### <a name="envelopes"></a>Envelopes
+
+![](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Uso de ISA11 |Use este campo para especificar o separador em um conjunto de transações:</br></br>Selecione o identificador Padrão para usar a notação decimal "." em vez da notação decimal no documento de entrada no pipeline de recebimento EDI.</br></br>Selecione o separador de Repetição para especificar o separador para as ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetida. Por exemplo, (^) geralmente é usado como separador de repetição. Para esquemas HIPPA, só é possível usar (^).</br> |
-| Separador de repetição |Insira o separador de repetição |
-| Número de Versão de Controle (ISA12) |Selecione a versão do padrão X12 que é usada pelo Portal de Serviços BizTalk para gerar um intercâmbio de saída. |
-| Indicador de Uso (ISA15) |Especifique se o contexto de um intercâmbio é informações (I), dados de produção (P) ou dados de teste (T). O pipeline de recebimento do EDI promove essa propriedade de acordo com o contexto. |
-| Esquema |Você pode definir como o Portal de Serviços BizTalk gera os segmentos GS e ST para um intercâmbio de codificação X12 que ele envia para o Pipeline de Envio.</br></br>Você pode associar os valores dos elementos de dados GS1, GS2, GS3, GS4, GS5, GS7 e GS8 aos valores dos elementos de dados Tipo de Transação e Versão/Lançamento. Quando o Portal de Serviços BizTalk determina que uma mensagem XML tem os valores definidos para os elementos Tipo de Transação e Versão/Lançamento em uma linha da grade, ele preenche os elementos de dados GS1, GS2, GS3, GS4, GS5, GS7 e GS8 no envelope do intercâmbio de saída com os valores da mesma linha da grade. Os valores dos elementos Tipo de Transação e Versão/Lançamento devem ser exclusivos.</br></br>Opcional. Para GS1, selecione um valor para o código funcional na lista suspensa.</br></br>Obrigatório. Para GS2, insira um valor alfanumérico para o remetente do aplicativo no mínimo dois caracteres e no máximo 15 caracteres.</br></br>Obrigatório. Para GS3, insira um valor alfanumérico para o destinatário do aplicativo no mínimo dois caracteres e no máximo 15 caracteres.</br></br>Opcional. Para GS4, selecione CCYYMMDD ou YYMMDD.</br></br>Opcional. Para GS5, selecione HHMM, HHMMSS ou HHMMSSdd.</br></br>Opcional. Para GS7, selecione um valor para a agência responsável na lista suspensa.</br></br>Opcional. Para GS8, insira um valor alfanumérico para o documento identificado com no mínimo um caractere e no máximo 12 caracteres.</br></br>**Observação**: esses são os valores que o Portal de Serviços BizTalk insere nos campos GS do intercâmbio que está criando se os elementos Tipo de Transação e Versão/Lançamento da mesma linha são correspondentes aos valores associados ao intercâmbio. |
+| Uso de ISA11 |Use este campo para especificar o separador em um conjunto de transações |
+| Identificador padrão |Selecione o identificador Padrão para usar a notação decimal "." |
+| Separador de repetição |Selecione o separador de Repetição para especificar o separador para as ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetida. Por exemplo, (^) geralmente é usado como separador de repetição. Para esquemas HIPAA, só é possível usar (^) |
 
 ### <a name="control-numbers"></a>Números de Controle
+
+![](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Número de Controle de Intercâmbio (ISA13) |Obrigatório. Insira um intervalo de valores para o número de controle de intercâmbio usado pelo Portal de Serviços BizTalk para gerar um intercâmbio de saída. Insira um valor numérico entre 1 e 999.999.999. |
-| Número de Controle de Grupo (GS06) |Obrigatório. Insira o intervalo de números que o Portal de Serviços BizTalk deve usar para o número de controle de grupo. Insira um valor numérico com no mínimo um caractere e no máximo nove caracteres. |
-| Número de Controle de Conjunto de Transações (ST02) |Em Número de Controle de Conjunto de Transações (ST02), insira um intervalo de valores numéricos para os campos centrais obrigatórios e valores alfanuméricos para os campos opcionais de prefixo e sufixo. O comprimento máximo de todos os quatro campos é de nove caracteres. |
-| Prefixo |Para designar o intervalo de números de controle de conjuntos de transações usados em uma confirmação, insira valores nos campos de Número de Controle de ACK (ST02). Insira um valor numérico nos dois campos centrais e um valor alfanumérico (se desejado) nos campos de prefixo e sufixo. Os campos centrais são obrigatórios e contêm os valores mínimo e máximo para o número de controle; os campos de prefixo e sufixo são opcionais. O comprimento máximo de todos os três campos é de nove caracteres. |
-| Suffix |Para designar o intervalo de números de controle de conjuntos de transações usados em uma confirmação, insira valores nos campos de Número de Controle de ACK (ST02). Insira um valor numérico nos dois campos centrais e um valor alfanumérico (se desejado) nos campos de prefixo e sufixo. Os campos centrais são obrigatórios e contêm os valores mínimo e máximo para o número de controle; os campos de prefixo e sufixo são opcionais. O comprimento máximo de todos os três campos é de nove caracteres. |
+| Número de Versão de Controle (ISA12) |Selecione a versão do padrão X12 |
+| Indicador de Uso (ISA15) |Selecione o contexto de um intercâmbio.  Os valores são informações, dados de produção ou dados de teste |
+| Esquema |Gera os segmentos GS e ST para um intercâmbio de codificação X12 que ele envia para o Pipeline de Envio |
+| GS1 |Opcional, selecionar um valor para o código funcional na lista suspensa |
+| GS2 |Opcional, remetente do aplicativo |
+| GS3 |Opcional, receptor do aplicativo |
+| GS4 |Opcional, selecionar CCYYMMDD ou YYMMDD |
+| GS5 |Opcional, selecionar HHMM, HHMMSS ou HHMMSSdd |
+| GS7 |Opcional, selecionar um valor para a agência responsável na lista suspensa |
+| GS8 |Opcional, versão do documento |
+| Número de Controle de Intercâmbio (ISA13) |Obrigatório, inserir um intervalo de valores para o número de controle de intercâmbio. Inserir um valor numérico entre 1 e 999999999 |
+| Número de Controle de Grupo (GS06) |Obrigatório, inserir um intervalo de números para o número de controle de grupo. Inserir um valor numérico entre 1 e 999999999 |
+| Número de Controle de Conjunto de Transações (ST02) |Obrigatório, inserir um intervalo de números para o número de controle de conjunto de transações. Insira um valor numérico entre 1 e 999999999 |
+| Prefixo |Opcional, designado para o intervalo de números de controle de conjuntos de transações usados na confirmação. Insira um valor numérico nos dois campos centrais e um valor alfanumérico (se desejado) nos campos de prefixo e sufixo. Os campos centrais são obrigatórios e contêm os valores mínimo e máximo para o número de controle |
+| Suffix |Opcional, designado para o intervalo de números de controle de conjuntos de transações usados em uma confirmação. Inserir um valor numérico nos dois campos centrais e um valor alfanumérico (se desejado) nos campos de prefixo e sufixo. Os campos centrais são obrigatórios e contêm os valores mínimo e máximo para o número de controle |
 
 ### <a name="character-sets-and-separators"></a>Conjuntos de Caracteres e Separadores
+
 Além do conjunto de caracteres, você pode inserir um conjunto diferente de delimitadores a serem usados para cada tipo de mensagem. Se um conjunto de caracteres não for especificado para um determinado esquema de mensagem, o conjunto de caracteres padrão será usado.
 
+![](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
+
+
 | Propriedade | Descrição |
 | --- | --- |
-| Conjunto de Caracteres a ser usado |Selecione o conjunto de caracteres X12 para validar as propriedades que você inseriu para o contrato.</br></br>**Observação**: o Portal de Serviços BizTalk usa essa configuração apenas para validar os valores inseridos nas propriedades relacionadas do acordo. O pipeline de recebimento ou o de envio ignora essa propriedade de conjunto de caracteres ao executar o processamento de tempo de execução. |
-| Esquema |Selecione o símbolo (+) e selecione um esquema na lista suspensa. Para o esquema selecionado, selecione o conjunto de separadores a ser usado:</br></br>Separador do elemento do componente – insira um único caractere para separar os elementos de dados compostos.</br></br>Separador do Elemento de Dados – insira um único caractere para separar os elementos de dados simples nos elementos de dados compostos.</br></br></br></br>Caractere de substituição – marque essa caixa de seleção se a carga de dados contém caracteres que também são usados como separadores de componentes, de dados ou de segmentos. Em seguida,você pode inserir um caractere de substituição. Ao gerar a mensagem de saída X12, todas as instâncias de caracteres de separador na carga de dados são substituídas pelo caractere especificado.</br></br>Terminador de Segmento – insira um único caractere para indicar o final de um segmento EDI.</br></br>Sufixo – selecione o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
+| Conjunto de Caracteres a ser usado |Selecione o conjunto de caracteres X12 para validar as propriedades.  As opções são básico, estendido e UTF8 |
+| Esquema |Selecione um esquema na lista suspensa. Para o esquema selecionado, selecione o conjunto de separadores a ser usado |
+| Tipo de entrada |Selecione um tipo de entrada na lista suspensa |
+| Separador de elementos de componentes |Inserir um único caractere para separar os elementos de dados compostos |
+| Separador de elemento de dados |Inserir um único caractere para separar os elementos de dados simples dentro dos elementos de dados compostos |
+| Caractere de substituição |Inserir um caractere de substituição. Ao gerar a mensagem de saída X12, todas as instâncias de caracteres separadores no conteúdo são substituídas pelo caractere especificado |
+| Terminador de segmento |Inserir um único caractere para indicar o final de um segmento EDI |
+| Suffix |Selecionar o caractere a ser usado com o identificador de segmento. Se você designar um sufixo, o elemento de dados de terminador de segmento poderá ficar vazio. Se o terminador de segmento ficar vazio, você deverá designar um sufixo. |
 
 ### <a name="validation"></a>Validação
+
+![](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |Essa opção habilita a validação no destinatário do intercâmbio. Essa validação realiza a validação de EDI em elementos de dados do conjunto de transação, validando tipos de dados, restrições de comprimento, elementos de dados vazios e separadores à direita. |
-| Validação de EDI | |
+| Tipo de Mensagem |Selecionar o tipo de mensagem da lista |
+| Validação de EDI |Essa opção habilita a validação no destinatário do intercâmbio. Essa validação realiza a validação de EDI em elementos de dados do conjunto de transação, validando tipos de dados, restrições de comprimento, elementos de dados vazios e separadores à direita |
 | Validação Estendida |Essa opção permite a validação estendida de intercâmbios recebidos do remetente de intercâmbio. Isso inclui validação de comprimento do campo, campos opcionais e contagem repetida, além da validação de tipo de dados XSD. Você pode habilitar a validação estendida sem habilitar a validação de EDI ou vice-versa. |
 | Permitir zeros à esquerda/direita |Essa opção especifica que um intercâmbio de EDI recebido não falhará na validação se um elemento de dados em um intercâmbio EDI não atender ao requisito de comprimento devido a espaços à direita, mas estiver de acordo com esse requisito quando os espaços são removidos. |
 | Separador à direita |Essa opção especifica que um intercâmbio de EDI recebido não falhará na validação se um elemento de dados em um intercâmbio de EDI não estiver atender ao requisito de comprimento devido a zeros à esquerda (ou direita) ou espaços à direita,mas estiver de acordo com esse requisito quando os espaços ou zeros são removidos.</br></br>Selecione Não Permitido se não quiser permitir delimitadores e separadores à direita em um intercâmbio recebido do remetente de intercâmbio. Se o intercâmbio tiver delimitadores e separadores à direita, ele será declarado inválido.</br></br>Escolha Opcional para aceitar intercâmbios com ou sem delimitadores e separadores à direita.</br></br>Selecione Obrigatório se o intercâmbio recebido precisa ter delimitadores e separadores à direita. |
 
-Depois de selecionar **OK** nas folhas abertas:  
+Depois de ter definido as propriedades das configurações de envio, selecione o botão **OK**.  O contrato está pronto para manipular mensagens enviadas que estão em conformidade com o esquema selecionado.
 
-1. Selecione o bloco **Contratos** na folha da Conta de Integração e você verá o contrato recém-adicionado listado.  
-   ![](./media/logic-apps-enterprise-integration-x12/x12-7.png)   
+Selecione OK para criar o contrato.
+
+Selecione o bloco **Contratos** na folha da Conta de Integração e você verá o contrato recém-adicionado listado.  
+![](./media/logic-apps-enterprise-integration-x12/x12-7.png)   
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
@@ -210,6 +269,6 @@ Depois de selecionar **OK** nas folhas abertas:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
