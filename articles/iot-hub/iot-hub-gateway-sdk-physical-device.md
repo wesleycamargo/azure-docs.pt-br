@@ -78,7 +78,7 @@ Este tutorial presume que você esteja usando um dispositivo [Texas Instruments 
 Você pode usar uma das opções a seguir para instalar o Raspbian em seu dispositivo Raspberry Pi 3. 
 
 * Use [NOOBS][lnk-noobs], uma interface gráfica do usuário, para instalar a versão mais recente do Raspbian. 
-* [Baixe] [ lnk-raspbian] e grave a imagem mais recente do sistema operacional Raspbian em cartão SD. 
+* [Baixe][lnk-raspbian] e grave a imagem mais recente do sistema operacional Raspbian em cartão SD. 
 
 ### <a name="install-bluez-537"></a>Instalar o BlueZ 5.37
 Os módulos BLE se comunicar com o hardware de Bluetooth usando a pilha de BlueZ. Você precisa ter a versão 5.37 do BlueZ para que os módulos funcionem corretamente. Essas instruções fazem com que a versão correta do BlueZ esteja instalada.

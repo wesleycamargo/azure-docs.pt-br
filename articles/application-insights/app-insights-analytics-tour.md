@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
-ms.openlocfilehash: 83d39eb288a3dcda45ab178f5f65de441c2fd5a3
+ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
+ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
 
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
-A [Análise](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
+O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
 * **[Assista ao vídeo introdutório](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo)** se seu aplicativo ainda não estiver enviando dados para o Application Insights.
@@ -91,7 +91,7 @@ Vamos ver apenas as solicitações que retornaram um código de resultado espec�
 ```AIQL
 
     requests
-    | where resultCode  == "404" 
+    | where resultCode  == "404"
     | take 10
 ```
 
@@ -114,7 +114,7 @@ Solicitações malsucedidas de localização:
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` tem o tipo string, portanto devemos [convertê-lo](app-insights-analytics-reference.md#casts) em uma comparação numérica.
+`resultCode` tem o tipo string, portanto devemos [convertê-lo](app-insights-analytics-reference.md#casts) em uma comparação numérica.
 
 ## <a name="time-range"></a>Intervalo de tempo
 
@@ -128,26 +128,26 @@ Substitua o intervalo de tempo escrevendo qualquer consulta que mencione `timest
 
     // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(3d)  // Override the time range 
+    | where timestamp > ago(3d)  // Override the time range
     | top 5 by duration
 ```
 
-O recurso de intervalo de tempo é equivalente a uma cláusula 'where' inserida após cada menção de uma das tabelas de origem. 
+O recurso de intervalo de tempo é equivalente a uma cláusula 'where' inserida após cada menção de uma das tabelas de origem.
 
-`ago(3d)` significa 'três dias atrás'. Outras unidades de tempo incluem horas (`2h`, `2.5h`), minutos (`25m`) e segundos (`10s`). 
+`ago(3d)` significa 'três dias atrás'. Outras unidades de tempo incluem horas (`2h`, `2.5h`), minutos (`25m`) e segundos (`10s`).
 
 Outros exemplos:
 
 ```AIQL
 
     // Last calendar week:
-    requests 
-    | where timestamp > startofweek(now()-7d) 
-        and timestamp < startofweek(now()) 
+    requests
+    | where timestamp > startofweek(now()-7d)
+        and timestamp < startofweek(now())
     | top 5 by duration
 
     // First hour of every day in past seven days:
-    requests 
+    requests
     | where timestamp > ago(7d) and timestamp % 1d < 1h
     | top 5 by duration
 
@@ -161,7 +161,7 @@ Outros exemplos:
 [Referência de datas e horas](app-insights-analytics-reference.md#date-and-time).
 
 
-## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>[Project](app-insights-analytics-reference.md#project-operator): selecionar, renomear e computar colunas
+## <a name="projectapp-insights-analytics-referencemdproject-operator-select-rename-and-compute-columns"></a>[Projeto](app-insights-analytics-reference.md#project-operator): selecionar, renomear e computar colunas
 Use [`project`](app-insights-analytics-reference.md#project-operator) para selecionar apenas as colunas desejadas:
 
 ```AIQL
@@ -212,7 +212,7 @@ Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do 
 
 ```AIQL
 
-    requests 
+    requests
     | top 10 by timestamp desc
     | extend localTime = timestamp - 8h
 ```
@@ -235,7 +235,7 @@ Ou podemos agrupar os resultados por hora do dia:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Observe como estamos usando a função `bin` (também conhecida como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínuo, como horas ou números, temos que dividir o intervalo contínuo em um número gerenciável de valores discretos; e `bin` - que é apenas a conhecida função de arredondamento para baixo `floor` - é a maneira mais fácil de fazer isso.
+Observe como estamos usando a função `bin` (também conhecida como `floor`). Se usássemos apenas `by timestamp`, cada linha de entrada acabaria em seu próprio pequeno grupo. Para qualquer escalar contínuo com horas ou números, é necessário dividir o intervalo contínuo em um número gerenciável de valores distintos. `bin`, que é simplesmente a conhecida função de arredondamento para baixo `floor`, é a maneira mais fácil de fazer isso.
 
 Podemos usar a mesma técnica para reduzir intervalos de cadeias de caracteres:
 
@@ -244,7 +244,7 @@ Podemos usar a mesma técnica para reduzir intervalos de cadeias de caracteres:
 Observe que você pode usar `name=` para definir o nome de uma coluna de resultado, seja nas expressões de agregação, seja na cláusula by.
 
 ## <a name="counting-sampled-data"></a>Contando dados de amostra
-`sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Mas quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como pontos de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos.
+`sum(itemCount)` é a agregação recomendada para contar eventos. Em muitos casos, itemCount==1, de modo que a função simplesmente conta até o número de linhas no grupo. Contudo, quando a [amostragem](app-insights-sampling.md) estiver em operação, apenas uma fração dos eventos originais será retida como pontos de dados no Application Insights, de modo que para cada ponto de dados que você visualizar, haverá `itemCount` eventos.
 
 Por exemplo, se a amostragem descartar 75% dos eventos originais, itemCount == 4 nos registros retidos - ou seja, para cada registro retido, houve quatro registros originais.
 
@@ -292,7 +292,7 @@ Selecione a opção de exibição Gráfico:
 ![timechart](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Várias séries
-Várias expressões no `summarize` cria várias colunas.
+Várias expressões na cláusula `summarize` criam várias colunas.
 
 Várias expressões na cláusula `by` criam várias linhas, uma para cada combinação de valores.
 
@@ -318,14 +318,14 @@ Converta um booliano em uma cadeia de caracteres para usá-la como um discrimina
 ```AIQL
 
     // Bounce rate: sessions with only one page view
-    requests 
-    | where notempty(session_Id) 
+    requests
+    | where notempty(session_Id)
     | where tostring(operation_SyntheticSource) == "" // real users
-    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
-               by session_Id 
-    | extend isbounce= pagesInSession == 1 
-    | summarize count() 
-               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp)
+               by session_Id
+    | extend isbounce= pagesInSession == 1
+    | summarize count()
+               by tostring(isbounce), bin (sessionEnd, 1h)
     | render timechart
 ```
 
@@ -334,7 +334,7 @@ Se você criar um gráfico de uma tabela com mais de uma coluna numérica, além
 
 ![Segmentar um gráfico de análise](./media/app-insights-analytics-tour/110.png)
 
-Você deve selecionar Não Dividir antes de poder selecionar várias colunas numéricas. Você não pode dividir por uma coluna de cadeia de caracteres ao mesmo tempo que exibe mais de uma coluna numérica.
+Você deve selecionar **Não Dividir** antes de selecionar várias colunas numéricas. Não é possível dividir por uma coluna de cadeia de caracteres ao mesmo tempo que exibe mais de uma coluna numérica.
 
 ## <a name="daily-average-cycle"></a>Ciclo médio diário
 Como o uso varia na média diária?
@@ -343,7 +343,7 @@ Conte solicitações pelo módulo de tempo de um dia, compartimentalizado por ho
 
 ```AIQL
 
-    requests 
+    requests
     | where timestamp > ago(30d)  // Override "Last 24h"
     | where tostring(operation_SyntheticSource) == "" // real users
     | extend hour = bin(timestamp % 1d , 1h)
@@ -414,7 +414,7 @@ Use a consulta acima, mas substitua a última linha:
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
-Também removemos o limite máximo na cláusula where para obter os números corretos, incluindo todas as sessões com mais de uma solicitação:
+Também removemos o limite máximo na cláusula where para obter números corretos, incluindo todas as sessões com mais de uma solicitação:
 
 ![result](./media/app-insights-analytics-tour/180.png)
 
@@ -449,7 +449,7 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 ```AIQL
 
     requests
-    | where toint(responseCode) >= 500
+    | where toint(resultCode) >= 500
     | join (exceptions) on operation_Id
     | take 30
 ```
@@ -459,7 +459,8 @@ Para encontrar as exceções relacionadas a uma solicitação que retornou uma r
 Renomeamos a coluna de carimbo de data/hora nas mesmas cláusulas.
 
 ## <a name="letapp-insights-analytics-referencemdlet-clause-assign-a-result-to-a-variable"></a>[Let](app-insights-analytics-reference.md#let-clause): atribuir um resultado a uma variável
-Use *let* para separar as partes da expressão anterior. Os resultados não mudam:
+
+Use `let` para separar as partes da expressão anterior. Os resultados não mudam:
 
 ```AIQL
 
@@ -471,23 +472,37 @@ Use *let* para separar as partes da expressão anterior. Os resultados não muda
     | take 30
 ```
 
-> Dica: no cliente da Análise, não coloque linhas em branco entre as partes dele. Execute tudo.
->
+> [!Tip] 
+> No cliente do Analytics, não coloque linhas em branco entre as partes da consulta. Execute tudo.
 >
 
-### <a name="functions"></a>Funções 
+Use `toscalar` para converter uma única célula de tabela em um valor:
+
+```AIQL
+let topCities =  toscalar (
+   requests
+   | summarize count() by client_City 
+   | top n by count_ 
+   | summarize makeset(client_City));
+requests
+| where client_City in (topCities(3)) 
+| summarize count() by client_City;
+```
+
+
+### <a name="functions"></a>Funções
 
 Use *Let* para definir uma função:
 
 ```AIQL
 
-    let usdate = (t:datetime) 
+    let usdate = (t:datetime)
     {
-      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
       bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
     };
     requests  
-    | extend PST = usdate(timestamp-8h) 
+    | extend PST = usdate(timestamp-8h)
 ```
 
 ## <a name="accessing-nested-objects"></a>Acessando objetos aninhados
@@ -543,26 +558,28 @@ Para verificar se uma dimensão personalizada é de um tipo específico:
 Você pode fixar os resultados em um painel para reunir todos os seus gráficos e suas tabelas mais importantes.
 
 * [Painel compartilhado do Azure](app-insights-dashboards.md#share-dashboards): clique no ícone de pino. Antes de fazer isso, você deve ter um painel compartilhado. No portal do Azure, abra ou crie um painel e clique em Compartilhar.
-* [Painel do Power BI](app-insights-export-power-bi.md): clique em Exportar, Consulta do Power BI. Uma vantagem dessa alternativa é que você pode exibir sua consulta juntamente com outros resultados de uma enorme variedade de fontes.
+* [Painel do Power BI](app-insights-export-power-bi.md): clique em Exportar, Consulta do Power BI. Uma vantagem dessa alternativa é que você pode exibir sua consulta juntamente com outros resultados de uma ampla variedade de fontes.
 
 ## <a name="combine-with-imported-data"></a>Combinar com dados importados
 
-Os relatórios do Analytics parecem ótimos no painel, mas, às vezes, você pode querer colocar os dados em um formato mais fácil de entender. Por exemplo, suponha que os usuários autenticados sejam identificados na telemetria por um alias. Você gostaria de mostrar os nomes reais nos resultados. Para fazer isso, basta um arquivo CSV que mapeie os aliases para os nomes reais. 
+Os relatórios do Analytics parecem ótimos no painel, mas, às vezes, você pode querer colocar os dados em um formato mais fácil de entender. Por exemplo, suponha que os usuários autenticados sejam identificados na telemetria por um alias. Você gostaria de mostrar os nomes reais nos resultados. Para fazer isso, você precisará de um arquivo CSV que mapeie os aliases para os nomes reais.
 
 Você pode importar um arquivo de dados e usá-lo assim como qualquer uma das tabelas padrão (solicitações, exceções, etc.). É possível consultá-la sozinha ou uni-la a outras tabelas. Por exemplo, se houver uma tabela chamada usermap e ela tiver as colunas `realName` e `userId`, você poderá usá-la para converter o campo `user_AuthenticatedId` na telemetria de solicitação:
 
 ```AIQL
 
     requests
-    | where notempty(user_AuthenticatedId) 
+    | where notempty(user_AuthenticatedId)
     | project userId = user_AuthenticatedId
       // get the realName field from the usermap table:
-    | join kind=leftouter ( usermap ) on userId 
+    | join kind=leftouter ( usermap ) on userId
       // count transactions by name:
     | summarize count() by realName
 ```
 
-Para importar uma tabela, abra **Configurações**, **Fontes de dados** e siga as instruções para adicionar uma fonte. Use essa definição para carregar tabelas.
+Para importar uma tabela, na folha Esquema, em **Outras Fontes de Dados**, siga as instruções para adicionar uma nova fonte de dados carregando uma amostra dos seus dados. Em seguida, você poderá usar essa definição para carregar as tabelas.
+
+O recurso de importação está em visualização, por isso você verá inicialmente um link “Fale conosco” em “Outras fontes de dados”. Use-o para se inscrever no programa de visualização e o link será substituído por um botão “Adicionar nova fonte de dados”.
 
 
 ## <a name="tables"></a>Tabelas
@@ -578,7 +595,7 @@ Descubra as solicitações que mais falham:
 ![Conte solicitações segmentadas por nome](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
 ### <a name="custom-events-table"></a>Tabela de eventos personalizada
-Se usar [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) para enviar seus próprios eventos, você poderá lê-los nessa tabela.
+Se usar [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) para enviar seus próprios eventos, você poderá lê-los nessa tabela.
 
 Vejamos um exemplo em que o código do aplicativo contém estas linhas:
 
@@ -600,7 +617,7 @@ Extrair medidas e dimensões de eventos:
 ![Taxa de exibição de eventos personalizados](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabela de métricas personalizada
-Se estiver usando [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) para enviar seus próprios valores de métricas, você encontrará os resultados no fluxo **customMetrics**. Por exemplo:  
+Se estiver usando [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para enviar seus próprios valores de métricas, você encontrará os resultados no fluxo **customMetrics**. Por exemplo:  
 
 ![Métricas personalizadas na análise do Application Insights](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
@@ -653,16 +670,16 @@ Contém os resultados de chamadas que seu aplicativo fez para bancos de dados e 
 Chamadas AJAX no navegador:
 
 ```AIQL
-    
-    dependencies | where client_Type == "Browser" 
+
+    dependencies | where client_Type == "Browser"
     | take 10
 ```
 
 Chamadas de dependência do servidor:
 
 ```AIQL
-    
-    dependencies | where client_Type == "PC" 
+
+    dependencies | where client_Type == "PC"
     | take 10
 ```
 
@@ -681,6 +698,6 @@ Contém a telemetria enviada pelo seu aplicativo usando TrackTrace() ou [outras 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
