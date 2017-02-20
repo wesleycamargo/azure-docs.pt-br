@@ -37,8 +37,13 @@ Você pode ver a [lista completa de pares de regiões aqui](../articles/best-pra
 Alguns serviços ou recursos de VM estão disponíveis somente em determinadas regiões, como tamanhos específicos de VMs ou tipos de armazenamento. Também há alguns serviços globais do Azure que não exigem que você selecione uma região específica, como [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-overview.md) ou [DNS do Azure](../articles/dns/dns-overview.md). Para ajudá-lo na criação de seu ambiente de aplicativos, você pode verificar a [disponibilidade de serviços do Azure em cada região](https://azure.microsoft.com/regions/#services). 
 
 ## <a name="storage-availability"></a>Disponibilidade de armazenamento
-Compreender as áreas e regiões do Azure torna-se importante quando você considera as opções de replicação de armazenamento do Azure disponíveis. Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
+Compreender as áreas e regiões do Azure torna-se importante quando você considera as opções de replicação de armazenamento disponíveis. Dependendo do tipo de armazenamento, você tem opções de replicação diferentes.
 
+**Azure Managed Disks**
+* Armazenamento com redundância local (LRS)
+  * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
+
+**Discos baseados em contas de armazenamento**
 * Armazenamento com redundância local (LRS)
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 * ZRS (Armazenamento com redundância de zona)
@@ -56,11 +61,15 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 | Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/storage-redundancy.md).
+Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../articles/storage/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
-Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar. 
+Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar.
 
+**Azure Managed Disks**
+* Discos de Premium gerenciados são feitos por unidades de estado sólido (SSDs) e discos padrão gerenciados são feitos por discos giratórios regular. Premium e padrão de discos gerenciados são cobrados com base na capacidade provisionada para o disco.
+
+**Discos não gerenciados**
 * O armazenamento Premium é feito em SSDs (unidades de estado sólido) e é cobrado com base na capacidade do disco.
 * O armazenamento padrão é feito em discos giratórios comuns e é cobrado com base na capacidade utilizada e na disponibilidade de armazenamento desejada.
   * Para o RA-GRS, há uma cobrança adicional de Transferência de Dados com Replicação Geográfica pela largura de banda para a replicação desses dados em outra região do Azure.
@@ -75,7 +84,7 @@ Quando cria uma VM de uma imagem no Azure Marketplace, você, na verdade, está 
 Você também pode criar suas próprias imagens personalizadas e carregá-las usando a [CLI do Azure](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para criar rapidamente VMs personalizadas para os requisitos do seu build específico.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). O conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização).
+Um conjunto de disponibilidade é um agrupamento lógico de VMs que permite que o Azure entenda como o seu aplicativo foi criado para fornecer redundância e disponibilidade. Recomenda-se que duas ou mais VMs sejam criadas dentro de um conjunto de disponibilidade para fornecer um aplicativo altamente disponível e para atender o [SLA de&99;,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/storage-premium-storage.md), o SLA do Azure se aplica a eventos de manutenção não planejada. Um conjunto de disponibilidade é composto por dois agrupamentos adicionais que protegem contra falhas de hardware e permitem que atualizações sejam aplicadas com segurança – FDs (domínios de falha) e UDs (domínios de atualização).
 
 ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
@@ -84,7 +93,10 @@ Você pode ler mais sobre como gerenciar a disponibilidade de [VMs Linux](../art
 ### <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é um grupo lógico de hardwares subjacentes que compartilham a mesma fonte de alimentação e o mesmo comutador de rede, de forma semelhante a um rack em um datacenter local. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de falha. Essa abordagem limita o impacto de possíveis falhas de hardware físico, interrupções de rede ou interrupções de energia.
 
-### <a name="update-domains"></a>Domínios de atualização
+#### <a name="managed-disk-fault-domains-and-availability-sets"></a>Domínios de falha e conjuntos de disponibilidade de Disco Gerenciado
+Para VMs que usam [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região.
+
+### <a name="update-domains"></a>Atualizar domínios
 Um domínio de atualização é um grupo lógico de hardwares subjacentes que podem passar por manutenção ou ser reinicializados ao mesmo tempo. À medida que você cria máquinas virtuais em um conjunto de disponibilidade, a plataforma Windows Azure distribui automaticamente suas VMs entre esses domínios de atualização. Essa abordagem garante que pelo menos uma instância do aplicativo sempre permaneça em execução enquanto a plataforma Windows Azure passar por manutenção periódica. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -92,6 +104,6 @@ Agora você pode começar a usar esses recursos de redundância e disponibilidad
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/23/2016
+ms.date: 02/09/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
-ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
+ms.sourcegitcommit: 5b94c884c585824ab580f307f3a04e27c8536947
+ms.openlocfilehash: 05c6580bd0cd7af55325361e85cce9654e0169d6
 
 
 ---
@@ -60,11 +60,12 @@ As tentativas de conexão da Internet e do Azure devem passar primeiramente pelo
    ![Diagrama descrevendo a configuração de firewall.][1]
 
 ## <a name="connecting-from-the-internet"></a>Conectando pela Internet
-Quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, primeiro o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall:
 
-* Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure.
-* Se o endereço IP da solicitação não estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, ocorrerá a verificação das regras de firewall no nível do banco de dados. Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, a conexão será concedida apenas ao banco de dados que apresenta uma regra no nível de banco de dados correspondente.
-* Se o endereço IP da solicitação não estiver dentro dos intervalos especificados em qualquer uma das regras de firewall no nível do servidor ou do banco de dados, solicitação de conexão falhará.
+Quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall primeiro verifica o endereço IP de origem da solicitação com base nas regras de firewall no nível de banco de dados para o banco de dados que a conexão está solicitando:
+
+* Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, a conexão será concedida ao Banco de Dados SQL que contém a regra.
+* Se o endereço IP da solicitação não estiver dentro de um dos intervalos especificados nas regras de firewall no nível do banco de dados, ocorrerá a verificação das regras de firewall no nível do servidor. Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida. Regras de firewall de nível de servidor se aplicam a todos os bancos de dados SQL no SQL Azure server.  
+* Se o endereço IP da solicitação não estiver dentro dos intervalos especificados em qualquer uma das regras de firewall no nível do banco de dados ou do servidor, solicitação de conexão falhará.
 
 > [!NOTE]
 > Para acessar o Banco de Dados SQL do Azure de seu computador local, verifique se o firewall em sua rede e computador local permite a comunicação de saída na porta TCP 1433.
@@ -154,6 +155,6 @@ Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

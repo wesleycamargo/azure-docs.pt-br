@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,37 +39,37 @@ Nessa página, você pode ver os experimentos **Adicionados recentemente**, desc
 Para procurar todos os experimentos:
 
 1. Clique em **Procurar tudo** na parte superior da página.
-2. Em **Refinar por**, selecione **Experimento** para ver todos os experimentos na Galeria.
+2. Em **Refinar por**, na seção **Categorias**, selecione **Experimento** para ver todos os experimentos na Galeria.
 3. Você pode encontrar os experimentos que atendem aos seus requisitos de duas maneiras diferentes:
    * **Selecione os filtros à esquerda.** Por exemplo, para procurar os experimentos que usam um algoritmo de detecção de anomalias com base em PCA, selecione **Experimento** em **Categorias** e **Detecção de Anomalias Baseada em PCA** em **Algoritmos Usados**. (Se você não vir esse algoritmo, clique em **Mostrar tudo** na parte inferior da lista).<br></br>
      ![Selecione os filtros](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Use a caixa de pesquisa.**  Por exemplo, para encontrar os experimentos fornecidos pela Microsoft relacionados ao reconhecimento de dígito e que usam um algoritmo de máquina do vetor com suporte de duas classes, digite "reconhecimento de dígito" na caixa de pesquisa. Em seguida, selecione os filtros **Experimento**, **Apenas o conteúdo da Microsoft** e **Máquina do Vetor com Suporte de Duas Classes**: ![Use a caixa de pesquisa](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Use a caixa de pesquisa.** Por exemplo, para encontrar os experimentos fornecidos pela Microsoft relacionados ao reconhecimento de dígito e que usam um algoritmo de máquina do vetor com suporte de duas classes, digite "reconhecimento de dígito" na caixa de pesquisa. Em seguida, selecione os filtros **Experimento**, **Apenas o conteúdo da Microsoft** e **Máquina do Vetor com Suporte de Duas Classes**:<br></br>
+     ![Usar a caixa de pesquisa](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Clique em um experimento para saber mais sobre ele.
-5. Para executar e/ou modificar o experimento, clique em **Abrir no Estúdio** na página do experimento.
-
-   > [!NOTE]
-   > Para abrir um experimento no Estúdio de Aprendizado de Máquina, você precisará entrar com suas credenciais de conta da Microsoft. Se você ainda não tiver um espaço de trabalho de Aprendizado de Máquina, é criado um espaço de trabalho de avaliação gratuito. [Saiba o que está incluído na avaliação gratuita do Aprendizado de Máquina](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Para executar e/ou modificar o experimento, clique em **Abrir no Estúdio** na página do experimento. <br></br>
 
     ![Teste de exemplo](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > Quando abre um experimento no Machine Learning Studio pela primeira vez, você pode experimentar gratuitamente ou comprar uma assinatura do Azure. [Saiba mais sobre a avaliação gratuita do Machine Learning Studio versus serviço pago](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Usar um modelo no Estúdio de Aprendizado de Máquina
 Você também pode criar um novo experimento no Estúdio de Aprendizado de Máquina usando um exemplo da galeria como modelo.
 
-1. Entre com suas credenciais de conta da Microsoft no [Estúdio](https://studio.azureml.net)e clique em **Novo** para criar um novo experimento.
+1. Entre com suas credenciais de conta da Microsoft no [Estúdio](https://studio.azureml.net) e clique em **Novo** para criar um experimento.
 2. Procure o conteúdo de exemplo e clique em um.
 
 Um novo experimento é criado no seu espaço de trabalho usando o experimento de exemplo como um modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Preparar os dados](machine-learning-data-science-import-data.md)
-* [Tente usar R em seu experimento](machine-learning-r-quickstart.md)
-* [Analise os experimentos R de exemplo](machine-learning-r-csharp-web-service-examples.md)
-* [Criar uma API do serviço Web](machine-learning-publish-a-machine-learning-web-service.md)
+* [Importar dados de várias fontes](machine-learning-data-science-import-data.md)
+* [Tutorial de início rápido para a linguagem R no Machine Learning](machine-learning-r-quickstart.md)
+* [Implantar um serviço Web do Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

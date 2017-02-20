@@ -1,6 +1,6 @@
 ---
-title: "Portal do Azure: introdução ao Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e bancos de dados usando o portal do Azure. Você também aprenderá a consultar bancos de dados usando o SQL Server Management Studio."
+title: "Início rápido: seu primeiro banco de dados SQL | Microsoft Docs"
+description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e bancos de dados com o portal do Azure. Você também aprenderá a usar o SQL Server Management Studio com o banco de dados Azure SQL."
 keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -14,53 +14,52 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: 6da0bb371336e0d9662a7fd36187cdf4317c22ea
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: b838974de06ecbc751254064e2310df51c450086
 
 
 ---
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-the-azure-portal-and-sql-server-management-studio"></a>Tutorial do Banco de Dados SQL: introdução aos servidores do Bancos de Dados SQL do Azure, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio
+# <a name="quick-start-tutorial-your-first-azure-sql-database"></a>Tutorial de início rápido: seu primeiro banco de dados do Azure SQL
 
-Neste tutorial de introdução, você aprenderá a usar o portal do Azure para:
+Neste tutorial de início rápido, você aprenderá como:
 
-* Criar um novo grupo de recursos do Azure
-* Criar um servidor lógico do SQL do Azure
-* Exibir propriedades de servidor lógico do SQL do Azure
-* Criar uma regra de firewall no nível de servidor
-* Crie o banco de dados de exemplo do Adventure Works LT como um banco de dados individual
-* Exibir propriedades de banco de dados de exemplo do Adventure Works LT no Azure
+* [Configurar um novo servidor lógico](sql-database-get-started.md#create-a-new-logical-sql-server) 
+* [Exibir as propriedades de servidor lógico](sql-database-get-started.md#view-the-logical-server-properties) 
+* [Criar uma regra de firewall no nível de servidor](sql-database-get-started.md#create-a-server-level-firewall-rule) 
+* [Conectar ao servidor com SSMS](sql-database-get-started.md#connect-to-the-server-with-ssms) 
+* [Criar um banco de dados com dados de exemplo](sql-database-get-started.md#create-a-database-with-sample-data) 
+* [Exibir as propriedades de banco de dados](sql-database-get-started.md#view-the-database-properties) 
+* [Consultar o banco de dados no portal do Azure](sql-database-get-started.md#query-the-database-in-the-azure-portal) 
+* [Conectar-se e consultar o banco de dados com SSMS](sql-database-get-started.md#connect-and-query-the-database-with-ssms) 
+* [Criar um banco de dados em branco com SSMS](sql-database-get-started.md#create-a-blank-database-with-ssms) 
+* [Solucionar problemas de conectividade](sql-database-get-started.md#troubleshoot-connectivity) 
+* [Excluir um banco de dados](sql-database-get-started.md#delete-a-single-database) 
 
-Neste tutorial, você também usa a versão mais recente do SQL Server Management Studio para:
 
-* Conectar-se ao servidor lógico e seu banco de dados mestre
-* Consultar o banco de dados mestre
-* Conectar-se ao banco de dados de exemplo
-* Consultar o banco de dados de exemplo
+Neste tutorial de início rápido, você cria um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também cria duas regras de firewall de nível de servidor configuradas para habilitar a entidade de nível de servidor a fazer logon no servidor por meio de dois endereços IP especificados. Por fim, você saiba como consultar um banco de dados no portal do Azure e conectar e consultar usando SQL Server Management Studio. 
 
-Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também terá uma regra de firewall de nível de servidor configurada para habilitar a entidade de segurança de nível de servidor fazer logon no servidor de um endereço IP especificado (ou o intervalo de endereços IP). 
-
-**Tempo estimado**: este tutorial levará cerca de 30 minutos (supondo que você já atende aos pré-requisitos).
+**Tempo estimado**: este tutorial leva cerca de 30 minutos (supondo que você já atenda aos pré-requisitos).
 
 > [!TIP]
-> Você pode executar as mesmas tarefas em um tutorial guia de Introdução usando o [C#](sql-database-get-started-csharp.md) ou o [PowerShell](sql-database-get-started-powershell.md).
+> Você pode executar as mesmas tarefas com [C#](sql-database-get-started-csharp.md) ou [PowerShell](sql-database-get-started-powershell.md).
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
-* Você deve ser capaz de se conectar ao portal do Azure usando uma conta que seja membro da função de colaborador ou proprietário da assinatura. Para obter mais informações sobre o controle de acesso baseado em função (RBAC), confira [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
+* Você deve ser capaz de se conectar ao portal do Azure com uma conta que seja membro da função de colaborador ou proprietário da assinatura. Para obter mais informações sobre o controle de acesso baseado em função (RBAC), confira [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
 
 > [!NOTE]
-> Este tutorial ajuda você a obter o conteúdo destes tópicos de aprendizagem: [Visão geral do servidor de Banco de Dados SQL](sql-database-server-overview.md), [Visão geral do banco de dados SQL](sql-database-overview.md) e [Visão geral de regras de firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
+> Este tutorial de início rápido o ajuda a obter o conteúdo destes tópicos de aprendizagem: [Visão geral do servidor de Banco de Dados SQL](sql-database-server-overview.md), [Visão geral do banco de dados SQL](sql-database-overview.md) e [Visão geral de regras de firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 >  
 
 
-### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Entrar no portal do Azure usando sua conta do Azure
-Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), siga estas etapas para se conectar ao portal do Azure.
+### <a name="sign-in-to-the-azure-portal-with-your-azure-account"></a>Entre no portal do Azure com sua conta do Azure
+com a [conta do Azure](https://account.windowsazure.com/Home/Index), siga estas etapas para se conectar ao portal do Azure.
 
 1. Abra seu navegador preferido e conecte-se ao [portal do Azure](https://portal.azure.com/).
 2. Entre no [Portal do Azure](https://portal.azure.com/).
@@ -71,7 +70,9 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Criar um novo servidor lógico do SQL no portal do Azure
+## <a name="create-a-new-logical-sql-server"></a>Criar um novo servidor SQL lógico
+
+Siga as etapas neste procedimento para criar um novo servidor lógico com o portal do Azure na região de sua escolha.
 
 1. Clique em **Novo**, digite **sql server** e, em seguida, clique em **ENTER**.
 
@@ -87,7 +88,7 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
     ![novo nome do servidor](./media/sql-database-get-started/new-server-name.png)
 
     > [!IMPORTANT]
-    > O nome totalmente qualificado para o novo servidor será <nome_do_servidor>.database.windows.net.
+    > O nome totalmente qualificado para o novo servidor terá o formato: <nome_do_servidor>.database.windows.net.
     >
     
 4. Na caixa de texto de logon do administrador de servidor, forneça um nome de usuário para o logon de autenticação do SQL para este servidor. Esse logon é conhecido como o logon principal do servidor. Uma marca de seleção verde indica que você forneceu um nome válido.
@@ -115,7 +116,9 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![botão criar](./media/sql-database-get-started/create.png)
 
-## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Exibir as propriedades lógicas do SQL Server no portal do Azure
+## <a name="view-the-logical-server-properties"></a>Exibir as propriedades de servidor lógico
+
+Siga as etapas neste procedimento para exibir as propriedades do servidor com o portal do Azure. Você precisa do nome totalmente qualificado do servidor para se conectar a esse servidor em um procedimento subsequente. 
 
 1. No portal do Azure, clique em **Mais serviços**.
 
@@ -137,17 +140,15 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![nome completo do sql server](./media/sql-database-get-started/sql-server-full-name.png)
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
+## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
+
+Siga as etapas neste procedimento para criar uma nova regra de firewall de nível de servidor com o portal do Azure para que você possa se conectar ao servidor com o SQL Server Management Studio no próximo procedimento.
 
 1. Na folha do SQL server, em Configurações, clique em **Firewall** para abrir a folha de Firewall para o SQL server.
 
     ![firewall do sql server](./media/sql-database-get-started/sql-server-firewall.png)
 
-2. Examine o endereço IP do cliente exibido e confirme se esse é o endereço IP na Internet usando um navegador de sua escolha (perguntar "o que é meu endereço IP). Ocasionalmente, eles não coincidem por vários motivos.
-
-    ![seu endereço IP](./media/sql-database-get-started/your-ip-address.png)
-
-3. Supondo que os endereços IP têm correspondência, clique em **Adicionar IP do cliente** na barra de ferramentas.
+2. Clique em **Adicionar IP do cliente** na barra de ferramentas.
 
     ![adicionar IP do cliente](./media/sql-database-get-started/add-client-ip.png)
 
@@ -159,14 +160,16 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![adicionar IP do cliente](./media/sql-database-get-started/save-firewall-rule.png)
 
-## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>Conectar-se ao SQL server usando o SSMS (SQL Server Management Studio)
+## <a name="connect-to-the-server-with-ssms"></a>Conectar ao servidor com SSMS
+
+Siga as etapas neste procedimento para se conectar ao servidor lógico SQL com o SQL Server Management Studio.
 
 1. Se você ainda não o fez, baixe e instale a versão mais recente do SSMS em [Baixar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Para se manter atualizado, a versão mais recente do SSMS avisará você quando houver uma nova versão disponível para download.
 
 2. Depois de instalar, digite **Microsoft SQL Server Management Studio** na caixa de pesquisa do Windows e clique em **Enter** para abrir o SSMS:
 
     ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
-3. Na caixa de diálogo Conectar ao servidor, insira as informações necessárias para se conectar ao SQL server usando a Autenticação do SQL Server.
+3. Na caixa de diálogo Conectar ao servidor, insira as informações necessárias para se conectar ao SQL server com a Autenticação do SQL Server.
 
     ![conectar-se ao servidor](./media/sql-database-get-started/connect-to-server.png)
 4. Clique em **Conectar**.
@@ -191,7 +194,9 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
     > Para explorar a segurança do SQL, confira [Introdução à segurança do SQL](sql-database-control-access-sql-authentication-get-started.md)
     >
 
-## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Criar novo banco de dados no portal do Azure usando o exemplo Adventure Works LT
+## <a name="create-a-database-with-sample-data"></a>Criar um banco de dados com dados de exemplo
+
+Siga as etapas neste procedimento para criar um banco de dados com dados de exemplo com o portal do Azure. Você cria esse banco de dados anexado ao servidor lógico que criou anteriormente. Se a camada de serviço Básica não estiver disponível na região em que você criou o servidor, exclua o servidor e recrie-o em outra região. Para obter etapas de exclusão, confira o último procedimento deste tutorial.
 
 1. No Portal do Azure, clique em **Bancos de dados SQL** na folha padrão.
 
@@ -223,7 +228,9 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![botão criar](./media/sql-database-get-started/create.png)
 
-## <a name="view-database-properties-in-the-azure-portal"></a>Exibir propriedades de banco de dados no portal do Azure
+## <a name="view-the-database-properties"></a>Exibir as propriedades de banco de dados
+
+Siga as etapas neste procedimento para consultar o banco de dados com o portal do Azure.
 
 1. Na folha de bancos de dados SQL, clique em seu novo banco de dados para exibir suas propriedades no portal do Azure. Tutoriais subsequentes o ajudarão a entender as opções disponíveis nessa folha. 
 
@@ -242,7 +249,41 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![novo banco de dados de exemplo no painel servidor do Essentials](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
 
-## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>Conectar e consultar o banco de dados de exemplo usando o SQL Server Management Studio
+## <a name="query-the-database-in-the-azure-portal"></a>Abra o banco de dados no Portal do Azure
+
+Siga as etapas neste procedimento para consultar o banco de dados com o editor de consultas no portal do Azure. A consulta mostra os objetos no banco de dados.
+
+1. Na folha de bancos de dados SQL, clique em **Ferramentas** na barra de ferramentas.
+
+    ![ferramentas](./media/sql-database-get-started/tools.png)
+2. Na folha Ferramentas, clique em **Editor de consultas (visualização)**.
+
+    ![editor de consultas](./media/sql-database-get-started/query-editor.png)
+3. Clique na caixa de seleção para confirmar que o editor de consultas é um recurso de visualização e clique em **OK**.
+4. Na folha **Editor de consultas**, clique em **Logon**.
+
+    ![folha de editor de consultas](./media/sql-database-get-started/query-editor-blade.png)
+5. Examine o tipo de autorização e o logon e forneça a senha para esse logon. 
+
+    ![logon do editor de consultas](./media/sql-database-get-started/query-editor-login.png)
+6. Clique em **OK** para tentar fazer logon.
+7. Ao receber um erro de logon, informando que o cliente não tem permissão para fazer logon devido a ausência de uma regra de firewall para o endereço IP do cliente, copie o endereço IP do cliente na janela de erro e, na folha do servidor SQL do banco de dados, crie uma regra de firewall de nível de servidor.
+
+    ![erro do editor de consultas](./media/sql-database-get-started/query-editor-error.png)
+8. Repita as seis etapas anteriores para fazer logon no banco de dados.
+9. Depois de autenticado, na janela de consulta, digite a seguinte consulta:
+
+   ```select * from sys.objects```
+
+    ![consulta do editor de consultas](./media/sql-database-get-started/query-editor-query.png)
+10.  Clique em **Executar**.
+11. Examine os resultados da consulta no painel **Resultados**.
+
+    ![resultados do editor de consultas](./media/sql-database-get-started/query-editor-results.png)
+
+## <a name="connect-and-query-the-database-with-ssms"></a>Conectar-se e consultar o banco de dados com SSMS
+
+Siga as etapas neste procedimento para se conectar ao banco de dados com o SQL Server Management Studio e consultar os dados de exemplo para exibir os objetos no banco de dados.
 
 1. Alterne para o SQL Server Management Studio e, no Pesquisador de Objetos, clique em **Bancos de dados** e, em seguida, clique em **Atualizar** na barra de ferramentas para exibir o banco de dados de exemplo.
 
@@ -261,14 +302,16 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![novos objetos de sistema de consulta de banco de dados de exemplo com o ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
 
-## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>Crie um novo banco de dados em branco usando o SQL Server Management Studio
+## <a name="create-a-blank-database-with-ssms"></a>Criar um banco de dados em branco com SSMS
+
+Siga as etapas neste procedimento para criar um novo banco de dados no servidor lógico com o SQL Server Management Studio.
 
 1. No Pesquisador de Objetos, clique com o botão direito do mouse em **Bancos de Dados** e em **Novo banco de dados**.
 
     ![novo banco de dados em branco com o ssms](./media/sql-database-get-started/new-blank-database-ssms.png)
 
     > [!NOTE]
-    > Você também pode fazer com que o SSMS crie um script de criação de banco de dados para criar um novo banco de dados usando o Transact-SQL.
+    > Você também pode fazer com que o SSMS crie um script de criação de banco de dados para criar um novo banco de dados com o Transact-SQL.
     >
 
 2. Na caixa de diálogo Novo Banco de Dados, forneça um nome de banco de dados na caixa de texto de Nome do banco de dados. 
@@ -288,29 +331,48 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
 
     ![novo banco de dados em branco no pesquisador de objetos](./media/sql-database-get-started/new-blank-database-object-explorer.png)
 
+## <a name="troubleshoot-connectivity"></a>Solucionar problemas de conectividade
+
+> [!IMPORTANT]
+> Se tiver problemas de conectividade, confira [Problemas de conectividade](sql-database-troubleshoot-common-connection-issues.md).
+> 
+
+## <a name="delete-a-single-database"></a>Excluir um único banco de dados
+
+Siga as etapas neste procedimento para excluir um banco de dados com o portal do Azure.
+
+1. Na folha no portal do Azure para o banco de dados SQL, clique em **Excluir**.
+
+    ![delete-database](./media/sql-database-get-started/delete-database.png)
+2. Clique em **Sim** para confirmar que deseja excluir este banco de dados permanentemente.
+
+    ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
+
 > [!TIP]
-> Você pode economizar algum dinheiro enquanto estiver aprendendo excluindo bancos de dados que você não está usando. Para bancos de dados edição Básica, você poderá restaurá-los dentro de sete dias. No entanto, não exclua um servidor. Se você fizer isso, não poderá recuperar o servidor ou qualquer um de seus bancos de dados excluídos.
+> Durante o período de retenção do banco de dados, você pode restaurar os backups automáticos iniciados pelo serviço. Para bancos de dados edição Básica, você poderá restaurá-los dentro de sete dias. No entanto, não exclua um servidor. Se você fizer isso, não poderá recuperar o servidor ou qualquer um de seus bancos de dados excluídos. Para obter mais informações sobre backups de banco de dados, confira [Saiba mais sobre backups de banco de dados SQL](sql-database-automated-backups.md) e para obter informações sobre como restaurar um banco de dados por meio de backups, confira [Recuperação de banco de dados](sql-database-recovery-using-backups.md). Para obter um artigo de instruções sobre como restaurar um banco de dados excluído, confira [Restaurar um banco de dados Azure SQL excluído - portal do Azure](sql-database-restore-deleted-database-portal.md).
 >
 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial, há vários tutoriais adicionais que talvez você queira explorar que criam o que você aprendeu neste tutorial. 
 
-* Se quiser começar a explorar a segurança do Banco de Dados SQL do Azure, confira [Introdução à segurança](sql-database-control-access-sql-authentication-get-started.md).
+- Para obter uma introdução ao tutorial de autenticação do SQL Server, confira [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Para obter uma introdução ao tutorial de autenticação do Azure Active Directory, confira [Autenticação e autorização do AAD](sql-database-control-access-aad-authentication-get-started.md)
+* Se você deseja consultar o banco de dados de exemplo no portal do Azure, confira [Visualização pública: experiência interativa de consulta para bancos de dados SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Se você conhece o Excel, saiba como [Conectar um banco de dados SQL no Azure com o Excel](sql-database-connect-excel.md).
 * Se você estiver pronto para começar a codificar, escolha a linguagem de programação em [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 * Se você quiser mover seus bancos de dados SQL Server locais para o Azure, confira [Migrando um banco de dados para o Banco de Dados SQL](sql-database-cloud-migrate.md).
-* Se você quiser carregar alguns dados em uma nova tabela de um arquivo CSV usando a ferramenta da linha de comando BCP, consulte [Carregando dados no Banco de Dados SQL a partir de um arquivo CSV usando o BCP](sql-database-load-from-csv-with-bcp.md).
+* Se quiser carregar alguns dados em uma nova tabela de um arquivo CSV com a ferramenta da linha de comando BCP, confira [Carregando dados no Banco de Dados SQL a partir de um arquivo CSV com o BCP](sql-database-load-from-csv-with-bcp.md).
 * Se você deseja iniciar a criação de tabelas e outros objetos, confira o tópico "Para criar uma tabela" em [Criando uma tabela](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para uma visão geral técnica, confira [O que é o Banco de Dados SQL?](sql-database-technical-overview.md).
+- Para uma visão geral técnica, confira [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 - Para saber mais sobre preços, confira [Preços do Banco de Dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

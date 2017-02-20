@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -46,10 +46,10 @@ Para que Carlos Lima gerencie os dois diretórios enquanto está conectado ao Az
 >
 >
 
-1. Entrar no [Portal Clássico do Azure](https://manage.windowsazure.com) como msmith@hotmail.com.
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como msmith@hotmail.com.
 2. Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
 3. Clique em Usar diretório existente e marque a caixa de seleção **Estou pronto para sair agora** .
-4. Entre no Portal Clássico do Azure como administrador global de Contoso.onmicrosoft.com (por exemplo, msmith@contoso.com).
+4. Entre no portal clássico do Azure como administrador global de Contoso.onmicrosoft.com (por exemplo, msmith@contoso.com).
 5. Quando for solicitado a **Usar diretório Contoso com o Azure?**, clique em **Continuar**.
 6. Clique em **Sair agora**.
 7. Entre no portal clássico do Azure como msmith@hotmail.com. O diretório da Contoso e o diretório padrão aparecem na extensão do Active Directory.
@@ -59,7 +59,7 @@ Depois de concluir essas etapas, msmith@hotmail.com é um administrador global n
 ## <a name="to-administer-resources-as-the-global-admin"></a>Para administrar recursos como administrador global
 Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de banco de dados que estão associados à assinatura do Azure de msmith@hotmail.com. Para que ela possa fazer isso, antes Carlos Lima precisa concluir estas etapas adicionais:
 
-1. Entrar no [Portal Clássico do Azure](https://manage.windowsazure.com) usando a conta de Administrador de Serviços da assinatura do Azure (neste exemplo, msmith@hotmail.com).
+1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) usando a conta de Administrador de Serviços da assinatura do Azure (neste exemplo, msmith@hotmail.com).
 2. Transferir a assinatura para o diretório Contoso: clique em **Configurações** > **Assinaturas** > selecione a assinatura > **Editar Diretório** > selecione **Contoso (Contoso.com)**. Como parte da transferência, qualquer conta corporativa ou de estudante que atua como coadministrador da assinatura é removida.
 3. Adicionar Brenda Fernandes como coadministradora da assinatura: clique em **Configurações** > **Administradores** > selecione a assinatura > **Adicionar** > digite **JohnDoe@Contoso.com**.
 
@@ -68,6 +68,6 @@ Para obter mais informações sobre a relação entre assinaturas e diretórios,
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

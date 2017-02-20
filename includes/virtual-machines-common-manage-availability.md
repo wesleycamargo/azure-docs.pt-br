@@ -15,9 +15,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para saber mais, confira [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Evite deixar uma única máquina virtual sozinha em um conjunto de disponibilidade. As máquinas virtuais com esta configuração não se qualificam para a garantia de SLA e enfrentarão tempo de inatividades durante os eventos de manutenção planejada do Azure.
-> 
-> 
+> Evite deixar uma única máquina virtual sozinha em um conjunto de disponibilidade. Máquinas virtuais nesta configuração não se qualificam para uma garantia de SLA e enfrentam tempo de inatividade durante eventos de manutenção planejada do Azure, exceto quando estiver usando uma única VM [armazenamento Premium do Azure](../articles/storage/storage-premium-storage.md). Para VMs únicas usando o armazenamento premium, o SLA do Azure se aplica.
 
 Cada máquina virtual em seu conjunto de disponibilidade receberá um **domínio de atualização** e um **domínio de falha** da plataforma subjacente do Azure. Para determinado conjunto de disponibilidade, cinco domínios de atualização não configuráveis pelo usuário são atribuídos por padrão (é possível aumentar as implantações do Resource Manager para fornecer até 20 domínios de atualização) para indicar grupos de máquinas virtuais e hardware físico subjacente que pode ser reinicializado ao mesmo tempo. Quando mais do que cinco máquinas virtuais são configuradas com um único conjunto de disponibilidade, a sexta máquina virtual será alocada com o mesmo domínio de atualização da primeira máquina virtual, a sétima com o mesmo domínio de atualização da segunda máquina virtual e assim sucessivamente. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas um domínio de atualização é reinicializado por vez.
 
@@ -25,6 +23,10 @@ Os domínios de falha definem o grupo de máquinas virtuais que compartilham uma
 
 <!--Image reference-->
    ![Desenho conceitual da configuração do domínio de atualização e do domínio de falha](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
+### <a name="managed-disk-fault-domains-and-availability-sets"></a>Domínios de falha e conjuntos de disponibilidade de Disco Gerenciado
+Para VMs que usam [Azure Managed Disks](../articles/storage/storage-faq-for-disks.md), as VMs são alinhadas aos domínios de falha de disco gerenciado quando usam um conjunto de disponibilidade gerenciada. Esse alinhamento garante que todos os discos gerenciados anexados a uma VM fiquem no mesmo domínio de falha de disco gerenciado. Somente as VMs com discos gerenciados podem ser criadas em um conjunto de disponibilidade gerenciado. O número de domínios de falha de disco gerenciado varia por região - dois ou três domínios de falha de disco gerenciados por região.
+
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configurar cada camada de aplicativo em conjuntos de disponibilidade separados
 Se as suas máquinas virtuais forem quase idênticas e servirem para o mesmo propósito para o seu aplicativo, recomendamos que configure o seu conjunto de disponibilidade para cada camada de seu aplicativo.  Se você colocar duas camadas diferentes no mesmo conjunto de disponibilidade, todas as máquinas virtuais na mesma camada de aplicativo podem ser reinicializadas ao mesmo tempo. Ao configurar ao menos duas máquinas virtuais no conjunto de disponibilidade de cada camada, você garante que ao menos uma máquina virtual de cada camada estará disponível.
@@ -40,11 +42,13 @@ Combine o [Azure Load Balancer](../articles/load-balancer/load-balancer-overview
 Se o balanceador de carga não estiver configurado para balancear o tráfego entre múltiplas máquinas virtuais, então qualquer evento de manutenção planejada afetará a única máquina virtual atendendo ao tráfego causando uma pane na sua camada de aplicativo. Colocar diversas máquinas virtuais na mesma camada sob o mesmo balanceador de carga e conjunto de disponibilidade habilita o tráfego a ser atendido continuamente pelo menos por uma instância.
 
 ## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>Usar várias contas de armazenamento para cada conjunto de disponibilidade
-Existem melhores práticas a serem seguidas com relação a contas de armazenamento usadas pelos VHDs (discos rígidos virtuais) contidos na VM. Cada disco (VHD) é um blob de páginas em uma conta de Armazenamento do Azure. É importante garantir que haja redundância e isolamento entre as contas de armazenamento para fornecer alta disponibilidade para VMs no Conjunto de Disponibilidade.
+Se você usar Azure Managed Disks, poderá ignorar as diretrizes a seguir. Os Managed Disks fornecem inerentemente alta disponibilidade e redundância, como os discos são armazenados em domínios de falha que se alinham com os conjuntos de disponibilidade das VMs. Para saber mais, veja [Visão geral dos Azure Managed Disks](../articles/storage/storage-managed-disks-overview.md).
+
+Se você usar discos não gerenciados, existem melhores práticas a serem seguidas com relação a contas de armazenamento usadas pelos VHDs (discos rígidos virtuais) contidos na VM. Cada disco (VHD) é um blob de páginas em uma conta de Armazenamento do Azure. É importante garantir que haja redundância e isolamento entre as contas de armazenamento para fornecer alta disponibilidade para VMs no Conjunto de Disponibilidade.
 
 1. **Manter todos os discos (sistema operacional e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Os [limites](../articles/storage/storage-scalability-targets.md) da conta de armazenamento devem ser considerados** ao adicionar mais VHDs a uma conta de armazenamento
-3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Várias VMs no mesmo conjunto de disponibilidade NÃO devem compartilhar a mesma conta de armazenamento. É aceitável que VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas acima sejam seguidas
+3. **Use uma conta de armazenamento distinta para cada VM em um conjunto de disponibilidade.** Várias VMs no mesmo conjunto de disponibilidade NÃO devem compartilhar contas de armazenamento. É aceitável que VMs em diferentes conjuntos de disponibilidade compartilhem contas de armazenamento, desde que as melhores práticas anteriores sejam seguidas
 
 <!-- Link references -->
 [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
@@ -55,6 +59,6 @@ Existem melhores práticas a serem seguidas com relação a contas de armazename
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

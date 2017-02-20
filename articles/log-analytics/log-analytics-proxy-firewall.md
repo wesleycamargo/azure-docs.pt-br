@@ -1,5 +1,5 @@
 ---
-title: "Definir as configurações de proxy e firewall no Log Analytics | Microsoft Docs"
+title: "Definir as configurações de proxy e firewall no Azure Log Analytics | Microsoft Docs"
 description: "Defina as configurações de proxy e firewall quando seus agentes ou serviços do OMS precisarem usar portas específicas."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Definir as configurações de proxy e firewall no Log Analytics
-As ações precisavam definir configurações de proxy e firewall para Log Analytics no OMS diferirem quando você usar o Operations Manager e seus agentes versus os agentes do Microsoft Monitoring que se conectam diretamente aos servidores. Examine as seções a seguir para o tipo de agente usado.
+Ações necessárias para configurar o proxy e configurações de firewall para Log Analytics diferem para o tipo de agentes que você está usando. Examine as seções a seguir para o tipo de agente usado.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Definir configurações de proxy e de firewall com o Microsoft Monitoring Agent
+## <a name="settings-for-the-oms-gateway"></a>Configurações do gateway do OMS
+
+Se seus agentes não tiver acesso à Internet, em vez disso, eles podem enviar seus dados usando seus próprios recursos de rede para o Gateway do OMS. O Gateway coleta seus dados e os envia para o serviço OMS em seu nome.
+
+Configure os agentes que se comunicam com o Gateway de OMS usando seu nome de domínio totalmente qualificado e o número de porta personalizada.
+
+O Gateway do OMS precisa de acesso à Internet. Use as configurações de firewall ou o mesmo servidor proxy para o Gateway de OMS que você faria para o tipo de agentes que você tem. Para saber mais sobre o Gateway OMS, veja [Conectar computadores e dispositivos OMS usando o Gateway OMS](log-analytics-oms-gateway.md).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Definir as configurações com o Microsoft Monitoring Agent
 Para o Microsoft Monitoring Agent se conectar e se registrar no serviço do OMS, ele deverá ter acesso ao número da porta de seus domínios e às URLs. Se você usar um servidor proxy para comunicação entre o agente e o serviço do OMS, será necessário garantir que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso ao OMS. As tabelas a seguir listam as portas de que o serviço do OMS precisa.
 
 | **Recurso de agente** | **Portas** | **Ignorar a inspeção de HTTPS** |
@@ -71,7 +79,7 @@ Copie o exemplo a seguir, atualize-o com informações específicas para seu amb
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Definir as configurações de proxy e de firewall com o Operations Manager
+## <a name="configure-settings-with-operations-manager"></a>Definir configurações com o Operations Manager
 Para um grupo de gerenciamento do Operations Manager se conectar e se registrar no serviço do OMS, ele deverá ter acesso aos números de porta de seus domínios e URLs. Se você usar um servidor proxy para comunicação entre o servidor de gerenciamento do Operations Manager e o serviço do OMS, será necessário garantir que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso ao OMS. Mesmo que um servidor de gerenciamento do Operations Manager não esteja protegido por um servidor proxy, seus agentes podem estar. Nesse caso, o servidor proxy deve ser configurado da mesma maneira como os agentes para habilitar e permitir que os dados da solução Gerenciamento de Logs e Segurança sejam enviados ao serviço Web do OMS.
 
 Para que os agentes do Operations Manager se comuniquem com o serviço do OMS, sua infraestrutura do Operations Manager (incluindo agentes) deve ter as configurações e a versão de proxy corretas. A configuração do proxy para agentes é especificada no console do Operations Manager. Sua versão deve ser uma das seguintes:
@@ -180,6 +188,6 @@ Ou então, você também pode verificar os pacotes de gerenciamento do OMS usand
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

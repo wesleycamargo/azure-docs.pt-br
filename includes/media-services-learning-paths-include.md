@@ -1,10 +1,9 @@
-Você pode exibir os roteiros de aprendizagem do AMS aqui:
+Você pode exibir os serviços de mídia do Azure aqui os planos de aprendizado:
 
-* [Fluxo de trabalho do streaming ao vivo do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Fluxo de trabalho do streaming sob demanda do AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+* [Fluxo de trabalho da transmissão ao vivo dos Serviços de Mídia](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [Serviços de Mídia no fluxo de trabalho de Streaming sob Demanda](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Atribuir licenças para o Azure MFA | Microsoft Docs"
-description: "Saiba como atribuir as licenças do usuário para a Autenticação Multifator do Microsoft Azure."
+description: "Saiba como atribuir as licenças do usuário para a Microsoft Azure Multi-Factor Authentication"
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c93db18866478556e91da8acbc9f0c749b65dc62
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
 
 
 ---
@@ -38,9 +38,11 @@ Se você tiver comprado licenças do Azure MFA, do Azure AD Premium ou do Enterp
 9. Você deverá ver uma mensagem informando quantas licenças foram atribuídas e quantas podem ter falhado.  Clique em **Ok**.
    ![Atribuir licenças](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
+## <a name="next-steps"></a>Próximas etapas
+
+- Para saber mais, veja [O que é o licenciamento do Microsoft Azure Active Directory?](../active-directory/active-directory-licensing-what-is.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

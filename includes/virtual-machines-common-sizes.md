@@ -35,20 +35,20 @@ Criamos o conceito da ACU (unidade de computação do Azure) para fornecer uma m
 
 | Família de SKU | ACU/núcleo |
 | --- | --- |
-| [Standard_A0](#a-series) |50 |
-| [Standard_A1-4](#a-series) |100 |
-| [Standard_A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
+| [A0](#a-series) |50 |
+| [A4 A1](#a-series) |100 |
+| [A7 A5](#a-series) |100 |
+| [A1_v2 A8_v2](#av2-series) |100 |
+| [A2m_v2 A8m_v2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [DS1-14](#ds-series) |160 |
-| [DS1-15v2](#dsv2-series) |210-250* |
+| [D1 D14](#d-series) |160 |
+| [D1_v2 D15_v2](#dv2-series) |210 - 250* |
+| [DS14 DS1](#ds-series) |160 |
+| [DS1_v2 DS15_v2](#dsv2-series) |210-250* |
 | [F1-F16](#f-series) |210-250* |
 | [F1s-F16s](#fs-series) |210-250* |
-| [G1-5](#g-series) |180 - 240* |
-| [GS1-5](#gs-series) |180 - 240* |
+| [G5 G1](#g-series) |180 - 240* |
+| [GS1 GS5](#gs-series) |180 - 240* |
 | [H](#h-series) |290 – 300* |
 
 ACUs marcados com um * usam tecnologia Intel® Turbo para aumentar a frequência da CPU e fornecer um aumento de desempenho.  A quantidade do aumento pode variar com base no tamanho da VM, na carga de trabalho e em outras cargas de trabalho em execução no mesmo host.
@@ -64,14 +64,14 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 ## <a name="a-series"></a>Séria A
 | Tamanho | Núcleos de CPU | Memória: GiB | HDD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 |1 |0,768 |20 |1 |1 x 500 |1 / baixa |
+| Standard_A0 |1 |0,768 |20 |1 |1 x&500; |1 / baixa |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |1 / moderada |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |1 / moderada |
-| Standard_A3 |4 |7 |285 |8 |8 x 500 |2 / alta |
-| Standard_A4 |8 |14 |605 |16 |16 x 500 |4 / alta |
+| Standard_A3 |4 |7 |285 |8 |8 x&500; |2 / alta |
+| Standard_A4 |8 |14 |605 |16 |16 x&500; |4 / alta |
 | Standard_A5 |2 |14 |135 |4 |4x500 |1 / moderada |
-| Standard_A6 |4 |28 |285 |8 |8 x 500 |2 / alta |
-| Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / alta |
+| Standard_A6 |4 |28 |285 |8 |8 x&500; |2 / alta |
+| Standard_A7 |8 |56 |605 |16 |16 x&500; |4 / alta |
 
 <br>
 
@@ -80,10 +80,10 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 
 | Tamanho | Núcleos de CPU | Memória: GiB | HDD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | NICs máximas / largura de banda da rede |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |16 |16 x 500 |2 / alta |
-| Standard_A9* |16 |112 |382 |16 |16 x 500 |4 / muito alta |
-| Standard_A10 |8 |56 |382 |16 |16 x 500 |2 / alta |
-| Standard_A11 |16 |112 |382 |16 |16 x 500 |4 / muito alta |
+| Standard_A8* |8 |56 |382 |16 |16 x&500; |2 / alta |
+| Standard_A9* |16 |112 |382 |16 |16 x&500; |4 / muito alta |
+| Standard_A10 |8 |56 |382 |16 |16 x&500; |2 / alta |
+| Standard_A11 |16 |112 |382 |16 |16 x&500; |4 / muito alta |
 
 *Compatível com RDMA
 
@@ -95,11 +95,11 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 |-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
 | Standard_A1_v2 | 1         | 2            | 10                   | 2              | 2x500              | 1 / moderada              |
 | Standard_A2_v2 | 2         | 4            | 20                   | 4              | 4x500              | 2 / moderada              |
-| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 x 500              | 4 / alta                  |
-| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 x 500             | 8 / alta                  |
+| Standard_A4_v2 | 4         | 8            | 40                   | 8              | 8 x&500;              | 4 / alta                  |
+| Standard_A8_v2 | 8         | 16           | 80                   | 16             | 16 x&500;             | 8 / alta                  |
 | Standard_A2m_v2 | 2        | 16           | 20                   | 4              | 4x500              | 2 / moderada              |
-| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x 500              | 4 / alta                  |
-| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x 500             | 8 / alta                  |
+| Standard_A4m_v2 | 4        | 32           | 40                   | 8              | 8 x&500;              | 4 / alta                  |
+| Standard_A8m_v2 | 8        | 64           | 80                   | 16             | 16 x&500;             | 8 / alta                  |
 
 
 ## <a name="d-series"></a>Série D
@@ -107,12 +107,12 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1 |1 |3,5 |50 |2 |2x500 |1 / moderada |
 | Standard_D2 |2 |7 |100 |4 |4x500 |2 / alta |
-| Standard_D3 |4 |14 |200 |8 |8 x 500 |4 / alta |
-| Standard_D4 |8 |28 |400 |16 |16 x 500 |8 / alta |
+| Standard_D3 |4 |14 |200 |8 |8 x&500; |4 / alta |
+| Standard_D4 |8 |28 |400 |16 |16 x&500; |8 / alta |
 | Standard_D11 |2 |14 |100 |4 |4x500 |2 / alta |
-| Standard_D12 |4 |28 |200 |8 |8 x 500 |4 / alta |
-| Standard_D13 |8 |56 |400 |16 |16 x 500 |8 / alta |
-| Standard_D14 |16 |112 |800 |32 |32 x 500 |8 / muito alta |
+| Standard_D12 |4 |28 |200 |8 |8 x&500; |4 / alta |
+| Standard_D13 |8 |56 |400 |16 |16 x&500; |8 / alta |
+| Standard_D14 |16 |112 |800 |32 |32 x&500; |8 / muito alta |
 
 <br>
 
@@ -121,16 +121,18 @@ Para obter informações e considerações sobre o uso desses tamanhos, confira 
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |3,5 |50 |2 |2x500 |1 / moderada |
 | Standard_D2_v2 |2 |7 |100 |4 |4x500 |2 / alta |
-| Standard_D3_v2 |4 |14 |200 |8 |8 x 500 |4 / alta |
-| Standard_D4_v2 |8 |28 |400 |16 |16 x 500 |8 / alta |
-| Standard_D5_v2 |16 |56 |800 |32 |32 x 500 |8 / extremamente alta |
+| Standard_D3_v2 |4 |14 |200 |8 |8 x&500; |4 / alta |
+| Standard_D4_v2 |8 |28 |400 |16 |16 x&500; |8 / alta |
+| Standard_D5_v2 |16 |56 |800 |32 |32 x&500; |8 / extremamente alta |
 | Standard_D11_v2 |2 |14 |100 |4 |4x500 |2 / alta |
-| Standard_D12_v2 |4 |28 |200 |8 |8 x 500 |4 / alta |
-| Standard_D13_v2 |8 |56 |400 |16 |16 x 500 |8 / alta |
-| Standard_D14_v2 |16 |112 |800 |32 |32 x 500 |8 / extremamente alta |
-| Standard_D15_v2 |20 |140 |1.000 |40 |40 x 500 |8 / extremamente alta* |
+| Standard_D12_v2 |4 |28 |200 |8 |8 x&500; |4 / alta |
+| Standard_D13_v2 |8 |56 |400 |16 |16 x&500; |8 / alta |
+| Standard_D14_v2 |16 |112 |800 |32 |32 x&500; |8 / extremamente alta |
+| Standard_D15_v2** |20 |140 |1.000 |40 |40 x&500; |8 / extremamente alta* |
 
 * Em algumas regiões, a rede acelerada está disponível para o tamanho Standard_D15_v2. Para saber mais sobre o uso e a disponibilidade, consulte [Accelerated Networking is in Preview (A rede acelerada está em versão de visualização)](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) e [Rede acelerada para uma máquina virtual](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
+
+**A instância é isolada em hardware dedicado a um único cliente.
 
 <br>
 
@@ -164,7 +166,7 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 | Standard_DS12_v2 |4 |28 |56 |8 |16.000 / 128 (144) |12.800 / 192 |4 alta |
 | Standard_DS13_v2 |8 |56 |112 |16 |32.000 / 256 (288) |25.600 / 384 |8 alta |
 | Standard_DS14_v2 |16 |112 |224 |32 |64.000 / 512 (576) |51.200 / 768 |8 extremamente alta |
-| Standard_DS15_v2 |20 |140 |280 |40 |80.000 / 640 (720) |64.000 / 960 |8 extremamente alta** |
+| Standard_DS15_v2*** |20 |140 |280 |40 |80.000 / 640 (720) |64.000 / 960 |8 extremamente alta** |
 
 MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
@@ -172,6 +174,7 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 ** Em algumas regiões, a rede acelerada está disponível para o tamanho Standard_DS15_v2. Para saber mais sobre o uso e a disponibilidade, consulte [Accelerated Networking is in Preview (A rede acelerada está em versão de visualização)](https://azure.microsoft.com/updates/accelerated-networking-in-preview/) e [Rede acelerada para uma máquina virtual](../articles/virtual-network/virtual-network-accelerated-networking-powershell.md).
 
+***A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
 ## <a name="f-series"></a>Série F
@@ -179,9 +182,9 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1 |1 |2 |16 |2 |2x500 |1 / moderada |
 | Standard_F2 |2 |4 |32 |4 |4x500 |2 / alta |
-| Standard_F4 |4 |8 |64 |8 |8 x 500 |4 / alta |
-| Standard_F8 |8 |16 |128 |16 |16 x 500 |8 / alta |
-| Standard_F16 |16 |32 |256 |32 |32 x 500 |8 / extremamente alta |
+| Standard_F4 |4 |8 |64 |8 |8 x&500; |4 / alta |
+| Standard_F8 |8 |16 |128 |16 |16 x&500; |8 / alta |
+| Standard_F16 |16 |32 |256 |32 |32 x&500; |8 / extremamente alta |
 
 <br>
 
@@ -207,8 +210,9 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 | Standard_G2 |4 |56 |768 |8 |8 x 500 |2 / alta |
 | Standard_G3 |8 |112 |1.536 |16 |16 x 500 |4 / muito alta |
 | Standard_G4 |16 |224 |3.072 |32 |32 x 500 |8 / extremamente alta |
-| Standard_G5 |32 |448 |6.144 |64 |64 x 500 |8 / extremamente alta |
+| Standard_G5* |32 |448 |6.144 |64 |64 x 500 |8 / extremamente alta |
 
+*A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
 ## <a name="gs-series"></a>Série GS*
@@ -218,12 +222,13 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 | Standard_GS2 |4 |56 |112 |8 |20.000 / 200 (528) |10.000 / 250 |2 / Alta |
 | Standard_GS3 |8 |112 |224 |16 |40.000 / 400 (1.056) |20.000 / 500 |4 / muito alta |
 | Standard_GS4 |16 |224 |448 |32 |80.000 / 800 (2.112) |40.000 / 1.000 |8 / extremamente alta |
-| Standard_GS5 |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / extremamente alta |
+| Standard_GS5** |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / extremamente alta |
 
 MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 *A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. 
 
+**A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
 ## <a name="h-series"></a>Série H
@@ -301,6 +306,6 @@ No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeir
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

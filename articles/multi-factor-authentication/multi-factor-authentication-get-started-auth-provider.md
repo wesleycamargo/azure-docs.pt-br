@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
@@ -25,17 +25,13 @@ A autenticação em duas etapas está disponível por padrão para os administra
 
 > [!NOTE]
 > Um Provedor do Azure Multi-Factor Auth é usado para aproveitar as vantagens dos recursos fornecidos pela versão completa do Azure MFA. É para os usuários que **não têm licenças por meio do Azure MFA, Azure AD Premium ou EMS**.  O Azure MFA, o Azure AD Premium e o EMS incluem a versão completa do Azure MFA por padrão.  Se você tiver licenças, não precisará de um Provedor de Autenticação Multifator do Azure.
-> 
-> 
 
 Um provedor de Autenticação Multifator do Azure será requerido para baixar o SDK.
 
 > [!IMPORTANT]
 > Para baixar o SDK, crie um Provedor de Autenticação Multifator do Azure mesmo que você tenha as licenças MFA, AAD Premium ou EMS do Azure.  Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou EMS do Azure.  Isso garantirá que você não será cobrado, caso tenha mais usuários exclusivos usando o SDK do que o número de licenças possuídas.
-> 
-> 
 
-## <a name="to-create-a-multi-factor-auth-provider"></a>Para criar um Provedor do Multi-Factor Auth
+## <a name="create-a-multi-factor-auth-provider"></a>Criar um Provedor de Autenticação Multifator
 Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Azure.
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
@@ -64,6 +60,6 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
