@@ -6,9 +6,14 @@
 | **Interna** |Usa **Balanceamento de carga interno (ILB)** com um endereço privado para o ouvinte. |Você só pode acessar ao ouvinte de dentro da mesma rede virtual. Isso inclui VPN site a site em cenários híbridos. |
 
 > [!IMPORTANT]
-> Para um ouvinte que está usando o VIP público (balanceador externo de carga) do serviço de nuvem, desde que o cliente, o ouvinte e os bancos de dados estejam na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, os dados retornados através do ouvinte são considerados dados de saída e serão cobradas as taxas de transferência de dados normais.
+> Para um ouvinte que está usando o VIP público (balanceador externo de carga) do serviço de nuvem, desde que o cliente, o ouvinte e os bancos de dados estejam na mesma região do Azure, você não incorrerá em encargos de saída. Caso contrário, os dados retornados através do ouvinte são considerados dados de saída e serão cobradas as taxas de transferência de dados normais. 
 > 
 > 
 
 ILB só pode ser configurado em redes virtuais com um escopo regional. Redes virtuais existentes configuradas para um grupo de afinidade não podem usar o ILB. Para obter mais informações, consulte [Balanceador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

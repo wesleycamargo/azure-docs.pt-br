@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/25/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c0f17c4ff79bab7f5b13f42cd31e170780fc0c2
+ms.sourcegitcommit: 2e7815702f2d2f4ce935826c4769838727a83696
+ms.openlocfilehash: 7d1be1dea6ed4ecda196743f592456a5b977e9b0
 
 
 ---
@@ -53,8 +53,10 @@ Com o Proxy de Aplicativo do Azure AD, você pode acessar diferentes tipos de ap
 * APIs Web que você deseja expor a aplicativos avançados em diferentes dispositivos  
 * Aplicativos hospedados por trás de um Gateway de Área de Trabalho Remota  
 
-## <a name="how-does-it-work"></a>Como ele funciona?
+## <a name="how-does-the-service-work-with-connectors"></a>Como o serviço funciona com conectores?
 O Proxy de Aplicativo funciona com a instalação de um serviço leve do Windows Server, chamado conector, dentro de sua rede. Com o conector, você não precisa abrir portas de entrada nem colocar nada no DMZ. Se você tiver alto tráfego em seus aplicativos, pode adicionar mais conectores e o serviço se encarrega do balanceamento de carga. Os conectores não têm monitoração de estado e extraem tudo da nuvem conforme o necessário.
+
+Para saber mais sobre conectores, veja [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-understand-connectors.md). 
 
 Quando os usuários acessam aplicativos remotamente, conectam-se ao ponto de extremidade publicado. Os usuários são autenticados no Azure AD e, em seguida, são roteados por meio do conector para o aplicativo local.
 
@@ -71,18 +73,21 @@ Quando os usuários acessam aplicativos remotamente, conectam-se ao ponto de ext
 ### <a name="single-sign-on"></a>Logon único
 O Proxy de Aplicativo do Azure AD oferece SSO (logon único ) a aplicativos que usam a IWA (Autenticação Integrada do Windows) ou aplicativos com reconhecimento de declaração. Se seu aplicativo usa a IWA, o Proxy de Aplicativo representa o usuário usando a delegação restrita de Kerberos para fornecer o SSO. Se você tem um aplicativo com reconhecimento de declaração que confia no Active Directory do Azure, o SSO é obtido porque o usuário já foi autenticado pelo AD do Azure.
 
+Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
+
 ## <a name="how-to-get-started"></a>Como começar
 Verifique se você tem uma assinatura premium ou básica do Azure AD e um diretório do Azure AD dos quais é um administrador global. Você também precisa de licenças básicas ou premium do AD do Azure para o administrador do diretório e os usuários que acessam os aplicativos. Para obter mais informações, consulte [Edições do Azure Active Directory](active-directory-editions.md) .
 
 A configuração do Proxy de Aplicativo é realizada em duas etapas:
 
-1. [Habilitar o Proxy de Aplicativo e configurar o conector](active-directory-application-proxy-enable.md)    
+1. [Habilitar o Proxy de Aplicativo e configurar o conector](active-directory-application-proxy-enable.md).    
 2. [Publicar aplicativos](active-directory-application-proxy-publish.md) - use o assistente rápido e fácil para publicar seus aplicativos locais e torná-los acessíveis remotamente.
 
 ## <a name="whats-next"></a>O que vem a seguir?
 Você pode fazer muito mais com o Proxy de Aplicativo:
 
 * [Publicar aplicativos usando seu próprio nome de domínio](active-directory-application-proxy-custom-domains.md)
+* [Trabalhar com servidores Proxy locais existentes](application-proxy-working-with-proxy-servers.md) 
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 * [Trabalho com aplicativos com reconhecimento de declaração](active-directory-application-proxy-claims-aware-apps.md)
 * [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
@@ -92,6 +97,6 @@ Para ver as últimas notícias e atualizações, confira o [blog Application Pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

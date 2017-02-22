@@ -7,4 +7,7 @@
 
 <sup>1</sup> Contate o suporte do Azure caso precise aumentar esses limites.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

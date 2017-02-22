@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 637171b775d01e16cec1a7e9ef6fad73875eac69
-ms.openlocfilehash: 4f6c3713c6ca579d6ec24e8f208299f9984e0d00
+ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
+ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
 
 
 ---
@@ -62,14 +62,14 @@ Use [sys.database\_service \_objectives view](https://msdn.microsoft.com/library
     ON d.database_id = slo.database_id
     WHERE elastic_pool_name = 'MyElasticPool'; 
 
-## <a name="get-resource-usage-data-for-an-elastic"></a>Obter dados de uso de recursos para um elástico
+## <a name="get-resource-usage-data-for-an-elastic-pool"></a>Obter dados de uso de recursos para um pool elástico
 Use [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) para examinar as estatísticas de uso de recursos de um pool elástico em um servidor lógico. Entre no banco de dados mestre para consultar o modo de exibição.
 
     SELECT * FROM sys.elastic_pool_resource_stats 
     WHERE elastic_pool_name = 'MyElasticPool'
     ORDER BY end_time DESC;
 
-## <a name="get-resource-usage-for-an-elastic-database"></a>Obter o uso de recursos para um Banco de Dados Elástico
+## <a name="get-resource-usage-for-a-pooled-database"></a>Obter o uso de recursos para um banco de dados em pool
 Use [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) ou [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) para examinar as estatísticas de uso de recursos do banco de dados em um pool elástico. Esse processo é semelhante à consulta do uso de recursos de um banco de dados individual.
 
 ## <a name="next-steps"></a>Próximas etapas

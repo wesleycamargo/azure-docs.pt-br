@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: mrys
 translationtype: Human Translation
-ms.sourcegitcommit: 847081123123c849033c9de2b3c4359042d41359
-ms.openlocfilehash: da29f6015502e4ce5a63ca1c47106dc346026803
+ms.sourcegitcommit: cd2aafd80db337cadaa2217a6638d93186975b68
+ms.openlocfilehash: 563a6821b4a3736ef1233aa67d86b9ba06565788
 
 
 ---
@@ -768,9 +768,9 @@ LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC) AS 
            string.IsNullOrEmpty(LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)) AS Flag,           
            USQLApplication21.UserSession.StampUserSession
            (
-            EventDateTime,
-            LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
-            LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
+               EventDateTime,
+               LAG(EventDateTime, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC),
+               LAG(UserSessionTimestamp, 1) OVER(PARTITION BY UserName ORDER BY EventDateTime ASC)
            )
            AS UserSessionTimestamp
     FROM @records;
@@ -824,7 +824,10 @@ Esse exemplo demonstra um cenário de caso de uso mais complicado quando usamos 
 ## <a name="using-user-defined-types---udt"></a>Usando Tipos Definidos pelo Usuário — UDT
 Os Tipos Definidos pelo Usuário ou UDTs são outro recurso de programação do U-SQL. O UDT do U-SQL atua como um tipo definido pelo usuário regular de C#. C# é uma linguagem fortemente tipada que permite o uso de tipos definidos pelo usuário personalizados e internos.
 
-Atualmente, o U-SQL não pode serializar/desserializar implicitamente dados do UDT para dentro/fora de arquivos externos. Por isso, a interface IFormatter deve ser definida com os métodos Serialize/De-serialize como parte da definição do UDT. No ADLA V1, somente a serialização intermediária é permitida. Isso significa que, embora IFormatter seja importante para o processamento de UDT interno, ela não pode ser usada para serialização persistente em EXTRACTOR ou OUTPUTTER. Ao gravar dados no arquivo com OUTPUTTER ou ler com EXTRACTOR, o UDT precisa ser serializado para cadeia de caracteres com o método ToString() da implementação de UDT. Como alternativa, EXTRATOR/OUTPUTTER personalizado pode ser usado ao lidar com UDTs.  
+O U-SQL não pode implicitamente serializar/desserializar UDTs arbitrários enquanto o UDT é passado entre os vértices em conjuntos de linhas. Assim, o usuário precisa fornecer um formatador explícito usando a interface IFormatter. Isso fornecerá ao U-SQL métodos de serialização e desserialização para o UDT. 
+
+> [!NOTE]
+> Extratores internos e outputters de U-SQL atualmente não podem serializar/desserializar dados de UDT de arquivos, mesmo com o conjunto do IFormatter.  Assim, ao gravar dados de UDT em um arquivo com a declaração OUTPUT ou ao fazer sua leitura com um extrator, o usuário precisará passá-lo como uma cadeia de caracteres ou matriz de bytes e chamar o código de serialização e desserialização explicitamente (por exemplo, o método ToString() do UDT). Por outro lado, extratores definidos pelo usuário e outputters podem ler e gravar UDTs.
 
 Se tentarmos usam o UDT em EXTRATOR ou OUTPUTTER (fora do SELECT anterior)
 
@@ -839,7 +842,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 receberemos o seguinte erro
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+    Error    1    E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
     MyNameSpace.Myfunction_Returning_UDT.
 
     Description:
@@ -849,8 +852,8 @@ receberemos o seguinte erro
     Resolution:
 
     Implement a custom outputter that knows how to serialize this type or call a serialization method on the type in
-    the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
-    USQL-Programmability\Types.usql 52  1   USQL-Programmability
+    the preceding SELECT.    C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+    USQL-Programmability\Types.usql    52    1    USQL-Programmability
 ```
 
 Para trabalhar com UDT em Outptutter, também temos que serializá-lo para cadeia de caracteres com o método ToString() e criar um Outputter personalizado.
@@ -858,7 +861,7 @@ Para trabalhar com UDT em Outptutter, também temos que serializá-lo para cadei
 Atualmente, os UDTs não podem ser usados em GROUP BY. Se o UDT for usado em GROUP BY, o seguinte erro será gerado:
 
 ```
-    Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
+    Error    1    E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
     for column myfield
 
     Description:
@@ -869,7 +872,7 @@ Atualmente, os UDTs não podem ser usados em GROUP BY. Se o UDT for usado em GRO
 
     Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
     C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
-    62  5   USQL-Programmability
+    62    5    USQL-Programmability
 ```
 
 Para definir um UDT, temos que:
@@ -898,7 +901,7 @@ O construtor da classe
 ```c#
     [SqlUserDefinedType(typeof(MyTypeFormatter))]
       public class MyType
-           {
+              {
              …
            }
 ```
@@ -1118,6 +1121,8 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalquarter,
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
+       
+       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
@@ -1286,9 +1291,6 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
     }
 }
 ```
-
-### <a name="udts-from-built-in-types"></a>UDTs de tipos internos
-Em breve
 
 ## <a name="user-defined-aggregates--udagg"></a>Agregações definidas pelo usuário – UDAGG
 As agregações definidas pelo usuário são quaisquer funções relacionadas à agregação que não são enviadas para uso imediato com o U-SQL. O exemplo pode ser uma agregação para executar um cálculo matemático personalizado, executar concatenações de cadeia de caracteres ou manipulações com cadeias de caracteres, etc.
@@ -1525,7 +1527,7 @@ Em seguida, dividimos ainda mais a linha de entrada em partes de coluna.
     {
     …
         string[] parts = line.Split(my_column_delimiter);
-            foreach (string part in parts)
+               foreach (string part in parts)
         {
         …
         }
@@ -2176,9 +2178,9 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 Nesse cenário de caso de uso, o Aplicador Definido pelo Usuário atua como um analisador de valor delimitado por vírgula para as propriedades de frota de carros. As linhas do arquivo de entrada se parecem com estas:
 
 ```
-103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
-210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
+103    Z1AB2CD123XY45889    Ford,Explorer,2005,SUV,152345
+303    Y0AB2CD34XY458890    Shevrolet,Cruise,2010,4Dr,32455
+210    X5AB2CD45XY458893    Nissan,Altima,2011,4Dr,74000
 ```
 
 Trata-se de um típico arquivo TSV (delimitado por TAB) com a coluna de propriedades contendo propriedades do carro, como Fabricante, Modelo, etc. Essas propriedades precisam ser analisadas para as colunas da tabela. O Aplicador fornecido também permite gerar um número dinâmico de propriedades no conjunto de linhas do resultado, com base no parâmetro passado — ou todas as propriedades, ou apenas um conjunto específico de propriedades.
@@ -2259,11 +2261,11 @@ A enumeração CombinerMode pode usar os seguintes valores:
 
 * Completo   (0)    Cada linha de saída depende potencialmente de todas as linhas de entrada da esquerda e direita com o mesmo valor de chave
 
-* Esquerda (1) Cada linha de saída depende de uma única linha de entrada da esquerda (e potencialmente de todas as linhas da direita com o mesmo valor de chave)
+* Esquerda  (1)    Cada linha de saída depende de uma única linha de entrada da esquerda (e potencialmente de todas as linhas da direita com o mesmo valor de chave)
 
 * Direita (2) Cada linha de saída depende de uma única linha de entrada da direita (e potencialmente de todas as linhas da esquerda com o mesmo valor de chave)
 
-* Interno (3) Cada linha de saída depende de uma única linha de entrada da esquerda e direita com o mesmo valor
+* Interno (3)    Cada linha de saída depende de uma única linha de entrada da esquerda e direita com o mesmo valor
 
 Exemplo:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
@@ -2610,6 +2612,6 @@ OUTPUT @rs2 TO @output_file USING Outputters.Text();
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

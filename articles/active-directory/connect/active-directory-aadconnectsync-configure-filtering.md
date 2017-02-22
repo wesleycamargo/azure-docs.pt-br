@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 8301a36327fb2605eaded8f41e27e830c85e823b
-ms.openlocfilehash: d8b73128a22c4c9efb9fcd50464ef370cd1a499c
+ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
+ms.openlocfilehash: 0dbacc24af62f8173e4b1b30990d89f02a9d48bb
 
 ---
 
@@ -73,12 +73,12 @@ Para desabilitar a tarefa agendada que dispara um ciclo de sincronização a cad
 Depois de concluir todas as alterações de filtragem, não se esqueça de voltar e de **Habilitar** a tarefa novamente.
 
 ## <a name="filtering-options"></a>Opções de filtragem
-Os seguintes tipos de configuração de filtragem podem ser aplicados ao Azure AD Connect sync:
+Os tipos de configuração de filtragem a seguir podem ser aplicados à Ferramenta de Sincronização de Diretório:
 
+* [**Baseada em grupo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): a filtragem baseada em um único grupo só pode ser configurada na instalação inicial usando o assistente de instalação. Ela não será mais abordada neste tópico.
 * [**Baseada em domínio**](#domain-based-filtering): essa opção permite que você selecione quais domínios serão sincronizados com o Azure AD. Ela também permite adicionar e remover domínios da configuração do mecanismo de sincronização quando você fizer alterações à sua infraestrutura local após a instalação da sincronização do Azure AD Connect.
 * [**Baseada na unidade organizacional**](#organizational-unitbased-filtering): essa opção permite que você selecione quais UOs são sincronizadas com o Azure AD. Essa opção é para todos os tipos de objeto em UOs selecionadas.
 * [**Baseada no atributo**](#attribute-based-filtering): essa opção permite que você filtre objetos com base nos valores de atributos nos objetos. Você também pode ter filtros diferentes para tipos de objeto diferentes.
-* [**Baseada em grupo**](#group-based-filtering): a filtragem baseada em um único grupo só pode ser configurada na instalação inicial usando o assistente de instalação. Ele é usado para uma pequena implantação piloto.
 
 Você pode usar várias opções de filtragem ao mesmo tempo. Por exemplo, você pode usar a filtragem baseada em UO para incluir apenas os objetos em uma UO e, ao mesmo tempo, a filtragem baseada em atributos para filtrar os objetos ainda mais. Quando você usa vários métodos de filtragem, os filtros usam um E lógico entre os filtros.
 
@@ -296,7 +296,7 @@ Agora é hora de habilitar o agendador novamente.
 2. Diretamente na **Biblioteca do Agendador de Tarefas**, localize a tarefa chamada **Agendador de Sincronização do Azure AD**, clique com o botão direito do mouse e selecione **Habilitar**.
 
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
-Filtragem baseada em grupo pode ser configurado na primeira vez que você instalar o Azure AD Connect usando [instalação personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ele destina-se para uma implantação piloto onde um pequeno conjunto de objetos deve ser sincronizado. Quando você tiver desabilitado a filtragem baseada em grupo, ele não pode ser habilitado novamente. É **não tem suporte** usar filtragem de grupo com base em uma configuração personalizada com regras de sincronização personalizado. Somente há suporte para configurar esse recurso com o Assistente de instalação. Quando você tiver concluído o piloto, você deve usar uma das outras opções de filtragem neste tópico.
+A filtragem baseada em grupo pode ser configurada na primeira vez que você instalar o Azure AD Connect usando a instalação personalizada. Ele destina-se para uma implantação piloto onde um pequeno conjunto de objetos deve ser sincronizado. Quando você tiver desabilitado a filtragem baseada em grupo, ele não pode ser habilitado novamente. **Não há suporte** para o uso da filtragem com base em grupo em uma configuração personalizada. Somente há suporte para configurar esse recurso com o Assistente de instalação. Quando você tiver concluído o piloto, você deve usar uma das outras opções de filtragem neste tópico.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

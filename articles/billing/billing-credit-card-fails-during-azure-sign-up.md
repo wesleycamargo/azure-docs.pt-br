@@ -17,29 +17,29 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 09c18ca6a967c2930ddd2b16d37f0bc606712ea1
-ms.openlocfilehash: 37e262c0a63aa27da09f1497321efa4e770c7931
+ms.sourcegitcommit: 0c1ce4284bc058096387986c8706ddc7317ee724
+ms.openlocfilehash: c2fd2a8f9eac4ef4d6f67ed924c77daa86cb81a8
 
 
 ---
 # <a name="your-debit-card-or-credit-card-is-declined-at-azure-sign-up"></a>Seu cartão de crédito ou débito é recusado durante a inscrição do Azure
-Se o seu cartão de crédito ou débito é recusado ou não é aceito durante a inscrição no Azure, você pode ter que corrigir um dos problemas a seguir.
+Se o seu cartão de crédito ou débito é recusado ou não é aceito durante a inscrição no Azure, você pode estar passando por um dos problemas a seguir:
 
 * **O provedor de cartão de crédito ou débito não é aceito no país.** Quando você escolhe um cartão, vê apenas as opções que são válidas no país selecionado. Contate seu banco ou o emissor do cartão para confirmar se o cartão de crédito está habilitado para transações internacionais. Consulte os países e moedas com suporte nas [Perguntas Frequentes de Compras do Azure](https://azure.microsoft.com/pricing/faq/).
 * **Suas informações do cartão de crédito ou débito estão incorretas ou incompletas.** O nome, o endereço e o código CVV inserido devem corresponder exatamente ao que está impresso no cartão.
 * **Você está usando um cartão pré-pago ou virtual.** Cartões de crédito ou débito pré-pago ou virtuais não são aceitos como pagamentos de assinaturas do Azure.
-* **O cartão está inativo ou bloqueado.** Entre em contato com seu banco e confirme se o cartão está ativo e não bloqueado.
-* **Você está tentando ativar uma segunda avaliação gratuita.** A oferta de avaliação gratuita do Azure é limitada a uma ativação de avaliação gratuita por usuário. Se você já ativou uma avaliação gratuita com esse cartão de crédito ou tem uma assinatura do Azure vinculada a esse cartão de crédito, não poderá ativar uma avaliação gratuita. Usar outro plano do Azure dos [Detalhes da oferta do Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
+* **O cartão está inativo ou bloqueado.** Entre em contato com seu banco para garantir que o cartão está ativo.
+* **Você pode enfrentar outros problemas de inscrição** Confira como [solucionar problemas de inscrição do Azure](billing-troubleshoot-azure-sign-up-issues.md).
 
 Depois de atualizar suas informações de pagamento, tente se inscrever novamente.
 
-## <a name="business-that-doesnt-want-to-pay-by-card-set-up-invoicing"></a>Empresa que não deseja pagar por cartão? Configurar faturamento
+## <a name="representing-a-business-that-doesnt-want-to-pay-by-card-set-up-invoicing"></a>Representando uma empresa que não deseja pagar por cartão? Configurar faturamento
 Se você representa uma empresa, pode pagar sua assinatura do Azure com métodos de pagamento de fatura, como cheques ou transferências bancárias. Você não pode mudar para outra opção de pagamento depois de configurar o pagamento por fatura. Para pagar por fatura, confira [Cobrança do Azure – como faturar](https://azure.microsoft.com/pricing/invoicing/).
 
 ## <a name="update-your-credit-card-or-debit-card-information"></a>Atualizar suas informações do cartão de crédito ou débito
 Após a inscrição, [gerencie suas informações de pagamento](billing-how-to-change-credit-card.md) para alterar ou remover um cartão.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+## <a name="need-more-help-contact-support"></a>Precisa de mais ajuda? Entre em contato com o suporte.
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 

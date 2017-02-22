@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/3/2017
+ms.date: 02/9/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: fdb15c3af4980e284e1a9effe434b1cab959d24c
-ms.openlocfilehash: 826ae11e4826b37379caa53d85d8ec834a5ed0fb
+ms.sourcegitcommit: 1683b52d4e5e6370a737038128f48b8ea8263038
+ms.openlocfilehash: 27df2afd97107dd13a7aa2dd79343ec9425c0aed
 
 
 ---
@@ -37,13 +37,13 @@ Embora o Service Fabric ajude a manter um aplicativo em execução durante falha
 
 ### <a name="azure-monitoring"></a>Monitoramento do Azure
 
-Para clusters implantados no Azure, o [Monitoramento do Azure](../monitoring-and-diagnostics/toc.md) fornece a capacidade de monitorar muitos dos recursos do Azure em que um cluster do Service Fabric é criado. Um conjunto de métricas é automaticamente coletado e exibido no portal do Azure para o [conjunto de dimensionamento de máquinas virtuais (VMSS)](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) e [VMs individuais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines). Essas informações podem ser visualizadas no portal do Azure, selecionando o grupo de recursos em que o cluster do Service Fabric está contido e, depois, selecionando o VMSS que deseja ver. Em seguida, selecione Métricas dentro da seção de navegação Monitoramento para exibir um gráfico dos valores
+Para clusters implantados no Azure, o [Monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md) fornece a capacidade de monitorar muitos dos recursos do Azure em que um cluster do Service Fabric é criado. Um conjunto de métricas é automaticamente coletado e exibido no portal do Azure para o [conjunto de dimensionamento de máquinas virtuais (VMSS)](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets) e [VMs individuais](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesetsvirtualmachines). Essas informações podem ser visualizadas no portal do Azure, selecionando o grupo de recursos em que o cluster do Service Fabric está contido e, depois, selecionando o VMSS que deseja ver. Em seguida, selecione Métricas dentro da seção de navegação Monitoramento para exibir um gráfico dos valores
 
 ![Exibição de informações de métrica coletadas no portal do Azure](./media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-Os gráficos podem ser personalizados, seguindo as instruções do artigo [Visão geral de métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Os alertas também podem ser criados com base nessas métricas, conforme descrito no artigo [Usar o portal do Azure para criar alertas para os serviços do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Os alertas podem ser enviados para um serviço de notificação usando webhooks, conforme descrito no artigo [Configurar um webhook em um alerta de métrica do Azure (.../monitoring-and-diagnostics/insights-webhooks-Alerts.md). O Monitoramento do Azure dá suporte a uma única assinatura. Se o suporte para várias assinaturas ou recursos adicionais forem necessários, o [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) fornecerá uma solução abrangente de gerenciamento de TI para infraestruturas baseadas em nuvem e locais. Os dados do Monitoramento do Azure podem ser roteados diretamente para o Log Analytics para que você possa ver as métricas e logs de todo o ambiente em um único lugar.
+Os gráficos podem ser personalizados, seguindo as instruções do artigo [Visão geral de métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md). Os alertas também podem ser criados com base nessas métricas, conforme descrito no artigo [Usar o portal do Azure para criar alertas para os serviços do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Os alertas podem ser enviados para um serviço de notificação usando webhooks, conforme descrito no artigo [Configurar um webhook em um alerta de métrica do Azure (.../monitoring-and-diagnostics/insights-webhooks-Alerts.md). O Monitoramento do Azure dá suporte a uma única assinatura. Se o suporte para várias assinaturas ou recursos adicionais forem necessários, o [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) do Operations Management Suite fornecerá uma solução abrangente de gerenciamento de TI para infraestruturas baseadas em nuvem e locais. Os dados do Monitoramento do Azure podem ser roteados diretamente para o Log Analytics para que você possa ver as métricas e logs de todo o ambiente em um único lugar.
 
-O [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) é o método recomendado para monitorar sua infraestrutura local, mas qualquer outra solução existente que sua empresa use para monitoramento da infraestrutura pode ser usada.
+O Operations Management Suite é o método recomendado para monitorar sua infraestrutura local, mas qualquer outra solução existente que sua empresa use para monitoramento da infraestrutura pode ser usada.
 
 ### <a name="service-fabric-support-logs"></a>Logs de suporte do Service Fabric
 
@@ -51,7 +51,7 @@ Se houver necessidade de entrar em contato com o suporte da Microsoft para obter
 
 ## <a name="instrument-your-code"></a>Instrumentalize seu código
 
-Instrumentar o código é a base para a maioria dos outros aspectos do monitoramento de seus serviços. As pessoas costumam ficar surpresas quanto à necessidade de instrumentação, mas considerando que a instrumentação é a única maneira de ter certeza de que algo está errado e de diagnosticar o que deve ser corrigido, não deveria ser surpresa alguma. Embora seja tecnicamente possível fazer isso, é incomum conectar um depurador a um serviço de produção. Por isso, é importante ter dados de instrumentação detalhados. Gerar este volume de informações enviando todos os eventos do nó local pode ser caro. Muitos serviços usam uma estratégia de duas partes para lidar com o volume de dados de instrumentação:
+Instrumentar o código é a base para a maioria dos outros aspectos do monitoramento de seus serviços. As pessoas costumam ficar surpresas quanto à necessidade de instrumentação, mas considerando que a instrumentação é a única maneira de ter certeza de que algo está errado e de diagnosticar o que deve ser corrigido. Embora seja tecnicamente possível fazer isso, é incomum conectar um depurador a um serviço de produção. Por isso, é importante ter dados de instrumentação detalhados. Gerar este volume de informações enviando todos os eventos do nó local pode ser caro. Muitos serviços usam uma estratégia de duas partes para lidar com o volume de dados de instrumentação:
 * Todos os eventos são mantidos no arquivo de log local sem interrupção por um curto intervalo de dias e são coletados apenas quando necessário para depuração. Normalmente, os eventos necessários para um diagnóstico detalhado são deixados no nó para reduzir os custos e a utilização de recursos
 * Todos os eventos que indicam a integridade do serviço, como eventos de pulsação ou de desempenho, são enviados para um repositório central no qual podem ser usados para gerar alertas de um serviço não íntegro.
 
@@ -63,7 +63,7 @@ Quando você cria uma solução do Azure Service Fabric de um modelo do Visual S
 
 #### <a name="using-structured-eventsource-events"></a>Usando eventos estruturados de EventSource
 
-Cada um dos seguintes eventos é definido para um caso específico, por exemplo, um tipo de serviço que foi registrado. Ter mensagens definidas dessa maneira permite que os dados sejam empacotados juntamente com o texto do erro. Isso permite melhor pesquisa e filtragem com base em nomes ou valores das propriedades especificadas. Estruturar a saída de instrumentação torna o consumo mais fácil, mas exige mais ideias e mais tempo para definir um novo evento para cada caso de uso. Algumas definições de eventos podem ser compartilhadas pelo aplicativo inteiro, por exemplo, um método para iniciar ou interromper um evento seria reutilizado em muitos serviços dentro de um aplicativo. Um serviço de domínio específico, como um sistema de pedidos, pode ter um evento CriarPedido, que terá seu próprio evento exclusivo. Geralmente, essa abordagem gera muitos eventos e potencialmente requer a coordenação de identificadores entre as equipes de projeto. Para um exemplo completo de estrutura de EventSources no Service Fabric, veja PartyCluster.ApplicationDeployService na amostra Party Cluster.
+Cada um dos seguintes eventos é definido para um caso de uso específico, por exemplo, um tipo de serviço que foi registrado. Ter mensagens definidas dessa maneira permite que os dados sejam empacotados juntamente com o texto do erro. Isso permite melhor pesquisa e filtragem com base em nomes ou valores das propriedades especificadas. Estruturar a saída de instrumentação torna o consumo mais fácil, mas exige mais ideias e mais tempo para definir um novo evento para cada caso de uso. Algumas definições de eventos podem ser compartilhadas pelo aplicativo inteiro, por exemplo, um método para iniciar ou interromper um evento seria reutilizado em muitos serviços dentro de um aplicativo. Um serviço de domínio específico, como um sistema de pedidos, pode ter um evento CriarPedido, que terá seu próprio evento exclusivo. Geralmente, essa abordagem gera muitos eventos e potencialmente requer a coordenação de identificadores entre as equipes de projeto. Para um exemplo completo de estrutura de EventSources no Service Fabric, veja [PartyCluster.ApplicationDeployService.ServiceEventSource](https://github.com/Azure-Samples/service-fabric-dotnet-management-party-cluster/blob/master/src/PartyCluster.ApplicationDeployService/ServiceEventSource.cs) na amostra Party Cluster.
 
 ```csharp
     [EventSource(Name = "MyCompany-VotingState-VotingStateService")]
@@ -124,29 +124,38 @@ Usar uma abordagem híbrida de instrumentação estruturada e genérica também 
 
 ### <a name="aspnet-core-logging"></a>Registro em log de ASP.NET Core
 
-Escolher como instrumentar seu código pode ser difícil. Se você escolheu a maneira errada e precisar refazer a instrumentação, você vai revisitar e possivelmente desestabilizar sua base de código. Para reduzir o risco, os desenvolvedores podem escolher uma biblioteca de instrumentação, como a [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), fornecida pelo ASP.NET Core. Isso fornece uma interface [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) que permite que o provedor de sua escolha seja usado enquanto minimiza o impacto causado ao código existente. Outro aspecto interessante disso é que o código pode ser usado não apenas no .NET Core no Windows e Linux, mas também em toda a estrutura, oferecendo a capacidade de padronizar o código de instrumentação em .NET e .NET Core.
+Escolher como instrumentar seu código pode ser difícil. Se você escolheu a maneira errada e precisar refazer a instrumentação, você vai revisitar e possivelmente desestabilizar sua base de código. Para reduzir o risco, os desenvolvedores podem escolher uma biblioteca de instrumentação, como a [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), fornecida pelo ASP.NET Core. Isso fornece uma interface [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) que permite que o provedor de sua escolha seja usado enquanto minimiza o impacto causado ao código existente. Outro aspecto interessante disso é que o código pode ser usado não apenas no .NET Core no Windows e Linux, mas também em toda a estrutura .NET, oferecendo a capacidade de padronizar o código de instrumentação em .NET e .NET Core.
 
 #### <a name="how-to-use-microsoftextensionslogging-within-service-fabric"></a>Como usar Microsoft.Extensions.Logging dentro do Service Fabric
 
-1. Adicione o pacote NuGet **Microsoft.Extensions.Logging** ao projeto a ser instrumentado. Você também pode adicionar quaisquer pacotes de provedor; faremos isso com um pacote de terceiros abaixo. Consulte [Entrar no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) para obter mais informações
-2. Adicionar uma diretiva de 'Microsoft.Extensions.Logging' ao seu arquivo de serviço
+1. Adicione o pacote NuGet **Microsoft.Extensions.Logging** ao projeto sendo instrumentado. Você também pode adicionar quaisquer pacotes de provedor; faremos isso com um pacote de terceiros abaixo. Consulte [Entrar no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) para obter mais informações
+
+2. Adicionar uma diretiva de **uso** para 'Microsoft.Extensions.Logging' ao seu arquivo de serviço
+
 3. Definir uma variável privada em sua classe de serviço
-```csharp
+
+    ```csharp
         private ILogger _logger = null;
-```
+    ```
+
 4. No construtor da sua classe de serviço, adicionar
-```csharp
+    
+    ```csharp
         _logger = new LoggerFactory().CreateLogger<Stateless>();
-```
+    ```
+
 5. Iniciar a instrumentação do código em seus métodos. Veja alguns exemplos
-```csharp
+    
+    ```csharp
+
         _logger.LogDebug("Debug level event from Microsoft.Logging");
         _logger.LogInformation("Informational level event from Microsoft.Logging");
 
         // In this variant, we're adding structured properties RequestName and Duration that has values MyRequest and the duration of the request.
         // More on why you'll want to do this later.
         _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
-```
+
+    ```
 
 #### <a name="using-other-logging-providers"></a>Usando outros provedores de registro log
 
@@ -154,15 +163,24 @@ Há alguns provedores de terceiros que funcionam com essa abordagem, por exemplo
 
 1. Adicione os pacotes NuGet **Serilog**, **Serilog.Extensions.Logging** e **Serilog.Sinks.Observable** ao projeto. Também adicione o **SeriLog.Sinks.Literate** para este exemplo; uma abordagem melhor será mostrada posteriormente neste artigo
 2. Crie um LoggerConfiguration e a instância do agente no SeriLog
-```csharp
-    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
-```
+
+    ```csharp
+
+        Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
+
+    ```
+
 3. Adicione um argumento SeriLog.ILogger ao construtor do serviço e passe o agente recém-criado
-```csharp
-    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
-```
+    
+    ```csharp
+
+        ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
+
+    ```
+
 4. No construtor de serviço, adicione o seguinte, que cria os enriquecedores de propriedade para as propriedades ServiceTypeName, ServiceName, PartitionId e InstanceId do serviço. Isso também adiciona à fábrica de registro de log do ASP.NET Core para que o Microsoft.Extensions.Logging.ILogger possa ser usado em seu código.
-```csharp
+    
+    ```csharp
         public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
             : base(context)
         {
@@ -178,7 +196,8 @@ Há alguns provedores de terceiros que funcionam com essa abordagem, por exemplo
 
             _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
         }
-```
+    ```
+
 5. Instrumente o código da mesma forma usada com o ASP.NET Core sem SeriLog.
 
 > [!NOTE] 
@@ -209,7 +228,7 @@ O diagnóstico do Azure funciona somente para clusters do Service Fabric implant
 
 ### <a name="eventflow"></a>EventFlow
 
-[O EventFlow foi liberado pela equipe do Visual Studio](service-fabric-diagnostic-collect-logs-without-an-agent.md) e fornece um mecanismo para eventos de roteamento de um nó a um ou mais destinos de monitoramento. Como ele está incluído como um pacote NuGet em seu projeto de serviço, o código e a configuração do EventFlow viajam com o serviço, eliminando o problema de configuração por nó mencionado sobre o diagnóstico do Azure. O EventFlow é executado em seu processo de serviço e conecta-se diretamente com as saídas configuradas. Devido a essa conexão direta, o EventFlow funciona para implantações de um serviço no Azure, em contêineres ou locais. Tenha cuidado ao executar em cenários de alta densidade, como um contêiner, porque cada pipeline do EventFlow faz uma conexão externa e, se você estiver hospedando vários processos, terá muitas conexões de saída. Não é um problema para aplicativos do Service Fabric, porque todas as réplicas de ServiceType são executadas dentro do mesmo processo, limitando o número de conexões de saída. O EventFlow também oferece a filtragem de eventos, portanto, somente os eventos que correspondem ao filtro especificado são enviadas. Para obter informações detalhadas sobre como usar o EventFlow com o Service Fabric, consulte [Coletar logs diretamente de um processo de serviço do Azure Service Fabric](service-fabric-diagnostic-collect-logs-without-an-agent.md)
+[O EventFlow foi liberado pela equipe do Visual Studio](https://github.com/Azure/diagnostics-eventflows) e fornece um mecanismo para eventos de roteamento de um nó a um ou mais destinos de monitoramento. Como ele está incluído como um pacote NuGet em seu projeto de serviço, o código e a configuração do EventFlow viajam com o serviço, eliminando o problema de configuração por nó mencionado sobre o diagnóstico do Azure. O EventFlow é executado em seu processo de serviço e conecta-se diretamente com as saídas configuradas. Devido a essa conexão direta, o EventFlow funciona para implantações de um serviço no Azure, em contêineres ou locais. Tenha cuidado ao executar várias réplicas no mesmo nó porque cada pipeline de EventFlow faz uma conexão externa. Se você estiver hospedando vários processos, terá muitas conexões de saída. Não é um problema para aplicativos do Service Fabric, porque todas as réplicas de ServiceType são executadas dentro do mesmo processo, limitando o número de conexões de saída. O EventFlow também oferece a filtragem de eventos, portanto, somente os eventos que correspondem ao filtro especificado são enviadas. Para obter informações detalhadas sobre como usar o EventFlow com o Service Fabric, consulte [Coletar logs diretamente de um processo de serviço do Azure Service Fabric](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 
 > [!NOTE]
 > Em uma versão futura do Service Fabric, um aplicativo host do EventSource será disponibilizado, permitindo a escuta de entradas com base em ETW, a coleta de métricas a nível de nó e suporte a arquivos de log sem interrupção.
@@ -217,9 +236,8 @@ O diagnóstico do Azure funciona somente para clusters do Service Fabric implant
 É muito fácil usar o EventFlow
 1. Adicione o pacote NuGet ao seu projeto de serviço
 2. Dentro da função **principal** do serviço, crie o pipeline do EventFlow e configure as saídas. Nesse caso, estamos mostrando como usar o SeriLog como uma saída
-```csharp
-    internal static class Program
-    {
+    ```csharp
+
         /// <summary>
         /// This is the entry point of the service host process.
         /// </summary>
@@ -229,8 +247,7 @@ O diagnóstico do Azure funciona somente para clusters do Service Fabric implant
             {
                 using (var pipeline = ServiceFabricDiagnosticPipelineFactory.CreatePipeline("MonitoringE2E-Stateless-Pipeline"))
                 {
-                    IObserver<LogEvent> serilogInput = pipeline.Inputs.OfType<SerilogInput>().First();
-                    Log.Logger = new LoggerConfiguration().WriteTo.Observers(events => events.Subscribe(serilogInput)).CreateLogger();
+                    Log.Logger = new LoggerConfiguration().WriteTo.EventFlow(pipeline).CreateLogger();
 
                     // The ServiceManifest.XML file defines one or more service type names.
                     // Registering a service maps a service type name to a .NET type.
@@ -250,73 +267,73 @@ O diagnóstico do Azure funciona somente para clusters do Service Fabric implant
                 throw;
             }
         }
-    }
-```
+
+    ```
 3. Criar um arquivo no PackageRoot do serviço | Pasta de configuração chamada *eventFlowConfig.json*. Dentro do arquivo, a configuração é semelhante ao seguinte
-```json
-    {
-    "inputs": [
+    ```json
         {
-        "type": "EventSource",
-        "sources": [
-            { "providerName": "Microsoft-ServiceFabric-Services" },
-            { "providerName": "Microsoft-ServiceFabric-Actors" },
-            { "providerName": "MyCompany-MonitoringE2E-Stateless" }
-        ]
-        },
-        {
-        "type": "Serilog"
+        "inputs": [
+            {
+            "type": "EventSource",
+            "sources": [
+                { "providerName": "Microsoft-ServiceFabric-Services" },
+                { "providerName": "Microsoft-ServiceFabric-Actors" },
+                { "providerName": "MyCompany-MonitoringE2E-Stateless" }
+            ]
+            },
+            {
+            "type": "Serilog"
+            }
+        ],
+        "filters": [
+            {
+            "type": "drop",
+            "include": "Level == Verbose"
+            },
+            {
+            "type": "metadata",
+            "metadata": "request",
+            "requestNameProperty": "RequestName",
+            "include":  "RequestName==MyRequest",
+            "durationProperty": "Duration",
+            "durationUnit": "milliseconds"
+            }
+        ],
+        "outputs": [
+            {
+            "type": "StdOutput"
+            },
+            {
+            "type": "ApplicationInsights",
+            "instrumentationKey": "== instrumentation key here =="
+            }
+        ],
+        "schemaVersion": "2016-08-11",
+        "extensions": []
         }
-    ],
-    "filters": [
-        {
-        "type": "drop",
-        "include": "Level == Verbose"
-        },
-        {
-        "type": "metadata",
-        "metadata": "request",
-        "requestNameProperty": "RequestName",
-        "include":  "RequestName==MyRequest",
-        "durationProperty": "Duration",
-        "durationUnit": "milliseconds"
-        }
-    ],
-    "outputs": [
-        {
-        "type": "StdOutput"
-        },
-        {
-        "type": "ApplicationInsights",
-        "instrumentationKey": "== instrumentation key here =="
-        }
-    ],
-    "schemaVersion": "2016-08-11",
-    "extensions": []
-    }
-```
+    ```
 Existem duas entradas definidas na configuração, as duas fontes com base em EventSource criadas pelo Service Fabric e o EventSource para o serviço. Observe que os eventos de integridade e nível do sistema que usam o ETW não estão disponíveis para o EventFlow. Isso ocorre porque um privilégio de alto nível é necessário para escutar uma fonte de ETW e os serviços nunca devem ser executados com privilégios altos. A outra entrada é SeriLog, a configuração ocorrida no método **principal**.  Há também alguns filtros aplicados, o primeiro diz ao EventFlow para remover todos os eventos que tenham um nível detalhado de evento. Veremos a outra definição de filtro em breve. Há também duas saídas configuradas. Uma delas é a saída padrão, que gravará na janela de saída do Visual Studio. A outra saída é ApplicationInsights, certifique-se de adicionar a chave de instrumentação.
 
 4. A última etapa é instrumentar o código. Neste exemplo, vamos instrumentar o RunAsync de algumas maneiras diferentes para fins de exemplo. No código a seguir, ainda estamos usando o SeriLog e parte da sintaxe usada é específica do SeriLog. Lembre-se dos recursos específicos da solução de registro de log que você escolher. Há três eventos gerados, um evento a nível de depuração e dois informativos, com o segundo controlando a duração da solicitação. Com a configuração do EventFlow acima, o evento a nível de depuração não deve fluir para a saída.
 
-```csharp
-    Stopwatch sw = Stopwatch.StartNew();
+    ```csharp
+        Stopwatch sw = Stopwatch.StartNew();
 
-    while (true)
-    {
-        cancellationToken.ThrowIfCancellationRequested();
+        while (true)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
 
-        sw.Restart();
+            sw.Restart();
 
-        // Delay a random interval to provide a more interesting request duration.
-        await Task.Delay(TimeSpan.FromMilliseconds(DateTime.Now.Millisecond), cancellationToken);
+            // Delay a random interval to provide a more interesting request duration.
+            await Task.Delay(TimeSpan.FromMilliseconds(DateTime.Now.Millisecond), cancellationToken);
 
-        ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
-        _logger.LogDebug("Debug level event from Microsoft.Logging");
-        _logger.LogInformation("Informational level event from Microsoft.Logging");
-        _logger.LogInformation("{RequestName} {Duration}", "MyRequest", sw.ElapsedMilliseconds);
-    }
-```
+            ServiceEventSource.Current.ServiceMessage(this.Context, "Working-{0}", ++iterations);
+            _logger.LogDebug("Debug level event from Microsoft.Logging");
+            _logger.LogInformation("Informational level event from Microsoft.Logging");
+            _logger.LogInformation("{RequestName} {Duration}", "MyRequest", sw.ElapsedMilliseconds);
+        }
+    ```
 
 Para exibir os eventos no Application Insights, abra o portal do Azure e navegue até o recurso ApplicationInsights. Em seguida, clique em "Pesquisar" na parte superior esquerda e os eventos serão exibidos.
 
@@ -346,19 +363,17 @@ As métricas também fornecem informações sobre o desempenho do seu serviço e
 Os candidatos para relatórios de integridade e métricas são tudo aquilo que pode indicar a integridade e o desempenho do seu aplicativo. Um contador de desempenho de CPU pode dizer o quão utilizado o nó é, mas não diz se um serviço em particular está íntegro ou não, porque vários serviços podem estar em execução em um único nó. Por outro lado, uma métrica, como RPS, itens processados ou solicitação de latência, pode indicar a integridade de um serviço específico.
 
 Para informar a integridade, adicione um código como
-
 ```csharp
- if (!result.HasValue)
- {
-     HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
-     this.Partition.ReportInstanceHealth(healthInformation);
- }
+        if (!result.HasValue)
+        {
+            HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
+            this.Partition.ReportInstanceHealth(healthInformation);
+        }
 ```
 
 Para relatar um métrica, adicione um código semelhante ao seguinte ao seu serviço
-
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+        this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
 ```
 
 ## <a name="watchdogs"></a>Watchdogs
@@ -378,6 +393,6 @@ A última parte do monitoramento é visualizar o fluxo de eventos, informar sobr
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

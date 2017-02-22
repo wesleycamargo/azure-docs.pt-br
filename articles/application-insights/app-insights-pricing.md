@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 9b26cfed4102bc09512f5ef1270aa0275a7f8f69
-ms.openlocfilehash: 58e1f5862cd147d7664248cf393f77a5e9af10d3
+ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
+ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
 
 
 ---
@@ -40,6 +40,7 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
 
 * No plano Básico, você é cobrado pelo volume de dados: o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
 * O primeiro GB para cada aplicativo é gratuito, portanto, se você estiver apenas testando ou desenvolvendo, é pouco provável que precise pagar.
+* Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
 * [Exportação contínua](app-insights-export-telemetry.md) está disponível para um encargo de GB de extra no plano básico, embora ele é gratuito até de 2017 início de março.
 
 ### <a name="enterprise-plan"></a>Plano Enterprise
@@ -49,6 +50,7 @@ O plano Básico é o padrão quando um novo recurso do Application Insights é c
  * Um *nó* é um computador de servidor físico ou virtual ou então uma instância de função de Plataforma como Serviço que hospeda seu aplicativo.
  * Computadores de desenvolvimento, navegadores do cliente e dispositivos móveis não são contados como nós.
  * Se seu aplicativo tem vários componentes que enviam telemetria, assim como um serviço Web e um trabalho de back-end, eles são contadas separadamente.
+ * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
 * Em uma assinatura, as cobranças são por nó, não por aplicativo. Se você tiver cinco nós enviando telemetria para 12 aplicativos, a cobrança será para cinco nós.
 * Embora as cobrança sejam cotadas por mês, você é cobrado apenas por aquelas horas em que um nó envia telemetria de um aplicativo. A cobrança por hora é a cobrança mensal cotada / 744 (o número de horas em um mês de 31 dias).
 * Uma alocação de volume de dados de 200 MB por dia é fornecida para cada nó detectado (com granularidade por hora). A alocação de dados não utilizados não é transferida de um dia para o seguinte.
@@ -98,7 +100,7 @@ Há três maneiras de limitar o volume de dados enviados:
 
 * **Capacidade diária.** Por padrão, é definida em 500 GB/dia. Quando o aplicativo atinge a capacidade, enviamos um email e descartamos dados até o fim do dia. Para alterá-la, use a folha Gerenciamento de Volume de Dados.
 * **[Amostragem](app-insights-sampling.md).** Esse mecanismo pode reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas.
-* **Limitação** limita a taxa de dados para 16 mil eventos por segundo, medidos ao longo de um minuto. 
+* A **Limitação** limita a taxa de dados para 32 mil eventos por segundo, medidos ao longo de um minuto. 
 
 
 *O que acontece se o aplicativo exceder a taxa de limitação?*
@@ -174,6 +176,6 @@ Aplicativos existentes podem continuar a usar os tipos de preço antigos até de
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

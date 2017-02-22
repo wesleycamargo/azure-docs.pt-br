@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2017
 ms.author: steveesp
 translationtype: Human Translation
-ms.sourcegitcommit: 6af1fdb533e0c5da56232b1aa2d9b8d1c08ad9fd
-ms.openlocfilehash: eb3c64fa467a3dcd90b6b240b61816522534cb68
+ms.sourcegitcommit: 50be31e179bf52e009596fbc68339dfb5a1aa1e4
+ms.openlocfilehash: d53b1cae9845be32bd053ef196203ea83df06b10
 
 
 ---
@@ -32,21 +32,21 @@ Uma VM usando RSS Receive Side Scaling () pode alcançar maior taxa de transfer�
 1. Insira o `Get-NetAdapterRss` comando do PowerShell para ver se o RSS está habilitado para um adaptador de rede. Na saída do exemplo seguinte retornada do `Get-NetAdapterRss`, RSS não está habilitado.
 
     ```powershell
-    Name                    :Ethernet
-    InterfaceDescription            : Microsoft Hyper-V Network Adapter
+    Name                    : Ethernet
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
 2. Digite o comando a seguir para habilitar o RSS:
 
     ```powershell
-    Get-NetAdapter | % {Enable-NetAdapterRss -Name \$\_.Name}
+    Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    O comando anterior não tem uma saída. O comando Alterar configurações de NIC, causando uma perda de conectividade temporariamente para aproximadamente um minuto. Aparece uma caixa de diálogo Reconnecting durante a perda de conectividade. Normalmente, a conectividade for restaurada após a terceira tentativa.
+    O comando anterior não tem uma saída. O comando alterou configurações de NIC, causando uma perda de conectividade temporária por aproximadamente um minuto. Aparece uma caixa de diálogo Reconnecting durante a perda de conectividade. Normalmente, a conectividade for restaurada após a terceira tentativa.
 3. Confirme se o RSS está habilitado na VM inserindo o `Get-NetAdapterRss` comando novamente. Se for bem-sucedido, será retornada a seguinte saída de exemplo:
 
     ```powershell
     Name                    :Ethernet
-    InterfaceDescription            : Microsoft Hyper-V Network Adapter
+    InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : True
     ```
 
@@ -57,9 +57,12 @@ RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do 
 ### <a name="ubuntu"></a>Ubuntu
 
 Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de janeiro de 2017, que é:
-
-"Publisher": "Canonical", "oferta": "UbuntuServer", "Sku": "16.04.0-LTS", "Versão": "16.04.201609071"
-
+```json
+"Publisher": "Canonical",
+"Offer": "UbuntuServer",
+"Sku": "16.04.0-LTS",
+"Version": "16.04.201609071"
+```
 Depois que a atualização for concluída, digite os seguintes comandos para obter o kernel mais recente:
 
 ```bash
@@ -77,14 +80,19 @@ Comando opcional:
 ### <a name="centos"></a>CentOS
 
 Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de janeiro de 2017, que é:
-
-"Publisher": "OpenLogic", "Oferta": "CentOS" * "Sku": "7.3", "versão": "mais recente"
-
+```json
+"Publisher": "OpenLogic",
+"Offer": "CentOS",
+"Sku": "7.3",
+"Version": "latest"
+```
 Depois que a atualização for concluída, instale o LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência é feita no LIS, a partir da versão 4.1.3. Insira o seguinte comando para instalar o LIS:
+A otimização de taxa de transferência é feita no LIS, a partir da versão 4.1.3. Digite os seguintes comandos para instalar o LIS:
 
 ```bash
-sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3*
+sudo yum update
+sudo reboot
+sudo yum install microsoft-hyper-v-4.1.3 kmod-microsoft-hyper-v-4.1.3
 ```
 
 ### <a name="red-hat"></a>Red Hat
@@ -102,13 +110,13 @@ cd lis4.1.3
 wget https://download.microsoft.com/download/7/6/B/76BE7A6E-E39F-436C-9353-F4B44EF966E9/lis-rpms-4.1.3.tar.gz
 tar xvzf lis-rpms-4.1.3.tar.gz
 cd LISISO
-install.sh  \#or upgrade.sh if previous LIS was previously installed
+install.sh  #or upgrade.sh if previous LIS was previously installed
 ```
-
+ 
 Saiba mais sobre o Linux Integration Services versão 4.1 para o Hyper-V exibindo o [página de download](https://www.microsoft.com/download/details.aspx?id=51612).
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

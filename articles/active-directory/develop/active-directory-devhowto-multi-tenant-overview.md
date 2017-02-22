@@ -1,5 +1,5 @@
 ---
-title: "Como criar um aplicativo que pode conectar qualquer usuário do Azure Active Directory| Microsoft Docs"
+title: "Como criar um aplicativo que pode conectar qualquer usuário do Azure AD | Microsoft Docs"
 description: "Instruções passo a passo para a criação de um aplicativo que pode conectar um usuário de qualquer locatário do Azure Active Directory, também conhecido como aplicativo multilocatário."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 01/23/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: cc4893c004939f071287fea068dd754da6561224
+ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
+ms.openlocfilehash: 8daad095d80b244f53b4ee94c48ae9421172f062
 
 
 ---
@@ -39,9 +39,9 @@ Há quatro etapas simples para converter seu aplicativo em um aplicativo multilo
 Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatário][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registro para ser multilocatário
-Por padrão, os registros de API/aplicativo Web no Azure AD são de locatário único.  Você pode tornar o registro multilocatário localizando a opção “O aplicativo é multilocatário” na página de configuração do registro do aplicativo no [portal clássico do Azure][AZURE-classic-portal] e configurando-a como “Sim”.
+Por padrão, os registros de API/aplicativo Web no Azure AD são de locatário único.  Você pode tornar o registro multilocatário localizando a opção “Multilocatário” na página de configuração do registro do aplicativo no [portal do Azure][AZURE-portal] e configurando-a como “Sim”.
 
-Observação: antes de um aplicativo poder ser definido como multilocatário, o Azure AD requer que o URI da ID do Aplicativo seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo.  Para um aplicativo de locatário único, é suficiente para o URI da ID do Aplicativo ser exclusivo dentro desse locatário.  Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários.  A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD.  Por exemplo, se o nome do seu locatário fosse contoso.onmicrosoft.com, um URI da ID do Aplicativo válido seria `https://contoso.onmicrosoft.com/myapp`.  Se seu locatário tivesse um domínio verificado de `contoso.com`, então um URI da ID do Aplicativo também seria `https://contoso.com/myapp`.  A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
+Observe também que antes de um aplicativo poder ser definido como multilocatário, o Azure AD requer que o URI da ID do Aplicativo seja globalmente exclusivo. O URI da ID do Aplicativo é uma das maneiras que um aplicativo é identificado em mensagens de protocolo.  Para um aplicativo de locatário único, é suficiente para o URI da ID do Aplicativo ser exclusivo dentro desse locatário.  Para um aplicativo multilocatário, ele deve ser globalmente exclusivo para que o Azure AD possa localizar os aplicativos em todos os locatários.  A exclusividade global é imposta exigindo o URI da ID do Aplicativo com um nome de host que corresponda a um domínio verificado do locatário do Azure AD.  Por exemplo, se o nome do seu locatário fosse contoso.onmicrosoft.com, um URI da ID do Aplicativo válido seria `https://contoso.onmicrosoft.com/myapp`.  Se seu locatário tivesse um domínio verificado de `contoso.com`, então um URI da ID do Aplicativo também seria `https://contoso.com/myapp`.  A configuração de um aplicativo como multilocatário falhará se o URI da ID do Aplicativo não seguir esse padrão.
 
 Registros de cliente nativos são multilocatários por padrão.  Você não precisa realizar nenhuma ação para tornar um registro de aplicativo cliente nativo multilocatário.
 
@@ -101,7 +101,7 @@ Nos exemplos de multilocatários que você encontrará na seção [Conteúdo rel
 Agora vamos examinar a experiência do usuário para usuários que estão entrando em aplicativos multilocatários.
 
 ## <a name="understanding-user-and-admin-consent"></a>Entendendo o consentimento do usuário e do administrador
-Para um usuário entrar em um aplicativo no Azure AD, o aplicativo deve estar representado no locatário do usuário.  Isso permite que a organização realize ações como aplicar políticas exclusivas quando usuários de seu locatário entrarem no aplicativo.  Para um aplicativo de organização único esse registro é simples, é o que acontece quando você registra o aplicativo no [portal clássico do Azure][AZURE-classic-portal].
+Para um usuário entrar em um aplicativo no Azure AD, o aplicativo deve estar representado no locatário do usuário.  Isso permite que a organização realize ações como aplicar políticas exclusivas quando usuários de seu locatário entrarem no aplicativo.  Para um aplicativo locatário único, esse registro é simples, é aquele feito quando você registra o aplicativo no [portal do Azure][AZURE-portal].
 
 Para um aplicativo multilocatário, o registro inicial para o aplicativo reside no locatário do Azure AD usado pelo desenvolvedor.  Quando um usuário de um locatário diferente entra no aplicativo pela primeira vez, o Azure AD solicita que ele consinta com as permissões solicitadas pelo aplicativo.  Se ele consentir, uma representação do aplicativo chamada de uma *entidade de serviço* será criada no locatário do usuário e o processo de entrada poderá continuar. Uma delegação também é criada no diretório que registra o consentimento do usuário para o aplicativo. Consulte [Objetos de aplicativo e de entidade de serviço][AAD-App-SP-Objects] para obter detalhes sobre objetos Application e ServicePrincipal do aplicativo e como eles se relacionam entre si.
 
@@ -125,7 +125,7 @@ O parâmetro `prompt=admin_consent` também pode ser usado por aplicativos que s
 
 Se um aplicativo exigir o consentimento do administrador e o administrador entrar no aplicativo, mas o parâmetro `prompt=admin_consent` não for enviado, o administrador poderá consentir o aplicativo com êxito, mas ele consentirá apenas sua conta de usuário.  Os usuários normais ainda não poderão fazer entrar e consentir o aplicativo.  Isso será útil se você quiser conceder ao administrador de locatários a capacidade de explorar seu aplicativo antes de permitir o acesso de outros usuários.
 
-Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos.  Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser configurado no locatário.  Se você quiser testar seu aplicativo com o consentimento do usuário normal desabilitado, poderá encontrar a opção de configuração na seção de configuração do locatário do Azure AD do [portal clássico do Azure][AZURE-classic-portal].
+Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos.  Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser configurado no locatário.  Se você quiser testar seu aplicativo com o consentimento do usuário normal desabilitado, encontrará a opção de configuração na seção de configuração do locatário do Azure AD do [portal do Azure][AZURE-portal].
 
 > [!NOTE]
 > Alguns aplicativos desejam uma experiência em que os usuários normais podem consentir inicialmente e posteriormente o aplicativo pode envolver o administrador e solicitar permissões que exigem o consentimento do administrador.  Não é possível fazer isso com um registro de aplicativo único no Azure AD atualmente.  O próximo ponto de extremidade do Azure AD v2 permitirá que os aplicativos solicitem permissões no tempo de execução em vez de no momento do registro, o que permitirá esse cenário.  Para saber mais, consulte o [Guia do desenvolvedor do modelo de aplicativo do Azure AD v2][AAD-V2-Dev-Guide].
@@ -153,7 +153,7 @@ O diagrama a seguir fornece uma visão geral de consentimento para um aplicativo
 Os usuários e administradores podem revogar o consentimento para seu aplicativo a qualquer momento:
 
 * Os usuários revogam o acesso a aplicativos individuais removendo-os da lista de [Aplicativos do Painel de Acesso][AAD-Access-Panel].
-* Os administradores revogam o acesso a aplicativos removendo-os do Azure AD usando a seção de gerenciamento do Azure AD do [portal clássico do Azure][AZURE-classic-portal].
+* Os administradores revogam o acesso a aplicativos removendo-os do Azure AD usando a seção de gerenciamento do Azure AD do [portal do Azure][AZURE-portal].
 
 Se um administrador der o consentimento a um aplicativo para todos os usuários em um locatário, os usuários não poderão revogar o acesso individualmente.  Somente o administrador pode revogar o acesso e somente para o aplicativo inteiro.
 
@@ -173,7 +173,7 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 * [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-AAD]
 * [Escopos de permissão da API do Graph do Azure AD][AAD-Graph-Perm-Scopes]
 
-Use a seção de comentários do Disqus abaixo para fornecer seus comentários e ajudar a refinar e a moldar o nosso conteúdo.
+Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refinar e moldar nosso conteúdo.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -188,7 +188,7 @@ Use a seção de comentários do Disqus abaixo para fornecer seus comentários e
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-AAD]: https://graph.microsoft.io/en-us/docs/authorization/permission_scopes
 
 <!--Image references-->
@@ -211,7 +211,7 @@ Use a seção de comentários do Disqus abaixo para fornecer seus comentários e
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
@@ -239,6 +239,6 @@ Use a seção de comentários do Disqus abaixo para fornecer seus comentários e
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

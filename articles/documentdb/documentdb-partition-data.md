@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2017
+ms.date: 02/09/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: ec72d5df2fc220638773286e76c25b4b013cce63
-ms.openlocfilehash: 4f96f7392442c31888b79d0284b6d2d58d292e86
+ms.sourcegitcommit: 876e0fd12d045bba85d1e30d4abfcb8ce421213a
+ms.openlocfilehash: ed58e623ff74a21df25fc93346e571edec7b40da
 
 
 ---
@@ -134,7 +134,7 @@ A tabela a seguir lista as diferenças entre trabalhar com coleções de partiç
         <tr>
             <td valign="top"><p>Produtividade mínima</p></td>
             <td valign="top"><p>400 unidades de solicitação por segundo</p></td>
-            <td valign="top"><p>10.000 unidades de solicitação por segundo</p></td>
+            <td valign="top"><p>2.500 unidades de solicitação por segundo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Produtividade máxima</p></td>
@@ -174,11 +174,11 @@ Para este exemplo, escolhemos `deviceId` , pois sabemos que (a) uma vez que há 
 
 
 > [!NOTE]
-> Para criar coleções particionadas, você deve especificar um valor de produtividade de > 10.000 unidades de solicitação por segundo. Como a produtividade é em múltiplos de 100, esse valor deve ser 10.100 ou superior.
+> Para criar coleções particionadas sando o SDK, você deve especificar um valor de produtividade igual ou maior que 10.100 RU/s. Para definir um valor de taxa de transferência entre 2.500 e 10.000 para coleções particionadas, você deve usar o portal do Azure temporariamente, pois esses novos valores mais baixos ainda não estão disponíveis no SDK.
 > 
 > 
 
-Esse método faz uma chamada à API REST ao Banco de Dados de Documentos e o serviço provisionará várias partições com base na produtividade solicitada. Você pode alterar a produtividade de uma coleção conforme suas necessidades de desempenho aumentarem. Consulte [Níveis de Desempenho](documentdb-performance-levels.md) para obter mais detalhes.
+Esse método faz uma chamada à API REST ao Banco de Dados de Documentos e o serviço provisionará várias partições com base na produtividade solicitada. Você pode alterar a produtividade de uma coleção conforme suas necessidades de desempenho aumentarem. 
 
 ### <a name="reading-and-writing-documents"></a>Ler e gravar documentos
 Agora, vamos inserir dados no Banco de Dados de Documentos. Aqui está uma classe de exemplo que contém uma leitura de dispositivo e uma chamada para CreateDocumentAsync para inserir uma nova leitura de dispositivo em uma coleção.
@@ -294,7 +294,7 @@ Quando um aplicativo usando uma coleção de partição única precisar de maior
 Para migrar de uma coleção de partição única para uma coleção particionada
 
 1. Exporte dados da coleção de partição única para JSON. Consulte [Exportar para arquivo JSON](documentdb-import-data.md#export-to-json-file) para obter detalhes adicionais.
-2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 10.000 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Consulte [Importar para DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
+2. Importe os dados para uma coleção particionada criada com uma definição de chave de partição e produtividade de mais de 2.500 unidades de solicitação por segundo, conforme mostrado no exemplo a seguir. Consulte [Importar para DocumentDB](documentdb-import-data.md#DocumentDBSeqTarget) para obter detalhes adicionais.
 
 ![Migrando Dados para uma Coleção particionada no Banco de Dados de Documentos][3]  
 
@@ -329,7 +329,7 @@ Um dos casos de uso mais comuns do Banco de Dados de Documentos é para registro
 
 * Se o seu caso de uso envolve uma pequena taxa de gravações se acumulando por um longo período de tempo e necessidade de consulta por intervalos de carimbos de data/hora e outros filtros, usar um rollup do carimbo de data/hora, por exemplo, data como uma chave de partição, é uma boa abordagem. Isso permite que você consulte todos os dados para uma data de uma única partição. 
 * Se sua carga de trabalho for pesada quanto à gravação, o que é geralmente mais comum, você deverá usar uma chave de partição que não esteja baseada em carimbo de data/hora para que o Banco de Dados de Documentos possa distribuir gravações uniformemente por várias partições. Aqui, um nome do host, ID do processo, ID da atividade ou outra propriedade com alta cardinalidade é uma boa opção. 
-* Uma terceira abordagem é híbrida, em que você tem várias coleções, um para cada dia/mês e a chave de partição é uma propriedade granular, como nome do host. Isso tem o benefício de permitir que você defina diferentes níveis de desempenho com base na janela de tempo, por exemplo, a coleção para o mês atual é provisionada com uma produtividade maior porque ela só atua para operações de leitura e gravação, enquanto aquelas para os meses anteriores são provisionadas com produtividade menor por atuarem apenas para operações de leitura.
+* Uma terceira abordagem é híbrida, em que você tem várias coleções, um para cada dia/mês e a chave de partição é uma propriedade granular, como nome do host. Isso tem o benefício de permitir que você defina diferentes produtividades com base na janela de tempo, por exemplo, a coleção para o mês atual é provisionada com uma produtividade maior porque ela só atua para operações de leitura e gravação, enquanto aquelas para os meses anteriores são provisionadas com produtividade menor por atuarem apenas para operações de leitura.
 
 ### <a name="partitioning-and-multi-tenancy"></a>Particionamento e multilocação
 Se você estiver implementando um aplicativo multilocatário usando o Banco de Dados de Documentos, haverá dois padrões principais para a implementação de locação com o Banco de Dados de Documentos: uma chave de partição por locatário e uma coleção por locatário. Aqui estão os prós e contras de cada um:
@@ -354,6 +354,6 @@ Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de D
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
