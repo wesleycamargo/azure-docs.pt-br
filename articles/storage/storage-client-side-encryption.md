@@ -138,7 +138,7 @@ O suporte à criptografia está disponível somente na biblioteca de cliente de 
 > 
 > 
 
-## <a name="client-api-interface"></a>API do cliente / Interface
+## <a name="client-api--interface"></a>API do cliente / Interface
 Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma chave (Implementando IKey), somente um resolvedor (Implementando IKeyResolver) ou ambos. IKey é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. IKeyResolver é usado para resolver uma chave durante o processo de descriptografia. Ele define um método ResolveKey que retorna um IKey dado um certo identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.
 
 * Para criptografia, a chave é usada sempre e a ausência de uma chave resultará em um erro.

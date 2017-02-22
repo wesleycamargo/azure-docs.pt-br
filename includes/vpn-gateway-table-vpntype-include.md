@@ -1,4 +1,4 @@
-#### Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
+#### <a name="vpn-type---resource-manager-deployment-model"></a>Tipo de VPN – modelo de implantação do Gerenciador de Recursos:
 |  | **RouteBased** | **PolicyBased** |
 | --- | --- | --- |
 | **Site a site** |Suportado |Suportado |
@@ -8,7 +8,7 @@
 | **Ponto a Site** |Suportado |Sem suporte |
 | **Clássico para o Gerenciador de Recursos** |Suportado |Sem suporte |
 
-#### Tipo de VPN – modelo de implantação clássico.
+#### <a name="vpn-type---classic-deployment-model"></a>Tipo de VPN – modelo de implantação clássico.
 |  | **Dinâmico** | **Estático** |
 | --- | --- | --- |
 | **Site a site** |Suportado |Suportado |
@@ -18,4 +18,8 @@
 | **Ponto a Site** |Suportado |Sem suporte |
 | **Clássico para o Gerenciador de Recursos** |Suportado |Sem suporte |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

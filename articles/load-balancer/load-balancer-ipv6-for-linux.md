@@ -70,7 +70,7 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="rhel-centos-oracle-linux"></a>RHEL / CentOS / Oracle Linux
+## <a name="rhel--centos--oracle-linux"></a>RHEL / CentOS / Oracle Linux
 
 1. Edite o arquivo `/etc/sysconfig/network` e adicione o parâmetro a seguir:
 
@@ -87,7 +87,7 @@ Este documento descreve como habilitar o DHCPv6 para que a sua máquina virtual 
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-## <a name="sles-11-opensuse-13"></a>SLES 11 & openSUSE 13
+## <a name="sles-11--opensuse-13"></a>SLES 11 & openSUSE 13
 
 Imagens recentes de SLES e openSUSE no Azure foram pré-configuradas com DHCPv6. Nenhuma alteração adicional é necessária ao usar essas imagens. Se você tiver uma VM baseada em uma imagem SUSE mais antiga ou personalizada, use as seguintes etapas:
 

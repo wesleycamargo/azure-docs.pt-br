@@ -1,6 +1,6 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/18/16-->
 
-#### Para instalar atualizações regulares através do Windows PowerShell para StorSimple
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Para instalar atualizações regulares através do Windows PowerShell para StorSimple
 1. Abra o console serial do dispositivo e selecione a opção 1, **Efetuar login com acesso total**. Digite a senha. A senha padrão é *Senha1*. 
 2. No prompt de comando, digite:
    
@@ -19,4 +19,8 @@
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

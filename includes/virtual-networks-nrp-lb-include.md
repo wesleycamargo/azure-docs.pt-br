@@ -1,5 +1,5 @@
-## Balanceador de carga
-Um balanceador de carga é usado quando você deseja dimensionar seus aplicativos. Cenários comuns de implantação envolvem aplicativos executados em várias instâncias de VM. As instâncias de VM são apoiadas por um balanceador de carga, que ajuda a distribuir o tráfego de rede para as várias instâncias.
+## <a name="load-balancer"></a>Balanceador de carga
+Um balanceador de carga é usado quando você deseja dimensionar seus aplicativos. Cenários comuns de implantação envolvem aplicativos executados em várias instâncias de VM. As instâncias de VM são apoiadas por um balanceador de carga, que ajuda a distribuir o tráfego de rede para as várias instâncias. 
 
 ![NICs em uma única VM](./media/resource-groups-networking/figure8.png)
 
@@ -186,7 +186,11 @@ Exemplo de modelo de Balanceador de carga no formato Json:
       ]
     }
 
-### Recursos adicionais
-Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx).
+### <a name="additional-resources"></a>Recursos adicionais
+Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) .
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

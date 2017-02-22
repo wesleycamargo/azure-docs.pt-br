@@ -3,9 +3,9 @@
 Existem dois níveis de balanceamento de carga para serviços de infraestrutura do Azure:
 
 * **Nível DNS**: balanceamento de carga para tráfego de diferentes serviços de nuvem localizados em diferentes datacenters, para diferentes sites do Azure localizados em diferentes datacenters ou para pontos de extremidade externos. Isso é feito com o Gerenciador de Tráfego e o método de balanceamento de carga Round Robin do Azure.
-* **Nível de rede**: balanceamento de carga de tráfego da Internet para diferentes máquinas virtuais de um serviço de nuvem ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
+* **Nível de Rede**: balanceamento de carga de tráfego da Internet para diferentes máquinas virtuais de um serviço de nuvem ou balanceamento de carga de tráfego entre máquinas virtuais em um serviço de nuvem ou rede virtual. Isso é feito com balanceador de carga do Azure.
 
-## Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites
+## <a name="traffic-manager-load-balancing-for-cloud-services-and-websites"></a>Balanceamento de carga do Gerenciador de Tráfego para serviços de nuvem e sites
 O Gerenciador de Tráfego permite que você controle a distribuição de tráfego de usuário para os pontos de extremidade, o que pode incluir serviços de nuvem, sites, sites externos e outros perfis do Gerenciador de Tráfego. O Gerenciador de Tráfego funciona aplicando um mecanismo de políticas inteligente às consultas DNS (Domain Name System) para os nomes de domúnio de seus recursos da Internet. Seus serviços de nuvem ou sites podem ser executados em datacenters diferentes em todo o mundo.
 
 Você deve usar tanto o REST como o Windows PowerShell para configurar os pontos de extremidade externos ou os perfis do Gerenciador de Tráfego como pontos de extremidade.
@@ -16,7 +16,7 @@ O Gerenciador de Tráfego usa três métodos de balanceamento de carga para dist
 * **Desempenho**: use este método quando houver pontos de extremidade em locais geográficos diferentes e você quiser solicitar aos clientes que usem o ponto de extremidade “mais próximo” em termos de menor latência.
 * **Round Robin:** use este método quando quiser distribuir a carga através de um conjunto de serviços de nuvem no mesmo datacenter ou através dos serviços de nuvem ou sites em diversos datacenters.
 
-Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-load-balancing-methods.md).
+Para obter mais informações, consulte [Sobre métodos de balanceamento de carga do Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-routing-methods.md).
 
 O diagrama a seguir mostra um exemplo do método de balanceamento de carga Round Robin para distribuir tráfego entre diferentes serviços de nuvem.
 
@@ -31,7 +31,7 @@ O processo básico é o seguinte:
 
 Para obter mais informações, consulte [Gerenciador de Tráfego](../articles/traffic-manager/traffic-manager-overview.md).
 
-## Balanceamento de carga do Azure para máquinas virtuais
+## <a name="azure-load-balancing-for-virtual-machines"></a>Balanceamento de carga do Azure para máquinas virtuais
 As máquinas virtuais no mesmo serviço de nuvem ou rede virtual pode comunicar entre si diretamente usando seus endereços de IP privados. Os computadores e serviços fora do serviço de nuvem ou rede virtual somente podem se comunicar com máquinas virtuais em um serviço de nuvem ou rede virtual com um ponto de extremidade configurado. Um ponto de extremidade é um mapeamento de um endereço IP público e porta para esse endereço IP privado e porta de uma máquina virtual ou função web dentro de um serviço de nuvem do Azure.
 
 O Balanceador de Carga do Azure distribui randomicamente um tipo específico de tráfego de entrada através de várias máquinas virtuais ou serviços em uma configuração conhecida como conjunto balanceado de carga. Por exemplo, você pode difundir a carga de tráfego de solicitação da web em vários servidores web ou funções web.
@@ -40,7 +40,7 @@ O diagrama a seguir mostra um ponto de extremidade com carga balanceada para o t
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-Para obter mais informações, consulte [Balanceador de carga do Azure](../articles/load-balancer/load-balancer-overview.md). Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceador de carga](../articles/load-balancer/load-balancer-internet-getstarted.md).
+Para obter mais informações, consulte [Balanceador de carga do Azure](../articles/load-balancer/load-balancer-overview.md). Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceador de carga](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 O Azure também pode balancear a carga dentro de um serviço de nuvem ou rede virtual. Isso é conhecido como balanceamento de carga interno e pode ser usado das seguintes maneiras:
 
@@ -54,14 +54,18 @@ O diagrama a seguir mostra um exemplo de um ponto de extremidade de carga balanc
 
 ![loadbalancing](./media/virtual-machines-common-load-balance/LOBServers.png)
 
-## Considerações do Balanceador de carga
+## <a name="load-balancer-considerations"></a>Considerações do Balanceador de carga
 Um balanceador de carga é configurado por padrão para o tempo limite de uma sessão ociosa em 4 minutos. Se o seu aplicativo por trás de um balanceador de carga deixar uma conexão ociosa por mais de 4 minutos e não tiver uma configuração de Keep-Alive, a conexão será descartada. É possível alterar o comportamento do balanceador de carga para permitir uma [configuração de tempo limite mais longa para o balanceador de carga do Azure](../articles/load-balancer/load-balancer-tcp-idle-timeout.md).
 
 Outra consideração é o tipo de modo de distribuição com suporte pelo Balanceador de Carga do Azure. Você pode configurar a afinidade de IP de origem (IP de origem, IP de destino) ou o protocolo de IP de origem (IP de origem, IP de destino e protocolo). Confira [Azure Load Balancer distribution mode (source IP affinity)](../articles/load-balancer/load-balancer-distribution-mode.md) para obter mais informações.
 
-## Próximas etapas
-Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](../articles/load-balancer/load-balancer-internal-getstarted.md).
+## <a name="next-steps"></a>Próximas etapas
+Para conhecer as etapas para criar um conjunto balanceado de carga, consulte [Configurar um conjunto balanceado de carga interno](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 Para obter mais informações sobre o balanceador de carga, confira [Balanceamento de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 
-<!-----------HONumber=AcomDC_0330_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

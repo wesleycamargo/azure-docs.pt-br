@@ -40,7 +40,7 @@ Não, a criação do Gerenciador de mapa de fragmento (por exemplo, **[ShardMapM
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tenho dúvidas sobre o uso das ferramentas de banco de dados elástico, como obter respostas para elas?
 Vá ao [Fórum do banco de dados SQL do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard-is-this-by-design"></a>Quando recebo uma conexão de banco de dados usando uma chave de fragmentação, ainda posso consultar dados para outras chaves de fragmentação no mesmo fragmento.  Isso é proposital?
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Quando recebo uma conexão de banco de dados usando uma chave de fragmentação, ainda posso consultar dados para outras chaves de fragmentação no mesmo fragmento.  Isso é proposital?
 As API de escala elástica oferecem uma conexão com o banco de dados correto para sua chave de fragmentação, mas não fornece filtragem de chave de fragmentação.  Adicione cláusulas **WHERE** à sua consulta para restringir o escopo para a chave de fragmentação fornecidos, se necessário.
 
 #### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Posso usar uma edição diferente do banco de dados do Azure para cada fragmento no meu conjunto de fragmentos?

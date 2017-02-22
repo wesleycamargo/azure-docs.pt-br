@@ -5,6 +5,8 @@
 | **SKU de Alto Desempenho** |2000 Mbps |Sim |
 | **SKU de Ultra Desempenho** |10.000 Mbps |Sim |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
