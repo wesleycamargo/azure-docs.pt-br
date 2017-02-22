@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a2971c3b66b31e2936ca7ebc95d103ff5daf5881
 
 
 ---
@@ -38,14 +38,14 @@ Você pode ver quantos usuários estão atualmente na sessão e em telas especí
 ## <a name="troubleshooting-with-monitor---events---details"></a>Solucionando problemas com o Monitor - Eventos - Detalhes
 Gerar um evento em seu aplicativo do dispositivo de teste e encontrá-lo em Monitor - Eventos - Detalhes é uma das maneiras mais fáceis de encontrar a ID do dispositivo para o dispositivo de teste e confirmar que a integração de Segmentos, Monitoramento e Análise do Azure Mobile Engagement está funcionando em seu aplicativo. Uma vez que você tenha a ID de dispositivo do seu dispositivo de teste, você poderá adicioná-la a seus dispositivos de teste em "Minha conta – dispositivos". Se você não pode gerar um evento, certifique-se de que o Azure Mobile Engagement esteja corretamente integrado em seu aplicativo do Android/iOS/Web/Windows/Windows Phone com o SDK.
 
-Para obter mais informações, consulte: [SDK Documentation (Documentação do SDK)][Link 5]
+Para obter mais informações, veja: [Documentação do SDK][Link 5]
 
 ![Monitor2][15]  
 
 ## <a name="troubleshooting-with-monitor---crashes---details"></a>Solucionando problemas com Monitor - Falhas - Detalhes
 Você pode examinar informações de falhas sobre seu aplicativo em Monitor - Falhas - Detalhes para ajudar a determinar por que seu aplicativo está falhando. Você também deve procurar problemas conhecidos com cada versão do SDK nas notas de versão para cada versão do SDK para Android/iOS/Web/Windows/Windows Phone.
 
-Para obter mais informações, consulte: [SDK Documentation - Release notes (Documentação do SDK – Notas de versão)][Link 5]
+Para obter mais informações, veja: [Documentação do SDK – Notas de versão][Link 5]
 
 ![Monitor3][16]
 
@@ -56,7 +56,7 @@ Você também pode especificar uma taxa de detecção mínima, que é a quantida
 
 ![Monitor4][17]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço do Guia de Solução de Problemas][Link 24]
 
@@ -157,6 +157,6 @@ Você também pode especificar uma taxa de detecção mínima, que é a quantida
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

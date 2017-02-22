@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
-Para gerenciar o acesso ao Log Analytics, você executa várias tarefas administrativas relacionadas aos espaços de trabalho. Este artigo fornece conselhos sobre práticas recomendadas e procedimentos que você usará para gerenciar espaços de trabalho usando vários tipos de conta. Um espaço de trabalho é essencialmente um contêiner que inclui informações da conta e informações de configuração simples para a conta. Você ou outros membros de sua organização podem usar vários espaços de trabalho para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
+Para gerenciar o acesso ao Log Analytics, você executa várias tarefas administrativas relacionadas aos espaços de trabalho. Este artigo fornece conselhos de práticas recomendados e os procedimentos para gerenciar espaços de trabalho. Um espaço de trabalho é essencialmente um contêiner que inclui informações da conta e informações de configuração simples para a conta. Você ou outros membros de sua organização podem usar vários espaços de trabalho para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
 
 Para criar um espaço de trabalho, você precisa:
 
@@ -41,8 +41,9 @@ Hoje, um espaço de trabalho fornece:
 * Uma localização geográfica para o armazenamento dos dados
 * Granularidade de cobrança
 * Isolamento dos dados
+* Escopo de configuração
 
-Com base nas características acima, pode ser útil criar vários espaços de trabalho se:
+Com base nas características anteriores, pode ser útil criar vários espaços de trabalho se:
 
 * Você é uma empresa global e precisa de dados armazenados em regiões específicas por motivos de soberania de dados ou conformidade.
 * Você usa o Azure e deseja evitar encargos de transferência de dados de saída com um espaço de trabalho na mesma região que os recursos do Azure que ele gerencia.
@@ -61,7 +62,7 @@ Você pode exibir detalhes sobre o espaço de trabalho no portal do Azure. Você
 #### <a name="view-workspace-information-the-azure-portal"></a>Exibir informações do espaço de trabalho no portal do Azure
 
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
-2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Log Analytics**.  
+2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
     ![Hub do Azure](./media/log-analytics-manage-access/hub.png)  
 3. Na folha de assinaturas do Log Analytics, selecione um espaço de trabalho.
 4. A folha de espaço de trabalho exibe detalhes sobre o espaço de trabalho e links para obter informações adicionais.  
@@ -78,8 +79,7 @@ A concessão de acesso ao espaço de trabalho é controlada em dois locais:
 * No Azure, você pode usar o controle de acesso baseado em função para fornecer acesso à assinatura do Azure e os recursos do Azure associados. Essas permissões também são usadas para acesso à API REST e ao PowerShell.
 * No portal do OMS, acesse apenas o portal do OMS - não a assinatura do Azure associada.
 
-Os usuários não verão dados nos blocos de solução de Backup e Recuperação de Site se você apenas lhes der acesso ao portal do OMS, mas não à assinatura do Azure ao que ele está vinculado.
-Para permitir que todos os usuários vejam os dados nessas soluções, verifique se eles têm pelo menos acesso de **leitor** ao Cofre de Backup e cofre da Recuperação de Site vinculados ao espaço de trabalho.   
+Para ver os dados em blocos de solução de Backup e Site Recovery, é necessário ter permissão de administrador ou coadministrador para a assinatura do Azure que o espaço de trabalho está vinculado a.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Gerenciar o acesso ao Log Analytics usando o Portal do Azure
 Se você fornecer acesso às pessoas ao espaço de trabalho do Log Analytics usando as permissões do Azure, no portal do Azure por exemplo, então, os mesmo usuários poderão acessar o portal do Log Analytics. Se os usuários estiverem no portal do Azure, eles poderão navegar para o portal do OMS clicando na tarefa **Portal do OMS** ao exibirem o recurso do espaço de trabalho do Log Analytics.
@@ -199,7 +199,7 @@ Seu novo plano de dados é exibido na faixa de opções do portal do OMS, na par
 8. Clique em **OK**. O espaço de trabalho agora está vinculado à sua conta do Azure.
 
 > [!NOTE]
-> Caso você não veja o espaço de trabalho que deseja vincular aqui, sua assinatura do Azure não tem acesso ao espaço de trabalho que você criou usando o site da Web do OMS.  Você precisa conceder acesso a essa conta no portal do OMS. Para fazer isso, consulte [Adicionar um usuário a um espaço de trabalho existente](#add-a-user-to-an-existing-workspace).
+> Caso você não veja o espaço de trabalho que deseja vincular aqui, sua assinatura do Azure não tem acesso ao espaço de trabalho que você criou usando o site da Web do OMS.  Para conceder acesso a essa conta no portal do OMS, consulte [adicionar um usuário a um espaço de trabalho](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -232,15 +232,20 @@ Se você tiver um compromisso monetário do Azure no registro enterprise ao qual
 
 Se você precisar alterar a assinatura do Azure vinculada ao seu espaço de trabalho, poderá usar o cmdlet do Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Alterar um espaço de trabalho para um plano de dados pago
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Alterar um espaço de trabalho para um tipo de preço pago
 1. Faça logon no [Portal do Azure](http://portal.azure.com).
 2. Procure pelo **Log Analytics** e selecione-o.
 3. Você vê sua lista de espaços de trabalho existentes. Selecione um espaço de trabalho.  
 4. Na folha do espaço de trabalho, em **Geral**, clique em **Tipo de preço**.  
-5. Em **Tipo de preço**, clique em selecionar um plano de dados e, em seguida, clique em **Selecionar**.  
+5. Em **Tipo de preço**, clique em selecionar um tipo de preço e clique em **Selecionar**.  
     ![selecionar plano](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Ao atualizar sua exibição do Portal do Azure, você vê o **Tipo de preço** atualizado para o plano selecionado.  
+6. Ao atualizar sua exibição do Portal do Azure, você vê o **Tipo de preço** atualizado para o tipo selecionado.  
     ![plano atualizado](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Se o seu espaço de trabalho está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do espaço de trabalho, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Alterar o tempo que o Log Analytics leva para armazenar dados
 
@@ -293,6 +298,6 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

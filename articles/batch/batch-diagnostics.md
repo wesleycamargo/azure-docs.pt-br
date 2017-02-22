@@ -1,5 +1,5 @@
 ---
-title: "Log de diagnósticos do Lote do Azure | Microsoft Docs"
+title: "Habilitar o log de diagnóstico para Eventos em lote - Azure | Microsoft Docs"
 description: "Registre e analisar eventos de log de diagnóstico para recursos de conta do Lote do Azure, como pools e tarefas."
 services: batch
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 01/20/2017
+ms.date: 02/01/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: f1aa23d2865ec8401a59b2370c8157d2458c60f7
+ms.sourcegitcommit: 4b8343ac07aa7b2c0771a723306cf1f875cb6147
+ms.openlocfilehash: aeba32d62458f948c7aa99294c90519979924d57
 
 
 ---
@@ -93,7 +93,7 @@ Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamen
 * [Transmitir Logs de Diagnóstico do Azure para os Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
   
   Transmita os eventos de diagnóstico do Lote para o serviço de entrada de dados altamente dimensionável, Hubs de Eventos. Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real.
-* [Analisar logs de diagnóstico do Azure usando o Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analisar logs de diagnóstico do Azure usando o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
   
   Envie seus logs de diagnóstico para o Log Analytics, onde você pode analisá-los no portal do OMS (Operations Management Suite) ou exportá-los para análise no Power BI ou Excel.
 
@@ -108,6 +108,6 @@ Além de armazenar os eventos do log de diagnóstico em uma conta de Armazenamen
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

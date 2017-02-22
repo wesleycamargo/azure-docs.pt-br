@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 02/03/2017
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
-ms.openlocfilehash: cf0b3ce6b24eace40138d586378864dd4eeca5b1
+ms.sourcegitcommit: 29a6290a19186d5bc8a07d87617b47d21529d6b7
+ms.openlocfilehash: 2e99332e2a2b023c00669b3ad5ea07f0c791a805
 
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
-Para entender sua fatura do Azure, examine o resumo dos encargos e o arquivo separado de uso diário detalhado. Este artigo descreve a maioria dos termos mostrados na fatura e o arquivo de uso diário. Para obter esses arquivos, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md). Se você estiver usando uma assinatura de avaliação gratuita, poderá obter suas informações de uso diário, mas não terá uma fatura.
+Para entender sua fatura do Azure, examine o resumo dos encargos e o arquivo separado de uso diário detalhado. Este artigo descreve a maioria dos termos mostrados na fatura e o arquivo de uso diário. Para obter esses arquivos, confira [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) (Como obter sua fatura de cobrança e os dados de uso diário do Azure). Se você estiver usando uma assinatura de avaliação gratuita, poderá obter suas informações de uso diário, mas não terá uma fatura.
 
 Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de tarifas. Alguns planos de tarifas, como as assinaturas do MPN (Visual Studio Enterprise), incluem créditos mensais que podem ser usados em qualquer serviço do Azure com base em suas necessidades.
 
 Sua fatura atual pode apresentar até 24 horas de uso do final do período de cobrança anterior. Os encargos listados nos demonstrativos de cobrança para clientes internacionais servem somente para fins de estimativa. Os bancos têm custos diferentes para as taxas de conversão.
 
 ## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a>Entenda sua fatura (.pdf)
-A fatura fornece um resumo dos seus encargos. Ele está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com). Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md). 
+A fatura fornece um resumo dos seus encargos. Ele está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com). Para saber mais, confira [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) (Como obter sua fatura de cobrança e os dados de uso diário do Azure). 
 
 As seções a seguir listam a maioria dos termos existentes em sua fatura, junto com descrições para cada termo.
 
@@ -43,10 +43,10 @@ A seção de informações da conta mostra informações sobre seu uso e perfil.
 | Nº da Fatura |Um identificador de fatura único para fins de acompanhamento |
 | Ciclo de cobrança |Intervalo de datas coberto por esta nota fiscal |
 | Data da fatura |A data em que a fatura foi gerada |
-| Método de pagamento |Tipo de pagamento usado na conta (fatura ou cartão de crédito). Se você precisar atualizar seu cartão de crédito, confira [Como mudar o cartão de crédito usado para pagar por uma assinatura do Azure](../billing-how-to-change-credit-card.md). Se você representa uma empresa, pode pagar sua assinatura do Azure com métodos de pagamento de fatura, como cheques ou transferências bancárias. Confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/). |
-| Enviar cobrança para |Endereço de pagamentos do Microsoft Azure. Você pode atualizar o endereço de cobrança associado ao seu cartão de crédito acessando a [página de assinatura](https://account.windowsazure.com/subscriptions) no Centro de Contas do Azure. |
-| Oferta de assinatura |Tipo de oferta de assinatura que tiver sido adquirida (Pré-pago, BizSpark Plus, Azure Pass etc.). Se você quiser alterar de pré-pago para uma oferta de assinatura diferente, confira [Trocar sua assinatura do Azure por outra oferta](../billing-how-to-switch-azure-offer.md). |
-| Email do proprietário da conta |O endereço de email da conta no qual a conta do Microsoft Azure está registrada. Para alterar seu endereço de email, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../billing-how-to-change-azure-account-profile.md). |
+| Método de pagamento |Tipo de pagamento usado na conta (fatura ou cartão de crédito). Se você precisar atualizar seu cartão de crédito, confira [Como mudar o cartão de crédito usado para pagar por uma assinatura do Azure](billing-how-to-change-credit-card.md). Se você representa uma empresa, pode pagar sua assinatura do Azure com métodos de pagamento de fatura, como cheques ou transferências bancárias. Confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/). |
+| Enviar cobrança para |Endereço de pagamentos do Microsoft Azure. Saiba como atualizar suas informações de cobrança em [Alterar o cartão de crédito usado para pagar uma assinatura do Azure](billing-how-to-change-credit-card.md). |
+| Oferta de assinatura |Tipo de oferta de assinatura que tiver sido adquirida (Pré-pago, BizSpark Plus, Azure Pass etc.). Se você quiser alterar de pré-pago para uma oferta de assinatura diferente, confira [Trocar sua assinatura do Azure por outra oferta](billing-how-to-switch-azure-offer.md). |
+| Email do proprietário da conta |O endereço de email da conta no qual a conta do Microsoft Azure está registrada. Para alterar seu endereço de email, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](billing-how-to-change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Entender o resumo da fatura
 A seção **Resumo da Fatura** da fatura resume as transações desde sua última fatura e os encargos de uso atuais.
@@ -76,11 +76,11 @@ A tabela a seguir descreve as instruções de venda e pagamento mostradas em sua
 
 | Termo | Descrição |
 | --- | --- |
-| Vendido para |Isso é pré-preenchido com o endereço do perfil na conta. Se você precisar alterar isso, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../billing-how-to-change-azure-account-profile.md). |
+| Vendido para |Isso é pré-preenchido com o endereço do perfil na conta. Se você precisar alterar isso, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](billing-how-to-change-azure-account-profile.md). |
 | Instruções de pagamento |Se a sua forma de pagamento for fatura, esta seção conterá instruções sobre transferências eletrônicas, pagamentos em&24; horas ou para onde enviar cheques. Para saber mais, confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/) |
 
 ## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Entender os encargos de uso detalhados (.csv)
-O arquivo de uso mostra o quanto de cada recurso foi usado no período de faturamento atual. Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas. Se você vir duas versões disponíveis, baixe a versão 2. Esse é o formato de arquivo mais recente. Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md).
+O arquivo de uso mostra o quanto de cada recurso foi usado no período de faturamento atual. Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas. Se você vir duas versões disponíveis, baixe a versão 2. Esse é o formato de arquivo mais recente. Para saber mais, confira [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) (Como obter sua fatura de cobrança e os dados de uso diário do Azure).
 
 Encargos de uso são o total de encargos **mensais** em uma assinatura, menos créditos ou descontos. Você é cobrado pelo uso do mês anterior.  
 
@@ -135,10 +135,10 @@ A seção de Uso diário do arquivo mostra os detalhes de uso que afetam as taxa
 É bom ser proativo sobre como controlar os custos:
 
 - Custos estimados usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), o [custo total de calculadora de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço
-- [Configurar alertas de cobrança](../billing-set-up-alerts.md)
-- [Analise o uso e os custos regularmente no portal do Azure](./billing-getting-started.md#costs)
+- [Configurar alertas de cobrança](billing-set-up-alerts.md)
+- [Analise o uso e os custos regularmente no portal do Azure](billing-getting-started.md#costs)
 
-Para saber mais, veja [Introdução ao gerenciamento de custos e de cobrança do Azure](./billing-getting-started.md).
+Para saber mais, veja [Introdução ao gerenciamento de custos e de cobrança do Azure](billing-getting-started.md).
 
 ## <a name="how-do-i-make-a-payment"></a>Como faço um pagamento?
 Se você tiver configurado um cartão de crédito ou débito como forma de pagamento, o pagamento será feito automaticamente. Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.microsoft.com/pricing/invoicing/), envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -147,7 +147,7 @@ Se você tiver configurado um cartão de crédito ou débito como forma de pagam
 [Crie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar o status do pagamento. 
 
 ## <a name="what-about-marketplace-orders-or-external-service-charges"></a>E quanto a pedidos no Marketplace ou encargos de serviços externos?
-Os serviços externos costumavam ser chamados de pedidos do Marketplace. Os serviços externos são fornecidos por prestadores de serviços independentes, mas estão integrados ao ecossistema do Azure. Para saber mais, confira [Entender os encargos dos serviços externos do Azure](../billing-understand-your-azure-marketplace-charges.md).
+Os serviços externos costumavam ser chamados de pedidos do Marketplace. Os serviços externos são fornecidos por prestadores de serviços independentes, mas estão integrados ao ecossistema do Azure. Para saber mais, confira [Entender os encargos dos serviços externos do Azure](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte. 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
@@ -158,6 +158,6 @@ Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.c
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

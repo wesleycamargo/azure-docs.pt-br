@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentação da Automação do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como usar a Automação para automatizar o gerenciamento de processos e de configuração para economizar tempo e aumentar a confiabilidade das tarefas administrativas comuns."
+services: automation
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: automation
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
-ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
+ms.sourcegitcommit: 5a96f86157516585742bf184a65f42b1a2070a95
+ms.openlocfilehash: 008fe9bc549d2ba4bc043c344b39409a04efe598
 
 ---
 # <a name="automation-documentation"></a>Documentação da Automação do Azure
@@ -133,7 +144,7 @@ Saiba mais sobre como usar a Automação para economizar tempo e aumentar a conf
                     <div class="cardText">
                         <h3>Linha de comando</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell Clássico</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -166,16 +177,10 @@ Saiba mais sobre como usar a Automação para economizar tempo e aumentar a conf
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação da Automação </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

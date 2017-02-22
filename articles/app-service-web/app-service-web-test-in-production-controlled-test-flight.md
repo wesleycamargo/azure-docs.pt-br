@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 152b08cf72c48109f17b5c4715e4ca5fafbb1b7b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
 
 
 ---
@@ -56,7 +56,7 @@ Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu
 > * É possível [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
 > * É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >
 
@@ -298,7 +298,7 @@ Volte ao aplicativo que você deseja melhorar.
 Agora que a alteração está em execução no slot beta, você está pronto para realizar uma implantação flighting.
 
 ## <a name="validate-route-traffic-to-the-beta-app"></a>Validar: encaminhar o tráfego para o aplicativo beta
-Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins de clareza de demonstração, vamos encaminhar uma parte significativa do tráfego de usuário para ele. Na realidade, a quantidade de tráfego que você deseja encaminhar dependerá de sua situação específica. Por exemplo, se o seu site estiver na escala do microsoft.com, talvez seja necessário menos de 1% do tráfego total para obter dados úteis.
+Nesta seção, você encaminhará o tráfego para o aplicativo beta. Para fins de clareza de demonstração, vamos encaminhar uma parte significativa do tráfego de usuário para ele. Na realidade, a quantidade de tráfego que você deseja encaminhar dependerá de sua situação específica. Por exemplo, se o seu site estiver na escala do microsoft.com, talvez seja necessário menos de&1;% do tráfego total para obter dados úteis.
 
 1. Em sua sessão do Git Shell, execute os seguintes comandos para encaminhar metade do tráfego de produção para o slot beta:
 
@@ -359,6 +359,6 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Contatar o Suporte da Microsoft | Microsoft Docs
+title: "Registrar tíquete de suporte para o StorSimple série 8000 | Microsoft Docs"
 description: "Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli;anbacker
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01eafb492c5af9ce9d21418b838556c8c05095b1
+ms.sourcegitcommit: ce19be3454c08bbc041b5f6929c4ad56ffe9b7ea
+ms.openlocfilehash: 5f8124371391f7e2e59bbea474bef1da77686e0c
 
 
 ---
@@ -95,6 +95,6 @@ Execute as seguintes etapas para iniciar uma sessão de suporte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

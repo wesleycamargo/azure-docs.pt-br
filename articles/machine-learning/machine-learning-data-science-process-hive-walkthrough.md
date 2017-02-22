@@ -1,5 +1,8 @@
 ---
-title: "O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop | Microsoft Docs"
+
+
+
+title: Explorar dados em um cluster Hadoop e criar modelos no Azure Machine Learning | Microsoft Docs
 description: "Usando o Processo de Ciência de Dados de Equipe para um cenário completo que emprega um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados publicamente disponível."
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -12,15 +15,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b466878831b9a8d78c03738397f2119a6d5e13d
+ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
+ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 
 ---
-# <a name="the-team-data-science-process-in-action-using-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md) em um cenário de ponta a ponta usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
 
 Para ver um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) em um cenário semelhante usando clusters Hadoop do HDInsight para processamento de dados, confira [Processo de Ciência de Dados de Equipe — usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
@@ -57,7 +60,7 @@ Descreveremos mais detalhes dos dados quando os armazenarmos em tabelas Hive em 
 Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na sua análise ajuda a esclarecer as tarefas que você precisará incluir em seu processo.
 Aqui estão três exemplos de problemas de previsão que abordados neste passo a passo cuja formulação se baseia no *tip\_amount*:
 
-1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
+1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$&0; é um exemplo positivo, enquanto um *tip\_amount* de US$&0; é um exemplo negativo.
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0
@@ -839,6 +842,6 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,4 +1,4 @@
-O ExpressRoute fornece conectividade de rede privada para os Serviços de Nuvem da Microsoft. Os serviços de plataforma e infraestrutura em execução no Azure geralmente se beneficiam ao abordar considerações de arquitetura e de desempenho de rede. Portanto, recomendamos que as empresas usem a Azure ExpressRoute.
+O ExpressRoute fornece conectividade de rede privada para os Serviços de Nuvem da Microsoft. Os serviços de plataforma e infraestrutura em execução no Azure geralmente se beneficiam ao abordar considerações de arquitetura e de desempenho de rede. Portanto, recomendamos que as empresas usem o ExpressRoute para Azure.
 
 Ofertas de software como um serviço, como o Office 365 e o Dynamics 365, foram criadas para serem acessadas pela Internet de forma segura e confiável.  Portanto, somente recomendamos o ExpressRoute para esses aplicativos em cenários específicos.
 
@@ -9,6 +9,6 @@ Ofertas de software como um serviço, como o Office 365 e o Dynamics 365, foram 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

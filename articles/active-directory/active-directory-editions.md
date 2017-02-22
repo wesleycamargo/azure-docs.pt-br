@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
 
 
 ---
@@ -146,7 +146,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 * [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
 
-#### <a name="connect-sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (Mecanismo de sincronização que amplia os diretórios locais ao Azure Active Directory)
+#### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (Mecanismo de sincronização que amplia os diretórios locais ao Azure Active Directory)
 **Tipo:** recursos comuns
 
 **Disponibilidade:**
@@ -273,7 +273,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 * [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal-mim-server"></a><a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
+#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no sistema operacional Windows Server, se o servidor estiver executando uma cópia licenciada válida do Windows Server, o Microsoft Identity Manager pode ser instalado e usado no servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
 
 **Tipo:** recursos premium
@@ -333,7 +333,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 |:---:|:---:|:---:|:---:|
 | &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
-## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Ingresso do Azure Active Directory - apenas recursos relacionados ao Windows 10
+## <a name="azure-active-directory-join--windows-10-only--related-features"></a>Ingresso do Azure Active Directory - apenas recursos relacionados ao Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
 **Tipo:** ingresso do Azure Active Directory – apenas recursos relacionados ao Windows 10
 
@@ -377,7 +377,7 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 * [Autenticação baseada em certificado no iOS](active-directory-certificate-based-authentication-ios.md)
 * [Autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-android.md)
 
-## <a name="whats-next"></a>O que vem a seguir
+## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
 * [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
@@ -387,6 +387,6 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

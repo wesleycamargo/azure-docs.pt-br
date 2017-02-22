@@ -1,5 +1,5 @@
 ---
-title: "Solução de Problemas de Readaptação de um serviço Web do Machine Learning | Microsoft Docs"
+title: "Solução de Problemas de readaptação de um serviço Web clássico do Azure Machine Learning | Microsoft Docs"
 description: "Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Aprendizado de Máquina do Azure."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 736582889573c0e36e06910a3690db5651d5ccfa
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 5bbd1bd74176b67beaecfc9995d16e923e5a40f1
 
 
 ---
@@ -116,6 +116,6 @@ Você pode verificar em qual serviço Web está o ponto de extremidade visitando
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

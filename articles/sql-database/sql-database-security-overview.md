@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ O Banco de Dados SQL protege seus dados, fornecendo a auditoria e recursos de de
 ### <a name="auditing"></a>Auditoria
 A Auditoria do Banco de Dados SQL rastreia as atividades de banco de dados e ajuda a manter a conformidade normativa, registrando eventos de banco de dados em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria permite que você compreenda as atividades do banco de dados em andamento, bem como analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Detecção de ameaças
+### <a name="auditing--threat-detection"></a>Auditoria e detecção de ameaças 
+A Auditoria do Banco de Dados SQL rastreia as atividades de banco de dados e ajuda a manter a conformidade normativa, registrando eventos de banco de dados em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria permite que você compreenda as atividades do banco de dados em andamento, bem como analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).  
+ 
 A Detecção de Ameaças complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança criada para o serviço Banco de Dados SQL. Ela funciona ininterruptamente para aprender, perfilar e detectar atividades anormais de banco de dados. Você será alertado sobre atividades suspeitas, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso do banco de dados anormais. Você pode responder a alertas, seguindo as instruções informativas e acionáveis fornecidas. Para obter mais informações, confira [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).  
-
+ 
+### <a name="data-masking"></a>Mascaramento de dados 
+A Máscara de dados dinâmica no banco de dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. O Mascaramento de Dados Dinâmicos detecta de forma automática os dados potencialmente confidenciais no Banco de Dados SQL e fornece recomendações viáveis para mascarar esses campos, com impacto mínimo sobre a camada de aplicativo. Funciona ao ocultar os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designado, enquanto os dados no banco de dados não são alterados. Para saber mais, veja Introdução ao [mascaramento de dados dinâmicos do banco de dados SQL](sql-database-dynamic-data-masking-get-started.md)
+ 
 ## <a name="compliance"></a>Conformidade
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -84,6 +89,7 @@ Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a at
 - Para obter uma discussão sobre monitoramento proativo, veja [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md) e [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

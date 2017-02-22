@@ -1,5 +1,5 @@
 ---
-title: Arquivamento dos Hubs de Eventos do Azure | Microsoft Docs
+title: "Arquivar dados de telemetria com visão geral de Arquivamento dos Hubs de Eventos do Azure | Microsoft Docs"
 description: "Visão geral do recurso Arquivamento dos Hubs de Eventos do Azure."
 services: event-hubs
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: darosa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 539c04ef95804cc0af9924db8b1d2d1f2ea6eef3
-ms.openlocfilehash: 37d8ff4c2e95fddc1daefa650f2407236bc9cda5
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: 7f5652aa39d6681b4a96cac00daac904dce2e537
 
 
 ---
 # <a name="azure-event-hubs-archive"></a>Arquivamento dos Hubs de Eventos do Azure
-O Arquivamento dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo. A configuração do arquivamento é rápida, não há custos administrativos para executá-lo e ele é dimensionado automaticamente com as [unidades de produtividade](event-hubs-overview.md#capacity-and-security)dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
+O Arquivamento dos Hubs de Eventos do Azure permite que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para a conta de armazenamento de blobs de sua escolha, com maior flexibilidade para especificar uma hora ou um período de tempo. A configuração do arquivamento é rápida, não há custos administrativos para executá-lo e ele é dimensionado automaticamente com as [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity)dos Hubs de Eventos. O Arquivamento dos Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
 
 O Arquivamento dos Hubs de Eventos do Azure permite processar pipelines em tempo real e baseados em lote no mesmo fluxo. Isso permite que você crie soluções que podem crescer com suas necessidades ao longo do tempo. Se você estiver criando sistemas baseados em lote com o objetivo de processá-los em tempo real no futuro ou para adicionar um caminho frio eficiente para uma solução em tempo real, o Arquivamento dos Hubs de Eventos facilita o trabalho de transmissão de dados.
 
 ## <a name="how-event-hubs-archive-works"></a>Como funciona o Arquivamento dos Hubs de Eventos
-Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos horizontalmente é o [modelo de consumidor particionado](event-hubs-overview.md#partition-key). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica "muito cheio".
+Os Hubs de Eventos são um buffer de tempo de retenção durável para a entrada de telemetria, semelhante a um log distribuído. A chave para reduzir os Hubs de Eventos horizontalmente é o [modelo de consumidor particionado](event-hubs-what-is-event-hubs.md#partitions). Cada partição é um segmento independente de dados e é consumido de forma independente. Ao longo do tempo, esses dados expiram com base no período de retenção configurável. Assim, um Hub de Eventos específico nunca fica "muito cheio".
 
 O Arquivamento dos Hubs de Eventos permite que você especifique sua própria conta de Armazenamento de Blobs do Azure e o contêiner que será usado para armazenar os dados arquivados. Essa conta pode ser na mesma região que o Hub de Eventos ou em outra região, o que dá flexibilidade ao recurso Arquivamento dos Hubs de Eventos.
 
@@ -40,7 +40,7 @@ O Arquivamento dos Hubs de Eventos permite que você defina uma janela para cont
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionamento de unidades de produtividade
-O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-overview.md#capacity-and-security). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. O Arquivamento dos Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída para outros leitores de processamento, como o Stream Analytics ou o Spark.
+O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-what-is-event-hubs.md#capacity). Uma única unidade de produtividade permite o ingresso de 1 MB por segundo ou 1.000 eventos por segundo e duas vezes essa quantidade de saída. Os Hubs de Evento Standard podem ser configurados com 1 a 20 unidades de produtividade e outras podem ser adquiridas por meio de uma [solicitação de suporte][support request] para aumento de cota. O uso além das unidades de produtividade adquiridas é restringido. O Arquivamento dos Hubs de Eventos copia os dados diretamente do armazenamento interno dos Hubs de Eventos, ignorando as cotas de saída das unidades de produtividade e salvando a saída para outros leitores de processamento, como o Stream Analytics ou o Spark.
 
 Uma vez configurado, o Arquivamento dos Hubs de Eventos é executado automaticamente assim que você envia seu primeiro evento. Ele continua sendo executado o tempo todo. Para que o seu processamento downstream saiba que processo está funcionando mais facilmente, os Hubs de Eventos gravam arquivos vazios quando não há nenhum dado. Isso fornece cadência e marcador previsíveis que podem alimentar os processadores em lotes.
 
@@ -117,12 +117,12 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.1/java/avro-tools-1.8.1.jar
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

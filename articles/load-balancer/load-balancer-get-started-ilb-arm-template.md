@@ -1,5 +1,5 @@
 ---
-title: Criar um balanceador de carga interno usando um modelo no Azure Resource Manager | Microsoft Docs
+title: Criar um balanceador de carga interno - Modelo do Azure | Microsoft Docs
 description: Saiba como criar um balanceador de carga interno no Gerenciador de Recursos usando um modelo
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: da1a0bb7982b02daa89144c3f5c3f257f14c06c9
 
 ---
 
@@ -43,7 +43,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Baixe o arquivo de parâmetros no disco local.
 3. Edite o arquivo e salve-o.
 4. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
@@ -85,6 +85,6 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

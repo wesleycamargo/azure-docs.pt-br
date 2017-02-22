@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2016
+ms.date: 12/20/2016
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: d220b3b8189a22e6450897fd5e7a865725051a8f
-ms.openlocfilehash: 0722c7c08cd7b994c25284cac45bd6f663b289b7
+ms.sourcegitcommit: 7e10f4d051a484965c7d58de6351dd357aa64c0f
+ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
 
 
 ---
@@ -43,12 +43,14 @@ Siga as instruções em [Como instalar e configurar o Azure PowerShell][powershe
 Esse comando permite que você crie uma conta de banco de dados do DocumentDB. Configure sua nova conta de banco de dados como região única ou [várias regiões][scaling-globally] com uma [política de consistência](documentdb-consistency-levels.md) determinada.
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
+    $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -PropertyObject $DocumentDBProperties
     
 * `<write-region-location>` O nome do local da região de gravação da conta do banco de dados. Esse local deve ter um valor de prioridade de failover de 0. Deve haver exatamente uma região de gravação por conta do banco de dados.
 * `<read-region-location>` O nome do local da região de leitura da conta do banco de dados. Esse local deve ter um valor de prioridade de failover maior do que 0. Pode haver mais de uma região de leitura por conta do banco de dados.
+* `<ip-range-filter>` Especifica o conjunto de endereços IP ou os intervalos de endereços IP no formato CIDR a serem incluídos como a lista de permissões de IPs de cliente para uma determinada conta de banco de dados. Os intervalos/endereços IP devem ser separados por vírgula e não devem conter espaços. Para saber mais, confira [DocumentDB Firewall Support](documentdb-firewall-support.md) (Suporte ao firewall do DocumentDB)
 * `<default-consistency-level>` O nível de consistência padrão da conta do DocumentDB. Para saber mais, confira [Níveis de consistência no DocumentDB](documentdb-consistency-levels.md).
 * `<max-interval>` Ao ser usado com a consistência Estagnação Limitada, esse valor representa a quantidade de tempo de desatualização (em segundos) tolerada. O intervalo aceito para este valor é de 1 a 100.
 * `<max-staleness-prefix>` Ao ser usado com a consistência Estagnação Limitada, esse valor representa o número de solicitações de estagnação tolerado. O intervalo aceito para este valor é de 1 a 2,147,483,647.
@@ -59,8 +61,9 @@ Esse comando permite que você crie uma conta de banco de dados do DocumentDB. C
 Exemplo: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
+    $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ### <a name="notes"></a>Observações
@@ -75,13 +78,15 @@ Esse comando permite que você atualize as propriedades de sua conta de banco de
 > Esse comando permite adicionar e remover regiões, mas não permite modificar as prioridades de failover. Para modificar as prioridades de failover, confira [abaixo](#modify-failover-priority-powershell).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
+    $iprangefilter = "<ip-range-filter>"
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -PropertyObject $DocumentDBProperties
     
 * `<write-region-location>` O nome do local da região de gravação da conta do banco de dados. Esse local deve ter um valor de prioridade de failover de 0. Deve haver exatamente uma região de gravação por conta do banco de dados.
 * `<read-region-location>` O nome do local da região de leitura da conta do banco de dados. Esse local deve ter um valor de prioridade de failover maior do que 0. Pode haver mais de uma região de leitura por conta do banco de dados.
 * `<default-consistency-level>` O nível de consistência padrão da conta do DocumentDB. Para saber mais, confira [Níveis de consistência no DocumentDB](documentdb-consistency-levels.md).
+* `<ip-range-filter>` Especifica o conjunto de endereços IP ou os intervalos de endereços IP no formato CIDR a serem incluídos como a lista de permissões de IPs de cliente para uma determinada conta de banco de dados. Os intervalos/endereços IP devem ser separados por vírgula e não devem conter espaços. Para saber mais, confira [DocumentDB Firewall Support](documentdb-firewall-support.md) (Suporte ao firewall do DocumentDB)
 * `<max-interval>` Ao ser usado com a consistência Estagnação Limitada, esse valor representa a quantidade de tempo de desatualização (em segundos) tolerada. O intervalo aceito para este valor é de 1 a 100.
 * `<max-staleness-prefix>` Ao ser usado com a consistência Estagnação Limitada, esse valor representa o número de solicitações de estagnação tolerado. O intervalo aceito para este valor é de 1 a 2,147,483,647.
 * `<resource-group-name>` O nome do [Grupo de recursos do Azure][azure-resource-groups] ao qual pertence a nova conta de banco de dados do DocumentDB.
@@ -91,8 +96,9 @@ Esse comando permite que você atualize as propriedades de sua conta de banco de
 Exemplo: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
+    $iprangefilter = ""
     $consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness"; "maxIntervalInSeconds"=5; "maxStalenessPrefix"=100}
-    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy}
+    $DocumentDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ## <a name="a-iddelete-documentdb-account-powershella-delete-a-documentdb-database-account"></a><a id="delete-documentdb-account-powershell"></a> Excluir uma conta de banco de dados do DocumentDB
@@ -186,6 +192,6 @@ Exemplo:
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.date: 11/01/2016
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 844abce7941b7285c88aa0eda9eca43e1e5e42da
+ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
+ms.openlocfilehash: 801a9d0e92a248d2e9843f13cfce74b948cf0d4b
 
 
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
 > [!NOTE]
-> Este artigo descreve os indexadores na versão [API REST 2015-02-28-Preview](search-api-2015-02-28-preview.md). Esta versão de API adiciona versões de visualização do indexador do Armazenamento de Blobs do Azure com a extração de documentos, o indexador do Armazenamento de Tabelas do Azure e outros aprimoramentos. A API também oferece suporte a indexadores geralmente disponíveis (GA), incluindo indexadores para banco de dados SQL do Azure, o SQL Server em VMs do Azure e o Banco de Dados de Documentos do Azure.
+> Este artigo descreve os indexadores na versão [API REST&2015;-02-28-Preview](search-api-2015-02-28-preview.md). Esta versão de API adiciona versões de visualização do indexador do Armazenamento de Blobs do Azure com a extração de documentos, o indexador do Armazenamento de Tabelas do Azure e outros aprimoramentos. A API também oferece suporte a indexadores geralmente disponíveis (GA), incluindo indexadores para banco de dados SQL do Azure, o SQL Server em VMs do Azure e o Banco de Dados de Documentos do Azure.
 > 
 > 
 
@@ -42,7 +42,7 @@ Uma **fonte de dados** especifica quais dados precisam ser indexados, as credenc
 Atualmente, há suporte às seguintes fontes de dados:
 
 * **Banco de Dados SQL do Azure** e **SQL Server em VMs do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md). 
-* **Banco de Dados de Documentos do Azure**. Para obter um passo a passo direcionado, confira [este artigo](../documentdb/documentdb-search-indexer.md). 
+* **Banco de Dados de Documentos do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-index-documentdb.md). 
 * **Armazenamento de Blobs do Azure**, incluindo as seguintes formatos de documentos: PDF, Microsoft Office (DOCX/DOC, XSLX/XLS, PPT/PPTX, MSG), HTML, XML, ZIP e arquivos de texto sem formatação (inclusive JSON). Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-blob-storage.md).
 * **Armazenamento de Tabelas do Azure**. Para obter um passo a passo direcionado, confira [este artigo](search-howto-indexing-azure-tables.md).
 
@@ -411,7 +411,7 @@ Um indexador pode, opcionalmente, especificar vários parâmetros que afetam seu
 
 * `maxFailedItems` : o número de itens que podem não ser indexados antes que a execução de um indexador seja considerada uma falha. O padrão é 0. Informações sobre itens com falha são retornadas pela operação [Obter Status do Indexador](#GetIndexerStatus) . 
 * `maxFailedItemsPerBatch` : o número de itens que podem não ser indexados em cada lote antes que a execução de um indexador seja considerada uma falha. O padrão é 0.
-* `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base 64. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
+* `base64EncodeKeys`: especifica se as chaves de documento serão ou não codificadas em base&64;. O Azure Search impõe restrições em relação aos caracteres que podem estar presentes em uma chave de documento. No entanto, os valores na fonte de dados podem conter caracteres que são inválidos. Se for necessário indexar esses valores como chaves de documento, esse sinalizador poderá ser definido como true. O padrão é `false`.
 * `batchSize`: especifica o número de itens lidos da fonte de dados e indexados como um único lote para melhorar o desempenho. O padrão depende do tipo de fonte de dados: 1000 para o SQL Azure e o DocumentDB e 10 para o Armazenamento de Blobs do Azure.
 
 **Mapeamentos de campo**
@@ -799,6 +799,6 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

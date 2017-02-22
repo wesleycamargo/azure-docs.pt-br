@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4cdc1f0a8958edd23f8df02c4d16d3f60fe648bd
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: 688decb3e01b8de1f5c1047b4b9cdeff38b05552
 
 
 ---
@@ -33,6 +33,9 @@ O Ambari é um utilitário de monitoramento e de gerenciamento fornecido com clu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um novo cluster, confira [Introdução ao HDInsight baseado no Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="open-the-hive-view"></a>Abrir o modo de exibição Hive
 Você pode abrir os Modos de exibição do Ambari do Portal do Azure; selecione seu cluster HDInsight e escolha **Modos de exibição do Ambari** na seção **Links Rápidos**.
@@ -200,6 +203,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

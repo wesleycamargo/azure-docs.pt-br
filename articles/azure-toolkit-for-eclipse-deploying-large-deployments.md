@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c74663599e8f74ce80948abc3b9e1677bb86de0
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: d6b2b28a7e01d5a70cd08f4cd2d8cccff7d918cf
 
 
 ---
@@ -32,24 +32,24 @@ Se sua implantação for muito grande para caber na pasta approot padrão, você
 
 Como alternativa, se você usar **DEPLOYROOT** como o *nome* de seu recurso local e não alterar o nome da variável de ambiente gerado automaticamente (que, nesse caso, será definido como **DEPLOYROOT_PATH**), isso funcionaria para seu aplicativo.
 
-As informações adicionais sobre como criar um recurso de armazenamento local podem ser encontradas em [Propriedades de armazenamento local][Propriedades de armazenamento local].
+Informações adicionais sobre como criar um recurso de armazenamento local podem ser encontradas em [Propriedades de armazenamento local][Local storage properties].
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Criação de um aplicativo Hello World do Azure no Eclipse][Criação de um aplicativo Hello World do Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][Instalação do Kit de Ferramentas do Azure para Eclipse] 
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Para obter mais informações sobre o uso do Azure com Java, veja o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Propriedades de armazenamento local]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Local storage properties]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
 <!-- IMG List -->
 
@@ -59,6 +59,6 @@ Para obter mais informações sobre o uso do Azure com Java, veja o [Central de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

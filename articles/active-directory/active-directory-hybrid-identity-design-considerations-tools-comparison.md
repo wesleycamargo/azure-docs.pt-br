@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -57,7 +57,7 @@ PP = Versão prévia pública
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back de dispositivos |● | |● | | |
 | Write-back de atributo (para implantação híbrida do Exchange) |● |● |● |● |● |
-| Write-back de objetos de usuários e grupos |● | | | | |
+| Write-back de objetos de grupos |● | | | | |
 | Write-back de senhas (de redefinição de senha de autoatendimento (SSPR) e alteração de senha) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Suporte ao recurso de autenticação
@@ -95,6 +95,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

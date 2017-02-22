@@ -1,5 +1,5 @@
 ---
-title: "Monitore e diagnostique localmente serviços escritos com o Service Fabric do Azure | Microsoft Docs"
+title: "Depurar microsserviços do Azure no Linux | Microsoft Docs"
 description: "Saiba como monitorar e diagnosticar seus serviços escritos com o Service Fabric do Microsoft Azure em um computador de desenvolvimento local."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/14/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
-ms.openlocfilehash: 03f1dde722025624997adb7c1258b2f24c481209
+ms.sourcegitcommit: cf8f717d5343ae27faefdc10f81b4feaccaa53b9
+ms.openlocfilehash: a8f077168dbc8660625371a2b988926c69491337
 
 
 ---
@@ -58,7 +58,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ```
  
  
-Esta configuração resulta em logs sendo coletados em um modo de rotação em `/tmp/servicefabric/logs/`. O **%u** e o **%g** permitem a criação de mais arquivos, com os nomes de arquivo mysfapp0.log, mysfapp1.log e assim por diante. Por padrão, se nenhum manipulador for configurado explicitamente, o manipulador de console será registrado. Estes logs podem ser vistos no syslog, em /var/log/syslog.
+Esta configuração resulta em logs sendo coletados em um modo de rotação em `/tmp/servicefabric/logs/`. O **%u** e o **%g** permitem a criação de arquivos, com os nomes de arquivo mysfapp0.log, mysfapp1.log e assim por diante. Por padrão, se nenhum manipulador for configurado explicitamente, o manipulador de console será registrado. Estes logs podem ser vistos no syslog, em /var/log/syslog.
  
 Para obter mais informações, confira os [códigos de exemplos no GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
@@ -143,6 +143,6 @@ O mesmo código de rastreamento adicionado ao seu aplicativo também funciona co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

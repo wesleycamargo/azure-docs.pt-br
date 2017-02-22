@@ -1,5 +1,5 @@
 ---
-title: "Separar os recursos do Application Insights para desenvolvimento, teste e produção"
+title: "Monitorar o desenvolvimento, teste e produção no Azure Application Insights | Microsoft Docs"
 description: "Monitorar o desempenho e o uso de seu aplicativo em diferentes estágios de desenvolvimento"
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: bd4ba58715b216473caa4193567f6d3b95d9d347
+ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
+ms.openlocfilehash: 2eeb22d310a3aa67bacf821d319fb2919d0b536f
 
 
 ---
@@ -119,6 +119,6 @@ Você precisará das chaves de instrumentação de todos os recursos aos quais s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

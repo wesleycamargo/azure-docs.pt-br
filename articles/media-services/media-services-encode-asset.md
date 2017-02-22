@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: ea3d67f7e73f9e1fb716e9c5cdd4873b0b7dddd4
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 6aecea32361166d363a412b4e8f2b01d421da5cf
 
 
 ---
@@ -29,10 +29,10 @@ Codecs são o software que implementa os algoritmos de compactação/descompacta
 
 Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribuir seu conteúdo codificado em Smooth Streaming ou MP4 com taxa de bits adaptável em formatos de streaming com suporte dos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming), sem a necessidade de empacotar novamente nesses formatos de streaming.
 
-Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
-
-* Codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial).
-* Obter pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-portal-manage-streaming-endpoints.md).
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. Para aproveitar os benefícios do [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa fazer o seguinte:
+>
+>Além disso, codifique seu arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais adiante neste tutorial).
 
 Os Serviços de Mídia são compatíveis com os seguintes codificadores sob demanda descritos neste artigo:
 
@@ -54,9 +54,9 @@ Observe que, por padrão, cada conta dos Serviços de Mídia pode ter uma tarefa
 O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
-Os metadados de entrada dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Os metadados de entrada dos codificadores estão descritos [aqui](media-services-input-metadata-schema.md).
 
-Os metadados de saída dos codificadores estão descritos [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+Os metadados de saída dos codificadores estão descritos [aqui](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Gerar miniaturas
 Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#thumbnails).
@@ -98,6 +98,6 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

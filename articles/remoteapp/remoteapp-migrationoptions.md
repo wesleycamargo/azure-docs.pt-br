@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: d12ccdc13d6964a6de8068a63f945c7eac40b682
+ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
+ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
 
 
 ---
@@ -29,7 +29,7 @@ Se você deixou de usar o Azure RemoteApp devido ao [comunicado de desativação
 
 O IaaS de autoatendimento é uma implantação do tipo faça você mesmo que é gerenciada, operada e de sua propriedade, implantada diretamente em VMs (máquinas virtuais) ou sistemas físicos. Na outra extremidade, uma oferta PaaS/SaaS totalmente gerenciada é mais como o Azure RemoteApp – um parceiro fornece uma camada de serviço sobre uma solução de comunicação remota que manipula a parte operacional e de manutenção enquanto você, como o cliente, faz algum gerenciamento de imagem e o aplicativo.
 
-Continue lendo para obter mais informações, incluindo exemplos das diferentes opções de hospedagem.    
+[Consulte os webinars do Azure RemoteApp sobre opções de migração](https://social.msdn.microsoft.com/Forums/azure/40557aaa-3e9f-403c-b221-ad3eac10dc56/migration-option-webinar-recordings?forum=AzureRemoteApp) ou continue lendo este artigo para obter mais informações (incluindo exemplos das diferentes opções de hospedagem).
 
 ## <a name="self-managed-iaas-solutions"></a>Soluções (IaaS) autogerenciadas
 ### <a name="rds-on-iaas"></a>**RDS em IaaS**
@@ -212,6 +212,6 @@ Ainda precisa de ajuda escolhendo ou tem mais perguntas? Use um dos seguintes m�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

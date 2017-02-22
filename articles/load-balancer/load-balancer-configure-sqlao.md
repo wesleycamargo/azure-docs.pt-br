@@ -1,6 +1,6 @@
 ---
 title: Configurar balanceador de carga para SQL sempre ativo | Microsoft Docs
-description: "Configurar o balanceador de carga para trabalhar com o SQL sempre ativo e como aproveitar o PowerShell para criar o balanceador de carga para a implementação do SQL"
+description: "Configurar o balanceador de carga para trabalhar com o SQL sempre ativo e como aproveitar o powershell para criar o balanceador de carga para a implementação do SQL"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
-ms.openlocfilehash: 75f05f003b691ee6464168453fa7935f1fae166e
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
 
 ---
 
@@ -55,7 +55,7 @@ Figura 1 – SQL AlwaysOn configurado com o balanceador de carga para a Internet
 
     No exemplo acima, você tem 2 VMs chamadas "sqlsvc1" e "sqlsvc2" em execução no serviço de nuvem "Sqlsvc". Depois de criar o ILB com a opção `DirectServerReturn`, adicione pontos de extremidade com balanceamento de carga ao ILB para permitir que o SQL configure os ouvintes para os grupos de disponibilidade.
 
-Para obter mais informações sobre o SQL AlwaysOn, consulte [Configure an internal load balancer for an AlwaysOn availability group in Azure (Configurar um balanceador de carga interno para um grupo de disponibilidade do AlwaysOn no Azure)](../virtual-machines/virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Para obter mais informações sobre o SQL AlwaysOn, consulte [Configure an internal load balancer for an AlwaysOn availability group in Azure (Configurar um balanceador de carga interno para um grupo de disponibilidade do AlwaysOn no Azure)](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
 ## <a name="see-also"></a>Consulte também
 [Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
@@ -68,6 +68,6 @@ Para obter mais informações sobre o SQL AlwaysOn, consulte [Configure an inter
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

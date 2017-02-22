@@ -194,6 +194,6 @@ Para saber mais sobre Gateways de VPN, confira [Sobre gateways de VPN](vpn-gatew
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

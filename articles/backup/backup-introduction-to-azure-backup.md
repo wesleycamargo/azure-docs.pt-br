@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Backup consistente com o aplicativo** - independentemente de você estar fazendo backup de um servidor de arquivos, máquina virtual ou banco de dados SQL, precisa saber que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
 
-**Retenção de longo prazo** - faça backup de dados no Azure por 99 anos. Em vez de alternar as cópias de backup de disco para fita e levá-la para armazenamento de longo prazo em um local externo, você pode usar o Azure para retenção de curto e longo prazo.
+**Retenção a longo prazo** - em vez de alternar as cópias de backup de disco para fita e levá-la para armazenamento de longo prazo em um local externo, você pode usar o Azure para retenção de curto e longo prazo. Azure não limita o período de tempo que você mantém os dados em um cofre de Backup ou de serviços de recuperação. Você pode manter dados em um cofre para como desejar. O Backup do Azure tem um limite de pontos de recuperação 9999 por instância protegidos. Consulte o [Backup e retenção](backup-introduction-to-azure-backup.md#backup-and-retention) neste artigo para obter uma explicação de como esse limite pode afetar suas necessidades de backup.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quais componentes do Backup do Azure devo usar?
 Se não tiver certeza de qual componente do Backup do Azure atende às suas necessidades, confira a tabela a seguir para obter informações sobre o que você pode proteger com cada componente. O portal do Azure fornece um assistente, que é embutido no portal, para orientá-lo a escolher qual componente baixar e implantar. O assistente, que é parte da criação de cofre dos Serviços de Recuperação, o conduz pelas etapas para selecionar uma meta de backup e escolher os dados ou o aplicativo a serem protegidos.
@@ -107,6 +107,15 @@ Quando o trabalho de backup for concluído, o local de preparo será excluído. 
 
 ### <a name="restore-premium-storage-vms"></a>Restaurar VMs de Armazenamento Premium
 As VMs de Armazenamento Premium podem ser restauradas para o Armazenamento Premium ou normal. A restauração de um ponto de recuperação de VM de Armazenamento Premium para o Armazenamento Premium é o processo típico de restauração. No entanto, pode ser econômico para restaurar um ponto de recuperação de VM de Armazenamento Premium para o armazenamento padrão. Esse tipo de restauração poderá ser usado se você precisar de um subconjunto de arquivos da VM.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Uso de VMs de disco gerenciado no Backup do Azure
+O Backup do Azure protege VMs de disco gerenciado. Os discos gerenciados liberam você do gerenciamento de contas de armazenamento de máquinas virtuais e simplificam muito o provisionamento de VM.
+
+### <a name="back-up-managed-disk-vms"></a>Fazer backup de VMs de disco gerenciado
+O backup de VMs em discos gerenciados não é diferente de fazer backup de máquinas virtuais do Resource Manager. Você pode fazer backup diretamente da exibição de máquina virtual ou da exibição do cofre de Serviços de Recuperação. Há suporte para backup de VMs em discos gerenciados por meio de coleções de ponto de restauração criadas com base em discos gerenciados. Atualmente, o Backup do Azure não oferece suporte ao backup de VMs de disco gerenciado criptografadas usando o Azure Disk Encryption (ADE).
+
+### <a name="restore-managed-disk-vms"></a>Restaurar máquinas virtuais de disco gerenciado
+O Backup do Azure permite que você restaure uma VM completa com discos gerenciados ou restaure discos gerenciados para uma conta de armazenamento do Resource Manager. Embora os discos criados durante o processo de restauração sejam gerenciados pelo Azure, a conta de armazenamento criada como parte do processo de restauração é semelhante a qualquer outra conta de armazenamento do Resource Manager e deve ser gerenciada pelo cliente.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Quais são os recursos de cada componente do Backup?
 As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o suporte de vários recursos em cada componente do Backup do Azure. Confira as informações de cada tabela a seguir para obter suporte adicional ou detalhes.
@@ -175,7 +184,7 @@ Se você estiver fazendo backup de seus dados em um Servidor de Backup do Azure 
 #### <a name="network-throttling"></a>Limitação de rede
 O agente do Backup do Azure fornece limitação de rede, o que permite controlar como a largura de banda é usada durante a transferência de dados. A limitação pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.
 
-### <a name="backup-and-retention"></a>Backup e retenção
+## <a name="backup-and-retention"></a>Backup e retenção
 
 O Backup do Azure tem um limite de 9999 pontos de recuperação, também conhecido como cópias de backup ou instantâneos, por *instância protegida*. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho configurado para fazer backup de dados no Azure. Para obter mais informações, confira a seção [O que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Uma instância está protegida depois que uma cópia de backup de dados foi salva. A cópia de backup de dados é a proteção. Se a fonte de dados foi perdida ou corrompida, a cópia de backup pode restaurar os dados de origem. A tabela a seguir mostra a frequência de backup máxima para cada componente. A configuração da política de backup determina a rapidez com a qual você pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá depois retê-los por 27 anos antes de executá-los. Se você usar um ponto de recuperação por mês, poderá depois retê-los por 833 anos antes de executá-los. O serviço de Backup não define um limite de tempo de validade em um ponto de recuperação.
 
@@ -234,6 +243,6 @@ Para obter detalhes sobre como proteger outras cargas de trabalho, experimente u
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

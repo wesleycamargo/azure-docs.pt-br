@@ -1,5 +1,5 @@
 ---
-title: Adicionar funcionalidade ao seu primeiro aplicativo Web
+title: Adicionar funcionalidade ao seu primeiro aplicativo Web | Microsoft Docs
 description: Adicione recursos interessantes ao seu primeiro aplicativo Web em alguns minutos.
 services: app-service\web
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b2c501b6e048d569ebf43b8f40d6b08f687ab624
-ms.openlocfilehash: 549b84788259796c2146fa19763fb00d4e03019c
+ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
+ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
 
 
 ---
@@ -52,9 +52,9 @@ Agora, vamos ver como é fácil adicionar autenticação ao seu aplicativo (leia
     Depois que a alteração for bem-sucedida, o sino de notificação ficará verde e uma mensagem amigável será exibida.
 6. Volte para a folha do portal de seu aplicativo, clique no link **URL** (ou em **Procurar** na barra de menus). O link é um endereço HTTP.  
     ![Autenticar - navegar para a URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
-     Porém, quando ele abre o aplicativo em uma nova guia, a caixa URL é redirecionada várias vezes e termina no aplicativo com um endereço HTTPS. O que você está vendo é que já está conectado à sua assinatura do Azure, e é autenticado automaticamente no aplicativo.  
+    Porém, quando ele abre o aplicativo em uma nova guia, a caixa URL é redirecionada várias vezes e termina no aplicativo com um endereço HTTPS. O que você está vendo é que já está conectado à sua assinatura do Azure, e é autenticado automaticamente no aplicativo.  
     ![Autenticar - conectado](./media/app-service-web-get-started/aad-login-browse-http-postclick.png)  
-     Dessa forma, se agora você abrir uma sessão não autenticada em um navegador diferente, verá uma tela de logon ao navegar até a mesma URL.  
+    Dessa forma, se agora você abrir uma sessão não autenticada em um navegador diferente, verá uma tela de logon ao navegar até a mesma URL.  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     Se você nunca tiver feito nada com o Azure Active Directory, talvez seu diretório padrão não tenha usuários do Azure AD. Nesse caso, provavelmente a única conta aqui será a conta da Microsoft com sua assinatura do Azure. É por isso que você foi conectado automaticamente ao aplicativo no mesmo navegador antes.
    Você pode usar essa mesma conta da Microsoft para fazer logon nessa página de logon.
@@ -157,6 +157,6 @@ Saiba como fazer mais com o aplicativo implantado. Esta é apenas uma lista parc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

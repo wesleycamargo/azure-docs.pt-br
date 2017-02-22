@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 6df92e3c43a9e7ae2e13f21b05cbb94088c46516
 
 
 ---
@@ -128,13 +128,13 @@ Para VMs de Serviços de Nuvem do Azure implantadas por meio do portal clássico
 ### <a name="azure-only-high-availability-solutions"></a>Somente Azure: soluções de alta disponibilidade
 Você pode ter uma solução de alta disponibilidade para seus bancos de dados do SQL Server no Azure usando Grupos de Disponibilidade AlwaysOn ou o espelhamento de banco de dados.
 
-O diagrama a seguir mostra a arquitetura dos Grupos de Disponibilidade AlwaysOn em execução em Máquinas Virtuais do Azure. Esse diagrama foi retirado do artigo detalhado sobre o assunto, [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O diagrama a seguir mostra a arquitetura dos Grupos de Disponibilidade AlwaysOn em execução em Máquinas Virtuais do Azure. Esse diagrama foi retirado do artigo detalhado sobre o assunto, [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Grupos de disponibilidade AlwaysOn no Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 Você também pode provisionar automaticamente a implantação de um Grupo de Disponibilidade AlwaysOn completo em VMs do Azure usando o modelo AlwaysOn no portal do Azure. Para obter mais informações, consulte [Oferta do AlwaysOn do SQL Server na Galeria do Portal do Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-O diagrama a seguir demonstra o uso de espelhamento de banco de dados em Máquinas Virtuais do Azure. Ele também foi extraído do tópico detalhado sobre [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+O diagrama a seguir demonstra o uso de espelhamento de banco de dados em Máquinas Virtuais do Azure. Ele também foi extraído do tópico detalhado sobre [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Espalhamento de banco de dados no Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -197,6 +197,6 @@ Este artigo faz parte de uma série que tem como foco [Orientações técnicas d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

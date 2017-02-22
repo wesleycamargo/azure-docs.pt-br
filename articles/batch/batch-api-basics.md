@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de recursos do Lote do Azure para desenvolvedores | Microsoft Docs"
+title: "Visão geral do Lote do Azure para desenvolvedores | Microsoft Docs"
 description: "Conheça os recursos do serviço de Lote e suas APIs do ponto de vista de um desenvolvedor."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 4bd60ab3b1be1fa590b20fbe292da69f6a2dac8e
-ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
 
 
 ---
@@ -111,7 +111,7 @@ Ao criar um pool, você pode especificar os seguintes atributos:
     Todos os nós em um pool têm o mesmo tamanho. Se você pretende executar aplicativos com diferentes requisitos de sistema e/ou níveis de carga, é recomendável usar pools separados.
 * **Número de nós de destino**
 
-    Esse é o número de nós de computação que você deseja implantar no pool. Isso é conhecido como um *destino* porque, em algumas situações, o pool pode não alcançar o número desejado de nós. Um pool pode não alcançar o número desejado de nós se atingir a [cota de núcleos](batch-quota-limit.md#batch-account-quotas) de sua conta do Lote ou se houver uma fórmula de dimensionamento automático que você aplicou no pool que limita o número máximo de nós (consulte a seguinte seção “Política de dimensionamento”).
+    Esse é o número de nós de computação que você deseja implantar no pool. Isso é conhecido como um *destino* porque, em algumas situações, o pool pode não alcançar o número desejado de nós. Um pool pode não alcançar o número desejado de nós se atingir a [cota de núcleos](batch-quota-limit.md) de sua conta do Lote ou se houver uma fórmula de dimensionamento automático que você aplicou no pool que limita o número máximo de nós (consulte a seguinte seção “Política de dimensionamento”).
 * **Política de dimensionamento**
 
     Para as cargas de trabalho dinâmicas, você pode gravar e aplicar uma [fórmula de dimensionamento automático](#scaling-compute-resources) em um pool. O serviço de Lote avalia periodicamente a fórmula e ajusta o número de nós no pool com base em vários parâmetros do pool, trabalho e tarefa que você pode especificar.
@@ -489,6 +489,6 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

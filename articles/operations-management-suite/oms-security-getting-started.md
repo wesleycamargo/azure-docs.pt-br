@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ O objetivo principal dessa opção é permitir que a TI identifique rapidamente 
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Essa opção também pode ser usada durante uma investigação de resposta a incidentes para realizar a avaliação e obter mais informações sobre o ataque.
+Essa opção também pode ser usada durante uma [investigação de resposta a incidentes](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) para realizar a avaliação e obter mais informações sobre o ataque.
 
 > [!NOTE]
 > Para obter mais informações sobre como usar o OMS para resposta a incidentes, assista a [Como utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para uma resposta a incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
@@ -186,6 +187,6 @@ Neste documento, apresentamos a você a solução de Segurança e Auditoria do O
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 6c644b124ad8c994170152006ff61c11e363e7ab
-ms.openlocfilehash: 951aac469ab7bca90014a8af115448833152bb6a
+ms.sourcegitcommit: f3a8ef4a166a061e1f4e7ce056255e02b810c196
+ms.openlocfilehash: 1f8083e095ee3c207d3d6d9178017e2dc1670fde
 
 
 ---
@@ -35,7 +35,7 @@ Você pode alterar o intervalo de tempo coberto pelos gráficos ou grades em qua
 
 ![Abrir a lâmina de visão geral do seu aplicativo no portal do Azure](./media/app-insights-metrics-explorer/03-range.png)
 
-Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. No modo de liberação, pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
+Se você estiver esperando dados que não apareceram ainda, clique em Atualizar. Os gráficos são atualizados em intervalos, mas os intervalos são mais longos para intervalos de tempo maiores. Pode levar algum tempo para que dados passem pelo pipeline de análise e sejam representados em um gráfico.
 
 Para ampliar parte de um gráfico, arraste sobre ele:
 
@@ -115,6 +115,11 @@ O método padrão para cada métrica é mostrado quando você cria um novo gráf
 
 ![Desmarque a seleção de todas as métricas para ver os padrões](./media/app-insights-metrics-explorer/06-total.png)
 
+## <a name="pin-y-axis"></a>Eixo Y do PIN 
+Por padrão, um gráfico mostra valores do eixo Y a partir do zero até os valores máximos no intervalo de dados, para fornecer uma representação visual do quantum dos valores. Mas, em alguns casos, mais do que o quantum, pode ser interessante inspecionar visualmente pequenas alterações nos valores. Para personalizações como essa, use o recurso de edição de intervalo do eixo Y para fixar o valor mínimo ou máximo do eixo Y no local desejado.
+Clique na caixa de seleção "Configurações Avançadas" para exibir as configurações do intervalo do eixo Y
+
+![Clique em Configurações Avançadas, selecione Intervalo personalizado e especifique os valores mín. e máx.](./media/app-insights-metrics-explorer/y-axis-range.png)
 
 ## <a name="filter-your-data"></a>Filtrar seus dados
 Para ver apenas as métricas para um conjunto selecionado de valores de propriedade:
@@ -158,23 +163,9 @@ Se você editar uma folha mas em seguida decidir voltar ao conjunto original sal
 
 ![Nos botões na parte superior do Metrics Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 
-<a name="live-metrics-stream"></a>
+## <a name="live-metrics-stream"></a>Live Metrics Stream
 
-## <a name="live-metrics-stream-instant-metrics-for-close-monitoring"></a>Live Metrics Stream: métricas instantâneas para um monitoramento preciso
-O Live Metrics Stream mostra as métricas do aplicativo no momento exato, com uma latência quase de tempo real de 1 segundo. Isso é muito útil quando você está lançando um novo build e deseja ter certeza de que tudo está funcionando como esperado ou investigar um incidente em tempo real.
-
-![Na folha Visão Geral, clique em Live Stream](./media/app-insights-metrics-explorer/live-stream.png)
-
-Ao contrário do Metrics Explorer, o Live Metrics Stream exibe um conjunto fixo de métricas. Os dados persistem somente durante o período em que estão no gráfico e, em seguida, são descartados.
-
-### <a name="live-failures"></a>Falhas em tempo real
-
-Se quaisquer falhas ou exceções forem registradas, o Live Stream selecionará uma amostra delas. Clique em **Pausar** para manter um exemplo específico e selecione um evento para exibir seus detalhes.
-
-![Amostra de falhas em tempo real](./media/app-insights-metrics-explorer/live-stream-failures.png)
-
-
-O Live Stream em tempo real está disponível com a versão mais recente do [SDK do Application Insights para Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
+Para obter uma exibição imediata da sua telemetria, abra [Live Stream](app-insights-live-stream.md). A maioria das métricas leva alguns minutos para aparecer devido ao processo de agregação. Por outro lado, as métricas em tempo real são otimizadas para baixa latência. 
 
 ## <a name="set-alerts"></a>Definir alertas
 Para ser notificado por email sobre valores incomuns de qualquer métrica, adicione um alerta. Você pode escolher para enviar o email para os administradores de conta ou para endereços de email específicos.
@@ -224,6 +215,6 @@ Se desejar obter exibições ainda mais avançadas dos seus dados, você poderá
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

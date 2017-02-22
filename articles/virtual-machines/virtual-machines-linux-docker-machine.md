@@ -1,5 +1,5 @@
 ---
-title: Criar hosts do Docker no Azure com o Docker Machine| Microsoft Docs
+title: Usar o Docker Machine para criar hosts Linux no Azure | Microsoft Docs
 description: Descreve o uso do computador Docker para criar hosts do Docker no Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 8fe34e543d8860d80016d35d27159298c17e486e
+ms.sourcegitcommit: b64bafe1a8572369aa7a7e6f0d8b924fc182cd53
+ms.openlocfilehash: 9440474db7eb7e3ae082505f8c95cbcf8c285cdf
 
 
 ---
 # <a name="use-docker-machine-with-the-azure-driver"></a>Usar o computador Docker com o driver do Azure
-[Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza contêineres Linux em vez de máquinas virtuais como forma de isolar dados de aplicativo e computar recursos compartilhados. Este tópico descreve quando e como usar o [Docker Machine](https://docs.docker.com/machine/) (o comando `docker-machine`) para criar novas VMs do Linux no Azure habilitadas como um host do docker para os contêineres do Linux.
+O [Docker](https://www.docker.com/) fornece virtualização usando contêineres Linux em vez de VMs para isolar dados do aplicativo e computação em um recurso compartilhado. Este tópico descreve como e quando usar o [Computador Docker](https://docs.docker.com/machine/). O comando `docker-machine` cria uma nova VM Linux no Azure habilitada como um host de docker para contêineres do Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Criar VMs com o computador Docker
 Crie VMs de host do Docker no Azure com o comando `docker-machine create` usando o argumento de driver `azure` para a opção de driver (`-d`) e para todos os outros argumentos. 
@@ -132,6 +132,6 @@ Para obter mais exemplos de como trabalhar com o Docker, consulte [Trabalhando c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: Crie clusters Hadoop baseados no Windows no HDInsight usando a CLI do Azure
-description: Aprenda a criar clusters do Azure HDInsight usando a CLI do Azure.
+description: Saiba como criar clusters Hadoop baseados no Windows para o Azure HDInsight usando a CLI do Azure.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,15 +16,21 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 984ebf0e93b8c36d1f09876d59feb7f74053622e
+ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
+ms.openlocfilehash: 489067e44525532f2913f44156a5eeb19214d250
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-cli"></a>Crie clusters Hadoop baseados no Windows no HDInsight usando a CLI do Azure
+
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Saiba como criar clusters do HDInsight usando a CLI do Azure. Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Saiba como criar clusters Hadoop baseados no Windows no HDInsight usando a CLI do Azure. 
+
+As informações neste artigo aplicam-se apenas aos clusters HDInsight baseados no Windows. Para obter informações sobre a criação de clusters baseados em Linux, veja [Criar clusters Hadoop no HDInsight usando o CLI do Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +40,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 * **Assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **CLI do Azure**.
   
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ### <a name="access-control-requirements"></a>Requisitos de controle de acesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,7 +52,7 @@ Conecte-se ao Azure usando o seguinte comando:
 
 Para obter mais informações sobre a autenticação usando uma conta de trabalho ou escolar, veja [Conectar-se a uma assinatura do Azure da CLI do Azure](../xplat-cli-connect.md).
 
-Execute o seguinte comando para alternar para o modo de ARM:
+Use o seguinte comando para alternar para o modo do Azure Resource Manager:
 
     azure config mode arm
 
@@ -55,9 +61,9 @@ Para obter ajuda, use a opção **-h** .  Por exemplo:
     azure hdinsight cluster create -h
 
 ## <a name="create-clusters"></a>Criar clusters
-Você deve ter um ARM (Gerenciamento de Recursos do Azure) e uma conta de armazenamento de Blob do Azure antes de poder criar um cluster HDInsight. Para criar um cluster HDInsight, você deve especificar o seguinte:
+Você deve ter um grupo de Gerenciamento de Recurso e uma conta de Armazenamento de Blobs do Azure antes de poder criar um cluster HDInsight. Para criar um cluster HDInsight, você deve especificar o seguinte:
 
-* **Grupo de Recursos do Azure**: é necessário criar uma conta da Análise Data Lake em um grupo de Recursos do Azure. O Gerenciador de Recursos do Azure permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.
+* **Grupo de Recursos do Azure**: é necessário criar uma conta do Data Lake Analytics em um grupo de Recursos do Azure. O Gerenciador de Recursos do Azure permite trabalhar com os recursos do seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.
   
     Para listar os grupos de recursos em sua assinatura:
   
@@ -127,18 +133,18 @@ Criar um cluster com uma ação de script
 
 Para obter informações gerais sobre ação de script, veja [Personalizar clusters HDInsight usando a Ação de Script (Linux)](hdinsight-hadoop-customize-cluster.md).
 
-## <a name="create-clusters-using-arm-templates"></a>Criar clusters usando modelos de ARM
+## <a name="create-clusters-using-resource-manager-templates"></a>Criar clusters usando modelos do Resource Manager
 Você pode usar a CLI para criar clusters chamando modelos de ARM. Consulte [Implantar com a CLI do Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## <a name="see-also"></a>Confira também
 * [Introdução ao Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - aprenda como começar a trabalhar com seu cluster HDInsight
 * [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md) - aprenda como enviar trabalhos ao HDInsight de forma programática
 * [Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
-* [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](../virtual-machines-command-line-tools.md)
+* [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

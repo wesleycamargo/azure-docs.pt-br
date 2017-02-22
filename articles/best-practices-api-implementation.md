@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: f4ad13e7674f7af28b22f55dbbb76ccc5d5d26f8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
 
 
 ---
@@ -976,7 +976,7 @@ A mesma API da Web pode ser utilizada por muitos aplicativos cliente em execuç�
 
     O protocolo HTTP oferece suporte a conexões HTTP persistentes nos casos em que elas estão disponíveis. A especificação de HTTP 1.0 adicionada ao cabeçalho Connection:Keep-Alive habilita um aplicativo cliente a indicar ao servidor que ele pode usar a mesma conexão para enviar solicitações subsequentes, em vez de abrir novas conexões. A conexão será fechada automaticamente se o cliente não reutilizar a conexão dentro de um período definido pelo host. Esse comportamento é o padrão no HTTP 1.1 conforme usado por serviços do Azure, portanto, não é necessário incluir cabeçalhos Keep-Alive nas mensagens.
 
-    Manter uma conexão aberta pode ajudar a melhorar a capacidade de resposta, reduzindo a latência e o congestionamento da rede, mas pode ser prejudicial para escalabilidade ao manter conexões desnecessárias abertas por mais tempo que o necessário, limitando a capacidade de conexão de outros clientes simultâneos. Isso também pode afetar vida útil da bateria, se o aplicativo cliente for executado em um dispositivo móvel; se o aplicativo realiza apenas solicitações ocasionais ao servidor, manter uma conexão aberta pode descarregar a bateria mais rapidamente. Para garantir que uma conexão não seja tornada persistente com o HTTP 1.1, o cliente pode incluir um cabeçalho Connection:Close às mensagens, para substituir o comportamento padrão. Do mesmo modo, se um servidor está lidando com um grande número de clientes, ele pode incluir um cabeçalho Connection:Close nas mensagens de resposta que, consequentemente, devem fechar a conexão e poupar os recursos do servidor.
+    Manter uma conexão aberta pode ajudar a melhorar a capacidade de resposta, reduzindo a latência e o congestionamento da rede, mas pode ser prejudicial para escalabilidade ao manter conexões desnecessárias abertas por mais tempo que o necessário, limitando a capacidade de conexão de outros clientes simultâneos. Isso também pode afetar vida útil da bateria, se o aplicativo cliente for executado em um dispositivo móvel; se o aplicativo realizará apenas solicitações ocasionais ao servidor, manter uma conexão aberta pode descarregar a bateria mais rapidamente. Para garantir que uma conexão não seja tornada persistente com o HTTP 1.1, o cliente pode incluir um cabeçalho Connection:Close às mensagens, para substituir o comportamento padrão. Do mesmo modo, se um servidor está lidando com um grande número de clientes, ele pode incluir um cabeçalho Connection:Close nas mensagens de resposta que, consequentemente, devem fechar a conexão e poupar os recursos do servidor.
 
   > [!NOTE]
   > As conexões HTTP persistentes são um recurso puramente opcional para reduzir a sobrecarga de rede associada à repetição no estabelecimento de um canal de comunicação. Nem a API da Web, tampouco o aplicativo cliente dependem de uma conexão HTTP persistente estar disponível. Não use as conexões HTTP persistentes para implementar sistemas de notificação estilo Comet; em vez disso, você deve utilizar soquetes (ou websockets, se disponível) na camada de TCP. Finalmente, observe que os cabeçalhos Keep-Alive são de uso limitado se um aplicativo cliente comunica-se com um servidor por meio de um proxy, já que apenas a conexão com o cliente e o proxy será persistente.
@@ -1150,6 +1150,6 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,15 +16,16 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 54db3b7cfa5197a738aacde87ee8ef4908fee880
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: e206d161665e46a7c1c4a111a3642ece844b7b64
 
 
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 Se você configurar um cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure, poderá preferir uma maneira de dimensionar rapidamente a capacidade de cluster para mais ou menos, sem manter um conjunto de VMs do nó de computação pré-configuradas. Este artigo mostra como adicionar os nós de “disparo contínuo” sob demanda (instâncias de função de trabalho em execução em um serviço de nuvem) como recursos de computação para um nó de cabeçalho no Azure. 
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ![Nós de disparo contínuo][burst]
 
@@ -83,6 +84,6 @@ Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

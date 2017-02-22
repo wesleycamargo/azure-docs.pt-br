@@ -1,6 +1,6 @@
 ---
-title: Tratando do estado em modelos do Resource Manager | Microsoft Docs
-description: Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Gerenciador de Recursos do Azure
+title: Passar valores complexos entre modelos do Azure | Microsoft Docs
+description: Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cf2f6a82df28047ba7b50dc2cfd6fc2f0dfad794
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
 
 
 ---
-# <a name="sharing-state-in-azure-resource-manager-templates"></a>Compartilhando estado em modelos do Gerenciador de Recursos do Azure
+# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Compartilha o estado dos e para os modelos do Azure Resource Manager
 Este tópico mostra as melhores práticas para gerenciar e compartilhar o estado em modelos. Os parâmetros e variáveis mostrados neste tópico são exemplos dos tipos de objetos que você pode definir para organizar seus requisitos de implantação convenientemente. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
 
 Este tópico faz parte de um whitepaper mais amplo. Para ler o artigo completo, baixe as [Considerações e práticas comprovadas dos modelos do Resource Manager da mais alta qualidade](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
@@ -415,6 +415,6 @@ Ao definir a máquina virtual, você define o **osProfile** para a variável que
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

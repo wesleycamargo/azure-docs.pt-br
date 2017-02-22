@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>O que é o Banco de Dados SQL? Introdução ao Banco de dados SQL
@@ -26,7 +26,7 @@ O Banco de Dados SQL é um serviço de banco de dados relacional de nuvem da Mic
 
 Este artigo é uma introdução aos principais conceitos e recursos do Banco de Dados SQL relacionados ao desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Se você estiver pronto para iniciar tutoriais práticos, acesse [Criar seu primeiro banco de dados SQL](sql-database-get-started.md) ou [Criar um pool elástico](sql-database-elastic-pool-create-portal.md). Para obter uma breve demonstração em vídeo, assista a este vídeo.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ Agora que você leu uma introdução ao Banco de Dados SQL e respondeu à pergun
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
-ms.openlocfilehash: 3864148ecd09b5bc4199185bc0e5a781703f3fdb
+ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
+ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
 
 
 ---
@@ -26,14 +26,29 @@ Se você tiver tendo dificuldades em solucionar problemas de SSH ou de acesso do
 > [!NOTE]
 > Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual serão atualizados. 
 
+Reimplante uma VM usando uma das opções a seguir. Escolha uma opção para reimplantar a VM:
 
-## <a name="using-azure-cli"></a>Usando a CLI do Azure
-Verifique se você tem a [CLI do Azure mais recente instalada](../xplat-cli-install.md) em seu computador e se você está no modo do Resource Manager (`azure config mode arm`).
+- [CLI 1.0 do Azure](#azure-cli-10)
+- [CLI do Azure 2.0 (Visualização)](#azure-cli-20-preview)
+- [Portal do Azure](#using-azure-portal)
+
+
+## <a name="azure-cli-10"></a>CLI 1.0 do Azure
+Instale a [CLI 1.0 do Azure mais recente](../xplat-cli-install.md), faça logon uma conta do Azure e verifique se você está no modo do Resource Manager (`azure config mode arm`).
 
 O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
+```
+
+## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+Instale a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
+
+Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
@@ -44,6 +59,6 @@ Se você estiver enfrentando problemas para se conectar à sua VM., encontre aju
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

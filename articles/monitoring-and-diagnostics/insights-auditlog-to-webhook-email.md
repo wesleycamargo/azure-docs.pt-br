@@ -1,8 +1,8 @@
 ---
-title: Configurar um webhook em alertas do Log de Atividades do Azure | Microsoft Docs
-description: 'Veja como usar alertas do Log de Atividades para chamar webhooks. '
+title: Chamar um webhook em alertas do Log de Atividades do Azure | Microsoft Docs
+description: "Rotear eventos de log de atividade para outros serviços para ações personalizadas. Por exemplo, envie SMS, registre bugs ou notifique uma equipe por meio do serviço de bate-papo/mensagens."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 01/23/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 3c240e5f8eac50f4151a5a72bea690241597fc01
-ms.openlocfilehash: 0b912bc130ab5de3236a0e3f1f60087624b089a0
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
 
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configurar um webhook em um alerta do Log de Atividades do Azure
-Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta do Log de Atividades do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de métrica do Azure, [consulte esta página](insights-webhooks-alerts.md). Você também pode configurar um alerta do Log de Atividades para enviar um email quando estiver ativado.
+# <a name="call-a-webhook-on-azure-activity-log-alerts"></a>Chamar um webhook em alertas do Log de Atividades do Azure
+Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como configurar um webhook para ser chamado quando um alerta do Log de Atividades do Azure é disparado. Também mostra a aparência do conteúdo do HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de métrica do Azure, [consulte esta página](insights-webhooks-alerts.md). Você também pode configurar um alerta do Log de Atividades para enviar um email quando estiver ativado.
 
 > [!NOTE]
 > Atualmente, esse recurso está em visualização e será removido em algum momento no futuro.
-> 
-> 
+>
+>
 
-Você pode configurar um alerta do Log de Atividades usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Você pode configurar um alerta do Log de Atividades usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx). No momento, você não pode definir um usando o portal do Azure.
 
 ## <a name="authenticating-the-webhook"></a>Autenticação do webhook
 O webhook pode autenticar usando um destes métodos:
 
-1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorização básica** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2. **Autorização básica** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo, `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 A operação POST contém o seguinte esquema e carga JSON para todos os alertas baseados em Log de Atividade. Esse esquema é semelhante àquele usado por alertas baseados em métrica.
@@ -126,7 +126,6 @@ A operação POST contém o seguinte esquema e carga JSON para todos os alertas 
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

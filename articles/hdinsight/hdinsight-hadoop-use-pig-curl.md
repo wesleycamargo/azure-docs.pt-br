@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/09/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 1589b1150df47aa5e436aa5d538b6a98706f97ae
-ms.openlocfilehash: c6da3b079ca7455fbea91d3051b7f2184c9eb9fa
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: d4d9ed8380a0e8726fe2e2835e4b10fd262e1562
 
 
 ---
@@ -34,9 +34,13 @@ Curl é usado para demonstrar como você pode interagir com o HDInsight usando s
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 
-Para concluir as etapas neste artigo, você precisará do seguinte:
+Para concluir as etapas neste artigo, você precisa do seguinte:
 
 * Um cluster do Azure HDInsight (Hadoop no HDInsight, baseado em Windows ou Linux)
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -66,7 +70,7 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 2. Use o seguinte para enviar um trabalho de Pig Latin para o cluster:
    
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasbs:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasbs:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
    
     Os parâmetros usados nesse comando são os seguintes:
    
@@ -94,18 +98,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
 
 ## <a name="a-idresultsaview-results"></a><a id="results"></a>Exibir resultados
 
-Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho do Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **wasbs:///example/pigcurl**. Esse endereço armazena a saída do trabalho no diretório **example/pigcurl** no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
+Depois que o estado do trabalho for alterado para **ÊXITO**, você poderá recuperar os resultados do trabalho do armazenamento padrão usado pelos cluster. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **/example/pigcurl**. 
 
-Você pode listar e baixar esses arquivos usando a [CLI do Azure](../xplat-cli-install.md). Por exemplo, para listar arquivos em **exemplo/pigcurl**, use o seguinte comando:
-
-    azure storage blob list <container-name> example/pigcurl
-
-Para baixar um arquivo, use o seguinte:
-
-    azure storage blob download <container-name> <blob-name> <destination-file>
-
-> [!NOTE]
-> Você deve especificar o nome da conta de armazenamento que contém o blob usando os parâmetros `-a` e `-k` ou definir as variáveis de ambiente **AZURE\_STORAGE\_ACCOUNT** e **AZURE\_STORAGE\_ACCESS\_KEY**.
+O repositório de backup para o HDInsight pode ser o Armazenamento do Azure ou o Azure Data Lake Store, e há diversas maneiras de obter os dados, dependendo de qual deles você usar. Para saber mais sobre como trabalhar com o Armazenamento do Azure e o Azure Data Lake Store, consulte a seção [HDFS, Armazenamento de Blobs e Data Lake Store](hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) do documento HDInsight no Linux.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
 
@@ -127,6 +122,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

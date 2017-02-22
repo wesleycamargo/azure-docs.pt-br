@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 165ab7363efaf90eaab41098f71e2f1b846c346e
-ms.openlocfilehash: 5ac292729d236bd539e71ba431283ca417ea3980
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
 
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Atualização para a API de REST do serviço de Pesquisa do Azure versão 2016-09-01
 Se você estiver usando a versão 2015-02-28 ou 2015-02-28-Preview da [API REST do serviço Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx), este artigo o ajudará a atualizar o aplicativo para usar a próxima versão da API disponível, 2016-09-01.
 
 A versão 2016-09-01 da API REST contém algumas alterações em relação a versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. Confira [Etapas da atualização](#UpgradeSteps) para obter instruções sobre como alterar o código para usar a nova versão da API.
+
+> [!NOTE]
+> Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente.
 
 <a name="WhatsNew"></a>
 
@@ -40,7 +43,7 @@ A versão 2016-09-01 é a segunda versão com disponibilidade geral da API REST 
 Se estiver atualizando da versão 2015-02-28, você provavelmente não precisará fazer alterações no código, exceto a alteração do número de versão. As únicas situações em que talvez seja necessário alterar o código ocorrem quando:
 
 * O código falha quando propriedades não reconhecidas são retornadas em uma resposta da API. Por padrão, o aplicativo deve ignorar propriedades que não entende.
-* O código persiste solicitações de API e tenta enviá-las novamente à nova versão da API. Por exemplo, isso poderá acontecer se o aplicativo persistir tokens de continuação retornados da API de Pesquisa (para obter mais informações, procure `@search.nextPageParameters` na [Referência de API de Pesquisa](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
+* O código persiste solicitações de API e tenta reenviá-las à nova versão da API. Por exemplo, isso poderá acontecer se o aplicativo persistir tokens de continuação retornados da API de Pesquisa (para obter mais informações, procure `@search.nextPageParameters` na [Referência de API de Pesquisa](https://msdn.microsoft.com/library/azure/dn798927.aspx#Anchor_1)).
 
 Se alguma dessas situações se aplicar a você, talvez seja necessário alterar o código da maneira adequada. Caso contrário, nenhuma alteração será necessária, a menos que você deseje começar a usar os [novos recursos](#WhatsNew) da versão 2016-09-01.
 
@@ -67,6 +70,6 @@ Obrigado por usar a Pesquisa do Azure!
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

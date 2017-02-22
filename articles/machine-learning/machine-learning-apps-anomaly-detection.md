@@ -1,28 +1,33 @@
 ---
-title: "Aplicativo do Machine Learning: Serviço de Detecção de Anomalias | Microsoft Docs"
-description: "A API de detecção de anomalias é um exemplo criado com o Aprendizado de Máquina do Microsoft Azure que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo."
+title: "(preterido) Serviço de Detecção de Anomalias do Azure Machine Learning | Microsoft Docs"
+description: "(preterido) O Serviço de Detecção de Anomalias é um exemplo criado com o Microsoft Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: article
+ms.topic: deprecated
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/11/2016
+ms.date: 01/18/2017
 ms.author: alok
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cbcd469f39b42d741d73f9d96daf17d011b7ebc7
+ms.sourcegitcommit: eff129aceac18342a79f06376023301afc676763
+ms.openlocfilehash: 847c24f8baf5f5db93474b469eb402d3ab7d4880
 
 
 ---
-# <a name="machine-learning-anomaly-detection-service"></a>Serviço de Detecção de Anomalias do Aprendizado de Máquina
+# <a name="machine-learning-anomaly-detection-service-deprecated"></a>Serviço de Detecção de Anomalias do Machine Learning (preterido)
+> [!NOTE]
+> Agora você pode implantar essa API em sua assinatura do Azure usando a nova opção **inscrição** na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2). Consulte [API de detecção de anomalias do Machine Learning](machine-learning-apps-anomaly-detection-api.md) para saber mais.
+> 
+> O método descrito neste artigo para acessar a API por meio do Azure Datamarket foi preterido.
+
 ## <a name="overview"></a>Visão geral
-A [API de detecção de anomalias](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) é um exemplo criado com o Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo. 
+A [API de detecção de anomalias (Preterido)](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) é um exemplo criado com o Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo. 
 
 Esta API pode detectar os seguintes tipos de padrão anômalo nos dados de série temporal:
 
@@ -191,11 +196,11 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 | TSpike |Indicador binário para indicar se um pico é detectado pelo Detector TSpike |
 | ZSpike |Indicador binário para indicar se um pico é detectado pelo Detector ZSpike |
 | Pscore |Um número flutuante que representa a pontuação de anomalias na alteração de aumento no nível |
-| Palert |Valor 1/0 indicando que há uma anomalia na alteração de aumento no nível baseada na sensibilidade de entrada |
+| Palert |Valor&1;/0 indicando que há uma anomalia na alteração de aumento no nível baseada na sensibilidade de entrada |
 | RPScore |Um número flutuante que representa a pontuação de anomalias na alteração bidirecional no nível |
-| RPAlert |Valor 1/0 indicando que há uma anomalia na alteração de nível bidirecional baseada na sensibilidade de entrada |
+| RPAlert |Valor&1;/0 indicando que há uma anomalia na alteração de nível bidirecional baseada na sensibilidade de entrada |
 | TScore |um número flutuante que representa a pontuação de anomalias na tendência positiva |
-| TAlert |Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
+| TAlert |Valor&1;/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
 
 Esta saída pode ser analisada usando um [Analisador simples](https://adresultparser.codeplex.com/) – tem um código de exemplo que mostra como conectar a API e analisar a saída. As anomalias detectadas podem ser visualizadas em um painel e/ou passadas para especialistas humanos para terem ações corretivas ou serem integradas nos sistemas de emissão de tíquetes.
 
@@ -208,6 +213,6 @@ Esta saída pode ser analisada usando um [Analisador simples](https://adresultpa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

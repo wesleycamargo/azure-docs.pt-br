@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/01/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 599b0bdaef2d0189bbe03153ff82489fbd32dd1b
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 9366bce634fd3855080d267c797e2fecb8ab4ce9
 
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
+
 Saiba mais sobre como habilitar o log de diagnóstico em sua conta do Data Lake Analytics e como exibir os logs coletados em sua conta.
 
 As organizações podem habilitar o log de diagnóstico para sua conta do Azure Data Lake Analytics coletar trilhas de auditoria de acesso de dados. Esses logs fornecem informações como:
@@ -30,47 +31,72 @@ As organizações podem habilitar o log de diagnóstico para sua conta do Azure 
 * Quantos dados são armazenados na conta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md).
+
 * **Conta do Azure Data Lake Analytics**. Siga as instruções em [Introdução ao Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
-1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
-2. Abra sua conta do Data Lake Analytics e, da folha da conta do Data Lake Analytics, clique em **Configurações** e, em seguida, em **Configurações de Diagnóstico**.
-3. Na folha **Diagnóstico** , faça as seguintes alterações para configurar o log de diagnóstico.
 
-    ![Habilitar registro em log de diagnóstico](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+1. Inscreva-se no novo [portal do Azure](https://portal.azure.com).
+
+2. Abra sua conta do Data Lake Analytics e selecione **Logs de diagnóstico** da __seção Monitoramento__. Em seguida, selecione __Ativar o diagnóstico__.
+
+    ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+
+3. Em __Configurações de diagnóstico__, defina o status como __Ativado__ e selecione as opções de registro em log.
+
+    ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar os logs de diagnóstico")
 
    * Defina **Status** para **Ativado** para habilitar o log de diagnóstico.
+
    * Você pode optar por armazenar/processar os dados de duas maneiras diferentes.
-     * Selecione **Exportar para o Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
-     * Selecione **Exportar para a Conta de Armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
+
+     * Selecione __Arquivar em uma conta de armazenamento__ para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
+
+     * Selecione **Transmitir para um Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Use esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
+
+     * Selecione __Enviar para o Log Analytics__ para enviar os dados ao serviço Log Analytics. Use esta opção se você quiser usar o Log Analytics para coletar e analisar logs.
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
+
    * Especifique o número de dias que os dados devem ser mantidos.
+
    * Clique em **Salvar**.
 
-Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
+        > [!NOTE]
+        > Selecione __Arquivar em uma conta de armazenamento__, __Transmitir para um Hub de Eventos__ ou __Enviar para o Log Analytics__ antes de usar o botão __Salvar__.
+
+Depois de habilitar as configurações de diagnóstico, retorne à folha __Logs de diagnóstico__ para ver os logs.
 
 ## <a name="view-logs"></a>Exibir logs
+
 Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
 
 * Das configurações da conta do Data Lake Analytics
 * Na conta de Armazenamento do Azure onde os dados são armazenados
 
 ### <a name="using-the-data-lake-analytics-settings-view"></a>Usando a exibição de configurações do Data Lake Analytics
-1. Na folha **Configurações** da sua conta do Data Lake Analytics, clique em **Logs de Diagnóstico**.
 
-    ![Exibir o log de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs")
-2. Na folha **Logs de Diagnóstico**, você deve ver os logs categorizados por **Logs de Auditoria** e **Logs de Solicitação**.
+1. Na folha de sua conta do Data Lake Analytics, selecione **Logs de Diagnóstico** e selecione a entrada para a qual deseja exibir os logs.
+
+    ![Exibir logs de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Exibir logs de diagnóstico")
+
+2. Os logs são categorizados em **Logs de Auditoria** e **Logs de Solicitação**.
+
+    ![entradas de log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
 
    * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Analytics.
    * Os Logs de Auditoria são semelhantes aos Logs de Solicitação, mas fornecem uma análise mais detalhada das operações que estão sendo executadas na conta do Data Lake Analytics. Por exemplo, uma única chamada à API de upload nos logs de solicitação poderá resultar em várias operações do tipo "Anexar" nos logs de auditoria.
+
 3. Clique no link **Download** em cada entrada de log para baixar os logs.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Na conta de Armazenamento do Azure que contém dados de log
+
 1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Analytics para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
 
-    ![Exibir o log de diagnósticos](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Exibir logs de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
 
    * O contêiner **insights-logs-audit** contém os logs de auditoria.
    * O contêiner **insights-logs-requests** contém os logs de solicitação.
@@ -94,8 +120,6 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
 
    > [!NOTE]
    > A folha `##` no caminho contêm o ano, o mês, o dia e a hora em que o log foi criado. O Data Lake Analytics cria um arquivo a cada hora e, portanto, o `m=` sempre conterá um valor `00`.
-   >
-   >
 
     Como um exemplo, o caminho completo para um log de auditoria poderia ser:
 
@@ -106,9 +130,11 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Analytics.
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
 ## <a name="log-structure"></a>Estrutura de log
+
 Os logs de auditoria e solicitação estão em formato JSON. Nesta seção, examinaremos a estrutura do JSON nos logs de solicitação e auditoria.
 
 ### <a name="request-logs"></a>Logs de Solicitação
+
 Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
 
     {
@@ -140,6 +166,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
     }
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
@@ -153,6 +180,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | propriedades |JSON |Veja a próxima seção (Esquema de propriedades do log de solicitação) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | HttpMethod |Cadeia de caracteres |O método HTTP usado para a operação. Por exemplo, GET. |
@@ -163,6 +191,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | EndTime |Cadeia de caracteres |A hora em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Logs de auditoria
+
 Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log
 
     {
@@ -189,6 +218,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
     }
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | tempo real |Cadeia de caracteres |O carimbo de data/hora (em UTC) do log |
@@ -197,7 +227,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | operationName |Cadeia de caracteres |Nome da operação que está registrada. Por exemplo, JobSubmitted. |
 | resultType |Cadeia de caracteres |Um substatus para o status do trabalho (operationName). |
 | resultSignature |Cadeia de caracteres |Detalhes adicionais sobre o status do trabalho (operationName). |
-| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo, susan@contoso.com. |
+| identidade |Cadeia de caracteres |O usuário que solicitou a operação. Por exemplo: susan@contoso.com. |
 | propriedades |JSON |Veja a próxima seção (Esquema de propriedades do log de auditoria) para obter detalhes |
 
 > [!NOTE]
@@ -206,6 +236,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 >
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
+
 | Name | Tipo | Descrição |
 | --- | --- | --- |
 | JobId |Cadeia de caracteres |A ID atribuída ao trabalho |
@@ -218,10 +249,9 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** e **Paralelism** fornecem informações sobre uma operação e só conterão um valor se uma operação tiver sido iniciada ou concluída. Por exemplo, **SubmitTime** conterá um valor depois que **operationName** indicar **JobSubmitted**.
->
->
 
 ## <a name="process-the-log-data"></a>Processar os dados de log
+
 O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar os dados do log. Você pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -229,6 +259,6 @@ O Azure Data Lake Analytics fornece um exemplo sobre como processar e analisar o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

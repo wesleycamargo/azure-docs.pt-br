@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas de erros do cliente Docker no Windows usando o Visual Studio | Microsoft Docs"
+title: "Solução de erros do cliente Docker no Windows usando o Visual Studio | Microsoft Docs"
 description: "Solucione os problemas encontrados na utilização do Visual Studio para criar e implantar aplicativos Web no Docker ou no Windows usando o Visual Studio."
 services: azure-container-service
 documentationcenter: na
@@ -15,22 +15,22 @@ ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 01c10d04606e15082c8842ad87f617703a00c903
-ms.openlocfilehash: cbb376dae88d39e965838de74d90158691b59f90
+ms.sourcegitcommit: 649cc1a78f3a9f343533cb18fb7d763e4f9ea196
+ms.openlocfilehash: 89fa04a1107b6abb49aefd68066443717ac9b731
 
 
 ---
 
-# <a name="troubleshooting-visual-studio-docker-development"></a>Solucionar problemas de desenvolvimento do Docker do Visual Studio
+# <a name="troubleshoot-visual-studio-docker-development"></a>Solucionar problemas de desenvolvimento do Docker no Visual Studio
 
-Ao trabalhar com o Visual Studio Tools para Docker Preview, você pode encontrar alguns problemas devido à natureza de versão de visualização.
+Quando estiver trabalhando com o Preview das Ferramentas do Visual Studio para Docker, você pode encontrar alguns problemas devido à natureza da visualização.
 Veja a seguir alguns problemas comuns e suas resoluções.  
 
 ## <a name="visual-studio-2017-rc"></a>Visual Studio 2017 RC
 
 ### <a name="linux-containers"></a>**Contêineres do Linux**
 
-###  <a name="build-errors-occur-when-debugging-a-net-core-web-or-console-application"></a>Erros de build ocorrem durante a depuração de um aplicativo Web ou de console do .NET Core.  
+####  <a name="build-errors-occur-when-debugging-a-net-core-web-or-console-application"></a>Os erros de compilação ocorrem durante a depuração de um aplicativo Web ou de um console do .NET Core  
 
 Isso pode estar relacionado ao não compartilhamento da unidade na qual reside o projeto com o Docker para Windows.  Você poderá receber um erro como o seguinte:
 
@@ -41,28 +41,27 @@ Building webapplication1
 Creating webapplication13628050196_webapplication1_1
 ERROR: for webapplication1  Cannot create container for service webapplication1: C: drive is not shared. Please share it in Docker for Windows Settings
 ```
-Para resolvê-lo, clique com o botão direito do mouse no ícone de bandeja do sistema do Docker para Windows e selecione “Configurações...”.  Clique na guia “Unidades Compartilhadas” e compartilhe a letra da unidade na qual reside o projeto.
+Para resolver esse problema:
+
+1. Clique com o botão direito do mouse em **Docker para Windows** na área de notificação e selecione **Configurações**.  
+2. Escolha **Unidades Compartilhadas** e compartilhe a unidade em que está o projeto.
 
 ### <a name="windows-containers"></a>**Contêineres do Windows**
 
-O conteúdo a seguir é específico à solução de problemas durante a depuração de aplicativos Web e de console do .NET Framework em contêineres do Windows
+Os problemas a seguir são específicos à depuração de aplicativos de console e Web do .NET Framework em contêineres do Windows.
 
-### <a name="pre-requisites"></a>Pré-requisitos
+#### <a name="prerequisites"></a>Pré-requisitos
 
-1. Visual Studio 2017 RC (ou posterior) com o .NET Core e a carga de trabalho do Docker (Visualização) instalados.
-2. Atualização de Aniversário do Windows 10 com os últimos patches do Windows Update instalados.
-3. Docker para Windows (Beta) – https://docs.docker.com/docker-for-windows/ (Versão 1.12.2-beta28 7813 ou posterior).
-4. No ícone de bandeja do sistema do Docker para Windows, selecione “Mudar para contêineres do Windows”.  Após a reinicialização do computador, garanta que essa configuração é mantida.
+1. O Visual Studio 2017 RC (ou posterior) com o .NET Core e a carga de trabalho do Docker (Preview) devem estar instalados.
+2. Atualização de Aniversário do Windows 10 com os últimos patches do Windows Update. Especificamente, o [KB3194798](https://support.microsoft.com/en-us/help/3194798/cumulative-update-for-windows-10-version-1607-and-windows-server-2016-october-11,-2016) deve ser instalado. 
+3. O [Docker para Windows](https://docs.docker.com/docker-for-windows/) (compilação 1.13.0 ou posterior) deve ser instalado.
+4. **Alternar para contêineres do Windows** deve ser selecionada. Na área de notificação, clique em **Docker para Windows** e selecione **Alternar para contêineres do Windows**. Após a reinicialização do computador, garanta que essa configuração seja mantida.
 
-### <a name="clicking-docker-debug-project-results-in-the-error--client-version-122-is-too-old--minimum-supported-api-version-is-124-please-upgrade-your-client-to-a-newer-version"></a>Se você clicar em **Docker: Depurar Projeto**, isso resultará no erro “A versão do cliente 1.22 é muito antiga.  A versão mínima de API com suporte é 1.24. Atualize o cliente para uma versão mais nova”.
+#### <a name="console-output-does-not-appear-in-visual-studios-output-window-while-debugging-a-console-application"></a>A saída do console não é exibida na janela de saída do Visual Studio durante a depuração de um aplicativo de console
 
-A versão 1.13-RC2-beta31 (9123) ou posterior do Docker para Windows exige o uso da versão “2.1” do Docker Compose.   Para corrigir isso, altere todas as ocorrências de versão “2” nos arquivos docker-compose*.yml dentro do projeto. Os modelos padrão que o Visual Studio adiciona ao projeto serão atualizados em uma versão futura das ferramentas. 
+Esse é um problema conhecido no Depurador do Visual Studio (msvsmon.exe) que, no momento, não é projetado para esse cenário. Suporte para esse cenário pode ser incluído em uma versão futura. Para ver a saída por meio do aplicativo de console no Visual Studio, use **Docker: Iniciar Projeto**, que é equivalente a **Iniciar sem Depuração**.
 
-### <a name="console-output-does-not-appear-in-visual-studios-output-window-while-debugging-a-console-application"></a>A saída do console não é exibida na janela de saída do Visual Studio durante a depuração de um aplicativo de console.
-
-Esse é um problema conhecido no Depurador do Visual Studio (msvsmon.exe), que, no momento, não é projetado para esse cenário.  Estamos buscando maneiras de fornecer suporte para esse recurso em uma versão futura.  Para ver a saída por meio do aplicativo de console no Visual Studio, use “Docker: Iniciar Projeto”, que é equivalente a “Iniciar sem Depuração”.
-
-### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>A depuração de aplicativos Web com a configuração de versão falha com o erro Proibido (403).
+#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>A depuração de aplicativos Web com a configuração de versão falha com o erro (403) Proibido
 
 Para resolver o problema, abra o arquivo web.release.config na solução e comente ou exclua as seguintes linhas:
 
@@ -70,47 +69,44 @@ Para resolver o problema, abra o arquivo web.release.config na solução e comen
 <compilation xdt:Transform="RemoveAttributes(debug)" />
 ```
 
-### <a name="when-switching-to-windows-containers-you-could-potentially-see-an-error-dialog-stating-error-response-from-daemon-io-timeout"></a>Ao mudar para contêineres do Windows, potencialmente, é possível ver uma caixa de diálogo de erro com a mensagem “Resposta de erro do daemon: tempo limite de E/S”.
-
-É possível acompanhar esse problema no Docker para Windows em https://github.com/docker/for-win/issues/178.
-
-
 ## <a name="visual-studio-2015"></a>Visual Studio 2015
 
 ### <a name="linux-containers"></a>**Contêineres do Linux**
 
-### <a name="unable-to-validate-volume-mapping"></a>Não é possível validar o mapeamento de volume
-O mapeamento de volume é necessário para compartilhar o código-fonte e os binários do seu aplicativo com a pasta de aplicativo no contêiner.  Mapeamentos de volume específico estão contidos nos arquivos docker-compose.dev.debug.yml e docker-compose.dev.release.yml. Como os arquivos são alterados em seu computador host, os contêineres refletem essas alterações em uma estrutura de pastas semelhante.
+#### <a name="unable-to-validate-volume-mapping"></a>Não é possível validar o mapeamento de volume
+O mapeamento de volume é necessário para compartilhar o código-fonte e os binários do seu aplicativo com a pasta de aplicativo no contêiner.  Os mapeamentos de volume específico estão contidos em docker-compose.dev.debug.yml e docker-compose.dev.release.yml. Como os arquivos são alterados em seu computador host, os contêineres refletem essas alterações em uma estrutura de pastas semelhante.
 
-Para habilitar o mapeamento de volume, abra **Configurações...** no ícone de bandeja do Docker do Windows "moby" e selecione a guia **Unidades Compartilhadas**.  Garanta que a letra da unidade que hospeda o projeto, bem como a letra da unidade na qual reside o %USERPROFILE%, são compartilhadas marcando-as e, em seguida, clicando em **Aplicar**.
+Para habilitar o mapeamento do volume:
 
-Para testar se o mapeamento do volume está funcionando e se uma ou mais unidades foram compartilhadas, pressione Recompilar e F5 no Visual Studio ou tente o seguinte em um prompt de comando:
+1. Clique em **Moby** na área de notificação e selecione **configurações**.
+2. Selecione **Unidades Compartilhadas**.
+3. Selecione a unidade que hospeda o projeto e a unidade na qual %USERPROFILE% reside.
+4. Clique em **Aplicar**.
 
-*Em um prompt de comando do Windows*
+Para testar se o mapeamento do volume está funcionando, recrie e selecione F5 no Visual Studio depois que uma ou mais unidades tiverem sido compartilhadas ou execute o código a seguir em um prompt de comando.
 
-> [!Note]
-> Este exemplo pressupõe que a pasta Usuários está localizada na unidade “C” e que ela foi compartilhada.
-> Atualize, conforme necessário, se você tiver compartilhado outra unidade.
+> [!NOTE]
+> Este exemplo pressupõe que a pasta Usuários esteja localizada na unidade C e que ela foi compartilhada.
+> Examine, conforme necessário, se você compartilhou outra unidade.
 
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-*No contêiner do Linux*
+Execute o código a seguir no contêiner do Linux.
 
 ```
 / # ls
 ```
 
-Você deverá ver uma listagem de diretórios da pasta Usuários/Público.
-Se nenhum arquivo for exibido, e sua pasta /c/Usuários/Público não estiver vazia, o mapeamento de volume não estará configurado corretamente.
+Você deverá ver uma listagem de diretórios da pasta Usuários/Público. Se nenhum arquivo for exibido e sua pasta /c/Usuários/Público não estiver vazia, o mapeamento de volume não estará configurado corretamente.
 
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
 
-Mude para o diretório wormhole para ver o conteúdo do diretório `/c/Users/Public` :
+Mude para o diretório wormhole para ver o conteúdo do diretório `/c/Users/Public`:
 
 ```
 / # cd wormhole/
@@ -121,12 +117,12 @@ Documents        Libraries        Pictures
 /wormhole #
 ```
 
-> [!Note]
-> Ao trabalhar com VMs Linux, o sistema de arquivos do contêiner diferencia maiúsculas de minúsculas.
+> [!NOTE]
+> Quando estiver trabalhando com VMs Linux, o sistema de arquivos do contêiner diferenciará maiúsculas de minúsculas.
 
-##<a name="build--prepareforbuild-task-failed-unexpectedly"></a>Compilação: a tarefa "PrepareForBuild" falhou inesperadamente.
+## <a name="build-prepareforbuild-task-failed-unexpectedly"></a>Compilação: a tarefa "PrepareForBuild" falhou inesperadamente
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: erro ao tentar se conectar:
+Microsoft.DotNet.Docker.CommandLine.ClientException: erro ao tentar se conectar.
 
 Verifique se o host do Docker padrão está em execução. Abra um prompt de comando e execute:
 
@@ -134,77 +130,25 @@ Verifique se o host do Docker padrão está em execução. Abra um prompt de com
 docker info
 ```
 
-Se isso retorna um erro, tente iniciar o aplicativo da área de trabalho **Docker para Windows** .  Se o aplicativo da área de trabalho estiver em execução, o ícone **moby** na bandeja deverá estar visível. Clique com o botão direito do mouse no ícone de bandeja e abra **Configurações**.  Clique na guia **Redefinir** e, em seguida, em **Reiniciar Docker...**.
+Se isso retornar um erro, tente iniciar o aplicativo da área de trabalho **Docker para Windows**. Se o aplicativo da área de trabalho estiver em execução, o **Moby** deverá estar visível na área de notificação. Clique com botão direito em **Moby** e abra **configurações**. Clique em **Redefinir** e reinicie o Docker.
 
-##<a name="manually-upgrading-from-version-031-to-040"></a>Atualização manual da versão 0.31 para 0.40
+## <a name="an-error-dialog-occurs-when-attempting-to-add-docker-support-or-debug-f5-an-aspnet-core-application-in-a-container"></a>Uma caixa de diálogo de erro ocorre na tentativa de adicionar Suporte ao Docker ou depurar (F5) um aplicativo do ASP.NET Core em um contêiner
 
+Depois de desinstalar e instalar extensões, o cache MEF (Managed Extensibility Framework) no Visual Studio pode se corromper. Quando isso ocorre, ele pode causar várias mensagens de erro quando você estiver adicionando Suporte ao Docker e/ou tentando executar ou depurar (F5) seu aplicativo do ASP.NET Core. Como solução alternativa, use as etapas a seguir para excluir e gerar novamente o cache MEF.
 
-1. Fazer backup do projeto
-1. Exclua os seguintes arquivos do projeto:
-
-    ```
-      Dockerfile
-      Dockerfile.debug
-      DockerTask.ps1
-      docker-compose-yml
-      docker-compose.debug.yml
-      .dockerignore
-      Properties\Docker.props
-      Properties\Docker.targets
-    ```
-
-1. Feche a Solução e remova as seguintes linhas do arquivo .xproj:
-
-    ```
-      <DockerToolsMinVersion>0.xx</DockerToolsMinVersion>
-      <Import Project="Properties\Docker.props" />
-      <Import Project="Properties\Docker.targets" />
-    ```
-
-1. Reabra a Solução
-1. Remova as seguintes linhas do arquivo Properties\launchSettings.json:
-
-    ```
-      "Docker": {
-        "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-        "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine '$(DockerMachineName)'"
-      }
-    ```
-
-1. Remova os seguintes arquivos relacionados ao Docker de project.json no publishOptions:
-
-    ```
-    "publishOptions": {
-      "include": [
-        ...
-        "docker-compose.yml",
-        "docker-compose.debug.yml",
-        "Dockerfile.debug",
-        "Dockerfile",
-        ".dockerignore"
-      ]
-    },
-    ```
-
-1. Desinstale a versão anterior e instale as ferramentas do Docker 0.40 e, em seguida, **Adicionar->Suporte ao Docker** novamente no menu de contexto para o ASP.NET Core Web ou aplicativo de Console. Isso adiciona os novos artefatos necessários do Docker de volta ao projeto.
-
-## <a name="an-error-dialog-occurs-when-attempting-to-add-docker-support-or-debug-f5-an-aspnet-core-application-in-a-container"></a>Uma caixa de diálogo de erro ocorre ao tentar **Adicionar->Suporte ao Docker** ou Depurar (F5) um aplicativo do ASP.NET Core em um contêiner
-
-Ocasionalmente, vimos que ao desinstalar e instalar extensões, o cache MEF (Managed Extensibility Framework) do Visual Studio pode ser corrompido. Quando isso ocorre, pode causar várias caixas de diálogo de erro durante a adição do Suporte ao Docker e/ou tentativa de executar ou Depurar (F5) o aplicativo ASP.NET Core. Como solução temporária, execute as seguintes etapas para excluir e gerar novamente o cache MEF.
-
-1. Feche todas as instâncias do Visual Studio
-1. Abra %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
-1. Exclua as seguintes pastas
+1. Feche todas as instâncias do Visual Studio.
+1. Abra %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
+1. Exclua as seguintes pastas:
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
-1. Abra o Visual Studio
-1. Tente o cenário novamente
+1. Abra o Visual Studio.
+1. Tente o cenário novamente.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

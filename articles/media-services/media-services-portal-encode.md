@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: b7953033247f8c243b4e9fcabc57e2826e531ac0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 50e9095d38c96323db3ccce4e3601eccbb9eb2ab
 
 
 ---
@@ -30,10 +30,7 @@ Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns �
 
 Os Serviços de Mídia também fornecem um empacotamento dinâmico que permite entregar os MP4s de múltiplas taxas de bits nos formatos de streaming MPEG DASH, HLS e Smooth Streaming, sem a necessidade de reempacotá-los nesses formatos de streaming. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
 
-Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
-
-* Codifique seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (as etapas da codificação são demonstradas mais tarde nesta seção).
-* Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, confira [configurar pontos de extremidade de streaming](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Para tirar proveito do empacotamento dinâmico, você precisa codificar seu arquivo de origem em um conjunto de arquivos MP4 com múltiplas taxas de bits (as etapas da codificação são demonstradas mais tarde nesta seção).
 
 Para dimensionar o processamento de mídia, consulte [este](media-services-portal-scale-media-processing.md) tópico.
 
@@ -44,7 +41,7 @@ Esta seção descreve as etapas que você pode seguir para codificar o conteúdo
 2. Na janela **Configurações**, selecione **Ativos**.  
 3. Na janela **Ativos** , selecione o ativo que você gostaria de codificar.
 4. Pressione o botão **Codificar** .
-5. Na janela **Codificar um ativo** , selecione o processador "Media Encoder Standard" e uma predefinição. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Para obter mais informações sobre as predefinições, confira [este](https://msdn.microsoft.com/library/azure/mt269960.aspx) artigo – é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição padrão "H264 Múltiplas Taxas de Bits 1080p".
+5. Na janela **Codificar um ativo** , selecione o processador "Media Encoder Standard" e uma predefinição. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição "H264 Múltiplas Taxas de Bits 1080p". Para obter mais informações sobre as predefinições, confira [este](media-services-mes-presets-overview.md) artigo – é importante selecionar a predefinição mais apropriada para seu vídeo de entrada. Se você tiver um vídeo de baixa resolução (640 x 360), não deverá usar a predefinição padrão "H264 Múltiplas Taxas de Bits 1080p".
    
    Para facilitar o gerenciamento, você tem a opção de editar o nome do ativo de saída e o nome do trabalho.
    
@@ -63,6 +60,6 @@ Você pode monitorar o andamento do trabalho de codificação com o portal do Az
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implantar o aplicativo de piscar no Kit de início de IoT do Azure | Microsoft Docs"
+title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 1: implantar aplicativo| Microsoft Docs"
 description: "Clone o aplicativo C de exemplo do GitHub e execute o gulp para implantar esse aplicativo na placa do Intel Edison. Esse aplicativo de exemplo pisca o LED conectado à placa a cada dois segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 604ab48856f3fbc09ca6b566ef3f7e1d18e912c6
-ms.openlocfilehash: 6c911297be4fa2c7ce6bd817233e8a8012634f42
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: c0589d488be5ec62686551b97d8949e5fed2f0a3
 
 
 ---
@@ -127,6 +127,6 @@ Você instalou as ferramentas necessárias para trabalhar com o Edison e implant
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

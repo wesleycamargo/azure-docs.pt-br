@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7a401cb0cd9c13f2ab1779fbc18bee2a61ba5e77
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Agora você pode registrar os ativos de dados do banco de dados de exemplo do Ad
 Neste exercício, você usará a ferramenta de registro para registrar os ativos de dados do banco de dados do Adventure Works no catálogo. O registro é o processo de extração de metadados estruturais chave, como nomes, tipos e locais, da fonte de dados e dos ativos que ela contém, copiando os metadados para o catálogo. As fontes de dados e seus dados permanecem onde estão, porém os metadados são usados pelo catálogo para torná-los mais facilmente identificáveis e compreensíveis.
 
 ### <a name="register-a-data-source"></a>Registrar uma fonte de dados
-1. Vá para a [home page do Catálogo de Dados do Azure](https://azuredatacatalog.com) e clique em **Publicar Dados**.
+1. Vá para a [home page do Catálogo de Dados do Azure](http://azuredatacatalog.com) e clique em **Publicar Dados**.
    
    ![Catálogo de Dados do Azure – botão Publicar Dados](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Clique em **Iniciar Aplicativo** para baixar, instalar e executar a ferramenta de registro em seu computador.
@@ -366,6 +366,6 @@ Neste tutorial, você explorou recursos essenciais do Catálogo de Dados do Azur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

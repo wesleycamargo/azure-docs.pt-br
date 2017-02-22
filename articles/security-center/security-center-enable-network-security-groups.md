@@ -12,34 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 72dcf86c50c6a393ae065e5b487cb99f5701a5dc
+ms.sourcegitcommit: 0046a088f908a8cfdcab2cf6baad62524def6468
+ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
 
 
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Habilitar Grupos de Segurança de Rede na Central de Segurança do Azure
-A Central de Segurança do Azure recomendará que você habilite um NSG (Grupo de Segurança de Rede) se já não estiver habilitado. Os NSGs contêm uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM na sub-rede. Além disso, o tráfego para uma VM individual pode ser restrito ainda mais por meio da associação de um NSG diretamente à VM. Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md)
+A Central de Segurança do Azure recomenda que você habilite um NSG (grupo de segurança de rede), se já não estiver habilitado. Os NSGs contêm uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM na sub-rede. Além disso, o tráfego para uma VM individual pode ser restrito ainda mais por meio da associação de um NSG diretamente à VM. Para saber mais, confira [O que é um NSG (Grupo de Segurança de Rede)?](../virtual-network/virtual-networks-nsg.md)
 
-Se você não tiver NSGs habilitados, a Central de Segurança apresentará duas recomendações para você: habilitar Grupos de Segurança de Rede em sub-redes e habilitar Grupos de Segurança de Rede em máquinas virtuais. Você escolhe a qual nível, sub-rede ou VM aplicar NSGs.
+Se você não tiver NSGs habilitados, a Central de Segurança apresentará duas recomendações: Habilitar Grupos de Segurança de Rede em sub-redes e Habilitar Grupos de Segurança de Rede em máquinas virtuais. Você escolhe a qual nível, sub-rede ou VM aplicar NSGs.
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Habilitar Grupos de Segurança de Rede** em sub-redes ou em máquinas virtuais.
    ![Habilitar Grupos de segurança de rede][1]
 2. Isso abrirá a folha **Configurar Grupos de Segurança de Rede Ausentes** para sub-redes ou para máquinas virtuais, dependendo da recomendação que você selecionou. Selecione uma sub-rede ou máquina virtual para configurar um NSG.
-   
+
    ![Configurar NSG para sub-rede][2]
-   
+
    ![Configurar NSG para VM][3]
-3. Na folha **Escolher grupo de segurança de rede** , selecione um NSG existente ou selecione para criar um novo NSG.
-   
+3. Na folha **Escolher grupo de segurança de rede**, selecione um NSG existente ou selecione para **Criar novo** para criar um novo NSG.
+
    ![Escolher grupo de segurança de rede][4]
 
 Se você criar um novo NSG, siga as etapas em [Como gerenciar NSGs usando o portal do Azure](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) para criar um NSG e definir regras de segurança.
@@ -68,6 +68,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

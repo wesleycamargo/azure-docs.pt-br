@@ -1,5 +1,5 @@
 ---
-title: "WordPress de classe empresarial no Serviço de Aplicativo do Azure | Microsoft Docs"
+title: WordPress de classe empresarial no Azure | Microsoft Docs
 description: "Saiba como hospedar um site do WordPress de classe empresarial no Serviço de Aplicativo do Azure"
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 10/24/2016
 ms.author: sumuth
 translationtype: Human Translation
-ms.sourcegitcommit: 4f37777eb42051921087c90a57138cb4085dd7cd
-ms.openlocfilehash: 032d5cbc19113d966b20cec1ef332eb6fdca5708
+ms.sourcegitcommit: 541dd7bed5a4a9e306642b2c36dd7c9d45aec690
+ms.openlocfilehash: fcaff51b2897b1b0bce8b1c503adfd9425c9fbb4
 
 
 ---
-# <a name="enterprise-class-wordpress-on-azure-app-service"></a>WordPress de classe empresarial no Serviço de Aplicativo do Azure
+# <a name="enterprise-class-wordpress-on-azure"></a>WordPress de classe empresarial no Azure
 O Serviço de Aplicativo do Azure oferece um ambiente escalonável, seguro e fácil de usar para sites do [WordPress][wordpress] críticos e de grande escala. A própria Microsoft executa sites de edição corporativa, como os blogs do [Office ][officeblog]e do [Bing][bingblog]. Este artigo mostra como usar o recurso Aplicativos Web do Serviço de Aplicativo do Microsoft Azure para estabelecer e manter um site do WordPress de classe empresarial baseado em nuvem que pode lidar com um grande volume de visitantes.
 
 ## <a name="architecture-and-planning"></a>Arquitetura e planejamento
@@ -191,7 +191,7 @@ Depois que o site do WordPress for criado ou migrado, use as informações a seg
 * [Dicas para o WordPress no Azure](http://www.johnpapa.net/azurecleardbmysql/)
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 >
 >
 
@@ -246,6 +246,6 @@ Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

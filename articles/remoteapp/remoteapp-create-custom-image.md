@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 550d46d4e280af2423a494857ffb808e6dffca37
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e28f4004e3cafcfa09309ff0143c83af5fa5493a
 
 
 ---
@@ -45,7 +45,7 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 * A função Host da Sessão da Área de Trabalho Remota (RDSH) e o recurso Desktop Experience devem estar instalados.
 * A função do Agente de Conexão de Área de Trabalho Remota *não* deve ser instalada.
 * O Encrypting File System (EFS) deve estar desabilitado.
-* A imagem deve ter o SYSPREP usando os parâmetros **/oobe /generalize /shutdown** (NÃO use o parâmetro **/mode:vm**).
+* A imagem deve ser SYSPREPed usando os parâmetros **/oobe /generalize /shutdown** (NÃO use o parâmetro **/mode:vm**).
 * Não há suporte para carregar o VHD de uma cadeia de instantâneo.
 
 **Antes de começar**
@@ -55,7 +55,7 @@ Os requisitos para a imagem passiva de upload para o uso com o RemoteApp do Azur
 * [Inscrever-se](https://azure.microsoft.com/services/remoteapp/) no RemoteApp.
 * Crie uma conta de usuário no Active Directory para usar como a conta de serviço do RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio. Consulte [Configurar o Active Directory do Azure para o RemoteApp](remoteapp-ad.md) para obter mais informações.
 * Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
-* Instale o módulo [PowerShell do Azure](../powershell-install-configure.md) .
+* Instale o módulo [PowerShell do Azure](/powershell/azureps-cmdlets-docs) .
 * Colete informações sobre os usuários aos quais deseja conceder acesso. Podem ser informações da conta da Microsoft ou da conta corporativa do Active Directory para usuários ou grupos.
 
 ## <a name="create-a-template-image"></a>Criar uma imagem do modelo
@@ -146,6 +146,6 @@ Agora que você tem a sua imagem de modelo personalizada, você precisará atual
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

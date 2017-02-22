@@ -4,8 +4,8 @@ hide_bc: true
 title: "Documentação do Microsoft Azure | Microsoft Docs"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
-ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
+ms.sourcegitcommit: 39bebdc52aea8f4ee154c8369c1c564ffe8be95d
+ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
 
 ---
 <div id="main" class="v2">
@@ -99,8 +99,8 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                         </li>
                                         <li>
                                             <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Serviço de Aplicativo</p>
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>Aplicativos Web</p>
                                             </a>
                                         </li>
                                         <li>
@@ -714,18 +714,18 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/app-service-web">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/app-service-web.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Aplicativo</h3>
-                                                    <p>Criar aplicativos Web e aplicativos móveis para qualquer plataforma e dispositivo</p>
+                                                    <h3>Aplicativos Web</h3>
+                                                    <p>Criar e implantar rapidamente aplicativos Web críticos em escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1585,7 +1585,7 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PowerBI inserido</h3>
+                                                    <h3>Power BI Embedded</h3>
                                                     <p>Inserir visualizações de dados excelentes e totalmente interativas nos aplicativos</p>
                                                 </div>
                                             </div>
@@ -2909,6 +2909,6 @@ ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

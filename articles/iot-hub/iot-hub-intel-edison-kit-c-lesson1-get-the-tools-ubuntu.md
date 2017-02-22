@@ -1,5 +1,5 @@
 ---
-title: "Obter as ferramentas do Kit de início de IoT do Azure (Ubuntu 16.04) | Microsoft Docs"
+title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 1: obter ferramentas (Ubuntu) | Microsoft Docs"
 description: "Baixe e instale as ferramentas e softwares necessários para o primeiro aplicativo de exemplo do Edison no Ubuntu."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: add691f1349ab27c057263b9aa0561b84fd8f262
-ms.openlocfilehash: dbf1a2c1af218d4285b2e20a5a6914e2b3cf6864
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: d9c7eee6cb104e3ec0b8faa1bb84f8bbe1ce0640
 
 
 ---
@@ -89,6 +89,6 @@ Você instalou as ferramentas de desenvolvimento e software necessários para o 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

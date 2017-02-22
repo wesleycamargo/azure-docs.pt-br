@@ -1,5 +1,5 @@
 ---
-title: Tamanhos das VMs do Linux | Microsoft Docs
+title: Tamanhos da VM Linux no Azure | Microsoft Docs
 description: "Lista os tamanhos diferentes disponíveis de máquinas virtuais do Linux no Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 539e6a8835bf9f999f8855496e39e06bb58cd848
-ms.openlocfilehash: e3a8741f8e8d0dc62de3c0dd48acb93853837a6f
+ms.sourcegitcommit: 2b4debaeaf879b0c79c05420fdbbd8735da1d015
+ms.openlocfilehash: d1b6b5b46b3329471388e178c3ea06f881003c48
 
 
 ---
-# <a name="sizes-for-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais no Azure
+# <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuais do Azure que você pode usar para executar seus aplicativos Linux e cargas de trabalho. Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Este artigo também está disponível para [máquinas virtuais do Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!IMPORTANT]
@@ -39,6 +39,6 @@ Este artigo descreve os tamanhos e as opções disponíveis de máquinas virtuai
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

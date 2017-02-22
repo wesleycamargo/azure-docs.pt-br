@@ -1,25 +1,29 @@
 ---
-title: Backups do SQL Data Warehouse | Microsoft Docs
-description: Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica.
+title: "Backups do SQL Data Warehouse do Azure - instantâneos, redundância geográfica | Microsoft Docs"
+description: "Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: lakshmi1812
-manager: barbkess
-editor: monicar
-
+manager: jhubbard
+editor: 
+ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/06/2016
+ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
+ms.openlocfilehash: 94b92f05af30734de727a12fd99271aa9769723a
+
 
 ---
 # <a name="sql-data-warehouse-backups"></a>Backups do SQL Data Warehouse
-O SQL Data Warehouse oferece backups locais e geográficos como parte de suas funcionalidades de backup do data warehouse. Essas funcionalidades incluem instantâneos de Azure Storage Blob e armazenamento com redundância geográfica. Use backups de data warehouse para restaurar o data warehouse para um ponto de restauração na região primária ou restaurá-lo para uma região geográfica diferente. Este artigo explica as especificidades de backups no SQL Data Warehouse.
+O SQL Data Warehouse oferece backups locais e geográficos como parte de suas funcionalidades de backup do data warehouse. Essas funcionalidades incluem instantâneos de Blob de Armazenamento do Azure e armazenamento com redundância geográfica. Use backups de data warehouse para restaurar o data warehouse para um ponto de restauração na região primária ou restaurá-lo para uma região geográfica diferente. Este artigo explica as especificidades de backups no SQL Data Warehouse.
 
-## <a name="what-is-a-data-warehouse-backup?"></a>O que é um backup do data warehouse?
+## <a name="what-is-a-data-warehouse-backup"></a>O que é um backup do data warehouse?
 Um backup do data warehouse são os dados que você pode usar para restaurar um data warehouse para um momento específico.  Considerando que o SQL Data Warehouse é um sistema distribuído, um backup do data warehouse consiste em vários arquivos que são armazenados em blobs do Azure. 
 
 Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para obter mais informações, veja [Visão geral sobre a continuidade dos negócios](../sql-database/sql-database-business-continuity.md).
@@ -33,7 +37,7 @@ Para saber mais sobre:
 * Armazenamento com redundância local, veja [Replicação do Armazenamento do Azure](../storage/storage-redundancy.md#locally-redundant-storage).
 
 ## <a name="azure-storage-blob-snapshots"></a>Instantâneos do Azure Storage Blob
-Como um benefício do uso do Armazenamento Premium do Azure, o SQL Data Warehouse usa instantâneos do Azure Storage Blob para fazer backup do data warehouse localmente. Você pode restaurar um data warehouse para um ponto de restauração de instantâneo. Instantâneos iniciam no mínimo a cada oito horas e permanecem disponíveis por sete dias.  
+Como um benefício do uso do Armazenamento Premium do Azure, o SQL Data Warehouse usa instantâneos do Blob de Armazenamento do Azure para fazer backup do data warehouse localmente. Você pode restaurar um data warehouse para um ponto de restauração de instantâneo. Instantâneos iniciam no mínimo a cada oito horas e permanecem disponíveis por sete dias.  
 
 Para saber mais sobre:
 
@@ -42,7 +46,7 @@ Para saber mais sobre:
 ## <a name="geo-redundant-backups"></a>Backups com redundância geográfica
 A cada 24 horas, o SQL Data Warehouse armazena um data warehouse completo no Armazenamento padrão. Um data warehouse completo é criado para coincidir com a hora do último instantâneo. O armazenamento padrão pertence a uma conta de armazenamento com RA-GRS (redundância geográfica com acesso de leitura). O recurso RA-GRS do Armazenamento do Azure replica os arquivos de backup para um [data center emparelhado](../best-practices-availability-paired-regions.md). Essa replicação geográfica garante que você possa restaurar um data warehouse caso não seja possível acessar os instantâneos em sua região primária. 
 
-Esse recurso está ligado por padrão. Se você não quiser usar backups com redundância geográfica, poderá recusar. 
+Esse recurso está ligado por padrão. Se você não quiser usar backups com redundância geográfica, é possível [recusar] (https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicy?redirectedfrom=msdn). 
 
 > [!NOTE]
 > No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
@@ -67,14 +71,14 @@ order by run_id desc;
 
 Se você precisar manter um instantâneo por mais de sete dias, poderá restaurar um ponto de restauração para um novo data warehouse. Depois que a restauração for concluída, o SQL Data Warehouse iniciará criando instantâneos no novo data warehouse. Se você não fizer alterações no novo data warehouse, os instantâneos ficarão vazios e, portanto, o custo do instantâneo será mínimo. Você também pode pausar o banco de dados para impedir que o SQL Data Warehouse crie instantâneos.
 
-### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused?"></a>O que acontece com a retenção do meu backup enquanto o data warehouse está em pausa?
+### <a name="what-happens-to-my-backup-retention-while-my-data-warehouse-is-paused"></a>O que acontece com a retenção do meu backup enquanto o data warehouse está em pausa?
 O SQL Data Warehouse não cria nem expira instantâneos enquanto um data warehouse está em pausa. A idade de instantâneo não será alterada enquanto o data warehouse estiver em pausa. A retenção do instantâneo baseia-se no número de dias pelos quais o data warehouse estiver online e não pelos dias do calendário.
 
 Por exemplo, se um instantâneo inicia em 1º de outubro às 16h e o data warehouse colocado em pausa em 3 de outubro às 16h, o instantâneo é dois dias. Independentemente de quando o data warehouse voltar a ficar online, o instantâneo terá dois dias. Se o data warehouse voltar a ficar online em 5 de outubro às 16h, o instantâneo terá dois dias e permanecerá por mais cinco dias.
 
 Quando o data warehouse de volta a ficar online, o SQL Data Warehouse retoma novos instantâneos e expira instantâneos quando eles têm dados com mais de sete dias.
 
-### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse?"></a>De quanto tempo é o período de retenção para um data warehouse descartado?
+### <a name="how-long-is-the-retention-period-for-a-dropped-data-warehouse"></a>De quanto tempo é o período de retenção para um data warehouse descartado?
 Quando um data warehouse é descartado, o data warehouse e os instantâneos são salvos por sete dias e, em seguida, removidos. Você pode restaurar o data warehouse para qualquer um dos pontos de restauração salvos.
 
 > [!IMPORTANT]
@@ -112,6 +116,6 @@ O uso principal para backups do SQL data warehouse é restaurar o data warehouse
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

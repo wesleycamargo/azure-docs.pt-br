@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/20/2016
+ms.date: 01/17/2017
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ O Azure Functions integra-se com uma variedade de serviços do Azure e de tercei
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>Quanto custa o Functions?
 O Azure Functions tem dois tipos de planos de preços. Escolha a opção que melhor atende às suas necessidades: 
 
-* **Plano de consumo** – quando sua função é executada, o Azure fornece todos os recursos computacionais necessários. Você não precisa se preocupar com o gerenciamento de recursos e paga apenas pelo tempo de execução do seu código. Os detalhes de preços completos estão disponíveis na [página Preço do Functions](/pricing/details/functions). 
-* **Plano do Serviço de Aplicativo** – executa suas funções como aplicativos Web, móveis e de API. Quando você já estiver usando o Serviço de Aplicativo para os outros aplicativos, poderá executar suas funções no mesmo plano sem custo adicional. Os detalhes completos podem ser encontrados na [página Preço do Serviço de Aplicativo](/pricing/details/app-service/).
+* **Plano de consumo** – quando sua função é executada, o Azure fornece todos os recursos computacionais necessários. Você não precisa se preocupar com o gerenciamento de recursos e paga apenas pelo tempo de execução do seu código. 
+* **Plano do Serviço de Aplicativo** – executa suas funções como aplicativos Web, móveis e de API. Quando você já estiver usando o Serviço de Aplicativo para os outros aplicativos, poderá executar suas funções no mesmo plano sem custo adicional. 
 
-Para saber mais sobre o dimensionamento de suas funções, confira [Como dimensionar o Azure Functions](functions-scale.md).
+Os detalhes de preços completos estão disponíveis na [página Preço do Functions](https://azure.microsoft.com/pricing/details/functions/). Para saber mais sobre o dimensionamento de suas funções, confira [Como dimensionar o Azure Functions](functions-scale.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar sua primeira função](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Para saber mais sobre o dimensionamento de suas funções, confira [Como dimensi
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

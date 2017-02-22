@@ -1,5 +1,5 @@
 ---
-title: "Replicar entre máquinas virtuais Hyper-V locais e o Azure (sem o VMM) com o Site Recovery | Microsoft Docs"
+title: "Replicar VMs do Hyper-V no Azure no Portal Clássico |Microsoft Docs"
 description: "Este artigo descreve como replicar máquinas virtuais Hyper-V para Azure com o Azure Site Recovery quando as máquinas não são gerenciadas em nuvens do VMM."
 services: site-recovery
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: ea89244efea6afa7d7b9d60f400117284fb5d1e1
-ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 
 
 ---
@@ -223,12 +223,12 @@ Adicione máquinas virtuais aos grupos de proteção para protegê-las.
        * Se o número de adaptadores de rede na máquina de origem for menor ou igual ao número de adaptadores permitido para o tamanho da máquina de destino, o destino terá o mesmo número de adaptadores que a origem.
        * Se o número de adaptadores para máquina virtual de origem exceder o número permitido para o tamanho de destino e o tamanho máximo de destino será usado.
        * Por exemplo, se uma máquina de origem tiver dois adaptadores de rede e o tamanho da máquina de destino oferecer suporte a quatro, a máquina de destino terá dois adaptadores. Se a máquina de origem tiver dois adaptadores, mas o tamanho de destino com suporte oferecer suporte apenas a uma máquina de destino, ela terá apenas um adaptador.
-       
+
      * **Rede Azure**: especifique a rede na qual a máquina virtual devem executar failover. Se a máquina virtual tiver vários adaptadores de rede, todos deverão estar conectados à mesma rede do Azure.
      * **Sub-rede** Para cada adaptador de rede na máquina virtual, selecione a sub-rede na rede do Azure à qual a máquina deve se conectar após o failover.
      * **Endereço IP de destino**: se o adaptador de rede da máquina virtual de origem estiver configurado para usar um endereço IP estático, você poderá especificar o endereço IP da máquina virtual de destino para garantir que a máquina tenha o mesmo endereço IP após o failover.  Se você não especificar um endereço IP, qualquer endereço disponível no momento será atribuído durante o failover. Se você especificar um endereço que está sendo usado, o failover falhará.
 
-     > [!NOTE] 
+     > [!NOTE]
      > [Migração de redes](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
      >
 
@@ -286,6 +286,6 @@ Depois que a implantação é configurada e está em funcionamento, [saiba mais]
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

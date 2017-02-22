@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -56,9 +56,9 @@ O próximo tutorial na série implanta o front-end do SPA na nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * API Web do ASP.NET ‒ as instruções do tutorial pressupõem que você tenha um conhecimento básico de como trabalhar com a [API Web 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) do ASP.NET no Visual Studio.
-* Conta do Azure ‒ você pode [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Conta do Azure ‒ você pode [Abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ou [Ativar benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — **sem exigência de cartão de crédito**e sem compromisso.
+    Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/). Lá, você poderá criar imediatamente um aplicativo de curta duração inicial no Serviço de Aplicativo — **sem exigência de cartão de crédito**e sem compromisso.
 * Visual Studio 2015 com o [SDK do Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/) ‒ o SDK instalará automaticamente o Visual Studio 2015 se você ainda não o tiver.
   
   * No Visual Studio, clique em Ajuda -> Sobre o Microsoft Visual Studio e verifique se você tem "Ferramentas do Serviço de Aplicativo do Azure v2.9.1" ou superior instalado.
@@ -442,6 +442,6 @@ O modelo de projeto **Aplicativo de API do Azure** é equivalente a escolher o m
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

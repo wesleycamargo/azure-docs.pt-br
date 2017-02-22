@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: b0046511f1a56cd72423bbbcfb5bf1e17e60ce5b
-ms.openlocfilehash: 15147a201fa053e72a840294ade4ccb6197c78ac
+ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
+ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
 
 ---
 
@@ -42,7 +42,7 @@ O Gerenciador de Recursos do Azure permite que você provisione seus aplicativos
 
 Modelos podem incluir definições para máquinas virtuais, redes virtuais, conjuntos de disponibilidade, NICs (Interfaces de Rede), contas de armazenamento, balanceadores de carga, grupos de segurança de rede e IPs públicos. Com os modelos, você pode criar tudo o que precisa para um aplicativo complexo. O arquivo de modelo pode ser inserido no sistema de gerenciamento de conteúdo para controle de versão e colaboração.
 
-[Saiba mais sobre modelos](../resource-manager-template-walkthrough.md)
+[Saiba mais sobre modelos](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
 [Saiba mais sobre recursos de rede](../virtual-network/resource-groups-networking.md)
 
@@ -71,6 +71,6 @@ Saiba como gerenciar [tempo limite de TCP ocioso para um balanceador de carga](l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

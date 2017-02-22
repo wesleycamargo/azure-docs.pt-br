@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 5acff25cca5d549541a8cd68f76e1736c1ed0cb0
+ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
+ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
 
 
 ---
 # <a name="azure-active-directory-code-samples"></a>Exemplos de código do Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Você pode usar o Active Directory do Microsoft Azure (AD do Azure) para adicionar autenticação e autorização a aplicativos da Web e APIs da Web. Esta seção leva a exemplos de código que mostram como isso é feito, bem como trechos de código que você pode usar em seus aplicativos. Na página de exemplo de código, você encontrará tópicos de leitura detalhados que ajudam nos requisitos, instalação e configuração. E o código é comentado para ajudá-lo a entender as seções críticas.
+Você pode usar o Active Directory do Microsoft Azure (AD do Azure) para adicionar autenticação e autorização a aplicativos da Web e APIs da Web. Esta seção leva você a exemplos que mostram como isso é feito, bem como a trechos de código que podem ser usados em seus aplicativos. Na página de exemplo de código, você encontrará tópicos de leitura detalhados que ajudam nos requisitos, instalação e configuração. E o código é comentado para ajudá-lo a entender as seções críticas.
 
 Para entender o cenário básico para cada tipo de exemplo, consulte Cenários de Autenticação do Azure AD.
 
-Contribua com nossos exemplos no GitHub: [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/Azure-Samples?query=active-directory).
+Contribua com nossos exemplos no GitHub: [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
 ## <a name="web-browser-to-web-application"></a>Navegador da Web para o aplicativo Web
 Estes exemplos mostram como escrever um aplicativo Web que direciona o navegador do usuário para entrar no AD do Azure.
@@ -133,7 +133,6 @@ Essas orientações usam tecnologia ligeiramente mais antiga, mas ainda podem se
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

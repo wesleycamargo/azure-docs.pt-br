@@ -299,6 +299,6 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

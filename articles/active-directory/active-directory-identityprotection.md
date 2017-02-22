@@ -6,39 +6,56 @@ keywords: "azure active directory identity protection, cloud app discovery, gere
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: ffc64fc0469cd3588d6d13524411575b423ab4e5
-ms.openlocfilehash: 8672cf1e90bafc370a24a2d00c25926f3fe7b50e
+ms.sourcegitcommit: 7bedcd3d61fd4aa9d34ac5de4fbec0e39e3c0011
+ms.openlocfilehash: 4476e3d3e8fe18cadefc6a49a4b896f1106433e2
 
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
-O Azure Active Directory Identity Protection é um recurso da edição Azure AD Premium P2 que oferece uma exibição consolidada dos eventos de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A Microsoft tem protegido identidades baseadas em nuvem há mais de uma década e, com o Azure AD Identity Protection, ela está disponibilizando esses mesmos sistemas de proteção para os clientes empresariais. O Identity Protection aproveita os recursos de detecção de anomalias existentes do Azure AD (disponíveis por meio dos Relatórios de Atividade Anômala do Azure AD) e apresenta novos tipos de evento de risco que pode detectar anomalias em tempo real.
+
+O Azure Active Directory Identity Protection é um recurso da edição Premium P2 do Azure AD que permite a você:
+
+- Detectar possíveis vulnerabilidades que afetam as identidades da organização
+
+- Configurar respostas automatizadas para ações suspeitas detectadas que se relacionem com as identidades da sua organização  
+
+- Investigar incidentes suspeitos e tomar as devidas providências para resolvê-los   
+
 
 ## <a name="getting-started"></a>Introdução
-A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Os invasores têm se tornado cada vez mais eficazes em aproveitar as violações de terceiros e usar ataques de phishing sofisticados. Depois que um invasor obtém acesso até mesmo a uma conta de usuário com privilégios baixos, é relativamente fácil para ele conseguir acessar recursos importantes da empresa por meio de movimentação lateral. Portanto, é essencial proteger todas as identidades e, quando uma identidade é comprometida, evitar proativamente que a identidade comprometida seja utilizada de maneira abusiva.
 
-Descobrir identidades comprometidas não é uma tarefa fácil. Felizmente, o Identity Protection pode ajudar. O Identity Protection usa algoritmos de aprendizado de máquina adaptáveis e heurística para detectar anomalias e eventos de risco que podem indicar que uma identidade foi comprometida.
+A Microsoft protege identidades baseadas em nuvem há mais de uma década. Com o Azure Active Directory Identity Protection, você pode usar os mesmos sistemas de proteção em seu ambiente que a Microsoft usa para proteger as identidades.
 
-Usando esses dados, o Identity Protection gera relatórios e alertas que permitem investigar tais eventos de risco e tomar as devidas ações de mitigação ou correção.
+A grande maioria das violações de segurança ocorre quando os invasores conseguem acessar a um ambiente roubando a identidade de um usuário. Nos últimos anos, os invasores têm se tornado cada vez mais eficazes em aproveitar as violações de terceiros e usar ataques de phishing sofisticados. Assim que um invasor obtém acesso até mesmo a uma conta de usuário com privilégios baixos, é relativamente fácil para ele conseguir acessar recursos importantes da empresa por meio de movimentação lateral.
 
-Contudo, o Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Baseando-se em eventos de risco, o Identity Protection calcula um nível de risco para cada usuário, permitindo a você definir políticas baseadas em risco para proteger automaticamente as identidades da sua organização.  Essas políticas baseadas em risco, entre outros controles de acesso condicional fornecidos pelo Azure Active Directory e pelo EMS, podem bloquear automaticamente ou oferecer ações de correção adaptáveis que incluem redefinições de senha e a imposição de autenticação multifator.  
+Como consequência, você precisa:
 
-#### <a name="explore-identity-protections-capabilities"></a>Explore as funcionalidades do Identity Protection
-**Detecção de eventos de risco e contas arriscadas:**  
+- Proteger todas as identidades, independentemente do nível de privilégio 
 
-* Detecção de seis tipos de evento de risco usando regras de aprendizado de máquina e heurística
-* Calcular os níveis de risco do usuário
+- Agir proativamente para evitar o uso de identidades comprometidas
+
+Descobrir identidades comprometidas não é uma tarefa fácil. O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar anomalias e incidentes suspeitos que indicam identidades potencialmente comprometidas. Usando esses dados, o Identity Protection gera relatórios e alertas que permitem avaliar os problemas detectados e tomar as devidas ações de mitigação ou correção.
+
+O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Para proteger as identidades da sua organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado foi alcançado. Essas políticas, entre outros controles de acesso condicional fornecidos pelo Azure Active Directory e pelo EMS, podem bloquear ou iniciar automaticamente ações de correção adaptáveis que incluem redefinições de senha e a imposição de autenticação multifator.
+
+
+#### <a name="identity-protection-capabilities"></a>Recursos do Identity Protection
+
+**Detecção de vulnerabilidades e contas de risco:**  
+
 * Fornecer recomendações personalizadas para melhorar a postura de segurança geral ao realçar as vulnerabilidades
+* Calcular os níveis de risco de entrada
+* Calcular os níveis de risco do usuário
+
 
 **Investigação dos eventos de risco:**
 
@@ -53,23 +70,17 @@ Contudo, o Azure Active Directory Identity Protection é mais do que apenas uma 
 * Política para bloquear ou proteger contas de usuário arriscadas
 * Política para exigir o registro para autenticação multifator
 
-## <a name="detection-and-risk"></a>Detecção e Risco
+## <a name="detection"></a>Detecção
+
+### <a name="vulnerabilities"></a>Vulnerabilidades
+
+O Azure Active Directory Identity Protection analisa sua configuração e detecta vulnerabilidades que podem ter impacto nas identidades do usuário. Para saber mais, confira [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md). 
+
 ### <a name="risk-events"></a>Eventos de risco
-Eventos de risco são eventos que foram marcados como suspeitos pelo Identity Protection e indicam que uma identidade pode ter sido comprometida. Para obter uma lista completa de eventos de risco, confira [Tipos de eventos de risco detectados pelo Azure Active Directory](active-directory-identityprotection-risk-events-types.md).
 
-### <a name="risk-level"></a>Nível de risco
-O Nível de risco de um evento de risco é uma indicação (Alta, Média ou Baixa) da severidade do evento de risco. O nível de risco ajuda os usuários do Identity Protection a priorizarem as ações que devem ser executadas para reduzir os riscos para sua organização. A severidade do evento de risco representa a intensidade do sinal como um indicador de comprometimento da identidade combinado com a quantidade de ruído que ela normalmente apresenta.
+O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar ações suspeitas relacionadas a identidades do usuário. O sistema cria um registro para cada ação suspeita detectada. Esses registros também são conhecidos como eventos de risco.  
+Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
-* **Alta**: alta confiabilidade e evento de risco de alta severidade. Esses eventos são fortes indicadores de que a identidade do usuário foi comprometida e as contas de usuário afetadas devem ser corrigidas imediatamente.
-* **Média**: severidade alta, porém com evento de risco de baixa confiabilidade ou vice-versa. Esses eventos são potencialmente arriscados e quaisquer contas de usuário afetadas devem ser corrigidas.
-* **Baixa**: baixa confiabilidade e evento de risco de baixa severidade. Esse evento pode não exigir uma ação imediata, porém quando combinado com outros eventos de risco, pode fornecer uma forte indicação de que a identidade está comprometida.
-
-![Nível de Risco](./media/active-directory-identityprotection/01.png "Nível de Risco")
-
-Eventos de risco ou são identificados em **tempo real**ou no pós-processamento depois que o evento de risco já ocorreu (offline). Atualmente a maioria dos eventos de risco do Identity Protection é computada offline e aparece no Identity Protection dentro de duas a quatro horas.
-Embora sejam avaliados em tempo real, os eventos de risco em tempo real aparecerão no Console do Identity Protection dentro de cinco a 10 minutos.
-
-Vários clientes herdados não dão suporte à detecção e prevenção de eventos de risco em tempo real atualmente. Como resultado, entradas desses clientes não podem ser detectadas ou prevenidas em tempo real.
 
 ## <a name="investigation"></a>Investigação
 Sua jornada pelo Identity Protection normalmente inicia no Painel do Identity Protection.
@@ -87,10 +98,109 @@ Você pode vincular suas atividades de investigação para as [notificações](a
 
 As seções a seguir fornecerão mais detalhes e as etapas que estão relacionadas a uma investigação.  
 
-## <a name="what-is-a-user-risk-level"></a>O que é um nível de risco do usuário?
-Um nível de risco do usuário é uma indicação (Alta, Média ou Baixa) da probabilidade de que a identidade do usuário foi comprometida. Ele é calculado com base nos eventos de risco do usuário associados à identidade do usuário.
 
-O status de um evento de risco é **Ativo** ou **Fechado**. Somente eventos de risco **Ativos** contribuem para o cálculo de risco do usuário.
+## <a name="risky-sign-ins"></a>Entradas de risco
+
+O Azure Active Directory detecta alguns [tipos de evento de risco](active-directory-identity-protection-risk-events.md#risk-event-types) em tempo real. Todos os eventos de risco em tempo real que foram detectados durante a entrada de um usuário contribuem para um conceito lógico chamado *entrada de risco*. Uma entrada de risco é um indicador de uma tentativa de logon que pode não ter sido realizada pelo proprietário legítimo de uma conta de usuário. O ciclo de vida de uma entrada de risco termina quando um usuário sai.
+
+### <a name="sign-in-risk-level"></a>Nível de risco de entrada
+
+Um nível de risco de entrada é uma indicação (alta, média ou baixa) da probabilidade de uma tentativa de logon não ter sido executada pelo proprietário legítimo de uma conta de usuário. 
+
+### <a name="mitigating-sign-in-risk-events"></a>Mitigação de eventos de risco de entrada
+
+Uma mitigação é uma ação que visa limitar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometidos sem restaurá-los para um estado seguro. Uma mitigação não resolve eventos de risco de entrada anteriores associados à identidade ou ao dispositivo.
+
+Para atenuar as entradas de risco automaticamente, você pode configurar políticas de segurança de entradas de risco. Ao usar essas políticas, considere o nível de risco do usuário ou da entrada para bloquear entradas arriscadas ou exigir que o usuário realize a autenticação multifator. Essas ações podem impedir que um invasor explore uma identidade roubada para causar danos, fazendo você ganhar algum tempo para proteger a identidade.
+
+### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
+Uma política de segurança de risco de entrada é uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas.
+
+![Política de risco de entrada](./media/active-directory-identityprotection/1014.png "Política de risco de entrada")
+
+O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arriscadas, permitindo:
+
+* Defina os usuários e os grupos aos quais a política se aplica:
+
+    ![Política de risco de entrada](./media/active-directory-identityprotection/1015.png "Política de risco de entrada")
+* Defina o limite de nível de risco da entrada (baixo, médio ou alto) que dispara o bloqueio de um usuário:
+
+    ![Política de risco de entrada](./media/active-directory-identityprotection/1016.png "Política de risco de entrada")
+* Defina os controles a serem impostos quando a política for disparada:  
+
+    ![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
+* Alterne o estado de sua política:
+
+    ![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
+* Examine e avalie o impacto de uma alteração antes de ativá-la:
+
+    ![Política de risco de entrada](./media/active-directory-identityprotection/1018.png "Política de risco de entrada")
+
+#### <a name="what-you-need-to-know"></a>O que você precisa saber
+Você pode configurar uma política de segurança de risco de entrada para exigir autenticação multifator:
+
+![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
+
+No entanto, por motivos de segurança, essa configuração só funciona para usuários que já foram registrados na autenticação multifator. Se a condição de exigir autenticação multifator for atendida por um usuário que ainda não está registrado na autenticação multifator, ele será bloqueado.
+
+Como prática recomendada, se você quiser exigir a autenticação multifator para entradas de risco:
+
+1. Habilite a [política de registro de autenticação multifator](#multi-factor-authentication-registration-policy) para os usuários afetados.
+2. Exija que os usuários afetados façam logon em uma sessão sem risco para realizar um registro MFA
+
+A conclusão dessas etapas faz com que a autenticação multifator seja exigida em caso de entrada de risco.
+
+#### <a name="best-practices"></a>Práticas recomendadas
+Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.  
+
+No entanto, isso exclui entradas sinalizadas com **Baixo** e **Médio** risco da política, o que pode não impedir que um invasor explore uma identidade comprometida.
+
+Ao definir a política,
+
+* exclua os usuários que não tem / não podem ter a autenticação multifator
+* exclua os usuários em localidades em que não é viável habilitar a política (por exemplo, sem acesso à assistência técnica)
+* exclua os usuários que tendem a gerar muitos falsos positivos (desenvolvedores e analistas de segurança)
+* use um limite **Alto** durante a distribuição inicial de política ou se você precisar minimizar os desafios encontrados pelos usuários finais.
+* Use um limite **Baixo** se sua organização exigir uma segurança maior. Selecionar um limite **Baixo** apresenta desafios de entrada do usuário adicionais, porém representa uma segurança maior.
+
+O padrão recomendado na maioria das organizações é configurar uma regra para um limite **Médio** para atingir um equilíbrio entre segurança e usabilidade.
+
+A política de risco de entrada:
+
+* é aplicada a todo o tráfego do navegador e entradas que usam autenticação moderna.
+* Não é aplicada a aplicativos que usam protocolos de segurança mais antigos desabilitando o ponto de extremidade WS-Trust no IDP federado, como o ADFS.
+
+A página **Eventos de Risco** no console do Identity Protection lista todos os eventos:
+
+* aos quais essa política se aplica
+* para os quais você pode examinar a atividade e determinar se a ação foi apropriada ou não
+
+Para obter uma visão geral da experiência do usuário relacionada, confira:
+
+* [Recuperação de entrada arriscada](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+* [Entrada arriscada bloqueada](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
+* [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
+
+**Para abrir o diálogo de configurações relacionadas**:
+
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de entrada de risco**.
+
+    ![Política do usuário ridk](./media/active-directory-identityprotection/1014.png "Política do usuário ridk")
+
+
+
+## <a name="users-flagged-for-risk"></a>Usuários sinalizados por risco
+
+Todos os [eventos de risco](active-directory-identity-protection-risk-events.md) que foram detectados pelo Azure Active Directory para um usuário contribuem para um conceito lógico chamado *usuários sinalizados como de risco*. Um *usuário sinalizado como de risco* ou um *usuário arriscado* é um indicador de uma conta de usuário que pode ter sido comprometida.   
+
+![Usuários sinalizados por risco](./media/active-directory-identityprotection/1200.png)
+
+
+### <a name="user-risk-level"></a>Nível de risco do usuário
+
+Um nível de risco do usuário é uma indicação (Alta, Média ou Baixa) da probabilidade de que a identidade do usuário foi comprometida. Ele é calculado com base nos eventos de risco do usuário associados a uma identidade do usuário.
+
+O status de um evento de risco é **Ativo** ou **Fechado**. Somente eventos de risco **Ativos** contribuem para o cálculo de nível de risco do usuário.
 
 O nível de risco do usuário é calculado usando as seguintes entradas:
 
@@ -98,11 +208,12 @@ O nível de risco do usuário é calculado usando as seguintes entradas:
 * Nível de risco desses eventos
 * Se foram tomadas ações de correção
 
-![Riscos de usuário](./media/active-directory-identityprotection/1001.png "Riscos de usuário")
+![Riscos de usuário](./media/active-directory-identityprotection/1031.png "Riscos de usuário")
 
-Você pode usar os níveis de risco do usuário para criar políticas de acesso condicional a fim de impedir que usuários arriscados entrem ou forçá-los a alterar sua senha com segurança.
+Você pode usar os níveis de risco do usuário para criar políticas de acesso condicional que bloqueiam a entrada de usuários arriscados ou os obrigue a alterar sua senha com segurança.
 
-## <a name="closing-risk-events-manually"></a>Fechar eventos de risco manualmente
+### <a name="closing-risk-events-manually"></a>Fechar eventos de risco manualmente
+
 Na maioria dos casos, você tomará ações de correção, como uma redefinição de senha de segurança, para fechar automaticamente os eventos de risco. No entanto, isso nem sempre é possível.  
 É o caso, por exemplo, quando:
 
@@ -138,7 +249,8 @@ Em vez de fechar manualmente os eventos de risco de um usuário de forma individ
 
 Quando você clica em **Descartar todos os eventos**, todos os eventos são fechados e o usuário afetado não está mais em risco.
 
-## <a name="remediating-user-risk-events"></a>Corrigir eventos de risco do usuário
+### <a name="remediating-user-risk-events"></a>Corrigir eventos de risco do usuário
+
 Uma correção é uma ação que visa proteger uma identidade ou um dispositivo que já sofreu comprometimento conhecido ou suspeito anteriormente. Uma correção restaura a identidade ou dispositivo para um estado seguro e resolve eventos de risco anteriores associados à identidade ou ao dispositivo.
 
 Para corrigir os eventos de risco do usuário, você pode:
@@ -147,7 +259,7 @@ Para corrigir os eventos de risco do usuário, você pode:
 * configurar uma política de segurança de risco do usuário para mitigar ou corrigir eventos de risco do usuário automaticamente
 * recriar imagem no dispositivo infectado  
 
-### <a name="manual-secure-password-reset"></a>Redefinição de senha de segurança manual
+#### <a name="manual-secure-password-reset"></a>Redefinição de senha de segurança manual
 Uma redefinição de senha de segurança é uma correção eficiente para muitos eventos de risco e quando executada, automaticamente fecha esses eventos de risco e recalcula o nível de risco do usuário. Você pode usar o painel do Identity Protection para iniciar uma redefinição de senha para um usuário arriscado.
 
 A caixa de diálogo correspondente fornece dois métodos diferentes para redefinir uma senha:
@@ -170,7 +282,7 @@ A caixa de diálogo correspondente fornece dois métodos diferentes para redefin
 
     ![Redefinição de senha manual](./media/active-directory-identityprotection/1008.png "Redefinição de senha manual")
 
-## <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
+### <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
 Uma política de segurança de risco do usuário é uma política de acesso condicional que avalia o nível de risco de um usuário específico e aplica ações de correção e mitigação com base em regras e condições predefinidas.
 
 ![Política do usuário ridk](./media/active-directory-identityprotection/1009.png "Política do usuário ridk")
@@ -212,11 +324,11 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de usuário**.
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de usuário**.
 
     ![Política do usuário ridk](./media/active-directory-identityprotection/1009.png "Política do usuário ridk")
 
-## <a name="mitigating-user-risk-events"></a>Mitigar eventos de risco do usuário
+### <a name="mitigating-user-risk-events"></a>Mitigar eventos de risco do usuário
 Os administradores podem definir uma política de segurança de risco do usuário para bloquear os usuários ao entrar dependendo do nível de risco.
 
 Bloquear a entrada:
@@ -224,87 +336,7 @@ Bloquear a entrada:
 * impede a geração de novos eventos de risco do usuário para o usuário afetado
 * Permite aos administradores corrigir os eventos de risco que afetam a identidade do usuário manualmente, bem como restaurá-la para um estado seguro
 
-## <a name="what-is-a-sign-in-risk-level"></a>O que é um nível de risco de entrada?
-Um nível de risco de entrada é uma indicação (Alta, Média ou Baixa) da probabilidade de que outra pessoa esteja tentando autenticar com a identidade do usuário. O nível de risco de entrada é avaliado na hora do logon e considera os eventos de risco e indicadores detectados em tempo real dessa entrada específica.
 
-## <a name="mitigating-sign-in-risk-events"></a>Mitigação de eventos de risco de entrada
-Uma mitigação é uma ação que visa limitar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometidos sem restaurá-los para um estado seguro. Uma mitigação não resolve eventos de risco de entrada anteriores associados à identidade ou ao dispositivo.
-
-Você pode usar o acesso condicional no Azure AD Identity Protection para mitigar automaticamente os eventos de risco de entrada. Ao usar essas políticas, considere o nível de risco do usuário ou da entrada para bloquear entradas arriscadas ou exigir que o usuário realize a autenticação multifator. Essas ações podem impedir que um invasor explore uma identidade roubada para causar danos, fazendo você ganhar algum tempo para proteger a identidade.
-
-## <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
-Uma política de segurança de risco de entrada é uma política de acesso condicional que avalia o risco de uma entrada específica e aplica mitigações com base em regras e condições predefinidas.
-
-![Política de risco de entrada](./media/active-directory-identityprotection/1014.png "Política de risco de entrada")
-
-O Azure AD Identity Protection ajuda a gerenciar a mitigação de entradas arriscadas, permitindo:
-
-* Defina os usuários e os grupos aos quais a política se aplica:
-
-    ![Política de risco de entrada](./media/active-directory-identityprotection/1015.png "Política de risco de entrada")
-* Defina o limite de nível de risco da entrada (baixo, médio ou alto) que dispara o bloqueio de um usuário:
-
-    ![Política de risco de entrada](./media/active-directory-identityprotection/1016.png "Política de risco de entrada")
-* Defina os controles a serem impostos quando a política for disparada:  
-
-    ![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
-* Alterne o estado de sua política:
-
-    ![Registro de MFA](./media/active-directory-identityprotection/403.png "Registro de MFA")
-* Examine e avalie o impacto de uma alteração antes de ativá-la:
-
-    ![Política de risco de entrada](./media/active-directory-identityprotection/1018.png "Política de risco de entrada")
-
-### <a name="what-you-need-to-know"></a>O que você precisa saber
-Você pode configurar uma política de segurança de risco de entrada para exigir autenticação multifator:
-
-![Política de risco de entrada](./media/active-directory-identityprotection/1017.png "Política de risco de entrada")
-
-No entanto, por motivos de segurança, essa configuração só funciona para usuários que já foram registrados na autenticação multifator. Se a condição de exigir autenticação multifator for atendida por um usuário que ainda não está registrado na autenticação multifator, ele será bloqueado.
-
-Como prática recomendada, se você quiser exigir a autenticação multifator para entradas de risco:
-
-1. Habilite a [política de registro de autenticação multifator](#multi-factor-authentication-registration-policy) para os usuários afetados.
-2. Exija que os usuários afetados façam logon em uma sessão sem risco para realizar um registro MFA
-
-A conclusão dessas etapas faz com que a autenticação multifator seja exigida em caso de entrada de risco.
-
-### <a name="best-practices"></a>Práticas recomendadas
-Escolher um limite **Alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.  
-
-No entanto, isso exclui entradas sinalizadas com **Baixo** e **Médio** risco da política, o que pode não impedir que um invasor explore uma identidade comprometida.
-
-Ao definir a política,
-
-* exclua os usuários que não tem / não podem ter a autenticação multifator
-* exclua os usuários em localidades em que não é viável habilitar a política (por exemplo, sem acesso à assistência técnica)
-* exclua os usuários que tendem a gerar muitos falsos positivos (desenvolvedores e analistas de segurança)
-* use um limite **Alto** durante a distribuição inicial de política ou se você precisar minimizar os desafios encontrados pelos usuários finais.
-* Use um limite **Baixo** se sua organização exigir uma segurança maior. Selecionar um limite **Baixo** apresenta desafios de entrada do usuário adicionais, porém representa uma segurança maior.
-
-O padrão recomendado na maioria das organizações é configurar uma regra para um limite **Médio** para atingir um equilíbrio entre segurança e usabilidade.
-
-A política de risco de entrada:
-
-* é aplicada a todo o tráfego do navegador e entradas que usam autenticação moderna.
-* Não é aplicada a aplicativos que usam protocolos de segurança mais antigos desabilitando o ponto de extremidade WS-Trust no IDP federado, como o ADFS.
-
-A página **Eventos de Risco** no console do Identity Protection lista todos os eventos:
-
-* aos quais essa política se aplica
-* para os quais você pode examinar a atividade e determinar se a ação foi apropriada ou não
-
-Para obter uma visão geral da experiência do usuário relacionada, confira:
-
-* [Recuperação de entrada arriscada](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
-* [Entrada arriscada bloqueada](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
-* [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)  
-
-**Para abrir o diálogo de configurações relacionadas**:
-
-1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de entrada de risco**.
-
-    ![Política do usuário ridk](./media/active-directory-identityprotection/1014.png "Política do usuário ridk")
 
 ## <a name="multi-factor-authentication-registration-policy"></a>Política de registro de autenticação multifator
 A autenticação multifator do Azure é um método de verificar quem você é e que requer o uso de mais do que apenas um nome de usuário e uma senha. Ele fornece uma segunda camada de segurança para logons de usuário e transações.  
@@ -339,24 +371,33 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 **Para abrir o diálogo de configurações relacionadas**:
 
-1. Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Registro de autenticação multifator**.
+- Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Registro de autenticação multifator**.
 
     ![Política de MFA](./media/active-directory-identityprotection/1019.png "Política de MFA")
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Canal 9: Azure AD e Identity Show: visualização do Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-* [Tipos de eventos de risco detectados pelo Azure Active Directory](active-directory-identityprotection-risk-events-types.md)
-* [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
-* [Notificações do Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
-* [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
-* [Glossário do Azure Active Directory Identity Protection.](active-directory-identityprotection-glossary.md)
-* [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Habilitando o Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+
+* [Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
+
+* [Eventos de risco do Azure Active Directory](active-directory-identity-protection-risk-events.md)
+
+* [Notificações do Azure Active Directory Identity Protection](active-directory-identityprotection-notifications.md)
+
+* [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md)
+
+* [Glossário do Azure Active Directory Identity Protection.](active-directory-identityprotection-glossary.md)
+
+* [Experiências de entrada com o Azure AD Identity Protection](active-directory-identityprotection-flows.md)
+
 * [Azure Active Directory Identity Protection - como desbloquear usuários](active-directory-identityprotection-unblock-howto.md)
+
 * [Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

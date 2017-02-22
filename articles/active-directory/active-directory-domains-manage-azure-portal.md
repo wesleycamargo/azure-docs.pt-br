@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/12/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2751b3bdc890fee15d1976de961c2032b9ced2e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9dd64868be0899ebfc6414e0dc9e6e62d864e88e
 
 
 ---
@@ -39,7 +39,7 @@ Quando o diretório é criado, o nome de domínio inicial, como 'contoso.onmicro
 Você pode alterar o nome de domínio primário para o seu diretório para qualquer domínio personalizado verificado não federado. Alterar o domínio primário para o seu diretório não alterará os nomes de usuário para usuários existentes.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad"></a>Adicionar nomes de domínio personalizados ao Azure AD
-Você pode adicionar até 900 nomes de domínio personalizados para cada diretório do Azure AD. O processo para [adicionar mais um nome de domínio personalizado](active-directory-domains-add-azure-portal.md) é o mesmo para o primeiro nome de domínio personalizado.
+Você pode adicionar até 900 nomes de domínio personalizados para cada diretório do Azure AD. O processo para [adicionar um nome de domínio personalizado adicional](active-directory-domains-add-azure-portal.md) é o mesmo para o primeiro nome de domínio personalizado.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adicionar subdomínios de um domínio personalizado
 Se você quiser adicionar um nome de domínio de terceiro nível como 'europe.contoso.com' ao seu diretório, deverá primeiro adicionar e verificar o domínio de segundo nível, como contoso.com. O subdomínio será verificado automaticamente pelo Azure AD. Para conferir se o subdomínio que você acabou de adicionar foi verificado, atualize no navegador a página que lista os domínios.
@@ -70,6 +70,6 @@ A maioria das tarefas de gerenciamento para nomes de domínio no Azure Active Di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

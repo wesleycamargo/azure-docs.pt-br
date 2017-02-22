@@ -31,7 +31,7 @@ sql-database-service-tiers.md
 | Máximo de eDTUs por banco de dados | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
-### <a name="standard-elastic-pool-limits-continued-"></a>Limites de pool elástico Standard (continuação) **
+### <a name="standard-elastic-pool-limits-continued"></a>Limites de pool elástico Standard (continuação) 
 
 | Tamanho do pool (eDTUs)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
@@ -57,7 +57,7 @@ sql-database-service-tiers.md
 | Máximo de eDTUs por banco de dados | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000,1500} |  
 ||||||||
 
-### <a name="premium-elastic-pool-limits-continued-"></a>Limites de pool elástico Premium (continuação) **
+### <a name="premium-elastic-pool-limits-continued"></a>Limites de pool elástico Premium (continuação) 
 
 | Tamanho do pool (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
@@ -70,11 +70,10 @@ sql-database-service-tiers.md
 | Máximo de eDTUs por banco de dados | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* O banco de dados elástico compartilha o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados
-
-\** O tamanho do pool de eDTU 3000 para um pool Elástico Standard e o tamanho do pool de eDTU 4000 para um pool Elástico Premium atualmente só estão disponíveis por meio do PowerShell e da API REST. Esses tamanhos de pool em breve estarão disponíveis no portal do Azure. 
+\* Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados. O armazenamento máximo por pool refere-se ao máximo de armazenamento dos arquivos de dados no pool e não inclui o espaço usado pelos arquivos de log.
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

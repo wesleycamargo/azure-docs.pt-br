@@ -1,10 +1,10 @@
 ---
 title: Analisar o uso de dados no Log Analytics | Microsoft Docs
-description: "Você pode usar a página Uso no Log Analytics para exibir quantos dados estão sendo enviados para o serviço do OMS."
+description: "Você pode usar o painel Uso no Log Analytics para exibir quantos dados estão sendo enviados para o serviço do OMS."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
@@ -12,66 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
 
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
-O Log Analytics no OMS (Operations Management Suite) coleta dados e os envia para o serviço do OMS periodicamente.  Você pode usar a página **Uso** para exibir quantos dados estão sendo enviados para o serviço do OMS. O painel **Uso** também mostra quantos dados estão sendo enviados diariamente pelas soluções e com que frequência seus servidores estão enviando dados.
+O Log Analytics coleta dados e os envia ao serviço OMS periodicamente.  Você pode usar o painel **Uso do Log Analytics** para exibir quantos dados estão sendo enviados ao serviço OMS. O painel também mostra quantos dados estão sendo enviados pelas soluções e com que frequência seus servidores estão enviando dados.
 
 > [!NOTE]
-> Se você tiver uma conta gratuita criada usando o [site da Web do OMS](http://www.microsoft.com/oms), estará limitado a enviar 500 MB de dados para o serviço de OMS diariamente. Se você atingir o limite diário, a análise de dados parará e será retomada no início do dia seguinte. Você também precisará reenviar os dados não foi aceito ou processados pelo OMS.
-> 
-> 
+> Se tiver uma conta gratuita, você estará limitado ao envio de 500 MB de dados para o serviço OMS diariamente. Se você atingir o limite diário, a análise de dados será parada e reiniciada no início do dia seguinte. Nesse caso, você precisará reenviar os dados não foi aceito ou processados pelo OMS.
 
-Você pode exibir seu uso com o bloco **Uso** no painel **Visão Geral** do OMS.
+Se tiver excedido ou estiver próximo do limite de uso diário, opcionalmente, você poderá remover uma solução para reduzir a quantidade de dados a serem enviados para o serviço OMS. Para obter mais informações sobre como remover soluções, consulte [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).
 
-![bloco de uso](./media/log-analytics-usage/usage-tile.png)
+![painel de uso](./media/log-analytics-usage/usage-dashboard01.png)
 
-Se tiver excedido o limite de uso diário ou se estiver próximo do limite, você também poderá remover uma solução para reduzir a quantidade de dados enviados para o serviço do OMS. Para obter mais informações sobre como remover soluções, consulte [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).
+O painel **Uso de Log Analytics** exibe as seguintes informações:
 
-![painel de uso](./media/log-analytics-usage/usage-dashboard.png)
-
-A página **Uso** exibe as seguintes informações:
-
-* Uso médio por dia
-* Uso de dados para cada solução pelos últimos 30 dias
-* Quantos dados os servidores em seu ambiente estão enviado para o serviço do OMS nos últimos 30 dias
-* Seu tipo de preço de plano de dados e custo estimado
-* Informações sobre o SLA (Contrato de Nível de Serviço), incluindo quanto tempo o OMS leva para processar seus dados
+- Volume de dados
+    - Volume de dados ao longo do tempo (com base em seu escopo de tempo atual)
+    - Volume de dados por solução
+    - Dados não associados a um computador
+- Computadores
+    - Computadores enviando dados
+    - Computadores sem dados nas últimas 24 horas
+- Ofertas
+    - Nós Insight e de Análise
+    - Nós de automação e controle
+    - Nós de segurança
+- Desempenho
+    - Tempo necessário para coletar e indexar dados
+- Lista de consultas
 
 ## <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
-1. Na página **Visão Geral**, clique no bloco **Uso**.
-2. Na página **Uso** , exiba as categorias de uso que mostram as áreas com as quais você está preocupado.
-3. Se você tiver uma solução que está consumindo muito da sua cota de upload diário, será possível removê-la.
+1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
+2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
+    ![Hub do Azure](./media/log-analytics-usage/hub.png)
+3. O painel **Log Analytics** mostra uma lista dos espaços de trabalho. Selecione um espaço de trabalho.
+4. No painel *espaço de trabalho*, clique em **Uso do Log Analytics**.
+5. No painel **Uso do Log Analytics**, clique em **Tempo: últimas 24 horas** para alterar o intervalo de tempo.  
+    ![intervalo de tempo](./media/log-analytics-usage/time.png)
+6. Exiba as folhas de categoria de uso que mostram as áreas de seu interesse. Escolha uma folha e clique em um item para exibir mais detalhes em [Pesquisa de Log](log-analytics-log-searches.md).  
+    ![folha de uso de dados de exemplo](./media/log-analytics-usage/blade.png)
+7. No painel de Pesquisa de Log, examine os resultados que são retornados da pesquisa.  
+    ![pesquisa de log de uso de exemplo](./media/log-analytics-usage/usage-log-search.png)
 
-## <a name="to-view-your-estimated-cost-and-billing-information"></a>Para exibir o custo estimado e as informações de cobrança
-1. Na página **Visão Geral**, clique no bloco **Uso**.
-2. Na página **Uso** em **Uso**, clique na divisa (**>**) ao lado de **Custo estimado**.
-3. Nos detalhes de **Seu plano de dados** expandido, você pode ver sua estimativa de custo mensal.  
-    ![Seu plano de dados](./media/log-analytics-usage/usage-data-plan.png)
-4. Se você deseja exibir as informações de cobrança, clique em **Exibir minha cobrança** para exibir as informações da sua assinatura.
-   * Na página de assinaturas, clique na sua assinatura para exibir os detalhes e uma lista de item de uso.  
-       ![assinatura](./media/log-analytics-usage/usage-sub01.png)
-   * Na página Resumo da sua assinatura, você pode realizar uma variedade de tarefas para gerenciar e exibir mais detalhes da sua assinatura.  
-       ![detalhes da assinatura](./media/log-analytics-usage/usage-sub02.png)
-
-## <a name="to-view-data-batches-for-your-sla"></a>Para exibir os lotes de dados do seu SLA
-1. Na página **Visão Geral**, clique no bloco **Uso**.
-2. Em **Contrato de Nível de Serviço**, clique em **Detalhes para Baixar SLA **.
-3. Um arquivo XLSX do Excel é baixado para você examinar.  
-    ![Detalhes de SLA](./media/log-analytics-usage/usage-sla-details.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte as [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir as informações detalhadas reunidas pelas soluções.
+* Confira [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir informações detalhadas que são coletadas e enviadas ao OMS por recursos e soluções.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/30/2016
+ms.date: 01/11/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: fef0779516da808324d4080c532c830a8bace2cb
-ms.openlocfilehash: ac55559e3dd0312c679a5b2c43d93c1532330337
+ms.sourcegitcommit: 3e2ad6b466ba4885ae14576b83d4c0f3010bab67
+ms.openlocfilehash: 9782454e3bfc697b63cde8aa28a14be0c393c36b
 
 
 ---
@@ -30,7 +30,7 @@ A versão 3 do SDK do .NET do Azure Search contém algumas alterações de vers�
 > [!NOTE]
 > Se você estiver usando a visualização da versão 1.0.2 ou mais antiga, será necessário primeiro atualizar para a versão 1.1 e, em seguida, atualizar para a versão 3. Veja [Apêndice: Etapas para atualizar para a versão 1.1](#UpgradeStepsV1) para obter instruções.
 >
->
+> Sua instância de serviço do Azure Search dá suporte a várias versões da API REST, incluindo a última. Você pode continuar usando uma versão quando ela não for mais a última, mas aconselhamos a migrar seu código para usar a versão mais recente. Ao usar a API REST, você deve especificar a versão da API em cada solicitação por meio do parâmetro api-version. Ao usar o SDK do .NET, a versão do SDK que você está usando determina a versão correspondente da API REST. Se estiver usando um SDK mais antigo, você poderá continuar executando esse código sem alterações, mesmo se o serviço for atualizado para dar suporte a uma versão de API mais recente.
 
 <a name="WhatsNew"></a>
 
@@ -486,6 +486,6 @@ Para obter mais detalhes sobre esse bug e a correção, confira [esse problema n
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

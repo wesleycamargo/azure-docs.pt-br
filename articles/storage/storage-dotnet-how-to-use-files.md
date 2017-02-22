@@ -3,7 +3,7 @@ title: "Introdução ao Armazenamento de Arquivos do Azure no Windows | Microsof
 description: "Armazene dados de arquivos na nuvem com o armazenamento de Arquivos do Azure e monte seu compartilhamento de arquivos na nuvem de uma VM (máquina virtual) do Azure ou de um aplicativo local que executa o Windows."
 services: storage
 documentationcenter: .net
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/18/2016
-ms.author: minet
+/ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: af8f20beb8899ff1df733d1a4c544c75c6889ea6
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>Introdução ao Armazenamento de Arquivos do Azure no Windows
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ Para saber mais sobre as metas de escalabilidade e desempenho do Armazenamento d
 ## <a name="video-using-azure-file-storage-with-windows"></a>Vídeo: Usando o armazenamento de arquivos do Azure com o Windows
 Veja um vídeo que demonstra como criar e usar compartilhamentos de arquivos do Azure no Windows.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -118,7 +118,7 @@ O [Portal do Azure](https://portal.azure.com) fornece uma interface do usuário 
 Como alternativa, você pode usar o Azure PowerShell para criar e gerenciar compartilhamentos de arquivos.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Instalar os cmdlets do PowerShell para Armazenamento do Azure
-Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para obter o ponto e as instruções de instalação.
+Para se preparar para usar o PowerShell, baixe e instale os cmdlets do PowerShell do Azure. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para obter o ponto e as instruções de instalação.
 
 > [!NOTE]
 > É recomendável baixar e instalar ou atualizar para o módulo mais recente do PowerShell do Azure.
@@ -602,49 +602,61 @@ Além disso, você pode consultar o [artigo de Solução de problemas de arquivo
    
     Atualmente não damos suporte a autenticação baseada no AD ou em ACLs, mas a temos em nossa lista de solicitações de recursos. Por enquanto, as chaves de conta de armazenamento do Azure são usadas para permitir a autenticação de compartilhamento de arquivos. Oferecemos uma solução alternativa usando SAS (assinaturas de acesso compartilhado) pela API REST ou pelas bibliotecas de cliente. Com a SAS, você pode gerar tokens com permissões específicas que são válidas em um intervalo de tempo especificado. Por exemplo, você pode gerar um token de acesso somente leitura a um determinado arquivo. Qualquer pessoa que possua esse token enquanto for válido terá acesso somente leitura ao arquivo.
    
-    A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você monta o compartilhamento de arquivos por meio do protocolo SMB, não pode usar uma SAS para delegar acesso a seu conteúdo.
-2. **Os compartilhamentos de arquivo do Azure são visíveis publicamente na Internet ou somente podem ser acessados do Azure?**
-   
-    Desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, o Windows 8 ou o Windows Server 2012), o compartilhamento de arquivos está disponível por meio da Internet.  
-3. **O tráfego de rede entre uma máquina virtual do Azure e uma contagem de compartilhamento de arquivo conta como largura de banda externa cobrada na assinatura?**
+    A SAS tem suporte somente via API REST ou bibliotecas de cliente. Quando você monta o compartilhamento de arquivos por meio do protocolo SMB, não pode usar uma SAS para delegar acesso a seu conteúdo. 
+
+2. **Como pode fornecer acesso a um arquivo específico em um navegador da web?**
+   Com a SAS, você pode gerar tokens com permissões específicas que são válidas em um intervalo de tempo especificado. Por exemplo, você pode gerar um token de acesso somente leitura a um arquivo específico para um período de tempo específico. Qualquer pessoa que possua essa url pode realizar o download diretamente de qualquer navegador da web enquanto ele é válido. Chaves SAS podem ser facilmente geradas na interface do usuário como o Gerenciador de armazenamento.
+
+3.   **Quais são as diferentes maneiras de acessar arquivos no armazenamento de arquivo do Azure?**
+    Você pode montar o compartilhamento de arquivos em seu computador local usando o protocolo SMB 3.0 ou usar ferramentas como o [Gerenciador de armazenamento](http://storageexplorer.com/) ou Cloudberry para acessar os arquivos no compartilhamento de arquivo. Seu aplicativo, você pode usar bibliotecas de cliente, a API REST ou Powershell para acessar seus arquivos no compartilhamento de arquivos do Azure.
+    
+4.   **Como pode montar o compartilhamento de arquivos do Azure em Meu computador local?** Você pode montar o compartilhamento de arquivo por meio do protocolo SMB, desde que a porta 445 (TCP de saída) esteja aberta e o cliente dê suporte ao protocolo SMB 3.0 (*por exemplo,*, o Windows 8 ou o Windows Server 2012). Trabalhe com seu provedor ISP local para desbloquear a porta. Enquanto isso, você pode exibir os arquivos usando o Gerenciador de Armazenamento ou qualquer outro de terceiros, como Cloudberry.
+
+5. **O tráfego de rede entre uma máquina virtual do Azure e uma contagem de compartilhamento de arquivo conta como largura de banda externa cobrada na assinatura?**
    
     Se o compartilhamento de arquivos e a máquina virtual estiverem em regiões diferentes, o tráfego entre elas será cobrado como largura de banda externa.
-4. **Se o tráfego de rede estiver entre uma máquina virtual e um compartilhamento de arquivos na mesma região, ele será gratuito?**
+6. **Se o tráfego de rede estiver entre uma máquina virtual e um compartilhamento de arquivos na mesma região, ele será gratuito?**
    
     Sim. Será gratuito se o tráfego estiver na mesma região.
-5. **A conexão de máquinas virtuais locais ao armazenamento de arquivo do Azure depende da Rota Expressa do Azure?**
+7. **A conexão de máquinas virtuais locais ao armazenamento de arquivo do Azure depende da Rota Expressa do Azure?**
    
     Não. Se você não tiver a Rota Expressa, ainda poderá acessar o compartilhamento de arquivos do local, desde que a porta 445 (TCP de saída) esteja aberta para acesso à Internet. No entanto, se desejar, você pode usar a Rota Expressa com o armazenamento de arquivos.
-6. **Uma “testemunha de compartilhamento de arquivo” de um cluster de failover é um dos casos de uso para armazenamento de arquivo do Azure?**
+8. **Uma “testemunha de compartilhamento de arquivo” de um cluster de failover é um dos casos de uso para armazenamento de arquivo do Azure?**
    
     Não há suporte para isso no momento.
-7. **O armazenamento de arquivos é replicado somente via LRS ou GRS agora, certo?**  
+9. **O armazenamento de arquivos é replicado somente via LRS ou GRS agora, certo?**  
    
     Planejamos dar suporte a RA-GRS, mas ainda não há nenhum cronograma para compartilhar.
-8. **Quando posso usar contas de armazenamento existentes no armazenamento de arquivo do Azure?**
+10. **Quando posso usar contas de armazenamento existentes no armazenamento de arquivo do Azure?**
    
     O armazenamento de arquivos do Azure agora está habilitado para todas as contas de armazenamento.
-9. **Uma operação de renomeação também será adicionada à API REST?**
+11. **Uma operação de renomeação também será adicionada à API REST?**
    
     Ainda não há suporte para Renomear na nossa API REST.
-10. **Pode-se ter compartilhamentos aninhados, ou seja, um compartilhamento em outro compartilhamento?**
+12. **Pode-se ter compartilhamentos aninhados, ou seja, um compartilhamento em outro compartilhamento?**
     
     Não. O compartilhamento de arquivos é o driver virtual que você pode montar; portanto, não há suporte para compartilhamentos aninhados.
-11. **É possível especificar permissões somente leitura ou somente gravação em pastas no compartilhamento?**
+13. **É possível especificar permissões somente leitura ou somente gravação em pastas no compartilhamento?**
     
     Você não tem esse nível de controle sobre as permissões se montar o compartilhamento de arquivos via SMB. No entanto, você pode conseguir isso criando uma SAS (assinatura de acesso compartilhado) por meio de bibliotecas de API REST ou de cliente.  
-12. **O desempenho era lento durante a tentativa de descompactar arquivos no Armazenamento de Arquivos. O que devo fazer?**
+14. **O desempenho era lento durante a tentativa de descompactar arquivos no Armazenamento de Arquivos. O que devo fazer?**
     
     Para transferir grandes quantidades de arquivos para o armazenamento de arquivos, recomendamos que você use o AzCopy, o Azure Powershell (Windows) ou a CLI do Azure (Unix/Linux), já que essas ferramentas foram otimizadas para transferência de rede.
-13. **Patch lançado para corrigir o problema de desempenho lento com arquivos do Azure**
+15. **Patch lançado para corrigir o problema de desempenho lento com arquivos do Azure**
     
     A equipe do Windows lançou recentemente um patch para corrigir um problema de lentidão no desempenho quando o cliente acessa o Armazenamento de Arquivos do Azure no Windows 8.1 ou no Windows Server 2012 R2. Para saber mais, confira o artigo da base de dados associado, [Desempenho lento ao acessar o Armazenamento de Arquivos do Azure no Windows 8.1 ou Server 2012 R2](https://support.microsoft.com/en-us/kb/3114025).
-14. **Como usar o Armazenamento de Arquivos do Azure com o IBM MQ**
+16. **Como usar o Armazenamento de Arquivos do Azure com o IBM MQ**
     
     A IBM lançou um documento para orientar os clientes do IBM MQ durante a configuração do Armazenamento de Arquivos do Azure com seu serviço. Para saber mais, confira [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o Serviço de Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
-15. **Como solucionar problemas de erros do Armazenamento de Arquivos do Azure?**
+17. **Como solucionar problemas de erros do Armazenamento de Arquivos do Azure?**
     
     Consulte o [artigo de Solução de problemas de Arquivos do Azure](storage-troubleshoot-file-connection-problems.md) para obter diretrizes completas de solução de problemas.               
+
+18. **Como habilitar a criptografia no Servidor para arquivos do Azure?**
+
+    A [Criptografia no servidor](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) está atualmente em Visualização. Durante a visualização, o recurso só pode ser habilitado para contas de armazenamento do Azure Resource Manager (ARM) recém-criado.
+    Você pode habilitar esse recurso em conta de armazenamento do Azure Resource Manager usando o Portal do Azure. Planejamos ter [Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [CLI do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) ou [API de provedor de recursos de armazenamento do Microsoft Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) para habilitar a criptografia de armazenamento de arquivos pelo final de fevereiro. Não há nenhum custo adicional para habilitar esse recurso. Quando você habilita a Encriptação do Serviço de Armazenamento para o Armazenamento de Arquivos do Azure, os seus dados são automaticamente encriptados. 
+    Saiba mais sobre a Criptografia do Serviço de Armazenamento. Você também pode acessar ssediscussions@microsoft.com para outras perguntas sobre a visualização.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.
@@ -657,6 +669,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 * [Usando o PowerShell do Azure com o Armazenamento do Azure](storage-powershell-guide-full.md)
 * [Como usar o AzCopy com o Armazenamento do Microsoft Azure](storage-use-azcopy.md)
 * [Usando a CLI do Azure com o Armazenamento do Azure](storage-azure-cli.md#create-and-manage-file-shares)
+* [Solução de problemas do armazenamento de Arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referência
 * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -669,6 +682,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 * [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

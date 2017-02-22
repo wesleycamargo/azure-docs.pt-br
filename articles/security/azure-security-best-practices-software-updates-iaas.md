@@ -1,6 +1,6 @@
 ---
-title: "Práticas Recomendadas para as Atualizações de Software no IaaS do Microsoft Azure | Microsoft Docs"
-description: "O artigo fornece um conjunto de práticas recomendadas para atualizações de software em um ambiente do Microsoft Azure IaaS.  Destina-se a profissionais de TI e a analistas de segurança que lidam diariamente com controle de alterações, atualização de software e gerenciamento de ativos de informação, incluindo as pessoas responsáveis por iniciativas de segurança e de conformidade da organização."
+title: "Práticas recomendadas de atualizações de software para IaaS do Azure | Microsoft Docs"
+description: "Este artigo fornece um conjunto de práticas recomendadas para atualizações de software em um ambiente do Microsoft Azure IaaS.  Destina-se a profissionais de TI e a analistas de segurança que lidam diariamente com controle de alterações, atualização de software e gerenciamento de ativos de informação, incluindo as pessoas responsáveis por iniciativas de segurança e de conformidade da organização."
 services: security
 documentationcenter: na
 author: YuriDio
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c52a2d6be31b1a8f581313932c0af87120ccd9fe
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: 43d760ffcc108a70212e47ee8eab9ec2aca02a17
 
 
 ---
@@ -27,14 +27,14 @@ Antes de entrar em qualquer tipo de discussão sobre as práticas recomendadas p
 
 A coluna mais à esquerda mostra sete responsabilidades (definidas nas seções a seguir) que as organizações devem considerar, o que contribuem para a segurança e a privacidade de um ambiente de computação.
 
-Classificação de dados e responsabilidade e proteção de ponto de extremidade do cliente são as responsabilidades exclusivamente no domínio dos clientes, e as responsabilidades físicas, de host e rede estão no domínio de provedores de serviços de nuvem nos modelos de PaaS e o SaaS. 
+Classificação de dados e responsabilidade e proteção de ponto de extremidade do cliente são as responsabilidades exclusivamente no domínio dos clientes, e as responsabilidades físicas, de host e rede estão no domínio de provedores de serviços de nuvem nos modelos de PaaS e o SaaS.
 
 As responsabilidades restantes são compartilhadas entre clientes e provedores de serviço de nuvem. Algumas responsabilidades exigem que o CSP e o cliente gerenciem e administrem a responsabilidade, incluindo a auditoria de seus domínios. Por exemplo, considere a Gerenciamento de identidade e acesso ao usar os Serviços do Azure Active Directory; a configuração de serviços, como autenticação multifator depende do cliente, mas garantir a funcionalidade efetiva é responsabilidade do Microsoft Azure.
 
 > [!NOTE]
-> Para obter mais informações sobre responsabilidades compartilhadas na nuvem, leia [Responsabilidades compartilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) 
-> 
-> 
+> Para obter mais informações sobre responsabilidades compartilhadas na nuvem, leia [Responsabilidades compartilhadas para a computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf)
+>
+>
 
 Esses mesmos princípios se aplicam a um cenário híbrido em que sua empresa esteja usando as VMs de IaaS do Azure que se comunicam com recursos locais, conforme mostrado no diagrama a seguir.
 
@@ -110,7 +110,6 @@ Use as diretrizes descritas neste artigo para ajudar a determinar as melhores op
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

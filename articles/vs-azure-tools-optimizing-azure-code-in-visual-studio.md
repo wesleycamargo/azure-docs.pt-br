@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5306fc491e7b832c116e7bb8cc73a11ed77eed7
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
 
 
 ---
@@ -420,9 +420,9 @@ Use o designer de configuração de diagnóstico para mover as configurações d
 1. No menu de atalho da função que você deseja configurar, escolha Propriedades e, em seguida, escolha a guia Configuração.
 2. Na seção **Diagnóstico**, verifique se a caixa de seleção **Habilitar Diagnóstico** está marcada.
 3. Escolha o botão **Configurar** .
-   
+
    ![Acessando a opção Habilitar Diagnóstico](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
-   
+
    Consulte [Configurando o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para obter mais informações.
 
 ## <a name="avoid-declaring-dbcontext-objects-as-static"></a>Evitar declarar objetos DbContext como estáticos
@@ -469,7 +469,6 @@ Para saber mais sobre a otimização e solução de problemas de aplicativos do 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

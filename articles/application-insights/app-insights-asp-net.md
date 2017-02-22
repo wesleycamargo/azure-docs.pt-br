@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
-ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
+ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
+ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
 
 
 ---
@@ -55,7 +55,7 @@ No Visual Studio, você vê uma contagem dos eventos que foram registrados.
 
 ## <a name="3-see-your-telemetry"></a>3. Confira sua telemetria...
 ### <a name="-in-visual-studio"></a>... no Visual Studio
-Abra a janela do Application Insights no Visual Studio: clique no botão Application Insights ou clique em seu projeto no Gerenciador de Soluções:
+Abra a janela do Application Insights no Visual Studio: clique no botão Application Insights ou clique em seu projeto no Gerenciador de Soluções, selecione `Application Insights` e clique em `Search Live Telemetry`:
 
 ![No Visual Studio, no botão Application Insights é exibido durante a depuração.](./media/app-insights-asp-net/55.png)
 
@@ -84,7 +84,7 @@ Clique em qualquer bloco ou gráfico para ver mais detalhes.
 
 ### <a name="more-detail-in-the-portal"></a>Mais detalhes no portal
 
-* [**Fluxo de Métricas ao Vivo** ](app-insights-metrics-explorer.md#live-metrics-stream) exibe telemetria quase instantaneamente.
+* [**Fluxo de Métricas ao Vivo** ](app-insights-live-stream.md) exibe telemetria quase instantaneamente.
 
     ![Na folha de Visão geral, clique em Live Stream](./media/app-insights-asp-net/livestream.png)
 
@@ -134,17 +134,25 @@ Para atualizar para uma [nova versão do SDK](https://github.com/Microsoft/Appli
 Se você fez todas as personalizações no ApplicationInsights.config, salve uma cópia antes de atualizar e, depois, mescle suas alterações à nova versão.
 
 ## <a name="add-more-telemetry"></a>Adicionar mais telemetria
-### <a name="web-pages-and-single-page-apps"></a>Páginas da Web e aplicativos de página única
-1. [Adicione o trecho de JavaScript](app-insights-javascript.md) a páginas da Web para destacar as folhas de navegador e de uso com dados sobre exibições de página, tempos de carregamento, exceções do navegador, desempenho de chamada AJAX, contagens de usuário e de sessão.
-2. [Eventos personalizados de código](app-insights-api-custom-events-metrics.md) para contagem, tempo ou medição de ações do usuário.
-
 ### <a name="dependencies-exceptions-and-performance-counters"></a>Dependências, exceções e contadores de desempenho
-[Instale o Monitor de Status](app-insights-monitor-performance-live-website-now.md) em cada uma de suas máquinas de servidor para obter telemetria adicional sobre seu aplicativo. Isto é o que você obtém:
+
+[Instale o Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648) em cada computador servidor do IIS para obter telemetria adicional sobre seus aplicativos Web.
+
+Se ele já estiver instalado, você não precisará fazer nada. 
+
+Você pode ter usado o monitor de status, para iniciar o monitoramento de um aplicativo em tempo de execução. 
+
+Usando o monitor de status além do SDK do tempo de compilação, você obtém um conjunto mais completo de telemetria que inclui:
 
 * [Contadores de desempenho](app-insights-performance-counters.md) - 
   CPU, memória, disco e outros contadores de desempenho relacionados ao seu aplicativo. 
 * [Exceções](app-insights-asp-net-exceptions.md) - telemetria mais detalhada para algumas exceções.
-* [Dependências](app-insights-asp-net-dependencies.md) - chamadas para serviços de API REST ou SQL. Descubra se respostas lentas por componentes externos estão causando problemas de desempenho em seu aplicativo. (Se o aplicativo é executado no .NET 4.6, não é necessário o Monitor de Status para obter essa telemetria.)
+* [Dependências](app-insights-asp-net-dependencies.md) , incluindo valores de retorno.
+
+### <a name="web-pages-and-single-page-apps"></a>Páginas da Web e aplicativos de página única
+1. [Adicione o trecho de JavaScript](app-insights-javascript.md) a páginas da Web para destacar as folhas de navegador e de uso com dados sobre exibições de página, tempos de carregamento, exceções do navegador, desempenho de chamada AJAX, contagens de usuário e de sessão.
+2. [Eventos personalizados de código](app-insights-api-custom-events-metrics.md) para contagem, tempo ou medição de ações do usuário.
+
 
 ### <a name="diagnostic-code"></a>Código de diagnóstico
 Está com um problema? Se você deseja inserir o código no aplicativo para ajudar a diagnosticá-lo, há várias opções:
@@ -191,11 +199,10 @@ Se usar o Visual Studio Team Services, você poderá [obter um marcador de anota
 | --- | --- |
 | **[Trabalhar com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Depurar com telemetria, pesquisa de diagnóstico, detalhar para o código. |
 | **[Trabalhando com o portal do Application Insights](app-insights-dashboards.md)**<br/>Painéis, poderosas ferramentas de diagnóstico e análise, alertas, um mapa de dependências em tempo real de seu aplicativo e a exportação de telemetria. |
-| **[Adicionar mais dados](app-insights-asp-net-more.md)**<br/>Monitorar o uso, a disponibilidade, as dependências e as exceções. Integrar rastreamentos de estruturas de logs. Escrever telemetria personalizada. |
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

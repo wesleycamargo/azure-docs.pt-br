@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 09640b2e259e7d7ccab938df649085a0903b9384
+ms.sourcegitcommit: 627930ca68a94ecc56e7ef9ac9435f4b5f3f41c7
+ms.openlocfilehash: 61466be17a52f1f230207b71bb94e10f88ee075c
 
 
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Adicionar um aplicativo Java a Aplicativos Web do Serviço de Aplicativo do Azure
-Após inicializar seu aplicativo Web do Java no [Serviço de Aplicativo do Azure][Serviço de Aplicativo do Azure] conforme documentado em [Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure](web-sites-java-get-started.md), você poderá carregar o aplicativo colocando o WAR na pasta **webapps**.
+Após inicializar seu aplicativo Web do Java no [Serviço de Aplicativo do Azure][Azure App Service], conforme documentado em [Criar um aplicativo Web do Java no Serviço de Aplicativo do Azure](web-sites-java-get-started.md), você poderá carregar o aplicativo colocando o WAR na pasta **webapps**.
 
 O caminho de navegação para a pasta **webapps** varia dependendo de como você configurou sua instância dos Aplicativos Web.
 
@@ -35,7 +35,9 @@ Observação para aplicativos Web Tomcat: assim que você tiver carregado seu ar
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>Consulte também
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure].
+
+[!INCLUDE [application-insights-app-insights-java-get-started](../application-insights/app-insights-java-get-started.md)]
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -43,12 +45,12 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 <!-- URL List -->
 
-[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
-[Serviço de Aplicativo do Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
+[Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Implantar seu aplicativo no Serviço de Aplicativo do Azure]: ./web-sites-deploy.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

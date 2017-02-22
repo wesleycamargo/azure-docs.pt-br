@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/07/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ef47e420a55164277b70dd504daa14ed12718853
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f5e6d100effee99b1a1576c0e21f1a311f8131b
 
 
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 ## <a name="overview"></a>Visão geral
-O Azure oferece várias maneiras de hospedar os sites da Web: [Serviço de aplicativo do Azure][Serviço de aplicativo do Azure], [Máquinas Virtuais][Máquinas Virtuais], [Service Fabric][Service Fabric] e [Serviços de Nuvem][Serviços de Nuvem]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
+O Azure oferece várias maneiras de hospedar sites da Web: [Serviço de Aplicativo do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços de Nuvem][Cloud Services]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
 
-O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][WebJobs] facilita adicionar o processamento de trabalho em segundo plano ao seu aplicativo Web do Serviço de Aplicativo.
+O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][WebJobs] facilita a adição do processamento de trabalhos em segundo plano ao seu aplicativo Web do Serviço de Aplicativo.
 
 O Service Fabric será uma boa opção se você estiver criando um novo aplicativo ou reescrevendo um existente para usar uma arquitetura de microsserviço. Os aplicativos, que são executados em um pool compartilhado de computadores, podem começar pequenos e aumentar para uma escala massiva de centenas ou milhares de computadores, conforme a necessidade. Os serviços com estado facilitam o armazenamento consistente e confiável do estado do aplicativo, e o Service Fabric gerencia automaticamente o particionamento do serviço, o dimensionamento e a disponibilidade para você.  O Service Fabric também permite a API Web com OWIN (Open Web Interface for .NET) e ASP.NET Core.  Em comparação com o Serviço de Aplicativo, o Service Fabric também fornece mais controle sobre a infraestrutura subjacente, ou acesso direto a ela. Você pode acessar remotamente seus servidores ou configurar as tarefas de inicialização do servidor. Os Serviços de Nuvem são semelhantes ao Service Fabric no nível de controle vs. facilidade de uso, mas como agora se trata de um serviço herdado, o Service Fabric é recomendado para novo desenvolvimento.
 
@@ -54,7 +54,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Integração do Visual Studio |X |X |X |X | |
 | Depuração Remota |X |X |X | | |
 | Implantar código com TFS |X |X |X |X | |
-| Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/) |X |X |X |X |Consulte também [Integração de Rede Virtual dos Websites do Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Isolamento de rede com a [Rede Virtual do Azure](/services/virtual-network/) |X |X |X |X |Consulte também [Integração de Rede Virtual dos Websites do Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Suporte a [Gerenciador de Tráfego do Azure](/services/traffic-manager/) |X |X |X |X | |
 | Monitoramento do ponto de extremidade integrado |X |X |X | | |
 | Acesso remoto a área de trabalho para servidores | |X |X |X | |
@@ -77,7 +77,7 @@ Abaixo estão alguns cenários de aplicação comuns com recomendações sobre q
 * [Desejo hospedar uma API REST ou um serviço Web para clientes móveis.](#mobile)
 
 ### <a name="a-idonprema-i-need-a-web-front-end-with-background-processing-and-database-backend-to-run-business-applications-integrated-with-on-premise-assets"></a><a id="onprem"></a> Preciso de um front-end da Web com processamento em segundo plano e back-end de banco de dados para executar aplicativos de negócios integrados a ativos no local.
-Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O recurso [Webjobs][Webjobs] permite executar processos em segundo plano e tarefas como parte de sua camada Web, enquanto a conectividade híbrida e os recursos VNET facilitam conectar de volta os recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
+Os Serviço de Aplicativo do Azure é uma ótima solução para aplicativos de negócios complexos. Eles permitem desenvolver aplicativos que são escalados automaticamente em uma plataforma com carga equilibrada, são protegidos pelo Active Directory e se conectam aos seus recursos no local. Eles facilitam o gerenciamento desses aplicativos por meio de um portal e APIs de nível mundial, e permitem que você obtenha informações sobre como os clientes estão os utilizando com ferramentas de informações sobre os aplicativos. O recurso [Webjobs][Webjobs] permite executar processos e tarefas em segundo plano como parte de sua camada da Web, ao passo que a conectividade híbrida e os recursos de VNET facilitam a conexão com os recursos locais. O Serviço de Aplicativo do Azure fornece SLA três noves para aplicativos Web e permite que você:
 
 * Execute seus aplicativos de maneira confiável em uma plataforma de nuvem de autorrecuperação e autocorreção.
 * Escale automaticamente em uma rede global de datacenters.
@@ -113,10 +113,10 @@ O Serviço de Aplicativo do Azure é uma ótima solução para esse cenário, po
 ### <a name="a-iddesignera-im-a-web-or-graphic-designer-and-i-want-to-design-and-build-websites-for-my-customers"></a><a id="designer"></a> Sou um designer gráfico ou Web designer e desejo projetar e criar sites para meus clientes
 Para desenvolvedores da Web e Web designers, o Serviço de Aplicativo do Azure se integra facilmente com uma variedade de estruturas e ferramentas, inclui suporte à implantação para Git e FTP e oferece uma integração coesa com ferramentas e serviços como Visual Studio e Banco de dados SQL. Com o Serviço de Aplicativo, você pode:
 
-* Use as ferramentas da linha de comando para o script das [tarefas automatizadas][].
-* Trabalhe com as linguagens populares como [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Use as ferramentas de linha de comando para [tarefas automatizadas][scripting].
+* Trabalhe com linguagens populares como [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
 * Selecione três níveis diferentes de dimensionamento para aumentar proporcionalmente capacidades muito altas.
-* Integre com outros serviços do Azure, como o [Banco de Dados SQL][sqldatabase], [Barramento de Serviço][servicebus] e [Armazenamento][Armazenamento], ou ofertas de parceiros do [Azure Store][azurestore], como MySQL e MongoDB.
+* Integração com outros serviços do Azure, como [Banco de Dados SQL][sqldatabase], [Barramento de Serviço][servicebus] e [Armazenamento][Storage] ou ofertas de parceiros do [Azure Store][azurestore], como MySQL and MongoDB.
 * Integração com ferramentas como o Visual Studio, Git, WebMatrix, WebDeploy, TFS e FTP.
 
 ### <a name="a-idmultitieraim-migrating-my-multi-tier-application-with-a-web-front-end-to-the-cloud"></a><a id="multitier"></a>Eu estou migrando o meu aplicativo multicamada com um front-end da Web para a nuvem
@@ -135,7 +135,7 @@ Se seu aplicativo requer instalação complexa ou configuração do software e d
 ### <a name="a-idossamy-site-uses-open-source-software-and-i-want-to-host-it-in-azure"></a><a id="oss"></a>Meu site usa software livre e quero hospedá-lo no Azure
 Se sua estrutura de software livre tiver suporte no Serviço de Aplicativo, as linguagens e estruturas de que seu aplicativo precisa serão configuradas automaticamente. O Serviço de Aplicativo permite que você:
 
-* Use muitas linguagens de fonte aberta populares, como [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Use várias linguagens de software livre populares como [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
 * Instale o WordPress, Drupal, Umbraco, DNN e muitos outros aplicativos Web de terceiros.
 * Migre um aplicativo existente ou crie um novo aplicativo na Galeria de Aplicativos.
 
@@ -169,13 +169,13 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
 
 <!-- URL List -->
 
-[Serviço de aplicativo do Azure]: /services/app-service/
-[Serviços de Nuvem]: http://go.microsoft.com/fwlink/?LinkId=306052
-[Máquinas Virtuais]: http://go.microsoft.com/fwlink/?LinkID=306053
+[Azure App Service]: /services/app-service/
+[Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
+[Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
 [Service Fabric]: /services/service-fabric
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-[Configurar um certificado SSL para um Website do Azure]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+[Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
 [azurestore]: http://www.windowsazure.com/gallery/store/
 [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
 [dotnet]: http://www.windowsazure.com/develop/net/
@@ -184,7 +184,7 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
 [Python]: http://www.windowsazure.com/develop/python/
 [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
 [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
-[Armazenamento]: http://www.windowsazure.com/documentation/services/storage/
+[Storage]: http://www.windowsazure.com/documentation/services/storage/
 
 <!-- IMG List -->
 
@@ -192,6 +192,6 @@ Para começar a usar as opções escolhidas para seu aplicativo, consulte os seg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

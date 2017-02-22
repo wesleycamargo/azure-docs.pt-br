@@ -1,6 +1,6 @@
 ---
-title: "Visão Geral do Azure Monitoring| Microsoft Docs"
-description: "Visão geral de nível superior do recurso Azure Monitor no Microsoft Azure, que inclui alertas, webhooks, dimensionamento automático e muito mais."
+title: "Visão Geral do Azure Monitor| Microsoft Docs"
+description: "O Azure Monitor coleta estatísticas para uso em alertas, webhooks, dimensionamento automático e automação. O artigo também lista outras opções de monitoramento da Microsoft."
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
+ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
+ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
+ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 
 
 ---
 
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Visão Geral do Monitoramento no Microsoft Azure
+# <a name="overview-of-azure-monitor"></a>Visão geral do Azure Monitor
 Este artigo fornece uma visão geral conceitual dos recursos de monitoramento do Azure. Ele fornece links para informações sobre tipos específicos de recursos.  Para obter informações de alto nível sobre como monitorar seu aplicativo do ponto de vista não do Azure, consulte [Diretrizes de monitoramento e diagnóstico](../best-practices-monitoring.md).
 
 O vídeo passo a passo do Azure Monitor está disponível em  
@@ -134,7 +134,7 @@ O Azure tem ofertas disponíveis para monitorar os serviços da infraestrutura s
 
 * [Azure Monitor](http://aka.ms/azmondocs) – Oferece a visualização, consulta, roteamento, alertas, dimensionamento automático e automação nos dados da infraestrutura do Azure (Logs de Atividade) e de cada recurso do Azure individual (Logs de Diagnóstico). Este artigo faz parte da documentação do Azure Monitor. O nome Azure Monitor foi lançado em 25 de setembro no Ignite 2016.  O nome anterior era "Azure Insights".  
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – fornece uma detecção avançada e diagnóstico para os problemas na camada do aplicativo de seu serviço, bem integrada nos dados do Monitoramento do Azure. É a plataforma de diagnóstico padrão para aplicativos Web do Serviço de Aplicativo.  Você pode rotear os dados de outros serviços para ele.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte do [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Fornece uma solução abrangente de gerenciamento de TI para infraestrutura local e em nuvens de terceiros (como o AWS), além dos recursos do Azure.  Os dados do Azure Monitor podem ser roteados diretamente para o Log Analytics para que você possa ver métricas e logs de todo o ambiente em um único lugar.     
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte do [Operations Management Suite](https://www.microsoft.com/oms/) – Fornece uma solução abrangente de gerenciamento de TI para infraestrutura local e em nuvens de terceiros (como o AWS), além dos recursos do Azure.  Os dados do Azure Monitor podem ser roteados diretamente para o Log Analytics para que você possa ver métricas e logs de todo o ambiente em um único lugar.     
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre
@@ -144,10 +144,10 @@ Saiba mais sobre
 * [Diagnóstico do Azure](../azure-diagnostics.md) se você estiver tentando diagnosticar problemas em seu Serviço de Nuvem, Máquina Virtual ou aplicativo Service Fabric.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você tiver problemas de diagnóstico em seu aplicativo Web do Serviço de Aplicativo.
 * [Solucionar de problemas no Armazenamento do Azure](../storage/storage-e2e-troubleshooting.md) ao usar os Blobs, Tabelas ou Filas de Armazenamento
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
-ms.openlocfilehash: 04a5e190a69b1a1a4d0fe6c49c16ddb15593ba38
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
 
 ---
 
@@ -68,7 +68,7 @@ Como o seu código reage se ocorrer uma falha após a inserção de 5.000 desses
 
 Se um item da fila já tiver sido processado, permita que sua função seja no-op.
 
-Tire proveito de medidas defensivas já fornecidas para componentes usados na plataforma Azure Functions. Por exemplo, consulte **Tratamento de mensagens suspeitas na fila** na documentação de [gatilhos de fila de armazenamento do Azure](functions-bindings-storage.md#storagequeuetrigger).
+Tire proveito de medidas defensivas já fornecidas para componentes usados na plataforma Azure Functions. Por exemplo, consulte **Tratamento de mensagens suspeitas na fila** na documentação de [gatilhos de fila de armazenamento do Azure](functions-bindings-storage-queue.md#trigger).
  
 
 
@@ -107,6 +107,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

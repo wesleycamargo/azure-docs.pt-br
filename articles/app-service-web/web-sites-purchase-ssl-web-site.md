@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5ec30d3a0c00adef585e3cf22c682830a7d5cce4
+ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
+ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
 
 
 ---
@@ -107,18 +107,8 @@ Nessa Etapa, você aprenderá a colocar em armazenamento um Certificado SSL que 
 ## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Etapa 2: Verificar a propriedade do domínio
 Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domínio de um Certificado SSL para o qual você acabou de fazer um pedido. 
 
-1. Clique em **"Etapa 2: Verificar"** na folha **"Configuração de Certificado"**. Há quatro tipos de Verificação de domínio com suporte dos Certificados do Serviço de Aplicativo.
+1. Clique em **"Etapa 2: Verificar"** na folha **"Configuração de Certificado"**. Há três tipos de Verificação de domínio com suporte dos Certificados do Serviço de Aplicativo.
    
-   * **Verificação do Serviço de Aplicativo** 
-     
-     * Este será o processo mais conveniente se o **seu domínio personalizado já estiver atribuído aos Aplicativos do Serviço de Aplicativo.**  Este método listará todos os Aplicativos do Serviço de Aplicativo que atendem a esse critério. 
-        Por exemplo, neste caso, **contosocertdemo.com** é um domínio personalizado atribuído ao Aplicativo do Serviço de Aplicativo chamado **"ContosoCertDemo"** e, portanto, é o único Aplicativo do Serviço de Aplicativo listado aqui. Se houvesse uma implantação em várias regiões, todos os aplicativos de todas as regiões seriam listados.
-       
-        O método de verificação SÓ está disponível para compras de certificado Standard (Básico). Para os Certificados Curinga, ignore e vá para a opção B, C ou D abaixo.
-     * Clique no botão **"Verificar"** para concluir esta etapa.
-     * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
-     
-     ![inserir imagem de Verificação de Serviço de Aplicativo](./media/app-service-web-purchase-ssl-web-site/AppVerify.jpg)     
    * **Verificação de domínio** 
      
      * Este será o processo mais conveniente **SOMENTE SE** você tiver **[adquirido seu domínio personalizado no Serviço de Aplicativo do Azure.](custom-dns-web-site-buydomains-web-app.md)**
@@ -131,15 +121,7 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
      * Se você precisar reenviar o email de verificação, clique no botão **"Reenviar Email"** .
    * **Verificação manual**    
      
-     1. **Verificação de página Web HTML**
-        
-        * Crie um arquivo HTML chamado **{Token de Verificação de Domínio}**.html (você pode copiar o token da folha Status de Verificação de Domínio)
-        * O conteúdo desse arquivo deve ter exatamente o mesmo nome do **Token de Verificação de Domínio**.
-        * Carregue esse arquivo na raiz do servidor Web que hospeda seu domínio.
-        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
-          
-          Por exemplo, se você estiver comprando um certificado padrão para contosocertdemo.com com o Token de Verificação de Domínio **'cAGgQrKc'**, uma solicitação da Web feita para **'http://contosocertdemo.com/cAGgQrKc.html'** deverá retornar **cAGgQrKc.**
-     2. **Verificação de registro TXT do DNS**
+      **Verificação de registro TXT do DNS**
         
         * Usando o gerenciador de DNS, crie um registro TXT no subdomínio **'DZC'** com um valor igual ao **Token de Verificação do Domínio.**
         * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
@@ -200,13 +182,13 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 * [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

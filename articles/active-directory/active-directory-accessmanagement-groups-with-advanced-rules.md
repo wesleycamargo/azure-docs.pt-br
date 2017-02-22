@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
-ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
+ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
 
 
 ---
@@ -27,12 +27,12 @@ Quando os atributos de um usuário são alterados, o sistema avalia todas as reg
 
 > [!NOTE]
 > Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. Atualmente não há suporte a associações de grupo aninhadas para atribuição com base em grupo para aplicativos.
-> 
+>
 > As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
-> 
+>
 > * O administrador que gerencia a regra em um grupo
 > * Todos os membros do grupo
-> 
+>
 
 ## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
 1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
@@ -57,17 +57,18 @@ Para a lista completa de parâmetros com suporte e operadores de regra de expres
 Observe que a propriedade deve ser prefixada com o tipo de objeto correto: usuário ou dispositivo.
 A regra a seguir falhará na validação: mail –ne null
 
-A regra correta seria: 
+A regra correta seria:
 
 user.mail –ne null
 
 O comprimento total do corpo da sua regra avançada não pode exceder 2048 caracteres.
 
 > [!NOTE]
-> Operações de cadeia de caracteres e regex diferenciam maiúsculas de minúsculas. As cadeias de caracteres que contém aspas " devem ser ignoradas usando caracteres ', por exemplo, user.department -eq \`"Sales".
+> Operações de cadeia de caracteres e regex diferenciam maiúsculas de minúsculas.
+> As cadeias de caracteres que contém aspas " devem ser ignoradas usando caracteres ', por exemplo, user.department -eq \`"Sales".
 > Use as aspas somente para valores do tipo string e use apenas as aspas inglesas.
-> 
-> 
+>
+>
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regra de expressão com suporte
 A tabela a seguir lista todos os operadores de regra de expressão com suporte e sua sintaxe a ser usada no corpo da regra avançada:
@@ -86,14 +87,14 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 ## <a name="operator-precedence"></a>Precedência do operador
 
 Todos os operadores são listados abaixo da menor precedência para a maior, os operadores na mesma linha têm a mesma precedência. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
- 
+
 Todos os operadores podem ser usados com ou sem o prefixo de hífen.
 
 Observe que os parênteses nem sempre serão necessários, você só precisará adicionar os parênteses quando a precedência não atender às suas necessidades. Por exemplo:
 
-   user.department –eq "Marketing" –and user.country –eq "US" 
-   
-é equivalente a: 
+   user.department –eq "Marketing" –and user.country –eq "US"
+
+é equivalente a:
 
    (user.department –eq "Marketing") –and (user.country –eq "US")
 
@@ -173,7 +174,7 @@ Operadores permitidos
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar um valor nulo em uma regra, você pode usar "null" ou $null. Exemplo: 
+Para especificar um valor nulo em uma regra, você pode usar "null" ou $null. Exemplo:
 
    user.mail –ne null é equivalente a user.mail –ne $null
 
@@ -197,7 +198,7 @@ O nome do atributo personalizado pode ser encontrado no diretório por meio da c
 Para incluir uma propriedade com vários valores em uma regra, use o operador "-any", como em
 
   user.assignedPlans -any assignedPlan.service -startsWith "SCO"
-  
+
 ## <a name="direct-reports-rule"></a>Regra de relatórios diretos
 Você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
 
@@ -207,11 +208,11 @@ Você pode preencher os membros de um grupo com base no atributo gerenciador de 
 2. Selecione a guia **Grupos** e, em seguida, abra o grupo que deseja editar.
 3. Selecione a guia **Configurar** e selecione **REGRA AVANÇADA**.
 4. Digite a regra com a seguinte sintaxe:
-   
+
     Relatórios diretos para *Relatórios diretos para {obectID_of_manager}*. Um exemplo de regra válida para Funcionários Subordinados:
-   
+
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
-   
+
     onde “62e19b97-8b3d-4d4a-a106-4ce66896a863” é a objectID do gerente. A ID de objeto pode ser encontrada no Azure AD na **guia Perfil** da página de usuário para o usuário que for o gerente.
 5. Ao salvar essa regra, todos os usuários que atendem à regra serão adicionados como membros do grupo. Pode levar alguns minutos para o preenchimento inicial do grupo.
 
@@ -239,10 +240,10 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 
 > [!NOTE]
 > Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
-> 
-> 
+>
+>
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Solucionando problemas de associações dinâmicas a grupos](active-directory-accessmanagement-troubleshooting.md)
@@ -253,7 +254,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

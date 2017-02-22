@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 01/09/2017
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
+ms.sourcegitcommit: 5f62eef58c8a334013b000176f74cc8f7652f688
+ms.openlocfilehash: 312d1f417df612eee46bb078d784576a438ba0ab
 
 
 ---
@@ -178,7 +178,7 @@ Considere os seguintes pontos ao criar um esquema de particionamento de dados:
 * **Sempre que possível, mantenha os dados para as operações mais comuns do banco de dados juntos em cada partição para minimizar as operações de acesso a dados entre partições**. Consultar entre partições pode ser mais demorado do que consultar apenas em uma única partição; porém, otimizar as partições para um conjunto de consultas pode afetar outros conjuntos de consultas. Quando não for possível evitar a consulta entre partições, minimize o tempo de consulta executando consultas paralelas e agregando os resultados no aplicativo. Talvez essa abordagem não seja possível em alguns casos, por exemplo, quando é necessário obter o resultado de uma consulta e usá-lo na próxima consulta.
 * **Se as consultas usarem dados de referência relativamente estáticos, como tabelas de CEP ou listas de produtos, considere replicar esses dados em todas as partições para reduzir a necessidade de operações de pesquisa separadas em outras partições**. Essa abordagem também pode reduzir a probabilidade de que os dados de referência se tornem um conjunto de dados "mais acessado" sujeito a tráfego pesado de todo o sistema. No entanto, há um custo adicional associado à sincronização das alterações que pode ocorrer nesses dados de referência.
 * **Sempre que possível, minimize os requisitos de integridade referencial entre partições verticais e funcionais**. Nesses esquemas, o próprio aplicativo é responsável por manter a integridade referencial entre partições quando os dados são atualizados e consumidos. As consultas que devem unir dados em várias partições são executadas mais lentamente do que as consultas que unem dados apenas na mesma partição, pois o aplicativo normalmente precisa executar consultas consecutivas com base em uma chave e em uma chave estrangeira. Em vez disso, considere replicar ou cancelar a normalização dos dados relevantes. Para minimizar o tempo de consulta onde são necessárias junções entre partições, execute consultas paralelas nas partições e reúna os dados no aplicativo.
-* **Considere o efeito que o esquema de particionamento pode ter sobre a consistência dos dados nas partições.**  Avalie se a coerência forte é realmente um requisito. Em vez disso, uma abordagem comum na nuvem é implementar a consistência eventual. Os dados em cada partição são atualizados separadamente, e a lógica de aplicativo garante que a atualizações sejam concluídas com êxito. Ela também trata das inconsistências que podem surgir da consulta de dados enquanto uma operação finalmente consistente está em execução. Para saber mais sobre como implementar a consistência eventual, confira [Data Consistency Primer].
+* **Considere o efeito que o esquema de particionamento pode ter sobre a consistência dos dados nas partições.** Avalie se a coerência forte é realmente um requisito. Em vez disso, uma abordagem comum na nuvem é implementar a consistência eventual. Os dados em cada partição são atualizados separadamente, e a lógica de aplicativo garante que a atualizações sejam concluídas com êxito. Ela também trata das inconsistências que podem surgir da consulta de dados enquanto uma operação finalmente consistente está em execução. Para saber mais sobre como implementar a consistência eventual, confira [Data Consistency Primer].
 * **Considere como as consultas localizam a partição correta**. Se uma consulta precisar verificar todas as partições para localizar os dados necessários, haverá um impacto significativo no desempenho, mesmo quando várias consultas paralelas estiverem em execução. As consultas que são usadas com as estratégias de particionamento vertical e funcional podem obviamente especificar as partições. No entanto, o particionamento horizontal (fragmentação) pode dificultar a localização de um item, pois cada fragmento tem o mesmo esquema. Uma solução típica de fragmentação é manter um mapa que pode ser usado para procurar a localização do fragmento para itens específicos de dados. Esse mapa pode ser implementado na lógica de fragmentação do aplicativo ou mantido pelo repositório de dados se a fragmentação transparente for permitida.
 * **Ao usar uma estratégia de particionamento horizontal, considere o rebalanceamento periódico dos fragmentos**. Isso ajuda a distribuir os dados uniformemente por tamanho e carga de trabalho para minimizar os pontos de acesso, maximizar o desempenho da consulta e contornar as limitações de armazenamento físico. No entanto, isso é uma tarefa complexa que geralmente requer o uso de uma ferramenta ou um processo personalizado.
 * **Se você replicar cada partição, ela fornecerá proteção adicional contra falhas**. Se uma única réplica falhar, as consultas podem ser direcionadas a uma cópia funcional.
@@ -380,14 +380,7 @@ Os documentos são organizados em coleções. Você pode agrupar documentos rela
 
 As coleções de documentos fornecem um mecanismo natural para particionar dados em um banco de dados individual. Internamente, um banco de dados do Banco de Dados de Documentos pode abranger vários servidores e pode tentar distribuir a carga com a distribuição de coleções entre servidores. A maneira mais simples de implementar a fragmentação é criar uma coleção para cada fragmento.
 
-> [!NOTE]
-> Cada DocumentDB tem um *nível de desempenho* que determina a quantidade de recursos que ele obtém. Um nível de desempenho é associado a um limite de taxa da *unidade de solicitação* (RU). O limite de taxa da RU especifica o volume de recursos que é reservado e disponibilizado para uso exclusivo dessa coleção. O custo de uma coleção depende do nível de desempenho que é selecionado para a coleção. Quanto maior o nível de desempenho (e o limite de taxa da RU), maior o custo. É possível ajustar o nível de desempenho de uma coleção usando o portal do Azure. Para obter mais informações, visite a página [Níveis de desempenho no Banco de Dados de Documentos] no site da Microsoft.
->
->
-
-Todos os bancos de dados são criados no contexto de uma conta do Banco de Dados de Documentos. Uma única conta do Banco de Dados de Documentos pode conter vários bancos de dados e especifica em qual região os bancos de dados são criados. Cada conta do Banco de Dados de Documentos também impõe seu próprio controle de acesso. Você pode usar contas do Banco de Dados de Documentos para localizar os fragmentos geograficamente (coleções nos bancos de dados) próximos aos usuários que precisam acessá-los e impor restrições para que somente esses usuários possam se conectar a eles.
-
-Cada conta do Banco de Dados de Documentos tem uma cota que limita o número de bancos de dados e coleções que ela pode conter e a quantidade de armazenamento de documentos que é disponibilizada. Esses limites estão sujeitos a alterações, mas são descritos na página [Limites e cotas do Banco de Dados de Documentos] no site da Microsoft. É teoricamente possível que, se você implementar um sistema em que todos os fragmentos pertençam ao mesmo banco de dados, você atinja o limite de capacidade de armazenamento da conta.
+Todos os bancos de dados são criados no contexto de uma conta do Banco de Dados de Documentos. Uma única conta do DocumentDB pode conter vários bancos de dados e especifica em qual região os bancos de dados são criados. Cada conta do Banco de Dados de Documentos também impõe seu próprio controle de acesso. Você pode usar contas do Banco de Dados de Documentos para localizar os fragmentos geograficamente (coleções nos bancos de dados) próximos aos usuários que precisam acessá-los e impor restrições para que somente esses usuários possam se conectar a eles.
 
 Nesse caso, talvez seja necessário criar contas e bancos de dados adicionais do Banco de Dados de Documentos e distribuir os fragmentos entre esses bancos de dados. No entanto, mesmo que seja improvável atingir a capacidade de armazenamento do banco de dados, é uma boa prática usar vários bancos de dados. Isso porque cada banco de dados tem seu próprio conjunto de usuários e permissões, e você pode usar esse mecanismo para isolar o acesso a coleções por banco de dados.
 
@@ -405,12 +398,10 @@ A Figura 8 ilustra a estrutura de alto nível da arquitetura do Banco de Dados d
 
 Considere os seguintes pontos ao decidir como particionar dados com um banco de dados do Banco de Dados de Documentos:
 
-* **Os recursos disponíveis para um banco de dados do Banco de Dados de Documentos estão sujeitos às limitações de cota da conta do Banco de Dados de Documentos**. Cada banco de dados pode conter um número de coleções (lembrando que há um limite) e cada coleção é associada a um nível de desempenho que rege o limite de taxa da RU (produtividade reservada) para essa coleção. Para saber mais, visite a página [Limites e cotas do Banco de Dados de Documentos] no site da Microsoft.
 * **Cada documento deve ter um atributo que pode ser usado para identificar exclusivamente o documento dentro da coleção na qual ele é mantido**. Esse atributo é diferente da chave de fragmento, que define qual coleção mantém o documento. Uma coleção pode conter um grande número de documentos. Teoricamente, ela é limitada apenas pelo tamanho máximo da ID do documento. A ID do documento pode ter até 255 caracteres.
 * **Todas as operações em um documento são realizadas dentro do contexto de uma transação. As transações nos bancos de dados do Banco de Dados de Documentos estão no escopo da coleção em que o documento está contido.** Se uma operação falhar, o trabalho realizado será revertido. Quando um documento está sujeito a uma operação, todas as alterações feitas estão sujeitas ao isolamento no nível do instantâneo. Esse mecanismo garante que se, por exemplo, houver uma falha em uma solicitação para a criação de um novo documento, outro usuário que estiver consultando o banco de dados simultaneamente não verá um documento parcial que será então removido.
 * **As consultas do Banco de Dados de Documentos também estão dentro do escopo do nível da coleção**. Uma única consulta pode recuperar dados somente de uma coleção. Se precisar recuperar dados de várias coleções, você deverá consultar cada coleção individualmente e mesclar os resultados no código do aplicativo.
 * **Os bancos de dados do Banco de Dados de Documentos dão suporte aos itens programáveis que podem ser armazenados em uma coleção com os documentos**. Isso inclui procedimentos armazenados, funções definidas pelo usuário e gatilhos (escritos em JavaScript). Esses itens podem acessar qualquer documento na mesma coleção. Além disso, esses itens são executados dentro do escopo da transação de ambiente (no caso de um gatilho que é acionado como resultado de uma operação de criação, exclusão ou substituição executada em um documento) ou por iniciar uma nova transação (no caso de um procedimento armazenado executado como resultado de uma solicitação de cliente explícita). Se o código em um item programável lançar uma exceção, a transação será revertida. Você pode usar procedimentos armazenados e gatilhos para manter a integridade e a consistência entre documentos, mas esses documentos devem fazer parte da mesma coleção.
-* **As coleções que você pretende manter nos bancos de dados em uma conta do Banco de Dados de Documentos não têm a probabilidade de exceder os limites de taxa de transferência definidos pelos níveis de desempenho das coleções**. Esses limites são descritos na página [Manage DocumentDB capacity needs] no site da Microsoft. Se você prevê que esses limites serão atingidos, considere dividir as coleções em bancos de dados em diferentes contas do Banco de Dados de Documentos para reduzir a carga por coleção.
 
 ## <a name="partitioning-strategies-for-azure-search"></a>Estratégias de particionamento para a Pesquisa do Azure
 A capacidade de pesquisar dados geralmente é o principal método de navegação e exploração fornecido por muitos aplicativos Web. Ela ajuda os usuários a encontrar recursos rapidamente (por exemplo, produtos em um aplicativo de comércio eletrônico) com base em combinações de critérios de pesquisa. O serviço de Pesquisa do Azure fornece recursos de pesquisa de texto completo em relação ao conteúdo da Web e inclui recursos como consultas recomendadas de preenchimento automático com base em correspondências aproximadas e na navegação facetada. Uma descrição completa desses recursos está disponível na página [O que é a Pesquisa do Azure?] no site da Microsoft.
@@ -547,7 +538,6 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 * A página [Performing entity group transactions] , no site da Microsoft, fornece informações detalhadas sobre como implementar operações transacionais nas entidades que são armazenadas no armazenamento de tabelas do Azure.
 * O artigo [Guia de Design de tabela de armazenamento do Azure] , no site da Microsoft, contém informações detalhadas sobre como particionar dados no armazenamento de tabelas do Azure.
 * A página [Using Azure Content Delivery Network] , no site da Microsoft, descreve como replicar os dados que são mantidos no armazenamento de blobs do Azure usando a Rede de Distribuição de Conteúdo do Azure.
-* A página [Manage DocumentDB capacity needs] (Gerenciar necessidades de capacidade do Banco de Dados de Documentos), no site da Microsoft, contém informações sobre como os bancos de dados do Banco de Dados de Documentos do Azure alocam recursos.
 * A página [O que é a Pesquisa do Azure?] , no site da Microsoft, fornece uma descrição completa dos recursos que estão disponíveis com a Pesquisa do Azure.
 * A página [Limites de serviço na Pesquisa do Azure] , no site da Microsoft, contém informações sobre a capacidade de cada instância da Pesquisa do Azure.
 * A página [Supported data types (Azure Search)] , no site da Microsoft, resume os tipos de dados que podem ser usados em documentos e índices pesquisáveis.
@@ -564,15 +554,13 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [Data Consistency Primer]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
-[Limites e cotas do Banco de Dados de Documentos]: documentdb/documentdb-limits.md
 [Visão geral dos recursos do Banco de Dados Elástico]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Consulta de vários fragmentos]: sql-database/sql-database-elastic-scale-multishard-querying.md
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
-[Níveis de desempenho no Banco de Dados de Documentos]: documentdb/documentdb-performance-levels.md
+[Performance levels in DocumentDB]: documentdb/documentdb-performance-levels.md
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [tutorial de cluster do Redis]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
@@ -588,6 +576,6 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

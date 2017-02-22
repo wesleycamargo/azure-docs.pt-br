@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f9bd4484a4cb9cbb01524b55d72524554cc6822
+ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
+ms.openlocfilehash: eb22b8e8c2d2b4a619e50b94321d4f819764bdaa
 
 
 ---
@@ -28,7 +28,7 @@ O suporte para o AMQP 1.0 no Service Bus significa que você pode usar o enfilei
 Este artigo explica como usar os recursos de sistema de mensagens do Barramento de Serviço (tópicos sobre filas e publicação/assinatura) de aplicativos Java usando o popular padrão de API do JMS (Java Message Service). Existe um [artigo complementar](service-bus-dotnet-advanced-message-queuing.md) que explica como fazer o mesmo usando a API do Barramento de Serviço do .NET. Você pode usar esses dois guias em conjunto para saber mais sobre mensagens em plataformas cruzadas usando o AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Introdução ao Barramento de serviço
-Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
+Este guia presume que você já tenha um namespace do Barramento de Serviço que contém uma fila denominada **queue1**. Caso contrário, você pode [criar o namespace e a fila](service-bus-create-namespace-portal.md) usando o [Portal do Azure](https://portal.azure.com). Para obter mais informações sobre como criar namespaces e filas do Barramento de Serviço, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Filas e tópicos particionados também dão suporte ao AMQP. Para saber mais, confira [Entidades de mensagens particionadas](service-bus-partitioning.md) e [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -63,7 +63,7 @@ queue.QUEUE = queue1
 ```
 
 #### <a name="configure-the-connectionfactory"></a>Configurar o ConnectionFactory
-A entrada usada para definir um **ConnectionFactory** no Provedor JNDI de arquivo de propriedades do Qpid tem o seguinte formato:
+A entrada usada para definir um **ConnectionFactory** no provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
 ```
 connectionfactory.[jndi_name] = [ConnectionURL]
@@ -91,7 +91,7 @@ Em que **[namespace]**, **[SASPolicyName]** e **[SASPolicyKey]** têm os seguint
 > 
 
 #### <a name="configure-destinations"></a>Configurar destinos
-A entrada usada para definir um destino no Provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
+A entrada usada para definir um destino no provedor JNDI do arquivo de propriedades do Qpid tem o seguinte formato:
 
 ```
 queue.[jndi_name] = [physical_name]
@@ -119,7 +119,7 @@ Não existem APIs ou opções especiais obrigatórias ao usar o JMS com o Servic
 #### <a name="configure-the-jndi-initialcontext"></a>Configurar o InitialContext de JNDI
 O ambiente JNDI é configurado por meio da transmissão de uma tabela de hash com informações de configuração para o construtor da classe javax.naming.InitialContext. Os dois elementos necessários da tabela de hash são o nome da classe de Initial Context Factory e a URL do Provedor. O código a seguir mostra como configurar o ambiente JNDI para usar o Provedor JNDI com base em arquivo de propriedades do Qpid com um arquivo de propriedades chamado **servicebus.properties**.
 
-```
+```java
 Hashtable<String, String> env = new Hashtable<String, String>(); 
 env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
 env.put(Context.PROVIDER_URL, "servicebus.properties"); 
@@ -129,7 +129,7 @@ InitialContext context = new InitialContext(env);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Um aplicativo JMS simples que usa uma fila do Barramento de Serviço
 O programa de exemplo a seguir envia TextMessages do JMS para uma fila do Service Bus com o nome lógico de JNDI da FILA e recebe as mensagens de volta.
 
-```
+```java
 // SimpleSenderReceiver.java
 
 import javax.jms.*;
@@ -325,12 +325,12 @@ Você também pode usar o AMQP 1.0 do Service Bus de outras linguagens, incluind
 * [Suporte para o AMQP 1.0 no Barramento de Serviço do Azure](service-bus-amqp-overview.md)
 * [Como usar o AMQP 1.0 com a API .NET do Barramento de Serviço](service-bus-dotnet-advanced-message-queuing.md)
 * [Guia do Desenvolvedor do AMQP 1.0 do Barramento de Serviço](service-bus-amqp-dotnet.md)
-* [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
-* [Central de desenvolvedores do Java](/develop/java/).
+* [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Centro de Desenvolvedores do Java](https://azure.microsoft.com/develop/java/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

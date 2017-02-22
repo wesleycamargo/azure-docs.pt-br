@@ -3,20 +3,22 @@ title: "Conectando o DocumentDB à Pesquisa do Azure usando indexadores | Micros
 description: Este artigo mostra como usar o indexador da Pesquisa do Azure com o Banco de Dados de Documentos como uma fonte de dados.
 services: documentdb
 documentationcenter: 
-author: dennyglee
+author: mimig1
 manager: jhubbard
-editor: mimig
+editor: 
 ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
 ms.service: documentdb
 ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/08/2016
-ms.author: denlee
+ms.date: 01/10/2017
+ms.author: mimig
+redirect_url: https://docs.microsoft.com/azure/search/search-howto-index-documentdb
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dce18eb33dcb31808e41848e543d1488e8cfb7
+ms.sourcegitcommit: 9a5416b1c26d1e8eaecec0ada79d357f32ca5ab1
+ms.openlocfilehash: c318d7133e26ec3a39d6fc97b0693b44d742d456
 
 
 ---
@@ -75,7 +77,6 @@ Você também precisa adicionar `_ts` à projeção, bem como a cláusula `WHERE
 
     SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
 
-
 ### <a name="a-iddatadeletiondetectionpolicyacapturing-deleted-documents"></a><a id="DataDeletionDetectionPolicy"></a>Capturando documentos excluídos
 Quando linhas são excluídas da tabela de origem, você deve excluí-las também do índice de pesquisa. A finalidade de uma política de detecção de exclusão de dados é identificar de maneira eficaz dados excluídos. Atualmente, a única política com suporte é a política `Soft Delete` (a exclusão recebe algum tipo de marcador), que é especificada da seguinte forma:
 
@@ -89,6 +90,42 @@ Quando linhas são excluídas da tabela de origem, você deve excluí-las també
 > Você precisará incluir a propriedade softDeleteColumnName em sua cláusula SELECT se estiver usando uma projeção personalizada.
 > 
 > 
+
+### <a name="a-idleveagingqueriesaleveraging-queries"></a><a id="LeveagingQueries"></a>Aproveitando consultas
+Além de capturar documentos alterados e excluídos, a especificação de uma consulta do DocumentDB pode ser usada para mesclar propriedades aninhadas, desenrolar matrizes, projetar propriedades json e filtrar os dados a serem indexados. A manipulação dos dados a serem indexados pode aprimorar o desempenho do indexador do Azure Search.
+
+Exemplo de documento:
+
+    {
+        "userId": 10001,
+        "contact": {
+            "firstName": "andy",
+            "lastName": "hoh"
+        },
+        "company": "microsoft",
+        "tags": ["azure", "documentdb", "search"]
+    }
+
+
+Mesclar consulta:
+
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    
+    
+Consulta de projeção:
+
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+
+
+Desenrolar consulta de matriz:
+
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    
+    
+Filtrar consulta:
+
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+
 
 ### <a name="a-idcreatedatasourceexamplearequest-body-example"></a><a id="CreateDataSourceExample"></a>Exemplo de corpo de solicitação
 O exemplo a seguir cria uma fonte de dados com uma consulta personalizada e dicas de política:
@@ -257,6 +294,6 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

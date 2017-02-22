@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf45651360a9fe9b5023d46000aadc054ce0ef37
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 26383db7a3fe6736fb739121dd545518784c098a
 
 
 ---
@@ -32,7 +32,7 @@ Um dos principais recursos da solução de big data da Microsoft é a integraç�
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Um cluster HDInsight**. Para configurar um, consulte [Introdução ao Azure HDInsight][hdinsight-get-started].
+* **Um cluster HDInsight**. Para configurar um, confira [Introdução ao Azure HDInsight][hdinsight-get-started].
 * **estação de trabalho** que esteja executando Windows 7, Windows Server 2008 R2 ou um sistema operacional posterior.
 * **Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone ou Office 2010 Professional Plus**.
 
@@ -69,7 +69,7 @@ O suplemento do Power Query para Excel facilita a importação de dados de seu c
 Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDInsight para o Excel. Da mesma forma, você pode recuperar dados do HDInsight no banco de dados SQL do Azure. Também é possível carregar dados para o HDInsight. Para saber mais, consulte os seguintes artigos:
 
 * [Conectar o Excel ao HDInsight com o driver ODBC do Microsoft Hive][hdinsight-ODBC]
-* [Carregar dados no HDInsight][hdinsight-upload-data]
+* [Carregar Dados no HDInsight][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-odbc-driver.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -83,6 +83,6 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

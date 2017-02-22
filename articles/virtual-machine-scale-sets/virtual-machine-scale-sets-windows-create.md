@@ -3,7 +3,7 @@ title: "Criar um Conjunto de Dimensionamento de Máquina Virtual usando o PowerS
 description: "Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Estas etapas seguem uma abordagem de preenchimento de lacunas para criar um conj
 Deve levar cerca de 30 minutos para executar as etapas neste artigo.
 
 ## <a name="step-1-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
-Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="step-2-create-resources"></a>Etapa 2: criar recursos
 Crie os recursos que são necessários para o novo conjunto de escala.
@@ -130,7 +130,7 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Este exemplo mostra um conjunto de escala sendo criado com 3 máquinas virtuais. Consulte [Visão Geral dos Conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-overview.md) para saber mais sobre a capacidade dos conjuntos de dimensionamento. Essa etapa também inclui a definição do tamanho (chamado de SkuName) das máquinas virtuais no conjunto. Para encontrar um tamanho que atenda às suas necessidades, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md).
+    Este exemplo mostra um conjunto de escala sendo criado com 3 máquinas virtuais. Consulte [Visão Geral dos Conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-overview.md) para saber mais sobre a capacidade dos conjuntos de dimensionamento. Essa etapa também inclui a definição do tamanho (chamado de SkuName) das máquinas virtuais no conjunto. Para encontrar um tamanho que atenda às suas necessidades, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Adicione a configuração da interface de rede à configuração do conjunto de escala:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Para encontrar informações sobre outras imagens a usar, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Para encontrar informações sobre outras imagens a usar, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Substitua o valor de **$vhdContainers** por uma lista que contém os caminhos nos quais os discos rígidos virtuais são armazenados, como "https://mystorage.blob.core.windows.net/vhds", em seguida, crie a variável:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Use estes recursos para explorar o conjunto de escala de máquina virtual que cr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

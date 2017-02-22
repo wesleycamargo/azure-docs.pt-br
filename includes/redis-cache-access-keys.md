@@ -1,4 +1,4 @@
-Para se conectar a uma instância de Cache Redis do Azure, os clientes de cache precisam do nome de host, das portas e das chaves do cache. Alguns clientes podem se referir a esses itens por nomes um pouco diferentes. Para recuperar esses itens, [procure](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) em seu cache no [Portal do Azure](https://portal.azure.com) e clique em **Configurações** ou em **Todas as configurações**. 
+Para se conectar a uma instância de Cache Redis do Azure, os clientes de cache precisam do nome de host, das portas e das chaves do cache. Alguns clientes podem se referir a esses itens por nomes um pouco diferentes. Para recuperar esses itens, [procurar](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) para o cache no [portal do Azure](https://portal.azure.com) e clique no item desejado a **menu recursos**. 
 
 ![Configurações de Cache Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
@@ -14,6 +14,6 @@ Para recuperar as chaves de acesso, clique em **Chaves de acesso**.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

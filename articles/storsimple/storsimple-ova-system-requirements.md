@@ -1,28 +1,27 @@
 ---
-title: Requisitos do sistema da StorSimple Virtual Array
+title: Requisitos de sistema do Microsoft Azure StorSimple Virtual Array | Microsoft Docs
 description: Aprender sobre os requisitos de software e de rede para sua StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
-ms.assetid: df0a45e8-4d6f-4849-94c0-82c615770821
+ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/17/2016
+ms.date: 02/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0d1a1e654aa0a1aa968d87f1f6bc836ed4c3118a
-
+ms.sourcegitcommit: e5f9952d136a2a7914100d8a7f5ffa5ba05a9d75
+ms.openlocfilehash: 9eb839834ed4ee2291eb311f64a8dfa7f07a1ac3
 
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos do sistema da StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
-Este artigo descreve os requisitos de sistema importantes para sua Matriz Virtual Microsoft Azure StorSimple (também conhecido como dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) e para os clientes de armazenamento que acessam a matriz. Recomendamos que você examine as informações com atenção antes de implantar o sistema StorSimple e consulte-as, quando necessário, durante a implantação e operação subsequente.
+Este artigo descreve os requisitos de sistema importantes para o seu Microsoft Azure StorSimple Virtual Array e para os clientes de armazenamento que acessam a matriz. Recomendamos que você examine as informações com atenção antes de implantar o sistema StorSimple e consulte-as, quando necessário, durante a implantação e operação subsequente.
 
 Os requisitos do sistema incluem:
 
@@ -47,7 +46,7 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | **Componente** | **Requisito** |
 | --- | --- |
 | Número mínimo de processadores virtuais (núcleos) |4 |
-| Mínimo de memória (RAM) |8 GB |
+| Mínimo de memória (RAM) |8 GB <br> Para um servidor de arquivos, 8 GB para menos de 2 milhões de arquivos e 16 GB para 2 a 4 milhões de arquivos|
 | Espaço em disco<sup>1</sup> |Disco do sistema operacional - 80 GB  <br></br>Disco de dados - 500 GB a 8 TB |
 | Número mínimo de interface(s) de rede |1 |
 | Largura de banda mínima da Internet<sup>2</sup> |5 Mbps |
@@ -90,9 +89,9 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Saída |WAN |Não |A porta de saída é usada para acesso à Internet para recuperar atualizações. <br></br>O proxy Web de saída é configurável pelo usuário. |
 | TCP 443 (HTTPS) |Saída |WAN |Sim |A porta de saída é usada para acessar dados na nuvem. <br></br>O proxy Web de saída é configurável pelo usuário. |
-| UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> **Observação**: caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local. |
-| UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta será necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> **Observação:** caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
-| TCP 80 (HTTP) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> **Observação**: o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
+| UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta só será necessária se você estiver usando um servidor DNS baseado na Internet. <br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos usar o servidor DNS local. |
+| UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as observações. |Esta porta é necessária apenas se você estiver usando um servidor NTP baseado na Internet.<br></br> Observe que, caso esteja implantando um servidor de arquivos, recomendamos sincronizar a hora com os controladores de domínio do Active Directory. |
+| TCP 80 (HTTP) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. <br></br> Observe que o acesso à interface do usuário local por HTTP será redirecionado automaticamente para HTTPS. |
 | TCP 443 (HTTPS) |No |LAN |Sim |Essa é a porta de entrada para a interface do usuário local no dispositivo StorSimple para gerenciamento local. |
 | TCP 3260 (iSCSI) |No |LAN |Não |Esta porta é usada para acessar dados em iSCSI. |
 
@@ -104,11 +103,12 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
-Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Sua matriz virtual e o serviço StorSimple Manager dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário. 
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Sua matriz virtual e o serviço do Gerenciador de Dispositivos StorSimple dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, as contas de armazenamento e os servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall para o StorSimple como e quando necessário. 
 
 É recomendável que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do StorSimple e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
+> 
 > * Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem. 
 > * Os IPs de destino devem ser configurados como [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 > 
@@ -116,7 +116,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 | Padrão de URL | Componente/funcionalidade |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Serviço StorSimple Manager<br>Access Control Service<br>Barramento de Serviço do Azure |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |Serviço do Gerenciador de Dispositivos StorSimple<br>Access Control Service<br>Barramento de Serviço do Azure |
 | `http://*.backup.windowsazure.com` |Registro de dispositivos |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificado |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento e monitoramento do Azure |
@@ -126,11 +126,11 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 | `http://*.data.microsoft.com ` |Serviço de telemetria no Windows, confira a [atualização para a experiência do cliente e a telemetria de diagnóstico](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-step"></a>Próxima etapa
-* [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)
+* [Preparar o portal para implantar sua StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

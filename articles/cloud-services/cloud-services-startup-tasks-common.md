@@ -520,6 +520,6 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

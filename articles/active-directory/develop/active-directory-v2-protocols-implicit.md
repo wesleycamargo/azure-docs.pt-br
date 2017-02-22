@@ -1,5 +1,5 @@
 ---
-title: "Fluxo implícito do Azure AD v 2.0 | Microsoft Docs"
+title: "Proteger aplicativos de única página usando o fluxo implícito de v&2;.0 do Azure AD | Microsoft Docs"
 description: "Compilando aplicativos Web usando a implementação v2.0 do Azure AD do fluxo implícito para aplicativos de página única."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: c38acf898a96b63c348ce28fb315a4e30fdb460f
+ms.sourcegitcommit: ba958d029e5bf1bc914a2dff4b6c09282d578c67
+ms.openlocfilehash: 1ea1f54832a13b57caf3d6783e482fad4ba00781
 
 
 ---
@@ -44,7 +44,7 @@ O fluxo completo de entrada implícita é semelhante a este. Cada uma das etapas
 ![Raias do OpenId Connect](../../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
-Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](active-directory-v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v 2.0:
+Para autenticar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autorização [OpenID Connect](active-directory-v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade v&2;.0:
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração.  O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token.  Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
 | prompt |opcional |Indica o tipo de interação do usuário que é necessário.  Os únicos valores válidos no momento são 'login', 'none' e 'consent'.  `prompt=login` forçará o usuário a inserir suas credenciais na solicitação, negando o logon único.  `prompt=none` é o oposto - ele garantirá que o usuário não seja apresentado a nenhum prompt interativo.  Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade v2.0 retornará um erro.  `prompt=consent` irá disparar a caixa de diálogo de consentimento do OAuth depois que o usuário iniciar a sessão, solicitando que ele conceda permissões ao aplicativo. |
 | login_hint |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username`. |
-| domain_hint |opcional |Pode ser `consumers` ou `organizations`.  Se for incluído, ele ignorará o processo de descoberta baseada em email que o usuário passa na página de entrada v 2.0, resultando em uma experiência de usuário um pouco mais simples.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, extraindo a declaração `tid` do id_token.  Se o valor da declaração `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, você deverá usar `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |
+| domain_hint |opcional |Pode ser `consumers` ou `organizations`.  Se for incluído, ele ignorará o processo de descoberta baseada em email que o usuário passa na página de entrada v&2;.0, resultando em uma experiência de usuário um pouco mais simples.  Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, extraindo a declaração `tid` do id_token.  Se o valor da declaração `tid` for `9188040d-6c67-4c5b-b112-36a304b66dad`, você deverá usar `domain_hint=consumers`.  Caso contrário, use `domain_hint=organizations`. |
 
 Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a autenticação.  O ponto de extremidade v2.0 também garantirá que o usuário tenha consentido as permissões indicadas no parâmetro de consulta `scope` .  Se o usuário não tiver consentido nenhuma dessas permissões, ele será solicitado a consentir as permissões necessárias.  Os detalhes dos aplicativos quanto a [permissões, consentimento e multilocatário são fornecidos aqui](active-directory-v2-scopes.md).
 
@@ -138,7 +138,7 @@ Depois de ter validado completamente o id_token, você poderá iniciar uma sess�
 ## <a name="get-access-tokens"></a>Obter tokens de acesso
 Agora que você autenticou o usuário em seu aplicativo de página única, pode obter tokens de acesso para chamar APIs da Web protegidas pelo Azure AD, como o [Microsoft Graph](https://graph.microsoft.io).  Mesmo se já tiver recebido um token usando o response_type `token`, você poderá usar esse método para adquirir tokens para recursos adicionais sem precisar redirecionar o usuário para entrar novamente.
 
-No fluxo normal de OpenID Connect/OAuth, você faria isso por meio de uma solicitação para o ponto de extremidade `/token` do v2.0.  No entanto, o ponto de extremidade v 2.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de cogitação.  Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
+No fluxo normal de OpenID Connect/OAuth, você faria isso por meio de uma solicitação para o ponto de extremidade `/token` do v2.0.  No entanto, o ponto de extremidade v&2;.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e atualizar tokens está fora de cogitação.  Em vez disso, você pode usar o fluxo implícito em um iframe oculto para obter novos tokens para outras APIs da Web: 
 
 ```
 // Line breaks for legibility only
@@ -242,6 +242,6 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

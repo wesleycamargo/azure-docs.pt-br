@@ -12,107 +12,139 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
+ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
+ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
 
 
 ---
-# <a name="performance-levels-and-pricing-tiers-in-documentdb"></a>Níveis de desempenho e tipos de preço no DocumentDB
-Este artigo fornece uma visão geral dos níveis de desempenho no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
+# <a name="performance-levels-in-documentdb"></a>Níveis de desempenho no Banco de Dados de Documentos
 
-Após ler este artigo, você poderá responder as perguntas a seguir:  
+> [!IMPORTANT] 
+> Os níveis de desempenho S1, S2 e S3 analisados neste artigo estão sendo desativados e não estão mais disponíveis para as novas coleções do DocumentDB.
+>
 
-* O que é um nível de desempenho?
-* Como a produtividade é reservada para uma conta do banco de dados?
-* Como eu trabalho com níveis de desempenho?
-* Como eu seu cobrado pelos níveis de desempenho?
+Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e analisa como as coleções que usam esses níveis serão migradas para as coleções de partição única em 1º de agosto de 2017. Após ler este artigo, você poderá responder as perguntas a seguir:
 
-## <a name="introduction-to-performance-levels"></a>Introdução aos níveis de desempenho
-Cada coleção do DocumentDB criada em uma conta padrão é provisionada com um nível de desempenho. Cada coleção em um banco de dados pode ter um nível de desempenho diferente, permitindo designar uma produtividade maior para coleções acessadas com frequência e menos produtividade para coleções acessadas com pouca frequência. 
+- [Por que os níveis de desempenho S1, S2 e S3 estão sendo desativados?](#why-retired)
+- [Como as coleções de partição única e as coleções particionadas se comparam com os níveis de desempenho S1, S2 e S3?](#compare)
+- [O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?](#uninterrupted-access)
+- [Como a minha coleção mudará após a migração?](#collection-change)
+- [Como minha cobrança mudará depois que eu migrar para as coleções de partição única?](#billing-change)
+- [E se eu precisar de mais de 10 GB de armazenamento?](#more-storage-needed)
+- [Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?](#change-before)
+- [Como saberei quando minha coleção migrou?](#when-migrated)
+- [Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?](#migrate-diy)
+- [Como serei afetado se eu for um cliente EA?](#ea-customer)
 
-O DocumentDB dá suporte aos níveis de desempenho **definidos pelo usuário** e aos níveis de desempenho **predefinidos**, como mostra a tabela a seguir.  O desempenho definido pelo usuário permite reservar uma taxa de transferência em unidades de 100 RU/s e ter armazenamento ilimitado, enquanto os três níveis de desempenho predefinidos têm opções de taxa de transferência específicas e uma cota de 10 GB de armazenamento. A tabela a seguir compara o desempenho **definido pelo usuário** com o desempenho **predefinido**.
+<a name="why-retired"></a>
 
-|Tipo de desempenho|Detalhes|Taxa de transferência|Armazenamento|Versão|APIs|
-|----------------|-------|----------|-------|-------|----|
-|Desempenho definido pelo usuário|O usuário define a taxa de transferência em unidades de 100 RU/s|Ilimitado|Ilimitado|V2|API 2015-12-16 e mais recentes|
-|Desempenho predefinido|Armazenamento reservado de 10 GB.<br><br>S1 = 250 RU/s<br>S2 = 1000 RU/s<br>S3 = 2500 RU/s|2.500 RU/s|10 GB|V1|Qualquer|
+## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Por que os níveis de desempenho S1, S2 e S3 estão sendo desativados?
 
-A taxa de transferência é reservada por coleção e está disponível para uso por essa coleção, exclusivamente. A taxa de transferência é medida em [unidades de solicitação (RUs)](documentdb-request-units.md), que identificam a quantidade de recursos necessários para executar várias operações de banco de dados DocumentDB.
+Os níveis de desempenho S1, S2 e S3 não oferecem a flexibilidade que as coleções de partição única do DocumentDB oferecem. Com os níveis de desempenho S1, S2, S3, a taxa de transferência e a capacidade de armazenamento foram predefinidas. Agora, o DocumentDB oferece a capacidade de personalizar a taxa de transferência e o armazenamento, oferecendo muito mais flexibilidade em sua capacidade de dimensionar conforme suas necessidades mudam.
 
-> [!NOTE]
-> O nível de desempenho de uma coleção pode ser ajustado por meio dos [SDKs](documentdb-sdk-dotnet.md) ou do [Portal do Azure](https://portal.azure.com/). As alterações no nível de desempenho devem ser concluídas em 3 minutos.
-> 
-> 
+<a name="compare"></a>
 
-## <a name="setting-performance-levels-for-collections"></a>Definindo níveis de desempenho para coleções
-Quando uma coleção é criada, a alocação total de RUs baseada no nível de desempenho designado é reservada para a coleção.
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>Como as coleções de partição única e as coleções particionadas se comparam com os níveis de desempenho S1, S2 e S3?
 
-Observe que tanto com o nível de desempenho predefinido quanto com o nível definido pelo usuário, o Banco de Dados de Documentos opera com base na reserva de taxa de transferência. Ao criar uma coleção, um aplicativo reservou e é cobrado por uma taxa de transferência reservada, independentemente de quanto dessa taxa de transferência é ativamente usada. Com níveis de desempenho definidos pelo usuário, o armazenamento é medido com base no consumo, mas, com níveis de desempenho predefinidos, 10 GB de armazenamento são reservados no momento da criação da coleção.  
+A tabela a seguir compara as opções da taxa de transferência e armazenamento disponíveis nas coleções de partição única, coleções particionadas e níveis de desempenho S1, S2 e S3. Aqui está um exemplo para a região no Leste dos EUA 2:
 
-Após as coleções serem criadas, você pode modificar o nível de desempenho e/ou a taxa de transferência por meio dos [SDKs](documentdb-sdk-dotnet.md) ou do [portal do Azure](https://portal.azure.com/).
+|   |Coleção particionada|Coleção de partição única|S1|S2|S3|
+|---|---|---|---|---|---|
+|Taxa de transferência máxima|Ilimitado|10 K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
+|Taxa de transferência mínima|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
+|Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
+|Preço|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $&0;,25/GB|Taxa de transferência: $ 6/100 RU/s<br><br>Armazenamento: $&0;,25/GB|$&25; dólares americanos|$&50; dólares americanos|$&100; dólares americanos|
 
-> [!IMPORTANT]
-> Coleções padrão do Banco de Dados de Documentos são cobradas com base em uma taxa por hora e cada coleção que você criar será cobrada por, no mínimo, uma hora de uso.
-> 
-> 
+Você é um cliente EA? Se for, consulte [Como serei afetado se eu for um cliente EA?](#ea-customer)
 
-Se ajustar o nível de desempenho de uma coleção dentro de uma hora, você será cobrado pelo nível de desempenho mais alto definido durante aquela hora. Por exemplo, se aumentar o nível de desempenho de uma coleção às 8h53, você será cobrado pelo novo nível a partir das 8h. Da mesma forma, se você diminuir o nível de desempenho às 8h53, a nova taxa será aplicada às 9h.
+<a name="uninterrupted-access"></a>
 
-As unidades de solicitação são reservadas para cada coleção com base no nível de desempenho definido. O consumo de unidades de solicitação é avaliado em uma taxa por segundo. Aplicativos que ultrapassam a taxa de unidades solicitação (ou o nível de desempenho) provisionada para uma coleção são limitados até que a taxa caia para baixo do nível reservado. Se o seu aplicativo demandar um nível de produtividade mais alto, você pode aumentar o nível de desempenho para cada coleção.
+## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?
 
-> [!NOTE]
-> Quando seu aplicativo ultrapassa os níveis de desempenho para uma ou várias coleções, as solicitações são limitadas por coleção. Isso significa que algumas solicitações do aplicativo podem ser bem-sucedidas enquanto outras são limitadas. Recomendamos a adição de um pequeno número de repetições durante uma limitação, a fim de lidar com picos de tráfego de solicitação.
-> 
-> 
+Nada, o DocumentDB lida com a migração para você. Se você tiver uma coleção S1, S2 ou S3, a coleção atual será migrada para uma coleção de partição única em 31 de julho de 2017. 
 
-## <a name="working-with-performance-levels"></a>Trabalhando com os níveis de desempenho
-Coleções do DocumentDB permitem agrupar seus dados com base nos padrões de consulta e nas necessidades de desempenho do seu aplicativo. Com o suporte a consultas e a indexação automática do Banco de Dados de Documentos, é bastante comum colocar documentos heterogêneos na mesma coleção. As principais considerações para decidir se coleções diferentes devem ser usadas incluem:
+<a name="collection-change"></a>
 
-* Consultas – Uma coleção é o escopo para a realização de consultas. Se você precisar consultar um conjunto de documentos, os padrões de leitura mais eficientes vêm da colocação de documentos em uma única coleção.
-* Transações – todas as transações têm como escopo uma única coleção. Se você tiver documentos que devem ser atualizados dentro de um único procedimento armazenado ou gatilho, eles deverão ser armazenados na mesma coleção. Mais especificamente, uma chave de partição dentro de uma coleção é o limite de transação. Consulte [Particionamento no Banco de Dados de Documentos](documentdb-partition-data.md) para obter mais detalhes.
-* Isolamento de desempenho – uma coleção tem um nível de desempenho associado a ela. Isso garante que cada coleção tenha um desempenho previsível por meio das RUs reservadas. Os dados podem ser alocados a coleções diferentes, com níveis de desempenho diferentes, com base na frequência de acesso.
+## <a name="how-will-my-collection-change-after-the-migration"></a>Como a minha coleção mudará após a migração?
 
-> [!IMPORTANT]
-> É importante entender que você será cobrado segundo as taxas padrão cheias, com base no número de coleções criadas por seu aplicativo.
-> 
-> 
+Se você tiver uma coleção S1, será migrado para uma coleção de partição única com uma taxa de transferência de 400 RU/s. 400 RU/s é a taxa de transferência mais baixa disponível com as coleções de partição única. No entanto, o custo de 400 RU/s em uma coleção de partição única é aproximadamente igual ao que você estava pagando com sua coleção S1 e 250 RU/s – assim, você não está pagando por 150 RU/s extras disponíveis.
 
-É recomendável que seu aplicativo use um pequeno número de coleções, a menos que você tenha grandes requisitos de armazenamento ou taxa de transferência. Certifique-se de que você tenha padrões de aplicativo bem compreendidos para a criação de novas coleções. Você pode optar por fazer da criação de coleções uma ação de gerenciamento feita fora do aplicativo. De forma semelhante, ajustar o nível de desempenho para uma coleção altera a taxa por hora segundo a qual a coleção é cobrada. Você deve monitorar os níveis de desempenho da coleção se o aplicativo ajustar esses níveis dinamicamente.
+Se você tiver uma coleção S2, será migrado para uma coleção de partição única com 1 K RU/s. Você não verá nenhuma alteração no nível da taxa de transferência.
 
-## <a name="a-idchanging-performance-levels-using-the-azure-portalachange-from-s1-s2-s3-to-user-defined-performance"></a><a id="changing-performance-levels-using-the-azure-portal"></a>Alterar de S1, S2, S3 para desempenho definido pelo usuário
-Siga estas etapas para alterar o uso dos níveis de taxa de transferência predefinidos para níveis de taxa de transferência definidos pelo usuário no Portal do Azure. Ao usar níveis de taxa de transferência definidos pelo usuário, você pode ajustar a taxa de transferência de acordo com suas necessidades. E, se ainda estiver usando uma conta S1, você poderá aumentar a taxa de transferência padrão de 250 RU/s para 400 RU/s com apenas alguns cliques. Observe que, quando você move uma coleção de S1, S2 ou S3 para Padrão (definido pelo usuário), não é possível mover de volta para S1, S2 ou S3, mas você pode modificar a taxa de transferência de uma coleção padrão a qualquer momento.
+Se tiver uma coleção S3, será migrado para uma coleção de partição única com 2.5 K RU/s. Você não verá nenhuma alteração no nível da taxa de transferência.
 
-Para obter mais informações sobre as alterações de preços relacionadas à produtividade predefinida e definida pelo usuário, confira a postagem no blog [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)(Banco de Dados de Documentos: tudo o que você precisa saber sobre como usar as novas opções de preços).
+Em cada um desses casos, após a migração de sua coleção, você poderá personalizar o nível da taxa de transferência, aumentar ou reduzir conforme o necessário para fornecer um acesso de baixa latência para os usuários. Para alterar o nível da taxa de transferência depois de sua coleção ter migrado, basta abrir sua conta do DocumentDB no portal do Azure, clicar em Escala, escolher sua coleção, em seguida, ajustar o nível da taxa de transferência, como mostrado na captura de tela a seguir:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
-> 
-> 
+![Como dimensionar a taxa de transferência no portal do Azure](./media/documentdb-performance-levels/azure-documentdb-portal-scale-throughput.png)
+
+<a name="billing-change"></a>
+
+## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Como minha cobrança mudará depois que eu migrar para as coleções de partição única?
+
+Supondo que você tem 10 coleções S1, 1 GB de armazenamento para cada uma, na região Leste dos EUA, e migra essas 10 coleções S1 para 10 coleções de partição única em 400 RU/s (o nível mínimo). Se você mantiver as 10 coleções de partição única por um mês inteiro, sua fatura será semelhante ao seguinte:
+
+![Como o preço de S1 para 10 coleções se compara a 10 coleções usando o preço para uma coleção de partição única](./media/documentdb-performance-levels/documentdb-s1-vs-standard-pricing.png)
+
+<a name="more-storage-needed"></a>
+
+## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>E se eu precisar de mais de 10 GB de armazenamento?
+
+Se você tiver uma coleção com um nível de desempenho S1, S2 ou S3, ou tiver uma coleção de partição única, todas com 10 GB de armazenamento disponível, poderá usar a ferramenta de Migração de Dados do DocumentDB para migrar seus dados para uma coleção particionada com um armazenamento praticamente ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e dimensionamento no DocumentDB do Azure](documentdb-partition-data.md). Para obter informações sobre como migrar seu S1, S2, S3 ou coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition). 
+
+<a name="change-before"></a>
+
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?
+
+Somente as contas existentes com os desempenhos S1, S2 e S3 conseguirão mudar e alterar as camadas do nível de desempenho no portal ou por meio da programação. Em 1º de agosto de 2017, os níveis de desempenho S1, S2 e S3 não estarão mais disponíveis. Se você mudar de S1, S3 ou S3 para uma coleção de partição único, não será possível retornar aos níveis de desempenho S1, S2 ou S3.
+
+<a name="when-migrated"></a>
+
+## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Como saberei quando minha coleção migrou?
+
+A migração ocorrerá em 31 de julho de 2017. Se você tiver uma coleção que usa os níveis de desempenho S1, S2 ou S3, a equipe do DocumentDB entrará em contato com você por email antes da migração ocorrer. Quando a migração for concluída, em 1º de agosto de 2017, o portal do Azure mostrará que sua coleção usa o preço Standard.
+
+![Como confirmar se sua coleção migrou para a tipo de preço Standard](./media/documentdb-performance-levels/documentdb-portal-standard-pricing-applied.png)
+
+<a name="migrate-diy"></a>
+
+## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?
+
+Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de partição única usando o portal do Azure ou programaticamente. Você pode fazer isso sozinho antes de 1º de agosto para aproveitar as opções flexíveis da taxa de transferência disponíveis com as coleções de partição única ou migraremos suas coleções em 31 de julho de 2017.
+
+**Para migrar para coleções de partição única usando o portal do Azure**
 
 1. No [**portal do Azure**](https://portal.azure.com), clique em **NoSQL (DocumentDB)** e, em seguida, selecione a conta do DocumentDB a ser modificada. 
  
     Se **NoSQL (DocumentDB)** não estiver na barra de navegação, clique em >, role até **Bancos de dados**, selecione **NoSQL (DocumentDB)** e, em seguida, selecione a conta de DocumentDB.  
 
-2. No menu de recursos, em **Coleções**, clique em **Escala**, selecione a coleção para modificar na lista suspensa e, em seguida, clique em **Tipo de preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Na folha **Escolha o tipo de preço**, clique em **Standard** para alterar a taxa de transferência definida pelo usuário e, em seguida, clique em **Selecionar** para salvar as alterações.
+2. No menu de recursos, em **Coleções**, clique em **Escala**, selecione a coleção a modificar na lista suspensa, em seguida, clique em **Tipo de Preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Na folha **Escolha o tipo de preço**, clique em **Standard** para alterar a taxa de transferência definida pelo usuário e, em seguida, clique em **Selecionar** para salvar as alterações.
 
     ![Captura de tela da folha Configurações, mostrando em que lugar alterar o valor da taxa de transferência](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
-3. De volta na folha **Escala**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](documentdb-request-units.md)/segundo (RUS/s). A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. Clique em **Salvar** para salvar as alterações.
+3. De volta na folha **Escala**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](documentdb-request-units.md)/segundo (RUS/s). A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. 
 
-    Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para criar uma coleção particionada, confira [Criar uma coleção](documentdb-create-collection.md).
+    >[!IMPORTANT] 
+    > Depois de salvar as alterações e ir para o tipo de preço Standard, você não poderá voltar para os níveis de desempenho S1, S2 ou S3.
 
-> [!NOTE]
-> Alterar os níveis de desempenho de uma coleção pode levar até 2 minutos.
-> 
-> 
+4. Clique em **Salvar** para salvar as alterações.
 
-## <a name="changing-performance-levels-using-the-net-sdk"></a>Alterando os níveis de desempenho usando o SDK .NET
-Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs. Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nosso [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mas o processo é semelhante para os outros [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se você for novo em nosso SDK .NET, visite nosso [tutorial de introdução](documentdb-get-started.md).
+    Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para migrar uma coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition).
 
-Aqui está um trecho de código para alterar a taxa de transferência de oferta para 50.000 unidades de solicitação por segundo:
+    > [!NOTE]
+    > Mudar de S1, S2 ou S3 para o Standard pode levar até 2 minutos.
+    > 
+    > 
 
+**Para migrar para coleções de partição única usando o .NET SDK**
+
+Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs. Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nosso [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), mas o processo é semelhante para os outros [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Se você for novo no .NET SDK, visite nosso [tutorial de introdução](documentdb-get-started.md).
+
+Aqui está um trecho de código para mudar a taxa de transferência da coleção para 5.000 unidades de solicitação por segundo:
+    
+```C#
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -124,20 +156,7 @@ Aqui está um trecho de código para alterar a taxa de transferência de oferta 
 
     //Now persist these changes to the database by replacing the original resource
     await client.ReplaceOfferAsync(offer);
-
-    // Set the throughput to S2
-    offer = new Offer(offer);
-    offer.OfferType = "S2";
-
-    //Now persist these changes to the database by replacing the original resource
-    await client.ReplaceOfferAsync(offer);
-
-
-
-> [!NOTE]
-> Coleções provisionadas com menos de 10.000 unidades de solicitação por segundo podem ser migradas entre ofertas com taxa de transferência definida pelo usuário e a produtividade predefinida (S1, S2, S3) a qualquer momento. Coleções provisionadas com mais de 10.000 unidades de solicitação por segundo não podem ser convertidas para níveis predefinidos de taxa de transferência.
-> 
-> 
+```
 
 Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para exibir exemplos adicionais e saber mais sobre os métodos oferecidos:
 
@@ -146,42 +165,21 @@ Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a name="a-idchange-throughputachanging-the-throughput-of-a-collection"></a><a id="change-throughput"></a>Alterando a produtividade de uma coleção
-Se já estiver usando desempenho definido pelo usuário, você poderá alterar a produtividade da sua coleção seguindo o procedimento abaixo. Se precisar alterar o nível de desempenho de S1, S2 ou S3 (desempenho predefinido) para desempenho definido pelo usuário, confira [Alterar de S1, S2, S3 para desempenho definido pelo usuário](#changing-performance-levels-using-the-azure-portal).
+<a name="ea-customer"></a>
 
-1. No [**portal do Azure**](https://portal.azure.com), clique em **NoSQL (DocumentDB)** e, em seguida, selecione a conta do DocumentDB a ser modificada.    
-2. No menu de recursos, em **Coleções**, clique em **Escala**, selecione a coleção para modificar na lista suspensa.
-3. Na caixa **Taxa de transferência (RU/s)**, digite o novo nível de taxa de transferência. 
-   
-    A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. Clique em **Salvar** para salvar as alterações.
+## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>Como serei afetado se eu for um cliente EA?
 
-    Se não tiver certeza de quanto aumentar sua produtividade, confira [Estimativa das necessidades de produtividade](documentdb-request-units.md#estimating-throughput-needs) e a [Calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner).
-
-## <a name="troubleshooting"></a>Solucionar problemas
-
-Se você não vir a opção para alterar entre os níveis de desempenho S1, S2 ou S3 na folha **Escolha sua tipo de preços**, clique em **Exibir todos** para exibir os níveis de desempenho padrão, S1, S2 e S3. Se você estiver usando o tipo de preços padrão, não poderá alterar entre S1, S2 e S3.
-
-![Captura de tela da folha Escolha seu tipo de preço com opção Exibir todos realçada](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
-
-Depois que você alterar uma coleção de S1, S2 ou S3 para padrão, você não poderá voltar para S1, S2 ou S3.
+Os clientes EA terão o preço protegido até o final do contrato atual.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a definição de preços e o gerenciamento de dados no Banco de Dados de Documentos do Azure, explore esses recursos:
 
-* [Definição de preços no Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Modelando dados no Banco de Dados de Documentos](documentdb-modeling-data.md)
-* [Particionando dados no Banco de Dados de Documentos](documentdb-partition-data.md)
-* [Unidades de solicitação](http://go.microsoft.com/fwlink/?LinkId=735027)
-
-Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/)do Banco de Dados de Documentos do Azure.
-
-Para começar com os testes de desempenho e escala com o DocumentDB, confira [Teste de desempenho e escalabilidade com o Azure DocumentDB](documentdb-performance-testing.md).
-
-[1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
-[2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
+1.  [Particionando dados no DocumentDB](documentdb-partition-data.md). Compreenda a diferença entre as coleções de partição única e a coleção particionada, bem como dicas sobre como implementar uma estratégia de particionamento para dimensionar facilmente.
+2.  [Preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Saiba mais sobre o custo de provisionar a taxa de transferência e consumir o armazenamento.
+3.  [Unidades de solicitação](documentdb-request-units.md). Compreenda o consumo da taxa de transferência para os diferentes tipos de operação, por exemplo, Leitura, Gravação e Consulta.
+4.  [Modelando dados no DocumentDB](documentdb-modeling-data.md). Saiba como modelar seus dados para o DocumentDB.
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

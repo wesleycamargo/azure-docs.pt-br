@@ -1,5 +1,5 @@
 ---
-title: Alertas no Log Analytics | Microsoft Docs
+title: Criar alertas no OMS Log Analytics | Microsoft Docs
 description: "Alertas no Log Analytics identificam informações importantes em seu repositório do OMS e podem notificar proativamente problemas ou invocar ações para tentar corrigi-los.  Este artigo descreve como criar uma regra de alerta e detalha as diferentes ações que elas podem executar."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 01/25/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
+ms.sourcegitcommit: 9fe104a1ea26afa2817aedaa8ed77d042404cda6
+ms.openlocfilehash: 9a62ed7540de05b1db7610e12f2671d33fc8049d
 
 
 ---
@@ -24,6 +24,9 @@ ms.openlocfilehash: 7f8603c9ddfd3f99ea38ad07b7a8a0a553e5e4dd
 Alertas no Log Analytics identificam informações importante no seu repositório do OMS.  Regras de Alerta executarão pesquisas de log automaticamente de acordo com um agendamento e criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   
 
 ![Alertas do Log Analytics](media/log-analytics-alerts/overview.png)
+
+>[!NOTE]
+> Para saber mais sobre regras de alerta de medição de métrica que estão atualmente em visualização pública, consulte [Novo tipo de regra de alerta de medição de métrica em visualização pública!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
 
 ## <a name="creating-an-alert-rule"></a>Criar uma regra de alerta
 Para criar uma regra de alerta, você começa criando uma pesquisa de log para os registros que devem invocar o alerta.  O botão **alerta** estará disponível para que você possa criar e configurar a regra de alerta.
@@ -43,7 +46,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 | Nome |Nome exclusivo para identificar a regra de alerta. |
 | Severidade |Severidade do alerta que é criado por essa regra. |
 | Consulta de pesquisa |Selecione **Usar a consulta de pesquisa atual** para usar a consulta atual ou escolher uma pesquisa salva existente da lista.  A sintaxe da consulta é fornecida na caixa de texto, na qual você pode modificá-la, se necessário. |
-| Janela de tempo |Especifica o intervalo de tempo para a consulta.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  Este pode ser qualquer valor entre 5 minutos e 24 horas.  Ele deve ser maior que ou igual à frequência de alerta.  <br><br>  Por exemplo, se a janela de tempo está definida para 60 minutos e a consulta é executada às 13:15h, somente os registros criados entre 12:15h e 13:15h serão retornados. |
+| Janela de tempo |Especifica o intervalo de tempo para a consulta.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  Este pode ser qualquer valor entre 5 minutos e 24 horas.  Ele deve ser maior que ou igual à frequência de alerta.  <br><br> Por exemplo, se a janela de tempo está definida para 60 minutos e a consulta é executada às 13:15h, somente os registros criados entre 12:15h e 13:15h serão retornados. |
 | **Agenda** | |
 | Limite |Critérios para quando criar um alerta.  Um alerta será criado se o número de registros retornados pela consulta corresponderem a esses critérios. |
 | Frequência de alerta |Especifica a frequência com que a consulta deve ser executada.  Pode ser qualquer valor entre 5 minutos e 24 horas.  Deve ser igual a ou menor que a janela de tempo. |
@@ -60,6 +63,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 | Selecionar um runbook |Selecione um runbook para ser iniciado dentre os runbooks na conta de automação configurados na sua solução de Automação. |
 | Executar em |Selecione **Azure** para executar o runbook na nuvem do Azure.  Selecione **Hybrid Worker** para executar o runbook um [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) no seu ambiente local. |
 
+
 ## <a name="manage-alert-rules"></a>Gerenciar regras de alerta
 Você pode obter uma lista de todas as regras de alerta no menu **Alertas** nas Configurações do **Log Analytics**.  
 
@@ -74,7 +78,11 @@ Você pode executar várias ações nessa exibição.
 * Edite uma regra de alerta clicando no ícone de lápis ao lado dela.
 * Remova uma regra de alerta clicando no ícone de **X** ao lado dela. 
 
-## <a name="setting-time-windows"></a>Configurar janelas de tempo
+## <a name="setting-time-windows-and-thresholds"></a>Configurar limites e janelas de tempo
+
+>[!NOTE]
+> Para saber mais sobre regras de alerta de medição de métrica que estão atualmente em visualização pública, consulte [Novo tipo de regra de alerta de medição de métrica em visualização pública!](https://blogs.technet.microsoft.com/msoms/2016/11/22/new-metric-measurement-alert-rule-type-in-public-preview/).
+ 
 ### <a name="event-alerts"></a>Alertas de eventos
 Eventos incluem fontes de dados como logs de eventos do Windows, Syslog e logs personalizados.  Pode ser útil criar um alerta quando um evento de erro específico é criado ou quando vários eventos de erros são criados dentro de uma janela de tempo específica.
 
@@ -82,14 +90,18 @@ Para alertar quanto a um único evento, defina o número de resultados para maio
 
 Alguns aplicativos podem registrar um erro ocasional que não necessariamente gerará um alerta.  Por exemplo, o aplicativo pode repetir o processo que criou o evento de erro e depois ter êxito na próxima vez.  Nesse caso, não convém criar o alerta, a menos que vários eventos sejam criados dentro de uma janela de tempo específica.  
 
-Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por exemplo, um processo pode registrar eventos regulares para indicar que ele está funcionando corretamente.  Se ele não registrar um desses eventos dentro de uma janela de tempo específica, um alerta deverá ser criado.  Nesse caso você definiria o limite para *Menos de 1*.
+Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por exemplo, um processo pode registrar eventos regulares para indicar que ele está funcionando corretamente.  Se ele não registrar um desses eventos dentro de uma janela de tempo específica, um alerta deverá ser criado.  Nesse caso você definiria o limite como **menos de 1**.
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
-[Os dados de desempenho](log-analytics-data-sources-performance-counters.md) são armazenado como registros no repositório do OMS de forma semelhante aos eventos.  O valor de cada registro é a média medida nos 30 minutos anteriores.  Se você deseja alertar quando um contador de desempenho exceder um limite específico, esse limite deve ser incluído na consulta.
+[Os dados de desempenho](log-analytics-data-sources-performance-counters.md) são armazenado como registros no repositório do OMS de forma semelhante aos eventos.  Se você deseja alertar quando um contador de desempenho exceder um limite específico, esse limite deve ser incluído na consulta.
 
-Por exemplo, digamos que você queira alertar quando o processador fica em execução de mais de 90% por 30 minutos, para isso você usaria uma consulta como *Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90* e o limite para a regra de alerta *maior que 0*.  
+Por exemplo, se você quisesse alertar quando o processador ultrapassasse 90%, usaria uma consulta como a seguinte, com o limite para a regra de alerta **maior do que 0**.
 
- Como [registros de desempenho](log-analytics-data-sources-performance-counters.md) são agregados a cada 30 minutos independentemente da frequência de coleta de cada contador, uma janela de tempo menor do que 30 minutos pode não retornar nenhum registro.  Definir a janela de tempo para 30 minutos garantirá que você obtenha um único registro para cada fonte conectada que representa a média desse período.
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+
+Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o [comando measure](log-analytics-search-reference.md#commands), como no seguinte, com o limite para a regra de alerta **maior do que 0**. 
+
+    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 ## <a name="alert-actions"></a>Ações de alerta
 Além de criar um registro de alerta, você pode configurar a regra de alerta para executar automaticamente uma ou mais ações.  Ações podem notificar você proativamente do alerta ou invocar algum processo que tenta corrigir o problema que foi detectado.  As seções a seguir descrevem as ações que estão disponíveis no momento.
@@ -212,6 +224,6 @@ Há outros tipos de registros de alerta criados pela [solução de Gerenciamento
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

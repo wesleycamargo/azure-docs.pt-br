@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 53f5c17d51622dbc27a27c750999a925c3f80bff
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
 
 
 ---
@@ -34,7 +34,7 @@ No [portal do Azure](https://portal.azure.com/) , a URL do ponto de extremidade 
 ![](./media/app-service-api-metadata/apidefblade.png)
 
 ### <a name="azure-resource-manager-property"></a>Propriedade do Gerenciador de Recursos do Azure
-Você também pode configurar a URL de definição da API para um aplicativo de API usando o [Gerenciador de Recursos](https://resources.azure.com/) ou os [modelos do Azure Resource Manager](../resource-group-authoring-templates.md) nas ferramentas da linha de comando, como o [Azure PowerShell](../powershell-install-configure.md) e a [CLI do Azure](../xplat-cli-install.md). 
+Você também pode configurar a URL de definição da API para um aplicativo de API usando o [Gerenciador de Recursos](https://resources.azure.com/) ou os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) nas ferramentas da linha de comando, como o [Azure PowerShell](/powershell/azureps-cmdlets-docs) e a [CLI do Azure](../xplat-cli-install.md). 
 
 No **Gerenciador de Recursos**, acesse **assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Web > sites > {seu site} > configuração > Web** e você verá a propriedade `apiDefinition`:
 
@@ -60,6 +60,6 @@ Se você usar o Gerenciamento de API do Azure com aplicativos de API, pode usar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 327b66296521eaef5dacbb069eff7580610c09e9
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: dbb920f212d46365233e83ba1e0a0ae99917e405
 
 
 ---
@@ -28,7 +28,7 @@ Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais. C
 * Criar seu fluxo de negócios com base nos dados que você obtém da pesquisa. 
 * Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
 
-Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 A Pesquisa do Bing inclui as seguintes ações. Não há gatilhos. 
@@ -274,13 +274,13 @@ Recupera todos os sites, vídeos, imagens, etc.
 | RelatedSearchResults |array |não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Volte para a [Lista de APIs](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f9877f6bbf57da525ad988a6f6dafa6822a7503
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 2e4af1c9369a97d518d027dc4679b9f01ca53d4c
 
 
 ---
@@ -34,7 +34,7 @@ Com os Usuários do Office 365, você pode:
 * Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
 * Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 O conector dos Usuários do Office 365 tem as ações a seguir disponíveis. Não há nenhum gatilho.
@@ -173,7 +173,7 @@ Recupera os resultados da pesquisa dos perfis do usuário.
 | mobilePhone |string |não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 Volte para a [Lista de APIs](apis-list.md).
 
@@ -187,6 +187,6 @@ Volte para a [Lista de APIs](apis-list.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

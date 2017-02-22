@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/06/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
+ms.sourcegitcommit: 6407c371bc51461a05429fabaf38d3f9bc80d32c
+ms.openlocfilehash: 1f0b951e7b3ffc328604ce799590d478da36915d
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: c2edb529cde2e9658817ee370e3dc4e0266cb72e
 
 A solução de Big Data da Microsoft integra componentes do Business Intelligence (BI) da Microsoft com os clusters do Apache Hadoop que foram implantados pelo Azure HDInsight. Um exemplo dessa integração é a capacidade de conectar o Excel ao data warehouse do Hive de um cluster Hadoop no HDInsight usando o driver ODBC do Microsoft Hive.
 
-Também é possível conectar os dados associados a um cluster HDInsight e outras fontes de dados, incluindo outros clusters Hadoop (não HDInsight), do Excel usando o suplemento Microsoft Power Query para Excel. Para obter informações sobre como instalar e usar o Power Query, consulte [Conectar o Excel ao HDInsight com o Power Query][hdinsight-power-query].
+Também é possível conectar os dados associados a um cluster HDInsight e outras fontes de dados, incluindo outros clusters Hadoop (não HDInsight), do Excel usando o suplemento Microsoft Power Query para Excel. Para obter informações sobre como instalar e usar o Power Query, confira [Conectar o Excel ao HDInsight com o Power Query][hdinsight-power-query].
 
 > [!NOTE]
 > Embora as etapas deste artigo possam ser usadas com um cluster HDInsight com base no Linux ou Windows, é preciso ter o Windows para a estação de trabalho cliente.
@@ -37,11 +37,11 @@ Também é possível conectar os dados associados a um cluster HDInsight e outra
 
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Um cluster HDInsight**. Para criar um, consulte [Introdução ao Azure HDInsight][hdinsight-get-started].
+* **Um cluster HDInsight**. Para criar um, confira [Introdução ao Azure HDInsight][hdinsight-get-started].
 * **estação de trabalho** com Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o driver ODBC do Microsoft Hive
-Baixe e instale o driver ODBC do Microsoft Hive no [Centro de Download][hive-odbc-driver-download].
+Baixe e instale o driver ODBC do Microsoft Hive no [Centro de download][hive-odbc-driver-download].
 
 Esse driver pode ser instalado em versões de 32 ou de 64 bits do Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 e Windows Server 2012, e permitirá a conexão ao Azure HDInsight (versão 1.6 ou posterior) e ao Emulador do Azure HDInsight (v.1.0.0.0 e posterior). Você deve instalar a versão que corresponde à versão do aplicativo onde você usará o driver ODBC. Para este tutorial, o driver será usado do Office Excel.
 
@@ -96,7 +96,7 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela hive para
 5. Insira novamente a senha do cluster no assistente e clique em **Testar** para verificar a configuração novamente, se necessário.
 6. Clique em **OK** para fechar o diálogo Testar.
 7. Clique em **OK**. Aguarde até que a caixa de diálogo **Selecionar Banco de Dados e Tabela** seja aberta. Isso pode levar alguns segundos.
-8. Selecione a tabela que deseja importar e clique em **Avançar**. A *hivesampletable* é uma tabela hive de exemplo que é fornecida com os clusters HDInsight.  Você pode escolhê-la se ainda não tiver criado uma. Para obter mais informações sobre como executar consultas Hive e criar tabelas Hive, consulte [Usar o Hive com o HDInsight][hdinsight-use-hive].
+8. Selecione a tabela que deseja importar e clique em **Avançar**. A *hivesampletable* é uma tabela hive de exemplo que é fornecida com os clusters HDInsight.  Você pode escolhê-la se ainda não tiver criado uma. Para obter mais informações sobre como executar consultas Hive e criar tabelas Hive, confira [Usar o Hive com o HDInsight][hdinsight-use-hive].
 9. Clique em **Concluir**.
 10. No diálogo **Importar Dados** , você pode alterar ou especificar a consulta. Para fazer isso, clique em **Propriedades**. Isso pode levar alguns segundos.
 11. Clique na guia **Definição** e acrescente **LIMIT 200** à instrução de seleção Hive na caixa de texto **Texto do comando**. A modificação limitará o conjunto de registros retornado para 200.
@@ -110,8 +110,8 @@ As etapas a seguir descrevem a maneira de importar dados de uma tabela hive para
 Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recuperar dados do Serviço do HDInsight no Excel. Da mesma forma, você pode recuperar dados do Serviço do HDInsight no Banco de Dados SQL. Também é possível carregar dados em um Serviço do HDInsight. Para obter mais informações, consulte:
 
 * [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-data]
-* [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop]
+* [Carregar Dados no HDInsight][hdinsight-upload-data]
+* [Use o Sqoop com o HDInsight][hdinsight-use-sqoop]
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
@@ -129,6 +129,6 @@ Neste artigo você aprendeu a usar o driver ODBC do Microsoft Hive para recupera
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

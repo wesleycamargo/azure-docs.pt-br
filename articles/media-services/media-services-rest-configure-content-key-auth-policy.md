@@ -1,5 +1,5 @@
 ---
-title: "Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia | Microsoft Docs"
+title: "Configurar política de autorização de chave de conteúdo usando REST - Azure | Microsoft Docs"
 description: "Saiba como configurar uma política de autorização para uma chave de conteúdo usando a API REST dos Serviços de Mídia."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: e00c18be79eb5f7ee4d1dcb8f5e9a5b084afe60f
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 171a971411546d1421a48f3dceab98fb2b54b25f
 
 
 ---
@@ -43,7 +43,7 @@ Para obter mais informações, consulte
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Algumas considerações se aplicam:
-* Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se você tem pelo menos uma unidade reservada para streaming. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
+* Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se o ponto de extremidade de streaming do qual você deseja transmitir seu conteúdo está no estado **Executando**.
 * O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).
 * Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted** .
 * Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
@@ -285,7 +285,7 @@ Adicionar AuthorizationPolicy para o ContentKey, como mostrado [aqui](#AddAuthor
 ## <a name="playready-dynamic-encryption"></a>Criptografia dinâmica do PlayReady
 Os serviços de mídia permitem que você configure os direitos e restrições que você deseja para que o tempo de execução do PlayReady DRM imponha quando um usuário está tentando reproduzir conteúdo protegido. 
 
-Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
+Ao proteger o conteúdo com PlayReady, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o [modelo de licença do PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrição aberta
 A restrição aberta significa que o sistema fornecerá a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
@@ -450,6 +450,6 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

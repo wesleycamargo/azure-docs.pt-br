@@ -1,6 +1,6 @@
 ---
-title: "Designer de exibição do Log Analytics | Microsoft Docs"
-description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
+title: "Criar exibições para analisar dados no Log Analytics do OMS | Microsoft Docs"
+description: "O Designer de modos de exibição do Log Analytics permite que você crie Exibições personalizadas que são exibidas no portal do Azure e no OMS e que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: e101972777e45bcf3b49b113c6fd92d220ad43fc
 
 
 ---
-# <a name="log-analytics-view-designer"></a>Designer de modos de exibição do Log Analytics
-O Designer de modos de exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
+# <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>Use o Designer de modos de exibição para criar exibições personalizadas no Log Analytics
+O Designer de modos de exibição do [Log Analytics]() permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
@@ -66,7 +66,7 @@ Para excluir um modo de exibição existente, abra o modo de exibição clicando
 ![Excluir um modo de exibição](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### <a name="export-an-existing-view"></a>Exportar um modo de exibição existente
-Você pode exportar um modo de exibição para um arquivo JSON que pode importar para outro espaço de trabalho ou usar em um [o modelo do Azure Resource Manager](../resource-group-authoring-templates.md).  Para exportar um modo de exibição existente, abra o modo de exibição clicando em seu bloco, no painel principal do OMS.  Em seguida, clique no botão **Exportar** para criar um arquivo na pasta de download do navegador.  O nome do arquivo será o nome do modo de exibição com a extensão *omsview*.
+Você pode exportar um modo de exibição para um arquivo JSON que pode importar para outro espaço de trabalho ou usar em um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).  Para exportar um modo de exibição existente, abra o modo de exibição clicando em seu bloco, no painel principal do OMS.  Em seguida, clique no botão **Exportar** para criar um arquivo na pasta de download do navegador.  O nome do arquivo será o nome do modo de exibição com a extensão *omsview*.
 
 ![Exportar um modo de exibição](media/log-analytics-view-designer/edit-menu-export.png)
 
@@ -99,6 +99,6 @@ Os modos de exibição têm apenas uma linha de partes da visualização.  Reorg
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

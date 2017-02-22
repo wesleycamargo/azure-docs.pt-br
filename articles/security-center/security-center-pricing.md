@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+ms.sourcegitcommit: fd4603d7bcbd1d243c6dd37d810040ff0ee1b3ae
+ms.openlocfilehash: e61a9fad0c241da30a615e03aa18c6fbb03baf35
 
 
 ---
@@ -27,21 +27,21 @@ A Central de Segurança do Azure ajuda você a impedir, detectar e responder a a
 A Central de Segurança é oferecida em duas camadas:
 
 * A **camada Gratuita** é habilitada automaticamente em todas as assinaturas do Azure. A camada Gratuita fornece visibilidade do estado de segurança de seus recursos do Azure, a política de segurança básica, recomendações de segurança e integração a produtos de segurança e serviços de parceiros.
-* A **camada Padrão** adiciona recursos de detecção avançada de ameaças, inclusive inteligência de ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de avaliação de risco. Uma **avaliação gratuita por 90 dias** está disponível para a camada Standard.
+* A **camada Padrão** adiciona recursos de detecção avançada de ameaças, inclusive inteligência de ameaças, análise comportamental, detecção de anomalias, incidentes de segurança e relatórios de avaliação de risco. Uma **avaliação gratuita por&90; dias** está disponível para a camada Standard.
 
 Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
 
 > [!NOTE]
 > A Central de Segurança usa o armazenamento do Azure para salvar dados de segurança gerados pelos nós protegidos. Os custos associados a esse armazenamento não estão incluídos no preço do serviço e são cobrados separadamente de acordo com as [taxas normais de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). As cobranças pelo armazenamento se aplicam também durante a avaliação.
-> 
-> 
+>
+>
 
 ## <a name="try-standard-free-for-90-days"></a>Experimente o Padrão gratuitamente por 90 dias
 Uma avaliação gratuita por 90 dias está disponível para a camada Standard. Para obter a avaliação gratuita da camada Padrão, selecione o bloco **Política** na folha **Central de Segurança**. Selecione a assinatura que você deseja atualizar para o Padrão. Na folha **Política de segurança**, selecione **Camada de preços**. Na folha **Escolha sua camada de preços**, selecione **Padrão – Avaliação Gratuita**.
 
 ![Avaliação gratuita][1]
 
-Ao final dos 90 dias, se você optar por continuar usando o serviço, nós começaremos a cobrar automaticamente pelo uso.
+Ao final dos 90 dias, se você optar por continuar usando o serviço, a cobrança pelo uso começará automaticamente.
 
 ## <a name="upgrade-to-standard"></a>Atualizar para Padrão
 Atualize para a camada Padrão para adicionar a detecção avançada de ameaças. Para obter a camada Padrão, selecione o bloco **Política** na folha **Central de Segurança**. Selecione a assinatura que você deseja atualizar para o Padrão. Na folha **Política de segurança**, selecione **Camada de preços**. Na folha **Escolha seu tipo de preços**, selecione **Padrão**.
@@ -51,7 +51,7 @@ Atualize para a camada Padrão para adicionar a detecção avançada de ameaças
 ## <a name="why-upgrade-to-standard"></a>Por que atualizar para Padrão?
 A camada Padrão da Central de Segurança fornece todos os recursos da camada Gratuita, mais a detecção avançada de ameaças. A detecção avançada de ameaças ajuda a identificar ameaças ativas que direcionam os recursos do Azure e fornece as percepções necessárias para que você reaja rapidamente.
 
-A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações em tecnologias de big data e aprendizado de máquina são usadas para aproveitar os eventos de avaliação em toda a malha de nuvem, detectando ameaças que seriam impossíveis de identificar usando abordagens manuais e prevendo a evolução de ataques.
+A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações em tecnologias de big data e aprendizado de máquina são usadas para avaliar eventos em toda a malha de nuvem, detectando ameaças que seriam impossíveis de identificar usando abordagens manuais e prevendo a evolução de ataques.
 
 A análise de segurança fornecida com a camada padrão é:
 
@@ -86,6 +86,6 @@ Para validar se a coleta de dados está habilitada, selecione o bloco **Polític
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

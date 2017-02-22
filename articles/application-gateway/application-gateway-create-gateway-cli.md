@@ -1,5 +1,5 @@
 ---
-title: Criar um gateway de aplicativo usando a CLI do Azure no Resource Manager | Microsoft Docs
+title: Criar um Gateway de Aplicativo do Azure - CLI do Azure | Microsoft Docs
 description: Saiba como criar um Gateway de Aplicativo usando a CLI do Azure no Resource Manager
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
-ms.openlocfilehash: 165289acd1d2a5bc098e9a83f43613d16a023045
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: d376cd1f62f99d3f611d0d5ccc613c4b649e5c3c
 
 
 ---
@@ -140,6 +140,6 @@ Saiba como configurar o Descarregamento de SSL e levar a descriptografia SSL car
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

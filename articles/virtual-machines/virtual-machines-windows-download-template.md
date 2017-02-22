@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6dffec166ffe8e04c5d7b701aef009bf7b72d45
+ms.sourcegitcommit: 349b8dc78ace79efca771efb78e453a47e51023e
+ms.openlocfilehash: 6e80064adadcc542523acb1d2478e6b8f0163acb
 
 
 ---
 # <a name="download-the-template-for-a-vm"></a>Baixar o modelo para uma VM
-Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar este modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que os modelo contém tudo o que é criado para dar suporte à VM desse grupo de recursos, incluindo os recursos de rede.
+Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do Resource Manager é criado automaticamente para você. Você pode usar este modelo para duplicar rapidamente uma implantação. O modelo contém informações sobre todos os recursos em um grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para dar suporte à VM desse grupo de recursos, incluindo os recursos de rede.
 
 ## <a name="download-the-template-using-the-portal"></a>Baixar o modelo usando o portal
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
@@ -39,7 +39,7 @@ Quando você cria uma VM no Azure usando o portal ou o PowerShell, um modelo do 
    * parameters.json
    * template.json
 
-O arquivo .json é o modelo.
+O arquivo template.json é o modelo.
 
 ## <a name="download-the-template-using-powershell"></a>Baixar o modelo usando o PowerShell
 Você também pode baixar o arquivo de modelo .json usando o cmdlet [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx). Você pode usar o parâmetro `-path` para fornecer o nome de arquivo e o caminho para o arquivo .json. Este exemplo mostra como baixar o modelo para o grupo de recursos denominado **myResourceGroup** para a pasta **C:\users\public\downloads** no computador local.
@@ -54,6 +54,6 @@ Para saber mais sobre como implantar recursos usando modelos, veja o [passo a pa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

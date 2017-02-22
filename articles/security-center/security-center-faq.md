@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 59c39e8a965c163c21456502e8857f57c3d5cf88
-ms.openlocfilehash: 7eeb309b2715dcb1101024c22faf4984b499274a
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
 
 
 ---
@@ -71,7 +71,7 @@ A coleta de dados é habilitada por meio do agente de monitoramento do Azure e d
 O agente e a extensão consomem uma quantidade nominal de recursos do sistema e devem causar pouco impacto sobre o desempenho. Para obter mais informações sobre o impacto no desempenho, bem como o agente e a extensão, consulte o [guia de planejamento e operações](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### <a name="where-is-my-data-stored"></a>Onde meus dados são armazenados?
-Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**.) Ao selecionar uma assinatura, uma nova folha será aberta. Para selecionar uma região, selecione **Escolher contas de armazenamento**.
+Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Isso facilita para manter os dados na mesma área geográfica para fins de privacidade e soberania de dados. Você pode escolher a conta de armazenamento para uma assinatura na política de segurança. ([Entre no portal do Azure](https://portal.azure.com), selecione **Procurar**, **Central de Segurança** e **Política**.) Ao selecionar uma assinatura, uma nova folha será aberta. Para selecionar uma região, selecione **Escolher contas de armazenamento**. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata.
 
 > [!NOTE]
 > As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a seleção da região de sua conta de armazenamento ocorre apenas no nível da assinatura.
@@ -164,6 +164,6 @@ O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de Dados. O ag
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

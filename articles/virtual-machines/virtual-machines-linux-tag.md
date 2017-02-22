@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6e39b13de1808ebb1d0571ab0c1c620261046d0d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
 
 
 ---
@@ -47,17 +47,17 @@ Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Por
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a marcação dos recursos do Azure, confira [Visão geral do Azure Resource Manager][Visão geral do Azure Resource Manager] e [Usando marcas para organizar os recursos do Azure][Usando marcas para organizar os recursos do Azure] (Usando marcas para organizar os Recursos do Azure).
-* Para ver como as marcações podem ajudar a gerenciar o uso de recursos do Azure, confira [Noções básicas de sua fatura do Azure][Noções básicas de sua fatura do Azure] (Noções básicas sobre a Cobrança do Azure) e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Obtenha informações sobre o consumo de recursos do Microsoft Azure].
+* Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager][Azure Resource Manager Overview] e [Usando marcas para organizar os Recursos do Azure][Using Tags to organize your Azure Resources].
+* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure][Understanding your Azure Bill] e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
-[ambiente da CLI do Azure]: ./xplat-cli-azure-resource-manager.md
-[Visão geral do Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
-[Usando marcas para organizar os recursos do Azure]: ../resource-group-using-tags.md
-[Noções básicas de sua fatura do Azure]: ../billing/billing-understand-your-bill.md
-[Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
+[Azure CLI environment]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

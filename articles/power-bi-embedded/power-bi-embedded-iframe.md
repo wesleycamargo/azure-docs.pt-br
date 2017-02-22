@@ -16,8 +16,8 @@ ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7aadb6ceba1a8c672ed9eeea8651c965e5b665fd
+ms.sourcegitcommit: b3037f1b96c8bfbaad5f92b726b63854469a8d06
+ms.openlocfilehash: b9a5435330e56ba8f25100437e201cccd7aeb568
 
 
 ---
@@ -91,7 +91,7 @@ RequestId: 4220d385-2fb3-406b-8901-4ebe11a5f6da
 A **workspaceId** retornada é usada para as chamadas à API subsequentes a seguir. Nosso aplicativo deve manter esse valor.
 
 ## <a name="import-pbix-file-into-the-workspace"></a>Importar o arquivo .pbix no espaço de trabalho
-Cada espaço de trabalho pode hospedar um único arquivo do Power BI Desktop com um conjunto de dados \(incluindo configurações de fonte de dados) e relatórios. Podemos importar nosso arquivo .pbix no espaço de trabalho, conforme mostrado no código abaixo. Como você pode ver, podemos carregar o binário do arquivo .pbix usando diversas partes de MIME em http.
+Cada relatório num espaço de trabalho corresponde a um único arquivo do Power BI Desktop com um conjunto de dados \(incluindo configurações de fonte de dados). Podemos importar nosso arquivo .pbix no espaço de trabalho, conforme mostrado no código abaixo. Como você pode ver, podemos carregar o binário do arquivo .pbix usando diversas partes de MIME em http.
 
 O fragmento de uri **32960a09-6366-4208-a8bb-9e0678cdbb9d** é a workspaceId e o parâmetro de consulta **datasetDisplayName** é o nome do conjunto de dados a ser criado. O conjunto de dados criado contém todos os artefatos relacionados aos dados no arquivo .pbix, como dados importados, o ponteiro para a fonte de dados etc.
 
@@ -471,6 +471,6 @@ Neste momento, o Power BI Embedded mostra o relatório somente no iframe. Mas, f
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

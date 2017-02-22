@@ -1,9 +1,9 @@
 ---
-title: "Como gerenciar a segurança após a restauração de um banco de dados para um novo servidor ou fazer failover de um banco de dados para uma cópia de banco de dados secundária | Microsoft Docs"
-description: "Este tópico explica considerações de segurança para gerenciar a segurança após uma restauração ou failover de um banco de dados."
+title: "Configurar a segurança do Banco de Dados SQL do Azure para recuperação de desastre | Microsoft Docs"
+description: "Este tópico explica as considerações de segurança para configurar e gerenciar a segurança após uma restauração de banco de dados ou um failover para um servidor secundário no caso de uma interrupção do data center ou outros desastres"
 services: sql-database
 documentationcenter: na
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 editor: monicar
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
@@ -14,18 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
-ms.author: carlrab
+ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3c8a05cb86522253bbbf85da2d29ba38f114120b
+ms.sourcegitcommit: 2b55b6b4475abdbc1985d8ac370b3b612b77eb0e
+ms.openlocfilehash: ae06e6855a11f91ce18e3b12698b3d01e23a6a2c
 
 
 ---
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>Como gerenciar a segurança do Banco de Dados SQL do Azure após a recuperação de desastre
+# <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL para restauração geográfica ou failover 
 > [!NOTE]
 > A [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas de serviço.
-> 
-> 
+>  
 
 ## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Visão geral dos requisitos de autenticação para a recuperação de desastre
 Este tópico descreve os requisitos de autenticação para configurar e controlar a [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) e as etapas necessárias para configurar o acesso de usuário ao banco de dados secundário. Ele também descreve como habilitar o acesso ao banco de dados recuperado depois de usar a [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore). Para obter mais informações sobre as opções de recuperação, confira [Visão geral de continuidade dos negócios](sql-database-business-continuity.md).
@@ -103,10 +102,9 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 * Para saber como usar e configurar a replicação geográfica ativa, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
 * Para obter informações sobre como usar a restauração geográfica, confira [Restauração Geográfica](sql-database-recovery-using-backups.md#geo-restore)
 
-## <a name="additional-resources"></a>Recursos adicionais
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

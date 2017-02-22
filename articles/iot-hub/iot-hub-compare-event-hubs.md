@@ -1,6 +1,6 @@
 ---
 title: Comparar o Hub IoT do Azure ao Hubs de Eventos do Azure | Microsoft Docs
-description: "Uma comparação dos serviços do Hub IoT do Azure e Hubs de Eventos do Azure destacando diferenças funcionais e casos de uso."
+description: "Uma comparação dos serviços do Hub IoT e de Eventos do Azure destacando diferenças funcionais e casos de uso. A comparação inclui protocolos com suporte, gerenciamento de dispositivos, monitoramento e uploads de arquivos."
 services: iot-hub
 documentationcenter: 
 author: fsautomata
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/31/2017
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 9c7e33ceebb28f6a263d2c92e0c0208434e64ffc
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 2075c7a1b8f3393e100ab92ae7d497c56965f887
 
 
 ---
@@ -35,6 +35,7 @@ Entretanto, os serviços têm várias diferenças, que são detalhadas na tabela
 | Escala |É otimizada para dar suporte a milhões de dispositivos conectados simultaneamente. |Pode dar suporte a uma quantidade mais limitada de conexões simultâneas: até 5.000 conexões AMQP, de acordo com as [Cotas do Barramento de Serviço do Azure][Azure Service Bus quotas]. Por outro lado, os Hubs de Eventos permitem que você especifique a partição de cada mensagem enviada. |
 | SDKs de dispositivo |Fornece [SDKs de dispositivo][Azure IoT SDKs] para uma grande variedade de plataformas e linguagens, além de APIs diretas de MQTT, AMQP e HTTP. |Tem suporte no .NET, Java e C, além de nas interfaces de envio AMQP e HTTP. |
 | Upload de arquivos |Permite que soluções IoT carreguem arquivos de dispositivos para a nuvem. Inclui um ponto de extremidade de notificação de arquivo para a integração de fluxo de trabalho e uma categoria de monitoramento de operações para o suporte à depuração. | Sem suporte. |
+| Rotear mensagens para vários pontos de extremidade | Há suporte para até 10 pontos de extremidade personalizados. As regras determinam como as mensagens são roteadas para os pontos de extremidade personalizados. Para saber mais, confira [Enviar e receber mensagens com o Hub IoT][lnk-devguide-messaging]. | Exige a composição e hospedagem de um código adicional para despacho de mensagens. |
 
 Em resumo, mesmo se o único caso de uso for a entrada de telemetria do dispositivo para nuvem, o Hub IoT fornecerá um serviço que foi desenvolvido para conectividade do dispositivo IoT. Ele continuará expandindo as propostas de valor para esses cenários com recursos específicos de IoT. Os Hubs de Eventos são projetados para a entrada de evento em grande escala, no contexto de cenários internos de datacenter e entre datacenters.
 
@@ -45,8 +46,8 @@ Para saber mais sobre como planejar sua implantação do Hub IoT, veja [Escaland
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor][lnk-devguide]
-* [Simulando um dispositivo com o SDK de Gateway IoT][lnk-gateway]
+* [Guia do desenvolvedor do Hub IoT][lnk-devguide]
+* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -55,17 +56,18 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [seção Segurança do guia do desenvolvedor de Hub IoT]: iot-hub-devguide-security.md
 [Event Hubs - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
-[Event Hubs publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
+[Event Hubs publisher policies]: ../event-hubs/event-hubs-what-is-event-hubs.md#event-publishers
 [Azure Service Bus quotas]: ../service-bus-messaging/service-bus-quotas.md
-[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
+[Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO5-->
 
 

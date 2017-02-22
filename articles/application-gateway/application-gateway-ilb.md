@@ -1,204 +1,231 @@
 ---
-title: Create and Configure an Application Gateway with Internal Load Balancer (ILB) in a Virtual Network | Microsoft Docs
-description: This page provides instructions to configure an Azure Application Gateway with an Internal Load Balanced endpoint
+title: Usando o Gateway de Aplicativo do Azure com o balanceador de carga interno | Microsoft Docs
+description: "Esta página fornece instruções para configurar um Application Gateway do Azure com um ponto de extremidade do Balanceador de Carga Interno"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: jdial
+manager: timlt
 editor: tysonn
-
+ms.assetid: 7403d28e-909f-46a2-b282-43a8e942f53c
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/19/2016
+ms.date: 01/23/2017
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: d6f3af61934c8c645be1f2c6b4c056fc7ee2e3aa
+
 
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-(ilb)"></a>Create an Application Gateway with an Internal Load Balancer (ILB)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um Application Gateway com um ILB (Balanceador de Carga Interno)
+
 > [!div class="op_single_selector"]
-> * [Azure classic steps](application-gateway-ilb.md)
-> * [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
-> 
-> 
+> * [Azure Classic PowerShell](application-gateway-ilb.md)
+> * [PowerShell do Azure Resource Manager](application-gateway-ilb-arm.md)
 
-Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application, which sits in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article walks you through the steps to configure an application gateway with an ILB.
+O Application Gateway pode ser configurado com um IP virtual voltado para a Internet ou com um ponto de extremidade interno não exposto à Internet, também conhecido como ponto de extremidade ILB (Balanceador de Carga Interno). Configurar o gateway como um ILB é útil para aplicativos de linha de negócios internos não expostos à Internet. Isso também é útil para serviços/camadas em um aplicativo multicamada que reside em um limite de segurança não exposto à Internet, mas que ainda exige distribuição de carga round robin, adesão da sessão ou terminação SSL. Este artigo o orienta ao longo das etapas para configurar um Application Gateway com um ILB.
 
-## <a name="before-you-begin"></a>Before you begin
-1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](https://azure.microsoft.com/downloads/).
-2. Verify that you have a working virtual network with valid subnet.
-3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
+## <a name="before-you-begin"></a>Antes de começar
 
-To create an application gateway, perform the following steps in the order listed. 
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página de download](https://azure.microsoft.com/downloads/).
+2. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida.
+3. Verifique se você tem servidores back-end na rede virtual ou com um IP/VIP público atribuído.
 
-1. [Create an application gateway](#create-a-new-application-gateway)
-2. [Configure the gateway](#configure-the-gateway)
-3. [Set the gateway configuration](#set-the-gateway-configuration)
-4. [Start the gateway](#start-the-gateway)
-5. [Verify the gateway](#verify-the-gateway-status)
+Para criar um Application Gateway, execute as etapas a seguir na ordem listada. 
 
-## <a name="create-an-application-gateway:"></a>Create an application gateway:
-**To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+1. [Criar um Application Gateway](#create-a-new-application-gateway)
+2. [Configurar o gateway](#configure-the-gateway)
+3. [Definir a configuração do gateway](#set-the-gateway-configuration)
+4. [Iniciar o gateway](#start-the-gateway)
+5. [Verificar o gateway](#verify-the-gateway-status)
 
-    PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+## <a name="create-an-application-gateway"></a>Criar um Application Gateway:
 
-    VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
-    VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error 
-    ----       ----------------     ------------                             ----
-    Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+**Para criar o gateway**, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. Observe que a cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
-**To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet. 
+```powershell
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
-In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state. 
+```
+VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error 
+----       ----------------     ------------                             ----
+Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+```
 
-    PS C:\> Get-AzureApplicationGateway AppGwTest
+**Para validar** esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`. 
 
-    VERBOSE: 4:39:39 PM - Begin Operation:
-    Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
-    Operation: Get-AzureApplicationGateway
-    Name: AppGwTest 
-    Description: 
-    VnetName: testvnet1 
-    Subnets: {Subnet-1} 
-    InstanceCount: 2 
-    GatewaySize: Medium 
-    State: Stopped 
-    VirtualIPs: 
-    DnsName:
+No exemplo, *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais. O valor padrão para *InstanceCount* é 2, com um valor máximo de 10. O valor padrão para *GatewaySize* é Medium. Small e Large são outros valore disponíveis. *Vip* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução. 
 
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
 
-## <a name="configure-the-gateway"></a>Configure the gateway
-An application gateway configuration consists of multiple values. The values can be tied together to construct the configuration.
+```
+VERBOSE: 4:39:39 PM - Begin Operation:
+Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
+Operation: Get-AzureApplicationGateway
+Name: AppGwTest    
+Description: 
+VnetName: testvnet1 
+Subnets: {Subnet-1} 
+InstanceCount: 2 
+GatewaySize: Medium 
+State: Stopped 
+VirtualIPs: 
+DnsName:
+```
 
-The values are:
+## <a name="configure-the-gateway"></a>Configurar o gateway
+Uma configuração de gateway de aplicativo consiste em vários valores. Os valores podem ser vinculados para construir a configuração.
 
-* **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
-* **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
-* **Frontend Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
-* **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
-* **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
+Os valores são:
 
-You can construct your configuration either by creating a configuration object, or by using a configuration XML file. To construct your configuration by using a configuration XML file, use the sample below.
+* **Pool de servidores de back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados ou devem pertencer à sub-rede da VNet, ou devem ser um IP/VIP público. 
+* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookies. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+* **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (Http ou Https, que diferencia maiúsculas de minúsculas) e o nome do certificado SSL (se estiver configurando o descarregamento SSL). 
+* **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico. Atualmente, há suporte apenas para a regra *basic* . A regra *basic* é a distribuição de carga round robin.
 
-Note the following:
+Você pode construir sua configuração criando um objeto de configuração ou usando um arquivo XML de configuração. Para construir a configuração usando um arquivo XML de configuração, use o exemplo abaixo.
 
-* The *FrontendIPConfigurations* element describes the ILB details relevant for configuring Application Gateway with an ILB. 
-* The Frontend IP *Type* should be set to 'Private'
-* The *StaticIPAddress* should be set to the desired internal IP on which the gateway receives traffic. Note that the *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
-* The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
+Observe o seguinte:
+
+* O elemento *FrontendIPConfigurations* descreve os detalhes do ILB relevantes para configurar o Application Gateway com ILB. 
+* O *Tipo* de IP front-end deve ser definido como ‘Privado’.
+* O *StaticIPAddress* deve ser definido para o IP interno desejado no qual o gateway recebe o tráfego. Observe que o elemento *StaticIPAddress* é opcional. Se não for definido, será escolhido um IP interno disponível na sub-rede implantada. 
+* O valor do elemento *Name* especificado em *FrontendIPConfiguration* deve ser usado no elemento *FrontendIP* de HTTPListener para fazer referência a FrontendIPConfiguration.
   
-  **Configuration XML sample**
+  **Exemplo de XML de configuração**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendIPConfigurations>
+        <FrontendIPConfiguration>
+            <Name>fip1</Name> 
+            <Type>Private</Type> 
+            <StaticIPAddress>10.0.0.10</StaticIPAddress> 
+        </FrontendIPConfiguration>
+    </FrontendIPConfigurations>
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>FrontendPort1</Name>
+            <Port>80</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>BackendPool1</Name>
+            <IPAddresses>
+                <IPAddress>10.0.0.1</IPAddress>
+                <IPAddress>10.0.0.2</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>BackendSetting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>HTTPListener1</Name>
+            <FrontendIP>fip1</FrontendIP>
+            <FrontendPort>FrontendPort1</FrontendPort>
+            <Protocol>Http</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>HttpLBRule1</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+            <Listener>HTTPListener1</Listener>
+            <BackendAddressPool>BackendPool1</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-            <FrontendIPConfigurations>
-                <FrontendIPConfiguration>
-                    <Name>fip1</Name> 
-                    <Type>Private</Type> 
-                    <StaticIPAddress>10.0.0.10</StaticIPAddress> 
-                </FrontendIPConfiguration>
-            </FrontendIPConfigurations>
-            <FrontendPorts>
-                <FrontendPort>
-                    <Name>FrontendPort1</Name>
-                    <Port>80</Port>
-                </FrontendPort>
-            </FrontendPorts>
-            <BackendAddressPools>
-                <BackendAddressPool>
-                    <Name>BackendPool1</Name>
-                    <IPAddresses>
-                        <IPAddress>10.0.0.1</IPAddress>
-                        <IPAddress>10.0.0.2</IPAddress>
-                    </IPAddresses>
-                </BackendAddressPool>
-            </BackendAddressPools>
-            <BackendHttpSettingsList>
-                <BackendHttpSettings>
-                    <Name>BackendSetting1</Name>
-                    <Port>80</Port>
-                    <Protocol>Http</Protocol>
-                    <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-                </BackendHttpSettings>
-            </BackendHttpSettingsList>
-            <HttpListeners>
-                <HttpListener>
-                    <Name>HTTPListener1</Name>
-                    <FrontendIP>fip1</FrontendIP>
-                    <FrontendPort>FrontendPort1</FrontendPort>
-                    <Protocol>Http</Protocol>
-                </HttpListener>
-            </HttpListeners>
-            <HttpLoadBalancingRules>
-                <HttpLoadBalancingRule>
-                    <Name>HttpLBRule1</Name>
-                    <Type>basic</Type>
-                    <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
-                    <Listener>HTTPListener1</Listener>
-                    <BackendAddressPool>BackendPool1</BackendAddressPool>
-                </HttpLoadBalancingRule>
-            </HttpLoadBalancingRules>
-        </ApplicationGatewayConfiguration>
 
+## <a name="set-the-gateway-configuration"></a>Definir a configuração do gateway
+Em seguida, você vai configurar o gateway de aplicativo. É possível usar o cmdlet `Set-AzureApplicationGatewayConfig` com um objeto de configuração ou com um arquivo XML de configuração. 
 
+```powershell
+Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+```
 
-## <a name="set-the-gateway-configuration"></a>Set the gateway configuration
-Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file. 
+```
+VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
+Name       HTTP Status Code     Operation ID                             Error 
+----       ----------------     ------------                             ----
+Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+```
 
-    PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+## <a name="start-the-gateway"></a>Iniciar o gateway
 
-    VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
-    VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-    Name       HTTP Status Code     Operation ID                             Error 
-    ----       ----------------     ------------                             ----
-    Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
-
-## <a name="start-the-gateway"></a>Start the gateway
-Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
-
-> [!NOTE]
-> The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
-> 
-> 
-
-    PS C:\> Start-AzureApplicationGateway AppGwTest 
-
-    VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-    VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error 
-    ----       ----------------     ------------                             ----
-    Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## <a name="verify-the-gateway-status"></a>Verify the gateway status
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gateway is running, and is ready to take traffic. 
+Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito. 
 
 > [!NOTE]
-> The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
+> A regra `Start-AzureApplicationGateway` pode levar até 15 a 20 minutos para ser concluído. 
 > 
 > 
 
-    PS C:\> Get-AzureApplicationGateway AppGwTest 
+```powershell
+Start-AzureApplicationGateway AppGwTest 
+```
 
-    VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-    VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-    Name          : AppGwTest
-    Description   : 
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Running
-    VirtualIPs    : {10.0.0.10}
-    DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
+```
+VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error 
+----       ----------------     ------------                             ----
+Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
+```
 
-## <a name="next-steps"></a>Next steps
-If you want more information about load balancing options in general, see:
+## <a name="verify-the-gateway-status"></a>Verificar o status do gateway
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se `Start-AzureApplicationGateway` tiver sido bem-sucedido na etapa anterior, o Estado deverá ser *Em execução* e Vip e DnsName deverão ter entradas válidas. Este exemplo mostra o cmdlet na primeira linha, seguido pela saída. Neste exemplo, o gateway está em execução e pronto para assumir o tráfego. 
 
-<!--HONumber=Oct16_HO2-->
+> [!NOTE]
+> Neste exemplo, o Application Gateway está configurado para aceitar o tráfego no ponto de extremidade ILB configurado de 10.0.0.10.
+
+```powershell
+Get-AzureApplicationGateway AppGwTest 
+```
+
+```
+VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
+VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
+Name          : AppGwTest
+Description   : 
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Running
+VirtualIPs    : {10.0.0.10}
+DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
+```
+
+## <a name="next-steps"></a>Próximas etapas
+Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
+
+* [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
+
+
+
+
+<!--HONumber=Jan17_HO4-->
 
 

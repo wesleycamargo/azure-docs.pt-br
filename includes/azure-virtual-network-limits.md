@@ -23,6 +23,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Redes virtuais por assinatura |50 |500 |
+| Sub-redes por rede virtual |1.000 |entrar em contato com o suporte |
 | Servidores DNS por rede virtual |9 |25 |
 | Endereços IP privados por rede virtual |4096 |4096 |
 | Conexões TCP simultâneas para uma máquina virtual ou instância de função |500K |500K |
@@ -35,14 +36,15 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Endereços IP públicos (estático) |20 |entre em contato com o suporte |
 | Balanceadores de carga (internos e para Internet) |100 |entre em contato com o suporte |
 | Regras de balanceador de carga por balanceador de carga |150 |150 |
-| IP público front-end por balanceador de carga |5 |entre em contato com o suporte |
-| IP privado front-end por balanceador de carga |30 |entre em contato com o suporte |
+| IP público front-end por balanceador de carga |10 |entre em contato com o suporte |
+| IP privado front-end por balanceador de carga |10 |entre em contato com o suporte |
 | Emparelhamentos de VNets por rede virtual |10 |50 |
+| Certificados raiz de ponto a site por gateway de VPN |20 |20 |
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

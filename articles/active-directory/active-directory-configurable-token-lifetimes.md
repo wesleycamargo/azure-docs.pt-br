@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2016
+ms.date: 01/17/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
+ms.sourcegitcommit: b520b4672dd403981d218c9855c3beb09ef55021
+ms.openlocfilehash: 6da28e6273d92445e4b14ea22752a6e59b1dd93a
 
 
 ---
@@ -27,11 +27,11 @@ ms.openlocfilehash: f61d23fec6badb8dd53379d183b177e4c19e5711
 > 
 
 ## <a name="introduction"></a>Introdução
-Esse recurso é usado por administradores e desenvolvedores para especificar os tempos de vida de tokens emitidos pelo Azure AD. Os tempos de vida de token podem ser configurados para todos os aplicativos em um locatário, para um aplicativo multilocatário ou para uma entidade de serviço específica em um locatário.
+Esse recurso é usado por administradores e desenvolvedores para especificar os tempos de vida de tokens emitidos pelo Azure AD. Os tempos de vida de token podem ser configurados para todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em uma organização.
 
-No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em um locatário.  Cada tipo de política tem uma estrutura exclusiva com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
+No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização.  Cada tipo de política tem uma estrutura exclusiva com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
 
-Uma política pode ser designada como o padrão para um locatário. Essa política entra em vigor em qualquer aplicativo que resida no locatário, desde que não seja substituída por uma política com uma prioridade mais alta. Políticas também podem ser atribuídas a aplicativos específicos. A ordem de prioridade varia por tipo de política.
+Uma política pode ser designada como o padrão para uma organização. Essa política entra em vigor em qualquer aplicativo que resida na organização, desde que não seja substituída por uma política com uma prioridade mais alta. Políticas também podem ser atribuídas a aplicativos específicos. A ordem de prioridade varia por tipo de política.
 
 As políticas de tempo de vida de token pode ser configuradas para tokens de atualização, tokens de acesso, tokens de sessão e tokens de ID.
 
@@ -41,14 +41,19 @@ Um token de acesso é usado por um cliente para acessar um recurso protegido. Um
 ### <a name="refresh-tokens"></a>Tokens de atualização
 Quando um cliente adquire um token de acesso para acessar um recurso protegido, ele recebe um token de atualização e um token de acesso. O token de atualização é usado para obter novos pares de tokens de acesso/atualização quando o token de acesso atual expira. Tokens de atualização são vinculados a combinações de usuário e cliente. Eles podem ser revogados, e sua validade é verificada sempre que são usados.
 
-É importante fazer uma distinção entre clientes públicos e confidenciais. Clientes confidenciais são aplicativos que são capazes de armazenar com segurança uma senha do cliente, permitindo comprovar que as solicitações são provenientes do aplicativo cliente e não de um ator mal-intencionado. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são maiores e não podem ser alterados usando a política de.
+É importante fazer uma distinção entre clientes públicos e confidenciais. Para saber mais sobre os tipos diferentes de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
-Devido às limitações do ambiente em que os aplicativos são executados, clientes públicos não podem armazenar com segurança uma senha do cliente. Políticas podem ser configuradas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização (Tempo Máximo Inativo de Token de Atualização).  Além disso, as políticas podem ser usadas para definir um período de tempo além do qual os tokens de atualização não são mais aceitos (Idade Máx. do Token de Atualização).  Ajustar o tempo de vida do token de atualização permite que você controle quando e com que frequência o usuário precisa reinserir as credenciais em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
+#### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidencial
+Clientes confidenciais são aplicativos que são capazes de armazenar com segurança uma senha do cliente (segredo), permitindo comprovar que as solicitações são provenientes do aplicativo cliente e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois ele pode armazenar um segredo do cliente no servidor Web e, assim, não ser exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são maiores e não podem ser alterados usando a política de.
+
+#### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público 
+
+Clientes públicos não são capazes de armazenar com segurança a senha de um cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ocultar um segredo do proprietário do recurso e, como tal, é considerado um cliente público.  Políticas podem ser configuradas em recursos para impedir que tokens de atualização de clientes públicos mais antigos do que um período especificado obtenham um novo par de tokens de acesso/atualização (Tempo Máximo Inativo de Token de Atualização).  Além disso, as políticas podem ser usadas para definir um período de tempo além do qual os tokens de atualização não são mais aceitos (Idade Máx. do Token de Atualização).  Ajustar o tempo de vida do token de atualização permite que você controle quando e com que frequência o usuário precisa reinserir as credenciais em vez de ser autenticado novamente de forma silenciosa ao usar um aplicativo cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são passados para sites e clientes nativos e contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Tokens de ID são considerados válidos até a expiração.  Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário.  Ajustar o tempo de vida do token de ID permite que você controle com que frequência o aplicativo Web expirará a sessão do aplicativo e exija que o usuário seja autenticado novamente com o Azure AD (de forma silenciosa ou interativa).
 
-### <a name="single-sign-on-session-token"></a>Token de sessão de logon único
+### <a name="single-sign-on-session-token"></a>Token de Sessão de Logon Único
 Quando um usuário se autentica no Azure AD e marca a caixa "Manter-me conectado", uma única sessão de logon é estabelecida com o navegador do usuário e o Azure AD.  O Token de Sessão de Logon Único, na forma de um cookie, representa essa sessão. É importante observar que o token de sessão SSO não está associado a um aplicativo cliente/recurso específico. Tokens de sessão de SSO podem ser revogados, e sua validade é verificada sempre que eles são usados.
 
 Há dois tipos de tokens de sessão de SSO. Tokens de sessão persistentes são armazenados como cookies persistentes pelo navegador, e tokens de sessão não persistentes são armazenados como cookies de sessão (eles são destruídos quando o navegador é fechado).
@@ -82,12 +87,12 @@ Uma política de tempo de vida do token é um tipo de objeto de política que co
 | Idade Máxima de Token de Atualização (Emitido para Clientes Confidenciais) |Tokens de atualização (Emitido para Clientes Confidenciais) |Until-revoked |
 
 ### <a name="priority-and-evaluation-of-policies"></a>Prioridade e avaliação de políticas
-As políticas de tempo de vida de tokens podem ser criadas e atribuídas a aplicativos, locatários e entidades de serviço específicos. Isso significa que é possível que várias políticas se apliquem a um aplicativo específico. A política de Tempo de Vida de Token entra em vigor seguindo estas regras:
+As políticas de tempo de vida de tokens podem ser criadas e atribuídas a aplicativos, organização e entidades de serviço específicos. Isso significa que é possível que várias políticas se apliquem a um aplicativo específico. A política de Tempo de Vida de Token entra em vigor seguindo estas regras:
 
 * Se uma política for atribuída explicitamente à entidade de serviço, será imposta. 
-* Se nenhuma política for explicitamente atribuída à entidade de serviço, uma política explicitamente atribuída ao locatário pai da entidade de serviço será imposta. 
-* Se nenhuma política foi atribuída explicitamente à entidade de serviço ou ao locatário, a política atribuída ao aplicativo será imposta. 
-* Se nenhuma política tiver sido atribuída à entidade de serviço, ao locatário ou ao objeto de aplicativo, os valores padrão serão aplicados (confira a tabela acima).
+* Se nenhuma política for explicitamente atribuída à entidade de serviço, uma política explicitamente atribuída à organização matriz da entidade de serviço será imposta. 
+* Se nenhuma política foi atribuída explicitamente à entidade de serviço ou à organização, a política atribuída ao aplicativo será imposta. 
+* Se nenhuma política tiver sido atribuída à entidade de serviço, à organização ou ao objeto de aplicativo, os valores padrão serão aplicados (confira a tabela acima).
 
 Para obter mais informações sobre a relação entre objetos de aplicativo e de entidade de serviço no Azure AD, confira [Objetos de aplicativos e entidade de serviço no Azure Active Directory](active-directory-application-objects.md).
 
@@ -98,16 +103,16 @@ A validade do token é avaliada no momento em que ele é usado. A política com 
 > 
 > Um usuário deseja acessar dois aplicativos Web, A e B. 
 > 
-> * Ambos os aplicativos estão no mesmo locatário pai. 
-> * A política de tempo de vida de token 1 com uma Idade Máxima de Token de Sessão de oito horas é definida como o padrão do locatário pai.
+> * Ambos os aplicativos estão na mesma organização matriz. 
+> * A política de tempo de vida de token 1 com uma Idade Máxima de Token de Sessão de oito horas é definida como o padrão da organização matriz.
 > * O aplicativo Web A é um aplicativo de uso normal e não está vinculado a políticas. 
 > * O aplicativo Web B é usado para processos altamente confidenciais, e sua entidade de serviço está vinculada à política de tempo de vida de token 2 com uma Idade Máxima de Token de Sessão de 30 minutos.
 > 
 > Às 12h, o usuário abre uma nova sessão do navegador e tenta acessar o aplicativo Web A. o usuário é redirecionado para o Azure AD e é solicitado a entrar. Isso coloca um cookie com um token de sessão no navegador. O usuário é redirecionado para o aplicativo Web A com um token de ID que permite acessar o aplicativo.
 > 
-> Às 12h15, o usuário tentar acessar o aplicativo Web B. O navegador é redirecionado para o Azure AD, que detecta o cookie de sessão. A entidade de serviço do aplicativo Web B está vinculada à política 2, mas também faz parte do locatário pai com a política padrão 1. A política 2 entra em vigor, pois as políticas vinculadas a entidades de serviço têm uma prioridade maior do que as políticas padrão de locatário. O token de sessão foi originalmente emitido nos últimos 30 minutos. Portanto, ele é considerado válido. O usuário é redirecionado para o aplicativo Web B com um token de ID que lhe concede acesso.
+> Às 12h15, o usuário tentar acessar o aplicativo Web B. O navegador é redirecionado para o Azure AD, que detecta o cookie de sessão. A entidade de serviço do aplicativo Web B está vinculada à política 2, mas também faz parte da organização matriz com a política padrão 1. A política 2 entra em vigor, pois as políticas vinculadas a entidades de serviço têm uma prioridade maior do que as políticas padrão de organização. O token de sessão foi originalmente emitido nos últimos 30 minutos. Portanto, ele é considerado válido. O usuário é redirecionado para o aplicativo Web B com um token de ID que lhe concede acesso.
 > 
-> Às 13h, o usuário tentar navegar para o aplicativo Web A. O usuário é redirecionado para o Azure AD. O aplicativo Web A não está vinculado a políticas, mas como está em um locatário com a política padrão 1, essa política entra em vigor. Foi detectado um cookie de sessão que foi originalmente emitido nas últimas oito horas, e o usuário é redirecionado silenciosamente para o aplicativo Web A com um novo token de ID, sem precisar se autenticar.
+> Às 13h, o usuário tentar navegar para o aplicativo Web A. O usuário é redirecionado para o Azure AD. O aplicativo Web A não está vinculado a políticas, mas como está em uma organização com a política padrão 1, essa política entra em vigor. Foi detectado um cookie de sessão que foi originalmente emitido nas últimas oito horas, e o usuário é redirecionado silenciosamente para o aplicativo Web A com um novo token de ID, sem precisar se autenticar.
 > 
 > O usuário tenta imediatamente acessar o aplicativo Web B. O usuário é redirecionado para o Azure AD. Como antes, a política 2 entra em vigor. Como o token foi emitido há mais de 30 minutos, o usuário é solicitado a digitar novamente suas credenciais, e uma nova sessão e token de ID são emitidos. O usuário pode acessar o aplicativo Web B.
 > 
@@ -169,7 +174,7 @@ Reduzir a idade máxima forçará os usuários a se autenticarem com mais frequ�
 Reduzir a idade máxima forçará os usuários a se autenticarem com mais frequência. Como a autenticação de fator único é considerada menos segura do que uma autenticação multifator, é recomendável que essa política seja definida com um valor igual ou maior do que a Política de Idade Máxima de Token de Sessão de Fator Único.
 
 ## <a name="sample-token-lifetime-policies"></a>Exemplos de políticas de tempo de vida do token
-A capacidade de criar e gerenciar tempos de vida de token para aplicativos, entidades de serviço e seu locatário geral expõe todos os tipos de novos cenários possíveis no Azure AD.  Vamos examinar alguns cenários comuns de políticas que o ajudarão a impor novas regras para:
+A capacidade de criar e gerenciar tempos de vida de token para aplicativos, entidades de serviço e sua organização geral expõe todos os tipos de novos cenários possíveis no Azure AD.  Vamos examinar alguns cenários comuns de políticas que o ajudarão a impor novas regras para:
 
 * Tempos de vida do token
 * Tempos Máximos Inativos de Token
@@ -177,26 +182,26 @@ A capacidade de criar e gerenciar tempos de vida de token para aplicativos, enti
 
 Vamos examinar alguns cenários, incluindo:
 
-* Gerenciar a política padrão de um locatário
+* Gerenciamento da política padrão de uma organização
 * Criar uma política para entrada na Web
 * Criar uma política para aplicativos nativos chamando uma API Web
 * Gerenciar uma política avançada 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Nos cenários de exemplo, criaremos, atualizaremos, vincularemos e excluiremos políticas em aplicativos, em entidades de serviço e no locatário geral.  Se você for novo no Azure AD, confira [este artigo](active-directory-howto-tenant.md) para ajudá-lo a começar antes de prosseguir com estes exemplos.  
+Nos cenários de exemplo, criaremos, atualizaremos, vincularemos e excluiremos políticas em aplicativos, em entidades de serviço e na organização geral.  Se você for novo no Azure AD, confira [este artigo](active-directory-howto-tenant.md) para ajudá-lo a começar antes de prosseguir com estes exemplos.  
 
 1. Para começar, baixe a versão mais recente do [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Depois que tiver os Cmdlets do Azure AD PowerShell, execute o comando Conectar para entrar em sua conta de administrador do Azure AD. Você precisará fazer isso sempre que iniciar uma nova sessão.
    
      Connect-AzureAD -Confirm
-3. Execute o comando a seguir para ver todas as políticas que foram criadas no locatário.  Este comando deve ser usado após a maioria das operações nos cenários a seguir.  Ele também o ajuda a obter a **ID de objeto** de suas políticas. 
+3. Execute o comando a seguir para ver todas as políticas que foram criadas na organização.  Este comando deve ser usado após a maioria das operações nos cenários a seguir.  Ele também o ajuda a obter a **ID de objeto** de suas políticas. 
    
      Get-AzureADPolicy
 
-### <a name="sample-managing-a-tenants-default-policy"></a>Exemplo: gerenciamento de política padrão de um locatário
-Neste exemplo, criaremos uma política que permite que os usuários entrem com menos frequência no locatário inteiro. 
+### <a name="sample-managing-a-organizations-default-policy"></a>Exemplo: Gerenciamento da política padrão de uma organização
+Neste exemplo, criaremos uma política que permite que os usuários entrem com menos frequência na organização inteira. 
 
-Para fazer isso, podemos criar uma política de tempo de vida de token para Tokens de Atualização de Fator Único que é aplicada em seu locatário. Essa política será aplicada a todos os aplicativos no locatário e a cada entidade de serviço que ainda não tenha uma política definida para ela. 
+Para fazer isso, podemos criar uma política de tempo de vida de token para Tokens de Atualização de Fator Único que é aplicada em sua organização. Essa política será aplicada a todos os aplicativos no a organização e a cada entidade de serviço que ainda não tenha uma política definida para ela. 
 
 1. **Crie uma Política de Tempo de Vida do Token.** 
 
@@ -212,7 +217,7 @@ Defina o Token de Atualização de Fator Único como "until-revoked", o que sign
 
 Em seguida, execute este comando para criar a política. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName TenantDefaultPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1, `"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName OrganizationDefaultPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 Para ver a nova política e obter seu ObjectID, execute o comando a seguir.
 
@@ -221,7 +226,7 @@ Para ver a nova política e obter seu ObjectID, execute o comando a seguir.
 
 Você decidiu que a primeira política não é tão rígida quanto o serviço requer e decidiu que deseja que os Tokens de Atualização de Fator Único expirem em dois dias. Execute o comando a seguir. 
 
-    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName TenantDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
+    Set-AzureADPolicy -ObjectId <ObjectID FROM GET COMMAND> -DisplayName OrganizationDefaultPolicyUpdatedScenario -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"2.00:00:00`"}}")
 
 &nbsp;&nbsp;3. **Pronto!** 
 
@@ -232,14 +237,14 @@ Neste exemplo, criaremos uma política que exige que os usuários se autentiquem
 
 Essa política para Entrada na Web definirá o tempo de vida do Token de Acesso/Id e a Idade Máxima do de Token de Sessão de Fator Único como duas horas.
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"AccessTokenLifetime`":`"02:00:00`",`"MaxAgeSessionSingleFactor`":`"02:00:00`"}}") -DisplayName WebPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 Para ver a nova política e obter seu ObjectID, execute o comando a seguir.
 
     Get-AzureADPolicy
 &nbsp;&nbsp;2.    **Atribuir a política à entidade de serviço.**
 
-Vamos vincular essa nova política a uma entidade de serviço.  Você também precisará de uma maneira de acessar o **ObjectId** de sua entidade de serviço. Você pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou acessar a [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) e entrar em sua conta do Azure AD para ver todas as entidades de serviço do locatário. 
+Vamos vincular essa nova política a uma entidade de serviço.  Você também precisará de uma maneira de acessar o **ObjectId** de sua entidade de serviço. Você pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou acessar a [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) e entrar em sua conta do Azure AD para ver todas as entidades de serviço da organização. 
 
 Depois que você tiver o **ObjectId**, execute o comando a seguir.
 
@@ -249,18 +254,13 @@ Depois que você tiver o **ObjectId**, execute o comando a seguir.
  
 
 ### <a name="sample-creating-a-policy-for-native-apps-calling-a-web-api"></a>Exemplo: criar uma política para aplicativos nativos chamando uma API Web
-> [!NOTE]
-> A vinculação de políticas a aplicativos está desabilitada atualmente.  Estamos trabalhando para habilitar isso em breve.  Essa página será atualizada assim que o recurso estiver disponível.
-> 
-> 
-
 Neste exemplo, criaremos uma política que exige que os usuários se autentiquem menos e aumentaremos o tempo pelo qual podem ficar inativos sem precisarem se autenticar novamente. A política será aplicada à API Web. Assim, quando o Aplicativo Nativo a solicitar como um recurso, essa política será aplicada.
 
 1. **Crie uma Política de Tempo de Vida do Token.** 
 
 Esse comando criará uma política estrita para uma API Web. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsTenantDefault $false -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"30.00:00:00`",`"MaxAgeMultiFactor`":`"until-revoked`",`"MaxAgeSingleFactor`":`"180.00:00:00`"}}") -DisplayName WebApiDefaultPolicyScenario -IsOrganizationDefault $false -Type TokenLifetimePolicy
 
 Para ver a nova política e obter seu ObjectID, execute o comando a seguir.
 
@@ -281,33 +281,33 @@ Neste exemplo, criaremos algumas políticas para demonstrar como o sistema de pr
 
 1. **Criar uma Política de Tempo de Vida de Token**
 
-Até aqui, é bastante simples. Criamos uma política padrão de locatário que define o tempo de vida do Token de Atualização de Fator Único como 30 dias. 
+Até aqui, é bastante simples. Criamos uma política padrão de organização que define o tempo de vida do Token de Atualização de Fator Único como 30 dias. 
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"30.00:00:00`"}}") -DisplayName ComplexPolicyScenario -IsOrganizationDefault $true -Type TokenLifetimePolicy
 Para ver a nova política e obter seu ObjectID, execute o comando a seguir.
 
     Get-AzureADPolicy
 
 &nbsp;&nbsp;2.    **Atribuir a política a uma entidade de serviço**
 
-Agora temos uma política no locatário inteiro.  Digamos que queiramos manter essa política de 30 dias para uma entidade de serviço específica, mas alterar a política padrão de locatário para ser o limite superior de "until-revoked". 
+Agora temos uma política em toda a organização.  Digamos que queiramos manter essa política de 30 dias para uma entidade de serviço específica, mas alterar a política padrão de organização para ser o limite superior de "until-revoked". 
 
-Primeiro, vamos vincular essa nova política à entidade de serviço.  Você também precisará de uma maneira de acessar o **ObjectId** de sua entidade de serviço. Você pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou acessar a [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) e entrar em sua conta do Azure AD para ver todas as entidades de serviço do locatário. 
+Primeiro, vamos vincular essa nova política à entidade de serviço.  Você também precisará de uma maneira de acessar o **ObjectId** de sua entidade de serviço. Você pode consultar o [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) ou acessar a [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) e entrar em sua conta do Azure AD para ver todas as entidades de serviço da organização. 
 
 Depois que você tiver o **ObjectId**, execute o comando a seguir.
 
     Add-AzureADServicePrincipalPolicy -ObjectId <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 
-&nbsp;&nbsp;3.    **Defina o sinalizador IsTenantDefault como false usando o seguinte comando**. 
+&nbsp;&nbsp;3.    **Defina o sinalizador IsOrganizationDefault como false usando o comando a seguir**. 
 
-    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsTenantDefault $false
-&nbsp;&nbsp;4.    **Criar uma nova Política Padrão de Locatário**
+    Set-AzureADPolicy -ObjectId <ObjectId of Policy> -DisplayName ComplexPolicyScenario -IsOrganizationDefault $false
+&nbsp;&nbsp;4.    **Criar uma nova Política Padrão de Organização**
 
-    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsTenantDefault $true -Type TokenLifetimePolicy
+    New-AzureADPolicy -Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxAgeSingleFactor`":`"until-revoked`"}}") -DisplayName ComplexPolicyScenarioTwo -IsOrganizationDefault $true -Type TokenLifetimePolicy
 
 &nbsp;&nbsp;5.     **Pronto!** 
 
-Agora você tem a política original vinculada à entidade de serviço e a nova política definida como a política padrão de locatário.  É importante lembrar que as políticas aplicadas a entidades de serviço têm prioridade sobre as políticas padrão de locatário. 
+Agora você tem a política original vinculada à entidade de serviço e a nova política definida como a política padrão de organização.  É importante lembrar que as políticas aplicadas a entidades de serviço têm prioridade sobre as políticas padrão de organização. 
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlet
 ### <a name="manage-policies"></a>Gerenciar políticas
@@ -316,13 +316,13 @@ Os cmdlets a seguir podem ser usados para gerenciar políticas.</br></br>
 #### <a name="new-azureadpolicy"></a>New-AzureADPolicy
 Cria uma nova política.
 
-    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsTenantDefault <boolean> -Type <Policy Type> 
+    New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type> 
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
 | -Definition |A matriz de stringified JSON que contém todas as regras da política. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
 | -DisplayName |Cadeia de caracteres do nome da política |-DisplayName MyTokenPolicy |
-| -IsTenantDefault |Se true, define a política como política padrão do locatário; se false, não faz nada |-IsTenantDefault $true |
+| -IsOrganizationDefault |Se true, define a política como política padrão do locatário; se false, não faz nada |-IsOrganizationDefault $true |
 | -Type |O tipo de política; para tempos de vida de token, sempre use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [Opcional] |Define uma id alternativa para a política. |-AlternativeIdentifier myAltId |
 
@@ -360,7 +360,7 @@ Atualiza uma política existente
 | -ObjectId |A Id de objeto da Política que você deseja obter. |-ObjectId &lt;ObjectID da Política&gt; |
 | -DisplayName |Cadeia de caracteres do nome da política |-DisplayName MyTokenPolicy |
 | -Definition [Opcional] |A matriz de stringified JSON que contém todas as regras da política. |-Definition @("{`"TokenLifetimePolicy`":{`"Version`":1,`"MaxInactiveTime`":`"20:00:00`"}}") |
-| -IsTenantDefault [Opcional] |Se true, define a política como política padrão do locatário; se false, não faz nada |-IsTenantDefault $true |
+| -IsOrganizationDefault [Opcional] |Se true, define a política como política padrão do locatário; se false, não faz nada |-IsOrganizationDefault $true |
 | -Type [Opcional] |O tipo de política; para tempos de vida de token, sempre use "TokenLifetimePolicy" |-Type TokenLifetimePolicy |
 | -AlternativeIdentifier [Opcional] |Define uma id alternativa para a política. |-AlternativeIdentifier myAltId |
 
@@ -454,6 +454,6 @@ Remove a política da entidade de serviço especificada
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

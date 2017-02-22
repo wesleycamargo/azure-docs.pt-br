@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: multiple
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 75cb029e61006636de91e945404e38fd6d955697
+ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
+ms.openlocfilehash: 89ff5d5deeda72361cb619516681aca386c5a422
 
 
 ---
@@ -251,7 +251,7 @@ Você pode usar as métricas do **recurso** e da **tarefa** quando estiver defin
   </tr>
   <tr>
     <td><b>Recurso</b></td>
-    <td><p><b>As métricas de recurso</b> se baseiam no uso de CPU, largura de banda e memória dos nós de computação, bem como no número de nós.</p>
+    <td><p>As <b>Métricas de recurso</b> se baseiam no uso de CPU, largura de banda e memória dos nós de computação, bem como no número de nós.</p>
         <p> Essas variáveis definidas pelo serviço são úteis para fazer ajustes com base na contagem de nós:</p>
     <p><ul>
       <li>$TargetDedicated</li>
@@ -273,7 +273,7 @@ Você pode usar as métricas do **recurso** e da **tarefa** quando estiver defin
   </tr>
   <tr>
     <td><b>Tarefa</b></td>
-    <td><p><b>Métricas de tarefa</b> se baseiam no status das tarefas, como Ativa, Pendente e Concluída. As variáveis definidas pelo serviço a seguir são úteis para fazer ajustes no tamanho do pool com base nas métricas da tarefa:</p>
+    <td><p>As <b>Métricas de tarefa</b> se baseiam no status das tarefas, como Ativa, Pendente e Concluída. As variáveis definidas pelo serviço a seguir são úteis para fazer ajustes no tamanho do pool com base nas métricas da tarefa:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
@@ -646,6 +646,6 @@ string formula = string.Format(@"
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

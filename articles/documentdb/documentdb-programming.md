@@ -1,5 +1,5 @@
 ---
-title: "Programação do DocumentDB: UDFs, gatilhos de banco de dados e procedimentos armazenados| Microsoft Docs"
+title: "Programação de JavaScript do lado do servidor para Azure DocumentDB | Microsoft Docs"
 description: "Saiba como usar o Banco de Dados de Documentos para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais."
 keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, banco de dados de documentos, azure, Microsoft azure
 services: documentdb
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/11/2016
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
-ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
 
 
 ---
@@ -26,7 +26,7 @@ Saiba como a execução transacional e integrada de linguagem do JavaScript pelo
 
 É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos. 
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
@@ -63,7 +63,7 @@ Vamos começar com um procedimento armazenado simples que retorna uma resposta �
 
     var helloWorldStoredProc = {
         id: "helloWorld",
-        body: function () {
+        serverScript: function () {
             var context = getContext();
             var response = context.getResponse();
 
@@ -105,7 +105,7 @@ O próximo trecho mostra como usar o objeto de contexto para interagir com recur
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
-        body: function createMyDocument(documentToCreate) {
+        serverScript: function createMyDocument(documentToCreate) {
             var context = getContext();
             var collection = context.getCollection();
 
@@ -161,8 +161,8 @@ No Banco de Dados de Documentos, o JavaScript é hospedado no mesmo espaço de m
 
     // JavaScript source code
     var exchangeItemsSproc = {
-        name: "exchangeItems",
-        body: function (playerId1, playerId2) {
+        id: "exchangeItems",
+        serverScript: function (playerId1, playerId2) {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -298,8 +298,8 @@ Abaixo está um exemplo de um procedimento armazenado gravado para documentos de
 O Banco de Dados de Documentos oferece gatilhos que são executados ou desencadeados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
     var validateDocumentContentsTrigger = {
-        name: "validateDocumentContents",
-        body: function validate() {
+        id: "validateDocumentContents",
+        serverScript: function validate() {
             var context = getContext();
             var request = context.getRequest();
 
@@ -369,8 +369,8 @@ Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um 
 O exemplo a seguir mostra pós-gatilhos em ação:
 
     var updateMetadataTrigger = {
-        name: "updateMetadata",
-        body: function updateMetadata() {
+        id: "updateMetadata",
+        serverScript: function updateMetadata() {
             var context = getContext();
             var collection = context.getCollection();
             var response = context.getResponse();
@@ -442,8 +442,8 @@ UDFs (funções definidas pelo usuário) são usadas para estender a gramática 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
 
     var taxUdf = {
-        name: "tax",
-        body: function tax(income) {
+        id: "tax",
+        serverScript: function tax(income) {
 
             if(income == undefined) 
                 throw 'no input';
@@ -814,6 +814,6 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

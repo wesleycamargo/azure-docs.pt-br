@@ -3,7 +3,7 @@ title: Como redirecionar dispositivos USB no Azure RemoteApp? | Microsoft Docs
 description: Saiba como usar o redirecionamento para dispositivos USB no Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: 191d98af-2f5a-4307-9042-aae0e4049f9f
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d7b8dba97aae33e077a501bb8da653bbdd127b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 937ebbbb7daf573d072697ee09ab7f6557d0184f
 
 
 ---
@@ -88,6 +88,6 @@ Você sabia que, além de classificar este artigo e fazer comentários, você po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

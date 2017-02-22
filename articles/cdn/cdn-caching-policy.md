@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 02/04/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
-ms.openlocfilehash: 4a225332995bdf7ed03817faf5da89a98eaf1967
+ms.sourcegitcommit: fba5384acae53ac416d91ae30840c6cfa04e7c68
+ms.openlocfilehash: 0c479a58f4158bb1a72dc43432507160f65d2791
 
 
 ---
@@ -30,9 +30,9 @@ Por padrão, os pontos de extremidade de streaming aplicam cabeçalhos de cache 
 Os Serviços de Mídia do Azure fornecem [CDN integrada](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) para pontos de extremidade de streaming. Cabeçalhos do controle de cache são aplicados da mesma forma que os pontos de extremidade de streaming para pontos de extremidade de streaming habilitados para CDN. O Azure CDN usa os valores de cache configurados para o ponto de extremidade de streaming para definir o tempo de vida dos objetos armazenados internamente em cache e também usa esse valor para definir os cabeçalhos de cache de entrega. Ao usar os pontos de extremidades de streaming habilitados para CDN, não é recomendável definir valores pequenos para o cache. A definição de valores pequenos diminuirá o desempenho e reduzirá o benefício da CDN. Não é permitido definir cabeçalhos de cache menores do que 600 segundos para pontos de extremidades de streaming habilitados para CDN.
 
 > [!IMPORTANT]
-> Integração dos Serviços de Mídia do Azure com a CDN do Azure é implementada na **CDN do Azure da Verizon**.  Para usar a **CDN do Azure da Akamai** para Serviços de Mídia do Azure, é preciso [configurar o ponto de extremidade manualmente](cdn-create-new-endpoint.md).  Para obter mais informações sobre os recursos da CDN do Azure, consulte [Visão geral da CDN](cdn-overview.md).
+>Os Serviços de Mídia do Azure têm integração completa com o Azure CDN. Com um único clique, você pode integrar todos os Azure CDN provedores disponíveis (Akamai e Verizon) para o ponto de extremidade de streaming incluindo produtos CDN Standard e Premium. Para saber mais, veja este [anúncio](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
-> 
+> Encargos de dados de streaming de ponto de extremidade CDN somente obtém desabilitada se o CDN é habilitada pela extremidade APIs de streaming ou por meio da seção de ponto de extremidade de streaming do portal de gerenciamento do Azure. Integração manual ou diretamente a criação de um ponto de extremidade CDN usando APIs de CDN ou seção portal não desabilitará os encargos de dados.
 
 ## <a name="configuring-cache-headers-with-azure-media-services"></a>Configurando os cabeçalhos de cache com os Serviços de Mídia do Azure
 Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de Mídia do Azure para configurar os valores de cabeçalho de cache.
@@ -49,6 +49,6 @@ Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de M�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

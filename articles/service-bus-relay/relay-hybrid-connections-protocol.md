@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
-ms.author: sethm
+ms.date: 02/14/2017
+ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
-ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
+ms.sourcegitcommit: 579942cfe0dc7d6a5e3f205308642d36bf6be880
+ms.openlocfilehash: d3a191797e75c424af07910e4a6a87e1183f6676
 
 
 ---
@@ -31,7 +31,7 @@ A retransmissão do Conexões Híbridas conecta duas partes, fornecendo um ponto
 Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. Do outro lado, há um cliente conectado que se conecta ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
 "Conectar", "Ouvir" e "Aceitar" são os mesmos termos que você encontrará na maioria das APIs de soquete.
 
-Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída do Guia do Protocolo de Conexões do Azure Relay Hybrid em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia; assim, a terminologia precisa que usamos para as Conexões Híbridas é da seguinte maneira:
+Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia; assim, a terminologia precisa que usamos para as conexões híbridas é da seguinte maneira:
 
 Os programas em ambos os lados de uma conexão são chamados de "cliente", pois são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte", ou diz-se que faz a "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou faz a "função de remetente".
 
@@ -118,7 +118,7 @@ A mensagem contém um objeto JSON chamado "accept", que define as seguintes prop
 * **connectHeaders** – todos os cabeçalhos HTTP que foram fornecidos pelo remetente ao ponto de extremidade de retransmissão, o que também inclui os cabeçalhos Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
 #### <a name="accept-message"></a>Mensagem de Aceitação
-``` JSON
+```json
 {                                                           
     "accept" : {
         "address" : "wss://168.61.148.205:443/$hc/{path}?..."    
@@ -201,7 +201,7 @@ Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituíd
 * **token** – um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida e que confere o direito **Listen** (escutar).
 
 #### <a name="renewtoken-message"></a>Mensagem renewToken
-``` JSON
+```json
 {                                                                                                                                                                        
     "renewToken" : {                                                                                                                                                      
         "token" : "SharedAccessSignature sr=http%3a%2f%2fcontoso.servicebus.windows.net%2fhyco%2f&amp;sig=XXXXXXXXXX%3d&amp;se=1471633754&amp;skn=SasKeyName"  
@@ -271,6 +271,6 @@ Se a conexão de soquete da Web for desligada intencionalmente pelo serviço dep
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;paulsh
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d803210e6599d9725a34cda5a3bd873cda14a490
+ms.sourcegitcommit: d0075eec26c2131f2019e7aca4c00d2d63cc976b
+ms.openlocfilehash: 80051996b0c39c53da63dc6b7bc75c869f692575
 
 
 ---
@@ -373,7 +373,7 @@ Os valores numéricos para as correlações entre as palavras estão disponívei
 
 O Rattle pode transformar o conjunto de dados para lidar com alguns problemas comuns. Por exemplo, ele permite que você redimensione os recursos, atribua os valores ausentes, lide com os valores atípicos e remova as variáveis ou observações sem dados. O Rattle também pode identificar regras de associação entre as observações e/ou variáveis. Essas guias estão fora do escopo deste passo a passo de introdução.
 
-O Rattle também pode executar a análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, escolha **Ignorar** ao lado de cada uma das variáveis, exceto esses 10 itens:
+O Rattle também pode executar a análise de cluster. Iremos excluir alguns recursos para facilitar a leitura da saída. Na guia **Dados**, escolha **Ignorar** ao lado de cada uma das variáveis, exceto esses&10; itens:
 
 * word_freq_hp
 * word_freq_technology
@@ -410,7 +410,7 @@ Após terminar de compilar os modelos, selecione a guia **Log** para exibir o c�
 >
 >
 
-## <a name="postgresql-squirrel-sql"></a>PostgreSQL e Squirrel SQL
+## <a name="postgresql--squirrel-sql"></a>PostgreSQL e Squirrel SQL
 A DSVM vem com o PostgreSQL instalado. O PostgreSQL é um banco de dados relacional sofisticado de fonte aberta. Esta seção mostra como carregar nosso conjunto de dados de spam no PostgreSQL e consultá-lo.
 
 Antes de carregar os dados, você precisa permitir a autenticação de senha a partir do host local. Em um prompt de comando:
@@ -533,6 +533,6 @@ Para obter uma descrição de outras orientações de ponta a ponta que demonstr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Requisitos de roteamento para ExpressRoute | Microsoft Docs
+title: Requisitos de roteamento para o Azure ExpressRoute | Microsoft Docs
 description: "Esta página fornece requisitos detalhados para a configuração e gerenciamento de roteamento para circuitos da Rota Expressa."
 documentationcenter: na
 services: expressroute
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/03/2017
+ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
-ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -189,8 +189,12 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 | **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
 | --- | --- |
 | **Governo dos EUA** |  |
-| US Gov Iowa | 12076:51109 |
+| Governo dos EUA do Arizona | 12076:51106 |
+| Gov do Iowa nos EUA | 12076:51109 |
 | US Gov Virginia | 12076:51105 |
+| Governo dos EUA do Texas | 12076:51108 |
+| DoD Central dos EUA | 12076:51209 |
+| DoD do Leste dos EUA | 12076:51205 |
 
 
 | **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |
@@ -212,6 +216,6 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

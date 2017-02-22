@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0057a5e8ab3d2fa3c9f201ec88246db7a53cc4a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
 
 
 ---
@@ -31,7 +31,7 @@ Após concluir a etapa 1, [Criação e registro de conta](marketplace-publishing
 ## <a name="1----login-to-the-publishing-portal"></a>1.    Faça logon no Portal de Publicação.
 Vá para [https://publish.windowsazure.com](https://publish.windowsazure.com.)
 
-**Ao fazer logon pela primeira vez no Portal de Publicação, use a mesma conta utilizada para o registro de Perfil de Vendedor de sua empresa na Central de desenvolvedores.**   (Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação).
+**Ao fazer logon pela primeira vez no Portal de Publicação, use a mesma conta utilizada para o registro de Perfil de Vendedor de sua empresa na Central de desenvolvedores.**  (Posteriormente, você poderá adicionar qualquer funcionário de sua empresa como um coadministrador no Portal de Publicação).
 
 Clique no bloco **Publicar Serviços de Dados** se esse for o primeiro logon no portal de publicação.
 
@@ -162,6 +162,6 @@ Agora que você criou sua oferta de Serviço de Dados, não deixe de concluir as
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

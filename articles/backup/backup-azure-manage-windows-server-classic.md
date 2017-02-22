@@ -4,7 +4,7 @@ description: Use este tutorial para aprender a gerenciar servidores e cofres de 
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: jimpark;markgal
+ms.author: markgal;
 translationtype: Human Translation
 ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
 ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
@@ -24,8 +24,8 @@ ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](backup-azure-manage-windows-server.md)
 > * [Clássico](backup-azure-manage-windows-server-classic.md)
-> 
-> 
+>
+>
 
 Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de backup disponíveis no portal clássico do Azure e o agente de Backup do Microsoft Azure.
 
@@ -35,7 +35,7 @@ Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de ba
 ## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
 2. Clique em **Serviços de Recuperação**, em seguida, clique no nome do cofre de backup para exibir a página de Início Rápido.
-   
+
     ![Serviços de Recuperação](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
 Selecionando as opções na parte superior da página Início Rápido, você pode ver as tarefas de gerenciamento disponíveis.
@@ -68,7 +68,7 @@ A partir daqui, você pode executar as seguintes tarefas:
 
 * **Permitir Novo Registro** - quando essa opção estiver selecionada para um servidor, você poderá usar o **Assistente de Registro** no agente de Backup do Microsoft Azure local para registrar o servidor com o cofre de backup uma segunda vez. Talvez você precise registrar novamente devido a um erro no certificado ou se um servidor tiver que ser refeito.
 * **Excluir** - Exclui um servidor do cofre de backup. Todos os dados armazenados associados ao servidor serão excluídos imediatamente.
-  
+
     ![Tarefas de itens registrados](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
 ## <a name="protected-items"></a>Itens protegidos
@@ -81,8 +81,8 @@ Na guia **Configurar** , você pode selecionar a opção de redundância de arma
 
 > [!WARNING]
 > Depois que um item tiver sido registrado no cofre, a opção de redundância de armazenamento será bloqueada e não poderá ser modificada.
-> 
-> 
+>
+>
 
 ![Configurar](./media/backup-azure-manage-windows-server-classic/configure.png)
 
@@ -105,38 +105,38 @@ Na guia **Ações** , disponibilizada à direita do console do agente de backup,
 
 > [!NOTE]
 > Para **Recuperar Dados**, consulte [Restaurar arquivos para um computador cliente Windows ou um servidor Windows](backup-azure-restore-windows-server.md).
-> 
-> 
+>
+>
 
 ### <a name="modify-an-existing-backup"></a>Modificar um backup existente
 1. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
-   
+
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 2. No **Assistente de Agendamento de Backup**, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
-   
+
     ![Modificar um backup agendado](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 3. Se quiser adicionar ou alterar itens, na tela **Selecionar Itens para Backup**, clique em **Adicionar Itens**.
-   
+
     Você também pode definir **Configurações de Exclusão** nesta página do assistente. Se você quiser excluir arquivos ou tipos de arquivo, leia o procedimento para adicionar [configurações de exclusão](#exclusion-settings).
 4. Selecione os arquivos e as pastas dos quais você deseja fazer backup e clique em **OK**.
-   
+
     ![Adicionar Itens](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 5. Especifique o **agendamento de backup** e clique em **Avançar**.
-   
+
     Você pode agendar backups diários (no máximo três vezes por dia) ou backups semanais.
-   
+
     ![Especificar o agendamento do Backup](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
-   
+
    > [!NOTE]
    > A especificação do agendamento de backup é explicada em detalhes neste [artigo](backup-azure-backup-cloud-as-tape.md).
-   > 
-   > 
+   >
+   >
 6. Selecione a **Política de Retenção** para a cópia de backup e clique em **Avançar**.
-   
+
     ![Selecionar a política de retenção](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
 7. Na tela **Confirmação**, examine as informações e clique em **Concluir**.
 8. Depois que o assistente terminar de criar o **agendamento de backup**, clique em **Fechar**.
-   
+
     Depois de modificar a proteção, é possível confirmar se os backups estão sendo acionados corretamente acessando a guia **Trabalhos** e confirmando se as alterações são refletidas nos trabalhos de backup.
 
 ### <a name="enable-network-throttling"></a>Habilitar a limitação de rede
@@ -146,53 +146,52 @@ Para habilitar a limitação:
 
 1. No **agente de backup**, clique em **Alterar Propriedades**.
 2. Marque a caixa de seleção **Habilitar limitação de uso de largura de banda da Internet para operações de backup** .
-   
+
     ![Limitação de rede](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
 3. Depois de habilitar a limitação, especifique a largura de banda permitida para a transferência de dados de backup durante as **Horas úteis** e **Horas não úteis**.
-   
+
     Os valores de largura de banda começam em 512 quilobytes por segundo (Kbps) e podem ir até 1023 megabytes por segundo (Mbps). Você também pode indicar o início e o término das **Horas úteis**e quais dias da semana são considerados dias úteis. O tempo fora das Horas úteis indicadas é considerado como hora não útil.
 4. Clique em **OK**.
 
 ## <a name="exclusion-settings"></a>Configurações de Exclusão
 1. Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
-   
+
     ![Abrir agente de backup](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 2. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
-   
+
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 3. No Assistente de Agendamento de Backup, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
-   
+
     ![Modificar um agendamento](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 4. Clique em **Configurações de Exclusões**.
-   
+
     ![Selecione itens a serem excluídos](./media/backup-azure-manage-windows-server-classic/exclusion-settings.png)
 5. Clique em **Adicionar Exclusão**.
-   
+
     ![Adicionar exclusões](./media/backup-azure-manage-windows-server-classic/add-exclusion.png)
 6. Selecione o local e clique em **OK**.
-   
+
     ![Selecionar um local para exclusão](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
 7. Adicione a extensão de arquivo no campo **Tipo de Arquivo** .
-   
+
     ![Excluir por tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
-   
+
     Adição de uma extensão .mp3
-   
+
     ![Exemplo de tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-mp3.png)
-   
+
     Para adicionar outra extensão, clique em **Adicionar Exclusão** e insira outra extensão do tipo de arquivo (adicionando uma extensão .jpeg).
-   
+
     ![Outro exemplo de tipo de arquivo](./media/backup-azure-manage-windows-server-classic/exclude-jpg.png)
 8. Quando tiver adicionado todas as extensões, clique em **OK**.
 9. Prossiga com o Assistente de Agendamento de Backup clicando em **Avançar** até a **página Confirmação** e clique em **Concluir**.
-   
+
     ![Confirmação de exclusão](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
 
 
 

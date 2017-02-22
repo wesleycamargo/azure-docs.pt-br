@@ -1,5 +1,5 @@
 ---
-title: "Aplicar políticas a Máquinas Virtuais do Azure Resource Manager | Microsoft Docs"
+title: "Impor a segurança com políticas em VMs do Linux no Azure | Microsoft Docs"
 description: "Como aplicar uma política a uma Máquina Virtual Windows Linux do Azure Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 71036b1aa9915750992d9d671af6b1023def41c3
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
 
 
 ---
-# <a name="apply-policies-to-azure-resource-manager-virtual-machines"></a>Aplicar políticas a Máquinas Virtuais do Azure Resource Manager
+# <a name="apply-security-and-policies-to-linux-vms-with-azure-resource-manager"></a>Aplicar segurança e políticas às VMs do Linux com o Azure Resource Manager
 Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização. Neste artigo, descreveremos como você pode usar as políticas do Azure Resource Manager para definir o comportamento desejado para as Máquinas Virtuais da sua organização.
 
 Veja abaixo a descrição das etapas para fazer isso
@@ -99,6 +99,6 @@ Depois de criar a política, você precisará aplicá-la a um escopo definido. O
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

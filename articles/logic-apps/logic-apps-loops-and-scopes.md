@@ -1,6 +1,6 @@
 ---
-title: "Loops e escopos do aplicativo lógico | Microsoft Docs"
-description: "Visão geral das diferentes maneiras de lidar com loops e escopos em um aplicativo lógico"
+title: "Criar loops e escopos ou retirar dados de lote em fluxos de trabalho - Aplicativos Lógicos do Azure | Microsoft Docs"
+description: "Criar loops para iterar por meio de dados, as ações de grupo em escopos, ou retirar dados de lote para iniciar mais fluxos de trabalho em Aplicativos Lógicos do Azure."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/29/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: dc8c9eac941f133bcb3a9807334075bfba15de46
-ms.openlocfilehash: 2556e43bba8f2080e292be4c5a7f2145f5718e57
+ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
+ms.openlocfilehash: 63ac171494e13f4451d585c3b704727eeed94fab
 
 
 ---
@@ -159,6 +159,6 @@ SplitOn pode ser especificado no modo de exibição de código como o exemplo a 
 ```
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Replicar máquinas virtuais VMware locais ou servidores físicos para um site secundário | Microsoft Docs"
+title: "Replicar VMs ou servidores físicos do VMware para outro site (Portal Clássico do Azure) | Microsoft Docs"
 description: "Use este artigo para replicar máquinas virtuais VMware ou servidores físicos Windows/Linux para um site secundário com o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: d325ce41e79ec85e08fbf4bb86e0cd7e0edf1c8f
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
 
 
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Replicar máquinas virtuais VMware locais ou servidores físicos em um site secundário
+# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Replicar máquinas virtuais locais ou servidores físicos do VMware em um site secundário no Portal Clássico do Azure
+
 ## <a name="overview"></a>Visão geral
 O InMage Scout no Azure Site Recovery fornece replicação em tempo real entre os sites do VMWare no local. O InMage Scout está incluído nas assinaturas para o serviço Azure Site Recovery.
 
@@ -199,6 +200,6 @@ Publique qualquer pergunta que você desejar no [Fórum dos Serviços de Recuper
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

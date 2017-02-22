@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre VMs do Windows | Microsoft Docs
+title: "Perguntas Frequentes sobre máquinas virtuais do Windows no Azure | Microsoft Docs"
 description: "Fornece respostas para algumas das perguntas mais comuns sobre as máquinas virtuais do Windows criadas com o modelo do Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 01/17/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f78c66904a3e07ffde5908167f27882e51e781e7
+ms.sourcegitcommit: cfc58b84ccd671b3a34a399bad11d15c9bc3b713
+ms.openlocfilehash: f338a124537090894773bb6fce1052fc7f590a33
 
 
 ---
@@ -46,12 +46,12 @@ Não use o disco temporário para armazenar dados. Ele é apenas um armazenament
 
 Se tiver um aplicativo que precise usar a letra da unidade D:, você poderá reatribuir as letras da unidade para que o disco temporário use algo diferente de D:. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
+
 ## <a name="how-can-i-change-the-drive-letter-of-the-temporary-disk"></a>Como eu posso alterar a letra da unidade do disco temporário?
 Você pode alterar a letra da unidade movendo o arquivo de paginação e reatribuindo as letras da unidade, mas precisa se lembrar de seguir as etapas em uma ordem específica. Para obter instruções, veja [Alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="can-i-add-an-existing-vm-to-an-availability-set"></a>Posso adicionar uma VM existente a um conjunto de disponibilidade?
 Não. Se você quiser que sua VM faça parte de um conjunto de disponibilidade, precisará criar a VM no conjunto. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
-
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>Posso carregar uma máquina virtual no Azure?
 Sim. Para obter instruções, consulte [Carregar uma imagem de VM do Windows no Azure ](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -62,11 +62,11 @@ Sim. Para obter instruções, veja [Como expandir a unidade do sistema operacion
 Sim. Para obter instruções, veja [How to create a copy of a Windows virtual machine in the Resource Manager deployment model](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Como criar uma cópia de uma máquina virtual do Windows no modelo de implantação do Resource Manager).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Por que não vejo as regiões Central e Leste do Canadá por meio do Azure Resource Manager?
+
 As duas novas regiões, Central do Canadá e Leste do Canadá, não são registradas automaticamente para a criação de máquinas virtuais para as assinaturas existentes do Azure. Esse registro é feito automaticamente quando uma máquina virtual é implantada por meio do Portal do Azure para qualquer outra região usando o Azure Resource Manager. Depois que uma máquina virtual é implantada em qualquer outra região do Azure, as novas regiões devem estar disponíveis para máquinas virtuais subsequentes.
 
 ## <a name="does-azure-support-linux-vms"></a>O Azure oferece suporte a VMs Linux?
 Sim. Para criar rapidamente uma VM Linux para experimentá-la, veja [Criar uma VM Linux no Azure usando o Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 ## <a name="can-i-add-a-nic-to-my-vm-after-its-created"></a>Posso adicionar um NIC à minha VM depois que ela é criada?
 Não. A adição de uma NIC só pode ser feita no momento da criação.
 
@@ -74,18 +74,18 @@ Não. A adição de uma NIC só pode ser feita no momento da criação.
 Sim. O nome do computador pode ter, no máximo, 15 caracteres. Consulte [Diretrizes de nomenclatura de infraestrutura](virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais informações sobre como nomear seus recursos.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Quais são os requisitos de nome de usuário ao criar uma VM?
+
 Nomes de usuário podem ter, no máximo, 20 caracteres e não podem terminar com um ponto (“.”). 
 
-Os seguintes nomes de usuário não são permitidos:
 
+Os seguintes nomes de usuário não são permitidos:
 <table>
     <tr>
         <td style="text-align:center">administrator </td><td style="text-align:center"> administrador </td><td style="text-align:center"> usuário </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
         <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>
-    <tr>
+    </tr>    <tr>
         <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
@@ -106,7 +106,7 @@ Os seguintes nomes de usuário não são permitidos:
 </table>
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quais são os requisitos de senha ao criar uma VM?
-As senhas devem ter de 8 a 123 caracteres e atender a três dos quatro requisitos de complexidade a seguir:
+As senhas devem ter de 12 a 123 caracteres e atender a três dos quatro requisitos de complexidade a seguir:
 
 * Ter caracteres minúsculos
 * Tem caracteres maiúsculos
@@ -117,15 +117,23 @@ As seguintes senhas não são permitidas:
 
 <table>
     <tr>
-        <td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+        <td>abc@123 </td>
+        <td>P@$$w0rd </td>
+        <td>P@ssw0rd </td>
+        <td>P@ssword123 </td>
+        <td>Pa$$word </td>
     </tr>
     <tr>
-        <td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+        <td>pass@word1 </td>
+        <td>Password! </td>
+        <td>Password1 </td>
+        <td>Password22 </td>
+        <td>iloveyou! </td>
     </tr>
 </table>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

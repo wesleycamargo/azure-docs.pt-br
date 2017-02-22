@@ -13,32 +13,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/31/2016
+ms.date: 02/07/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
+ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
+ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Importar um arquivo BACPAC para criar um Banco de Dados SQL do Azure usando o PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](sql-database-import.md)
-> * [PowerShell](sql-database-import-powershell.md)
-> * [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-> 
-> 
-
 Este artigo fornece instruções para criar um banco de dados SQL do Azure importando um arquivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) com o PowerShell.
 
-O banco de dados é criado de um arquivo BACPAC (.bacpac) importado de um contêiner do Armazenamento de Blobs do Azure. Se você não tiver um arquivo BACPAC no Armazenamento do Azure, confira em [Arquivar um Banco de Dados SQL do Azure em um arquivo BACPAC usando o PowerShell](sql-database-export-powershell.md). Se você já tiver um arquivo BACPAC que não esteja no Armazenamento do Azure, [use o AzCopy para carregá-lo facilmente em sua conta de Armazenamento do Azure](../storage/storage-use-azcopy.md#blob-upload).
-
-> [!NOTE]
-> O Banco de Dados SQL do Azure cria e mantém backups automaticamente de cada banco de dados de usuário que você pode restaurar. Para obter detalhes, consulte [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md).
-> 
-> 
+## <a name="prequisites"></a>Pré-requisitos
 
 Para importar um banco de dados SQL, você precisará de:
 
@@ -106,11 +93,14 @@ Depois de executar [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/lib
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para aprender a se conectar e a consultar um Banco de Dados SQL importado, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
+* Para aprender a se conectar e a consultar um Banco de Dados SQL importado, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md).
+* Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* Para ver uma discussão de todo o processo de migração do banco de dados do SQL Server, incluindo as recomendações de desempenho, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

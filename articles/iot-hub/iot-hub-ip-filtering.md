@@ -1,6 +1,6 @@
 ---
-title: Hub IoT - Filtro IP | Microsoft Docs
-description: "Este tutorial mostra a lista negra ou branca de determinados endereços IP para o Hub IoT do Azure."
+title: "Filtros IP de conexão do Hub IoT do Azure | Microsoft Docs"
+description: "Como usar a filtragem de IP para bloquear conexões de endereços IP específicos para seu Hub IoT do Azure. Você pode bloquear conexões de endereços IP individuais ou de intervalos de endereços IP."
 services: iot-hub
 documentationcenter: 
 author: BeatriceOltean
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 01/05/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 457d0d97601e18de2a19b83be100954d01f9bbf8
-ms.openlocfilehash: 86622918a136da4c478c8d47a677a67e46eb093b
+ms.sourcegitcommit: ddb729d29072724f691c178967b6181f6ce06df4
+ms.openlocfilehash: a9207d116e9b7360865c950ba00210ed67c3e028
 
 
 ---
 
-# <a name="ip-filter"></a>Filtro IP
+# <a name="use-ip-filters"></a>Usar filtros IP
 
 A segurança é um aspecto importante de qualquer solução de IoT com base no Hub IoT do Azure. Às vezes você precisa colocar determinados IP em uma lista negra ou lista branca como parte da configuração de segurança. O recurso _filtro IP_ permite que você configure regras para rejeitar ou aceitar tráfego de endereços IPv4 específicos.
 
@@ -34,7 +34,7 @@ Há dois casos de uso específicos em que é útil bloquear os pontos de extremi
 
 ## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
-As regras de filtro IP são aplicadas no nível do serviço Hub IoT. Portanto, as regras de filtro IP se aplicam a todas as conexões de dispositivos e aplicativos de back-end que usam algum protocolo com suporte.
+As regras de filtro IP são aplicadas no nível do serviço Hub IoT. Portanto, as regras de filtro IP se aplicam a todas as conexões de dispositivos e aplicativos de back-end que usam qualquer protocolo com suporte.
 
 Todas as tentativas de conexão de um endereço IP que corresponde a uma regra IP de rejeição em seu Hub IoT recebem um código de status 401 não autorizado e uma descrição. A mensagem de resposta não menciona a regra IP.
 
@@ -61,6 +61,9 @@ A opção **Adicionar** é desabilitada quando você atinge o máximo de dez reg
 
 Você pode editar uma regra existente clicando duas vezes na linha que contém a regra.
 
+> [!NOTE]
+> Rejeitar endereços IP pode impedir que outros serviços do Azure (como Stream Analytics do Azure, Máquinas Virtuais do Azure ou o Explorer de dispositivos no portal) interajam com o hub IoT.
+
 ## <a name="delete-an-ip-filter-rule"></a>Excluir uma regra de filtro IP
 
 Para excluir uma regra de filtro IP, selecione uma ou mais regras na grade e clique em **Excluir**.
@@ -71,7 +74,7 @@ Para excluir uma regra de filtro IP, selecione uma ou mais regras na grade e cli
 
 As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
-Por exemplo, se você quiser aceitar endereços no intervalo 192.168.100.0/22 e rejeitar todo o resto, a primeira regra na grade deverá aceitar o intervalo de endereços 192.168.100.0/22. A próxima regra deve rejeitar todos os endereços usando o intervalo 0.0.0.0/0. Se você adicionar uma última regra que rejeita o intervalo 0.0.0.0/0, alterará o comportamento padrão para passar a colocar na lista branca.
+Por exemplo, se você quiser aceitar endereços no intervalo 192.168.100.0/22 e rejeitar todo o resto, a primeira regra na grade deverá aceitar o intervalo de endereços 192.168.100.0/22. A próxima regra deve rejeitar todos os endereços usando o intervalo 0.0.0.0/0.
 
 Você pode alterar a ordem de suas regras de filtro IP na grade clicando nos três pontos verticais no início de uma linha e usando arrastar e soltar.
 
@@ -84,7 +87,7 @@ Para salvar a nova ordem das regras de filtro IP, clique em **Salvar**.
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Monitoramento de operações][lnk-monitor]
-* [Métricas de uso do Hub IoT][lnk-metrics]
+* [Métricas do Hub IoT][lnk-metrics]
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -96,13 +99,13 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 <!-- Links -->
 
-[Guia do Desenvolvedor do Hub IoT]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

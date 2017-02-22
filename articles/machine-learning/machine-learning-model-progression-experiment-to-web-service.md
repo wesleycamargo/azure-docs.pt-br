@@ -1,5 +1,5 @@
 ---
-title: "Como um modelo do Machine Learning evolui de um teste para um serviço Web operacionalizado | Microsoft Docs"
+title: "Como um modelo do Azure Machine Learning torna-se um serviço da Web | Microsoft Docs"
 description: "Uma visão geral da mecânica de como seu modelo do Azure Machine Learning evolui de um teste de desenvolvimento para um serviço Web operacionalizado."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/05/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 8c5a3ca30ae0539cded6cf9cd93ba1a42e19ba58
 
 
 ---
@@ -35,7 +35,7 @@ Quando estiver satisfeito com seu teste, você poderá implantá-lo como um ***s
 Neste artigo, ofereceremos uma visão geral sobre a mecânica de como seu modelo de Machine Learning evolui de um experimento de desenvolvimento para um serviço Web operacional.
 
 > [!NOTE]
-> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Para uma discussão sobre como criar um serviço Web de previsão clássico com R, veja a postagem do blog [Criar e implantar aplicativos Web de previsão usando o RStudio e o Aprendizado de Máquina do Azure](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Há outras maneiras de desenvolver e implantar modelos de aprendizado de máquina, mas este artigo se concentra em como usar o Estúdio de Aprendizado de Máquina. Por exemplo, para ler uma descrição de como criar um serviço Web preditivo clássico com R, veja a postagem no blog [Build & Deploy Predictive Web Apps Using RStudio and Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx) (Compilar e implantar aplicativos Web preditivos usando o RStudio e o Azure ML).
 > 
 > 
 
@@ -122,6 +122,6 @@ Para obter exemplos do processo inteiro, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

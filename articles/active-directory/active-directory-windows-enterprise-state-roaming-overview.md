@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
+ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
 
 
 ---
@@ -36,10 +36,11 @@ O Enterprise State Roaming está disponível em várias regiões do Azure. Você
 | [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md) |Este tópico responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo. |
 | [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |O Windows 10 fornece configurações da Política de Grupo e da política de gerenciamento de dispositivos móveis (MDM) para limitar a sincronização de configurações. |
 | [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Esta é uma lista completa de todas as configurações que serão ser movidas e/ou armazenadas em backup no Windows 10. |
+| [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |Este tópico aborda algumas etapas básicas para solução de problemas, além de conter uma lista de problemas conhecidos. |
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

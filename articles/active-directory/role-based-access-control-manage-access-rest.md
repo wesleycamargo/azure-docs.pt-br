@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar o controle de acesso com base em função com a API REST"
+title: "Controle de acesso baseado em função com REST – Azure AD | Microsoft Docs"
 description: "Gerenciar o controle de acesso com base em função com a API REST"
 services: active-directory
 documentationcenter: na
@@ -12,21 +12,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d50031941be34d1e543d901747018ba0635be4d8
+ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
+ms.openlocfilehash: f63381e3349063ba9dd4ceb67d644c1d71d73369
 
 
 ---
-# <a name="managing-role-based-access-control-with-the-rest-api"></a>Gerenciar o controle de acesso com base em função com a API REST
+# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerenciar o Controle de Acesso com Base em Função com a API REST
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
-> 
-> 
 
 O RBAC (Controle de Acesso baseado em função) no Portal do Azure e na API do Azure Resource Manager ajuda você a gerenciar o acesso a sua assinatura e aos recursos de maneira detalhada. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
@@ -43,13 +41,13 @@ Use o método **GET** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
 3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função:
-   
+
    * Liste atribuições de função para apenas o escopo especificado, não incluindo as atribuições de função em sub-escopos: `atScope()`    
    * Liste atribuições de função para um usuário, grupo ou aplicativo específico: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Liste atribuições de função para um usuário específico, incluindo aqueles herdados de grupos | `assignedTo('{objectId of user}')`
@@ -93,7 +91,7 @@ Use o método **GET** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -134,7 +132,7 @@ Use o método **PUT** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Quando você cria uma atribuição de função em um escopo pai, todos os escopos filho herdam a mesma atribuição de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1   
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -192,7 +190,7 @@ Use o método **DELETE** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja criar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -233,13 +231,13 @@ Use o método **GET** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as funções. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
 2. Substitua *{api-version}* por 2015-07-01.
 3. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de funções:
-   
+
    * Liste funções disponíveis para atribuição no escopo especificado e qualquer de seus escopos filho: `atScopeAndBelow()`
    * Pesquise uma função usando o nome de exibição exato: `roleName%20eq%20'{role-display-name}'`. Use a forma codificada da URL do nome de exibição exato da função. Por exemplo, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
@@ -316,7 +314,7 @@ Use o método **GET** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual você deseja listar as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -396,7 +394,7 @@ Use o método **PUT** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis.
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -499,7 +497,7 @@ Use o método **PUT** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo primeiro *AssignableScope* da função personalizada. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -602,7 +600,7 @@ Use o método **DELETE** com o seguinte URI:
 Dentro do URI, faça as seguintes substituições para personalizar sua solicitação:
 
 1. Substitua *{scope}* pelo escopo para o qual deseja você excluir as atribuições de função. Os exemplos a seguir mostram como especificar o escopo para diferentes níveis:
-   
+
    * Assinatura: /subscriptions/{subscription-id}  
    * Grupo de Recursos: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1  
    * Recurso: /subscriptions/{subscription-id}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1  
@@ -649,12 +647,12 @@ Código de status: 200
 
 ```
 
+## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

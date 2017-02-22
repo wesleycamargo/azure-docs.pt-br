@@ -1,5 +1,5 @@
 ---
-title: "Replicar máquinas virtuais Hyper-V (sem o VMM) para o Azure usando o Azure Site Recovery com o portal do Azure | Microsoft Docs"
+title: Replicar VMs Hyper-V para o Azure| Microsoft Docs
 description: "Descreve como implantar o Azure Site Recovery para orquestrar a replicação, o failover e a recuperação de VMs do Hyper-V locais que não são gerenciadas pelo VMM para o Azure usando o portal do Azure"
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: aeccda397ea3c311afddd88b3a8b9c6dab2461d7
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: aac1d2016043cd64d94ec0d10921d6e208db1d7f
 
 ---
 
@@ -40,18 +40,18 @@ Depois de ler este artigo, poste comentários no final ou faça perguntas técni
 ## <a name="quick-reference"></a>Referência rápida
 
 Para uma implantação completa, recomendamos que você execute todas as etapas deste artigo. Mas se você estiver com pouco tempo, aqui vai um resumo rápido.
- 
+
  **Área** | **Detalhes**
- --- | --- 
- **Cenário de implantação 2** | Replicar VMs Hyper-V (não em nuvens do VMM) para o Azure, usando o portal do Azure 
- **Requisitos de local** | Um ou mais servidores Hyper-V que executam, no mínimo, o Windows Server 2012 R2 com as últimas atualizações e a função do Hyper-V habilitada ou que executam o Microsoft Hyper-V Server 2012 R2, com as últimas atualizações.<br/><br/> Os hosts Hyper-V precisam de acesso à Internet e conseguir acessar as URLs específicas diretamente ou por meio de um proxy. [Detalhes completos](#on-premises-prerequisites). 
+ --- | ---
+ **Cenário de implantação&2;** | Replicar VMs Hyper-V (não em nuvens do VMM) para o Azure, usando o portal do Azure
+ **Requisitos de local** | Um ou mais servidores Hyper-V que executam, no mínimo, o Windows Server 2012 R2 com as últimas atualizações e a função do Hyper-V habilitada ou que executam o Microsoft Hyper-V Server 2012 R2, com as últimas atualizações.<br/><br/> Os hosts Hyper-V precisam de acesso à Internet e conseguir acessar as URLs específicas diretamente ou por meio de um proxy. [Detalhes completos](#on-premises-prerequisites).
  **Limitações de local** | Não há suporte para proxy baseado em HTTPS
- **Provedor/agente** | O Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação são instalados nos hosts Hyper-V durante a implantação. 
- **Requisitos do Azure** | Conta do Azure<br/><br/> Cofre dos serviços de recuperação<br/><br/> Conta de armazenamento LRS ou GRS na região do cofre<br/><br/> Conta de armazenamento padrão<br/><br/> Rede virtual do Azure na região do cofre. [Detalhes completos](#azure-prerequisites). 
- **Limitações do Azure** | Se usar GRS, você precisará de outra conta LRS para registro em log<br/><br/> As contas de armazenamento criadas no portal do Azure não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. <br/><br/> Não há suporte para o armazenamento Premium.<br/><br/> As redes do Azure usadas para o Site Recovery não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. 
- **Replicação de VM** | As VMs devem seguir os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> 
+ **Provedor/agente** | O Provedor do Azure Site Recovery e o agente dos Serviços de Recuperação são instalados nos hosts Hyper-V durante a implantação.
+ **Requisitos do Azure** | Conta do Azure<br/><br/> Cofre dos serviços de recuperação<br/><br/> Conta de armazenamento LRS ou GRS na região do cofre<br/><br/> Conta de armazenamento padrão<br/><br/> Rede virtual do Azure na região do cofre. [Detalhes completos](#azure-prerequisites).
+ **Limitações do Azure** | Se usar GRS, você precisará de outra conta LRS para registro em log<br/><br/> As contas de armazenamento criadas no portal do Azure não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. <br/><br/> Não há suporte para o armazenamento Premium.<br/><br/> As redes do Azure usadas para o Site Recovery não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes.
+ **Replicação de VM** | As VMs devem seguir os [pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
  **Limitações de replicação** | Não é possível replicar VMs Hyper-V que executam o Linux com um endereço IP estático.<br/><br/> Você pode excluir discos específicos da replicação, mas não um disco de sistema operacional.
- **Etapas de implantação** | **1)** Criar um cofre dos Serviços de Recuperação -> **2)** Criar um site Hyper-V que inclui todos os hosts Hyper-V -> **3)** Configurar os hosts Hyper-V -> **4**) Preparar o Azure (assinatura, armazenamento, rede) -> **5)** Definir as configurações de replicação -> **6)** Habilitar a replicação -> **7)** Testar a replicação e o failover. **8)** Se você estiver fazendo uma migração, execute um failover planejado. 
+ **Etapas de implantação** | **1)** Criar um cofre dos Serviços de Recuperação -> **2)** Criar um site Hyper-V que inclui todos os hosts Hyper-V -> **3)** Configurar os hosts Hyper-V -> **4**) Preparar o Azure (assinatura, armazenamento, rede) -> **5)** Definir as configurações de replicação -> **6)** Habilitar a replicação -> **7)** Testar a replicação e o failover. **8)** Se você estiver fazendo uma migração, execute um failover planejado.
 
 ## <a name="azure-deployment-models"></a>Modelos de implantação do Azure
 
@@ -62,7 +62,7 @@ O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-m
 ## <a name="site-recovery-in-your-business"></a>Recuperação de Site em sua empresa
 
 As organizações precisam de uma estratégia de BCDR que determine como os aplicativos e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado e como recuperarão as condições normais de trabalho assim que possível. Aqui está o que a Recuperação de Site pode fazer:
- 
+
  - Proteção externa para aplicativos de negócios em execução em VMs Hyper-V.
  - Um único local para configurar, gerenciar e monitorar replicação, failover e recuperação.
  - Failover simples no Azure e failback (restauração) do Azure para servidores host Hyper-V no site local.
@@ -264,7 +264,7 @@ Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso no
 2. Em **Criar e associar política** , especifique um nome de política.
 3. Em **Frequência de cópia** , especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 4. Em **Retenção do ponto de recuperação**, especifique, em horas, qual será a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
-5. Em **Frequência do instantâneo consistente com aplicativo** , especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
+5. Em **Frequência do instantâneo consistente com aplicativo** , especifique com que frequência (1 a&12; horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos: um instantâneo padrão, que fornece um instantâneo incremental de toda a máquina virtual, e um instantâneo consistente com aplicativos, que cria um instantâneo pontual dos dados do aplicativo na máquina virtual. Os instantâneos consistentes com aplicativos usam o Serviço de VSS (Cópias de Sombra de Volume) para garantir que os aplicativos estejam em um estado consistente quando o instantâneo for obtido. Observe que, se você habilitar instantâneos consistentes com aplicativos, isso afetará o desempenho de aplicativos executados em máquinas virtuais de origem. Verifique se o valor definido é menor do que o número de pontos de recuperação adicionais que você configurar.
 6. Em **Hora de início para replicação inicial** , especifique quando a replicação inicial deve começar. A replicação ocorre pela largura de banda da Internet, pois talvez você queira agendá-la fora dos horários de pico. Em seguida, clique em **OK**.
 
     ![Política de replicação](./media/site-recovery-hyper-v-site-to-azure/gs-replication2.png)
@@ -321,7 +321,7 @@ Agora habilite a replicação da seguinte maneira:
 3. Em **Destino** , selecione a assinatura de cofre e o modelo de failover que você deseja usar no Azure (gerenciamento de recursos ou clássico) após o failover.
 4. Selecione a conta de armazenamento que você deseja usar. Se quiser usar uma conta de armazenamento diferente da que você tem, poderá [criar uma](#set-up-an-azure-storage-account). Para criar uma conta de armazenamento usando o modelo do Resource manager, clique em **Criar nova**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso [no portal do Azure](../storage/storage-create-storage-account-classic-portal.md). Em seguida, clique em **OK**.
 5. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem rotacionadas após o failover. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se quiser usar uma rede diferente da que você tem, poderá [criar uma](#set-up-an-azure-network). Para criar uma rede usando o modelo do Resource Manager, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, faça isso [no Portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
-   ![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png) 
+   ![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/enable-replication11.png)
 
 6. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais** , clique e selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
@@ -331,10 +331,10 @@ Agora habilite a replicação da seguinte maneira:
     ![Habilitar a replicação](./media/site-recovery-hyper-v-site-to-azure/enable-replication6-with-exclude-disk.png)
 
      > [!NOTE]
-     > 
-     > * Apenas discos básicos podem ser excluídos da replicação. Você não pode excluir o disco do sistema operacional e é recomendável não excluir discos dinâmicos. O ASR não pode identificar qual disco VHD é um disco básico ou dinâmico dentro da VM convidada.  Se todos os discos de volume dinâmico dependentes não forem excluídos, o disco protegido dinâmico aparecerá como um disco com falha na VM de failover e os dados nesse disco não poderão ser acessados.  
+     >
+     > * Apenas discos básicos podem ser excluídos da replicação. Você não pode excluir o disco do sistema operacional e é recomendável não excluir discos dinâmicos. O ASR não pode identificar qual disco VHD é um disco básico ou dinâmico dentro da VM convidada.  Se todos os discos de volume dinâmico dependentes não forem excluídos, o disco protegido dinâmico aparecerá como um disco com falha na VM de failover e os dados nesse disco não poderão ser acessados.
     > * Depois que a replicação estiver habilitada, você não poderá adicionar ou remover discos para replicação. Se desejar adicionar ou excluir um disco, você precisará desabilitar a proteção da VM e habilitá-la novamente.
-    > * Se você excluir um disco necessário para um aplicativo operar, após o failover no Azure você precisará criá-lo manualmente no Azure para que possa executar o aplicativo replicado. Como alternativa, você pode integrar a 
+    > * Se você excluir um disco necessário para um aplicativo operar, após o failover no Azure você precisará criá-lo manualmente no Azure para que possa executar o aplicativo replicado. Como alternativa, você pode integrar a
     > * automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.
     > * Não haverá failback de discos que você criar manualmente no Azure. Por exemplo, se houver failover de três discos e dois discos forem criados diretamente na VM do Azure, apenas três discos que sofreram failover terão failback do Azure para o Hyper-V. Você não pode incluir discos criados manualmente em failback ou em replicação reversa do Hyper-V para o Azure.
     >
@@ -370,21 +370,10 @@ Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Conf
 
 4. Em **Discos** , você pode ver o sistema operacional e os discos de dados na VM que serão replicados.
 
-## <a name="step-7-test-the-deployment"></a>Etapa 7: testar a implantação
-Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais.
 
-### <a name="prepare-for-test-failover"></a>Preparar para failover de teste
-* Para executar um failover de teste, é recomendável que você crie uma nova rede do Azure que esteja isolada da rede de produção do Azure (esse é o comportamento padrão quando você cria uma nova rede no Azure). [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução de failovers de teste.
-* Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
-* Para testar totalmente a implantação, você precisará de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations).
-* Se você tiver excluído discos da replicação, talvez seja necessário criar esses discos manualmente no Azure após o failover para que o aplicativo seja executado conforme esperado.
-* Se você quiser executar um failover não planejado em vez de um teste de failover, observe o seguinte:
-
-  * Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo.
-  * Quando você executa um failover não planejado, ele interrompe a replicação de dados de computadores primários para que qualquer delta de dados não seja transferido após o início de um failover não planejado. Além disso se você executar um failover não planejado em um plano de recuperação, ele será executado até ser concluído, mesmo se ocorrer um erro.
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
-Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faça o seguinte:
+Se você quiser se conectar às VMs do Azure usando o RDP após o failover, faça o seguinte: 
 
 **No computador local antes do failover**:
 
@@ -413,33 +402,21 @@ Se você quiser acessar uma VM do Azure que esteja executando o Linux após o fa
 * Um ponto de extremidade público deve ser criado para permitir conexões de entrada na porta SSH (porta TCP 22, por padrão).
 * Se a VM for acessada por meio de uma conexão VPN (Rota Expressa ou VPN site a site), então o cliente poderá ser usado para se conectar diretamente à VM via SSH.
 
-### <a name="run-a-test-failover"></a>Execute um teste de failover
-Para executar o failover de teste, faça o seguinte:
+## <a name="step-7-run-a-test-failover"></a>Etapa 7: executar um failover de teste
+Para testar a implantação, você pode executar um failover de teste para uma única máquina virtual ou um plano de recuperação que contém uma ou mais máquinas virtuais.
 
-1. Para fazer failover em uma única VM, em **Configurações** > **Itens Replicados**, clique na VM > **+Failover de Teste**.
+1. Para fazer failover em um único computador, em **Configurações** > **Itens Replicados**, clique na VM > ícone **+Failover de Teste**.
 
-    ![Failover de Teste](./media/site-recovery-hyper-v-site-to-azure/run-failover1.png)
-2. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
-3. Em **Failover de Teste** , selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
+    ![Failover de Teste](./media/site-recovery-vmware-to-azure/test-failover1.png)
+1. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano > **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md).
+1. Em **Failover de Teste**, selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
+1. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** no nome do cofre **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
+1. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
+1. Se você tiver se [preparado para conexões após o failover](#prepare-to-connect-to-azure-vms-after-failover), deverá poder se conectar à VM do Azure.
+1. Quando terminar, clique em **Failover de teste de limpeza** no plano de recuperação. Em **Observações** , registre e salve todas as observações associadas ao failover de teste. Isso excluirá as máquinas virtuais que foram criadas durante o failover de teste. 
 
-    ![Failover de Teste](./media/site-recovery-hyper-v-site-to-azure/run-failover2.png)
-4. Clique em **OK** para iniciar o failover. Você pode acompanhar o andamento clicando na VM para abrir suas propriedades ou no trabalho **Failover de Teste** em **Configurações** > **Trabalhos do Site Recovery**.
-5. Quando o failover atingir a fase **Testes concluídos** , faça o seguinte:
+Para obter mais detalhes, consulte o documento [Failover de teste para o Azure](site-recovery-test-failover-to-azure.md).
 
-   1. Visualize a máquina virtual de réplica no portal do Azure. Verifique se a máquina virtual foi iniciada com êxito.
-   2. Se tiver configurado para máquinas virtuais de acesso a rede local, você pode iniciar uma conexão de área de trabalho remota para a máquina virtual.
-   3. Se você tiver excluído discos da replicação, talvez seja necessário criar esses discos manualmente no Azure após o failover para que o aplicativo seja executado conforme esperado.
-   4. Clique em **Concluir o teste** para concluí-lo.
-   5. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-   6. Clique em **Failover de teste concluído**. Limpa o ambiente de teste para desligar automaticamente e excluir a máquina virtual de teste.
-   7. Neste ponto, todos os elementos ou máquinas virtuais criadas automaticamente pela Recuperação de Site durante o teste de failover são excluídos. Quaisquer elementos adicionais que você criou para o failover de teste não serão excluídos.
-
-      > [!NOTE]
-      > Se um failover de teste continuar por mais de duas semanas, ele será concluído à força.
-      >
-      >
-6. Após a conclusão do failover, você também deve ver a réplica do computador do Azure no portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
-7. Se você tiver se [preparado para conexões após o failover](#prepare-to-connect-to-Azure-VMs-after-failover) , deverá ser capaz de se conectar à VM do Azure.
 
 ## <a name="failover"></a>Failover
 Depois que a replicação inicial for concluída para os computadores, você pode invocar failovers conforme a necessidade. O Site Recovery dá suporte a vários tipos de failovers – failover de teste, failover planejado e failover não planejado.
@@ -447,8 +424,18 @@ Depois que a replicação inicial for concluída para os computadores, você pod
 
 > [!NOTE]
 > Se sua intenção é migrar máquinas virtuais para o Azure, é altamente recomendável que você use uma [Operação de failover planejado](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) para migrar as máquinas virtuais para o Azure. Depois que o aplicativo migrado é validado no Azure usando o failover de teste, use as etapas mencionadas em [Concluir a migração](#Complete-migration-of-your-virtual-machines-to-Azure) para concluir a migração de máquinas virtuais. Você não precisa executar uma confirmação ou exclusão. Concluir a migração conclui a migração, remove a proteção para a máquina virtual e interrompe a cobrança do Azure Site Recovery para a máquina.
->
->
+
+
+### <a name="run-a-planned-failover"></a>Executar um failover planejado
+Isso deve ser escolhido para atender aos requisitos de conformidade ou durante uma manutenção planejada, execução de failover de dados a fim de manter as cargas de trabalho em execução durante interrupções conhecidas, como falta de energia esperada ou previsões de condições climáticas severas. Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia Máquinas Virtuais. Antes de começar, verifique se todas as máquinas virtuais das quais deseja fazer failover concluíram a replicação inicial.
+
+1. Selecione **Planos de Recuperação > nome_planoderecuperação**.
+2. Na folha Plano de recuperação, clique em **Failover Planejado**.
+3. Na página **Confirmar Failover Planejado **, escolha os locais de origem e de destino. 
+4. Quando um failover planejado começa, a primeira etapa é desligar as máquinas virtuais para garantir que não haja perda de dados. Você pode acompanhar o progresso do failover na guia **Trabalhos** . Se um erro ocorrer no failover (ou em uma máquina virtual, ou em um script que está incluído no plano de recuperação), o failover planejado de um plano de recuperação será interrompido. Você pode iniciar o failover novamente.
+6. Depois que as máquinas virtuais de réplica são criadas, elas ficam em um estado de confirmação pendente. Clique em **Confirmar** para confirmar o failover.
+7. Depois que a replicação é concluída, as máquinas virtuais são iniciadas no local secundário.
+
 
 ### <a name="run-an-unplanned-failover"></a>Executar um failover não planejado
 Isso deve ser escolhido quando um site primário se tornar inacessível devido a um incidente inesperado, como falta de energia ou ataque de vírus. Este procedimento descreve como executar um “failover não planejado” para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia Máquinas Virtuais. Antes de começar, verifique se todas as máquinas virtuais das quais deseja fazer failover concluíram a replicação inicial.
@@ -484,6 +471,6 @@ Veja como você pode monitorar as definições de configuração, o status e a i
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

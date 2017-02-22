@@ -1,5 +1,5 @@
 ---
-title: "O que é o StorSimple? | Microsoft Docs"
+title: "Visão geral da solução StorSimple série 8000 | Microsoft Docs"
 description: "Descreve o processo de camadas do StorSimple, o gerenciamento de dispositivos, de dispositivos virtuais, de serviços e de armazenamento, e também apresenta os principais termos usados no StorSimple."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 3575e4f22e17608de7f3b66e9dd577a1d4a4c148
 
 
 ---
@@ -32,9 +32,9 @@ A Atualização 2 também permite que você crie dispositivos virtuais do StorSi
 
 Além do gerenciamento de armazenamento, os recursos de proteção de dados do StorSimple permitem que você crie backups agendados e sob demanda e os armazene localmente ou na nuvem. Os backups são realizados na forma de instantâneos incrementais, o que significa que eles podem ser criados e restaurados rapidamente. Os instantâneos em nuvem podem ser extremamente importantes em cenários de recuperação de desastres, pois substituem os sistemas de armazenamento secundário (como backup em fita) e permitem restaurar dados para o data center ou para locais alternativos, se necessário.
 
-![ícone de vídeo](./media/storsimple-overview/video_icon.png)  Assista ao vídeo que apresenta uma rápida introdução ao Microsoft Azure StorSimple.
+![ícone de vídeo](./media/storsimple-overview/video_icon.png) Assista ao vídeo que apresenta uma rápida introdução ao Microsoft Azure StorSimple.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 > 
 > 
 
@@ -241,7 +241,7 @@ Veja a seguir uma lista dos componentes da infraestrutura com suporte do StorSim
 | Geral |DataCore FC |Sim* |Suporte com DataCore SANsymphony |Todas as versões |
 | Geral |DFSR |Sim* |Com suporte somente com volumes afixados localmente |Todas as versões |
 | Geral |Indexação |Sim* |Para volumes em camadas, somente a indexação de metadados tem suporte (sem dados).<br>Para volumes afixados localmente, a indexação completa tem suporte. |Todas as versões |
-| Geral |Antivírus |Sim* |Para volumes em camadas, há suporte apenas para verificação ao abrir e fechar.<br>  Para volumes afixados localmente, há suporte para verificação completa. |Todas as versões |
+| Geral |Antivírus |Sim* |Para volumes em camadas, há suporte apenas para verificação ao abrir e fechar.<br> Para volumes afixados localmente, há suporte para verificação completa. |Todas as versões |
 
 *Sim&#42; – Diretrizes e restrições da solução devem ser aplicadas.*
 
@@ -310,6 +310,6 @@ Saiba mais sobre a [Segurança do StorSimple](storsimple-security.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

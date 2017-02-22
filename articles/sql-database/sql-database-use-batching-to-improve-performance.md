@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: fa364ff88d449ec8efb318d26049c2e046ee42b8
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 28c847137bda93886a2ae80151e3834f149a4858
 
 
 ---
@@ -283,7 +283,7 @@ Essa abordagem pode ser ligeiramente mais rápida para lotes com menos de 100 li
 A classe **DataAdapter** permite que você modifique um objeto **DataSet** e envie as alterações como operações INSERT, UPDATE e DELETE. Se você estiver usando o **DataAdapter** dessa maneira, é importante observar são realizadas chamadas separadas para cada operação distinta. Para melhorar o desempenho, use a propriedade **UpdateBatchSize** de acordo com o número de operações que devem ser enviadas em lote por vez. Para saber mais, consulte [Executando operações em lote usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Entity Framework
-No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, consulte [Anotações da reunião de design – 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, confira [Anotações da reunião de design – 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 Para abordarmos tudo, achamos que é importante falar sobre XML como uma estratégia de envio em lote. No entanto, o uso de XML não apresenta vantagens sobre outros métodos e impõe várias desvantagens. A abordagem é semelhante aos parâmetros com valor de tabela, mas um arquivo ou cadeia de caracteres XML é passado para um procedimento armazenado, em vez de uma tabela definida pelo usuário. O procedimento armazenado analisa os comandos no procedimento armazenado.
@@ -627,6 +627,6 @@ Este artigo se concentrou em como o design do banco de dados e as técnicas de c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

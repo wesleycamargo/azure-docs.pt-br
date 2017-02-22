@@ -249,6 +249,6 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

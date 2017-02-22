@@ -1,5 +1,5 @@
 ---
-title: "Exemplo de código: analisar dados exportados do Application Insights | Microsoft Docs"
+title: 'Exemplo: Analisar dados exportados do Azure Application Insights | Microsoft Docs'
 description: "Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua. Salve dados no SQL."
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: b0782ed5675e5256694f7b9f4e98750e57d23e0a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: fedd078402bbd220bce9b71cd035508d46f92f82
 
 
 ---
 # <a name="code-sample-parse-data-exported-from-application-insights"></a>Exemplo de código: analisar dados exportados do Application Insights
-Este artigo mostra como escrever código para processar os dados exportados do [Azure Application Insights][iniciar] usando a [exportação contínua][export]. A exportação contínua move a telemetria no armazenamento do Azure no formato JSON, por isso vamos escrever um código para analisar objetos JSON e criar linhas em uma tabela de banco de dados.
+Este artigo mostra como escrever um código para processar os dados exportados do [Azure Application Insights][start] usando a [Exportação Contínua][export]. A exportação contínua move a telemetria no armazenamento do Azure no formato JSON, por isso vamos escrever um código para analisar objetos JSON e criar linhas em uma tabela de banco de dados.
 
 Por exemplo, vamos escrever código para mover os dados de telemetria do Application Insights para um banco de dados SQL.
 
@@ -30,7 +30,7 @@ Antes de começar, observe o seguinte:
 * Neste exemplo, passamos os dados em um banco de dados do Azure executando o código em uma função de trabalho do Azure. Mas você pode adaptar este código para ser executado em um servidor a fim de para extrair os dados para um SQL Server local.
 * Você pode [escrever código para acessar a telemetria diretamente](http://dev.applicationinsights.io/) no Application Insights, sem exportá-la.
 
-Se você ainda não começou a monitorar seu aplicativo Web com o Application Insights, [faça isso agora][iniciar].
+Se você ainda não começou a monitorar seu aplicativo Web com o Application Insights, [faça isso agora][start].
 
 
 
@@ -495,12 +495,12 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[iniciar]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

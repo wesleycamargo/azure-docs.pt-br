@@ -1,26 +1,27 @@
 ---
 title: Gerenciar um Banco de Dados SQL do Azure usando o Portal do Azure | Microsoft Docs
-description: Saiba como usar o Portal do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal do Azure.
+description: "Referência rápida sobre como usar o Portal do Azure para gerenciar um banco de dados relacional na nuvem usando o Portal do Azure."
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 01/10/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
+ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
+ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
 
 
 ---
-# <a name="managing-azure-sql-databases-using-the-azure-portal"></a>Gerenciando Bancos de Dados SQL do Azure usando o Portal do Azure
+# <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Gerenciar Bancos de Dados SQL do Azure usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
@@ -29,6 +30,9 @@ ms.openlocfilehash: bb40c67d6b355fd2fe0799c781a28657f24f825d
 > 
 
 O [portal do Azure](https://portal.azure.com/) permite que você crie, monitore e gerencie servidores e bancos de dados SQL Azure. Este artigo fornece uma descrição rápida e links para os detalhes das tarefas mais comuns.
+
+> [!TIP]
+> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started.md).
 
 ## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Exibir seus bancos de dados, servidores e pools SQL do Azure
 Para exibir os serviços disponíveis do Banco de Dados SQL, clique em **Mais serviços** e digite **SQL** na caixa de pesquisa:
@@ -46,7 +50,7 @@ Para abrir a folha **Servidores SQL**, clique em **Servidores SQL** e clique no 
 ![Servidores SQL](./media/sql-database-manage-portal/sql-servers.png)
 
 ## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>Como criar ou exibir os pools elásticos de SQL?
-Para abrir a folha **Pools elásticos de SQL**, clique em **Pools elásticos de SQL** e clique no pool com o qual você deseja trabalhar, ou clique em **+Adicionar** para criar um pool. Para obter detalhes, confira [Criar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-create-portal.md).
+Para abrir a folha **Pools elásticos de SQL**, clique em **Pools elásticos de SQL** e clique no pool com o qual você deseja trabalhar, ou clique em **+Adicionar** para criar um pool. Para obter detalhes, confira [Criar um pool elástico com o Portal do Azure](sql-database-elastic-pool-create-portal.md).
 
 ![Pools elásticos SQL](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -88,7 +92,7 @@ Para monitorar e melhorar as características de desempenho de um banco de dados
 ## <a name="how-do-i-configure-geo-replication"></a>Como configurar a replicação geográfica?
 Para configurar a replicação geográfica para um banco de dados SQL, clique em **Replicação geográfica** na folha **Banco de dados SQL**. Para obter detalhes, confira [Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o Portal do Azure](sql-database-geo-replication-portal.md).
 
-## <a name="how-do-i-failover-to-a-geo-replicated-sql-database"></a>Como fazer um failover para um banco de dados SQL com replicação geográfica?
+## <a name="how-do-i-fail-over-to-a-geo-replicated-sql-database"></a>Como fazer um failover para um banco de dados SQL com replicação geográfica?
 Para realizar um failover para um secundário replicado geograficamente, clique em **Replicação geográfica** na folha **Banco de Dados SQL** e clique em **Failover**. Para obter detalhes, confira [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o Portal do Azure](sql-database-geo-replication-failover-portal.md).
 
 ## <a name="how-do-i-copy-a-sql-database"></a>Como copiar um banco de dados SQL?
@@ -102,7 +106,7 @@ Para criar um BACPAC de um banco de dados SQL, clique em **Exportar** na folha *
 ![exportar banco de dados SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>Como restaurar um banco de dados SQL para um ponto anterior no tempo?
-Para restaurar um banco de dados SQL, clique em **Restaurar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore-portal.md).
+Para restaurar um banco de dados SQL, clique em **Restaurar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore.md).
 
 ![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
@@ -121,11 +125,11 @@ Para excluir um banco de dados SQL, clique em **Excluir** na folha **Banco de Da
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Banco de Dados SQL](sql-database-technical-overview.md)
-* [Monitorar e gerenciar um pool de banco de dados elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md)
+* [Monitorar e gerenciar um pool elástico com o portal do Azure](sql-database-elastic-pool-manage-portal.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

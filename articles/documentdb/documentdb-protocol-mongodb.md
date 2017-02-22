@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/16/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 0703fa4f4d3eb9f23aa9b3c0b90267fac9557f13
-ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
+ms.sourcegitcommit: 2de367287a4bee05694070dbeeb4d4a458d47f11
+ms.openlocfilehash: 38d811a7a08a6f8a6dd07a29e9a49bb34810ee91
 
 
 ---
@@ -33,6 +33,12 @@ Os bancos de dados do Banco de Dados de Documentos agora podem ser usados como o
 **Nível empresarial**: o DocumentDB permite várias réplicas locais para proporcionar 99,99% de disponibilidade e proteção de dados em caso de falhas locais e regionais. O DocumentDB apresenta recursos de segurança e [certificações de conformidade](https://www.microsoft.com/trustcenter) de nível empresarial. 
 
 **Compatibilidade do MongoDB**: o suporte ao protocolo do DocumentDB para MongoDB foi projetado para compatibilidade com o MongoDB. Você pode usar o código, os aplicativos, os drivers e as ferramentas existentes para trabalhar com o DocumentDB. 
+
+Saiba mais nesse vídeo do Azure Friday com Scott Hanselman e o Gerenciador Principal de Engenharia do Document DB, Kirill Gavrylyuk.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/DocumentDB-Database-as-a-Service-for-MongoDB-Developers/player]
+> 
+
 
 ## <a name="how-to-get-started"></a>Como começar?
 Criar uma conta do DocumentDB com o suporte ao protocolo para MongoDB no [Portal do Azure](https://portal.azure.com) e troque a conexão para sua nova conta. 
@@ -50,6 +56,6 @@ Para obter instruções detalhadas, siga [criar conta](documentdb-create-mongodb
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

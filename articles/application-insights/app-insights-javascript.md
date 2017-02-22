@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -129,17 +129,17 @@ O gráfico mostra a média de todos os carregamentos de página em seu aplicativ
 
 Observe a contagem de exibições de páginas e o desvio padrão. Se a contagem de páginas for muito baixa, o problema não está afetando muito os usuários. Um desvio padrão alto (comparável à média em si) indica muita variação entre medidas individuais.
 
-**Aplicar zoom em uma URL e uma exibição de página.**  Clique em qualquer nome de página para ver uma folha de gráficos de navegador filtrados apenas para essa URL e, em seguida, em uma instância de uma exibição de página.
+**Aplicar zoom em uma URL e uma exibição de página.** Clique em qualquer nome de página para ver uma folha de gráficos de navegador filtrados apenas para essa URL e, em seguida, em uma instância de uma exibição de página.
 
 ![](./media/app-insights-javascript/35.png)
 
 Clique em `...` para obter uma lista completa das propriedades do evento ou inspecionar as chamadas Ajax e os eventos relacionados. Chamadas Ajax lentas afetam o tempo de carregamento de página geral se são síncronas. Eventos relacionados incluem solicitações do servidor para a mesma URL (se você configurou o Application Insights em seu servidor Web).
 
-**Desempenho da página ao longo do tempo.**  De volta à folha Navegadores, altere a grade de Tempo de Carregamento de Exibição de Página para um gráfico de linhas para ver se houve picos em determinados horários:
+**Desempenho da página ao longo do tempo.** De volta à folha Navegadores, altere a grade de Tempo de Carregamento de Exibição de Página para um gráfico de linhas para ver se houve picos em determinados horários:
 
 ![Clique no cabeçalho da grade e selecione um novo tipo de gráfico](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Segmentar por outras dimensões.**  Será que as páginas têm carregamento mais lento em determinado navegador, sistema operacional cliente ou localidade do usuário? Adicione um novo gráfico e experimente a dimensão **Agrupar por** .
+**Segmentar por outras dimensões.** Será que as páginas têm carregamento mais lento em determinado navegador, sistema operacional cliente ou localidade do usuário? Adicione um novo gráfico e experimente a dimensão **Agrupar por** .
 
 ![](./media/app-insights-javascript/21.png)
 
@@ -170,7 +170,7 @@ Clique em qualquer linha para obter detalhes específicos.
 Clique em `...` para ver a telemetria completa de uma chamada Ajax.
 
 ### <a name="no-ajax-calls-reported"></a>Nenhuma chamada Ajax foi relatada?
-As chamadas AJAX incluem todas as chamadas HTTP feitas do script da página da Web. Se elas não forem relatadas, verifique se o trecho de código não define os [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
+As chamadas Ajax incluem todas as chamadas HTTP feitas do script da página da Web. Se elas não forem relatadas, verifique se o trecho de código não define os [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) `disableAjaxTracking` ou `maxAjaxCallsPerView`.
 
 ## <a name="browser-exceptions"></a>Exceções de navegador
 Na folha Navegadores, há um gráfico de resumo de exceções e uma grade dos tipos de exceção mais abaixo na folha.
@@ -193,7 +193,7 @@ Selecione qualquer evento para ver mais detalhes. Na página de detalhes, clique
 > 
 > 
 
-Você também pode usar a poderosa [linguagem de consulta da análise](app-insights-analytics-tour.md) para pesquisar exibições de página.
+Você também pode usar a poderosa [linguagem de consulta da análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) para pesquisar exibições de página.
 
 ### <a name="page-view-properties"></a>Propriedades de exibição de página
 * **Duração do modo de exibição de página** 
@@ -230,6 +230,6 @@ Quer saber o que os usuários fazem com seu aplicativo?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

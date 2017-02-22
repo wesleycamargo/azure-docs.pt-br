@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/18/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 56faeccbb25d2f0e3dbe6b104b5e9bc95a06ca36
+ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
+ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
 
 
 ---
 # <a name="change-tracking-solution-in-log-analytics"></a>Solução de Controle de Alterações no Log Analytics
-Este artigo ajuda você a usar a solução de Controle de Alterações de Configuração em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software, no Windows Services, nos daemons do Linux e nos pacotes do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais. Você também pode configurar a solução para controlar alterações em arquivos específicos do Windows.
+Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
-Instale a solução para atualizar o tipo de agente já instalado. Alterações em software e serviços do Windows instalados e daemons do Linux em servidores monitorados são lidas e, em seguida, os dados são enviados para o serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Quando as alterações são encontradas, os servidores com as alterações são mostrados no painel Controle de Alterações. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
+Instale a solução para atualizar o tipo de agente já instalado. Alterações em software e serviços do Windows instalados e daemons do Linux em servidores monitorados são lidas e, em seguida, os dados são enviados para o serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
@@ -63,12 +63,12 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 | plataforma | Agente direto | Agente SCOM | Agente do Linux | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |por hora |
+| Windows e Linux |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Não](./media/log-analytics-change-tracking/oms-bullet-red.png) |![Sim](./media/log-analytics-change-tracking/oms-bullet-green.png) | 15 minutos para 1 hora, dependendo do tipo de alteração |
 
 ## <a name="use-change-tracking"></a>Use o Controle de Alterações
 Após instalar a solução, você pode exibir o resumo das alterações nos servidores monitorados usando o bloco **Controle de Alterações** na página **Visão geral** do OMS.
 
-![imagem de bloco Controle de Alterações](./media/log-analytics-change-tracking/oms-changetracking-tile.png)
+![imagem de bloco Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-tile.png)
 
 Você pode exibir as alterações à sua infraestrutura e então analisar em detalhes para as seguintes categorias:
 
@@ -79,9 +79,9 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 * Alterações no serviço Windows para servidores individuais
 * Alterações de daemon do Linux
 
-![imagem do painel Controle de Alterações](./media/log-analytics-change-tracking/oms-changetracking01.png)
+![imagem do painel Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-dash01.png)
 
-![imagem do painel Controle de Alterações](./media/log-analytics-change-tracking/oms-changetracking02.png)
+![imagem do painel Controle de Alterações](./media/log-analytics-change-tracking/change-tracking-dash02.png)
 
 ### <a name="to-view-changes-for-any-change-type"></a>Para exibir as alterações para qualquer tipo de alteração
 1. Na página **Visão Geral**, clique no bloco **Controle de Alterações**.
@@ -93,6 +93,6 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

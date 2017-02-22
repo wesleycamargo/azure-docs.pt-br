@@ -1,9 +1,9 @@
 ---
-title: "Integrar uma Conta de Armazenamento à CDN | Microsoft Docs"
+title: Integrar uma conta de armazenamento do Azure com a CDN do Azure | Microsoft Docs
 description: "Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 52937c2abe3752dea02467c106167bfe4675fd4d
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 3a0db75612531ebf947c011e9e4545f7d9590e20
 
 
 ---
-# <a name="integrate-a-storage-account-with-cdn"></a>Integrar uma conta de armazenamento com CDN
+# <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrar uma conta de armazenamento do Azure com a CDN do Azure
 CDN pode ser habilitada em cache o conteúdo do armazenamento do Azure. Ela oferece aos desenvolvedores uma solução global para entrega de conteúdo de largura de banda armazenando em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, Europa, Ásia, Austrália e América do Sul.
 
 ## <a name="step-1-create-a-storage-account"></a>Etapa 1: Criar uma conta de armazenamento
@@ -131,6 +131,6 @@ Um objeto que já está armazenado em cache na CDN permanecerá em cache até qu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

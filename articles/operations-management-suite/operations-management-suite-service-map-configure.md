@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cbed591d15daf8060f13d0e9b009d65c85d256aa
-ms.openlocfilehash: ad8666b46a5b404ab1caf85c32549a1a01de3b73
+ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
+ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
 
 
 ---
 # <a name="configuring-service-map-solution-in-operations-management-suite-oms"></a>Configurar a solução Mapa do Serviço no OMS (Operations Management Suite)
-![Ícone do Gerenciamento de Alertas](media/oms-service-map/icon.png) O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais.  O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
+O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais.  O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
 
 Este artigo descreve os detalhes sobre a configuração do Mapa do Serviço e dos agentes de integração.  Para saber mais sobre como usar o Mapa do Serviço, confira [Como usar a solução Mapa do Serviço no OMS (Operations Management Suite)](operations-management-suite-service-map.md)
 
@@ -75,7 +75,7 @@ O Pacote de Gerenciamento chama-se Microsoft.IntelligencePacks.ApplicationDepend
 
 
 ## <a name="configuration"></a>Configuração
-Além da instalação de um agente conectado ao OMS nos computadores Windows e Linux, o instalador do Dependency Agent deverá ser baixado da solução Mapa do Serviço e instalado como root ou Administrador em cada servidor gerenciado.  Depois que o agente do Mapa do Serviço for instalado em um servidor que esteja se reportando ao OMS, os mapas de dependências do Mapa do Serviço aparecerão em 10 minutos.  Se você tiver problemas, envie um email para [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+Além da instalação de um agente conectado ao OMS nos computadores Windows e Linux, o instalador do Dependency Agent deverá ser baixado da solução Mapa do Serviço e instalado como root ou Administrador em cada servidor gerenciado.  Depois que o agente do Mapa do Serviço for instalado em um servidor que esteja se reportando ao OMS, os mapas de dependências do Mapa do Serviço aparecerão em 10 minutos.
 
 
 ### <a name="migrating-from-bluestripe-factfinder"></a>Migração do BlueStripe FactFinder
@@ -93,31 +93,31 @@ Para baixar o Dependency Agent, clique em **Configurar Solução** no bloco **Ma
 #### <a name="microsoft-windows"></a>Microsoft Windows
 São necessários privilégios de administrador para instalar ou desinstalar o agente.
 
-O Dependency Agent é instalado em computadores com o Windows com Dependency-Agent-Windows.exe. Se você executar o arquivo executável sem opções, ele iniciará um assistente que você poderá seguir para executar a instalação interativamente.  
+O Dependency Agent é instalado em computadores com o Windows com InstallDependencyAgent-Windows.exe. Se você executar o arquivo executável sem opções, ele iniciará um assistente que você poderá seguir para executar a instalação interativamente.  
 
 Use as etapas a seguir para instalar o Dependency Agent em cada computador com o Windows:
 
 1.  Certifique-se de que o Agente do OMS seja instalado usando as instruções em Conectar computadores diretamente ao OMS.
-2.  Baixe o agente do Windows e o execute com o comando a seguir: <br>*Dependency-Agent-Windows.exe*
+2.  Baixe o agente do Windows e o execute com o comando a seguir: <br>*InstallDependencyAgent-Windows.exe*
 3.  Acompanhe o assistente para instalar o agente.
 4.  Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em Agentes do Windows, o diretório de log será *C:\Arquivos de Programas\Microsoft Dependency Agent\logs*. 
 
 O Dependency Agent para Windows pode ser desinstalado por um administrador por meio do Painel de Controle.
 
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 O acesso root é necessário para instalar ou configurar o agente.
 
-O Dependency Agent é instalado em computadores com o Linux com Dependency-Agent-Linux64.bin, um script de shell com um binário de extração automática. Você pode executar o arquivo com sh ou adicionar permissões de execução ao próprio arquivo.
+O Dependency Agent é instalado em computadores com o Linux com InstallDependencyAgent-Linux64.bin, um script de shell com um binário de extração automática. Você pode executar o arquivo com sh ou adicionar permissões de execução ao próprio arquivo.
  
 Use as seguintes etapas para instalar o Dependency Agent em cada computador com o Linux:
 
 1.  Certifique-se de que o Agente do OMS seja instalado usando as instruções em [Coletar e gerenciar dados de computadores com o Linux.  O Agente do OMS deve ser instalado antes do Dependency Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).
-2.  Instale o Dependency Agent para Linux como root usando o comando a seguir:<br>*sh Dependency-Agent-Linux64.bin*.
+2.  Instale o Dependency Agent para Linux como root usando o comando a seguir:<br>*sh InstallDependencyAgent-Linux64.bin*.
 3.  Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Desinstalação do Dependency Agent no Linux
-Para desinstalar completamente o Dependency Agent do Linux, você deve remover o agente propriamente dito e o proxy instalado automaticamente com o agente.  Você pode desinstalar ambos com o seguinte comando único:
+Para desinstalar completamente o Dependency Agent do Linux, você deve remover o agente propriamente dito e o Conector instalado automaticamente com o agente.  Você pode desinstalar ambos com o seguinte comando único:
 
     rpm -e dependency-agent dependency-agent-connector
 
@@ -128,7 +128,7 @@ A seção anterior fornece orientação sobre como instalar o agente do Monitor 
 #### <a name="windows"></a>Windows
 Use as opções da tabela a seguir para instalar a partir de uma linha de comando. Para ver uma lista dos sinalizadores de instalação, execute o instalador com o sinalizador /? da seguinte maneira.
 
-    Dependency-Agent-Windows.exe /?
+    InstallDependencyAgent-Windows.exe /?
 
 | Sinalizador | Descrição |
 |:--|:--|
@@ -137,10 +137,10 @@ Use as opções da tabela a seguir para instalar a partir de uma linha de comand
 Os arquivos do Windows Dependency Agent são colocados em *C:\Arquivos de Programas\Microsoft Dependency Agent* por padrão.
 
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 Use as opções da tabela a seguir para a instalação. Para ver uma lista dos sinalizadores de instalação, execute o programa de instalação com o sinalizador -help da seguinte maneira.
 
-    Dependency-Agent-Linux64.bin -help
+    InstallDependencyAgent-Linux64.bin -help
 
 | Descrição do sinalizador
 |:--|:--|
@@ -167,7 +167,7 @@ Se você tiver problemas com o Mapa do Serviço, poderá reunir informações de
 #### <a name="microsoft-dependency-agent"></a>Microsoft Dependency Agent
 Para gerar dados de solução de problemas do Dependency Agent, abra um Prompt de Comando como administrador e execute o script CollectDependencyAgentData.vbs usando o comando a seguir.  Você pode adicionar o sinalizador --help para exibir opções adicionais.
 
-    cd C:\Program Files\Bluestripe\Collector\scripts
+    cd C:\Program Files\Microsoft Dependency Agent\scripts
     cscript CollectDependencyData.vbs
 
 O Pacote de Dados de Suporte é salvo no diretório %USERPROFILE% do usuário atual.  Você pode usar a opção --file <filename> para salvá-lo em um local diferente.
@@ -227,7 +227,7 @@ O Dependency Agent geralmente consome 0,1% da memória do sistema e 0,1% da CPU 
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
-As seções a seguir listam os sistemas operacionais com suporte para o Dependency Agent.   Não há suporte para as arquiteturas de 32 bits de qualquer sistema operacional.
+As seções a seguir listam os sistemas operacionais com suporte para o Dependency Agent.   Não há suporte para as arquiteturas de&32; bits de qualquer sistema operacional.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -325,6 +325,6 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privaci
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

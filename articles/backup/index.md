@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentação do Backup do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Use a documentação de backup para aprender como fazer o backup para a nuvem. Confira tutoriais e vídeos para o aplicativo, servidor Windows e o backup da máquina virtual do Azure."
+services: backup
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: backup
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
-ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
+ms.sourcegitcommit: 4d159b2cec70d9491a562f460629d8efa511d695
+ms.openlocfilehash: 29466a465865dc17350eb4aa70a86f9c973b693a
 
 ---
 #<a name="backup-documentation"></a>Documentação de backup
@@ -133,16 +144,10 @@ Saiba como usar o Backup do Azure na nuvem para proteger os dados para retençã
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação de Backup do Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

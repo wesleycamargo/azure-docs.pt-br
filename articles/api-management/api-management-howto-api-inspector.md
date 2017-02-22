@@ -1,5 +1,5 @@
 ---
-title: Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
+title: Rastrear chamadas com o Inspetor de API - Gerenciamento de API do Azure | Microsoft Docs
 description: Saiba como rastrear chamadas usando o Inspetor de API no Gerenciamento de API do Azure.
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 36231c3d2c19e129b301b76dfbbc8417b055fbae
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
 
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
@@ -69,7 +68,7 @@ Nos cabeçalhos de resposta, haverá um **ocp-apim-trace-location** com um valor
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-O rastreamento pode ser baixado do local especificado e revisado, conforme demonstrado na etapa a seguir.
+O rastreamento pode ser baixado do local especificado e revisado, conforme demonstrado na etapa a seguir. Observe que apenas as últimas 100 entradas de log são armazenadas e os locais de log são reutilizados no esquema rotativo. Portanto, se você fizer mais de 100 chamadas com rastreamento habilitado, consequentemente iniciará a substituição dos primeiros rastreamentos em vigor.
 
 ## <a name="inspect-trace"> </a>Inspecionar o rastreamento
 Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL **ocp-apim-trace-location** . Trata-se de um texto no formato JSON que contém entradas semelhantes ao exemplo a seguir.
@@ -269,6 +268,6 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -3,7 +3,7 @@ title: "Monitorar um cluster do Serviço de Contêiner do Azure com Sysdig | Mic
 description: "Monitore um cluster do Serviço de Contêiner do Azure com Sysdig."
 services: container-service
 documentationcenter: 
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -11,14 +11,14 @@ keywords: "Contêineres, DC/OS, Azure"
 ms.assetid: 91d9a28a-3a52-4194-879e-30f2fa3d946b
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
-ms.author: t-ribhat
+ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4407bc49bf11cada012015f340a9995a26374d00
+ms.sourcegitcommit: 5da28eecf2df764f71906897450ebe67b3048b3f
+ms.openlocfilehash: d57212a8c858c4fb53cc619a578b59da92176bb2
 
 
 ---
@@ -54,9 +54,10 @@ Agora defina as instâncias como 10000000 para que sempre que um novo nó for ad
 
 Após instalar o pacote, navegue até a IU de Sysdig e você poderá explorar as diferentes métricas de uso para os contêineres no cluster. 
 
+Você também pode instalar painéis específicos do Mesos e do Marathon por meio do [assistente de novo painel](https://app.sysdigcloud.com/#/dashboards/new).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

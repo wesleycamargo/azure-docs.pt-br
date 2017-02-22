@@ -1,5 +1,5 @@
 ---
-title: Identificar bancos de dados e tabelas do Banco de Dados de Stretch executando o Supervisor do Banco de Dados de Stretch | Microsoft Docs
+title: Identificar bancos de dados e tabelas para o Stretch Database - Azure | Microsoft Docs
 description: "Saiba como identificar os bancos de dados e tabelas que são candidatos ao Banco de Dados de Stretch."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
+ms.date: 01/05/2017
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1c59343393ca49e11765fdae0fd0fa7620ec08af
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: 0f1a7feea79c73d7b80343fcc9898509268d111c
 
 
 ---
@@ -36,10 +36,10 @@ Baixe e instale o Supervisor de Atualização [aqui](http://go.microsoft.com/fwl
 
 ## <a name="review-the-results"></a>Revise os resultados
 1. Quando a análise for concluída, na folha **Bancos de dados analisados**, escolha um dos bancos de dados que você analisou para exibir a folha **Resultados da análise**.
-   
+
    A folha **Resultados da análise** relaciona as tabelas recomendadas no banco de dados selecionado que correspondem aos critérios de recomendação padrão.
 2. Na lista de tabelas na folha **Resultados da análise**, escolha uma das tabelas recomendadas para exibir a folha **Resultados da tabela**.
-   
+
    Se houver problemas de bloqueio, a folha **Resultados da tabela** relacionará os problemas de bloqueio da tabela selecionada. Para obter informações sobre os problemas de bloqueio detectados pelo Supervisor do Stretch Database, confira [Limitações do Stretch Database](sql-server-stretch-database-limitations.md).
 3. Na lista de problemas de bloqueio da folha **Resultados da tabela** , selecione um dos problemas para exibir mais informações sobre o problema selecionado e proponha etapas de redução. Implemente as etapas de mitigação sugeridas se quiser configurar a tabela selecionada para o Banco de Dados de Stretch.
 
@@ -56,11 +56,8 @@ Habilite o Banco de Dados de Stretch.
 
 [Habilitar o Banco de Dados de Stretch para uma tabela](sql-server-stretch-database-enable-table.md)
 
-[Todos os tópicos do serviço SQL Server Stretch Database do Azure](sql-server-stretch-database-index-all-articles.md)
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

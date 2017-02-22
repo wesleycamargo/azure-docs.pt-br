@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 963a15ce1218ea7b3244e58377b9624680f5930b
-ms.openlocfilehash: e41e72957846dbcdab15960b67caab80882e49e1
+ms.sourcegitcommit: 0d37eb09a6c8a0bb39a331e51a8993c114202b91
+ms.openlocfilehash: 88858cffa5ddc6ba83152d3430f5400a1c66a26a
 
 
 ---
@@ -190,6 +190,7 @@ Serialize objetos em funções do Node.js ou do C#. Em funções do C#, também 
 * Qualquer tipo que implementa `ITableEntity`
 * `ICollector<T>` (para gerar várias entidades. Consulte a [amostra](#outcsharp).)
 * `IAsyncCollector<T>` (versão assíncrona de `ICollector<T>`)
+* `CloudTable` (usando o SDK do Armazenamento do Azure. Consulte a [amostra](#readmulti).)
 
 <a name="outputsample"></a>
 
@@ -342,6 +343,6 @@ public class Person : TableEntity
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

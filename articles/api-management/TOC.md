@@ -14,6 +14,7 @@
 ## Proteger o back-end
 ### [Proteger back-end de API Web com o AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Conectar-se a uma rede virtual](api-management-using-with-vnet.md)
+### [Conectar uma rede virtual interna](api-management-using-with-internal-vnet.md)
 ### [Autenticação Mútua de certificado](api-management-howto-mutual-certificates.md)
 ## Configurar Políticas
 ### [Caching personalizado](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

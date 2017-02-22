@@ -11,23 +11,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 11/29/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5975bd5b2a2e7fe8799155ab47d96c3ecd0093ee
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 5046b3fc1444e37388505f2662a28486342c8822
 
 
 ---
 # <a name="create-an-azure-search-service-using-the-azure-portal"></a>Criar um serviço de Azure Search usando o portal do Azure
-Este guia o orientará ao longo do processo de criação (ou de provisionamento) de um serviço de Azure Search usando o [Portal do Azure](https://portal.azure.com/).
+Este artigo mostra o processo de criação (ou provisionamento) de um serviço do Azure Search usando o [Portal do Azure](https://portal.azure.com/).
 
-Este guia pressupõe que você já tem uma assinatura do Azure e pode fazer logon no Portal do Azure.
+Este artigo pressupõe que você já tenha uma Assinatura do Azure e pode fazer logon no Portal do Azure.
 
 ## <a name="find-azure-search-in-the-azure-portal"></a>Encontre a Azure Search no Portal do Azure
 1. Acesse o [Portal do Azure](https://portal.azure.com/) e faça logon.
 2. Clique no sinal de adição ("+") no canto superior esquerdo.
-3. Selecione **Dados + Armazenamento**.
+3. Selecione **Web + Celular**.
 4. Selecione **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search.png)
@@ -58,21 +58,20 @@ Nesse caso, escolhemos o tipo Standard para nosso serviço.
 ![](./media/search-create-service-portal/create-service.png)
 
 ## <a name="scale-your-service"></a>Dimensione seu serviço
-Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Se você tiver escolhido o tipo Standard para o serviço de Azure Search, você pode dimensionar seu serviço em duas dimensões: réplicas e partições. Se você tiver escolhido o tipo Básico, só poderá adicionar réplicas.
+Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Com a escolha do tipo Standard para o serviço do Azure Search, você pode dimensionar o serviço em duas dimensões: réplicas e partições. Com a escolha do tipo Básico, você pode apenas adicionar réplicas. Se você provisionou o serviço gratuito, o dimensionamento não estará disponível.
 
 As ***partições*** permitem que o seu serviço armazene e pesquise mais documentos.
 
 As ***réplicas*** permitem que o seu serviço manipule uma carga maior de consultas de pesquisa – [um serviço exige duas réplicas para alcançar um SLA somente leitura e exige três réplicas para alcançar um SLA de leitura/gravação](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Acesse a folha de gerenciamento de seu serviço de Pesquisa do Azure no Portal do Azure.
+1. Acesse a folha de gerenciamento do serviço do Azure Search no Portal do Azure.
 2. Na folha **Configurações**, selecione **Escala**.
 3. Você pode dimensionar seu serviço adicionando Réplicas ou Partições.
-   * Você não pode dimensionar seu serviço acima de 36 unidades de pesquisa. O número total de unidades de pesquisa é o produto de suas réplicas e partições (Réplicas * Partições = Total de Unidades de Pesquisa).
-   * Se você tiver escolhido o tipo Básico, só poderá dimensionar até três réplicas. Serviços básicos são associados a uma única partição.
+   * Cada camada de serviço tem diferentes [limites](search-limits-quotas-capacity.md) do número total de Unidades de Pesquisa permitidas em um único serviço (Réplicas * Partições = Total de Unidades de Pesquisa).
 
 ![](./media/search-create-service-portal/scale-service.png)
 
-## <a name="next"></a>Avançar
+## <a name="next-steps"></a>Próximas etapas
 Após o provisionamento de um serviço de Azure Search, você estará pronto para [definir um índice de Azure Search](search-what-is-an-index.md) para que possa carregar e pesquisar os dados.
 
 Confira [Introdução à Azure Search no portal](search-get-started-portal.md) para obter um tutorial rápido.
@@ -80,6 +79,6 @@ Confira [Introdução à Azure Search no portal](search-get-started-portal.md) p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

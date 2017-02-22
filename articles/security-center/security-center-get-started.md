@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: cbc91181f2531ea5e60bb426d6b8b42e2c7684d3
-ms.openlocfilehash: 0bb6db67df25fb3c3484c819398890efef343943
+ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
+ms.openlocfilehash: 12abed3f1220398574e04d6b367f57d86547bc61
 
 
 ---
@@ -61,7 +61,7 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
    ![Política de segurança][3]
 2. Na folha **Política de segurança - definir política por assinatura ou grupo de recursos** , selecione uma assinatura.
 3. Na folha **Política de segurança**, a **Coleta de dados** é habilitada para coletar os registros automaticamente. A extensão de monitoramento é provisionada em todas as VMs atuais e novas na assinatura. (Você pode recusar a coleta de dados definindo a **Coleta de dados** para **Desativada**, mas isso impedirá que a Central de Segurança forneça recomendações e alertas de segurança.)
-4. Na folha **Política de segurança**, selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver VMs em execução, escolha a conta de armazenamento na qual os dados coletados dessas VMs serão armazenados. Se você não escolher uma conta de armazenamento para cada região, ela será criada para você. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
+4. Na folha **Política de segurança**, selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver VMs em execução, escolha a conta de armazenamento na qual os dados coletados dessas VMs serão armazenados. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata. Os dados coletados são isolados logicamente dos dados de outros clientes por motivos de segurança.
 
    > [!NOTE]
    > É recomendável que você habilite a coleta de dados e escolha uma conta de armazenamento no nível da assinatura primeiro. As políticas de segurança podem ser definidas no nível da assinatura do Azure e no nível do grupo de recursos, mas a configuração da conta de armazenamento e da coleta de dados ocorre apenas no nível da assinatura.
@@ -126,6 +126,6 @@ Neste artigo, você foi apresentado aos componentes de monitoramento de seguran�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

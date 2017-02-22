@@ -1,13 +1,25 @@
 ---
+title: "Documentação do Azure Devtest Labs - Tutoriais | Microsoft Docs"
+description: "Saiba como criar rapidamente ambientes de teste de aplicativos usando artefatos reutilizáveis. Tutoriais, vídeos e muito mais mostram como criar, gerenciar e proteger laboratórios."
+services: devtest-lab
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: devtest-lab
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
+ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentação do DevTest Labs
 
-O Azure DevTest Labs é um serviço que ajuda os desenvolvedores e testadores a rapidamente criar ambientes no Azure, minimizando o desperdício e controlando os custos.  Você pode testar a versão mais recente do seu aplicativo, provisionamento ambientes Windows e Linux rapidamente usando modelos reutilizáveis e artefatos.
+Saiba como usar o Devtest Labs para criar rapidamente ambientes de teste de aplicativos usando artefatos reutilizáveis. Tutoriais, vídeos e outras documentações mostram como criar, gerenciar e proteger laboratórios e adicionar e gerenciar artefatos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -102,17 +114,10 @@ O Azure DevTest Labs é um serviço que ajuda os desenvolvedores e testadores a 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/devtest-lab.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar a Documentação do Dev/Test Lab </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

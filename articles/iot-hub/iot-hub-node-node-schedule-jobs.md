@@ -1,6 +1,6 @@
 ---
-title: Como agendar trabalhos | Microsoft Docs
-description: Este tutorial mostra como agendar trabalhos
+title: Agendar trabalhos com o Hub IoT do Azure (Node) | Microsoft Docs
+description: "Como agendar um trabalho do Hub IoT do Azure para invocar um método direto em vários dispositivos. Você pode usar os SDKs do IoT do Azure para Node.js para implementar os aplicativos do dispositivo simulado e um aplicativo de serviço para executar o trabalho."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,31 +15,31 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 197414101ea86a68db901744c11a3de110a1eba3
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4700bdd14f6b826116b919c12c63c8405eff6053
 
 
 ---
-# <a name="tutorial-schedule-and-broadcast-jobs"></a>Tutorial: Agendar e difundir trabalhos
+# <a name="schedule-and-broadcast-jobs-node"></a>Agendar e transmitir trabalhos (Node)
 
 ## <a name="introduction"></a>Introdução
-O Hub IoT do Azure é um serviço completamente gerenciado que permite que um back-end de aplicativo crie e controle trabalhos que agendam e atualizam milhões de dispositivos.  Os trabalhos podem ser usados para as seguintes ações:
+O Hub IoT do Azure é um serviço completamente gerenciado que permite que um aplicativo back-end crie e controle trabalhos que agendam e atualizam milhões de dispositivos.  Os trabalhos podem ser usados para as seguintes ações:
 
 * Atualizar as propriedades desejadas
 * Marcas de atualização
 * Chamar métodos diretos
 
-Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso da execução com relação a um conjunto de dispositivos, definido por uma consulta do dispositivo gêmeo.  Por exemplo, usando um trabalho, um back-end de aplicativo pode chamar um método de reinicialização em 10.000 dispositivos, especificado por uma consulta do dispositivo gêmeo e agendada no futuro.  Esse aplicativo pode acompanhar o progresso à medida que cada um desses dispositivos recebem e executam o método de reinicialização.
+Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso da execução com relação a um conjunto de dispositivos, definido por uma consulta do dispositivo gêmeo.  Por exemplo, um aplicativo de back-end pode usar um trabalho para invocar um método de reinicialização em 10.000 dispositivos, especificado por uma consulta do dispositivo gêmeo e agendado no futuro.  Esse aplicativo pode acompanhar o progresso à medida que cada um desses dispositivos recebem e executam o método de reinicialização.
 
 Saiba mais sobre cada um desses recursos nestes artigos:
 
 * Dispositivo gêmeo e propriedades: [Introdução os dispositivos gêmeos][lnk-get-started-twin] e [Tutorial: Como usar as propriedades do dispositivo gêmeo][lnk-twin-props]
-* métodos diretos: [Guia do desenvolvedor – métodos diretos][lnk-dev-methods] e [Tutorial: métodos diretos][lnk-c2d-methods]
+* métodos diretos: [Guia do desenvolvedor do Hub IoT – métodos diretos][lnk-dev-methods] e [Tutorial: métodos diretos][lnk-c2d-methods]
 
 Este tutorial mostra como:
 
-* Criar um aplicativo do dispositivo simulado que tem um método direto que habilita o **lockDoor** que pode ser chamado pelo back-end de aplicativo.
-* Crie um aplicativo de console que chama o método direto **lockDoor** no aplicativo de dispositivo simulado usando um trabalho e que atualiza as propriedades desejadas usando um trabalho de dispositivo.
+* Criar um aplicativo do dispositivo simulado que tem um método direto que habilita o **lockDoor** que pode ser chamado pelo back-end da solução.
+* Crie um aplicativo de console Node.js que chama o método direto **lockDoor** no aplicativo de dispositivo simulado usando um trabalho e atualiza as propriedades desejadas usando um trabalho de dispositivo.
 
 Ao fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
@@ -64,7 +64,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
     ```
     npm init
     ```
-2. No prompt de comando na pasta **simDevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-mqtt**:
+2. No prompt de comando, na pasta **simDevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-mqtt**:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -78,7 +78,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que responde a um 
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo.  
+5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -176,7 +176,7 @@ Nesta seção, é possível criar um aplicativo de console do Node.js que inicia
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
@@ -238,12 +238,12 @@ Nesta seção, é possível criar um aplicativo de console do Node.js que inicia
 ## <a name="run-the-applications"></a>Executar os aplicativos
 Agora você está pronto para executar os aplicativos.
 
-1. No prompt de comando da pasta **simDevice**, execute o seguinte comando para iniciar a escutar o método direto de reinicialização.
+1. No prompt de comando, na pasta **simDevice**, execute o seguinte comando para começar a escutar o método direto de reinicialização.
    
     ```
     node simDevice.js
     ```
-2. No prompt de comando da pasta **scheduleJobService**, execute o seguinte comando para disparar a reinicialização e a consulta remotas para que o twin do dispositivo localize o tempo de reinicialização mais recente.
+2. No prompt de comando da pasta **scheduleJobService**, execute o seguinte comando para disparar a reinicialização e a consulta remotas para que o dispositivo gêmeo localize o tempo de reinicialização mais recente.
    
     ```
     node scheduleJobService.js
@@ -271,6 +271,6 @@ Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gatewa
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

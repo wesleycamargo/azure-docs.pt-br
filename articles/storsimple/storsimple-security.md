@@ -1,5 +1,5 @@
 ---
-title: "Segurança de StorSimple | Microsoft Docs"
+title: "Segurança do StorSimple série 8000 | Microsoft Docs"
 description: "Descreve os recursos de segurança e privacidade que protegem o serviço, os dispositivos e os dados do StorSimple no local e na nuvem."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 05/03/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: efdb69c03845ba321d7e0b1270268c4fb92fa1ef
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 7e526816f1a564ab80113c30d5c9671cb2b7e104
 
 
 ---
@@ -261,6 +261,6 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

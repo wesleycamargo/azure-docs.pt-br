@@ -1,5 +1,5 @@
 ---
-title: "Criar um aplicativo de funções e uma conta de armazenamento do Azure | Microsoft Docs"
+title: "Conectar o Arduino (C) ao IoT do Azure - Lição 3: implantação de modelo | Microsoft Docs"
 description: "O aplicativo de funções do Azure escuta os eventos de Hub IoT do Azure, processa as mensagens recebidas e grava-as no armazenamento de Tabelas do Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 18806dc515a9a8951134d580a2c0664ff503e17c
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: cf666d17406a49036082a6a4dd15bad89c04aa8f
 
 
 ---
@@ -88,6 +88,6 @@ Você criou o aplicativo de funções do Azure para processar as mensagens de hu
 [send-device-to-cloud-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

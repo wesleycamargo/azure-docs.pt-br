@@ -1,6 +1,6 @@
 ---
-title: "Análise de sentimento baseada em léxico | Microsoft Docs"
-description: "Análise de sentimento baseada em léxico"
+title: "(preterido) Análise de Sentimento baseada em léxico — Azure | Microsoft Docs"
+description: "(preterido) Análise de Sentimento baseada em léxico"
 services: machine-learning
 documentationcenter: 
 author: pengxia
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/16/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: pengxia
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c702fda88e0af40084958b1ad51e7156c7f4aee3
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 02a6005c47734419903f324f6fb60440f9d62664
 
 
 ---
-# <a name="lexicon-based-sentiment-analysis"></a>Análise de sentimento baseada em léxico
+# <a name="deprecated-lexicon-based-sentiment-analysis"></a>(preterido) Análise de Sentimento baseada em léxico
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Como medir as opiniões e atitudes dos usuários sobre marcas ou tópicos em redes sociais online, como postagens no Facebook, tweets, análises etc.? A análise de sentimento fornece um método para analisar essas questões.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -79,7 +86,7 @@ A entrada é "Hoje é um bom dia". A saída será "1", que indica um sentimento 
 > 
 > 
 
-De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. A figura a seguir mostra o fluxo de teste da análise de sentimento baseada em léxico. O arquivo “sent_dict.csv” é o léxico de subjetividade MPQA, e é definido como uma entrada de [Executar script R][execute-r-script]. Outra entrada é uma análise de amostra do conjunto de dados de análise Amazon para teste, em que realizamos a seleção, a modificação do nome de coluna e as operações de divisão. Usamos um pacote de hash para armazenar o léxico de subjetividade na memória e acelerar o processo de cálculo de pontuação. O texto inteiro será indexado pelo pacote "tm" e comparado com a palavra no dicionário sentimento. Por fim, uma pontuação será calculada adicionando o peso de cada palavra subjetiva no texto. 
+De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. A figura a seguir mostra o fluxo de teste da análise de sentimento baseada em léxico. O arquivo “sent_dict.csv” é o léxico de subjetividade MPQA e é definido como uma entrada de [Executar Script R][execute-r-script]. Outra entrada é uma análise de amostra do conjunto de dados de análise Amazon para teste, em que realizamos a seleção, a modificação do nome de coluna e as operações de divisão. Usamos um pacote de hash para armazenar o léxico de subjetividade na memória e acelerar o processo de cálculo de pontuação. O texto inteiro será indexado pelo pacote "tm" e comparado com a palavra no dicionário sentimento. Por fim, uma pontuação será calculada adicionando o peso de cada palavra subjetiva no texto. 
 
 ### <a name="experiment-flow"></a>Fluxo de teste:
 ![fluxo de teste][2]
@@ -158,6 +165,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

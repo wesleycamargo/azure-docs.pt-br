@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da6ac042a55c7c145895d15a735f77fb2e82d394
+ms.sourcegitcommit: 4c3f32cd6159052f17557c51e08e7e3f611aa338
+ms.openlocfilehash: 7a1e705e40cd8f7b260c38f41e81e2f199555059
 
 
 ---
@@ -212,27 +212,17 @@ Por exemplo, quantas marcas de carro exclusivas passaram pelo pedágio em uma ja
 
 **Solução:**
 
-    WITH Makes AS (
-        SELECT
-            Make,
-            COUNT(*) AS CountMake
-        FROM
-            Input TIMESTAMP BY Time
-        GROUP BY
-              Make,
-              TumblingWindow(second, 2)
-    )
-    SELECT
-        COUNT(*) AS Count,
-        System.TimeStamp AS Time
-    FROM
-        Makes
-    GROUP BY
-        TumblingWindow(second, 1)
+````
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+````
 
 
-**Explicação:** fazemos uma agregação inicial para obter marcas exclusivas com sua contagem pela janela.
-Em seguida, fazemos uma agregação de quantas marcas temos, considerando todos valores exclusivos em uma janela obtêm o mesmo carimbo de hora e a segunda janela de agregação deve ser mínima para não agregar duas janelas da primeira etapa.
+**Explicação:** COUNT(DISTINCT Marca) retorna o número de valores distintos da coluna "Marca" em uma janela de tempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Exemplo de consulta: determinar se um valor foi alterado
 **Descrição**: examine um valor anterior para determinar se ele é diferente do valor atual. Por exemplo, o carro anterior na estrada com pedágio é da mesma marca que o carro atual?
@@ -524,6 +514,6 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

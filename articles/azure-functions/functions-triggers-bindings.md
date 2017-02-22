@@ -1,6 +1,6 @@
 ---
-title: "Gatilhos e associações do Azure Functions | Microsoft Docs"
-description: Entenda como usar gatilhos e bindings no Azure Functions.
+title: "Trabalhar com gatilhos e associações no Azure Functions | Microsoft Docs"
+description: "Saiba como usar gatilhos e associações no Azure Functions para conectar a execução de seu código a eventos online e a serviços baseados em nuvem."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
-ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
+ms.sourcegitcommit: b7ea1e3a72a9dc6f4f9ca9d2d9d6f8c9b1564972
+ms.openlocfilehash: 947f1f5e6d9bebe6708e6d29d3b71efc09573537
 
 
 ---
 
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Referências de gatilhos e de bindings do Azure Functions para desenvolvedores
-Este tópico fornece referência geral para associações e gatilhos. Ele inclui alguns dos recursos de associação avançada e sintaxe com suporte por todos os tipos de associação.  
+# <a name="learn-how-to-work-with-triggers-and-bindings-in-azure-functions"></a>Saiba como trabalhar com gatilhos e associações no Azure Functions 
+Este tópico mostra como usar gatilhos e associações no Azure Functions para conectar seu código a diversos gatilhos e serviços do Azure e a outros serviços baseados em nuvem. Ele apresenta alguns dos recursos de associação avançada e sintaxe com suporte por todos os tipos de associação.  
 
 Para obter informações detalhadas sobre como trabalhar com um tipo específico de associação ou gatilho, consulte um dos seguintes tópicos de referência:
 
@@ -389,6 +389,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

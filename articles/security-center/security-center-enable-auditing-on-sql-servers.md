@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 114368ffdf8637a229bd0dfc61c0d568d348e8ee
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
 
 
 ---
@@ -29,15 +29,18 @@ Essa recomendação se aplica apenas ao serviço do SQL do Azure. Ela não inclu
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Habilitar Auditoria em servidores SQL**.  Isso abre a folha **Habilitar Auditoria em servidores SQL** .
-   ![Enable auditing on SQL servers][1]
+
+   ![Habilitar auditoria em servidores SQL][1]
 2. Selecione um servidor SQL onde deseja habilitar a auditoria. Isso abre a folha **Configurações de Auditoria** .
-   ![Auditing settings][2]
+
+   ![Configurações de auditoria][2]
 3. Na folha **Configurações de Auditoria**, selecione **ATIVAR** em **Auditoria**.
+
    ![Ativar configurações de auditoria][3]
 4. Siga as etapas em [Introdução à Auditoria do Banco de Dados SQL](../sql-database/sql-database-auditing-get-started.md) para configurar o local onde os logs de auditoria serão armazenados. A conta de armazenamento da assinatura para coleta de dados é a padrão.
 5. Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
@@ -64,6 +67,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

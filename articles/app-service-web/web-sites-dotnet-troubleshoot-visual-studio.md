@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 2f6a8a728448432678a0545acd879a4f66a28557
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
 
 
 ---
@@ -38,7 +38,7 @@ O que você aprenderá:
 Se você tiver o Visual Studio Ultimate, também é possível utilizar o [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para depuração. O IntelliTrace não é abordado neste tutorial.
 
 ## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Pré-requisitos
-Este tutorial funciona com o ambiente de desenvolvimento, o projeto Web e o aplicativo Web do Azure que você configurou na [Introdução ao Azure e ao ASP.NET][GetStarted]. Para as seções de Trabalhos Web, será necessário o aplicativo que você criar em [Introdução ao SDK de Trabalhos Web do Azure][GetStartedWJ].
+Este tutorial funciona com o ambiente de desenvolvimento, o projeto Web e o aplicativo Web do Azure que você configurou na [Introdução ao Azure e ao ASP.NET][GetStarted]. Para as seções do WebJobs, você precisará do aplicativo que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 
 Os exemplos de código mostrados neste tutorial são para um aplicativo Web MVC em C#, mas os procedimentos para solução de problemas são os mesmos para aplicativos em Visual Basic e Web Forms.
 
@@ -117,7 +117,7 @@ Se a mensagem de erro detalhada não oferecer informações suficientes e não f
 
 A depuração remota não funciona em edições Express do Visual Studio.
 
-Esta seção mostra como depurar remotamente utilizando o projeto criado por você em [Introdução ao Azure e ao ASP.NET][GetStarted].
+Esta seção mostra como depurar remotamente usando o projeto que você criou em [Introdução ao Azure e ao ASP.NET][GetStarted].
 
 1. Abra o projeto Web que você criou em [Introdução ao Azure e ao ASP.NET][GetStarted].
 2. Abra o *Controllers\HomeController.cs*.
@@ -131,7 +131,7 @@ Esta seção mostra como depurar remotamente utilizando o projeto criado por voc
         }
 4. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) na linha `ViewBag.Message`.
 5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e clique em **Publicar**.
-6. Na lista suspensa **Perfil**, selecione o mesmo perfil que você utilizou em [Introdução ao Azure e ao ASP.NET][GetStarted].
+6. Na lista suspensa **Perfil**, selecione o mesmo perfil que você usou em [Introdução ao Azure e ao ASP.NET][GetStarted].
 7. Clique na guia **Configurações** e altere **Configuração** para **Depuração** e, em seguida, clique em **Publicar**.
 
     ![Publicar em modo de depuração](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
@@ -165,7 +165,7 @@ Os recursos mostrados nesta seção só estão disponíveis no Visual Studio 201
 
 A depuração remota só funciona com Trabalhos Web contínuos. Trabalhos Web agendados e sob demanda não oferecem suporte a depuração.
 
-1. Abra o projeto Web que você criou na [Introdução aos SDK de Trabalhos Web do Azure][GetStartedWJ].
+1. Abra o projeto Web que você criou na [Introdução ao SDK do Azure WebJobs][GetStartedWJ].
 2. No projeto ContosoAdsWebJob, abra *Functions.cs*.
 3. [Defina um ponto de interrupção](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) na primeira instrução do método `GnerateThumbnail`.
 
@@ -209,7 +209,7 @@ Se a sua função [criou logs](websites-dotnet-webjobs-sdk-storage-queues-how-to
 ## <a name="notes-about-remote-debugging"></a>Observações sobre a depuração remota
 * A execução em modo de depuração em produção não é recomendada. Se o seu aplicativo Web de produção não estiver dimensionado para várias instâncias de servidor, a depuração impedirá o servidor Web de responder a outras solicitações. Se houver várias instâncias de servidor Web, ao anexar o depurador você obterá uma instância aleatória e não há como garantir que suas solicitações subsequentes do navegador irão para essa instância. Além disso, normalmente você não implanta uma compilação de depuração em produção e as otimizações do compilador para compilações de versão podem impossibilitar a exibição do que está acontecendo linha por linha em seu código-fonte. Para solucionar problemas de produção, os melhores recursos são o rastreamento do aplicativo e os logs do servidor Web.
 * Evite paradas longas em pontos de interrupção durante a depuração remota. O Azure trata um processo parado por mais de alguns minutos como um processo sem resposta e o desliga.
-* Enquanto você está depurando, o servidor está enviando dados para o Visual Studio, o que pode afetar os encargos de largura de banda. Para obter informações sobre as taxas de largura de banda, consulte [Preço do Azure](/pricing/calculator/).
+* Enquanto você está depurando, o servidor está enviando dados para o Visual Studio, o que pode afetar os encargos de largura de banda. Para obter informações sobre as taxas de largura de banda, consulte [Preço do Azure](https://azure.microsoft.com/pricing/calculator/).
 * Verifique se o atributo `debug` do elemento `compilation` no arquivo *Web.config* está definido como verdadeiro. Por padrão, ele é definido como true quando você publica uma configuração de compilação de depuração.
 
         <system.web>
@@ -226,11 +226,11 @@ Um aplicativo em ASP.NET executado em um aplicativo Web do Azure pode criar os s
 * **Logs de rastreamento de aplicativos**<br/>
   O aplicativo cria esses logs chamando métodos da classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) .
 * **Logs do servidor Web**<br/>
-   O servidor Web cria uma entrada no log para cada solicitação HTTP ao aplicativo Web.
+  O servidor Web cria uma entrada no log para cada solicitação HTTP ao aplicativo Web.
 * **Logs de mensagens de erro detalhadas**<br/>
-   O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (aquelas que resultam em um código de status 400 ou superior).
+  O servidor Web cria uma página HTML com algumas informações adicionais para solicitações HTTP com falha (aquelas que resultam em um código de status 400 ou superior).
 * **Logs de rastreamento de solicitações com falha**<br/>
-   O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
+  O servidor Web cria um arquivo XML com informações de rastreamento detalhadas para solicitações HTTP com falha. O servidor Web também fornece um arquivo XSL para formatar o XML em um navegador.
 
 Como o registro em log afeta o desempenho do aplicativo Web, o Azure oferece a possibilidade de habilitar ou desabilitar cada tipo de log conforme necessário. Para logs de aplicativo, você pode especificar que apenas os logs acima de um determinado nível de gravidade devem ser gravados. Por padrão, quando você cria um novo aplicativo Web, todo o registro em log está desabilitado.
 
@@ -239,7 +239,7 @@ Os logs são gravados em arquivos em uma pasta *LogFiles* no sistema de arquivos
 ## <a name="a-nameapptracelogsacreate-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Criar e exibir logs de rastreamento de aplicativos
 Nesta seção, você executará as seguintes tarefas:
 
-* Adicione instruções de rastreamento ao projeto Web que você criou na [Introdução ao Azure e ao ASP.NET][GetStarted].
+* Adicionar instruções de rastreamento ao projeto Web que você criou em [Introdução ao Azure e ASP.NET][GetStarted].
 * Exiba os logs ao executar o projeto localmente.
 * Exiba os logs conforme eles são gerados pelo aplicativo em execução no Azure.
 
@@ -570,7 +570,7 @@ Para saber mais sobre como solucionar problemas de aplicativos Web no Serviço d
 
 * [Como monitorar aplicativos Web](/manage/services/web-sites/how-to-monitor-websites/)
 * [Investigando perdas de memória em aplicativos Web do Azure com o Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Postagem no blog do Microsoft ALM sobre os recursos do Visual Studio para análise de problemas de memória gerenciados.
-* [Ferramentas online de aplicativos Web do Azure sobre as quais você deve saber](/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Postagem de blog de Amit Apple.
+* [Ferramentas online de aplicativos Web do Azure sobre as quais você deve saber](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Postagem de blog de Amit Apple.
 
 Para obter ajuda com uma pergunta específica de solução de problemas, inicie um thread em um dos seguintes fóruns:
 
@@ -584,9 +584,9 @@ Para obter mais informações sobre como usar o modo de depuração no Visual St
 ### <a name="remote-debugging-in-azure"></a>Depuração remota no Azure
 Para saber mais sobre a depuração remota para aplicativos Web do Azure e Trabalhos Web, confira os seguintes recursos:
 
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure](/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 2 - Por dentro da depuração remota](/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 3 - Ambiente de várias instâncias e GIT](/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 2 - Por dentro da depuração remota](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introdução à depuração remota em aplicativos Web de Serviço de Aplicativo do Azure parte 3 - Ambiente de várias instâncias e GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Depuração de Trabalhos Web (vídeo)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
 Se o aplicativo Web usar uma API Web do Azure ou um back-end de Serviços Móveis e você precisar depurá-lo, confira [Depurando back-end do .NET no Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
@@ -595,15 +595,15 @@ Se o aplicativo Web usar uma API Web do Azure ou um back-end de Serviços Móvei
 Não existem introduções completas e atualizadas para rastreamento do ASP.NET disponíveis na Internet. O melhor a fazer é começar com materiais introdutórios antigos escritos para formulários da Web porque o MVC ainda não existia e complementar isso com postagens em blog mais recentes focalizadas em problemas específicas. Alguns bons locais para começar são os seguintes recursos:
 
 * [Monitoramento e telemetria (Compilando aplicativos de nuvem do mundo real com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-   Capítulo do livro eletrônico com recomendações para rastreamento em aplicativos de nuvem do Azure.
+  Capítulo do livro eletrônico com recomendações para rastreamento em aplicativos de nuvem do Azure.
 * [Rastreamento do ASP.NET](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
-   Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
+  Antigo, mas ainda é um bom recurso para obter uma introdução básica sobre o assunto.
 * [Ouvintes de rastreamento](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Informações sobre ouvintes de rastreamento, mas não menciona o [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
 * [Passo a passo: Integrando o rastreamento do ASP.NET com rastreamento do System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-   Isso também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
+  Isso também é antigo, mas inclui algumas informações adicionais que o artigo introdutório não cobre.
 * [Rastreamento em exibições do Razor do ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](http://msdn.microsoft.com/library/bb397417.aspx) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
+  Além do rastreamento em exibições do Razor, a postagem também explica como criar um filtro de erros para registrar em log todas as exceções não tratadas em um aplicativo MVC. Para obter informações sobre como registrar em log exceções não tratadas em um aplicativo de formulários da Web, consulte o exemplo do Global.asax em [Concluir exemplo para manipuladores de erro](http://msdn.microsoft.com/library/bb397417.aspx) no MSDN. No MVC ou em Formulários da Web, para registrar certas exceções em log, mas deixar o tratamento da estrutura padrão cuidar deles, você poderá capturar e relançar como no exemplo a seguir:
 
         try
         {
@@ -615,9 +615,9 @@ Não existem introduções completas e atualizadas para rastreamento do ASP.NET 
             throw;
         }
 * [Registro em log de rastreamento do diagnóstico de streaming na linha de comando do Azure (mais Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
+  Como usar a linha de comando para fazer o que este tutorial mostra no Visual Studio. [Glimpse (a página pode estar em inglês)](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos ASP.NET.
 * [Usando diagnóstico e registro em log de Aplicativos Web – com David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Logs de streaming dos Aplicativos Web – com David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-   Vídeos de Scott Hanselman e David Ebbo.
+  Vídeos de Scott Hanselman e David Ebbo.
 
 Para o registro em log de erros, uma alternativa para escrever seu próprio código de rastreamento é usar uma estrutura de registros em log de software livre, como o [ELMAH](http://nuget.org/packages/elmah/). Para obter mais informações, consulte as [postagens no blog de Scott Hanselman sobre o ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -629,7 +629,7 @@ Para obter mais informações sobre como analisar logs de servidor web, consulte
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para exibir dados em logs de servidor Web (arquivos*.log* ).
 * [Solução de problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
+  Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
 * [Postagens no blog por Robert McMurray sobre como usar o LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](http://support.microsoft.com/kb/943891)
 
@@ -641,6 +641,6 @@ O site do Microsoft TechNet inclui uma seção [Usando rastreamento de solicita�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

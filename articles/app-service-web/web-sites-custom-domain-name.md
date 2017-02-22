@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/27/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ebd86b236e5f49d9139732f8922f9929081677cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e25348cc1aa0ae284f0fcda7f11bdbe42ba1fa0a
 
 
 ---
@@ -124,8 +124,8 @@ Configure seu registro A da seguinte maneira (@ normalmente representa o domíni
     <td>Endereço IP da <a href="#vip">Etapa 1</a></td>
   </tr>
   <tr>
-    <td>*. contoso.com (curinga)</td>
-    <td>*</td>
+    <td>\*.contoso.com (curinga)</td>
+    <td>\*</td>
     <td>Endereço IP da <a href="#vip">Etapa 1</a></td>
   </tr>
 </table>
@@ -149,8 +149,8 @@ O registro TXT adicional assume a convenção que mapeia de &lt;*subdomain*>.&lt
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*. contoso.com (curinga)</td>
-    <td>*</td>
+    <td>\*.contoso.com (curinga)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -180,8 +180,8 @@ Configure seu registro CNAME da seguinte maneira (@ normalmente representa o dom
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*. contoso.com (curinga)</td>
-    <td>*</td>
+    <td>\*.contoso.com (curinga)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -207,50 +207,44 @@ De volta à folha **Domínios personalizados** no portal do Azure (consulte a [E
 7. Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. 
 8. Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
-> [!NOTE]
-> Se o registro DNS já estiver em uso (domínio ativo atendendo ao cenário de tráfego) e você precisar associar preventivamente seu aplicativo Web a ele para verificação de domínio, basta criar registros TXT como exemplos mostrados na tabela a seguir. O registro TXT adicional assume a convenção que mapeia de &lt;*subdomain*>.&lt;*rootdomain*> para &lt;*appname*>.azurewebsites.net. 
-> 
-> <table cellspacing="0" border="1">
-> 
-> <tr>
-> 
-> <th>Exemplo de FQDN</th>
-> 
-> <th>Host TXT</th>
-> 
-> <th>Valor TXT</th>
-> </tr>
-> 
-> <tr>
-> 
-> <td>contoso.com (raiz)</td>
-> 
-> <td>awverify.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>www.contoso.com (sub)</td>
-> 
-> <td>awverify.www.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> 
-> <tr>
-> 
-> <td>*.contoso.com (sub)</td>
-> 
-> <td>awverify.*.contoso.com</td>
-> 
-> <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-> </tr>
-> </table>
-> Depois de criar esse registro DNS, volte ao Portal do Azure e adicione seu nome de domínio personalizado ao seu aplicativo Web.
-> 
-> 
+## <a name="migrate-an-active-domain-with-no-downtime"></a>Migrar um domínio ativo sem tempo de inatividade 
+
+Ao migrar um site ativo e seu nome de domínio para o Serviço de Aplicativo, esse nome de domínio já estará fornecendo tráfego ativo, por isso você tentará evitar qualquer tempo de inatividade na resolução DNS durante o processo de migração. Nesse caso, você precisa associar preventivamente o nome de domínio ao seu aplicativo do Azure para verificação do domínio. Para fazer isso, siga as etapas modificadas abaixo:
+
+1. Primeiro, crie um registro TXT com o Registro DNS seguindo as etapas em [Etapa 2. Criar os registros DNS](#createdns).
+O registro TXT adicional assume a convenção que mapeia de &lt;*subdomain*>.&lt;*rootdomain*> para &lt;*appname*>.azurewebsites.net.
+Consulte a tabela a seguir para ver exemplos:  
+ 
+    <table cellspacing="0" border="1">
+    <tr>
+    <th>Exemplo de FQDN</th>
+    <th>Host TXT</th>
+    <th>Valor TXT</th>
+    </tr>
+    <tr>
+    <td>contoso.com (raiz)</td>
+    <td>awverify.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>www.contoso.com (sub)</td>
+    <td>awverify.www.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    <tr>
+    <td>\*.contoso.com (curinga)</td>
+    <td>awverify.\*.contoso.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+    </tr>
+    </table>
+
+2. Em seguida, adicione seu nome de domínio personalizado ao aplicativo do Azure seguindo as etapas em [Etapa 3. Habilitar o nome de domínio personalizado para seu aplicativo](#enable).
+
+    Agora, seu domínio personalizado está habilitado no aplicativo do Azure. A única coisa que resta a fazer é atualizar o registro DNS com seu registrador de domínios.
+
+3. Por fim, atualize o registro DNS do seu domínio para apontar para o aplicativo do Azure, conforme mostrado na [Etapa 2. Criar os registros DNS](#createdns). 
+
+    O tráfego de usuários deverá ser redirecionado para o aplicativo do Azure imediatamente após a ocorrência da propagação de DNS.
 
 <a name="verify"></a>
 
@@ -281,6 +275,6 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

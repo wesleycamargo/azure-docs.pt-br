@@ -1,5 +1,5 @@
 ---
-title: Proteger recursos de nuvem com o Azure MFA e o AD FS
+title: Proteger recursos de nuvem com o Azure MFA e o AD FS | Microsoft Docs
 description: "Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS na nuvem."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS
-Se sua organização for federada com o Azure Active Directory, use a Autenticação Multifator do Azure ou ps Serviços de Federação do Active Directory para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger os recursos do Azure Active Directory com Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory.
+Se sua organização for federada com o Azure Active Directory, use a Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory (AD FS) para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger os recursos do Azure Active Directory com Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteger recursos do Azure AD usando o AD FS
-Para proteger seus recursos de nuvem, primeiro habilite uma conta para usuários e configure uma regra de declaração. Siga este procedimento para percorrer as etapas:
+Para proteger seus recursos de nuvem, configure uma regra de declaração para que os Serviços de Federação do Active Directory emitem a declaração multipleauthn quando um usuário executa a verificação em duas etapas com êxito. Essa declaração é passada para o Azure AD. Siga este procedimento para percorrer as etapas:
 
-1. Use as etapas descritas em [Ativar autenticação multifator](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) para que os usuários habilitem uma conta.
-2. Inicie o Console de gerenciamento do AD FS.
-   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Navegue até **Terceira Parte Confiável** e clique com o botão direito do mouse em Terceira Parte Confiável. Selecione **Editar Regras de Declaração...**
-4. Clique em **Adicionar Regra...**
-5. No menu suspenso, selecione **Enviar Declarações Usando uma Regra Personalizada** e clique em **Avançar**.
-6. Insira um nome para a regra de declaração.
-7. Em Regra personalizada: adicione o seguinte texto:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. Abra o gerenciamento do AD FS.
+2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
+3. Clique com o botão direito do mouse na **Plataforma de Identidade do Microsoft Office 365** e selecione **Editar Regras de Declaração...**
 
-    Declaração correspondente:
+   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Clique em **OK** e em **Concluir**. Feche o Console de gerenciamento do AD FS.
+4. Em Regras de Transformação de Emissão, clique em **Adicionar Regra.**
 
-Os usuários podem concluir a conexão usando o método local (como o cartão inteligente).
+   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.
+
+   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Dê um nome para a regra. 
+7. Selecione **Referências de Métodos de Autenticação** como o tipo de declaração Entrada.
+8. Selecione **Passar todos os valores de declaração**.
+    ![Assistente para Adicionar Regra de Declaração de Transformação](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. Clique em **Concluir**. Feche o Console de gerenciamento do AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>IPs confiáveis para usuários federados
 IPs confiáveis permitem aos administradores ignorar a verificação em duas etapas para endereços IP específicos ou para usuários federados que têm as solicitações originadas em seu próprios intranet. As seções a seguir descrevem como configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados e desviar a verificação em duas etapas quando uma solicitação se originar de dentro de uma intranet de usuários federados. Isso é conseguido por meio da configuração do AD FS para usar uma passagem ou filtrar um modelo de declaração de entrada com o tipo de declaração Dentro da rede corporativa.
@@ -56,7 +53,7 @@ IPs confiáveis permitem aos administradores ignorar a verificação em duas eta
 Este exemplo usa o Office 365 para a relação de confiança com terceira parte confiável.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurar as regras de declarações do AD FS
-A primeira coisa que precisamos fazer é configurar as declarações do AD FS. Criaremos duas regras declarações: uma para o tipo de declaração Dentro da rede corporativa e um adicional para manter nossos usuários conectados.
+A primeira coisa que precisamos fazer é configurar as declarações do AD FS. Criamos duas regras declarações: uma para o tipo de declaração Dentro da rede corporativa e um adicional para manter nossos usuários conectados.
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
@@ -100,6 +97,6 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

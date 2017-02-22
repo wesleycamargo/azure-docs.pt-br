@@ -1,5 +1,5 @@
 ---
-title: "Referência Sobre Blocos do Designer de Modos de Exibição do Log Analytics | Microsoft Docs"
+title: "Referência de bloco do Criador de Modos de Exibição no OMS Log Analytics | Microsoft Docs"
 description: "O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/23/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8629719d2a8532b7dc579bd2fc184ac8542035cf
+ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
+ms.openlocfilehash: 07938808a6ce39be80f38d93831db40130bcd4b5
 
 
 ---
-# <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do designer de modos de exibição do Log Analytics
+# <a name="log-analytics-view-designer-tile-reference"></a>Referência sobre blocos do Criador de Modos de Exibição do Log Analytics
 O Designer de Modos de Exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo fornece uma referência de configurações para cada um dos blocos disponíveis para uso em exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
@@ -55,9 +55,7 @@ O bloco **Número** exibe um único número mostrando a contagem de registros de
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="two-numbers-tile"></a>Bloco Dois Números
 Bloco **Dois Números** exibe dois números mostrando a contagem de registros de um rótulo e duas consultas de log diferentes para cada um.
@@ -78,9 +76,7 @@ Bloco **Dois Números** exibe dois números mostrando a contagem de registros de
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="donut-tile"></a>Bloco Rosca
 O bloco **Rosca** exibe um único número resumido de uma coluna de valor em uma consulta de log.  A rosca exibe graficamente os resultados dos três registros principais.
@@ -104,9 +100,7 @@ O bloco **Rosca** exibe um único número resumido de uma coluna de valor em uma
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="line-chart-tile"></a>Bloco Gráfico de linhas
 O bloco **Gráfico de linhas** exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo.  
@@ -127,9 +121,7 @@ O bloco **Gráfico de linhas** exibe um gráfico de linhas com várias séries d
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="line-chart--callout-tile"></a>Bloco Gráfico de linhas e balão
 O bloco **Gráfico de linhas e balão** exibe um gráfico de linhas com várias séries de uma consulta de log ao longo do tempo, além de um balão com um valor resumido.  
@@ -154,9 +146,7 @@ O bloco **Gráfico de linhas e balão** exibe um gráfico de linhas com várias 
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="two-timelines-tile"></a>Bloco Duas linhas do tempo
 O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log ao longo do tempo como gráficos de colunas.  Um balão é exibido para cada série.  
@@ -181,9 +171,7 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 | Habilitado |Selecione se a verificação do fluxo de dados deve ser habilitada para o bloco.  Isso fornecerá uma mensagem alternativa se não houver dados disponíveis para o bloco.  Isso normalmente é usado para fornecer uma mensagem durante o período temporário quando a exibição é instalada e os dados tornam-se disponíveis. |
 | Consultar |Consulta a ser executada para verificar se os dados estão disponíveis para o modo de exibição.  Se a consulta não retornar nenhum resultado, uma mensagem será exibida em vez do valor da consulta principal. |
 | Mensagem |Mensagem a ser exibida se a consulta de verificação do fluxo de dados não retornar nenhum dado.  Se você não fornecer nenhuma mensagem, a mensagem *Executando Avaliação* será exibida. |
-| **Intervalo de Tempo** | |
-| Duração |Duração da data atual a ser usada para o intervalo de tempo da consulta.  Por exemplo, se a duração de **7 dias** for especificada, a consulta será limitada aos registros criados de 7 dias atrás até a data atual. |
-| Deslocamento de data de término |Deslocamento opcional da data de término a ser usada para o intervalo de tempo da consulta principal.  Por exemplo, se **-1 dia** for usado para o **Deslocamento da data de término** e **7 dias** for usado para a **Duração**, a consulta será limitada aos registros criados de 8 dias atrás até ontem. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para dar suporte às consultas em blocos.
@@ -192,6 +180,6 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

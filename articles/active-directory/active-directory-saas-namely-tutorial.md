@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c2f2665b217b2de1656e77dae0d9b6c2b439ff5
+ms.sourcegitcommit: 66b1c7769f1141aa2853f77fdb82ad16f5b4e6d3
+ms.openlocfilehash: ec2f9618c4cd4a2944eec8efec83d325da058bb1
 
 
 ---
@@ -136,7 +136,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
    
     a. Clique em **Habilitar SAML**. 
    
-    b. No portal clássico do Azure, na página do diálogo **Configurar logon único no Namely**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL DDO do provedor de identidade**. 
+    b. No Portal Clássico do Azure, na página da caixa de diálogo **Configurar logon único no Namely**, copie o valor de **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de SSO do provedor de identidade**. 
    
     c. Abra o certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado do provedor de identidade** .    
    
@@ -276,6 +276,6 @@ Quando você clicar no bloco Namely no Painel de Acesso, deverá ser automaticam
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

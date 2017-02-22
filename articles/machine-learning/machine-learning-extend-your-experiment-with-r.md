@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ed3d5ddbbdff9ec568f513d15ecb1ea28ba8855
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: 7cc5c4a1e688253c507b38253e95c4248a342052
 
 
 ---
 # <a name="extend-your-experiment-with-r"></a>Estender seu experimento com R
-Você pode estender a funcionalidade do Estúdio AM por meio da linguagem R usando o módulo [Executar o Script R][execute-r-script].
+Você pode estender a funcionalidade do Estúdio AM por meio da linguagem R usando o módulo [Executar Script R][execute-r-script].
 
 Esse módulo aceita vários conjuntos de dados de entrada e produz um único conjunto de dados como saída. Você pode digitar um script R no parâmetro **Script R** do módulo [Executar Script R][execute-r-script].
 
@@ -38,9 +38,9 @@ A lista de pacotes instalados pode mudar. Para obter uma lista completa e atual 
     maml.mapOutputPort("out")
 
 Isso envia a lista de pacotes para a porta de saída do módulo [Executar Script R][execute-r-script].
-Para exibir a lista de pacotes, conecte um módulo de conversão, como o [Converter para CSV][convert-to-csv] na saída à esquerda do módulo [Executar Script R][execute-r-script], execute o teste e, então, clique na saída do módulo de conversão e selecione **Baixar**. 
+Para exibir a lista de pacotes, conecte um módulo de conversão, como o [Converter para CSV][convert-to-csv] na saída à esquerda do módulo [Executar Script R][execute-r-script], execute o experimento e, então, clique na saída do módulo de conversão e selecione **Baixar**. 
 
-![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
+![Baixar saída do módulo “Converter para CSV”](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
 <!--
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
@@ -514,6 +514,6 @@ To get the complete list of packages that are currently available, see the secti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

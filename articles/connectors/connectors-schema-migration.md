@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
 
 
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview
+# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Como migrar aplicativos lógicos para a versão de esquema 2015-08-01-preview
 Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte:  
 
 1. Abra o aplicativo lógico no portal do Azure  
@@ -41,11 +41,11 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 * Após a conclusão da migração, comece a atualizar os Aplicativos Lógicos para usar as [APIs gerenciadas](apis-list.md) sempre que possível. Por exemplo, você pode começar a usar o Dropbox v2 em todos os casos em que usa o DropBox v1.
 
 ## <a name="whats-next"></a>O que vem a seguir
-* [Saiba como migrar manualmente os aplicativos lógicos](../app-service-logic/app-service-logic-schema-2015-08-01.md)
+* [Saiba como migrar manualmente os aplicativos lógicos](../logic-apps/logic-apps-schema-2015-08-01.md)
 
 <!--Icon references-->
-[etapa1]: ./media/connectors-schema-migration/migrateschema1.png
-[etapa2]: ./media/connectors-schema-migration/migrateschema2.png
+[step1]: ./media/connectors-schema-migration/migrateschema1.png
+[step2]: ./media/connectors-schema-migration/migrateschema2.png
 
 
 
@@ -55,6 +55,6 @@ Para mover aplicativos lógicos existentes para o novo esquema, faça o seguinte
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 12/22/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: ff7ab2560e544beb8110af9f78074aa184227885
-ms.openlocfilehash: cc74dd3400018a09433b83cd62b8d893fe118f04
+ms.sourcegitcommit: 9e70638af1ecdd0bf89244b2a83cd7a51d527037
+ms.openlocfilehash: 98b841e300d5b704d134bcfab0968523f3b9c3f0
 
 
 ---
@@ -55,56 +55,60 @@ Aqui estão os artefatos Data Factory que você precisará criar para implementa
 
 Este exemplo usa o serviço vinculado **Salesforce** . Veja a seção [Serviço vinculado do Salesforce](#salesforce-linked-service-properties) para ver as propriedades com suporte para esse serviço vinculado.  Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança.
 
+```JSON
+{
+    "name": "SalesforceLinkedService",
+    "properties":
     {
-        "name": "SalesforceLinkedService",
-        "properties":
+        "type": "Salesforce",
+        "typeProperties":
         {
-            "type": "Salesforce",
-            "typeProperties":
-            {
-                "username": "<user name>",
-                "password": "<password>",
-                "securityToken": "<security token>"
-            }
+            "username": "<user name>",
+            "password": "<password>",
+            "securityToken": "<security token>"
         }
     }
-
+}
+```
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+    }
+}
+```
 **Conjunto de dados de entrada do Salesforce**
 
-    {
-        "name": "SalesforceInput",
-        "properties": {
-            "linkedServiceName": "SalesforceLinkedService",
-            "type": "RelationalTable",
-            "typeProperties": {
-                "tableName": "AllDataType__c"  
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "SalesforceInput",
+    "properties": {
+        "linkedServiceName": "SalesforceLinkedService",
+        "type": "RelationalTable",
+        "typeProperties": {
+            "tableName": "AllDataType__c"  
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 Configurar **external** como **true** informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
@@ -119,24 +123,25 @@ Configurar **external** como **true** informa ao serviço Data Factory que o con
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/alltypes_c"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/alltypes_c"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 **Pipeline com Atividade de cópia**
 
@@ -144,51 +149,52 @@ O pipeline contém uma Atividade de Cópia, que está configurada para usar os c
 
 Veja [Propriedades do tipo RelationalSource](#relationalsource-type-properties) para obter a lista de propriedades com suporte para o RelationalSource.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-            "start":"2016-06-01T18:00:00",
-            "end":"2016-06-01T19:00:00",
-            "description":"pipeline with copy activity",
-            "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+        {
+            "name": "SalesforceToAzureBlob",
+            "description": "Copy from Salesforce to an Azure blob",
+            "type": "Copy",
+            "inputs": [
             {
-                "name": "SalesforceToAzureBlob",
-                "description": "Copy from Salesforce to an Azure blob",
-                "type": "Copy",
-                "inputs": [
-                {
-                    "name": "SalesforceInput"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "AzureBlobOutput"
-                }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "RelationalSource",
-                        "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
+                "name": "SalesforceInput"
             }
-            ]
+            ],
+            "outputs": [
+            {
+                "name": "AzureBlobOutput"
+            }
+            ],
+            "typeProperties": {
+                "source": {
+                    "type": "RelationalSource",
+                    "query": "SELECT Id, Col_AutoNumber__c, Col_Checkbox__c, Col_Currency__c, Col_Date__c, Col_DateTime__c, Col_Email__c, Col_Number__c, Col_Percent__c, Col_Phone__c, Col_Picklist__c, Col_Picklist_MultiSelect__c, Col_Text__c, Col_Text_Area__c, Col_Text_AreaLong__c, Col_Text_AreaRich__c, Col_URL__c, Col_Text_Encrypt__c, Col_Lookup__c FROM AllDataType__c"                
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
         }
+        ]
     }
-
+}
+```
 > [!IMPORTANT]
 > A parte "__c" do Nome da API é necessária para qualquer objeto personalizado.
 >
@@ -201,7 +207,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | type |A propriedade type deve ser definida para: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique "https://[domínio].my.salesforce.com". |Não |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https://login.salesforce.com". <br> – Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | Senha |Especifique um senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
@@ -290,6 +296,6 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

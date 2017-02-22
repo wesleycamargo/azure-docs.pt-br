@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 1/05/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
+ms.sourcegitcommit: 62374d57829067b27bb5876e6bbd9f869cff9187
+ms.openlocfilehash: 4991992f15b941ab9250705e20ff5f37defc30d0
 
 
 ---
@@ -70,6 +70,10 @@ O manifesto do serviço declarativamente define o tipo de serviço e a versão. 
         <Program>MyServiceHost.exe</Program>
       </ExeHost>
     </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
   </CodePackage>
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
@@ -81,6 +85,8 @@ O manifesto do serviço declarativamente define o tipo de serviço e a versão. 
 **ServiceTypes** declara para quais tipos de serviço há suporte pelos **CodePackages** neste manifesto. Quando um serviço é instanciado em relação a um desses tipos de serviço, todos os pacotes de código declarados nesse manifesto são ativados com a execução de seus pontos de entrada. Os processos resultantes devem registrar os tipos de serviço com suporte no tempo de execução. Observe que os tipos de serviço são declarados no nível do manifesto e não no nível do pacote de código. Assim, quando há vários pacotes de código, eles são todos ativados sempre que o sistema procurar por qualquer um dos tipos de serviço declarados.
 
 **SetupEntryPoint** é um ponto de entrada privilegiado que é executado com as mesmas credenciais da Malha do Serviço (normalmente, a conta *LocalSystem* ) antes de qualquer outro ponto de entrada. O executável especificado pelo **EntryPoint** normalmente é o host de serviço de longa duração. A presença de um ponto de entrada de instalação separado evita a necessidade de executar o host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado (começando novamente com **SetupEntryPoint**) se ele terminar ou falhar.
+
+**EnvironmentVariables** fornece uma lista de variáveis de ambiente que são definidas para este pacote de códigos. Elas podem ser substituídas no `ApplicationManifest.xml` para fornecer valores diferentes para instâncias de serviço diferentes. 
 
 **DataPackage** declara uma pasta nomeada pelo atributo **Name**, que contém dados estáticos arbitrários a serem consumidos pelo processo no tempo de execução.
 
@@ -125,6 +131,8 @@ Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicati
   <Description>An example application manifest</Description>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="MyServiceManifest" ServiceManifestVersion="SvcManifestVersion1"/>
+    <ConfigOverrides/>
+    <EnvironmentOverrides CodePackageRef="MyCode"/>
   </ServiceManifestImport>
   <DefaultServices>
      <Service Name="MyService">
@@ -138,7 +146,8 @@ Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicati
 
 Manifestos de serviço, como atributos **Versão** , são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles também são usados para a fazer a versão de cada componente para atualizações.
 
-**ServiceManifestImport** contém referências a manifestos de serviço que compõem esse tipo de aplicativo. Os manifestos de serviço importados determinam quais tipos de serviço são válidos nesse tipo de aplicativo.
+**ServiceManifestImport** contém referências a manifestos de serviço que compõem esse tipo de aplicativo. Os manifestos de serviço importados determinam quais tipos de serviço são válidos nesse tipo de aplicativo. Dentro de ServiceManifestImport, você pode substituir os valores de configuração em Settings.xml e nas variáveis de ambiente dos arquivos ServiceManifest.xml. 
+
 
 **DefaultServices** declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a esse tipo de aplicativo. Serviços padrão são apenas uma conveniência e se comportam como serviços normais em todos os aspectos após terem sido criados. Eles são atualizados com qualquer outro serviço na instância do aplicativo e também podem ser removidos.
 
@@ -188,6 +197,9 @@ Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar u
 * Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado a apenas executáveis gravados usando os modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
 * Configurando o controle de acesso, instalando certificados de segurança.
 
+Para obter mais detalhes sobre como configurar o **SetupEntryPoint**, confira [Configurar a política para um ponto de entrada de instalação do serviço](service-fabric-application-runas-security.md)  
+
+### <a name="configure"></a>Configurar 
 ### <a name="build-a-package-by-using-visual-studio"></a>Compilar um pacote usando o Visual Studio
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
@@ -196,6 +208,13 @@ Para criar um pacote, clique com o botão direito do mouse no projeto de aplicat
 ![Empacotando um aplicativo no Visual Studio][vs-package-command]
 
 Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela **Saída** . Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
+
+### <a name="build-a-package-by-command-line"></a>Criar um pacote pela linha de comando
+Também é possível empacote seu aplicativo de modo programático usando `msbuild.exe`. Em segundo plano, é isso que o Visual Studio está executando, de modo que a saída será a mesma.
+
+```shell
+D:\Temp> msbuild HelloWorld.sfproj /t:Package
+```
 
 ### <a name="test-the-package"></a>Teste o pacote
 Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando **Test-ServiceFabricApplicationPackage** . Esse comando verificará se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote. Ele não verificará qualquer código ou dados de conteúdo do pacote além de verificar se todos os arquivos necessários estão presentes.
@@ -236,11 +255,11 @@ PS D:\temp>
 Depois que o aplicativo é empacotado corretamente e passa pela verificação, ele está pronto para implantação.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Implantar e remover aplicativos][10]
+[Implantar e remover aplicativos][10] descreve como usar o PowerShell para gerenciar instâncias do aplicativo
 
-[Gerenciando parâmetros do aplicativo para vários ambientes][11]
+[Gerenciamento de parâmetros do aplicativo para vários ambientes][11] descreve como configurar os parâmetros e variáveis de ambiente para diferentes instâncias do aplicativo.
 
-[RunAs: executando um aplicativo de Service Fabric com permissões de segurança diferentes][12]
+[Configurar políticas de segurança para seu aplicativo][12] descreve como executar serviços sob políticas de segurança para restringir o acesso.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
@@ -255,6 +274,6 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

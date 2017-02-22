@@ -1,6 +1,6 @@
 ---
-title: "Perguntas frequentes sobre Serviços de Nuvem | Microsoft Docs"
-description: "Perguntas frequentes sobre os Serviços de Nuvem."
+title: "Perguntas frequentes sobre as funções dos Serviços de Nuvem do Azure | Microsoft Docs"
+description: "Perguntas frequentes sobre os Serviços de Nuvem do Azure. Encontre respostas para algumas perguntas comuns sobre certificados, funções da Web e funções de trabalho."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2501b6480e81b236995c37db7171a4ed1429dcbf
-ms.openlocfilehash: f7bad9a46132dec43f73e561362c9e6441a5c1c0
+ms.sourcegitcommit: 8dc7ea843ea316fa4659a8e6575adbfd045f7a70
+ms.openlocfilehash: c169f9ab2eead732ad0fe5579caaa1b4b015732b
 
 
 ---
@@ -28,9 +28,9 @@ Este artigo responde a algumas perguntas frequentes sobre os Serviços de Nuvem 
 * **Meu**  
   Certificado do aplicativo com a chave privada (\*. pfx, \*. p12).
 * **AC**  
-   Todos os certificados intermediários ficam neste repositório (política e Sub ACs).
+  Todos os certificados intermediários ficam neste repositório (política e Sub ACs).
 * **RAIZ**  
-   O repositório de AC raiz, para que seu certificado de AC raiz seja inserido aqui.
+  O repositório de AC raiz, para que seu certificado de AC raiz seja inserido aqui.
 
 ### <a name="i-cant-remove-expired-certificate"></a>Não é possível remover o certificado expirado
 Azure impede a remoção de um certificado enquanto ele está em uso. É necessário excluir a implantação que usa o certificado ou atualizá-la com um certificado diferente ou renovado.
@@ -71,6 +71,6 @@ Primeiro, certifique-se de que a instância de máquina virtual que você está 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

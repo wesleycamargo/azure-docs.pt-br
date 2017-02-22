@@ -1,5 +1,5 @@
 ---
-title: "Usando a interface do usuário Web Kubernetes no Serviço de Contêiner do Azure | Microsoft Docs"
+title: "Gerenciar o cluster do Azure Kubernetes com a interface do usuário da Web | Microsoft Docs"
 description: "Usando a interface do usuário Web Kubernetes no Serviço de Contêiner do Azure"
 services: container-service
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 9ae6e606bf215d9f53f725899b8ac7c466b781f1
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 4192369f2e7758200131aa85c60d07436f7cbbdc
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---using-the-kubernetes-web-ui"></a>Mecanismo de Serviço de Contêiner do Microsoft Azure - usando a interface do usuário da Web do Kubernetes
+# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Usando a interface do usuário Web Kubernetes no Serviço de Contêiner do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
@@ -136,6 +136,6 @@ Isso fará com que o número de réplicas diminua para dois, excluindo um de seu
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

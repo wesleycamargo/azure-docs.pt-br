@@ -1,6 +1,6 @@
 ---
 title: "Gerenciar nós de computação do cluster HPC Pack | Microsoft Docs"
-description: "Saiba mais sobre as ferramentas de script do PowerShell para adicionar, remover, iniciar e interromper nós de computação do cluster HPC Pack no Azure"
+description: "Saiba mais sobre as ferramentas de script do PowerShell para adicionar, remover, iniciar e interromper nós de computação do cluster HPC Pack 2012 R2 no Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -13,35 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 07/22/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 002fd2007758a268c205db95475ad7e691284b15
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 1941475ce97dbb5ab4e99b147f4d67e799590e7d
 
 
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gerenciar o número e a disponibilidade de nós de computação em um cluster HPC Pack no Azure
-Se você criou um cluster HPC Pack em VMs do Azure, pode ser conveniente encontrar maneiras de adicionar, remover, iniciar (provisionar) ou interromper (desprovisionar) facilmente várias VMs de nó de computação no cluster. Para executar essas tarefas, execute scripts do Azure PowerShell que estão instalados na VM de nó de cabeçalho. Esses scripts ajudam a controlar o número e a disponibilidade dos recursos do cluster HPC Pack para que você possa controlar os custos.
+Se você criou um cluster HPC Pack 2012 R2 em VMs do Azure, pode ser conveniente encontrar maneiras de adicionar, remover, iniciar (provisionar) ou interromper (desprovisionar) facilmente algumas VMs de nó de computação no cluster. Para executar essas tarefas, execute scripts do Azure PowerShell que estão instalados na VM de nó de cabeçalho. Esses scripts ajudam a controlar o número e a disponibilidade dos recursos do cluster HPC Pack para que você possa controlar os custos.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Este artigo se aplica apenas aos clusters HPC Pack 2012 R2 no Azure criados usando o modelo de implantação clássico. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> Além disso, os scripts do PowerShell descritos neste artigo não estão disponíveis no HPC Pack 2016.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Cluster HPC Pack em VMs do Azure** : crie um cluster HPC Pack no modelo de implantação clássica usando pelo menos o HPC Pack 2012 R2 Atualização 1. Por exemplo, é possível automatizar a implantação usando a imagem de VM do HPC Pack no Azure Marketplace e um script do Azure PowerShell. Para obter informações e pré-requisitos, veja [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* **Cluster HPC Pack 2012 R2 em VMs do Azure**: crie um cluster HPC Pack 2012 R2 no modelo de implantação clássico. Por exemplo, é possível automatizar a implantação usando a imagem de VM do HPC Pack 2012 R2 no Azure Marketplace e um script do Azure PowerShell. Para obter informações e pré-requisitos, veja [Criar um cluster HPC com o script de implantação de IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   
-    Após a implantação, localize os scripts de gerenciamento do nó na pasta %CCP\_HOME%bin no nó de cabeçalho. É necessário executar cada um dos scripts como administrador.
-* **Certificado de gerenciamento ou arquivo de configurações de publicação do Azure** - Você precisa fazer o seguinte no nó de cabeçalho:
+    Após a implantação, localize os scripts de gerenciamento do nó na pasta %CCP\_HOME%bin no nó de cabeçalho. Execute cada um dos scripts como um administrador.
+* **Certificado de gerenciamento ou arquivo de configurações de publicação do Azure**: você precisa executar uma das tarefas a seguir no nó de cabeçalho:
   
   * **Importe o arquivo de configurações de publicação do Azure**. Para fazer isso, execute os seguintes cmdlets do Azure PowerShell no nó de cabeçalho:
     
-    ```
+    ```PowerShell
     Get-AzurePublishSettingsFile
     
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
   * **Configure o certificado de gerenciamento do Azure no nó de cabeçalho**. Se você tiver o arquivo .cer, importe-o no repositório de certificados CurrentUser\My e, em seguida, execute o seguinte cmdlet do Azure PowerShell para seu ambiente do Azure (AzureCloud ou AzureChinaCloud):
     
-    ```
+    ```PowerShell
     Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
@@ -49,29 +51,29 @@ Se você criou um cluster HPC Pack em VMs do Azure, pode ser conveniente encontr
 Adicionar nós de computação com o script **Add-HpcIaaSNode.ps1** .
 
 ### <a name="syntax"></a>Sintaxe
-```
+```PowerShell
 Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
  [-Quantity] <Int32> [-InstanceSize] <String> [-DomainUserName] <String> [[-DomainUserPassword] <String>]
  [[-NodeNameSeries] <String>] [<CommonParameters>]
 
 ```
 ### <a name="parameters"></a>Parâmetros
-* **ServiceName** - O nome do serviço de nuvem ao qual novas VMs de nó de computação serão adicionadas.
-* **ImageName**: o nome de imagem da VM do Azure, que pode ser obtido por meio do portal clássico do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
+* **ServiceName**: nome do serviço de nuvem ao qual novas VMs do nó de computação são adicionadas.
+* **ImageName**: o nome da imagem da VM do Azure, que pode ser obtido por meio do Portal Clássico do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
   
   1. Um sistema operacional Windows deve ser instalado.
   2. O HPC Pack deve ser instalado na função de nó de computação.
   3. A imagem deve ser uma imagem privada na categoria Usuário, não uma imagem pública da VM do Azure.
-* **Quantity** - Número de VMs de nó de computação a serem adicionadas.
-* **InstanceSize** - Tamanho das VMs de nó de computação.
-* **DomainUserName** - Nome de usuário de domínio que será usado para ingressar as novas VMs no domínio.
-* **DomainUserPassword** : senha do usuário de domínio.
+* **Quantity**: número de VMs do nó de computação a serem adicionadas.
+* **InstanceSize**: tamanho das VMs do nó de computação.
+* **DomainUserName**: nome de usuário do domínio que é usado para adicionar as novas VMs ao domínio.
+* **DomainUserPassword**: senha do usuário do domínio.
 * **NodeNameSeries** (opcional): padrão de nomenclatura para os nós de computação. O formato deve ser &lt;*Raiz\_Nome*&gt;&lt;*Iniciar\_Número*&gt;%. Por exemplo, MyCN%10% significa uma série de nomes de nó de computação com início em MyCN11. Se não for especificado, o script usará a série de nomenclatura do nó configurado no cluster HPC.
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir adiciona 20 VMs de nó de computação de tamanho Grande no serviço de nuvem *hpcservice1*, com base na imagem de VM *hpccnimage1*.
 
-```
+```PowerShell
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 –Quantity 20 –InstanceSize Large –DomainUserName <username>
 -DomainUserPassword <password>
@@ -82,24 +84,24 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 Remova os nós de computação com o script **Remove-HpcIaaSNode.ps1** .
 
 ### <a name="syntax"></a>Sintaxe
-```
+```PowerShell
 Remove-HPCIaaSNode.ps1 -Name <String[]> [-DeleteVHD] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonParameters>]
 ```
 
 ### <a name="parameters"></a>Parâmetros
-* **Name** - Nomes dos nós do cluster a serem removidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
-* **Node** : o objeto HpcNode para os nós a serem removidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
-* **DeleteVHD** (opcional) - Configuração usada para excluir os discos associados para as VMs que foram removidas.
-* **Force** (opcional) - Configuração usada para forçar os nós HPC a ficarem offline antes de removê-los.
-* **Confirm** (opcional) - Solicitação de confirmação antes de executar o comando.
-* **WhatIf** - Configuração usada para descrever o que aconteceria se você executasse o comando sem realmente executar o comando.
+* **Name**: nomes dos nós do cluster a serem removidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Node**: o objeto HpcNode para os nós a serem removidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) do PowerShell no HPC. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **DeleteVHD** (opcional): configuração usada para excluir os discos associados das VMs que foram removidas.
+* **Force** (opcional): configuração usada para forçar os nós HPC a ficarem offline antes de removê-los.
+* **Confirm** (opcional): solicitação de confirmação antes de executar o comando.
+* **WhatIf**: configuração usada para descrever o que aconteceria se você executasse o comando sem realmente executar o comando.
 
 ### <a name="example"></a>Exemplo
-O exemplo a seguir força os nós a ficarem offline com nomes começando com *HPCNode-CN-* e, em seguida, remove os nós e seus discos associados.
+O exemplo a seguir força os nós com nomes começando com *HPCNode-CN-* a ficarem offline e, em seguida, remove os nós e seus discos associados.
 
-```
+```PowerShell
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
@@ -107,19 +109,19 @@ Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 Inicie os nós de computação com o script **Start-HpcIaaSNode.ps1** .
 
 ### <a name="syntax"></a>Sintaxe
-```
+```PowerShell
 Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
 ### <a name="parameters"></a>Parâmetros
-* **Name** - Nomes dos nós do cluster a serem iniciados. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Name**: nomes dos nós do cluster a serem iniciados. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
 * **Node**- O objeto HpcNode para os nós a serem iniciados, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir inicia os nós com nomes começando com *HPCNode-CN-*.
 
-```
+```PowerShell
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
@@ -127,7 +129,7 @@ Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 Interrompa os nós de computação com o script **Stop-HpcIaaSNode.ps1** .
 
 ### <a name="syntax"></a>Sintaxe
-```
+```PowerShell
 Stop-HPCIaaSNode.ps1 -Name <String[]> [-Force] [<CommonParameters>]
 
 Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
@@ -135,20 +137,22 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 ### <a name="parameters"></a>Parâmetros
 * **Name**- Nomes dos nós do cluster a serem interrompidos. Há suporte para caracteres curinga. O nome do conjunto de parâmetros é Nome. Não é possível especificar os dois parâmetros **Name** e **Node**.
-* **Node** : o objeto HpcNode para os nós a serem interrompidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)do HPC PowerShell. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
-* **Force** (opcional) - Configuração usada para forçar os nós HPC a ficarem offline antes de interrompê-los.
+* **Node**: o objeto HpcNode para os nós a serem interrompidos, que pode ser obtido por meio do cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) do PowerShell no HPC. O nome do conjunto de parâmetros é Nó. Não é possível especificar os dois parâmetros **Name** e **Node**.
+* **Force** (opcional): configuração usada para forçar os nós HPC a ficarem offline antes de interrompê-los.
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir força os nós a ficarem offline com nomes começando com *HPCNode-CN-* e, em seguida, interrompe os nós.
 
+```PowerShell
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Caso deseje usar uma maneira de aumentar ou reduzir automaticamente os nós de cluster de acordo com a atual carga de trabalho de trabalhos e de tarefas no cluster, consulte [Aumentar e reduzir automaticamente os recursos do cluster do HPC Pack no Azure conforme a carga de trabalho do cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Para aumentar ou reduzir automaticamente os nós de cluster de acordo com a atual carga de trabalhos e tarefas no cluster, confira [Aumentar e reduzir automaticamente os recursos de cluster do HPC Pack no Azure conforme a carga de trabalho de cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

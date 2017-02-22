@@ -2,7 +2,7 @@
 title: "Configurar webhooks em alertas de métrica do Azure | Microsoft Docs"
 description: "Redirecionar alertas do Azure para outros sistemas que não são do Azure."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 01/07/2017
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 62d6c15b9c360c74dc5d9436833bb4666048e523
+ms.sourcegitcommit: c0d101266fecf04a84b5717c1b81cefed90cab40
+ms.openlocfilehash: 440bd939f0c7d235d7be210c7fee9f2bc122718c
 
 
 ---
@@ -36,7 +36,7 @@ Você também pode configurar um alerta para publicar no URI de um webhook usand
 O webhook pode autenticar usando um destes métodos:
 
 1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Autorização básica** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+2. **Autorização baseada em senha** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 A operação POST contém o seguinte esquema e conteúdo JSON para todos os alertas baseados em métricas.
@@ -103,8 +103,8 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 
 > [!NOTE]
 > O campo de propriedades só pode ser definido usando a [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre os alertas e webhooks do Azure no vídeo [Integrar Alertas do Azure com o PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
@@ -115,7 +115,6 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

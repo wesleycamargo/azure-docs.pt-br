@@ -1,6 +1,6 @@
 ---
-title: "Criar índice para documentos em vários idiomas no Azure Search | Microsoft Docs"
-description: "  A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
+title: "Vários idiomas do Azure Search | Microsoft Docs"
+description: "A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 01/23/2017
 ms.author: jlembicz
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1cbb5209b85d14a313da764394069f835ef29176
+ms.sourcegitcommit: 6feadcc02aa0047dc2028d016687d3ad2859eb44
+ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
 
 ---
 
@@ -39,10 +39,10 @@ Veja abaixo as capturas de tela das folhas do Portal do Azure para a Pesquisa do
 >
 
 ## <a name="define-a-new-field-definition"></a>Definir uma nova definição de campo
-1. Entre no [Portal do Azure](https://portal.azure.com) e abra a folha de serviço do serviço de pesquisa.
+1. Entre no [Portal do Azure](https://portal.azure.com) e abra a folha de serviço do seu serviço de pesquisa.
 2. Clique em **Adicionar índice** na barra de comandos localizada na parte superior do painel do serviço para iniciar um novo índice, ou abra um índice existente para definir um analisador nos novos campos que você está adicionando a um índice existente.
 3. A folha Campos é exibida, oferecendo opções para definir o esquema do índice, incluindo a guia Analisador, usada para escolher um analisador de linguagem.
-4. Em Campos, inicie uma definição de campo fornecendo um nome, escolhendo o tipo de dados e definindo atributos para marcar o campo como pesquisável por texto completo, recuperável nos resultados da pesquisa, usável em estruturas de navegação facetada, classificável e assim por diante.
+4. Em Campos, inicie uma definição de campo fornecendo um nome, escolhendo o tipo de dados e definindo atributos para marcar o campo como texto completo pesquisável, recuperável nos resultados da pesquisa, usável em estruturas de navegação facetada, classificável e assim por diante.
 5. Antes de passar para o próximo campo, abra a guia **Analisador** .
 
 ![][1]
@@ -94,6 +94,6 @@ Se você é um desenvolvedor do .NET, é importante lembrar que você pode confi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

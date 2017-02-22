@@ -12,24 +12,22 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4dc2137ce42e3ed8e85d57dacc1acecc6de243e
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c5f1ab504bcb639260b2500d462a56ea30cab9aa
 
 
 ---
 # <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Gerenciando o Banco de Dados SQL do Azure usando o SQL Server Management Studio
-> [!div class="op_single_selector"]
-> * [Portal do Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 Você pode usar o SSMS (SQL Server Management Studio) para administrar servidores e bancos de dados do Banco de Dados SQL do Azure. Este tópico o orienta em tarefas comuns com o SSMS. Você já deve ter um servidor e um banco de dados criados no Banco de Dados SQL do Azure antes de começar. Consulte [Criar seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) e [Conectar e consultar usando o SSMS](sql-database-connect-query-ssms.md) para obter mais informações.
+
+> [!TIP]
+> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started.md).
+>
 
 É recomendável que você use a versão mais recente do SSMS sempre que trabalhar com o Banco de Dados SQL do Azure. 
 
@@ -142,6 +140,6 @@ O Banco de dados SQL oferece suporte a vários modos de exibição de gerenciame
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

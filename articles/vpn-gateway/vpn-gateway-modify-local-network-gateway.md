@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e88511058b1de79ca222d87ada6c9abdf4daf11c
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 2459f106e90616b05062224be82a06ef20fbc7b4
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: e88511058b1de79ca222d87ada6c9abdf4daf11c
 Às vezes, as configurações do seu gateway de rede local AddressPrefix ou GatewayIPAddress mudam. As instruções a seguir o ajudarão a modificar as configurações de gateway de rede local. Você também pode modificar essas configurações no portal do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ## <a name="to-modify-ip-address-prefixes"></a>Para modificar os prefixos de endereço IP
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
@@ -39,6 +39,6 @@ Você pode verificar a conexão de gateway. Confira [Verificar uma conexão de g
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

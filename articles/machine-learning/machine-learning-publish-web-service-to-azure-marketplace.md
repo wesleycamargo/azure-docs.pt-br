@@ -1,6 +1,6 @@
 ---
-title: "Publicar o serviço Web do Machine Learning ao Azure Marketplace | Microsoft Docs"
-description: "Como publicar o Serviço Web de Aprendizado de Máquina do Azure no Azure Marketplace"
+title: "(preterido) Publicar o serviço Web do Machine Learning ao Azure Marketplace | Microsoft Docs"
+description: "(preterido) Como publicar o serviço Web do Azure Machine Learning no Azure Marketplace"
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/08/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24b131d3a9a17ce9a2daf349518873871c9d1019
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 2d62966f130f6778c9561393cc7fc338f8903f1e
 
 
 ---
-# <a name="publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>Publicar o Serviço Web do Aprendizado de Máquina do Azure no Azure Marketplace
+# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>(preterido) Publicar o serviço Web do Azure Machine Learning no Azure Marketplace
+
+> [!NOTE]
+> O DataMarket e os Serviços de Dados estão sendo desativados e as assinaturas existentes serão desativadas e canceladas a partir de 31/3/2017. Como resultado, este artigo está sendo preterido. 
+> 
+> Como alternativa, você pode publicar suas experiências com o Machine Learning na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/) para o benefício da comunidade de ciência de dados. Para saber mais, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
 O Azure Marketplace fornece a capacidade de publicar serviços Web de Aprendizado de Máquina do Azure como serviços pagos ou gratuitos para consumo por clientes externos. Este artigo fornece uma visão geral desse processo com links para diretrizes que o ajudam a começar. Usando esse processo, é possível disponibilizar seus serviços Web a outros desenvolvedores para que usem seus aplicativos.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -89,6 +96,6 @@ implantar o serviço em produção.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

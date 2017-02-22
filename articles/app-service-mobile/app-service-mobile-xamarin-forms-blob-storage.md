@@ -691,6 +691,6 @@ Este artigo descreveu como usar o novo suporte de arquivo no SDK do servidor e c
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

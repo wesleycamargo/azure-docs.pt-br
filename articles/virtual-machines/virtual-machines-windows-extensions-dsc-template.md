@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3f14531dfaac9cbe03d99fc45c98060d92232c5f
+ms.sourcegitcommit: 119a6c3e5a5764beb7445774a04621f49573a23a
+ms.openlocfilehash: e9baa32f6ae21b2446447ab9a6d9dcba1168905d
 
 
 ---
@@ -143,7 +143,7 @@ O esquema a seguir serve para a parte das configurações da extensão DSC do Az
 | settings.configuration.script |string |Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas. |
 | settings.configuration.function |string |Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas. |
 | settings.configurationArguments |Coleção |Define os parâmetros que você deseja passar para a configuração de DSC. Essa propriedade não é criptografada. |
-| settings.configurationData.url |string |Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS. |
+| settings.configurationData.url |string |Especifica a URL de onde baixar o arquivo de dados de configuração (.psd1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS. |
 | settings.privacy.dataEnabled |string |Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são **'Enable', 'Disable', ou '$null'**. Deixar esta propriedade em branco ou nulo permite telemetria. O valor padrão é ''. [Mais informações](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
 | settings.advancedOptions.downloadMappings |Coleção |Define os locais alternativos de onde baixar o WMF. [Mais informações](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
 | protectedSettings.configurationArguments |Coleção |Define os parâmetros que você deseja passar para a configuração de DSC. Essa propriedade é criptografada. |
@@ -302,6 +302,6 @@ Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

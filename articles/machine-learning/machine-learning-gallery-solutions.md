@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d1020d153c283a7c0bcf71c479e6109f354de173
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0fc014ad8fe4ab0b36b0c941564c5c531079ce4d
 
 
 ---
@@ -34,7 +34,7 @@ Crie as suas próprias usando as instruções incluídas ou com um parceiro em d
  A Página **[Soluções](https://gallery.cortanaintelligence.com/solutions)**
  exibe uma lista das soluções adicionadas mais recentemente.
 Clique em **Ver todos** para exibir todas os soluções.
-Nessa página, você pode navegar por todas as soluções na Galeria ou pode pesquisar selecionando critérios de filtro à esquerda da página e inserindo os termos de pesquisa na parte superior.
+Nessa página, você pode procurar todas as soluções na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
  Clique em qualquer solução para abrir a página de detalhes da solução e ler mais informações. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para a solução de modo a convidar outros usuários para exibir a página.
 
@@ -54,6 +54,6 @@ Se você quiser usar uma Solução, clique em **Implantar**. Execute as etapas a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

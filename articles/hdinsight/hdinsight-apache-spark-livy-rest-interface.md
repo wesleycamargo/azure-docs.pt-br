@@ -1,5 +1,5 @@
 ---
-title: Enviar trabalhos Spark remotamente usando a Livy | Microsoft Docs
+title: Usar Livy para enviar trabalhos remotamente para Spark no Azure HDInsight | Microsoft Docs
 description: Saiba como usar a Livy com clusters HDInsight para enviar trabalhos Spark remotamente.
 services: hdinsight
 documentationcenter: 
@@ -13,15 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 564bd1f3095446edf839d0353b92e0df256e1007
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 3c349aecc87e28275045828a84e0ea3f89400b9e
 
 
 ---
-# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-linux-using-livy"></a>Enviar trabalhos do Spark remotamente para um cluster do Apache Spark no HDInsight Linux usando Livy
+# <a name="submit-spark-jobs-remotely-to-an-apache-spark-cluster-on-hdinsight-using-livy"></a>Enviar trabalhos do Spark remotamente para um cluster do Apache Spark no HDInsight usando Livy
+
 O cluster do Apache Spark no Azure HDInsight inclui Livy, uma interface REST para o envio de trabalhos remotamente para um cluster Spark. Para obter a documentação detalhada, confira [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 Você pode usar a Livy para executar shells interativos do Spark ou enviar trabalhos em lotes a serem executados no Spark. Este artigo aborda como usar a Livy para enviar trabalhos em lotes. A sintaxe abaixo usa Curl para fazer chamadas REST para o ponto de extremidade da Livy.
@@ -30,10 +31,10 @@ Você pode usar a Livy para executar shells interativos do Spark ou enviar traba
 
 Você deve ter o seguinte:
 
-* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, confira [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="submit-a-batch-job-the-cluster"></a>Enviar um trabalho em lotes ao cluster
+## <a name="submit-a-batch-job"></a>Enviar um trabalho em lotes
 Antes de enviar um trabalho em lotes, você deve carregar o jar do aplicativo no armazenamento de cluster associado ao cluster. Você pode usar [**AzCopy**](../storage/storage-use-azcopy.md), um utilitário de linha de comando, para fazer isso. Há muitos outros clientes que podem ser usados para carregar dados. É possível encontrar mais sobre eles em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches'
@@ -154,6 +155,17 @@ Execute as seguintes etapas:
    
     A última linha da saída mostra que o lote foi excluído com êxito. Se você excluir um trabalho enquanto ele estiver em execução, isso praticamente eliminará o trabalho. Se você excluir um trabalho que foi concluído, com êxito ou não, essa ação excluirá por completo as informações sobre o trabalho.
 
+## <a name="using-livy-on-hdinsight-35-spark-clusters"></a>Usar Livy em clusters HDInsight 3.5 Spark
+
+O cluster HDInsight 3.5, por padrão, desabilita o uso de caminhos de arquivo local para acessar arquivos de dados de exemplo ou jars. Incentivamos o uso do caminho `wasb://` em vez disso, para acessar os jars ou os arquivos de dados de exemplo do cluster. Se você quiser usar o caminho local, atualize a configuração do Ambari adequadamente. Para fazer isso:
+
+1. Acesse o portal do Ambari para o cluster. A interface de usuário da Web do Ambari está disponível no seu cluster HDInsight em https://**CLUSTERNAME**.azurehdidnsight.net, em que CLUSTERNAME é o nome do cluster.
+
+2. Na navegação à esquerda, clique em **Livy** e em **Configurações**.
+
+3. Em **livy-default** adicione o nome da propriedade `livy.file.local-dir-whitelist` e defina seu valor como **"/"** se você quiser permitir acesso total ao sistema de arquivos. Se você quiser permitir o acesso somente a um diretório específico, forneça o caminho ao diretório como o valor.
+
+
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
@@ -182,6 +194,6 @@ Execute as seguintes etapas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d0cae49b3d45be153daf53cd3ff352e25c447ed1
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 7618f94574fd02d29a55ccbe8723a0228ad64f7f
 
 
 ---
@@ -49,11 +49,11 @@ As informações são organizadas nos artigos a seguir:
   Este artigo é um índice de serviços do Azure e fornece links para orientações de recuperação de desastre e diretrizes de design.
 * [Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](../sql-database/sql-database-business-continuity.md).
   Este artigo fornece técnicas de Banco de Dados SQL para disponibilidade. Ele se concentra principalmente em estratégias de backup e restauração. Se você usar um banco de dados SQL do Azure em seu serviço de nuvem, examine este documento e seus recursos relacionados.
-* [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
   Este artigo discute as opções de disponibilidade que você pode explorar ao usar IaaS (infraestrutura como serviço) para hospedar serviços de banco de dados. Discute Grupos de Disponibilidade AlwaysOn, espelhamento de banco de dados, envio de logs e backup/restauração. Vários tutoriais mostram como usar essas técnicas.
 * [Práticas recomendadas para a criação de serviços em larga escala nos Serviços de Nuvem do Azure](https://azure.microsoft.com//blog/best-practices-for-designing-large-scale-services-on-windows-azure/).
   Este artigo foca o desenvolvimento de arquiteturas de nuvem altamente escalonáveis. Muitas das técnicas que você emprega para melhorar a escalabilidade também melhoram a disponibilidade. Além disso, se o aplicativo não puder ser dimensionado sob uma carga maior, a escalabilidade se tornará um problema de disponibilidade.
-* [Backup e restauração para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* [Backup e restauração para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
   Este artigo fornece orientações técnicas sobre como fazer backup e restauração do Microsoft SQL Server em execução em máquinas virtuais do Azure.
 * [Failsafe: diretrizes para arquiteturas de nuvem resilientes](https://channel9.msdn.com/Series/FailSafe).
   Este artigo fornece diretrizes para criação de arquiteturas de nuvem resilientes, diretrizes para implementar essas arquiteturas em tecnologias da Microsoft e receitas para implementar essas arquiteturas em cenários específicos.
@@ -66,6 +66,6 @@ Este artigo faz parte de uma série que enfoca a orientação técnica para a re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

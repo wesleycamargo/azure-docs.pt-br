@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ A Automação do Azure fornece um mecanismo de execução de fluxo de trabalho a
 Reduza o custo operacional e libere a equipe de TI e DevOps para se concentrar no trabalho que agrega valor de negócios, transferindo as tarefas de gerenciamento de nuvem para serem executadas automaticamente pela Automação do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>Como a Automação do Azure ajuda a gerenciar o Aplicativo Web do Azure?
-O aplicativo Web pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis em [Módulos do Azure PowerShell](../powershell-install-configure.md). Você pode [instalar esses cmdlets do PowerShell do aplicativo Web na Automação do Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), de modo que você pode executar todas as tarefas de gerenciamento de aplicativo Web no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
+O aplicativo Web pode ser gerenciado na Automação do Azure usando os cmdlets do PowerShell que estão disponíveis em [Módulos do Azure PowerShell](/powershell/azureps-cmdlets-docs). Você pode [instalar esses cmdlets do PowerShell do aplicativo Web na Automação do Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/), de modo que você pode executar todas as tarefas de gerenciamento de aplicativo Web no serviço. Você também pode combinar esses cmdlets na Automação do Azure com os cmdlets de outros serviços do Azure para automatizar tarefas complexas em serviços do Azure e sistemas de terceiros.
 
 Aqui estão alguns exemplos de Serviços de Aplicativos com a automação de gerenciamento:
 
@@ -45,6 +45,6 @@ Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

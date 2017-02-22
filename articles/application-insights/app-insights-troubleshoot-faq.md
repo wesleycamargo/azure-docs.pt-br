@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
-ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 *Estou tendo problemas para configurar:*
 
 * [Aplicativo .NET](app-insights-asp-net-troubleshoot-no-data.md)
-* [Monitorar um aplicativo já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting)
+* [Monitorar um aplicativo já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
 * [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
 * [Aplicativo Web Java](app-insights-java-troubleshoot.md)
 * [Outras plataformas](app-insights-platforms.md)
@@ -40,7 +40,7 @@ ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 ## <a name="is-it-free"></a>É gratuito?
 
-Sim, para uso experimental. No plano de preço padrão, seu aplicativo pode enviar uma determinada margem de dados por mês gratuitamente. A margem gratuita é grande o suficiente para cobrir o desenvolvimento e publicação de um aplicativo para um número reduzido de usuários. Você pode definir um limite para impedir que mais de uma determinada quantidade de dados seja processada.
+Sim, para uso experimental. No plano de preço básico, seu aplicativo pode enviar uma determinada margem de dados por mês gratuitamente. A margem gratuita é grande o suficiente para cobrir o desenvolvimento e publicação de um aplicativo para um número reduzido de usuários. Você pode definir um limite para impedir que mais de uma determinada quantidade de dados seja processada.
 
 Você precisa usar o plano Enterprise para obter determinados recursos, como a Exportação Contínua. Ela incorre em um custo diário.
 
@@ -51,20 +51,20 @@ Você precisa usar o plano Enterprise para obter determinados recursos, como a E
 Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
 
 * Adiciona estes arquivos ao seu projeto:
-  
+
   * ApplicationInsights.config.
   * ai.js
 * Instala estes pacotes NuGet:
-  
+
   * *API do Application Insights* - a API principal
   * *API do Application Insights para Aplicativos Web* - usada para enviar telemetria do servidor
   * *API do Application Insights para Aplicativos JavaScript* - usada para enviar telemetria do cliente
-    
+
     Os pacotes incluem os seguintes assemblies:
   * Microsoft.ApplicationInsights
   * Microsoft.ApplicationInsights.Platform
 * Insere itens em:
-  
+
   * Web.config
   * packages.config
 * (Somente novos projetos ‑ se você [adicionar o Application Insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso do Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
@@ -90,7 +90,7 @@ Consulte [Privacidade e Retenção de Dados][data].
 | O que você deverá ver | Como obter isso | Por que você deseja isso |
 | --- | --- | --- |
 | Gráficos de disponibilidade |[Testes da Web](app-insights-monitor-web-app-availability.md) |Tenha certeza que o aplicativo Web está ativo |
-| Desempenho do aplicativo para servidores: tempos de resposta... |[Adicionar o Application Insights ao seu projeto](app-insights-asp-net.md) ou [Instalar o AI Status Monitor no servidor](app-insights-monitor-performance-live-website-now.md) (ou escreva seu próprio código para [rastrear dependências](app-insights-api-custom-events-metrics.md#track-dependency)) |Detectar problemas de desempenho |
+| Desempenho do aplicativo para servidores: tempos de resposta... |[Adicionar o Application Insights ao seu projeto](app-insights-asp-net.md) ou [Instalar o AI Status Monitor no servidor](app-insights-monitor-performance-live-website-now.md) (ou escreva seu próprio código para [rastrear dependências](app-insights-api-custom-events-metrics.md#trackdependency)) |Detectar problemas de desempenho |
 | Telemetria de dependência |[Instalar o AI Status Monitor no servidor](app-insights-monitor-performance-live-website-now.md) |Diagnosticar problemas com bancos de dados ou outros componentes externos |
 | Obter rastreamentos de pilha por meio de exceções |[Inserir chamadas TrackException em seu código](app-insights-search-diagnostic-logs.md#exceptions) (mas alguns são informados automaticamente) |Detectar e diagnosticar exceções |
 | Pesquisar rastreamentos de log |[Adicionar um adaptador de registro em log](app-insights-search-diagnostic-logs.md) |Diagnosticar exceções, problemas de desempenho |
@@ -113,6 +113,6 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

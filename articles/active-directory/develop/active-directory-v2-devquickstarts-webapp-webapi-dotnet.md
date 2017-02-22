@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web .NET do Azure AD v2.0 | Microsoft Docs
+title: Use o Azure AD v2.0 para proteger um aplicativo web .NET MVC que chame uma API web | Microsoft Docs
 description: "Como criar um aplicativo Web do MVC .NET que chama serviços Web usando contas pessoais da Microsoft e contas corporativas ou de estudante para conexão."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587a5136004525f5badc5e72d006fc6dd07d42d8
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 8c35bfbc75f99fc8558f83667b12a6df1cd3eefd
 
 
 ---
@@ -202,6 +202,6 @@ Recomendamos que você obtenha notificações sobre a ocorrência de incidentes 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

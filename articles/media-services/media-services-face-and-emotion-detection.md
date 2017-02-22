@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/09/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
-ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+ms.sourcegitcommit: adaf2a71e022d6d29493ab0a679bd593ea40195e
+ms.openlocfilehash: acb3b4d4a14ea546e94ccc38806251460e21a6bc
 
 
 ---
@@ -72,7 +72,7 @@ O JSON de detecção e acompanhamento facial inclui os seguintes atributos:
 O Face Detector usa técnicas de fragmentação (em que os metadados podem ser divididos em partes com base no tempo, e você pode baixar apenas o necessário) e segmentação (em que os eventos são divididos, caso eles se tornem muito grandes). Alguns cálculos simples podem ajudar você a transformar os dados. Por exemplo, se um evento tiver começado em 6300 (tiques), com uma escala de tempo de 2997 (tiques/s) e uma taxa de quadros de 29,97 (quadros/s), então:
 
 * Início/Escala de tempo = 2,1 segundos
-* Segundos x (Taxa de quadros/Escala de tempo) = 63 quadros
+* Segundos x taxa de quadros = 63 quadros
 
 ## <a name="face-detection-input-and-output-example"></a>Exemplo de entrada e saída da detecção facial
 ### <a name="input-video"></a>Vídeo de entrada
@@ -81,7 +81,18 @@ O Face Detector usa técnicas de fragmentação (em que os metadados podem ser d
 ### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A predefinição de configuração a seguir serve apenas para detecção de face.
 
-    {"version":"1.0"}
+    {
+      "version":"1.0"
+      "options":{
+          "TrackingMode": "Faster"
+      }
+    }
+
+#### <a name="attribute-descriptions"></a>Descrições de atributos
+| Nome do atributo | Descrição |
+| --- | --- |
+| Modo |Mais rápido: maior velocidade de processamento, mas menos precisão (padrão). <br/>Qualidade: melhor controle da precisão, mas mais demorado. |
+
 
 ### <a name="json-output"></a>Saída em JSON
 O exemplo de saída JSON a seguir foi truncado.
@@ -153,17 +164,17 @@ Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especifi
 #### <a name="attribute-descriptions"></a>Descrições de atributos
 | Nome do atributo | Descrição |
 | --- | --- |
-| Modo |Faces: somente detecção facial  <br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
+| Modo |Faces: somente detecção facial.<br/>PerFaceEmotion: retornar emoção independentemente de cada detecção facial.<br/>AggregateEmotion: retorna uma média dos valores de emoção para todas as faces no quadro. |
 | AggregateEmotionWindowMs |Use se o modo AggregateEmotion for selecionado. Especifica a duração do vídeo usado para produzir cada resultado da agregação, em milissegundos. |
 | AggregateEmotionIntervalMs |Use se o modo AggregateEmotion for selecionado. Especifica com que frequência deve-se produzir resultados agregados. |
 
 #### <a name="aggregate-defaults"></a>Padrões de agregação
 Abaixo, temos os valores recomendados para as configurações de janela e intervalo de agregação. AggregateEmotionWindowMs deve ser maior que AggregateEmotionIntervalMs.
 
-| Padrões | Máx. | Mín. |
-| --- | --- | --- | --- |
-| AggregateEmotionWindowMs |0,5 |2 |
-| AggregateEmotionIntervalMs |0,5 |1 |
+|| Padrões | Mín. | Máx. |
+|--- | --- | --- | --- |
+| AggregateEmotionWindowMs |0,5 |2 |0,25|
+| AggregateEmotionIntervalMs |0,5 |1 |0,25|
 
 ### <a name="json-output"></a>Saída em JSON
 Saída em JSON para agregação de emoção (truncada):
@@ -330,12 +341,12 @@ Saída em JSON para agregação de emoção (truncada):
 O programa a seguir mostra como:
 
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
-2. Criar um trabalho com uma tarefa de detecção de face baseada em um arquivo de configuração que contém a predefinição de JSON a seguir. 
+2. Crie um trabalho com uma tarefa de detecção facial baseada em um arquivo de configuração que contém a predefinição de json a seguir. 
    
         {
             "version": "1.0"
         }
-3. Baixar os arquivos JSON de saída. 
+3. Baixe os arquivos JSON de saída. 
    
         using System;
         using System.Configuration;
@@ -514,6 +525,6 @@ O programa a seguir mostra como:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

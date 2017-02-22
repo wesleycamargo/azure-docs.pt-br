@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
+ms.date: 1/11/2017
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: dbaa242b8969ad04c92e7a527f4cd585bc3763cb
-ms.openlocfilehash: bb2ae9d94a8f1e02a81ff46bdc29e6f9787ebf31
+ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
+ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
 
 
 ---
@@ -35,14 +35,16 @@ As perguntas e respostas são organizadas nas seguintes categorias
 ## <a name="questions-about-creating-a-locally-pinned-volume"></a>Perguntas sobre a criação de um volume localmente afixado
 **P.** Qual é o tamanho máximo de um volume localmente afixado que posso criar em dispositivos da série 8000?
 
-**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.
+**R** Em dispositivos que executam o StorSimple série 8000 Atualização 3.0, você pode provisionar localmente volumes fixos de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.    
+Em dispositivos que executam o StorSimple série 8000 Atualização 2.x, você pode provisionar localmente volumes fixos de até 8 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 20 TB ou volumes em camadas de até 500 TB.   
 
-**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 2 e, quando tento criar um volume localmente afixado, o tamanho máximo disponível é de apenas 6 TB, não de 8,5 TB. Por que não consigo criar um volume de 8,5 TB?
+**P.** Atualizei recentemente o dispositivo 8100 para a Atualização 2.0 e, quando tento criar um volume fixo localmente, o tamanho máximo disponível é de apenas 6 TB, e não 8 TB. Por que não consigo criar um volume de 8 TB?
 
-**R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se 100 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que é a metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (cerca de metade da capacidade máxima do volume localmente afixado).
+**R** Se seu dispositivos estiver executando a Atualização 2.0, você poderá provisionar localmente volumes fixos de até 8 TB OR volumes em camada de até 200 TB no dispositivo 8100. Se o dispositivo já tiver volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será proporcionalmente menor do que esse limite máximo. Por exemplo, se 100 TB de volumes em camadas já tiverem sido provisionados no dispositivo 8100 (o que é a metade da capacidade em camadas), o tamanho máximo de um volume local que você poderá criar no dispositivo 8100 será reduzido de forma correspondente para 4 TB (cerca de metade da capacidade máxima do volume localmente afixado).
 
-Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente afixados são criados.
+Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente fixos são criados.
 
+####<a name="update-30"></a>Atualização 3.0 
 | Capacidade provisionada para volumes localmente afixados | Capacidade disponível para ser provisionada para volumes em camadas - 8100 | Capacidade disponível para ser provisionada para volumes em camadas - 8600 |
 | --- | --- | --- |
 | 0 |200 TB |500 TB |
@@ -52,6 +54,17 @@ Como algum espaço no dispositivo local é usado para hospedar o conjunto de tra
 | 10 TB |ND |277,8 TB |
 | 15 TB |ND |166,7 TB |
 | 22,5 TB |ND |0 TB |
+
+####<a name="update-2x"></a>Atualização 2.x  
+ | Capacidade provisionada para volumes localmente afixados | Capacidade disponível para ser provisionada para volumes em camadas - 8100 | Capacidade disponível para ser provisionada para volumes em camadas - 8600 |  
+ | --- | --- | --- |  
+ | 0 |200 TB |500 TB |  
+ | 1 TB |25 TB |475 TB |  
+ | 4 TB |100 TB |400 TB |  
+ | 8 TB |0 TB |300 TB |  
+ | 10 TB |ND |250 TB |  
+ | 15 TB |ND |125 TB |  
+ | 20 TB |ND |0 TB |   
 
 **P.** Por que a criação de um volume localmente afixado é uma operação demorada? 
 
@@ -205,6 +218,6 @@ Mais informações sobre [o failover e a DR de volumes fixos localmente entre ve
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

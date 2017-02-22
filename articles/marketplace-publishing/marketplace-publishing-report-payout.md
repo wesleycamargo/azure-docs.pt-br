@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 01/11/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 76aa5a1d8023b108b4d7bee1dcf1386e14809df9
+ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
+ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
 
 
 ---
@@ -39,23 +39,23 @@ Os relatórios estarão disponíveis 45 dias após o encerramento do trimestre e
 ### <a name="access-payout-reports-in-dev-center"></a>Acessar relatórios de pagamento no Centro de Desenvolvimento
 1. Navegue até o Centro de Desenvolvimento em https://dev.windows.com/pt-br.
 2. Clique em **Painel**.
-   
+
     ![LandingPageDashboardHighlight][1]
 3. Clique em **Resumo do Pagamento**.
-   
+
     ![DashboardPayoutSummary][2]
 
 ## <a name="view-your-payout-reports-in-dev-center"></a>Exibir relatórios de pagamento no Centro de Desenvolvimento
 O relatório de pagamento para cada trimestre registra todas as transações que ocorreram dentro desse trimestre.
 
-* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$ 0 (a menos que um cliente pague com bastante antecedência).
+* O Valor reservado indica os pagamentos estão se acumulando fora do ciclo do próximo pagamento (por exemplo, esse valor será movido para o pagamento do mês seguinte).  Esse valor normalmente será US$&0; (a menos que um cliente pague com bastante antecedência).
 * Clique nos links **Exibir detalhes** de Pagamentos futuros ou do Pagamento mais recente para ver uma observação sobre os pagamentos.
 * Clique em **Demonstrativos de Pagamento** para exibir os detalhes em receita por produto/aplicativo.
 * Clique no link **Exibir** para ver os demonstrativos individuais.
-  
+
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 * Use o filtro **Detalhamento da Receita** na parte inferior do demonstrativo individual para exibir vários aplicativos/produtos, se existirem.
-  
+
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
 ## <a name="view-your-payout-reports-in-publishing-portal"></a>Exibir relatórios de pagamento no Portal de Publicação
@@ -64,7 +64,7 @@ O relatório de pagamento para cada trimestre registra todas as transações que
 1. Acesse o portal de publicação em https://publish.windowsazure.com.
 2. Na seção **Publicadores**, clique em **Relatórios de Pagamento**.
 3. Clique na lista suspensa para exibir todos os relatórios de pagamentos trimestrais disponíveis.
-   
+
     ![accessingpayoutreport][5]
 
 ### <a name="read-your-payout-reports"></a>Ler os relatórios de pagamento
@@ -110,6 +110,6 @@ Para outras consultas de suporte, registre um problema em <https://portal.azure.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

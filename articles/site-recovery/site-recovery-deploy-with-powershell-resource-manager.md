@@ -1,6 +1,6 @@
 ---
-title: Proteger servidores no Azure usando o Azure PowerShell com o Azure Resource Manager | Microsoft Docs
-description: "Automatize a proteção de servidores no Azure com o Azure Site Recovery usando o PowerShell e o Azure Resource Manager."
+title: Replicar VMs do Hyper-V com PowerShell e o Azure Resource Manager | Microsoft Docs
+description: "Automatize a replicação de VMs do Hyper-V no Azure com o Azure Site Recovery usando o PowerShell e o Azure Resource Manager."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 09/27/2016
+ms.date: 02/06/2017
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 555f61f76a8d6f1564e7ca736bcdd0dec7d594df
+ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
+ms.openlocfilehash: 3df4aaa018d31e9ee9526679ac1febbe5b75bb7e
 
 
 ---
@@ -62,7 +62,7 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 * Um host Hyper-V que executa o Windows Server 2012 R2 ou o Microsoft Hyper-V Server 2012 R2 contendo uma ou mais máquinas virtuais.
 * Servidores Hyper-V conectados à Internet, diretamente ou por meio de um proxy.
-* As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Pré-requisitos para Máquinas Virtuais](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Pré-requisitos para Máquinas Virtuais](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Etapa 1: Entrar em sua conta do Azure
 1. Abra um console do PowerShell e execute este comando para entrar em sua conta do Azure. O cmdlet abre uma página da Web que solicitará suas credenciais de conta.
@@ -247,6 +247,6 @@ Este artigo ilustra como usar o Azure PowerShell com o Azure Resource Manager pa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

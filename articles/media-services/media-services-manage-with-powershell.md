@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+ms.sourcegitcommit: 2549c876ee35d6a7fa425d43e2f86d24131ca791
+ms.openlocfilehash: 3d999d9e27844bc0164cc3572522b9ec022118a1
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
 > Para poder criar uma conta de Serviços de Mídia do Azure, você deve ter uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Avaliação Gratuita do Azure</a>.
@@ -466,6 +466,6 @@ Confira os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

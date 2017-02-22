@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/04/2016
 ms.author: navale;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 68bec71fd23367a05b405edf9196b28d04fca1e6
+ms.sourcegitcommit: 40687046c832ca39e460f1d7f55f7c188b6242b3
+ms.openlocfilehash: 0479a970e2c3b8abaa9305de37a79e2b4128932e
 
 
 ---
@@ -146,7 +146,7 @@ Agora, você é o orgulhoso proprietário de uma conta de armazenamento!
 As próximas etapas serão para adicionar todos os recursos necessários para implantar a arquitetura descrita no início deste tutorial. Você adicionará esses recursos no mesmo modelo no qual estava trabalhando.
 
 ## <a name="availability-set"></a>Conjunto de disponibilidade
-Após a definição da conta de armazenamento, adicione um conjunto disponível para as máquinas virtuais. Nesse caso, não há nenhuma propriedade adicional necessária, portanto, sua definição é bastante simples. Consulte a [API REST para criar um Conjunto de Disponibilidade](https://msdn.microsoft.com/library/azure/mt163607.aspx) para ver a seção de propriedades completa, caso queira definir os valores de contagem do domínio de atualização e do domínio de falha.
+Após a definição da conta de armazenamento, adicione um conjunto de disponibilidade para as máquinas virtuais. Nesse caso, não há nenhuma propriedade adicional necessária, portanto, sua definição é bastante simples. Consulte a [API REST para criar um Conjunto de Disponibilidade](https://msdn.microsoft.com/library/azure/mt163607.aspx) para ver a seção de propriedades completa, caso queira definir os valores de contagem do domínio de atualização e do domínio de falha.
 
 ```json
 {
@@ -592,6 +592,6 @@ Você pode reimplantar o modelo usando os mesmos comandos que usou ao implantar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

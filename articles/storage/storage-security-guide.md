@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
+ms.sourcegitcommit: 9e75c5af6cb6d2f2a25f18269ec6822aa86459fc
+ms.openlocfilehash: 95ea1a9bc8fe80c39ca9f0683855cc3a4e7a77c4
 
 
 ---
@@ -328,33 +328,41 @@ Para a criptografia em si, você pode gerar e gerenciar suas próprias chaves de
   Esse artigo fornece uma explicação da criptografia do cliente, bem como exemplos de como usar a biblioteca de cliente de armazenamento para criptografar e descriptografar recursos dos quatro serviços de armazenamento. Ele também fala sobre o Cofre de Chaves do Azure.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Usando o Azure Disk Encryption para criptografar discos usados pelas máquinas virtuais
-O Azure Disk Encryption é um novo recurso que, atualmente, está na versão de visualização. Esse recurso permite criptografar os discos do sistema operacional e de dados usados por uma Máquina Virtual IaaS. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco.
+O Azure Disk Encryption é um novo recurso. Esse recurso permite criptografar os discos do sistema operacional e de dados usados por uma Máquina Virtual IaaS. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse recurso é integrado ao Cofre de Chaves do Azure para permitir que você controle e gerencie as chaves de criptografia de disco.
 
-A solução Azure Disk Encryption é compatível com os três cenários de criptografia do cliente a seguir:
-
-* Habilite a criptografia em novas VMs IaaS criadas de arquivos VHD criptografados pelo cliente e chaves de criptografia fornecidas pelo cliente, que são armazenados no Cofre de Chaves do Azure.
-* Habilite a criptografia em novas VMs IaaS criadas no Marketplace do Azure.
-* Habilite a criptografia em VMs IaaS existentes já em execução no Azure.
-
-> [!NOTE]
-> Não há suporte para a criptografia de disco do sistema operacional nas VMs do Linux que já estão em execução no Azure ou nas novas VMs do Linux criadas de imagens no Azure Marketplace. Há suporte para criptografia do volume do sistema operacional para VMs do Linux somente para as VMs que foram criptografadas localmente e carregadas no Azure. Essa restrição se aplica somente ao disco do sistema operacional; há suporte para a criptografia de volumes de dados para uma VM do Linux.
-> 
-> 
-
-A solução dá suporte aos seguintes itens para VMs IaaS para lançamento de visualização pública habilitada no Microsoft Azure:
+A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
 
 * Integração com o Cofre da Chave do Azure
-* [VMs de IaaS das séries Standard A, D e G](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Habilitar a criptografia em VMs de IaaS criadas usando o modelo do [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
-* Todas as [regiões](https://azure.microsoft.com/regions/)
+* VMs da camada Standard: [VMs IaaS das séries A, D, DS, G, GS e assim por diante](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Como habilitar a criptografia em VMs IaaS Windows e Linux
+* Como desabilitar a criptografia em unidades do sistema operacional e de dados para VMs IaaS do Windows
+* Como desabilitar a criptografia em unidades de dados para VMs IaaS do Linux
+* Ativando a criptografia em VMs IaaS que estão executando o sistema operacional cliente Windows
+* Como habilitar a criptografia em volumes com caminhos de montagem
+* Habilitação da criptografia em VMs do Linux que estão configuradas com distribuição de discos (RAID) usando o mdadm
+* Como habilitar a criptografia em VMs do Linux usando LVM para discos de dados
+* Ativando a criptografia em VMs do Windows que são configurados usando espaços de armazenamento
+* Há suporte para todas as regiões públicas do Azure
+
+A solução não dá suporte aos seguintes cenários, recursos e tecnologia na versão:
+
+* VMs IaaS da camada Básica
+* Como desabilitar a criptografia em unidades do sistema operacional para VMs IaaS do Linux
+* VMs de IaaS que são criadas usando o método de criação de VM clássico
+* Integração com o Serviço de Gerenciamento de Chaves no local
+* Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
+
+
+> [!NOTE]
+> No momento, há suporte para a criptografia de disco do sistema operacional Linux nas seguintes distribuições Linux: RHEL 7.2, CentOS 7.2n e Ubuntu 16.04.
+> 
+> 
 
 Esse recurso garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Azure.
 
 #### <a name="resources"></a>Recursos
-* [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines (Azure Disk Encryption para máquinas virtuais IaaS Windows e Linux)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Criptografia de Disco do Azure para VMs IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
   
-  Esse artigo aborda a versão preview do Azure Disk Encryption e fornece um link para baixar o white paper.
-
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparação do Azure Disk Encryption, da SSE e da Criptografia do Cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>VMs IaaS e seus arquivos VHD
 Para discos usados pelas VMs IaaS, é recomendável usar o Azure Disk Encryption. Você pode ativar a SSE para criptografar os arquivos VHD usados para apoiar os discos no Armazenamento do Azure, mas ela só criptografa os dados recém-criados. Isso significa que, se você criar uma VM e habilitar a SSE na conta de armazenamento que mantém o arquivo VHD, somente as alterações serão criptografadas, não o arquivo VHD original.
@@ -527,6 +535,6 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

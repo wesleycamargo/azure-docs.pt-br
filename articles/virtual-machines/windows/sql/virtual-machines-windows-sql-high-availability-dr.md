@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/15/2016
+ms.date: 02/07/2017
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: fbde757e44d05bf14f9337b47865edfb53894f10
+ms.sourcegitcommit: e43906fda1f5abc38c138b55c991c4ef8c550aa0
+ms.openlocfilehash: 93696222ca82573194541bfa95263f23fe3e2c39
 
 
 ---
@@ -36,27 +36,27 @@ Além disso, o GRS (Armazenamento com Redundância Geográfica) no Azure, que é
 As tecnologias HADR do SQL Server que têm suporte no Azure incluem:
 
 * [Grupos de disponibilidade AlwaysOn](https://technet.microsoft.com/library/hh510230.aspx)
-* [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx)
-* [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
-* [Backup e restauração com o Serviço de armazenamento de blob do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Instâncias do cluster de failover AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
+* [Envio de logs](https://technet.microsoft.com/library/ms187103.aspx)
+* [Backup e restauração do SQL Server com o Serviço de armazenamento de blobs do Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Espelhamento de banco de dados](https://technet.microsoft.com/library/ms189852.aspx) - preterido no SQL Server 2016
 
 É possível combinar as tecnologias para implementar uma solução SQL Server com alta disponibilidade e recursos de recuperação de desastre. Dependendo da tecnologia usada, uma implantação híbrida pode exigir um túnel VPN com a rede virtual do Azure. As seções a seguir mostram algumas das arquiteturas de implantação de exemplo.
 
 ## <a name="azure-only-high-availability-solutions"></a>Somente Azure: soluções de alta disponibilidade
-Você pode ter uma solução de alta disponibilidade para seus bancos de dados do SQL Server no Azure usando grupos de disponibilidade AlwaysOn ou espelhamento de banco de dados.
+Você pode ter uma solução de alta disponibilidade para seus bancos de dados do SQL Server no Azure usando recursos do Always On, incluindo grupos de disponibilidade ou instâncias do cluster de failover.
 
 | Tecnologia | Arquiteturas de exemplo |
 | --- | --- |
-| **Grupos de disponibilidade AlwaysOn** |Todas as réplicas de disponibilidade executadas em VMs do Azure para alta disponibilidade na mesma região. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)). |
-| **Instâncias do cluster de failover AlwaysOn** |FCI (Instâncias de Cluster de Failover), que exigem armazenamento compartilhado, podem ser criadas de duas maneiras diferentes.<br/><br/>1. Uma FCI em um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa o SIOS DataKeeper, veja [Alta disponibilidade para um compartilhamento de arquivos usando o WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Uma FCI em um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio da Rota Expressa. Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com o Equinix para VMs do Azure.<br/><br/>Em caso de problemas relacionados ao acesso a dados no failover, contate o fornecedor para obter soluções de terceiros para armazenamento compartilhado e replicação de dados.<br/><br/>Observe que ainda não há suporte para o uso do FCI no [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/) , pois esta solução não utiliza o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve. |
+| **Grupos de disponibilidade AlwaysOn** |As réplicas de disponibilidade em execução em VMs do Azure para a mesma região fornecem alta disponibilidade. Você precisa configurar uma VM de controlador de domínio, porque o WSFC (Windows Server Failover Clustering) requer um domínio do Active Directory.<br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>Para obter mais informações, consulte [Configure Always On Availability Groups in Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) (Configurar grupos de disponibilidade AlwaysOn no Azure (GUI)). |
+| **Instâncias do cluster de failover AlwaysOn** |FCI (Instâncias de Cluster de Failover), que exigem armazenamento compartilhado, podem ser criadas de três maneiras diferentes.<br/><br/>1. Um WSFC de dois nós em execução nas VMs do Azure, com o armazenamento anexado usando os [Espaços de Armazenamento Diretos do Windows Server 2016 \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) para fornecer uma SAN virtual baseada em software.<br/><br/>2. Um WSFC de dois nós em execução nas VMs do Azure com armazenamento que dá suporte a uma solução de cluster de terceiros. Para obter um exemplo específico que usa o SIOS DataKeeper, veja [Alta disponibilidade para um compartilhamento de arquivos usando o WSFC e o software de terceiros SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. Um WSFC de dois nós em execução em VMs do Azure com armazenamento em um bloco compartilhado de destino iSCSI por meio do ExpressRoute. Por exemplo, o NPS (Armazenamento Privado do NetApp) expõe um destino iSCSI por meio da Rota Expressa com o Equinix para VMs do Azure.<br/><br/>Em caso de problemas relacionados ao acesso a dados no failover, contate o fornecedor para obter soluções de terceiros para armazenamento compartilhado e replicação de dados.<br/><br/>Observe que ainda não há suporte para o uso do FCI no [Armazenamento de arquivos do Azure](https://azure.microsoft.com/services/storage/files/) , pois esta solução não utiliza o Armazenamento Premium. Estamos trabalhando para dar suporte a isso em breve. |
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Somente Azure: soluções de recuperação de desastre
 Você pode ter uma solução de recuperação de desastre para seus bancos de dados do SQL Server no Azure usando grupos de disponibilidade AlwaysOn, espelhamento de banco de dados ou backup e restauração com blobs de armazenamento.
 
 | Tecnologia | Arquiteturas de exemplo |
 | --- | --- |
-| **Grupos de disponibilidade AlwaysOn** |Réplicas de disponibilidade executadas em vários datacenters em VMs do Azure para recuperação de desastres. Essa solução de regiões cruzadas protege contra interrupção completa de site. <br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Dentro de uma região, todas as réplicas devem estar dentro do mesmo serviço de nuvem e na mesma VNet. Como cada região terá uma VNet separada, essas soluções necessitam de VNet para conectividade VNet. Para obter mais informações, consulte [Configurar uma VPN site a site no portal clássico do Azure](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). |
+| **Grupos de disponibilidade AlwaysOn** |Réplicas de disponibilidade executadas em vários datacenters em VMs do Azure para recuperação de desastres. Essa solução de regiões cruzadas protege contra interrupção completa de site. <br/> ![Grupos de disponibilidade AlwaysOn](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Dentro de uma região, todas as réplicas devem estar dentro do mesmo serviço de nuvem e na mesma VNet. Como cada região terá uma VNet separada, essas soluções necessitam de VNet para conectividade VNet. Para obter mais informações, consulte [Configurar uma VPN site a site no portal clássico do Azure](../../../vpn-gateway/vpn-gateway-site-to-site-create.md). Para obter instruções detalhadas, confira [Configurar um SQL Server sempre no grupo de disponibilidade em máquinas virtuais do Azure em diferentes regiões](virtual-machines-windows-portal-sql-availability-group-dr.md).|
 | **Espelhamento de banco de dados** |Servidores principal e de espelho em execução em diferentes datacenters para recuperação de desastres. Você deve implantar usando certificados de servidor, pois um domínio do Active Directory não pode abranger vários datacenters.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Backup e restauração com o Serviço de armazenamento de blob do Azure** |Bancos de dados de produção com backup direto no armazenamento de blob em um datacenter diferente para recuperação de desastre.<br/>![Backup e restauração](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [Backup e Restauração para SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md). |
 
@@ -139,6 +139,6 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

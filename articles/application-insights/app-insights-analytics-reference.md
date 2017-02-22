@@ -11,17 +11,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/20/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 71cf6cd6e7a33b3aeb3e0e20b9b047377412786d
 
 
 ---
 # <a name="reference-for-analytics"></a>Referência da Análise
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
+Fontes de informações adicionais:
+
+* Muito material de referência está disponível na análise conforme você digita. Comece a digitar uma consulta e será possíveis conclusões.
+* [Página do tutorial](app-insights-analytics-tour.md) apresenta uma introdução passo a passo para os recursos de linguagem.
 * [Roteiro dos usuários do SQL](https://aka.ms/sql-analytics) converte as linguagens mais comuns.
 * [Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo) se seu aplicativo ainda não estiver enviando dados para o Application Insights.
  
@@ -29,7 +33,7 @@ O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [
 ## <a name="index"></a>Índice
 **Permitir** [let](#let-clause)
 
-**Consultas e operadores** [contagem](#count-operator) | [avaliar](#evaluate-operator) | [estender](#extend-operator) | [junção](#join-operator) | [limite](#limit-operator) | [mvexpand](#mvexpand-operator) | [analisar](#parse-operator) | [projeto](#project-operator) | [project-away](#project-away-operator) | [intervalo](#range-operator) | [reduzir](#reduce-operator) | [processar diretiva](#render-directive) | [restringir cláusula](#restrict-clause) | [classificação](#sort-operator) | [resumir](#summarize-operator) | [levar](#take-operator) | [superior](#top-operator) | [top-nested](#top-nested-operator) | [união](#union-operator) | [onde](#where-operator) | [where-in](#where-in-operator)
+**Consultas e operadores** [contagem](#count-operator) | [avaliar](#evaluate-operator) | [estender](#extend-operator) | [localizar](#find-operator) | [junção](#join-operator) | [limite](#limit-operator) | [mvexpand](#mvexpand-operator) | [analisar](#parse-operator) | [projeto](#project-operator) | [project-away](#project-away-operator) | [intervalo](#range-operator) | [reduzir](#reduce-operator) | [processar diretiva](#render-directive) | [restringir cláusula](#restrict-clause) | [classificar](#sort-operator) | [resumir](#summarize-operator) | [obter](#take-operator) | [superior](#top-operator) | [top-nested](#top-nested-operator) | [união](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Agregações** [qualquer](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [contagem](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentil](#percentile) | [percentuais](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [soma](#sum) | [variação](#variance)
 
@@ -364,6 +368,70 @@ traces
     Age = now() - timestamp
 ```
 
+### <a name="find-operator"></a>localizar o operador
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Localize linhas que correspondem a um predicado em um conjunto de tabelas.
+
+**Sintaxe**
+
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
+
+**Argumentos**
+
+* *Table1* um nome de tabela ou consulta. Pode ser uma tabela definida pelo permitem, mas não uma função. Um nome de tabela é melhor do que uma consulta.
+* *Predicado* uma expressão booliana avaliada para cada linha nas tabelas especificadas.
+* *Column1* o `project` opção permite que você especifique quais colunas sempre devem aparecer na saída. 
+
+**Resultado**
+
+Por padrão, a tabela de saída contém:
+
+* `source_`-Um indicador da tabela de origem para cada linha.
+* Colunas explicitamente mencionadas no predicado
+* Colunas não-vazia comuns a todas as tabelas de entrada.
+* `pack_`-Um conjunto de propriedades contendo os dados de outras colunas.
+
+Observe que esse formato pode ser alterado com alterações nos dados de entrada ou predicado. Para especificar um conjunto fixo de colunas, use `project`.
+
+**Exemplo**
+
+Obter todas as solicitações e exceções, exceto aquelas de robôs e de testes de disponibilidade:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Localize todas as solicitações e exceções do Reino Unido, exceto aquelas de robôs e de testes de disponibilidade:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
+Encontre mais recente telemetria onde qualquer campo que contém o termo 'test':
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+**Dicas de desempenho**
+
+* Adicionar termos de tempo para o `where` predicado.
+* Use `let` cláusulas em vez de escrever consultas embutido.
+
+
 
 ### <a name="join-operator"></a>operador join
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +455,10 @@ Uma tabela com:
 
 * Uma coluna para cada coluna em cada uma das duas tabelas, incluindo as chaves correspondentes. As colunas do lado direito serão automaticamente renomeadas se houver conflitos de nome.
 * Uma linha para cada correspondência entre as tabelas de entrada. Uma correspondência é uma linha selecionada de uma tabela que tem o mesmo valor para todos os campos `on` que uma linha da outra tabela. 
-* `Kind` não especificado
+* `Kind` não especificado ou `= innerunique`
   
     Apenas uma linha do lado esquerdo é correspondida para cada valor da chave `on` . A saída contém uma linha para cada correspondência dessa linha com linhas da direita.
-* `Kind=inner`
+* `kind=inner`
   
      Há uma linha na saída para cada combinação de linhas correspondentes da esquerda e da direita.
 * `kind=leftouter` (`kind=rightouter` ou `kind=fullouter`)
@@ -399,8 +467,10 @@ Uma tabela com:
 * `kind=leftanti`
   
      Retorna todos os registros do lado esquerdo que não têm correspondências da direita. A tabela de resultados tem apenas as colunas do lado esquerdo. 
+* `kind=leftsemi`(ou `leftantisemi`)
 
-Se houver várias linhas com os mesmos valores para esses campos, você obterá linhas para todas as combinações.
+    Retorna uma linha da tabela esquerda se não houver (ou não) uma correspondência para ele na tabela direita. O resultado não inclui dados do lado direito.
+
 
 **Dicas**
 
@@ -836,9 +906,8 @@ As linhas de entrada são organizadas em grupos com os mesmos valores que as exp
 
 O resultado tem a mesma quantidade de linhas que diferentes combinações de valores `by` . Se quiser resumir intervalos de valores numéricos, use `bin()` para reduzir os intervalos a valores distintos.
 
-**Observação**
-
-Embora você possa fornecer expressões aleatórias para as expressões de agregação e de agrupamento, é mais eficiente usar nomes de coluna simples ou aplicar `bin()` a uma coluna numérica.
+> [!NOTE]
+> Embora você possa fornecer expressões aleatórias para as expressões de agregação e de agrupamento, é mais eficiente usar nomes de coluna simples ou aplicar `bin()` a uma coluna numérica.
 
 ### <a name="take-operator"></a>operador take
 Alias de [limit](#limit-operator)
@@ -937,13 +1006,13 @@ Esta versão mais eficiente produz o mesmo resultado. Ela filtra cada tabela ant
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### <a name="forcing-an-order-of-results"></a>Forçando uma ordem de resultados
+#### <a name="forcing-an-order-of-results"></a>Forçando uma ordem de resultados
 
 A união não garante uma ordem específica nas linhas dos resultados.
 Para obter a mesma ordem toda vez que você executar a consulta, acrescente uma coluna de marcação a cada tabela de entrada:
@@ -953,6 +1022,9 @@ Para obter a mesma ordem toda vez que você executar a consulta, acrescente uma 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### <a name="see-also"></a>Consulte também
+
+Considere o [operador join](#join-operator) como uma alternativa.
 
 ### <a name="where-operator"></a>operador where
      requests | where resultCode==200
@@ -964,11 +1036,13 @@ Filtra uma tabela para o subconjunto de linhas que satisfazem a um predicado.
 **Sintaxe**
 
     T | where Predicate
+    T | where * has Term
 
 **Argumentos**
 
 * *T:* a entrada tabulares cujos registros devem ser filtrados.
 * *Predicate:* uma `boolean` [expressão](#boolean) nas colunas de *T*. É avaliado para cada linha em *T*.
+* *Termo* -uma cadeia de caracteres que deve corresponder a uma palavra em uma coluna inteira.
 
 **Retorna**
 
@@ -1621,7 +1695,7 @@ Alias `floor`.
 
 O múltiplo mais próximo de *roundTo* abaixo de *value*.  
 
-    (toint((value/roundTo)-0.5)) * roundTo
+    (toint(value/roundTo)) * roundTo
 
 **Exemplos**
 
@@ -1705,14 +1779,14 @@ A função da raiz quadrada.
 
 ### <a name="toint"></a>toint
     toint(100)        // cast from long
-    toint(20.7) == 21 // nearest int from double
-    toint(20.4) == 20 // nearest int from double
+    toint(20.7) == 20 // nearest int below double
+    toint(20.4) == 20 // nearest int below double
     toint("  123  ")  // parse string
     toint(a[0])       // cast from dynamic
     toint(b.c)        // cast from dynamic
 
 ### <a name="tolong"></a>tolong
-    tolong(20.7) == 21 // conversion from double
+    tolong(20.7) == 20 // conversion from double
     tolong(20.4) == 20 // conversion from double
     tolong("  123  ")  // parse string
     tolong(a[0])       // cast from dynamic
@@ -1874,7 +1948,7 @@ O número ordinal do dia do ano.
 
 
 ### <a name="getmonth"></a>getmonth
-Obtenha o número do mês (1 a 12) de um datetime.
+Obtenha o número do mês (1 a&12;) de um datetime.
 
 **Exemplo**
 
@@ -2607,6 +2681,6 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

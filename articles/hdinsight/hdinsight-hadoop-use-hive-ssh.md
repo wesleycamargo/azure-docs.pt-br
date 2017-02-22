@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 6971e3d36629640d3a550539b29ba7cc4c0da6b7
 
 
 ---
@@ -27,14 +27,17 @@ ms.openlocfilehash: 366642a753223aec116ebd87751dfce0c393f7a7
 Neste artigo, você aprenderá a usar o SSH (Secure Shell) para se conectar a um cluster do Hadoop no HDInsight e enviar interativamente consultas Hive usando a CLI (Interface de Linha de Comando) do Hive.
 
 > [!IMPORTANT]
-> Embora o comando Hive esteja disponível em clusters HDInsight baseados em Linux, considere o uso do Beeline. Beeline é um cliente mais novo para trabalhar com o Hive e está incluído em seu cluster HDInsight. Para saber mais sobre como usar isso, consulte [Usar o Hive com Hadoop no HDInsight com Beeline](hdinsight-hadoop-use-hive-beeline.md).
-> 
-> 
+> Embora o comando Hive esteja disponível em clusters HDInsight, considere o uso do Beeline. Beeline é um cliente mais novo para trabalhar com o Hive e está incluído em seu cluster HDInsight. Para saber mais sobre como usar isso, consulte [Usar o Hive com Hadoop no HDInsight com Beeline](hdinsight-hadoop-use-hive-beeline.md).
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um cluster do Hadoop no HDInsight baseado em Linux.
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexão com o SSH
@@ -154,6 +157,6 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

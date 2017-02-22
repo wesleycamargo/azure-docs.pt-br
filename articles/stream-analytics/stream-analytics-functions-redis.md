@@ -1,5 +1,5 @@
 ---
-title: "Saída para um Cache Redis do Azure, usando o Azure Functions, do Azure Stream Analytics | Microsoft Docs"
+title: Processamento em tempo real do Stream Analytics para Azure Functions | Microsoft Docs
 description: "Saiba como usar uma função do Azure conectada a uma Fila do Barramento de Serviço para preencher um Cache Redis do Azure da saída de um trabalho do Stream Analytics."
 keywords: "transmissão de dados, cache redis, fila do barramento de serviço"
 services: stream-analytics
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: ryancraw
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26808d4d73e5b6256b56dd3c5d5ae5d075eaac5a
+ms.sourcegitcommit: 9afd26024d2aa0d3d732ddc6f54e591715afca69
+ms.openlocfilehash: 3753846e955308a7607d92ed25648d75b9cc3a35
 
 
 ---
@@ -26,7 +26,7 @@ O Stream Analytics do Azure permite que você desenvolva e implante soluções e
 Suponha que você faça parte de uma empresa de telecomunicações. Você está tentando detectar uma fraude SIM, na qual várias chamadas vêm da mesma identidade ao mesmo tempo, mas em locais diferentes geograficamente. Você fica encarregado de armazenar todas as possíveis chamadas fraudulentas em um Cache Redis do Azure. Neste blog, fornecemos diretrizes sobre como você pode concluir sua tarefa facilmente. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Conclua o passo a passo de [Detecção de fraudes em tempo real][fraud-detection] para ASA
+Conclua o passo a passo de [Detecção de fraude em tempo real][fraud-detection] para ASA
 
 ## <a name="architecture-overview"></a>Visão geral da arquitetura
 ![Captura de tela da arquitetura](./media/stream-analytics-functions-redis/architecture-overview.png)
@@ -34,7 +34,7 @@ Conclua o passo a passo de [Detecção de fraudes em tempo real][fraud-detection
 Conforme mostrado na figura anterior, o Stream Analytics permite que a transmissão de dados de entrada seja consultada e enviada para uma saída. Com base na saída, o Azure Functions pode disparar algum tipo de evento. 
 
 Neste blog, nos concentramos na parte do Azure Functions deste pipeline, ou mais especificamente no disparo de um evento que armazena dados fraudulentos no cache.
-Depois de concluir o tutorial sobre [Detecção de fraudes em tempo real][fraud-detection], você terá uma entrada (um hub de eventos), uma consulta e uma saída (Armazenamento de Blobs) já configurados e em execução. Neste blog, como alternativa, alteramos a saída para usar uma fila do Barramento de Serviço. Depois disso, conectamos uma função do Azure nesta fila. 
+Depois de concluir o tutorial sobre [Detecção de fraude em tempo real][fraud-detection], você terá uma entrada (um hub de eventos), uma consulta e uma saída (Armazenamento de Blobs) já configurados e em execução. Neste blog, como alternativa, alteramos a saída para usar uma fila do Barramento de Serviço. Depois disso, conectamos uma função do Azure nesta fila. 
 
 ## <a name="create-and-connect-a-service-bus-queue-output"></a>Criar e conectar-se a uma saída de Fila do Barramento de Serviço
 Para criar uma Fila do Barramento de Serviço, siga as etapas 1 e 2 da seção .NET em [Introdução às Filas do Barramento de Serviço][servicebus-getstarted].
@@ -43,7 +43,7 @@ Agora, vamos conectar a fila no trabalho do Stream Analytics que foi criado no p
 1. No Portal do Azure, acesse a folha **Saídas** do seu trabalho e selecione **Adicionar** na parte superior da página.
    
     ![Adição de saídas](./media/stream-analytics-functions-redis/adding-outputs.png)
-2. Escolha a **Fila do Barramento de Serviço** como o **Coletor** e siga as instruções na tela. Verifique se você escolheu o namespace da Fila do Barramento de Serviço criado na [Introdução às Filas do Barramento de Serviço][servicebus-getstarted]. Clique no botão "direito" quando tiver terminado.
+2. Escolha a **Fila do Barramento de Serviço** como o **Coletor** e siga as instruções na tela. Verifique se você escolheu o namespace da Fila do Barramento de Serviço criada na [Introdução às Filas do Barramento de Serviço][servicebus-getstarted]. Clique no botão "direito" quando tiver terminado.
 3. Especifique os seguintes valores:
    
    * **Formato do Serializador de Evento**: JSON
@@ -207,6 +207,6 @@ Para se manter atualizado sobre todas as notícias e recursos mais recentes, sig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

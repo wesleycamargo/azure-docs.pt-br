@@ -1,22 +1,22 @@
 ---
-title: "Trabalhando com aplicativos com reconhecimento de declarações no Proxy de Aplicativo"
-description: Aborda como colocar em funcionamento com o Proxy de aplicativo do Azure AD.
+title: "Aplicativos com reconhecimento de declarações - Proxy de aplicativo do Azure AD | Microsoft Docs"
+description: "Como publicar aplicativos ASP.NET locais que aceitam declarações do ADFS para acesso remoto seguro por seus usuários."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 164f9fada5565110d37c0f191bcdfac9ec8e48e8
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
 
 
 ---
@@ -34,23 +34,24 @@ Antes de executar este procedimento, certifique-se de que o STS para o qual o ap
 
 ## <a name="adfs-configuration"></a>Configuração do AD FS
 1. Abra o Gerenciamento de ADFS.
-2. Vá para **Confiando em Terceiros**, clique com o botão direito no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**.  
-   ![Objeto de confiança de terceira parte confiável, clique com o botão direito do mouse no nome do aplicativo - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+2. Acesse **Terceiras Partes Confiáveis**, clique com o botão direito do mouse no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**.  
+
+   ![Confianças em Terceiras Partes Confiáveis, clique com o botão direito do mouse no nome do aplicativo - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+
 3. Na guia **Pontos de Extremidade**, em **Tipo de ponto de extremidade**, selecione **WS-Federation**.
 4. Em **URL Confiável**, insira a URL fornecida no Proxy de Aplicativo em **URL Externa** e clique em **OK**.  
+
    ![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
-## <a name="see-also"></a>Consulte também
-* [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
+## <a name="next-steps"></a>Próximas etapas
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 * [Habilitar aplicativos clientes nativos para interagir com aplicativos de proxy](active-directory-application-proxy-native-client.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

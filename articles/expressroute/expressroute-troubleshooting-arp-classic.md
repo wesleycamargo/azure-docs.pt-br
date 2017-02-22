@@ -1,5 +1,5 @@
 ---
-title: "Guia de solução de problemas de ExpressRoute: Obtenção de tabelas ARP | Microsoft Docs"
+title: "Obtenção de tabelas ARP: Clássico: Solução de problemas de ExpressRoute do Azure | Microsoft Docs"
 description: "Esta página fornece instruções para obter tabelas ARP para um circuito de Rota Expressa."
 documentationcenter: na
 services: expressroute
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 01/30/2017
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
+ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
 
 
 ---
-# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guia de solução de problemas de Rota Expressa: Obtenção de tabelas ARP no modelo de implantação clássico
+# <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obter tabelas ARP no modelo de implantação clássico
 > [!div class="op_single_selector"]
 > * [PowerShell – Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
 > * [PowerShell - clássico](expressroute-troubleshooting-arp-classic.md)
@@ -172,6 +172,6 @@ A tabela ARP de um emparelhamento pode ser usada para validar a configuração e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

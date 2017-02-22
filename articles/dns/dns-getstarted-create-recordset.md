@@ -1,6 +1,6 @@
 ---
 title: Criar registros e um conjunto de registros para uma zona DNS usando o PowerShell | Microsoft Docs
-description: "Como criar registros de host para o DNS do Azure. Configuração dos conjuntos de registros e registros usando o PowerShell"
+description: Como criar registros de host no DNS do Azure. Configurar conjuntos de registros e registros usando o PowerShell
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
+ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
+ms.openlocfilehash: 175e8620828a2b0a0aff6de0b1a39860ea59514b
 
 ---
 
@@ -26,134 +26,98 @@ ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [CLI do Azure](dns-getstarted-create-recordset-cli.md)
 
-Este artigo explica o processo de criação de registros e conjuntos de registros usando o Windows PowerShell. Depois de criar a zona DNS, você adiciona os registros DNS para seu domínio. Para fazer isso, primeiro você precisa entender os registros DNS e conjuntos de registros.
+Este artigo explica o processo de criação de registros e conjuntos de registros usando o Azure PowerShell.
+
+## <a name="introduction"></a>Introdução
+
+Antes de criar registros DNS no DNS do Azure, primeiro você precisa entender como o DNS do Azure organiza registros DNS em conjuntos de registros DNS.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-## <a name="verify-that-you-have-the-latest-version-of-powershell"></a>Verifique se você tem a última versão do PowerShell
-
-Verifique se você instalou a última versão dos cmdlets do PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
+Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Zonas e registros DNS](dns-zones-records.md).
 
 ## <a name="create-a-record-set-and-record"></a>Criar registro e um conjunto de registros
 
-Esta seção descreve como criar um registro e um conjunto de registros.
+Esta seção descreve como criar registros DNS no Azure DNS. Os exemplos pressupõem que você já [instalou o Azure PowerShell, iniciou uma sessão e criou uma zona DNS](dns-getstarted-create-dnszone.md).
 
-### <a name="1-connect-to-your-subscription"></a>1. Conecte-se as suas assinaturas
+Todos os exemplos nesta página usam o tipo 'A' de registro de DNS. Para obter outros tipos de registro e mais detalhes sobre como gerenciar registros DNS e conjuntos de registros, confira [Gerenciar registros DNS e conjuntos de registros usando o PowerShell](dns-operations-recordsets.md).
 
-Abra o console do PowerShell e conecte-se à sua conta. Use o exemplo a seguir para ajudar com a conexão:
+Se o novo registro tem o mesmo nome e tipo de um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tem um nome e tipo diferente para todos os registros existentes, você precisa [criar um novo conjunto de registros](#create-records-in-a-new-record-set). 
 
-```powershell
-Login-AzureRmAccount
-```
+### <a name="create-records-in-a-new-record-set"></a>Criar registros em um novo conjunto de registros
 
-Verificar as assinaturas da conta.
-
-```powershell
-Get-AzureRmSubscription
-```
-
-Especifique a assinatura que você quer usar.
-
-```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-```
-
-Para saber mais sobre como trabalhar com o PowerShell, confira [Usar o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
-
-### <a name="2-create-a-record-set"></a>2. Criar um conjunto de registros
-
-Você cria conjuntos de registros usando o cmdlet `New-AzureRmDnsRecordSet`. Ao criar um conjunto de registros, você precisa especificar o nome do conjunto de registros, a zona, o TTL (vida útil) e o tipo de registro.
+Você cria conjuntos de registros usando o cmdlet `New-AzureRmDnsRecordSet`. Ao criar um conjunto de registros, você precisa especificar o nome do conjunto de registros, a zona, o TTL (vida útil), o tipo de registro e os registros a serem criados.
 
 Para criar um conjunto de registros em vértices da zona (nesse caso, "contoso.com"), use o nome do registro "@",, incluindo as aspas. Isso é uma convenção comum do DNS.
 
-O exemplo a seguir cria um conjunto de registros com o nome relativo “www” na Zona DNS “contoso.com”. O nome totalmente qualificado do conjunto de registros é “www.contoso.com”. O tipo de registro é “A” e o TTL é 60 segundos. Depois de concluir esta etapa, você terá um conjunto de registros “www” vazio que é atribuído à variável *$rs*.
+O exemplo a seguir cria um novo conjunto de registros com o nome relativo "www" na Zona DNS "contoso.com". O nome totalmente qualificado do conjunto de registros é “www.contoso.com”. O tipo de registro é "A" e o TTL é 3600 segundos. O conjunto de registros contém um único registro, com o endereço IP "1.2.3.4"
 
 ```powershell
-$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
-#### <a name="if-a-record-set-already-exists"></a>Se um conjunto de registros já existir
-
-Se já houver um conjunto de registros, o comando falhará, a menos que a opção *-Overwrite* seja usada. A opção *-Overwrite* dispara um prompt de confirmação, que pode ser suprimido usando a opção *-Force*.
+Se precisar criar um novo conjunto de registros que contém mais de um registro, primeiro você precisa criar uma matriz local que contém os registros a serem adicionados.  Isso é enviado para `New-AzureRmDnsRecordSet` da seguinte maneira:
 
 ```powershell
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -ZoneName contoso.com -ResouceGroupName MyAzureResouceGroup [-Tag $tags] [-Overwrite] [-Force]
+$aRecords = @()
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4"
+$aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
+New-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-Neste exemplo, é possível especificar a zona usando o nome da zona e o nome do grupo de recursos. Como alternativa, você pode especificar um objeto de zona, conforme retornado por `Get-AzureRmDnsZone` ou `New-AzureRmDnsZone`.
+### <a name="add-a-record-to-an-existing-record-set"></a>Adicionar um registro a um conjunto de registros existente
 
-```powershell
-$zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-$rs = New-AzureRmDnsRecordSet -Name www -RecordType A -Ttl 300 -Zone $zone [-Tag $tags] [-Overwrite] [-Force]
+Para adicionar um registro a um conjunto de registros existente, siga estas três etapas:
+
+1. Obter o conjunto de registros existente
+
+    ```powershell
+    $rs = Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A
+    ```
+
+2. Adicione o novo registro ao conjunto de registros local. Esta é uma operação offline.
+
+    ```powershell
+    Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address "5.6.7.8"
+    ```
+
+3. Confirme a mudança no serviço DNS do Azure 
+
+    ```powershell
+    Set-AzureRmDnsRecordSet -RecordSet $rs
+    ```
+
+### <a name="verify-name-resolution"></a>Verificar a resolução de nome
+
+Você pode testar se os registros DNS estão presentes nos servidores de nome DNS do Azure usando ferramentas de DNS, tais como nslookup, dig ou o [cmdlet Resolve-DnsName PowerShell](https://technet.microsoft.com/library/jj590781.aspx).
+
+Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, você precisa [direcionar a consulta DNS diretamente para um dos servidores de nome para a zona](dns-getstarted-create-dnszone.md#test-name-servers). Substitua os valores corretos para a zona dos seus registros no exemplo a seguir:
+
 ```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-`New-AzureRmDnsRecordSet` retorna um objeto local que representa o conjunto de registros criado no DNS do Azure.
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-### <a name="3-add-a-record"></a>3. Adicionar um registro
-
-Para usar o conjunto de registros “www” recém-criado, você precisa adicionar registros a ele. Você pode adicionar os registros *A* do IPv4 ao conjunto de registros "www" usando o seguinte exemplo. O exemplo depende da variável *$rs* que você definiu na etapa anterior.
-
-Adicionar registros a um conjunto de registros usando `Add-AzureRmDnsRecordConfig` é uma operação offline. Apenas a variável local *$rs* é atualizada.
-
-```powershell
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+Name:    www.contoso.com
+Address:  1.2.3.4
 ```
-
-### <a name="4-commit-the-changes"></a>4. Confirmar as alterações
-
-Confirme as alterações no conjunto de registros. Use `Set-AzureRmDnsRecordSet` para carregar as alterações ao conjunto de registros no DNS do Azure.
-
-```powershell
-Set-AzureRmDnsRecordSet -RecordSet $rs
-```
-
-### <a name="5-retrieve-the-record-set"></a>5. Recuperar o conjunto de registros
-
-Você pode recuperar o conjunto de registros do DNS do Azure usando `Get-AzureRmDnsRecordSet`, conforme mostrado no exemplo a seguir.
-
-    Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
-
-
-    Name              : www
-    ZoneName          : contoso.com
-    ResourceGroupName : MyAzureResourceGroup
-    Ttl               : 3600
-    Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
-    RecordType        : A
-    Records           : {134.170.185.46, 134.170.188.221}
-    Tags              : {}
-
-
-Você também pode usar a ferramenta nslookup ou outras ferramentas DNS para consultar o novo conjunto de registros.
-
-Se ainda não tiver delegado o domínio para os servidores de nome DNS do Azure, você precisará especificar o nome, servidor e endereço da zona explicitamente.
-
-    nslookup www.contoso.com ns1-01.azure-dns.com
-
-    Server: ns1-01.azure-dns.com
-    Address:  208.76.47.1
-
-    Name:    www.contoso.com
-    Addresses:  134.170.185.46
-                134.170.188.221
-
-## <a name="create-a-record-set-of-each-type-with-a-single-record"></a>Criar um conjunto de registros de cada tipo com um único registro
-
-Os exemplos a seguir mostram como criar um conjunto de registros de cada tipo de registro. Cada conjunto de registros contém um único registro.
-
-[!INCLUDE [dns-add-record-ps-include](../../includes/dns-add-record-ps-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como gerenciar as zonas DNS usando o PowerShell](dns-operations-dnszones.md)
+Saiba como [delegar seu nome de domínio para os servidores de nome DNS do Azure](dns-domain-delegation.md)
 
-[Gerenciar registros DNS e conjuntos de registros usando o PowerShell](dns-operations-recordsets.md)
+Saiba como [gerenciar zonas DNS usando o PowerShell](dns-operations-dnszones.md).
 
-[Automatizar operações do Azure com o SDK do .NET](dns-sdk.md)
+Saiba como [gerenciar registros DNS e conjuntos de registros usando o PowerShell](dns-operations-recordsets.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

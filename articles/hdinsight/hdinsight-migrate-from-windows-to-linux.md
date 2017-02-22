@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 01/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: f82e8fcb6228df25c8e3181059fe06fea5fbce78
+ms.sourcegitcommit: 0d5b68d26d708a28edee13ff3d9a57588ce83e12
+ms.openlocfilehash: 856d75c58cd911c641ec74b78f5c6133e605b2ec
 
 
 ---
@@ -27,8 +27,6 @@ Este documento fornece detalhes sobre as diferenças entre o HDInsight no Window
 
 > [!NOTE]
 > Os clusters HDInsight usam Ubuntu LTS (suporte de longo prazo) como o sistema operacional para os nós no cluster. Para obter informações sobre a versão do Ubuntu disponível com o HDInsight, além de outras informações de controle de versão do componente, confira [Versões de componente do HDInsight](hdinsight-component-versioning.md).
->
->
 
 ## <a name="migration-tasks"></a>Tarefas de migração
 Veja a seguir o fluxo de trabalho geral da migração.
@@ -56,14 +54,17 @@ Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do arm
 
 1. Encontre as informações sobre a conta de armazenamento e o contêiner padrão do cluster existente. Você pode fazer isso usando o script a seguir do Azure PowerShell.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. Siga as etapas no documento Criar clusters baseados em Linux no HDInsight para criar um novo ambiente de teste. Pare antes de criar o cluster e escolha **Configuração Opcional**.
 3. Na folha Configuração Opcional, escolha **Contas de Armazenamento Vinculadas**.
 4. Escolha **Adicionar uma chave de armazenamento**e, quando solicitado, escolha a conta de armazenamento que foi retornada pelo script do PowerShell na etapa 1. Clique em **Selecionar** em cada folha para fechá-las. E por último, crie o cluster.
-5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.**  Se você não sabe direito como usar o SSH com o HDInsight, confira um dos artigos a seguir.
+5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.** Se você não sabe direito como usar o SSH com o HDInsight, confira um dos artigos a seguir.
 
    * [Usar SSH com HDInsight baseado em Linux de clientes Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
    * [Usar SSH com HDInsight baseado em Linux de clientes Linux, Unix ou Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -71,7 +72,8 @@ Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do arm
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] Se a estrutura de diretório que contiver os dados não existir no ambiente de teste, você poderá criá-la usando o comando a seguir.
+    > [!NOTE]
+    > Se a estrutura de diretório que contiver os dados não existir no ambiente de teste, você poderá criá-la usando o comando a seguir.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -81,7 +83,7 @@ Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do arm
 Como alternativa, talvez seja conveniente usar o cmdlet `Start-AzureStorageBlobCopy` do Azure PowerShell para copiar blobs entre contas de armazenamento fora do HDInsight. Para saber mais, confira a seção Como gerenciar blobs do Azure em Usando o Azure PowerShell com o Armazenamento do Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologias do lado do cliente
-De modo geral, as tecnologias do lado do cliente, como os [cmdlets do Azure PowerShell](../powershell-install-configure.md), a [CLI do Azure](../xplat-cli-install.md) ou o [SDK do .NET para Hadoop](https://hadoopsdk.codeplex.com/), continuarão funcionando do mesmo jeito com os clusters baseados em Linux, pois elas dependem das APIs REST que são as mesmas em ambos os tipos de sistema operacional do cluster.
+De modo geral, as tecnologias do lado do cliente, como os [cmdlets do Azure PowerShell](/powershell/azureps-cmdlets-docs), a [CLI do Azure](../xplat-cli-install.md) ou o [SDK do .NET para Hadoop](https://hadoopsdk.codeplex.com/), continuarão funcionando do mesmo jeito com os clusters baseados em Linux, pois elas dependem das APIs REST que são as mesmas em ambos os tipos de sistema operacional do cluster.
 
 ## <a name="server-side-technologies"></a>Tecnologias do lado do servidor
 A tabela a seguir fornece instruções de como migrar componentes do lado servidor que sejam específicos do Windows.
@@ -90,7 +92,7 @@ A tabela a seguir fornece instruções de como migrar componentes do lado servid
 | --- | --- |
 | **PowerShell** (scripts do lado do servidor, incluindo as Ações de Script usadas durante a criação do cluster) |Reescreva-os como scripts Bash. Para as Ações de Script, confira [Personalizar clusters HDInsight baseados em Linux usando as Ações de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **CLI do Azure** (scripts de servidor) |Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Se você precisar dela para criar o script de servidor, confira [Instalar a CLI do Azure](../xplat-cli-install.md) para obter informações sobre a instalação em plataformas baseadas em Linux. |
-| **Componentes do .NET** |O .NET não é totalmente compatível com os clusters HDInsight baseados em Linux. Os clusters Storm no HDInsight baseados em Linux criados depois de 28/10/2017 aceitam topologias Storm do C# usando a estrutura SCP.NET. O suporte adicional para o .NET será adicionado em futuras atualizações. |
+| **Componentes do .NET** |O .NET não é totalmente compatível com todos os tipos de cluster HDInsight baseados em Linux. Os clusters Storm no HDInsight baseados em Linux criados depois de 28/10/2016 aceitam topologias Storm do C# usando a estrutura SCP.NET. O suporte adicional para o .NET será adicionado em futuras atualizações. |
 | **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** |A orientação depende do componente ou da tecnologia; talvez você possa encontrar uma versão que seja compatível com Linux, ou talvez precise encontrar uma solução alternativa, ou reescrever esse componente. |
 
 ## <a name="cluster-creation"></a>Criação do cluster
@@ -135,8 +137,6 @@ O Ambari tem um sistema de alerta que pode informar a você sobre problemas pote
 > Os alertas do Ambari indicam que *pode* haver um problema, e não que *há* um problema. Por exemplo, você pode receber um alerta de que HiveServer2 não pode ser acessado, mesmo que consiga acessá-lo normalmente.
 >
 > Vários alertas são implementados como consultas baseadas em intervalo em um serviço e esperam uma resposta por um período específico. Portanto, o alerta não significa necessariamente que o serviço está inativo, apenas que ele não retornou resultados dentro do tempo esperado.
->
->
 
 De modo geral, antes de tomar alguma medida, você deve avaliar se um alerta vem ocorrendo por um longo período ou se espelha problemas do usuário que foram relatados anteriormente com o cluster.
 
@@ -222,6 +222,6 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

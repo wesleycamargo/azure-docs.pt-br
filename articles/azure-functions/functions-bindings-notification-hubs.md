@@ -3,7 +3,7 @@ title: "Associação do Hub de Notificação do Azure Functions | Microsoft Docs
 description: "Entenda como usar a associação de Hub de Notificação do Azure no Azure Functions."
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: ggailey777
 manager: erikre
 editor: 
 tags: 
@@ -15,10 +15,10 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: wesmc
+ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7e9534afa8ecd224b4e3c1df2f4465b70d961d2c
-ms.openlocfilehash: 1e03a54956a9fd035cf40aa953a2c368d91b766b
+ms.sourcegitcommit: a64af1a9f969c5ce5a7e2f18ca23451ac96f1a13
+ms.openlocfilehash: 7abd7b0921c029ff159935d89905d3c502aba643
 
 
 ---
@@ -76,8 +76,8 @@ Você também pode adicionar manualmente uma cadeia de conexão a um hub existen
 
 1. Na folha **Aplicativo de funções** do portal do Azure, clique em **Configurações do Aplicativo de funções > Vá para as configurações do Serviço de Aplicativo**.
 2. Na folha **Configurações**, clique em **Configurações do Aplicativo**.
-3. Role para baixo até a seção **Cadeias de conexão** e adicione uma entrada nomeada para o valor *DefaultFullSharedAccessSignature* para o hub de notificação. Altere o tipo para **Personalizado**.
-4. Faça referência ao nome da sua cadeia de conexão nas associações de saída. Semelhante à **MyHubConnectionString** usada no exemplo acima.
+3. Role para baixo até a seção **Configurações do aplicativo** e adicione uma entrada nomeada para o valor *DefaultFullSharedAccessSignature* para o hub de notificação.
+4. Faça referência ao nome da sua cadeia de configurações do aplicativo nas associações de saída. Semelhante à **MyHubConnectionString** usada no exemplo acima.
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>Notificações nativas do APNS com gatilhos de fila do C#
 Este exemplo mostra como usar tipos definidos na [Biblioteca de Hubs de Notificações do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) para enviar uma notificação nativa do APNS. 
@@ -298,6 +298,6 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

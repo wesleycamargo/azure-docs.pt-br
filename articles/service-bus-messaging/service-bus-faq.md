@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre o Barramento de Serviço | Microsoft Docs"
+title: "Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs"
 description: "Responde a algumas perguntas frequentes sobre o Barramento de Serviço do Azure."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,27 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
-ms.author: sethm;juconway
+ms.date: 02/09/2017
+ms.author: sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b350bac36f1d46c97da37a2807ead8c9c732d69a
+ms.sourcegitcommit: da7f8e3e61705cf07ff65c9dd1d8f292f4fb9f62
+ms.openlocfilehash: 9061829e42ed5563d64860774aa7d80f2ab011bd
 
 
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
-Este artigo responde a algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure. Os tópicos a seguir estão incluídos:
+Este artigo responde a algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure.
 
-* [Perguntas gerais sobre Mensagens do Barramento de Serviço do Azure](#general-questions-about-azure-service-bus-messaging)
-* [Práticas recomendadas do Barramento de Serviço](#service-bus-best-practices)
-* [Preços do Barramento de Serviço](#service-bus-pricing)
-* [Cotas do Barramento de Serviço](#service-bus-quotas)
-* [Gerenciamento de assinaturas e de namespaces](#subscription-and-namespace-management)
-* [Solução de problemas](#service-bus-troubleshooting)
-
-## <a name="general-questions-about-azure-service-bus-messaging"></a>Perguntas gerais sobre Mensagens do Barramento de Serviço do Azure
-### <a name="what-is-azure-service-bus-messaging"></a>O que é o sistema de Mensagens do Barramento de Serviço do Azure?
-[Mensagens do Barramento de Serviço do Azure](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncronas que permite enviar dados entre sistemas separados. A Microsoft oferece esse recurso como um serviço, o que significa que você não precisa hospedar seu próprio hardware para usá-lo.
+## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
+### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
+[O Barramento de Serviço do Azure](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncronas que permite enviar dados entre sistemas separados. A Microsoft oferece esse recurso como um serviço, o que significa que você não precisa hospedar seu próprio hardware para usá-lo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>O que é um namespace do Barramento de Serviço?
 Um [namespace](service-bus-create-namespace-portal.md) fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. A criação de um hardware é necessária para a utilização do Barramento de Serviço e será uma das primeiras etapas da introdução.
@@ -48,11 +41,11 @@ Uma fila ou um tópico convencional é manipulado por um único agente de mensag
 
 Observe que a ordenação não é garantida ao usar o particionamento de entidades. Se uma partição não estiver disponível, você poderá enviar e receber mensagens de outras partições.
 
-## <a name="service-bus-best-practices"></a>Práticas recomendadas do Barramento de Serviço
+## <a name="best-practices"></a>Práticas recomendadas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do Barramento de Serviço do Azure?
-* [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço][Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço] – este artigo descreve como otimizar o desempenho na troca de mensagens agenciadas.
+* [Práticas recomendadas para melhorias de desempenho usando o Barramento de Serviço][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho na troca de mensagens.
 
-### <a name="what-should-i-know-before-creating-messaging-entities"></a>O que devo saber antes de criar entidades de mensagens?
+### <a name="what-should-i-know-before-creating-entities"></a>O que devo saber antes de criar entidades?
 As propriedades de uma fila e tópico a seguir são imutáveis. Leve isso em conta ao provisionar suas entidades, já que isso não pode ser modificado sem criar uma nova entidade de substituição.
 
 * Tamanho
@@ -61,25 +54,23 @@ As propriedades de uma fila e tópico a seguir são imutáveis. Leve isso em con
 * Detecção de duplicidade
 * Entidade expressa
 
-## <a name="service-bus-pricing"></a>Preços do Barramento de Serviço
+## <a name="pricing"></a>Preços
 Esta seção responde a perguntas frequentes sobre a estrutura de preços do Barramento de Serviço. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado o Barramento de Serviço?
-Para saber mais sobre o preço do Barramento de Serviço, veja [Detalhes de preço do Barramento de Serviço][Visão geral sobre preços]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
+Para saber mais sobre o preço do Barramento de Serviço, veja [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
-Todas as transferências de dados dentro de uma determinada região do Azure são feitas gratuitamente. Todas as transferências de dados fora de uma região estão sujeitas a encargos de saída a uma taxa de US$ 0,15 por GB a partir das regiões América do Norte e Europa e US$ 0,20 por GB da região do Pacífico Asiático. Todas as transferências de dados de entrada são feitas gratuitamente.
+Todas as transferências de dados dentro de uma determinada região do Azure são feitas gratuitamente, bem como qualquer transferência de dados recebida. A transferência de dados fora de uma região está sujeita a encargos de saída que podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Barramento de Serviço cobra pelo armazenamento?
 Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
 
-## <a name="service-bus-quotas"></a>Cotas do Barramento de Serviço
-Para obter uma lista de cotas e limites do Barramento de Serviço, consulte [Visão geral sobre cotas][Visão geral sobre cotas].
+## <a name="quotas"></a>Cotas
+Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O Barramento de Serviço tem cotas de uso?
-Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Como compreendemos que talvez seja necessário usar mais do que esses limites, contate o atendimento ao cliente a qualquer momento para que possamos entender as suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas totais de uso são:
-
-* 5 bilhões de mensagens
+Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Como compreendemos que talvez seja necessário usar mais do que esses limites, contate o atendimento ao cliente a qualquer momento para que possamos entender as suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, as cotas de uso agregado são de 5 bilhões de mensagens por mês.
 
 Embora reservemos o direito de desabilitar uma conta de cliente que tenha excedido suas cotas de uso em determinado mês, forneceremos uma notificação por email e faremos várias tentativas de contatar o cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis pelas cobranças que excederem as cotas.
 
@@ -111,45 +102,48 @@ As mensagens que excederem essas cotas de tamanho serão rejeitadas e uma exceç
 
 **Filtros de número de correlação por tópico** – o número máximo de filtros de correlação por tópico é limitado a 100 mil. Se essa cota for atingida, as solicitações subsequentes de criação de filtros adicionais para o tópico serão rejeitadas e uma exceção será recebida pelo código de chamada.
 
-## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
-É possível usar comandos do PowerShell (encontrados no artigo [aqui][aqui]) para mover um namespace de uma assinatura do Azure para outra. Para executar a operação, o namespace já deve estar ativo. Além disso, o usuário que executa os comandos deve ser administrador nas assinaturas de origem e de destino.
-
-## <a name="service-bus-troubleshooting"></a>Solução de problemas do Barramento de Serviço
-[Visão geral sobre exceções][Visão geral sobre exceções]
-
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-messaging-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs de mensagens do Barramento de Serviço do Azure e suas ações sugeridas?
-As exceções que as APIs de mensagens podem gerar se enquadram nestas categorias:
-
-* Erro de codificação do usuário
-* Erro de instalação/configuração
-* Exceções temporárias
-* Outras exceções
-
-O artigo [Exceções de mensagens do Barramento de Serviço][Visão geral sobre exceções] descreve algumas exceções com as ações sugeridas.
+## <a name="troubleshooting"></a>Solucionar problemas
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
+Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma Assinatura de Acesso Compartilhado e quais idiomas oferecem suporte para a geração de uma assinatura?
-As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas no Node, PHP, Java e C\#, consulte o artigo [As Assinaturas de Acesso Compartilhado][As Assinaturas de Acesso Compartilhado].
+As Assinaturas de Acesso Compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para saber mais sobre como gerar suas próprias assinaturas no Node, PHP, Java e C\#, veja o artigo [Assinaturas de Acesso Compartilhado][Shared Access Signatures].
+
+## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
+Usando o Portal do Azure, você pode migrar namespaces do Barramento de Serviço para outra assinatura seguindo as instruções [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). Se preferir usar o PowerShell, siga as instruções abaixo: 
+
+A sequência de comandos a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador em assinaturas de origem e de destino.
+
+```powershell
+# Create a new resource group in target subscription
+Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+
+# Move namespace from source subscription to target subscription
+Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
+Para saber mais sobre o Barramento de Serviço, veja os tópicos a seguir.
 
-* [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introdução ao sistema de mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+* [Introdução ao Barramento de Serviço Premium do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introdução ao Barramento de Serviço Premium do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Visão geral do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Visão geral da arquitetura de Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
-[Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço]: service-bus-performance-improvements.md
-[Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço]: service-bus-outages-disasters.md
-[Visão geral sobre preços]: https://azure.microsoft.com/pricing/details/service-bus/
-[Visão geral sobre cotas]: service-bus-quotas.md
-[aqui]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Visão geral sobre exceções]: service-bus-messaging-exceptions.md
-[As Assinaturas de Acesso Compartilhado]: service-bus-sas-overview.md
+[Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md
+[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
+[Quotas overview]: service-bus-quotas.md
+[Exceptions overview]: service-bus-messaging-exceptions.md
+[Shared Access Signatures]: service-bus-sas-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

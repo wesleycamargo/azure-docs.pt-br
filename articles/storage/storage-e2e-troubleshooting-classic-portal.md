@@ -1,25 +1,25 @@
 ---
-title: "Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem | Microsoft Docs"
+title: "Solucionando problemas do Armazenamento do Azure com Analisador de Mensagem e Diagnóstico | Microsoft Docs"
 description: "Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft"
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 01/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: c6e2c3415e6853b4df11f28a6dd59e7561a8e0cc
 
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando métricas de Armazenamento do Azure e registro em log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>Visão geral
@@ -103,7 +103,7 @@ Para configurar o registro em log e as métricas para sua conta de armazenamento
 
 **Por meio do PowerShell**
 
-Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Use o cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para adicionar sua conta de usuário do Azure à janela do PowerShell:
    
@@ -383,6 +383,6 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 * [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

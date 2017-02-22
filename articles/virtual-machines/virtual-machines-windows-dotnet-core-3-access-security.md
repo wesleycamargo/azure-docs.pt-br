@@ -1,5 +1,5 @@
 ---
-title: "Acesso e segurança em modelos do Azure Resource Manager | Microsoft Docs"
+title: "Acesso e segurança em modelos do Azure para VMs do Windows | Microsoft Docs"
 description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: a55c37121f580977b840613d373cfb00eb4dc582
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
 
 
 ---
@@ -143,6 +143,6 @@ Para obter informações detalhadas sobre grupos de segurança de rede, leia [O 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

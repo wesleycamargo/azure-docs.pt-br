@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/06/2016
-ms.author: darosa,sethm,jotaub
+ms.date: 01/18/2017
+ms.author: darosa;sethm;jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
-ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
+ms.sourcegitcommit: f223ea7ac168d3c800b6ba664b31ab66b382d6cc
+ms.openlocfilehash: 2657965ff3ee028263f9ef0c48024fe1839eee6e
 
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
-O Sistema de Mensagens do Barramento de Serviço, que inclui entidades de mensagens, como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
+O Sistema de Mensagens do Barramento de Serviço, que inclui entidades como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
 
 A camada *Premium* do Sistema de Mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do Sistema de Mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
 
@@ -50,11 +50,11 @@ Como o sistema de mensagens Premium é executado em um ambiente de tempo de exec
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
 
-A introdução ao sistema de mensagens Premium é simples e o processo é semelhante ao do sistema de mensagens padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou *Premium* em 'Tipo de preços'.
+A introdução ao Sistema de Mensagens Premium é simples e o processo é semelhante ao do Sistema de Mensagens Padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou **Premium** em **Tipo de preços**.
 
 ![criar-premium-namespace][create-premium-namespace]
 
-Você também pode criar um [namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+Você também pode criar um [Namespace Premium usando modelos do Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -71,6 +71,6 @@ Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

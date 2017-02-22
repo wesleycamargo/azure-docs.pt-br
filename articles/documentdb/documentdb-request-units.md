@@ -1,5 +1,5 @@
 ---
-title: "Unidades de solicitação no DocumentDB | Microsoft Docs"
+title: "Unidades de solicitação e estimativa de taxa de transferência - Azure DocumentDB | Microsoft Docs"
 description: "Saiba mais sobre como entender, especificar e estimar os requisitos de unidades de solicitação no Banco de Dados de Documentos."
 services: documentdb
 author: syamkmsft
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
+ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
+ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
 
 
 ---
@@ -120,7 +120,7 @@ Por exemplo:
 6. Calcule as unidades de solicitação necessárias, dado o número estimado de operações que você prevê que executará por segundo.
 
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de solicitação
-Considere o seguinte documento de aproximadamente 1 KB:
+Considere o seguinte documento de aproximadamente&1; KB:
 
     {
      "id": "08259",
@@ -179,18 +179,18 @@ A tabela a seguir mostra os encargos de unidade de solicitação aproximados par
 
 | Operação | Encargo de Unidade de Solicitação |
 | --- | --- |
-| Criar documento |Cerca de 15 RUs |
-| Ler documento |Cerca de 1 RU |
-| Consultar documento por id |Cerca de 2,5 RUs |
+| Criar documento |Cerca de&15; RUs |
+| Ler documento |Cerca de&1; RU |
+| Consultar documento por id |Cerca de&2;,5 RUs |
 
 Adicionalmente, a tabela mostra os encargos de unidade de solicitação aproximados para consultas típicas usadas no aplicativo:
 
 | Consultar | Encargo de Unidade de Solicitação | # Número de Documentos Retornados |
 | --- | --- | --- |
-| Selecionar alimentos por id |Cerca de 2,5 RUs |1 |
-| Selecionar alimentos por fabricante |Cerca de 7 RUs |7 |
-| Selecionar por grupo de alimentos e solicitar por peso |Cerca de 70 RUs |100 |
-| Selecionar os 10 alimentos principais em um grupo de alimentos |Cerca de 10 RUs |10 |
+| Selecionar alimentos por id |Cerca de&2;,5 RUs |1 |
+| Selecionar alimentos por fabricante |Cerca de&7; RUs |7 |
+| Selecionar por grupo de alimentos e solicitar por peso |Cerca de&70; RUs |100 |
+| Selecionar os 10 alimentos principais em um grupo de alimentos |Cerca de&10; RUs |10 |
 
 > [!NOTE]
 > Os encargos de RU variam com base no número de documentos retornados.
@@ -205,7 +205,7 @@ Com essas informações, podemos estimar os requisitos de RU para o aplicativo, 
 | Ler documento |100 |100 |
 | Selecionar alimentos por fabricante |25 |175 |
 | Selecionar por grupo de alimentos |10 |700 |
-| Selecionar os 10 principais |15 |Total de 150 |
+| Selecionar os 10 principais |15 |Total de&150; |
 
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 
@@ -239,6 +239,6 @@ Para começar com os testes de desempenho e escala com o DocumentDB, confira [Te
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

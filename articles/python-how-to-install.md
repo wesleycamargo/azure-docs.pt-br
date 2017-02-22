@@ -124,7 +124,7 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 * [Exemplos oficiais do Azure para Python](https://azure.microsoft.com/documentation/samples/?platform=python)
 * [Distribuição do Python de Análise de Continuidade][Distribuição do Python de Análise de Continuidade]
 * [Distribuição do Python de Enthought][Distribuição do Python de Enthought]
-* [Distribuição do Python de  ActiveState][Distribuição do Python de  ActiveState]
+* [Distribuição do Python de ActiveState][Distribuição do Python de ActiveState]
 * [SciPy – um conjunto de Bibliotecas científicas para Python][SciPy – um conjunto de Bibliotecas científicas para Python]
 * [NumPy – uma biblioteca de numéricos para o Python][NumPy – uma biblioteca de numéricos para o Python]
 * [Projeto Django – uma estrutura da Web/CMS sólida][Projeto Django – uma estrutura da Web/CMS sólida]
@@ -135,7 +135,7 @@ Para obter mais informações sobre como desenvolver e publicar Sites do Azure, 
 
 [Distribuição do Python de Análise de Continuidade]: http://continuum.io
 [Distribuição do Python de Enthought]: http://www.enthought.com
-[Distribuição do Python de  ActiveState]: http://www.activestate.com
+[Distribuição do Python de ActiveState]: http://www.activestate.com
 [Diretamente]: http://www.python.org
 [www.continuum.io]: http://continuum.io
 [www.enthought.com]: http://www.enthought.com

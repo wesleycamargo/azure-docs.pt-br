@@ -1,5 +1,5 @@
 ---
-title: " Carregar arquivos em uma conta dos Serviços de Mídia usando o Portal do Azure | Microsoft Docs"
+title: " Carregar arquivos em uma conta dos Serviços de Mídia usando o portal do Azure | Microsoft Docss"
 description: "Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta do Serviços de Mídia do Azure usando o portal do Azure"
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -29,9 +29,16 @@ ms.openlocfilehash: 8daf63e164dc548023878af091491b5d942276d9
 > [!NOTE]
 > Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
-> 
+
 
 Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. O Ativo pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados, o conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão.
+
+
+## <a name="upload-files"></a>Carregar arquivos
+
+>[!NOTE]
+>Há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
+>
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na folha **Configurações**, clique em **Ativos**.
@@ -54,6 +61,8 @@ Quando o carregamento for concluído, você verá o novo ativo listado na janela
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codificar ativos](media-services-portal-encode.md).
 
+Você também pode usar as Azure Functions para disparar um trabalho de codificação baseado em um arquivo que chega no contêiner configurado. Para obter mais informações, confira [este exemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
+
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -63,6 +72,6 @@ Agora você pode codificar seus ativos carregados. Para saber mais, veja [Codifi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

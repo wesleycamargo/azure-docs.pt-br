@@ -1,5 +1,5 @@
 ---
-title: Implantar e gerenciar VMs com modelos | Microsoft Docs
+title: Implantar VMs do Linux com modelos do Azure | Microsoft Docs
 description: "Implante e gerencie as configurações mais comuns para máquinas virtuais do Azure usando modelos do Gerenciador de Recursos e a CLI do Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2770aeaca83364d8d252d04a21c31dda1ce7d59f
+ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
+ms.openlocfilehash: 382ab1e465efd94d7bf9bbf21228a19e126a1f4d
 
 
 ---
@@ -29,6 +29,6 @@ Este artigo mostra como usar modelos do Gerenciador de Recursos do Azure e a CLI
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

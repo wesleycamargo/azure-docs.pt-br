@@ -3,7 +3,7 @@ title: Tutorial do Power BI para o conector do DocumentDB | Microsoft Docs
 description: "Use este tutorial do Power BI para importar o JSON, criar relatórios interessantes e visualizar dados usando o conector do Banco de Dados de Documentos e do Power BI."
 keywords: tutorial do power bi, visualizar dados, conector do power bi
 services: documentdb
-author: h0n
+author: mimig1
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
-ms.author: hawong
+ms.date: 02/14/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+ms.sourcegitcommit: 089b250e36eb3e091ad63d716acaf6259a958898
+ms.openlocfilehash: 3f2103a1d3838b73f10d567721693a9b813d0edb
 
 
 ---
@@ -88,7 +88,7 @@ Pronto para experimentar? Vamos começar.
     Deixe o nome do banco de dados, o nome da coleção e a instrução SQL em branco, já que esses campos são opcionais.  Em vez disso, usaremos o Navegador para selecionar o Banco de Dados e a Coleção para identificar a origem dos dados.
    
     ![Tutorial do Power BI para conector do Power BI do Banco de Dados de Documentos — janela Conexão da Área de Trabalho](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta.  Você pode recuperar a chave na caixa **Chave Primária** na folha **[Chaves Somente Leitura](documentdb-manage-account.md#keys)** do portal do Azure ou usar a conta de demonstração; nesse caso, a chave é `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Insira a chave de conta e clique em **Conectar**.
+7. Se estiver se conectando a este ponto de extremidade pela primeira vez, você será solicitado a fornecer a chave de conta.  Você pode recuperar a chave na caixa **Chave Primária** na folha **[Chaves Somente Leitura](documentdb-manage-account.md#keys)** do portal do Azure ou usar a conta de demonstração; nesse caso, a chave é `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Insira a chave de conta e clique em **Conectar**.
    
     Recomendamos que você use a chave somente leitura ao criar relatórios.  Isso impedirá a exposição desnecessária da chave mestra a possíveis riscos de segurança. A chave somente leitura está disponível na folha [Chaves](documentdb-manage-account.md#keys) do portal do Azure, ou você pode usar as informações da conta de demonstração fornecidas acima.
    
@@ -216,6 +216,6 @@ Para uma atualização agendada, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

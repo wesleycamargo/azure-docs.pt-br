@@ -1,5 +1,5 @@
 ---
-title: "O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight no conjunto de dados da Criteo de 1 TB | Microsoft Docs"
+title: "O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB | Microsoft Docs"
 description: "Usando o Processo de Ciência de Dados de Equipe para um cenário completo que emprega um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados grande (1 TB) publicamente disponível"
 services: machine-learning,hdinsight
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/29/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
-ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
+ms.sourcegitcommit: e29c26a7fbd25d01f2d58dc29a7fd2f34c91307b
+ms.openlocfilehash: 5e4bf617d80d3b0f4b88a819257bf4226db0ab7a
 
 
 ---
-# <a name="the-team-data-science-process-in-action---using-azure-hdinsight-hadoop-clusters-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação — usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
+# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
+
 Neste passo a passo, demonstramos como usar o Processo de Ciência de Dados de Equipe em um cenário completo com um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, apresentar dados de engenharia e reduzir dados de exemplo de um dos conjuntos de dados [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) publicamente disponível. Usamos o Aprendizado de Máquina do Azure para criar um modelo de classificação binária nesses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
 
 Também é possível usar um bloco de anotações do IPython para executar as tarefas apresentadas nesse passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
@@ -75,7 +76,7 @@ O conjunto de dados da [Criteo](http://labs.criteo.com/downloads/download-teraby
 
 Clique em **Continuar a Baixar** para saber mais sobre o conjunto de dados e sua disponibilidade.
 
-Os dados residem em um local público do [armazenamento de blobs do Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" refere-se ao local de Armazenamento de Blobs do Azure. 
+Os dados residem em um local público do [Armazenamento de blobs do Azure](../storage/storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. O "wasb" refere-se ao local do Armazenamento de Blob do Azure. 
 
 1. Os dados desse armazenamento de blobs público consistem de três subpastas de dados descompactados.
    
@@ -407,7 +408,9 @@ Há um componente final importante antes de passarmos para o Aprendizado de Máq
 ## <a name="a-namecounta-a-brief-discussion-on-the-count-table"></a><a name="count"></a> Uma breve discussão sobre a tabela de contagem
 Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alta. Em nosso passo a passo, nós apresentamos uma técnica poderosa chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar essas variáveis de maneira eficiente e robusta. Mais informações sobre essa técnica são disponibilizadas no link fornecido.
 
-**Observação:** neste passo a passo, nos concentramos no uso de tabelas de contagem para produzir representações compactas de recursos categóricos de alta dimensionalidade. Essa não é a única maneira de codificar recursos categóricos. Para saber mais sobre outras técnicas, usuários interessados podem conferir [codificação one-hot](http://en.wikipedia.org/wiki/One-hot) e [hash de recursos](http://en.wikipedia.org/wiki/Feature_hashing).
+[!NOTE]
+>Neste passo a passo, nos concentramos no uso de tabelas de contagem para produzir representações compactas de recursos categóricos de alta dimensionalidade. Essa não é a única maneira de codificar recursos categóricos. Para saber mais sobre outras técnicas, usuários interessados podem conferir [codificação one-hot](http://en.wikipedia.org/wiki/One-hot) e [hash de recursos](http://en.wikipedia.org/wiki/Feature_hashing).
+>
 
 Para criar tabelas de contagem com os dados de contagem, usamos os dados na pasta raw/count. Na seção de modelagem, mostramos aos usuários como criar essas tabelas de contagem para recursos categóricos do zero ou como usar uma tabela de contagem criada previamente para seus explorações. A seguir, quando falamos em "tabelas criadas previamente", nos referimos ao uso das tabelas de contagem que fornecemos. Fornecemos instruções detalhadas sobre como acessar essas tabelas na próxima seção.
 
@@ -415,11 +418,10 @@ Para criar tabelas de contagem com os dados de contagem, usamos os dados na past
 Nosso processo de criação de modelo no Azure Machine Learning seguirá estas etapas:
 
 1. [Obter os dados de tabelas do Hive no Aprendizado de Máquina do Azure](#step1)
-2. [Criar o experimento: limpar os dados, escolher um aprendiz e criar recursos com tabelas de contagem](#step2)
-3. [Treinar o modelo](#step3)
-4. [Pontuar o modelo com base nos dados de teste](#step4)
-5. [Avaliar o modelo](#step5)
-6. [Publicar o modelo como um serviço Web a ser consumido](#step6)
+2. [Criar o experimento: limpar os dados e criar recursos com tabelas de contagem](#step2)
+3. [Criar, treinar e pontuar o modelo](#step3)
+4. [Avaliar o modelo](#step4)
+5. [Publicar o modelo como um serviço Web](#step5)
 
 Agora, nós estamos prontos para criar modelos no Estúdio do Aprendizado de Máquina do Azure. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo **Importar Dados** do Azure Machine Learning para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
 
@@ -480,7 +482,9 @@ Para criar recursos de contagem, usamos o módulo **Criar transformação de con
 ![Módulo Compilar Transformação de Contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Compilar Transformação de Contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
-**Observação importante**: na caixa **Contar colunas**, inserimos as colunas nas quais desejamos realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. No início, mencionamos que o conjunto de dados Criteo tem 26 colunas categóricas: de Col15 para Col40. Aqui, podemos contar todas elas e dar a elas seus índices (de 15 a 40 separados por vírgulas, como mostrado).
+> [!IMPORTANT] 
+> Na caixa **Contar colunas**, inserimos as colunas nas quais desejamos realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. No início, mencionamos que o conjunto de dados Criteo tem 26 colunas categóricas: de Col15 para Col40. Aqui, podemos contar todas elas e dar a elas seus índices (de 15 a 40 separados por vírgulas, como mostrado).
+> 
 
 Para usar o módulo no modo MapReduce (apropriado para grandes conjuntos de dados), precisamos de acesso a um cluster HDInsight Hadoop (aquele usado para a exploração de recurso também pode ser reutilizado para essa finalidade) e suas credenciais. Os valores anteriores ilustram a aparência dos valores preenchidos (substitua os valores fornecidos como ilustração por aqueles relevantes para seu próprio caso de uso).
 
@@ -532,8 +536,9 @@ Nesse trecho, mostramos que para as colunas que pudemos contar, obtivemos as con
 
 Agora estamos prontos para criar um modelo de Aprendizado de Máquina do Azure usando esses conjuntos de dados transformados. Na próxima seção, vamos mostrar como isso pode ser feito.
 
-#### <a name="azure-machine-learning-model-building"></a>Criação de modelo de Aprendizado de Máquina do Azure
-##### <a name="choice-of-learner"></a>Opção do aprendiz
+### <a name="a-namestep3a-step-3-build-train-and-score-the-model"></a><a name="step3"></a>Etapa 3: Criar, treinar e pontuar o modelo
+
+#### <a name="choice-of-learner"></a>Opção do aprendiz
 Primeiro precisamos escolher um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classes, como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
 
 ![Parâmetros da árvore de decisão aumentada de duas classes](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
@@ -550,7 +555,7 @@ Assim que tivermos um modelo treinado, estamos prontos para avaliar o conjunto d
 
 ![Módulo de Modelo de Pontuação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a> Etapa 5: Avaliar o modelo
+### <a name="a-namestep4a-step-4-evaluate-the-model"></a><a name="step4"></a> Etapa 4: Avaliar o modelo
 Por fim, gostaríamos de analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, vinculamos o módulo **Modelo de classificação** a um módulo **Modelo de avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
 
 ![Avaliar o modelo de BDT do módulo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/0Tl0cdg.png)
@@ -559,7 +564,7 @@ Em problemas de classificação binária (ou de duas classes), uma boa medida da
 
 ![Módulo Visualizar modelo de avaliação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="a-namestep6a-step-6-publish-the-model-as-a-web-service"></a><a name="step6"></a> Etapa 6: Publicar o modelo como um serviço Web a ser consumido
+### <a name="a-namestep5a-step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web a ser consumido
 A capacidade de publicar um modelo de Aprendizado de Máquina do Azure como serviços Web com um nível mínimo de confusão é um recurso valioso para torná-lo amplamente disponível. Depois disso, qualquer pessoa pode fazer chamadas para o serviço Web com dados de entrada para os quais precisem de previsões, e o serviço Web usa o modelo para retornar as previsões.
 
 Para fazer isso, primeiro salvamos nosso modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.
@@ -628,6 +633,6 @@ Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

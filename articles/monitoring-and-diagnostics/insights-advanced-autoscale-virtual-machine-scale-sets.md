@@ -1,8 +1,8 @@
 ---
-title: "Configuração avançada de dimensionamento automático usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs | Microsoft Docs"
-description: "Configure o dimensionamento automático para conjuntos de escala de VM com base em várias regras e perfis com notificações por email e webhooks para ações de dimensionamento."
+title: "Autoescala avançada usando máquinas virtuais do Azure | Microsoft Docs"
+description: "Usa o Resource Manager e Conjuntos de Dimensionamento de VMs com várias regras e perfis que enviam email e chamam URLs de webhook com ações de escala."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: e075622583ee83cbf52a06257be9f5684307751c
-ms.openlocfilehash: ffb1d26aeab05bfc015bae2e058944f10c7a479d
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
 
 
 ---
 
-# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de Dimensionamento Automático usando modelos do Resource Manager para conjuntos de escala de VM
+# <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
 
 > [!NOTE]
@@ -255,6 +255,6 @@ Use estes links para saber mais sobre o dimensionamento automático.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

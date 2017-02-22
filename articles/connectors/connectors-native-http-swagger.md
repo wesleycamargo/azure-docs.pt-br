@@ -122,6 +122,6 @@ Teste a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-creat
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

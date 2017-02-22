@@ -1,5 +1,5 @@
 ---
-title: "Criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no Resource Manager | Microsoft Docs"
+title: "Criar uma investigação personalizada - Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs"
 description: "Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o PowerShell no Gerenciador de Recursos"
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: d6856256a9ab272e0620e82d140c5ec735e5eabc
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 794797d9c42ec7f2fc351bab109147e45ce06070
 
 
 ---
@@ -312,6 +312,6 @@ Saiba como configurar o descarregamento de SSL ao visitar [Configurar descarrega
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

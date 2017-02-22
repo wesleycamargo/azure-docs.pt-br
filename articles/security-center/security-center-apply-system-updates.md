@@ -1,6 +1,6 @@
 ---
 title: "Aplicar atualizações do sistema na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure **Aplicar atualizações do sistema** e **Reinicializar após as atualizações do sistema**."
+description: "Este documento mostra como implementar as recomendações da Central de Segurança do Azure para **Aplicar atualizações do sistema** e **Reinicializar após as atualizações do sistema**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51501cc5e344c321652982a3a7f448d84f892392
+ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
+ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
 
 
 ---
@@ -25,23 +25,30 @@ A Central de Segurança do Azure monitora diariamente VMs (máquinas virtuais) W
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na folha **Recomendações**, selecione **Aplicar atualizações do sistema**.
+
    ![Aplicar atualizações do sistema][1]
 2. A folha **Aplicar atualizações do sistema** abre exibindo uma lista de VMs sem atualizações de sistema. Selecione uma VM.
+
    ![Selecionar uma máquina virtual][2]
 3. Uma folha abrirá exibindo uma lista de atualizações ausentes para a VM. Selecione uma atualização do sistema. Neste exemplo, vamos selecionar KB3156016.
+
    ![Atualizações de segurança ausentes][3]
+
 4. Siga as etapas na folha **Atualização de segurança** para aplicar a atualização ausente.
-   ![Security update][4]
+
+   ![Atualização de segurança][4]
 
 ## <a name="reboot-after-system-updates"></a>Reinicializar após as atualizações do sistema
 1. Volte para a folha **Recomendações** . Uma nova entrada foi gerada depois que você aplicou atualizações do sistema, chamada **Reinicializar após as atualizações do sistema**. Essa entrada permite que você saiba que é necessário reinicializar a máquina virtual para concluir o processo de aplicação de atualizações de sistema.
+
    ![Reinicializar após as atualizações do sistema][5]
 2. Selecione **Reinicializar após as atualizações do sistema**. Isso abre a folha **Uma reinicialização está pendente para concluir as atualizações do sistema** exibindo uma lista de máquinas virtuais que você precisa reiniciar para concluir o processo de aplicar atualizações d sistema.
+
    ![Reinicialização pendente][6]
 
 Reinicie a VM do Azure para concluir o processo.
@@ -67,6 +74,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

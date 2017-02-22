@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 01/30/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: ea59ff3f527d051e01baf12f596ff44af8a0dfc1
-ms.openlocfilehash: 7fe3bc6a5eab1d1b9a8b73ab3c88f9808817369a
+ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
+ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Conectar a um cluster do Serviço de Contêiner do Azure
-Depois de criar um cluster do serviço de contêiner do Azure, você precisa se conectar ao cluster para implantar e gerenciar cargas de trabalho. Este artigo descreve como conectar-se à VM mestre do cluster de um computador remoto. Os clusters Kubernetes DC/SO e Docker Swarm expõem pontos de extremidade REST. Para Kubernetes, esse ponto de extremidade é exposto de maneira segura na Internet, e você pode acessá-lo executando a ferramenta de linha de comando `kubectl` de qualquer computador conectado à Internet. Para DC/SO e Docker Swarm, você deve criar um túnel SSH (secure shell) para se conectar com segurança ao ponto de extremidade REST. 
+Depois de criar um cluster do serviço de contêiner do Azure, você precisa se conectar ao cluster para implantar e gerenciar cargas de trabalho. Este artigo descreve como conectar-se à VM mestre do cluster de um computador remoto. 
+
+Os clusters Kubernetes DC/SO e Docker Swarm fornecem pontos de extremidade HTTP localmente. Para Kubernetes, esse ponto de extremidade é exposto de maneira segura na Internet, e você pode acessá-lo executando a ferramenta de linha de comando `kubectl` de qualquer computador conectado à Internet. 
+
+Para DC/SO e Docker Swarm, você deve criar um túnel SSH (secure shell) para um sistema interno. Depois que o túnel for estabelecido, você pode executar comandos que usam os pontos de extremidade HTTP e exibir a interface da Web do cluster do sistema local. 
 
 > [!NOTE]
 > O suporte a Kubernetes no Serviço de Contêiner do Azure está atualmente em visualização.
@@ -43,7 +47,7 @@ Siga estas etapas para instalar e configurar `kubectl` no computador.
 > 
 
 ### <a name="install-kubectl"></a>Instalar kubectl
-Uma maneira de instalar essa ferramenta é usar o comando `az acs kubernetes install cli` da CLI do Azure 2.0 (Visualização). Para executar esse comando, verifique se você [instalou](/cli/azure/install-az-cli2) a CLI do Azure 2.0 (Visualização) mais recente e conectou-se a uma conta do Azure (`az login`).
+Uma maneira de instalar essa ferramenta é usar o comando `az acs kubernetes install-cli` da CLI do Azure 2.0 (Visualização). Para executar esse comando, verifique se você [instalou](/cli/azure/install-az-cli2) a CLI do Azure 2.0 (Visualização) mais recente e conectou-se a uma conta do Azure (`az login`).
 
 ```azurecli
 # Linux or OS X
@@ -68,7 +72,7 @@ Esse comando baixa as credenciais do cluster para `$HOME/.kube/config`, em que `
 Como alternativa, você pode usar `scp` para copiar o arquivo de forma segura de `$HOME/.kube/config` para a VM mestre em seu computador local. Por exemplo:
 
 ```console
-mkdir $HOME/.kube/config
+mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
@@ -96,10 +100,10 @@ Para obter mais informações, confira [Início rápido do Kubernetes](http://ku
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Conectar-se a um cluster de DC/SO ou Swarm
 
-Os clusters DC/OS e Docker Swarm implantados pelo Serviço de Contêiner do Azure expõem os pontos de extremidade REST. No entanto, esses pontos de extremidade não estão abertos para o mundo exterior. Para gerenciar esses pontos de extremidade, você deve criar um túnel Secure Shell (SSH). Após o estabelecimento de um túnel SSH, você pode executar comandos em relação aos pontos de extremidade do cluster e exibir a interface do usuário do cluster por meio de um navegador em seu próprio sistema. As seções a seguir o orientarão na criação de um túnel SSH de computadores que executam sistemas operacionais Windows, OS X e Linux.
+Para usar o DC/SO e clusters Docker Swarm implantados pelo Serviço de Contêiner do Azure, siga estas instruções para criar um túnel SSH (secure shell) do sistema Linux, OS X ou Windows local. 
 
 > [!NOTE]
-> Você pode criar uma sessão SSH com um sistema de gerenciamento de cluster. No entanto, isso não é recomendado. Trabalhar diretamente em um sistema de gerenciamento acarreta o risco de alterações de configuração acidentais.
+> Essas instruções se concentram no tráfego TCP de túnel via SSH. Você também pode iniciar uma sessão SSH interativa com um dos sistemas de gerenciamento de cluster interno, mas não recomendamos isso. Trabalhar diretamente em um sistema interno acarreta o risco de alterações de configuração acidentais  
 > 
 
 ### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Criar um túnel SSH no Linux ou no OS X
@@ -108,49 +112,55 @@ A primeira coisa que você faz quando cria um túnel SSH no Linux ou no OS X é 
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos que contém o cluster de serviço do contêiner. Expanda o grupo de recursos para que todos os recursos sejam exibidos. 
 
-2. Localize e selecione a máquina virtual do mestre. Em um cluster de SO/DC, esse recurso tem um nome que começa com **dcos-master-**. 
-
-    A folha **Máquina Virtual** contém informações sobre o endereço IP público, que inclui o nome DNS. Salve o nome para uso posterior. 
+2. Clique no recurso de serviço de contêiner e, em seguida, clique em **Visão geral**. O **FQDN mestre** do cluster aparece nos **Conceitos básicos**. Salve o nome para uso posterior. 
 
     ![Nome DNS público](media/pubdns.png)
 
+    Como alternativa, execute o comando `az acs show` em seu serviço de contêiner. Procure a propriedade **Master Profile:fqdn** na saída do comando.
+
 3. Agora abra um shell e execute o comando `ssh` especificando os seguintes valores: 
 
-    **PORTA** é a porta do ponto de extremidade que você deseja expor. Para a nuvem, use a porta 2375. Para o DC/OS, use a porta 80.  
+    **LOCAL_PORT** é a porta TCP no lado do serviço do túnel com o qual se conectar. Para Swarm, defina para 2375. Para DC/SO, defina para 80.  
+    **REMOTE_PORT** é a porta do ponto de extremidade que você deseja expor. Para a nuvem, use a porta 2375. Para o DC/OS, use a porta 80.  
     **NOME DE USUÁRIO** é o nome de usuário fornecido quando você implantou o cluster.  
     **PREFIXODEDNS** é o prefixo de DNS que você forneceu ao implantar o cluster.  
     **REGIÃO** é a região em que o grupo de recursos está localizado.  
     **CAMINHO_PARA_CHAVE_PRIVADA** [OPCIONAL] é o caminho para a chave privada correspondente à chave pública que você forneceu ao criar o cluster. Use essa opção com o sinalizador `-i`.
 
     ```bash
-    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
-    > A porta de conexão SSH é 2200, não a porta padrão 22. Em um cluster com mais de uma VM mestre, essa é a porta de conexão para a primeira VM mestre.
+    > A porta de conexão SSH é 2200, e não a porta 22 padrão. Em um cluster com mais de uma VM mestre, essa é a porta de conexão para a primeira VM mestre.
     > 
+
+
 
 Confira os exemplos de DC/SO e nuvem nas seções a seguir.    
 
 ### <a name="dcos-tunnel"></a>Túnel DC/OS
-Para abrir um túnel para pontos de extremidade relacionados a DC/OS, execute um comando semelhante ao seguinte:
+Para abrir um túnel para pontos de extremidade do DC/SO, execute um comando semelhante ao seguinte:
 
 ```bash
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```
 
-Agora você pode acessar os pontos de extremidade relacionados ao DC/OS:
+> [!NOTE]
+> Você pode especificar uma porta local diferente da porta 80, como a porta 8888. No entanto, alguns links da interface do usuário da Web podem não funcionar quando você usa essa porta.
 
-* DC/OS: `http://localhost/`
-* Marathon: `http://localhost/marathon`
-* Mesos: `http://localhost/mesos`
+Agora você pode acessar os pontos de extremidade do DC/SO do seu sistema local por meio das URLs a seguir (supondo que a porta local é a 80):
+
+* DC/OS: `http://localhost:80/`
+* Marathon: `http://localhost:80/marathon`
+* Mesos: `http://localhost:80/mesos`
 
 Da mesma forma, as APIs rest para cada aplicativo podem ser acessadas por este túnel.
 
 ### <a name="swarm-tunnel"></a>Túnel do Swarm
-Para abrir um túnel para o ponto de extremidade de nuvem, execute um comando semelhante ao seguinte:
+Para abrir um túnel para o ponto de extremidade do Swarn, execute um comando semelhante ao seguinte:
 
 ```bash
-ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 
 Agora você pode definir a variável de ambiente DOCKER_HOST da maneira a seguir. Você pode continuar a usar a interface de linha de comando (CLI) do Docker da maneira normal.
@@ -211,6 +221,6 @@ Implantar e gerenciar contêineres no cluster:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

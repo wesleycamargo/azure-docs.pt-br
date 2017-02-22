@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0063c689d4259d15c6aa2c8ca037a512644419fd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
 
 
 ---
@@ -125,6 +125,11 @@ Para que um único índice se comporte de modo diferente para pontos de extremid
 
 Esse método pode ser usado para obter uma funcionalidade de contas de usuário separadas, níveis de permissão separados e até mesmo aplicativos completamente separados.
 
+> [!NOTE]
+> Usar a abordagem descrita acima para configurar um único índice para atender a vários locatários afeta a relevância dos resultados da pesquisa. Pontuações de relevância de pesquisa são calculadas em um escopo no nível do índice, não no nível do locatário, para que dados de todos os locatários sejam incorporados às estatísticas subjacentes das pontuações de relevância, tal como frequência de termo.
+> 
+> 
+
 ## <a name="next-steps"></a>Próximas etapas
 O Azure Search é uma opção atraente para muitos aplicativos. [Leia mais sobre os recursos avançados do serviço](http://aka.ms/whatisazsearch). Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preços](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor personalizar o Azure Search para ajustar cargas de trabalho do aplicativo e arquiteturas de todos os tamanhos.
 
@@ -133,6 +138,6 @@ Perguntas sobre o Azure Search e cenários de multilocatários podem ser direcio
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

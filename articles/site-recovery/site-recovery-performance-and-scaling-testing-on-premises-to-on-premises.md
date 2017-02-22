@@ -1,5 +1,5 @@
 ---
-title: "Resultados do teste de desempenho e escala para replicação do Hyper-V de local para local com o Site Recovery ! Microsoft Docs"
+title: "Resultados de teste para replicação do Hyper-V entre sites com o Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece informações sobre os testes de desempenho para a replicação de no local para no local usando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3c35bf129dd1566f3e2084caacc0330b5a6fc32
+ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
+ms.openlocfilehash: ba82512e830032172c8a0d78029605935d1417f9
 
 
 ---
-# <a name="performance-test-and-scale-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados do teste de desempenho e de escala para a replicação Hyper-V do local para o local com o Site Recovery
+# <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>Resultados do teste para a replicação Hyper-V do local para o local com o Site Recovery
 Você pode usar o Microsoft Azure Site Recovery para orquestrar e gerenciar a replicação de máquinas virtuais e de servidores físicos para o Azure ou em um datacenter secundário. Este artigo fornece os resultados do teste de desempenho que fizemos ao replicar máquinas virtuais do Hyper-V entre dois datacenters locais.
 
 ## <a name="overview"></a>Visão geral
@@ -125,7 +125,7 @@ Os resultados mostram claramente que o Azure Site Recovery, junto com a Réplica
 | Carga de trabalho | Tamanho de E/S (KB) | % de acesso | % de leitura | E/Ss pendentes | Padrão de E/S |
 | --- | --- | --- | --- | --- | --- |
 | Servidor de arquivos |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos 100% aleatórios |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% aleatório 100% sequencial |
+| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% aleatório&100;% sequencial |
 | Exchange |32 |100% |67% |8 |100% aleatório |
 | Estação de trabalho/VDI |464 |66%34% |70%95% |11 |Ambos 100% aleatórios |
 | Servidor de arquivos da Web |4864 |33%34%33% |95%95%95% |888 |Todos 75% aleatórios |
@@ -173,7 +173,6 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

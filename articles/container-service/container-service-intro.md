@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Serviço de Contêiner do Azure | Microsoft Docs"
+title: "Clusters de contêiner do Docker na nuvem do Azure | Microsoft Docs"
 description: "O Serviço de Contêiner do Azure fornece uma maneira de simplificar a criação, configuração e gerenciamento de um cluster de máquinas virtuais que são pré-configuradas para executar aplicativos contidos."
 services: container-service
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
-ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
 
 
 ---
@@ -39,7 +39,7 @@ Usando o Serviço de Contêiner do Azure, você pode aproveitar as vantagens dos
 Nosso objetivo com o Serviço de Contêiner do Azure é fornecer um ambiente de hospedagem de contêineres usando ferramentas e tecnologias de código-fonte aberto, que são comuns entre os nossos clientes hoje. Para esse fim, expusemos os pontos de extremidade da API padrão para seu orquestrador escolhido (DC/OS ou Docker Swarm ou Kubernetes). Usando esses pontos de extremidade, é possível utilizar qualquer software que possa se comunicar com os pontos de extremidade. Por exemplo, no caso do ponto de extremidade Docker Swarm, você pode optar por usar a interface de linha de comando do Docker (CLI). Para o DC/SO, você pode optar por usar a CLI do DCOS. Para o Kubernetes, você pode optar por usar kubectl.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Criação de um cluster do Docker usando o Serviço de Contêiner do Azure
-Para começar a usar o serviço de Contêiner do Azure, implante um cluster do Serviço de Contêiner do Azure pelo portal (pesquise por 'Serviço de Contêiner do Azure') usando um modelo do Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) ou [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou com a [CLI](/documentation/articles/xplat-cli-install/). Os modelos de início rápido fornecidos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre a implantação de um cluster do Serviço de Contêiner do Azure, consulte [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md).
+Para começar a usar o serviço de Contêiner do Azure, implante um cluster do Serviço de Contêiner do Azure pelo portal (pesquise por 'Serviço de Contêiner do Azure') usando um modelo do Azure Resource Manager ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm) ou [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) ou [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ou com a [CLI](/articles/xplat-cli-install.md). Os modelos de início rápido fornecidos também podem ser modificados para incluir uma configuração do Azure avançada ou adicional. Para saber mais sobre a implantação de um cluster do Serviço de Contêiner do Azure, consulte [Implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Implantação de um aplicativo
 O Serviço de Contêiner do Azure fornece uma opção de Docker Swarm ou DC/OS ou Kubernetes para orquestração. Como implantar o aplicativo depende do orquestrador que você escolhe.
@@ -92,7 +92,7 @@ Ele tem um conjunto avançado de recursos, incluindo:
 * Descoberta de serviço e balanceamento de carga
 * Segredos e gerenciamento de configuração
 * Reversões e implementações automatizadas baseadas em API
-* Autorrecuperação 
+* Autorrecuperação
 * e muito mais.
 
 
@@ -101,18 +101,17 @@ Ele tem um conjunto avançado de recursos, incluindo:
 Introdução ao Serviço de Contêiner do Azure (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Criação de aplicativos com o serviço de contêiner do Azure (Compilação 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

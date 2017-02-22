@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 710663e122bdebff575c762a501a0d261056e1bc
+ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
+ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
 
 
 ---
@@ -81,7 +81,7 @@ O GUID é a ID da assinatura (não a chave de instrumentação do aplicativo).
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Exemplo 2
-Tenho um aplicativo em que uso o [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) para relatar uma métrica chamada "salesPerHour". Envie um email para meus colegas se "salesPerHour" cair abaixo de 100, em média no prazo de 24 horas.
+Tenho um aplicativo em que uso o [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) para relatar uma métrica chamada "salesPerHour". Envie um email para meus colegas se "salesPerHour" cair abaixo de 100, em média no prazo de 24 horas.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -108,19 +108,19 @@ A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de me
 | `clientPerformance.total.value` |Tempo de carregamento de página do navegador |Tempo de solicitação do usuário até que o DOM, as imagens, os scripts e as folhas de estilo sejam carregados. |
 | `performanceCounter.available_bytes.value` |Memória disponível |Memória física disponível imediatamente para um processo ou para uso do sistema. |
 | `performanceCounter.io_data_bytes_per_sec.value` |Taxa de processamento de IO |Total de bytes por segundo lidos e gravados em arquivos, rede e dispositivos. |
-| `performanceCounter.number_of_exceps_thrown_per_sec` |taxa de exceção |Exceções geradas por segundo. |
+| `performanceCounter.number_of_exceps_thrown_per_sec.value` |taxa de exceção |Exceções geradas por segundo. |
 | `performanceCounter.percentage_processor_time.value` |CPU do processo |A porcentagem de tempo decorrido em todos os threads do processo usados pelo processador para executar instruções do processo dos aplicativos. |
 | `performanceCounter.percentage_processor_total.value` |Tempo do processador |A porcentagem de tempo que o processador gasta em threads ocupados. |
 | `performanceCounter.process_private_bytes.value` |Processar bytes particulares |Memória atribuída exclusivamente aos processos do aplicativo monitorado. |
 | `performanceCounter.request_execution_time.value` |Tempo de execução de solicitação do ASP.NET |Tempo de execução da solicitação mais recente. |
 | `performanceCounter.requests_in_application_queue.value` |Solicitações do ASP.NET na fila de execução |Comprimento da fila de solicitação de aplicativo. |
-| `performanceCounter.requests_per_sec` |Taxa de solicitação do ASP.NET |Taxa de todas as solicitações para o aplicativo por segundo do ASP.NET. |
+| `performanceCounter.requests_per_sec.value` |Taxa de solicitação do ASP.NET |Taxa de todas as solicitações para o aplicativo por segundo do ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Falhas de dependência |Contagem de falhas de chamadas feitas pelo aplicativo servidor para recursos externos. |
 | `request.duration` |Tempo de resposta do servidor |Tempo entre o recebimento de uma solicitação HTTP e a finalização do envio da resposta. |
 | `request.rate` |Taxa de solicitação |Taxa de todas as solicitações para o aplicativo por segundo. |
 | `requestFailed.count` |Solicitações falhas |Contagem de solicitações HTTP que resultaram em um código de resposta >= 400 |
 | `view.count` |Visualizações de página |Contagem de solicitações de usuário  cliente para uma página da Web. O tráfego sintético é filtrado. |
-| {o nome de métrica personalizada} |{O nome da métrica} |O valor de métrica relatado pelo [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) ou o [parâmetro de medidas de uma chamada de controle](app-insights-api-custom-events-metrics.md#properties). |
+| {o nome de métrica personalizada} |{O nome da métrica} |O valor de métrica relatado pelo [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) ou o [parâmetro de medidas de uma chamada de controle](app-insights-api-custom-events-metrics.md#properties). |
 
 As métricas são enviadas por diferentes módulos de telemetria:
 
@@ -142,6 +142,6 @@ Você pode [automatizar sua resposta a um alerta](../monitoring-and-diagnostics/
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

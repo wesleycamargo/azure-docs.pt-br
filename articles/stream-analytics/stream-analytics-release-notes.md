@@ -12,15 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/24/2017
+ms.date: 02/01/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: fb6dbb6da0ad2cfdfee519c8ce254d983d34fe5e
+ms.sourcegitcommit: 2fe28e7b52af579038ec145c028a6d2796d6cc6e
+ms.openlocfilehash: f47b719f7b1a78264e054ee15edacc32ca35aaf7
 
 
 ---
 # <a name="stream-analytics-release-notes"></a>Notas de versão do Stream Analytics
+## <a name="notes-for-02012017-release-of-stream-analytics"></a>Notas de versão de 01/02/2017 do Stream Analytics
+Esta versão contém a seguinte atualização.
+
+| Title | Descrição |
+| --- | --- |
+| Introdução a UDF (Funções definidas pelo usuário) do JavaScript |[As Funções definidas pelo usuário de Java](stream-analytics-javascript-user-defined-functions.md) agora estão disponíveis para proporcionar mais flexibilidade na criação de consultas. |
+| Apresentação das ferramentas para Visual Studio e Stream Analytics |[As Ferramentas para Visual Studio](stream-analytics-tools-for-visual-studio.md) agora estão disponíveis para depuração e com mais utilitários. |
+| Apresentação do registro em log de diagnóstico |[O Registro em log de diagnóstico](stream-analytics-job-diagnostic-logs.md) agora está disponível para mais opções de solução de problemas. |
+| Introdução às Funções Geoespaciais |As [Funções Geoespaciais](http://msdn.microsoft.com/library/mt778980(Azure.100).aspx) agora estão disponíveis para o público geral. |
+
 ## <a name="notes-for-04152016-release-of-stream-analytics"></a>Notas de versão de 15/04/2016 do Stream Analytics
 Esta versão contém a seguinte atualização.
 
@@ -136,6 +146,6 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

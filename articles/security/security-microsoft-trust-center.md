@@ -1,5 +1,5 @@
 ---
-title: "Central de Confiança da Microsoft | Microsoft Docs"
+title: "Informações de segurança do Microsoft Trust Center e do Azure | Microsoft Docs"
 description: "A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura."
 services: security
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
+ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
 
 
 ---
@@ -42,6 +42,6 @@ A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) te
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

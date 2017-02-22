@@ -12,30 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
+ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Introdução a um Provedor de Autenticação Multifator do Azure
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Introdução a um Provedor de Autenticação Multifator do Azure
 A autenticação em duas etapas está disponível por padrão para os administradores globais que têm o Azure Active Directory e os usuários do Office 365. No entanto, se você quiser aproveitar os [recursos avançados](multi-factor-authentication-whats-next.md), então, deverá adquirir a versão completa da Autenticação Multifator do Azure (MFA).
 
 > [!NOTE]
 > Um Provedor do Azure Multi-Factor Auth é usado para aproveitar as vantagens dos recursos fornecidos pela versão completa do Azure MFA. É para os usuários que **não têm licenças por meio do Azure MFA, Azure AD Premium ou EMS**.  O Azure MFA, o Azure AD Premium e o EMS incluem a versão completa do Azure MFA por padrão.  Se você tiver licenças, não precisará de um Provedor de Autenticação Multifator do Azure.
-> 
-> 
 
 Um provedor de Autenticação Multifator do Azure será requerido para baixar o SDK.
 
 > [!IMPORTANT]
 > Para baixar o SDK, crie um Provedor de Autenticação Multifator do Azure mesmo que você tenha as licenças MFA, AAD Premium ou EMS do Azure.  Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou EMS do Azure.  Isso garantirá que você não será cobrado, caso tenha mais usuários exclusivos usando o SDK do que o número de licenças possuídas.
-> 
-> 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Para criar um Provedor do Multi-Factor Auth
+## <a name="create-a-multi-factor-auth-provider"></a>Criar um Provedor de Autenticação Multifator
 Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Azure.
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) como um administrador.
@@ -64,6 +60,6 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

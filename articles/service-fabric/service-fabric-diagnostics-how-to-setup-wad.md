@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 01/17/2017
 ms.author: toddabel
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
+ms.sourcegitcommit: 1b4599848f44a7200f13bd6ddf4e82e96a75e069
+ms.openlocfilehash: 41343990d3379aabd129af437ff2edbbd2134dcc
 
 
 ---
@@ -29,14 +29,14 @@ ms.openlocfilehash: 454e1379e4ec598ffd31017b413f6b15c98039a6
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
-Uma forma de carregar e coletar logs é usar a extensão de Diagnóstico do Azure, que carrega os logs no Armazenamento do Azure. Os logs não são tão úteis diretamente no armazenamento. Mas você pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto, como a [Pesquisa Elástica](../log-analytics/log-analytics-service-fabric.md), o [Log Analytics](service-fabric-diagnostic-how-to-use-elasticsearch.md) ou em outra solução de análise de log.
+Uma forma de carregar e coletar logs é usar a extensão de Diagnóstico do Azure, que carrega os logs no Armazenamento do Azure, no Application Insights do Azure ou nos Hubs de Eventos do Azure. Os logs não são tão úteis diretamente no armazenamento ou em Hubs de Eventos. Mas você pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto, como o [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou em outra solução de análise de log. O [Application Insights do Azure](https://azure.microsoft.com/services/application-insights/) apresenta um serviço abrangente interno de pesquisa e análise de logs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Você pode usar essas ferramentas para executar algumas das operações neste documento:
 
 * [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado aos Serviços de Nuvem do Azure, mas tem boas informações e exemplos)
 * [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
-* [PowerShell do Azure](../powershell-install-configure.md)
+* [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -57,9 +57,9 @@ Para implantar a extensão de Diagnóstico nas VMs no cluster como parte da cria
 
 A equipe de suporte do Azure *requer* os logs de suporte para ajudar a resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e são armazenados em uma das contas de armazenamento criadas no grupo de recursos. As definições de Diagnóstico configuram eventos de nível de aplicativo. Esses eventos incluem eventos de [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), eventos de [Reliable Services](service-fabric-reliable-services-diagnostics.md) e alguns eventos de Service Fabric no nível de sistema a serem armazenados no Armazenamento do Azure.
 
-Os produtos como a [Pesquisa Elástica](service-fabric-diagnostic-how-to-use-elasticsearch.md), ou seu próprio processo, podem obter os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo.
+Os produtos como a [Elasticsearch](https://www.elastic.co/guide/index.html), ou seu próprio processo, podem obter os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo.
 
-Ao criar um cluster usando o portal, é altamente recomendável que você baixe o modelo *antes de clicar em **OK*** para criar o cluster. Para obter detalhes, confira [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) (Configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager). Você precisará do modelo para fazer alterações posteriormente, porque não é possível fazer algumas alterações usando o portal.
+Ao criar um cluster usando o portal, é altamente recomendável que você baixe o modelo **antes de clicar em OK** para criar o cluster. Para obter detalhes, confira [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) (Configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager). Você precisará do modelo para fazer alterações posteriormente, porque não é possível fazer algumas alterações usando o portal.
 
 Você pode exportar modelos por meio do portal usando as etapas a seguir. No entanto, esses modelos podem ser mais difíceis de usar porque podem ter valores nulos em que estão faltando informações necessárias.
 
@@ -84,7 +84,7 @@ Para criar um cluster usando o Resource Manager, você precisa adicionar a confi
 
 Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
 
-Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
+Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
 
 ```powershell
 
@@ -193,6 +193,25 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json 
 
 Após modificar o arquivo template.json conforme descrito, republique o modelo do Resource Manager. Se o modelo tiver sido exportado, a execução do arquivo deploy.ps1 republicará o modelo. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
 
+## <a name="update-diagnostics-to-collection-health-and-load-events"></a>Atualizar o diagnóstico para eventos de coleta de integridade e de carga
+
+Começando com a versão 5.4 do Service Fabric, eventos de métrica de carga e integridade estão disponíveis para coleta. Esses eventos refletir os eventos gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+
+Para coletar os eventos, modificar o modelo do Resource Manager para incluir
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387912",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
 Para atualizar o Diagnóstico para coletar logs de novos canais de EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm) para configurar o Diagnóstico para um cluster existente.
 
@@ -222,6 +241,6 @@ Para compreender com mais detalhes quais eventos você deve analisar enquanto so
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

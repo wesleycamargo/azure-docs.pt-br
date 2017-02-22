@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 24e12e4606a5ec4fabf7046fe9847123033bb70a
-ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
+ms.sourcegitcommit: 5af9b5fdaf228edd54900855d0eac5d90ea3db38
+ms.openlocfilehash: 0121896aa27677080d6b240fdafff3c7e19683d9
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 073a9e66ac68643b27ecdd44a4ecac3ad79ec218
 
 
 
-No Serviço de Contêiner do Azure, o Kubernetes requer uma [entidade de serviço do Azure Active Directory](../active-directory/active-directory-application-objects.md) como uma conta de serviço para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) e o [Azure Load Balancer](../load-balancer/load-balancer-overview.md) da Camada 4.
+No Serviço de Contêiner do Azure, o Kubernetes requer uma [entidade de serviço do Azure Active Directory](../active-directory/active-directory-application-objects.md) como uma conta de serviço para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como rotas definidas pelo usuário e o Azure Load Balancer da Camada 4.
 
 Este artigo mostra diferentes opções para especificar uma entidade de serviço para o cluster Kubernetes. Por exemplo, se tiver instalado e configurado a [CLI do Azure 2.0 (Visualização)](https://docs.microsoft.com/cli/azure/install-az-cli2), você poderá executar o comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para criar o cluster Kubernetes e a entidade de serviço ao mesmo tempo.
 
@@ -39,11 +39,11 @@ Este artigo mostra diferentes opções para especificar uma entidade de serviço
 
 Estes são os requisitos para a entidade de serviço do Azure Active Directory em um cluster Kubernetes no Serviço de Contêiner do Azure. 
 
-* **Escopo** - a assinatura do Azure na qual o cluster for implantado
+* **Escopo**: a assinatura do Azure na qual o cluster for implantado
 
-* **Função** - **Colaborador**
+* **Função**: **Colaborador**
 
-* **Segredo do cliente** - deve ser uma senha. Atualmente, é possível usar uma entidade de serviço configurada para autenticação de certificado.
+* **Segredo do cliente**: deve ser uma senha. Atualmente, é possível usar uma entidade de serviço configurada para autenticação de certificado.
 
 > [!NOTE]
 > Cada entidade de serviço é associada a um aplicativo do Azure Active Directory. A entidade de serviço para um cluster Kubernetes pode ser associada a qualquer nome de aplicativo válido do Azure Active Directory.
@@ -56,28 +56,34 @@ Estes são os requisitos para a entidade de serviço do Azure Active Directory e
 
 Forneça a **ID do cliente** (geralmente chamada de `appId`, para ID de aplicativo) e o **segredo do cliente** (`password`) de uma entidade de serviço existente como parâmetros ao criar o cluster Kubernetes. Se estiver usando uma entidade de serviço existente, verifique se ela atende aos requisitos da seção anterior. Se precisar criar uma entidade de serviço, confira [Criar uma entidade de serviço](#create-a-service-principal-in-azure-active-directory) posteriormente neste artigo.
 
-Você pode especificar esses parâmetros ao [implantar o cluster Kubernetes](./container-service-deployment.md) usando o portal, a CLI (Interface de Linha de Comando) do Azure ou o Azure PowerShell.
+Você pode especificar esses parâmetros ao [implantar o cluster Kubernetes](./container-service-deployment.md) usando o portal, a CLI (Interface de Linha de Comando) do Azure 2.0 (Visualização), o Azure PowerShell ou outros métodos.
 
 >[!TIP] 
 >Ao especificar a **ID do cliente**, use `appId` e não `ObjectId` da entidade de serviço.
 >
 
-O exemplo a seguir mostra uma maneira de passar os parâmetros com a [CLI do Azure](../xplat-cli-install.md) no [modo do Gerenciador de Recursos](../xplat-cli-connect.md). Este exemplo usa o [modelo de início rápido do Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+O exemplo a seguir mostra uma maneira de passar os parâmetros com o Azure CLI 2.0 Preview (consulte [instruções de instalação e](/cli/azure/install-az-cli2)). Este exemplo usa o [modelo de início rápido do Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
 
-1. [Baixe](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) os parâmetros do modelo de arquivo azuredeploy.parameters.json do GitHub.
+1. [Baixe](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) o arquivo de parâmetros de modelo `azuredeploy.parameters.json` do GitHub.
 
 2. Para especificar a entidade de serviço, insira valores para `servicePrincipalClientId` e `servicePrincipalClientSecret` no arquivo. (Você também precisa fornecer seus próprios valores para `dnsNamePrefix` e `sshRSAPublicKey`. O segundo é a chave pública SSH para acessar o cluster.) Salve o arquivo.
 
     ![Passar parâmetros de entidade de serviço](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Execute o seguinte comando, usando o parâmetro `-e` para definir o caminho para o arquivo azuredeploy.parameters.json. Este comando implanta o cluster em um grupo de recursos existente chamado `myResourceGroup`.
+3. Execute o seguinte comando usando `--parameters` para definir o caminho para o arquivo azuredeploy.parameters.json. Esse comando implanta o cluster em um grupo de recursos que você criar chamado `myResourceGroup` na região Oeste dos EUA.
 
-    ```CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```azurecli
+    az login
+
+    az account set --subscription "mySubscriptionID"
+
+    az group create --name "myResourceGroup" --location "westus" 
+    
+    az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Opção 2: gerar a entidade de serviço ao criar o cluster com a CLI do Azure 2.0 Preview
+### <a name="option-2-generate-the-service-principal-when-creating-the-cluster-with-the-azure-cli-20-preview"></a>Opção 2: Gerar a entidade de serviço ao criar o cluster com a CLI do Azure 2.0 (Visualização)
 
 Se tiver instalado e configurado a [CLI do Azure 2.0 (Visualização)](https://docs.microsoft.com/cli/azure/install-az-cli2), você poderá executar o comando [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) para [criar o cluster](./container-service-create-acs-cluster-cli.md).
 
@@ -93,16 +99,16 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Se você quer criar uma entidade de serviço no Azure Active Directory para uso no cluster Kubernetes, o Azure fornece vários métodos. 
 
-Os comandos de exemplo a seguir mostram como fazer isso com a [CLI do Azure 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). Como alternativa, você pode criar uma entidade de serviço usando a [Interface de Linha de Comando do Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), o [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) ou o [portal clássico](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Os comandos de exemplo a seguir mostram como fazer isso com a [CLI do Azure 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). Você também pode criar uma entidade de serviço usando [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), o [portal clássico](../azure-resource-manager/resource-group-create-service-principal-portal.md), ou outros métodos.
 
 > [!IMPORTANT]
 > Examine os requisitos da entidade de serviço neste artigo.
 >
 
-```console
+```azurecli
 az login
 
-az account set --subscription="mySubscriptionID"
+az account set --subscription "mySubscriptionID"
 
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
@@ -116,7 +122,7 @@ Estão realçados a **ID do cliente** (`appId`) e o **segredo do cliente** (`pas
 
 Confirme a entidade de serviço, abra um novo shell e execute os seguintes comandos, substituindo `appId`, `password` e `tenant`:
 
-```console 
+```azurecli 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
@@ -137,6 +143,6 @@ az vm list-sizes --location westus
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

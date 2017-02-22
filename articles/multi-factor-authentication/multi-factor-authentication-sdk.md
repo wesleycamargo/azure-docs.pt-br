@@ -12,19 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 27907f312b97434fe7ab5359acdac942fb563862
+ms.sourcegitcommit: e793478028cee273a07e3665d409a669bdadc758
+ms.openlocfilehash: 4f9456c479b76588adf5f5aecbdd6379ec0e9704
 
 
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Criando uma autenticação multifator em aplicativos personalizados (SDK)
-> [!IMPORTANT]
-> Para baixar o SDK, crie um Provedor de Autenticação Multifator do Azure mesmo que você tenha as licenças MFA, AAD Premium ou EMS do Azure. Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou EMS do Azure. Isso garantirá que você não será cobrado, caso tenha mais usuários exclusivos usando o SDK do que o número de licenças possuídas.
-> 
-> 
 
 O SDK (Software Development Kit) do Azure Multi-Factor Authentication permite que você crie verificação em duas etapas diretamente nos processos de transação ou entrada de aplicativos no locatário do Azure AD.
 
@@ -33,6 +29,10 @@ O SDK do Multi-Factor Authentication está disponível para C#, Visual Basic (.N
 A estrutura das APIs no SDK do Multi-factor Authentication é bastante simples. Você faz uma única chamada de função a uma API com os parâmetros de opção de multifator, como o modo de verificação, e dados do usuário (como o número de telefone para o qual ligar ou o número PIN a ser validado). As APIs convertem a chamada de função em solicitações de serviço Web para o Serviço Azure Multi-Factor Authentication baseado na nuvem. Todas as chamadas devem incluir uma referência ao certificado privado que é incluído em cada SDK.
 
 Como as APIs não têm acesso aos usuários registrados no Active Directory do Azure, você deve fornecer informações do usuário, como números de telefone e códigos PIN, em um arquivo ou banco de dados. Além disso, as APIs não fornecem recursos de gerenciamento de usuários e registros, de modo que você precisa criar esses processos em seu aplicativo.
+
+> [!IMPORTANT]
+> Para baixar o SDK, crie um Provedor de Autenticação Multifator do Azure mesmo que você tenha as licenças MFA, AAD Premium ou EMS do Azure. Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou EMS do Azure. Isso garantirá que você não será cobrado, caso tenha mais usuários exclusivos usando o SDK do que o número de licenças possuídas.
+
 
 ## <a name="download-the-azure-multi-factor-authentication-sdk"></a>Baixar o SDK do Azure Multi-Factor Authentication
 Baixar o SDK do Azure Multi-Factor requer um [Provedor do Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Isso requer uma assinatura completa do Azure, mesmo que você já possua as licenças do Azure MFA, Azure AD Premium ou Enterprise Mobility Suite.  Para baixar o SDK, navegue até o Portal de Gerenciamento Multifator. Você pode chegar ao portal gerenciando o Provedor de Autenticação Multifator diretamente, ou clicando no link **"Ir para o portal"** na página de configuração do serviço do MFA.
@@ -54,7 +54,7 @@ Baixar o SDK do Azure Multi-Factor requer um [Provedor do Azure Multi-Factor Aut
 4. Na parte superior, clique em **Configurar**
 5. Em autenticação multifator, selecione **Gerenciar configurações de serviço**
    ![Download](./media/multi-factor-authentication-sdk/download2.png)
-6. Na página das configurações de serviços, na parte inferior da tela, clique em **Ir para o portal**. Abre uma nova página.
+6. Na página das configurações de serviços, na parte inferior da tela, clique em **Ir para o portal**. Uma nova página é aberta.
    ![Baixar](./media/multi-factor-authentication-sdk/download3a.png)
 7. À esquerda, na parte inferior, clique em **SDK**.
 8. Selecione o idioma desejado e clique em um dos links de download associados.
@@ -67,13 +67,11 @@ Dentro do SDK, você encontrará os seguintes itens:
 * **Arquivo(s) de origem** para Multi-Factor Authentication
 * **Certificado do cliente** que você usa para se comunicar com o serviço Multi-Factor Authentication
 * **Chave privada** do certificado
-* **Resultados da chamada.**  Uma lista de códigos do resultado da chamada. Para abrir esse arquivo, use um aplicativo com formatação de texto, como o WordPad. Use os códigos do resultado da chamada para testar e solucionar problemas de implementação do Multi-Factor Authentication no aplicativo. Eles não são códigos de status de autenticação.
-* **Exemplos.**  Código de exemplo para uma implementação básica de trabalho do Multi-Factor Authentication.
+* **Resultados da chamada.** Uma lista de códigos do resultado da chamada. Para abrir esse arquivo, use um aplicativo com formatação de texto, como o WordPad. Use os códigos do resultado da chamada para testar e solucionar problemas de implementação do Multi-Factor Authentication no aplicativo. Eles não são códigos de status de autenticação.
+* **Exemplos.** Código de exemplo para uma implementação básica de trabalho do Multi-Factor Authentication.
 
 > [!WARNING]
 > O certificado do cliente é um certificado privado único que foi gerado especialmente para você. Não compartilhe nem perca este arquivo. Ele é sua chave para garantir a segurança da comunicação com o serviço Multi-Factor Authentication.
-> 
-> 
 
 ## <a name="code-sample-standard-mode-phone-verification"></a>Exemplo de código: verificação de telefone no modo padrão
 Este exemplo de código mostra como usar as APIs no SDK do Azure Multi-Factor Authentication para adicionar verificação de chamada de voz no modo padrão ao seu aplicativo. O modo padrão é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
@@ -82,8 +80,6 @@ Este exemplo usa o SDK do Multi-Factor Authentication .NET 2.0 do C# em um aplic
 
 > [!NOTE]
 > Ao implementar o Multi-Factor Authentication, use os fatores adicionais (chamada telefônica ou mensagem de texto) como verificação secundária ou terciária para complementar seu método de autenticação primária (senha e usuário). Esses métodos não foram desenvolvidos para serem usados como métodos de autenticação primária.
-> 
-> 
 
 ### <a name="code-sample-overview"></a>Visão geral do exemplo de código
 Este código de exemplo de um aplicativo de demonstração na Web bastante simples usa uma chamada telefônica com uma resposta pela tecla # para concluir a autenticação do usuário. Esse fator de chamada telefônica é conhecido no Multi-Factor Authentication como modo padrão.
@@ -161,7 +157,7 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
                 // Add call details from the user database.
                 PfAuthParams pfAuthParams = new PfAuthParams();
                 pfAuthParams.Username = username.Text;
-                pfAuthParams.Phone = "9134884271";
+                pfAuthParams.Phone = "5555555555";
                 pfAuthParams.Mode = pf_auth.MODE_STANDARD;
 
                 // Specify a client certificate
@@ -182,7 +178,7 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
                 else
                 {
                     lblResult.ForeColor = System.Drawing.Color.Red;
-                    lblResult.Text = " Multi-Factor Authentication failed.";
+                    lblResult.Text = "Multi-Factor Authentication failed.";
                 }
             }
 
@@ -191,6 +187,6 @@ No código de servidor a seguir, o Multi-Factor Authentication é configurado e 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

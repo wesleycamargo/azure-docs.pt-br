@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+ms.sourcegitcommit: f28c528b51fdf08129f78fce74dba298be7326dd
+ms.openlocfilehash: 20f820a4883643e8941be3ec59667242d727b0c1
 
 
 ---
@@ -84,7 +84,11 @@ Para obter exemplos de código, consulte
 * [API REST do Dimensionamento Automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Dimensionamento horizontal vs. vertical
-O dimensionamento automático aumenta os recursos apenas em escalas horizontais, que é um aumento ("mais") ou diminuição ("menos") no número de instâncias de VM.  O dimensionamento horizontal é mais flexível em uma situação de nuvem, pois permite que você execute milhares de VMs para lidar com a carga. O dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna a VM mais ("para cima") ou menos ("para baixo") poderosa. O poder é medido em termos de memória, velocidade da CPU, espaço em disco etc.  O dimensionamento vertical tem mais limitações. Ele depende da disponibilidade de um hardware maior, o que pode variar por região, e atinge rapidamente o limite superior. O dimensionamento vertical também exige normalmente um início e parada da VM. Para saber mais, confira [Dimensionar verticalmente uma máquina virtual do Azure com a Automação do Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+O dimensionamento automático ocorre apenas horizontalmente, que é um aumento ("out") ou uma diminuição ("in") do número de instâncias de VM.  O dimensionamento horizontal é mais flexível em uma nuvem, pois permite que você potencialmente execute milhares de VMs para manipular carga. 
+
+Já o dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna as VMs mais ("para cima") ou menos ("para baixo") potentes. O poder é medido em termos de memória, velocidade da CPU, espaço em disco etc.  O dimensionamento vertical tem mais limitações. Ele depende da disponibilidade de um hardware maior, que atinge rapidamente um limite superior e pode variar por região. O dimensionamento vertical normalmente também exige que uma VM pare e reinicie. 
+
+Para saber mais, confira [Dimensionar verticalmente uma máquina virtual do Azure com a Automação do Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Métodos de acesso
 Você pode configurar o dimensionamento automático via
@@ -116,6 +120,6 @@ Para saber mais sobre o dimensionamento automático, use as Explicações Passo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

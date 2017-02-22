@@ -1,5 +1,5 @@
 ---
-title: "Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Docs"
+title: 'Backup do Azure: Usar o PowerShell para fazer backup de cargas de trabalho de DPM | Microsoft Docs'
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 services: backup
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: jimpark; trinadhk; anuragm; markgal
+ms.date: 1/23/2017
+ms.author: nkolli;trinadhk;anuragm;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+ms.sourcegitcommit: 127484103706be5acd0f988aee3d13217d4d87f2
+ms.openlocfilehash: f73bdcf056dc745f9f40e96d3dc51e5e4b88f77d
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Clássico](backup-dpm-automation-classic.md)
-> 
-> 
+>
+>
 
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
 
@@ -68,8 +68,8 @@ As seguintes tarefas de configuração e de registro podem ser automatizadas com
 ### <a name="create-a-backup-vault"></a>Criar um cofre de backup
 > [!WARNING]
 > Para clientes usando o Backup do Azure pela primeira vez, você precisa registrar o provedor de Backup do Azure para ser usado com sua assinatura. Isso pode ser feito executando o seguinte comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
-> 
-> 
+>
+>
 
 Você pode criar um novo cofre de backup usando o commandlet **New-AzureRMBackupVault** . O cofre de backup é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Em um console do Azure PowerShell com privilégios elevados, execute os seguintes comandos:
 
@@ -143,8 +143,8 @@ Isso registrará o servidor DPM denominado “TestingServer” no Cofre do Micro
 
 > [!IMPORTANT]
 > Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
-> 
-> 
+>
+>
 
 ### <a name="initial-configuration-settings"></a>Definições de configuração iniciais
 Depois que o Servidor de DPM estiver registrado com o cofre de Backup do Azure, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para começar a alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) :
@@ -194,8 +194,8 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 > [!IMPORTANT]
 > Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
-> 
-> 
+>
+>
 
 Neste ponto, você deve fez todas as alterações necessárias ao objeto ```$setting``` . Lembre-se de confirmar as alterações.
 
@@ -351,7 +351,6 @@ Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

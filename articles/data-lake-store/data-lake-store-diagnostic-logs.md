@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
 
 
 ---
@@ -31,17 +31,26 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar o log de diagnóstico em sua conta do Data Lake Store
 1. Entre no novo [Portal do Azure](https://portal.azure.com).
-2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Configurações**, em seguida, clique em **Configurações de Diagnóstico**.
+2. Abra sua conta Data Lake Store e na folha da conta Data Lake Store, clique em **Configurações**, em seguida, clique em **Logs de diagnóstico**.
+3. No **os logs de diagnóstico** folha, clique em **Ativar diagnóstico**.
+
+    ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "habilitar logs de diagnóstico")
+
 3. Na folha **Diagnóstico** , faça as seguintes alterações para configurar o log de diagnóstico.
    
-    ![Habilitar registro em log de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+    ![Habilitar o log de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "habilitar logs de diagnóstico")
    
    * Defina **Status** para **Ativado** para habilitar o log de diagnóstico.
-   * Você pode optar por armazenar/processar os dados de duas maneiras diferentes.
-     * Selecione a opção **Exportar para o Hub de Eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
-     * Selecione a opção **Exportar para a Conta de Armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados que serão processados em lote em uma data posterior. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
+   * Você pode optar por armazenar/processar os dados de maneiras diferentes.
+     
+        * Selecione a opção **Arquivar em uma conta de armazenamento** para armazenar os logs em uma conta de armazenamento do Azure. Use esta opção se quiser arquivar os dados que serão processados em lote em uma data posterior. Se escolher esta opção, você deverá fornecer uma conta de armazenamento do Azure para salvar os logs.
+        
+        * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
+
+        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, você deve fornecer os detalhes para o espaço de trabalho do Operations Management Suite que você usaria a análise de log de executar.
+     
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
-   * Especifique o número de dias que os dados devem ser mantidos.
+   * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
    * Clique em **Salvar**.
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
@@ -55,7 +64,7 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
 ### <a name="using-the-data-lake-store-settings-view"></a>Usando a exibição de configurações do Data Lake Store
 1. Na folha **Configurações** da conta Data Lake Store, clique em **Logs de Diagnóstico**.
    
-    ![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "exibir logs de diagnóstico") 
 2. Na folha **Logs de Diagnóstico**, você deve ver os logs categorizados por **Logs de Auditoria** e **Logs de Solicitação**.
    
    * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Store.
@@ -65,13 +74,13 @@ Há duas maneiras de exibir os dados do log da sua conta no Data Lake Store.
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>Na conta de Armazenamento do Azure que contém dados de log
 1. Abra a folha Conta de armazenamento do Azure associada ao Data Lake Store para registro em log e clique em Blobs. A folha **serviço Blob** lista dois contêineres.
    
-    ![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "exibir logs de diagnóstico")
    
    * O contêiner **insights-logs-audit** contém os logs de auditoria.
    * O contêiner **insights-logs-requests** contém os logs de solicitação.
 2. Dentro desses contêineres, os logs são armazenados na estrutura a seguir.
    
-    ![Exibir o log de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
+    ![Log de diagnóstico de exibição](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "exibir logs de diagnóstico")
    
     Por exemplo, o caminho completo para um log de auditoria poderia ser `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
@@ -177,6 +186,6 @@ O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

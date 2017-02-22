@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 98b2f3d9108c3f7a4179f5756d56fce9c5acd915
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 5acf43ac97fca98bc6d06a174b5fcc66f06a03b2
 
 
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="overview"></a>Visão geral
 O protocolo RDP é um protocolo proprietário usado para o Windows. Como podemos usar o RDP para se conectar remotamente a uma VM (máquina virtual) do Linux?
@@ -115,6 +116,6 @@ Para obter mais informações sobre como usar o xrdp, acesse [aqui](http://www.x
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Baixar o SDK do Azure para Java
-description: "Saiba como baixar o SDK do Azure para o Java, com um código de exemplo fornecido para projetos do Maven e as etapas básicas de instalação para o Kit de Ferramentas do Azure para o Eclipse."
+title: Baixar o SDK do Azure para Java | Microsoft Docs
+description: "Saiba como baixar o SDK do Azure para Java, com código de exemplo fornecido para projetos Maven."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -12,42 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 12/22/2016
+ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b7e591172ea810ce370f946eb46258c801ba36
+ms.sourcegitcommit: 0933eabf99ef94f2c4b425f1435530edfde65e3f
+ms.openlocfilehash: 9e55eb52797f1363cbb65050574e549c575ca5d8
 
 
 ---
 # <a name="download-the-azure-sdk-for-java"></a>Baixar o SDK do Azure para Java
-Este artigo contém instruções sobre como baixar e instalar as bibliotecas do Azure para Java.
+Este artigo contém instruções sobre como baixar e instalar as Bibliotecas de Gerenciamento do Azure para Java.
 
-**Observação:** as bibliotecas do Azure para Java são distribuídas sob a [licença do Apache, Versão][license].
+> [!NOTE]
+> As Bibliotecas de Gerenciamento do Azure para Java são distribuídas sob a [Licença do Apache, versão 2.0][license].
+>
 
 ## <a name="azure-libraries-for-java---manual-download"></a>Bibliotecas do Azure para Java - Download manual
-Para instalar manualmente as bibliotecas do Azure para Java, clique em <http://go.microsoft.com/fwlink/?LinkId=690320> para baixar um arquivo ZIP que contém todas as bibliotecas e todas as dependências.
+Para instalar manualmente as Bibliotecas de Gerenciamento do Azure para Java, clique em <http://go.microsoft.com/fwlink/?LinkId=690320> para baixar um arquivo ZIP que contém todas as bibliotecas e todas as dependências.
 
 Depois de baixar o arquivo zip em seu computador, extraia seu conteúdo e use uma das seguintes opções para adicionar os arquivos JAR ao seu projeto:
 
-* Importe os arquivos JAR para o seu projeto do Java no Eclipse.
-* Configure o **Build Path** em seu projeto de Java no Eclipse para incluir o caminho para os arquivos JAR.
+* Importe os arquivos JAR para o seu projeto do Java no Eclipse ou IntelliJ.
+* Configure os caminhos de compilação em seu projetos do Java no Eclipse ou IntelliJ para incluir o caminho para os arquivos JAR.
 
-Para obter informações detalhadas sobre como configurar os caminhos de compilação no Eclipse, confira o artigo [Caminho de compilação do Java] no site do Eclipse.
+> [!NOTE]
+> Confira os arquivos license.txt e ThirdPartyNotices.txt dentro do ZIP para ver a licença e outras informações.
+>
 
-**Observação:** veja os arquivos license.txt e ThirdPartyNotices.txt dentro do ZIP para obter a licença e outras informações.
-
-## <a name="azure-libraries-for-java---building-with-maven"></a>Bibliotecas do Azure para Java - Compilando com o Maven
+## <a name="azure-management-libraries-for-java---building-with-maven"></a>Bibliotecas de Gerenciamento do Azure para Java - Compilação com o Maven
 ### <a name="step-1---set-up-your-project-to-use-maven-for-build"></a>Etapa 1 - Configurar seu projeto para usar o Maven para compilação
-Para criar projetos do Maven no Eclipse que usam as bibliotecas do Azure para Java, siga as instruções no artigo [Introdução às bibliotecas de gerenciamento do Azure para Java][maven-getting-started]. 
+Para criar projetos do Maven no Eclipse que usem as Bibliotecas de Gerenciamento do Azure para Java, siga as instruções no artigo [Getting Started with Azure Management Libraries for Java][maven-getting-started] (Introdução às Bibliotecas de Gerenciamento do Azure para Java).
 
 ### <a name="step-2---configure-your-maven-settings-with-the-requisite-dependencies"></a>Etapa 2 - Definir as configurações do Maven com as dependências necessárias
-Depois que o projeto foi configurado para usar o Maven para compilação, é possível adicionar as dependências necessárias ao arquivo pom.xml usando uma sintaxe como mostrada no exemplo a seguir. Observe que você não precisa adicionar cada dependência que é listada no exemplo a seguir; você precisa adicionar apenas as dependências específicas necessários para o seu projeto.
+Depois que o projeto foi configurado para usar o Maven para build, é possível adicionar as dependências necessárias ao arquivo pom.xml usando uma sintaxe como mostrada no exemplo a seguir. Observe que você não precisa adicionar cada dependência que é listada no exemplo a seguir; você precisa adicionar apenas as dependências específicas necessários para o seu projeto.
 
 > [!NOTE]
 > Dentro de cada elemento `<version>` no exemplo a seguir, substitua os espaços reservados "n.n.n" neste exemplo por números de versão válidos, que podem ser obtidos no [Repositório de bibliotecas do Azure no Maven].
-> 
-> 
+>
+>
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -95,45 +97,43 @@ Depois que o projeto foi configurado para usar o Maven para compilação, é pos
         <version>n.n.n</version>
     </dependency>
 
-## <a name="installing-the-azure-toolkit-for-eclipse"></a>Instalação do Kit de Ferramentas do Azure para o Eclipse
-Esta seção contém instruções básicas para instalar o Kit de Ferramentas do Azure para o Eclipse; para obter instruções detalhadas, veja [Instalando o Kit de Ferramentas do Azure para o Eclipse].
-
-### <a name="prerequisites"></a>Pré-requisitos
-1. Sistemas operacionais Windows listados no artigo [Novidades no Kit de Ferramentas do Azure para o Eclipse] .
-2. Os sistemas operacionais Macintosh ou Linux listados no artigo [Novidades no Kit de Ferramentas do Azure para o Eclipse] .
-3. Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
-
-### <a name="basic-installation-steps"></a>Etapas básicas de instalação
-1. No Eclipse, no menu **Ajuda**, selecione **Instalar novo software**.
-2. Digite o local do site <http://dl.microsoft.com/eclipse> e pressione **Enter**.
-3. Selecione os itens a serem instalados e clique em **Concluir**.
-
-O Kit de Ferramentas do Azure para o Eclipse usa a versão mais recente do SDK do Azure. Ele pode ser baixado usando o Web Platform Installer (WebPI) em <http://go.microsoft.com/fwlink/?LinkID=252838>. No entanto, se não o tiver instalado, quando você criar o seu primeiro projeto de implantação do Azure, o Kit de Ferramentas do Azure para Eclipse vai instalar automaticamente a versão apropriada do SDK do Azure.
-
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse]
+Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
-[Instalando o Kit de Ferramentas do Azure para o Eclipse] 
+* [Kit de ferramentas do Azure para Eclipse]
+  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
+  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+* [Kit de Ferramentas do Azure para IntelliJ]
+  * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
+  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
-[Criação de um aplicativo Hello World do Azure no Eclipse]
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure].
 
-Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
+> [!NOTE]
+> Para obter informações detalhadas sobre como configurar os caminhos de compilação no Eclipse, confira o artigo [Caminho de compilação do Java] no site do Eclipse.
+>
 
 <!-- URL List -->
 
-[Central de desenvolvimento Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Kit de ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse.md
+[Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
+[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+
+[Centro de Desenvolvedores Java do Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Repositório de bibliotecas do Azure no Maven]: http://go.microsoft.com/fwlink/?LinkID=286274
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalando o Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Caminho de compilação do Java]: http://help.eclipse.org/luna/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2Freference%2Fref-properties-build-path.htm
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
-[zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

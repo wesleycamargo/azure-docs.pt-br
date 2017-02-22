@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
 ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
@@ -105,6 +105,6 @@ Depois de criar a política, você precisará aplicá-la a um escopo definido. O
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

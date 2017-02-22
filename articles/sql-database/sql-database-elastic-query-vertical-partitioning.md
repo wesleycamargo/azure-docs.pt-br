@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9d3c60eb630816698dc0c0bd3b4be8da5fec13eb
+ms.sourcegitcommit: 77b8b8960fb0e5e5340b65dae03f95b456832a07
+ms.openlocfilehash: cb649d3f6ead507582f587d112e43a89e659c757
 
 
 ---
@@ -30,7 +30,10 @@ Bancos de dados particionados verticalmente usam diferentes conjuntos de tabelas
 * As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
 
 ## <a name="overview"></a>Visão geral
-**OBSERVAÇÃO**: Ao contrário do particionamento horizontal, essas instruções DDL não dependem da definição de uma camada de dados com um mapa de fragmentos por meio da biblioteca de cliente do banco de dados elástico.
+
+> [!NOTE]
+> Ao contrário do particionamento horizontal, essas instruções DDL não dependem da definição de uma camada de dados com um mapa de fragmentos por meio da biblioteca de cliente do banco de dados elástico.
+>
 
 1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
 2. [CRIAR UMA CREDENCIAL NO ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt270260.aspx)
@@ -45,7 +48,9 @@ A credencial é usada pela consulta elástica para se conectar aos bancos de dad
     SECRET = '<password>'
     [;]
 
-**Observação**    Verifique se o *<username>* não inclui nenhum sufixo *"@servername"*. 
+> [!NOTE]
+> Verifique se o `<username>` não inclui nenhum sufixo **"@servername"**. 
+>
 
 ## <a name="create-external-data-sources"></a>Criar fontes de dados externas
 Sintaxe:
@@ -58,7 +63,9 @@ Sintaxe:
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
-**Importante**   O parâmetro TYPE deve ser definido **RDBMS**. 
+> [!IMPORTANT]
+> O parâmetro TYPE deve ser definido como **RDBMS**. 
+>
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir ilustra o uso da instrução CRIAR para fontes de dados externas. 
@@ -118,7 +125,7 @@ Com uma fonte de dados externa, como descrito na seção anterior, a sintaxe par
 
 A cláusula DATA_SOURCE define a fonte de dados externa (ou seja, o banco de dados remoto, no caso do particionamento vertical) que é usada para a tabela externa.  
 
-As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição da tabela externa para uma tabela em um esquema diferente no banco de dados remoto ou para uma tabela com um nome diferente, respectivamente. Isso é útil se você deseja definir uma tabela externa para uma exibição de catálogo ou DMV em seu banco de dados remoto – ou em qualquer outra situação em que o nome da tabela remota já esteja sendo usado localmente.  
+As cláusulas SCHEMA_NAME e OBJECT_NAME fornecem a capacidade de mapear a definição da tabela externa para uma tabela em um esquema diferente no banco de dados remoto ou para uma tabela com um nome diferente, respectivamente. Isso será útil se você quiser definir uma tabela externa para uma exibição de catálogo ou DMV em seu banco de dados remoto – ou em qualquer outra situação em que o nome da tabela remota já esteja sendo usado localmente.  
 
 A instrução DDL a seguir remove uma definição existente da tabela externa do catálogo do local. Ela não afeta o banco de dados remoto. 
 
@@ -185,6 +192,6 @@ Para consultar bancos de dados particionados horizontalmente (também conhecido 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/06/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 852d8ee2686e5653f9fe8bb5ec41b22cb1b19048
-ms.openlocfilehash: a9cf9a7e91c21d675f7ae22072fd10794a1295e7
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 1cde923ad0aef1ce1c91d1240f7b3e3d3c26e105
 
 
 ---
@@ -44,8 +44,8 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 * As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure.  No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
 * Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo que as Tarefas podem gastar no estado na fila e, a qualquer momento específico, no máximo, apenas uma Tarefa será executada.
-* Os seguintes data centers não oferecem o tipo de unidade reservada **S2** : Sul do Brasil, Índia Ocidental, Índia Central e Sul da Índia.
-* Os seguintes data centers não oferecem o tipo de unidade reservada **S3** : Sul do Brasil, Índia Ocidental, Índia Central.
+* Os data centers a seguir não oferecem o tipo de unidade reservada **S2**: Sul do Brasil e Índia Ocidental.
+* Os data centers a seguir não oferecem o tipo de unidade reservada **S3**: Índia Ocidental.
 * O número mais alto de unidades especificadas para o período de 24 horas é usado para calcular o custo.
 
 ## <a name="quotas-and-limitations"></a>Cotas e limitações
@@ -57,7 +57,7 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
@@ -72,6 +72,6 @@ Realize a tarefa de dimensionamento de processamento da mídia com uma dessas te
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Esta página fornece uma visão geral do serviço Gateway de Aplic
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
-ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
+ms.sourcegitcommit: ca87ad0165c7333fd43a828f7d92d46a432d8f78
+ms.openlocfilehash: 6956353771e6b4bcb814eb7cc9dfde01c452b8bd
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
 
 O Microsoft Azure Application Gateway fornece o ADC (Controlador de Entrega de Aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para o aplicativo. Ele permite que os clientes otimizem a produtividade do web farm descarregando a terminação SSL com uso intensivo de CPU para o Gateway de Aplicativo. Ele também fornece outros recursos de roteamento de camada 7, incluindo distribuição round robin do tráfego de entrada, afinidade de sessão, roteamento com base no caminho de URL e a capacidade de hospedar vários sites por trás de um único Gateway de Aplicativo baseado em cookie. O Gateway de Aplicativo também tem um WAF (firewall de aplicativo Web) que protege o aplicativo contra a maioria das 10 vulnerabilidades da Web mais comuns de OWASP. O Gateway de Aplicativo pode ser configurado como um gateway voltado para a Internet, um gateway apenas interno ou uma combinação de ambos. O Gateway de Aplicativo é totalmente gerenciado pelo Azure, escalonável e altamente disponível. Ele fornece um conjunto avançado de recursos de log e diagnósticos para melhor capacidade de gerenciamento. O Gateway de Aplicativo funciona com máquinas virtuais, serviços de nuvem e aplicativos Web voltados para o interior ou o exterior.
 
-O Gateway de Aplicativo é um dispositivo virtual dedicado para o aplicativo e é composto de várias instâncias de trabalho para alta disponibilidade e escalabilidade. Quando você cria um gateway de aplicativo, um ponto de extremidade (VIP público ou IP ILB interno) é usado e associado para tráfego de rede de entrada. Esse IP de ILB ou VIP é fornecido pelo Azure Load Balancer, funcionando no nível de transporte (TCP/UDP) e fazendo com que todo o tráfego de rede entrada seja balanceado para as instâncias de trabalho do Application Gateway. O Gateway de Aplicativo roteará o tráfego HTTP/HTTPS com base em sua configuração seja uma máquina virtual, serviço de nuvem ou um endereço IP interno ou externo. Para ver o SLA e o Preço, confira as páginas [SLA](https://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
+O Gateway de Aplicativo é um dispositivo virtual dedicado para o aplicativo composto por várias instâncias de trabalho para alta disponibilidade e escalabilidade. Quando você cria um gateway de aplicativo, um ponto de extremidade (VIP público ou IP ILB interno) é usado e associado para tráfego de rede de entrada. Esse IP de ILB ou VIP é fornecido pelo Azure Load Balancer, funcionando no nível de transporte (TCP/UDP) e fazendo com que todo o tráfego de rede entrada seja balanceado para as instâncias de trabalho do Application Gateway. O Gateway de Aplicativo roteará o tráfego HTTP/HTTPS com base em sua configuração seja uma máquina virtual, serviço de nuvem ou um endereço IP interno ou externo. Para ver o SLA e o Preço, confira as páginas [SLA](https://azure.microsoft.com/support/legal/sla/) e [Preço](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Recursos
 
@@ -67,7 +67,7 @@ Atualmente, há duas SKUs de Gateway de Aplicativo: **WAF** e **Standard**.
 
 Você pode criar até 50 Application Gateways por assinatura e cada um deles pode ter até 10 instâncias. Cada gateway de aplicativo pode consistir em 20 ouvintes http. Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do Application Gateway:
+A tabela a seguir mostra uma produtividade de desempenho médio para cada instância do gateway de aplicativo com o descarregamento SSL habilitado:
 
 | Resposta de página de back-end | Pequena | Média | Grande |
 | --- | --- | --- | --- |
@@ -75,9 +75,7 @@ A tabela a seguir mostra uma produtividade de desempenho médio para cada instâ
 | 100K |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> Esses valores são valores aproximados para uma produtividade do Application Gateway. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para números de desempenho exatos, você deve executar seus próprios testes. Os valores aqui são fornecidos somente para orientação no planejamento de capacidade.
->
->
+> Esses valores são valores aproximados para uma produtividade do Application Gateway. A produtividade real depende de diversos detalhes de ambiente, como o tamanho médio da página, a localização das instâncias de back-end e o tempo de processamento para fornecer de uma página. Para obter números de desempenho exatos, você deve executar seus próprios testes. Esses valores são fornecidos apenas para a orientação do planejamento de capacidade.
 
 ## <a name="health-monitoring"></a>Monitoramento da integridade
 
@@ -97,6 +95,6 @@ Para saber como criar um Application Gateway usando a URL com base em roteamento
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

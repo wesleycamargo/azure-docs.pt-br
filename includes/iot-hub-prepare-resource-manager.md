@@ -1,5 +1,5 @@
-## Preparar para autenticar solicitações do Gerenciador de Recursos
-Autentique todas as operações que podem ser executadas nos recursos usando o [Gerenciador de Recursos do Azure][lnk-authenticate-arm] com o Active Directory do Azure (AD). A maneira mais fácil de configurar isso é usar o PowerShell ou Azure CLI.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Preparar para autenticar solicitações do Azure Resource Manager
+Autentique todas as operações que podem ser executadas nos recursos usando o [Azure Resource Manager][lnk-authenticate-arm] com o Azure Active Directory (AD). A maneira mais fácil de configurar isso é usar o PowerShell ou Azure CLI.
 
 Você deve instalar o [Azure PowerShell 1.0][lnk-powershell-install] ou posterior antes de continuar.
 
@@ -27,7 +27,7 @@ As etapas a seguir mostram como configurar a autenticação de senha para um apl
     ```
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Configurar uma atribuição de função usando o comando a seguir, substituindo **{MyApplicationId}** pelo **ApplicationId**.
+6. Configurar uma atribuição de função usando o comando a seguir, substituindo **{MyApplicationId}** por **ApplicationId**.
    
     ```
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
@@ -41,6 +41,9 @@ Você terminou de criar o aplicativo do AD do Azure que permitirá autenticar a 
 * Senha
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: ../articles/powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Dec16_HO1-->
+
+

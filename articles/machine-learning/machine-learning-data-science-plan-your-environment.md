@@ -1,5 +1,5 @@
 ---
-title: "Como identificar cenários e planejar o processamento de dados analíticos avançados | Microsoft Docs"
+title: "Identificar cenários e planejar o processo de análise - Azure | Microsoft Docs"
 description: "Planeje a análise avançada considerando uma série de perguntas importantes."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3b9cd8f5f0f65b84863e27abda0f3e4ca25d2e15
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: d11f023f263b0bb504e2ecb0ff69bb0cc726618b
 
 
 ---
@@ -28,13 +28,13 @@ Quais recursos você deve planejar incluir ao configurar um ambiente para o proc
 ## <a name="logistic-questions-data-locations-and-movement"></a>Perguntas sobre logística: locais e movimentação de dados
 As perguntas sobre logística dizem respeito à localização da **fonte de dados**, ao **destino** no Azure e aos requisitos para mover os dados, inclusive o cronograma, a quantidade e os recursos envolvidos. Pode ser necessário mover os dados várias vezes durante o processo de análise. Um cenário comum é mover os dados locais para alguma forma de armazenamento no Azure e então para o Estúdio de Aprendizado de Máquina.
 
-1. **Qual é a sua fonte de dados?**  Ela é local ou fica na nuvem? Por exemplo:
+1. **Qual é a sua fonte de dados?** Ela é local ou fica na nuvem? Por exemplo:
    
    * Os dados estão disponíveis publicamente em um endereço HTTP.
    * Os dados residem em um local de arquivo local/na rede.
    * Os dados estão em um banco de dados do SQL Server.
    * Os dados são armazenados em um contêiner de armazenamento do Azure.
-2. **Qual é o destino do Azure?**  Onde ele precisa estar para processamento ou modelagem? Por exemplo:
+2. **Qual é o destino do Azure?** Onde ele precisa estar para processamento ou modelagem? Por exemplo:
    
    * Armazenamento do Blobs do Azure
    * Bancos de dados do SQL Azure
@@ -42,12 +42,12 @@ As perguntas sobre logística dizem respeito à localização da **fonte de dado
    * Tabelas do HDInsight (Hadoop no Azure) ou do Hive
    * Aprendizado de Máquina do Azure
    * Discos rígidos virtuais montáveis do Azure.
-3. **Como você moverá os dados?**  Os procedimentos e os recursos disponíveis para ingestão ou carregamento de dados em uma variedade de ambientes de armazenamento e de processamento diferentes são descritos nos tópicos a seguir.
+3. **Como você moverá os dados?** Os procedimentos e os recursos disponíveis para ingestão ou carregamento de dados em uma variedade de ambientes de armazenamento e de processamento diferentes são descritos nos tópicos a seguir.
    
    * [Carregar dados em ambientes de armazenamento para análise](machine-learning-data-science-ingest-data.md)
    * [Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados](machine-learning-data-science-import-data.md).
-4. **Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?**  Considere o uso do ADF (Azure Data Factory) quando os dados precisarem ser migrados de forma contínua, particularmente se um cenário híbrido que acesse os recursos locais e de nuvem estiver envolvido ou quando os dados forem transacionados ou quando for necessário modificá-los ou adicionar lógica de negócios a eles durante a migração. Para saber mais, confira [Mover dados de um servidor SQL local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
-5. **Quanto dos dados será movido para o Azure?**  Os conjuntos de dados muito grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Estúdio de Aprendizado de Máquina na próxima seção. Nesses casos, uma amostra dos dados poderá ser usada durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
+4. **Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?** Considere o uso do ADF (Azure Data Factory) quando os dados precisarem ser migrados de forma contínua, particularmente se um cenário híbrido que acesse os recursos locais e de nuvem estiver envolvido ou quando os dados forem transacionados ou quando for necessário modificá-los ou adicionar lógica de negócios a eles durante a migração. Para saber mais, confira [Mover dados de um servidor SQL local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
+5. **Quanto dos dados será movido para o Azure?** Os conjuntos de dados muito grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Estúdio de Aprendizado de Máquina na próxima seção. Nesses casos, uma amostra dos dados poderá ser usada durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
 Essas perguntas são essenciais para o planejamento de seus ambientes de armazenamento e de processamento, cada um apropriado aos diversos tipos de dados e cada um com determinadas restrições.
@@ -79,9 +79,9 @@ Tome o ambiente do Estúdio de Aprendizado de Máquina do Azure como exemplo:
 Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Perguntas sobre qualidade de dados: exploração e pré-processamento
-1. **O que você sabe sobre seus dados?**  Explore os dados quando precisar compreender suas características básicas. Quais padrões ou tendências eles exibem, quais exceções que possuem ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a plotagem de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process (Dados de exemplo no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-explore-data.md).
+1. **O que você sabe sobre seus dados?** Explore os dados quando precisar compreender suas características básicas. Quais padrões ou tendências eles exibem, quais exceções que possuem ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a plotagem de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process (Dados de exemplo no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-explore-data.md).
 2. **Os dados exigem pré-processamento ou limpeza?**
-    O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
+   O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Perguntas sobre ferramentas e linguagens
 Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas de desenvolvimento você precisa ou com as quais se sente mais confortável.
@@ -93,7 +93,7 @@ Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas d
    * SQL
 2. **Quais ferramentas você deve usar para a análise de dados?**
    
-   * [Microsoft Azure Powershell](../powershell-install-configure.md) - uma linguagem de script usada para administrar os recursos do Azure em uma linguagem de script.
+   * [Microsoft Azure Powershell](/powershell/azureps-cmdlets-docs) - uma linguagem de script usada para administrar os recursos do Azure em uma linguagem de script.
    * [Estúdio de Aprendizado de Máquina do Azure](machine-learning-what-is-ml-studio.md)
    * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
    * [RStudio](http://www.rstudio.com)
@@ -108,6 +108,6 @@ Depois de responder às perguntas na seção anterior, você está pronto para d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

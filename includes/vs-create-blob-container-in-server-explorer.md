@@ -1,9 +1,9 @@
-Você pode criar filas de armazenamento do Azure usando o **Gerenciador de Servidores** do Visual Studio.
+Você pode criar filas de armazenamento do Azure usando o **Gerenciador de Servidores**do Visual Studio.
 
 ![Blobs do Gerenciador de Servidores][Image1]
 
-1. No menu **Exibir**, escolha**Gerenciador de Servidores**.
-2. No Gerenciador de Servidores, expanda o nó **Azure** de sua assinatura, o nó **Armazenamento** e o nó da conta de armazenamento que você especificou no serviço conectado do Armazenamento do Azure.
+1. No menu **Exibir**, escolha **Gerenciador de Servidores**.
+2. No Gerenciador de Servidores, expanda o nó **Azure** para a sua assinatura, expanda o nó **Armazenamento** e o nó da conta de armazenamento especificada no serviço conectado do Armazenamento do Azure.
 3. Selecione o nó **Filas** e escolha **Criar Fila** no menu de contexto.
 4. Insira um nome para o contêiner e escolha **OK**.   
 
@@ -11,4 +11,6 @@ Por padrão, o novo contêiner é privado e você deve especificar sua chave de 
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=Oct15_HO3-->
+<!--HONumber=Jan17_HO3-->
+
+

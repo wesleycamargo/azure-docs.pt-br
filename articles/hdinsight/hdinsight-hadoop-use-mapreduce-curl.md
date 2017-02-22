@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc0e49f96bc80045eed888ff5354e5b6902a841c
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: ae39e06022a8bf53832283173dc97ef8c0e0b9ef
 
 
 ---
@@ -30,13 +30,12 @@ O Curl é usado para demonstrar como você pode interagir com o HDInsight usando
 
 > [!NOTE]
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte [O que você precisa saber sobre Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
-* Um Hadoop no cluster HDInsight (baseado em Linux ou Windows)
+* Um Hadoop no cluster HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -123,6 +122,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

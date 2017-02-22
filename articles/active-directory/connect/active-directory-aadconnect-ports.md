@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: portas | Microsoft Docs'
+title: "Portas e protocolos exigidos para Identidade Híbrida- Azure | Microsoft Docs"
 description: "Essa página é uma página de referência técnica para as portas que precisam estar abertas para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 954c3d138b0fde54c1866135a20f0fc5ff05b85d
+ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
+ms.openlocfilehash: c727e19c1fd8decadfd27c97d25834a9c17c1f73
 
 
 ---
@@ -77,9 +77,9 @@ Essa tabela descreve as portas e protocolos que são necessários para a comunic
 |Protocolo|Número da porta|Descrição
 | --- | --- | ---
 |HTTP|80|Habilite o tráfego HTTP de saída para a validação de segurança como o SSL.
-|HTTPS|443| Habilitar a autenticação de usuário no Azure AD
-|HTTPS|10100–10120| Habilitar respostas do conector para o Azure AD 
-|Barramento de Serviço do Azure|9352, 5671|  Habilite a comunicação entre o conector de serviço do Azure para solicitações de entrada.
+|HTTPS|443|    Habilitar a autenticação de usuário no Azure AD
+|HTTPS|10100–10120|    Habilitar respostas do conector para o Azure AD 
+|Barramento de Serviço do Azure|9352, 5671|    Habilite a comunicação entre o conector de serviço do Azure para solicitações de entrada.
 |HTTPS|9350|    Opcional, para permitir o melhor desempenho para as solicitações de entrada
 |HTTPS|8080/443|    Habilite a sequência de inicialização do Conector e habilite a atualização automática do Conector
 |HTTPS|9090|    Habilite o registro do Conector (necessário somente para o processo de registro do Conector)
@@ -102,6 +102,6 @@ Para obter uma lista de pontos de extremidade, veja [a seção Requisitos para o
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

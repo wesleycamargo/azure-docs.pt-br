@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4fe84f732c24efc8aa647e1f1f650960fcf6514a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
 
 
 ---
@@ -122,7 +122,7 @@ A tabela a seguir compara a STLF e a LTLF em relação aos atributos mais import
 
 Como pode ser visto nesta tabela, é muito importante distinguir entre os cenários de previsão a curto e a longo prazo, já que eles representam necessidades comerciais diferentes e podem ter padrões de implantação e de consumo diferentes.
 
-### <a name="example-use-case-1-esmart-systems-overload-optimization"></a>Caso de Uso do Exemplo 1: Sistemas eSmart – otimização de sobrecarga
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso de Uso do Exemplo 1: Sistemas eSmart – otimização de sobrecarga
 Uma função importante de uma [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) é otimizar e ajustar de forma dinâmica e constante de acordo com os padrões de consumo à medida que eles são alterados. O consumo de energia pode ser afetado por alterações a curto prazo causadas principalmente por flutuações de temperatura (*por exemplo*, mais energia é usada em sistemas de ar condicionado ou de aquecimento). Ao mesmo tempo, o consumo de energia também é influenciado pelas tendências a longo prazo. Elas podem incluir efeitos de periodicidade, feriados nacionais, crescimento do consumo a longo prazo e até fatores econômicos como o índice do consumidor, o preço do petróleo e o PIB.
 
 Neste caso de uso, o [eSmart](http://www.esmartsystems.com/) queria implantar uma solução baseada em nuvem que permitia prever a propensão a uma situação de sobrecarga em uma determinada subestação da rede. Em particular, o eSmart queria identificar as subestações que provavelmente seriam sobrecarregadas na hora seguinte, para que uma ação imediata pudesse ser tomada para evitar ou resolver a situação.
@@ -139,7 +139,7 @@ Os modelos a curto e a longo prazo são implantados individualmente por cada sub
 
 Mais informações sobre este caso de uso podem ser encontradas [aqui](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria-prerequisites"></a>Usar Critérios de Qualificação de Caso – Pré-requisitos
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Usar Critérios de Qualificação de Caso – Pré-requisitos
 A principal força do Cortana Intelligence está em sua poderosa capacidade de implantar e escalar soluções centradas no aprendizado de máquina. Ele foi projetado para dar suporte a milhares de previsões executadas simultaneamente. Ele pode ser dimensionado automaticamente para atender a uma alteração no padrão de consumo. Portanto, o foco da solução é a precisão e o desempenho computacional. Por exemplo, uma empresa está interessada em produzir uma previsão precisa da demanda de energia para a próxima hora e para cada hora do dia. Por outro lado, estamos menos interessados em responder à pergunta sobre o motivo da demanda ser prevista dessa forma (o próprio modelo cuidará disso).
 
 Portanto, é importante perceber que nem todos os casos de uso e os problemas de negócios podem ser efetivamente solucionados usando o aprendizado de máquina.
@@ -349,7 +349,7 @@ A construção da previsão de demanda de energia como um problema de regressão
 Em nossa experiência com a implementação e a implantação do piloto de previsões de demanda de energia, descobrimos que os modelos de regressão avançados disponíveis no AM do Azure tendem a produzir os melhores resultados e por isso nós os utilizamos.
 
 ## <a name="model-evaluation"></a>Avaliação do modelo
-A avaliação do modelo tem um papel fundamental no **Ciclo de Desenvolvimento do Modelo**. Nesta etapa, examinamos a validação do modelo e seu desempenho com dados reais. Durante a etapa de modelagem, usamos uma parte dos dados disponíveis para treinar o modelo. Durante a fase de avaliação, pegamos o restante dos dados para testar o modelo. Praticamente, isso significa que estamos alimentando o modelo com dados novos que foram restruturados e que contêm os mesmos recursos do conjunto de dados de treinamento. No entanto, durante o processo de validação, usamos o modelo para prever a variável de destino em vez de fornecer a variável de destino disponível. Normalmente, nos referimos a esse processo como pontuação de modelo. Usaríamos, então, os valores de destino verdadeiros e os compararíamos aos previstos. A meta aqui é medir e minimizar o erro de previsão, que significa a diferença entre as previsões e o valor verdadeiro. A quantificação da medição do erro é fundamental já que gostaríamos de ajustar o modelo e validar se o erro está realmente diminuindo. O ajuste do modelo pode ser feito por meio da modificação dos parâmetros do modelo que controlam o processo de aprendizagem ou por meio da adição ou da remoção dos recursos de dados (conhecido como [varredura de parâmetros](https://channel9.msdn.com/Blogs/Windows-Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Praticamente, isso significa que talvez seja necessário iterar entre as fases de engenharia de recursos, de modelagem e de avaliação do modelo várias vezes até podermos reduzir o erro até o nível exigido.
+A avaliação do modelo tem um papel fundamental no **Ciclo de Desenvolvimento do Modelo**. Nesta etapa, examinamos a validação do modelo e seu desempenho com dados reais. Durante a etapa de modelagem, usamos uma parte dos dados disponíveis para treinar o modelo. Durante a fase de avaliação, pegamos o restante dos dados para testar o modelo. Praticamente, isso significa que estamos alimentando o modelo com dados novos que foram restruturados e que contêm os mesmos recursos do conjunto de dados de treinamento. No entanto, durante o processo de validação, usamos o modelo para prever a variável de destino em vez de fornecer a variável de destino disponível. Normalmente, nos referimos a esse processo como pontuação de modelo. Usaríamos, então, os valores de destino verdadeiros e os compararíamos aos previstos. A meta aqui é medir e minimizar o erro de previsão, que significa a diferença entre as previsões e o valor verdadeiro. A quantificação da medição do erro é fundamental já que gostaríamos de ajustar o modelo e validar se o erro está realmente diminuindo. O ajuste do modelo pode ser feito por meio da modificação dos parâmetros do modelo que controlam o processo de aprendizagem ou por meio da adição ou da remoção dos recursos de dados (conhecido como [varredura de parâmetros](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Praticamente, isso significa que talvez seja necessário iterar entre as fases de engenharia de recursos, de modelagem e de avaliação do modelo várias vezes até podermos reduzir o erro até o nível exigido.
 
 É importante enfatizar que o erro de previsão nunca será zero, já que nunca haverá um modelo que possa prever com perfeição todos os resultados. No entanto, há uma determinada magnitude de erro que é aceitável para os negócios. Durante o processo de validação, queremos garantir que nosso erro do modelo de previsão seja igual ou que seja melhor do que o nível da tolerância do negócio. Portanto, é importante definir o nível de erro tolerável no início do ciclo durante a fase **Formulação do Problema** .
 
@@ -404,6 +404,6 @@ Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, vej
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao SDK do Gateway do Hub IoT | Microsoft Docs"
-description: "Este passo a passo do SDK do Gateway IoT do Azure usa o Linux para ilustrar os principais conceitos que você deve compreender ao usar o SDK do Gateway IoT do Azure."
+title: "Introdução ao SDK do Azure IoT Gateway (Linux) |Microsoft Docs"
+description: "Como criar um gateway em um computador Linux e saber mais sobre os principais conceitos no SDK do Azure IoT Gateway, tais como módulos e arquivos de configuração JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
-ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>SDK do Gateway IoT do Azure – Introdução usando o Linux
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Introdução ao SDK do Azure IoT Gateway (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Como criar a amostra
-Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][lnk-setupdevbox] para funcionar com o SDK no Linux.
+Antes de começar, você deve [configurar seu ambiente de desenvolvimento][lnk-setupdevbox] para trabalhar com o SDK no Linux.
 
 1. Abra um shell.
 2. Navegue até a pasta raiz de sua cópia local do repositório **azure-iot-gateway-sdk** .
-3. Execute o script **tools/build.sh** . Esse script usa o utilitário **cmake** para criar uma pasta chamada **build** na pasta raiz da cópia local do repositório **azure-iot-gateway-sdk** e gerar um makefile. O script então cria a solução e executa os testes.
+3. Execute o script **tools/build.sh** . Esse script usa o utilitário **cmake** para criar uma pasta chamada **build** na pasta raiz da cópia local do repositório **azure-iot-gateway-sdk** e gerar um makefile. O script cria a solução, ignorando os testes de unidade e os testes de ponta a ponta. Adicione o parâmetro **--skip-unittests** se quiser criar e executar os testes de unidade. Adicione **--run-e2e-tests** se quiser compilar e executar os testes de ponta a ponta.
 
 > [!NOTE]
 > Sempre que você executa o script **build.sh**, ele exclui e recria a pasta **build** na pasta raiz da cópia local do repositório **azure-iot-gateway-sdk**.
@@ -78,11 +78,11 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
         ]
     }
     ```
-3. Navegue até a pasta **azure-iot-gateway-sdk**.
+3. Navegue até a pasta **azure-iot-gateway-sdk/build**.
 4. Execute o comando a seguir:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -92,6 +92,6 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

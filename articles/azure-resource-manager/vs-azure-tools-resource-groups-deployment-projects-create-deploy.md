@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -136,7 +136,7 @@ Agora, você está pronto para implantar seu projeto. Quando você implanta um p
    
     **administratorLogin** especifica o nome de usuário do administrador do SQL Server. Não use nomes comuns de administração como **sa** ou **admin**. 
    
-    O **administratorLoginPassword** especifica uma senha para o administrador do SQL Server. A opção **Salvar senhas como texto sem formatação no arquivo de parâmetros** não é segura; portanto, não selecione essa opção. Como a senha não é salva como texto sem formatação, você precisará fornecer essa senha novamente durante a implantação. 
+    O **administratorLoginPassword** especifica uma senha para o administrador do SQL Server. A opção **Salvar senhas como texto sem formatação no arquivo de parâmetros** não é segura; portanto, não selecione essa opção. Como a senha não é salva como texto sem formatação, você precisa fornecer essa senha novamente durante a implantação. 
    
     **databaseName** especifica um nome para o banco de dados a ser criado. 
    
@@ -189,7 +189,7 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
    
     As propriedades são:
    
-   * As **Propriedades Adicionais** contêm o local de preparação do pacote de implantação da Web que é enviado para o Armazenamento do Azure. Observe a pasta (ExampleApp) e o arquivo (package.zip). Você fornecerá esses valores como parâmetros ao implantar o aplicativo. 
+   * As **Propriedades Adicionais** contêm o local de preparação do pacote de implantação da Web que é enviado para o Armazenamento do Azure. Observe a pasta (ExampleApp) e o arquivo (package.zip). Você precisa saber esses valores porque os fornece como parâmetros ao implantar o aplicativo. 
    * A opção **Incluir Caminho do Arquivo** contém o caminho onde o pacote é criado. A opção **Incluir Destinos** contém o comando que a implantação executa. 
    * O valor padrão **Build;Package** permite que a implantação compile e crie um pacote de implantação da Web (package.zip).  
      
@@ -219,6 +219,6 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

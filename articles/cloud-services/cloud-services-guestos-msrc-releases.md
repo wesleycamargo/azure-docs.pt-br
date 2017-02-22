@@ -4,7 +4,7 @@ description: "Lista de atualizações aplicadas a versões do SO convidado"
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,16 +12,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 1/10/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
+ms.sourcegitcommit: e579c7fd4547a88c6356c77a220b5f9e1a07e542
+ms.openlocfilehash: deafae1c6f77a655d80ee7bafd220c5b624018bd
 
 
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="january-guest-os"></a>SO convidado de janeiro
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| MS17-004 | [3216771] |Atualização de segurança do Serviço LSASS |2.59 |10 de janeiro de 2017 |
+
+## <a name="december-guest-os"></a>SO convidado de dezembro
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| MS16-144 |[3204059] |Atualização de segurança cumulativa do Internet Explorer |2.58, 3.46, 4.39 |13 de dezembro de 2016 |
+| MS16-145 |[3204062] |Atualização de segurança cumulativa do Microsoft Edge |5.4 |13 de dezembro de 2016 |
+| MS16-146 |[3204066]    |Atualização de Segurança do Componente Gráfico da Microsoft|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-147 |[3204063]    |Atualização de Segurança para Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-149 |[3205655]    |Atualização de segurança para Microsoft Windows|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-150 |[3205642]    |Atualização de Segurança para Modo de Kernel Seguro |5.4 |13 de dezembro de 2016 |
+| MS16-151 |[3205651]    |Atualização de segurança para drivers do modo Kernel|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-152 |[3199709]    |Atualização de Segurança para Windows Kernel |5.4 |13 de dezembro de 2016 |
+| MS16-153 |[3207328] |Atualização de segurança para o Driver do Sistema de Arquivos de Log Comum|2.58, 3.46, 4.39, 5.4 |13 de dezembro de 2016 |
+| MS16-155 |[3205640]    |Atualização de Segurança do .NET Framework |5.4 |13 de dezembro de 2016 |
+| N/D |[3197868] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.58 |13 de dezembro de 2016 |
+| N/D |[3197877] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows Server 2012 |3,46 |13 de dezembro de 2016 |
+| N/D |[3197874] |Pacote Cumulativo de Qualidade de Segurança Mensal de novembro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.39 |13 de dezembro de 2016 |
+
+## <a name="november-guest-os"></a>SO convidado de novembro
+| ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Atualização de segurança cumulativa do Microsoft Edge |5,3 |8 de novembro de 2016 |
+| MS16-130 |[3199172] |Atualização de segurança para Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-131 |[3199151]    |Atualização de segurança para Controle de Vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-132 |[3199120] |Atualização de segurança para Componente da Microsoft |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-134 |[3193706] |Atualização de segurança para o Driver do Sistema de Arquivos de Log Comum |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-135 |[3199135] |Atualização de segurança para drivers do modo Kernel |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-137 |[3199173]    |Atualização de Segurança para os Métodos de Autenticação do Windows |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| MS16-138 |[3199647] |Atualização de segurança para a Unidade de disco rígido virtual da Microsoft |5.3, 4.38, 3.45 |8 de novembro de 2016 |
+| MS16-139 |[3199720] |Atualização de Segurança para Windows Kernel |2.57 |8 de novembro de 2016 |
+| MS16-140 |[3193479] |Atualização de segurança do Gerenciador de Inicialização |5.3, 4.38, 3.45 |8 de novembro de 2016 |
+| MS16-142 |[3198467] |Atualização de segurança cumulativa do Internet Explorer |2.57, 4.38, 5.3 |8 de novembro de 2016 |
+| N/D |[3192321] |Fim da observância de DST na Turquia |5.3, 4.38, 3.45, 2.57 |8 de novembro de 2016 |
+| N/D |[3185330] |Pacote cumulativo de atualizações de qualidade de segurança mensal de outubro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de novembro de 2016 |
+| N/D |[3192403] |Pacote cumulativo de atualizações de qualidade de visualização mensal de outubro de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.57 |8 de novembro de 2016 |
+| N/D |[3177467] |Atualização de pilha de manutenção para o Windows 7 SP1 e o Windows Server 2008 R2 SP1: 20 de setembro de 2016 |2.57 |8 de novembro de 2016 |
+| N/D |[3185332] |Pacote cumulativo de atualizações de qualidade de segurança mensal de outubro de 2016 para Windows Server 2012 |3.45 |8 de novembro de 2016 |
+| N/D |[3192406] |Pacote cumulativo de atualizações de qualidade de visualização mensal de outubro de 2016 para Windows Server 2012 |3.45 |8 de novembro de 2016 |
+| N/D |[3185331] |Pacote cumulativo de atualizações de qualidade de segurança mensal de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de novembro de 2016 |
+| N/D |[3192404] |Pacote cumulativo de atualizações de qualidade de visualização mensal de outubro de 2016 para Windows 8.1 e Windows Server 2012 R2 |4.38 |8 de novembro de 2016 |
+| N/D |[3199986] |Atualização da pilha de manutenção para o Windows 10 versão 1607: 27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
+| N/D |[3197954] |Atualização cumulativa para o Windows 10 versão 1607 e Windows Server 2016: 27 de outubro de 2016 |5,3 |8 de novembro de 2016 |
 
 ## <a name="october-guest-os"></a>SO convidado de outubro
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -357,6 +404,44 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
+[3216771]: https://technet.microsoft.com/library/security/MS17-004
+
+[3204059]: http://support.microsoft.com/kb/3204059 
+[3204062]: http://support.microsoft.com/kb/3204062 
+[3204066]: http://support.microsoft.com/kb/3204066 
+[3204063]: http://support.microsoft.com/kb/3204063 
+[3205655]: http://support.microsoft.com/kb/3205655 
+[3205642]: http://support.microsoft.com/kb/3205642 
+[3205651]: http://support.microsoft.com/kb/3205651 
+[3199709]: http://support.microsoft.com/kb/3199709 
+[3207328]: http://support.microsoft.com/kb/3207328 
+[3205640]: http://support.microsoft.com/kb/3205640 
+[3197868]: http://support.microsoft.com/kb/3197868 
+[3197877]: http://support.microsoft.com/kb/3197877 
+[3197874]: http://support.microsoft.com/kb/3197874 
+
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
+
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
 [3192892]: http://support.microsoft.com/kb/3192892
@@ -631,11 +716,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 
 
-[arquivo]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/07/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c844eeb0e01422dac468484a8458f243a2afb87d
+ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
+ms.openlocfilehash: 853f3c9b2a4781b683b03b5c7ec93f0197c78cdc
 
 
 ---
@@ -28,9 +28,9 @@ Este passo a passo usa o HDInsight Spark para executar a exploração de dados e
 * A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida. 
 * A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta. 
 
-As etapas de modelagem também contêm código que mostra como treinar, avaliar e salvar cada tipo de modelo. O tópico aborda alguns dos mesmos assuntos como o tópico [Modelagem e exploração de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Mas ele é mais "avançado", já que também utiliza a validação cruzada em conjunto com a varredura de hiperparâmetro para treinar modelos de classificação e regressão ideal precisos. 
+As etapas de modelagem também contêm código que mostra como treinar, avaliar e salvar cada tipo de modelo. O tópico aborda alguns dos mesmos assuntos como o tópico [Modelagem e exploração de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Porém, ele é mais "avançado", já que também utiliza a validação cruzada com a varredura de hiperparâmetro para treinar modelos de classificação e regressão ideal precisos. 
 
-**CV (Validação cruzada)** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido é generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado. A ideia geral por trás dessa técnica é que um modelo é treinado em um conjunto de dados conhecidos em e, em seguida, a precisão de suas previsões é testada em relação a um conjunto de dados independente. Uma implementação comum usada aqui é dividir um conjunto de dados em partições K e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições. 
+**CV (Validação cruzada)** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido é generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado.  Uma implementação comum usada aqui é dividir um conjunto de dados em partições K e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições. Avaliamos a capacidade do modelo de prever com precisão quando testado em relação ao conjunto de dados independente na partição que não foi usada para treinar o modelo.
 
 **Otimização do hiperparâmetro** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, normalmente com o objetivo de otimizar uma medida de desempenho do algoritmo em um conjunto de dados independente. **Hiperparâmetros** são valores que devem ser especificados fora do procedimento de treinamento do modelo. As suposições sobre esses valores podem afetar a flexibilidade e a precisão dos modelos. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. As SVMs (Máquinas de Vetor de Suporte) exigem a configuração de um termo de penalidade de classificação incorreta. 
 
@@ -51,7 +51,7 @@ Os exemplos de modelagem usando CV e limpeza de hiperparâmetro são mostrados p
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisa de uma conta do Azure e um HDInsight Spark Você precisa de um cluster HDInsight 3.4 Spark 1.6 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. O notebook **machine-learning-data-science-spark-advanced-data-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 ou Spark 2.0 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. O notebook **machine-learning-data-science-spark-advanced-data-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -191,9 +191,7 @@ Depois que os dados forem incluídos no Spark, a próxima etapa no processo de c
 Este código e os trechos de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para plotar os dados.
 
 * A **mágica do SQL (`%%sql`)** O kernel HDInsight PySpark dá suporte a consultas do HiveQL fáceis e embutidas no sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele está disponível no modo local.
-* A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro -o. O parâmetro -o persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas de %%local disparariam o próximo conjunto de trechos de código para serem executados localmente na saída das consultas SQL que é persistida localmente
-
-A saída é visualizada automaticamente após a execução do código.
+* A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a mágica `%%local` após a mágica `%%sql -o` ser usada para executar uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a mágica `%%local` dispara o próximo conjunto de trechos de código para ser executado localmente em relação à saída de consultas SQL persistida localmente. A saída é visualizada automaticamente após a execução do código.
 
 Essa consulta recupera as corridas por contagem de passageiros. 
 
@@ -298,15 +296,15 @@ Esta célula de código usa a consulta SQL para criar três plotagens dos dados.
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Engenharia de recursos, transformação e preparação de dados para a modelagem
 Esta seção descreve e fornece o código para os procedimentos usados para preparar dados para uso na modelagem ML. Ela mostra como realizar as seguintes tarefas:
 
-* Criar um novo recurso reunindo horários em blocos de tempo de tráfego
+* Criar um novo recurso por meio do particionamento de horários em compartimentos de tempo de tráfego
 * Indexar e fazer a codificação one-hot dos recursos categóricos
 * Criar objetos de ponto rotulado para entrada em funções de ML
 * Criar uma subamostragem aleatória dos dados e dividi-la em conjuntos de treinamento e teste
 * Dimensionamento de recursos
 * Armazenar objetos em cache na memória
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar um novo recurso reunindo horários em blocos de tempo de tráfego
-Este código mostra como criar um novo recurso reunindo horários em blocos de tempo de tráfego e como armazenar em cache o quadro de dados resultante na memória. Quando RDDs (Conjuntos de Dados Resilientes Distribuídos) e quadros de dados são usados repetidamente, o armazenamento em cache leva a tempos de execução melhores. Da mesma forma, armazenamos em cache RDDs e quadros de dados em vários estágios no passo a passo.
+### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Criar um novo recurso por meio do particionamento de horários de tráfego em compartimentos
+Este código mostra como criar um novo recurso particionando horários de tráfego em compartimentos e como armazenar em cache o quadro de dados resultante na memória. O armazenamento em cache proporciona um tempo de execução melhor, em que os RDDs (Conjuntos de Dados Resilientes Distribuídos) e quadros de dados são usados repetidamente. Portanto, armazenamos em cache RDDs e quadros de dados em vários estágios no passo a passo.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -332,7 +330,7 @@ Este código mostra como criar um novo recurso reunindo horários em blocos de t
 126050
 
 ### <a name="index-and-one-hot-encode-categorical-features"></a>Indexar e fazer a codificação one-hot dos recursos categóricos
-Esta seção mostra como indexar ou codificar recursos categóricos para entrada nas funções de modelagem. As funções de modelagem e previsão de MLlib exigem que recursos com dados de entrada categóricos sejam indexados ou codificados antes do uso. 
+Esta seção mostra como indexar ou codificar recursos categóricos para entrada nas funções de modelagem. As funções de modelagem e previsão de MLlib exigem que recursos que tenham dados de entrada categóricos sejam indexados ou codificados antes do uso. 
 
 Dependendo do modelo, você precisa indexá-lo ou codificá-lo de maneiras diferentes. Por exemplo, modelos de regressão linear e logística exigem codificação one-hot, em que, por exemplo, um recurso com três categorias pode ser expandido em três colunas de recursos, em que cada uma contém 0 ou 1, dependendo da categoria de uma observação. A MLlib fornece a função [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para executar a codificação one-hot. Esse codificador mapeia uma coluna de índices de rótulo para uma coluna de vetores binários com, no máximo, um valor único. Essa codificação permite que os algoritmos que esperam recursos valiosos numéricos, por exemplo a regressão logística, sejam aplicados em recursos categóricos.
 
@@ -383,7 +381,7 @@ Aqui está o código para indexar e codificar recursos categóricos:
 Tempo necessário para executar a célula acima: 3,14 segundos
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Criar objetos de ponto rotulado para entrada em funções de ML
-Esta seção contém código que mostra como indexar dados de texto categóricos como um tipo de dados de ponto rotulado e codificá-lo para que ele possa ser usado para treinar e testar a regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs (Conjuntos de Dados Resilientes Distribuídos) formatados de uma maneira que é necessária como dados de entrada pela maioria dos algoritmos de ML no MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
+Esta seção contém códigos que mostram como indexar dados categóricos de texto como tipos de dados de ponto rotulado e como codificá-los. Essa ação os prepara para serem usados em treinamentos e testes de regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs (Conjuntos de Dados Resilientes Distribuídos) formatados de uma maneira que é necessária como dados de entrada pela maioria dos algoritmos de ML no MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
 
 Este é o código para indexar e codificar recursos de texto para a classificação binária.
 
@@ -432,7 +430,7 @@ Este é o código para codificar e indexar recursos de texto categórico para a 
 
 
 ### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Criar uma subamostragem aleatória dos dados e dividi-la em conjuntos de treinamento e teste
-Esse código cria uma amostragem aleatória dos dados (o valor de 25% é usado aqui). Embora não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, demonstramos como é possível obter amostras aqui, para que você saiba como usá-lo para seu próprio problema, quando necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% aqui) e uma parte de teste (25% aqui) para usar na classificação e na modelagem de regressão.
+Esse código cria uma amostragem aleatória dos dados (o valor de&25;% é usado aqui). Embora não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, demonstramos como é possível obter amostras de dados. Em seguida, você saberá como usá-lo para resolver seus próprios problemas, se necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% aqui) e uma parte de teste (25% aqui) para usar na classificação e na modelagem de regressão.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +474,7 @@ Esse código cria uma amostragem aleatória dos dados (o valor de 25% é usado a
 Tempo necessário para executar a célula acima: 0,31 segundo
 
 ### <a name="feature-scaling"></a>Dimensionamento de recursos
-O dimensionamento de recursos, também conhecido como normalização de dados, faz com que recursos com valores amplamente distribuídos não tenham peso excessivo na função objetiva. O código para o dimensionamento de recursos usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para dimensionar os recursos para variância de unidade. Ele é fornecido por MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent), um algoritmo popular de treinamento de uma grande variedade de outros modelos de aprendizado de máquina, como regressões regularizadas ou SVM (máquinas de vetor de suporte).   
+O dimensionamento de recursos, também conhecido como normalização de dados, faz com que recursos com valores amplamente distribuídos não tenham peso excessivo na função objetiva. O código para o dimensionamento de recursos usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para dimensionar os recursos para variância de unidade. Ele é fornecido pela MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent). O SGD é um algoritmo popular de treinamento de uma grande variedade de outros modelos de aprendizado de máquina, como regressões regularizadas ou SVM (máquinas de vetor de suporte).   
 
 > [!TIP]
 > Observamos que o algoritmo LinearRegressionWithSGD é sensível ao dimensionamento de recursos.   
@@ -563,7 +561,7 @@ Cada seção de código de compilação de modelo é dividida em etapas:
 Mostraremos como fazer a CV (validação cruzada) com a limpeza de parâmetro de duas maneiras:
 
 1. Usando o código personalizado **genérico** que pode ser aplicado a qualquer algoritmo na MLlib e a quaisquer conjuntos de parâmetros em um algoritmo. 
-2. Usando a **função de pipeline CrossValidator do pySpark**. Observe que, embora seja conveniente, com base em nossa experiência, o CrossValidator tem algumas limitações para o Spark 1.5.0: 
+2. Usando a **função de pipeline CrossValidator do pySpark**. Observe que o CrossValidator tem algumas limitações para o Spark 1.5.0: 
    
    * Os modelos de pipeline não podem ser salvos/persistidos para consumo futuro.
    * Não pode ser usado para todos os parâmetros em um modelo.
@@ -1440,6 +1438,6 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

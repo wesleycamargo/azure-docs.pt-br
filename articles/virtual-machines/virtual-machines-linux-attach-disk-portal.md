@@ -13,30 +13,95 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 11/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 743f6abb871bdc4f65f302f0c1efdc4603c52626
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 31d7f4620420839ade1ca58391fad78e94d4e929
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Como anexar um disco de dados a uma VM Linux no Portal do Azure
-Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Antes de fazer isso, revise estas dicas:
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Você pode optar por usar o Azure Managed Disks ou discos não gerenciado. O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Discos não gerenciados exigem uma conta de armazenamento e têm algumas [cotas e limites que se aplicam](../azure-subscription-service-limits.md#storage-limits). Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md).
+
+Antes de anexar discos à sua VM, veja estas dicas:
 
 * O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para usar o Armazenamento Premium, você precisará de uma máquina virtual da série DS ou GS. Você pode usar discos de contas de armazenamento Premium e Standard com essas máquinas virtuais. O armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md).
-* Discos anexados às máquinas virtuais são, na verdade, os arquivos. vhd em uma conta de armazenamento do Azure. Para obter detalhes, confira [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para um novo disco, você não precisa criá-lo primeiro porque o Azure cria quando você anexa o mesmo.
-* Para um disco existente, o arquivo. vhd deve estar disponível em uma conta de armazenamento do Azure. Você pode usar um .vhd que já existe, se ele não estiver anexado a outra máquina virtual, ou carregar seu próprio arquivo .vhd na conta de armazenamento.
+* Para usar o Armazenamento Premium, você precisa de uma máquina virtual da série DS ou GS. Você pode usar discos Premium e Standard com essas máquinas virtuais. O armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Discos anexados às máquinas virtuais são, na verdade, os arquivos. vhd armazenados no Azure. Para obter detalhes, confira [Sobre discos e VHDs para máquinas virtuais](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[!INCLUDE [virtual-machines-common-attach-disk-portal](../../includes/virtual-machines-common-attach-disk-portal.md)]
+
+## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+2. No menu Hub, clique em **Máquinas Virtuais**.
+3. Selecione a máquina virtual na lista.
+4. Na folha Máquinas Virtuais, em **Essentials**, clique em **Discos**.
+   
+    ![Abrir configurações de disco](./media/virtual-machines-linux-attach-disk-portal/find-disk-settings.png)
+
+Continue seguindo as instruções para anexar um [disco gerenciado](#use-azure-managed-disks) ou um [disco não gerenciado](#use-unmanaged-disks).
+
+## <a name="use-azure-managed-disks"></a>Usar o Azure Managed Disks
+
+### <a name="attach-a-new-disk"></a>Anexar um novo disco
+
+1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+2. Clique no menu suspenso para **Nome** e selecione **Criar disco**:
+
+    ![Criar disco gerenciado do Azure](./media/virtual-machines-linux-attach-disk-portal/create-new-md.png)
+
+3. Insira um nome para o disco gerenciado. Examine as configurações padrão, atualize conforme necessário e clique em **Criar**.
+   
+   ![Analisar configurações de disco](./media/virtual-machines-linux-attach-disk-portal/create-new-md-settings.png)
+
+4. Clique em **Salvar** para criar o disco gerenciado e atualizar a configuração da VM:
+
+   ![Salvar novo Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/confirm-create-new-md.png)
+
+5. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**. Como os discos gerenciados são um recurso de nível superior, o disco aparece na raiz do grupo de recursos:
+
+   ![Azure Managed Disk no grupo de recursos](./media/virtual-machines-linux-attach-disk-portal/view-md-resource-group.png)
+
+### <a name="attach-an-existing-disk"></a>Anexar um disco existente
+1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+2. Clique no menu suspenso para **Nome** para exibir uma lista de discos gerenciados existentes acessíveis à sua assinatura do Azure. Selecione o disco gerenciado a ser anexado:
+
+   ![Anexar um Azure Managed Disk existente](./media/virtual-machines-linux-attach-disk-portal/select-existing-md.png)
+
+3. Clique em **Salvar** para anexar o disco gerenciado existente e atualizar a configuração da VM:
+   
+   ![Salvar atualizações do Azure Managed Disk](./media/virtual-machines-linux-attach-disk-portal/confirm-attach-existing-md.png)
+
+4. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+
+## <a name="use-unmanaged-disks"></a>Usar discos não gerenciados
+
+### <a name="attach-a-new-disk"></a>Anexar um novo disco
+
+1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+2. Examine as configurações padrão, atualize conforme necessário e clique em **OK**.
+   
+   ![Analisar configurações de disco](./media/virtual-machines-linux-attach-disk-portal/attach-new.png)
+3. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+
+### <a name="attach-an-existing-disk"></a>Anexar um disco existente
+1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+2. Em **Anexar disco existente**, clique em **Arquivo VHD**.
+   
+   ![Anexar disco existente](./media/virtual-machines-linux-attach-disk-portal/attach-existing.png)
+3. Em **Contas de armazenamento**, selecione a conta e o contêiner que mantém o arquivo .vhd.
+   
+   ![Localização do VHD](./media/virtual-machines-linux-attach-disk-portal/find-storage-container.png)
+4. Selecionar o arquivo .vhd
+5. Em **Anexar disco existente**, o arquivo que você selecionou é listado em **Arquivo VHD**. Clique em **OK**.
+6. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que o disco for adicionado, você precisará prepará-lo para uso. Veja no sistema operacional da máquina virtual: "Como inicializar um novo disco de dados no Linux" neste [artigo](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
+Depois que o disco for adicionado, você precisará prepará-lo para uso. Para obter mais informações, veja [Como: inicializar um novo disco de dados no Linux](virtual-machines-linux-classic-attach-disk.md#initialize-a-new-data-disk-in-linux).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

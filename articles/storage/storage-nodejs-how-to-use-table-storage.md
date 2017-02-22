@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 4935223f572e0ed3188195c23f7e9f692fb170af
+ms.sourcegitcommit: b9041713f3d084fde77a34ef7956a2c59312245e
+ms.openlocfilehash: d9008f6232ca2442edce2a3cae88f0b3d2be2f14
 
 
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como usar o armazenamento de Tabela do Azure por meio do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-all](../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Visão geral
 Este tópico mostra como executar cenários comuns usando o serviço Tabela do Azure em um aplicativo do Node.js.
@@ -195,9 +195,8 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Obtenha a ETag do objeto que está sendo atualizado. Isso é retornado como parte de `response` para qualquer operação relacionada à entidade e pode ser recuperado por meio de `response['.metadata'].etag`.
 > 2. Ao realizar uma operação de atualização em uma entidade, adicione as informações de ETag obtidas anteriormente para a nova entidade. Por exemplo:
 >
-> `entity2['.metadata'].etag = currentEtag;`
->
-> 1. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
+>       entity2['.metadata'].etag = currentEtag;
+> 3. Realize a operação de atualização. Se a entidade foi modificada desde a recuperação do valor de ETag, como outra instância do seu aplicativo, um `error` será retornado informando que a condição da atualização especificada na solicitação não foi atendida.
 >
 >
 
@@ -469,6 +468,6 @@ Para saber mais, consulte os recursos a seguir.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 01/13/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b89917f71701cccd6e78c036b78b136c19e9c2c
+ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
+ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
 
 
 ---
@@ -32,11 +32,13 @@ Se você configurar o write-back, as alterações que ocorrem em seu diretório 
 
 > [!NOTE]
 > Sempre use a versão mais recente do Azure AD Connect para garantir que você tenha correções para todos os bugs conhecidos.
-> 
-> 
+>
+>
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Sincronização do seu locatário do Azure AD para seu domínio gerenciado
-As contas de usuário, as associações de grupo e os hashes de credenciais são sincronizados do seu locatário do Azure AD para seu domínio gerenciado dos Serviços de Domínio do Azure AD. Esse processo de sincronização é automático. Você não precisa configurar, monitorar ou gerenciar esse processo de sincronização. O processo de sincronização também é unidirecional por natureza. O domínio gerenciado é basicamente somente leitura, exceto qualquer OUs personalizadas que você criar. Portanto, você não pode fazer alterações em atributos de usuário, senhas de usuário ou associações de grupo do domínio gerenciado. Como resultado, não há nenhuma sincronização reversa de alterações do seu domínio gerenciado de volta para seu locatário do Azure AD.
+As contas de usuário, as associações de grupo e os hashes de credenciais são sincronizados do seu locatário do Azure AD para seu domínio gerenciado dos Serviços de Domínio do Azure AD. Esse processo de sincronização é automático. Você não precisa configurar, monitorar ou gerenciar esse processo de sincronização. Após a conclusão da sincronização inicial do seu diretório, que só ocorre uma vez, geralmente demora cerca de 20 minutos para que as alterações feitas ao Azure AD sejam refletidas em seu domínio gerenciado. Esse intervalo de sincronização aplica-se a alterações de senha ou alterações em atributos feitos no Azure AD.
+
+O processo de sincronização também é unidirecional por natureza. O domínio gerenciado é basicamente somente leitura, exceto qualquer OUs personalizadas que você criar. Portanto, você não pode fazer alterações em atributos de usuário, senhas de usuário ou associações de grupo do domínio gerenciado. Como resultado, não há nenhuma sincronização reversa de alterações do seu domínio gerenciado de volta para seu locatário do Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronização de um ambiente de várias florestas locais
 Muitas organizações têm uma infraestrutura de identidade local bastante complexa que consiste em várias florestas de contas. O Azure AD Connect oferece suporte à sincronização de usuários, de grupos e de hashes de credencial de ambientes de várias florestas para seu locatário do Azure AD.
@@ -66,8 +68,8 @@ A tabela a seguir lista alguns atributos comuns e descreve como eles serão sinc
 
 > [!NOTE]
 > **Entrar para o domínio usando o formato UPN:** o atributo SAMAccountName pode ser gerado automaticamente para algumas contas de usuário em seu domínio gerenciado. Se vários usuários tiverem o mesmo atributo mailNickname ou os usuários tiverem prefixos UPN excessivamente longos, o SAMAccountName para esses usuários poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName (por exemplo, ' CONTOSO100\pedrousuario') nem sempre é uma maneira confiável de entrar no domínio. O SAMAccountName gerado automaticamente dos usuários pode diferir do seu prefixo UPN. Use o formato UPN (por exemplo, 'joeuser@contoso100.com') para entrar no domínio gerenciado de forma confiável.
-> 
-> 
+>
+>
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapeamento de atributos para contas de usuário
 A tabela a seguir ilustra como os atributos específicos de objetos de usuário em seu locatário do Azure AD são sincronizados com os atributos correspondentes em seu domínio gerenciado.
@@ -122,7 +124,6 @@ Conforme descrito em uma seção anterior deste artigo, há uma sincronização 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

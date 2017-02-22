@@ -1,6 +1,6 @@
 ---
-title: "Como expandir a unidade do sistema operacional de uma Máquina Virtual em um Grupo de Recursos do Azure | Microsoft Docs"
-description: "Este artigo demonstra uma abordagem para expansão do tamanho da unidade de sistema operacional de uma máquina virtual usando o PowerShell do Azure Resource Manager."
+title: Expandir a unidade do sistema operacional de uma VM do Windows no Azure | Microsoft Docs
+description: "Expanda o tamanho da unidade do sistema operacional de uma máquina virtual usando o Azure PowerShell no modelo de implantação do Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: kirpasingh
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: kirpas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c2b8d9c9dfc60b71afc5b2a1db212a64649ea5b
+ms.sourcegitcommit: dad38b1d122537b326e25bd0d3f3cf220549e30f
+ms.openlocfilehash: 8fcc4bf792639f3193ab089db4192705601df456
 
 
 ---
@@ -27,6 +27,6 @@ ms.openlocfilehash: 5c2b8d9c9dfc60b71afc5b2a1db212a64649ea5b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

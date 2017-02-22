@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: juliako;mingfeiy
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 39f4f0b7e9bbe28a36471558c8535ee9f3cd17ff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
 
 
 ---
@@ -45,7 +45,7 @@ Para obter mais informações, consulte
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### <a name="some-considerations-apply"></a>Algumas considerações se aplicam:
-* Para poder usar o empacotamento dinâmico e a criptografia dinâmica, verifique se você tem pelo menos uma unidade de streaming reservada. Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
+* Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming deve estar no estado **Executando**. 
 * O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).
 * Carregar e codificar seus ativos usando a opção **AssetCreationOptions.StorageEncrypted** .
 * Se você planeja ter várias chaves de conteúdo que exigem a mesma configuração de política, é altamente recomendável criar uma política de autorização única e reutilizá-la com várias chaves de conteúdo.
@@ -59,11 +59,16 @@ A restrição aberta significa que o sistema fornecerá a chave para qualquer pe
 
 O exemplo a seguir cria uma política de autorização aberta e o adiciona à chave de conteúdo.
 
-static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Create ContentKeyAuthorizationPolicy with Open restrictions // and create authorization policy IContentKeyAuthorizationPolicy policy = _context.
-ContentKeyAuthorizationPolicies.
-CreateAsync("Open Authorization Policy").Result;
-
-Lista<ContentKeyAuthorizationPolicyRestriction> restrições = new List<ContentKeyAuthorizationPolicyRestriction>();
+    static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+    {
+        // Create ContentKeyAuthorizationPolicy with Open restrictions
+        // and create authorization policy
+        IContentKeyAuthorizationPolicy policy = _context.
+        ContentKeyAuthorizationPolicies.
+        CreateAsync("Open Authorization Policy").Result;
+        
+        List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+            new List<ContentKeyAuthorizationPolicyRestriction>();
 
         ContentKeyAuthorizationPolicyRestriction restriction =
             new ContentKeyAuthorizationPolicyRestriction
@@ -424,6 +429,6 @@ Agora que você configurou a política de autorização da chave de conteúdo, v
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs"
+title: "Avaliar micro serviços e aplicativos do Azure Service Fabric | Microsoft Docs"
 description: "Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric."
 services: log-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
+ms.sourcegitcommit: 7695debd9f8152efbbc04b6d63a0b44e70646f16
+ms.openlocfilehash: 7cf1174791187cd7d751c4e2d2646282f4a0a5ce
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: e6697c85194e18fcaac0f6d55bf00c3b005f6f00
 > [!div class="op_single_selector"]
 > * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 Este artigo descreve como usar a solução do Service Fabric no Log Analytics para ajuda-lo a identificar e solucionar problemas em seu cluster do Service Fabric obtendo visibilidade em como os nós do Service Fabric estão executando e como seus aplicativos e microsserviços estão sendo executados.
 
@@ -43,8 +43,8 @@ Nesta seção, você saberá como configurar o OMS para recuperar os logs do Ser
 
 > [!NOTE]
 > Isso significa que a extensão de Diagnóstico do Azure deve ser configurada para carregar os logs em tabelas de armazenamento que correspondam aos que o OMS irá procurar. Consulte [Como coletar logs com o Diagnóstico do Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) para obter mais informações sobre como coletar logs. Os exemplos de definições de configuração neste artigo mostrarão quais devem ser os nomes das tabelas de armazenamento. Depois que o diagnóstico for configurado no cluster e estiver carregando os logs para uma conta de armazenamento, a próxima etapa será configurar o OMS para coletar esses logs.
-> 
-> 
+>
+>
 
 Certifique-se de que atualizou a seção **EtwEventSourceProviderConfiguration** no arquivo **template.json** para adicionar entradas no novo EventSources antes de aplicar a atualização de configuração executando **deploy.ps1**. A tabela de carregamento é igual a (ETWEventTable). No momento, o OMS só pode ler eventos de ETW de aplicativo dessa tabela. No entanto, o suporte para tabelas de ETW personalizadas está em desenvolvimento.
 
@@ -369,8 +369,8 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 > [!NOTE]
 > Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Você também pode exibir eventos gerados dentro dos últimos 7 dias, 1 dia ou 6 horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
-> 
-> 
+>
+>
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Solucionar problemas de configuração do Service Fabric e do OMS
 Se você precisar verificar a configuração do OMS porque você não pode exibir dados de evento no OMS, use o script a seguir. Ele lê sua configuração de diagnóstico do Service Fabric, verifica os dados que estão sendo gravados em tabelas e verifica se o OMS está configurado para ler das tabelas.
@@ -542,7 +542,7 @@ function Check-ServiceFabricScaleSetDiagnostics {
         Write-Debug ("Found WADcfg")
         Write-Debug $scaleSetDiagnostics.WadCfg
         $serviceFabricProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwEventSourceProviderConfiguration
-        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration 
+        $etwManifestProviderList = $scaleSetDiagnostics.WadCfg.DiagnosticMonitorConfiguration.EtwProviders.EtwManifestProviderConfiguration
     } else
     {
         Write-Error "Unable to parse Azure Diagnostics setting for $id"
@@ -639,7 +639,6 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

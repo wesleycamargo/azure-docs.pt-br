@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 07e124f41662759cc93efa2ee0c24f6a367573ac
+ms.sourcegitcommit: 045e3a6869880be6e7b2c5abf5f0869ed157600d
+ms.openlocfilehash: 38adf31dda1c36d0573142eacda6453ccd2b4f90
 
 
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Usar os parâmetros do serviço Web de Aprendizado de Máquina do Azure
 Um serviço Web de Aprendizado de Máquina do Azure é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
 
-Um exemplo comum é a configuração do módulo [Importar Dados][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web é acessado. Ou então, configurar o módulo [Exportar Dados][writer] para que um destino diferente possa ser especificado. Alguns exemplos incluem a alteração do número de bits para o módulo [Hash de Funcionalidade][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Funcionalidades Baseada em Filtros][filter-based-feature-selection]. 
+Um exemplo comum é a configuração do módulo [Importar Dados][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web for acessado. Ou então, configurar o módulo [Exportar Dados][writer] para que um destino diferente possa ser especificado. Alguns outros exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection]. 
 
 Você pode definir os Parâmetros do Serviço Web e associá-los a um ou mais parâmetros de módulo no seu teste, podendo também especificar se eles são obrigatórios ou opcionais. O usuário do serviço Web pode então fornecer valores para esses parâmetros quando chamar o serviço Web. 
 
@@ -44,9 +44,9 @@ A documentação da API para o serviço Web incluirá informações para o usuá
 > 
 
 ## <a name="example"></a>Exemplo
-Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados][writer] que envia informações para o Armazenamento de Blobs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
+Por exemplo, vamos supor que temos um experimento com um módulo [Exportar Dados][writer] que envia informações para o armazenamento de blobs do Azure. Definiremos um Parâmetro de Serviço Web denominado "Caminho do blob", que permite que o usuário do serviço Web altere o caminho para o armazenamento de blobs quando o serviço for acessado.
 
-1. No Machine Learning Studio, clique no módulo [Exportar Dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
+1. No Estúdio de Machine Learning, clique no módulo [Exportar Dados][writer] para selecioná-lo. Suas propriedades são mostradas no painel Propriedades à direita da tela do experimento.
 2. Especifique a conta de armazenamento:
    
    * Em **Especifique o destino de dados**, selecione "Armazenamento de Blobs do Azure".
@@ -88,6 +88,6 @@ Para obter mais informações sobre como acessar um serviço Web de Aprendizado 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

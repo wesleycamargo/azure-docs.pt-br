@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b65a0c306ec9316fd8a86f8ebb2808cce65200a
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: eb1f4c815618e866e683b3fe2e3adf93a151ff5a
 
 
 ---
@@ -70,7 +70,7 @@ Dentro da página de propriedades de **Caching** , você pode especificar config
 * o nome da conta de armazenamento para salvar o estado do cache quando seu aplicativo é executado como um serviço de nuvem, ou nenhum se você não quiser salvar o estado do cache. (O nome da conta de armazenamento não é usado quando você executa o aplicativo no emulador de computação.) Se você definir o nome da conta de armazenamento como **(automático)** (que é o padrão), sua configuração de cache usará automaticamente a mesma conta de armazenamento selecionada por você na caixa de diálogo **Publicar no Azure**.
 
 > [!NOTE]
-> A configuração **(automático)** terá o efeito desejado somente se você publicar sua implantação usando o assistente de publicação do kit de ferramentas do Eclipse. Se, em vez disso, você publicar o arquivo .cspkg manualmente usando um mecanismo externo, como o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], a implantação não funcionará corretamente.
+> A configuração **(automático)** terá o efeito desejado somente se você publicar sua implantação usando o assistente de publicação do kit de ferramentas do Eclipse. Se, ao invés disso, você publicar o arquivo .cspkg manualmente usando um mecanismo externo, como o [Portal de Gerenciamento do Azure][Azure Management Portal], a implantação não funcionará corretamente.
 > 
 > 
 
@@ -93,7 +93,7 @@ Para modificar um cache nomeado, selecione-o e clique no botão **Editar** na p�
 
 Para excluir um cache, escolha o cache, clique no botão **Remover** na página de propriedades de **Caching** e clique em **Sim** para confirmar a exclusão.
 
-Para saber mais sobre como usar o caching, consulte [Como usar caching colocalizado][Como usar caching colocalizado].
+Para saber mais sobre como usar o caching, veja [Como usar caching colocalizado][How to Use Co-located Caching].
 
 <a name="certificates_properties"></a> 
 
@@ -102,7 +102,7 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 ![][ic710964]
 
-Na caixa de diálogo, você pode adicionar ou remover certificados referenciados pelo seu projeto do Eclipse. Observe que os certificados listados aqui não são armazenados automaticamente em qualquer repositório de chaves Java e, portanto, não ficam automaticamente disponíveis para qualquer uso de um aplicativo Java. Eles são registrados no Azure apenas para que possam ser pré-carregados no repositório de certificados do Windows nas máquinas virtuais que executam sua implantação e, subsequentemente, usados por outros softwares do Windows. Atualmente, o único recurso do kit de ferramentas que usa os certificados referenciados dessa maneira na caixa de diálogo **Certificados** é o [Descarregamento de SSL][Descarregamento de SSL], devido à sua dependência dos IIS (Serviços de informações da Internet) e do ARR (Roteamento de solicitação de aplicativo), que exige o certificado apropriado para ser disponibilizado dessa maneira.
+Na caixa de diálogo, você pode adicionar ou remover certificados referenciados pelo seu projeto do Eclipse. Observe que os certificados listados aqui não são armazenados automaticamente em qualquer repositório de chaves Java e, portanto, não ficam automaticamente disponíveis para qualquer uso de um aplicativo Java. Eles são registrados no Azure apenas para que possam ser pré-carregados no repositório de certificados do Windows nas máquinas virtuais que executam sua implantação e, subsequentemente, usados por outros softwares do Windows. Atualmente, o único recurso do kit de ferramentas que usa os certificados referenciados dessa maneira na caixa de diálogo **Certificados** é o [Descarregamento de SSL][SSL Offloading], devido à sua dependência dos IIS (Serviços de informações da Internet) e do ARR (Roteamento de solicitação de aplicativo), que exige o certificado apropriado para ser disponibilizado dessa maneira.
 
 Ao implantar seu projeto no Azure usando o assistente de publicação, você recebe uma solicitação para apontar para os arquivos PFX (Troca de informações pessoais) que correspondem a esses certificados, junto com suas senhas, a fim de carregá-los automaticamente no serviço do Azure, mas apenas se eles não tiverem sido carregados anteriormente.
 
@@ -181,7 +181,7 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 ![][ic719504]
 
-Para saber mais sobre depuração, veja [Depuração de aplicativos do Azure no Eclipse][Depuração de aplicativos do Azure no Eclipse].
+Para saber mais sobre depuração, veja [Depuração de aplicativos do Azure no Eclipse][Debugging Azure Applications in Eclipse].
 
 <a name="endpoints_properties"></a> 
 
@@ -198,15 +198,15 @@ Insira um nome para o ponto de extremidade, selecione o tipo (**Input**, **Inter
 
 Dependendo do tipo de ponto de extremidade, você pode usar os intervalos de porta da seguinte maneira:
 
-* Para um ponto de extremidade de instância de entrada, a porta pública pode ser um intervalo de portas (por exemplo **2000 a 2010**) e a porta privada ser um valor fixo.
+* Para um ponto de extremidade de instância de entrada, a porta pública pode ser um intervalo de portas (por exemplo **2000 a&2010;**) e a porta privada ser um valor fixo.
 * Para um ponto de extremidade interno, a porta pública não é usada, e a porta privada pode ser um intervalo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
 * Para pontos de extremidade de entrada, a porta pública pode ser apenas um valor fixo e a porta privada pode ser um valor fixo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
 
 Se você quiser usar um único número de porta em vez de um intervalo, deixe a caixa de texto do final do intervalo em branco.
 
-Para as portas definidas como automáticas, se você precisar determinar a porta que será realmente usada durante a execução, seu aplicativo poderá usar a API de Tempo de Execução do Serviço do Azure, documentada no [com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime].
+Para as portas definidas como automáticas, se você precisar determinar a porta que será realmente usada durante a execução, seu aplicativo poderá usar a API de Tempo de Execução do Serviço do Azure, documentada no resumo de pacote [com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime package summary].
 
-Para ver como os pontos de extremidade de entrada de instância podem ser usados para ajudar na depuração de uma implantação com várias instâncias, consulte [Depuração de uma instância de função específica em uma implantação com várias instâncias][Depuração de uma instância de função específica em uma implantação com várias instâncias].
+Para ver como os pontos de extremidade de entrada de instância podem ser usados para ajudar na depuração de uma implantação com várias instâncias, veja [Depuração de uma instância de função específica em uma implantação com várias instâncias][Debugging a specific role instance in a multi-instance deployment].
 
 Para modificar um ponto de extremidade, selecione o ponto de extremidade e clique no botão **Editar** na página de propriedades de **Pontos de extremidade**. Uma caixa de diálogo será aberta permitindo que você modifique o nome, tipo e as portas públicas e privadas do ponto de extremidade. Pressione **OK** para salvar os novos valores de ponto de extremidade modificados.
 
@@ -251,12 +251,12 @@ Para configurar corretamente alguns dos recursos (como Configuração do Servido
 
 <a name="session_affinity_properties"></a> 
 
-### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>Propriedades de balanceamento de carga/afinidade (também conhecidas como "sessões temporárias")
+### <a name="load-balancing--session-affinity-aka-sticky-sessions-properties"></a>Propriedades de balanceamento de carga/afinidade (também conhecidas como "sessões temporárias")
 Abra o menu de contexto da função no painel Gerenciador de Projetos do Eclipse, clique em **Azure** e clique em **Balanceamento de Carga**. Nessa caixa de diálogo, você pode habilitar ou desabilitar a afinidade da sessão, conforme mostra a imagem a seguir.
 
 ![][ic719492]
 
-Para saber mais relacionadas, confira [Afinidade da sessão][Afinidade da sessão]. Além disso, observe o comportamento desse recurso no contexto de descarregamento de SSL, conforme descrito em [Descarregamento de SSL][Descarregamento de SSL].
+Para saber mais, veja [Afinidade de sessão][Session Affinity]. Além disso, observe o comportamento desse recurso no contexto de descarregamento de SSL, conforme descrito em [Descarregamento de SSL][SSL Offloading].
 
 <a name="local_storage_properties"></a> 
 
@@ -267,7 +267,7 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 Como opção, você também pode especificar uma variável do ambiente que corresponde ao armazenamento local.
 
-Por padrão, tudo o que você implanta no Azure é colocado (e descompactado) na pasta **approot** da instância de função. Embora a maioria das implantações simples caibam nesse local mesmo após descompactá-las, o espaço alocado para o diretório **approot** é limitado e não é bem definido (menos de 1 GB é uma regra prática razoável). Portanto, para garantir que o Azure reserva espaço em disco suficiente para implantações maiores que talvez não caibam na pasta **approot**, você deve configurar um recurso de armazenamento local usando a caixa de diálogo **Armazenamento Local**. Para uma maneira fácil de fazer isso, veja [Deploying Large Deployments][Deploying Large Deployments].
+Por padrão, tudo o que você implanta no Azure é colocado (e descompactado) na pasta **approot** da instância de função. Embora a maioria das implantações simples caibam nesse local mesmo após descompactá-las, o espaço alocado para o diretório **approot** é limitado e não é bem definido (menos de 1 GB é uma regra prática razoável). Portanto, para garantir que o Azure reserva espaço em disco suficiente para implantações maiores que talvez não caibam na pasta **approot**, você deve configurar um recurso de armazenamento local usando a caixa de diálogo **Armazenamento Local**. Para conhecer uma maneira fácil de fazer isso, veja [Implantando Grandes Implantações][Deploying Large Deployments].
 
 Você pode facilmente fazer referência ao recurso de armazenamento nos scripts de inicialização (por exemplo, o **startup.cmd**) usando a variável de ambiente associada automaticamente pelo kit de ferramentas do Eclipse com o recurso, conforme exibido na caixa de diálogo **Armazenamento Local**. Essa variável de ambiente contem o caminho completo até o recurso local configurado no momento de execução de seu script de inicialização. 
 
@@ -398,38 +398,38 @@ Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse,
 
 ![][ic719481]
 
-Nessa caixa de diálogo, você pode habilitar o descarregamento de SSL e, assim, permitindo o suporte ao protocolo HTTPS (Hypertext Transfer Protocol Secure) na implantação Java no Azure, sem a necessidade de configurar SSL em seu servidor de aplicativos Java. Para saber mais, veja [Descarregamento de SSL][Descarregamento de SSL] e [Como usar o descarregamento de SSL][Como usar o descarregamento de SSL].
+Nessa caixa de diálogo, você pode habilitar o descarregamento de SSL e, assim, permitindo o suporte ao protocolo HTTPS (Hypertext Transfer Protocol Secure) na implantação Java no Azure, sem a necessidade de configurar SSL em seu servidor de aplicativos Java. Para saber mais, veja [Descarregamento de SSL][SSL Offloading] e [Como usar o descarregamento de SSL][How to Use SSL Offloading].
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para o Eclipse][Instalação do Kit de Ferramentas do Azure para o Eclipse]
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse]
 
-[Criação de um aplicativo Hello World do Azure no Eclipse][Criação de um aplicativo Hello World do Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Propriedades do Projeto do Azure][Propriedades do Projeto do Azure]
+[Propriedades do Projeto do Azure][Azure Project Properties]
 
-[Lista de contas de Armazenamento do Azure][Lista de contas de armazenamento do Azure]
+[Lista de contas de armazenamento do Azure][Azure Storage Account List]
 
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Propriedades do Projeto do Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Lista de contas de armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
-[com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Depuração de uma instância de função específica em uma implantação com várias instâncias]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Depuração de aplicativos do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
+[com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
-[Como usar caching colocalizado]: http://go.microsoft.com/fwlink/?LinkID=699542
-[Como usar o descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Afinidade da sessão]: http://go.microsoft.com/fwlink/?LinkID=699548
-[Descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
+[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -460,6 +460,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

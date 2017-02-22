@@ -1,6 +1,6 @@
 ---
 title: "Vídeos de segurança do Azure no Channel 9 | Microsoft Docs"
-description: "O artigo fornece uma lista estruturada de apresentações de segurança do Azure no Channel 9. O Channel 9 é uma comunidade que conecta as pessoas que usam nossos produtos com as pessoas responsáveis pelo desenvolvimento desses produtos."
+description: "Este artigo fornece uma lista estruturada de apresentações de segurança do Azure no Channel 9. O Channel 9 é uma comunidade que conecta as pessoas que usam nossos produtos com as pessoas responsáveis pelo desenvolvimento desses produtos."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 01/23/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
 
 
 ---
@@ -53,7 +53,7 @@ Jack Richins ensina [Scott](https://channel9.msdn.com/Niners/Glucose) como cript
 * Noções básicas sobre a API de Proteção de Dados, chaves mestras e certificados
 * Usando comandos SQL para criar a chave mestra e os certificados e criptografar o banco de dados
 
-[How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+[How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
 Como proprietário de laboratório, você pode proteger o acesso ao laboratório por meio de duas funções de laboratório: Proprietário e Usuário do DevTest Labs. Uma pessoa na função de Proprietário tem acesso completo no laboratório, enquanto uma pessoa na função de Usuário do DevTest Labs tem acesso limitado. Neste vídeo, mostramos como adicionar uma pessoa em qualquer uma dessas funções a um laboratório.
 
@@ -81,6 +81,6 @@ Amit Bapat apresenta Scott ao Cofre de Chaves do Azure. Com o Cofre de Chaves do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

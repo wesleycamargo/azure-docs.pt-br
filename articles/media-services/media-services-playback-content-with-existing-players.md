@@ -1,5 +1,5 @@
 ---
-title: "Reprodução de conteúdo | Microsoft Docs"
+title: "Usar players existentes para reproduzir seu conteúdo - Azure | Microsoft Docs"
 description: "Este tópico lista os players existentes que você pode usar para reproduzir conteúdo."
 services: media-services
 documentationcenter: 
@@ -12,21 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
 
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reprodução de seu conteúdo com players existentes
 Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para players existentes que você pode usar para testar os fluxos.
-
-> [!NOTE]
-> Para reproduzir conteúdo dinamicamente empacotado ou criptografado dinamicamente, certifique-se de obter pelo menos uma unidade de transmissão para o ponto de extremidade de streaming por meio do qual você planeja distribuir seu conteúdo. Para obter informações sobre unidades de streaming de dimensionamento, consulte: [Como dimensionar unidades de streaming](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Player de conteúdo dos Serviços de Mídia do Portal do Azure
 O portal do **Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
@@ -67,7 +62,7 @@ Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplaye
 Para testar as URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou
-* **Player 3ivx HLS** no Windows.
+* **Player&3;ivx HLS** no Windows.
 
 ## <a name="developing-video-players"></a>Desenvolvendo players de vídeo
 Para obter informações sobre como desenvolver seus próprios players, consulte [Desenvolvendo players de vídeo](media-services-develop-video-players.md)
@@ -82,6 +77,6 @@ Para obter informações sobre como desenvolver seus próprios players, consulte
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

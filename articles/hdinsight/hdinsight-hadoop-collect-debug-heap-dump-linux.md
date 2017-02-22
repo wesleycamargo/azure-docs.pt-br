@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 9c5f3c36cc317a4e3700610799872d35c05d386f
 
 
 ---
@@ -26,10 +26,10 @@ ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
 
 Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são muito úteis para diagnosticar problemas que ocorrem no tempo de execução.
 
-> [!NOTE]
-> As informações neste artigo aplicam-se apenas ao HDInsight baseado em Linux. Para obter informações sobre o HDInsight baseado no Windows, consulte [Habilitar despejos de heap para serviços do Hadoop no HDInsight baseado no Windows](hdinsight-hadoop-collect-debug-heap-dumps.md)
-> 
-> 
+
+
+> [!IMPORTANT]
+> As etapas neste documento funcionam somente com clusters HDInsight que usam Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Serviços
 Você pode habilitar o despejo de heap para os seguintes serviços:
@@ -134,6 +134,6 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

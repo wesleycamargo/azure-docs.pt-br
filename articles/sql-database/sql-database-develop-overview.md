@@ -12,12 +12,12 @@ ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+ms.sourcegitcommit: cf627b92399856af2b9a58ab155fac6730128f85
+ms.openlocfilehash: 59b8e7b6b2e2442c0a961d105ccdbc9336445aa6
 
 
 ---
@@ -32,6 +32,9 @@ Este artigo apresenta as considerações básicas sobre as quais um desenvolvedo
 Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Você pode encontrar links de exemplos de código em: 
 
 * Mais informações: [bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
+
+## <a name="tools"></a>Ferramentas 
+Você pode aproveitar as ferramentas de software livre, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [Código VS](https://code.visualstudio.com/). Além disso, o Banco de Dados SQL do Azure funciona com ferramentas da Microsoft, como [Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) e [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  Você também pode usar o Portal de Gerenciamento do Azure, o PowerShell e a API REST lhe ajudará a ganhar produtividade adicional.
 
 ## <a name="resource-limitations"></a>Limitações de recursos
 O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de Recursos e Imposição de Limites.
@@ -72,11 +75,10 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 * [Introdução à visualização da Escala Elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
+Explore todos os [recursos do Banco de Dados SQL](sql-database-technical-overview.md)
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

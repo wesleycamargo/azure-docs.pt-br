@@ -13,18 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba93904f61f2472851e7cc170c77ab6b58101463
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e6749bdf73acc9c05e71c85410bb3d95c57a0a9f
 
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Saiba como usar o Apache Oozie para definir um fluxo de trabalho e executar o fluxo de trabalho no HDInsight. Para obter informações sobre o coordenador do Oozie, consulte [Usar o coordenador do Oozie com base em tempo com o HDInsighth][hdinsight-oozie-coordinator-time]. Para saber mais sobre o Azure Data Factory, confira [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive].
+Saiba como usar o Apache Oozie para definir um fluxo de trabalho e executar o fluxo de trabalho no HDInsight. Para saber mais sobre o coordenador do Oozie, veja [Usar o Hadoop Oozie Coordinator com base em tempo com o HDInsight][hdinsight-oozie-coordinator-time]. Para conhecer o Azure Data Factory, consulte [Usar o Pig e o Hive com o Data Factory][azure-data-factory-pig-hive].
 
 O Apache Oozie é um sistema de fluxo de trabalho/coordenação que gerencia trabalhos do Hadoop. Ele é integrado com a pilha do Hadoop e oferece suporte a trabalhos do Hadoop para o Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Ele também pode ser usado para agendar trabalhos específicos para um sistema, como programas Java ou scripts de shell.
 
@@ -52,7 +52,7 @@ O fluxo de trabalho que você deve implementar seguindo as instruções neste tu
 2. Uma ação do Sqoop exporta a saída do HiveQL para uma tabela no banco de dados SQL do Azure. Para saber mais sobre o Sqoop, confira [Usar o Hadoop Sqoop com o HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Para as versões do Oozie com suporte em clusters do HDInsight, consulte [O que há de novo nas versões de cluster fornecidas pelo HDInsight?][hdinsight-versions].
+> Para obter as versões do Oozie com suporte em clusters HDInsight, confira [Novidades nas versões de clusters fornecidas pelo HDInsight][hdinsight-versions].
 > 
 > 
 
@@ -61,9 +61,9 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma estação de trabalho com o PowerShell do Azure**. 
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
   
-    Para executar scripts do Windows PowerShell, você deve executar como administrador e configurar a política de execução como *RemoteSigned*. Para saber mais, confira [Executar scripts do Windows PowerShell][powershell-script].
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definir o fluxo de trabalho do Oozie e o script HiveQL relacionado
 As definições de fluxos de trabalho do Oozie são escritas em hPDL (uma Linguagem de Definição de Processo XML). O nome do arquivo do fluxo de trabalho padrão é *workflow.xml*. Veja abaixo o arquivo de fluxo de trabalho que você usará neste tutorial.
@@ -148,7 +148,7 @@ O RunHiveScript possui várias variáveis. Você irá passar os valores ao envia
 <tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução Hive INSERT OVERWRITE. Essa é a mesma pasta para a exportação do Sqoop (export-dir).</td></tr>
 </table>
 
-Para obter mais informações sobre o fluxo de trabalho do Oozie e como usar ações de fluxo de trabalho, consulte a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para a versão 3.0 do HDInsight) ou a [Documentação do Apache Oozie 3.3.2][apache-oozie-332] (para a versão 2.1 do HDInsight).
+Para saber mais sobre o fluxo de trabalho do Oozie e sobre como usar ações de fluxo de trabalho, confira a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para o HDInsight versão 3.0) ou a [Documentação do Oozie Apache 3.3.2][apache-oozie-332] (para o HDInsight versão 2.1).
 
 A ação do Hive no fluxo de trabalho chama um arquivo de script HiveQL. Esse arquivo de script contém três instruções HiveQL:
 
@@ -171,7 +171,7 @@ O arquivo de definição do fluxo de trabalho (workflow.xml neste tutorial) irá
 O arquivo de fluxo de trabalho e o arquivo do HiveQL são armazenados em um contêiner de blob.  O script do PowerShell que você usará mais tarde neste tutorial copiará ambos os arquivos na conta de Armazenamento padrão. 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>Enviar trabalhos do Oozie usando o PowerShell
-Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de serviços Web do Oozie, consulte a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para HDInsight versão 3.0) ou [Documentação do Apache Oozie 3.3.2][apache-oozie-332] (para HDInsight cluster versão 2.1).
+Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabalhos do Oozie. Você pode usar o cmdlet **Invoke-RestMethod** para invocar os serviços Web do Oozie. A API de Serviços Web do Oozie é uma API REST HTTP JSON. Para saber mais sobre a API de serviços Web do Oozie, consulte a [Documentação do Apache Oozie 4.0][apache-oozie-400] (para o HDInsight versão 3.0) ou a [Documentação do Oozie Apache 3.3.2][apache-oozie-332] (para o HDInsight versão 2.1).
 
 O script do PowerShell nesta seção realiza as seguintes etapas:
 
@@ -618,14 +618,14 @@ Este é um exemplo de script do PowerShell que você pode usar:
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a executar um trabalho do Oozie usando o PowerShell. Para saber mais, consulte os seguintes artigos:
 
-* [Usar o Coordenador baseado em tempo do Oozie com o HDInsight][hdinsight-oozie-coordinator-time]
-* [Introdução ao uso do Hadoop com o Hive no HDInsight para analisar o uso de fones de celular][hdinsight-get-started]
-* [Usar o armazenamento de blobs do Azure com o HDInsight][hdinsight-storage]
+* [Usar o Coordenador do Oozie baseado em tempo com o HDInsight][hdinsight-oozie-coordinator-time]
+* [Introdução ao uso do Hadoop com o Hive no HDInsight para analisar o uso de fone de celular][hdinsight-get-started]
+* [Usar o armazenamento de Blobs do Azure com o HDInsight][hdinsight-storage]
 * [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell]
 * [Carregar dados para trabalhos do Hadoop no HDInsight][hdinsight-upload-data]
-* [Usar o Sqoop com o HDInsight][hdinsight-use-sqoop]
-* [Usar o Hive com o Hadoop no HDInsight][hdinsight-use-hive]
-* [Usar o Pig com o Hadoop no HDInsight][hdinsight-use-pig]
+* [Usar Sqoop com o Hadoop no HDInsight][hdinsight-use-sqoop]
+* [Usar o Hive com Hadoop no HDInsight][hdinsight-use-hive]
+* [Usar o Pig com Hadoop no HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -663,7 +663,7 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 
@@ -677,6 +677,6 @@ Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a execu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

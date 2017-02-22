@@ -13,11 +13,11 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/03/2017
 ms.author: lbosq
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d8934ab6ac0fd29e5b389c2690b5ef42575e005
+ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
+ms.openlocfilehash: aafc89ca958e4bdc2ba52bf1a7d379e3a4cddf1c
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 5d8934ab6ac0fd29e5b389c2690b5ef42575e005
 Este tópico apresenta um exemplo de código Java que pode ser usado para se conectar ao Banco de Dados SQL do Azure. O exemplo de Java se baseia no Java Development Kit (JDK) versão 1.8. O exemplo se conecta a um Banco de Dados SQL do Azure usando o driver JDBC.
 
 ## <a name="step-1--configure-development-environment"></a>Etapa 1: configurar o Ambiente de Desenvolvimento
-[Configurar um ambiente de desenvolvimento para desenvolvimento Java](https://msdn.microsoft.com/library/mt720658.aspx)
+[Configurar um ambiente de desenvolvimento para desenvolvimento Java](https://docs.microsoft.com/sql/connect/jdbc/step-1-configure-development-environment-for-java-development/)
 
 ## <a name="step-2-create-a-sql-database"></a>Etapa 2: Criar um banco de dados SQL
 Consulte a [página de introdução](sql-database-get-started.md) para aprender a criar um banco de dados.  
@@ -41,12 +41,12 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 > 
 
 ## <a name="step-4-run-sample-code"></a>Etapa 4: Executar o código de exemplo
-* [Proof of Concept connecting to SQL using Java](https://msdn.microsoft.com/library/mt720656.aspx)
+* [Proof of Concept connecting to SQL using Java](https://docs.microsoft.com/sql/connect/jdbc/step-3-proof-of-concept-connecting-to-sql-using-java/)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Visite o [Centro de Desenvolvimento do Java](/develop/java/).
 * Leia a [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
-* Mais informações sobre o [Microsoft JDBC Driver para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
+* Mais informações sobre o [Microsoft JDBC Driver para SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
@@ -55,6 +55,6 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

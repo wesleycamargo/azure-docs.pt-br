@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Por exemplo, aqui um usuário com uma conta da Microsoft entra no portal clássi
 
 > [!NOTE]
 > Para entrar no portal clássico do Azure, msmith@hotmail.com deve ter uma assinatura do Azure. A conta deve ser de um administrador de serviços ou de um coadministrador da assinatura.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 
 > [!NOTE]
 > Essas etapas só podem ser realizadas enquanto o usuário está conectado com uma conta da Microsoft. Se o usuário estiver conectado com uma conta corporativa ou de estudante, a opção **Usar diretório existente** não estará disponível porque uma conta corporativa ou de estudante pode ser autenticada apenas por seu diretório-base (ou seja, o diretório em que a conta corporativa ou de estudante é armazenada, e que é propriedade da corporação ou instituição educacional).
-> 
-> 
+>
+>
 
 1. Entre no portal clássico do Azure usando sua conta da Microsoft.
 2. Clique em **Novo** > **Serviços de Aplicativos** > **Active Directory** > **Diretório** > **Criação Personalizada**.
@@ -116,7 +116,7 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 7. Entre novamente no portal clássico do Azure usando sua conta da Microsoft. Ambos os diretórios aparecerão na extensão do Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
+* Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
 * Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles.md)
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
@@ -128,6 +128,6 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

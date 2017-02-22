@@ -1,6 +1,6 @@
 ---
-title: "Diferença no teste de proporções | Microsoft Docs"
-description: "Diferença no teste de proporções"
+title: "(preterido) Diferença no teste de proporções — Azure | Microsoft Docs"
+description: "(preterido) Diferença no teste de proporções"
 services: machine-learning
 documentationcenter: 
 author: aniedea
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: aniedea
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b45b4689e6254afd603d434dc0b21dad90addd95
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 18023b5057d1eeca88a341d62cbeb543102b3abf
 
 
 ---
-# <a name="difference-in-proportions-test"></a>Diferença no teste de proporções
+# <a name="deprecated-difference-in-proportions-test"></a>(preterido) Diferença no teste de proporções
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0.50 e 0.51. Com uma pequena amostra, pode não haver dados suficientes para determinar se essas proporções são realmente diferentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -129,6 +136,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

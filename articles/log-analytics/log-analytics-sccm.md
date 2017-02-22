@@ -4,7 +4,7 @@ description: "Este artigo mostra as etapas para conectar o Configuration Manager
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
-ms.openlocfilehash: 240db424645778c0fcd0f8abd17411e58bd95ab9
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 18479c3680aa46113e59d25b6e034830f78a1859
 
 
 ---
@@ -25,7 +25,7 @@ Você pode conectar o System Center Configuration Manager ao Log Analytics no OM
 
 Há várias etapas necessárias para conectar o Configuration Manager ao OMS, então, aqui está um resumo rápido do processo geral:
 
-1. No Portal de Gerenciamento do Azure, registre o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e certifique-se de ter a ID do cliente e a chave secreta do cliente do registro do Azure Active Directory. Consulte [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../resource-group-create-service-principal-portal.md) para obter informações detalhadas sobre como executar essa etapa.
+1. No Portal de Gerenciamento do Azure, registre o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e certifique-se de ter a ID do cliente e a chave secreta do cliente do registro do Azure Active Directory. Consulte [Usar o portal para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) para obter informações detalhadas sobre como executar essa etapa.
 2. No Portal de Gerenciamento do Azure, [forneça ao Configuration Manager (o aplicativo Web registrado) com permissão para acessar o OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. No Configuration Manager, [adicione uma conexão usando o Assistente de Adição de Conexão do OMS](#add-an-oms-connection-to-configuration-manager).
 4. No Configuration Manager, você pode [atualizar as propriedades de conexão](#update-oms-connection-properties) se a chave secreta do cliente ou a senha expirar ou for perdida.
@@ -132,6 +132,6 @@ Quando você clica em qualquer um, Search abre, mostrando todos os grupos import
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

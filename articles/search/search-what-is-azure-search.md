@@ -11,12 +11,12 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
+experiment_id: heidist-experiment1-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 29385af9183ef2f8431581aaa5fe38e89404d068
-
+ms.sourcegitcommit: 292c9150822363aba3336b1efce579dc5362cb14
+ms.openlocfilehash: 99b3babee9b252b2d741515391295d8b1dc5c747
 
 ---
 # <a name="what-is-azure-search"></a>O que é a Pesquisa do Azure?
@@ -25,13 +25,13 @@ O Azure Search é uma solução de pesquisa como um serviço de nuvem que delega
 ## <a name="give-your-users-a-powerful-search-experience"></a>Dê aos seus usuários uma experiência de pesquisa avançada
 **Consultas avançadas** podem ser formuladas usando a [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx), que oferece operadores lógicos, operadores de pesquisa de frase, operadores de sufixo e operadores de precedência. Além disso, a [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) pode permitir a pesquisa difusa, pesquisa por proximidade, aprimoramento de termo e expressões regulares. A Pesquisa do Azure também oferece suporte a analisadores léxicos personalizados para permitir que seu aplicativo lide com consultas de pesquisa complexas usando expressões regulares e correspondência fonética.
 
-**Suporte ao idioma** está [incluído para idiomas diferentes de 56](https://msdn.microsoft.com/library/azure/dn879793.aspx). Usando tanto analisadores Lucene quanto analisadores da Microsoft (refinados por anos de processamento de idioma natural no Office e no Bing), a Pesquisa do Azure pode analisar o texto na caixa de pesquisa do seu aplicativo para tratar inteligentemente elementos linguísticos específicos a um idioma, incluindo tempos verbais, sexo, substantivos plurais irregulares (por exemplo, 'mouse' x 'mice'), decomposição de palavras, quebra de palavras (para idiomas sem espaços) e muito mais.
+**Suporte ao idioma** está [incluído para idiomas diferentes de 56](https://msdn.microsoft.com/library/azure/dn879793.aspx). Usando tanto analisadores Lucene quanto analisadores da Microsoft (refinados por anos de processamento de idioma natural no Office e no Bing), o Azure Search pode analisar o texto na caixa de pesquisa do seu aplicativo para tratar inteligentemente elementos linguísticos específicos a um idioma, incluindo tempos verbais, sexo, substantivos plurais irregulares (por exemplo, 'mouse' x 'mice'), decomposição de palavras, quebra de palavras (para idiomas sem espaços) e muito mais.
 
 **Sugestões de pesquisa** pode ser habilitada para barras de pesquisa com preenchimento automático e barras de previsão de digitação. [Documentos reais no seu índice são sugeridos](https://msdn.microsoft.com/library/azure/dn798936.aspx) conforme os usuários inserem entrada de pesquisa parcial.
 
 **Realce de ocorrências** [permite](https://msdn.microsoft.com/library/azure/dn798927.aspx) que os usuários vejam o trecho de código de texto em cada resultado que contém as correspondências para a consulta. Você pode selecionar e escolher quais campos retornam trechos de código realçados.
 
-**Faceted navigation** é facilmente adicionada à sua página de resultados de pesquisa com a Pesquisa do Azure. Usando [apenas um único parâmetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), A Pesquisa do Azure retornará todas as informações necessárias para construir uma experiência de pesquisa facetada na interface do usuário do seu aplicativo para permitir aos usuários fazer o drill-down e filtrar resultados de pesquisa (por exemplo, filtrar itens de catálogo por faixa de preços ou marca).
+**Faceted navigation** é facilmente adicionada à sua página de resultados de pesquisa com a Pesquisa do Azure. Usando [apenas um único parâmetro de consulta](https://msdn.microsoft.com/library/azure/dn798927.aspx), o Azure Search retornará todas as informações necessárias para construir uma experiência de pesquisa facetada na interface do usuário do seu aplicativo para permitir aos usuários fazer o drill-down e filtrar resultados de pesquisa (por exemplo, filtrar itens de catálogo por faixa de preços ou marca).
 
 **geoespacial** permite processamento, filtro e exibição de locais geográficos de maneira inteligente. A Pesquisa do Azure permite que os usuários explorarem dados com base na proximidade de um resultado de pesquisa para um local específico ou em uma região geográfica específica. Este vídeo explica como isso funciona: [Channel 9: dados de Pesquisa do Azure e geoespaciais](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data).
 
@@ -58,7 +58,7 @@ A **integração de dados** usando [indexadores](https://msdn.microsoft.com/libr
 
 ## <a name="how-it-works"></a>Como ele funciona
 ### <a name="1-provision-service"></a>1. Provisionar serviços
-Você pode criar um serviço Azure Search usando o [Portal do Azure](https://portal.azure.com/) ou a [API de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
+Você pode criar um serviço do Azure Search usando o [Portal do Azure](https://portal.azure.com/) ou a [API de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 Dependendo de como o serviço de pesquisa for configurado, você usará a camada gratuita de serviço que é compartilhada com outros assinantes da Pesquisa do Azure, ou uma [camada paga](https://azure.microsoft.com/pricing/details/search/) que dedica recursos a serem usados apenas pelo seu serviço. Ao provisionar seu serviço, você também escolhe a região do data center que hospeda o serviço.
 
@@ -67,7 +67,7 @@ Dependendo de qual camada de serviço for escolhida, é possível escalonar seu 
 ### <a name="2-create-index"></a>2. Criar índice
 Antes de carregar o conteúdo para o serviço de Pesquisa do Azure, você deve primeiro definir um índice de Pesquisa do Azure. Um índice é como uma tabela de banco de dados que contém os dados e pode aceitar consultas de pesquisa. Você define o esquema de índice a mapear para a estrutura dos documentos que deseja pesquisar, semelhante a campos em um banco de dados.
 
-O esquema desses índices pode ser criado no Portal do Azure ou programaticamente usando o [SDK .NET](search-howto-dotnet-sdk.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn798941.aspx). Quando o esquema é definido, você pode carregar os dados para o serviço de Pesquisa do Azure, no qual eles serão indexados posteriormente.
+O esquema desses índices pode ser criado no Portal do Azure ou de modo programático usando o [SDK do .NET](search-howto-dotnet-sdk.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn798941.aspx). Quando o esquema é definido, você pode carregar os dados para o serviço de Pesquisa do Azure, no qual eles serão indexados posteriormente.
 
 ### <a name="3-index-data"></a>3. Dados de índice
 Depois de definir os campos e os atributos do índice, você está pronto para carregar o conteúdo para o índice. Você pode usar os modelos push ou pull para carregar dados para o índice.
@@ -80,13 +80,16 @@ O modelo de push é fornecido por meio do SDK ou APIs REST usados para enviar do
 Depois de preencher o índice de Pesquisa do Azure, você pode agora [emitir consultas de pesquisa](https://msdn.microsoft.com/library/azure/dn798927.aspx) para seu ponto de extremidade de serviço usando solicitações HTTP simples com API REST ou o SDK do .NET.
 
 ## <a name="try-it-now-for-free"></a>Experimente agora (gratuitamente!)
-Você pode experimentar a Pesquisa do Azure hoje mesmo! Se você já possui uma conta do Azure, pode [provisionar um serviço no tipo Gratuito](search-create-service-portal.md).
+Os assinantes do Azure podem [provisionar um serviço na camada gratuita](search-create-service-portal.md).
 
-Se não tiver uma conta do Azure, pode experimentar uma sessão gratuita de 60 minutos sem necessidade de qualquer inscrição. Vá para [Experimentar o Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/p/?LinkId=618214) e selecione "Aplicativo Web." Selecione o modelo de "ASP.NET + Pesquisa do Azure" para começar.
+Se não for um assinante, você poderá [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): você recebe créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, você pode manter a conta e usar os serviços gratuitos do Azure, como os Sites. Seu cartão de crédito nunca será cobrado, a menos que você altere explicitamente suas configurações, solicitando esse tipo de cobrança.
+
+Se preferir, você pode [ativar benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): todos os meses, sua assinatura do MSDN concede créditos que podem ser usados para serviços pagos do Azure. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,86 +1,95 @@
 ---
-title: Configure Traffic Manager routing methods | Microsoft Docs
-description: This article explains how to configures different routing methods in Traffic Manager
+title: "Configurar métodos de roteamento do Gerenciador de Tráfego | Microsoft Docs"
+description: "Este artigo explica como configurar diferentes métodos de roteamento no Gerenciador de Tráfego"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: ''
-
+documentationcenter: 
+author: kumudd
+manager: timlt
+editor: 
+ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
-ms.author: sewhee
+ms.date: 10/18/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: d4481115dbf8cc720019096969c55509f33d250c
 
 ---
-# <a name="configure-traffic-manager-routing-methods"></a>Configure Traffic Manager routing methods
-Azure Traffic Manager provides three routing methods that control how traffic is routed to available service endpoints. The traffic-routing method is applied to each DNS query received to determine which endpoint should be returned in the DNS response.
 
-There are three traffic routing methods available in Traffic Manager:
+# <a name="configure-traffic-manager-routing-methods"></a>Configurar métodos de roteamento do Gerenciador de Tráfego
 
-* **Priority:** Select 'Priority' when you want to use a primary service endpoint and provide backups in case the primary is unavailable.
-* **Weighted:** Select 'Weighted' when you want to distribute traffic across a set of endpoints, either evenly or according to weights, which you define.
-* **Performance:** Select 'Performance' when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint in terms of the lowest network latency.
+O Gerenciador de Tráfego do Azure fornece três métodos de roteamento que controlam como o tráfego é roteado para os pontos de extremidade de serviço disponíveis. O método de roteamento de tráfego é aplicado a cada consulta DNS recebida para determinar qual ponto de extremidade deve ser retornado na resposta DNS.
 
-## <a name="configure-priority-routing-method"></a>Configure Priority routing method
-Regardless of the website mode, Azure Websites already provide failover functionality for websites within a datacenter (also known as a region). Traffic Manager provides failover for websites in different datacenters.
+Três métodos de roteamento de tráfego estão disponíveis no Gerenciador de Tráfego:
 
-A common pattern for service failover is to send traffic to a primary service and provide a set of identical backup services for failover. The following steps explain how to configure this prioritized failover with Azure cloud services and websites:
+* **Prioridade:** selecione “Prioridade” quando desejar usar um ponto de extremidade de serviço primário e fornecer backups caso o primário não esteja disponível.
+* **Ponderado:** selecione "Ponderado" quando quiser distribuir o tráfego entre um conjunto de pontos de extremidade, seja uniformemente ou de acordo com os pesos que você definir.
+* **Desempenho**: selecione "Desempenho" quando tiver pontos de extremidade em diferentes regiões e quiser que os usuários finais usem o ponto de extremidade “mais próximo” em termos de menor latência de rede.
 
-1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane.
-2. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the settings that you want to modify. To open the profile settings page, click the arrow to the right of the profile name.
-3. On your profile page, click **Endpoints** at the top of the page. Verify that both the cloud services and websites that you want to include in your configuration are present.
-4. Click **Configure** at the top to open the configuration page.
-5. For **traffic routing method settings**, verify that the traffic routing method is **Failover**. If it is not, click **Failover** from the dropdown list.
-6. For **Failover Priority List**, adjust the failover order for your endpoints. When you select the **Failover** traffic routing method, the order of the selected endpoints matters. The primary endpoint is on top. Use the up and down arrows to change the order as needed. For information about how to set the failover priority by using Windows PowerShell, see [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
-7. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
-8. After you complete your configuration changes, click **Save** at the bottom of the page.
-9. Test the changes in your configuration.
-10. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
+## <a name="configure-priority-routing-method"></a>Configurar método de roteamento de prioridade
 
-## <a name="configure-weighted-routing-method"></a>Configure weighted routing method
-A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The following steps outline how to configure this type of traffic routing method.
+Independentemente do modo de site, os Sites do Azure já fornecem funcionalidade de failover para sites dentro de um data center (também conhecido como região). O Gerenciador de Tráfego fornece failover para sites em diferentes data centers.
+
+É um padrão comum para failover de serviço é enviar tráfego para um serviço primário e fornecer um conjunto de serviços de backup idênticos para failover. As etapas a seguir explicam como configurar esse failover priorizado com sites e serviços de nuvem do Azure:
+
+1. No portal clássico do Azure, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego.
+2. No painel do Gerenciador de Tráfego no portal clássico do Azure, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar. Para abrir a página de configurações de perfil, clique na seta à direita do nome do perfil.
+3. Na parte superior da página de seu perfil, clique em **Pontos de extremidade**. Verifique se os serviços de nuvem e os sites que você deseja incluir em sua configuração estão presentes.
+4. Clique em **Configurar** na parte superior para abrir a página de configuração.
+5. Para **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Failover**. Se não for, clique em **Failover** na lista suspensa.
+6. Na **Lista de Prioridade de Failover**, ajuste a ordem de failover para seus pontos de extremidade. Quando você seleciona o método de roteamento de tráfego de **Failover** , a ordem dos pontos de extremidade selecionados é importante. O ponto de extremidade primário está no topo. Use as setas para cima e para baixo para alterar a ordem conforme necessário. Para obter informações sobre como definir a prioridade de failover usando o Windows PowerShell, consulte [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
+7. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).
+8. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
+9. Teste as alterações em sua configuração.
+10. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
+
+## <a name="configure-weighted-routing-method"></a>Configurar o método de roteamento ponderado
+
+Um padrão comum de roteamento de tráfego é fornecer um conjunto de pontos de extremidade idênticos, que incluem serviços de nuvem e sites, e enviar tráfego a cada um deles em um estilo round robin. As etapas a seguir descrevem como configurar esse tipo de método de roteamento de tráfego.
 
 > [!NOTE]
-> Azure Websites already provide round-robin load balancing functionality for websites within a datacenter (also known as a region). Traffic Manager allows you to specify round-robin traffic routing method for websites in different datacenters.
-> 
-> 
+> Os sites do Azure já fornecem funcionalidade de balanceamento de carga round robin para sites dentro de um data center (também conhecido como região). O Gerenciador de Tráfego permite que você especifique o método de roteamento de tráfego de round robin para sites em datacenters diferentes.
 
-1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane.
-2. In the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify. To open the profile settings page, click the arrow to the right of the profile name.
-3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present.
-4. On your profile page, click **Configure** at the top to open the configuration page.
-5. For **traffic routing method Settings**, verify that the traffic routing method is **Round Robin**. If it is not, click **Round Robin** in the dropdown list.
-6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
-7. After you complete your configuration changes, click **Save** at the bottom of the page.
-8. Test the changes in your configuration.
-9. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
+1. No portal clássico do Azure, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego.
+2. No painel Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar. Para abrir a página de configurações de perfil, clique na seta à direita do nome do perfil.
+3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes.
+4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
+5. Para **Configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Round Robin**. Se não for, clique em **Round Robin** na lista suspensa.
+6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).
+7. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
+8. Teste as alterações em sua configuração.
+9. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 
-## <a name="configure-performance-traffic-routing-method"></a>Configure Performance traffic routing method
-The Performance traffic routing method allows you to direct traffic to the endpoint with the lowest latency from the client's network. Typically, the datacenter with the lowest latency is the closest in geographic distance. This traffic routing method cannot account for real-time changes in network configuration or load.
+## <a name="configure-performance-traffic-routing-method"></a>Configurar o método de roteamento de tráfego de Desempenho
 
-1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane.
-2. In the Traffic Manager pane, locate the Traffic Manager profile that contains the settings that you want to modify. To open the profile settings page, click the arrow to the right of the profile name.
-3. On the page for your profile, click **Endpoints** at the top of the page and verify that the service endpoints that you want to include in your configuration are present.
-4. On the page for your profile, click **Configure** at the top to open the configuration page.
-5. For **traffic routing method settings**, verify that the traffic routing method is **Performance*. If it's not, click **Performance** in the dropdown list.
-6. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. To monitor endpoints, you must specify a path and filename. A forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).
-7. After you complete your configuration changes, click **Save** at the bottom of the page.
-8. Test the changes in your configuration.
-9. Once your Traffic Manager profile is working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name.
+O método de roteamento de tráfego de Desempenho permite direcionar o tráfego para o ponto de extremidade com a menor latência de rede do cliente. Normalmente, o data center com a menor latência corresponde ao mais próximo em termos de distância geográfica. Esse método de roteamento de tráfego não consegue considerar as alterações em tempo real à configuração ou à carga de rede.
 
-## <a name="next-steps"></a>Next steps
-* [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md)
-* [Traffic Manager routing methods](traffic-manager-routing-methods.md)
-* [Testing Traffic Manager Settings](traffic-manager-testing-settings.md)
-* [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
-* [Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
-* [Traffic Manager - Disable, enable, or delete a profile](disable-enable-or-delete-a-profile.md)
-* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+1. No portal clássico do Azure, no painel esquerdo, clique no ícone do **Gerenciador de Tráfego** para abrir o painel do Gerenciador de Tráfego.
+2. No painel Gerenciador de Tráfego, localize o perfil do Gerenciador de Tráfego que contém as configurações que você deseja modificar. Para abrir a página de configurações de perfil, clique na seta à direita do nome do perfil.
+3. Na página de seu perfil, clique em **Pontos de Extremidade** na parte superior da página e verifique se os pontos de extremidade de serviço que você deseja incluir em sua configuração estão presentes.
+4. Na página de seu perfil, clique em **Configurar** na parte superior para abrir a página de configuração.
+5. Para ver as **configurações do método de roteamento de tráfego**, verifique se o método de roteamento de tráfego é **Desempenho**. Se não for, clique em **Desempenho** na lista suspensa.
+6. Verifique se as **Configurações de Monitoramento** estão definidas corretamente. O monitoramento garante que não seja enviado tráfego aos pontos de extremidade que estão offline. Para monitorar os pontos de extremidade, especifique um caminho e um nome de arquivo. A barra "/" é uma entrada válida para o caminho relativo e implica que o arquivo está no diretório raiz (padrão).
+7. Depois de concluir as alterações de configuração, clique em **Salvar** na parte inferior da página.
+8. Teste as alterações em sua configuração.
+9. Depois que o perfil do Gerenciador de Tráfego estiver funcionando, edite o registro DNS no servidor DNS autoritativo para que o nome de domínio de sua empresa aponte para o nome de domínio do Gerenciador de Tráfego.
 
-<!--HONumber=Oct16_HO2-->
+## <a name="next-steps"></a>Próximas etapas
+
+* [Gerenciar Perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
+* [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
+* [Testando as Configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md)
+* [Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
+* [Gerenciar pontos de extremidade do Gerenciador de Tráfego](traffic-manager-manage-endpoints.md)
+* [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
+
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

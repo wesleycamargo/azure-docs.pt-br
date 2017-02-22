@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 01/11/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: f6e684b08ed481cdf84faf2b8426da72f98fc58c
-ms.openlocfilehash: 39678df7c52781d2f7e8fec49d97c96bee58ce8c
+ms.sourcegitcommit: 4029b699b59bb12eaa9e24b487d2829b5fb26daf
+ms.openlocfilehash: 6780b422138fbe18adfe256e9f7aa279dfed1cd9
 
 
 ---
@@ -48,54 +48,70 @@ Recuperar esses valores de cabeçalho no seu código ou script não é diferente
 
 Por exemplo, em **C#**, recupere o valor de cabeçalho de um objeto **HttpWebResponse** chamado **response** com o código a seguir:
 
-    response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```cs
+response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
+```
 
 No **PowerShell**, você recupera o valor de cabeçalho de uma operação Invoke-WebRequest.
 
-    $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
-    $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```powershell
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
+```
 
 Ou, se quiser ver as solicitações restantes para depuração, você pode fornecer o parâmetro **-Debug** em seu cmdlet **PowerShell**.
 
-    Get-AzureRmResourceGroup -Debug
+```powershell
+Get-AzureRmResourceGroup -Debug
+```
 
-Este retorna várias informações, incluindo o seguinte valor de resposta:
+Que retorna muitos valores, incluindo o seguinte valor de resposta:
 
-    ...
-    DEBUG: ============================ HTTP RESPONSE ============================
+```powershell
+...
+DEBUG: ============================ HTTP RESPONSE ============================
 
-    Status Code:
-    OK
+Status Code:
+OK
 
-    Headers:
-    Pragma                        : no-cache
-    x-ms-ratelimit-remaining-subscription-reads: 14999
-    ...
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-reads: 14999
+...
+```
 
 Na **CLI do Azure**, você recupera o valor do cabeçalho usando a opção mais detalhada.
 
-    azure group list -vv --json
+```azurecli
+azure group list -vv --json
+```
 
-Isso retorna várias informações, incluindo o seguinte objeto:
+Que retorna muitos valores, incluindo o seguinte objeto:
 
+```azurecli
+...
+silly: returnObject
+{
+  "statusCode": 200,
+  "header": {
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "content-type": "application/json; charset=utf-8",
+    "expires": "-1",
+    "x-ms-ratelimit-remaining-subscription-reads": "14998",
     ...
-    silly: returnObject
-    {
-      "statusCode": 200,
-      "header": {
-        "cache-control": "no-cache",
-        "pragma": "no-cache",
-        "content-type": "application/json; charset=utf-8",
-        "expires": "-1",
-        "x-ms-ratelimit-remaining-subscription-reads": "14998",
-        ...
+```
 
 ## <a name="waiting-before-sending-next-request"></a>Aguardando antes de enviar a próxima solicitação
 Quando você alcançar o limite de solicitação, o Resource Manager retorna o código de status HTTP **429** e um valor **Retry-After** no cabeçalho. O valor **Retry-After** especifica o número de segundos que o aplicativo deve aguardar (ou ficar suspenso) antes de enviar a próxima solicitação. Se você enviar uma solicitação antes que o valor de repetição tenha decorrido, sua solicitação não será processada e um novo valor de repetição será retornado.
 
+## <a name="next-steps"></a>Próximas etapas
+
+* Para obter mais informações sobre limites e cotas, confira [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+* Para saber mais sobre como lidar com solicitações assíncronas de REST, confira [Track asynchronous Azure operations](resource-manager-async-operations.md) (Rastrear operações assíncronas do Azure).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Escalar seu trabalho do Stream Analytics com funções do Azure Machine Learning | Microsoft Docs"
+title: "Dimensionando o trabalho com o Azure Stream Analytics e as funções do Azure Machine Learning | Microsoft Docs"
 description: "Saiba como dimensionar corretamente os trabalhos do Stream Analytics (particionamento, quantidade de SU e muito mais) ao usar funções do Aprendizado de Máquina do Azure."
 keywords: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad7ac0056cead32332b63add61655dbc1d2cb37c
+ms.sourcegitcommit: b36fd0b4a52ae2e13a5b5dcde412994a0656e3d3
+ms.openlocfilehash: 27f2ac3d54226501e254d9a8fef6cc378eb9a860
 
 
 ---
@@ -36,13 +36,13 @@ Depois de determinar um tamanho de lote, a quantidade de Unidades de Streaming (
 
 Em geral, há 20 conexões simultâneas com o serviço Web do Aprendizado de Máquina para cada seis SUs, com exceção dos trabalhos de uma SU e os trabalhos de três SUs que receberão 20 conexões simultâneas também.  Por exemplo, se a taxa de dados de entrada for 200.000 eventos por segundo, e o tamanho do lote for deixado com o valor padrão de 1000, a latência de serviço Web resultante com um lote simplificado de 1000 eventos será de 200 ms. Isso significa que cada conexão pode fazer cinco solicitações para o serviço Web do Aprendizado de Máquina em um segundo. Com 20 conexões, o trabalho do Stream Analytics poderá processar 20.000 eventos em 200 ms e, portanto, 100.000 eventos em um segundo. Então, para processar 200.000 eventos por segundo, o trabalho do Stream Analytics precisará de 40 conexões simultâneas, provenientes de 12 SUs. O diagrama a seguir ilustra as solicitações do trabalho do Stream Analytics para o ponto de extremidade de serviço Web do Aprendizado de Máquina – a cada 6 SUs há, no máximo, 20 conexões simultâneas com o serviço Web do Aprendizado de Máquina.
 
-![Escalar o Stream Analytics com funções de Aprendizado de Máquina, exemplo de trabalho 2](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions 2 job example")
+![Dimensionar o Stream Analytics com as funções de Machine Learning, exemplo de trabalho 2](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Dimensionar o Stream Analytics com as funções do Machine Learning, exemplo de trabalho 2")
 
 Em geral, sendo ***B*** o tamanho do lote e ***L*** a latência do serviço Web com o tamanho do lote B em milissegundos, a produtividade de um trabalho do Stream Analytics com ***N*** SUs será:
 
-![Fórmula para escalar o Stream Analytics com funções de Aprendizado de Máquina](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics with Machine Learning Functions Formula")
+![Fórmula para Dimensionar o Stream Analytics com as funções do Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Fórmula para Dimensionar o Stream Analytics com as funções do Machine Learning")
 
-Uma consideração adicional pode ser o número “máximo de chamadas simultâneas” no lado do serviço Web do Aprendizado de Máquina. Recomendamos a definição como o valor máximo (no momento, 200).
+Uma consideração adicional pode ser o número “máximo de chamadas simultâneas” no lado do serviço Web do Aprendizado de Máquina. Recomendamos a definição como o valor máximo (no momento,&200;).
 
 Para saber mais sobre essa configuração, confira o [artigo sobre dimensionamento de serviços Web do Aprendizado de Máquina](../machine-learning/machine-learning-scaling-webservice.md).
 
@@ -95,7 +95,7 @@ Normalmente, o tamanho do lote que definimos para as funções do Aprendizado de
 ## <a name="new-function-related-monitoring-metrics"></a>Novas métricas de monitoramentos relacionadas à função
 Na área de Monitoramento de um trabalho do Stream Analytics, foram adicionadas três métricas relacionadas à função. São elas: SOLICITAÇÕES DE FUNÇÃO, EVENTOS DE FUNÇÃO E SOLICITAÇÕES DE FUNÇÃO COM FALHA, conforme mostra a imagem abaixo.
 
-![Escalar o Stream Analytics com métricas de funções de Aprendizado de Máquina](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
+![Métricas para Dimensionar o Stream Analytics com as funções de Machine Learning](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Métricas para Dimensionar o Stream Analytics com as funções do Machine Learning")
 
 Estas são as definições:
 
@@ -125,6 +125,6 @@ Para saber mais sobre o Stream Analytics, confira:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

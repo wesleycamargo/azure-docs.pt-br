@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: 5a50f583831b398ae22416e7ade23c33846de55c
 
 
 ---
@@ -33,12 +33,11 @@ ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
 > 
 > 
 
-O **Assistente de Cópia** do Azure Data Factory permite que você crie um pipeline para implementar o cenário de ingestão/movimentação de dados de forma rápida e fácil. Portanto, recomendamos que você use o assistente como uma primeira etapa para criar um pipeline de exemplo no cenário de movimentação de dados. Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Confira o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
+O **Assistente de Cópia** do Azure Data Factory permite que você crie um pipeline para implementar o cenário de ingestão/movimentação de dados de forma rápida e fácil. Portanto, recomendamos que você use o assistente como uma primeira etapa para criar um pipeline de exemplo no cenário de movimentação de dados. Este tutorial mostra como criar um Azure Data Factory, iniciar o Assistente de Cópia, seguir uma série de etapas para fornecer detalhes sobre seu cenário de ingestão/movimentação de dados. Quando você concluir as etapas no assistente, ele criará um pipeline com Atividade de Cópia a fim de copiar dados de um armazenamento de blobs do Azure para um banco de dados SQL do Azure automaticamente. Veja o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter detalhes sobre a Atividade de Cópia. 
 
-> [!IMPORTANT]
-> Percorra o artigo [Visão geral e pré-requisitos do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ter uma visão geral do tutorial e concluir as etapas de **pré-requisito** antes de executar este tutorial.
-> 
-> 
+## <a name="prerequisites"></a>Pré-requisitos
+- Examine [Visão geral e pré-requisitos do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter uma visão geral do tutorial e concluir as etapas de **pré-requisitos** .
+
 
 ## <a name="create-data-factory"></a>Criar um data factory
 Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure denominado **ADFTutorialDataFactory**.
@@ -60,8 +59,8 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    2. Selecione sua **assinatura**do Azure.
    3. Em relação ao Grupo de Recursos, execute uma das seguintes etapas: 
       
-      1. Selecione **Usar existente** para selecionar um grupo de recursos existente.
-      2. Selecione **Criar novo** e insira um nome para um grupo de recursos.
+      - Selecione **Usar existente** para selecionar um grupo de recursos existente.
+      - Selecione **Criar novo** e insira um nome para um grupo de recursos.
          
           Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).
    4. Selecione um **local** para o data factory.
@@ -146,23 +145,24 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    
    ![Aplicativo de Monitoramento](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
    
-   > [!NOTE]
-   > Clique no botão **Atualizar** da lista **JANELAS DE ATIVIDADE** na parte inferior para ver o status mais recente. Ela não é atualizada automaticamente. 
-   > 
-   > 
+   
+   Clique no botão **Atualizar** da lista **JANELAS DE ATIVIDADE** na parte inferior para ver o status mais recente. Ela não é atualizada automaticamente. 
+
+> [!NOTE]
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Veja [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas.
 
 ## <a name="see-also"></a>Consulte também
 | Tópico | Descrição |
 |:--- |:--- |
-| [Atividades de movimentação de dados](data-factory-data-movement-activities.md) |Este artigo fornece informações detalhadas sobre a Atividade de Cópia utilizada neste tutorial. |
-| [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e como usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seu cenário ou negócio. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
-| [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
+| [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

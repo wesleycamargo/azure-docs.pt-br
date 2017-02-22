@@ -3,7 +3,7 @@ title: Como usar os Arquivos do Azure com o Linux | Microsoft Docs
 description: "Crie um compartilhamento de arquivos do Azure na nuvem com este tutorial passo a passo. Gerencie o conteúdo do compartilhamento de arquivos e monte um compartilhamento de arquivos de uma máquina virtual do Azure (VM) ou de um aplicativo local que suporta SMB 3.0."
 services: storage
 documentationcenter: na
-author: mine-msft
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: minet
+ms.date: 1/18/2017
+ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e74cada6186239c58011de155662c3e2a24978
+ms.sourcegitcommit: e296e468309b53338231e283ac62e4d917e0834b
+ms.openlocfilehash: 8cb98eb721d5769125926a6c75f776a9d510376e
 
 
 ---
@@ -38,7 +38,7 @@ O armazenamento de arquivo agora está disponível e dá suporte a SMB 2.1 e a S
 ## <a name="video-using-azure-file-storage-with-linux"></a>Vídeo: Usando o armazenamento de arquivos do Azure com o Linux
 Veja um vídeo que demonstra como criar e usar compartilhamentos de arquivos do Azure no Linux.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Linux/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Linux/player]
 > 
 > 
 
@@ -108,6 +108,17 @@ Filesystem  Size  Used Avail Use% Mounted on
 //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 ```
 
+Se você usar o RHEL 7.3, será possível montar o arquivo como mostrado abaixo:
+
+```
+azureuser@AzureconRedhat:~> sudo yum install cifs-utils
+azureuser@AzureconRedhat:~> sudo mkdir /mnt/mountpoint
+azureuser@AzureconRedhat:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+azureuser@AzureconRedhat:~> df -h /mnt/mountpoint
+Filesystem  Size  Used Avail Use% Mounted on
+//myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+```
+
 ## <a name="manage-the-file-share"></a>Gerenciar o compartilhamento de arquivos
 O [portal do Azure](https://portal.azure.com) fornece uma interface do usuário para gerenciar o Armazenamento de Arquivos do Azure. Você pode executar as seguintes ações em seu navegador da Web:
 
@@ -150,6 +161,7 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 * [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

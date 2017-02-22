@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6b1c05963afa27ff4d24270048d3071f0fb02c00
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
 
 
 ---
@@ -38,7 +38,7 @@ Além de ajudar a proteger seus recursos de Banco de Dados SQL, a Central de Seg
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. A camada Gratuita da Central de Segurança é habilitada com sua assinatura. Para saber mais sobre as camadas Gratuito e Standard da Central de Segurança, confira [Preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-A Central de segurança dá suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../active-directory/role-based-access-control-configure.md). As Perguntas frequentes da Central de Segurança fornecem informações sobre [como as permissões são tratadas na Central de Segurança](security-center-faq.md#how-are-permissions-handled-in-azure-security-center).
+A Central de segurança dá suporte ao acesso baseado em função. Para saber mais sobre o controle de acesso baseado em função (RBAC) no Azure, consulte o [Controle de acesso baseado em função do Azure Active Directory](../active-directory/role-based-access-control-configure.md). As Perguntas frequentes da Central de Segurança fornecem informações sobre [como as permissões são tratadas na Central de Segurança](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Acessar a Central de Segurança
 Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). [Entre no Portal](https://portal.azure.com/) e selecione a **opção Central de Segurança**.
@@ -118,6 +118,6 @@ Para saber mais, confira [Gerenciar e responder a alertas de segurança](securit
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

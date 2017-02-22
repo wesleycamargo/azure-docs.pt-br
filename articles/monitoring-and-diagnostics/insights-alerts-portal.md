@@ -1,8 +1,8 @@
 ---
-title: "Usar o Portal do Azure para criar alertas para os serviços do Azure | Microsoft Docs"
-description: "Use o Portal do Azure para criar alertas do Azure, que podem disparar notificações ou automação quando as condições especificadas são atendidas."
+title: "Criar alertas para serviços do Azure – Portal do Azure | Microsoft Docs"
+description: "Dispare emails, notificações, chame URLs de sites (webhooks) ou automação quando as condições especificadas forem atendidas."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
+ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
+ms.openlocfilehash: 530cbb7b53316324f5bc5bcbe9b1b73b9f0b0f9b
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Usar o Portal do Azure para criar alertas para os serviços do Azure
+# <a name="create-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas no Azure Monitor para serviços do Azure – Portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Visão geral
 Este artigo mostra como configurar alertas do Azure usando o Portal do Azure.   
@@ -53,10 +53,10 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 1. No [Portal](https://portal.azure.com/), localize o recurso no qual você está interessado em monitor e selecione-o.
 2. Selecione **Alertas** ou **Regras de alerta** na seção MONITORAMENTO. O texto e o ícone podem variar um pouco para recursos diferentes.  
-   
+
     ![Monitoramento](./media/insights-alerts-portal/AlertRulesButton.png)
 3. Selecione o comando **Adicionar alerta** e preencha os campos.
-   
+
     ![Adicionar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. Dê um **Nome** para o alerta de regra e escolha uma **Descrição**, que também mostre os emails de notificação.
 5. Selecione a **Métrica** que você deseja monitorar, escolha uma **Condição** e um valor de **Limite** para a métrica. Escolha também o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar. Por exemplo, se você usar o período "PT5M" e o alerta procura por CPU acima de 80%, o alerta disparará quando a CPU estiver consistentemente acima de 80% por cinco minutos. Após o primeiro gatilho, ele disparará novamente quando a CPU permanecer abaixo de 80% durante cinco minutos. A medição da CPU ocorre a cada um minuto.   
@@ -84,7 +84,6 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

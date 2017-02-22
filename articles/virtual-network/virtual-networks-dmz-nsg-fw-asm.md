@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 
 ---
-# <a name="example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs
-[Voltar à página Práticas recomendadas de limite de segurança][INÍCIO]
+# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: criar uma DMZ para proteger aplicativos com firewall e NSGs
+[Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
 Este exemplo criará uma DMZ com um firewall, quatro servidores Windows e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários. 
 
@@ -79,9 +79,9 @@ Declarativamente, as regras a seguir estão sendo criadas para tráfego de entra
 
 Com essas regras associadas a cada sub-rede, se uma solicitação HTTP tiver entrado da Internet para o servidor Web, ambas as regras 3 (permitir) e 5 (negar) se aplicariam, mas já que a regra 3 tem uma prioridade maior, somente ela se aplicaria e a regra 5 não seria utilizada. Assim, a solicitação HTTP seria permitida ao firewall. Se esse mesmo tráfego estivesse tentando acessar o servidor DNS01, a regra 5 (Negar) seria a primeira a ser aplicada e o tráfego não teria permissão para passar para o servidor. A regra 6 (Negar) impede que a sub-rede Frontend converse com a sub-rede Backend (exceto pelo tráfego permitido nas regras 1 e 4); isso protege a rede Backend caso um invasor comprometa o aplicativo Web na rede Frontend, pois ele teria acesso limitado à rede Backend “protegida” (somente para recursos expostos no servidor AppVM01).
 
-Há uma regra de saída padrão que permite o tráfego de saída para a Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. Para bloquear o tráfego em ambas as direções, o Roteamento Definido pelo Usuário será necessário; isso será explorado em um exemplo diferente, que pode ser encontrado no [documento de limite de segurança principal][INÍCIO].
+Há uma regra de saída padrão que permite o tráfego de saída para a Internet. Neste exemplo, permitiremos o tráfego de saída e não modificaremos quaisquer regras de saída. Para bloquear o tráfego em ambas os sentidos, o Roteamento Definido pelo Usuário será necessário; isso será explorado em um exemplo diferente, que pode ser encontrado no [documento de limite de segurança principal][HOME].
 
-As regras NSG discutidas acima são muito semelhantes às regras NSG no [Exemplo 1 - Criar uma DMZ simples com NSGs][Example1]. Examine a Descrição NSG nesse documento para obter uma visão detalhada de cada regra NSG e de seus atributos.
+As regras NSG discutidas acima são muito semelhantes às regras NSG no [Exemplo 1 ‑ Criar uma DMZ simples com NSGs][Example1]. Examine a Descrição NSG nesse documento para obter uma visão detalhada de cada regra NSG e de seus atributos.
 
 ## <a name="firewall-rules"></a>Regras de firewall
 Um cliente de gerenciamento precisará ser instalado em um PC para gerenciar o firewall e para criar as configurações necessárias. Consulte a documentação do fornecedor do seu firewall (ou outro NVA) sobre como gerenciar o dispositivo. O restante desta seção descreverá a configuração do próprio firewall, por meio do cliente de gerenciamento de fornecedores (isto é, não o portal do Azure ou o PowerShell).
@@ -218,7 +218,7 @@ Uma vez que o Servidor Web, IIS01, e o Firewall estão no mesmo Serviço de Nuve
 ## <a name="conclusion"></a>Conclusão
 Essa é uma maneira relativamente simples de proteger seu aplicativo com um firewall e isolar a sub-rede de back-end do tráfego de entrada.
 
-Mais exemplos e uma visão geral de limites de segurança de rede podem ser encontrados [aqui][INÍCIO].
+Mais exemplos e uma visão geral dos limites de segurança de rede podem ser encontrados [aqui][HOME].
 
 ## <a name="references"></a>Referências
 ### <a name="main-script-and-network-config"></a>Script principal e configuração de rede
@@ -567,21 +567,21 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros de DMZ, um deles foi fornecido no seguinte link: [Script de exemplo de aplicativo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "DMZ de entrada com NSG"
 [2]: ./media/virtual-networks-dmz-nsg-fw-asm/dstnaticon.png "Ícone de NAT de destino"
-[3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Regra de firewall"
+[3]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallrule.png "Regra de Firewall"
 [4]: ./media/virtual-networks-dmz-nsg-fw-asm/firewallruleactivate.png "Ativação de regra de firewall"
 
 <!--Link References-->
-[INÍCIO]: ../best-practices-network-security.md
+[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

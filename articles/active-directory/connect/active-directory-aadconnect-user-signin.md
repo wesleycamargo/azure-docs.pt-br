@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bddd581b5164b03ccba75370cd89a7831101cf37
-ms.openlocfilehash: 5b77d16c4a373936dfa5fbba35bc3dc4c9a37e78
+ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
+ms.openlocfilehash: 7e821117e62eda286cefb59a5ded85b2f99f3ef7
 
 
 ---
@@ -97,7 +97,7 @@ Se já tiver configurado o logon na nuvem usando uma versão anterior do AD FS (
 ### <a name="understanding-user-principal-name"></a>Entendendo o nome UPN
 No Active Directory, o sufixo UPN padrão é o nome DNS do domínio no qual a conta de usuário foi criada. Na maioria dos casos, esse é o nome de domínio registrado como o domínio corporativo na Internet. No entanto, você pode adicionar mais sufixos UPN usando o Domínios e Confianças do Active Directory.
 
-O UPN do usuário está no formato username@domain. Por exemplo, para um Domínio do Active Directory nomeado com 'contoso.com', um usuário chamado John pode ter o UPN 'john@contoso.com'. O UPN do usuário baseia-se em RFC 822. Embora o UPN e o email compartilhem o mesmo formato, o valor do UPN para um usuário pode ou não ser igual ao endereço de email do usuário.
+O UPN do usuário está no formato username@domain. Por exemplo, para um Domínio do Active Directory denominado "contoso.com", um usuário chamado João pode ter o UPN 'john@contoso.com'. O UPN do usuário baseia-se em RFC 822. Embora o UPN e o email compartilhem o mesmo formato, o valor do UPN para um usuário pode ou não ser igual ao endereço de email do usuário.
 
 ### <a name="user-principal-name-in-azure-ad"></a>Nome UPN no Azure AD
 O assistente do Azure AD Connect vai usar o atributo do userPrincipalName ou permite especificar o atributo (na instalação personalizada) para ser usado de locais como o nome UPN no Azure AD. Esse é o valor que será usado para entrar no Azure AD. Se o valor do atributo do nome UPN não corresponder a um domínio verificado no Azure AD, este o substituirá por um valor padrão .onmicrosoft.com.
@@ -132,7 +132,7 @@ UserPrincipalName - o atributo userPrincipalName é o atributo que os usuários 
 #### <a name="different-custom-domain-states-and-effect-on-azure-sign-in-experience"></a>Estados diferentes de domínio personalizado e o efeito sobre a experiência de entrada do Azure
 É muito importante entender a relação entre os estados de domínio personalizado em seu diretório do Azure AD e os sufixos UPN definido localmente. Examinaremos as diferentes experiências de entrada no Azure possível ao configurar a sincronização usando o Azure AD Connect.
 
-Para as informações a seguir, vamos supor que estamos preocupados com o sufixo UPN contoso.com, usado no diretório local como parte do UPN, por exemplo usuario@contoso.com.
+Para as informações a seguir, suponhamos que estamos preocupados com o sufixo UPN contoso.com que é usado no diretório local como parte do UPN, por exemplo user@contoso.com.
 
 ###### <a name="express-settings--password-synchronization"></a>Configurações Expressas/Sincronização de Senha
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
@@ -148,7 +148,7 @@ Se você selecionou a opção entrada Usuário como "Federação com o AD FS", d
 
 | Estado | Efeito sobre a experiência de entrada do usuário do Azure |
 |:---:|:--- |
-| Não adicionado |Nesse caso, o Azure AD Connect não pode localizar um domínio personalizado para o sufixo UPN contoso.com correspondente no diretório do Azure AD. Você precisará adicionar um domínio personalizado contoso.com se precisar que os usuários entrem usando o AD FS com seus UPNs locais, como usuário@contoso.com. |
+| Não adicionado |Nesse caso, o Azure AD Connect não pode localizar um domínio personalizado para o sufixo UPN contoso.com correspondente no diretório do Azure AD. Você precisará adicionar um domínio contoso.com personalizado se precisar que os usuários entrem usando o AD FS com seus UPNs locais, como user@contoso.com. |
 | Não verificado |Nesse caso, o Azure AD Connect avisará os detalhes adequados sobe como verificar seu domínio em um estágio posterior |
 | Verificado |Nesse caso, prossiga com a configuração sem qualquer ação adicional |
 
@@ -178,6 +178,6 @@ Saiba mais sobre [Azure AD Connect: conceitos de design](active-directory-aadcon
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

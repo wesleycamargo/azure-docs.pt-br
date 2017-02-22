@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/13/2016
+ms.date: 01/05/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
-ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
+ms.sourcegitcommit: c3af0df0f2e5a0367bef8e12edaca4937db7e39f
+ms.openlocfilehash: 50bc63845bab1322090097dd0d5736e11642a95b
 
 
 ---
@@ -35,7 +35,7 @@ Os requisitos de software a seguir são para os clientes de armazenamento que ac
 
 | Sistemas operacionais com suporte | Versão necessária | Requisitos/observações adicionais |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012R2 |Os volumes iSCSI do StorSimple  são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e recursos ODX têm suporte se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar para evitar atrasos de recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Depois que a formatação for concluída, use o seguinte comando para reabilitar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270), em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components). |
+| Windows Server |2008R2 SP1, 2012, 2012R2, 2016 |Os volumes iSCSI do StorSimple  são permitidos para o uso somente nos seguintes tipos de disco do Windows:<ul><li>Volume simples em disco básico</li><li>Volume simples e espelhado em disco dinâmico</li></ul>O provisionamento dinâmico do Windows Server 2012 e 2016, bem como de recursos ODX terá suporte se você estiver usando um volume iSCSI do StorSimple.<br><br>O StorSimple pode criar volumes com provisionamento dinâmico e provisionamento completo. Não é possível criar volumes parcialmente provisionados.<br><br>Reformatar um volume de provisionamento dinâmico pode levar muito tempo. É recomendável excluir o volume e criar um novo em vez de reformatar. No entanto, se você ainda preferir reformatar um volume:<ul><li>Execute o comando a seguir antes de reformatar para evitar atrasos de recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Depois que a formatação for concluída, use o seguinte comando para reabilitar a recuperação de espaço:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012, conforme descrito em [KB 2878635](https://support.microsoft.com/kb/2870270), em seu computador Windows Server.</li></ul></li></ul></ul> Se você estiver configurando o Gerenciador de Instantâneos do StorSimple ou o Adaptador do StorSimple para SharePoint, vá para [Requisitos de software para os componentes opcionais](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 e 6.0 |Compatível com o VMware vSphere como cliente iSCSI. O recurso de bloco VAAI é compatível com o VMware vSphere nos dispositivos StorSimple. |
 | Linux RHEL/CentOS |5, 6 e 7 |Suporte para os clientes Linux iSCSI com o iniciador open-iSCSI versões 5, 6 e 7. |
 | Linux |SUSE Linux 11 | |
@@ -253,6 +253,6 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

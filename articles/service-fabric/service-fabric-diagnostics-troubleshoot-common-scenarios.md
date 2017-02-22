@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/31/2016
 ms.author: mattrow
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
+ms.sourcegitcommit: c9730b553e59d12b8720bbf3a06cc956912e27de
+ms.openlocfilehash: c920a206d6f3288f6cba0d2658d556749fc4d574
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 45cfb660db9ea1d93d136d223d65602f3a373574
 Ao executar serviços em seu computador de desenvolvedor, é fácil usar as [ferramentas de depuração do Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Para clusters remotos, [relatórios de integridade](service-fabric-view-entities-aggregated-health.md) sempre são um bom lugar para começar. As maneiras mais fáceis de acessar esses relatórios são por meio do PowerShell ou [SFX](service-fabric-visualizing-your-cluster.md). Este artigo pressupõe que você está depurando um cluster remoto e tem um entendimento básico de como usar essas ferramentas.
 
 ## <a name="application-crash"></a>Falha do aplicativo
-O relatório “Partição está abaixo da contagem de réplicas ou instâncias de destino” é uma boa indicação de que o serviço está falhando. Para descobrir onde o serviço está falhando, é necessário um pouco mais de investigação. Ao executar seu serviço em grande escala, o seu melhor amigo será um conjunto de rastreamentos bem pensados.  Sugerimos que você experimente o [Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md) para coletar esses rastreamentos e use uma solução como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) para exibir e pesquisar os rastreamentos.
+O relatório “Partição está abaixo da contagem de réplicas ou instâncias de destino” é uma boa indicação de que o serviço está falhando. Para descobrir onde o serviço está falhando, é necessário um pouco mais de investigação. Ao executar seu serviço em grande escala, o seu melhor amigo será um conjunto de rastreamentos bem pensados.  Sugerimos que você experimente o [Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md) para coletar esses rastreamentos e use uma solução como [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) para exibir e pesquisar os rastreamentos.
 
 ![Integridade da partição SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -55,6 +55,6 @@ Saiba mais sobre diagnósticos existentes fornecidos pelo Service Fabric:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

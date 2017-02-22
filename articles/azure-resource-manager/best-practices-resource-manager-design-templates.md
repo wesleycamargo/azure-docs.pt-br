@@ -1,6 +1,6 @@
 ---
-title: "Padrões nos modelos do Resource Manager | Microsoft Docs"
-description: "Mostrar os padrões de design para modelos de Gerenciador de Recursos do Azure"
+title: "Criação de modelos do Azure para soluções complexas | Microsoft Docs"
+description: "Mostra as práticas recomendadas para criação de modelos do Azure Resource Manager para cenários complexos"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c38d7120de7d31f1079dd84bcc073eb2f9618775
-ms.openlocfilehash: c66032ef65a523528e2610f7a2e13595a47d9587
+ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
+ms.openlocfilehash: 2bd8f7ac127cd34b2d5129ecb49c56e2adf257b8
 
 
 ---
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Padrões para design de modelos do Azure Resource Manager
+# <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Padrões de design para modelos do Azure Resource Manager ao implantar soluções complexas
 Usando uma abordagem flexível com base em modelos do Azure Resource Manager, você pode implantar topologias complexas de forma rápida e consistente. Você pode adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem ou para acomodar variantes para cenários de exceção ou clientes.
 
 Este tópico faz parte de um whitepaper mais amplo. Para ler o artigo completo, baixe as [Considerações e práticas comprovadas dos modelos do Azure Resource Manager da mais alta qualidade](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
@@ -351,6 +351,6 @@ Se desejar publicar seu modelo no marketplace, estabeleça cópias distintas do 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

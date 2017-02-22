@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
@@ -51,8 +51,16 @@ Você também pode obter mais informações sobre o processo de instalação len
 
 > [!NOTE]
 > Se o agente da Central de Segurança do Azure estiver se comportando mal, você precisará reiniciar a VM de destino porque não há nenhum comando para parar e iniciar o agente.
-> 
-> 
+
+
+Se você ainda tiver problemas com a coleta de dados, você pode desinstalar o agente, siga as etapas abaixo:
+
+1. Do **Portal do Azure**, selecione a máquina virtual que é experiência problemas de coleta de dados e clique em **extensões**.
+2. Clique com o botão direito em **Microsoft.Azure.Security.Monitoring** e clique em selecionar **desinstalar**.
+
+![Removendo o agente](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+A extensão de monitoramento de segurança do Azure deve reinstalar automaticamente em si em alguns minutos.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Solucionando problemas da instalação do agente de monitoramento no Linux
 Ao solucionar problemas de instalação do agente de VM em um sistema Linux, você deverá fazer com que a extensão seja baixada em /var/lib/waagent/. Você pode executar o comando abaixo para verificar se ele foi instalado:
@@ -68,8 +76,12 @@ Em um sistema em funcionamento, você deve ver uma conexão com o processo de md
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemas ao carregar o painel de solução de problemas
+
+Se você enfrentar problemas ao carregar o painel central de segurança, certifique-se de que o usuário que registra a inscrição para a Central de segurança (ou seja, o primeiro usuário de um que abrir a Central de segurança com a assinatura) e o usuário que deseja ativar a coleta de dados deve ser *proprietário* ou *Colaborador* na assinatura. A partir desse momento também usuários com *leitor* na assinatura, pode ver a painel de controle/alertas/recomendação/política.
+
 ## <a name="contacting-microsoft-support"></a>Entrando em contato com o Suporte da Microsoft
-Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisa de mais solução de problemas, pode abrir uma nova solicitação de suporte usando o Portal do Azure, conforme mostrado abaixo: 
+Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisa de mais solução de problemas, pode abrir uma nova solicitação de suporte usando o **Portal do Azure**, conforme mostrado abaixo: 
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

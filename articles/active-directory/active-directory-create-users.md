@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Adicione usuários para preencher seu diretório. Este artigo explica como adici
 2. Selecione **Active Directory**e selecione o nome do diretório da sua organização.
 3. Selecione a guia **Usuários** e, na barra de comandos, selecione **Adicionar Usuário**.
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione:
-   
+
    * **Novo usuário em sua organização** – adiciona uma nova conta de usuário a seu diretório.
    * **Usuário com uma conta da Microsoft existente** – adiciona uma conta de consumidor da Microsoft existente a seu diretório (por exemplo, uma conta do Outlook)
 5. Dependendo da **Tipo de usuário**, insira um nome de usuário (para o novo usuário) ou um endereço de email (para um usuário com uma conta da Microsoft).
@@ -37,11 +37,11 @@ Adicione usuários para preencher seu diretório. Este artigo explica como adici
 
 > [!IMPORTANT]
 > Se sua organização usa mais de um domínio, você deve saber sobre os seguintes problemas ao adicionar uma conta de usuário:
-> 
-> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com,, **seguido de** geoffgrisso@contoso.com.
-> * **Não** adicione geoffgrisso@contoso.com antes de adicionar geoffgrisso@contoso.onmicrosoft.com.; essa ordem é extremamente importante e pode ser inconveniente para desfazer.
-> 
-> 
+>
+> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
+> * **Não** adicione geoffgrisso@contoso.com antes de adicionar geoffgrisso@contoso.onmicrosoft.com. Essa ordem é extremamente importante e pode ser inconveniente para desfazer.
+>
+>
 
 ## <a name="change-user-information"></a>Alterar as informações do usuário
 Você pode alterar qualquer atributo de usuário, exceto a ID de objeto.
@@ -87,6 +87,6 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

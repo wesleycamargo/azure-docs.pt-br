@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentação do Lote do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
+services: batch
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
-ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Documentação do Lote
@@ -128,7 +139,7 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -140,7 +151,7 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">referência da API REST</a></p>
+                        <p><a href="/rest/api/batchservice">referência da API REST (a página pode estar em inglês)</a></p>
                     </div>
                 </div>
             </div>
@@ -148,16 +159,10 @@ Saiba como usar o Lote para executar aplicativos paralelos em larga escala de co
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação de Lote do Azure </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

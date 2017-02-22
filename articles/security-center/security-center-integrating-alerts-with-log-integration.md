@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
-ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
 
 
 ---
@@ -84,7 +84,7 @@ Se você tiver dúvidas sobre a Integração do Log do Azure, envie um email par
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os Logs de Auditoria do Azure e as definições das propriedades, consulte:
 
-* [Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md)
+* [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md)
 * [Lista os eventos de gerenciamento em uma assinatura](https://msdn.microsoft.com/library/azure/dn931934.aspx) : para recuperar os eventos do log de auditoria.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -95,6 +95,6 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

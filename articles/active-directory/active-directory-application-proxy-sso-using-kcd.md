@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 12/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1eada96773b1d9c6adb9326c9100da7cde8abf77
-ms.openlocfilehash: 8df936a03868412adf34672108f40829c41f33ab
+ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
+ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
 
 ---
 
 # <a name="single-sign-on-with-application-proxy"></a>Logon único com Proxy de Aplicativo
 O logon único é um elemento fundamental do Proxy de Aplicativo do Azure AD. Ele oferece a melhor experiência do usuário por meio das seguintes etapas:
 
-1. Um usuário entra na nuvem  
-2. Todas as validações de segurança acontecem na nuvem (pré-autenticação)  
+1. Um usuário entra na nuvem.  
+2. Todas as validações de segurança ocorrem na nuvem (pré-autenticação).  
 3. Quando a solicitação é enviada ao aplicativo local, o Conector de Proxy de Aplicativo representa o usuário. O aplicativo de back-end acha que se trata de um usuário normal proveniente de um dispositivo de domínio.
 
 ![Diagrama de acesso do usuário final, por meio do Proxy de Aplicativo, à rede corporativa](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
@@ -62,7 +62,7 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 #### <a name="connector-and-published-server-in-the-same-domain"></a>O Conector e o servidor publicado estão no mesmo domínio
 1. No Active Directory, vá para **Ferramentas** > **Usuários e Computadores**.
 2. Selecione o servidor que executa o Conector.
-3. Clique com o botão direito do mouse e selecione **Propriedades** > **Delegação**.
+.3. Clique com o botão direito do mouse e selecione **Propriedades** > **Delegação**.
 4. Selecione **Confiar no computador para delegação apenas a serviços especificados**. Em **Serviços aos quais esta conta pode apresentar credenciais delegadas**, adicione o valor da identidade SPN do servidor de aplicativos.
 5. Isso permite que o Conector do Proxy de Aplicativo represente usuários no AD para os aplicativos definidos na lista.
 
@@ -104,6 +104,8 @@ A configuração do Active Directory varia, dependendo se o conector de Proxy de
 O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega no local, o conector do Proxy de Aplicativo do AD do Azure emite um tíquete Kerberos em nome do usuário para interagir com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera Negotiate/SPNego, que agora tem suporte no Proxy de Aplicativo do AD do Azure.
 
 ![Diagrama de SSO não Windows](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+
+Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### <a name="delegated-login-identity"></a>identidade de logon delegada
 A identidade de logon delegada ajuda a lidar com dois cenários de logon diferentes:

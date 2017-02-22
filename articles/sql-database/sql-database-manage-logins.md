@@ -1,5 +1,5 @@
 ---
-title: "Autenticação e Autorização do Banco de Dados SQL | Microsoft Docs"
+title: "Usuários e logons do SQL do Azure | Microsoft Docs"
 description: "Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor."
 keywords: "segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados"
 services: sql-database
@@ -12,14 +12,14 @@ ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/17/2017
+ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 435fca81cda845200467fbc0d6ed4d41de41aaf6
-ms.openlocfilehash: 324fd91b415a4744cb472bbd8a8b795a8fbb8080
+ms.sourcegitcommit: 5eccb4705cd6c8f6170a48f3b3591518688651f1
+ms.openlocfilehash: c3a45973a04d5082bee777a98f8204ceedc888a5
 
 
 ---
@@ -29,6 +29,12 @@ Quando as regras de firewall tiverem sido configuradas, as pessoas podem se cone
 
 >  [!NOTE]  
 >  Este tópico aplica-se ao servidor SQL do Azure e aos bancos de dados SQL e SQL Data Warehouse criados no servidor do SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. 
+>
+
+> [!TIP]
+> Para obter um tutorial sobre como usar a autenticação do SQL Server, confira [Tutorial: autenticação do SQL Server](sql-database-control-access-sql-authentication-get-started.md). Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, confira [Tutorial: autenticação do AAD](sql-database-control-access-aad-authentication-get-started.md).
+>
+
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas irrestritas
 Há duas contas administrativas (**Administrador do servidor** e **Administrador do Active Directory**) que agem como administradores. Para identificar essas contas de administrador do servidor SQL, abra o portal do Azure e navegue até as propriedades do servidor SQL.
@@ -188,11 +194,11 @@ Ao gerenciar logons e usuários no Banco de Dados SQL, considere o seguinte:
 - Para obter um tutorial, veja [Introdução à segurança do SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Para saber mais sobre exibições e procedimentos armazenados, veja [Criação de exibições e procedimentos armazenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para saber mais sobre como conceder acesso a um objeto de banco de dados, veja [Concessão de acesso a um objeto de banco de dados](https://msdn.microsoft.com/library/ms365327.aspx)
-- Para obter um tutorial sobre como usar a autenticação do SQL Server, veja [Tutorial do Banco de Dados SQL: autenticação do SQL Server, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-sql-authentication-get-started.md).
-- Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, veja [Tutorial do Banco de Dados SQL: autenticação do AAD, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-aad-authentication-get-started.md).
+- Para obter um tutorial sobre como usar a autenticação do SQL Server, confira [Tutorial: autenticação do SQL Server](sql-database-control-access-sql-authentication-get-started.md).
+- Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, confira [Tutorial: autenticação do AAD](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

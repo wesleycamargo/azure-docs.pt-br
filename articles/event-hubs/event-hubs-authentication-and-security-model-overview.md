@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos | Microsoft Docs"
+title: "Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos do Azure | Microsoft Docs"
 description: "Visão geral do modelo de autenticação e segurança dos Hubs de Eventos"
 services: event-hubs
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
 
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
-O modelo de segurança dos Hubs de Eventos atende aos seguintes requisitos:
+O modelo de segurança dos Hubs de Eventos do Azure atende aos seguintes requisitos:
 
 * Somente dispositivos que apresentam credenciais válidas podem enviar dados para um Hub de Eventos.
 * Um dispositivo não pode representar outro dispositivo.
@@ -39,7 +39,7 @@ Embora não seja recomendado, é possível equipar os dispositivos com tokens qu
 Todos os tokens são assinados com uma chave SAS. Normalmente, todos os tokens são assinados com a mesma chave. Os dispositivos não estão cientes da chave; isso impede que dispositivos criem tokens.
 
 ### <a name="create-the-sas-key"></a>Criar a chave SAS
-Ao criar um namespace de Hubs de Eventos, os Hubs de Eventos do Azure geram uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave `EventHubSendKey`.
+Ao criar um namespace de Hubs de Eventos do Azure, o serviço gera uma chave SAS de 256 bits chamada **RootManageSharedAccessKey**. Essa chave concede direitos de envio, escuta e gerenciamento ao namespace. Você pode criar chaves adicionais. É recomendável que você crie uma chave que conceda permissões de envio para o Hub de Eventos específico. No restante deste tópico, pressupõe-se que você tenha nomeado esta chave como **EventHubSendKey**.
 
 O exemplo a seguir cria uma chave somente de envio ao criar o Hub de Eventos:
 
@@ -103,16 +103,16 @@ Na ausência de autenticação SAS para grupos de consumidores individuais, voc�
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 * [Visão geral de Hubs de Evento]
-* Uma [solução de mensagens na fila] usando filas do Barramento de Serviço.
-* Um [aplicativo de exemplo completo que usa os Hubs de Evento].
+* [Visão geral de SAS]
+* Um [aplicativo de exemplo completo que usa os Hubs de Eventos]
 
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[solução de mensagens na fila]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[aplicativo de exemplo completo que usa os Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Visão geral de SAS]: ../service-bus-messaging/service-bus-sas-overview.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

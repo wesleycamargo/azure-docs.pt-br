@@ -1,5 +1,5 @@
 ---
-title: Use o Data Platform Studio da Redgate para carregar dados no SQL Data Warehouse | Microsoft Docs
+title: Use o Redgate para carregar dados para o Data Warehouse do Azure | Microsoft Docs
 description: "Saiba como usar o Data Platform Studio da Redgate para cenários de data warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd77457bfa7ebfc701750e090778f2976d82b141
+ms.sourcegitcommit: 2548f779767635865daf790d301d86feff573a29
+ms.openlocfilehash: cb0b5489ccfabb0e2a4ee412162a18930073b309
 
 
 ---
@@ -154,6 +154,6 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -444,6 +444,6 @@ Neste artigo, você aprendeu a usar o Azure Data Factory para criar o cluster HD
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

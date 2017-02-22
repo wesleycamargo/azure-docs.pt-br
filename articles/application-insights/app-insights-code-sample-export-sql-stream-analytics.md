@@ -1,5 +1,5 @@
 ---
-title: 'Passo a passo: exportar telemetria para o Banco de Dados SQL do Application Insights'
+title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
 description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
 services: application-insights
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+ms.sourcegitcommit: 96614dd3c0bf9c55ffd81d0912ecb62b71c32b22
+ms.openlocfilehash: fa9b09833f61e372738ff74022ac9fd6a288847f
 
 
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
-Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][iniciar] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON. Vamos analisar objetos JSON usando o Azure Stream Analytics e criando linhas em uma tabela de banco de dados.
 
@@ -273,11 +273,11 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[iniciar]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implantar uma solução de balanceamento de carga voltada para a Internet com IPv6 usando um modelo | Microsoft Docs"
+title: Implantar um balanceador de carga voltado para a Internet com o IPv6 - Modelo do Azure | Microsoft Docs
 description: Como implantar o suporte a IPv6 para o Azure Load Balancer e VMs com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 01/23/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
 
 ---
 
@@ -29,7 +29,7 @@ ms.openlocfilehash: f031fb76e225248a6d0535106b846dc3bef10e76
 > * [CLI do Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modelo](load-balancer-ipv6-internet-template.md)
 
-Um Azure Load Balancer é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+Um Azure Load Balancer é um balanceador de carga de Camada&4; (TCP, UDP). O balanceador de carga fornece alta disponibilidade, distribuindo o tráfego de entrada entre instâncias do serviço de integridade em serviços de nuvem ou máquinas virtuais em um conjunto de balanceadores de carga. O Azure Load Balancer também pode apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 ## <a name="example-deployment-scenario"></a>Exemplo de cenário de implantação
 
@@ -135,6 +135,6 @@ As variáveis restantes no modelo contêm valores derivados atribuídos quando o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

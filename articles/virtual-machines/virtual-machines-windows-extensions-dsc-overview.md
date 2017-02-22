@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 09/15/2016
+ms.date: 01/09/2017
 ms.author: zachal
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d2668d6dcdc7e7af45f2fdfa317565e541e035ba
+ms.sourcegitcommit: c2ce603e80243584fdc302c545e520b4503f5555
+ms.openlocfilehash: ca2d8d4b277f48ec46156293f73b18b6c2967c51
 
 
 ---
@@ -32,7 +32,7 @@ Este artigo apresenta a extensão de configuração de estado desejado (DSC) do 
 ## <a name="prerequisites"></a>Pré-requisitos
 **Máquina local** Para interagir com a extensão de VM do Azure, você precisa usar o Portal do Azure ou o SDK do Azure PowerShell. 
 
-**Agente convidado** A VM do Azure que será configurada para a configuração do DSC precisará ser um sistema operacional que suporta o Windows Management Framework (WMF) 4.0 ou 5.0. A lista completa de versões com suporte do sistema operacional pode ser encontrada no [Histórico de versões da extensão de DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+**Agente convidado** A VM do Azure a configurar pela configuração do DSC precisa ter um sistema operacional compatível com Windows Management Framework (WMF) 4.0 ou 5.0. A lista completa de versões com suporte do sistema operacional pode ser encontrada no [Histórico de versões da extensão de DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
 Este guia presume familiaridade com os seguintes conceitos:
@@ -55,13 +55,13 @@ Quando a extensão é chamada pela primeira vez, executa um processo de instala�
 A instalação do WMF requer uma reinicialização. Após a reinicialização, a extensão baixa o arquivo .zip especificado na propriedade `modulesUrl` . Se esse local estiver no armazenamento de blobs do Azure, um token SAS pode ser especificado na propriedade `sasToken` para acessar o arquivo. Depois que o arquivo .zip for baixado e descompactado, a função de configuração definida em `configurationFunction` é executada para gerar o arquivo .MOF. Em seguida, a extensão executa `Start-DscConfiguration -Force` no arquivo MOF gerado. A extensão captura a saída e grava de volta para no canal de status do Azure. Desse ponto em diante, o LCM de DSC lida com o monitoramento e correção da maneira normal. 
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
-Os cmdlets do PowerShell podem ser usados com ARM ou ASM para empacotar, publicar e monitorar implantações de extensão de DSC. Os cmdlets listados a seguir são os módulos do ASM, mas "Azure" pode ser substituído por "AzureRm" para usar o modelo ARM. Por exemplo, `Publish-AzureVMDscConfiguration` usa ASM, enquanto o `Publish-AzureRmVMDscConfiguration` usa o ARM. 
+Os cmdlets do PowerShell podem ser usados com o Azure Resource Manager ou o modelo clássico de implementação para empacotar, publicar e monitorar implantações de extensão de DSC. Os cmdlets listados a seguir são os módulos de implantação clássicos, mas "Azure" pode ser substituído por "AzureRm" para usar o modelo do Azure Resource Manager. Por exemplo, `Publish-AzureVMDscConfiguration` usa o modelo de implantação clássico, mas `Publish-AzureRmVMDscConfiguration` usa o Azure Resource Manager. 
 
 `Publish-AzureVMDscConfiguration` recebe um arquivo de configuração, verifica a existência de recursos dependentes de DSC e cria um arquivo .zip contendo a configuração e os recursos de DSC necessários para aplicar a configuração. Também pode criar o pacote localmente usando o parâmetro `-ConfigurationArchivePath` . Caso contrário, ele publicará o arquivo .zip no Armazenamento de Blobs do Azure e o protegerá com um token SAS.
 
 O arquivo .zip criado por esse cmdlet possui o script de configuração .ps1 na raiz da pasta de arquivamento. Os recursos possuem a pasta de módulo colocada na pasta de arquivo morto. 
 
-`Set-AzureVMDscExtension` injeta as configurações necessárias pela extensão de DSC do PowerShell em um objeto de configuração da VM, que pode ser aplicado a uma VM do Azure com `Update-AzureVM`.
+`Set-AzureVMDscExtension` injeta as configurações necessárias pela extensão de DSC do PowerShell em um objeto de configuração da VM. No modelo de implantação clássico, as alterações da VM devem ser aplicadas a uma VM do Azure com `Update-AzureVM`. 
 
 O `Get-AzureVMDscExtension` recupera o status da extensão de DSC de uma VM específica. 
 
@@ -69,18 +69,18 @@ O `Get-AzureVMDscExtension` recupera o status da extensão de DSC de uma VM espe
 
 `Remove-AzureVMDscExtension` remove o manipulador de extensão de uma determinada máquina virtual. Esse cmdlet **não** remove a configuração, desinstala o WMF ou altera as configurações aplicadas na máquina virtual. Apenas remove o manipulador de extensão. 
 
-**Principais diferenças nos cmdlets do ASM e do ARM**
+**Principais diferenças nos cmdlets do ASM e do Azure Resource Manager**
 
-* Os cmdlets do ARM são síncronos. Os cmdlets do ASM são assíncronos.
-* ResourceGroupName, VMName, ArchiveStorageAccountName, Version e Location são os novos parâmetros necessários.
-* ArchiveResourceGroupName é um novo parâmetro opcional para ARM. Você pode especificar esse parâmetro quando sua conta de armazenamento pertencer a um grupo de recursos diferente daquele no qual a máquina virtual foi criada.
-* ConfigurationArchive é chamado ArchiveBlobName no ARM
-* ContainerName é chamado ArchiveContainerName no ARM
-* StorageEndpointSuffix é chamado ArchiveStorageEndpointSuffix no ARM
-* A opção AutoUpdate foi adicionada para ARM para habilitar a atualização automática do manipulador de extensão para a versão mais recente quando estiver disponível. Observe que esse parâmetro tem o potencial para causar reinicializações na VM quando uma nova versão do WMF for lançada. 
+* Os cmdlets do Azure Resource Manager são síncronos. Os cmdlets do ASM são assíncronos.
+* ResourceGroupName, VMName, ArchiveStorageAccountName, Version e Location são todos parâmetros obrigatórios no Azure Resource Manager.
+* ArchiveResourceGroupName é um novo parâmetro opcional para o Azure Resource Manager. Você pode especificar esse parâmetro quando sua conta de armazenamento pertencer a um grupo de recursos diferente daquele no qual a máquina virtual foi criada.
+* ConfigurationArchive é chamado de ArchiveBlobName no Azure Resource Manager
+* ContainerName é chamado de ArchiveContainerName no Azure Resource Manager
+* StorageEndpointSuffix é chamado de ArchiveStorageEndpointSuffix no Azure Resource Manager
+* A opção AutoUpdate foi adicionada ao Azure Resource Manager para habilitar a atualização automática do manipulador de extensão na versão mais recente e quando estiver disponível. Observe que esse parâmetro tem o potencial de causar reinicializações na VM quando uma nova versão do WMF for lançada. 
 
 ## <a name="azure-portal-functionality"></a>Funcionalidade do portal do Azure
-Navegue até uma VM clássica. Em Configurações -> Geral, clique em "Extensões". Um novo painel é criado. Clique em "Adicionar" e selecione DSC do PowerShell.
+Navegue até uma VM. Em Configurações -> Geral, clique em "Extensões". Um novo painel é criado. Clique em "Adicionar" e selecione DSC do PowerShell.
 
 O portal precisa de entrada.
 **Script ou módulos de configuração**: esse campo é obrigatório. Requer um arquivo. ps1 contendo um script de configuração ou um arquivo .zip com um script de configuração .ps1 na raiz e todos os recursos dependentes em pastas de módulo dentro do .zip. Ele pode ser criado com o cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluído no SDK do Azure PowerShell. O arquivo .zip será carregado em seu armazenamento de blobs de usuário protegido por um token SAS. 
@@ -109,7 +109,7 @@ configuration IISInstall
 ```
 
 As etapas a seguir colocam o script IisInstall.ps1 na VM especificada, executam a configuração e relatam o status.
-
+###<a name="classic-model"></a>Modelo clássico
 ```powershell
 #Azure PowerShell cmdlets are required
 Import-Module Azure
@@ -121,13 +121,26 @@ $demoVM = Get-AzureVM DscDemo1
 Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
 
 #Set the VM to run the DSC configuration
-Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "demo.ps1.zip" -StorageContext $storageContext -ConfigurationName "runScript" -Verbose
+Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
 
 #Update the configuration of an Azure Virtual Machine
 $demoVM | Update-AzureVM -Verbose
 
 #check on status
 Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
+```
+###<a name="azure-resource-manager-model"></a>Modelo do Azure Resource Manager
+
+```powershell
+$resourceGroup = "dscVmDemo"
+$location = "westus"
+$vmName = "myVM"
+$storageName = "demostorage"
+#Publish the configuration script into user storage
+Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+#Set the VM to run the DSC configuration
+Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+
 ```
 
 ## <a name="logging"></a>Registro em log
@@ -147,6 +160,6 @@ Para obter detalhes sobre como passar parâmetros confidenciais em configuraçõ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

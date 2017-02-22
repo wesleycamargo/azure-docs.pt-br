@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2a77ada25d7d6285c62d2f3d1330df5f192713d
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: a70eb51e7ebbc79e1aab4176d154dbef754368c1
 
 
 ---
@@ -29,8 +29,8 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
 
 ### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>Conectar o dispositivo mbed ao computador desktop e à rede
 1. Conecte o dispositivo mbed à sua rede usando um cabo Ethernet. Essa etapa é necessária porque o aplicativo de exemplo requer acesso à internet.
-2. Consulte [Introdução ao mbed][lnk-mbed-getstarted] para conectar o dispositivo mbed ao seu computador.
-3. Se o seu computador executar o Windows, veja [Configuração de PC][lnk-mbed-pcconnect] para configurar o acesso de porta serial ao dispositivo mbed.
+2. Confira [Getting Started with mbed][lnk-mbed-getstarted] (Introdução ao mbed) para conectar o dispositivo mbed ao seu computador.
+3. Se o seu computador estiver executando o Windows, confira [PC Configuration][lnk-mbed-pcconnect] (Configuração de PC) para configurar o acesso de porta serial ao dispositivo mbed.
 
 ### <a name="create-an-mbed-project-and-import-the-sample-code"></a>Crie um projeto mbed e importe o código de exemplo
 1. No navegador da Web, vá até o [site de desenvolvedor](https://developer.mbed.org/)mbed.org. Caso ainda não tenha se inscrito, você verá uma opção para criar uma conta (é gratuita). Caso contrário, faça logon com suas credenciais de conta. Em seguida, clique em **Compilador** no canto superior direito da página. Essa ação exibe a interface do *Espaço de trabalho* .
@@ -64,10 +64,14 @@ As instruções a seguir descrevem as etapas para conectar um dispositivo [Frees
     ![][9]
 
 ### <a name="walk-through-the-code"></a>Explorar o código
-Se você estiver interessado em como funciona o programa, esta seção descreve algumas das partes principais do código de exemplo. Se você quiser executar o código, pule para [Compilar e executar o programa](#buildandrun).
+Se você estiver interessado em como funciona o programa, esta seção descreve algumas das partes principais do código de exemplo. Se você quiser apenas executar o código, pule para [Compilar e executar o programa](#buildandrun).
 
 #### <a name="defining-the-model"></a>Definindo o modelo
-Este exemplo usa a biblioteca do [serializador][lnk-serializer] para definir um modelo que especifica as mensagens que o dispositivo pode enviar ao Hub IoT e receber do Hub IoT. Neste exemplo, o namespace **Contoso** define um modelo **Thermostat** que especifica os dados de telemetria **Temperature**, **ExternalTemperature** e **Humidity** com metadados, como a id do dispositivo, as propriedades do dispositivo e os comandos aos quais o dispositivo responde:
+Este exemplo usa a biblioteca do [serializador][lnk-serializer] para definir um modelo que especifica as mensagens que o dispositivo pode enviar ao Hub IoT e receber do Hub IoT. Neste exemplo, o namespace **Contoso** define um modelo **Thermostat** que especifica:
+
+- Os dados de telemetria **Temperature**, **ExternalTemperature** e **Humidity**.
+- Metadados, como a ID do dispositivo, as propriedades do dispositivo.
+- Os comandos aos quais o dispositivo responde:
 
 ```
 BEGIN_NAMESPACE(Contoso);
@@ -204,6 +208,6 @@ Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

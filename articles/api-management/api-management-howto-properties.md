@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a85dc1388701c750af48249c818a5227d73e77e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
 
 
 ---
@@ -47,9 +47,11 @@ Os valores de propriedade podem conter cadeias de caracteres literais e [express
 ## <a name="to-use-a-property"></a>Para usar uma propriedade
 Para usar uma propriedade em uma política, coloque o nome da propriedade entre dois pares de chaves, como em `{{ContosoHeader}}`, de acordo com o exemplo a seguir.
 
-    <set-header name="{{ContosoHeader}}" exists-action="override">
-      <value>{{ContosoHeaderValue}}</value>
-    </set-header>
+```xml
+<set-header name="{{ContosoHeader}}" exists-action="override">
+  <value>{{ContosoHeaderValue}}</value>
+</set-header>
+```
 
 Neste exemplo, `ContosoHeader` é usado como o nome de um cabeçalho em uma política `set-header` e `ContosoHeaderValue` é usado como o valor desse cabeçalho. Quando essa política é avaliada durante uma solicitação ou uma resposta para o gateway de Gerenciamento de API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` são substituídos pelos valores de suas respectivas propriedades.
 
@@ -57,9 +59,11 @@ As propriedades podem ser usadas como valores de atributo ou de elemento, como m
 
 As propriedades também podem conter expressões de política. No exemplo a seguir, o `ExpressionProperty` é usado.
 
-    <set-header name="CustomHeader" exists-action="override">
-        <value>{{ExpressionProperty}}</value>
-    </set-header>
+```xml
+<set-header name="CustomHeader" exists-action="override">
+    <value>{{ExpressionProperty}}</value>
+</set-header>
+```
 
 Quando essa política é avaliada, `{{ExpressionProperty}}` é substituído por seu valor: `@(DateTime.Now.ToString())`. Como o valor é uma expressão de política, a expressão é avaliada e a política prossegue com a execução.
 
@@ -151,6 +155,6 @@ Para filtrar a lista de propriedades por valores de marca, insira uma ou mais ma
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

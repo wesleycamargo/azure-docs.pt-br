@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
 
 
 ---
@@ -66,12 +66,12 @@ Neste exemplo, **smmUserConnectionString** contém a cadeia de conexão para as 
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Assim como acontece com as credenciais de administrador, não use valores no formato "username@server"., use "username".  Observe que a cadeia de conexão não contém um nome do servidor e banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** redirecionará automaticamente a conexão com o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos. 
+Assim como acontece com as credenciais de administrador, não use valores no formato "username@server". Em vez disso, use "username".  Observe que a cadeia de conexão não contém um nome do servidor e banco de dados. Isso ocorre porque a chamada **OpenConnectionForKey** redirecionará automaticamente a conexão com o fragmento correto com base na chave. Portanto, o nome do banco de dados e o nome do servidor não são fornecidos. 
 
 ## <a name="see-also"></a>Consulte 
 [Gerenciamento de bancos de dados e logons no Banco de Dados SQL do Azure](sql-database-manage-logins.md)
 
-[Protegendo o Banco de Dados SQL](sql-database-security.md)
+[Protegendo o Banco de Dados SQL](sql-database-security-overview.md)
 
 [Introdução a trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-getting-started.md)
 
@@ -80,6 +80,6 @@ Assim como acontece com as credenciais de administrador, não use valores no for
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

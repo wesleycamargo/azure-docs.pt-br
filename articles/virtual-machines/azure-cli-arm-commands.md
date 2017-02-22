@@ -13,18 +13,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 01/03/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+ms.sourcegitcommit: 9a2ab28a2dc456d5f21242ded1d348f411d3d994
+ms.openlocfilehash: ee42c2e4344fe712084208c25fb5c1a062dba1aa
 
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo do Gerenciador de Recursos
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. Para obter uma visão geral dos recursos e dos grupos de recursos do Azure, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
-Para começar, primeiramente [instale a CLI do Azure](../xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md) usando uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft.
+> [!NOTE]
+> Este artigo mostra comandos do modo Resource Manager na CLI do Azure, chamados de CLI 1.0 do Azure. Para trabalhar no modelo do Resource Manager, você também pode experimentar o [CLI 2.0 (Preview) do Azure](/cli/azure/install-az-cli2), nossa CLI de próxima geração para várias plataformas.
+>Saiba mais sobre as [CLIs novas e antigas do Azure](/cli/azure/old-and-new-clis).
+>
+
+Para começar, primeiro [instale a CLI do Azure](../xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md).
 
 Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Também é possível encontrar exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 
@@ -1861,6 +1866,6 @@ Opções de parâmetro:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

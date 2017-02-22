@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff72e6b0465f25be94c6852f3cdd3417817b8056
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
 
 
 ---
@@ -93,10 +93,10 @@ Para **métricas** sobre os recursos, você pode:
 | Obter métricas |Obter uma métrica para uma ID de recurso. |
 
 ## <a name="do-more-with-your-connector"></a>Fazer mais com seu conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://azure.microsoft.com/try/app-service/logic/), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -105,10 +105,10 @@ Exiba a referência da API REST do Swagger em [Conectores e Referência dos apli
 <!--References -->
 
 <!--Links -->
-[Como criar um aplicativo lógico]: app-service-logic-create-a-logic-app.md
+[Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

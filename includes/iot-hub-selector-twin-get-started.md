@@ -9,9 +9,9 @@ Dispositivos gêmeos são documentos JSON que armazenam informações do estado 
 
 Use os dispositivos gêmeos para:
 
-* Armazene os metadados de dispositivo de seu back-end.
+* Armazene os metadados de dispositivo de seu back-end da solução.
 * Relate informações de estado atual, como recursos disponíveis e condições (por exemplo, o método conectividade usado) do aplicativo do dispositivo.
-* Sincronize o estado dos fluxos de trabalho de longa duração (como atualizações de firmware e configuração) entre o aplicativo do dispositivo e o back-end.
+* Sincronize o estado dos fluxos de trabalho de longa duração (como atualizações de firmware e configuração) entre o aplicativo do dispositivo e o aplicativo back-end.
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
 > [!NOTE]
@@ -21,13 +21,13 @@ Use os dispositivos gêmeos para:
 
 Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 
-* *marcas*, metadados de dispositivo acessíveis apenas pelo back-end;
-* *propriedades desejadas*, objetos JSON modificáveis pelo back-end e observáveis pelo aplicativo de dispositivo; e
-* *propriedades relatadas*, objetos JSON modificáveis pelo aplicativo de dispositivo e legíveis pelo back-end. Marcas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
+* *marcações*, metadados do dispositivo acessíveis apenas por meio do back-end da solução;
+* *propriedades desejadas*, objetos JSON modificáveis pelo back-end da solução e observáveis pelo aplicativo de dispositivo; e
+* *propriedades relatadas*, objetos JSON modificáveis pelo aplicativo de dispositivo e legíveis pelo back-end da solução. Marcas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
 
 ![][img-twin]
 
-Além disso, o back-end do aplicativo pode consultar dispositivos gêmeos com base em todos os dados acima.
+Além disso, o back-end da solução pode consultar dispositivos gêmeos com base em todos os dados acima.
 Consulte [Entender dispositivos gêmeos][lnk-twins] para obter mais informações sobre dispositivos gêmeos e a referência de [Linguagem de consulta do Hub IoT][lnk-query] para consultas.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Consulte [Entender dispositivos gêmeos][lnk-twins] para obter mais informaçõe
 Este tutorial mostra como:
 
 * Criar um aplicativo de back-end que adiciona *marcas* a um dispositivo gêmeo e um aplicativo de dispositivo simulado que relata seu canal de conectividade como uma *propriedade relatada* no dispositivo gêmeo.
-* Consulte dispositivos por meio do aplicativo de back-end usando filtros nas marcas e propriedades criadas anteriormente.
+* Consulte dispositivos por meio do aplicativo de back-end usando filtros nas marcações e propriedades criadas anteriormente.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png
@@ -50,6 +50,6 @@ Este tutorial mostra como:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

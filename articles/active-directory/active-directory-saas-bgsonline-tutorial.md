@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b42fe210ecfe2243aa2461bd542e73f7b9aa25cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42911ac76e2aa887460abd44e462a8d288d55f91
 
 
 ---
@@ -231,6 +231,6 @@ Ao clicar no bloco BGS Online no Painel de Acesso, você deverá ser conectado a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

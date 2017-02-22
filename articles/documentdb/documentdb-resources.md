@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 01/28/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9867dcb3300aab020bdda341b5b14e40c3a01075
+ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
+ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
 
 
 ---
@@ -43,11 +43,11 @@ Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco
 ![Modelo de recursos hierárquico do Banco de Dados de Documentos][1]  
 **Modelo de recursos hierárquico**   
 
-Para começar a trabalhar com os recursos, você deve [criar uma conta do DocumentDB](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode consistir em um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.  
+Para começar a trabalhar com os recursos, [crie uma conta do banco de dados](documentdb-create-account.md) usando sua assinatura do Azure. Uma conta do banco de dados pode ser formada por um conjunto de **bancos de dados**, cada um contendo diversas **coleções**, cada uma delas, por sua vez, contendo **procedimentos armazenados, gatilhos, UDFs, documentos** e **anexos** relacionados. Um banco de dados também tem **usuários** associados, cada um com um conjunto de **permissões** para acessar coleções, procedimentos armazenados, gatilhos, UDFs, documentos ou anexos. Enquanto bancos de dados, usuários, permissões e coleções são recursos definidos pelo sistema com esquemas bastante conhecidos, os documentos e anexos possuem conteúdos JSON arbitrários, definidos pelo usuário.  
 
 | Recurso | Descrição |
 | --- | --- |
-| Conta de banco de dados |Uma conta de banco de dados está associada um conjunto de bancos de dados e uma quantidade fixa de armazenamento de blob para anexos (recurso de visualização). Você pode criar uma ou mais contas do banco de dados usando sua assinatura do Azure. Para obter mais informações, visite nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/). |
+| Conta de banco de dados |Uma conta de banco de dados está associada a um conjunto de bancos de dados e uma quantidade fixa de armazenamento de blobs para anexos. Você pode criar uma ou mais contas do banco de dados usando sua assinatura do Azure. Para obter mais informações, visite nossa [página de preços](https://azure.microsoft.com/pricing/details/documentdb/). |
 | Banco de dados |Um banco de dados é um contêiner lógico de armazenamento de documentos particionado em coleções. Ele também é um contêiner para usuários. |
 | Usuário |O namespace lógico para obter o escopo das permissões. |
 | Permissão |Um token de autorização associado a um usuário para acesso a um recurso específico. |
@@ -56,7 +56,7 @@ Para começar a trabalhar com os recursos, você deve [criar uma conta do Docume
 | Gatilho |Lógica de aplicativo escrita em JavaScript executada antes ou depois de uma operação de inserção, substituição ou exclusão. |
 | UDF |Uma lógica de aplicativo escrita em JavaScript. As UDFs permitem modelar um operador de consulta personalizada e, portanto, estender a linguagem de consulta principal do Banco de Dados de Documentos. |
 | Documento |Conteúdo JSON (arbitrário) definido pelo usuário. Por padrão, nenhum esquema precisa ser definido e nenhum índice secundário precisa ser fornecido a todos os documentos adicionados a uma coleção. |
-| (Visualização) Anexo |Um anexo é um documento especial que contém referências e metadados associados a blobs/mídias externos. O desenvolvedor pode optar por ter o blob gerenciado pelo Banco de Dados de Documentos ou armazená-lo com um provedor de serviços de blob externo, como OneDrive, Dropbox etc. |
+| Anexo |Um anexo é um documento especial que contém referências e metadados associados a blobs/mídias externos. O desenvolvedor pode optar por ter o blob gerenciado pelo Banco de Dados de Documentos ou armazená-lo com um provedor de serviços de blob externo, como OneDrive, Dropbox etc. |
 
 ## <a name="system-vs-user-defined-resources"></a>Recursos definidos pelo sistema versus usuário
 Recursos como contas do banco de dados, bancos de dados, coleções, usuários, permissões, procedimentos armazenados, gatilhos e UDFs, todos possuem um esquema fixo e são chamados de recursos do sistema. Em contraste, recursos como documentos e anexos não possuem restrições sobre o esquema e são exemplos de recursos definidos pelo usuário. No Banco de Dados de Documentos, ambos os recursos definidos pelo sistema e pelo usuário são representados e gerenciados como JSON em conformidade com o padrão. Todos os recursos, definidos pelo usuário ou pelo sistema, possuem as seguintes propriedades em comum.
@@ -413,11 +413,6 @@ Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Docum
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida. 
 
 ## <a name="attachments-and-media"></a>Anexos e mídia
-> [!NOTE]
-> Anexos e recursos de mídia são recursos de visualização.
-> 
-> 
-
 O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banco de Dados de Documentos ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia. 
 
 Considere um aplicativo de leitura social que utiliza o Banco de Dados de Documentos para armazenar anotações de tintas e metadados incluindo comentários, destaques, favoritos, classificações, preferências/não preferências, etc., associados a um e-book de um determinado usuário.   
@@ -469,6 +464,6 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

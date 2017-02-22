@@ -1,5 +1,5 @@
 ---
-title: "Guia do usuário do agente do Linux | Microsoft Docs"
+title: "Visão geral do Agente de VM do Azure Linux | Microsoft Docs"
 description: "Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+ms.sourcegitcommit: 02579f138f957e5d245290e2cb8fc448120a4701
+ms.openlocfilehash: e77fee96710e99dab664f61d4c64aea0b12944ad
 
 
 ---
@@ -49,7 +49,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
   * Garante a estabilidade do nome da interface de rede
 * **Kernel**
   
-  * Configura NUMA virtual (desabilitar para kernel < 2.6.37)
+  * Configura NUMA virtual (desabilitar para kernel <&2;.6.37)
   * Consome entropia de Hyper-V para /dev/random
   * Configura os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
 * **Diagnostics**
@@ -210,7 +210,7 @@ Se definido, o waagent executará o CustomData após o provisionamento.
 
 **Provisioning.PasswordCryptId**  
 Tipo: Sequência  
-Padrão: 6
+Padrão:&6;
 
 Algoritmo usado pelo Crypt ao gerar o hash de senha.  
  1 - MD5  
@@ -220,7 +220,7 @@ Algoritmo usado pelo Crypt ao gerar o hash de senha.
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: Sequência  
-Padrão: 10
+Padrão:&10;
 
 Comprimento de sal aleatório usado ao gerar o hash de senha.
 
@@ -309,6 +309,6 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

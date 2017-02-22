@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: f6208195fb998d5cb3ca00fa684f814971083cad
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 626db03a7b858d060b01332a67f0b491066a6625
 
 
 ---
@@ -38,7 +38,7 @@ Você pode usar a seção de conteúdo de uma nova campanha de alcance para modi
 * Anúncio pela: é uma notificação que leva o usuário a dar uma olhada em uma exibição da Web.
 
 ### <a name="see-also"></a>Consulte também
-* [Alcance – Instruções – Anúncios][Link 3] 
+* [Alcance ‑ Instruções ‑ Anúncios][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Sobre os anúncios de exibição na Web:
 As ocorrências do padrão "{deviceid}" no código HTML ou no código JavaScript que você fornecer aqui serão substituídas automaticamente pelo identificador do dispositivo que estiver exibindo o anúncio. Essa é uma maneira fácil de recuperar identificadores de dispositivos do Mobile Engagement do Azure em um serviço Web externo hospedado no seu back office.
@@ -109,13 +109,13 @@ Cada ocorrência do padrão {deviceid} é substituída automaticamente pelo iden
 ### <a name="define-the-texts-of-your-announcement"></a>Definir os textos do anúncio
 Preencha o título, o conteúdo e os textos de botão do seu anúncio. Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo pode ser baseado nos comentários sobre essa campanha, tenha sido ela apenas enviada por push, respondida, acionada ou encerrada.
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 * [Documentação da interface do usuário – Alcance – Novo Critério de Envio por Push][Link 28]
 
 ## <a name="content-of-polls"></a>Conteúdo das pesquisas
 ![Reach-Content2][31] 
 
- Preencha o título, a descrição e os textos de botão do seu anúncio. Em seguida, adicione as perguntas e opções de respostas para as suas perguntas.
+Preencha o título, a descrição e os textos de botão do seu anúncio. Em seguida, adicione as perguntas e opções de respostas para as suas perguntas.
 Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo direcionado pode ser baseado no fato desta campanha ter sido apenas enviada por push, respondida, acionada ou encerrada. O público-alvo também pode ser baseado nos comentários de resposta de pesquisa, onde a pergunta e resposta de opção são usadas como critérios.
 
 ### <a name="see-also"></a>Consulte também
@@ -134,7 +134,7 @@ Você pode direcionar para um público-alvo de uma campanha futura com base nos 
 * Se você optou por enviar dados binários ou base64, use o botão "carregar o arquivo" para carregar o seu arquivo.
 * Você pode direcionar para um público-alvo de uma campanha futura com base nos comentários de alcance de como os usuários responderam a essa campanha. O público-alvo direcionado pode ser baseado no fato desta campanha ter sido apenas enviada por push, respondida, acionada ou encerrada.
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Consulte também
 * [Documentação da interface do usuário – Alcance – Novo Critério de Envio por Push][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Conteúdo de blocos (somente para o Windows Phone)
@@ -144,8 +144,8 @@ Você pode direcionar para um público-alvo de uma campanha futura com base nos 
 A carga de bloco é o texto a ser exibido no bloco do seu aplicativo em dispositivos Windows Phone.
 Um envio de lado a lado é a versão do serviço de Notificação por Push da Microsoft (MPNS) um envio por push nativo para o Windows Phone. O tipo de envio por push do bloco é o único tipo de envio que não tem uma resposta e, portanto, o público-alvo de futuras campanhas não pode ser criado com os resultados de uma campanha de envio por push do bloco. 
 
-### <a name="see-also"></a>Confira também
-* [Documentação da API – API de Alcance – Push Nativo][Link 4]
+### <a name="see-also"></a>Consulte também
+* [Documentação da API – API de Alcance – Envio por Push Nativo][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -241,6 +241,6 @@ Um envio de lado a lado é a versão do serviço de Notificação por Push da Mi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

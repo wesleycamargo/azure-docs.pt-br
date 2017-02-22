@@ -1,3 +1,4 @@
+
 # Visão geral
 ## [O que é o Backup do Azure?](backup-introduction-to-azure-backup.md)
 # Introdução
@@ -13,7 +14,7 @@
 ### [DPM no portal clássico](backup-dpm-automation-classic.md)
 ### [Windows Server no portal do Azure](backup-client-automation.md)
 ### [Windows Server no portal clássico](backup-client-automation-classic.md)
-## Fazer backup de cargas de trabalho do aplicativo
+## Fazer backup e restaurar cargas de trabalho do aplicativo
 ### [Preparar as cargas de trabalho do DPM no portal do Azure](backup-azure-dpm-introduction.md)
 ### [Preparar as cargas de trabalho do DPM no portal clássico](backup-azure-dpm-introduction-classic.md)
 ### [Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +23,7 @@
 ### [Recuperar dados no cofre de Backup para um servidor DPM alternativo](backup-azure-alternate-dpm-server.md)
 ### [Usar o DPM para fazer backup de cargas de trabalho do SQL Server](backup-azure-backup-sql.md)
 ### [Usar o DPM para fazer backup de um farm do SharePoint](backup-azure-backup-sharepoint.md)
-### [Cofre dos Serviços de Recuperação - Perguntas Frequentes](backup-azure-backup-ibiza-faq.md)
-## Fazer backup de VMs do Azure
+## Fazer backup e restaurar VMs do Azure
 ### [Preparar máquinas virtuais do Azure](backup-azure-vms-prepare.md)
 ### [Preparar as máquinas virtuais implantadas pelo Resource Manager](backup-azure-arm-vms-prepare.md)
 ### [Planejar a infraestrutura de backup de VMs](backup-azure-vms-introduction.md)
@@ -33,9 +33,17 @@
 ### [Gerenciar e monitorar os backups de VM do Azure no Portal Clássico](backup-azure-manage-vms-classic.md)
 ### [Gerenciar backups de VM do Azure no Portal do Azure](backup-azure-manage-vms.md)
 ### [Monitorar alertas de backups de VM do Azure no Portal do Azure](backup-azure-monitor-vms.md)
+### [Recuperar arquivos de backups de VM do Azure](backup-azure-restore-files-from-vm.md)
 ### [Restaurar máquinas virtuais no Azure](backup-azure-restore-vms.md)
 ### [Restaurar VMs implantadas com o Resource Manager na Portal do Azure](backup-azure-arm-restore-vms.md)
-## Fazer backup de computadores Windows
+### [Restaurar chave e segredo do Key Vault para VMs criptografadas usando o Azure Backup](backup-azure-restore-key-secret.md)
+## Fazer backup e restaurar Banco de Dados SQL do Azure
+### [Configurar retenção de backup de longo prazo](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Exibir backups em um cofre dos Serviços de Recuperação](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Restaurar desde a retenção de backup de longo prazo](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Excluir backups de longo prazo do SQL do Azure](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Fazer backup e restaurar computadores Windows
 ### [Windows Server usando o modelo de implantação clássico](backup-configure-vault-classic.md)
 ### [Windows Server usando o modelo de implantação do Resource Manager](backup-configure-vault.md)
 ### [Gerenciar cofres de Backup usando o modelo de implantação clássico](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +51,8 @@
 ### [Restaurar arquivos em um Windows Server usando o modelo de implantação do Resource Manager](backup-azure-restore-windows-server.md)
 ### [Recuperar arquivos em um Windows Server usando o modelo de implantação clássico](backup-azure-restore-windows-server-classic.md)
 
+## [Usar Controle de acesso baseado em função para o gerenciamento de backup](backup-rbac-rs-vault.md)
+## [Habilitar recursos de segurança para backups híbridos](backup-azure-security-feature.md)
 ## [Excluir um cofre de Backup do Azure](backup-azure-delete-vault.md)
 ## [Configurar o backup offline](backup-azure-backup-import-export.md)
 ## [Usar o Backup do Azure para substituir a infraestrutura de fita](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +68,11 @@
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/backup/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

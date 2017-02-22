@@ -1,5 +1,5 @@
 ---
-title: Armazenamento de VM do Linux e do Azure | Microsoft Docs
+title: "Máquinas virtuais Linux do Azure e Armazenamento do Azure | Microsoft Docs"
 description: "Descreve os Armazenamentos Premium e Standard do Azure com máquinas virtuais do Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -15,8 +15,8 @@ ms.workload: infrastructure
 ms.date: 10/04/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+ms.sourcegitcommit: a3dc017811cb891bc82b072e13e58b3af047a490
+ms.openlocfilehash: e74ede9b3132ff4b4c3e67e614b9996f56856ebc
 
 
 ---
@@ -186,6 +186,6 @@ Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é poss
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

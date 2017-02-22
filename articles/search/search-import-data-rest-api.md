@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ Antes de começar este passo a passo, você já deve ter [criado um índice de P
 
 Para enviar documentos no índice usando a API REST, você emitirá uma solicitação HTTP POST para o ponto de extremidade da URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados, modificados ou excluídos.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificar a api-key do administrador de seu serviço de Pesquisa do Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
 Ao emitir solicitações HTTP em seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys de seu serviço, você deve entrar no [portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 
@@ -50,7 +50,7 @@ O serviço terá *chaves de administração* e *chaves de consulta*.
 
 Para importar dados para um índice, você pode usar a chave de administração principal ou secundária.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Decidir qual ação de indexação será usada
+## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
 Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Pesquisa do Azure. O objeto JSON no corpo da solicitação HTTP conterá uma única matriz JSON chamada "value", que contém objetos JSON que representam documentos que você deseja adicionar ao índice, atualizar ou excluir.
 
 Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir, etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
@@ -62,7 +62,7 @@ Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada 
 | `mergeOrUpload` |Essa ação se comportará como `merge` se já existir um documento com a chave especificada no índice. Se o documento não existir, ele se comportará como `upload` com um novo documento. |chave, além de quaisquer outros campos que você quiser definir |- |
 | `delete` |Remove o documento especificado do índice. |somente chave |Todos os campos que você especificar, exceto o campo de chave, serão ignorados. Se você quiser remover um campo individual de um documento, use `merge` e apenas defina o campo explicitamente para null. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. Construir sua solicitação HTTP e o corpo da solicitação
+## <a name="construct-your-http-request-and-request-body"></a>Construir sua solicitação HTTP e o corpo da solicitação
 Agora que coletou os valores de campo necessários para as ações de índice, você está pronto para construir a solicitação HTTP real e o corpo da solicitação JSON para importar os dados.
 
 #### <a name="request-and-request-headers"></a>Solicitação e Cabeçalhos de Solicitação
@@ -126,7 +126,7 @@ Suponha que o índice de exemplo "hotels" já esteja preenchido com vários docu
 
 Além disso, observe que você só pode incluir até 1000 documentos (ou 16 MB) em uma única solicitação de indexação.
 
-## <a name="iv-understand-your-http-response-code"></a>IV. Compreender o código de resposta HTTP
+## <a name="understand-your-http-response-code"></a>Compreender o código de resposta HTTP
 #### <a name="200"></a>200
 Após enviar uma solicitação de indexação bem-sucedida, você receberá uma resposta HTTP com o código de status `200 OK`. O corpo JSON de resposta HTTP será o seguinte:
 
@@ -177,11 +177,11 @@ Um código de status `503` será retornado se nenhum dos itens na solicitação 
 
 Para obter mais informações sobre as ações do documento e as respostas de êxito/erro, consulte [Adicionar, Atualizar ou Excluir Documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## <a name="next"></a>Avançar
+## <a name="next-steps"></a>Próximas etapas
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

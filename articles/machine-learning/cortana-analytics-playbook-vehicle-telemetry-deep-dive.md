@@ -1,5 +1,5 @@
 ---
-title: "Guia estratégico de solução da análise de telemetria do veículo: aprofunde-se na solução | Microsoft Docs"
+title: "Aprofundar sobre a integridade preditiva do veículo e hábitos de condução - Azure | Microsoft Docs"
 description: "Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 94fba9a2aeaebc460a513928ab76ee63c0da7cc8
-ms.openlocfilehash: 12f16b8cd7d7a4101d423aff737498251d8a5d26
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 898b93ad95ab812b8b6a538048a86a8cc8951101
 
 
 ---
@@ -709,6 +709,6 @@ Este documento contém um detalhamento da Solução de Análise da Telemetria do
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

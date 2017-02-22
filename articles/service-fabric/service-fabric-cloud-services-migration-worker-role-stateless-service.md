@@ -1,5 +1,5 @@
 ---
-title: "Guia para converter funções de trabalho e web em serviços sem estado do Service Fabric | Microsoft Docs"
+title: "Converta os aplicativos de Serviços de Nuvem do Azure aos microsserviços | Microsoft Docs"
 description: "Este guia compara as funções de trabalho e Web dos Serviços de Nuvem e os serviços sem estado do Service Fabric para ajudar a migrar dos Serviços de Nuvem para o Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 752d0c9cb32c602dd7721773057f113e0c8f57a0
+ms.sourcegitcommit: eddca02c4fba88aee667216568beecc76ea65d7c
+ms.openlocfilehash: def92885587b11ce8275292680a524d0c8e31751
 
 
 ---
@@ -38,7 +38,7 @@ Conceitualmente, uma função de trabalho representa uma carga de trabalho sem e
 ## <a name="web-role-to-stateless-service"></a>Função Web para serviço sem estado
 Semelhante à função de trabalho, uma função Web também representa uma carga de trabalho sem estado e, assim, conceitualmente, ele também pode ser mapeado para um serviço sem estado do Service Fabric. No entanto, diferentemente das funções Web, o Service Fabric não dá suporte a IIS. A migração de um aplicativo Web de uma função Web para um serviço sem estado requer primeiro a mudança para uma estrutura Web que pode ser auto-hospedada e não depende de IIS ou System.Web, como o ASP.NET Core 1.
 
-| **Aplicativo ** | **Com suporte** | **Caminho de migração** |
+| **Aplicativo** | **Com suporte** | **Caminho de migração** |
 | --- | --- | --- |
 | Web Forms do ASP.NET |Não |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com migração |Atualizar para o ASP.NET Core 1 MVC |
@@ -263,6 +263,6 @@ Leia mais sobre os Reliable Services do Service Fabric e as diferenças fundamen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

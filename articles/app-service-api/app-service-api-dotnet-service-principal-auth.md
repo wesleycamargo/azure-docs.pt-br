@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/30/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 234ab46713657c7400148210c6029c63afd35e96
+ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
+ms.openlocfilehash: 232446806309148f7958609608d4afc28ffea98d
 
 
 ---
@@ -27,7 +27,7 @@ Este artigo explica como usar a autenticação do Serviço de Aplicativo para ac
 Neste artigo, você aprenderá o seguinte:
 
 * Como usar o Active Directory do Azure (Azure AD) para proteger um aplicativo de API contra acesso não autenticado.
-* Como consumir um aplicativo de API protegido de um aplicativo de API, um aplicativo Web ou um aplicativo móvel usando credenciais de entidade de serviço (identidade de aplicativo) do Azure AD. Para obter informações sobre como consumir de um aplicativo lógico, consulte [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../app-service-logic/app-service-logic-custom-hosted-api.md).
+* Como consumir um aplicativo de API protegido de um aplicativo de API, um aplicativo Web ou um aplicativo móvel usando credenciais de entidade de serviço (identidade de aplicativo) do Azure AD. Para obter informações sobre como consumir de um aplicativo lógico, consulte [Usando a API personalizada hospedada no Serviço de Aplicativo com Aplicativos Lógicos](../logic-apps/logic-apps-custom-hosted-api.md).
 * Como verificar se o aplicativo de API protegido não pode ser chamado de um navegador por usuários conectados.
 * Como verificar se o aplicativo de API protegido só pode ser chamado por uma entidade de serviço do Azure AD específica.
 
@@ -352,6 +352,6 @@ Para saber mais sobre outras maneiras de implantar projetos do Visual Studio em 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

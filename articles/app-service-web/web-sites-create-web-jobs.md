@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2016
+ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9dd4539122de38221e229ad5799961b62a4f648a
+ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
+ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
 
 
 ---
 # <a name="run-background-tasks-with-webjobs"></a>Executar tarefas em segundo plano com Trabalhos Web
 ## <a name="overview"></a>Visão geral
-Você pode executar programas ou scripts em Trabalhos Web em seu aplicativo Web do [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou em uma agenda. Não há nenhum custo adicional para usar Trabalhos Web.
+Você pode executar programas ou scripts em WebJobs em seu aplicativo Web do [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) de três maneiras: sob demanda, continuamente ou com base em uma agenda. Não há nenhum custo adicional para usar Trabalhos Web.
 
 Este artigo mostra como implantar Trabalhos Web utilizando o [Portal do Azure](https://portal.azure.com). Para obter informações sobre como implantar utilizando o Visual Studio ou um processo de entrega contínua, consulte [Como implantar Trabalhos Web do Azure em Aplicativos Web](websites-dotnet-deploy-webjobs.md).
 
 O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Trabalhos Web. Para obter mais informações, consulte [O que é o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk.md).
 
- O Azure Functions (atualmente em preview) é outra forma de executar programas e serviços no Serviço de Aplicativo do Azure. Para saber mais, consulte [Visão geral do Azure Functions](../azure-functions/functions-overview.md).
+ O Azure Functions oferece outra maneira de executar programas e scripts de um ambiente sem servidor ou de um aplicativo do Serviço de Aplicativo. Para saber mais, consulte [Visão geral do Azure Functions](../azure-functions/functions-overview.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -207,6 +207,6 @@ Para obter mais informações, consulte [Recursos recomendados de Trabalhos Web 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

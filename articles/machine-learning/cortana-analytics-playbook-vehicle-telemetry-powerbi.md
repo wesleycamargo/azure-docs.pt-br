@@ -1,5 +1,5 @@
 ---
-title: "Instruções de instalação do Painel de Power BI do modelo de solução de análise de telemetria do veículo | Microsoft Docs"
+title: "Painel do Power BI sobre a integridade do veículo e hábitos de condução - Azure | Microsoft Docs"
 description: "Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 66a2375d7560b41f0fddef3c8c32e41917eb1649
-ms.openlocfilehash: 925222e5e11c96b1b8f851dbc3679d0f6b25b99c
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 24d440049b5e889c6d4417cc16787edd42bc5848
 
 
 ---
@@ -257,7 +257,7 @@ Altere o **Título do gráfico** para **"Modelos de veículo que exigem manuten�
 
 Clique na área em branco para adicionar a nova visualização.
 
-Selecione **Gráfico de barras empilhadas 100%** na visualização, arraste o campo **cidade** para a área de **Eixo** e arraste os campos **ProbabilidadeDeManutenção**, **ProbabilidadeDeRecall** para a área **Valor**.
+Selecione **Gráfico de barras empilhadas&100;%** na visualização, arraste o campo **cidade** para a área de **Eixo** e arraste os campos **ProbabilidadeDeManutenção**, **ProbabilidadeDeRecall** para a área **Valor**.
 
 ![Carros conectados - Adicionar nova visualização](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
@@ -348,7 +348,7 @@ Parabéns! Você criou o painel em tempo real. Durante a execução de CarEventG
 ![Forneça as credenciais do banco de dados](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/13-provide-database-credentials.png)
 
 * Clique em **Conectar**
-* Repita as etapas acima para cada uma das 3 consultas restantes presentes no painel direito e atualize os detalhes de conexão da fonte de dados.
+* Repita as etapas acima para cada uma das&3; consultas restantes presentes no painel direito e atualize os detalhes de conexão da fonte de dados.
 * Clique em **Fechar e Carregar**. Os conjuntos de dados de arquivo do Power BI Desktop são conectados às tabelas de banco de dados do SQL Azure.
 * **Fechar** arquivo do Power BI Desktop.
 
@@ -423,6 +423,6 @@ Parabéns! Você criou com êxito os relatórios e o painel para obter informaç
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

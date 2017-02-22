@@ -287,6 +287,6 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

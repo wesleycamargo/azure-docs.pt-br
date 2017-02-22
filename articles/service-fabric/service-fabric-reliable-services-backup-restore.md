@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/18/2016
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a063d7ec6759bb9890d9b541088a8190dfd79aef
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: 9cb940a07bf9a5d624669816161450b33e862626
 
 
 ---
@@ -177,15 +177,62 @@ Observe que:
 * Sempre que você restaura, há uma chance do backup restaurado ser mais antigo do que o estado da partição antes de os dados serem perdidos. Por isso, essa restauração deve ser usada apenas como último recurso para recuperar o máximo possível de dados.
 * A cadeia de caracteres que representa o caminho da pasta de backup e os caminhos dos arquivos dentro da pasta de backup podem ser maiores do que 255 caracteres, dependendo do caminho de FabricDataRoot e do comprimento do nome do Tipo de Aplicativo. Isso pode fazer com que alguns métodos .NET, como **Directory.Move**, gerem a exceção **PathTooLongException**. Uma solução alternativa é chamar diretamente as APIs do kernel32 como **CopyFile**.
 
-## <a name="backup-and-restore-reliable-actors"></a>Fazer backup e restaurar Reliable Actors
-Faça backup e restaure Reliable Actors criados na funcionalidade de backup e restauração fornecida pelos serviços confiáveis. O proprietário do serviço deve criar um serviço de Ator personalizado derivado de **ActorService** (que é um serviço confiável do Service Fabric que hospeda atores) e depois fazer backup/restauração semelhante para os Reliable Services, como descrito acima nas seções anteriores. Uma vez que os backups serão usados por partição, será feito backup dos estados de todos os atores nessa partição específica (e a restauração é semelhante e acontecerá de acordo com a partição).
 
-* Quando você cria um serviço de ator personalizado, é preciso registrar o serviço de ator personalizado também enquanto registra o ator. Consulte **ActorRuntime.RegistorActorAsync**.
-* Atualmente, **KvsActorStateProvider** dá suporte apenas a backups completos. A opção **RestorePolicy.Safe** também é ignorada por **KvsActorStateProvider**.
+
+
+## <a name="backup-and-restore-reliable-actors"></a>Fazer backup e restaurar Reliable Actors
+
+
+A Estrutura Reliable Actors foi criada com base nos Reliable Services. O ActorService que hospeda os atores é um serviço confiável com estado. Desse modo, toda a funcionalidade de backup e restauração disponível em Reliable Services também está disponível em Reliable Actors (exceto comportamentos que são específicos do provedor de estado). Uma vez que os backups serão usados por partição, será feito backup dos estados de todos os atores nessa partição (e a restauração é semelhante e acontecerá de acordo com a partição). Para executar backup/restauração, o proprietário do serviço deve criar uma classe de serviço de ator personalizada derivada da classe ActorService e depois fazer backup/restauração semelhante para os Reliable Services, como descrito acima nas seções anteriores.
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo)
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Quando você cria uma classe de serviço de ator personalizada, também é preciso registrá-la ao registrar o ator.
+
+```
+ActorRuntime.RegisterActorAsync<MyActor>(
+   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+```
+
+O provedor de estado padrão para Reliable Actors é **KvsActorStateProvider**. O backup incremental não é habilitado por padrão para **KvsActorStateProvider**. Você pode habilitar o backup incremental criando **KvsActorStateProvider** com a configuração apropriada em seu construtor e, em seguida, passando-o ao construtor ActorService, conforme mostrado no seguinte trecho de código:
+
+```
+class MyCustomActorService : ActorService
+{
+     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+     {                  
+     }
+    
+    //
+   // Method overrides and other code.
+    //
+}
+```
+
+Após a habilitação do backup incremental, fazer um backup incremental pode falhar com FabricMissingFullBackupException por um dos seguintes motivos, sendo preciso realizar um backup completo antes de usar backups incrementais:
+
+* Um backup completo da réplica nunca foi feito desde que esta se tornou primária.
+* Alguns dos registros de log foram truncados desde que o último backup foi feito.
+
+Quando o backup incremental é habilitado, **KvsActorStateProvider** não usa buffer circular para gerenciar seus registros de log e o trunca periodicamente. Se nenhum backup for feito pelo usuário por um período de 45 minutos, o sistema automaticamente truncará os registros de log. Esse intervalo pode ser configurado especificando **logTrunctationIntervalInMinutes** no construtor **KvsActorStateProvider** (semelhante à habilitação do backup incremental). Os registros de log também poderão ser truncados se a réplica primária precisar criar outra réplica enviando todos os seus dados.
+
+Ao fazer a restauração usando uma cadeia de backup, semelhante aos Reliable Services, BackupFolderPath deve conter subdiretórios com um subdiretório contendo o backup completo e outros subdiretórios contendo backups incrementais. A API de restauração acionará FabricException com a mensagem de erro apropriada se a validação da cadeia de backup falhar. 
 
 > [!NOTE]
-> O padrão ActorStateProvider (ou seja, **KvsActorStateProvider**) **não** limpa as pastas de backup por si só (na pasta de trabalho de aplicativo obtida por meio de ICodePackageActivationContext.WorkDirectory). Isso pode fazer com que a pasta de trabalho seja preenchida. Você deve limpar explicitamente a pasta de backup no retorno de chamada de backup depois que você mover o backup para um armazenamento externo de limpeza.
-> 
+> Atualmente, **KvsActorStateProvider** ignora a opção RestorePolicy.Safe. O suporte a esse recurso está planejado para uma versão futura.
 > 
 
 ## <a name="testing-backup-and-restore"></a>Testando o backup e a restauração
@@ -230,6 +277,6 @@ Essa etapa garante que o estado recuperado seja consistente.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
