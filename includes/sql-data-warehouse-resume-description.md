@@ -17,4 +17,8 @@ Quando você retoma um banco de dados:
 * Os dados estarão disponíveis.
 * Você precisará reiniciar suas consultas de carga de trabalho.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

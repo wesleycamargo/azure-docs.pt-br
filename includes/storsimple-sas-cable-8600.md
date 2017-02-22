@@ -1,6 +1,6 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### Para conectar os cabos do SAS
+#### <a name="to-attach-the-sas-cables"></a>Para conectar os cabos do SAS
 1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a imagem abaixo para se orientar. 
    
     ![Backplane dos compartimentos principal e EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
@@ -24,7 +24,7 @@
    
    1. Identifique as quatro portas do SAS no compartimento principal e o compartimento EBOD. As portas SAS são rotuladas como EBOD no compartimento principal e correspondem à porta A compartimento EBOD, conforme mostrado na ilustração da fiação SAS, abaixo.
    2. Use os cabos SAS fornecidos para conectar a porta EBOD à porta A.
-   3. A porta EBOD no controlador 0 deve ser conectada à porta A no controlador 0 do EBOD. A porta EBOD no controlador 1 deve ser conectada à porta A no controlador 1 do EBOD. Consulte a ilustração a seguir como guia.
+   3. A porta EBOD no controlador 0 deve ser conectada à porta A no controlador 0 do EBOD. A porta EBOD no controlador 1 deve ser conectada à porta A no controlador 1 do EBOD. Consulte a ilustração a seguir como guia. 
       
       ![Fiação da SAS para o dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
@@ -41,4 +41,8 @@
       | 5, 6 |Portas SAS no compartimento principal (rotuladas como EBOD) |
       | 7, 8 |Portas SAS no compartimento EBOD (Porta A) |
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
