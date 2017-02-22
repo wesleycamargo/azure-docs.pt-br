@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e11be2489d8c0585e386669f34012964e57978d7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
 
 
 ---
@@ -724,7 +724,7 @@ Esse controle somente aparece se você tiver instalado o write-back de senha com
                   <li class="unordered">
 Se você tiver habilitado o write-back de senha e achar que há um problema de configuração com o serviço, pode ir a essa guia e examinar o rótulo <strong>status do serviço de write-back de senha</strong> para ver se algo está errado.<br><br></li>
                   <li class="unordered">
-Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado</strong> – tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong> – você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
+Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado</strong>: tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong>: você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -880,6 +880,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

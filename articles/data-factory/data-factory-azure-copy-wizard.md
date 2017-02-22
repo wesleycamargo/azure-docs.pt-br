@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 619fec5dc02b026ae2cbb5eba18609fd020a551b
-ms.openlocfilehash: d51d9416ef56e119bc765e536a09206fb36c55fe
+ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
+ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
 
 
 ---
@@ -44,6 +44,10 @@ O assistente foi projetado com o Big Data em mente desde o começo, com suporte 
 
 ## <a name="schema-capture-and-mapping"></a>Captura e mapeamento do esquema
 O esquema de dados de entrada pode não coincidir com o esquema dos dados de saída em alguns casos. Nesse cenário, você precisa mapear as colunas do esquema de origem para colunas do esquema de destino.
+
+> [!TIP]
+> Ao copiar dados do Banco de Dados SQL do Azure ou do SQL Server para o Azure SQL Data Warehouse, se a tabela não existir no repositório de destino, o suporte do Data Factory criará a tabela automaticamente usando o esquema da origem. Saiba mais sobre [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+>
 
 Use uma lista suspensa para selecionar uma coluna do esquema de origem a ser mapeada para uma coluna no esquema de destino. O Assistente de Cópia tenta entender seu padrão para mapeamento de coluna. Ele aplica o mesmo padrão ao restante das colunas, de modo que você não precisa selecionar cada uma das colunas individualmente para concluir o mapeamento do esquema. Se preferir, você pode substituir esses mapeamentos usando as listas suspensas para mapear as colunas individualmente. O padrão se torna mais preciso à medida que você mapeia mais colunas. O Assistente de Cópia atualiza constantemente o padrão e, por fim, atinge o padrão certo para o mapeamento de coluna que você deseja atingir.     
 
@@ -87,6 +91,6 @@ Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

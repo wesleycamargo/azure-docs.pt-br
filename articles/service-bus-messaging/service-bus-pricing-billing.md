@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
+ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
+ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 58d1b84c1a9fe19937846842f30f5e7b48cda1c7
 O Barramento de Serviço é oferecido nas camadas Basic, Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
 
 > [!NOTE]
-> Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, consulte a [Azure Service Bus pricing page (Página de preços do Barramento de Serviço do Azure)](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#service-bus-pricing).
+> Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, consulte a [Azure Service Bus pricing page (Página de preços do Barramento de Serviço do Azure)](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#pricing).
 >
 >
 
@@ -39,7 +39,7 @@ A camada **Premium** fornece isolamento de recursos na camada de CPU e memória,
 
 Observe que o custo base padrão é cobrado apenas uma vez por mês por assinatura do Azure. Isso significa que depois de criar um único namespace de Barramento de Serviço camada Standard ou Premium, você poderá criar tantos namespaces adicionais da camada Standard ou Premium quanto desejar nessa mesma assinatura do Azure, sem incorrer em encargos adicionais de base.
 
-Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, é possível usar o [portal clássico do Azure][portal clássico do Azure] para fazer o downgrade para a camada Basic, se desejado.
+Todos os namespaces de Barramento de Serviço existentes criados antes de 1º de novembro de 2014 foram automaticamente colocados na camada Standard. Isso garante que você continue a ter acesso a todos os recursos disponíveis no momento com o Barramento de Serviço. Posteriormente, você pode usar o [Portal Clássico do Azure][Azure classic portal] para fazer o downgrade para a camada Basic, se desejar.
 
 A tabela a seguir resume as diferenças funcionais entre as camadas Basic e Standard/Premium.
 
@@ -77,8 +77,8 @@ Os seguintes preços entraram em vigor desde o dia 1° de novembro de 2014:
 | --- | --- |
 | Custo base |US $10/ mês |
 | Primeiras 12,5 milhões de operações/mês |Incluso |
-| 12,5 a 100 milhões de operações/mês |US $0,80 por cada milhão de operações |
-| 100 milhões a 2,5 bilhões de operações/mês |US $0,50 por cada milhão de operações |
+| 12,5 a&100; milhões de operações/mês |US $0,80 por cada milhão de operações |
+| 100 milhões a&2;,5 bilhões de operações/mês |US $0,50 por cada milhão de operações |
 | Mais do que 2,5 bilhões de operações/mês |US $0,20 por cada milhão de operações |
 
 | Premium | Custo |
@@ -95,12 +95,12 @@ A camada Basic inclui e é, estritamente limitada, a 100 conexões orientadas po
 | Conexões orientadas (camada Standard) | Custo |
 | --- | --- |
 | Primeiras 1.000/mês |Incluído no custo base |
-| 1.000 a 100.000/mês |US $0,03 por conexão/mês |
-| 100.000 a 500.000/mês |US $0,025 por conexão/mês |
+| 1.000 a&100;.000/mês |US $0,03 por conexão/mês |
+| 100.000 a&500;.000/mês |US $0,025 por conexão/mês |
 | Mais de 500.000/mês |US $0,015 por conexão/mês |
 
 > [!NOTE]
-> A camada do sistema de mensagens Standard inclui 1.000 conexões agenciadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos e assinaturas com a assinatura do Azure associada.
+> A camada do sistema de mensagens Standard inclui&1;.000 conexões agenciadas (no custo base) que podem ser compartilhados entre todas as filas, tópicos e assinaturas com a assinatura do Azure associada.
 >
 >
 
@@ -147,12 +147,12 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais detalhes sobre os preços do Barramento de Serviço, veja [Perguntas frequentes sobre os preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
-* Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#service-bus-pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
+* Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
-[portal clássico do Azure]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

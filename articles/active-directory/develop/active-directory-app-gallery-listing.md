@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0e4eb184e353700f945f0da93aeca2187d710415
-ms.openlocfilehash: 01133742302c366e283b6fac8b1e9436fc98901f
+ms.sourcegitcommit: 28712a9898bf2449de53d21fd87f1ce53da71ff8
+ms.openlocfilehash: df60c4737954e79ff860601412dffa58d4dbb471
 
 
 ---
@@ -42,13 +42,13 @@ Para integrar seu aplicativo ao Azure AD, siga as [instruções de desenvolvedor
 > 
 > Nome do aplicativo:
 > 
-> Descrição do aplicativo (limite de 256 caracteres):
+> Descrição do aplicativo (limite de&256; caracteres):
 > 
 > Site do aplicativo (informativo):
 > 
 > Site de suporte técnico do aplicativo ou informações de contato:
 > 
-> ID do cliente do aplicativo, conforme mostrado nos detalhes do aplicativo em https://manage.windowsazure.com:
+> ID do aplicativo, conforme mostrado nos detalhes do aplicativo em https://portal.azure.com:
 > 
 > URL de inscrição do aplicativo onde os clientes vão para se inscrever e/ou comprar o aplicativo:
 > 
@@ -76,7 +76,7 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 > 
 > Nome do aplicativo:
 > 
-> Descrição do aplicativo (limite de 256 caracteres):
+> Descrição do aplicativo (limite de&256; caracteres):
 > 
 > Site do aplicativo (informativo):
 > 
@@ -97,6 +97,6 @@ Qualquer aplicativo que dê suporte ao SAML 2.0 pode ser integrado diretamente a
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/13/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 1fcec43ad50b9c78443ada116b9ca444605c4730
-ms.openlocfilehash: dc30e18b92e492137e016e7a7372bfdf3285e5fe
+ms.sourcegitcommit: 5acfbfbe7327fc28fa909e6ef7e0f9b6ce8b0e54
+ms.openlocfilehash: e0be8f4617c2fdbe1cb6fe2f904bf9ea7056c55e
 
 ---
 
@@ -45,17 +45,13 @@ Se você for iniciante com o Proxy de Aplicativo, aprenda mais sobre este recurs
 
   ![Adicionar um aplicativo empresarial](./media/application-proxy-publish-azure-portal/add-app.png)
 
-3. Na página Categorias, selecione **Ou adicione a sua**.  
+3. Na página de categorias, selecione **aplicativo local**.  
 
   ![Adicionar seu próprio aplicativo](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. Escolha **Implantar um aplicativo existente** no menu suspenso.
-5. Forneça um nome para seu aplicativo e selecione **Adicionar**. Surge uma janela de carregamento e, depois que seu aplicativo é adicionado, a folha de início rápido é aberta.
-6. Na folha de início rápido, selecione **Habilitar o acesso remoto para seu aplicativo local**.
+4. Forneça as seguintes informações sobre o aplicativo:
 
-  ![Habilitar acesso remoto para seu aplicativo local](./media/application-proxy-publish-azure-portal/enable-remote-access.png)
-
-7. Forneça as seguintes informações sobre o aplicativo:
+   - **Nome**: o nome do aplicativo que será exibido no painel de acesso. 
 
    - **URL interna**: o endereço que o Conector de Proxy de Aplicativo usa para acessar o aplicativo dentro de sua rede privada. Você pode fornecer um caminho específico no servidor back-end para publicar, enquanto o restante do servidor é não publicado. Assim, você pode publicar sites diferentes no mesmo servidor como diferentes aplicativos, e dar a cada um deles seu próprio nome e suas regras de acesso.
 
@@ -72,9 +68,8 @@ Se você for iniciante com o Proxy de Aplicativo, aprenda mais sobre este recurs
 
    ![Configurar seu aplicativo](./media/application-proxy-publish-azure-portal/configure-app.png)
 
-8. Selecione **Salvar**.
+8. Selecione **Adicionar**.
 
-   ![Salvar as configurações de Proxy do Aplicativo](./media/application-proxy-publish-azure-portal/save-app-proxy.png)
 
 ## <a name="add-a-test-user"></a>Adicionar um usuário de teste 
 
@@ -105,6 +100,6 @@ No seu navegador, navegue até a URL externa configurada durante a etapa de publ
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

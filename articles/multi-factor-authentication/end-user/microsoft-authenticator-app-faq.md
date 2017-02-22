@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/10/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 45358e89561ef2265ca5d8ae522b823c4629b3fc
-ms.openlocfilehash: f869e456ef40d04f7dd085d4ce7c3d654cdf2091
+ms.sourcegitcommit: 28846f2effd26c5b7ca7a79fba52d8ba1cb4ea91
+ms.openlocfilehash: 9abf35aebceb4a109becba6e97e0a506fc4375d7
 
 
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
+
+Este artigo responde às perguntas comuns que recebemos sobre o aplicativo Microsoft Authenticator. Caso não encontre uma resposta para sua pergunta, vá para o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Também temos outras perguntas frequentes sobre um recurso específico do aplicativo, [Sign in with your phone FAQ](microsoft-authenticator-app-phone-signin-faq.md) (Entrar com seu telefone - perguntas frequentes).
+
 O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator, e é o aplicativo recomendado ao usar o Azure Multi-Factor Authentication. O aplicativo está disponível para Windows Phone, Android e iOS.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -40,7 +43,7 @@ Se você usar o Microsoft Authenticator para sua conta corporativa ou de estudan
 Não, as notificações por push só funcionam com contas da Microsoft e contas do Azure Active Directory. Se sua empresa ou escola usar as contas do Azure AD, elas poderão desabilitar esse recurso.  
 
 ### <a name="i-restored-my-device-from-a-backup-and-my-account-codes-are-missing-or-not-working-what-happened"></a>Eu restaurei meu dispositivo de um backup, e os códigos de minha conta estão ausentes ou não estão funcionando. O que aconteceu?
-Para fins de segurança, nós não restauramos contas de backups de aplicativo. Se você restaurar o aplicativo iOS de um backup, suas contas ainda serão exibidas, mas elas não funcionarão para receber as verificações de entrada ou gerar códigos de segurança. Depois de restaurar o aplicativo, exclua as contas e adicione-as novamente.
+Para fins de segurança, nós não restauramos contas de backups de aplicativo.  Depois de restaurar o aplicativo, exclua as contas e adicione-as novamente.
 
 ### <a name="i-got-a-new-device-how-do-i-remove-the-microsoft-authenticator-app-from-my-old-device-and-move-to-the-new-one"></a>Eu tenho um novo dispositivo. Como remover o Microsoft Authenticator de meu dispositivo antigo e movê-lo para um novo?
 Adicionar o aplicativo Microsoft Authenticator a um novo dispositivo, não remove-o automaticamente de quaisquer outros dispositivos. Para gerenciar quais dispositivos que estão configurados para a sua conta, visite o site mesmo que você usa para gerenciar a verificação em duas etapas e optar por remover aplicativos antigos.
@@ -52,10 +55,10 @@ Para contas pessoais da Microsoft, esse site é sua página de [segurança da co
 * Windows Phone: No menu principal, selecione o botão de menu, em seguida, **Editar contas**. Tocar o **X** ao lado do nome de conta.
 * Android: No menu principal, selecione o botão de menu, em seguida, **Editar contas**. Tocar o **X** ao lado do nome de conta.
 
-Se você tiver um dispositivo Android registrado em sua organização, você precisará concluir uma etapa extra para remover a sua conta. Nesses dispositivos, o aplicativo Microsoft Authenticator é registrado automaticamente como um administrador do dispositivo. Se você quiser desinstalar completamente o aplicativo, você precisa primeiro cancelar o registro do aplicativo nas configurações do aplicativo.
+Caso tenha um dispositivo registrado em sua organização, você precisará concluir uma etapa extra para remover a conta. Nesses dispositivos, o aplicativo Microsoft Authenticator é registrado automaticamente como um administrador do dispositivo. Se você quiser desinstalar completamente o aplicativo, você precisa primeiro cancelar o registro do aplicativo nas configurações do aplicativo.
 
 ### <a name="why-does-the-app-request-so-many-permissions"></a>Por que o aplicativo solicita tantas permissões?
-Aqui está uma lista completa de permissões que solicitamos e como elas são usadas no aplicativo:
+Veja a seguir uma lista completa de permissões que solicitamos e como elas são usadas no aplicativo. As permissões específicas que você vê dependem do tipo de telefone que você tem.
 
 * **Câmera**: podemos usar a câmera para digitalizar códigos de barras&2;D quando você adiciona uma conta corporativa, de estudante ou conta não-Microsoft.
 * **Contatos e telefone**: quando você entra com sua conta pessoal da Microsoft, tentamos simplificar o processo de localizar contas existentes que você usa em seu telefone.
@@ -77,16 +80,17 @@ Esse comportamento é intencional. A verificação em duas etapas exige a compro
 ## <a name="next-steps"></a>Próximas etapas
 
 ### <a name="contact-us"></a>Fale conosco
-Se sua pergunta não tiver sido respondida aqui, queremos ouvir sua opinião. Acesse o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) para postar a pergunta e obtenha ajuda da comunidade, deixe um comentário nesta página ou [entre em contato com o suporte](https://support.microsoft.com/contactus) e responderemos ao seu problema assim que possível.
+Se sua pergunta não tiver sido respondida aqui, queremos ouvir sua opinião. Acesse o [Fórum do aplicativo Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) para postar a pergunta e obter ajuda da comunidade ou deixe um comentário nesta página.
 
 
 ### <a name="related-topics"></a>Tópicos relacionados
 * [Sobre a verificação em duas etapas](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) da conta da Microsoft
 * [Está com dificuldades com a verificação de duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para sua conta corporativa ou de estudante?
+* [Usar o Microsoft Authenticator para entrar usando seu telefone](microsoft-authenticator-app-phone-signin-faq.md)
 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

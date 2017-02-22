@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 21cd9fa752f6f3bf2e3aab572ad3336fbd2bee92
-ms.openlocfilehash: 067bef695d8d6a340f7974478e6580b10a1e8dc8
+ms.sourcegitcommit: c28d84bf59c161cfe6a80062f13f10f44bf43f34
+ms.openlocfilehash: 09261f739d2cd3976f68c499d0e83fe25beef0b8
 
 
 ---
@@ -61,56 +61,100 @@ O Azure AD é um serviço de diretório público para vários clientes, o que si
 
 Você pode usar o Azure AD Connect para sincronizar suas identidades locais com o Azure AD.
 
+---
+
 ### <a name="authentication-and-authorization-details"></a>Detalhes de autenticação e autorização
 
-| AD do Azure                                   | AD DS local |
-|--------------------------------------------|-------------------|
-| <li>   SAML      <li>   O certificado do provedor de identidade do Web Services Federation    <li>   Interativo com credenciais com suporte  <li>   OAuth 2.0   <li>   OpenID Connect                          | <li>   SAML   <li>   O certificado do provedor de identidade do Web Services Federation  <li>   NTLM  <li>   Kerberos   <li>   MD5   <li>   Basic          |
+#### <a name="azure-ad"></a>AD do Azure
+`SAML`, `WS-Federation`, Interativo com credenciais com suporte, OAuth 2.0, OpenID Connect 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+`SAML`, `WS-Federation`, NTLM, Kerberos, MD5, Basic
+
+---
 
 ### <a name="object-repository-details"></a>Detalhes do repositório de objeto
 
-| AD do Azure                                          | AD DS local |
-|---------------------------------------------------|-------------------|
-| Acesso por meio do Azure AD Graph e Microsoft Graph | LDAP X.500    |
+#### <a name="azure-ad"></a>AD do Azure
+Acesso por meio do Azure AD Graph e Microsoft Graph 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+LDAP X.500  
+
+---
+
 
 ### <a name="programmatic-access-details"></a>Detalhes do acesso programático
 
-| AD do Azure                        | AD DS local |
-|---------------------------------|-------------------|
-| APIs REST do MS/Azure AD Graph | LDAP          |
+#### <a name="azure-ad"></a>AD do Azure
+APIs REST do MS/Azure AD Graph 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+LDAP 
+
+---
 
 ### <a name="sso-to-applications-details"></a>Detalhes do SSO para aplicativos
 
-| AD do Azure           | AD DS local   |
-|--------------------|---------------------|
-| <li>   OpenID Connect  <li>   SAML          | <li>   SAML      <li>   WS-Fed   <li>   Open-ID connect  |
+#### <a name="azure-ad"></a>AD do Azure
+`OpenID Connect`, `SAML` 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+`Open-ID Connect`, `SAML`, WS-Fed 
+
+---
 
 ### <a name="access-management-details"></a>Detalhes do gerenciamento de acesso
 
-| AD do Azure         | AD DS local     |
-|------------------------------------|------------------------------------------------------------------------|
-| <li>   Controle de acesso baseado em função e escopo definido pelo recurso   <li>   Permissões de aplicativo e delegadas definidas pelo cliente        <li>   Estrutura de consentimento (impõe consentimento apropriado de administrador/usuário, conforme definido/solicitado pelo recurso/cliente)  <li>   Por meio da função de aplicativo, pode ser aplicado individualmente ou por meio de grupos, oferece suporte a:   <ul> <li>   Gerenciado pelo administrador       <li>   Acesso de aplicativo de autoatendimento  <li>   Consentimento do usuário </ul>         | <li>   Por meio de ACLs, pode ser aplicado individualmente ou por meio de grupos, oferece suporte a:  <ul><li>   Gerenciado pelo administrador  </ul>                                                 |
+#### <a name="azure-ad"></a>AD do Azure
+Função e o escopo definidos pelo recurso com base em controle de acesso, permissões delegadas e de aplicativo definidas pelo cliente, estrutura de consentimento (impõe consentimento apropriado de administrador/usuário, conforme definido/solicitado pelo recurso/cliente) 
+
+Por meio da função de aplicativo, pode ser aplicado individualmente ou por meio de grupos, dá suporte a: Gerenciamento por admin, Acesso a aplicativos de autoatendimento, Consentimento do usuário
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+Por meio de ACLs, pode ser aplicado individualmente ou por meio de grupos, dá suporte a: Gerenciamento por admin 
+
+---
 
 ### <a name="group-management-details"></a>Detalhes do gerenciamento de grupos
 
-| AD do Azure                          | AD DS local                                 |
-|-----------------------------------|---------------------------------------------------|
-| <li>   Gerenciado pelo administrador    <li>   Gerenciamento dinâmico/regra   <li>   Gerenciamento de grupo de autoatendimento  | <li>   Gerenciado pelo administrador      <li>   Sistema externo (FIM, ou outro) obrigatório para:  <ul><li>   Gerenciamento dinâmico/regra      </ul>                 |
+#### <a name="azure-ad"></a>AD do Azure
+`Admin managed`, gerenciamento dinâmico/por regra, gerenciamento de grupo de autoatendimento 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+`Admin managed`, Sistema externo (FIM ou outro) obrigatório para gerenciamento dinâmico/por regra |
+
+---
 
 ### <a name="supported-credentials-details"></a>Detalhes de credenciais com suporte
 
-| AD do Azure           | AD DS local  |
-|--------------------|--------------------|
-| <li>   Nome de usuário + senha  <li>   Cartão inteligente     | <li>   Nome de usuário + senha  <li>   Cartão inteligente     |
+#### <a name="azure-ad"></a>AD do Azure
+`Username + password`, `Smartcard` 
+
+#### <a name="on-premises-ad-ds"></a>AD DS local
+`Username + password`, `Smartcard` 
+ 
+---
+
+
+
+
+
 
 
 ## <a name="how-can-i-get-started"></a>Como posso começar?
-* Se você for administrador de TI:
-  * [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)  - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
-  * Leia "Introdução ao Azure AD" para obter dicas e truques sobre como colocar um locatário do Azure AD em funcionamento rapidamente
-* Se você for um desenvolvedor:
-  * Confira nosso [Guia de desenvolvedores](active-directory-developers-guide.md) para o Active Directory do Azure
-  * [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/): inscreva-se para uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seus aplicativos ao Azure AD
+
+**Se você for administrador de TI:**
+
+* [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/) - inscreva-se hoje mesmo em uma avaliação gratuita de 30 dias e implante sua primeira solução em nuvem em menos de 5 minutos usando este link
+
+* Leia "Introdução ao Azure AD" para obter dicas e truques sobre como colocar um locatário do Azure AD em funcionamento rapidamente
+
+**Se você for um desenvolvedor:**
+ 
+* Confira nosso [Guia de desenvolvedores](active-directory-developers-guide.md) para o Active Directory do Azure
+
+* [Inicie uma avaliação](https://azure.microsoft.com/trial/get-started-active-directory/): inscreva-se para uma avaliação gratuita de 30 dias hoje mesmo e comece a integrar seus aplicativos ao Azure AD
 
 ## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
 Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o AD do Azure. Aqui está uma lista de artigos excelentes para você começar:
@@ -129,6 +173,6 @@ Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o A
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

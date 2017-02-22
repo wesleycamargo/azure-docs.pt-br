@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
-ms.author: v-livech
+ms.author: squillace
 translationtype: Human Translation
-ms.sourcegitcommit: d860d30620dac88f1db7965503b2ac2aebf4ab21
-ms.openlocfilehash: 351f03e29e91b906da084e5c30c87fc3c963b823
+ms.sourcegitcommit: 4d2bd4bbcaf889ee25cc4567772384b167166c10
+ms.openlocfilehash: 736f30768da968f8e1d39ff94fe9de66cc219321
 
 
 ---
 # <a name="azure-and-linux"></a>Azure e Linux
-O Microsoft Azure é uma coleção crescente de serviços de nuvem públicos integrados, incluindo análise, Máquinas Virtuais, bancos de dados, mobilidade, rede, armazenamento, e Web, ideais para hospedar suas soluções.  O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local.  O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
+O Microsoft Azure é uma coleção crescente de serviços de nuvem pública integrados, incluindo análise, Máquinas Virtuais, bancos de dados, mobilidade, rede, armazenamento, e Web&mdash;ideal para hospedar suas soluções.  O Microsoft Azure fornece uma plataforma de computação escalonável que lhe permite pagar apenas pelo que você usa, quando quiser, sem precisar investir em hardware local.  O Azure está pronto quando você está, para escalar suas soluções horizontal e verticalmente, em qualquer escala necessária para atender às necessidades de seus clientes.
 
 Se você estiver familiarizado com os diversos recursos do AWS da Amazon, examine o [documento de mapeamento de definição do Azure versus AWS](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
@@ -31,8 +31,14 @@ Os recursos do Microsoft Azure são distribuídos em várias regiões geográfic
 * [Regiões do Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Disponibilidade
-Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Isso garantirá que suas VMs sejam distribuídas entre vários domínios de falha em nossos datacenters, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo.
+Para sua implantação se qualificar para nosso Contrato de Nível de Serviço de 99,95 de VM, você precisará implantar duas ou mais VMs que executem sua carga de trabalho dentro de um conjunto de disponibilidade. Isso garantirá que suas VMs sejam distribuídas entre vários domínios de falha em nossos datacenters, além de serem implantadas em hosts com janelas de manutenção diferentes. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explica a disponibilidade garantida do Azure como um todo. 
 
+## <a name="managed-disks"></a>Managed Disks
+
+Os Managed Disks trata da criação da conta de Armazenamento do Azure e do gerenciamento em segundo plano para você, além de garantir que você não tenha que se preocupar com os limites de escalabilidade da conta de armazenamento. Basta especificar o tamanho do disco e o nível de desempenho (Standard ou Premium) e o Azure cria e gerencia o disco para você. Mesmo que você adicione discos ou dimensione a VM para cima e para baixo, não é preciso se preocupar com o armazenamento que está sendo usado. Se estiver criando novas VMs, [use a CLI do Azure 2.0 (Visualização)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou o Portal do Azure para criar VMs com discos de dados e SO gerenciados. Caso tenha VMs com discos não gerenciados, você poderá [convertê-las para que tenham suporte do Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+ 
+Você também pode gerenciar suas imagens personalizadas em uma conta de armazenamento por região do Azure e usá-las para criar centenas de VMs na mesma assinatura. Para saber mais sobre Managed Disks, veja a [Managed Disks Overview](../storage/storage-managed-disks-overview.md) (Visão geral do Managed Disks).
+ 
 ## <a name="azure-virtual-machines--instances"></a>Máquinas Virtuais e instâncias do Azure
 O Microsoft Azure dá suporte à execução de várias distribuições populares do Linux fornecidas e mantidas por diversos parceiros.  Você encontrará distribuições como Red Hat Enterprise, CentOS, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD e muito mais no Azure Marketplace. Trabalhamos ativamente com várias comunidades do Linux para adicionar ainda mais opções à lista de [Distribuições do Linux endossadas pelo Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -98,29 +104,27 @@ Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microso
 ## <a name="getting-setup-on-azure"></a>Instalação no Azure
 Para começar a usar o Azure, você precisa de uma conta do Azure, da CLI do Azure instalada e de um par de chaves públicas e privadas de SSH.
 
-## <a name="sign-up-for-an-account"></a>Inscrever-se em uma conta
+### <a name="sign-up-for-an-account"></a>Inscrever-se em uma conta
 Inscrever-se em uma conta do Azure é a primeira etapa para usar a Nuvem do Azure.  Acesse a página de [Inscrição em conta do Azure](https://azure.microsoft.com/pricing/free-trial/) para começar.
 
-## <a name="install-the-cli"></a>Instalar a CLI
-Com sua nova conta do Azure, você pode começar a usar imediatamente o Portal do Azure, que é um painel de administração baseado na Web.  Para gerenciar a Nuvem do Azure por meio da linha de comando, instale a `azure-cli`.  Instale a [CLI do Azure ](../xplat-cli-install.md)em sua estação de trabalho Mac ou Linux.
+### <a name="install-the-cli"></a>Instalar a CLI
+Com sua nova conta do Azure, você pode começar a usar imediatamente o Portal do Azure, que é um painel de administração baseado na Web.  Para gerenciar a Nuvem do Azure por meio da linha de comando, instale a `azure-cli`.  Instale a [CLI do Azure 2.0 (Visualização)](/cli/azure/install) em sua estação de trabalho Mac ou Linux.
 
-## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
+### <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Agora você tem uma conta do Azure, o Portal da Web do Azure e a CLI do Azure.  A próxima etapa é criar um par de chaves SSH que será usado para SSH no Linux sem usar uma senha.  [Crie chaves SSH no Linux e Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para habilitar logons sem senha e obter mais segurança.
 
-## <a name="getting-started-with-linux-on-microsoft-azure"></a>Introdução ao Linux no Microsoft Azure
-Com a configuração da conta do Azure, a CLI do Azure instalada e as chaves SSH criadas, agora você está pronto para começar a criar uma infraestrutura na Nuvem do Azure.  A primeira tarefa é criar duas VMs.
 
-## <a name="create-a-vm-using-the-cli"></a>Criar uma VM usando a CLI
+### <a name="create-a-vm-using-the-cli"></a>Criar uma VM usando a CLI
 Criar uma VM do Linux usando a CLI é uma maneira rápida de implantar uma VM sem sair do terminal no qual você está trabalhando.  Tudo o que você pode especificar no portal da Web está disponível por meio de um sinalizador ou opção de linha de comando.  
 
 * [Criar uma VM Linux usando a CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="create-a-vm-in-the-portal"></a>Criar uma VM no portal
+### <a name="create-a-vm-in-the-portal"></a>Criar uma VM no portal
 Criar uma VM do Linux no Portal da Web do Azure é uma maneira fácil de apontar e clicar nas diversas opções a fim de chegar a uma implantação.  Em vez de usar sinalizadores ou opções de linha de comando, é possível exibir um layout de Web interessante com várias opções e configurações.  Todos os itens disponíveis por meio da interface de linha de comando também estão disponíveis no portal.
 
 * [Criar uma VM Linux usando o Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="login-using-ssh-without-a-password"></a>Fazer logon usando SSH sem uma senha
+### <a name="login-using-ssh-without-a-password"></a>Fazer logon usando SSH sem uma senha
 Agora, a VM está em execução no Azure e você está pronto para fazer logon.  Usar senhas para fazer logon via SSH é inseguro e demorado.  Usar chaves SSH é a maneira mais segura, e também a mais rápida, de fazer logon.  Quando você cria sua VM do Linux por meio do portal ou da CLI, você tem duas opções de autenticação.  Se você escolher uma senha para o SSH, o Azure configurará a VM para permitir logons por meio de senhas.  Se você optar por usar uma chave pública SSH, o Azure configurará a VM para permitir somente os logons por meio de chaves SSH, e desabilita logons com senha. Para proteger sua VM do Linux, permitindo apenas logons com chave SSH, use a opção de chave pública SSH durante a criação da VM no portal ou na CLI.
 
 * [Desabilitar senhas SSH na sua VM Linux configurando o SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -150,6 +154,6 @@ Agora você tem uma visão geral do Linux no Azure.  A próxima etapa é mergulh
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

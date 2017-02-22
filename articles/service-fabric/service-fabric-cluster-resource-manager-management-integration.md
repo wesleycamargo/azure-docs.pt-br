@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: 53b97327e41c68fbbbe20b5bc5cf99bdae15e1f9
+ms.sourcegitcommit: b2428f93680c12c76000fa8eb1a7138f72a8efe7
+ms.openlocfilehash: 9d67f089f4aba03e846a8fe020a91b6b1ac6ea48
 
 
 ---
@@ -101,7 +101,7 @@ Em todas essas restrições, você pode ter pensado “Ei, acho que restrições
 
 Acontece que também podemos faz isso! As restrições podem ser configuradas com alguns níveis diferentes de imposição, mas elas resumem a "rígida" (0), "flexível" (1), "otimização" (2) e "desativado" (-1). A maioria das restrições foram definidas como inflexíveis por padrão. Por exemplo, a maioria das pessoas normalmente não pensa em capacidade como algo que pode ser mais relaxado, sendo quase sempre flexível ou inflexível.
 
-As diferentes prioridades de restrição também são o porquê de alguns avisos de violação de restrição aparecerem com mais frequência do que outros, pois existem certas restrições que deixamos relaxar (violar) temporariamente. Esses níveis não significam de fato que uma determinada restrição será violada, apenas o que há uma ordem na qual elas são impostas preferencialmente. Isso permite que o Cluster Resource Manager faça as ponderações corretas caso seja impossível atender a todas as restrições.
+As diferentes prioridades de restrição também são o porquê de alguns avisos de violação de restrição aparecerem com mais frequência do que outros, pois existem certas restrições que deixamos relaxar (violar) temporariamente. Esses níveis não significam que uma determinada restrição será violada, apenas que há uma ordem na qual elas são impostas preferencialmente. Isso permite que o Cluster Resource Manager faça as ponderações corretas caso seja impossível atender a todas as restrições.
 
 Em situações avançadas, é possível alterar as prioridades de restrição. Por exemplo, digamos que você queira garantir que a afinidade seja violada para solucionar problemas de capacidade do nó. Para fazer isso, você poderia definir a prioridade da restrição de afinidade como “flexível” (1) e deixar a restrição de capacidade definida como “inflexível” (0).
 
@@ -187,6 +187,6 @@ Em geral, você deseja que a atualização seja concluída mesmo se o cluster es
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/13/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
-ms.openlocfilehash: 7a4efebcfc1ed38e9efdac293845f4be632e5b08
+ms.sourcegitcommit: b902d2e79633959a6f76ddd45b1193177b0e8465
+ms.openlocfilehash: 1ac5a78c8d9419e4c641bf66f8dac7aa8cbcd179
 
 
 ---
-# <a name="about-vpn-gateway-settings"></a>Sobre as configurações do Gateway de VPN
-Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego criptografado entre sua rede virtual e seu local em uma conexão pública. Você também pode usar o Gateway de VPN para enviar tráfego entre redes virtuais.
+# <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
+Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego criptografado entre sua rede virtual e seu local em uma conexão pública. Você também pode usar o Gateway de VPN para enviar o tráfego entre redes virtuais no backbone do Azure.
 
-Uma conexão de Gateway de VPN tem base na configuração de vários recursos, cada um deles contendo definições configuráveis. As seções neste artigo abordam os recursos e configurações relacionados a um gateway de VPN para uma rede virtual criada no modelo de implantação do **Resource Manager** . Você pode encontrar descrições e diagramas da topologia para cada solução de conexão no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) .  
+Uma conexão de Gateway de VPN tem base na configuração de vários recursos, cada um deles contendo definições configuráveis. As seções neste artigo abordam os recursos e configurações relacionados a um gateway de VPN para uma rede virtual criada no modelo de implantação do Resource Manager. Você pode encontrar descrições e diagramas da topologia para cada solução de conexão no artigo [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) .  
 
 ## <a name="a-namegwtypeagateway-types"></a><a name="gwtype"></a>Tipos de gateway
 Cada rede virtual pode ter apenas um gateway de rede virtual de cada tipo. Quando estiver criando um gateway de rede virtual, você deve garantir que o tipo de gateway seja o correto para sua configuração.
@@ -47,13 +47,13 @@ Exemplo:
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ### <a name="configuring-the-gateway-sku"></a>Configurando SKU de gateway
-**Especificação do SKU do gateway no Portal do Azure**
+####<a name="specifying-the-gateway-sku-in-the-azure-portal"></a>Especificação do SKU do gateway no Portal do Azure
 
 Se você usa o portal do Azure para criar um gateway de rede virtual do Resource Manager, é possível selecionar o SKU do gateway usando o menu suspenso. As opções apresentadas correspondem ao tipo de Gateway e ao tipo de VPN que você selecionar.
 
 Por exemplo, se selecionar o tipo de gateway 'VPN' e o tipo de VPN 'Baseado em políticas', você verá apenas o SKU 'Basic' porque é o único disponível para VPNs PolicyBased. Se selecionar 'Baseado em rotas', você pode selecionar entre os SKUs Basic, Standard e HighPerformance. 
 
-**Especificando o SKU de gateway usando o PowerShell**
+####<a name="specifying-the-gateway-sku-using-powershell"></a>Especificando o SKU de gateway usando o PowerShell
 
 O exemplo do PowerShell a seguir especifica o `-GatewaySku` como *Standard*.
 
@@ -61,7 +61,7 @@ O exemplo do PowerShell a seguir especifica o `-GatewaySku` como *Standard*.
     -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
     -GatewayType Vpn -VpnType RouteBased
 
-**Alterando um SKU de gateway**
+####<a name="changing-a-gateway-sku"></a>Alterando um SKU de gateway
 
 Se quiser atualizar para um SKU de gateway mais avançado (de Basic/Standard para HighPerformance), você pode usar o cmdlet do PowerShell `Resize-AzureRmVirtualNetworkGateway`. Você também pode fazer o downgrade do tamanho do SKU de gateway usando esse cmdlet.
 
@@ -107,11 +107,9 @@ O exemplo do PowerShell a seguir especifica o `-VpnType` como *RouteBased*. Ao c
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
 ## <a name="a-namegwsubagateway-subnet"></a><a name="gwsub"></a>Sub-rede do gateway
-Para configurar um gateway de rede virtual, primeiramente você precisa criar uma sub-rede de gateway para a VNet. A sub-rede do gateway deve ser nomeada como *GatewaySubnet* para funcionar corretamente. Esse nome permite que o Azure saiba que essa sub-rede deve ser usada para o gateway.
+Para configurar um gateway de rede virtual para sua VNet, será necessário criar uma sub-rede de gateway. A sub-rede de gateway contém os endereços IP que usam os serviços de gateway de rede virtual. A sub-rede do gateway deve ser nomeada como *GatewaySubnet* para funcionar corretamente. Esse nome permite que o Azure saiba que essa sub-rede deve ser usada para o gateway.
 
-O tamanho mínimo da sub-rede de gateway depende totalmente da configuração que você quer criar. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.). 
-
-A criação de um gateway maior impede que você atinja as limitações de tamanho de gateway. Por exemplo, você pode ter criado um gateway de rede virtual com um tamanho de sub-rede de gateway /29 para uma conexão S2S. Você agora quer configurar uma configuração coexistente S2S/Rota Expressa. Essa configuração exige um tamanho mínimo de sub-rede de gateway de /28. Para criar sua configuração, você teria que modificar a sub-rede de gateway para acomodar o requisito mínimo para a conexão, que é /28.
+Quando você cria a sub-rede de gateway, pode especificar o número de endereços IP que contém a sub-rede. Os endereços IP na sub-rede do gateway são alocados para o serviço de gateway. Algumas configurações exigem a alocação de mais endereços IP para o serviço de gateway do que outras. Convém certificar-se de que sua sub-rede de gateway contenha endereços IP suficientes para acomodar o crescimento futuro e possíveis novas configurações de conexão adicionais. Dessa forma, embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, é recomendável criar uma sub-rede de gateway de /28 ou maior (/28, /27, /26 etc.). Examine os requisitos para a configuração que deseja criar e verifique se a sub-rede de gateway que você tem atende a esses requisitos.
 
 O exemplo de PowerShell do Resource Manager a seguir mostra uma sub-rede de gateway chamada GatewaySubnet. Você pode ver que a notação CIDR especifica /27, que permite endereços IP suficientes para a maioria das configurações existentes no momento.
 
@@ -145,6 +143,6 @@ Consulte [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) para obter m
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

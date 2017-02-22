@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 11aa3f74d112244cd96278c2b2e3d701e031aee8
-ms.openlocfilehash: 55756029ebba3f3467828db5567a6616f7eeba2b
+ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
+ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de preços de Aplicativos Lógicos
@@ -30,18 +30,20 @@ Os gatilhos são ações especiais projetadas para criar uma nova instância do 
 * **Gatilho de sondagem** – esse gatilho sonda continuamente um ponto de extremidade até receber uma mensagem que satisfaça os critérios para a criação de uma instância de um aplicativo lógico.  O intervalo de sondagem pode ser configurado no gatilho no designer dos Aplicativos Lógicos.  Cada solicitação de sondagem, mesmo se não criar uma instância de um aplicativo lógico, contará como uma execução da ação.
 * **Gatilho de webhook** – esse disparador espera o envio de uma solicitação por parte do cliente em um ponto de extremidade específico.  Cada solicitação enviada ao ponto de extremidade do webhook conta como uma execução da ação. A Solicitação e o gatilho Webhook HTTP são gatilhos de webhook.
 * **Gatilho de recorrência** – esse gatilho cria uma nova instância do aplicativo lógico com base no intervalo de recorrência configurado no gatilho.  Por exemplo, um gatilho de recorrência pode ser configurado para executar a cada três dias ou até mesmo a cada minuto.
+
 As execuções do gatilho podem ser vistas na folha de recursos dos Aplicativos Lógicos na parte do Histórico de Gatilhos.
+
 Todas as ações executadas, bem-sucedidas ou não, são limitadas como uma execução de ação.  As ações que foram ignoradas devido a uma condição não atendida, ou ações que não foram executadas porque o aplicativo lógico foi encerrado antes da conclusão, não são contadas como execuções de ação.
 
-Ações executadas em loops são contadas por iteração do loop.  Por exemplo, uma única ação em um loop for each iterando por uma lista de 10 itens será contada como a contagem de itens na lista (10) multiplicada pelo número de ações no loop (1), mais um para o início do loop que, neste exemplo, seria (10 * 1) + 1 = 11 execuções de ação.
+Ações executadas em loops são contadas por iteração do loop.  Por exemplo, uma única ação em um loop for each iterando por uma lista de 10 itens será contada como o número de itens na lista (10) multiplicada pelo número de ações no loop (1), mais um para o início do loop que, neste exemplo, seria (10 * 1) + 1 = 11 execuções de ação.
 Os Aplicativos Lógicos desabilitados não podem ter novas instâncias criadas e, portanto, não serão cobrados durante o tempo em que estiverem desabilitados.  Lembre-se de que depois de desabilitar um aplicativo lógico pode demorar algum tempo para as instâncias fecharem para novas sessões antes de serem completamente desabilitadas.
 ### <a name="integration-account-usage"></a>Uso da conta de integração
 Incluído no consumo com base em uso está uma [conta de integração](logic-apps-enterprise-integration-create-integration-account.md) para exploração, desenvolvimento e testes, permitindo que você use os recursos [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e [processamento XML](logic-apps-enterprise-integration-xml.md) de Aplicativos Lógicos sem custo adicional. É possível criar no máximo uma conta por região e armazenar até 10 contratos e 25 mapas. Parceiros, certificados e esquemas não têm limites e você pode carregar quantos forem necessários.
 
-Além da inclusão de contas de integração com consumo, você também pode criar contas de integração padrão sem esses limites e com nosso SLA de aplicativos lógicos padrão. Consulte [Preços do Azure](https://azure.microsoft.com/pricing/details/logic-apps) para obter mais detalhes.
+Além da inclusão de contas de integração com consumo, você também pode criar contas de integração padrão sem esses limites e com nosso SLA de aplicativos lógicos padrão. Para saber mais, veja [Preços do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="app-service-plans"></a>Planos do Serviço de Aplicativo
-Aplicativos Lógicos criados anteriormente fazendo referência a um Plano do Serviço de Aplicativo continuarão a se comportar como antes. Dependendo do plano escolhido, eles são limitados após as execuções diárias prescritas serem excedidas mas são cobradas usando o medidor de execução da ação.
+Os Aplicativos Lógicos criados anteriormente com referência a um Plano do Serviço de Aplicativo continuarão a se comportar como antes. Dependendo do plano escolhido, eles são limitados após as execuções diárias prescritas serem excedidas mas são cobradas usando o medidor de execução da ação.
 Os clientes do EA que têm um plano do serviço de aplicativo em sua assinatura, a qual não precisa ser explicitamente associada ao aplicativo lógico, obtêm o benefício das quantidades incluídas.  Por exemplo, se você tiver um plano do serviço de aplicativo Standard em sua assinatura de EA e um aplicativo lógico na mesma assinatura, você não será cobrado por 10.000 execuções de ação por dia (veja a tabela a seguir). 
 
 Planos do Serviço de Aplicativo e suas execuções diária de ação permitida:
@@ -60,6 +62,6 @@ Para obter detalhes sobre preços, confira [Preços de Aplicativos Lógicos](htt
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

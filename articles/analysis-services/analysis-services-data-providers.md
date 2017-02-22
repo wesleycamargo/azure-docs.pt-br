@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 01/20/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: f24024821f522bf89c0d9baf32a427af4636c890
-ms.openlocfilehash: 41e2556437004699991363096147379d0ffa967c
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
 
 
 ---
@@ -40,10 +40,10 @@ Os provedores de dados para conexões de cliente são diferentes dos provedores 
 [ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)</br>
 
 ## <a name="next-steps"></a>Próximas etapas
-Com os provedores de dados mais recentes instalados, seu aplicativo cliente está pronto para se conectar a um servidor. Para saber mais sobre conexão, confira [Obter dados do Azure Analysis Services](analysis-services-connect.md).
+Com os provedores de dados mais recentes instalados, seu aplicativo cliente está pronto para se conectar a um servidor. Para saber mais sobre a conexão de um cliente, confira [Obter dados do Azure Analysis Services](analysis-services-connect.md).
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

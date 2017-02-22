@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/10/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 18fa3fd2fc9bb68b9e68c0c5ac5663a8a8348fd7
-ms.openlocfilehash: e02cb1916c65d137dc06b1ce6a9dd9621a31b56c
+ms.sourcegitcommit: 16ec322d0c921f97819375cfe52d2c3f02a2c53b
+ms.openlocfilehash: d573090fb2dc4ea02308e0711c24371e17fb3cde
 
 
 ---
@@ -85,11 +85,11 @@ Para configurar a integração da Autenticação de Identidade da SAP HANA Cloud
 
     ![Active Directory][1]
 
-2. Navegue até **Aplicativos empresariais**. Em seguida, vá para **Todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![Aplicativos][2]
     
-3. Clique no botão **Adicionar** na parte superior da caixa de diálogo.
+3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![Aplicativos][3]
 
@@ -135,7 +135,7 @@ O aplicativo de Autenticação de Identidade da SAP HANA Cloud Platform espera a
  
     ![Configurar Logon Único][5]
 
-3. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, se seu aplicativo SAP espera um atributo, por exemplo "firstName". No diálogo de atributos de token SAML, adicione o atributo "firstName".
+3. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, se o seu aplicativo SAP espera um atributo, por exemplo "firstName", na caixa de diálogo de atributos de token SAML, adicione o atributo "firstName".
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
@@ -178,27 +178,27 @@ O objetivo desta seção é criar um usuário de teste no novo portal chamado Br
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal de Gerenciamento do Azure**, no painel de navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **portal de Gerenciamento do Azure**, no painel navegação à esquerda, clique em **Azure Active Directory**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
+3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, realize as seguintes etapas:
+4. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **BrendaFernandes**.
+    a. Na caixa de texto **Nome**, digite **Britta Simon**.
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de BrendaFernandes.
+    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** de Britta Simon.
 
-    c. Selecione **Mostrar senha** e anote o valor de **Senha**.
+    c. Selecione **Mostrar Senha** e anote o valor de **Senha**.
 
     d. Clique em **Criar**. 
 
@@ -229,19 +229,19 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
 
     ![Configurar o logon único](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_09.png)
 
-3. No menu à esquerda, clique em **Usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** no diálogo **Adicionar Atribuição**.
+4. Clique no botão **Adicionar**. Em seguida, selecione **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![Atribuir usuário][203]
 
-5. No diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários.
+5. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de usuários.
 
-6. Clique no botão **Selecionar** no diálogo **Usuários e grupos**.
+6. Clique no botão **Selecionar** na caixa de diálogo **Usuários e grupos**.
 
-7. Clique no botão **Atribuir** no diálogo **Adicionar Atribuição**.
+7. Clique no botão **Atribuir** na caixa de diálogo **Adicionar Atribuição**.
     
 
 
@@ -276,6 +276,7 @@ Quando você clica no bloco de Autenticação de Identidade da SAP HANA Cloud Pl
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_203.png
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 02/08/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 486ab53ede1465da2cba16ff4160599b50c2b092
-ms.openlocfilehash: 7cad771f5f134a9dffe7846a2c82017e3da9d9bc
+ms.sourcegitcommit: 57c0228c398ba4ba3fd18a1088472749bed3ac69
+ms.openlocfilehash: 9ebbed56bdbc8385bb651c7aa1e77f369da1d727
 
 
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Habilitar coleta de dados na Central de Segurança do Azure
-Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de Segurança do Azure coleta e processa dados sobre as máquinas virtuais do Azure, incluindo informações de configuração, metadados, logs de eventos e muito mais. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança (confira [Desabilitar a coleta de dados](#disabling-data-collection)). Se você desativar a coleta de dados, a Central de Segurança recomenda que você ative a coleta de dados na política de segurança para essa assinatura.
+Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de Segurança do Azure coleta e processa dados sobre as máquinas virtuais do Azure, incluindo informações de configuração, metadados, logs de eventos e muito mais. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as máquinas virtuais em sua assinatura. A coleta de dados é recomendada, mas você pode recusar desativando-a na política da Central de Segurança (confira [Desabilitar a coleta de dados](#disabling-data-collection)). Se você desativar a coleta de dados, a Central de Segurança recomendará ativar a coleta de dados na política de segurança dessa assinatura.
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
@@ -31,15 +31,15 @@ Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Selecione o bloco **Recomendações** na folha **Central de Segurança**.  Isso abre a folha **Recomendações** .
    ![Folha Central de Segurança][1]
-2. Sobre a folha **Recomendações** , selecione **Habilitar coleta de dados para assinaturas**.  Isso abrirá a folha **Ativar a coleta de dados** .
+2. Sobre a folha **Recomendações** , selecione **Habilitar coleta de dados para assinaturas**.  Isso abre a folha **Ativar a coleta de dados**.
    ![Folha de recomendações][2]
 3. Na folha **Ativar a coleta de dados** , selecione sua assinatura. A folha **Política de segurança** para essa assinatura é aberta.
-4. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados também provisionará a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
+4. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados provisiona a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
 
    ![Folha de política de segurança][3]
 
 5. Selecione **Salvar**.
-6. Selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Se você não escolher uma conta de armazenamento para cada região, ela será criada automaticamente para você. Neste exemplo, escolheremos **newstoracct**. Você pode alterar a conta de armazenamento mais tarde, retornando à política de segurança de sua assinatura e escolhendo outra conta de armazenamento.
+6. Selecione **Escolher uma conta de armazenamento por região**. Para cada região em que você tiver máquinas virtuais em execução, você deverá escolher a conta de armazenamento na qual os dados coletados dessas máquinas virtuais serão armazenados. Se você não escolher uma conta de armazenamento para cada região, uma conta de armazenamento será criada e colocada no grupo de recursos securitydata. Neste exemplo, escolhemos **newstoracct**. Você pode alterar a conta de armazenamento mais tarde, retornando à política de segurança de sua assinatura e escolhendo outra conta de armazenamento.
    ![Escolher uma conta de armazenamento][4]
 7. Selecione **OK**.
 
@@ -49,10 +49,10 @@ Para ajudar os clientes a evitar, detectar e responder a ameaças, a Central de 
 >
 
 ## <a name="after-data-collection-is-enabled"></a>Após a coleta de dados ser habilitada
-A coleta de dados é habilitada por meio do agente de monitoramento do Azure e da extensão de monitoramento de segurança do Azure. A extensão de Monitoramento de Segurança do Azure verifica várias configurações de segurança relevantes e as envia para os rastreamentos do [ETW (Rastreamento de Eventos para Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) . Além disso, o sistema operacional cria entradas de log de eventos. O agente de monitoramento do Azure lê as entradas do registro de eventos e os vestígios de ETW e os copia para sua conta de armazenamento para análise. O Agente de Monitoramento também copia os arquivos de despejo de falha para sua conta de armazenamento. Essa é a conta de armazenamento configurada na política de segurança.
+A coleta de dados é habilitada por meio do agente de monitoramento do Azure e da extensão de monitoramento de segurança do Azure. A extensão de Monitoramento de Segurança do Azure examina várias configurações de segurança relevantes e as envia para os rastreamentos do [ETW (Rastreamento de Eventos para Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Além disso, o sistema operacional cria entradas de log de eventos. O agente de monitoramento do Azure lê as entradas do registro de eventos e os vestígios de ETW e os copia para sua conta de armazenamento para análise. O Agente de Monitoramento também copia os arquivos de despejo de falha para sua conta de armazenamento. Essa é a conta de armazenamento configurada na política de segurança.
 
 ## <a name="disabling-data-collection"></a>Desabilitar a coleta de dados
-Você pode desabilitar a coleta de dados a qualquer momento, o que removerá automaticamente os Agentes de Monitoramento instalado anteriormente pela Central de Segurança.  Você deve selecionar uma assinatura para desativar a coleta de dados.
+Você pode desabilitar a coleta de dados a qualquer momento, o que removerá automaticamente os Agentes de Monitoramento instalados anteriormente pela Central de Segurança. Você deve selecionar uma assinatura para desativar a coleta de dados.
 
 > [!NOTE]
 > As políticas de segurança podem ser definidas no nível de assinatura do Azure e no nível do grupo de recursos, mas você precisa selecionar uma assinatura para desativar a coleta de dados.
@@ -67,7 +67,7 @@ Você pode desabilitar a coleta de dados a qualquer momento, o que removerá aut
 4. Selecione **Salvar** na faixa de opções.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Habilitar a coleta de dados". Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
@@ -88,6 +88,6 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f27dbd437e00ec4954419699d1dab1199970c8fc
-ms.openlocfilehash: de0b016cd9fc1a81e6acd0d2ab1d233a711a427c
+ms.sourcegitcommit: c93d0d47721546f25e72d97f4e019886ef801eba
+ms.openlocfilehash: a7ffc5e2547ca7ac52a56ec82b493b14acd7aaaa
 
 
 ---
@@ -222,7 +222,7 @@ O resultado, que concede acesso a todas as funcionalidades para o dispositivo1, 
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 > [!NOTE]
-> É possível gerar um token SAS usando a ferramenta [gerenciador de dispositivos][lnk-device-explorer] do .NET.
+> É possível gerar um token SAS usando a ferramenta .NET [Gerenciador de dispositivo][lnk-device-explorer] ou o utilitário de linha de comando multiplataforma baseado em nó [iothub-explorer][lnk-iothub-explorer].
 > 
 > 
 
@@ -428,6 +428,7 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -435,6 +436,6 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/08/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 822bace005a6244a47c9484487dab85b1aec9d9a
-ms.openlocfilehash: e20b1ca582c56da7b4fb1e2df3be90bd1c29a8b6
+ms.sourcegitcommit: d3d59e19ff654a953be43706dce926c4450c6179
+ms.openlocfilehash: 6493230295dbfc939df3daf8504a7d8662083f51
 
 
 ---
@@ -36,29 +36,21 @@ Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azu
 A seção a seguir lista erros comuns que você pode receber ao tentar excluir contas de armazenamento, contêineres ou VHDs do Azure.
 
 ### <a name="scenario-1-unable-to-delete-a-storage-account"></a>Cenário 1: Não é possível excluir uma conta de armazenamento
-Ao navegar para a conta de armazenamento no [portal do Azure](https://portal.azure.com/) ou [portal clássico do Azure](https://manage.windowsazure.com/) e selecionar **Excluir**, você pode ver a seguinte mensagem de erro:
+Quando você navega para a conta de armazenamento clássica no [Portal do Azure](https://portal.azure.com/) e seleciona **Excluir**, pode ser que seja exibida uma lista de objetos que estão impedindo a exclusão da conta de armazenamento:
 
-*A conta de armazenamento StorageAccountName contém imagens de VM. Assegure-se de que essas imagens de VM sejam removidas antes de excluir essa conta de armazenamento.*
+  ![Imagem do erro ao excluir a conta de armazenamento](./media/storage-cannot-delete-storage-account-container-vhd/newerror.png)
 
-Você também poderá ver este erro:
+Ao navegar para a conta de armazenamento no [Portal Clássico do Azure](https://manage.windowsazure.com/) e selecionar **Excluir**, você pode ver um dos seguintes erros:
 
-**No portal do Azure**:
+- *A conta de armazenamento StorageAccountName contém imagens de VM. Assegure-se de que essas imagens de VM sejam removidas antes de excluir essa conta de armazenamento.*
 
-*Falha ao excluir a conta de armazenamento <vm-storage-account-name>. Não é possível excluir a conta de armazenamento <vm-storage-account-name>: a conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.'*.
+- *Falha ao excluir a conta de armazenamento <vm-storage-account-name>. Não é possível excluir a conta de armazenamento <vm-storage-account-name>: a conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.'*.
 
-**No Portal Clássico do Azure**:
+- *A conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos, por exemplo, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.*
 
-*A conta de armazenamento <vm-storage-account-name> tem algumas imagens e/ou discos ativos, por exemplo, xxxxxxxxx- xxxxxxxxx-O-209490240936090599. Garanta que esses discos e/ou essas imagens sejam removidos antes de excluir essa conta de armazenamento.*
+- *A conta de armazenamento <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento*.
 
-ou o
-
-**No portal do Azure**:
-
-*A conta de armazenamento <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento*.
-
-**No Portal Clássico do Azure**:
-
-*A conta de armazenamento com falha no envio <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento. Quando você tentar excluir uma conta de armazenamento e ainda houver discos ativos associados a ela, uma mensagem informando que há discos ativos que precisam ser excluídos será exibida*.
+- *A conta de armazenamento com falha no envio <vm-storage-account-name> tem um contêiner com artefatos de imagens e/ou discos ativos. Garanta que esses artefatos sejam removidos do repositório de imagens antes de excluir essa conta de armazenamento. Quando você tentar excluir uma conta de armazenamento e ainda houver discos ativos associados a ela, uma mensagem informando que há discos ativos que precisam ser excluídos será exibida*.
 
 ### <a name="scenario-2-unable-to-delete-a-container"></a>Cenário 2: Não é possível excluir um contêiner
 Ao tentar excluir o contêiner de armazenamento, o seguinte erro poderá ser exibido:
@@ -125,7 +117,7 @@ Para resolver os problemas mais comuns, tente o seguinte método:
     Depois disso, tente excluir a conta de armazenamento, o contêiner ou o VHD novamente.
 
 > [!WARNING]
-> Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Não é possível restaurar uma conta de armazenamento excluída nem recuperar qualquer conteúdo que ela tinha antes da exclusão. Isso também vale para todos os recursos na conta: depois de excluir um VHD, um blob, uma tabela, uma fila ou um arquivo, eles são permanentemente excluídos. Assegure-se de que o recurso não esteja em uso.
+> Não se esqueça de fazer backup de todas as informações que você deseja salvar antes de excluir a conta. Quando você exclui um VHD, blob, tabela, fila ou arquivo, ele é permanentemente excluído. Assegure-se de que o recurso não esteja em uso.
 >
 >
 
@@ -148,6 +140,6 @@ Um status "Parado (desalocado)" libera recursos do computador, como CPU, memóri
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

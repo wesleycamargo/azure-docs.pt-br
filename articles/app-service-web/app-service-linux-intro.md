@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: a3df293a056f4b06281bf8b80717529286d528b8
-ms.openlocfilehash: 48f26113d129ebfa613f1b8f2a372d0e7286aea1
+ms.sourcegitcommit: 6eb4390f8290d3036bf76a592c40253432170883
+ms.openlocfilehash: 0e5c56e62965f2cc9df0b439595223300377d084
 
 
 ---
@@ -33,6 +33,7 @@ Atualmente, o Serviço de Aplicativo no Linux dá suporte a estas pilhas de apli
 * Node.js
 * PHP
 * .NET Core
+* Ruby
 
 Os clientes podem implantar seus aplicativos usando:
 
@@ -66,6 +67,8 @@ No Linux, os aplicativos Web só têm suporte nos planos de serviço de aplicati
 
 Os Aplicativos Web no Linux devem ser criados em um grupo de recursos que não contenha aplicativos Web não Linux na mesma região.
 
+Os Aplicativos Web no Linux ainda não dão suporte à implantação de aplicativos .NET Core de fonte não compilada. Você precisará publicar/compilar seu aplicativo .NET Core localmente primeiro e enviar por push os bits de site publicados para seu aplicativo.
+
 ## <a name="next-steps"></a>Próximas etapas
 Veja os links a seguir para começar a usar o Serviço de Aplicativo no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
@@ -73,9 +76,9 @@ Veja os links a seguir para começar a usar o Serviço de Aplicativo no Linux. V
 * [Como usar uma imagem personalizada do Docker para o Serviço de Aplicativo no Linux](app-service-linux-using-custom-docker-image.md)
 * [Usando a configuração PM2 para Node.js em Aplicativos Web no Linux](app-service-linux-using-nodejs-pm2.md)
 * [Usando o .NET Core em Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-using-dotnetcore.md)
+* [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](app-service-linux-faq.md)
 
 
-
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

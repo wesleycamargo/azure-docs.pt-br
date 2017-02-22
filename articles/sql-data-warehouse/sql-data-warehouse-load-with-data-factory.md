@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/08/2017
 ms.author: jingwang;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: e0a65275f2908845dbbf985982c322c292819202
-ms.openlocfilehash: f184e12de6dbe3e8299cef55ed6a0629492754b7
+ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
+ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
 
 
 ---
@@ -30,13 +30,11 @@ Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- É necessário um banco de dados do SQL Server com tabelas que contêm os dados a serem copiados para o SQL Data Warehouse.  
+- Você precisa de um **Banco de Dados do SQL Server** com tabelas que contêm os dados a serem copiados para o SQL Data Warehouse.  
 
-- Você precisa de um SQL Data Warehouse online. Se você ainda não tiver um data warehouse, saiba como [Criar um SQL Data Warehouse do Azure](sql-data-warehouse-get-started-provision.md).
+- Você precisa de um **SQL Data Warehouse** online. Se você ainda não tiver um data warehouse, saiba como [Criar um SQL Data Warehouse do Azure](sql-data-warehouse-get-started-provision.md).
 
-- Prepare seu data warehouse para receber os dados de entrada criando um ou mais esquemas de tabela. Você pode usar o [Utilitário de Migração do SQL Data Warehouse](sql-data-warehouse-migrate-migration-utility.md) para gerar e criar os esquemas.
-
-- Você precisa de uma Conta de Armazenamento do Azure. Se você ainda não tem uma conta de armazenamento, aprenda como [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento e o data warehouse na mesma região do Azure.
+- Você precisa de uma **Conta de Armazenamento do Azure**. Se você ainda não tem uma conta de armazenamento, aprenda como [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento e o data warehouse na mesma região do Azure.
 
 ## <a name="configure-a-data-factory"></a>Configurar uma fábrica de dados
 1. Faça logon no [Portal do Azure][].
@@ -48,6 +46,8 @@ Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse d
 4. Se você não tem uma fábrica de dados na sua assinatura do Azure, você verá uma caixa de diálogo **Nova fábrica de dados** em uma guia separada do navegador. Preencha as informações solicitadas e clique em **Criar**. Depois que a fábrica de dados for criada, a caixa de diálogo **Nova fábrica de dados** será fechada e você verá a caixa de diálogo **Selecionar fábrica de dados**.
 
     Se você já tem uma ou mais fábricas de dados na assinatura do Azure, você verá a caixa de diálogo **Selecionar fábrica de dados**. Nessa caixa de diálogo é possível selecionar uma fábrica de dados existente ou clicar em **Criar nova fábrica de dados** para criar uma nova.
+
+    ![Configurar o Data Factory](media/sql-data-warehouse-load-with-data-factory/configure-data-factory.png)
 
 5. Na caixa de diálogo **Selecionar Data Factory**, a opção **Carregar dados** é selecionada por padrão. Clique em **Avançar** para começar a criar uma tarefa de carregamento de dados.
 
@@ -66,10 +66,10 @@ Agora você informa o Data Factory sobre o banco de dados SQL Server local do qu
 
     ![Escolher a fonte do SQL Server](media/sql-data-warehouse-load-with-data-factory/choose-sql-server-source.png)
 
-2. Uma caixa de diálogo **Especificar o banco de dados SQL Server local** será exibida. O primeiro campo **Nome da conexão** é preenchido automaticamente. O segundo campo solicita o nome do **Gateway**. Se o armazenamento de dados de origem for local ou estiver em uma máquina virtual do Azure IaaS, o gateway será necessário. Se estiver usando uma fábrica de dados existente que já tenha um gateway, você poderá reutilizar o gateway, selecionando-o na lista suspensa. Clique no link **Criar Gateway** para criar um Gateway de Gerenciamento de Dados.  
+2. Uma caixa de diálogo **Especificar o banco de dados SQL Server local** será exibida. O primeiro campo **Nome da conexão** é preenchido automaticamente. O segundo campo solicita o nome do **Gateway**. Se estiver usando uma fábrica de dados existente que já tenha um gateway, você poderá reutilizar o gateway, selecionando-o na lista suspensa. Clique no link **Criar Gateway** para criar um Gateway de Gerenciamento de Dados.  
 
     > [!NOTE]
-    > Um gateway tem uma relação de 1-1 com uma fábrica de dados. Ele não pode ser usado de outra data factory, mas pode ser usado por várias tarefas de carregamento de dados na mesma fábrica de dados. Um gateway pode ser usado para se conectar a vários repositórios de dados durante a execução de tarefas de carregamento de dados.
+    > Se o armazenamento de dados de origem for local ou estiver em uma máquina virtual do Azure IaaS, será necessário usar um gateway de gerenciamento de dados. Um gateway tem uma relação de 1-1 com uma fábrica de dados. Ele não pode ser usado de outra data factory, mas pode ser usado por várias tarefas de carregamento de dados na mesma fábrica de dados. Um gateway pode ser usado para se conectar a vários repositórios de dados durante a execução de tarefas de carregamento de dados.
     >
     > Para obter informações detalhadas sobre o gateway, consulte o artigo [Gateway de Gerenciamento de Dados](../data-factory/data-factory-data-management-gateway.md).
 
@@ -84,9 +84,11 @@ Agora você informa o Data Factory sobre o banco de dados SQL Server local do qu
 5. Aguarde a conclusão da instalação do gateway. Depois que o gateway for registrado com êxito e estiver online, a janela pop-up será fechada e o novo gateway será exibido no campo do gateway. Em seguida, preencha o restante dos campos obrigatórios como se segue e clique em **Avançar**.
     - **Nome do servidor**: nome do SQL Server local.
     - **Nome do banco de dados**: banco de dados SQL Server.
-    - **Criptografia de credencial**: nenhuma.
+    - **Criptografia de credencial**: use o padrão "Pelo navegador da Web".
     - **Tipo de autenticação**: escolha o tipo de autenticação que está sendo usado.
     - **Nome de usuário** e **senha**: insira o nome de usuário e a senha de um usuário que tem permissão para copiar os dados.
+
+    ![Iniciar a instalação Expressa](media/sql-data-warehouse-load-with-data-factory/configure-sql-server.png)
 
 6. A próxima etapa é escolher as tabelas das quais os dados serão copiados. Filtre as tabelas usando palavras-chave. Além disso, você pode visualizar o esquema de dados e tabela no painel inferior. Depois de concluir a seleção, clique em **Avançar**.
 
@@ -100,11 +102,11 @@ Agora você informa ao Data Factory sobre as informações de destino.
 
     ![Configurar o destino](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 
-2. É exibido um mapeamento de tabela inteligente, que mapeia tabelas de origem para tabelas de destino com base em nomes de tabelas. Ajuste o mapeamento para qualquer tabela e o restante é mapeado automaticamente pelo aprendizado do exemplo. Examine e clique em **Avançar**.
+2. É exibido um mapeamento de tabela inteligente, que mapeia tabelas de origem para tabelas de destino com base em nomes de tabelas. Se a tabela não existir no destino, o ADF criará uma por padrão com o mesmo nome (isso se aplica ao SQL Server ou ao Banco de Dados SQL do Azure como fonte). Também é possível mapear para uma tabela existente. Examine e clique em **Avançar**.
 
     ![Mapear tabelas](media/sql-data-warehouse-load-with-data-factory/table-mapping.png)
 
-3. Examine o mapeamento de esquema e procure mensagens de erro. O mapeamento inteligente é baseado no nome da coluna. Se houver uma conversão de tipo de dados sem suporte entre a coluna de origem e de destino, você verá uma mensagem de erro juntamente com a tabela correspondente.
+3. Examine o mapeamento de esquema e procure mensagens de erro ou de aviso. O mapeamento inteligente é baseado no nome da coluna. Se houver uma conversão de tipo de dados sem suporte entre a coluna de origem e de destino, você verá uma mensagem de erro juntamente com a tabela correspondente. Se você escolher permitir que o Data Factory crie automaticamente as tabelas, a conversão apropriada de tipo de dados poderá ocorrer se for necessário corrigir a incompatibilidade entre os repositórios de origem e destino.
 
     ![Mapear esquema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
@@ -165,6 +167,6 @@ Para explorar seus dados no SQL Data Warehouse, consulte os seguintes artigos:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

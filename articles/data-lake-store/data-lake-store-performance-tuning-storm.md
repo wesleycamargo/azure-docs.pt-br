@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 translationtype: Human Translation
-ms.sourcegitcommit: ebf876f946eceddce9c8c990d8b28fcb969bec23
-ms.openlocfilehash: 112226028c053cc91f9fb2bc0e5978f7cb2343ed
+ms.sourcegitcommit: 518d586a921926874cd959587ad2730ad346df71
+ms.openlocfilehash: cae3f0192d6b0e6204ede4c1855b731a2ffa4ae1
 
 
 ---
@@ -37,8 +37,8 @@ Existem alguns fatores que precisam ser considerados ao ajustar o desempenho de 
 É possível obter um melhor desempenho aumentando a simultaneidade de E/S de e para o Azure Data Lake Store.  
 Uma topologia Storm tem um conjunto de configurações que determinam o paralelismo:
 * Número de processos de trabalho: os trabalhos são distribuídos uniformemente entre as VMs.
-* Número de instâncias de executor de spout
-* Número de instâncias de executor de bolt
+* Número de instâncias de spout executor
+* Número de instâncias de bolt executor
 * Número de tarefas de spout
 * Número de tarefas de bolt
 
@@ -144,6 +144,6 @@ Experimente este exemplo localizado no [github](https://github.com/hdinsight/sto
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

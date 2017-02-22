@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 01/17/2017
+ms.date: 02/08/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: efa4a720a306aaedcd2d5857d30d34394a76f5f6
-ms.openlocfilehash: b2f8537aa58e6dc78051752a13f555331042972a
+ms.sourcegitcommit: d19a85e127b548e5f8979358879e8b9354934904
+ms.openlocfilehash: ca09ac90dfcf125291bc0b312b16e28160a18527
 
 
 ---
@@ -26,7 +26,10 @@ Se estiver procurando implementar boas experiências de pesquisa em seus dados d
 
 Para configurar isso, você deve ter um [serviço do Azure Search](search-create-service-portal.md), além de um índice, um indexador e uma fonte de dados. Você pode criar esses objetos usando uma destas abordagens: [portal](search-import-data-portal.md), [SDK do .NET](/dotnet/api/microsoft.azure.search) ou [API REST](/rest/api/searchservice/) para todas as linguagens não .NET. 
 
-Se você optar pelo portal, o [Assistente para Importação de Dados](search-import-data-portal.md) ajudará com a criação de todos esses objetos. Normalmente, um índice padrão pode ser gerado para você.
+Se você optar pelo portal, o [Assistente para Importação de Dados](search-import-data-portal.md) ajudará na criação de todos esses objetos. Normalmente, um índice padrão pode ser gerado para você.
+
+> [!NOTE]
+> Você pode iniciar o assistente **Importar dados** do painel do DocumentDB para simplificar a indexação dessa fonte de dados. Em navegação à esquerda, vá para **Coleções** > **Adicionar Azure Search** para começar.
 
 ## <a name="a-idconceptsaazure-search-indexer-concepts"></a><a id="Concepts"></a>Conceitos do indexador da Pesquisa do Azure
 A Pesquisa do Azure dá suporte à criação e ao gerenciamento de fontes de dados (incluindo o Banco de Dados de Documentos) e de indexadores que operam em relação a essas fontes de dados.
@@ -291,6 +294,6 @@ Parabéns! Você acaba de aprender como integrar o Banco de Dados do Azure à Pe
 * Para saber mais sobre a Pesquisa do Azure, confira a [página do serviço de Pesquisa](https://azure.microsoft.com/services/search/).
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

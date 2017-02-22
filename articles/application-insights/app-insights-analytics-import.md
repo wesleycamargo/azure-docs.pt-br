@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 47c3491b067d5e112db589672b68e7cfc7cbe921
-ms.openlocfilehash: eb89c6f485f2321f729dcfe650af4355de84a9ac
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,7 +24,7 @@ Importe quaisquer dados tabulares para o [Analytics](app-insights-analytics.md),
 
 Você pode importar dados para o Analytics usando seu próprio esquema. Ele não precisa usar os esquemas padrão do Application Insights, como solicitação ou rastreamento.
 
-No momento, você pode importar arquivos CSV (valores separados por vírgulas) ou formatos semelhantes usando separadores de tabulação ou ponto-e-vírgula.
+Você pode importar arquivos JSON ou DSV (valores separados por delimitador - vírgula, ponto-e-vírgula ou tabulação).
 
 Há três situações em que a importação para o Analytics é útil:
 
@@ -72,12 +72,15 @@ Antes de importar dados, você deve definir uma *fonte de dados*, que especifica
 
     ![Adicionar uma nova fonte de dados](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Siga as instruções para carregar um arquivo de dados de exemplo.
+2. Carregar um arquivo de dados de exemplo. (Opcional, se você carregar uma definição de esquema).
 
- * A primeira linha do exemplo pode ser de cabeçalhos de coluna. (Você pode alterar os nomes dos campos na próxima etapa.)
- * O exemplo deve incluir pelo menos 10 linhas de dados.
+    A primeira linha do exemplo pode ser de cabeçalhos de coluna. (Você pode alterar os nomes dos campos na próxima etapa.)
 
-3. Revise o esquema que o assistente inferiu a partir do seu exemplo. Você pode ajustar os tipos deduzidos das colunas, se necessário.
+    O exemplo deve incluir pelo menos 10 linhas de dados.
+
+3. Examine o esquema obtido pelo assistente. Se ele inferiu os tipos a partir de um exemplo, provavelmente será necessário ajustar os tipos inferidos das colunas.
+
+   (Opcional). Carregue uma definição de esquema. Veja o formato a seguir.
 
 4. Selecione um carimbo de data/hora. Todos os dados no Analytics devem ter um campo de carimbo de data/hora. Ele deve ter o tipo `datetime`, mas não precisa ser chamado de ‘carimbo de data/hora’. Se os dados tiverem uma coluna com data e hora no formato ISO, escolha esta opção como a coluna de carimbo de data/hora. Caso contrário, escolha "conforme os dados chegarem", e o processo de importação adicionará um campo de carimbo de data/hora.
 
@@ -85,6 +88,37 @@ Antes de importar dados, você deve definir uma *fonte de dados*, que especifica
 
 5. Crie a fonte de dados.
 
+### <a name="schema-definition-file-format"></a>Formato de arquivo da definição de esquema
+
+Em vez de editar o esquema na interface do usuário, você pode carregar a definição de esquema a partir de um arquivo. O formato de definição de esquema é o seguinte: 
+
+Formato delimitado 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Formato JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Cada coluna é identificada pelo local, nome e tipo. 
+
+* Local - para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
+* Nome - o nome exibido da coluna.
+* Tipo - o tipo de dados dessa coluna.
+ 
+Caso alguns dados de exemplo tenham sido usados, e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final. 
+
+O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema do formato JSON não precisa mapear todas as chaves que estão localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
 
 ## <a name="import-data"></a>Importar dados
 
@@ -271,7 +305,6 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
                 using (var response = (HttpWebResponse)await request.GetResponseAsync())
@@ -334,6 +367,6 @@ Use este código para cada blob.
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

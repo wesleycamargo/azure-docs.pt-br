@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/15/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: ab167a74ddab1e38369ce9fa466022365ca08bee
+ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
+ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
 
 
 ---
@@ -44,6 +44,18 @@ O modo recomendado de atualização do aplicativo é o modo monitorado, que é o
 
 O manual não monitorado precisaria de intervenção manual após cada atualização em um domínio de atualização, a fim de disparar a atualização no domínio de atualização seguinte. Nenhuma verificação de integridade do Service Fabric é executada. O administrador executa as verificações de integridade ou de status antes de iniciar a atualização no próximo domínio de atualização.
 
+## <a name="upgrade-default-services"></a>Fazer upgrade dos serviços padrão
+Os serviços padrão no aplicativo Service Fabric podem ser atualizados durante o processo de upgrade de um aplicativo. Os serviços padrão são definidos no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application). As regras padrão de upgrade dos serviços padrão são:
+
+1. Os serviços padrão no novo [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) que não existem no cluster são criados.
+> [!TIP]
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) precisa ser definido como true para habilitar as regras a seguir. Esse recurso é compatível com a v5.5.
+
+2. Os serviços padrão existentes no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior e na nova versão são atualizados. As descrições de serviço na nova versão substituem aquelas que já estão no cluster. A atualização do aplicativo é revertida automaticamente na falha de atualização do serviço padrão.
+3. Os serviços padrão no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior, mas não na nova versão, são excluídos. **Observe que essa exclusão de serviços padrão não pode ser revertida.**
+
+Caso o upgrade de um aplicativo seja revertido, os serviços padrão serão revertidos para o status antes do início do upgrade. Mas os serviços excluídos nunca poderão ser criados.
+
 ## <a name="application-upgrade-flowchart"></a>Fluxograma de atualização de aplicativo
 O fluxograma após este parágrafo pode ajudar na compreensão do processo de atualização de um aplicativo do Service Fabric. Mais especificamente, o fluxo descreve como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, ajudam a controlar quando a atualização em um domínio de atualização é considerada um êxito ou falha.
 
@@ -62,10 +74,10 @@ Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultan
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
-[imagem]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
+[image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

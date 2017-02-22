@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 80a706aad4ce05777cd2df59ab2504e696b02781
-ms.openlocfilehash: a8b702e2523658b59faf3ee7dace6c711210a6f7
+ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
+ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
 
 ---
 
@@ -61,11 +61,11 @@ Quando a instalação for concluída, o processo de autenticação será o mesmo
 
 Primeiro o usuário tenta acessar um recurso que confia nos tokens emitidos pelo Azure AD, como o SharePoint Online. O SharePoint Online, então, redireciona o usuário para autenticação com o Azure AD. Depois, o usuário fornece o nome de usuário para que o Azure AD possa estabelecer se o logon único está habilitado para a organização. Supondo que o logon único esteja habilitado para a organização, ocorre o seguinte.
 
-1.  O Azure AD desafia o cliente, por meio da resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
-2.  O cliente solicita um tíquete do Active Directory para o Azure AD.
-3.  O Active Directory localiza a conta de computador, criada pelo Azure AD Connect, e retorna um tíquete Kerberos para o cliente, criptografado com o segredo da conta do computador. O tíquete inclui a identidade do usuário atualmente conectado ao computador.
-4.  O cliente envia o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
-5.  O Azure AD descriptografa o tíquete Kerberos usando a chave compartilhada anteriormente. Então o Azure AD retorna um token para o usuário ou pede que o usuário forneça provas adicionais, como autenticação multifator, conforme exigido pelo recurso.
+1.    O Azure AD desafia o cliente, por meio da resposta 401 Não autorizado, para fornecer um tíquete Kerberos.
+2.    O cliente solicita um tíquete do Active Directory para o Azure AD.
+3.    O Active Directory localiza a conta de computador, criada pelo Azure AD Connect, e retorna um tíquete Kerberos para o cliente, criptografado com o segredo da conta do computador. O tíquete inclui a identidade do usuário atualmente conectado ao computador.
+4.    O cliente envia o tíquete Kerberos que adquiriu do Active Directory para o Azure AD.
+5.    O Azure AD descriptografa o tíquete Kerberos usando a chave compartilhada anteriormente. Então o Azure AD retorna um token para o usuário ou pede que o usuário forneça provas adicionais, como autenticação multifator, conforme exigido pelo recurso.
 
 O logon único é um recurso oportunista, o que significa que, se ele falhar por algum motivo, o usuário precisará apenas digitar sua senha na página de logon, como de costume.
 
@@ -90,20 +90,20 @@ Por padrão, os navegadores não tentam enviar credenciais a servidores Web, a m
 
 Como as URLs usadas para logon único no Azure AD contêm um ponto final, elas precisam ser adicionados explicitamente à zona de Intranet do computador. Essa configuração faz com que o navegador envie automaticamente as credenciais do usuário conectado no momento na forma de um tíquete Kerberos para o Azure AD. A maneira mais fácil de adicionar as URLs necessárias à zona da Intranet é simplesmente criar uma política de grupo no Active Directory.
 
-1.  Abra as ferramentas de Gerenciamento de Política de Grupo.
-2.  Edite a política de grupo aplicada a todos os usuários, por exemplo a **Política de Domínio Padrão**.
-3.  Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona**.
+1.    Abra as ferramentas de Gerenciamento de Política de Grupo.
+2.    Edite a política de grupo aplicada a todos os usuários, por exemplo a **Política de Domínio Padrão**.
+3.    Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona**.
 ![Logon Único](./media/active-directory-aadconnect-sso/sso6.png)  
-4.  Habilite a política e insira os valores/dados a seguir na caixa de diálogo.  
+4.    Habilite a política e insira os valores/dados a seguir na caixa de diálogo.  
 
-        Value: https://autologon.microsoftazuread-sso.com  
+        Valor: https://autologon.microsoftazuread-sso.com  
         Data: 1  
-        Value: https://aadg.windows.net.nsatc.net  
+        Valor: https://aadg.windows.net.nsatc.net  
         Data: 1  
-5.  O arquivo deve ser semelhante ao seguinte:  
+5.    O arquivo deve ser semelhante ao seguinte:  
 ![Logon único](./media/active-directory-aadconnect-sso/sso7.png)
 
-6.  Clique em **OK** e em **OK** novamente.
+6.    Clique em **OK** e em **OK** novamente.
 
 Agora os usuários estão prontos para o logon único.
 
@@ -113,12 +113,12 @@ Agora os usuários estão prontos para o logon único.
 ## <a name="troubleshooting-single-sign-on-issues"></a>Solução de problemas de logon único
 É importante garantir que o cliente esteja configurado corretamente para o logon único, incluindo o seguinte:
 
-1.  https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net são definidos dentro da zona de Intranet.
-2.  Verifique se a estação de trabalho está associada ao domínio.
-3.  Verifique se o usuário está conectado com uma conta de domínio.
-4.  Verifique se o computador está conectado à rede corporativa.
-5.  Verifique se a hora da máquina está sincronizada com o Active Directory e se a hora dos controladores de domínio está dentro do intervalo de 5 minutos após a hora correta.
-6.  Limpe os tíquetes Kerberos existentes dos clientes, por exemplo, executando o comando **klist purge** em um prompt de comando.
+1.    https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net são definidos dentro da zona de Intranet.
+2.    Verifique se a estação de trabalho está associada ao domínio.
+3.    Verifique se o usuário está conectado com uma conta de domínio.
+4.    Verifique se o computador está conectado à rede corporativa.
+5.    Verifique se a hora da máquina está sincronizada com o Active Directory e se a hora dos controladores de domínio está dentro do intervalo de 5 minutos após a hora correta.
+6.    Limpe os tíquetes Kerberos existentes dos clientes, por exemplo, executando o comando **klist purge** em um prompt de comando.
 
 Se foi possível confirmar os requisitos acima, você pode examinar os logs do console do navegador para saber mais. Os logs de console podem ser encontrados em ferramentas de desenvolvedor. Isso ajudará a determinar o possível problema.
 
@@ -135,6 +135,6 @@ Se a auditoria de êxito estiver habilitada, sempre que um usuário entrar com o
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

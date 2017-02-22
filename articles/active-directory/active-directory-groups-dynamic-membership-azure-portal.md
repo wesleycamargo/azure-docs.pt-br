@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/14/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: da120b0ea1bfa7a0afcb6eed864c4eadbd2bbec0
+ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
+ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
 
 
 ---
 # <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Usando atributos para criar regras avançadas para a associação de grupo na visualização do Azure Active Directory
-O portal do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos da visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md)  Este artigo detalha os atributos de regra e a sintaxe para criar essas regras avançadas.
+O portal do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos da visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md) Este artigo detalha os atributos de regra e a sintaxe para criar essas regras avançadas.
 
 ## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -84,7 +84,7 @@ A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorre
 | Erro de análise de consulta | Erros de uso | Uso corrigido |
 | --- | --- | --- |
 | Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/>deve corresponder a uma na [lista de propriedades com suporte](#supported-properties). |
-| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/> é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
+| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
 | Erro: Erro de compilação de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>O operador lógico deve corresponder a uma das propriedades com suporte listadas acima. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error na expressão regular. |
 | Erro: Expressão binária não está no formato correto. |user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
@@ -119,6 +119,7 @@ Operadores permitidos
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou $null |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou $null |(user.country -eq "valor") |
+| CompanyName | Qualquer valor de cadeia de caracteres ou $null | (user.CompanyName -eq "valor") |
 | department |Qualquer valor de cadeia de caracteres ou $null |(user.department -eq "value") A propriedade  |
 | displayName |Um valor de cadeia de caracteres. |(user. DisplayName -eq "valor") |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou $null |user.facsimileTelephoneNumber -eq ("valor") |
@@ -194,7 +195,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 | isManaged |true false null |(device.isManaged -eq "false") |
 | isCompliant |true false null |(device.isCompliant -eq "true") |
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
 
 * [Consultar grupos existentes](active-directory-groups-view-azure-portal.md)
@@ -205,6 +206,6 @@ Esses artigos fornecem mais informações sobre grupos no Azure Active Directory
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

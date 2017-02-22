@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 304247b5ed897f39e2db29ca8a5ae9d797e27327
-ms.openlocfilehash: 473688e6610ede44e939b0b384bd8a1604bc5526
+ms.sourcegitcommit: 2687011c449715d2ce5f491c3da501f38035d631
+ms.openlocfilehash: 9c7b708c2bd923733cd034116453fcca2ada949b
 
 
 ---
@@ -83,7 +83,7 @@ Quando você tiver definido suas configurações de módulo, poderá publicar se
 2. Se você ainda não tiver entrado no Azure por meio do IntelliJ, será solicitada a entrada em sua conta do Azure. (Se você tiver várias contas do Azure, alguns dos avisos mostrados durante o processo de entrada poderão ser exibidos mais de uma vez, mesmo se forem aparentemente os mesmos. Quando isso acontecer, continue seguindo as instruções de entrada.)
    
     ![Caixa de diálogo Login do Azure][07]
-3. Após o logon bem-sucedido em sua conta do Azure, a caixa de diálogo **Gerenciar Assinaturas** exibirá uma lista de assinaturas associadas às suas credenciais. (Se houver várias assinaturas listadas e você quiser trabalhar com apenas um subconjunto específico delas, poderá, opcionalmente, desmarcar as que deseja usar.) Depois de selecionar suas assinaturas, clique em **Fechar**.
+3. Após o logon bem-sucedido em sua conta do Azure, a caixa de diálogo **Gerenciar Assinaturas** exibirá uma lista de assinaturas associadas às suas credenciais. (Se houver várias assinaturas listadas e você quiser trabalhar com apenas um subconjunto específico, será possível desmarcar as que não deseja usar.) Depois de selecionar suas assinaturas, clique em **Fechar**.
    
     ![Gerenciar Assinaturas][08]
 4. Quando a caixa de diálogo **Implantar no Contêiner do Aplicativo Web do Azure** for mostrada, ela exibirá todos os contêineres do Aplicativo Web criados anteriormente por você; se você não tiver criado nenhum contêiner, a lista estará vazia.
@@ -257,6 +257,6 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

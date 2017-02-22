@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 535badb5444fd4c29211f83556c0a750ee8adf70
-ms.openlocfilehash: 0e031760b84aa59fefda2469606475b36dbc1ff7
+ms.sourcegitcommit: 1b12d8ef3bbbfd2688f7bbd47968332e83a35252
+ms.openlocfilehash: 6cb5aee751e89ad1e825fae4fdfd460f1bfd8b6c
 
 
 ---
@@ -93,13 +93,14 @@ Também é possível encontrar informações de status no log de eventos em **Lo
 
   - Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence.
 
-  - Um usuário atingiu o limite de dispositivos. Consulte Introdução ao Registro de Dispositivo do Azure Active Directory.
+  - Um usuário atingiu o limite de dispositivos. Consulte a Introdução ao registro de dispositivos do Azure Active Directory.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, veja [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-conditional-access-automatic-device-registration-faq.md) 
 
 
-<!--HONumber=Feb17_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

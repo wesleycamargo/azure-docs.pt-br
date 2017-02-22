@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: dba7f1ac2257246f14acf79de6e9fc714689b276
+ms.sourcegitcommit: 24ccafb4df95e0010416485199e19f81e1ae31aa
+ms.openlocfilehash: 11017c7c0a761569892aebcd085d5d3fb2d67a69
 
 
 ---
@@ -26,7 +26,7 @@ Há três métodos recomendados para exportar dados do Application Insights para
 
 * [**Adaptador do Power BI**](#power-pi-adapter) -configure um painel completo de telemetria do seu aplicativo. O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
 * [**Exportar as consultas do Analytics**](#export-analytics-queries) -escreva qualquer consulta que quiser usando o Analytics e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
-* [**Exportação contínua e Stream Analytics**](app-insights-export-stream-analytics.md) - isso envolve mais trabalho para configurar. Será útil se você quiser manter os dados por longos períodos. Caso contrário, os outros métodos serão recomendados.
+* [**Exportação contínua e Stream Analytics**](app-insights-export-stream-analytics.md) – isso envolve mais trabalho para configurar. Será útil se você quiser manter os dados por longos períodos. Caso contrário, os outros métodos serão recomendados.
 
 ## <a name="power-bi-adapter"></a>Adaptador do Power BI
 Esse método cria um painel completo de telemetria para você. O conjunto de dados inicial é predefinido, mas você pode adicionar mais dados a ele.
@@ -92,6 +92,6 @@ Se seu aplicativo enviar muitos dados, a funcionalidade de amostragem adaptável
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,9 @@
 ---
-title: Migrando para o Armazenamento Premium do Azure | Microsoft Docs
-description: "Migre as máquinas virtuais existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
+title: Migrando VMs para o Armazenamento Premium do Azure | Microsoft Docs
+description: "Migre VMs existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -12,16 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
-ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
 
 
 ---
-# <a name="migrating-to-azure-premium-storage"></a>Migrando para o Armazenamento do Azure Premium
-## <a name="overview"></a>Visão geral
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o Armazenamento Premium do Azure (Discos não gerenciados)
+
+> [!NOTE]
+> Este artigo explica como migrar uma VM que usa discos Standard não gerenciados para uma VM que usa discos Premium não gerenciados. É recomendável usar o Azure Managed Disks para novas VMs e converter os discos não gerenciados anteriores em disco gerenciados. O Managed Disks tratam das contas de armazenamento subjacentes para você. Para saber mais, confira [Managed Disks Overview](storage-managed-disks-overview.md) (Visão geral do Managed Disks).
+>
+
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Você pode tirar proveito da velocidade e desempenho desses discos migrando os discos de VM do aplicativo para o Armazenamento do Azure Premium.
 
 O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Azure a se preparar melhor para fazer uma transição sem problemas de seu sistema atual para o Armazenamento Premium. O guia aborda três principais componentes nesse processo:
@@ -34,7 +38,6 @@ Você pode migrar VMs de outras plataformas para o Armazenamento do Azure Premiu
 
 > [!NOTE]
 > Você pode encontrar uma visão geral de recursos e os preços do Armazenamento Premium em [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho de Máquina Virtual do Azure](storage-premium-storage.md). É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
->
 >
 
 A conclusão do processo de migração em sua totalidade pode exigir ações adicionais antes e depois das etapas fornecidas neste guia. Os exemplos incluem a configuração pontos de extremidade ou redes virtuais ou alterações de código no próprio aplicativo, o que pode exigir algum tempo de inatividade no aplicativo. Essas ações são exclusivas para cada aplicativo e devem ser concluídas junto com as etapas fornecidas neste guia para fazer a transição completa para o Armazenamento Premium da maneira mais simples possível.
@@ -773,6 +776,6 @@ Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azur
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

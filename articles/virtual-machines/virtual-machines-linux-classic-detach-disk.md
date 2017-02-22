@@ -1,5 +1,5 @@
 ---
-title: Desanexar um disco de uma VM do Linux | Microsoft Docs
+title: Desanexar um disco de uma VM do Linux no Azure | Microsoft Docs
 description: "Saiba como desanexar um disco de dados de uma máquina virtual do Azure criada usando o modelo de implantação clássica."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
-ms.openlocfilehash: f3b622ae6fd5f29ba92686ffeb3a3806b67b7e3a
+ms.sourcegitcommit: 9bb7878836c0444d3ccc058fd89b8bbd9f6e255a
+ms.openlocfilehash: 3ba234eca45e643a235abf120efc6d8f82af461f
 
 
 ---
@@ -36,6 +36,6 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

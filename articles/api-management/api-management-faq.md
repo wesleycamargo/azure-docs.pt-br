@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
-ms.openlocfilehash: f4f3ee081d7c89fb5bc01552cb2e3ce01dd5381a
+ms.sourcegitcommit: 8d5c21f8e746a9bcddc2eb9b0294836e0de55bf2
+ms.openlocfilehash: 6300aa7030cfd29ec4b8b1db7b42227855fddbcf
 
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
@@ -44,6 +44,7 @@ Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Ge
 * [Por que obtenho uma falha de autenticação ao tentar clonar um repositório GIT?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [O Gerenciamento de API funciona com o Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 * [Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
+* [Há restrições ou problemas conhecidos com a importação da minha API?](#api-management-api-import-restrictions)
 
 ### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Como fazer uma pergunta à equipe de Gerenciamento de API do Microsoft Azure?
 Você pode em contato conosco utilizando uma das seguintes opções:
@@ -90,7 +91,6 @@ Agora o colaborador recém-adicionado pode usar [cmdlets](https://msdn.microsoft
 2. Defina o contexto para a assinatura com o serviço usando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
 3. Obter uma única URL de logon usando `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Use a URL para acessar o portal de administração.
-
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que a política que desejo adicionar não está disponível no editor de política?
 Se a política que você deseja adicionar aparecer esmaecida ou sombreada no editor de política, verifique se você está no escopo correto para a política. Cada declaração de política foi projetada para uso nas seções de política e escopos específicas. Para examinar as seções de política e escopos de uma política, confira a seção de uso da política em [Políticas de Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
@@ -100,7 +100,6 @@ Você tem algumas opções para usar o controle de versão de API no Gerenciamen
 * No Gerenciamento de API, você pode configurar as APIs para representar diferentes versões. Por exemplo, você pode ter duas APIs diferentes, MyAPIv1 e MyAPIv2. Um desenvolvedor pode escolher a versão que deseja usar.
 * Você também pode configurar sua API com uma URL de serviço que não inclua um segmento de versão, por exemplo, https://my.api. Em seguida, configure um segmento de versão no modelo [Regravar URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operação . Por exemplo, você pode ter uma operação com um [modelo de URL](api-management-howto-add-operations.md#url-template) chamado /resource e um modelo de [URL de regravação](api-management-howto-add-operations.md#rewrite-url-template) chamado /v1/Resource. Você pode alterar o valor de segmento de versão separadamente para cada operação.
 * Se você quiser manter um segmento de versão "padrão" na URL de serviço da API, em operações selecionadas, defina uma política que usa a política [Definir serviço de back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) para alterar o caminho de solicitação de back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Como configurar vários ambientes em uma única API?
 Para configurar vários ambientes, por exemplo, um ambiente de teste e um ambiente de produção, em uma única API, você tem duas opções. Você pode:
 
@@ -148,9 +147,11 @@ Sim. O Gerenciamento de API funciona com o Azure ExpressRoute.
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Posso mover um serviço de Gerenciamento de API de uma assinatura para outra?
 Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
+### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Há restrições ou problemas conhecidos com a importação da minha API?
+[Restrições e problemas conhecidos](api-management-api-import-restrictions.md) para formatos Open API (Swagger), WSDL e WADL.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

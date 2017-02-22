@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 6d2b0d0c28963693f8fa5607200e73572ea748a0
+ms.sourcegitcommit: 8f70d9aeb0a407cdb76a5ce25eb620be58bb2659
+ms.openlocfilehash: f453dcafe629c871dc29742208e4864454f4c57e
 
 
 ---
@@ -27,7 +27,7 @@ Algumas vezes, o significado do termo “aplicativo” do Azure Active Directory
 Um aplicativo do Azure AD é mais amplo do que apenas um software. É um termo conceitual, que se refere não apenas ao software de aplicativo, mas também a seu registro (também conhecido como: configuração de identidade) no Azure AD, o que permite que ele participe de "conversas" de autenticação e autorização em tempo de execução. Por definição, um aplicativo pode funcionar em uma função de [cliente](active-directory-dev-glossary.md#client-application) (consumindo um recurso), uma função de [servidor de recursos](active-directory-dev-glossary.md#resource-server) (expondo APIs a clientes) ou ambos. O protocolo de conversa é definido por um [fluxo de Concessão de Autorização OAuth 2.0](active-directory-dev-glossary.md#authorization-grant), com o objetivo de permitir que o cliente/recurso acesse/proteja dados de um recurso, respectivamente. Agora vamos nos aprofundar e ver como o modelo de aplicativo do Azure AD representa um aplicativo internamente. 
 
 ## <a name="application-registration"></a>Registro de aplicativo
-Quando você registra um aplicativo no [portal clássico do Azure][AZURE-Classic-Portal], dois objetos são criados no locatário do Azure AD: um objeto de aplicativo e um objeto de entidade de serviço.
+Quando você registra um aplicativo no [Portal do Azure][AZURE-Portal], dois objetos são criados no locatário do Azure AD: um objeto de aplicativo e um objeto de entidade de serviço.
 
 #### <a name="application-object"></a>Objeto de aplicativo
 Um aplicativo do Azure AD é *definido* por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, sendo conhecido como o locatário "inicial" do aplicativo. O objeto de aplicativo fornece informações relacionadas à identidade de um aplicativo e é o modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso em tempo de execução. 
@@ -69,10 +69,10 @@ Um objeto de entidade de serviço do aplicativo pode ser acessado por meio da AP
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://manage.windowsazure.com
+[AZURE-Classic-Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

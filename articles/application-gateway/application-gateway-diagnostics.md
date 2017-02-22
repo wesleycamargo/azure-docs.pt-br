@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ca5291e00fcf4fbd9927fe3cadad01f62b235d10
-ms.openlocfilehash: c6829c94bb8e5de3bec155bf326ac61c300477cb
+ms.sourcegitcommit: d65b354bc972c8268f1b4f072843b5bf4977a7c4
+ms.openlocfilehash: 2b37bf92ce8945996eb64477c28bea845b7df516
 
 
 ---
@@ -210,6 +210,9 @@ Esse log só será gerado se você o tiver habilitado por Application Gateway co
 }
 ```
 
+> [!NOTE]
+> A latência é calculada a partir do momento que o primeiro byte da solicitação HTTP é recebido até a hora em que o último byte da resposta HTTP é enviado. É a soma do tempo de processamento do Gateway de Aplicativo, mais o custo de rede até o back-end, mais o tempo que o back-end leva para processar a solicitação.
+
 ### <a name="firewall-log"></a>Log de firewall
 
 Esse log só será gerado se você o tiver habilitado por Application Gateway como detalhado nas etapas anteriores. Esse log também exige a configuração de um firewall de aplicativo Web em um gateway de aplicativo. Os dados são armazenados na conta de armazenamento especificada quando você habilitou o registro em log. Os seguintes dados são registrados em log:
@@ -314,6 +317,6 @@ Para entender mais sobre webhooks e como usá-los com alertas, visite [Configura
 [10]: ./media/application-gateway-diagnostics/figure10.png
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

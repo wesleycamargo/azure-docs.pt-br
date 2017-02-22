@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/09/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 23979aec895649d80aab21d729833a846c4aeb19
-ms.openlocfilehash: 176aad9c25af6f4f31cf9f7c2152c8d63b3126a4
+ms.sourcegitcommit: fcb2c38b18e40d3ca4406810e523ae339d612bcf
+ms.openlocfilehash: b2049e2b3673ddc0455fc07c298f1054c8c8e78e
 
 
 ---
@@ -32,8 +32,7 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 
 | O Barramento de                 | Tipo de recurso                           | Logs        | Métricas     | Solução |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Análise de Rede do Azure (visualização)](log-analytics-azure-networking-analytics.md) |
-| Gerenciamento da API          | Microsoft.ApiManagement/service         |             | Diagnostics | |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Análise de Gateway de Aplicativo do Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | Conector   | Conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (visualização) |
 | Contas de automação     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [Mais informações](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Contas do Lote          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
@@ -43,10 +42,10 @@ Há quatro maneiras diferentes de coletar logs e métricas para os serviços do 
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Namespace do Hub de Eventos     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Cofre da Chave               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics (visualização)](log-analytics-azure-key-vault.md) |
+| Cofre da Chave               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Balanceadores de Carga          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Aplicativos Lógicos              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Grupos de segurança de rede | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Análise de Rede do Azure (visualização)](log-analytics-azure-networking-analytics.md) |
+| Grupos de segurança de rede | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Análise de Grupo de Segurança de Rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Serviços de pesquisa         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Namespace do Barramento de Serviço   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (visualização)](log-analytics-service-fabric.md) |
@@ -112,6 +111,7 @@ Você pode usar um modelo semelhante ao mostrado abaixo para habilitar diagnóst
         }
 ```
 
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Enviar o diagnóstico do Azure para o armazenamento e depois para o Log Analytics
 
@@ -152,6 +152,6 @@ A Galeria de modelos do Azure tem [exemplos de como usar a Automação do Azure]
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e14e2227d95b396d7d281edfd367f0a24ac54f7a
+ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
+ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
 
 
 ---
@@ -25,9 +25,7 @@ O Azure AD (Azure Active Directory) usa o protocolo SAML 2.0 para permitir que o
 
 O protocolo SAML requer que o provedor de identidade (Azure AD) e o provedor de serviço (o aplicativo) troquem informações sobre si mesmos.
 
-Quando um aplicativo é registrado no Azure AD, o desenvolvedor do aplicativo registra informações relacionadas à federação no Azure AD. Isso inclui o **URI de Redirecionamento** e o **URI de Metadata** do aplicativo.
-
-O Azure AD usa o **URI de metadados** do serviço de nuvem para recuperar a chave de assinatura e o URI de logout do serviço de nuvem. Se o aplicativo não dá suporte a um URI de metadados, o desenvolvedor deve contatar o suporte da Microsoft para fornecer o URI de logout e a chave de assinatura.
+Quando um aplicativo é registrado no Azure AD, o desenvolvedor do aplicativo registra informações relacionadas à federação no Azure AD. Isso inclui o **URI de Redirecionamento** do aplicativo.
 
 O Azure Active Directory expõe pontos de extremidade de logon único e logout único comuns e específicos de locatário (independente do locatário). Essas URLs representam os locais endereçáveis (não são apenas identificadores) para que você possa ir ao ponto de extremidade ler os metadados.
 
@@ -39,7 +37,6 @@ Para obter informações sobre os documentos de metadados federados que o Azure 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

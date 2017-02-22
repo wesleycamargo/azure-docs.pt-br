@@ -1,23 +1,26 @@
-
 ---
-title: Gerenciando as Entidades dos Serviços de Mídia com a API REST | Microsoft Docs
-description: Saiba como gerenciar entidades de serviços de mídia com API REST.
+title: "Gerenciar entidades dos Serviços de Mídia com REST | Microsoft Docs"
+description: "Saiba como gerenciar entidades de serviços de mídia com API REST."
 author: juliako
 manager: dwrede
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 95262a32-0f2a-4286-b9e2-1a1ca6399b5b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/09/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 946ec4d9c2638cf65f725341dfad1d08751473c6
+ms.openlocfilehash: 534c6e42ace9f42b25fe287de14b02732ed496a4
+
 
 ---
-# <a name="managing-media-services-entities-with-rest-api"></a>Gerenciamento de entidades de serviços de mídia com API REST
+# <a name="managing-media-services-entities-with-rest"></a>Gerenciar entidades dos Serviços de Mídia com REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
@@ -26,15 +29,17 @@ ms.author: juliako
 
 O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado ao OData v3. Por isso, você pode adicionar, consultar, atualizar e excluir entidades exatamente como faria com qualquer outro serviço OData. As exceções serão indicadas, quando necessário. Para obter mais informações sobre OData, consulte [Documentação do protocolo Open Data](http://www.odata.org/documentation/).
 
-* Adicionando entidades 
-* Consultando entidades 
-* Enumerar através de grandes coleções de entidades
-* Atualizando entidades 
-* Excluindo entidades 
+Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com REST.
+
+
+>[!NOTE]
+> A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Por exemplo, no dia 1º de abril de 2017, qualquer registro de Trabalho em sua conta que seja mais antigo do que 31 de dezembro de 2016 será excluído automaticamente. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito neste tópico.
+
+## <a name="considerations-when-working-with-ams-rest"></a>Considerações ao trabalhar com AMS REST
+
+Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 
 > [!NOTE]
-> Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
-> 
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
 > Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
@@ -175,6 +180,9 @@ O exemplo a seguir mostra como excluir um localizador que foi usado para carrega
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

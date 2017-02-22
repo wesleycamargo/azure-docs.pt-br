@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1a2ea0753d12915075c055f9983773618bf6777d
-ms.openlocfilehash: 85c6a2296a4487ae549321d3ff07129bcbab5adf
+ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
+ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
 
 
 ---
@@ -241,7 +241,7 @@ Você pode implantar o Site Recovery para replicar máquinas virtuais e servidor
 **Arquitetura do sistema operacional convidado** | 64 bits | A verificação de pré-requisitos falhará se não houver suporte
 **Tamanho de disco do sistema operacional** | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 **Contagem de discos do sistema operacional** | 1 | A verificação de pré-requisitos falhará se não houver suporte.
-**Contagem de discos de dados** | 16 ou menos (o valor máximo é uma função do tamanho da máquina virtual que está sendo criada. 16 = XL) | A verificação de pré-requisitos falhará se não houver suporte
+**Contagem de discos de dados** | 64 ou menos se você estiver replicando **VMs do VMware no Azure**; 16 ou menos se você estiver replicando **VMs do Hyper-V no Azure** | A verificação de pré-requisitos falhará se não houver suporte
 **Tamanho do VHD do disco de dados** | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 **Adaptadores de rede** | Há suporte para vários adaptadores |
 **Endereço IP estático** | Suportado | Se a máquina virtual primária estiver usando um endereço IP estático, você poderá especificar o endereço IP estático da máquina virtual que será criada no Azure.<br/><br/> Não há suporte para o endereço IP estático em uma **VM do Linux em execução no Hyper-V**.
@@ -265,6 +265,6 @@ Você pode implantar o Site Recovery para replicar máquinas virtuais e servidor
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

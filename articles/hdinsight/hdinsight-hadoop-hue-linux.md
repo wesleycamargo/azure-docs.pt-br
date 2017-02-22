@@ -12,11 +12,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 02/09/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9096b87dc93e261c2810a069a95d954121822cf5
-ms.openlocfilehash: 903a8b7f143ac08b69d94aa2bc442a43ca041b64
+ms.sourcegitcommit: 7af856e32064f16e7cb1083432d4d5715cef6e3a
+ms.openlocfilehash: dbffb88020cf53eb59b98eb80e12a47bc17c5708
 
 
 ---
@@ -46,8 +46,7 @@ A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster
 
 ## <a name="install-hue-using-script-actions"></a>Instalar o Hue usando Ações de Script
 
-A ação de script a seguir pode ser usada para instalar o Hue em um cluster HDInsight baseado em Linux.
-https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+O script para instalar o Hue em um cluster baseado em Linux do HDInsight está disponível em https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Você pode usar esse script para instalar o Hue em clusters com Blobs de armazenamento do Azure (WASB) ou Azure Data Lake Store como armazenamento padrão.
 
 Esta seção fornece instruções sobre como usar o script ao provisionar o cluster usando o Portal do Azure.
 
@@ -138,7 +137,7 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 2. Durante a instalação, vários serviços do Hadoop (HDFS, YARN, MR2, Oozie) são reiniciados para atualizar a configuração. Depois que o script termina de instalar o Hue, pode levar algum tempo para que outros serviços do Hadoop sejam iniciados. Isso pode, inicialmente, afetar o desempenho do Hue. Depois que todos os serviços tiverem sido iniciados, o Hue estará totalmente funcional.
 3. O Hue não entende trabalhos Tez, que é o padrão atual para o Hive. Se você quiser usar o MapReduce como o mecanismo de execução do Hive, atualize o script para usar o comando a seguir em seu script:
 
-        set hive.execution.engine=mr;
+         set hive.execution.engine=mr;
 
 4. Com clusters do Linux, você pode ter um cenário no qual os serviços estão em execução no nó de cabeçalho primário enquanto o Gerenciador de Recursos pode estar em execução no secundário. Um cenário como esse pode resultar em erros (mostrados abaixo) ao usar o Hue para exibir detalhes de trabalhos EM EXECUÇÃO no cluster. No entanto, você pode exibir os detalhes do trabalho após ele ser concluído.
 
@@ -158,6 +157,6 @@ O túnel SSH é a única maneira de acessar o Hue no cluster a partir do momento
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

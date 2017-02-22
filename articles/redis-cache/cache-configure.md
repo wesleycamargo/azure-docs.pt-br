@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: 530530952a4f69ae0a78e02cc1c079532f0c5b0f
+ms.sourcegitcommit: 1c002b796ed926fb8b0c6cedf3e361816e50b803
+ms.openlocfilehash: d51eeebba7ce2a1ca1005954feb0471f6ad7e05b
 
 
 ---
@@ -31,9 +31,11 @@ Este tópico descreve como examinar e atualizar a configuração para suas inst�
 ## <a name="configure-redis-cache-settings"></a>Definir configurações de cache Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-O Cache Redis do Azure fornece as seguintes configurações no **Menu Recursos**.
+As configurações de Cache Redis do Azure são exibidas e configuradas na folha **Cache Redis** usando o **Menu Recursos**.
 
 ![Configurações de Cache Redis](./media/cache-configure/redis-cache-settings.png)
+
+Você pode exibir e definir as seguintes configurações usando o **Menu recursos**.
 
 * [Visão geral](#overview)
 * [Log de atividade](#activity-log)
@@ -476,6 +478,6 @@ Para saber mais sobre como mover os recursos de um grupo de recursos para outro,
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

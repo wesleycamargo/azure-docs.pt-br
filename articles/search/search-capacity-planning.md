@@ -1,6 +1,6 @@
 ---
-title: "Escalar níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search | Microsoft Docs"
-description: "Planejamento de capacidade na Pesquisa do Azure baseia-se em combinações de recursos de computador de partição e réplica, em que o preço de cada recurso é definido em unidades de pesquisa faturáveis."
+title: Planejamento de capacidade para Azure Search | Microsoft Docs
+description: "Ajusta os recursos de computador de partição e réplica no Azure Search, onde o preço de cada recurso é definido em unidades de pesquisa faturáveis."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 7fc643a4c852b723d030212f01e6ff475c76e1a4
-ms.openlocfilehash: 8fb3011d755dd0330e71005de4df52f59e1f7b95
+ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
+ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
 
 ---
 
@@ -71,7 +71,10 @@ Os SLAs (contratos de nível de serviço) do Azure Search são direcionados a op
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilidade de índice durante uma recompilação###
 
-A alta disponibilidade para a Pesquisa do Azure pertence a consultas e atualizações de índice que não envolvem a recompilação de um índice. Se você adicionar ou excluir um campo, alterar um tipo de dados ou renomear um campo, precisará recompilar o índice. Para recompilar o índice, é necessário excluir o índice, recriar o índice e recarregar os dados.
+A alta disponibilidade para a Pesquisa do Azure pertence a consultas e atualizações de índice que não envolvem a recompilação de um índice. Se você excluir um campo, alterar um tipo de dados ou renomear um campo, será necessário recompilar o índice. Para recompilar o índice, é necessário excluir o índice, recriar o índice e recarregar os dados.
+
+> [!NOTE]
+> Você pode adicionar novos campos a um índice do Azure Search sem recompilar o índice. O valor do novo campo será nulo para todos os documentos já existentes no índice.
 
 Para manter a disponibilidade do índice durante uma recompilação, é necessário ter uma cópia do índice com um nome diferente no mesmo serviço, ou uma cópia do índice com o mesmo nome em um serviço diferente e fornecer a lógica de redirecionamento ou de failover no código.
 
@@ -122,6 +125,6 @@ O custo por SU é determinado pela camada, com uma taxa de cobrança por unidade
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

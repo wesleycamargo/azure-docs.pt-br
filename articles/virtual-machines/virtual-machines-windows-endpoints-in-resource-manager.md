@@ -1,6 +1,6 @@
 ---
-title: Entender os ponto de extremidades para uma VM Windows no Azure | Microsoft Docs
-description: "Entenda como os pontos de extremidade do modelo de implantação Clássico agora são implementados no Resource Manager usando regras ACL e Grupos de Segurança de Rede"
+title: Entender os pontos de extremidades de VMs do Windows no Azure | Microsoft Docs
+description: "Entenda como os pontos de extremidade do modelo de implantação clássico são implementados no Resource Manager usando regras ACL e Grupos de Segurança de Rede"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: eeae1b86b368d494352498905b6dd5aabe4cb042
+ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
+ms.openlocfilehash: 21df6d8ff572295e27c9aaed83c3af189c700aee
 
 
 ---
@@ -35,6 +35,6 @@ Você pode ler informações mais detalhadas sobre as tecnologias abordadas aqui
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

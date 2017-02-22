@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
+ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
+ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
 
 
 ---
@@ -89,7 +89,7 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 ## <a name="more-information"></a>Mais informações
 * Para saber mais sobre os pools elásticos do Azure, consulte [pools elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre as ferramentas de bancos de dados e dimensionamento elástico, confira as [ferramentas de banco de dados elástico e dimensionamento elástico](sql-database-elastic-scale-get-started.md).
-* Para saber mais sobre como migrar um banco de dados do SQL Server, confira o [Assistente de Migração de SQL do Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
+* Para saber mais sobre como migrar um banco de dados do SQL Server, confira [Migrar um banco de dados do SQL Server para o Azure](sql-database-cloud-migrate.md).
 * Para saber mais sobre a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
 * Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
@@ -98,6 +98,6 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

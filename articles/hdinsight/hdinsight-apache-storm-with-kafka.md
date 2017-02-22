@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/09/2016
+ms.date: 02/10/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: c6171ad4077e833162bfad31b01abbc9947f8e45
+ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
+ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Usar o Apache Kafka (visualização) com o Storm no HDInsight
@@ -39,11 +39,11 @@ O Apache Kafka é uma solução de publicação e assinatura de mensagens que es
 
 * Um editor de texto ou Java IDE
 
-* Um cliente SSH (você precisa dos comandos `ssh` e `scp`) - para obter mais informações sobre como usar SSH com o HDInsight, veja os seguintes documentos:
+* Um cliente SSH (você precisa dos comandos `ssh` e `scp`) – Para mais informações sobre como usar SSH com o HDInsight, veja os documentos a seguir:
   
-  * [Usar SSH com HDInsight baseado em Linux da Linux, Unix ou Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+  * [Usar SSH com HDInsight baseado em Linux do Linux, Unix, Mac OS e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-  * [Usar SSH com HDInsight baseado em Linux no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+  * [Usar SSH (PuTTY) com HDInsight baseado em Linux do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
@@ -134,9 +134,9 @@ As etapas deste documento demonstram como definir essas variáveis de ambiente.
    
     Para saber mais sobre como usar SSH com o HDInsight, veja os seguintes documentos:
    
-    * [Usar SSH com HDInsight baseado em Linux do Linux, Unix e Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com HDInsight baseado em Linux do Linux, Unix, Mac OS e Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Usar SSH com HDInsight baseado em Linux no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usar SSH (PuTTY) com HDInsight baseado em Linux do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Na conexão SSH ao cluster Kafka, use os seguintes comandos para obter os nós zookeeper do Ambari:
 
@@ -206,9 +206,9 @@ Mantenha a conexão SSH ao cluster Kafka ativa, pois você poderá usá-la para 
    
     Para saber mais sobre como usar SSH com o HDInsight, veja os seguintes documentos:
    
-    * [Usar SSH com HDInsight baseado em Linux do Linux, Unix e Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com HDInsight baseado em Linux do Linux, Unix, Mac OS e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Usar SSH com HDInsight baseado em Linux no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usar SSH (PuTTY) com HDInsight baseado em Linux do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Na conexão SSH ao cluster Storm, use os seguintes comandos para executar o script `set-env-variables.sh`:
 
@@ -322,6 +322,6 @@ Para obter informações sobre como implantar e monitorar topologias no HDInsigh
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

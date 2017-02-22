@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 0b035ad1505e45c8c0820c825ff609df6e6100f0
-ms.openlocfilehash: bcbd421e4e8a4643695011b27482722029611a3d
+ms.sourcegitcommit: 186541bee40ada7fc9e6be31d6b989e9bd34e0d1
+ms.openlocfilehash: acc585d139e91b4954658fb061587a69e701bbe2
 
 
 ---
@@ -34,10 +34,10 @@ Os tokens de acesso às vezes são chamados de "Usuário+Aplicativo" ou "Somente
 Veja [Referência de token do Azure AD][AAD-Tokens-Claims] para saber mais.
 
 ## <a name="application-manifest"></a>manifesto do aplicativo
-Um recurso fornecido pelo [Portal Clássico do Azure][AZURE-classic-portal], que produz uma representação JSON da configuração de identidade do aplicativo, usada como um mecanismo para atualizar suas entidades de [Aplicativo][AAD-Graph-App-Entity] e [ServicePrincipal][AAD-Graph-Sp-Entity] associadas. Veja [Noções básicas sobre o manifesto de aplicativo do Azure Active Directory][AAD-App-Manifest] para saber mais.
+Um recurso fornecido pelo [Portal do Azure][AZURE-portal], que produz uma representação JSON da configuração de identidade do aplicativo, usada como um mecanismo para atualizar suas entidades de [Aplicativo][AAD-Graph-App-Entity] e [ServicePrincipal][AAD-Graph-Sp-Entity] associadas. Veja [Noções básicas sobre o manifesto de aplicativo do Azure Active Directory][AAD-App-Manifest] para saber mais.
 
 ## <a name="application-object"></a>objeto de aplicativo
-Quando você registra/atualiza um aplicativo no [do Azure][AZURE-classic-portal], o portal cria/atualiza um objeto de aplicativo e um [objeto de entidade de serviço](#service-principal-object) correspondente para esse locatário. O objeto de aplicativo *define* a configuração de identidade do aplicativo globalmente (em todos os locatários aos quais ele tem acesso), fornecendo um modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso localmente em tempo de execução (em um locatário específico).
+Quando você registra/atualiza um aplicativo no [Portal do Azure][AZURE-portal], o portal cria/atualiza um objeto de aplicativo e um [objeto de entidade de serviço](#service-principal-object) correspondente para esse locatário. O objeto de aplicativo *define* a configuração de identidade do aplicativo globalmente (em todos os locatários aos quais ele tem acesso), fornecendo um modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso localmente em tempo de execução (em um locatário específico).
 
 Veja [Objetos de aplicativo e entidade de serviço][AAD-App-SP-Objects] para saber mais.
 
@@ -109,7 +109,7 @@ Um [aplicativo cliente](#client-application) obtém acesso a um [servidor de rec
 
 Também surgem durante o processo de [consentimento](#consent) , oferecendo ao administrador ou ao proprietário do recurso a oportunidade de conceder/negar ao cliente o acesso aos recursos em seu locatário.
 
-As solicitações de permissão são configuradas na guia "Aplicativos"/"Configurar" do [Portal Clássico do Azure][AZURE-classic-portal], em "Permissões para outros aplicativos", selecionando as "Permissões Delegadas" e as "Permissões de Aplicativo" desejadas (a segunda opção requer associação na função de Administrador Global). Como um [cliente público](#client-application) não pode manter as credenciais, só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O [objeto de aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
+As solicitações de permissão são configuradas na guia "Aplicativos"/"Configurações" do [Portal do Azure][AZURE-portal], em "Permissões Necessárias", selecionando as "Permissões Delegadas" e as "Permissões de Aplicativo" desejadas (a segunda opção requer associação na função de Administrador Global). Como um [cliente público](#client-application) não pode manter as credenciais, só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar permissões delegadas e de aplicativo. O [objeto de aplicativo](#application-object) do cliente armazena as permissões declaradas em sua [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>proprietário do recurso
 Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], uma entidade com a capacidade de conceder acesso a um recurso protegido. Quando o proprietário do recurso é uma pessoa, é chamado de usuário final. Por exemplo, quando um [aplicativo cliente](#client-application) quer acessar a caixa de correio do usuário por meio da [API do Microsoft Graph][Microsoft-Graph], requer a permissão do proprietário do recurso da caixa de correio.
@@ -124,14 +124,14 @@ Assim como um aplicativo cliente, a configuração de identidade do aplicativo d
 ## <a name="roles"></a>roles
 Assim como os [escopos](#scopes), as funções fornecem uma maneira para que um [servidor de recursos](#resource-server) governe o acesso a seus recursos protegidos. Há dois tipos: uma função de "usuário" implementa o controle de acesso baseado em função para usuários/grupos que exigem acesso ao recurso, enquanto uma função de "aplicativo" implementa o mesmo para [aplicativos cliente](#client-application) que requerem acesso.
 
-As funções são cadeias de caracteres definidas por recursos (por exemplo, "Aprovador de despesas", "Somente leitura", "Directory.ReadWrite.All"), gerenciadas no [Portal Clássico do Azure][AZURE-classic-portal] por meio do [manifesto de aplicativo](#application-manifest) do recurso e armazenadas na [propriedade appRoles][AAD-Graph-Sp-Entity] do recurso. O portal clássico do Azure também é usado para atribuir usuários às funções de "usuário" e configurar [permissões de aplicativo](#permissions) do cliente para acessar uma função de "aplicativo".
+As funções são cadeias de caracteres definidas por recursos (por exemplo, "Aprovador de despesas", "Somente leitura", "Directory.ReadWrite.All"), gerenciadas no [Portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenadas na [propriedade appRoles][AAD-Graph-Sp-Entity] do recurso. O Portal do Azure também é usado para atribuir usuários às funções de "usuário" e configurar [permissões de aplicativo](#permissions) do cliente para acessar uma função de "aplicativo".
 
 Para ver uma discussão detalhada sobre as funções de aplicativo expostas pela API do Graph do Azure AD, veja [Escopos de permissão da API do Graph][AAD-Graph-Perm-Scopes]. Para obter um exemplo de implementação passo a passo, veja [Controle de acesso com base em função em aplicativos de nuvem usando o Azure AD][Duyshant-Role-Blog].
 
 ## <a name="scopes"></a>escopos
 Assim como as [funções](#roles), os escopos fornecem uma maneira para que um [servidor de recursos](#resource-server) governe o acesso a seus recursos protegidos. Os escopos são usados para implementar o controle de acesso [baseado em escopo][OAuth2-Access-Token-Scopes] em um [aplicativo cliente](#client-application) que recebeu acesso delegado ao recurso de seu proprietário.
 
-Os escopos são cadeias de caracteres definidas por recursos (por exemplo "Mail.Read", "Directory.ReadWrite.All") gerenciadas no [Portal Clássico do Azure][AZURE-classic-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenados na [propriedade oauth2Permissions][AAD-Graph-Sp-Entity] do recurso. O portal clássico do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
+Os escopos são cadeias de caracteres definidas por recursos (por exemplo "Mail.Read", "Directory.ReadWrite.All"), gerenciados no [Portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenados na [propriedade oauth2Permissions][AAD-Graph-Sp-Entity] do recurso. O Portal do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
 
 Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada sobre os escopos expostos pela API do Graph do Azure AD, veja [Escopos de permissão da API do Graph][AAD-Graph-Perm-Scopes]. Para escopos expostos por serviços do Office 365, veja [Referência de permissões de API do Office 365][O365-Perm-Ref].
 
@@ -139,7 +139,7 @@ Uma prática recomendada para a convenção de nomenclatura é usar um formato "
 Um documento assinado que contém declarações, como um token OAuth2 ou uma asserção SAML 2.0. Uma [concessão de autorização](#authorization-grant) OAuth2, um [token de acesso](#access-token) (OAuth2) e um [Token de ID](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de tokens de segurança, que são implementados como um [JWT (Token Web JSON)][JWT].
 
 ## <a name="service-principal-object"></a>objeto de entidade de serviço
-Quando você registra/atualiza um aplicativo no [do Azure][AZURE-classic-portal], o portal cria/atualiza um [objeto de aplicativo](#application-object) e um objeto de entidade de serviço correspondente para esse locatário. O objeto de aplicativo *define* a configuração de identidade do aplicativo globalmente (em todos os locatários em que o aplicativo associado recebeu acesso) e é o modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso localmente em tempo de execução (em um locatário específico).
+Quando você registra/atualiza um aplicativo no [Portal do Azure][AZURE-portal], o portal cria/atualiza um [objeto de aplicativo](#application-object) e um objeto de entidade de serviço correspondente para esse locatário. O objeto de aplicativo *define* a configuração de identidade do aplicativo globalmente (em todos os locatários em que o aplicativo associado recebeu acesso) e é o modelo do qual seus objetos de entidade de serviço correspondentes são *derivados* para uso localmente em tempo de execução (em um locatário específico).
 
 Veja [Objetos de aplicativo e entidade de serviço][AAD-App-SP-Objects] para saber mais.
 
@@ -195,7 +195,7 @@ Use a seção de comentários do Disqus a seguir para fornecer seus comentários
 [AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
+[AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
@@ -211,6 +211,6 @@ Use a seção de comentários do Disqus a seguir para fornecer seus comentários
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

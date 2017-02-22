@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 02/03/2017
 ms.author: jlian
 translationtype: Human Translation
-ms.sourcegitcommit: 249d08341311e48a93db8031439f0bc35162f823
-ms.openlocfilehash: 28c70685cfa3da94cc0648cebae7ec296af60986
+ms.sourcegitcommit: 1b738d952685fe71e5a1eecd809afae1c9904267
+ms.openlocfilehash: 8f32c2c85d2f6c2265048e58d5c2b0256fa020bd
 
 
 ---
@@ -41,13 +41,13 @@ Para saber mais, confira [Perguntas frequentes sobre preço](https://azure.micro
 
 ### <a name="check-your-subscription-and-access"></a>Verificar assinatura e acesso
 
-A exibição dos custos exige [acesso no nível das assinaturas](../active-directory/role-based-access-control-configure.md), mas somente o Administrador da conta pode acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index), alterar informações de cobrança e gerenciar assinaturas. O Administrador da conta é a pessoa que passou pelo processo de inscrição. Para saber mais, confira [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md).
+A exibição dos custos exige [acesso no nível das assinaturas](../active-directory/role-based-access-control-configure.md), mas somente o Administrador da conta pode acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index), alterar informações de cobrança e gerenciar assinaturas. O Administrador da conta é a pessoa que passou pelo processo de inscrição. Para saber mais, confira [Como adicionar ou alterar as funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md).
 
 Para ver se você é o Administrador da conta, vá para a [folha Assinaturas no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e examine a lista de assinaturas a que você tem acesso. Procure **Minha Função**. Se estiver indicado *Administrador de conta*, tudo bem. Se estiver indicado *Proprietário*, você não tem todos os privilégios.
 
 ![Captura de tela de sua função no modo de exibição Assinaturas no portal do Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
-Se você não for o Administrador da conta, alguém provavelmente lhe deu acesso parcial pelo [RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory](../active-directory/role-based-access-control-configure.md). Para gerenciar assinaturas e alterar informações de cobrança, [localize o Administrador da conta](../billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a assinatura para você](../billing-subscription-transfer.md).
+Se você não for o Administrador da conta, alguém provavelmente lhe deu acesso parcial pelo [RBAC (Controle de Acesso Baseado em Função) do Azure Active Directory](../active-directory/role-based-access-control-configure.md). Para gerenciar assinaturas e alterar informações de cobrança, [localize o Administrador da conta](billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a assinatura para você](billing-subscription-transfer.md).
 
 Se o Administrador da conta não está mais na sua organização e você precisa gerenciar a cobrança, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
@@ -65,7 +65,7 @@ Clique na faixa e siga os prompts para remover o limite de gastos. Se você não
 
 ### <a name="set-up-billing-alerts"></a>Configurar alertas de cobrança
 
-Configure alertas de cobrança para receber emails quando os custos de uso excederem um valor especificado. Se você tiver créditos mensais, configure alertas para o uso de um valor especificado. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](../billing-set-up-alerts.md).
+Configure alertas de cobrança para receber emails quando os custos de uso excederem um valor especificado. Se você tiver créditos mensais, configure alertas para o uso de um valor especificado. Para obter mais informações, veja [Configurar alertas de cobrança para suas assinaturas do Microsoft Azure](billing-set-up-alerts.md).
 
 ![Captura de tela de um email de alerta de cobrança](./media/billing-getting-started/billing-alert.png)
 
@@ -154,9 +154,9 @@ Em seguida, você pode obter recomendações práticas na guia **Custo** no pain
 
 Para saber mais, veja [Advisor Cost recommendations](../advisor/advisor-cost-recommendations.md) (Recomendações de custo do Advisor).
 
-### <a name="a-nameinvoice-and-usagea-download-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a>Baixe fatura e detalhamento de uso após o primeiro período de cobrança
+### <a name="a-nameinvoice-and-usagea-get-your-invoice-and-detail-usage-after-your-first-billing-period"></a><a name="invoice-and-usage"></a> Baixe sua fatura e detalhes de uso após o primeiro período de cobrança
 
-Após o primeiro período de cobrança, você pode baixar sua fatura em PDF (Portable Document Format) e os detalhes de uso em CSV (valores separados por vírgulas). Esses arquivos ajudam a compreender o que é efetivamente cobrado depois de descontados impostos, deduções e créditos. Se você não tiver um método de pagamento associado à assinatura, esses arquivos podem não estar disponíveis para você. Para saber mais, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md) e [Entenda sua fatura do Microsoft Azure](/billing-understand-your-bill.md).
+Após o primeiro período de cobrança, você pode baixar sua fatura em PDF (Portable Document Format) e os detalhes de uso em CSV (valores separados por vírgulas). Também é possível escolher que a fatura seja enviada para você. Esses arquivos ajudam a compreender o que é efetivamente cobrado depois de descontados impostos, deduções e créditos. Se você não tiver um método de pagamento associado à assinatura, esses arquivos podem não estar disponíveis para você. Para saber mais, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md) e [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
 ![Captura de tela de uma fatura em .pdf](./media/billing-getting-started/invoice.png)
 
@@ -166,7 +166,7 @@ As marcas que você definiu anteriormente aparecem nos arquivos .csv de uso deta
 
 ### <a name="billing-api"></a>API de Cobrança
 
-Use nossa API de Cobrança para obter dados de uso programaticamente. Use a API RateCard junto com a API de Uso para obter seu uso cobrado. Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../billing-usage-rate-card-overview.md).
+Use nossa API de Cobrança para obter dados de uso programaticamente. Use a API RateCard junto com a API de Uso para obter seu uso cobrado. Para saber mais, confira [Obtenha informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md).
 
 ## <a name="a-nameother-offersa-additional-resources-for-ea-csp-and-sponsorship"></a><a name="other-offers"></a>Recursos adicionais do EA, do CSP e do Sponsorship
 
@@ -174,7 +174,7 @@ Fale com seu gerente de conta ou parceiro do Azure para começar.
 
 | Oferta | Recursos |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| EA (Enterprise Agreement) | [Portal do EA](https://ea.azure.com/) e [documentos de ajuda](https://ea.azure.com/helpdocs) |
+| EA (Enterprise Agreement) | [Portal EA](https://ea.azure.com/), [documentos de ajuda](https://ea.azure.com/helpdocs) e [relatório do Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Programa do CSP (Provedor de Soluções na Nuvem) | Fale com seu provedor |
 | Azure Sponsorship | [Portal do Sponsorship](https://www.microsoftazuresponsorships.com/) |
 
@@ -182,6 +182,6 @@ Se estiver gerenciando TI em uma grande organização, recomendamos a leitura de
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

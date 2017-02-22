@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
 translationtype: Human Translation
-ms.sourcegitcommit: e062cb169782319bda14acfa4f2b7c8198f320f6
-ms.openlocfilehash: e5c0547a4fb109560dbafbf84d17e0c3d28a7188
+ms.sourcegitcommit: 2956b15e6284b529ccf4ca40c0c97b857eabcdbb
+ms.openlocfilehash: 50d90bfa5e6fb4462bd7d4719e5505d8ad144855
 
 
 ---
@@ -34,7 +34,7 @@ A folha **Criar** é aberta, conforme mostrado na seguinte imagem:
 1. Dê um nome ao aplicativo Web.
 2. Escolha um grupo de recursos existente ou crie um novo. (Veja as regiões disponíveis na [seção de limitações](app-service-linux-intro.md).)
 3. Escolha um plano do Serviço de Aplicativo do Azure existente ou crie um. (Veja as observações do plano do Serviço de Aplicativo na [seção de limitações](app-service-linux-intro.md).)
-4. Escolha a pilha de aplicativos que você pretende usar. É possível escolher entre várias versões do Node.js e PHP.
+4. Escolha a pilha de aplicativos que você pretende usar. É possível escolher entre várias versões de Node.js, PHP, .Net Core e Ruby.
 
 Depois de criar o aplicativo, você pode alterar a pilha de aplicativos nas configurações do aplicativo, conforme mostrado na seguinte imagem:
 
@@ -59,6 +59,6 @@ Você também pode usar o FTP para carregar o aplicativo no site. É possível o
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

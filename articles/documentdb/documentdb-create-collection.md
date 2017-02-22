@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/08/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ab863266e1462f970b7906f68be2bcf5edb0dfc3
-ms.openlocfilehash: ac64bb0de03053702a4663c9356b3f9ce332c7de
+ms.sourcegitcommit: a87b2811175193377142e391597011f48f169f11
+ms.openlocfilehash: 4c16c843ba43a9e38d73fc1fd44d06f6f72de60c
 
 
 ---
@@ -40,7 +40,7 @@ Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Ban
 
     Defina a capacidade de armazenamento para **10 GB** se você quiser uma [única coleção de partição](documentdb-partition-data.md#single-partition-and-partitioned-collections) com níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo (RU/s). Uma RU corresponde à taxa de transferência de uma leitura de um documento de 1 KB. Para obter mais informações sobre unidades de solicitação, confira [Unidades de solicitação](documentdb-request-units.md).
 
-    Defina a capacidade de armazenamento para **250 GB** se quiser que uma [coleção particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) possa ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e possa ter níveis de taxa de transferência começando em 10.100 RU/s.
+    Defina a capacidade de armazenamento para **250 GB** se quiser que uma [coleção particionada](documentdb-partition-data.md#single-partition-and-partitioned-collections) possa ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e possa ter níveis de taxa de transferência começando em 2.500 RU/s.
 
     Defina a capacidade de armazenamento como **Personalizada** se quiser provisionar uma quantidade diferente de 10 GB ou 250 GB. O DocumentDB tem escala praticamente ilimitada. Portanto, inclua o tamanho do armazenamento solicitado e o valor da taxa de transferência na solicitação de suporte.
 
@@ -83,6 +83,6 @@ Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL d
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

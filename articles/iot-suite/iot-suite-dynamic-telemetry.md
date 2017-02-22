@@ -1,6 +1,6 @@
 ---
 title: "Usar a telemetria dinâmica | Microsoft Docs"
-description: "Siga este tutorial para saber como usar a telemetria dinâmica com a solução pré-configurada de monitoramento remoto."
+description: "Siga este tutorial para saber como usar a telemetria dinâmica com a solução pré-configurada de monitoramento remoto Azure IoT Suite."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/09/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
+ms.sourcegitcommit: 37a1653ca058c60a39df95f646127bd9e7fdd556
+ms.openlocfilehash: 7fe03bcb918997971208554d030264d67bedb1ff
 
 
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>Usar telemetria dinâmica com a solução pré-configurada de monitoramento remoto
 ## <a name="introduction"></a>Introdução
-A telemetria dinâmica permite que você visualize qualquer telemetria enviada à solução pré-configurada de monitoramento remoto. Os dispositivos simulados que implantam a solução pré-configurada enviam telemetria de temperatura e umidade, que pode ser visualizada no painel. Se você personalizar os dispositivos simulados existentes, criar novos dispositivos simulados ou conectar dispositivos físicos à solução pré-configurada, você poderá enviar outros valores de telemetria, como a temperatura externa, RPM ou velocidade do vento. Em seguida, você pode visualizar essa telemetria adicional no painel.
+A telemetria dinâmica permite que você visualize qualquer telemetria enviada à solução pré-configurada de monitoramento remoto. Os dispositivos simulados que implantam a solução pré-configurada enviam telemetria de temperatura e umidade, que pode ser visualizada no painel. Se você personalizar os dispositivos simulados existentes, criar novos dispositivos simulados ou conectar dispositivos físicos à solução pré-configurada, será possível enviar outros valores de telemetria, como a temperatura externa, RPM ou velocidade do vento. Em seguida, você pode visualizar essa telemetria adicional no painel.
 
 Este tutorial usa um dispositivo Node.js simples simulado que você pode facilmente modificar a fim de experimentar a telemetria dinâmica.
 
@@ -36,47 +36,7 @@ Você pode concluir este tutorial em qualquer sistema operacional, como Windows 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## <a name="configure-the-nodejs-simulated-device"></a>Configurar o dispositivo Node.js simulado
-1. No painel de monitoramento remoto, clique em **+ Adicionar um dispositivo** e, em seguida, adicione um dispositivo personalizado. Anote o nome de host do Hub IoT, id do dispositivo e chave do dispositivo. Você precisará deles mais tarde neste tutorial ao preparar o aplicativo cliente de dispositivo remote_monitoring.js.
-2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Execute `node --version` em um prompt de comando ou em um shell para verificar a versão. Para obter informações sobre como usar um gerenciador de pacotes para instalar o Node.js no Linux, confira [Instalação do Node.js por meio do gerenciador de pacotes][node-linux].
-3. Após a instalação do Node.js, clone a versão mais recente do repositório [azure-iot-sdks][lnk-github-repo] em seu computador de desenvolvimento. Sempre use a ramificação **mestre** para a versão mais recente das bibliotecas e exemplos.
-4. Em sua cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois arquivos a seguir da pasta node/device/samples em uma pasta vazia em seu computador de desenvolvimento:
-   
-   * packages.json
-   * remote_monitoring.js
-5. Abra o arquivo remote_monitoring.js e procure a seguinte definição de variável:
-   
-    ```
-    var connectionString = "[IoT Hub device connection string]";
-    ```
-6. Substitua a **[cadeia de conexão de dispositivo do Hub IoT]** pela cadeia de conexão do seu dispositivo. Use os valores de seu nome de host do Hub IoT, ID do dispositivo e chave de dispositivo que você anotou na etapa 1. Uma cadeia de conexão do dispositivo tem o seguinte formato:
-   
-    ```
-    HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
-    ```
-   
-    Se o nome de host do Hub IoT for **contoso** e a ID de dispositivo for **mydevice**, a cadeia de conexão terá esta aparência:
-   
-    ```
-    var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
-    ```
-7. Salve o arquivo. Execute os seguintes comandos em um shell ou prompt de comando na pasta que contém os arquivos para instalar os pacotes necessários e, em seguida, execute o aplicativo de exemplo:
-   
-    ```
-    npm install
-    node remote_monitoring.js
-    ```
-
-## <a name="observe-dynamic-telemetry-in-action"></a>Observe a telemetria dinâmica em ação
-O painel mostra a telemetria de temperatura e umidade dos dispositivos existentes simulados:
-
-![O painel padrão][image1]
-
-Se você selecionar dispositivo simulado Node.js executado na seção anterior, verá a telemetria de temperatura, umidade e temperatura externa:
-
-![Adicionar temperatura externa ao painel][image2]
-
-A solução de monitoramento remoto detecta automaticamente o tipo de telemetria adicional de temperatura externa e o adiciona ao gráfico no painel.
+[!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
 ## <a name="add-a-telemetry-type"></a>Adicionar um tipo de telemetria
 A próxima etapa é substituir a telemetria gerada pelo dispositivo simulado Node.js por um novo conjunto de valores:
@@ -236,19 +196,15 @@ Agora que você já viu como usar a telemetria dinâmica, saiba mais sobre como 
 
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
-[image1]: media/iot-suite-dynamic-telemetry/image1.png
-[image2]: media/iot-suite-dynamic-telemetry/image2.png
 [image3]: media/iot-suite-dynamic-telemetry/image3.png
 [image4]: media/iot-suite-dynamic-telemetry/image4.png
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-node]: http://nodejs.org
-[node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
-[lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

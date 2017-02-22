@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2e650a5f6e2e69b11d7acbc7628e6ce6f29e5e1c
-ms.openlocfilehash: 6909e6b9770761ecba2069d43df1ad8c04345d4a
+ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
+ms.openlocfilehash: d134b91131321f633471893d9c2d5ffa041aa99c
 
 
 ---
@@ -101,15 +101,15 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 ### <a name="configuring-azure-ad-single-sign-on-for-servicenow"></a>Configuração do logon único do Azure AD para o ServiceNow
 1. No portal clássico do Azure AD, na página de integração de aplicativos do **ServiceNow**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurar logon único")
 
 2. Na página **Como você deseja que os usuários façam logon no ServiceNow**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurar logon único")
 
 3. Na página **Definir Configurações do Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configurar URL do Aplicativo")
    
     a. na caixa de texto **URL de Entrada no ServiceNow**, digite a URL usada pelos usuários para entrar no seu aplicativo ServiceNow seguindo o padrão: `https://<instance-name>.service-now.com`.
    
@@ -119,11 +119,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 4. Para que o Azure AD configure automaticamente o ServiceNow para autenticação baseada em SAML, insira o nome da instância do ServiceNow, o nome de usuário do administrador e a senha de administrador no formulário **Configurar automaticamente o logon único** e clique em *Configurar*. Observe que o nome de usuário do administrador informado deve ter a função **security_admin** atribuída no ServiceNow para que isso funcione. Caso contrário, para configurar manualmente o ServiceNow para usar o Azure AD como provedor de identidade SAML, clique em **Configurar manualmente o aplicativo para o logon único**, em **Avançar** e conclua as etapas a seguir.
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configurar URL do Aplicativo")
 
 5. Na página **Configurar logon único no ServiceNow**, clique em **Baixar certificado**, salve o arquivo de certificado no computador.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurar logon único")
 
 6. Entre no seu aplicativo ServiceNow como administrador.
 
@@ -131,11 +131,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
    
     a. No painel de navegação à esquerda, vá para a seção **Definição do Sistema** e, em seguida, clique em **Plug-ins**.
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "Activate plugin")
+    ![Configurar URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "Ativar o plug-in")
    
     b. Procure *Integração - Instalador de Logon Único de Vários Provedores*.
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "Activate plugin")
+    ![Configurar URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_04.png "Ativar o plug-in")
    
     c. Selecione o plugin. Clique com o botão direito do mouse e selecione **Ativar/Atualizar**.
    
@@ -143,11 +143,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 8. No painel de navegação à esquerda, clique em **Propriedades**.  
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configurar URL do Aplicativo")
 
 9. No diálogo **Várias propriedades de SSO do provedor** , execute as seguintes etapas:
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694981.png "Configurar URL do Aplicativo")
    
     a. Como **Habilitar vários provedores SSO**, selecione **Sim**.
    
@@ -159,15 +159,15 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 10. No painel de navegação à esquerda, clique em **Certificados x509**.
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_05.png "Configurar logon único")
 
-11. No diálogo **Certificados x. 509**, clique em **Novo**.
+11. No diálogo **Certificados x.&509;**, clique em **Novo**.
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694974.png "Configurar logon único")
 
-12. No diálogo **Certificados x. 509** , execute as seguintes etapas:
+12. No diálogo **Certificados x.&509;** , execute as seguintes etapas:
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
     
      a. Clique em **Novo**.
     
@@ -179,25 +179,25 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     
      e. Como **Tipo**, selecione **Confiar nos Certificados do Repositório**.
     
-     f. Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
+     f. Abra seu certificado codificado base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
     
      g. Clique em **Atualizar**.
 
 13. No painel de navegação à esquerda, clique em **Provedores de Identidade**.
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_07.png "Configurar logon único")
 
 14. No diálogo **Provedores de Identidade**, clique em **Novo**:
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694977.png "Configurar logon único")
 
 15. No diálogo **Provedores de Identidade**, clique em **SAML2 Update1?**:
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694978.png "Configurar logon único")
 
 16. No diálogo Propriedades de SAML2 Atualização1, execute as seguintes etapas:
     
-     ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configure single sign-on")
+     ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694982.png "Configurar logon único")
 
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração (por exemplo: **SAML 2.0**).
 
@@ -239,24 +239,24 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 1. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**. 
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar logon único")
 
 2. Na página **Confirmação de logon único**, clique em **Concluir**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configurar logon único")
 
 ### <a name="configuring-azure-ad-single-sign-on-for-servicenow-express"></a>Configuração do logon único do Azure AD para o ServiceNow Express
 1. No portal clássico do Azure AD, na página de integração de aplicativos do **ServiceNow**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configurar logon único")
 
 2. Na página **Como você deseja que os usuários façam logon no ServiceNow**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749324.png "Configurar logon único")
 
 3. Na página **Definir Configurações do Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/IC769497.png "Configurar URL do Aplicativo")
    
     a. na caixa de texto **URL de Entrada no ServiceNow**, digite a URL usada pelos usuários para entrar no seu aplicativo ServiceNow seguindo o padrão: `https://<instance-name>.service-now.com`.
    
@@ -266,21 +266,21 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 4. Clique em **Configurar manualmente o aplicativo para logon único**, então clique em **Avançar** e conclua as etapas a seguir.
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/IC7694971.png "Configurar URL do Aplicativo")
 
 5. Na página **Configurar logon único no ServiceNow**, clique em **Baixar certificado**, salve o arquivo de certificado no computador e clique em **Avançar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC749325.png "Configurar logon único")
 
 6. Entre no seu aplicativo ServiceNow Express como administrador.
 
 7. No painel de navegação à esquerda, clique em **Logon Único**.  
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/ic7694980ex.png "Configurar URL do Aplicativo")
 
 8. No diálogo **Logon Único**, clique no ícone de configuração no canto superior direito e defina as seguintes propriedades:
    
-    ![Configurar a URL do aplicativo](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configure app URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-servicenow-tutorial/ic7694981ex.png "Configurar URL do Aplicativo")
    
     a. Ative/desative **Habilitar SSO de vários provedores** à direita.
    
@@ -289,10 +289,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     c. Na caixa de texto **O campo na tabela de usuário que...**, digite **nome_de_usuário**.
 9. No diálogo **Logon Único**, clique em **Adicionar Novo Certificado**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configure single sign-on")
-10. No diálogo **Certificados x. 509** , execute as seguintes etapas:
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694973ex.png "Configurar logon único")
+10. No diálogo **Certificados x.&509;** , execute as seguintes etapas:
     
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694975.png "Configurar logon único")
     
     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: **TestSAML2.0**).
     
@@ -309,15 +309,15 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
     > 
     > 
     
-    f. Abra seu certificado codificado base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
+    f. Abra seu certificado codificado base&64; no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado PEM**.
     
     g. Clique em **Atualizar**.
 11. No diálogo **Logon Único**, clique em **Adicionar novo IdP**.
     
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694976ex.png "Configurar logon único")
 12. No diálogo **Adicionar Novo Provedor de Identidade**, em **Configurar Provedor de Identidade**, execute as seguintes etapas:
     
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694982ex.png "Configurar logon único")
 
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração (por exemplo: **SAML 2.0**).
 
@@ -332,7 +332,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 1. Clique em **Configurações Avançadas** e, em **Propriedades Adicionais do Provedor de Identidade**, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694983ex.png "Configurar logon único")
    
     a. Na caixa de texto **associação de protocolo SingleLogoutRequest do IDP**, digite **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
    
@@ -344,7 +344,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 2. Em **Propriedades Adicionais do Provedor de Serviço**, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/ic7694984ex.png "Configurar logon único")
    
     a. Na caixa de texto **Home page do ServiceNow** , digite a URL da sua página inicial de instância do ServiceNow.
    
@@ -370,11 +370,11 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 3. No portal clássico do Azure AD, selecione a confirmação de configuração do logon único e clique em **Avançar**. 
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configurar logon único")
 
 4. Na página **Confirmação de logon único**, clique em **Concluir**.
    
-    ![Configurar o logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-servicenow-tutorial/IC7694991.png "Configurar logon único")
 
 ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory no ServiceNow.
@@ -382,7 +382,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 1. No portal clássico de Gerenciamento do Azure, na página de integração de aplicativos do **ServiceNow**, clique em **Configurar provisionamento de usuários**. 
    
-    ![Provisionamento do usuário](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
+    ![Provisionamento do usuário](./media/active-directory-saas-servicenow-tutorial/IC769498.png "Provisionamento do usuário")
 
 2. Na página **Inserir suas credenciais do ServiceNow para habilitar o provisionamento automático de usuário**, forneça as seguintes configurações:
    
@@ -398,7 +398,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
    
      f. Se você deseja provisionar todos os usuários neste aplicativo, escolha "**Provisionar automaticamente todas as contas de usuário no diretório para este aplicativo**". 
    
-    ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Next Steps")
+    ![Próximas etapas](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Próximas etapas")
    
      g. Na página **Próximas etapas**, clique em **Concluir** para salvar sua configuração.
 
@@ -519,6 +519,6 @@ Ao clicar no bloco do ServiceNow no Painel de Acesso, você deverá ser conectad
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

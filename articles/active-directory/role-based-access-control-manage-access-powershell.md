@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: d6dbbee1f977245cc16710ace3b25d6e167cbc7e
-ms.openlocfilehash: cdd7aab27943df568abfda27265ed970e6dd789c
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -127,7 +127,14 @@ Para remover o acesso a usuários, grupos e aplicativos, use:
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
-Para criar uma função personalizada, use o comando `New-AzureRmRoleDefinition` . Há dois métodos de estruturar a função, usando PSRoleDefinitionObject ou um modelo JSON. 
+Para criar uma função personalizada, use o comando ```New-AzureRmRoleDefinition``` . Há dois métodos de estruturar a função, usando PSRoleDefinitionObject ou um modelo JSON. 
+
+## <a name="get-actions-from-particular-resource-provider"></a>Obter ações do provedor de recursos particular
+Quando você estiver criando funções personalizadas do zero, é importante conhecer todas as possíveis operações dos provedores de recursos.
+Isso pode ser feito usando o comando ```Get-AzureRMProviderOperation```. Por exemplo, se você quiser verificar todas as operações disponíveis para a máquina virtual, o comando será como mencionado abaixo:
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
 
 ### <a name="create-role-with-psroledefinitionobject"></a>Criar função com PSRoleDefinitionObject
 Ao criar uma função personalizada usando o PowerShell, você pode começar do zero ou usar uma da [funções internas](role-based-access-built-in-roles.md) como ponto de partida, o último sendo usado neste exemplo. Edite os atributos para adicionar *Actions*, *notActions* ou *scopes* desejados e salve as alterações como uma nova função.
@@ -276,6 +283,6 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

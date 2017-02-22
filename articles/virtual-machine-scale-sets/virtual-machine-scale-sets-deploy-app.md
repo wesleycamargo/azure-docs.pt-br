@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 02/07/2017
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: da5ad10e01d83d714b47f8d478dc73a824797dea
-ms.openlocfilehash: 714e0dd907b1efe8d2c4d6e062a6cedd08f44c4c
+ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
+ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
 
 
 ---
@@ -33,6 +33,10 @@ Uma vantagem dessa abordagem é ter um nível de separação entre o código do 
 **Se você passar informações confidenciais em seu comando da Extensão de Script Personalizado (como uma senha), especifique o `commandToExecute` no atributo `protectedSettings` da Extensão de Script Personalizado em vez do `settings`atributo.**
 
 * Crie uma imagem de VM personalizada que inclui o sistema operacional e o aplicativo em um único VHD. Aqui, o conjunto de escala é composto por um conjunto de VMs copiado de uma imagem criada por você, e que você precisa manter. Essa abordagem não exige configuração adicional no momento da implantação da VM. No entanto, na versão `2016-03-30` dos Conjuntos de escala de VM (e em versões anteriores), os discos do sistema operacional para as VMs no conjunto de escala são limitados a uma única conta de armazenamento. Assim, você pode ter no máximo 40 VMs em um conjunto de escala, em vez do limite de 100 VMs por conjunto de escala com imagens de plataforma. Consulte [Visão geral do design do Conjunto de Dimensionamento](virtual-machine-scale-sets-design-overview.md) para obter mais detalhes.
+
+    >[!NOTE]
+    >A versão `2016-04-30-preview` da API de Conjuntos de Dimensionamento de VMs oferece suporte ao uso de Managed Disks do Azure para o disco de sistema operacional e discos de dados extras. Para obter mais informações, consulte [Visão Geral do Managed Disks](../storage/storage-managed-disks-overview.md) e [Usar discos de dados anexados](virtual-machine-scale-sets-attached-disks.md). 
+
 * Implantar uma imagem personalizada ou de plataforma, que é basicamente um host do contêiner, e instalar o aplicativo como um ou mais contêineres que você gerencia com um orquestrador ou uma ferramenta de gerenciamento de configuração. Uma ponto positivo dessa abordagem é que você abstrai sua infraestrutura de nuvem da camada do aplicativo e as mantêm separadamente.
 
 ## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>O que acontece quando um Conjunto de escala de VM é escalado horizontalmente?
@@ -42,6 +46,7 @@ Quando você adiciona uma ou mais VMs a um conjunto de escala aumentando a capac
 Para atualizações de aplicativos em Conjuntos de escala de VM, três abordagens principais acompanham os três métodos de implantação de aplicativo descritos anteriormente:
 
 * Atualizando com extensões de VM. Quaisquer extensões de VM definidas para um Conjunto de escala de VM são executadas sempre que uma nova VM é implantada, uma VM existente tem sua imagem refeita ou uma extensão de VM é atualizada. Se você precisar atualizar seu aplicativo, a atualização direta de um aplicativo por meio de extensões será uma abordagem viável, basta atualizar a definição da extensão. Uma forma simples de fazer isso é alterando o fileUris a fim de apontar para o novo software.
+
 * A abordagem de imagem personalizada imutável. Quando você cria o aplicativo (ou componentes do aplicativo) em uma imagem de VM, é possível se concentrar na criação de um pipeline confiável a fim de automatizar a compilação, teste e implantação das imagens. Você pode projetar sua arquitetura para facilitar a troca rápida de um conjunto de escala de teste para produção. Um bom exemplo dessa abordagem é o [trabalho de driver do Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
 
 Packer e Terraform também oferecem suporte ao Azure Resource Manager, assim também é possível definir suas imagens “como código” e criá-las no Azure, e depois usar o VHD em seu conjunto de escala. No entanto, isso seria problemático para imagens do Marketplace, nas quais extensões/scripts personalizados se tornam mais importantes, já que você não manipula diretamente os bits do Marketplace.
@@ -51,11 +56,11 @@ Packer e Terraform também oferecem suporte ao Azure Resource Manager, assim tam
 As VMs do conjunto de escala se tornam um substrato estável para os contêineres e exigem apenas atualizações ocasionais de segurança e de sistema operacional. Conforme mencionado, o Serviço de Contêiner do Azure é um bom exemplo de como usar essa abordagem e criar um serviço em torno dele.
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
-Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de Dimensionamento de Máquinas Virtuais (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais. O documento do Azure [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) também fornece mais informações sobre quais opções estão disponíveis para executar atualizações de sistema operacional através de um conjunto de dimensionamento de máquinas virtuais.
+Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de Dimensionamento de Máquinas Virtuais (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais. O documento [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) do Azure também fornece mais informações sobre quais opções estão disponíveis para executar atualizações de sistema operacional através de um conjunto de dimensionamento de VMs.
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

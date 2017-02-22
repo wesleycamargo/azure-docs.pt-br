@@ -1,5 +1,5 @@
 ---
-title: Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium | Microsoft Docs
+title: Configurar a Rede Virtual para um Cache Redis do Azure Premium | Microsoft Docs
 description: "Saiba como criar e gerenciar o suporte de Rede Virtual para as instâncias da camada Premium do Cache Redis do Azure"
 services: redis-cache
 documentationcenter: 
@@ -12,18 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
+ms.date: 02/09/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
-ms.openlocfilehash: a3e1472ed737039157a4593404dce371c57906da
+ms.sourcegitcommit: 50d8db29ccce1244387f1fe0e3e42e610575e483
+ms.openlocfilehash: 057affeccd955245ac07fc5e174447562e81b959
 
 
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Como configurar o suporte de Rede Virtual para um Cache Redis do Azure Premium
-O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo o nova camada Premium.
-
-Os recursos da camada Premium do Cache Redis do Azure incluem o suporte a clustering, persistência e VNet (rede virtual). Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache Redis do Azure é configurada com uma Vnet, ela não é publicamente endereçável e pode ser acessada apenas de máquinas virtuais e aplicativos na VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância Premium do Cache Redis do Azure.
+O Cache Redis do Azure apresenta diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho e dos recursos de cache, incluindo recursos do nível Premium, como clustering, persistência e suporte à rede virtual. Uma VNet é uma rede privada na nuvem. Quando uma instância do Cache Redis do Azure é configurada com uma Vnet, ela não é publicamente endereçável e pode ser acessada apenas de máquinas virtuais e aplicativos na VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância Premium do Cache Redis do Azure.
 
 > [!NOTE]
 > O Cache Redis do Azure dá suporte a VNets clássicas e ARM.
@@ -60,7 +58,7 @@ Selecione a sub-rede desejada da lista suspensa **Sub-rede** e especifique o **E
 > 
 > 
 
-Após o cache ser criado, você pode exibir a configuração da VNet clicando em **Rede Virtual** na folha **Configurações**.
+Após o cache ser criado, você pode exibir a configuração da VNet clicando em **Rede Virtual** no menu **Recursos**.
 
 ![Rede virtual][redis-cache-vnet-info]
 
@@ -168,6 +166,6 @@ Aprenda a usar mais recursos de cache premium.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

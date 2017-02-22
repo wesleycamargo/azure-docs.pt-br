@@ -1,7 +1,7 @@
 ---
-title: "As cinco perguntas da ciência de dados - Ciência de Dados para iniciantes | Microsoft Docs"
+title: "As cinco perguntas da ciência de dados – Ciência de Dados para iniciantes – Azure | Microsoft Docs"
 description: "Obtenha uma breve introdução da ciência de dados com Ciência de dados para iniciantes, cinco vídeos curtos que começam com As cinco perguntas que a ciência de dados responde."
-keywords: "fazendo ciência de dados, iniciantes da ciência de dados, ciência de dados para iniciantes, perguntas de ciência de dados, vídeo de ciência de dados"
+keywords: "fazendo ciência de dados, iniciantes da ciência de dados, ciência de dados para iniciantes, perguntas de ciência de dados, vídeo de ciência de dados, introdução à ciência de dados"
 services: machine-learning
 documentationcenter: na
 author: cjgronlund
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: da5960c6ca030218a405e8827737680d24af4228
+ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
+ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
 
 
 ---
@@ -27,8 +27,8 @@ Obtenha uma breve introdução à ciência de dados com *Ciência de dados para 
 Este primeiro vídeo é sobre os tipos de perguntas que a ciência de dados pode responder. Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
-> 
-> 
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados levando cerca de 25 minutos no total. Confira os outros quatro vídeos:
@@ -55,7 +55,7 @@ Isso pode surpreender você, mas *há apenas cinco perguntas que a ciência de d
 * Quanto custa – ou – Quantas?
 * Como isso é organizado?
 * O que devo fazer agora?
-  
+
   Cada uma dessas perguntas é respondida por uma família separada de métodos de aprendizado de máquina, chamados de algoritmos.
 
 É útil pensar em um algoritmo como uma receita, e seus dados como os ingredientes. Um algoritmo informa como combinar e mesclar os dados para obter uma resposta. Os computadores são como o liquidificador. Eles fazem o trabalho mais pesado do algoritmo, e fazem isso bem rápido.
@@ -143,7 +143,6 @@ Então é isso, As cinco perguntas que a ciência de dados pode responder.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
