@@ -1,8 +1,8 @@
-# Práticas recomendadas de segurança de Internet das Coisas
+# <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das Coisas
 Proteger uma infraestrutura de Internet das Coisas (IoT) requer uma estratégia de segurança em camadas rigorosa. Essa estratégia exige que você proteja dados na nuvem, proteja a integridade dos dados enquanto eles estão em trânsito na Internet pública e provisione dispositivos com segurança. Cada camada cria uma maior garantia de segurança na infraestrutura geral.
 
-## Proteger uma infraestrutura de IoT
-Essa estratégia de segurança em camadas pode ser desenvolvida e executada com a participação ativa de vários participantes envolvidos na produção, desenvolvimento e implantação de dispositivos e infraestrutura de IoT. Veja a seguir uma descrição de alto nível desses participantes.
+## <a name="secure-an-iot-infrastructure"></a>Proteger uma infraestrutura de IoT
+Essa estratégia de segurança em camadas pode ser desenvolvida e executada com a participação ativa de vários participantes envolvidos na produção, desenvolvimento e implantação de dispositivos e infraestrutura de IoT. Veja a seguir uma descrição de alto nível desses participantes.  
 
 * **Fabricante/integrador de hardware de IoT**: normalmente, esses são os fabricantes de hardware de IoT que está sendo implantado, os integradores montando hardware de vários fabricantes ou os fornecedores de hardware para uma implantação de IoT fabricado ou integrado por outros fornecedores.
 * **Desenvolvedor de soluções IoT**: o desenvolvimento de uma solução de IoT normalmente é feito por um desenvolvedor de soluções. Esse desenvolvedor pode ser parte de uma equipe interna ou um SI (integrador de sistema) especializado nesta atividade. O desenvolvedor de soluções IoT pode desenvolver vários componentes da solução IoT do zero, integrar vários componentes prontos ou de software livre, ou então adotar soluções pré-configuradas com pequenas adaptações.
@@ -11,7 +11,7 @@ Essa estratégia de segurança em camadas pode ser desenvolvida e executada com 
 
 As seções a seguir fornecem práticas recomendadas para cada um desses participantes para ajudar a desenvolver, implantar e operar uma infraestrutura de IoT segura.
 
-## Fabricante/integrador de hardware de IoT
+## <a name="iot-hardware-manufacturerintegrator"></a>Fabricante/integrador de hardware de IoT
 A seguir estão as práticas recomendadas para fabricantes de hardware IoT e integradores de hardware.
 
 * **Escopo de hardware para requisitos mínimos**: o design de hardware deve incluir o mínimo de recursos necessários para a operação de hardware e nada mais. Um exemplo é incluir portas USB somente se necessário para a operação do dispositivo. Esses recursos adicionais expõem o dispositivo a vetores de ataque indesejados, o que deve ser evitado.
@@ -19,20 +19,20 @@ A seguir estão as práticas recomendadas para fabricantes de hardware IoT e int
 * **Criar em hardware seguro**: se o COGS permitir, crie recursos de segurança, como recursos de armazenamento seguro e criptografado ou a funcionalidade de inicialização com base em TPM (Trusted Platform Module). Esses recursos tornam os dispositivos mais seguros e ajudam a proteger a infraestrutura geral de IoT.
 * **Tornar as atualizações seguras**: atualizações de firmware durante o tempo de vida do dispositivo são inevitáveis. Criar dispositivos com caminhos seguros para atualizações e garantia criptográfica das versões de firmware permitirá que o dispositivo fique seguro durante e após atualizações.
 
-## Desenvolvedor de soluções IoT
+## <a name="iot-solution-developer"></a>Desenvolvedor de soluções IoT
 A seguir estão as práticas recomendadas para desenvolvedores de solução de IoT:
 
 * **Seguir a metodologia de desenvolvimento de software seguro**: o desenvolvimento de software seguro requer uma consideração inicial desde a concepção do projeto até sua implementação, teste e implantação. A escolha de plataformas, linguagens e ferramentas são influenciados por essa metodologia. O Microsoft Security Development Lifecycle fornece uma abordagem passo a passo para a criação de software seguro.
 * **Escolher software livre com cuidado**: software livre fornece uma oportunidade o rápido desenvolvimento de soluções. Ao escolher o software livre, considere o nível de atividade da comunidade para cada componente de software livre. Uma comunidade ativa garante que existirá suporte para o software e que os problemas serão descobertos e tratados. Como alternativa, um software livre obscuro e inativo poderá não ter suporte e os problemas provavelmente não serão descobertos.
-* **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. Funcionalidades que podem não ser necessárias para a implantação atual ainda podem estar disponíveis por meio de uma camada de API. Para garantir a segurança geral, certifique-se de verificar todas as interfaces de componentes sendo integradas para ver se há falhas de segurança.
+* **Integrar com cuidado**: há muitas das falhas de segurança de software no limite de bibliotecas e APIs. Funcionalidades que podem não ser necessárias para a implantação atual ainda podem estar disponíveis por meio de uma camada de API. Para garantir a segurança geral, certifique-se de verificar todas as interfaces de componentes sendo integradas para ver se há falhas de segurança.      
 
-## Implantador de soluções IoT
+## <a name="iot-solution-deployer"></a>Implantador de soluções IoT
 A seguir estão as práticas recomendadas para implantadores de solução de IoT:
 
 * **Implantar o hardware com segurança**: implantações de IoT podem exigir que o hardware seja implantado em locais não seguros, como espaços públicos ou localidades sem supervisão. Em tais situações, certifique-se de que a implantação de hardware seja à prova de adulteração o máximo possível. Se USB ou outras portas estiverem disponíveis no hardware, certifique-se de que elas estejam cobertas com segurança. Muitos vetores de ataque podem usá-las como ponto de entrada.
 * **Manter as chaves de autenticação em segurança**: durante a implantação, cada dispositivo requer IDs de dispositivo e chaves de autenticação associadas geradas pelo serviço de nuvem. Mantenha essas chaves fisicamente seguras mesmo após a implantação. Qualquer chave comprometida pode ser usada por um dispositivo mal-intencionado passando-se por um dispositivo existente.
 
-## Operador de solução IoT
+## <a name="iot-solution-operator"></a>Operador de solução IoT
 A seguir estão as práticas recomendadas para operadores de solução de IoT:
 
 * **Manter o sistema atualizado**: verifique se todos os sistemas operacionais e drivers do dispositivo estão atualizados para as versões mais recentes. Se você ativar as atualizações automáticas no Windows 10 (IoT ou outras SKUs), a Microsoft vai mantê-las atualizadas, fornecendo um sistema operacional seguro para dispositivos IoT. Manter outros sistemas atualizados (como o Linux) ajuda a garantir que eles também estejam protegidos contra ataques mal-intencionados.
@@ -45,4 +45,8 @@ As funcionalidades de diferentes dispositivos IoT variam. Alguns dispositivos po
 
 Alguns dispositivos herdados e restritos podem não ter sido projetados especificamente para a implantação de IoT. Esses dispositivos podem não ter a capacidade de criptografar dados, conectar-se à Internet ou fornecer auditoria avançada. Nesses casos, um gateway de campo moderno e seguro pode agregar dados de dispositivos herdados e fornecer a segurança necessária para conectar esses dispositivos pela Internet. Gateways de campo fornecem autenticação segura, negociação de sessões criptografadas, recebimento de comandos da nuvem e muitos outros recursos de segurança.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

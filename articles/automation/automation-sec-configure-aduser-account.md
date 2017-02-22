@@ -1,6 +1,6 @@
 ---
 title: "Configurar a conta de usuário do Azure AD | Microsoft Docs"
-description: "Este artigo descreve como configurar a credencial da conta de Usuário do Azure AD para runbooks na Automação do Azure para autenticação no ARM e no ASM."
+description: "Este artigo descreve como configurar para autenticação a credencial da conta de Usuário do Azure AD para runbooks na Automação do Azure."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Autenticar Runbooks com o Gerenciador de Recursos e o Gerenciamento de Serviços do Azure
-Este artigo descreve as etapas que você deve executar para configurar uma conta de Usuário do Azure AD para runbooks de Automação do Azure em execução em relação a recursos do ASM (Gerenciamento de Serviços do Azure) ou do ARM (Azure Resource Manager).  Embora essa continue a ser uma identidade de autenticação com suporte para runbooks com base no ARM, o método recomendado é usar a nova conta Executar como do Azure.       
+Este artigo descreve as etapas que você deve executar para configurar uma conta de Usuário do Azure AD para runbooks de Automação do Azure em execução em relação a recursos do Gerenciamento de Serviços do Azure ou do Azure Resource Manager.  Embora essa continue a ser uma identidade de autenticação com suporte para runbooks com base no Azure Resource Manager, o método recomendado é usar a nova conta Executar como do Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Criar um novo usuário do Azure Active Directory
 1. Faça logon no Portal Clássico do Azure como administrador de serviço para a assinatura do Azure que você deseja gerenciar.
@@ -39,12 +39,12 @@ Este artigo descreve as etapas que você deve executar para configurar uma conta
 12. Faça logoff do Azure e, em seguida, faça logon novamente com a conta que você acabou de criar. Você será solicitado a alterar a senha do usuário.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Criar uma conta de Automação no Portal Clássico do Azure
-Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no Portal do Azure que será usada com seus runbooks para o gerenciamento de recursos nos modos ASM e ARM.  
+Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no Portal do Azure que será usada com seus runbooks para o gerenciamento de recursos nos modos do Gerenciador de Serviços do Azure e do Azure Resource Manager.  
 
 > [!NOTE]
 > Contas de automação criadas com o Portal Clássico do Azure podem ser gerenciadas pelo Portal Clássico do Azure e pelo Portal do Azure e qualquer um dos conjuntos de cmdlets. Depois que a conta é criada, não faz diferença como você cria e gerencia recursos dentro da conta. Se planeja continuar a usar o Portal Clássico do Azure, você deve usá-lo em vez do Portal do Azure para criar qualquer conta de Automação.
->
->
+> 
+> 
 
 1. Faça logon no Portal Clássico do Azure como administrador de serviço para a assinatura do Azure que você deseja gerenciar.
 2. Selecione **Automação**.
@@ -60,7 +60,7 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 12. Na página **Definir Credencial** a seguir, digite o nome de usuário da conta de usuário do AD criada anteriormente no campo **Nome de Usuário** e a senha nos campos **Senha** e **Confirmar Senha**. Clique em **OK** para salvar as alterações.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Criar uma conta de Automação no Portal do Azure
-Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no Portal do Azure que será usada com seus runbooks para o gerenciamento de recursos no modo ARM.  
+Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no Portal do Azure que será usada com seus recursos de gerenciamento de runbooks no modo do Azure Resource Manager.  
 
 1. Faça logon no portal do Azure como administrador de serviço para a assinatura do Azure que você deseja gerenciar.
 2. Selecione **Contas de Automação**.
@@ -68,12 +68,12 @@ Nesta seção, você executará as etapas a seguir para criar uma nova conta de 
 4. Na folha **Adicionar Conta de Automação**, na caixa **Nome**, digite um nome para a nova conta de Automação.
 5. Se você tiver mais de uma assinatura, especifique a assinatura certa para a nova conta, bem como um **Grupo de recursos** novo ou existente e um **Local** de datacenter do Azure.
 6. Selecione o valor **Não** para a opção **Criar conta Executar como do Azure** e clique no botão **Criar**.  
-
+   
    > [!NOTE]
-   > Se você optar por não criar a conta Executar Como selecionando a opção **Não**, verá uma mensagem de aviso com a folha **Adicionar Conta de Automação**.  Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura.  Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do ARM.
-   >
-   >
-
+   > Se você optar por não criar a conta Executar Como selecionando a opção **Não**, verá uma mensagem de aviso com a folha **Adicionar Conta de Automação**.  Embora a conta seja criada e atribuída à função **Colaborador** na assinatura, ela não terá uma identidade de autenticação correspondente em seu serviço de diretório de assinaturas e, portanto, não haverá recursos de acesso em sua assinatura.  Isso impedirá qualquer runbook que faça referência a essa conta seja capaz de se autenticar e de executar tarefas nos recursos do Azure Resource Manager.
+   > 
+   > 
+   
     ![Aviso Adicionar Conta de Automação](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. Enquanto o Azure cria a conta de Automação, você poderá acompanhar o andamento em **Notificações** no menu.
 
@@ -93,6 +93,7 @@ Repita essas linhas após qualquer [ponto de verificação](http://technet.micro
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

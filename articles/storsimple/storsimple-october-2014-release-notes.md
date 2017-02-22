@@ -20,7 +20,7 @@ ms.openlocfilehash: 6d3f4908fd8e245960ba1b1b1244aafeb06922eb
 
 
 ---
-# <a name="storsimple-8000-series-update-01-release-notes-october-2014"></a>Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014
+# <a name="storsimple-8000-series-update-01-release-notes--october-2014"></a>Notas de versão da Atualização 0.1 do StorSimple série 8000 - outubro de 2014
 ## <a name="overview"></a>Visão geral
 As notas de versão a seguir identificam os problemas críticos abertos da Atualização 0.1 do StorSimple série 8000, em outubro de 2014. Elas também contêm uma lista das atualizações de firmware e software do StorSimple incluídas nesta versão. Esta é a primeira versão depois que a versão de lançamento do StorSimple série 8000 foi disponibilizada em julho de 2014 e corresponde à versão de software 6.3.9600.17312.  
 

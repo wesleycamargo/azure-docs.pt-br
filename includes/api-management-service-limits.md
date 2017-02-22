@@ -8,4 +8,8 @@
 
 <sup>1</sup>Os limites do Gerenciamento de API são diferentes para cada camada de preços. Para ver as camadas de preço e seus limites associados e as opções de dimensionamento, consulte [Preços de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

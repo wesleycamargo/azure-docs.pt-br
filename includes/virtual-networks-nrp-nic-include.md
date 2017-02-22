@@ -1,5 +1,5 @@
-## NIC
-Um recurso de placa de interface de rede (NIC) fornece conectividade de rede com uma sub-rede existente em um recurso de VNet. Embora você possa criar uma NIC como um objeto autônomo, você precisa associá-la a outro objeto para fornecer a conectividade. Uma NIC pode ser usada para conectar uma VM a uma sub-rede, um endereço IP público ou um balanceador de carga.
+## <a name="nic"></a>NIC
+Um recurso de placa de interface de rede (NIC) fornece conectividade de rede com uma sub-rede existente em um recurso de VNet. Embora você possa criar uma NIC como um objeto autônomo, você precisa associá-la a outro objeto para fornecer a conectividade. Uma NIC pode ser usada para conectar uma VM a uma sub-rede, um endereço IP público ou um balanceador de carga.  
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
@@ -12,13 +12,13 @@ Uma Placa de Interface de rede ou NIC representa uma interface de rede que pode 
 
 ![NICs em uma única VM](./media/resource-groups-networking/Figure3.png)
 
-### Configurações de IP
+### <a name="ip-configurations"></a>Configurações de IP
 NICs têm um objeto filho chamado **ipConfigurations** que contém as seguintes propriedades:
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
 | **subnet** |A sub-rede à qual a NIC está conectada. |/subscriptions/{guid}/../Microsoft.Network/virtualNetworks/myvnet1/subnets/mysub1 |
-| **privateIPAddress** |Endereço IP da NIC na sub-rede |10\.0.0.8 |
+| **privateIPAddress** |Endereço IP da NIC na sub-rede |10.0.0.8 |
 | **privateIPAllocationMethod** |Método de alocação de IP |Dinâmico ou estático |
 | **enableIPForwarding** |Se a NIC pode ser usada para roteamento |true ou false |
 | **primary** |Se a NIC é a NIC primária para a VM |true ou false |
@@ -31,7 +31,7 @@ Endereço IP de público exemplo, no formato JSON:
     {
         "name": "lb-nic1-be",
         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
-        "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
         "type": "Microsoft.Network/networkInterfaces",
         "location": "eastus",
         "properties": {
@@ -41,7 +41,7 @@ Endereço IP de público exemplo, no formato JSON:
                 {
                     "name": "NIC-config",
                     "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
-                    "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
+                    "etag": "W/\"0027f1a2-3ac8-49de-b5d5-fd46550500b1\"",
                     "properties": {
                         "provisioningState": "Succeeded",
                         "privateIPAddress": "10.0.0.4",
@@ -72,7 +72,11 @@ Endereço IP de público exemplo, no formato JSON:
         }
     }
 
-### Recursos adicionais
+### <a name="additional-resources"></a>Recursos adicionais
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) para obter NICs.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

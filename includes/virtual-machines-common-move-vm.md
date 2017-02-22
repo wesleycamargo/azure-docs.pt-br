@@ -1,6 +1,6 @@
 
 
-## Usar o portal para mover uma VM para uma assinatura diferente
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Usar o portal para mover uma VM para uma assinatura diferente
 Você pode mover uma VM e recursos associados para uma assinatura diferente usando o portal.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
@@ -15,7 +15,7 @@ Você pode mover uma VM e recursos associados para uma assinatura diferente usan
 6. Escolha um **Grupo de recursos** existente ou digite um nome para criar um novo.
 7. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**.
 
-## Usar o portal para mover uma VM para outro grupo de recursos
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Usar o portal para mover uma VM para outro grupo de recursos
 Você pode mover uma VM e recursos associados para outro grupo de recursos usando o portal.
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
@@ -23,8 +23,12 @@ Você pode mover uma VM e recursos associados para outro grupo de recursos usand
 3. Na folha **Grupo de recursos**, selecione **Mover** no menu.
    
     ![Captura de tela do botão Mover no menu Grupos de recursos.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. Na folha **Mover recursos**, selecione nome do grupo de recursos a ser movido e digite um recurso existente ou escolha criar um novo grupo de recursos. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**
+4. Na folha **Mover recursos** , selecione nome do grupo de recursos a ser movido e digite um recurso existente ou escolha criar um novo grupo de recursos. Quando terminar, selecione que você entende que novas IDs de recurso serão criadas e que elas precisam ser usadas com a VM após a mudança, e clique em **OK**
    
     ![Captura de tela da folha Mover recursos.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,5 +1,5 @@
 
-## Recursos
+## <a name="resources"></a>Recursos
 * [Lista de Recursos do WebJobs Completa](../articles/app-service-web/websites-webjobs-resources.md)
 * [Introdução ao SDK de Trabalhos Web do Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -16,7 +16,7 @@
 * [Como gravar logs usando o SDK de Trabalhos Web e exibi-los no painel](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
 * [Depuração remota de Trabalhos Web](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
-## Vídeos
+## <a name="videos"></a>Vídeos
 * [WebJobs e SDK de Trabalhos Web](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 * [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [Apresentando as ferramentas de Trabalhos Web do Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster)
@@ -24,4 +24,8 @@
 * [Expandindo Trabalhos Web](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 * [Vídeos de Trabalhos Web do Azure, de Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

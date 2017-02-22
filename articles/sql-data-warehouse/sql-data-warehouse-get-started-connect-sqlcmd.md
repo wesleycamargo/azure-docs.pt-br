@@ -1,6 +1,6 @@
 ---
-title: Consultar o SQL Data Warehouse do Azure (sqlcmd)| Microsoft Docs
-description: "Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd."
+title: Conectar-se ao sqlcmd do SQL Data Warehouse do Azure | Microsoft Docs
+description: "Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Consultar o SQL Data Warehouse do Azure (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conecte-se ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,7 +30,7 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-Este passo a passo usa o utilitário da linha de comando [sqlcmd][sqlcmd] para consultar um SQL Data Warehouse do Azure.  
+Use o utilitário de linha de comando [sqlcmd][sqlcmd] para conectar-se ao SQL Data Warehouse do Azure e fazer uma consulta.  
 
 ## <a name="1-connect"></a>1. Connect
 Para começar com o [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
@@ -100,6 +100,6 @@ Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opç
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
