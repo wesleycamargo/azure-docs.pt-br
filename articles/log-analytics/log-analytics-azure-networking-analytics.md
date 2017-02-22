@@ -4,7 +4,7 @@ description: "Você pode usar a solução de Análise de Rede do Azure no Log An
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
-manager: jochan
+manager: ewinner
 editor: 
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: d3f61bd28880a8e008872857d3fdc4b3bd23c2a2
-ms.openlocfilehash: 1597492506bfef44128d0483fa38dca3ff5c0980
+ms.sourcegitcommit: 14df6b49d79aa1bf6f414070c60e7acac6578301
+ms.openlocfilehash: 7267b41d5d1a7903a084eea2c813bc40249fbf6a
 
 
 ---
@@ -126,7 +126,6 @@ Nos grupos de segurança de rede, há suporte para os seguintes logs:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
-* NetworkSecurityGroupFlowEvent
 
 ### <a name="install-and-configure-the-solution"></a>Instale e configure a solução
 Use as instruções a seguir para instalar e configurar a solução de Análise de Rede do Azure:
@@ -215,6 +214,6 @@ Os dados coletados antes da alteração não estão visíveis na nova solução.
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

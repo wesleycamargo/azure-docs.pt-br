@@ -3,7 +3,7 @@ title: "Artigos técnicos para VMs Windows clássicas| Microsoft Azure"
 description: "Uma lista completa de artigos de documentação do Microsoft Azure para máquinas virtuais do Windows no modelo de implantação clássico"
 services: virtual-machines-windows
 documentationcenter: 
-author: dlepow
+author: cynthn
 manager: timlt
 tags: azure-service-management
 editor: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/05/2016
+ms.date: 02/13/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: bc303bb08366f5bcf86b2ae84db5751ea620d05c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 263b3a1edc94a60e756850b2d917840be87e7a5a
 
 
 ---
@@ -103,7 +103,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 [Como configurar pontos de extremidade em uma máquina virtual clássica do Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>Armazenamento
-[Sobre discos e VHDs para máquinas virtuais do Azure](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Sobre discos e VHDs para máquinas virtuais do Azure](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Como anexar um disco de dados a uma máquina virtual clássica do Windows](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -145,7 +145,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="reference"></a>Referência
-[Comandos da CLI do Azure no modo de Gerenciamento de Serviços](../virtual-machines-command-line-tools.md)
+[Comandos da CLI do Azure no modo de Gerenciamento de Serviços](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 
 [API REST de gerenciamento de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
@@ -166,6 +166,6 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

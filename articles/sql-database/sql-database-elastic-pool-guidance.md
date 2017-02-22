@@ -3,7 +3,7 @@ title: "Quando um pool elástico deve ser usado?"
 description: "Um pool elástico é um conjunto de recursos disponíveis compartilhados por um grupo de bancos de dados elásticos. Este documento fornece diretrizes para ajudar a avaliar a adequação do uso de um pool elástico para um grupo de bancos de dados."
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: ddove
 manager: jhubbard
 editor: 
 ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
@@ -11,13 +11,13 @@ ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/19/2016
-ms.author: sstein;carlrab
+ms.author: ddove
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
-ms.openlocfilehash: a79b78a4e8e683afe5b41a41911e7d5f020eff88
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 9fa8c7d06675c3a7481e64c8f5390f1b5470a280
 
 
 ---
@@ -74,13 +74,13 @@ As seguintes regras básicas relacionadas à contagem e utilização de banco de
 Se a soma das DTUs dos níveis de desempenho para bancos de dados individuais for maior que 1,5x as eDTUs necessárias para o pool, um pool elástico será mais econômico. Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 ***Exemplo***<br>
- pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico do que o uso de níveis de desempenho para bancos de dados individuais.
+pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários para um pool de 100 eDTUs ser mais econômico do que o uso de níveis de desempenho para bancos de dados individuais.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Número máximo de banco de dados em pico simultaneamente
 Ao compartilhar eDTUs, nem todos os bancos de dados em um pool podem usar as eDTUs simultaneamente até o limite disponível ao usar níveis de desempenho de bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menor poderá ser o eDTU do pool e mais econômico ainda ele se torna. Em geral, no máximo 2/3 (ou 67%) dos bancos de dados no pool deve atingir o pico simultaneamente de seus limites de eDTU.
 
 ***Exemplo***<br>
- para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os níveis de desempenho de bancos de dados individuais.
+para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os níveis de desempenho de bancos de dados individuais.
 
 Observe que esse exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
@@ -88,7 +88,7 @@ Observe que esse exemplo não considera a utilização de outros bancos de dados
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
 ***Exemplo***<br>
- um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
 ## <a name="sizing-an-elastic-pool"></a>Dimensionar um pool elástico
 O melhor tamanho de um pool depende das eDTUs e recursos de armazenamento agregados necessários para todos os bancos de dados no pool. Isso inclui determinar a maior das quantidades a seguir:
@@ -99,17 +99,6 @@ O melhor tamanho de um pool depende das eDTUs e recursos de armazenamento agrega
 Para ver os tamanhos disponíveis, consulte [Limites de eDTU e armazenamento para pools e bancos de dados elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
 O Banco de Dados SQL avalia automaticamente a utilização histórica de recursos dos bancos de dados em um servidor de Banco de Dados SQL existente e recomenda a configuração de pool apropriada no portal do Azure. Além das recomendações, uma experiência interna calcula o uso de eDTU para um grupo personalizado de bancos de dados no servidor. Isso permite que você faça uma análise "e se" interativamente adicionando bancos de dados ao pool e removendo-os para obter a análise de uso de recursos e conselhos de dimensionamento antes de confirmar as alterações. Para obter instruções, confira [Monitorar, gerenciar e dimensionar um pool elástico](sql-database-elastic-pool-manage-portal.md).
-
-Para avaliações mais flexíveis de uso de recursos que permitem estimativas de dimensionamento ad hoc para servidores anteriores ao V12 e estimativas de dimensionamento de bancos de dados em servidores diferentes, confira [Script do PowerShell para identificar os bancos de dados adequados para um pool elástico](sql-database-elastic-pool-database-assessment-powershell.md).
-
-| Recurso | Experiência do Portal | Script do PowerShell |
-|:--- |:--- |:--- |
-| Granularidade |15 s |15 s |
-| Considera as diferenças de preço entre um pool e os níveis de desempenho para bancos de dados individuais |Sim |Não |
-| Permite personalizar a lista de bancos de dados analisados |Sim |Sim |
-| Permite personalizar o período de tempo usado na análise |Não |Sim |
-| Permite personalizar a lista de bancos de dados analisados entre diferentes servidores |Não |Sim |
-| Permite personalizar a lista de bancos de dados analisados em servidores v11 |Não |Sim |
 
 Em casos em que você não pode usar as ferramentas, os procedimentos passo a passo a seguir podem ajudá-lo a estimar se um pool é mais econômico do que bancos de dados individuais:
 
@@ -126,13 +115,12 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 Nem todos os bancos de dados individuais são candidatos ideais para pools. Bancos de dados com padrões de uso caracterizados por baixa utilização média e picos de utilização relativamente pouco frequentes são excelentes candidatos. Padrões de uso do aplicativo são dinâmicos, por isso use as informações e ferramentas descritas neste artigo e informações para fazer uma avaliação inicial para verificar se um pool é uma boa opção para alguns ou todos os bancos de dados. Este artigo é apenas um ponto de partida para decidir se um pool elástico é uma boa opção ou não. Lembre-se de que você deve monitorar continuamente o uso do recurso histórico de recursos e reavaliar constantemente os níveis de desempenho de todos os bancos de dados. Tenha em mente que você pode adicionar e remover facilmente os bancos de dados dos pool elásticos e, se tiver um grande número de bancos de dados, poderá dividir os bancos de dados em vários pools de tamanhos variados.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar um pool elástico](sql-database-elastic-pool-create-portal.md)
+* [Criar um pool elástico](sql-database-elastic-pool-manage-portal.md)
 * [Monitorar, gerenciar e dimensionar um pool elástico](sql-database-elastic-pool-manage-portal.md)
 * [Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço](sql-database-service-tiers.md)
-* [Script do PowerShell para identificar os bancos de dados adequados para um pool elástico](sql-database-elastic-pool-database-assessment-powershell.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

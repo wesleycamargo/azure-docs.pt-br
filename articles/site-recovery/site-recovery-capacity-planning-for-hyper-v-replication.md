@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 79adce1f3fb9a33e60159af72e83118dd88e0946
-ms.openlocfilehash: ecddf255f4b4750bf67f2689b0274c04f8ec54b7
+ms.sourcegitcommit: bb078183b24cd5c5172b48f1135eced061220cf5
+ms.openlocfilehash: 3c0c00bf9e4380a682ff1e155fb6d9a3826f4b00
 
 
 ---
@@ -70,7 +70,7 @@ Recomendamos a configuração de um único host Hyper-V como servidor de recuper
 3. Configure a autenticação:
 
    * Em **Autenticação e portas**, selecione como autenticar o servidor primário e as portas de autenticação. Se você usar um certificado, clique em **Selecionar Certificado** para selecionar um. Use o Kerberos se os hosts primário e de recuperação do Hyper-V estiverem no mesmo domínio ou em domínios confiáveis. Use certificados para domínios diferentes ou para uma implantação de grupo de trabalho.
-   * Na seção **Autorização e Armazenamento**, permita que **qualquer** servidor autenticado (primário) envie dados de replicação para este servidor de réplica. 
+   * Na seção **Autorização e Armazenamento**, permita que **qualquer** servidor autenticado (primário) envie dados de replicação para este servidor de réplica.
 
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Execute **netsh http show servicestate** para verificar se o ouvinte está em execução para o protocolo/porta especificado:  
@@ -133,11 +133,9 @@ Depois de concluir o planejamento de capacidade, você pode iniciar a implantaç
 * [Replicar VMs Hyper-V em nuvens VMM para o Azure](site-recovery-vmm-to-azure.md)
 * [Replicar VMs do Hyper-V (sem VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicar VMs do Hyper-V entre sites do VMM](site-recovery-vmm-to-vmm.md)
-* [Replicar VMs do Hyper-V entre sites do VMM com rede SAN](site-recovery-vmm-san.md)
-* [Replicar VMs do Hyper-V em um único servidor VMM](site-recovery-single-vmm.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

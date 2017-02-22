@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/20/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+ms.sourcegitcommit: d1d05b46591fe4b72c92c59d357681c8e1cdb336
+ms.openlocfilehash: c208660fc1439ca831ada6c9bb348dbc3eadc18c
 
 
 ---
@@ -38,10 +38,10 @@ A tabela a seguir fornece o nome e a descrição de cada processador de mídia d
 | Fluxo de trabalho do Media Encoder Premium |Permite que você execute tarefas de codificação usando o fluxo de trabalho do Media Encoder Premium. |[Visão Geral e Comparação de Codificadores de Mídia sob Demanda do Azure](media-services-encode-asset.md) |
 | Indexador de Mídia do Azure |Permite tornar arquivos e conteúdo de mídia pesquisáveis, bem como gerar faixas de legenda e palavras-chave. |[Indexador de Mídia do Azure](media-services-index-content.md) |
 | Azure Media Hyperlapse (visualização) |Permite suavizar "impactos" no vídeo com estabilização do vídeo. Também permite que você a acelere o seu conteúdo em um clipe de consumo. |[Azure Media Hyperlapse](media-services-hyperlapse-content.md) |
-| Codificador de Mídia do Azure |Substituído | |
-| Descriptografia do armazenamento |Substituído | |
-| Gerenciador de mídia do Azure |Substituído | |
-| Criptografador de Mídia do Azure |Substituído | |
+| Codificador de Mídia do Azure |Preteridos | |
+| Descriptografia do armazenamento |Preteridos | |
+| Gerenciador de mídia do Azure |Preteridos | |
+| Criptografador de Mídia do Azure |Preteridos | |
 
 ## <a name="get-mediaprocessor"></a>Obter MediaProcessor
 > [!NOTE]
@@ -98,6 +98,6 @@ Agora que você já sabe como obter uma instância do processador de mídia, vá
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

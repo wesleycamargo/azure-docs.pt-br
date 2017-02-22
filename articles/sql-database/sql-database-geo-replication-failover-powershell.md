@@ -16,18 +16,12 @@ ms.workload: data-management
 ms.date: 08/29/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 2f63098e2087e9bc96493f98bdb5900671e659a1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: ac575284544819c6bed7ef84669b2793085a3dc6
 
 
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-powershell"></a>Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o PowerShell
-> [!div class="op_single_selector"]
-> * [Portal do Azure](sql-database-geo-replication-failover-portal.md)
-> * [PowerShell](sql-database-geo-replication-failover-powershell.md)
-> * [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-> 
-> 
 
 Este artigo mostra como iniciar um failover planejado ou não planejado para um Banco de Dados SQL com o PowerShell. Para configurar a Replicação Geográfica, consulte [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure](sql-database-geo-replication-powershell.md).
 
@@ -45,7 +39,7 @@ Esse cmdlet retornará quando o processo de alternar o banco de dados secundári
 
 O comando a seguir alterna as funções do banco de dados chamado "mydb" no servidor "srv2" sob o grupo de recursos "rg2" para o primário. O primário original ao qual "db2" foi conectado será alternado para o secundário depois que os dois bancos de dados forem completamente sincronizados.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -55,7 +49,7 @@ O comando a seguir alterna as funções do banco de dados chamado "mydb" no serv
 > 
 
 ## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Iniciar um failover não planejado do banco de dados primário para o banco de dados secundário
-Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com os parâmetros **–Failover** e **-AllowDataLoss** para promover um banco de dados secundário e ele se tornar o novo banco de dados primário de maneira planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível.
+Você pode usar o cmdlet **Set-AzureRmSqlDatabaseSecondary** com os parâmetros **–Failover** e **-AllowDataLoss** a fim de promover um banco de dados secundário para que ele se torne o novo banco de dados primário de maneira não planejada, rebaixando o primário existente para se tornar um secundário quando o banco de dados primário não estiver mais disponível.
 
 Essa funcionalidade foi designada para a recuperação de desastres quando a restauração da disponibilidade do banco de dados é fundamental e a perda de dados é aceitável. Quando o failover forçado é chamado, o banco de dados secundário especificado imediatamente se torna o banco de dados primário e começa a aceitar as transações de gravação. Assim que o banco de dados primário original for capaz de se reconectar com o novo banco de dados primário após a operação de failover forçado, um backup incremental será realizado no banco de dados primário original e o antigo banco de dados primário será transformado em um banco de dados secundário para o novo banco de dados primário; em seguida, será simplesmente uma réplica do novo primário.
 
@@ -70,8 +64,8 @@ Se o banco de dados primário tiver vários secundários, o comando será parcia
 
 O comando a seguir alternará as funções de banco de dados chamado "mydb" para primário quando o primário não estiver disponível. O primário original ao qual “mydb” estava conectado será alternado para secundário quando voltar a ficar online. Nesse ponto, a sincronização poderá resultar em perda de dados.
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
-    $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
+    $database = Get-AzureRmSqlDatabase -DatabaseName "mydb" -ResourceGroupName "rg2” -ServerName "srv2”
+    $database | Set-AzureRmSqlDatabaseSecondary -Failover -AllowDataLoss
 
 
 
@@ -87,6 +81,6 @@ O comando a seguir alternará as funções de banco de dados chamado "mydb" para
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -11,14 +11,14 @@ ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 8fefa688ee52395d7dee2f53da12ebc50e84fb8e
 
 
 ---
@@ -38,7 +38,7 @@ A tabela a seguir compara o ERT e RPO para os três cenários mais comuns.
 | Replicação geográfica ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Usar backups de banco de dados para recuperar um banco de dados
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento com redundância geográfica por 35 dias, no caso dos bancos de dados das camadas de serviço Standard e Premium, e por sete dias no caso dos bancos de dados da camada de serviço Básica - confira a seção [Camadas de serviço](sql-database-service-tiers.md) para obter mais detalhes sobre elas. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-scale-up.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Consulte [backups de banco de dados automáticos](sql-database-automated-backups.md) para obter mais detalhes.
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento com redundância geográfica por 35 dias, no caso dos bancos de dados das camadas de serviço Standard e Premium, e por sete dias no caso dos bancos de dados da camada de serviço Básica - confira a seção [Camadas de serviço](sql-database-service-tiers.md) para obter mais detalhes sobre elas. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-service-tiers.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Consulte [backups de banco de dados automáticos](sql-database-automated-backups.md) para obter mais detalhes.
 
 Se o período de retenção interno não for suficiente para seu aplicativo, você pode estendê-lo configurando a política de retenção de longo prazo para seus bancos de dados. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md). 
 
@@ -158,6 +158,6 @@ Para uma discussão sobre as considerações de design de aplicativo para bancos
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

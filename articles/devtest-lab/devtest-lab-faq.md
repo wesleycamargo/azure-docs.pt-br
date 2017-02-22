@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
+ms.sourcegitcommit: f772060243ce6d741d26113710be32cb76135479
+ms.openlocfilehash: 41a28f43942d4e6bf395b7fd024bd22b96420d55
 
 
 ---
@@ -28,7 +28,7 @@ Este artigo responde algumas das perguntas mais comuns sobre o Azure DevTest Lab
 ## <a name="general"></a>Geral
 * [E se dúvida não foi respondida aqui?](#what-if-my-question-isnt-answered-here)
 * [Por que devo usar o Azure DevTest Labs?](#why-should-i-use-azure-devtest-labs) 
-* [O que significa "autoatendimento sem preocupação"?](#what-does-quotworry-free-self-servicequot-mean)
+* [O que significa "autoatendimento sem preocupação"?](#what-does-worry-free-self-service-mean)
 * [Como usar o Azure DevTest Labs?](#how-can-i-use-azure-devtest-labs) 
 * [Como eu sou cobrado pelo Azure DevTest Labs?](#how-am-i-billed-for-azure-devtest-labs) 
 

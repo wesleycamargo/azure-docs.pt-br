@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87b90a164daad8c376b0b8536ec8338a3be548e1
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 3778964172946fa928e2a908943f50897957eb42
 
 
 ---
@@ -26,18 +26,18 @@ Este artigo explica como atribuir uma função administrativa a um usuário na v
 ## <a name="assign-a-role-to-a-user"></a>Atribuir uma função a um usuário
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
-   
+
    ![Abrir o gerenciamento de usuários](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Todos os usuários**.
-   
+
    ![Abrindo a folha Todos os usuários](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 4. Na folha **Usuários e grupos - Todos os usuários** , escolha um usuário na lista.
 5. Na folha do usuário selecionado, selecione **Função de diretório**, em seguida, atribua o usuário a uma função na lista **Função de diretório**. Para obter mais informações sobre funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles.md).
-   
+
       ![Atribuindo um usuário a uma função](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. Selecione **Salvar**.
 
-## <a name="whats-next"></a>O que vem a seguir
+## <a name="next-steps"></a>Próximas etapas
 * [Adicionar um usuário](active-directory-users-create-azure-portal.md)
 * [Redefinir a senha do usuário no novo Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 * [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
@@ -46,7 +46,6 @@ Este artigo explica como atribuir uma função administrativa a um usuário na v
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

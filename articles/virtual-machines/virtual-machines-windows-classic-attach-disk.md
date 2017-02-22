@@ -1,5 +1,5 @@
 ---
-title: Anexar um disco a uma VM | Microsoft Docs
+title: "Anexar disco a uma VM clássica do Azure | Microsoft Docs"
 description: "Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássica e inicialize-a."
 services: virtual-machines-windows, storage
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 01/23/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
-ms.openlocfilehash: 6e2b33492344acedf1c79d4f67a6d69ad163c14c
+ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
+ms.openlocfilehash: 8393b8ce2b373e8ff33454a61c944a5f8f7a8168
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 6e2b33492344acedf1c79d4f67a6d69ad163c14c
 
 Se você precisa de um disco de dados adicional, é possível anexar um disco vazio ou um disco existente com dados a uma VM. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. No caso de um novo disco, depois que você anexar o disco, você também precisará inicializá-lo para que esteja pronto para ser usado por uma VM do Windows.
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -57,6 +57,6 @@ Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máqui
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 899fbfb63633286a1065546b1f262cbc1d7d39c4
-ms.openlocfilehash: d11d57a352138e43f7a7e9d2ec91663361be6f95
+ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
+ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
 
 
 ---
@@ -245,11 +245,11 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>O Dynamics 365 for Operations (anteriormente conhecido como Dynamics AX Online) pode ser acessado por uma conexão do ExpressRoute?
-Sim. O [Dynamics 365 for Operations](https://www.microsoft.com/en-us/dynamics365/operations) é hospedado no Azure. Você pode habilitar o emparelhamento público do Azure no circuito do ExpressRoute para se conectar a ele. 
+Sim. O [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) é hospedado no Azure. Você pode habilitar o emparelhamento público do Azure no circuito do ExpressRoute para se conectar a ele. 
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

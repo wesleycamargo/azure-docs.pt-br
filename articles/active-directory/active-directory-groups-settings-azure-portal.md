@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 246ad13f92ea5146f28213a330a49cf2d639089a
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
 
 
 ---
@@ -26,20 +26,20 @@ Este artigo explica como alterar as configurações de um grupo na visualizaçã
 ## <a name="how-do-i-find-and-change-the-settings"></a>Como localizo e altero as configurações?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
-   
+
    ![Abrir o gerenciamento de usuários](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
-   
+
    ![Abrir a folha de grupos](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , escolha um grupo.
 5. Na folha **Grupo - *nomedogrupo***, escolha **Propriedades**.
-   
+
    ![Abrir a folha Propriedades](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 6. Quando terminar de alterar as propriedades do grupo, escolha **Salvar**.    
-   
+
    ![Salvar alterações de propriedades](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Ver grupos existentes](active-directory-groups-view-azure-portal.md)
@@ -50,7 +50,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

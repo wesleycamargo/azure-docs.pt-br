@@ -1,5 +1,5 @@
 ---
-title: "Especificação de uma versão de Node.js"
+title: "Especificando uma versão de Node.js"
 description: "Saiba como especificar a versão de Node.js usada pelos Sites e Serviços de Nuvem do Azure"
 services: 
 documentationcenter: nodejs
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 8de57909d4abf753a58e389f401018601c3eef24
+ms.sourcegitcommit: 70b0aef629ceb0fe0021f633183d2a6f09145d85
+ms.openlocfilehash: b164865aaef16799ccdec24d163d4723acb88530
 
 
 ---
@@ -91,7 +91,7 @@ Enquanto o Azure fornece várias versões padrão do Node.js, talvez você queir
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como especificar a versão do Node.js usada pelo seu aplicativo, saiba [como trabalhar com módulos], [criar e implantar um Site no Node.js](app-service-web/web-sites-nodejs-develop-deploy-mac.md) e [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux].
 
-Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
+Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/).
 
 [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]: xplat-cli-install.md
 [Ferramentas de linha de comando do Azure]: xplat-cli-install.md
@@ -100,6 +100,6 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodej
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 4aac611e857c0b5b985f887f8536d212c28fd6e4
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
 
 
 ---
@@ -147,7 +147,7 @@ Para atualizar o tamanho da VM de uma instalação, execute o script a seguir co
 </table>
 
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Instalar os componentes de trabalhos de Banco de Dados Elástico usando o Portal
-Após a [criação de um pool elástico](sql-database-elastic-pool-create-portal.md), você pode instalar componentes dos **trabalhos de Banco de Dados Elástico** para habilitar a execução de tarefas administrativas em cada banco de dados no pool elástico. Ao contrário do que ocorre quando as APIs do PowerShell de **trabalhos de Banco de Dados Elástico** são usadas, a interface do portal está atualmente restrita à execução exclusivamente em um pool existente.
+Após a [criação de um pool elástico](sql-database-elastic-pool-manage-portal.md), você pode instalar componentes dos **trabalhos de Banco de Dados Elástico** para habilitar a execução de tarefas administrativas em cada banco de dados no pool elástico. Ao contrário do que ocorre quando as APIs do PowerShell de **trabalhos de Banco de Dados Elástico** são usadas, a interface do portal está atualmente restrita à execução exclusivamente em um pool existente.
 
 **Tempo estimado para conclusão:** 10 minutos.
 
@@ -181,6 +181,6 @@ Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

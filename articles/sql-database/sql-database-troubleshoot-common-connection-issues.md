@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/20/2017
 ms.author: daleche
 translationtype: Human Translation
-ms.sourcegitcommit: c033c1b32ad7b69565f870636110d317d01266df
-ms.openlocfilehash: 28489985797a638c04e1fabba30f42dac56d4d9c
+ms.sourcegitcommit: 676cecdd886cfb557e7859e1e9583f0a0f9f749c
+ms.openlocfilehash: 222b9fe98592e0c78ec3d7c5ae4804bf75dd0d1e
 
 
 ---
@@ -82,7 +82,6 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar problemas de desempenho no Banco de Dados SQL do Azure](sql-database-troubleshoot-performance.md)
-* [Solucionar problemas de permissões no Banco de Dados SQL do Azure](sql-database-troubleshoot-permissions.md)
 * [Pesquisar a documentação do Microsoft Azure](http://azure.microsoft.com/search/documentation/)
 * [Exibir as atualizações mais recentes ao serviço do Banco de Dados SQL do Azure](http://azure.microsoft.com/updates/?service=sql-database)
 
@@ -90,12 +89,10 @@ A tabela a seguir lista todos os tópicos sobre problemas de conexão que se apl
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Diretrizes gerais para tratamento de falhas transitórias](../best-practices-retry-general.md)
 * [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
-* [O roteiro de aprendizagem para usar o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database)
-* [O roteiro de aprendizagem para usar ferramentas e recursos de banco de dados elástico](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale) 
 
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

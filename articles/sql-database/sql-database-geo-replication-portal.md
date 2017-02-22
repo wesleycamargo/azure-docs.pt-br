@@ -3,32 +3,25 @@ title: "Configurar a replicação geográfica para o Banco de Dados SQL do Azure
 description: "Configurar a replicação geográfica para o Banco de Dados SQL do Azure usando o portal do Azure"
 services: sql-database
 documentationcenter: 
-author: anosov1960
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: sashan;carlrab
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: afcdae9ae0224e12ad874b389dad9882d9269fdf
-ms.openlocfilehash: e3d4b3f7a628a058e7b761788a3f63a57228f39c
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurar a replicação geográfica para o Banco de Dados SQL do Azure com o portal do Azure
-> [!div class="op_single_selector"]
-> * [Visão geral](sql-database-geo-replication-overview.md)
-> * [Portal do Azure](sql-database-geo-replication-portal.md)
-> * [PowerShell](sql-database-geo-replication-powershell.md)
-> * [T-SQL](sql-database-geo-replication-transact-sql.md)
-> 
-> 
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-the-azure-portal"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure com o Portal do Azure
 
 Este artigo mostra como configurar a replicação geográfica ativa para o Banco de Dados SQL com o [portal do Azure](http://portal.azure.com).
 
@@ -39,7 +32,7 @@ Para iniciar um failover com o portal do Azure, veja [Iniciar um failover planej
 > 
 > 
 
-Para configurar a replicação geográfica usando o portal do Azure, você precisa do seguinte recurso:
+Para configurar a replicação geográfica ativa usando o Portal do Azure, você precisa do seguinte recurso:
 
 * Um Banco de Dados SQL do Azure: o banco de dados primário que você deseja replicar para uma região geográfica diferente.
 
@@ -51,7 +44,7 @@ As etapas a seguir criam um novo banco de dados secundário em uma parceria de r
 
 Para adicionar um banco de dados secundário, você deve ser o proprietário ou coproprietário da assinatura.
 
-O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem o mesmo nível de serviço. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados elástico. Para obter mais informações, consulte [Camadas de serviço](sql-database-service-tiers.md).
+O banco de dados secundário tem o mesmo nome do banco de dados primário e, por padrão, tem o mesmo nível de serviço. O banco de dados secundário pode ser um banco de dados individual ou um banco de dados em um pool elástico. Para obter mais informações, consulte [Camadas de serviço](sql-database-service-tiers.md).
 Depois que o banco de dados secundário for criado e propagado, os dados começarão a serem replicados desde o banco de dados primário até o novo banco de dados secundário.
 
 > [!NOTE]
@@ -67,7 +60,7 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
 3. Selecione ou configure o servidor e o tipo de preço do banco de dados secundário.
    
     ![Configurar secundário](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Opcionalmente, você pode adicionar um banco de dados secundário a um pool de banco de dados elástico. Para criar o banco de dados secundário em um pool, clique em **Pool de banco de dados elástico** e selecione um pool no servidor de destino. Um pool já deve existir no servidor de destino. Esse fluxo de trabalho não cria um pool.
+4. Opcionalmente, você pode adicionar um banco de dados secundário a um pool elástico. Para criar o banco de dados secundário em um pool, clique em **pool elástico** e selecione um pool no servidor de destino. Um pool já deve existir no servidor de destino. Esse fluxo de trabalho não cria um pool.
 5. Clique em **Criar** para adicionar o secundário.
 6. O banco de dados secundário é criado e começa o processo de propagação.
    
@@ -94,6 +87,6 @@ Essa operação termina permanentemente a replicação para o banco de dados sec
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

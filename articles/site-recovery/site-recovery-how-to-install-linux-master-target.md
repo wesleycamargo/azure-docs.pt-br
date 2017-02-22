@@ -15,8 +15,8 @@ ms.workload:
 ms.date: 12/20/2016
 ms.author: ruturajd
 translationtype: Human Translation
-ms.sourcegitcommit: 4133e98289bf22bccb71b9522627a645e92c5223
-ms.openlocfilehash: 175972f0522db292180a56330307017a25f735b1
+ms.sourcegitcommit: d1a7ed7e182530f81a426a4383297a49505f65ea
+ms.openlocfilehash: d76ea0fb27ecece4e8dcd06a2dde9a0794071884
 
 
 ---
@@ -164,15 +164,15 @@ A opção "Parâmetros de Configuração" estará em um estado desativado quando
 
 e. Verifique se já existe uma linha com **disk.EnableUUID**.
 
-Se já existir e se o valor estiver definido como False, substitua o valor por True (os valores True e False diferenciam letras maiúsculas de minúsculas).
+  Se já existir e se o valor estiver definido como Falso, substitua o valor por Verdadeiro (os valores Verdadeiro e Falso diferenciam letras maiúsculas de minúsculas).
 
-Se já existir e o valor estiver definido como True, clique em Cancelar e teste o comando SCSI dentro do sistema operacional convidado após a inicialização.
+  Se já existir e estiver definida como Verdadeiro, clique em Cancelar e teste o comando SCSI dentro do sistema operacional convidado após a inicialização.
 
 f. Se não existir, clique em **Adicionar Linha.**
 
-Adicione disk.EnableUUID na coluna Nome.
+  Adicione disk.EnableUUID à coluna Nome.
 
-Defina seu valor como TRUE
+  Defina seu valor como VERDADEIRO.
 
 OBSERVAÇÃO: não adicione os valores acima com aspas duplas.
 
@@ -359,6 +359,7 @@ As ferramentas do VMware precisam ser instaladas no MT para que ele possa descob
 ## <a name="common-issues"></a>Problemas comuns
 
 
-<!--HONumber=Feb17_HO2-->
+
+<!--HONumber=Feb17_HO3-->
 
 

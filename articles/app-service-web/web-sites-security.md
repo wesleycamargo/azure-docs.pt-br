@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: e65a655bc9e85b4797d795c9be6ded9ef253ed86
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
 
 
 ---
@@ -34,7 +34,7 @@ Como o Serviço de Aplicativo mantém as VMs, o armazenamento, as conexões de r
 * Seus aplicativos do Serviço de Aplicativo estejam isolados da Internet e de outros recursos do Azure dos clientes.
 * A comunicação de segredos (por exemplo, cadeias de conexão) entre o aplicativo do Serviço de Aplicativo e outros recursos do Azure (por exemplo, Banco de Dados SQL) em um grupo de recursos permaneça dentro do Azure e não cruze nenhum limite de rede. Os segredos sejam sempre criptografados.
 * Toda a comunicação entre seu aplicativo do Serviço de Aplicativo e recursos externos, como gerenciamento do PowerShell, interface de linha de comando, SDKs do Azure, APIs REST e conexões híbridas, seja corretamente criptografada.
-* O gerenciamento de ameaças 24 horas por dia proteja recursos do Serviço de Aplicativo contra malware, DDoS (negação de serviços distribuído), MITM (man-in-the-middle) e outras ameaças. 
+* O gerenciamento de ameaças&24; horas por dia proteja recursos do Serviço de Aplicativo contra malware, DDoS (negação de serviços distribuído), MITM (man-in-the-middle) e outras ameaças. 
 
 Para saber mais sobre segurança de plataforma e infraestrutura no Azure, confira [Centro de Confiabilidade do Azure](/support/trust-center/security/).
 
@@ -60,7 +60,7 @@ Se você usar o nome de domínio **\*.azurewebsites.net** criado para o aplicati
 Habilitar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pode ajudar a proteger contra ataques MITM na comunicação entre o aplicativo e seus usuários.
 
 ## <a name="secure-data-tier"></a>Camada de dados segura
-O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de modo que todas as cadeias de conexão são criptografadas em todos os sentidos e são descriptografadas apenas na VM em que o aplicativo é executado *e* apenas quando o aplicativo é executado. Além disso, o Banco de Dados SQL do Azure inclui muitos recursos de segurança que ajudam a proteger os dados do aplicativo contra ameaças cibernéticas, incluindo [criptografia em repouso](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), [Máscara de Dados Dinâmicos](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [Detecção de Ameaças](../sql-database/sql-database-threat-detection-get-started.md). Se você tem dados confidenciais ou requisitos de conformidade, confira [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md) para saber mais sobre como proteger seus dados.
+O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de modo que todas as cadeias de conexão são criptografadas em todos os sentidos e são descriptografadas apenas na VM em que o aplicativo é executado *e* apenas quando o aplicativo é executado. Além disso, o Banco de Dados SQL do Azure inclui muitos recursos de segurança que ajudam a proteger os dados do aplicativo contra ameaças cibernéticas, incluindo [criptografia em repouso](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), [Máscara de Dados Dinâmicos](../sql-database/sql-database-dynamic-data-masking-get-started.md) e [Detecção de Ameaças](../sql-database/sql-database-threat-detection.md). Se você tem dados confidenciais ou requisitos de conformidade, confira [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security-overview.md) para saber mais sobre como proteger seus dados.
 
 Se você usar um provedor de banco de dados de terceiros, como ClearDB, será preciso consultar a documentação do provedor diretamente no que se refere às práticas recomendadas de segurança.  
 
@@ -110,7 +110,7 @@ Para saber mais sobre os arquivos **web.config** ou **applicationhost.config** e
 Para saber mais sobre como registrar em log informações de aplicativos do Serviço de Aplicativo, que podem ser úteis na detecção de ataques, confira [Habilitar o registro em log de diagnóstico](web-sites-enable-diagnostic-log.md).
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -120,6 +120,6 @@ Para saber mais sobre como registrar em log informações de aplicativos do Serv
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

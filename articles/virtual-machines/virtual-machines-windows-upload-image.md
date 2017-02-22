@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 5aa6b2149170ef04af0ebde957feda5630c5d5eb
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: a2df2169acda706a0fc3e1b7daf743ce29e5f030
 
 
 ---
 # <a name="upload-a-windows-vhd-from-an-on-premises-vm-to-azure"></a>Carregar no Azure um VHD do Windows de uma VM local
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) do Windows para ser usado na criação de uma VM do Azure. Você pode carregar um VHD de uma VM generalizada ou de uma VM especializada. 
 
-Para obter mais detalhes sobre discos e VHDs no Azure, confira a seção [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais detalhes sobre discos e VHDs no Azure, confira a seção [Sobre discos e VHDs para máquinas virtuais](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo requer a preparação da VM antes de iniciar.
@@ -132,6 +132,6 @@ Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
