@@ -133,11 +133,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     b. Clique em **Próximo**.
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do FieldGlass e forneça o seguinte: 
    
-    - O arquivo de **Certificado baixado**
+    -O arquivo de **Certificado baixado**
    
-    - A **ID da Entidade**
+    -A **ID da Entidade**
    
-    - A **URL do Serviço de Logoff Único**
+    -A **URL do Serviço de Logoff Único**
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
