@@ -16,17 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: d988b30457e1882a90ce6aac4efaf87a0d71c858
+ms.sourcegitcommit: 94afcefe2e6f2b51914993f7219f5e0fd2466ead
+ms.openlocfilehash: 321ea57a292bfcc74732d600c35703484bf6d23f
 
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Criar e carregar um VHD FreeBSD para o Azure
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) que contenha um sistema operacional FreeBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma VM (máquina virtual) no Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como carregar um VHD usando o modelo do Resource Manager, veja [aqui](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como carregar um VHD usando o modelo do Resource Manager, veja [aqui](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você tenha os seguintes itens:
@@ -177,7 +176,7 @@ Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segu
 
    Para obter mais informações, consulte [Introdução aos cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   Para saber mais sobre como instalar e configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+   Para saber mais sobre como instalar e configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-4-upload-the-vhd-file"></a>Etapa 4: carregar o arquivo .vhd
 Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar em seu Armazenamento de Blobs. Veja a seguir alguns termos que você usará ao carregar o arquivo:
@@ -215,6 +214,6 @@ Depois de carregar o arquivo .vhd, você pode adicioná-lo como uma imagem à li
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

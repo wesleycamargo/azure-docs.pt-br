@@ -1,5 +1,5 @@
 ---
-title: "Manual da solução de análise de telemetria do veículo | Microsoft Docs"
+title: "Integridade preditiva do veículo e hábitos de condução - Azure | Microsoft Docs"
 description: "Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 307ed83dc1f47bb86af4a476acbb51876012ff25
-ms.openlocfilehash: e4311a740ccb4cac2c1d6e7e1197a736d3a4a777
+ms.sourcegitcommit: f497366f8e66ba79b0e5978fde54d0b33048aa8d
+ms.openlocfilehash: 3467c5549381f1354987fead424646afe847739c
 
 
 ---
@@ -61,6 +61,6 @@ Essa solução acessa duas **fontes de dados**diferentes:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Instalar o dispositivo StorSimple 8100 | Microsoft Docs
+title: Instalar o dispositivo Microsoft Azure StorSimple 8100 | Microsoft Docs
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8100 antes de implantar e configurar o software.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
-ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
 
 
 ---
@@ -189,8 +189,8 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
    | Rótulo | Descrição |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de rede de 1 GbE |
-   |   2,3 |Interfaces de rede de 10 GbE |
+   |   0,1,4,5 |Interfaces de rede de&1; GbE |
+   |   2,3 |Interfaces de rede de&10; GbE |
    |   6 |Portas seriais |
 2. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Uma configuração adicional será necessária para alta disponibilidade e desempenho e é mostrada pelas linhas pontilhadas).
 
@@ -251,6 +251,6 @@ Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

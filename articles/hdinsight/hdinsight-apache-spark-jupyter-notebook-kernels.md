@@ -13,64 +13,64 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
-ms.openlocfilehash: bb47fa4e876322a0e3e36d4da657fba4be84d6f2
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: fc39933ac8d9f3c46023a5852df036b87e559647
 
 
 ---
-# <a name="kernels-available-for-jupyter-notebooks-with-apache-spark-clusters-on-hdinsight"></a>Kernels disponíveis para blocos de anotações do Jupyter com clusters do Apache Spark no HDInsight Linux
+# <a name="jupyter-notebooks-kernels-with-apache-spark-clusters-in-hdinsight"></a>Kernels de blocos de anotações do Jupyter com clusters do Apache Spark no HDInsight 
 
-O cluster do Apache Spark no HDInsight (Linux) inclui blocos de anotações do Jupyter que você pode usar para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. Os clusters HDInsight Spark fornecem dois kernels que você pode usar com o bloco de anotações do Jupyter. Estes são:
+Os clusters HDInsight Spark fornecem dois kernels que você pode usar com o notebook Jupyter para testar seus aplicativos Spark. Um kernel é um programa que é executado e que interpreta seu código. Os dois kernels são:
 
-1. **PySpark** (para aplicativos escritos em Python)
-2. **Spark** (para aplicativos escritos em Scala)
+- **PySpark** (para aplicativos escritos em Python)
+- **Spark** (para aplicativos escritos em Scala)
 
-Neste artigo, você aprenderá como usar esses kernels e quais são os benefícios de usá-los.
+Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-los.
 
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-use-the-kernels"></a>Como usar os kernels?
-1. No [Portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.   
-2. Na folha do cluster Spark, clique em **Painel do Cluster** e em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+## <a name="create-a-jupyter-notebook"></a>Criar um notebook Jupyter
+1. Do [portal do Azure](https://portal.azure.com/), abra o seu cluster.  Consulte [lista e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obter instruções. O cluster é aberto em uma nova folha de portal.
+2. Do **links rápidos** seção, clique em **Painéis do cluster** para abrir a folha **Painéis do cluster** folha.  Se você não vir **Links rápidos**, clique em **visão geral** no menu à esquerda na folha.
 
+    ![Painéis do cluster](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Painéis do cluster") 
+3. Clique em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+   
    > [!NOTE]
    > Você também pode acessar o Bloco de Notas Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Crie um novo notebook com os novos kernels. Clique em **Novo**, em seguida, clique em **Pyspark** ou **Spark**. Você deve usar o kernel Spark para aplicativos Scala e o kernel PySpark para aplicativos Python.
+   > 
+   > 
+3. Clique em **novo**e, em seguida, clique em **Pyspark** ou **Spark** para criar um novo bloco de anotações. Você deve usar o kernel Spark para aplicativos Scala e o kernel PySpark para aplicativos Python.
+   
+    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Criar um novo bloco de anotações do Jupyter") 
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Criar um novo bloco de anotações do Jupyter")
 4. Isso deve abrir um novo notebook com o kernel selecionado.
 
-## <a name="why-should-i-use-the-pyspark-or-spark-kernels"></a>Por que devo usar kernels PySpark ou Spark?
+## <a name="choose-between-the-kernels"></a>Escolha entre os kernels
 Há alguns benefícios em usar os novos kernels.
 
-1. **Contextos de predefinição**. Com os kernels **PySpark** ou **Spark** fornecidos com os notebooks Jupyter, você não precisa definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com o aplicativo que está desenvolvendo; eles estão disponíveis para você por padrão. Esses contextos são:
-
+- **Contextos de predefinição**. Utilizando o **PySpark** ou **Spark** kernels, você não precisa definir Spark ou contextos de Hive explicitamente antes de começar a trabalhar com seus aplicativos; elas estão disponíveis para você por padrão. Esses contextos são:
+   
    * **sc** - para o contexto do Spark
    * **sqlContext** : para o contexto Hive
 
     Portanto, você não precisa executar instruções como as seguintes para definir os contextos:
 
-        ###################################################
-        # <a name="you-do-not-need-to-run-this-with-the-new-kernels"></a>VOCÊ NÃO PRECISA EXECUTAR ISSO COM OS NOVOS KERNELS
-        ###################################################
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
+      sc = SparkContext('yarn-client')  sqlContext = HiveContext(sc)
 
     Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
 
-1. **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-
+- **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causará um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+   
     A tabela a seguir lista os diferentes comandos mágicos disponíveis por meio dos kernels.
 
    | Mágica | Exemplo | Descrição |
@@ -114,7 +114,7 @@ A instrução acima faz o seguinte:
 * Por fim, como usamos `-o query2` , ele também salva a saída em um dataframe chamado **query2**.
 
 ## <a name="considerations-while-using-the-new-kernels"></a>Considerações ao usar os novos kernels
-Seja qual for o kernel que você use (PySpark ou Spark), deixar os notebooks em execução consumirá os recursos de cluster.  Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos de cluster continuarão em uso. Uma boa prática com os kernels PySpark e Spark seria usar a opção **Fechar e Interromper** no menu **Arquivo** do notebook. Isso elimina o contexto e encerra o notebook.     
+Seja qual for o kernel que você use (PySpark ou Spark), deixar os notebooks em execução consumirá os recursos de cluster.  Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos do cluster continuarão em uso. Uma boa prática com os kernels PySpark e Spark seria usar a opção **Fechar e Interromper** no menu **Arquivo** do notebook. Isso elimina o contexto e encerra o notebook.     
 
 ## <a name="show-me-some-examples"></a>Mostre-me alguns exemplos
 Quando você abrir um notebook Jupyter, verá duas pastas disponíveis no nível raiz.
@@ -157,7 +157,7 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Usar o plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -169,6 +169,6 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

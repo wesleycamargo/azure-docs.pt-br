@@ -1,5 +1,7 @@
 ---
-title: Criar e implantar o aplicativo de piscar | Microsoft Docs
+featureFlags:
+- usabilla
+title: "Conecte o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: implantar aplicativo | Microsoft Docs"
 description: "Clone o aplicativo de exemplo de Node.js do GitHub e use gulp para implantar esse aplicativo na placa do Raspberry Pi 3. Esse aplicativo de exemplo pisca o LED conectado à placa a cada dois segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +18,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: aee1ef8c4275f64865ff830739fc818d6bf02bd2
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 90ceb432bd9506dc40e340af21a3cae4e21a20b0
 
 
 ---
@@ -124,7 +126,7 @@ Para configurar a conexão do dispositivo, siga estas etapas:
 Parabéns! Você criou com êxito o primeiro aplicativo de exemplo para o Pi.
 
 ## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-### <a name="install-nodejs-and--on-pi"></a>Instalar o Node.js no Pi
+### <a name="install-nodejs-and-npm-on-pi"></a>Instalar o Node.js e o NPM no Pi
 Instalar o Node.js e o NPM no Pi executando o seguinte comando:
 
 ```bash
@@ -153,6 +155,6 @@ Você instalou as ferramentas necessárias para trabalhar com o Pi e implantou u
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

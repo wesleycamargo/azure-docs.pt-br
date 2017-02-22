@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
 > * [Portal do Azure](active-directory-groups-create-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-> 
-> 
+>
+>
 
 Um dos recursos de gerenciamento de usuários do Azure AD (Azure Active Directory) é a capacidade de criar grupos de usuários. Você pode usar um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários de uma vez. Você também pode usar grupos para atribuir a permissão de acesso a
 
@@ -73,13 +73,13 @@ Quando os atributos de um usuário são alterados, o sistema avalia todas as reg
 
 > [!NOTE]
 > Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. Atualmente não há suporte a associações de grupo aninhadas para atribuição com base em grupo para aplicativos.
-> 
+>
 > As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
-> 
+>
 > * O administrador que gerencia a regra em um grupo
 > * Todos os membros do grupo
-> 
-> 
+>
+>
 
 **Para habilitar a associação dinâmica a um grupo**
 
@@ -103,7 +103,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

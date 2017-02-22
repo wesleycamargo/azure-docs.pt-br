@@ -1,6 +1,6 @@
 ---
-title: 'Perguntas frequentes: publicar e usar aplicativos do Machine Learning no Azure Marketplace | Microsoft Docs'
-description: Perguntas frequentes
+title: '(preterido) Perguntas frequentes: publicar e usar aplicativos do Machine Learning no Azure Marketplace | Microsoft Docs'
+description: "(preterido) Perguntas frequentes sobre a publicação de aplicativos do Machine Learning no Azure Marketplace"
 services: machine-learning
 documentationcenter: 
 author: bharaths
@@ -11,16 +11,24 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: bharaths
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8ae758a406dfed48968531ae20a9bbd2383db92
+ms.sourcegitcommit: 85a58e09e05fdb50984055ab25c4c2fe520dab4d
+ms.openlocfilehash: 9e2d4a2d46bd461a71217cd2b2d75f5a50e8b617
 
 
 ---
-# <a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>Publicação e utilização de aplicativos de Aprendizado de Máquina no Azure Marketplace: Perguntas Frequentes
+# <a name="deprecated-publishing-and-using-machine-learning-apps-in-the-azure-marketplace-faq"></a>(preterido) Publicação e utilização de aplicativos do Machine Learning no Azure Marketplace: Perguntas Frequentes
+
+> [!NOTE]
+> O DataMarket e os Serviços de Dados estão sendo desativados e as assinaturas existentes serão desativadas e canceladas a partir de 31/3/2017. Como resultado, este artigo está sendo preterido. 
+> 
+> Como alternativa, você pode publicar suas experiências com o Machine Learning na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/) para o benefício da comunidade de ciência de dados. Para saber mais, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+
+
 ## <a name="questions-about-consuming-from-marketplace"></a>Perguntas sobre o consumo do Marketplace
 **1. Por que recebo a seguinte mensagem de erro depois que insiro a entrada para o serviço Web:**
 
@@ -72,6 +80,6 @@ Entre em contato com a equipe do Azure Marketplace em <mailto:datamarketbd@micro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

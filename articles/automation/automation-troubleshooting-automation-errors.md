@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas da Automação do Azure | Microsoft Docs"
+title: "Solução de problemas comuns de Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece informações para ajudar a solucionar problemas e corrigir erros comuns da Automação do Azure."
 services: automation
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/24/2017
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
+ms.sourcegitcommit: a8ecffbc5f9c7e2408708d59459a0d39e59d6e1e
+ms.openlocfilehash: 3e4a4b431e26e58a0af1eee182fded51b6618fac
 
 
 ---
-# <a name="troubleshoot-azure-automation"></a>Solução de problemas da Automação do Azure 
+# <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erros de autenticação ao trabalhar com runbooks da Automação do Azure
@@ -175,6 +175,6 @@ Se tiver seguido as etapas de solução de problemas acima e não tiver encontra
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

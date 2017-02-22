@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de infraestrutura de rede do Azure | Microsoft Docs
+title: Diretrizes de infraestrutura de rede do Azure - Windows | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
-ms.openlocfilehash: 5db3100d94af1461d538eb1bb9b16b7bf387517a
+ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
+ms.openlocfilehash: 6c89e59fc948606860439b12987676c453732f55
 
 
 ---
@@ -76,11 +76,11 @@ Para redes virtuais entre instalações, você deve criar sub-redes com as mesma
 
 | Número de VMs necessárias | Número de bits de host necessários | Tamanho da sub-rede |
 | --- | --- | --- |
-| 1 – 3 |3 |/ 29 |
-| 4 – 11 |4 |/ 28 |
-| 12 – 27 |5 |/ 27 |
-| 28-59 |6 |/ 26 |
-| 60 – 123 |7 |/ 25 |
+| 1 –&3; |3 |/&29; |
+| 4 –&11; |4 |/&28; |
+| 12 –&27; |5 |/&27; |
+| 28-59 |6 |/&26; |
+| 60 –&123; |7 |/&25; |
 
 > [!NOTE]
 > Para sub-redes locais normais, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 2. Para uma sub-rede do Azure, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 5 (2 mais 3 para os endereços que o Azure usa em cada sub-rede).
@@ -106,6 +106,6 @@ Assim como acontece com uma infraestrutura de rede física local, a rede virtual
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

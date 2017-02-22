@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: huvalo;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1efa86208ef45f84de5143a6a906c871d958e9d
+ms.sourcegitcommit: 045e40bccad59586987c0a18253dafff2f955a93
+ms.openlocfilehash: ea5005e7cff775c798b030748324781ef7dcfe7d
 
 
 ---
@@ -78,7 +78,7 @@ Para obter o token de autorização, você pode fazer o seguinte:
 
 * Solicitar um token de um proprietário. Os proprietários podem acessar seus tokens de autorização na página Configurações do seu espaço de trabalho no Estúdio. Selecione **Configurações** no painel esquerdo e clique em **TOKENS DE AUTORIZAÇÃO** para ver os tokens primários e secundários.  Embora os tokens de autorização primários ou secundários possam ser usados no trecho de código, é recomendável que os proprietários compartilham somente os tokens de autorização secundários.
 
-![](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
+![Tokens de autorização](./media/machine-learning-python-data-access/ml-python-access-settings-tokens.png)
 
 * Peça para ser promovido à função do proprietário.  Para fazer isso, um proprietário atual do espaço de trabalho precisa primeiro remover você do espaço de trabalho e depois convidá-lo novamente como um proprietário.
 
@@ -114,11 +114,11 @@ Há suporte para os seguintes formatos (as constantes para eles estão na classe
 
 Você pode determinar o formato passando o mouse sobre um nó de saída do módulo. Ele é exibido com o nome do nó, em uma dica de ferramenta.
 
-Alguns módulos, como o módulo [Divisão][split], resultam em um formato chamado `Dataset`, que não tem suporte pela biblioteca de cliente do Python.
+Alguns módulos, tal como o módulo [Divisão][split], resultam em um formato chamado `Dataset`, que não tem suporte na biblioteca de cliente do Python.
 
 ![Formato de conjunto de dados][dataset-format]
 
-Você precisa usar um módulo de conversão, como [Converter em CSV][convert-to-csv], para obter uma saída em um formato com suporte.
+Você precisa usar um módulo de conversão, como [Converter para CSV][convert-to-csv], para obter uma saída em um formato com suporte.
 
 ![Formato de GenericCSV][csv-format]
 
@@ -127,9 +127,9 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
 1. Criar um novo teste.
 2. Inserir um módulo **Conjunto de dados de Classificação Binária de Renda de Censo de Adulto** .
 3. Inserir um módulo [Divisão][split] e conectá-lo à sua entrada para a saída de módulo do conjunto de dados.
-4. Insira um módulo [Converter para CSV][convert-to-csv] e conectá-lo à entrada em uma das saídas do módulo [Divisão][split].
+4. Inserir um módulo [Converter para CSV][convert-to-csv] e conectá-lo à sua entrada em uma das saídas do módulo [Divisão][split].
 5. Salve o teste, execute-o e aguarde o término da execução.
-6. Clique no nó de saída no módulo [Converter em CSV][convert-to-csv].
+6. Clique no nó de saída no módulo [Converter para CSV][convert-to-csv].
 7. Quando o menu de contexto for exibido, selecione **Gerar Código de Acesso a Dados**.
    
     ![Menu de contexto][experiment]
@@ -319,7 +319,7 @@ Os parâmetros `data_type_id`, `name` e `description` são opcionais e padrão p
 Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez de `update_from_dataframe`. Se você simplesmente passar `raw_data` em vez de `dataframe`, ele funcionará da mesma forma.
 
 <!-- Images -->
-[segurança]:./media/machine-learning-python-data-access/security.png
+[security]:./media/machine-learning-python-data-access/security.png
 [dataset-format]:./media/machine-learning-python-data-access/dataset-format.png
 [csv-format]:./media/machine-learning-python-data-access/csv-format.png
 [datasets]:./media/machine-learning-python-data-access/datasets.png
@@ -338,6 +338,6 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 55fcce54e92cb4d3ecea8946b6cac56bc860ce79
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 55f5eb09e13dd645369486affba338759ec6c1d5
 
 
 ---
@@ -34,7 +34,7 @@ Para navegar pelas coleções na Galeria, abra a [Galeria](http://gallery.cortan
  A página **[Coleções](https://gallery.cortanaintelligence.com/collections)**
  exibe uma lista das coleções mais populares e recentemente adicionados.
 Clique em **Ver todos** para exibir todos as coleções.
-Nessa página, você pode navegar por todas as coleções na Galeria ou pode pesquisar selecionando critérios de filtro à esquerda da página e inserindo os termos de pesquisa na parte superior.
+Nessa página, você pode procurar todas as coleções na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
  Clique em qualquer coleção para abrir a página de detalhes da coleção e ler mais informações sobre ela.
 Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para o experimento a fim de convidar outros usuários para exibir a página.
@@ -54,20 +54,20 @@ Siga estas etapas para criar e contribuir com uma coleção na Cortana Intellige
 
 1. Entre na Galeria usando sua conta da Microsoft.
 
-* Clique na sua imagem na parte superior da janela e clique no seu nome
+2.  Clique na sua imagem na parte superior da janela e clique no seu nome
   
     ![Clique no nome da conta](media/machine-learning-gallery-collections/click-account-name.png)
 
-1. Clique em **Novo Item**
+3. Clique em **Novo Item**
    
     ![Clique em "Novo Item"](media/machine-learning-gallery-collections/click-new-item.png)
-2. Escolha **Coleção** para **Tipo de Item**. Em seguida, dê um nome, um breve resumo, uma descrição e marcas à coleção que possam ajudar os usuários a encontrá-la
+4. Escolha **Coleção** para **Tipo de Item**. Em seguida, dê um nome, um breve resumo, uma descrição e marcas à coleção que possam ajudar os usuários a encontrá-la
    
     ![Inserir informações para nova coleção](media/machine-learning-gallery-collections/create-collection-page-1.png)
-3. Clique em **Avançar** - você pode carregar um arquivo de imagem ou escolher uma imagem de estoque, que será exibido com a coleção; escolha algo que ajudará os usuários a identificar o conteúdo e a finalidade da coleção
+5. Clique em **Avançar** - você pode carregar um arquivo de imagem ou escolher uma imagem de estoque, que será exibido com a coleção; escolha algo que ajudará os usuários a identificar o conteúdo e a finalidade da coleção
    
     ![Inserir informações para nova coleção](media/machine-learning-gallery-collections/create-collection-page-2.png)
-4. Clique em **Avançar** — você pode decidir se a coleção será **Público** (ele poderá ser exibido por qualquer pessoa) ou **Não listado** (somente pessoas com um link direto poderão exibir a coleção)
+6. Clique em **Avançar** — você pode decidir se a coleção será **Público** (ele poderá ser exibido por qualquer pessoa) ou **Não listado** (somente pessoas com um link direto poderão exibir a coleção)
    
    > [!IMPORTANT]
    > Depois de definir uma coleção como **Público**, você não poderá defini-lo como **Não listado**.
@@ -75,7 +75,7 @@ Siga estas etapas para criar e contribuir com uma coleção na Cortana Intellige
    > 
    
     ![Escolher Público ou Não listado](media/machine-learning-gallery-collections/create-collection-page-3.png)
-5. Clique em **Criar**
+7. Clique em **Criar**
 
 Sua coleção agora faz parte da Cortana Intelligence Gallery. Ele será listado na página da sua conta na guia **Coleção**.
 
@@ -104,6 +104,6 @@ Enquanto você estiver editando a coleção, também poderá alterar a ordem dos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

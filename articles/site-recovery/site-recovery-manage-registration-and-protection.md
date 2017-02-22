@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/19/2016
+ms.date: 12/28/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3710f5966889b805b3ea8d2a3fe33fa9ab86c2ec
-ms.openlocfilehash: 5dff369ca32f9f4487684b27c57d2722ab9ad954
+ms.sourcegitcommit: f57c88cbace41af233f542880c6199b3e278700e
+ms.openlocfilehash: c8d893dbac1a4f6cb3f05f857e186bca155e5865
 
 
 ---
@@ -29,22 +29,32 @@ Este artigo descreve como cancelar o registro de servidores de um cofre dos Serv
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="unregister-a-configuration-server"></a>Cancelar o registro de um servidor de configuração
+## <a name="unregister-a-connected-configuration-server"></a>Cancelar o registro de um servidor de configuração conectado
 
-Se você replicar VMs do VMware ou servidores físicos com Windows/Linux no Azure, poderá cancelar o registro do servidor de configuração de um cofre da seguinte maneira:
+Se você replicar VMs VMware ou servidores físicos com Windows/Linux no Azure, será possível cancelar o registro de um servidor de configuração conectado em um cofre da seguinte maneira:
 
 1. Desabilite o proteção da máquina. Em **Itens Protegidos** > **Itens Replicados**, clique com o botão direito na máquina > **Excluir**.
 2. Desassocie todas as políticas. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare ** > **Políticas de Replicação**, clique duas vezes na política associada. Clique com botão direito no servidor de configuração > **Desassociar**.
 3. Remova qualquer outro processo local ou servidores de destino mestre. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare** > **Servidores de Configuração**, clique com o botão direito no servidor > **Excluir**.
 4. Excluir o servidor de configuração.
 5. Desinstale manualmente o serviço Mobilidade que está em execução no servidor de destino mestre (será um servidor separado ou em execução no servidor de configuração).
-6. Desinstale o servidor de configuração.
-7. Desinstale quaisquer servidores de processo adicionais.
+6. Desinstale quaisquer servidores de processo adicionais.
+7. Desinstale o servidor de configuração.
 8. No servidor de configuração, desinstale a instância do MySQL foi instalado pelo Site Recovery.
 9. No registro do servidor de configuração, exclua a chave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
-As instruções serão idênticas se o servidor de configuração for conectado ou desconectado do Azure.
+## <a name="unregister-a-unconnected-configuration-server"></a>Cancelar o registro de um servidor de configuração não conectado
 
+Se você replicar VMs VMware ou servidores físicos com Windows/Linux no Azure, será possível cancelar o registro de um servidor de configuração não conectado em um cofre da seguinte maneira:
+
+1. Desabilite o proteção da máquina. Em **Itens Protegidos** > **Itens Replicados**, clique com o botão direito na máquina > **Excluir**. Selecione **Interromper o gerenciamento da máquina**.
+2. Remova qualquer outro processo local ou servidores de destino mestre. Em **Infraestrutura do Site Recovery** > **Para Máquinas Físicas e de VMWare** > **Servidores de Configuração**, clique com o botão direito no servidor > **Excluir**.
+3. Excluir o servidor de configuração.
+4. Desinstale manualmente o serviço Mobilidade que está em execução no servidor de destino mestre (será um servidor separado ou em execução no servidor de configuração).
+5. Desinstale quaisquer servidores de processo adicionais.
+6. Desinstale o servidor de configuração.
+7. No servidor de configuração, desinstale a instância do MySQL foi instalado pelo Site Recovery.
+8. No registro do servidor de configuração, exclua a chave ``HKEY_LOCAL_MACHINE\Software\Microsoft\Azure Site Recovery``.
 
 ## <a name="unregister-a-connected-vmm-server"></a>Cancelar o registro de um servidor VMM conectado
 
@@ -229,6 +239,6 @@ Use este procedimento se você estiver replicando VMs do Hyper-V para o Azure se
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

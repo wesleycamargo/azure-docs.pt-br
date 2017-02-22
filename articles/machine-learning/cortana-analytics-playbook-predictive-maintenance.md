@@ -1,5 +1,5 @@
 ---
-title: "Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e em outros setores | Microsoft Docs"
+title: "Manutenção preditiva no setor aeroespacial com o Azure - Modelo de solução de Cortana Intelligence | Microsoft Docs"
 description: "Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte."
 services: cortana-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
 
 
 ---
@@ -286,7 +286,7 @@ Para a segunda pergunta, o rotulamento é feito usando aZ registros antes da fal
 
 Figura 5. Rotulação da classificação multiclasse para a previsão da hora da falha
 
-Para a segunda pergunta, o rotulamento é feito usando X registros antes da falha de um ativo, rotulando-os como "prestes a falhar devido ao problema P<sub></sub>" (rótulo = P<sub></sub>) e rotulando todos os outros registros como "normal" (rótulo = 0). Nesse método, os rótulos são variáveis categóricas (veja a Figura 6).
+Para a segunda pergunta, o rotulamento é feito usando X registros antes da falha de um ativo, rotulando-os como "prestes a falhar devido ao problema P<sub></sub>" (rótulo = P<sub></sub>) e rotulando todos os outros registros como "normal" (rótulo =&0;). Nesse método, os rótulos são variáveis categóricas (veja a Figura 6).
 
 ![Figura 6. Rotulação da classificação multiclasse para a previsão da causa-raiz](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
@@ -321,7 +321,7 @@ Quando a série temporal é estática e fácil de prever, ambas as abordagens ge
 Como uma prática recomendada, nesta seção vamos dar uma olhada mais detalhada em como implementar a divisão dependente de tempo. Nós descrevemos uma divisão dupla dependente de tempo entre conjuntos de treinamento e de teste; no entanto, a mesma lógica se aplica à divisão dependente de tempo para conjuntos de validação e de treinamento.
 
 Suponha que tenhamos um fluxo de eventos com carimbo de data/hora, como medidas de vários sensores. Os recursos de treinamento e os exemplos de teste, bem como seus rótulos, são definidos por períodos de tempo que contêm vários eventos.
-Por exemplo, para classificação binária, conforme descrito nas seções Engenharia de recursos e Técnicas de modelagem, os recursos são criados com base nos últimos eventos e os rótulos são criados com base em eventos futuros, no intervalo de "X" unidades de tempo no futuro. Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos. Para a divisão dependente de tempo, escolhemos um ponto no tempo em que treinamos um modelo com hiperparâmetros ajustados usando dados históricos até aquele ponto. Para impedir o vazamento de futuros rótulos que estão além do corte de treinamento para os dados de treinamento, escolhemos o período de tempo mais recente para rotular exemplos de treinamento como X unidades antes da data de corte de treinamento. Na Figura 7, cada círculo sólido representa uma linha no conjunto de dados final do recurso para o qual os recursos e rótulos são calculados de acordo com o método descrito acima. Considerando que a figura mostra os registros que deveriam entrar nos conjuntos de treinamento e teste durante a implantação da divisão dependente de tempo para X = 2 e W = 3:
+Por exemplo, para classificação binária, conforme descrito nas seções Engenharia de recursos e Técnicas de modelagem, os recursos são criados com base nos últimos eventos e os rótulos são criados com base em eventos futuros, no intervalo de "X" unidades de tempo no futuro. Assim, o período de tempo de rotulamento de um exemplo ocorre depois do período de tempo de seus recursos. Para a divisão dependente de tempo, escolhemos um ponto no tempo em que treinamos um modelo com hiperparâmetros ajustados usando dados históricos até aquele ponto. Para impedir o vazamento de futuros rótulos que estão além do corte de treinamento para os dados de treinamento, escolhemos o período de tempo mais recente para rotular exemplos de treinamento como X unidades antes da data de corte de treinamento. Na Figura 7, cada círculo sólido representa uma linha no conjunto de dados final do recurso para o qual os recursos e rótulos são calculados de acordo com o método descrito acima. Considerando que a figura mostra os registros que deveriam entrar nos conjuntos de treinamento e teste durante a implantação da divisão dependente de tempo para X =&2; e W =&3;:
 
 ![Figura 7. Divisão dependente do tempo para classificação binária](media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
 
@@ -372,6 +372,6 @@ Para saber mais sobre cada um dos componentes da arquitetura, consulte a documen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

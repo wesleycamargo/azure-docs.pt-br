@@ -1,10 +1,10 @@
 ---
-title: "Grupos de Segurança de Rede | Microsoft Docs"
+title: "Grupos de segurança de rede no Azure | Microsoft Docs"
 description: "Saiba como isolar e controlar o fluxo de tráfego dentro de suas redes virtuais usando o firewall distribuído no Azure com os Grupos de Segurança de Rede."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
 ms.service: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
-ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
+ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
+ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
 
 
 ---
-# <a name="network-security-groups"></a>Grupos de segurança de rede
+# <a name="control-network-traffic-flow-with-network-security-groups"></a>Controlar o fluxo de tráfego de rede com grupos de segurança de rede
 
 Um NSG (grupo de segurança de rede) contém uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma Rede Virtual. Os NSGs podem ser associados a sub-redes ou instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM na sub-rede. Além disso, o tráfego para uma VM individual pode ser restrito ainda mais por meio da associação de um NSG diretamente à VM.
 
@@ -93,8 +93,8 @@ Como ilustrado pelas regras padrão abaixo, o tráfego que começa e termina em 
 ## <a name="associating-nsgs"></a>Associando NSGs
 Você pode associar um NSG a VMs, NICs e sub-redes, dependendo do modelo de implantação que estiver usando.
 
-* **Associando um NSG a uma VM (apenas para implantações clássicas).**  Quando um NSG é associado a uma VM, as regras de acesso à rede no NSG as regras são aplicadas a todo o tráfego de entrada e saída na VM. 
-* **Associando um NSG a uma NIC (apenas implantações do Gerenciador de Recursos).**  Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Isso significa que em uma VM com várias NICs, se um NSG for aplicado a uma única NIC, ele não afetará o tráfego associado a outras NICs. 
+* **Associando um NSG a uma VM (apenas para implantações clássicas).** Quando um NSG é associado a uma VM, as regras de acesso à rede no NSG as regras são aplicadas a todo o tráfego de entrada e saída na VM. 
+* **Associando um NSG a uma NIC (apenas implantações do Gerenciador de Recursos).** Quando um NSG é associado a uma NIC, as regras de acesso à rede no NSG são aplicadas somente a essa NIC. Isso significa que em uma VM com várias NICs, se um NSG for aplicado a uma única NIC, ele não afetará o tráfego associado a outras NICs. 
 * **Associação de um NSG a uma sub-rede (todas as implantações)**. Quando você associa um NSG a uma sub-rede, as regras de acesso à rede no NSG são aplicadas a todos os recursos de IaaS e PaaS na sub-rede. 
 
 É possível associar diferentes NSGs a uma VM (ou NIC, dependendo do modelo de implantação) e à sub-rede a qual uma NIC ou VM está associada. Quando isso acontece, todas as regras de acesso de rede são aplicadas ao tráfego, por prioridade em cada NSG, na seguinte ordem:
@@ -261,6 +261,6 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

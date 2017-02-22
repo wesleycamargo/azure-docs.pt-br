@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 01/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 96fa98dda9353a5c8047f872d2507ac1d94f666c
-ms.openlocfilehash: 676c66999b43fd2ada5b470dd48b1ba3a8c73202
+ms.sourcegitcommit: 2c1a1f3b73466526b13bcfeb4580335390506c23
+ms.openlocfilehash: 14dfe58f6296a4ec516845bace456ffd59fa608a
 
 
 ---
@@ -31,29 +31,29 @@ Os aplicativos podem se autenticar no Barramento de Serviço do Azure usando a a
 
 É possível configurar chaves para SAS em um namespace do Barramento de Serviço. A chave se aplica a todas as entidades de mensagens nesse namespace. Também é possível configurar chaves em tópicos e filas do Barramento de Serviço. Também há suporte para SAS nas retransmissões do Barramento de Serviço.
 
-Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) em um namespace, fila ou tópico que consista no seguinte:
+Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace, fila ou tópico que consista no seguinte:
 
 * *KeyName* , que identifica a regra.
 * *PrimaryKey* , que é uma chave de criptografia usada para assinar/validar tokens SAS.
 * *SecondaryKey* , que é uma chave de criptografia usada para assinar/validar tokens SAS.
 * *Direitos* , que representa a coleção de direitos de Escuta, Envio ou Gerenciamento concedidos.
 
-As regras de autorização configuradas no nível de namespace podem conceder acesso a todas as entidades em um namespace para clientes com tokens assinados usando a tecla correspondente. Até 12 regras de autorização podem ser configuradas em um namespace, fila ou tópico do Barramento de Serviço. Por padrão, uma [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx) com todos os direitos é configurada para cada namespace quando ele é provisionado pela primeira vez.
+As regras de autorização configuradas no nível de namespace podem conceder acesso a todas as entidades em um namespace para clientes com tokens assinados usando a tecla correspondente. Até 12 regras de autorização podem ser configuradas em um namespace, fila ou tópico do Barramento de Serviço. Por padrão, uma [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) com todos os direitos é configurada para cada namespace quando ele é provisionado pela primeira vez.
 
-Para acessar uma entidade, o cliente requer um token SAS gerado usando uma determinada [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de caracteres de recurso que consiste no URI de recurso ao qual o acesso é solicitado e em uma expiração com uma chave criptográfica associada à regra de autorização.
+Para acessar uma entidade, o cliente requer um token SAS gerado usando uma determinada [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). O token SAS é gerado usando o HMAC-SHA256 de uma cadeia de caracteres de recurso que consiste no URI de recurso ao qual o acesso é solicitado e em uma expiração com uma chave criptográfica associada à regra de autorização.
 
-O suporte à autenticação SAS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. A SAS dá suporte a uma [SharedAccessAuthorizationRule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sharedaccessauthorizationrule.aspx). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão SAS.
+O suporte à autenticação SAS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. A SAS dá suporte a uma [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão SAS.
 
 ## <a name="acs-authentication"></a>Autenticação ACS
-A autenticação do Barramento de Serviço por meio do ACS é gerenciada através de um namespace de complemento "-sb" do ACS. Se quiser que um namespace do ACS complementar seja criado para um namespace do Barramento de Serviço, você não pode criar o seu namespace do Barramento de Serviço usando o portal clássico do Azure. Você deve criar o namespace usando o cmdlet do PowerShell [New-AzureSBNamespace](https://msdn.microsoft.com/library/azure/dn495165.aspx). Por exemplo:
+A autenticação do Barramento de Serviço por meio do ACS é gerenciada através de um namespace de complemento "-sb" do ACS. Se quiser que um namespace do ACS complementar seja criado para um namespace do Barramento de Serviço, você não pode criar o seu namespace do Barramento de Serviço usando o portal clássico do Azure. Você deve criar o namespace usando o cmdlet do PowerShell [New-AzureSBNamespace](https://docs.microsoft.com/powershell/servicemanagement/azure.compute/v1.6.1/New-AzureSBNamespace). Por exemplo:
 
-```
+```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $true
 ```
 
 Para evitar a criação de um namespace do ACS, emita o seguinte comando:
 
-```
+```powershell
 New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 ```
 
@@ -63,18 +63,15 @@ Um "proprietário" de identidade de serviço padrão, com todos os direitos, é 
 
 Para acessar uma entidade, o cliente solicita um token SWT do ACS com as declarações adequadas apresentando suas credenciais. O token SWT deve ser enviado como parte da solicitação ao Barramento de Serviço para habilitar a autorização do cliente para o acesso à entidade.
 
-O suporte à autenticação ACS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. Essa autenticação inclui suporte para um [SharedSecretTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedsecrettokenprovider.aspx). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão do ACS.
+O suporte à autenticação ACS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. Essa autenticação inclui suporte para um [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão do ACS.
 
 ## <a name="next-steps"></a>Próximas etapas
 Continue lendo [Autenticação de Assinatura de Acesso Compartilhado com Barramento de Serviço](service-bus-shared-access-signature-authentication.md) para obter mais detalhes sobre SAS.
 
 Para obter uma visão geral de alto nível do SAS no Barramento de Serviço, confira [Assinaturas de Acesso Compartilhado](service-bus-sas-overview.md).
 
-Você pode encontrar mais informações sobre tokens de ACS em [Como solicitar um token do ACS usando o protocolo OAuth WRAP](https://msdn.microsoft.com/library/hh674475.aspx).
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

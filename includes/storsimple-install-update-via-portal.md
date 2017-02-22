@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 01/15/2016-->
 
-#### Para instalar a Atualização 1.2 do portal clássico do Azure
+#### <a name="to-install-update-12-from-the-azure-classic-portal"></a>Para instalar a Atualização 1.2 do portal clássico do Azure
 1. Na página do serviço StorSimple, selecione seu dispositivo. Navegue até **Dispositivos** > **Manutenção**.
 2. Na parte inferior da página, clique em **Verificar atualizações**. Será criado um trabalho para verificar se há atualizações disponíveis. Você será notificado quando o trabalho for concluído com êxito.
 3. Na seção de **Atualizações de software** na mesma página, você verá que existem novas atualizações de software disponíveis. É recomendável revisar as notas de versão antes de aplicar a Atualização 1.2 no seu dispositivo.
@@ -8,7 +8,7 @@
     ![Instalar as atualizações do software](./media/storsimple-install-update-via-portal/InstallUpdate12_11M.png)
 4. Na parte inferior da página, clique em **Instalar atualizações**.
 5. Será solicitada a sua confirmação. Clique em **OK**.
-6. Será apresentada uma caixa de diálogo **Instalar atualizações**. Seu dispositivo deve atender às verificações listadas nessa caixa de diálogo. Estas etapas foram concluídas antes da atualização. Selecione **Eu entendi os requisitos acima e estou pronto para atualizar meu dispositivo**. Clique no ícone de verificação.
+6. Será apresentada uma caixa de diálogo **Instalar atualizações** . Seu dispositivo deve atender às verificações listadas nessa caixa de diálogo. Estas etapas foram concluídas antes da atualização. Selecione **Eu entendi os requisitos acima e estou pronto para atualizar meu dispositivo**. Clique no ícone de verificação.
    
     ![Mensagem de confirmação](./media/storsimple-install-update-via-portal/InstallUpdate12_2M.png)
 7. Um conjunto de pré-verificações automáticas será iniciado agora. Estão incluídos:
@@ -36,21 +36,25 @@
     ![Criação do trabalho de atualização](./media/storsimple-install-update-via-portal/InstallUpdate12_44M.png)
    
     Em seguida, a atualização será aplicada no seu dispositivo.
-9. Para monitorar o andamento do trabalho de atualização, clique em **Exibir trabalho**. Na página **Trabalhos**, você pode ver o andamento da atualização.
+9. Para monitorar o andamento do trabalho de atualização, clique em **Exibir trabalho**. Na página **Trabalhos** , você pode ver o andamento da atualização. 
    
     ![Andamento do trabalho de atualização](./media/storsimple-install-update-via-portal/InstallUpdate12_5M.png)
 10. A atualização levará algumas horas para ser concluída. Você pode exibir os detalhes do trabalho a qualquer momento.
     
     ![Detalhes do trabalho de atualização](./media/storsimple-install-update-via-portal/InstallUpdate12_6M.png)
-11. Depois que o trabalho for concluída, acesse a página de **Manutenção** e role para baixo até **Atualizações de software**.
+11. Depois que o trabalho for concluída, navegue até a página de **Manutenção** e role para baixo até **Atualizações de software**.
 12. Verifique se o dispositivo está executando a **Atualização 1.2 do StorSimple 8000 Series (6.3.9600.17584)**. A **Data da última atualização** também deve ser modificada.
     
     ![Página de manutenção](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 13. Agora, você verá que as atualizações do modo de manutenção estão disponíveis. Essas atualizações são atualizações interrompidas que resultam no tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell do seu dispositivo. Siga as instruções em [Instalar atualizações do modo de manutenção](../articles/storsimple/storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple) para instalar essas atualizações por meio do Windows PowerShell para StorSimple.
 
 > [!NOTE]
-> Em determinadas instâncias, a mensagem que indica que as atualizações do modo de manutenção estão disponíveis pode ser exibida até 24 horas depois que as atualizações do modo de manutenção forem aplicadas com êxito no dispositivo.
+> Em determinadas instâncias, a mensagem que indica que as atualizações do modo de manutenção estão disponíveis pode ser exibida até 24 horas depois que as atualizações do modo de manutenção forem aplicadas com êxito no dispositivo.  
 > 
 > 
 
-<!---HONumber=AcomDC_0121_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

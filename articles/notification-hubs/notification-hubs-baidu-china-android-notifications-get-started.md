@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
 
 
 ---
@@ -43,16 +43,16 @@ Para usar o Baidu, você deve ter uma conta do Baidu. Se você já tiver uma, fa
 
 1. Vá para o [portal do Baidu] e clique no link **登录** (**Login**). Clique em **立即注册** para iniciar o processo de registro de conta.
    
-       ![][1]
+   ![][1]
 2. Insira os detalhes necessários – telefone/endereço de email, senha e código de verificação – e clique em **Inscrever-se**.
    
-       ![][2]
+   ![][2]
 3. Você receberá um email no endereço de email inserido com um link para ativar sua conta do Baidu.
    
-       ![][3]
+   ![][3]
 4. Faça logon em sua conta de email, abra o email de ativação do Baidu e clique no link de ativação para ativar sua conta do Baidu.
    
-       ![][4]
+   ![][4]
 
 Depois de ativar uma conta do Baidu, faça logon no [portal do Baidu].
 
@@ -449,6 +449,6 @@ Para enviar uma notificação de teste, você poderá usar a guia de depuração
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

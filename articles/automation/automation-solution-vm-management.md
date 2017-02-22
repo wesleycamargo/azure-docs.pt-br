@@ -4,7 +4,7 @@ description: "As soluções de Gerenciamento de VM iniciam e param suas Máquina
 services: automation
 documentationCenter: 
 authors: mgoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/14/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 83b9f84ed017b4777b70777c653cc24ca19ab648
-ms.openlocfilehash: aadd8ec3d4d6d70c8ba7c28cd00fa21379b48929
+ms.sourcegitcommit: 5ae60cb8ba3d391d3babd1ab575b4f32e139a185
+ms.openlocfilehash: f2c9a5ef2a8f517b9b2072be57f4d8c51b7694c6
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
 
-A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais clássicas e do Azure Resource Manager segundo um cronograma definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
+A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,8 +79,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Especifica a assinatura qu
 
 Agenda | Descrição|
 ---------|------------|
-StartByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StartByResourceGroup, que executa a inicialização de VMs gerenciadas pela solução.|
-StopByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StopByResourceGroup, que executa o desligamento de VMs gerenciadas pela solução.|
+StartByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StartByResourceGroup, que executa a inicialização de VMs gerenciadas pela solução. Quando criada, é padronizada para o fuso horário UTC.|
+StopByResourceGroup-agenda-MS-Mgmt | Agenda de runbook StopByResourceGroup, que executa o desligamento de VMs gerenciadas pela solução. Quando criada, é padronizada para o fuso horário UTC.|
 
 ### <a name="credentials"></a>Credenciais
 
@@ -116,7 +116,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
 8. Por fim, na folha **Adicionar Solução**, selecione **Configuração** e a folha **Parâmetros** será exibida.  Na folha **Parâmetros**, você será solicitado a:  
    - Especifique os **Nomes de Grupo de Recursos de Destino**, que é um nome de grupo de recursos que contém VMs a serem gerenciadas pela solução.  Você pode inserir mais de um nome e separá-los usando ponto-e-vírgula (os valores diferenciam maiúsculas de minúsculas).  O uso de um caractere curinga tem suporte para selecionar VMs em todos os grupos de recursos na assinatura.
-   - Selecione uma** Agenda**, que é um conjunto de data e hora para iniciar e parar as VMs no grupo de recursos de destino.  
+   - Selecione uma** Agenda**, que é um conjunto de data e hora para iniciar e parar as VMs no grupo de recursos de destino.  Por padrão, o agendamento é configurado para o fuso horário UTC e a seleção de outra região não está disponível.  Se quiser configurar o agendamento para seu fuso horário específico após a configuração da solução, confira [Modificando o agendamento de inicialização e desligamento](#modifying-the-startup-and-shutdown-schedule) abaixo.    
 
 10. Depois de ter concluído a configuração inicial necessária para a solução, selecione **Criar**.  Todas as configurações serão validadas e ele tentará implantar a solução em sua assinatura.  Esse processo pode levar vários segundos e você pode acompanhar seu progresso no menu **Notificações**. 
 
@@ -247,6 +247,6 @@ A conta de Automação e o espaço de trabalho do OMS não serão excluídos com
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

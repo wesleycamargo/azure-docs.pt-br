@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2016
+ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3307418f3bcbf1e13b47ffb4d37024f90bdd2c2e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
 
 
 ---
@@ -542,7 +542,7 @@ Veja um exemplo para chamar essa função a fim de gerar recursos em sua consult
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar dados para criação de modelo
-A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai um exemplo do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo [Importar dados](https://studio.azureml.net) [import-data] do [Azure Machine Learning Studio] para ingestão de dados direta da instância do Banco de Dados SQL no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
+A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera um rótulo de classificação binária **tipped**, um rótulo de classificação de multiclasse **tip\_class** e extrai um exemplo do conjunto de dados totalmente unido. A amostragem é feita recuperando um subconjunto das viagens com base na hora de saída.  Essa consulta pode ser copiada e colada diretamente no módulo [Importar Dados][import-data] do [Azure Machine Learning Studio](https://studio.azureml.net) para ingestão de dados direta da instância do Banco de Dados SQL no Azure. A consulta exclui registros com coordenadas incorretas (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -561,8 +561,8 @@ A consulta a seguir une as tabelas **nyctaxi\_trip** e **nyctaxi\_fare**, gera u
 
 Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Azure, você pode:  
 
-1. Salvar a consulta SQL final para extrair e testar os dados e copiar e colar a consulta diretamente em um módulo [Importar dados][import-data] no Azure Machine Learning Studio ou
-2. Manter os dados de exemplo e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e usar a nova tabela no módulo [Importar dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
+1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning ou
+2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
 
 ## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Exploração de dados e engenharia de recursos no IPython Notebook
 Nesta seção, realizaremos a exploração de dados e a geração de recursos executando consultas SQL e Python no SQL DW criado anteriormente. Um exemplo de notebook IPython chamado **SQLDW_Explorations.ipynb** e um arquivo de script Python **SQLDW_Explorations_Scripts.py** foram baixados no diretório local. Eles também estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Esses dois arquivos são idênticos em scripts Python. O arquivo de script Python é fornecido a você caso você não tenha um servidor do Notebook IPython. Esses dois de exemplo de arquivo Python são criados no **Python 2.7**.
@@ -832,7 +832,7 @@ Um teste de treinamento típico é formado pelas seguintes etapas:
 
 Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e escolhemos o tamanho da amostra para ingestão no AM do Azure. Este é o procedimento para compilar um ou mais dos modelos de previsão:
 
-1. Insira os dados no Azure ML usando o módulo [Importar dados][import-data], disponível na seção **Entrada e saída de dados**. Para saber mais, consulte a página de referência do módulo [Importar dados][import-data].
+1. Obtenha os dados no Azure ML usando o módulo [Importar dados][import-data], disponível na seção **Entrada e saída de dados**. Para saber mais, veja a página de referência do módulo [Importar Dados][import-data].
    
     ![Dados de Importação de AM do Azure][17]
 2. Selecione **Banco de Dados SQL do Azure** como a **Fonte de dados** no painel **Propriedades**.
@@ -849,7 +849,7 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 > [!IMPORTANT]
 > Nos exemplos de modelagem de extração de dados e consulta de amostragem fornecidos nas seções anteriores, **todos os rótulos para os três exercícios de modelagem são incluídos na consulta**. Uma etapa importante (obrigatória) em cada um dos exercícios modelagem é **excluir** os rótulos desnecessários para os dois problemas e qualquer outro **vazamento de destino**. Por exemplo, ao usar a classificação binária, use o rótulo **tipped** e exclua os campos **tip\_class**, **tip\_amount** e **total\_amount**. Esses últimos são vazamentos de destino, já que eles indicam a gorjeta paga.
 > 
-> Para excluir as colunas desnecessárias ou vazamentos de destino, é possível usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar metadados][edit-metadata]. Para obter mais informações, consulte as páginas de referência [Selecionar Colunas do Conjunto de Dados][select-columns] e [Editar metadados][edit-metadata].
+> Para excluir as colunas desnecessárias ou vazamentos de destino, você pode usar o módulo [Selecionar Colunas do Conjunto de Dados][select-columns] ou [Editar Metadados][edit-metadata]. Para saber mais, veja as páginas de referência [Selecionar Colunas no Conjunto de Dados][select-columns] e [Editar Metadados][edit-metadata].
 > 
 > 
 
@@ -923,6 +923,6 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

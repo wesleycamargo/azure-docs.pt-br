@@ -1,7 +1,7 @@
 ---
 title: "Ferramenta de migração de banco de dados para o DocumentDB | Microsoft Docs"
 description: "Saiba como usar as ferramentas de migração de dados de software livre do Banco de Dados de Documentos para importar dados no Banco de Dados de Documentos a partir de várias fontes, incluindo arquivos do MongoDB, SQL Server, Armazenamento de Tabelas, Amazon DynamoDB, CSV e JSON. Conversão de CSV para JSON."
-keywords: "csv em json, ferramentas de migração de banco de dados, converter csv em json"
+keywords: "csv em json, as ferramentas de migração de banco de dados, converta o csv em json"
 services: documentdb
 author: andrewhoh
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 5a9b3e94faee1db7c38b9f60045637640d820208
-ms.openlocfilehash: b11d9d67234c85af8f9fcb9992864ef9e1662a79
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
 
 
 ---
@@ -403,7 +403,7 @@ Para importar para uma única coleção, digite o nome da coleção à qual os d
 2. Você pode usar uma sintaxe abreviada: collection[3] emitirá o mesmo conjunto de coleções mencionado na etapa 1.
 3. Mais de uma substituição pode ser fornecida. Por exemplo, a coleção [0-1] [0-9] gerará 20 nomes de coleção com zeros à esquerda (collection01... 02,... 03).
 
-Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de&10;.000 RUs exigirá uma chave de partição. Se você optar por ter mais de 250.000 RUs, consulte [Limites da conta do DocumentDB aumentados por solicitação](documentdb-increase-limits.md).
+Depois de especificar o(s) nome(s) de coleção, escolha a taxa de transferência desejada da(s) coleção(ões) (de 400 a 250.000 RUs). Para uma importação com melhor desempenho, escolha uma taxa de transferência maior. Para obter mais informações sobre níveis de desempenho, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md). Qualquer importação para coleções com taxa de transferência acima de&10;.000 RUs exigirá uma chave de partição. Se optar por ter mais de 250.000 RUs, você precisará fazer uma solicitação no portal para aumento da conta.
 
 > [!NOTE]
 > A configuração de taxa de transferência só se aplica à criação da coleção. Se a coleção especificada já existir, sua taxa de transferência não será modificada.
@@ -526,6 +526,6 @@ Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma men
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

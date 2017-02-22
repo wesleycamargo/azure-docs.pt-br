@@ -1,5 +1,5 @@
 ---
-title: Diretrizes da infraestrutura de rede | Microsoft Docs
+title: Diretrizes de infraestrutura de rede do Azure - Linux | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 01/24/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7bf465a884a5adcf86d0039d096a3ba8663b6979
+ms.sourcegitcommit: 84b64fd79da641987d5346d90bb77bde154b58c4
+ms.openlocfilehash: a519c101e24a340078adcfde3e5733db71630aea
 
 
 ---
-# <a name="networking-infrastructure-guidelines"></a>Diretrizes da infraestrutura de rede
+# <a name="azure-networking-infrastructure-guidelines"></a>Diretrizes de infraestrutura de rede do Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo se concentra em compreender as etapas de planejamento necessárias para a rede virtual no Azure, e a conectividade entre ambientes locais existentes.
@@ -76,11 +76,11 @@ Para redes virtuais entre instalações, você deve criar sub-redes com as mesma
 
 | Número de VMs necessárias | Número de bits de host necessários | Tamanho da sub-rede |
 | --- | --- | --- |
-| 1 – 3 |3 |/ 29 |
-| 4 – 11 |4 |/ 28 |
-| 12 – 27 |5 |/ 27 |
-| 28-59 |6 |/ 26 |
-| 60 – 123 |7 |/ 25 |
+| 1 –&3; |3 |/&29; |
+| 4 –&11; |4 |/&28; |
+| 12 –&27; |5 |/&27; |
+| 28-59 |6 |/&26; |
+| 60 –&123; |7 |/&25; |
 
 > [!NOTE]
 > Para sub-redes locais normais, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 2. Para uma sub-rede do Azure, o número máximo de endereços de host para uma sub-rede com n bits de host é 2<sup>n</sup> – 5 (2 mais 3 para os endereços que o Azure usa em cada sub-rede).
@@ -106,6 +106,6 @@ Assim como acontece com uma infraestrutura de rede física local, a rede virtual
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

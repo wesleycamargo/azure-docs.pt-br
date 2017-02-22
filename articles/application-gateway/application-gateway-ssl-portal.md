@@ -1,10 +1,10 @@
 ---
-title: Configurar um gateway de aplicativo para o descarregamento do SSL usando o portal | Microsoft Docs
+title: Configurar o descarregamento SSL - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs
 description: "Esta página fornece instruções para criar um Application Gateway com descarregamento SSL usando o portal"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 0105c00b40143981c4f5dba621f91425b80f31cf
-ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: b1852b82875c63fa0e252c14b69b281bd501095f
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 2463136502ae37347e0d621902f2b7f93e239af5
 > * [Portal do Azure](application-gateway-ssl-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 O Azure Application Gateway pode ser configurado para encerrar a sessão SSL no gateway para evitar que a onerosa tarefa de descriptografia de SSL aconteça no web farm. O descarregamento SSL também simplifica a configuração do servidor front-end e o gerenciamento do aplicativo Web.
 
@@ -98,6 +96,6 @@ Para saber como configurar uma investigação de integridade personalizada com o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

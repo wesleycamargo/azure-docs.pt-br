@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 353f09a8a6fa3798d764d41618a8f0b3ba83e3d0
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 777dc11be139b20363e2060776ac0227883591ff
 
 
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configurar uma máquina virtual SQL Server do Azure como um servidor do IPython Notebook para análises avançadas
-Este tópico mostra como provisionar e configurar uma máquina virtual do SQL Server para ser usada como parte de um ambiente de ciência de dados baseado em nuvem. A máquina virtual do Windows está configurada com ferramentas de suporte como o IPython Notebook, o Azure Storage Explorer e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados. O Azure Storage Explorer e o AzCopy, por exemplo, fornecem maneiras convenientes para carregar dados no armazenamento de blob do Azure em seu computador local ou baixá-lo em seu computador local por meio do armazenamento de blob.
+Este tópico mostra como provisionar e configurar uma máquina virtual do SQL Server para ser usada como parte de um ambiente de ciência de dados baseado em nuvem. A máquina virtual do Windows está configurada com ferramentas de suporte, como o IPython Notebook, o Gerenciador de Armazenamento do Azure e o AzCopy, bem como outros utilitários que são úteis para projetos de ciência de dados. O Azure Storage Explorer e o AzCopy, por exemplo, fornecem maneiras convenientes para carregar dados no armazenamento de blob do Azure em seu computador local ou baixá-lo em seu computador local por meio do armazenamento de blob.
 
 A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Microsoft SQL Server. Selecione uma imagem de VM do SQL Server que seja adequada para as suas necessidades de dados. As imagens recomendadas são:
 
@@ -36,7 +36,7 @@ A galeria de Máquinas Virtuais do Azure inclui várias imagens que contêm o Mi
 ## <a name="a-nameprovisionaconnect-to-the-azure-classic-portal-and-provision-an-sql-server-virtual-machine"></a><a name="Provision"></a>Conectar-se ao Portal Clássico do Azure e fornecer uma máquina virtual do SQL Server
 1. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando sua conta.
    Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. No Portal Clássico do Azure, na parte inferior esquerda da página da Web, clique em **+ NOVO**, clique em **COMPUTAÇÃO**, em **MÁQUINA VIRTUAL** e em **DA GALERIA**.
+2. No Portal Clássico do Azure, na parte inferior esquerda da página da Web, clique em **+ NOVO**, clique em **COMPUTAÇÃO**, em **MÁQUINA VIRTUAL** e, em seguida, em **DA GALERIA**.
 3. Na página **Criar uma Máquina Virtual** , selecione uma imagem de máquina virtual que contenha o SQL Server com base nas suas necessidades de dados e clique na seta de avanço na parte inferior à direita da página. Para obter as informações mais atualizadas sobre as imagens do SQL Server com suporte no Azure, confira o tópico [Introdução ao SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720) no conjunto de documentação [SQL Server em Máquinas Virtuais do Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719).
    
    ![Selecionar uma VM do SQL Server][1]
@@ -233,7 +233,7 @@ Nos estágios posteriores do Processo de Ciência de Dados de Equipe, você usar
 3. Insira o nome de usuário do SQL na caixa de texto **Nome da conta de usuário do servidor** .
 4. Digite a senha do usuário do SQL na caixa de texto **Senha da conta de usuário do servidor** .
    
-   ![Dados de Importação de AM do Azure][13]
+   ![Importar Dados no Azure Machine Learning][13]
 
 ## <a name="a-nameshutdownashutdown-and-deallocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Desligar e desalocar a máquina virtual quando ela não estiver em uso
 A cobrança das máquinas virtuais do Azure ocorre na forma **pague somente pelo que usa**. Para garantir que você não esteja sendo cobrado quando não estiver usando sua máquina virtual, ela deverá estar no estado **Parado (Desalocado)** .
@@ -277,6 +277,6 @@ As próximas etapas no processo de ciência de dados são mapeadas no [Processo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

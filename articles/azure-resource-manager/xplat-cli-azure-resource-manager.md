@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
-ms.openlocfilehash: 39ccb6e9b810d1c02a96b25946893ddd3e316463
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 7fcf16ac835089a1c4127fd34264f2cf7cb098ac
 
 
 ---
@@ -148,13 +148,13 @@ Usando a CLI do Azure, você pode exportar um modelo que representa o estado atu
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter detalhes de operações de implantação e solucionar problemas de erros de implantação com a CLI do Azure, confira [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md).
+* Para obter detalhes de operações de implantação e solucionar erros de implantação com a CLI do Azure, confira [View deployment operations](resource-manager-deployment-operations.md) (Exibir operações de implantação).
 * Se você quiser usar a CLI para configurar um aplicativo ou script para acessar recursos, confira [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](resource-group-authenticate-service-principal-cli.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

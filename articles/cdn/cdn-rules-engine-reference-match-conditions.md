@@ -1,6 +1,6 @@
 ---
-title: "Condições de correspondência do Mecanismo de regras da Rede de Distribuição de Conteúdo do Azure | Microsoft Docs"
-description: "Este tópico descreve os recursos e condições de correspondência do Mecanismo de regras"
+title: "Condições de correspondência do mecanismo de regras da CDN do Azure | Microsoft Docs"
+description: "Documentação de referência para regras e recursos de condições de correspondência do mecanismo da CDN do Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: f96e977c777e4ecd007d6cd863054addb465489d
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
 
 
 ---
 
-#<a name="match-conditions-for-azure-content-delivery-network-cdn-rules-engine"></a>Condições de correspondência para o Mecanismo de regras da CDN (Rede de Distribuição de Conteúdo) do Azure
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas das Condições de correspondência disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para os quais um conjunto de recursos será executado.
@@ -122,12 +122,12 @@ Curinga da consulta da URL | Compara os valores especificados com a cadeia de ca
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Referência do Mecanismo de Regras](cdn-rules-engine-reference.md)
 * [Expressões condicionais do Mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
-* [Recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md)
+* [Recursos do Mecanismo de Regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

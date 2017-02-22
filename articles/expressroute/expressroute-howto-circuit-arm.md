@@ -1,10 +1,10 @@
 ---
-title: Criar e modificar um circuito do ExpressRoute usando o Gerenciador de Recursos e o PowerShell | Microsoft Docs
+title: 'Criar e modificar um circuito ExpressRoute: PowerShell: Azure Resource Manager | Microsoft Docs'
 description: Este artigo descreve como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito da Rota Expressa.
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
@@ -14,20 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: ganesr
+ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
+ms.openlocfilehash: 0aacbdafdb5ded81dbc8495a30837e2f4941075f
 
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell – Resource Manager](expressroute-howto-circuit-arm.md)
-> * [PowerShell - clássico](expressroute-howto-circuit-classic.md)
+> * [Resource Manager - Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-circuit-arm.md)
+> * [Clássico - PowerShell](expressroute-howto-circuit-classic.md)
+> * [Vídeo – Portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > 
-> 
+>
 
 Este artigo descreve como criar um circuito da Rota Expressa do azure usando os cmdlets do Windows PowerShell e o modelo de implantação do Azure Resource Manager. Este artigo também mostrará a você como verificar o status do circuito, como atualizá-lo ou como excluí-lo e desprovisioná-lo.
 
@@ -36,8 +37,9 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando os 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Obtenha a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter as diretrizes passo a passo sobre como configurar seu computador para usar os módulos do PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+* Obtenha a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter as diretrizes passo a passo sobre como configurar seu computador para usar os módulos do PowerShell, siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
@@ -376,6 +378,7 @@ Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Depois de criar seu circuito, faça o seguinte:
 
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
@@ -384,6 +387,6 @@ Depois de criar seu circuito, faça o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

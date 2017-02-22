@@ -3,7 +3,7 @@ title: Criar uma imagem do Azure RemoteApp baseada em uma VM do Azure | Microsof
 description: "Saiba como criar uma imagem para o RemoteApp do Azure começando com uma máquina virtual do Azure."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 ms.assetid: d41583ef-6cd8-4115-8dcb-b2cd5b3d301a
 ms.service: remoteapp
@@ -11,11 +11,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8b02336b05b78d7787caabd59347814af4337ec3
+ms.sourcegitcommit: 310cb63756806c8fab208c47bce6c7292ea5e5d7
+ms.openlocfilehash: 61e8a49475129486505111bd595f98af955ed809
 
 
 ---
@@ -32,7 +32,7 @@ Há duas etapas para criar sua própria imagem com base em uma VM do Azure: cria
 ## <a name="create-a-custom-image-based-on-an-azure-vm"></a>Criar uma imagem personalizada com base em uma VM do Azure
 Use estas etapas para criar uma imagem com base em uma VM do Azure.
 
-1. Crie uma máquina virtual do Azure. Você pode usar a imagem do “Host da Sessão de Área de Trabalho Remota do Windows Server” ou “Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus” da galeria de imagens de máquinas virtuais do Azure. Essa imagem atende a todos os requisitos de imagem de modelo do Azure RemoteApp.
+1. Crie uma máquina virtual do Azure. Você pode usar a imagem do “Host da Sessão da Área de Trabalho Remota do Windows Server” ou “Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus” da galeria de imagens de máquinas virtuais do Azure. Essa imagem atende a todos os requisitos de imagem de modelo do Azure RemoteApp.
    
     Para obter detalhes, consulte [Criar uma VM que executa o Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Conecte-se à VM e instale e configure os aplicativos que deseja compartilhar por meio do RemoteApp. Certifique-se de executar quaisquer configurações adicionais do Windows necessárias para seus aplicativos.
@@ -62,6 +62,6 @@ Agora você está pronto para criar a nova coleção, uma coleção na [nuvem](r
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

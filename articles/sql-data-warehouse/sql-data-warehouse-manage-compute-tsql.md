@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (REST) | Microsoft Docs"
+title: Pausar, retomar, dimensionar com o T-SQL no Azure SQL Data Warehouse | Microsoft Docs
 description: "Tarefas de Transact-SQL (T-SQL) para escalar horizontalmente o desempenho ao ajustar DWUs. Reduzir custos por meio da redução durante horários que não sejam de pico."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: f93e5802141b16862f5e37126196069bd32c1f19
 
 
 ---
@@ -29,17 +29,6 @@ ms.openlocfilehash: 41ab1c4b2709c2ea6890ca526db1dea177b7da1b
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 > 
 > 
-
-Dimensionar o desempenho escalando horizontalmente recursos de computação e memória para atender às demandas de mudança de sua carga de trabalho. Economizar custos reduzindo recursos durante horários que não sejam de pico ou pausando a computação. 
-
-Esta coleção de tarefas usa T-SQL para:
-
-* Exibir configurações atuais de DWU
-* Alterar recursos de computação ajustando as DWUs
-
-Para pausar ou retomar um banco de dados, escolha uma das outras opções de plataforma na parte superior deste artigo.
-
-Para saber mais sobre isso, consulte [Visão geral sobre gerenciar poder de computação][Visão geral sobre gerenciar poder de computação].
 
 <a name="current-dwu-bk"></a>
 
@@ -69,7 +58,7 @@ FROM
 Para alterar as DWUs:
 
 1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
-2. Use a instrução TSQL [ALTER DATABASE][ALTER DATABASE]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
+2. Use a declaração TSQL [ALTER DATABASE][ALTER DATABASE]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -80,14 +69,14 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Visão geral de gerenciamento].
+Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Limites de capacidade do serviço]: ./sql-data-warehouse-service-capacity-limits.md
-[Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Visão geral sobre gerenciar poder de computação]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute power overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
@@ -96,10 +85,10 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][V
 
 <!--Other Web references-->
 
-[Portal do Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

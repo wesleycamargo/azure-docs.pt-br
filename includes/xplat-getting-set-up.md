@@ -1,11 +1,10 @@
 ---
 services: virtual-machines
-title: Setting up Azure CLI for service management
+title: "Configuração da CLI do Azure para gerenciamento de serviços"
 author: squillace
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machine
 ms.devlang: na
 ms.topic: article
@@ -13,12 +12,16 @@ ms.tgt_pltfrm: linux
 ms.workload: infrastructure
 ms.date: 04/13/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: f18a4705c9fd57790bff9cfdd23c19fd30fe0d32
+
 
 ---
-## Usando a CLI do Azure
-As etapas a seguir o ajudarão a usar a CLI do Azure facilmente com a versão mais recente e com a assinatura correta. Se você precisar instalar a CLI do Azure e conectá-lo primeiro em sua conta, confira [Interface de Linha de Comando do Azure (CLI do Azure)](../articles/xplat-cli-install.md).
+## <a name="using-azure-cli"></a>Usando a CLI do Azure
+As etapas a seguir o ajudarão a usar a CLI do Azure facilmente com a versão mais recente e com a assinatura correta. Se você precisar instalar a CLI do Azure e conectá-la primeiro em sua conta, confira [Interface de Linha de Comando do Azure (CLI do Azure)](../articles/xplat-cli-install.md).
 
-### Etapa 1: atualizar a versão da CLI do Azure
+### <a name="step-1-update-azure-cli-version"></a>Etapa 1: atualizar a versão da CLI do Azure
 Para usar a CLI do Azure para comandos imperativos com modo de gerenciamento de serviço, você deve ter uma versão recente, se possível. Para verificar a sua versão, digite `azure --version`. Você deve ver algo como:
 
     $ azure --version
@@ -26,8 +29,8 @@ Para usar a CLI do Azure para comandos imperativos com modo de gerenciamento de 
 
 Se quiser atualizar a sua versão da CLI do Azure, confira [CLI do Azure](https://github.com/Azure/azure-xplat-cli).
 
-### Etapa 2: definir a conta e assinatura do Azure
-Depois de conectar a CLI do Azure com a conta que você deseja usar, você pode ter mais de uma assinatura. Se você tiver, deverá rever as assinaturas disponíveis para a sua conta, digitando `azure account list` e então selecionando a assinatura que quer usar digitando `azure account set <subscription id or name> true`, em que *nome ou id de assinatura* é a id da assinatura ou o nome da assinatura com que você gostaria de trabalhar na sessão atual. Você verá algo semelhante ao que se segue:
+### <a name="step-2-set-the-azure-account-and-subscription"></a>Etapa 2: definir a conta e assinatura do Azure
+Depois de conectar a CLI do Azure com a conta que você deseja usar, você pode ter mais de uma assinatura. Se você fizer isso, deverá examinar as assinaturas disponíveis para sua conta ao digitar `azure account list`, onde `azure account set <subscription id or name> true`nome ou id de assinatura* é a id da assinatura ou o nome da assinatura* com que você gostaria de trabalhar na sessão atual. Você verá algo semelhante ao que se segue:
 
     $ azure account set "Visual Studio Ultimate with MSDN" true
     info:    Executing command account set
@@ -40,4 +43,9 @@ Depois de conectar a CLI do Azure com a conta que você deseja usar, você pode 
 > 
 > 
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

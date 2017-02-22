@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2017
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 449cfa39e17a3b753cf3e267aed2d6a439fc5f36
+ms.sourcegitcommit: 2048c2786cbe7e237f7a72f5a73a4b135ed60088
+ms.openlocfilehash: cf4ee6d18d5ab3b0f53ec5e8ab80d6e91864a103
 
 
 ---
@@ -25,6 +25,7 @@ Este tópico descreve o recurso de prevenção contra exclusões acidentais (que
 
 Ao instalar o Azure AD Connect, o recurso para impedir exclusões acidentais é habilitado por padrão e configurado para não permitir uma exportação com mais de 500 exclusões. Esse recurso destina-se a protegê-lo contra alterações acidentais de configuração e alterações no diretório local que possam afetar muitos usuários e outros objetos.
 
+## <a name="what-is-prevent-accidental-deletes"></a>O que é impedir exclusões acidentais
 Os cenários comuns quando você vê muitas exclusões incluem:
 
 * Alterações de [filtragem](active-directory-aadconnectsync-configure-filtering.md) em que todo uma [UO](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) ou [domínio](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) é desmarcado.
@@ -38,7 +39,7 @@ Se houver muitas exclusões preparadas para serem exportadas para o Azure AD, a 
 ![Impedir exclusões de email acidentais](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 > *Saudação (contato técnico). No momento, o Serviço de sincronização de identidade detectou que o número de exclusões excedeu o limite configurado de exclusões para (nome da organização). Um total de (número) objetos foram enviados para exclusão nesta execução da sincronização de Identidade. Isso atingiu ou excedeu o valor de limite de exclusão configurado de (número) objetos. Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Veja Impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
-> 
+>
 > 
 
 Você também pode ver o status `stopped-deletion-threshold-exceeded` examinando a interface do **Synchronization Service Manager** para o perfil de exportação.
@@ -69,7 +70,6 @@ Se todas as exclusões forem desejadas, siga este procedimento:
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

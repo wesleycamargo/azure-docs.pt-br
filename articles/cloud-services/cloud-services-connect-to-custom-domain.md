@@ -1,6 +1,6 @@
 ---
 title: "Conectar um Serviço de Nuvem em um Controlador de Domínio personalizado | Microsoft Docs"
-description: "Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a extensão de domínio do AD"
+description: "Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a Extensão de Domínio do AD"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: f3b16dcb6f48a2c9f9784f677ca2133837a56ca6
+ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
+ms.openlocfilehash: 39ee9cc1027958d85b2af2781adab0fe06c9a433
 
 
 ---
@@ -158,6 +158,6 @@ help New-AzureServiceADDomainExtensionConfig
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

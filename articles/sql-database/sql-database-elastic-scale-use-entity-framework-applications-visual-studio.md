@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a57ad6211403712bc35f20710e0c8c1728d2639d
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
 
 
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
-Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First – Novo banco de dados](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução para este documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
+Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) para o EF serve como exemplo de execução para este documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
 
 ## <a name="downloading-and-running-the-sample-code"></a>Baixar e executar o código de exemplo
 Para baixar o código para este artigo:
@@ -34,7 +34,7 @@ Para baixar o código para este artigo:
   
     ![Entity Framework e o aplicativo de exemplo de banco de dados elástico][1] 
   
-    Selecione o exemplo chamado **Ferramentas de banco de dados elástico para SQL Azure – integração com o Entity Framework**. Após aceitar a licença, o exemplo é carregado. 
+    Selecione o exemplo chamado **Ferramentas de banco de dados elástico para SQL Azure – integração ao Entity Framework**. Após aceitar a licença, o exemplo é carregado. 
 
 Para executar o exemplo, você precisa criar três bancos de dados vazios no Banco de Dados SQL do Azure:
 
@@ -256,7 +256,7 @@ Alguém pode ter usado a versão do construtor herdado da classe base. Mas o có
 As abordagens descritas neste documento envolvem algumas limitações: 
 
 * Aplicativos de EF que utilizem o **LocalDb** primeiro precisam migrar para um banco de dados SQL Server normal antes de usar a biblioteca de cliente de banco de dados elástico. Não é possível escalar verticalmente um aplicativo por meio de fragmentação com Escala Elástica com o **LocalDb**. Observe que o desenvolvimento ainda pode usar **LocalDb**. 
-* As alterações para o aplicativo que implicam alterações de esquema do banco de dados precisam passar pelas migrações do EF em todos os fragmentos. O código de exemplo para este documento não mostra como fazer isso. Considere o uso de atualização de banco de dados com um parâmetro ConnectionString para iterar todos os fragmentos; ou extraia o script T-SQL para a migração pendente usando Update-Database com a opção -Script e aplique o script T-SQL aos seus fragmentos.  
+* As alterações para o aplicativo que implicam alterações de esquema do banco de dados precisam passar pelas migrações do EF em todos os fragmentos. O código de exemplo para este documento não mostra como fazer isso. Considere o uso de Update-Database com um parâmetro ConnectionString para iterar em todos os fragmentos; ou extraia o script T-SQL para a migração pendente usando Update-Database com a opção -Script e aplique o script T-SQL aos seus fragmentos.  
 * Dada a solicitação, presume-se que todo o processamento do banco de dados está contido dentro de um único fragmento, conforme identificado pela chave de fragmentação fornecida pela solicitação. No entanto, esse pressuposto nem sempre é verdadeiro. Por exemplo, quando não é possível disponibilizar uma chave de fragmentação. Para resolver isso, a biblioteca de cliente fornece a classe **MultiShardQuery** que implementa uma abstração de conexão para consultas em vários fragmentos. Aprender a usar o **MultiShardQuery** combinado com o EF está além do escopo deste documento
 
 ## <a name="conclusion"></a>Conclusão
@@ -269,6 +269,6 @@ Através das etapas descritas neste documento, os aplicativos do EF podem usar a
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

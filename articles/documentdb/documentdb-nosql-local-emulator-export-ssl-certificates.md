@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2016
+ms.date: 01/22/2017
 ms.author: tvoellm
 translationtype: Human Translation
-ms.sourcegitcommit: 638c6c5ac9ffac7e726d86a979e2c5dc7fab41f4
-ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
+ms.sourcegitcommit: 224897c09073fe36c7d4f9f8c965212c25297271
+ms.openlocfilehash: 3f89e192052bb633190610a4dffbefb930dbc01c
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 32bebcbd724d577f78672cb623748fcf77cee20a
 
 [**Baixar o Emulador**](https://aka.ms/documentdb-emulator)
 
-O Emulador do DocumentDB do Azure fornece um ambiente local que emula o serviço DocumentDB do Azure para fins de desenvolvimento, incluindo o uso de conexões SSL. Esta postagem demonstra como exportar os certificados SSL para uso em linguagens e em tempos de execução que não são integrados ao Repositório de Certificados do Windows, por exemplo, Java, que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python, que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html). Leia mais sobre o emulador em [Usar o Emulador de DocumentDB do Azure para desenvolvimento e teste](./documentdb-nosql-local-emulator.md).
+O Emulador do DocumentDB do Azure fornece um ambiente local que emula o serviço DocumentDB do Azure para fins de desenvolvimento, incluindo o uso de conexões SSL. Esta postagem demonstra como exportar os certificados SSL para uso em linguagens e em tempos de execução que não são integrados ao Repositório de Certificados do Windows, por exemplo, Java, que usa seu próprio [repositório de certificados](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) e Python, que usa [wrappers de soquete](https://docs.python.org/2/library/ssl.html) e .Node.js que usa [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Leia mais sobre o emulador em [Usar o Emulador de DocumentDB do Azure para desenvolvimento e teste](./documentdb-nosql-local-emulator.md).
 
 ## <a name="certification-rotation"></a>Rotação de certificação
 
@@ -80,7 +80,11 @@ Após a instalação do certificado SSL "DocumentDBEmulatorCertificate", seu apl
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Como usar o certificado em Python
 
-Por padrão, o SDK do Python para DocumentDB não tentará usar o certificado SSL ao se conectar ao emulador local. Se, no entanto, você quiser usar a validação de SSL, siga os exemplos na documentação [Wrappers de soquete Python](https://docs.python.org/2/library/ssl.html).
+Por padrão, o [SDK do Python (versão 2.0.0 ou superior)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-python) para DocumentDB não tentará usar o certificado SSL ao se conectar ao emulador local. Se, no entanto, você quiser usar a validação de SSL, siga os exemplos na documentação [Wrappers de soquete Python](https://docs.python.org/2/library/ssl.html).
+
+## <a name="how-to-use-the-certificate-in-nodejs"></a>Como usar o certificado no Node.js
+
+Por padrão, o [SDK do Node.js (versão 1.10.1 ou superior)](https://docs.microsoft.com/en-us/azure/documentdb/documentdb-sdk-node) para DocumentDB não tentará usar o certificado SSL ao se conectar ao emulador local. Se, no entanto, você quiser usar a validação de SSL, siga os exemplos na [Documentação do Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o DocumentDB, veja [Introdução ao Azure DocumentDB](documentdb-introduction.md)
@@ -88,6 +92,6 @@ Por padrão, o SDK do Python para DocumentDB não tentará usar o certificado SS
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

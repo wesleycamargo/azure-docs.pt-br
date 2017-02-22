@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de HBase usando Maven e Java e implantar o HDInsight baseado em Windows | Microsoft Docs
+title: Criar um aplicativo HBase Java para Azure HDInsight baseado no Windows | Microsoft Docs
 description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no cluster HDInsight do Azure baseado no Windows."
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 02/05/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 24d9c1d185eef811a37924be184e4e5894dcdb01
+ms.sourcegitcommit: b829f21dbc212cd951f5e417ad56f7eb724a9d56
+ms.openlocfilehash: 51a9ebdee38c14eb3dc1148070004e6792369b39
 
 
 ---
@@ -26,17 +26,16 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 [Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprende como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster Azure HDInsight.
 
-> [!NOTE]
-> As etapas neste documento pressupõem que você está usando um cluster HDInsight baseado em Windows. Para saber mais sobre como usar um cluster HDInsight baseado em Linux, veja [Usar o Maven para criar aplicativos Java que usam o HBase com HDInsight baseado em Linux](hdinsight-hbase-build-java-maven-linux.md)
-> 
-> 
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Requisitos
 * [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior
 * [Maven](http://maven.apache.org/)
 * [Um cluster HDInsight baseado no Windows com HBase](hdinsight-hbase-tutorial-get-started.md#create-hbase-cluster)
 
-    > [AZURE.NOTE] As etapas neste documento foram testadas com as versões 3.2 e 3.3 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se a um cluster HDInsight 3.3.
+    > [!NOTE] 
+    > As etapas neste documento foram testadas com as versões 3.2 e 3.3 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se a um cluster HDInsight 3.3.
 
 ## <a name="create-the-project"></a>Criar o projeto
 1. Por meio da linha de comando em seu ambiente de desenvolvimento, mude os diretórios para o local em que você deseja criar o projeto, por exemplo, `cd code\hdinsight`.
@@ -181,8 +180,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
    
    > [!NOTE]
    > Esse é um arquivo hbase-site.xml mínimo, contendo as configurações estritamente mínimas para o cluster HDInsight.
-   > 
-   > 
+
 6. Salve o arquivo **hbase-site.xml**.
 
 ## <a name="create-the-application"></a>Criar o aplicativo
@@ -353,7 +351,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
         }
    
     Essa classe é para limpar esse exemplo desabilitando e eliminando a tabela criada pela classe **CreateTable** .
-7. Salve o arquivo **DeleteTable.java** .
+7. Salve o arquivo **DeleteTable.java**.
 
 ## <a name="build-and-package-the-application"></a>Compilar e criar o pacote do aplicativo
 1. Abra um prompt de comando e mude os diretórios para o diretório **hbaseapp** .
@@ -366,8 +364,6 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
    
    > [!NOTE]
    > O arquivo **hbaseapp-1.0-SNAPSHOT.jar** é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
-   > 
-   > 
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>Carregar o arquivo JAR e iniciar um trabalho
 Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descrito em [Carregar dados para trabalhos do Hadoop no HDInsight](hdinsight-upload-data.md). As etapas a seguir usam o PowerShell do Azure.
@@ -423,10 +419,7 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
         FindAzure
    
         # Get the login for the HDInsight cluster
-        $creds = Get-Credential
-   
-        # Get storage information
-        $storage = GetStorage -clusterName $clusterName
+        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
    
         # The JAR
         $jarFile = "wasbs:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
@@ -453,9 +446,6 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds `
                     -DisplayOutputType StandardError
         }
@@ -463,9 +453,6 @@ Há muitos modos de carregar um arquivo em seu cluster HDInsight, conforme descr
         Get-AzureRmHDInsightJobOutput `
                     -Clustername $clusterName `
                     -JobId $job.JobId `
-                    -DefaultContainer $storage.container `
-                    -DefaultStorageAccountName $storage.storageAccount `
-                    -DefaultStorageAccountKey $storage.storageAccountKey `
                     -HttpCredential $creds
         }
    
@@ -633,6 +620,6 @@ Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido du
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

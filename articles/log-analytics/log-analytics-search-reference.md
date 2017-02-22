@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: b7c13d4b4e205fda1e5ba44fbf5eb50a96601d2e
-ms.openlocfilehash: 113dd20f1a5ac42eb7155d693f66053adea57078
+ms.sourcegitcommit: 81fd8dfa480fc6365b6373a4eefef1149248d800
+ms.openlocfilehash: 5e4fba6ff82cbe8af0116e35d71c8f9f04474f0f
 
 
 ---
@@ -298,7 +298,7 @@ Você pode omitir o operador lógico para os argumentos de filtro de nível supe
 | sistema "Windows Server" OR Gravidade:&1; |sistema AND (“Windows Server” OR Gravidade:&1;) |
 
 ### <a name="wildcarding"></a>Recurso de curinga
-O idioma de consulta dá suporte usando o caractere (*\*) para representar um ou mais caracteres para um valor em uma consulta.
+O idioma de consulta oferece suporte ao uso do caractere (\*) para representar um ou mais caracteres para um valor em uma consulta.
 
 Exemplos:
 
@@ -813,6 +813,6 @@ Para saber mais sobre pesquisas de log:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

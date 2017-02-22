@@ -1,6 +1,6 @@
 ---
-title: Executar amostras de MapReduce do Hadoop no HDInsight baseado em Linux | Microsoft Docs
-description: "Introdução ao uso de exemplos de MapReduce com HDInsight baseado em Linux. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo."
+title: Executar amostras de MapReduce do Hadoop no HDInsight | Microsoft Docs
+description: "Introdução ao uso de exemplos de MapReduce com HDInsight. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,22 +13,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: b3c56871ec23c7595d18006943be19c38d2fb5c9
 
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Executar amostras do Hadoop no HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Clusters do HDInsight baseados em Linux fornecem um conjunto de exemplos do MapReduce que você pode usar para se familiarizar com a execução de trabalhos de MapReduce do Hadoop. Neste documento, você aprende sobre os exemplos disponíveis e vê como é a execução de alguns deles.
+Os clusters do HDInsight fornecem um conjunto de exemplos do MapReduce que você pode usar para se familiarizar com a execução de trabalhos de MapReduce do Hadoop. Neste documento, você aprende sobre os exemplos disponíveis e vê como é a execução de alguns deles.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Uma assinatura do Azure**: consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+
+
 * **Um cluster do HDInsight baseado em Linux**: consulte [Introdução ao uso do Hadoop com o Hive no HDInsight no Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * **Um cliente SSH**: para obter informações sobre como usar SSH com o HDInsight, consulte os seguintes artigos:
   
   * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -170,7 +175,7 @@ Use o seguinte comando para executar o exemplo. Ele usa 16 mapas com 10.000.000 
 
 O valor retornado por este deve ser semelhante a **3,14159155000000000000**. Para referência, as 10 primeiras casas decimais de pi são 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort de 10GB
+## <a name="10gb-greysort"></a>Greysort de&10;GB
 GraySort é uma espécie de parâmetro de comparação cuja métrica é a taxa de classificação (TB/minuto) que é obtida durante a classificação de grandes quantidades de dados, geralmente um mínimo de 100 TB.
 
 Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/) .
@@ -204,8 +209,8 @@ Use as seguintes etapas para gerar dados, classificar e validar a saída:
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters do HDInsight baseados em Linux. Para obter tutoriais sobre como usar o Pig, o Hive e o MapReduce com o HDInsight, consulte os seguintes tópicos:
 
-* [Usar o Pig com o Hadoop no HDInsight][hdinsight-use-pig]
-* [Usar o Hive com o Hadoop no HDInsight][hdinsight-use-hive]
+* [Usar o Pig com Hadoop no HDInsight][hdinsight-use-pig]
+* [Usar o Hive com Hadoop no HDInsight][hdinsight-use-hive]
 * [Usar o MapReduce com Hadoop no HDInsight][hdinsight-use-mapreduce]
 
 [hdinsight-errors]: hdinsight-debug-jobs.md
@@ -224,6 +229,6 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

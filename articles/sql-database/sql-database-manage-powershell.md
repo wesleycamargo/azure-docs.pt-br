@@ -12,22 +12,16 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 11/15/2016
+ms.topic: article
+ms.date: 02/09/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
-ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 32d8c5f13d95c3de8b06782f4f6541866389be5b
 
 
 ---
 # <a name="managing-azure-sql-database-using-powershell"></a>Gerenciar um Banco de Dados SQL do Azure usando o PowerShell
-> [!div class="op_single_selector"]
-> * [Portal do Azure](sql-database-manage-portal.md)
-> * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 Este tópico mostra os cmdlets do PowerShell que são usados para executar várias tarefas do Banco de Dados SQL do Azure. Para ver uma lista completa, veja [Cmdlets do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
@@ -48,7 +42,7 @@ Para obter mais informações, consulte [Usando o PowerShell do Azure com o Gere
 Para obter um tutorial completo, confira [Introdução aos servidores de Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>Como criar um servidor de Banco de Dados SQL?
-Para criar um servidor de Banco de Dados SQL, use o cmdlet [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Substitua *server1* pelo nome do seu servidor. Os nomes dos servidores devem ser exclusivos para todos os servidores do Banco de Dados SQL do Azure. Se o nome do servidor já existir, você obterá um erro. Esse comando pode levar vários minutos para ser concluído. O grupo de recursos já precisa existir na sua assinatura.
+Para criar um servidor de Banco de Dados SQL, use o cmdlet [New-AzureRmSqlServer](/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). Substitua *server1* pelo nome do seu servidor. Os nomes dos servidores devem ser exclusivos para todos os servidores do Banco de Dados SQL do Azure. Se o nome do servidor já existir, você obterá um erro. Esse comando pode levar vários minutos para ser concluído. O grupo de recursos já precisa existir na sua assinatura.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -58,8 +52,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -123,7 +117,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Para saber mais, veja [Opções e desempenho de Banco de Dados SQL: saiba o que está disponível em cada camada de serviço](sql-database-service-tiers.md). Para obter um script de exemplo, veja [Amostra de script do PowerShell para alterar a camada de serviços e o nível de desempenho do banco de dados SQL](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+Para saber mais, veja [Opções e desempenho de Banco de Dados SQL: saiba o que está disponível em cada camada de serviço](sql-database-service-tiers.md). Para obter um script de exemplo, veja [Amostra de script do PowerShell para alterar a camada de serviços e o nível de desempenho do banco de dados SQL](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database).
 
 ## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>Como copio um banco de dados SQL para o mesmo servidor?
 Para copiar um banco de dados SQL para o mesmo servidor, use ocmdlet [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx). Defina `-CopyServerName` e `-CopyResourceGroupName` com os mesmos valores que seu grupo de recursos e servidor de banco de dados de origem.
@@ -168,7 +162,7 @@ Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceG
 ```
 
 ## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>Como criar e gerenciar pools elásticos usando o PowerShell?
-Para obter detalhes sobre como criar pools elásticos usando o PowerShell, confira [Criar um novo pool elástico com o PowerShell](sql-database-elastic-pool-create-powershell.md).
+Para obter detalhes sobre como criar pools elásticos usando o PowerShell, confira [Criar um novo pool elástico com o PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 Para obter detalhes sobre como gerenciar pools elásticos usando o PowerShell, confira [Monitorar e gerenciar um pool elástico com o PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
@@ -179,6 +173,6 @@ Para obter detalhes sobre como gerenciar pools elásticos usando o PowerShell, c
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

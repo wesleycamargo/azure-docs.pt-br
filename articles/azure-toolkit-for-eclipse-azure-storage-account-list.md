@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91490e33ab2d524da90ae75bd71abe8005e45c54
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9ef430dfaa43f9bc4294593c8abbdaf457ef07c8
 
 
 ---
@@ -53,9 +53,9 @@ Essa caixa de diálogo também pode ser aberta a partir de um link **Contas** na
 Pode levar vários minutos para que a sua conta de armazenamento seja criada. Depois de criada, clique em **OK** para fechar a caixa de diálogo **Adicionar Conta de Armazenamento** e sua nova conta de armazenamento será adicionado à lista de contas de armazenamento disponíveis.
 
 ## <a name="to-add-an-existing-storage-account-to-the-list"></a>Para adicionar uma conta de armazenamento existente à lista
-1. Se você ainda não tem uma conta de armazenamento do Azure, crie uma seguindo as etapas listadas na seção **Para criar uma nova conta de armazenamento** acima. (Como alternativa, você pode criar uma nova conta de armazenamento no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].)
+1. Se você ainda não tem uma conta de armazenamento do Azure, crie uma seguindo as etapas listadas na seção **Para criar uma nova conta de armazenamento** acima. (Como alternativa, você pode criar uma nova conta de armazenamento no [Portal de Gerenciamento do Azure][Azure Management Portal].)
 2. Na caixa de diálogo **Contas de Armazenamento**, clique em **Adicionar**.
-3. Na caixa de diálogo **Adicionar Conta de Armazenamento**, insira valores para o **Nome** e a **Chave de Acesso**. O nome da conta e a chave de acesso devem ser de uma conta existente do armazenamento do Azure. Use a seção **Armazenamento** do [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure] para exibir seus nomes e chaves da conta de armazenamento. O diálogo **Adicionar Conta de Armazenamento** será semelhante ao seguinte:
+3. Na caixa de diálogo **Adicionar Conta de Armazenamento**, insira valores para o **Nome** e a **Chave de Acesso**. O nome da conta e a chave de acesso devem ser de uma conta existente do armazenamento do Azure. Use a seção **Armazenamento** do [Portal de Gerenciamento do Azure][Azure Management Portal] para exibir seus nomes e chaves de conta de armazenamento. O diálogo **Adicionar Conta de Armazenamento** será semelhante ao seguinte:
    
     ![][ic719497]
 4. Clique em **OK** para fechar a caixa de diálogo **Adicionar Conta de Armazenamento**.
@@ -75,22 +75,22 @@ Pode levar vários minutos para que a sua conta de armazenamento seja criada. De
 > 
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para o Eclipse][Instalação do Kit de Ferramentas do Azure para o Eclipse] 
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-[Criação de um aplicativo Hello World do Azure no Eclipse][Criação de um aplicativo Hello World do Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Novidades no Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
 
@@ -101,6 +101,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

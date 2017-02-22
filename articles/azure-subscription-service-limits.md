@@ -1,5 +1,5 @@
 ---
-title: "Assinatura do Microsoft Azure e limites de serviços, cotas e restrições"
+title: Limites e cotas de assinatura do Azure | Microsoft Docs
 description: "Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
 services: 
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 02/13/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 18c8997d8ee77c9c3005aa765a64ae82dce8c70c
-ms.openlocfilehash: fc519c242b2676e20c1b19bfb2b5edae73b0b926
+ms.sourcegitcommit: bf6c6017f623766f5e7a6472feed02108b5adf5f
+ms.openlocfilehash: d770a05ee247103fe9693754d7fb7eada12ef1bc
 
 
 ---
@@ -65,6 +65,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Hubs de Evento](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Cofre da Chave](#key-vault-limits)
+* [Log Analytics/Insights Operacionais](#log-analytics-limits)
 * [Serviços de Mídia](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
@@ -72,7 +73,6 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Rede](#networking-limits)
 * [Serviço de hub de notificação](#notification-hub-service-limits)
-* [Insights Operacionais](#operational-insights-limits)
 * [Grupo de recursos](#resource-group-limits)
 * [Agendador](#scheduler-limits)
 * [Pesquisar](#search-limits)
@@ -134,7 +134,7 @@ Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas
 #### <a name="storage-service-limits"></a>Limites de Serviço de Armazenamento
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Limites de Disco de Máquina Virtual
+#### <a name="virtual-machine-disk-limits"></a>Limites de Disco de Máquina Virtual 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Consulte [Tamanhos de máquina virtual](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais detalhes.
@@ -234,7 +234,7 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="storsimple-system-limits"></a>Limites do sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### <a name="operational-insights-limits"></a>Limites dos Insights Operacionais
+### <a name="log-analytics-limits"></a>Limites do Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
 ### <a name="backup-limits"></a>Limites do Backup
@@ -274,6 +274,6 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

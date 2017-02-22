@@ -1,6 +1,6 @@
 ---
-title: "Migração do cache para Redis | Microsoft Docs"
-description: "Saiba como migrar aplicativos do Serviço de Cache Gerenciado para Cache Redis do Azure"
+title: "Migrar aplicativos do Serviço de Cache Gerenciado para o Redis - Azure | Microsoft Docs"
+description: "Saiba como migrar aplicativos do Serviço de Cache Gerenciado e aplicativos de Cache na Função para o Cache Redis do Azure"
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b1a686bb26edf4f24bbb8ffac97a5f0751dd21d0
+ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
+ms.openlocfilehash: e739bb129ea2b280803380f3f9c20ca052b3f122
 
 
 ---
@@ -57,8 +57,8 @@ Serviço de Cache Gerenciado do e Cache Redis do Azure são semelhantes, mas imp
 O Cache Redis do Microsoft Azure está disponível nas seguintes camadas:
 
 * **Básico** – um único nó. Vários tamanhos acima de 53 GB.
-* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de 99,9%.
-* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de 99,9%.
+* **Standard** – principal/réplica com dois nós. Vários tamanhos acima de 53 GB. SLA de&99;,9%.
+* **Premium** – dois nós Primário/Réplica com até 10 fragmentos. Vários tamanhos de 6 GB a 530 GB (entre em contato conosco para obter mais informações). Todos os recursos do tipo Standard e outros, incluindo suporte para [cluster Redis](cache-how-to-premium-clustering.md), [persistência Redis](cache-how-to-premium-persistence.md) e [Rede Virtual do Azure](cache-how-to-premium-vnet.md). SLA de&99;,9%.
 
 Cada camada é diferente em termos de recursos e preços. Os recursos são abordados posteriormente neste manual e, para obter mais informações sobre preços, consulte [Detalhes de preços do Cache](https://azure.microsoft.com/pricing/details/cache/).
 
@@ -190,6 +190,6 @@ Explore a [documentação do Cache Redis do Azure](https://azure.microsoft.com/d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: f5b9a4d83e21dfefc12ea2931702a9dce3f03016
-ms.openlocfilehash: bd4352cd6f8a909d518b0c5527d6c0e63e4bad51
+ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
+ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
 
 
 ---
@@ -120,23 +120,17 @@ O Roaming de Estado de Empresa tem suporte em SKUs de cliente do Windows 10, mas
 Se sua organização já estiver usando o roaming no Windows 10 com a assinatura gratuita de uso limitado do Azure RMS, a compra de uma assinatura paga do Azure RMS não terá qualquer impacto na funcionalidade do recurso de roaming, e o administrador de TI não precisará fazer alterações de configuração.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-* Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar. Atualizações futuras do Windows 10 poderão resolver esse problema.
-* Você precisará da atualização cumulativa de julho do Windows 10 (build 10586.494 ou superior) para que sincronização de favoritos do Internet Explorer funcione.
-* Dados protegidos com o Windows Information Protection não serão sincronizados por meio de Roaming de Estado da Empresa. Além disso, computadores que têm o Windows Information Protection habilitado não terão a sincronização de tema.
-* Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Azure Multi-Factor Authentication estiver configurada.
-
-  * Se o dispositivo está configurado para exigir [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) no portal do Azure Active Directory, você pode não conseguir sincronizar configurações ao entrar em um dispositivo Windows 10 usando uma senha. Esse tipo de configuração de Multi-Factor Authentication destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou concluindo o Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
-  * A sincronização poderá falhar se o administrador configurar a política de acesso condicional do Multi-Factor Authentication dos Serviços de Federação do Active Directory (AD FS) e o token de acesso do dispositivo expirará.  Certifique-se de entrar e sair usando o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou conclua a Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
-* Se um computador tiver ingressado no domínio com registro automático em dispositivos do Azure Active Directory, poderá apresentar falhas de sincronização se ficar fora do local por longos períodos e se não for possível concluir a autenticação no domínio. Para resolver esse problema, conecte o computador a uma rede corporativa para que a sincronização possa ser retomada.
+Confira a documentação na seção de [solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md) para obter uma lista de problemas conhecidos. 
 
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Visão geral do enterprise state roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Habilitar o enterprise state roaming no Active Directory do Azure](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

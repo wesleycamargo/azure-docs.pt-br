@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2fb432881c606c29d4ee7bc810bff984ddec2c
+ms.sourcegitcommit: f9a216f3f76ef84e745ef29575d20da971e5eb61
+ms.openlocfilehash: 2ccd414e0eec04dbee7c412cef245e1ab0da2bff
 
 
 ---
@@ -46,6 +46,7 @@ Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outro
 O Serviço de Aplicativo do Azure não dá suporte a todos os módulos nativos e pode falhar em compilá-los com pré-requisitos muito específicos. Embora alguns módulos populares como o MongoDB tenham dependências nativas opcionais e funcionem bem sem elas, duas soluções alternativas foram comprovadamente bem-sucedidas com quase todos os módulos nativos disponíveis hoje:
 
 * Execute a **npm install** em uma máquina do Windows que tenha todos os pré-requisitos do módulo nativo. Em seguida, implante a pasta **node\_modules** criada como parte do aplicativo no Serviço de Aplicativo do Azure.
+  * Antes de compilar, verifique se sua instalação local do Node.js tem arquitetura correspondente e se a versão é a mais próxima possível da usada no Azure (os valores atuais podem ser verificados no tempo de execução das propriedades **process.arch** e **process.version**).
 * O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como fazer isso, consulte [Scripts de implantação de site personalizado com o Kudu].
 
 ### <a name="using-a-packagejson-file"></a>Usando um arquivo package.json
@@ -85,13 +86,13 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js](/develop/nodej
 
 [especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
 [Como usar a Interface de Linha de Comando do Azure para Mac e Linux]: xplat-cli-install.md
-[compilar e implantar um aplicativo Web no Node.js]: web-sites-nodejs-develop-deploy-mac.md
-[O aplicativo Web Node.js com armazenamento no MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
-[Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure]: cloud-services-nodejs-develop-deploy-app.md
+[build and deploy a Node.js web app]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Scripts de implantação de site personalizado com o Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

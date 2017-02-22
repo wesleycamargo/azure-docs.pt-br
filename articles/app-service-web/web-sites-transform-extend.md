@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2e10b89aecd12dd9eeb91855242421bf8d7c0a0b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: abd55399ef780df945a2d643940a71425d085692
 
 
 ---
@@ -169,7 +169,7 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 É possível desabilitar todas as extensões (não pré-instaladas) privadas do seu aplicativo Web durante o desenvolvimento e investigações adicionando uma configuração de aplicativo com a chave `WEBSITE_PRIVATE_EXTENSIONS` e um valor de `0`.
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -183,6 +183,6 @@ Observe que a URL se parece com a URL do aplicativo Web, exceto por usar HTTPS e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

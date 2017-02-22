@@ -1,6 +1,6 @@
 ---
-title: "Monitoramento de desempenho para aplicativos Web móveis com a Análise para o Desenvolvedor | Microsoft Docs"
-description: "Desempenho do aplicativo e monitoramento de uso para desenvolvedores de aplicativos móveis. , área de trabalho, serviço Web e aplicativos de back-end com o HockeyApp e o Application Insights."
+title: "Monitoramento de desempenho de aplicativos móveis - Azure Application Insights | Microsoft Docs"
+description: "Desempenho do aplicativo e monitoramento de uso para desenvolvedores de aplicativos móveis. DevOps com HockeyApp e Application Insights."
 author: alancameronwills
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 4d394ff22e57d162c5adf39c492ca76f3d1f9d3a
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: c4077aa88a401a1c75c0d3fbcd58186f7cb137c2
 
 
 ---
@@ -64,6 +64,6 @@ Você pode investigar a telemetria personalizada e de log do HockeyApp usando os
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

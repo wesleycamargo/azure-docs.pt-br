@@ -1,5 +1,5 @@
 ---
-title: "Instalação e gerenciamento fáceis de aplicativos no Lote do Azure | Microsoft Docs"
+title: "Instalar pacotes de aplicativos em nós de computação - Azure Batch | Microsoft Docs"
 description: "Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/21/2016
+ms.date: 01/30/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 8bd78e80347175161053b28e4350fdeb78b3299b
+ms.sourcegitcommit: 08db84f3f3f66930a81e3627dadebbe181dd7da3
+ms.openlocfilehash: 1c89f86c382d627def6cbaf23d8a67a71cd9e890
 
 
 ---
@@ -121,8 +121,8 @@ Clique em um aplicativo na folha **Aplicativos** para abrir a folha que inclui o
 Na folha de detalhes do aplicativo, você pode configurar as definições a seguir para o aplicativo.
 
 * **Permitir atualizações**– especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "Atualizar ou excluir um pacote de aplicativos" mais adiante neste artigo.
-* **Versão padrão**-- especifique um pacote de aplicativos padrão para implantar nos nós de computação.
-* **Nome de exibição**-- especifique um nome "amigável" que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na IU de um serviço que você fornece aos clientes por meio do Lote.
+* **Versão padrão** – especifique um pacote de aplicativos padrão para implantar nos nós de computação.
+* **Nome de exibição** – especifique um nome "amigável" que sua solução de Lote pode usar ao exibir informações sobre o aplicativo, como na IU de um serviço que você fornece aos clientes por meio do Lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID de aplicativo também criará o novo aplicativo.
@@ -251,7 +251,9 @@ Os pacotes que você especificou para uma tarefa ou um pool são baixados e extr
 
 `AZ_BATCH_APP_PACKAGE_BLENDER#2.7`
 
-Se você especificar uma versão padrão para um aplicativo, poderá omitir o sufixo da versão. Por exemplo, se você definiu "2.7" como a versão padrão do *blender*de aplicativos, suas tarefas poderão referenciar a variável de ambiente a seguir e elas executarão a versão 2.7:
+Quando você carrega um pacote de aplicativos, você pode especificar uma versão padrão para implantar em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo da versão ao referenciar o aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na folha de Aplicativos, como mostrado em [Carregue e gerencie aplicativos](#upload-and-manage-applications).
+
+Por exemplo, se você definiu "2.7" como a versão padrão do *blender*de aplicativos, suas tarefas poderão referenciar a variável de ambiente a seguir e elas executarão a versão 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
@@ -349,6 +351,6 @@ Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolh
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

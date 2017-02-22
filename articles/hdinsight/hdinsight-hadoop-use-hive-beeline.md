@@ -249,6 +249,6 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

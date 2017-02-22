@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 01/04/2017
 ms.author: boltean
 translationtype: Human Translation
-ms.sourcegitcommit: 39c8c4944ef19379dc04e04a717ab60d305593c4
-ms.openlocfilehash: 08fe56605555342ec14e1628f77d905783fda057
+ms.sourcegitcommit: 9ded95283b52f0fc21ca5b99df8e72e1e152fe1c
+ms.openlocfilehash: 44291ed86775312a894f6acf92260cde76982f27
 
 
 ---
@@ -34,7 +34,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [CLI do Azure 0.10.4][lnk-CLI-install] ou posterior. Se você já tiver a CLI do Azure, você pode validar a versão atual no prompt de comando com o seguinte comando:
+* [CLI do Azure 0.10.4][lnk-CLI-install] ou posterior. Se já tiver a CLI do Azure instalada, você poderá validar a versão atual no prompt de comando com o seguinte comando:
   ```
     azure --version
   ```
@@ -49,25 +49,25 @@ Para concluir este tutorial, você precisará do seguinte:
 > 
 
 ## <a name="set-your-azure-account-and-subscription"></a>Definir sua conta e assinatura do Azure
-1. No prompt de comando, entre ao digitar o seguinte comando
+1. No prompt de comando, faça logon digitando o seguinte comando:
    
    ```
     azure login
    ```
    Use o navegador sugerido e o código para autenticar.
-2. Se você tiver várias assinaturas do Azure, a conexão ao Azure dará acesso a todas as assinaturas do Azure associadas às suas credenciais. Você pode visualizar as assinaturas do Azure, bem como qual delas é a padrão, usando o comando
+2. Caso tenha várias assinaturas do Azure, conectar-se ao Azure concede a você acesso a todas as assinaturas do Azure associadas às suas credenciais. Você pode exibir as assinaturas do Azure e identificar qual delas é a padrão, usando o comando:
    
    ```
     azure account list 
    ```
 
-   Para definir o contexto de assinatura sob o qual você deseja executar o restante dos comandos, use
+   Para definir o contexto de assinatura sob o qual você deseja executar o restante dos comandos, use:
 
    ```
     azure account set <subscription name>
    ```
 
-3. Caso você não tenha um grupo de recursos, você pode criar um chamado **exampleResourceGroup** 
+3. Caso não tenha um grupo de recursos, você poderá criar um chamado **exampleResourceGroup**:
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -88,21 +88,21 @@ Parâmetros requeridos:
     - <sku-name> (The name of the sku, one of: [F1, S1, S2, S3] etc. For the latest full list refer to the pricing page for IoT Hub.
     - <units> (The number of provisioned units. Range : F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. IoT Hub units are based on your total message count and the number of devices you want to connect.)
 ```
-Para ver todos os parâmetros disponíveis para a criação, você pode usar o comando de ajuda no prompt de comando
+Para ver todos os parâmetros disponíveis para a criação, você pode usar o comando de ajuda no prompt de comando:
 
 ```
     azure iothub create -h 
 ```
 Exemplo rápido:
 
- Para criar um Hub IoT chamado **exampleIoTHubName** no grupo de recursos **exampleResourceGroup**, execute o seguinte comando
+ Para criar um Hub IoT chamado **exampleIoTHubName** no grupo de recursos **exampleResourceGroup**, execute o seguinte comando:
 
 ```
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
 > [!NOTE]
-> Este comando da CLI do Azure cria um Hub IoT Standard S1 pelo qual você será cobrado. Você pode excluir o hub IoT **exampleIoTHubName** usando o seguinte comando 
+> Este comando da CLI do Azure cria um Hub IoT Standard S1 pelo qual você será cobrado. Você pode excluir o hub IoT **exampleIoTHubName** usando o seguinte comando:
 > 
 > ```
 > azure iothub delete -g exampleResourceGroup -n exampleIoTHubName
@@ -118,7 +118,7 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte o seguinte:
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+* [Uso do Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -133,6 +133,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

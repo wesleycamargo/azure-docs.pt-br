@@ -12,25 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 54cdfee64360543e0d1011f04c9b79400e912582
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: f85365a36aea39b4179805e728c7ddafa140f08b
 
 
 ---
 # <a name="service-movement-cost-for-influencing-cluster-resource-manager-choices"></a>Custo de movimento do serviço para influenciar escolhas do Gerenciador de Recursos de Cluster
-Um fator importante a ser levado em consideração ao tentar determinar quais alterações devem ser feitas em um cluster e a pontuação de uma solução é o custo geral de alcançar essa solução.
+Um fator importante que o Gerenciador de Recursos de Cluster do Service Fabric considera ao tentar determinar quais alterações fazer em um cluster é o custo geral de chegar a essa solução. A noção de "custo" é trocada pelo valor do saldo que pode ser alcançado.
 
-Mover réplicas ou instâncias de serviço custa, no mínimo, tempo de CPU e largura de banda de rede. Para serviços com estado, há também o custo da quantidade de espaço em disco necessária para criar uma cópia do estado antes de desligar réplicas antigas. Obviamente, seria desejável minimizar o custo de qualquer solução que o Gerenciador de Recursos de Cluster do Azure Service Fabric criar. Por outro lado, não seria bom ignorar soluções que melhorariam significativamente a alocação de recursos no cluster.
+Mover réplicas ou instâncias de serviço custa, no mínimo, tempo de CPU e largura de banda de rede. Para serviços com estado, há também o custo da quantidade de espaço em disco e na memória necessária para criar uma cópia do estado antes de desligar réplicas antigas. Obviamente, seria desejável minimizar o custo de qualquer solução que o Gerenciador de Recursos de Cluster do Azure Service Fabric criar. Por outro lado, não seria bom ignorar soluções que melhorariam significativamente a alocação de recursos no cluster.
 
-O Gerenciador de Recursos de Cluster tem duas maneiras de computar custos e limitá-los, mesmo ao tentar gerenciar o cluster de acordo com seus outros objetivos. A primeira é que, ao planejar um novo layout para o cluster, o Gerenciador de Recursos de Cluster conta cada uma das movimentações que faria. Em um caso simples, se você tiver duas soluções com praticamente o mesmo saldo (pontuação) geral no final, escolha aquela com o menor custo (número total de movimentações).
+O Gerenciador de Recursos de Cluster tem duas maneiras de calcular custos e limitá-los, mesmo enquanto tenta gerenciar o cluster de acordo com seus outros objetivos. A primeira é que, ao planejar um novo layout para o cluster, o Gerenciador de Recursos de Cluster conta cada uma das movimentações que faria. Se duas soluções forem geradas com quase o mesmo saldo (pontuação), prefira aquela com o custo mais baixo (número total de movimentações).
 
-Isso funciona muito bem. Mas, como ocorre com cargas estáticas ou padrão, é improvável em qualquer sistema complexo que todas as mudanças sejam iguais. É provável que algumas delas sejam muito mais caras.
+Esta estratégia funciona bem. Mas, como ocorre com cargas estáticas ou padrão, é improvável em qualquer sistema complexo que todas as mudanças sejam iguais. É provável que algumas delas sejam muito mais caras.
 
 ## <a name="changing-a-replicas-move-cost-and-factors-to-consider"></a>Alterando o custo de movimento de uma réplica e fatores a serem considerados
-Assim como ao relatar a carga (outro recurso do Gerenciador de Recursos de Cluster), você fornece ao serviço uma forma de relatar automaticamente quão caro é o serviço de movimento em um dado momento.
+Assim como na carga de relatório (outro recurso do Gerenciador de Recursos de Cluster), os serviços podem gerar relatórios automáticos dinamicamente para mostrar o quão oneroso é se mover a qualquer momento.
 
 Código:
 
@@ -38,15 +38,19 @@ Código:
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Eles são relativos uns aos outros, exceto pelo Zero. Zero significa que a mudança de uma réplica é gratuita e não deve contar para a pontuação da solução. Definir o custo de movimentação para Alto *não* é uma garantia de que a réplica não será movida, apenas que ela não será movida a menos que haja um bom motivo para isso.
+Um custo de movimentação padrão também pode ser especificado quando um serviço é criado.
 
-![Custo de movimentos como um fator na seleção de réplicas para movimento][Image1]
+O MoveCost tem quatro níveis: Zero, Baixo, Médio e Alto. Os Custos de Movimentação têm relação uns com os outros, exceto Zero. O custo de movimentação Zero significa que a movimentação é gratuita e não deve contar na pontuação da solução. Configurar o custo de movimentação para Alto *não* garante que a réplica permaneça em um só lugar.
+
+<center>
+![O custo de movimentação como um fator na seleção de réplicas para movimentação][Image1]
+</center>
 
 O MoveCost ajuda a encontrar as soluções que causam, em geral, o mínimo de interrupções e que sejam mais fáceis de conseguir enquanto ainda alcançam o equilíbrio equivalente. A noção de custo de um serviço pode ser relativa a muitas coisas. Os fatores mais comuns ao calcular o custo do movimento são:
 
 * a quantidade de estados ou de dados que o serviço deve mover.
 * o custo de desconexão de clientes. O custo de mover uma réplica primária normalmente é mais alto do que o custo de mover uma réplica secundária.
-* o custo de interromper uma operação em andamento. Algumas operações no nível do armazenamento de dados ou operações realizadas em resposta a uma chamada de cliente são caras. Depois de um certo ponto, você não quer interrompê-las a não ser que seja necessário. Portanto, durante a operação, você aumenta o custo para reduzir a probabilidade de que a réplica ou a instância de serviço seja movida. Quando a operação for concluída, você a coloca novamente no estado normal.
+* o custo de interromper uma operação em andamento. Algumas operações no nível do armazenamento de dados ou operações realizadas em resposta a uma chamada de cliente são caras. Depois de um certo ponto, você não quer interrompê-las a não ser que seja necessário. Assim, enquanto a operação estiver em andamento, você aumenta o custo de movimentação desse objeto de serviço para reduzir a probabilidade de que ele se mova. Quando a operação estiver concluída, defina o custo de volta para normal.
 
 ## <a name="next-steps"></a>Próximas etapas
 * O Gerenciador de Recursos de Cluster do Service Fabric usa métricas para gerenciar o consumo e a capacidade no cluster. Para saber mais sobre as métricas e como configurá-las, confira [Gerenciando o consumo e a carga de recursos no Service Fabric com métricas](service-fabric-cluster-resource-manager-metrics.md).
@@ -56,6 +60,6 @@ O MoveCost ajuda a encontrar as soluções que causam, em geral, o mínimo de in
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

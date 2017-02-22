@@ -1,6 +1,6 @@
 ---
 title: Usar o Docker Compose em uma VM Linux no Azure | Microsoft Docs
-description: "Como usar o Docker e o Compose em máquinas virtuais Linux no Azure"
+description: "Como usar o Docker e o Compose em máquinas virtuais Linux com a CLI do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
+ms.date: 02/13/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
-ms.openlocfilehash: 06ad7f9267f24ee1f2fe417ad4aa0bf1096832d6
+ms.sourcegitcommit: 9fc3f1fbe9ab03257d613e31f5890a63d1aeba1f
+ms.openlocfilehash: 70796d5dc7c1a47d65d51d4873705606ef32c869
 
 
 ---
@@ -27,25 +27,61 @@ Com o [Compose](http://github.com/docker/compose), você usa um arquivo de texto
 ## <a name="step-1-set-up-a-linux-vm-as-a-docker-host"></a>Etapa 1: Configurar uma VM do Linux como um host do Docker
 Você pode usar vários procedimentos do Azure e imagens disponíveis ou modelos do Resource Manager no Azure Marketplace para criar uma VM do Linux e configurá-la como um host do Docker. Por exemplo, veja [Uso da extensão de VM do Docker para implantar seu ambiente](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar rapidamente uma VM do Ubuntu com a extensão de VM do Docker do Azure usando um [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-Quando você usa a extensão da VM do Docker, sua VM é configurada automaticamente como um host do Docker e o Redigir já está instalado. O exemplo deste artigo mostra como usar a [CLI 1.0 do Azure](../xplat-cli-install.md) no modo Resource Manager para criar a VM.
+Quando você usa a extensão da VM do Docker, sua VM é configurada automaticamente como um host do Docker e o Redigir já está instalado. Você pode criar uma VM e usar a extensão de VM do Docker usando uma das seguintes versões da CLI:
 
-O comando básico do documento anterior cria um grupo de recursos denominado `myResourceGroup` no local `West US` e implanta uma VM com a extensão de VM do Docker do Azure instalada:
+- [CLI do Azure 1.0](#azure-cli-10) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI do Azure 2.0 (Visualização)](#azure-cli-20-preview) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+
+
+### <a name="azure-cli-10"></a>CLI 1.0 do Azure
+Instale a versão mais recente da [CLI do Azure 1.0](../xplat-cli-install.md) e faça logon em uma conta do Azure. Certifique-se de que você esteja usando o modo Resource Manager para criar a VM (`azure config mode arm`).
+
+O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US` e implanta uma VM com a extensão de VM do Docker do Azure. Um [modelo do Azure Resource Manager do Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) é usado para implantar o ambiente:
 
 ```azurecli
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-A CLI do Azure retorna você ao prompt apenas após alguns segundos, mas o host do Docker ainda está sendo criado e configurado. Leva alguns minutos para a conclusão da implantação. Você pode exibir detalhes sobre o status de host de Docker usando o comando `azure vm show`. O exemplo a seguir verifica o status da VM denominada `myDockerVM` (o nome padrão do modelo – não altere esse nome) no grupo de recursos denominado `myResourceGroup`. Insira o nome do grupo de recursos criado na etapa anterior:
+A CLI do Azure retorna você ao prompt apenas após alguns segundos, mas o host do Docker ainda está sendo criado e configurado. Leva alguns minutos para a conclusão da implantação. Você pode exibir detalhes sobre o status de host de Docker usando o comando `azure vm show`. O exemplo a seguir verifica o status da VM denominada `myDockerVM` (o nome padrão do modelo – não altere esse nome) no grupo de recursos denominado `myResourceGroup`. Insira o nome do grupo de recursos que você criou na etapa anterior:
 
 ```azurecli
 azure vm show --resource-group myResourceGroup --name myDockerVM
 ```
 
-Na parte superior da saída, você vê o `ProvisioningState` da VM. Quando `Succeeded`for exibido, a implantação terá sido concluída e você poderá SSH na VM.
+### <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+Instale a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
+
+Primeiro, crie um grupo de recursos para seu ambiente do Docker com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US`:
+
+```azurecli
+az group create --name myResourceGroup --location westus
+```
+
+Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure a partir [deste modelo do Azure Resource Manager no Github](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para `newStorageAccountName`, `adminUsername`, `adminPassword` e `dnsNameForPublicIP`:
+
+```azurecli
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
+    "adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```
+
+Leva alguns minutos para a conclusão da implantação. Após a conclusão da implantação, [vá para a próxima etapa](#step-2-verify-that-compose-is-installed) a fim de usar SSH em sua VM. 
+
+Como opção, para, em vez disso, retornar o controle ao prompt e permitir que a implantação continue em segundo plano, adicione o sinalizador `--no-wait` ao comando anterior. Esse processo permite que você execute outro trabalho na CLI enquanto a implantação continua por alguns minutos. Você pode exibir detalhes sobre o status de host do Docker usando o comando [az vm show](/cli/azure/vm#show). O exemplo a seguir verifica o status da VM denominada `myDockerVM` (o nome padrão do modelo – não altere esse nome) no grupo de recursos denominado `myResourceGroup`:
+
+```azurecli
+az vm show --resource-group myResourceGroup --name myDockerVM \
+  --query [provisioningState] --output tsv
+```
+
+Quando esse comando retornar `Succeeded`, a implantação terá sido concluída e você poderá usar SSH na VM na etapa a seguir.
 
 ## <a name="step-2-verify-that-compose-is-installed"></a>Etapa 2: Verificar se o Compose está instalado
-Depois que a implantação for concluída, faça a conexão SSH com seu novo host do Docker usando o nome DNS que você forneceu durante a implantação. Você pode usar `azure vm show -g myDockerResourceGroup -n myDockerVM` para exibir detalhes de sua VM, incluindo o nome DNS.
+Depois que a implantação for concluída, faça a conexão SSH com seu novo host do Docker usando o nome DNS que você forneceu durante a implantação. Use `azure vm show -g myResourceGroup -n myDockerVM` (CLI do Azure 1.0) ou `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` (CLI do Azure 2.0 (Visualização)) para exibir detalhes de sua VM, incluindo o nome DNS.
 
 Para verificar se o Redigir está instalado na VM, execute o seguinte comando:
 
@@ -137,6 +173,6 @@ Agora você pode conectar o WordPress diretamente na VM na porta 80. Abra um nav
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

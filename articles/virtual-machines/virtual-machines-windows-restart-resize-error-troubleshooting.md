@@ -13,11 +13,11 @@ ms.topic: support-article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
-ms.date: 09/09/2016
+ms.date: 01/10/2017
 ms.author: delhan
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 3cdf936cbf621943a7ecb7ed55ddac95d2238c52
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: afa8d2b76ab0f85b5eaf615b264af2f29936016c
 
 
 ---
@@ -26,12 +26,12 @@ Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Coletar logs de auditoria
-Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo:
+## <a name="collect-activity-logs"></a>Coletar logs de atividades
+Para iniciar a solução de problemas, colete os logs de atividades para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo:
 
-[Solução de problemas de implantações de grupos de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Exibir operações de implantação](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md)
+[Exibir logs de atividades para gerenciar recursos do Azure](../azure-resource-manager/resource-group-audit.md)
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: erro ao iniciar uma VM parada
 Você tenta iniciar uma VM parada, mas ocorre uma falha de alocação.
@@ -68,6 +68,6 @@ Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Sol
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

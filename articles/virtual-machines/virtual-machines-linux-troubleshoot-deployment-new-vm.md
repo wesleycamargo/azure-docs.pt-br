@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 2cf2d842c2f04d56c30b3bec1b9ee8b5897f1e6b
 
 
 ---
@@ -26,12 +26,12 @@ ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Coletar logs de auditoria
-Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
+## <a name="collect-activity-logs"></a>Coletar logs de atividades
+Para iniciar a solução de problemas, colete os logs de atividades para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
-[Solucionar problemas de implantações de grupos de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+[Exibir operações de implantação](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md)
+[Exibir logs de atividades para gerenciar recursos do Azure](../azure-resource-manager/resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -88,6 +88,6 @@ Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

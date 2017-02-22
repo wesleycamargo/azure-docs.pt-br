@@ -7,6 +7,7 @@ manager: jhubbard
 author: torsteng
 ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f4a678b1c6759d50e321f0858fd4d478132b2166
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: 01369360fa10ae39e2f9b435d877de0171574286
 
 
 ---
@@ -84,7 +85,7 @@ A chamada para a API [OpenConnectionForKey](http://msdn.microsoft.com/library/az
 
 o objeto do mapa do fragmento cria uma conexão para o fragmento que mantém o shardlet para a chave de fragmentação determinada. As APIs de cliente do banco de dados elástico também marca a conexão para implementar suas garantias de consistência. Uma vez que a chamada para [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) retorna um objeto de conexão do Cliente SQL regular, a chamada subsequente para o método de extensão **Execute** do Dapper segue a prática padrão do Dapper.
 
-As consultas funcionam praticamente da mesma forma, você primeiro abre a conexão usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) da API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
+As consultas funcionam praticamente da mesma forma — você primeiro abre a conexão usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) na API do cliente. Em seguida, você deve usar os métodos de extensão Dapper regulares para mapear os resultados da consulta SQL nos objetos .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -169,6 +170,6 @@ Aplicativos que usam Dapper e DapperExtensions podem aproveitar facilmente as fe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

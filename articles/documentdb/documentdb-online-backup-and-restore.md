@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/06/2017
 ms.author: raprasa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+ms.sourcegitcommit: b5419efbaf51476cfc662c8aa814001e2757b4b7
+ms.openlocfilehash: db7b24c049153b6622f50fd9934611d48c98a1e8
 
 
 ---
@@ -27,7 +27,7 @@ O Azure DocumentDB faz backup automaticamente de todos os seus dados em interval
 Este artigo começa com uma recapitulação rápida da redundância de dados e da disponibilidade de dados no DocumentDB e discute os backups. 
 
 ## <a name="high-availability-with-documentdb---a-recap"></a>Alta disponibilidade com DocumentDB - recapitulação
-O DocumentDB foi projetado para ser [distribuído globalmente](documentdb-distribute-data-globally.md) : ele permite que você dimensione a produtividade em várias regiões do Azure juntamente com failover controlado por política e APIs e hospedagem múltipla. Como um sistema de banco de dados que oferece [SLAs de disponibilidade de 99,99%](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), todas as gravações no DocumentDB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de confirmar para o cliente. Observe que a alta disponibilidade do DocumentDB se baseia no armazenamento local e não depende de qualquer tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
+O DocumentDB foi projetado para ser [distribuído globalmente](documentdb-distribute-data-globally.md) : ele permite que você dimensione a produtividade em várias regiões do Azure juntamente com failover controlado por política e APIs e hospedagem múltipla. Como um sistema de banco de dados que oferece [SLAs de disponibilidade de&99;,99%](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), todas as gravações no DocumentDB são permanentemente confirmadas em discos locais por um quorum de réplicas em um data center local antes de confirmar para o cliente. Observe que a alta disponibilidade do DocumentDB se baseia no armazenamento local e não depende de qualquer tecnologia de armazenamento externo. Além disso, se sua conta de banco de dados está associada a mais de uma região do Azure, suas gravações são replicadas em outras regiões também. Para dimensionar seus dados de produtividade e acesso em latências menores, você pode ter quantas regiões de leitura associadas à sua conta de banco de dados quantas quiser. Em cada região de leitura, os dados (replicados) são persistidos em um conjunto de réplicas.  
 
 Conforme ilustrado no diagrama a seguir, uma única coleção do DocumentDB é [particionada horizontalmente](documentdb-partition-data.md). Uma “partição” é indicada por um círculo no diagrama a seguir, e cada partição torna-se altamente disponível por meio de um conjunto de réplicas. Essa é a distribuição local dentro de uma única região do Azure (indicada pelo eixo X). Além disso, cada partição (com seu conjunto de réplicas correspondente) é distribuída globalmente entre várias regiões associadas à sua conta de banco de dados (por exemplo, neste caso, três regiões: Leste dos EUA, Oeste dos EUA e Índia Central). O "conjunto de partição" é uma entidade distribuída globalmente que consiste em várias cópias de seus dados em cada região (indicado pelo eixo Y). Você pode atribuir prioridade às regiões associadas à conta de banco de dados e o DocumentDB fará failover de forma transparente para a próxima região em caso de desastre. Você pode simular o failover manualmente para testar a disponibilidade de ponta a ponta de seu aplicativo.  
 
@@ -38,7 +38,7 @@ A imagem a seguir ilustra o alto grau de redundância com o DocumentDB.
 ![Alto grau de redundância com o DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Backups online completos, automáticos
-Opa, excluí uma coleção ou banco de dados! Com o DocumentDB, não apenas os dados, mas também os backups de dados ficam altamente redundantes e resilientes em desastres regionais. Esses backups automatizados são feitos atualmente a cada quatro horas, aproximadamente. 
+Opa, excluí uma coleção ou banco de dados! Com o DocumentDB, não apenas os dados, mas também os backups de dados ficam altamente redundantes e resilientes em desastres regionais. Esses backups automatizados são feitos atualmente a cada quatro horas, aproximadamente, e os últimos 2 backups são armazenados o tempo todo. Se os dados forem acidentalmente descartados ou estiverem corrompidos, [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/) em até 8 horas. 
 
 Os backups são feitos sem afetar o desempenho ou a disponibilidade de suas operações de banco de dados. O DocumentDB utiliza o backup em segundo plano sem consumir os RUs provisionados ou afetar o desempenho, e sem afetar a disponibilidade do banco de dados NoSQL. 
 
@@ -62,6 +62,6 @@ Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ea811d7315298132a45a8d1873da8a2bf5600c1c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5989d31306aa896a404b29b2c71c9ddf7e23da01
 
 
 ---
@@ -33,7 +33,7 @@ As principais vantagens de usar a CDN são latência mais baixa e fornecimento m
 
 ![Diagrama da CDN](./media/best-practices-cdn/CDN.png)
 
-Usar a CDN também deve ajudar a reduzir a carga no aplicativo, porque ele é liberado do processamento necessário para acessar e entregar o conteúdo. Essa redução de carga pode ajudar a aumentar o desempenho e a escalabilidade do aplicativo, bem como minimizar os custos de hospedagem, reduzindo os recursos de processamento necessários para alcançar um nível específico de desempenho e disponibilidade.
+Usar a CDN também deve ajudar a reduzir a carga no aplicativo, pois ele é liberado do processamento necessário para acessar e entregar o conteúdo. Essa redução de carga pode ajudar a aumentar o desempenho e a escalabilidade do aplicativo, bem como minimizar os custos de hospedagem, reduzindo os recursos de processamento necessários para alcançar um nível específico de desempenho e disponibilidade.
 
 ## <a name="how-and-why-a-cdn-is-used"></a>Como e por que a CDN é usada
 Entre os usos comuns para a CDN estão:  
@@ -66,7 +66,7 @@ A lista a seguir mostra exemplos do tempo médio para primeiro byte de vários l
 Há vários desafios a serem considerados ao planejar usar o CDN:  
 
 * **Implantação**. Você deve decidir a origem da qual o CDN buscará o conteúdo, e se é necessário implantar o conteúdo em mais de um sistema de armazenamento (como no CDN e em um local alternativo).
-  
+
   Seu mecanismo de implantação de aplicativo deve considerar o processo para a implantação de conteúdo e recursos estáticos, bem como implantar os arquivos do aplicativo, como páginas ASPX. Por exemplo, talvez seja necessário implementar uma etapa separada para carregar conteúdo no armazenamento de blobs do Azure.
 * **Controle de versão e controle de cache**. Você deve considerar como atualizará o conteúdo estático e implantará novas versões. O conteúdo da CDN pode ser [limpo](cdn/cdn-purge-endpoint.md) usando o Portal do Azure, quando houver novas versões de seus ativos disponíveis. Esse é um desafio semelhante a gerenciar armazenamento em cache do lado do cliente, como aquele que ocorre em um navegador da Web.
 * **Testando**. Pode ser difícil executar teste local de suas configurações de CDN ao desenvolver e testar um aplicativo localmente ou em um ambiente de preparo.
@@ -74,7 +74,7 @@ Há vários desafios a serem considerados ao planejar usar o CDN:
 * **Segurança de conteúdo**. Atualmente, muitos serviços de CDN, como o Azure CDN, não oferecem qualquer tipo de controle de acesso para o conteúdo.
 * **Segurança do cliente**. Os clientes podem se conectar por meio de um ambiente que não permita acesso a recursos no CDN. Isso pode ser um ambiente restrito de segurança que limita o acesso a apenas um conjunto de fontes conhecidas ou que impede o carregamento de recursos por meio  de qualquer coisa que não seja a origem da página. Uma implementação de fallback é necessária para lidar com esses casos.
 * **Resiliência**. O CDN é um ponto único de falha em potencial de um aplicativo. Ele tem uma menor disponibilidade de SLA que o armazenamento de blob (que pode ser usado para entregar conteúdo diretamente), então, talvez seja necessário considerar a implementação de um mecanismo de fallback para conteúdo essencial.
-  
+
   Você pode monitorar a disponibilidade do conteúdo da CDN, a largura de banda, os dados transferidos, as ocorrências, a taxa de ocorrências no cache e as métricas de cache no Portal do Azure em [tempo real](cdn/cdn-real-time-stats.md) e em [relatórios agregados](cdn/cdn-analyze-usage-patterns.md).
 
 Os cenários onde o CDN pode ser menos útil incluem:  
@@ -247,7 +247,6 @@ Observe que usar a regravação de URL exige fazer algumas alterações ao agrup
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

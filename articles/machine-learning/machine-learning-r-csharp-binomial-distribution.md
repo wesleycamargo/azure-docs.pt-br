@@ -1,6 +1,6 @@
 ---
-title: "Pacote de distribuição binomial | Microsoft Docs"
-description: "Pacote de distribuição binomial"
+title: "(preterido) Pacote de distribuição binomial — Azure | Microsoft Docs"
+description: "(preterido) Pacote de distribuição binomial"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3f274408b370466af4eb9bd6e2ecbce32ce03857
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: 4d4a343be86909acf054eaaf9cc4a1b0df5a4209
 
 
 ---
-# <a name="binomial-distribution-suite"></a>Pacote de distribuição binomial
+# <a name="deprecated-binomial-distribution-suite"></a>(preterido) Pacote de distribuição binomial
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 O Pacote de Distribuição Binomial é um conjunto de serviços Web de exemplo ([Gerador Binomial](https://datamarket.azure.com/dataset/aml_labs/bdg5), [Calculadora de probabilidade](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Calculadora de Quantil](https://datamarket.azure.com/dataset/aml_labs/bdq5)) que ajuda a gerar e lidar com distribuições binomiais. Os serviços permitem gerar uma sequência de distribuição binomial de qualquer tamanho, calcular quantidades a partir de uma determinada probabilidade e calcular probabilidade a partir de um determinado quantil. Cada um dos serviços emite saídas diferentes com base no serviço selecionado (consulte a descrição abaixo). O Pacote de Distribuição Binomial baseia-se nas funções R qbinom, rbinom e pbinom, que são incluídas no pacote de estatísticas de R. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -289,6 +296,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

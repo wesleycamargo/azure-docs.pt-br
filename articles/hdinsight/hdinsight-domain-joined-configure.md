@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c28ad5efa3cfcdc63559b50056ca6c79f8d600c9
+ms.sourcegitcommit: 86a0f6f2bc27f1411652b273325e73144582eee0
+ms.openlocfilehash: b0122a87ec64d16d6e026f9b37a563125a5f1920
 
 
 ---
@@ -31,9 +31,9 @@ Este artigo é o primeiro tutorial de uma série:
 
 Um exemplo de topologia final será semelhante ao seguinte:
 
-![Topologia de HDInsight ingressado no domínio](.\\media\\hdinsight-domain-joined-configure\\hdinsight-domain-joined-topology.png)
+![Topologia de HDInsight ingressado no domínio](./media/hdinsight-domain-joined-configure/hdinsight-domain-joined-topology.png)
 
-Já que o Azure AD dá suporte atualmente apenas a VNets (redes virtuais) clássicas e os clusters HDInsight baseados em Linux dão suporte apenas a VNets com base no Azure Resource Manager, a integração do Azure AD do HDInsight requer duas VNets e um emparelhamento entre elas. Para as informações de comparação entre os dois modelos de implantação, veja [Implantação do Azure Resource Manager versus clássica: compreenda os modelos de implantação e o estado de seus recursos](../resource-manager-deployment-model.md). As duas VNets devem estar na mesma região que o Azure AD DS.
+Já que o Azure AD dá suporte atualmente apenas a VNets (redes virtuais) clássicas e os clusters HDInsight baseados em Linux dão suporte apenas a VNets com base no Azure Resource Manager, a integração do Azure AD do HDInsight requer duas VNets e um emparelhamento entre elas. Para as informações de comparação entre os dois modelos de implantação, veja [Implantação do Azure Resource Manager versus clássica: compreenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/resource-manager-deployment-model.md). As duas VNets devem estar na mesma região que o Azure AD DS.
 
 Nomes de serviço do Azure devem ser globalmente exclusivos. Os nomes a seguir são usados neste tutorial. Contoso é um nome fictício. Você deve substituir *contoso* por um nome diferente ao passar pelo tutorial. 
 
@@ -324,7 +324,7 @@ Depois de criar a VNet, você configurará a VNet do Resource Manager para usar 
 8. Clique em **OK**.
 
 ## <a name="create-hdinsight-cluster"></a>Criar cluster HDInsight
-Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o Portal do Azure ou então o [modelo do Azure Resource Manager](../resource-group-template-deploy.md). Para outros métodos de criação de cluster e noções básicas sobre as configurações, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo do Resource Manager para criar clusters Hadoop no HDInsight, confira [Criar clusters Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+Nesta seção, você criará um cluster Hadoop baseado em Linux no HDInsight usando o Portal do Azure ou então o [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Para outros métodos de criação de cluster e noções básicas sobre as configurações, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Para obter mais informações sobre como usar um modelo do Resource Manager para criar clusters Hadoop no HDInsight, confira [Criar clusters Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 **Para criar um cluster HDInsight ingressado no Domínio usando o Portal do Azure**
 
@@ -375,7 +375,7 @@ Outra opção para criar o cluster HDInsight de domínio é usar um modelo do Az
 
 1. Clique na imagem a seguir para abrir um modelo do Resource Manager no Portal do Azure. O modelo do Resource Manager está localizado em um contêiner de blob público. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Na folha **Parâmetros**, insira os seguintes valores:
    
    * **Assinatura**: (Selecione sua assinatura do Azure).
@@ -403,12 +403,12 @@ Depois de concluir o tutorial, talvez você queira excluir o cluster. Com o HDIn
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para configurar um cluster do HDInsight ingressado no domínio usando o Azure PowerShell, confira [Configure Domain-joined HDInsight clusters use Azure PowerShell](hdinsight-domain-joined-configure-use-powershell.md) (Configurar clusters do HDInsight Ingressado no Domínio usando Azure PowerShell).
-* Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
-* Para executar consultas do Hive usando SSH em clusters do HDInsight Ingressado no Domínio, confira [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster) (Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X).
+* Para configurar políticas do Hive e executar consultas do Hive, confira [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configurar políticas do Hive para clusters do HDInsight Ingressado no Domínio).
+* Para usar SSH para conectar-se a clusters do HDInsight Ingressados no Domínio, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

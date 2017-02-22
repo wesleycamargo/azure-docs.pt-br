@@ -1,6 +1,6 @@
 ---
 title: "Limites de serviço no Azure Search | Microsoft Docs"
-description: "Os limites do serviço usados para o planejamento de capacidade e os limites máximos de solicitações e respostas para a Pesquisa do Azure."
+description: "Limites do serviço usados para o planejamento de capacidade e limites máximos de solicitações e respostas para o Azure Search."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/15/2016
+ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: ffdd03fb1e9718b0f72f5a13bb80de4a4bfe2709
-ms.openlocfilehash: ed21cb2c0f1fce23ed00a50ad181edaacae95ce6
+ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
+ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
 
 
 ---
@@ -96,6 +96,6 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

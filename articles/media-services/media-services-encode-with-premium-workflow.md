@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcc79a2adf81c82d245c99116f28eb4db983396
 
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificação avançada com fluxo de trabalho do Media Encoder Premium
 > [!NOTE]
 > O processador de mídia do Fluxo de Trabalho do Media Encoder Premium analisado neste tópico não está disponível na China.
-> 
-> 
+>
+>
 
 Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd em Microsoft.com.
 
 ## <a name="overview"></a>Visão geral
-Os Serviços de Mídia do Microsoft Azure estão apresentando o processador de mídia do **Fluxo de trabalho do Codificador de Mídia Premium** . Esse processador oferece recursos avançados de codificação para seus fluxos de trabalho premium sob demanda. 
+Os Serviços de Mídia do Microsoft Azure estão apresentando o processador de mídia do **Fluxo de trabalho do Codificador de Mídia Premium** . Esse processador oferece recursos avançados de codificação para seus fluxos de trabalho premium sob demanda.
 
-Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de Trabalho do Media Encoder Premium**: 
+Os tópicos a seguir descrevem os detalhes relacionados ao **Fluxo de Trabalho do Media Encoder Premium**:
 
 * [Formatos suportados pelo Fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md) – Discute os formatos de arquivo e codecs com suporte do **Fluxo de trabalho do Media Encoder Premium**.
-* A seção [comparar codificadores](media-services-encode-asset.md#compare_encoders) compara as funcionalidades de codificação do **Fluxo de Trabalho Premium de Codificação de Mídia** e do **Media Encoder Standard**.
+* [Visão geral e comparação dos codificadores de mídia sob demanda do Azure](media-services-encode-asset.md) compara os recursos de codificação do **Fluxo de Trabalho do Media Encoder Premium** e do **Media Encoder Standard**.
 
 Este tópico demonstra como codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando o .NET.
 
@@ -47,29 +47,29 @@ Você também pode obter os arquivos de fluxo de trabalho padrão [aqui](https:/
 
 Os arquivos de fluxo de trabalho devem ser carregados para sua conta de serviços de mídia como um ativo e esse ativo deve ser passado para a tarefa de codificação.
 
-O exemplo a seguir demonstra como codificar com o **Fluxo de trabalho do Media Encoder Premium**. 
+O exemplo a seguir demonstra como codificar com o **Fluxo de trabalho do Media Encoder Premium**.
 
-As seguintes etapas são executadas: 
+As seguintes etapas são executadas:
 
-1. Criar um ativo e carregar um arquivo de fluxo de trabalho. 
+1. Criar um ativo e carregar um arquivo de fluxo de trabalho.
 2. Criar um ativo e carregar um arquivo de mídia de origem.
 3. Obter o processador de mídia "Fluxo de trabalho do Media Encoder Premium".
-4. Criar um trabalho e uma tarefa. 
-   
+4. Criar um trabalho e uma tarefa.
+
     Na maioria dos casos, a cadeia de caracteres de configuração para a tarefa está vazia (como no exemplo a seguir). Há alguns cenários avançados (que exigem que você defina propriedades de tempo de execução dinamicamente) em que você forneceria uma cadeia de caracteres XML para a tarefa de codificação. Exemplos desses cenários são: criação de uma sobreposição, união de mídia paralela ou sequencial, colocação de legenda.
 5. Adicionar dois ativos de entrada à tarefa.
-   
+
     a. 1º – o ativo de fluxo de trabalho.
-   
+
     b. 2º – o ativo de vídeo.
-   
-    **Observação**: o ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia. 
-   A cadeia de caracteres de configuração para essa tarefa deve estar vazia. 
+
+    **Observação**: o ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia.
+   A cadeia de caracteres de configuração para essa tarefa deve estar vazia.
 6. Envie o trabalho de codificação.
 
 O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar com desenvolvimento dos Serviços de Mídia com o .NET, consulte [Desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md)
 
-     using System; 
+     using System;
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -116,7 +116,7 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
 
                 var workflowAsset = CreateAssetAndUploadSingleFile(_workflowFilePath);
                 var videoAsset = CreateAssetAndUploadSingleFile(_singleMP4InputFilePath);
-                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset); 
+                IAsset outputAsset = CreateEncodingJob(workflowAsset, videoAsset);
 
             }
 
@@ -151,7 +151,7 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
             {
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                // Get a media processor reference, and pass to it the name of the 
+                // Get a media processor reference, and pass to it the name of the
                 // processor to use for the specific task.
                 IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
@@ -164,9 +164,9 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
                 // Specify the input asset to be encoded.
                 task.InputAssets.Add(workflow);
                 task.InputAssets.Add(video); // we add one asset
-                // Add an output asset to contain the results of the job. 
-                // This output is specified as AssetCreationOptions.None, which 
-                // means the output asset is not encrypted. 
+                // Add an output asset to contain the results of the job.
+                // This output is specified as AssetCreationOptions.None, which
+                // means the output asset is not encrypted.
                 task.OutputAssets.AddNew("Output asset",
                     AssetCreationOptions.None);
 
@@ -177,12 +177,12 @@ O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar
                 // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job to finish. 
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                 progressJobTask.Wait();
 
-                // If job state is Error the event handling 
-                // method for job progress should log errors.  Here we check 
+                // If job state is Error the event handling
+                // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)
                 {
@@ -279,7 +279,6 @@ Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

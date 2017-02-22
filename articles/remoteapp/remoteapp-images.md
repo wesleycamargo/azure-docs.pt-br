@@ -40,7 +40,7 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 
 Leia mais para obter detalhes sobre o que cada imagem contém.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 ("a imagem baunilha")
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 ("a imagem baunilha")
 Essa imagem é baseada no sistema operacional para Data Center Microsoft Windows Server 2012 R2 e tem as seguintes funções e recursos instalados para atender aos requisitos de imagens de modelo RemoteApp do Azure:
 
 * .NET framework 4.5, 3.5.1 e 3.5

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 015b6387491e0347b3a3a0ac87bb6b91b06387f0
-ms.openlocfilehash: fb1cdfee5094198e3380e120f409175c89d23b6d
+ms.sourcegitcommit: f24227a33b2106955dc44defe8feb5a7d4dc655e
+ms.openlocfilehash: 6f6338d8c0e941b7fee4fb8c04315b26919716a3
 
 ---
 
@@ -148,18 +148,18 @@ O recurso de extensão final é semelhante ao exemplo de JSON a seguir:
 }
 ```
 
-Se você usar parâmetros de modelo para fornecer valores de propriedade, será necessário criá-los. Ao criar parâmetros de modelo para valores de configuração protegida, use o tipo de parâmetro `SecureObject` para que os valores confidenciais sejam protegidos. Para saber mais sobre como usar parâmetros, confira [Criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
+Se você usar parâmetros de modelo para fornecer valores de propriedade, será necessário criá-los. Ao criar parâmetros de modelo para valores de configuração protegida, use o tipo de parâmetro `SecureString` para que os valores confidenciais sejam protegidos. Para saber mais sobre como usar parâmetros, confira [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 No exemplo da extensão `IaasDiagnostic`, os parâmetros a seguir seriam criados na seção de parâmetros do modelo do Resource Manager.
 
 ```json
 "storageAccountName": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 },
 "storageAccountKey": {
     "defaultValue": null,
-    "type": "SecureObject"
+    "type": "SecureString"
 }
 ```
 
@@ -167,6 +167,6 @@ Neste ponto, o modelo pode ser implantado usando qualquer método de implantaç�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

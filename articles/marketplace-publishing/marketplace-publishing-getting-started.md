@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2016
+ms.date: 01/05/2017
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 98840e0bc1565eab0e5936cb65b68852e1423450
-ms.openlocfilehash: fd71f55f636fa1b7918536d7e6b51fb6a2a05903
+ms.sourcegitcommit: b76185c0a4a0e17b663affee9a02b65f222fedeb
+ms.openlocfilehash: d679096476406831c1fda4f695adff84e63d6ae8
 
 
 ---
@@ -42,10 +42,12 @@ A primeira coisa que você gostaria de fazer como um publicador é definir que t
 ![desenhar](media/marketplace-publishing-getting-started/img01.png)
 
 ### <a name="1-nominate-your-solution-for-pre-approval"></a>1. Nomear sua solução para pré-aprovação
-> [!IMPORTANT]
-> Antes de começar qualquer trabalho no Azure Marketplace, você deve ser [pré-aprovado](http://azure.com/certified).
+- Preencha o formulário de nomeação de solução do **Certificado do Microsoft Azure para Máquinas Virtuais** [aqui](https://createopportunity.azurewebsites.net)
 
-- [Solicitar pré-aprovação do Microsoft Azure Certified](marketplace-publishing-azure-certification.md)
+>[!NOTE]
+> Se você estiver trabalhando com um Gerente de Conta de Parceiro ou Gerente de Parceiro DX, peça para ele nomear sua solução para o programa Azure Certified OU acesse a página da Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), preencha o formulário de inscrição e insira o email do seu Gerente de Conta de Parceiro ou Gerente de Parceiro DX no campo Contato Responsável da Microsoft.
+
+Se os critérios de qualificação forem atendidos de acordo com as [políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833) e seu aplicativo for aprovado, começaremos a trabalhar com você para integrar sua solução ao Azure Marketplace.
 
 ### <a name="2-register-your-account-as-a-microsoft-seller"></a>2. Registrar sua conta como um vendedor da Microsoft
 - [Registrar sua conta da Microsoft como uma conta Microsoft Developer](marketplace-publishing-accounts-creation-registration.md)
@@ -93,6 +95,6 @@ A primeira coisa que você gostaria de fazer como um publicador é definir que t
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

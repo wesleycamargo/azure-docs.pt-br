@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 1c45d0ad8431b5cfff7859817fe57c3168f2dc7f
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
 
 
 ---
@@ -32,7 +32,7 @@ Para executar as etapas a seguir, você precisará de:
 
 * Uma assinatura ativa do Azure. Se você não tiver uma, é possível obter uma avaliação gratuita em [azure.com](https://azure.microsoft.com/).
 * Uma ID de trabalho ou escolar para usar os grupos de recursos do Azure. Se você tiver uma conta pessoal e fizer logon com uma ID da Microsoft, você precisará [criar uma ID corporativa por meio da ID pessoal](virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* O [Azure PowerShell](../powershell-install-configure.md) ou a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md), dependendo do sistema operacional cliente.
+* O [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI do Azure para Mac, Linux e Windows](../xplat-cli-install.md), dependendo do sistema operacional cliente.
 * [OpenSSL](https://www.openssl.org/). O OpenSSL é usado para gerar os certificados necessários.
 * Um cliente Git como o [Git Bash](https://git-scm.com/).
 * Para testar o aplicativo de exemplo,você precisará também de um servidor DNS. Você pode usar quaisquer servidores DNS ou serviços que dão suporte a registros de curinga A.
@@ -57,7 +57,7 @@ Nesta seção, você usará um modelo do [Azure Resource Manager](../azure-resou
    
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
    <br />
-    Cada cluster CoreOS precisa ter um token exclusivo desse serviço gratuito. Veja a [documentação do CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obter mais detalhes.
+   Cada cluster CoreOS precisa ter um token exclusivo desse serviço gratuito. Veja a [documentação do CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/) para obter mais detalhes.
 6. Modifique o arquivo **cloud-config.yaml** para substituir o token **discovery** existente pelo novo token:
    
         #cloud-config
@@ -244,8 +244,8 @@ As etapas a seguir mostram como implantar um aplicativo Go do tipo "Hello World"
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no Azure usando um modelo do Gerenciador de Recursos do Azure. O modelo dá suporte a redundância em conexões de ferramentas, bem como balanceamento de carga para aplicativos implantados. O modelo também evita o uso de IPs públicos em nós membro, o que economiza preciosos recursos de IP públicos e fornece um ambiente mais seguro para hospedar aplicativos. Para saber mais, consulte os seguintes artigos:
 
-[Visão geral do Azure Resource Manager][resource-group-overview]  
-[Como usar as ferramentas da CLI do Azure][azure-command-line-tools]  
+[Visão Geral do Azure Resource Manager][resource-group-overview]  
+[Como usar a CLI do Azure][azure-command-line-tools]  
 [Usando o Azure PowerShell com o Azure Resource Manager][powershell-azure-resource-manager]  
 
 [azure-command-line-tools]: ../xplat-cli-install.md
@@ -254,6 +254,6 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

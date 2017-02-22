@@ -84,6 +84,6 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

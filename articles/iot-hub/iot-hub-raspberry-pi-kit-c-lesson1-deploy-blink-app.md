@@ -1,5 +1,5 @@
 ---
-title: Criar e implantar o aplicativo de piscar | Microsoft Docs
+title: "Conectar o Raspberry Pi (C) ao IoT do Azure - Lição 1: implantar aplicativo | Microsoft Docs"
 description: "Clone o aplicativo C de exemplo do GitHub e use gulp para implantar esse aplicativo na placa do Raspberry Pi 3. Esse aplicativo de exemplo pisca o LED conectado à placa a cada dois segundos."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 155e5d6280d86b06b1718fc3032c2c224539183d
-ms.openlocfilehash: 61a0ef0a262d4a81fd6c1012fcc2c96569a9dda4
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 5b16230178fa82c7f227e3e3f8742fa16b00c719
 
 
 ---
@@ -153,6 +153,6 @@ Você instalou as ferramentas necessárias para trabalhar com o Pi e implantou u
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

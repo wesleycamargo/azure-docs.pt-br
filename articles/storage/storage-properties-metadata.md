@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 02/13/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
+ms.sourcegitcommit: 3868d36948342739eb78b013bb4b466df4381b4f
+ms.openlocfilehash: 7c1ca950c3ab1b8ffb754a74597d45b82777838c
 
 
 ---
@@ -24,14 +24,15 @@ ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
 ## <a name="overview"></a>Visão geral
 Os objetos no Armazenamento do Azure suportam as propriedades do sistema e os metadados definidos pelo usuário, além dos dados que eles contêm:
 
-* **Propriedades do sistema.**  Existem propriedades do sistema em cada recurso de armazenamento. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente do armazenamento do Azure os mantém para você.
-* **Metadados definidos pelo usuário.**  Os metadados definidos pelo usuário são metadados que você especifica em um determinado recurso, na forma de um par de nome-valor. É possível usar os metadados para armazenar valores adicionais com um recurso de armazenamento; esses valores são para suas próprias finalidades apenas e não afetam o comportamento do recurso.
+* **Propriedades do sistema.** Existem propriedades do sistema em cada recurso de armazenamento. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente do armazenamento do Azure os mantém para você.
+* **Metadados definidos pelo usuário.** Os metadados definidos pelo usuário são metadados que você especifica em um determinado recurso, na forma de um par de nome-valor. É possível usar os metadados para armazenar valores adicionais com um recurso de armazenamento; esses valores são para suas próprias finalidades apenas e não afetam o comportamento do recurso.
 
 Recuperar os valores da propriedade e dos metadados para um recurso de armazenamento é um processo de duas etapas. Antes de ler esses valores, é preciso buscá-los explicitamente chamando o método **FetchAttributes** .
 
 > [!IMPORTANT]
 > Os valores de propriedade e metadados para um recurso de armazenamento não são preenchidos, a menos que você chame um dos métodos **FetchAttributes** .
 >
+> Você receberá um `400 Bad Request` se quaisquer pares de nome/valor contiverem caracteres não ASCII. Pares de nome/valor de metadados são cabeçalhos HTTP válidos e, portanto, devem cumprir todas as restrições que regem cabeçalhos HTTP. Portanto, recomendamos o uso da codificação de URL ou da codificação de Base64 para nomes e valores que contêm caracteres não ASCII.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Configurando e Recuperando as Propriedades
@@ -110,6 +111,6 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

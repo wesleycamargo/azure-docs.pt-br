@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/09/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 17b338ab15ae7cf46f6732e7e7a1005eec98990b
+ms.sourcegitcommit: dea438c8b1bd3d6331f84de01def989f66b6f387
+ms.openlocfilehash: 88ae905708a421052666316eb81c1dd97d6c9635
 
 
 ---
@@ -35,9 +35,9 @@ Aqui está uma comparação detalhada das várias opções de comunicação da n
 | Fluxo de dados | Bidirecional. O aplicativo do dispositivo pode responder imediatamente ao método. O back-end da solução recebe o resultado de acordo com o contexto da solicitação. | Unidirecional. O aplicativo do dispositivo recebe uma notificação com a alteração da propriedade. | Unidirecional. O aplicativo do dispositivo recebe a mensagem
 | Durabilidade | Dispositivos desconectados não são contatados. Back-end é notificado de que o dispositivo não está conectado. | Os valores de propriedade são preservados no dispositivo gêmeo. O dispositivo lerá na próxima reconexão. Valores de propriedade são recuperáveis com a [linguagem de consulta do Hub IoT][lnk-query]. | As mensagens podem ser mantidas pelo Hub IoT por até 48 horas. |
 | Destinos | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único usando **deviceId**, ou vários dispositivos usando [jobs][lnk-jobs]. | Dispositivo único por **deviceId**. |
-| Tamanho | Até 8 KB de solicitações e 8 KB de respostas. | O tamanho máximo desejado das propriedades é de 8 KB. | Até 256 KB de mensagens. |
+| Tamanho | Até 8 KB de solicitações e 8 KB de respostas. | O tamanho máximo desejado das propriedades é de 8 KB. | Mensagens de até 64 KB. |
 | Frequência | Alta. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. | Média. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. | Baixa. Consulte [Limites do Hub IoT][lnk-quotas] para saber mais. |
-| Protocolo | Disponível em MQTT e AMQP. | Disponível atualmente somente ao usar MQTT. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTP. |
+| Protocolo | Disponível atualmente somente ao usar MQTT. | Disponível atualmente somente ao usar MQTT. | Disponível em todos os protocolos. O dispositivo deve sondar ao usar HTTP. |
 
 Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem para o dispositivo nos seguintes tutoriais:
 
@@ -56,6 +56,7 @@ Saiba como usar métodos diretos, propriedades desejadas e mensagens da nuvem pa
 [lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Feb17_HO2-->
 
 

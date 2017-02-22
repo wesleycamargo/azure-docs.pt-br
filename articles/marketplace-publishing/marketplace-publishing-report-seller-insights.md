@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/01/2017
 ms.author: v-jeana; hascipio; v-dabosl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 51452ce98a02f3bcea9914b741c611b00f862cc6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
 
 
 ---
@@ -29,7 +29,7 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 
 * **Email de boas-vindas:** como uma nova editora, você receberá um email de boas-vindas para notificá-lo de que você irá começar a receber os relatórios mensais de insights do vendedor.
 * **Relatórios de vendas mensais:** se tiver usado, você receberá um segundo email com seus relatórios e instruções sobre como acessar sua senha:
-  
+
   * Se você tiver uma VM ou SKU de serviços do desenvolvedor com cobrança baseada em uso, seu relatório mensal mostrará a você detalhes sobre pedidos, uso, mercados e detalhes do cliente de suas ofertas.
   * Esses arquivos são bloqueados com uma senha que apenas você e a Microsoft sabem para proteger os dados de seus clientes.
   * A Microsoft não enviará um relatório se nenhuma de suas ofertas tiver gerado uso durante o mês.
@@ -117,6 +117,6 @@ Se você tiver perguntas relacionadas a relatórios e insights, entre em contato
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

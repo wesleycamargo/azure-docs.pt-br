@@ -1,6 +1,6 @@
 ---
-title: "Copiar o trabalho da ciência de dados de outros – exemplo de aprendizado de máquina | Microsoft Docs"
-description: "O segredo da ciência de dados: fazer com que outras pessoas trabalhem para você. Veja exemplos na Cortana Analytics Gallery, como um exemplo de algoritmo de clustering."
+title: "Copiar os exemplos de ciência de dados de outras pessoas – machine learning - Azure | Microsoft Docs"
+description: "O segredo da ciência de dados: fazer com que outras pessoas trabalhem para você. Obtenha exemplos de machine learning da Galeria do Cortana Analytics."
 keywords: "exemplos de ciência de dados, exemplo de aprendizado de máquina, algoritmo de clustering, exemplo de algoritmo de clustering"
 services: machine-learning
 documentationcenter: na
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 02/09/2017
 ms.author: cgronlun;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d97427b0f20d15a48ebcef47cbf4e4d100c983c3
+ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
+ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
 
 
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer a ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Série de ciência de dados para iniciantes
-Um dos segredos da ciência de dados fazer com que outras pessoas trabalhem para você. Encontre um exemplo de algoritmo de clustering para usar para o seu próprio experimento de aprendizado de máquina.
+Um dos segredos da ciência de dados fazer com que outras pessoas trabalhem para você. Encontre um exemplo de algoritmo de clustering na Galeria do Cortana Analytics para usar para o seu próprio experimento de machine learning.
 
 Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
-> 
-> 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
+>
+>
 
 ## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
@@ -96,7 +96,6 @@ Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado d
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

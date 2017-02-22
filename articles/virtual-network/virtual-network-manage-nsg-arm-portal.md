@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 60343b409c734bcc9bb50d6216ff2295aede783b
-ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
 
 
 ---
@@ -27,13 +27,13 @@ ms.openlocfilehash: f4f56614bab80849820c31127b190953e2ef8b87
 > * [Portal](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do modelo de implantação clássico.
-> 
+>
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -68,7 +68,7 @@ Para exibir a lista de NSGs no grupo de recursos **RG-NSG**, siga as etapas a se
 
 ### <a name="list-all-rules-for-an-nsg"></a>Listar todas as regras de um NSG
 
-Para exibir as regras de um NSG chamado **NSG-FrontEnd**, siga as etapas a seguir: 
+Para exibir as regras de um NSG chamado **NSG-FrontEnd**, siga as etapas a seguir:
 
 1. Na folha **Grupos de segurança de rede**, ou na folha **Recursos** mostrada acima, clique em **NSG-FrontEnd**.
 
@@ -84,7 +84,7 @@ Para exibir as regras de um NSG chamado **NSG-FrontEnd**, siga as etapas a segui
 
     > [!NOTE]
     > Para exibir as regras padrão, clique no ícone **Regras padrão** , na parte superior da folha que exibe as regras.
-    > 
+    >
 
 ### <a name="view-nsgs-associations"></a>Exibir associações de NSGs
 
@@ -182,7 +182,7 @@ Para associar o NSG **NSG-FrontEnd** à sub-rede **FronEnd** novamente, siga as 
 
 > [!NOTE]
 > Você também pode associar um NSG a uma sub-rede na folha **Configurações** do NSG.
-> 
+>
 
 ## <a name="delete-an-nsg"></a>Excluir um NSG
 Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso. Para excluir um NSG, conclua as seguintes etapas:
@@ -195,13 +195,13 @@ Você pode excluir um NSG apenas se ele não estiver associado a nenhum recurso.
 6. Se houver alguma sub-rede listada, clique na sub-rede e siga as etapas 2 e 3 em [Desassociar um NSG de uma sub-rede](#Dissociate-an-NSG-from-a-subnet).
 7. Role da esquerda para a folha **NSG-FrontEnd** e clique em **Excluir** > **Sim**.
 
-    [Portal do Azure - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
+    ![Portal do Azure - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Habilitar registro em log](virtual-network-nsg-manage-log.md) para NSGs.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -47,7 +47,11 @@ Este tutorial de aplicativo Java mostra como criar um aplicativo de gerenciament
 ## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Pré-requisitos para este tutorial de aplicativo Web Java
 Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/)
+
+    OU
+
+    Uma instalação local do [Emulador do DocumentDB do Azure](documentdb-nosql-local-emulator.md).
 * [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../app-service-web/web-sites-java-get-started.md)
@@ -55,7 +59,7 @@ Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .
 
 ## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>Etapa 1: Criar uma conta de banco de dados do Banco de Dados de Documentos
-Vamos começar criando uma conta do Banco de Dados de Documentos. Se já tiver uma conta, você poderá pular para a [Etapa 2: criar o aplicativo JSP Java](#CreateJSP).
+Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se você já tiver uma conta ou se estiver usando o Emulador do DocumentDB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo do Java JSP](#CreateJSP).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -453,7 +457,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
             }
         }
 3. Precisaremos de uma Interface de usuário da Web para a exibição ao usuário. Vamos reescrever o ndex.jsp criado anteriormente:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -540,6 +544,7 @@ Agora que concluímos a parte divertida - tudo que restou é criar uma interface
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. E, finalmente, escrever um Javascript do lado do cliente para unir o servlet e a interface do usuário da web:
    
         var todoApp = {
@@ -759,6 +764,6 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

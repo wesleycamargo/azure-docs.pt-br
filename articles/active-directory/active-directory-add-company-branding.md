@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Adicionar a identidade visual da empresa às páginas de Entrada e do Painel de Acesso
 Para evitar confusão, muitas empresas desejam aplicar uma aparência consistente em todos os sites e serviços que elas gerenciam. O Azure Active Directory fornece esse recurso, permitindo que você personalize a aparência das seguintes páginas Web com o esquema de cor e o logotipo da empresa:
 
 * **Página de entrada** - é a página que aparece quando você entra no Office 365 ou em outros aplicativos baseados na Web que estejam usando o AD do Azure como provedor de identidade. Você interage com essa página durante uma Descoberta de Realm Inicial ou para inserir suas credenciais. A Descoberta de Realm Inicial permite que o sistema redirecione usuários federados para seu STS local (como o AD FS).
@@ -31,10 +31,10 @@ Este tópico explica como você pode personalizar a página de entrada e a pági
 > [!NOTE]
 > * A identidade visual da empresa é um recurso que só estará disponível se você tiver atualizado para a edição Premium ou Basic do Azure Active Directory ou se for um usuário do Office 365. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
 > * As edições Premium e Basic do Active Directory do Azure estão disponíveis para clientes na China usando a instância mundial do Active Directory do Azure. As edições Azure Active Directory Premium e Basic não têm suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
-## <a name="customizing-the-signin-page"></a>Personalização da página de entrada
+## <a name="customizing-the-sign-in-page"></a>Personalização da página de entrada
 Normalmente, se você precisar de acesso baseado em navegador para seus aplicativos e serviços de nuvem que sua organização assina, use a página de entrada.
 
 Se você tiver as alterações aplicadas à sua página de entrada, poderá demorar até uma hora para que as alterações sejam exibidas.
@@ -46,8 +46,8 @@ Quando você visita um serviço com URLs específicas sem locatário (por exempl
 > [!NOTE]
 > * O nome do seu domínio deve aparecer como "Ativo" na seção **Active Directory** > **Diretório** > **Domínios** do Portal Clássico do Azure no qual você configurou a identidade visual.
 > * A identidade visual da página de entrada não se transfere para a página de entrada do consumidor da Microsoft. Se você entrar com uma conta da Microsoft pessoal, talvez veja uma lista com identidade visual de blocos de usuários renderizados pelo AD do Azure, mas a identidade visual da sua organização não se aplicará à página de entrada da conta da Microsoft.
-> 
-> 
+>
+>
 
 Se você quiser mostrar a marca da empresa, cores e outros elementos personalizáveis nessa página, consulte as imagens a seguir para compreender a diferença entre as duas experiências.
 
@@ -91,8 +91,8 @@ Você pode personalizar os seguintes elementos na página de entrada:
 
 > [!NOTE]
 > Todos os elementos são opcionais. Por exemplo, se você especificar um logotipo de faixa, mas nenhuma ilustração grande, a página de entrada mostrará o logotipo e ilustração do site de destino (ou seja, a imagem da autoestrada da Califórnia do Office 365).
-> 
-> 
+>
+>
 
 Na sua página de entrada, a caixa de seleção **Mantenha-me conectado** permite que o usuário permaneça conectado ao fechar e reabrir o navegador. Ela não afeta o tempo de vida da sessão. Você pode ocultar a caixa de seleção na página de entrada do Azure Active Directory.
 
@@ -100,12 +100,12 @@ A exibição da caixa de seleção depende da configuração de **Ocultar KMSI**
 
 ![][9]
 
-Para ocultar a caixa de seleção, defina essa configuração como **Oculta**. 
+Para ocultar a caixa de seleção, defina essa configuração como **Oculta**.
 
 > [!NOTE]
 > Alguns recursos do SharePoint Online e do Office 2010 dependem da capacidade dos usuários marcarem essa caixa de seleção. Se você definir essa configuração como oculta, os usuários poderão ver avisos adicionais e inesperados para entrar.
-> 
-> 
+>
+>
 
 Você também pode localizar todos os elementos desta página. Depois de configurar um elemento “padrão” de personalização, você pode configurar mais versões para localidades diferentes. Você também pode misturar e combinar vários elementos. Por exemplo, você pode:
 
@@ -163,15 +163,15 @@ Pode demorar até uma hora para que a nova alteração feita à identidade visua
 4. Clique em **Personalizar Identidade Visual**.
 5. Na página Personalizar Identidade Visual, selecione **Editar Configurações de Identidade Visual Existentes** e vá para a próxima página.
 6. Dependendo de quais elementos você deseja remover, siga um ou mais destes procedimentos:
-   
+
     a. Em **Logotipo de Faixa**, selecione **Remover logotipo carregado**.
-   
+
     b. Em **Logotipo de Bloco**, selecione **Remover logotipo carregado**.
-   
+
     c. Remova o texto de todas as caixas de texto.
-   
+
     d. Clique em **Avançar**.
-   
+
     e. Remova o texto de todas as caixas de texto.
 7. Clique em **Salvar** para remover os elementos.
 8. Se necessário, clique em **Personalizar Identidade Visual** novamente e repita essas etapas para todos as identidades visuais específicas de idioma que precisam ser removidas.
@@ -199,12 +199,12 @@ Alguns elementos personalizáveis no AD do Azure têm vários casos de uso. Voc�
 
 | Nome | Descrição | Restrições | Recomendações |
 | --- | --- | --- | --- |
-| Logotipo de faixa |O Logotipo de Faixa é exibido na página de entrada e no Painel de Acesso. |<p>JPG ou PNG</p><p>60 x 280 pixels</p><p>10 KB</p> |<p>Use o logotipo completo da sua organização (incluindo pictograma e logotipo)</p><p>Mantenha-o com menos de 30 pixels de altura para evitar a introdução de barras de rolagem em dispositivos móveis</p><p>Mantenha-o com menos de 4 KB</p><p>Use um PNG transparente (não presuma que a página de entrada sempre terá uma tela de fundo branca)</p> |
-| Logotipo de organização lado a lado |(no momento, não é usado na página de entrada) No futuro, esse texto pode ser usado para substituir o pictograma genérico "conta corporativa ou de estudante" em diferentes locais da experiência. |<p>JPG ou PNG</p><p>120 x 120 pixels</p><p>10 KB</p> |<p>Mantenha simples (sem texto pequeno), já que essa imagem pode ser redimensionada para 50% |
+| Logotipo de faixa |O Logotipo de Faixa é exibido na página de entrada e no Painel de Acesso. |<p>JPG ou PNG</p><p>60 x&280; pixels</p><p>10 KB</p> |<p>Use o logotipo completo da sua organização (incluindo pictograma e logotipo)</p><p>Mantenha-o com menos de 30 pixels de altura para evitar a introdução de barras de rolagem em dispositivos móveis</p><p>Mantenha-o com menos de 4 KB</p><p>Use um PNG transparente (não presuma que a página de entrada sempre terá uma tela de fundo branca)</p> |
+| Logotipo de organização lado a lado |(no momento, não é usado na página de entrada) No futuro, esse texto pode ser usado para substituir o pictograma genérico "conta corporativa ou de estudante" em diferentes locais da experiência. |<p>JPG ou PNG</p><p>120 x&120; pixels</p><p>10 KB</p> |<p>Mantenha simples (sem texto pequeno), já que essa imagem pode ser redimensionada para 50% |
 | </p> | | | |
 | Rótulo de nome de usuário da página de entrada |(no momento, não é usado na página de entrada). No futuro, esse texto pode ser usado para substituir a sequência de caracteres genérico "conta corporativa ou de estudante" em diferentes locais da experiência. Você pode defini-lo como algo como "Conta da Contoso" ou "ID da Contoso". |<p>Texto em Unicode, até 50 caracteres</p><p>Apenas texto sem formatação (sem links ou marcas HTML)</p> |<p>Mantenha-o curto e simples</p><p>Pergunte aos usuários como eles geralmente se referem à conta corporativa ou de estudante que você fornece a eles.</p> |
 | Texto da página de entrada |Esse texto clichê aparece abaixo do formulário da página de entrada e pode ser usado para comunicar instruções adicionais ou onde obter ajuda e suporte. |<p>Texto em Unicode, até 256 caracteres</p><p>Apenas texto sem formatação (sem links ou marcas HTML)</p> |Mantenha abaixo de 250 caracteres (aproximadamente 3 linhas de texto) |
-| Ilustração da página de entrada |A ilustração é uma imagem grande exibida na página de entrada à esquerda do formulário da página de entrada. |<p>JPG ou PNG</p><p>1.420 x 1.200</p><p>500 KB</p> |<p>1.420 x 1.200 pixels</p><p>Importante: mantenha o menor possível, idealmente abaixo de 200 KB. Se essa imagem for muito grande, ela afetará o desempenho da página de entrada quando a imagem não estiver armazenada em cache</p><p>Essa imagem quase sempre será cortada, para acomodar diferentes proporções de tela. Mantenha os elementos visuais primários no canto superior esquerdo (canto superior direito para idiomas RTL), pois o redimensionamento ocorre do canto inferior/direito para o superior/esquerdo, à medida que a janela do navegador é reduzida.</p> |
+| Ilustração da página de entrada |A ilustração é uma imagem grande exibida na página de entrada à esquerda do formulário da página de entrada. |<p>JPG ou PNG</p><p>1.420 x&1;.200</p><p>500 KB</p> |<p>1.420 x&1;.200 pixels</p><p>Importante: mantenha o menor possível, idealmente abaixo de 200 KB. Se essa imagem for muito grande, ela afetará o desempenho da página de entrada quando a imagem não estiver armazenada em cache</p><p>Essa imagem quase sempre será cortada, para acomodar diferentes proporções de tela. Mantenha os elementos visuais primários no canto superior esquerdo (canto superior direito para idiomas RTL), pois o redimensionamento ocorre do canto inferior/direito para o superior/esquerdo, à medida que a janela do navegador é reduzida.</p> |
 | Cor da tela de fundo da página de entrada |A cor da tela de fundo da página de entrada é usada na área à esquerda do formulário da página de entrada. |Deve ser uma cor RGB em formato hexadecimal (exemplo: #FFFFFF) |<p>A cor da tela de fundo pode ser mostrada no lugar da ilustração grande em conexões de baixa largura de banda</p><p>É recomendável escolher a cor primária do logotipo do banner</p> |
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -224,6 +224,6 @@ Alguns elementos personalizáveis no AD do Azure têm vários casos de uso. Voc�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

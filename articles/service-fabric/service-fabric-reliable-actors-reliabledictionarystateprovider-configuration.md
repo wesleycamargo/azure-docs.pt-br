@@ -1,5 +1,5 @@
 ---
-title: "Visão geral da configuração de ReliableDictionaryActorStateProvider dos Reliable Actors do Service Fabric do Azure | Microsoft Docs"
+title: "Alterar as configurações de ReliableDictionaryActorStateProvider nos microsserviços do Azure | Microsoft Docs"
 description: "Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo ReliableDictionaryActorStateProvider."
 services: Service-Fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/18/2016
+ms.date: 02/8/2017
 ms.author: sumukhs
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59c8a1a09580161593639d01cc8a3d8d8ef0f6f4
+ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
+ms.openlocfilehash: e787f48f14539dff3035c51e14243c7bd9dcbb73
 
 
 ---
@@ -128,6 +128,6 @@ As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

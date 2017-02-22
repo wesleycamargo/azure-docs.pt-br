@@ -1,5 +1,5 @@
 ---
-title: Testes de caos e failover | Microsoft Docs
+title: "Criar testes de caos e failover para os microsserviços do Azure | Microsoft Docs"
 description: "Usando os cenários de testes de caos e failover do Service Fabric para induzir falhas e verificar a confiabilidade de seus serviços."
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 01/19/2017
 ms.author: motanv
 translationtype: Human Translation
-ms.sourcegitcommit: 1a9bec270650223cd40b3b60e5bc9fc7e212a207
-ms.openlocfilehash: 2b533be6bc7aa0fac0a6b0e4f5aee1df3714acd7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
 
 
 ---
@@ -256,6 +256,6 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

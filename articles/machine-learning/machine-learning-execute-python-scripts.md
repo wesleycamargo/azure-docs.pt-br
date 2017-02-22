@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6dc3068f50afc6bd3911e4a209f9a4b984b314ce
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 53bd995e8ee68b9dd76bf792e4420e0c52f5ebac
 
 
 ---
@@ -38,7 +38,7 @@ O Estúdio de Aprendizado de Máquina do Azure dá suporte à inclusão de scrip
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="design-principles-of-python-scripts-in-machine-learning"></a>Princípios de design de scripts Python no Aprendizado de Máquina
-A principal interface para Python no Estúdio de Machine Learning do Azure é o módulo [Executar Script Python][execute-python-script] mostrado na Figura 1.
+A principal interface para Python no Azure Machine Learning Studio é o módulo [Executar Script Python][execute-python-script] mostrado na Figura 1.
 
 ![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -48,9 +48,9 @@ Figura 1. O módulo **Executar Script Python** .
 
 O módulo [Executar Script Python][execute-python-script] aceita até três entradas e produz até duas saídas (discutidas abaixo), assim como seu módulo análogo para R, o [Executar Script R][execute-r-script]. O código Python a ser executado é inserido na caixa de parâmetro como uma função de ponto de entrada especialmente denominada `azureml_main`. Estes são os principais princípios de design usados para implementar este módulo:
 
-1. *Devem ser expressões idiomáticas para usuários de Python.*  A maioria dos usuários de Python fatora seu código como funções dentro de módulos, de modo que colocar muitas instruções executáveis em um módulo de nível superior é relativamente raro. Como resultado, a caixa de script também recebe uma função de Python especialmente nomeada em vez de apenas uma sequência de instruções. Os objetos expostos na função são tipos de biblioteca do Python padrão, como estruturas de dados [Pandas](http://pandas.pydata.org/) e matrizes [NumPy](http://www.numpy.org/).
+1. *Devem ser expressões idiomáticas para usuários de Python.* A maioria dos usuários de Python fatora seu código como funções dentro de módulos, de modo que colocar muitas instruções executáveis em um módulo de nível superior é relativamente raro. Como resultado, a caixa de script também recebe uma função de Python especialmente nomeada em vez de apenas uma sequência de instruções. Os objetos expostos na função são tipos de biblioteca do Python padrão, como estruturas de dados [Pandas](http://pandas.pydata.org/) e matrizes [NumPy](http://www.numpy.org/).
 2. *Deve ter alta fidelidade entre execuções locais e na nuvem.* O back-end usado para executar o código Python se baseia em [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, uma distribuição científica de plataforma cruzada do Python amplamente utilizada. Ele vem com quase 200 dos pacotes de Python mais comuns. Portanto, os cientistas de dados podem depurar e qualificar seu código no ambiente Anaconda compatível com o Azure Machine Learning. Em seguida, use ambientes de desenvolvimento existentes, como o Notebook [IPython](http://ipython.org/) ou as [Ferramentas Python para Visual Studio](http://aka.ms/ptvs) para executá-lo como parte de um experimento do Azure Machine Learning de alta confiabilidade. Além disso, o ponto de entrada `azureml_main` é uma função vanilla Python e pode ser criado sem um código específico ou o SDK do Aprendizado de Máquina do Azure instalado.
-3. *Deve ser totalmente combinável com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Machine Learning do Azure. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
+3. *Deve ser totalmente combinável com outros módulos do Aprendizado de Máquina do Azure.* O módulo [Executar Script Python][execute-python-script] aceita, como entradas e saídas, conjuntos de dados padrão do Azure Machine Learning. A estrutura subjacente preenche do modo transparente e eficiente as lacunas entre os tempos de execução do Aprendizado de Máquina do Azure e do Python (dando suporte a recursos como valores ausentes). O Python, portanto, pode ser usado em conjunto com fluxos de trabalho existentes do Aprendizado de Máquina do Azure, incluindo aqueles que se chamam R e SQLite. Assim, é possível imaginar fluxos de trabalho que:
    * usam Python e Pandas para pré-processando e limpeza de dados, 
    * alimentam os dados para uma transformação de SQL, unindo vários conjuntos de dados para formar recursos, 
    * treinar modelos usando o amplo conjunto de algoritmos do Aprendizado de Máquina do Azure e 
@@ -163,15 +163,15 @@ Figura 11. Experimento para classificar recursos no conjunto de dados Pima India
 ## <a name="limitations"></a>Limitações
 O módulo [Executar Script Python][execute-python-script] atualmente tem as seguintes limitações:
 
-1. *Execução em modo seguro.*  O tempo de execução do Python atualmente é feito no modo seguro e, consequentemente, não permite o acesso à rede ou ao sistema de arquivos local de maneira persistente. Todos os arquivos salvos localmente são isolados e excluídos após a conclusão do módulo. O código Python não pode acessar a maioria das pastas do computador em que é executado, com exceção do diretório atual e seus subdiretórios.
-2. *Falta de suporte para desenvolvimento e depuração sofisticados.*  O módulo Python atualmente não dá suporte a recursos de IDE, como IntelliSense e depuração. Além disso, se o módulo falhar no tempo de execução, o rastreamento de pilha do Python completo está disponível, mas deve ser visualizado no log de saída do módulo. No momento, recomendamos que você desenvolva e depure seus scripts Python em um ambiente como IPython e depois importe o código para o módulo.
-3. *Saída de estruturas de dados únicas.*  O ponto de entrada do Python para retornar somente uma estrutura de dados como saída. Atualmente, não é possível retornar objetos arbitrários do Python como modelos treinados diretamente para o tempo de execução do Aprendizado de Máquina do Azure. No entanto, assim como o módulo [Executar Script R][execute-r-script], que tem a mesma limitação, é possível em muitos casos serializar objetos em uma matriz de bytes e retorná-la dentro de uma estrutura de dados.
+1. *Execução em modo seguro.* O tempo de execução do Python atualmente é feito no modo seguro e, consequentemente, não permite o acesso à rede ou ao sistema de arquivos local de maneira persistente. Todos os arquivos salvos localmente são isolados e excluídos após a conclusão do módulo. O código Python não pode acessar a maioria das pastas do computador em que é executado, com exceção do diretório atual e seus subdiretórios.
+2. *Falta de suporte para desenvolvimento e depuração sofisticados.* O módulo Python atualmente não dá suporte a recursos de IDE, como IntelliSense e depuração. Além disso, se o módulo falhar no tempo de execução, o rastreamento de pilha do Python completo está disponível, mas deve ser visualizado no log de saída do módulo. No momento, recomendamos que você desenvolva e depure seus scripts Python em um ambiente como IPython e depois importe o código para o módulo.
+3. *Saída de estruturas de dados únicas.* O ponto de entrada do Python para retornar somente uma estrutura de dados como saída. Atualmente, não é possível retornar objetos arbitrários do Python como modelos treinados diretamente para o tempo de execução do Aprendizado de Máquina do Azure. No entanto, assim como o módulo [Executar Script R][execute-r-script], que tem a mesma limitação, é possível em muitos casos serializar objetos em uma matriz de bytes e retorná-la dentro de um quadro de dados.
 4. *Incapacidade de personalizar a instalação do Python*. Atualmente, a única maneira de adicionar módulos personalizados do Python é por meio do mecanismo de compactação de arquivo zip descrito anteriormente. Embora isso seja viável para pequenos módulos, é complicado para módulos grandes (especialmente aqueles com DLLs nativos) ou um grande número de módulos. 
 
 ## <a name="conclusions"></a>Conclusões
-O módulo [Executar Script Python][execute-python-script] permite a um cientista de dados incorporar código Python existente a fluxos de trabalho de aprendizado de máquina hospedados na nuvem no Machine Learning do Azure e operacionalizá-los como parte de um serviço Web. O módulo de script Python trabalha naturalmente com outros módulos do Aprendizado de Máquina do Azure e pode ser usado para uma série de tarefas, da exploração ao pré-processamento de dados, passando pela extração de recursos e chegando à avaliação e o pós-processamento dos resultados. O tempo de execução de back-end usado para a execução se baseia no Anaconda, uma distribuição do Python amplamente testada e utilizada. Isso simplifica para você o processo de integrar ativos de código existentes à nuvem.
+O módulo [Executar Script Python][execute-python-script] permite a um cientista de dados incorporar código Python existente a fluxos de trabalho de aprendizado de máquina hospedados na nuvem no Azure Machine Learning e operacionalizá-los como parte de um serviço Web. O módulo de script Python trabalha naturalmente com outros módulos do Aprendizado de Máquina do Azure e pode ser usado para uma série de tarefas, da exploração ao pré-processamento de dados, passando pela extração de recursos e chegando à avaliação e o pós-processamento dos resultados. O tempo de execução de back-end usado para a execução se baseia no Anaconda, uma distribuição do Python amplamente testada e utilizada. Isso simplifica para você o processo de integrar ativos de código existentes à nuvem.
 
-Esperamos fornecer funcionalidades adicionais para o módulo [Executar Script Python][execute-python-script], como a capacidade de treinar e operacionalizar modelos em Python e acrescentar um suporte aprimorado para o desenvolvimento e depuração de código no Estúdio do Azure Machine Learning.
+Esperamos fornecer funcionalidades adicionais para o módulo [Executar Script Python][execute-python-script], como a capacidade de treinar e operacionalizar modelos em Python e acrescentar um suporte aprimorado para o desenvolvimento e depuração de código no Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
@@ -182,6 +182,6 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

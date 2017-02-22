@@ -1,5 +1,5 @@
 ---
-title: "Implantar um aplicativo ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio | Microsoft Docs"
+title: Implantar um aplicativo ASP.NET no Azure usando o Visual Studio | Microsoft Docs
 description: "Saiba como implantar um projeto Web do ASP.NET em um novo aplicativo Web no Serviço de Aplicativo do Azure, usando o Visual Studio."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Além do tempo necessário para instalar o SDK do Azure para .NET, este tutorial
 * O tutorial presume que você já tenha trabalhado com o ASP.NET MVC e com o Visual Studio. Se você precisar de uma introdução, consulte [Guia de Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 * Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Dessa forma você poderá criar um aplicativo de curta duração inicial no Serviço de Aplicativo, sem precisar de cartão de crédito e sem compromissos.
+    Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/). Dessa forma você poderá criar um aplicativo de curta duração inicial no Serviço de Aplicativo, sem precisar de cartão de crédito e sem compromissos.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
 O tutorial é escrito para o Visual Studio 2015 com o [SDK do Azure para .NET](../dotnet-sdk.md) 2.9 ou posterior. 
@@ -222,6 +222,6 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

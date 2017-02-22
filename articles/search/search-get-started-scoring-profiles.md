@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a7a0c49b6fcac84a61005f330b07f5ea47ce1961
+ms.sourcegitcommit: 7a633460f249f7c7b6675a5ab23b1724549cccba
+ms.openlocfilehash: ca07067b73b72b5ff8b93a72fa7eef55e9d47cc2
 
 
 ---
@@ -34,7 +34,7 @@ O aplicativo de exemplo é escrito em C# usando o Visual Studio 2013. Experiment
 
 Você precisará de uma assinatura do Azure e um serviço Azure Search para concluir o tutorial. Consulte [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter ajuda com o serviço de configuração.
 
- [Para concluir este tutorial, você precisa de uma conta do Azure:](../../includes/free-trial-note.md)]
+[!INCLUDE [You need an Azure account to complete this tutorial](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
 
@@ -125,6 +125,6 @@ Precisa voltar atrás e aprender mais sobre a criação de índice? [Assista a e
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

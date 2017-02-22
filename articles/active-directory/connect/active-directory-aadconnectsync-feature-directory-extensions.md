@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+ms.sourcegitcommit: 2f5c5e9af193c843765f63640d46c25f3a6d10c3
+ms.openlocfilehash: 3641f9309cc38f6575ce36d3450448cdae1601a9
 
 
 ---
@@ -26,23 +26,24 @@ Extensões de diretório permite que você estenda o esquema no Azure AD com seu
 No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
 
 Configure quais atributos adicionais você deseja sincronizar no caminho de configurações personalizadas no assistente de instalação.
-![Assistente da Extensão de Esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) A instalação mostra os seguintes atributos, que são candidatos válidos:
+![Assistente de Extensão do Esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+A instalação mostra os seguintes atributos, que são candidatos válidos:
 
 * Tipos de objeto de Usuário e de Grupo
 * Atributos de valor único: String, Boolean, Integer, Binary
 * Atributos de vários valores: String, Binary
 
-A lista de atributos é lida do cache criado durante a instalação do Azure AD Connect. Se você estendeu o esquema do Active Directory com atributos adicionais, o [esquema deve ser atualizado](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) para que esses novos atributos fiquem visíveis.
+A lista de atributos é lida do cache de esquema criado durante a instalação do Azure AD Connect. Se você estendeu o esquema do Active Directory com atributos adicionais, o [esquema deve ser atualizado](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) para que esses novos atributos fiquem visíveis.
 
-Um objeto pode ter até 100 atributos de extensões de diretório. O comprimento máximo é de 250 caracteres. Se um valor de atributo for mais longo, ele será truncado pelo mecanismo de sincronização.
+Um objeto no Azure AD pode ter até 100 atributos de extensões de diretório. O comprimento máximo é de 250 caracteres. Se um valor de atributo for mais longo, ele será truncado pelo mecanismo de sincronização.
 
 Durante a instalação do Azure AD Connect, é registrado um aplicativo no qual esses atributos estão disponíveis. Você pode ver esse aplicativo no Portal do Azure.  
-![Aplicativo de extensão do esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3.png)
+![Aplicativo de extensão do esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
 Esses atributos agora estão disponíveis por meio do Graph:   
 ![Gráfico](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Os atributos são prefixados com extension\_{AppClientId}\_. O AppClientId tem o mesmo valor para todos os atributos no seu diretório do Azure AD.
+Os atributos são prefixados com extension\_{AppClientId}\_. O AppClientId tem o mesmo valor para todos os atributos em seu locatário do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
@@ -51,7 +52,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

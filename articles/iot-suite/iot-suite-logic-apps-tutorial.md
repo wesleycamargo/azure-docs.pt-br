@@ -4,7 +4,7 @@ description: "Um tutorial sobre como conectar aplicativos lógicos para o Azure 
 services: 
 suite: iot-suite
 documentationcenter: 
-author: aguilaaj
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
-ms.author: araguila
+ms.date: 02/08/2017
+ms.author: corywink
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a010e0dff76390020b74ada6d6144e411e304268
+ms.sourcegitcommit: 14e2fcea9a6afbac640d665d5e44a700f855db4b
+ms.openlocfilehash: 609de3ff0fb14aa98b28572dce1eaeb8a4412d93
 
 
 ---
@@ -48,7 +48,7 @@ Para começar, configure o aplicativo lógico a ser usado com a solução pré-c
    
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 6. Escolha **Solicitar**. Essa ação especifica que uma solicitação HTTP de entrada com um carga no formato JSON específico atua como um gatilho.
-7. Cole o seguinte no esquema JSON do corpo da solicitação:
+7. Cole o seguinte código no esquema JSON do corpo da solicitação:
    
     ```
     {
@@ -172,6 +172,6 @@ Agora que você já usou um aplicativo lógico para conectar a solução pré-co
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

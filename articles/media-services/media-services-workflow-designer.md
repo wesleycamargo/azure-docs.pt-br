@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: bf208f65ef5509e56373a84bb096da39d6bafc1f
 
 
 ---
@@ -35,7 +35,7 @@ Os fluxos de trabalho de exemplo que você pode criar incluem:
 Essa ferramenta também pode ser usada para modificar qualquer um dos [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Para obter sua cópia da ferramenta de Designer de Fluxo de Trabalho, entre em contato com mepd@microsoft.com.
+> Para obter uma cópia da ferramenta Designer de Fluxo de Trabalho, entre em contato com mepd@microsoft.com.
 > 
 > 
 
@@ -46,14 +46,14 @@ Os [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_
 
 Os vídeos a seguir mostram como usar o designer.
 
-### <a name="day-1-getting-started"></a>Dia 1 - Introdução
+### <a name="day-1--getting-started"></a>Dia 1 - Introdução
 O vídeo do Dia 1 abrange:
 
 * Visão geral do designer
 * Fluxos de trabalho básicos – “Hello World”
 * Criar vários arquivos MP4 de saída para uso com o streaming dos Serviços de Mídia do Azure
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -64,7 +64,7 @@ O vídeo do Dia 2 abrange:
 * Fluxos de trabalho com lógica avançada
 * Estágios de gráfico
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -75,7 +75,7 @@ O vídeo do Dia 3 abrange:
 * Restrições com o codificador atual
 * Perguntas e respostas
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 
@@ -95,6 +95,6 @@ Se precisar de suporte ou se tiver perguntas sobre a criação de fluxos de trab
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

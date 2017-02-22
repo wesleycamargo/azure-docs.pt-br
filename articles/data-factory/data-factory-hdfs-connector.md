@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 01/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 0f0eaaa927ea73cec845dbb369dc2c4a7a8466ba
+ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
+ms.openlocfilehash: c7f27fe2560c1800f05c205a73fe738cc609d642
 
 
 ---
@@ -52,158 +52,161 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados. As instr
 
 **Serviço vinculado ao HDFS** Esse exemplo usa a autenticação do Windows. Confira a seção [Serviço vinculado ao HDFS](#hdfs-linked-service-properties) para diferentes tipos de autenticação que você pode usar.
 
+```JSON
+{
+    "name": "HDFSLinkedService",
+    "properties":
     {
-        "name": "HDFSLinkedService",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Windows",
-                "userName": "Administrator",
-                "password": "password",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
+}
+```
 
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Conjunto de dados de entrada do HDFS** Esse conjunto de dados refere-se à pasta DataTransfer/UnitTest/ do HDFS. O pipeline copia todos os arquivos dessa pasta para o destino.
 
 Configurar “external”: “true” informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
-    {
-        "name": "InputDataset",
-        "properties": {
-            "type": "FileShare",
-            "linkedServiceName": "HDFSLinkedService",
-            "typeProperties": {
-                "folderPath": "DataTransfer/UnitTest/"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "InputDataset",
+    "properties": {
+        "type": "FileShare",
+        "linkedServiceName": "HDFSLinkedService",
+        "typeProperties": {
+            "folderPath": "DataTransfer/UnitTest/"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
-
-
-
+}
+```
 
 **Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
-    {
-        "name": "OutputDataset",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/hdfs/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "OutputDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/hdfs/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
-
+}
+```
 
 **Pipeline com Atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
 
+```JSON
+{
+    "name": "pipeline",
+    "properties":
     {
-        "name": "pipeline",
-        "properties":
-        {
-            "activities":
-            [
+        "activities":
+        [
+            {
+                "name": "HdfsToBlobCopy",
+                "inputs": [ {"name": "InputDataset"} ],
+                "outputs": [ {"name": "OutputDataset"} ],
+                "type": "Copy",
+                "typeProperties":
                 {
-                    "name": "HdfsToBlobCopy",
-                    "inputs": [ {"name": "InputDataset"} ],
-                    "outputs": [ {"name": "OutputDataset"} ],
-                    "type": "Copy",
-                    "typeProperties":
+                    "source":
                     {
-                        "source":
-                        {
-                            "type": "FileSystemSource"
-                        },
-                        "sink":
-                        {
-                            "type": "BlobSink"
-                        }
+                        "type": "FileSystemSource"
                     },
-                    "policy":
+                    "sink":
                     {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1,
-                        "timeout": "00:05:00"
+                        "type": "BlobSink"
                     }
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "00:05:00"
                 }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z"
-        }
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z"
     }
-
-
+}
+```
 
 ## <a name="hdfs-linked-service-properties"></a>Propriedades do Serviço Vinculado do HDFS
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado do HDFS.
@@ -212,48 +215,192 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **Hdfs** |Sim |
 | Url |URL para o HDFS |Sim |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) da credencial de acesso. |Não |
+| authenticationType |Anônimo ou Windows. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |Sim |
 | userName |Nome de usuário para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
 | Senha |Senha para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
-| authenticationType |Windows ou Anônima. |Sim |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao HDFS. |Sim |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) da credencial de acesso. |Não |
 
 Consulte [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre como configurar as credenciais para um HDFS local.
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
+
+```JSON
+{
+    "name": "hdfs",
+    "properties":
     {
-        "name": "hdfs",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "userName": "hadoop",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Anonymous",
+            "userName": "hadoop",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
-
+}
+```
 
 ### <a name="using-windows-authentication"></a>Usando a autenticação do Windows
+
+```JSON
+{
+    "name": "hdfs",
+    "properties":
     {
-        "name": "hdfs",
-        "properties":
+        "type": "Hdfs",
+        "typeProperties":
         {
-            "type": "Hdfs",
-            "typeProperties":
-            {
-                "authenticationType": "Windows",
-                "userName": "Administrator",
-                "password": "password",
-                "url" : "http://<machine>:50070/webhdfs/v1/",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Windows",
+            "userName": "Administrator",
+            "password": "password",
+            "url" : "http://<machine>:50070/webhdfs/v1/",
+            "gatewayName": "mygateway"
         }
     }
+}
+```
 
+## <a name="use-kerberos-authentication-for-hdfs-connector"></a>Usar a autenticação Kerberos para o conector HDFS
+Há duas opções para configurar o ambiente local para usar a autenticação Kerberos no conector HDFS. Você pode escolher a que melhor se adapta ao seu caso.
+* Opção 1: [Fazer com que o computador do gateway ingresse no realm Kerberos](#kerberos-join-realm)
+* Opção 2: [habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos](#kerberos-mutual-trust)
+
+### <a name="a-namekerberos-join-realmaoption-1-make-gateway-machine-join-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: Fazer com que o computador do gateway ingresse no realm Kerberos
+
+#### <a name="requirement"></a>Requisito:
+
+* O computador do gateway precisa unir-se ao realm Kerberos e não pode ingressar em nenhum domínio do Windows.
+
+#### <a name="how-to-configure"></a>Como configurar:
+
+**No computador do gateway:**
+
+1.  Execute o utilitário **Ksetup** para configurar o servidor e o realm KDC Kerberos.
+
+    O computador deve ser configurado como um membro de um grupo de trabalho, uma vez que um realm Kerberos é diferente de um domínio do Windows. Para isso, defina o realm Kerberos e adicione um servidor KDC como se segue. Substitua *REALM.COM* pelo seu respectivo realm, conforme a necessidade.
+
+            C:> Ksetup /setdomain REALM.COM
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+
+    **Reinicie** o computador depois de executar esses 2 comandos.
+
+2.  Verifique a configuração com o comando **Ksetup**. A saída deve se parecer com esta:
+
+            C:> Ksetup
+            default realm = REALM.COM (external)
+            REALM.com:
+                kdc = <your_kdc_server_address>
+
+**No Azure Data Factory:**
+
+* Configure o conector HDFS usando a **autenticação do Windows** com o nome da entidade de segurança e a senha Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#hdfs-linked-service-properties) nos detalhes da configuração.
+
+### <a name="a-namekerberos-mutual-trustaoption-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: habilitar a confiança mútua entre o domínio do Windows e o realm Kerberos
+
+#### <a name="requirement"></a>Requisito:
+*   O computador do gateway deve ingressar em um domínio do Windows.
+*   Você precisa de permissão para atualizar as configurações do controlador de domínio.
+
+#### <a name="how-to-configure"></a>Como configurar:
+
+> [!NOTE]
+> Substitua REALM.COM e AD.COM no tutorial abaixo pelo seu próprio realm e controlador de domínio conforme a necessidade.
+
+**No servidor KDC:**
+
+1.  Edite a configuração do KDC no arquivo **krb5.conf** para permitir que o Domínio do Windows de confiança do KDC se refira ao modelo de configuração abaixo. Por padrão, a configuração está localizada em **/etc/krb5.conf**.
+
+            [logging]
+             default = FILE:/var/log/krb5libs.log
+             kdc = FILE:/var/log/krb5kdc.log
+             admin_server = FILE:/var/log/kadmind.log
+
+            [libdefaults]
+             default_realm = REALM.COM
+             dns_lookup_realm = false
+             dns_lookup_kdc = false
+             ticket_lifetime = 24h
+             renew_lifetime = 7d
+             forwardable = true
+
+            [realms]
+             REALM.COM = {
+              kdc = node.REALM.COM
+              admin_server = node.REALM.COM
+             }
+            AD.COM = {
+             kdc = windc.ad.com
+             admin_server = windc.ad.com
+            }
+
+            [domain_realm]
+             .REALM.COM = REALM.COM
+             REALM.COM = REALM.COM
+             .ad.com = AD.COM
+             ad.com = AD.COM
+
+            [capaths]
+             AD.COM = {
+              REALM.COM = .
+             }
+
+        **Restart** the KDC service after configuration.
+
+2.  Prepare uma entidade de segurança chamada **krbtgt/REALM.COM@AD.COM** no servidor KDC com o seguinte comando:
+
+            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
+
+3.  No arquivo de configuração de serviço HDFS **hadoop.security.auth_to_local**, adicione `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+
+**No controlador de domínio:**
+
+1.  Execute os comandos **Ksetup** abaixo para adicionar uma entrada de realm:
+
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+
+2.  Estabeleça uma relação de confiança do Domínio do Windows ao Realm Kerberos. [password] é a senha da entidade de segurança **krbtgt/REALM.COM@AD.COM**.
+
+            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+
+3.  Selecione o algoritmo de criptografia usado no Kerberos.
+
+    1. Vá para Gerenciador de Servidores > Gerenciamento de Política de Grupo > Domínio > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativa e Editar.
+
+    2. Na janela pop-up **Editor de Gerenciamento de Política de Grupo**, vá para Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas Locais > Opções de Segurança e configure **Segurança da rede: Configurar tipos de criptografia permitidos para Kerberos**.
+
+    3. Selecione o algoritmo de criptografia que você deseja usar ao se conectar ao KDC. Normalmente, você pode simplesmente selecionar todas as opções.
+
+        ![Configuração dos tipos de criptografia para Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+
+    4. Use o comando **Ksetup** para especificar o algoritmo de criptografia a ser usado no REALM específico.
+
+                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+
+4.  Crie o mapeamento entre a conta de domínio e a entidade de segurança Kerberos para usar a entidade de segurança Kerberos no Domínio do Windows.
+
+    1. Inicie as Ferramentas administrativas > **Usuários e Computadores do Active Directory**.
+
+    2. Configure recursos avançados clicando em **Exibir** > **Recursos Avançados**.
+
+    3. Localize a conta para a qual deseja criar mapeamentos e clique com o botão direito do mouse para exibir **Mapeamentos de Nome** > clique na guia **Nomes Kerberos**.
+
+    4. Adicione uma entidade de segurança do realm.
+
+        ![Mapear identidade de segurança](media/data-factory-hdfs-connector/map-security-identity.png)
+
+**No computador do gateway:**
+
+* Execute os comandos **Ksetup** abaixo para adicionar uma entrada de realm.
+
+            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+
+**No Azure Data Factory:**
+
+* Configure o conector HDFS usando a **autenticação do Windows** com a Conta de Domínio ou a Entidade de Segurança Kerberos para se conectar à fonte de dados HDFS. Verifique a seção de [propriedades do Serviço Vinculado HDFS](#hdfs-linked-service-properties) nos detalhes da configuração.
 
 
 ## <a name="hdfs-dataset-type-properties"></a>Propriedades do tipo de conjunto de dados do HDFS
@@ -266,9 +413,8 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique a pasta\\\\subpasta e para d:\pastadeexemplo, especifique d:\\\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pastas com base na fatia de data/hora de início/término. |Sim |
 | fileName |Especifique o nome do arquivo no **folderPath** se quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar algum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando o fileName não for especificado para um conjunto de dados de saída, o nome do arquivo gerado será no seguinte formato: <br/><br/>Data.<Guid>.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode usado para especificar um filename, folderPath dinâmico para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (um único caractere).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/>**Observação**: fileFilter é aplicável a um conjunto de dados FileShare de entrada |Não |
-| formato |Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat), [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| compactação |Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não têm suporte para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support) . |Não |
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat) e [Formato Parquet](#specifying-parquetformat). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, veja a seção [Especificando a compactação](#specifying-compression). |Não |
 
 > [!NOTE]
 > filename e fileFilter não podem ser usados simultaneamente.
@@ -281,25 +427,29 @@ Conforme mencionado na seção anterior, você pode especificar um filename, fol
 Confira os artigos [Criando conjuntos de dados](data-factory-create-datasets.md), [Agendamento e execução](data-factory-scheduling-and-execution.md) e [Criando pipelines](data-factory-create-pipelines.md) para saber mais sobre conjuntos de dados de série temporal, agendamentos e fatias.
 
 #### <a name="sample-1"></a>Exemplo 1:
-    "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy":
-    [
-        { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
-    ],
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
+"partitionedBy":
+[
+    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
+],
+```
 Nesse exemplo, {Slice} é substituído pelo valor da variável de sistema SliceStart do Data Factory no formato (AAAAMMDDHH) especificado. O SliceStart refere-se à hora de início da fatia. O folderPath é diferente para cada fatia. Por exemplo: wikidatagateway/wikisampledataout/2014100103 ou wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Exemplo 2:
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy":
-     [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
-    ],
 
+```JSON
+"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy":
+ [
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
+],
+```
 Neste exemplo, ano, mês, dia e hora do SliceStart são extraídos em variáveis separadas que são usadas pelas propriedades folderPath e fileName.
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
@@ -328,6 +478,6 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

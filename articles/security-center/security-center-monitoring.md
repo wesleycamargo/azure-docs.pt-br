@@ -1,5 +1,5 @@
 ---
-title: "Monitoramento de integridade de segurança na Central de Segurança do Azure | Microsoft Docs"
+title: "Monitoramento de segurança na Central de Segurança do Azure | Microsoft Docs"
 description: "Este artigo o ajuda a se familiarizar com o monitoramento de recursos na Central de segurança do Azure."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: b0694222548e39718f6626c1b1666584445f8398
-ms.openlocfilehash: 246b322378d581f6f263fd0adb96ef32f6962906
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: ae263615d5fa262eb8a8ed2e5461d92bec503f1d
 
 
 ---
@@ -60,8 +60,8 @@ Esta seção tem um conjunto de [recomendações para cada máquina virtual](sec
 
 > [!NOTE]
 > Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas na folha **Integridade de Rede** na lista **Topologia de rede**.
-> 
-> 
+>
+>
 
 Cada recomendação tem um conjunto de ações que podem ser executadas depois que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta. Ele lista as máquinas virtuais que estão sem patches e a gravidade da atualização ausente, conforme mostrado na captura de tela a seguir.
 
@@ -87,8 +87,8 @@ Para exibir os detalhes de recomendação, clique no nome da máquina virtual. U
 
 > [!NOTE]
 > As recomendações de segurança são as mesmas na folha de **Recomendações**. Confira o artigo [Implementar recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver as recomendações. Isso é aplicável não apenas a máquinas virtuais, mas também a todos os recursos que estão disponíveis no bloco **Integridade de Recursos**.
-> 
-> 
+>
+>
 
 #### <a name="virtual-machines-section"></a>Seção Máquinas virtuais
 A seção de máquinas virtuais fornece uma visão geral de todas as máquinas virtuais e recomendações. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:
@@ -217,7 +217,6 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 
 
 
-
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

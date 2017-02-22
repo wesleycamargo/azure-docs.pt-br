@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+ms.sourcegitcommit: 7b1b50f71158e62da6b8ceb741a5b8cf9795e3a4
+ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
 
 
 ---
@@ -219,7 +219,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>Regras de tráfego de rede para controlar a comunicação de função
 Depois de definir pontos de extremidade internos, você poderá adicionar regras de tráfego de rede (com base nos pontos de extremidade que você criou) para controlar como as instâncias de função podem se comunicar umas com os outras. O diagrama a seguir mostra alguns cenários comuns para o controle da comunicação de função:
 
-![Cenários de regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![Cenários de Regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de Regras de tráfego de rede")
 
 O exemplo de código a seguir mostra as definições de função das funções mostradas no diagrama anterior. Cada definição de função inclui pelo menos um ponto de extremidade interno definido:
 
@@ -375,6 +375,6 @@ Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

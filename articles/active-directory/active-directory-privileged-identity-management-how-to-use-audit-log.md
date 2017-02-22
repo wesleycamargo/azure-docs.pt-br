@@ -1,9 +1,9 @@
 ---
-title: Como usar o log de auditoria | Microsoft Docs
+title: Como usar o log de auditoria no Azure AD Privileged Identity Management | Microsoft Docs
 description: "Saiba como usar o log de auditoria na extensão do Privileged Identity Management do Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5ac402f1a5f76c02f22a189eec8cada0cc9b4a0f
+ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
+ms.openlocfilehash: a36231d9326158068e9460ed4594a79c744d3087
 
 
 ---
-# <a name="how-to-use-the-audit-log-in-azure-ad-privileged-identity-management"></a>Como usar o log de auditoria no Azure AD Privileged Identity Management
+# <a name="using-the-audit-log-in-pim"></a>Usar o log de auditoria no PIM
 Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](active-directory-view-access-usage-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>Navegar até o log de auditoria
@@ -62,6 +62,6 @@ Marque ou desmarque a caixa de seleção **Função** ao lado de cada função p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

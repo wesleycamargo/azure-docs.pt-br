@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: c3a6df9f91af5227526e06fe7e9ebb3006bd6948
+ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
+ms.openlocfilehash: 9af589d4a899702c7c2dd2e2bcf13d783d715380
 
 
 ---
@@ -32,7 +32,7 @@ O Azure fornece um conjunto abrangente de serviços para habilitar a extensão d
 Você pode usar a Rede Virtual do Azure para criar uma seção logicamente isolada no Azure e conectá-la com segurança ao datacenter local ou a um único computador cliente usando uma conexão IPsec. Com a Rede Virtual, você pode tirar proveito da infraestrutura escalonável sob demanda no Azure enquanto fornece conectividade aos dados e aplicativos locais, incluindo sistemas em execução no Windows Server, mainframes e UNIX. Para obter mais informações, confira a [documentação de rede do Azure](../virtual-network/virtual-networks-overview.md) .
 
 ## <a name="compute"></a>Computação
-Se estiver usando o Hyper-V local, você poderá "trocar de posição" as máquinas virtuais existentes para o Azure e provedores de serviço que executam o Windows Server 2012 (ou posterior), sem fazer alterações na VM nem converter formatos de VM. Para obter mais informações, consulte [Sobre discos e VHDs para máquinas virtuais do Azure](../virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se estiver usando o Hyper-V local, você poderá "trocar de posição" as máquinas virtuais existentes para o Azure e provedores de serviço que executam o Windows Server 2012 (ou posterior), sem fazer alterações na VM nem converter formatos de VM. Para obter mais informações, consulte [Sobre discos e VHDs para máquinas virtuais do Azure](../storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 Caso você queira o DRaaS (recuperação de desastre como um serviço), o Azure oferece o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/). O Azure Site Recovery oferece proteção abrangente para servidores VMware, Hyper-V e servidores físicos. Com o Azure Site Recovery, você pode usar outro servidor local ou o Azure como o site de recuperação. Para obter mais informações sobre o Azure Site Recovery, confira a [documentação do Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/).
@@ -99,6 +99,6 @@ Este artigo faz parte de uma série que tem como foco [Orientações técnicas d
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

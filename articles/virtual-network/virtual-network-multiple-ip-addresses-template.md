@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7d60b453fec2ce4c78179419362eee30ab7cb2
-ms.openlocfilehash: d3ac0587a89625501ea3d295ef19826205ab5cc8
+ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
+ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
 
 
 ---
@@ -48,7 +48,7 @@ A implantação de um modelo permite a você criar de forma rápida e consistent
 
 |Nome|Descrição|
 |---|---|
-|adminUsername|Nome de usuário do administrador. O nome de usuário deve atender aos [requisitos de nome de usuário do Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
+|adminUsername|Nome de usuário do administrador. O nome de usuário deve atender aos [requisitos de nome de usuário do Azure](../virtual-machines/virtual-machines-windows-faq.md).|
 |adminPassword|Senha de administrador A senha deve atender aos [requisitos de senha do Azure](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|Nome DNS para PublicIPAddressName1. O nome DNS resolverá para um dos endereços IP públicos atribuídos à VM. O nome deve ser exclusivo dentro da região do Azure (local) em que você criar a VM.|
 |dnsLabelPrefix1|Nome DNS para PublicIPAddressName2. O nome DNS resolverá para um dos endereços IP públicos atribuídos à VM. O nome deve ser exclusivo dentro da região do Azure (local) em que você criar a VM.|
@@ -67,9 +67,26 @@ Você pode usar o Portal do Azure, o PowerShell ou a CLI (interface de linha de 
 
 Para implantar o modelo usando o Portal do Azure, siga as etapas a seguir:
 
-1. Registre-se para a visualização enviando um email para [Vários IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com sua ID de assinatura e o uso pretendido. Não tente concluir as etapas restantes:
-    - Até que você receba um email notificando de que foi aceito para a visualização
-    - Sem seguir as instruções no email recebido 
+1. Registre-se para obter a prévia executando os seguintes comandos do PowerShell após o logon e selecione a assinatura apropriada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Não tente concluir as etapas restantes até ver a saída a seguir ao executar o comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Isso pode levar alguns minutos.
+
 2. Modificar o modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 3. Implante o modelo com um dos seguintes métodos:
     - **Selecionar o modelo no portal:** siga as etapas descritas no artigo [Implantar recursos de modelo personalizado](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template). Escolha o modelo pré-existente denominado *101-vm-multiple-ipconfig*.
@@ -81,9 +98,26 @@ Independentemente do método escolhido, você precisará fornecer valores para o
 
 Para implantar o modelo usando o PowerShell, siga as etapas a seguir:
 
-1. Registre-se para a visualização enviando um email para [Vários IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com sua ID de assinatura e o uso pretendido. Não tente concluir as etapas restantes:
-    - Até que você receba um email notificando de que foi aceito para a visualização
-    - Sem seguir as instruções no email recebido
+1. Registre-se para obter a prévia executando os seguintes comandos do PowerShell após o logon e selecione a assinatura apropriada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Não tente concluir as etapas restantes até ver a saída a seguir ao executar o comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Isso pode levar alguns minutos.
+
 2. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com o PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). O artigo descreve várias opções para implantar um modelo. Se você escolher implantar usando o `-TemplateUri parameter`, o URI deste modelo será *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `-TemplateFile`, copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `-TemplateParameterFile`.
@@ -99,14 +133,31 @@ Para implantar o modelo usando o PowerShell, siga as etapas a seguir:
 
 Para implantar o modelo usando a CLI 1.0 do Azure, siga as etapas a seguir:
 
-1. Registre-se para a visualização enviando um email para [Vários IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com sua ID de assinatura e o uso pretendido. Não tente concluir as etapas restantes:
-    - Até que você receba um email notificando de que foi aceito para a visualização
-    - Sem seguir as instruções no email recebido
+1. Registre-se para obter a prévia executando os seguintes comandos do PowerShell após o logon e selecione a assinatura apropriada:
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
+    Não tente concluir as etapas restantes até ver a saída a seguir ao executar o comando ```Get-AzureRmProviderFeature```:
+        
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
+        
+    >[!NOTE] 
+    >Isso pode levar alguns minutos.
+
 2. Implante o modelo seguindo as etapas descritas no artigo [Implantar um modelo com a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy). O artigo descreve várias opções para implantar o modelo. Se você escolher implantar usando o `--template-uri` (-f), o URI deste modelo será *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. Se você optar por implantar usando o parâmetro `--template-file` (-f), copie o conteúdo do [arquivo de modelo](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) do GitHub para um novo arquivo em seu computador. Modifique o conteúdo do modelo, se desejado. O modelo implanta os recursos e configurações listados na seção [recursos](#resources) deste artigo. Para saber mais sobre os modelos e como criá-los, leia o artigo [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `--parameters-file` (-e).
     
-    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli).
+    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
 
 3. Depois que a VM for implantada, conecte-se à VM e adicione os endereços IP privados ao sistema operacional implantado, seguindo as etapas na seção [Adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
 
@@ -114,6 +165,6 @@ Para implantar o modelo usando a CLI 1.0 do Azure, siga as etapas a seguir:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 865ddf4e8849c8c94ac8e20a22874e2edaead646
+ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
+ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
 
 
 ---
@@ -137,9 +137,9 @@ Os erros a seguir estão relacionados à criação e uso de pools elásticos.
 
 Tópicos relacionados:
 
-* [Criar um pool elástico (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Criar um pool elástico (C#)](sql-database-elastic-pool-manage-csharp.md) 
 * [Gerenciar um pool elástico (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Criar um pool elástico (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Criar um pool elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
 * [Monitorar e gerenciar um pool elástico (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## <a name="general-errors"></a>Erros gerais
@@ -219,6 +219,6 @@ Os erros a seguir não se enquadram em nenhuma categoria anterior.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

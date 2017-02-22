@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
-ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
+ms.sourcegitcommit: f78081d173bfe255a3ed8016d10a2deec87ac758
+ms.openlocfilehash: 684515213fc2533e56600cacf3bc0a3a33f337c2
 
 
 ---
@@ -34,7 +34,7 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
     Login-AzureRmAccount
     ```
 3. Execute o seguinte comando para registrar o provedor do Azure Data Factory.
-    
+
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
@@ -109,7 +109,7 @@ Esse erro normalmente indica que o local da conta de armazenamento especificado 
 Além disso, há uma segunda propriedade JSON additionalLinkedServiceNames, em que as contas de armazenamento adicionais podem ser especificadas no HDInsight sob demanda. Essas contas de armazenamento adicionais vinculadas devem estar no mesmo local que o cluster HDInsight, ou falharão com o mesmo erro.
 
 ### <a name="problem-custom-net-activity-fails"></a>Problema: falha de atividade .NET personalizada
-Consulte [Depurar um pipeline com atividade personalizada](data-factory-use-custom-activities.md#debug-the-pipeline) para obter etapas detalhadas.
+Consulte [Depurar um pipeline com atividade personalizada](data-factory-use-custom-activities.md#troubleshoot-failures) para obter etapas detalhadas.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usar o portal do Azure para solucionar o problema
 ### <a name="using-portal-blades"></a>Usando as folhas do portal
@@ -153,6 +153,6 @@ Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-fa
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

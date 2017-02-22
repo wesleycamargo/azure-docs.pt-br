@@ -1,5 +1,5 @@
 ---
-title: "H264 Taxa de Bits Única 4x3 SD | Microsoft Docs"
+title: "Predefinição do Media Encoder Standard H264 Taxa de Bits Única 4x3 – Azure | Microsoft Docs"
 description: "O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única 4x3 SD**."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: da0670e4ad623902557eab53394cf2a98a8b45bf
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
   
  Este tópico mostra a predefinição `H264 Single Bitrate 4x3 SD` no formato XML e JSON.  
   
- Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
+ Essa predefinição produz um único arquivo MP4 com uma taxa de bits de 1800 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, taxa de bits, taxa de amostragem etc. dessa predefinição, examine o XML ou JSON definido abaixo. Para obter explicações sobre o significado de cada elemento nessas predefinições, e os valores válidos para cada elemento, veja o tópico [Esquema do Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   
@@ -118,6 +118,7 @@ ms.openlocfilehash: b28b80e8ddff9e5ce3ebd5b21dc2045dce42fad0
 ```
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO4-->
 
 

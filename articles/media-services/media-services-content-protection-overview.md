@@ -1,5 +1,5 @@
 ---
-title: "Visão geral sobre a proteção de conteúdo | Microsoft Docs"
+title: "Proteger seu conteúdo com os Serviços de Mídia do Azure | Microsoft Docs"
 description: "Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
 
 
 ---
@@ -27,10 +27,8 @@ A imagem a seguir demonstra os fluxos de trabalho de proteção de conteúdo que
 
 ![Proteger com o PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-> [!NOTE]
-> Para poder usar criptografia dinâmica, primeiro é necessário obter pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo criptografado.
-> 
-> 
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
 
 Este tópico explica os [conceitos e terminologia](media-services-content-protection-overview.md) relevantes para entender a proteção de conteúdo com o AMS. O tópico também contém [links](media-services-content-protection-overview.md#common-scenarios) para os tópicos que mostram como realizar as tarefas de proteção de conteúdo. 
 
@@ -45,10 +43,6 @@ Você também precisa configurar a política de entrega do ativo. Se você desej
 
 Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave de limpeza do AES ou a criptografia DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-> [!NOTE]
-> Para tirar proveito da criptografia dinâmica, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo criptografado. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="storage-encryption"></a>Criptografia do armazenamento
 Use a criptografia de armazenamento para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits, em seguida, carregue-o no Armazenamento do Azure no qual é armazenado e criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
@@ -96,6 +90,10 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 * [Como integrar o serviço de Licença do Azure PlayReady em seu próprio servidor de criptografia/streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 * [Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
 
+>[!NOTE]
+>Um cenário no qual você usa um servidor (tecnologia) DRM externo e, atualmente, não há suporte ao fluxo do AMS.
+
+
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -111,7 +109,7 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT.](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
@@ -119,6 +117,6 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

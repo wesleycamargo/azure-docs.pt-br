@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ A Área de Trabalho Remota permite que você acesse a área de trabalho da inst�
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Instalar e configurar o [Powershell do Azure](../powershell-install-configure.md).
+* Instalar e configurar o [Powershell do Azure](/powershell/azureps-cmdlets-docs).
 * Implantar um aplicativo Node.js em um Serviço de Nuvem do Azure. Para saber mais, consulte [Criar e implantar um aplicativo Node.js em um Serviço de Nuvem do Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Etapa 1: Usar o PowerShell do Azure para configurar o serviço para acesso à área de trabalho remota
@@ -106,6 +106,6 @@ Quando você não precisar mais de conexões de área de trabalho remota para as
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

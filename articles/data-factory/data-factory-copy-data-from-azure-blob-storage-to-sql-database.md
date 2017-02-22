@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 19436167ad8e82f47b147efc65c635d9bf2d2ae5
-ms.openlocfilehash: 0072e1db4758447445b97021e1624c2210fbd0a7
+ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
+ms.openlocfilehash: 70c38f155874c5d9254260c684fea23e22dd59fd
 
 
 ---
@@ -123,8 +123,12 @@ Você concluiu os pré-requisitos. Você pode criar um data factory usando um do
 * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
+> [!NOTE]
+> O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Ele não transforma dados de entrada para gerar dados de saída. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, confira [Tutorial: criar seu primeiro pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
+> 
+> É possível encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

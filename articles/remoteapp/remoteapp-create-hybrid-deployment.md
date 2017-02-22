@@ -3,7 +3,7 @@ title: "Como criar uma coleção híbrida para o Azure RemoteApp | Microsoft Doc
 description: "Aprenda a criar uma implantação de RemoteApp que se conecta à sua rede interna."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ Você precisa fazer o seguinte antes de criar a coleção:
 * [Inscreva-se](https://azure.microsoft.com/services/remoteapp/) no Azure RemoteApp.
 * Crie uma conta de usuário no Active Directory para usar como conta de serviço do Azure RemoteApp. Restrinja as permissões para esta conta para que ela possa conectar-se somente às máquinas no domínio.
 * Colete informações sobre a sua rede local: informações sobre endereço IP e detalhes do dispositivo VPN.
-* Instale o módulo [PowerShell do Azure](../powershell-install-configure.md) .
+* Instale o módulo [PowerShell do Azure](/powershell/azureps-cmdlets-docs) .
 * Colete informações sobre os usuários aos quais deseja conceder acesso. Você precisará do nome principal do Azure Active Directory (por exemplo, name@contoso.com) para cada usuário. Verifique se o UPN faz a correspondência entre o Azure AD e o Active Directory.
 * Escolha sua imagem de modelo. Uma imagem de modelo do Azure RemoteApp contém aplicativos e programas que você quer publicar para os usuários. Consulte [Opções de imagem do Azure RemoteApp](remoteapp-imageoptions.md) para saber mais.
 * Deseja usar a imagem do Office 365 ProPlus? Verifique as informações [aqui](remoteapp-officesubscription.md).
@@ -126,7 +126,7 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
    
    **Observações:**
    
-   Use o formato “user@domain.com”.
+   Lembre-se de usar o formato *user@domain.com*.
    
    Se você estiver usando o Office 365 ProPlus em sua coleção, você deve usar as identidades do Active Directory para os usuários. Isso ajuda a validar o licenciamento.
 3. Assim que os usuários forem validados, clique em **Salvar**.
@@ -140,6 +140,6 @@ Você sabia que, além de classificar este artigo e fazer comentários, você po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

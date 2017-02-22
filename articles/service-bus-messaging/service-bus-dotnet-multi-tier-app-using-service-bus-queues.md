@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
-ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
+ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
+ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
 
 
 ---
@@ -57,6 +57,15 @@ Esse mecanismo de comunicação oferece diversas vantagens sobre mensagens diret
   ![][2]
 
 As seções a seguir discutem o código que implementa essa arquitetura.
+
+## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
+Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
+
+1. Instale o SDK do Azure para .NET em [Obter ferramentas e SDK](https://azure.microsoft.com/downloads/).
+2. Clique na coluna **.NET**, clique na versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
+3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
+4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
+5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
 A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.

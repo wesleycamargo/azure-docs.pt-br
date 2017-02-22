@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: cc42e6629c256d1fe6e5b082c88ebb2497484318
+ms.sourcegitcommit: c63758346ebd8fa3d4c43e59c84bc2a6935e4bf7
+ms.openlocfilehash: 7f7d0c52b2b50a360711477e8e0eafc07ddcf374
 
 
 ---
@@ -102,8 +102,8 @@ container = azure_blob_service.create_container("test-container",
 
 Os valores válidos da opção **:public\_access\_level** são:
 
-* **blob:** Especifica o acesso de leitura público completo dos dados do contêiner e de blob. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
-* **contêiner:** Especifica o acesso de leitura público de blobs. Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
+* **blob:** especifica o acesso de leitura público de blobs. Os dados do blob nesse contêiner podem ser lidos por meio de solicitação anônima, mas os dados do contêiner não estão disponíveis. Os clientes não podem enumerar os blobs no contêiner por meio de uma solicitação anônima.
+* **contêiner:** especifica o acesso de leitura público completo dos dados do contêiner e de blob. Os clientes podem enumerar os blobs no contêiner por meio de uma solicitação anônima, mas não podem enumerar os contêineres em uma conta de armazenamento.
 
 Você também pode modificar o nível de acesso público de um contêiner usando **set\_container\_acl()** para especificar o nível de acesso público.
 
@@ -168,6 +168,6 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

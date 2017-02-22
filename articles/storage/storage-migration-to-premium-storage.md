@@ -1,9 +1,9 @@
 ---
-title: Migrando para o Armazenamento Premium do Azure | Microsoft Docs
-description: "Migre as máquinas virtuais existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
+title: Migrando VMs para o Armazenamento Premium do Azure | Microsoft Docs
+description: "Migre VMs existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
 services: storage
 documentationcenter: na
-author: aungoo-msft
+author: yuemlu
 manager: tadb
 editor: tysonn
 ms.assetid: 272250b3-fd4e-41d2-8e34-fd8cc341ec87
@@ -12,16 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 02/06/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ad39a17ae7aa6d7a1e2de0acee7259821e481728
+ms.sourcegitcommit: 4582049fa1d369ea63395514336d26a524dbfdbe
+ms.openlocfilehash: b3f1b2b4e257fea0dd9324b02ea9aad3e1a645e4
 
 
 ---
-# <a name="migrating-to-azure-premium-storage"></a>Migrando para o Armazenamento do Azure Premium
-## <a name="overview"></a>Visão geral
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o Armazenamento Premium do Azure (Discos não gerenciados)
+
+> [!NOTE]
+> Este artigo explica como migrar uma VM que usa discos Standard não gerenciados para uma VM que usa discos Premium não gerenciados. É recomendável usar o Azure Managed Disks para novas VMs e converter os discos não gerenciados anteriores em disco gerenciados. O Managed Disks tratam das contas de armazenamento subjacentes para você. Para saber mais, confira [Managed Disks Overview](storage-managed-disks-overview.md) (Visão geral do Managed Disks).
+>
+
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Você pode tirar proveito da velocidade e desempenho desses discos migrando os discos de VM do aplicativo para o Armazenamento do Azure Premium.
 
 O objetivo deste guia é ajudar novos usuários do Armazenamento Premium do Azure a se preparar melhor para fazer uma transição sem problemas de seu sistema atual para o Armazenamento Premium. O guia aborda três principais componentes nesse processo:
@@ -35,7 +39,6 @@ Você pode migrar VMs de outras plataformas para o Armazenamento do Azure Premiu
 > [!NOTE]
 > Você pode encontrar uma visão geral de recursos e os preços do Armazenamento Premium em [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho de Máquina Virtual do Azure](storage-premium-storage.md). É recomendável migrar qualquer disco de máquina virtual que exija IOPS alta para o Armazenamento Premium do Azure para obter o melhor desempenho para o seu aplicativo. Se o disco não requer IOPS alta, você pode limitar os custos mantendo-a no armazenamento padrão, que armazena dados de disco da máquina virtual em HDDs (unidades de disco rígido) em vez de SSDs.
 >
->
 
 A conclusão do processo de migração em sua totalidade pode exigir ações adicionais antes e depois das etapas fornecidas neste guia. Os exemplos incluem a configuração pontos de extremidade ou redes virtuais ou alterações de código no próprio aplicativo, o que pode exigir algum tempo de inatividade no aplicativo. Essas ações são exclusivas para cada aplicativo e devem ser concluídas junto com as etapas fornecidas neste guia para fazer a transição completa para o Armazenamento Premium da maneira mais simples possível.
 
@@ -44,7 +47,7 @@ Esta seção garante que você se prepare para seguir as etapas de migração ne
 
 ### <a name="prerequisites"></a>Pré-requisitos
 * Você também precisará de uma assinatura do Azure. Se ainda não tiver uma, você poderá criar uma assinatura de [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) de um mês ou visitar [Preços do Azure](https://azure.microsoft.com/pricing/) para obter mais opções.
-* Para executar os cmdlets PowerShell, você precisará do módulo Microsoft Azure PowerShell. Consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md) para obter o ponto e as instruções de instalação.
+* Para executar os cmdlets PowerShell, você precisará do módulo Microsoft Azure PowerShell. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs) para obter o ponto e as instruções de instalação.
 * Quando planeja usar VMs do Azure em execução no Armazenamento Premium, você precisa usar VMs compatíveis com o Armazenamento Premium. Você pode usar discos de Armazenamento Standard e Premium com VMs compatíveis com o Armazenamento Premium. Os discos de armazenamento Premium estarão disponíveis com mais tipos de VM no futuro. Para obter informações sobre todos os tamanhos e tipos de discos de VM do Azure disponíveis, veja [Tamanhos para máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Tamanhos para Serviços de Nuvem](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Considerações
@@ -313,7 +316,7 @@ Um exemplo de script de migração é fornecido no fim desta seção. Este scrip
 Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração limpa, você precisa interromper todo o processamento no sistema atual. Só então você pode colocá-lo em estado consistente, podendo então migrar para a nova plataforma. A duração do tempo de inatividade dependerá da quantidade de dados nos discos para migração.
 
 > [!NOTE]
-> Se você estiver criando uma VM do Azure Resource Manager por meio de um Disco de VHD especializado, confira [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) para implantação da VM do Resource Manager usando o disco existente.
+> Se você estiver criando uma VM do Azure Resource Manager por meio de um Disco de VHD especializado, confira [este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) para implantação da VM do Resource Manager usando o disco existente.
 >
 >
 
@@ -773,6 +776,6 @@ Confira também as fontes a seguir para saber mais sobre o Armazenamento do Azur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

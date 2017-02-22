@@ -1,9 +1,9 @@
 ---
-title: "Controlando o comportamento de cache da CDN Premium do Azure da Verizon para as solicitações com cadeias de consulta | Microsoft Docs"
+title: Controlando o comportamento de cache da CDN do Azure com cadeias de consulta - Premium | Microsoft Docs
 description: "O cache da cadeia de caracteres de consulta da CDN do Azure controla como os arquivos devem ser armazenados em cache quando contêm cadeias de caracteres de consulta."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 20efef4e60da6a0ab07eab22ff18e7ae9ab12a30
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
 
 
 ---
-# <a name="controlling-caching-behavior-of-cdn-requests-with-query-strings---premium"></a>Controlando o comportamento do cache de solicitações CDN com cadeias de caracteres de consulta - Premium
+# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Controle o comportamento do caching da CDN do Azure com cadeias de consulta - Premium
 > [!div class="op_single_selector"]
 > * [Standard](cdn-query-string.md)
 > * [CDN Premium do Azure da Verizon](cdn-query-string-premium.md)
@@ -62,6 +62,6 @@ Existem três modos disponíveis:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,43 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
-ms.author: anishk;hascipio
+ms.date: 12/05/2016
+ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eef2036f4d65f3101773a12ed28c4d892f7530c9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
 
 
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovação por meio do programa de certificação do Microsoft Azure
-Este artigo fornece instruções de como se tornar certificado no Microsoft Azure. Para obter uma visão geral detalhada do programa de certificação do Microsoft Azure e seus benefícios, visite [http://azure.com/certified](http://azure.com/certified)
+Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified para que você possa publicar sua solução no Azure Marketplace e ser elegível para receber benefícios de marketing. Para obter uma visão geral detalhada do programa de certificação do Microsoft Azure e seus benefícios, visite [http://azure.com/certified](http://azure.com/certified)
 
-> [!NOTE]
-> A certificação do Azure é aplicável somente se você pretende criar uma Máquina Virtual, o modelo de solução e serviços de desenvolvedor para o Azure Marketplace. Se você não estiver criando algum desses artefatos, ignore esta etapa e avance para [Conta de vendedor da Microsoft: criação e registro](marketplace-publishing-accounts-creation-registration.md).
-> 
-> 
+> [!IMPORTANT]
+> A certificação do Azure será aplicável somente se você pretende criar uma máquina virtual ou modelo de solução para o Azure Marketplace.
 
 ## <a name="getting-started"></a>Introdução
-1. É a primeira etapa no caminho para obter seu aplicativo ou serviço certificado e embutido para Azure Marketplace preencher o formulário de inscrição na página da Web [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/partner-program/) .
-2. Se você atende aos critérios de qualificação básica pedimos que você compartilhe mais alguns detalhes sobre seus negócios e o aplicativo ou serviço que você deseja certificar. Quando tivermos todos os detalhes de você, examinaremos seu aplicativo para garantir que ele é uma boa opção para o Azure Marketplace. Se seu aplicativo for aprovado, começaremos a trabalhar com você para integrar sua solução ao Azure Marketplace.
-3. Se você estiver trabalhando com um gerente de conta de parceiro ou gerente de parceiro DX, peça a ele para nomear você para o programa Azure Certified. Ou vá para a página da Web [Microsoft Azure Certified](http://azure.com/certified) , clique em **"Solicitar informações"**e preencha o formulário do aplicativo.
+1. O primeiro passo para certificar e integrar sua solução no Azure Marketplace é preencher o formulário de inscrição na página da Web [Microsoft Azure Certified](https://createopportunity.azurewebsites.net).
+2. Se você atender aos critérios de elegibilidade e seu aplicativo for aprovado, começaremos a trabalhar com você para integrar sua solução ao Azure Marketplace.
+3. Se você estiver trabalhando com um Gerente de Conta de Parceiro ou Gerente de Parceiro DX, peça para ele nomear sua solução para o programa Azure Certified OU acesse a página da Web [Microsoft Azure Certified](http://createopportunity.azurewebsites.net), preencha o formulário de inscrição e insira o email do seu Gerente de Conta de Parceiro ou Gerente de Parceiro DX no campo Contato Responsável da Microsoft.
 
-**Países de “origem de venda”**
+> [!IMPORTANT]
+> **Países de “Origem de venda”** ‑ Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa ser de um dos países aprovados para “origem de venda”. Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
-> [!WARNING]
-> Para vender seus serviços no Microsoft Azure Marketplace, sua entidade registrada precisa estar dentro dos países aprovados para "origem de venda". Essa restrição é por razões de pagamento e tributação. Estamos considerando a expansão dessa lista de países em um futuro próximo, portanto, fique atento. Para obter a lista completa, consulte seção 1b das [Políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
-> 
-> 
 
 ## <a name="next-step"></a>Próxima etapa
-Depois que você receber aprovação prévia do programa Microsoft Azure Certified, você poderá prosseguir para [Conta de vendedor da Microsoft: criação e registro](marketplace-publishing-accounts-creation-registration.md).
+Depois que você receber a aprovação prévia do programa Microsoft Azure Certified, poderá prosseguir para [Registrar sua conta da Microsoft como um vendedor da Microsoft](marketplace-publishing-accounts-creation-registration.md).
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

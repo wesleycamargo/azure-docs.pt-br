@@ -1,5 +1,5 @@
 ---
-title: "Criar uma máquina virtual para um aplicativo Web| Microsoft Docs"
+title: "Criar uma máquina virtual do Windows para um aplicativo Web| Microsoft Docs"
 description: Criando uma VM para um projeto Web usando o Visual Studio e o Windows.
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,22 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/09/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6aa80057c5c36fdd57f6985bb5026cf7dcc364a
+ms.sourcegitcommit: ed43a0ae9d1b184bfe059103cd2bee00c975537d
+ms.openlocfilehash: f7ab198bd72d23aa1bcc4c6516d9f2de281dec6e
 
 
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Criando uma máquina virtual para um aplicativo Web com o Visual Studio
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

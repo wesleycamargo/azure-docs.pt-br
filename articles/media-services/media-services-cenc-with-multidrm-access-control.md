@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 1ea286a04c84d031fcefa8dc771cbdef9d8a9b72
 
 
 ---
@@ -296,15 +296,15 @@ E se a substituição de chave acontece depois que o AAD gera um token JWT, mas 
 Como uma chave pode ser substituída a qualquer hora, há sempre mais de uma chave pública válida disponível no documento de metadados de federação. A entrega de licença dos Serviços de Mídia do Azure pode usar qualquer uma das chaves especificadas no documento, já que uma das chaves pode ser substituída em breve, a outra pode ser a sua substituta e assim por diante.
 
 ### <a name="where-is-the-access-token"></a>Onde está o Token de Acesso?
-Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#web-application-to-web-api), verá que o fluxo de autenticação é o seguinte:
+Se você der uma olhada em como um aplicativo Web chama um aplicativo de API em [Identidade do aplicativo com concessão de credenciais de cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), verá que o fluxo de autenticação é o seguinte:
 
-1. Um usuário está conectado ao AD do Azure no aplicativo Web (confira [Navegador da Web para o aplicativo Web](../active-directory/active-directory-authentication-scenarios.md#web-browser-to-web-application)).
+1. Um usuário está conectado ao AD do Azure no aplicativo Web (confira [Navegador da Web para o aplicativo Web](../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)).
 2. O ponto de extremidade de autorização do AD do Azure redireciona o agente do usuário para o aplicativo cliente com um código de autorização. O agente do usuário retorna o código de autorização ao URI de redirecionamento do aplicativo cliente.
 3. O aplicativo Web precisa adquirir um token de acesso para que ele possa autenticar a API da Web e recuperar o recurso desejado. Ele faz uma solicitação ao ponto de extremidade do token do Azure AD, fornecendo a credencial, a ID do cliente e o URI de ID do aplicativo da API da Web. Ele apresenta o código de autorização para comprovar que o usuário consentiu.
 4. O Azure AD autentica o aplicativo e retorna um token de acesso JWT que é usado para chamar a API da Web.
 5. Via HTTPS, o aplicativo Web usa o token de acesso JWT retornado para adicionar a cadeia de caracteres JWT com uma designação de "Portador" no cabeçalho de autorização da solicitação à API da Web. A API da Web, em seguida, valida o token JWT e, se a validação for bem-sucedida, retorna o recurso desejado.
 
-Nesse fluxo de "identidade do aplicativo", a API Web confia que o aplicativo Web autenticou o usuário. Por esse motivo, esse padrão é chamado de subsistema confiável. O [diagrama nesta página](http://msdn.microsoft.com/library/azure/dn645542.aspx/) descreve como funciona o fluxo de concessão do código de autorização.
+Nesse fluxo de "identidade do aplicativo", a API Web confia que o aplicativo Web autenticou o usuário. Por esse motivo, esse padrão é chamado de subsistema confiável. O [diagrama nesta página](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) descreve como funciona o fluxo de concessão do código de autorização.
 
 Na aquisição de licença com restrição de token, seguimos o mesmo padrão de subsistema confiável. E o serviço de entrega de licença nos Serviços de Mídia do Azure é o recurso de API Web, o "recurso de back-end" que o aplicativo Web precisa acessar. Onde está o token de acesso?
 
@@ -458,6 +458,6 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
  
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

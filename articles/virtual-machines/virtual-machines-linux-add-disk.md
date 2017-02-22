@@ -14,11 +14,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.date: 09/06/2016
-ms.author: rclaus
+ms.date: 02/02/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
-ms.openlocfilehash: 5e9fb48fdf0da9a1c75f4d08ab7d97976859340c
+ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
+ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
 
 
 ---
@@ -28,12 +28,72 @@ Este artigo mostra como anexar um disco persistente à sua VM para que você pos
 ## <a name="quick-commands"></a>Comandos rápidos
 O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
 
+Para usar os discos gerenciados:
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+Para usar os discos não gerenciados:
+
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
 ```
 
-## <a name="attach-a-disk"></a>Anexar um disco
-Anexar um novo disco é rápido. Digite `azure vm disk attach-new myResourceGroup myVM sizeInGB` para criar e anexar um novo disco GB à sua VM. Se você não identificar explicitamente uma conta de armazenamento, qualquer disco que você criar será colocado na mesma conta de armazenamento na qual o disco do sistema operacional reside. O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
+## <a name="attach-a-managed-disk"></a>Anexar um disco gerenciado
+
+O uso de discos gerenciados permite que você se concentre em suas VMs e nos discos sem se preocupar com as contas de Armazenamento do Azure. Você pode criar e anexar rapidamente um disco gerenciado a uma VM usando o mesmo grupo de recursos do Azure, ou pode criar qualquer quantidade de discos e anexá-los.
+
+
+### <a name="attach-a-new-disk-to-a-vm"></a>Anexar um novo disco a uma VM
+
+Se você precisar apenas de um novo disco em sua VM, você pode usar o comando `az vm disk attach`.
+
+```azurecli
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+```
+
+### <a name="attach-an-existing-disk"></a>Anexar um disco existente 
+
+Em muitos casos, você anexa discos que já foram criados. Primeiro você encontrará a identificação de disco e, depois, a passará para o comando `az vm disk attach-disk`. O código a seguir usa um disco criado com `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+
+```azurecli
+# find the disk id
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+```
+
+A saída é algo semelhante ao seguinte (você pode usar a opção `-o table` para qualquer comando a fim de formatar a saída):
+
+```json
+{
+  "accountType": "Standard_LRS",
+  "creationData": {
+    "createOption": "Empty",
+    "imageReference": null,
+    "sourceResourceId": null,
+    "sourceUri": null,
+    "storageAccountId": null
+  },
+  "diskSizeGb": 50,
+  "encryptionSettings": null,
+  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
+  "location": "westus",
+  "name": "myDataDisk",
+  "osType": null,
+  "ownerId": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "tags": null,
+  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
+  "type": "Microsoft.Compute/disks"
+}
+```
+
+
+## <a name="attach-an-unmanaged-disk"></a>Anexar um disco não gerenciado
+
+O processo de anexar um novo disco é rápido se você não se importar em criar um disco na mesma conta de armazenamento que sua VM. Digite `azure vm disk attach-new` para criar e anexar um novo disco GB à sua VM. Se você não identificar explicitamente uma conta de armazenamento, qualquer disco que você criar será colocado na mesma conta de armazenamento na qual o disco do sistema operacional reside. O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
 azure vm disk attach-new myResourceGroup myVM 50
@@ -292,6 +352,6 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

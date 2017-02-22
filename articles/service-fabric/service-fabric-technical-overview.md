@@ -1,5 +1,5 @@
 ---
-title: "Visão geral da terminologia do Service Fabric | Microsoft Docs"
+title: Aprenda a terminologia do Azure Service Fabric | Microsoft Docs
 description: "Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação."
 services: service-fabric
 documentationcenter: .net
@@ -12,16 +12,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/25/2016
+ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
 
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. Este tópico fornece detalhes da terminologia usada no Service Fabric para entender os termos usados na documentação.
+
+Os conceitos listados nesta seção também são abordados nos seguintes vídeos da Microsoft Virtual Academy: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">Conceitos principais</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">Conceitos de tempo de design</a> e <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">Conceitos de tempo de execução</a>.
 
 ## <a name="infrastructure-concepts"></a>Conceitos de infraestrutura
 **Cluster**: um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados.  Os clusters podem ser dimensionados para milhares de máquinas.
@@ -59,6 +61,8 @@ Há dois tipos de serviço:
 
 **Pacote de Configuração**: um diretório de disco contendo os arquivos de configuração estáticos e somente leitura do tipo de serviço (normalmente arquivos de texto). Os arquivos no diretório do pacote de configuração são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, os arquivos no pacote de configuração é copiado para um ou mais nós selecionados para executar o serviço nomeado. O código começa a ser executado e agora pode acessar os arquivos de configuração.
 
+**Contêineres**: por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em imagens de contêiner. Contêineres são uma tecnologia de virtualização que virtualiza o sistema operacional subjacente de aplicativos. Um aplicativo e seu tempo de execução, suas dependências e suas bibliotecas de sistema são executados dentro de um contêiner com acesso privado e completo à exibição isolada própria do contêiner dos constructos do sistema operacional. O Service Fabric dá suporte a contêineres do Docker em contêineres Linux e Windows Server.  Para obter mais informações, leia [Service Fabric e contêineres](service-fabric-containers-overview.md).
+
 **Esquema de Partição**: ao criar um serviço nomeado, você especifica um esquema de partição. Serviços com grandes quantidades de estado dividem os dados entre as partições, que se espalham pelos nós do cluster. Isso permite que o estado de seu serviço nomeado seja dimensionado. Dentro de uma partição, serviços nomeados sem estado têm instâncias, enquanto serviços nomeados com estado têm réplicas. Normalmente, os serviços nomeadas sem estado têm apenas uma partição, já que não têm estado interno. As instâncias de partição fornecem disponibilidade; se uma instância falha, outras instâncias continuam a funcionar normalmente e, em seguida, o Service Fabric cria uma nova instância. Serviços nomeados com estado mantêm seu estado dentro de réplicas, e cada partição tem sua própria réplica, com todo o estado mantido em sincronia. Caso uma réplica falhe, o Service Fabric compila uma nova réplica a partir das réplicas existentes.
 
 Leia o artigo [Particionar os Reliable Services do Service Fabric](service-fabric-concepts-partitioning.md) para saber mais.
@@ -94,6 +98,6 @@ Para saber mais sobre o Service Fabric:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

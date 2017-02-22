@@ -1,10 +1,10 @@
 ---
-title: "Integração do SDK do Windows Universal"
+title: "Integração do SDK do Windows Universal para o Azure Mobile Engagement | Microsoft Docs"
 description: "Integração do SDK do Windows Universal para o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: piyushjo;ricksal
+ms.date: 11/03/2016
+ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: acf599588de4dac04d51a66348ea9336fe6ce2f7
 Este documento descreve todas as opções de integração e configuração disponíveis para o SDK do Windows Universal para o Azure Mobile Engagement.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de iniciar este tutorial, você deve primeiro concluir nosso [tutorial de 15 minutos](mobile-engagement-windows-store-dotnet-get-started.md).
+Antes de iniciar este tutorial, você deve primeiro concluir nosso [tutorial de&15; minutos](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Recursos avançados
 ### <a name="reporting-features"></a>Recursos de relatório
@@ -40,10 +40,9 @@ Você pode adicionar esses recursos:
 [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo universal do Windows](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
-### <a name="340-04192016"></a>3.4.0 (19/04/2016)
-* Melhorias de sobreposição de alcance.
-* Adicionada a API "TestLogLevel" para habilitar/desabilitar/filtrar logs de console emitidos pelo SDK.
-* Corrigidas as notificações na atividade visando a primeira atividade que não eram exibidas no início do Aplicativo.
+### <a name="341-11032016"></a>3.4.1 (11/03/2016)
+
+* Aprimoramentos de estabilidade.
 
 Para versões anteriores, consulte as [notas de versão completas](mobile-engagement-windows-store-release-notes.md)
 
@@ -78,6 +77,6 @@ Consulte [Procedimentos de atualização](mobile-engagement-windows-store-upgrad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

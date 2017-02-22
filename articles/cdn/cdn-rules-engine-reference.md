@@ -1,6 +1,6 @@
 ---
-title: "Referência do Mecanismo de Regras de Rede de Distribuição de Conteúdo do Azure | Microsoft Docs"
-description: "Este tópico descreve os recursos e condições de correspondência do Mecanismo de Regras"
+title: "Referência do mecanismo de regras CDN do Azure | Microsoft Docs"
+description: "Documentação de referência para regras e recursos de condições de correspondência do mecanismo da CDN do Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 61a544f177ab820f1b13ca2bcd4afe623af597af
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
 
 
 ---
-# <a name="azure-content-delivery-network-rules-engine"></a>Mecanismo de Regras de Rede de Distribuição de Conteúdo do Azure
+# <a name="azure-cdn-rules-engine"></a>Mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas dos recursos e das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo do Azure)
 
 O Mecanismo de Regras de HTTP é projetado para ser a autoridade final sobre como tipos específicos de solicitações são processados pela CDN.
@@ -83,6 +83,6 @@ Espaço | Normalmente, um caractere de espaço é tratado como um caractere lite
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

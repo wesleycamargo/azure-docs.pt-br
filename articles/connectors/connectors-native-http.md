@@ -4,7 +4,7 @@ description: "Visão geral da ação HTTP com propriedades"
 services: 
 documentationcenter: 
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
 
 
 ---
@@ -29,7 +29,7 @@ Você pode:
 * Crie fluxos de trabalho de aplicativo lógico que são ativados (disparam) quando um site que você gerencia é desativado.
 * Comunique-se com qualquer ponto de extremidade por HTTP para estender seus fluxos de trabalho para outros serviços.
 
-Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-the-http-trigger"></a>Usar o gatilho HTTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
@@ -125,7 +125,7 @@ A seguir, os detalhes de saída para a resposta HTTP.
 | Código de status |int |Código de status HTTP |
 
 ## <a name="authentication"></a>Autenticação
-O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure permite que você use diferentes tipos de autenticação em pontos de extremidade HTTP. Você pode usar essa autenticação com os conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. Os seguintes tipos de autenticação são configuráveis:
+O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de autenticação em pontos de extremidade HTTP. Você pode usar essa autenticação com os conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. Os seguintes tipos de autenticação são configuráveis:
 
 * [Autenticação básica](#basic-authentication)
 * [Autenticação de certificado de cliente](#client-certificate-authentication)
@@ -209,11 +209,11 @@ Por exemplo:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
+Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

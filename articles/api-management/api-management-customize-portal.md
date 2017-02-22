@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
-ms.author: sdanie
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,17 +43,17 @@ Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolv
 > 
 
 ## <a name="change-headers-styling"> </a>Alterar o estilo dos cabeçalhos
-As cores, fontes, tamanhos, espaços e outros elementos relacionados ao estilo de qualquer página no portal são definidos pelas regras de status. Para editar os estilos, clique em **Aparência** no menu **Portal do desenvolvedor** no portal do publicador; então, clique em **Começar a personalização** para habilitar o editor de estilo.
+As cores, fontes, tamanhos, espaços e outros elementos relacionados ao estilo de qualquer página no portal são definidos pelas regras de status. Para editar os estilos, durante o **portal do desenvolvedor**, abra a barra de ferramentas de personalização no lado esquerdo, movendo sobre o ícone de personalização e, em seguida, selecione "estilos" na barra de ferramentas.
 
-Seu navegador alterna para uma página oculta no portal do desenvolvedor que contém exemplos de conteúdo, com exemplos para todas as regras de estilo usadas em qualquer parte do site. Para abrir o editor de estilo, mova o cursor sobre a linha cinza vertical fina na parte extrema esquerda da página. A barra de ferramentas do editor será exibida.
+![Botão da barra de personalização][api-management-customization-toolbar-button]
+
+Há duas maneiras principais de editar as regras de estilo - você pode examinar a lista de todas as regras de estilo usadas em qualquer lugar que é exibida por padrão e modificar um estilo conforme necessário, ou você pode escolher **selecionar um elemento na página** e, em seguida, clique em qualquer lugar na página para ver somente os estilos para esse elemento.
+
+Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique o **selecionar um elemento na página** opção da barra de ferramentas de editor de estilo. 
 
 ![Barra de ferramentas de personalização][api-management-customization-toolbar]
 
-Existem dois modos principais para editar as regras de estilo - **Editar todas as regras** exibe uma lista de todas as regras de estilo usadas em todo lugar; enquanto **Escolher elemento** permite selecionar um elemento na página em que você está e exibe os estilos somente para esse elemento.
-
-Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique na opção **Escolher elemento** na barra de ferramentas do editor de estilo e depois clique em **Selecionar um elemento para personalizar**. Os elementos agora ficam destacados à medida que você passa o ponteiro do mouse sobre eles, indicando quais estilos do elemento você começaria a editar se clicasse. Mova o ponteiro do mouse sobre o texto que representa o nome da empresa no cabeçalho ("Fabrikam Developer Portal" se você seguiu as instruções na seção anterior), então clique nele. Um conjunto de regras de estilo categorizadas e nomeadas é exibido no editor de estilos.
-
-Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em in @headings-font-family.
+Os elementos agora ficam destacados à medida que você passa o ponteiro do mouse sobre eles, indicando quais estilos do elemento você começaria a editar se clicasse. Mova o ponteiro do mouse sobre o texto que representa o nome da empresa no cabeçalho ("Fabrikam Developer Portal" se você seguiu as instruções na seção anterior), então clique nele. Um conjunto de regras de estilo categorizadas e nomeadas é exibido no editor de estilos. Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em @headings-font-family.
 
 > Se você está familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][LESS variables] no tema do bootstrap usadas pelo portal do desenvolvedor.
 > 
@@ -63,7 +63,7 @@ Vamos alterar a cor do texto do cabeçalho. Selecione a entrada no campo **@head
 
 ![Seletor de cor][api-management-customization-toolbar-color-picker]
 
-Ao finalizar as alterações nos estilos do elemento selecionado, clique em **Visualizar Alterações** para ver os resultados na tela. Desta vez, elas estão visíveis somente para os Administradores. Para tornar essas alterações visíveis para qualquer um, clique no botão **Publicar** no editor de estilos e confirme as alterações.
+As alterações são visualizadas em tempo real como torná-los, mas ficam visíveis somente para administradores. Para tornar essas alterações visíveis para qualquer um, clique no botão **Publicar** no editor de estilos e confirme as alterações.
 
 ![Menu Publicar][api-management-customization-toolbar-publish-form]
 
@@ -96,6 +96,7 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
@@ -107,6 +108,6 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

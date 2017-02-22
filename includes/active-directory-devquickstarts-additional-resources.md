@@ -4,10 +4,9 @@
 * [CloudIdentity.com](http://cloudidentity.com)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
-Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
+É recomendável obter notificações quando ocorrerem incidentes de segurança visitando [a página do TechCenter para notificações de segurança técnicas da Microsoft](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
 
-
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

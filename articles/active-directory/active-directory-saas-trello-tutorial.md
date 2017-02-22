@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5af430daa609f1838c640949f535f1d84cbe5f13
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 36cc4206b81312f8f4ff287cd36d9dba56611fde
 
 
 ---
@@ -61,19 +61,25 @@ Para configurar a integração do Trello ao Azure AD, você precisará adicionar
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
+
 4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
+
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4]
+
 6. Na caixa de pesquisa, digite **Trello**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/tutorial_trello_01.png)
+
 7. No painel de resultados, selecione **Trello** e clique em **Concluir** para adicionar o aplicativo.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/tutorial_trello_02.png)
@@ -102,6 +108,7 @@ O aplicativo Trello espera que as asserções SAML contenham atributos específi
 1. No Portal clássico do Azure, na página de integração do aplicativo **Trello**, no menu superior, clique em **Atributos**.
    
     ![Configurar Logon Único][5]
+
 2. Na caixa de diálogo **Atributos de token SAML** , para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
 
     | Nome do atributo | Valor do atributo |
@@ -123,12 +130,15 @@ O aplicativo Trello espera que as asserções SAML contenham atributos específi
 1. No menu na parte superior, clique em **Início Rápido**.
    
     ![Configurar Logon Único][6]
+
 2. No portal clássico, na página de integração de aplicativos do **Trello**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar o logon único][7] 
+
 3. Na página **Como você deseja que os usuários façam logon no Trello**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_06.png)
+
 4. Na página de diálogo **Definir Configurações de Aplicativo**, se você quer configurar o aplicativo em **modo iniciado pelo IDP**, execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_07.png)
@@ -137,10 +147,10 @@ O aplicativo Trello espera que as asserções SAML contenham atributos específi
 
     b. Clique em **Próximo**.
 
-> [!NOTE]
-> Você deve obter o campo de dados dinâmico **\<empresa\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, entre em contato com equipe de suporte do Trello em <mailto:support@trello.com> a fim de obtê-lo para sua empresa.
-> 
-> 
+    > [!NOTE]
+    > Você deve obter o campo de dados dinâmico **\<empresa\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, entre em contato com equipe de suporte do Trello em <mailto:support@trello.com> a fim de obtê-lo para sua empresa.
+    > 
+    > 
 
 1. Se quiser configurar o aplicativo no **modo iniciado pelo SP**, na página de diálogo **Definir Configurações do Aplicativo**, clique em **"Mostrar configurações avançadas (opcional)"**, insira a **URL de Logon**:
    
@@ -149,13 +159,16 @@ O aplicativo Trello espera que as asserções SAML contenham atributos específi
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://trello.com/auth/saml/consume/<enterprise>`
    
     b. Clique em **Próximo**
+
 2. Na página **Configurar logon único no Trello**, clique em **Baixar certificado** e salve o arquivo no computador.
    
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_09.png)
+
 3. Para obter o SSO configurado para o seu aplicativo, vá para a página [Configuração de SSO empresarial do Trello](https://trello.com/sso-configuration) a fim de enviar a URL de Logon Único para a equipe do Trello e anexar o certificado baixado.
 4. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
+
 5. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
@@ -170,13 +183,17 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_09.png) 
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_03.png) 
+
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_04.png) 
+
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_05.png) 
@@ -186,22 +203,25 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
+
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_07.png) 
+
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-trello-tutorial/create_aaduser_08.png) 
@@ -223,12 +243,15 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
+
 2. Na lista de aplicativos, selecione **Trello**.
    
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_10.png) 
+
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
+
 4. Na lista Todos os Usuários, escolha **Brenda Fernandes**.
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
@@ -266,6 +289,6 @@ Ao clicar no bloco do Trello no Painel de Acesso, você deverá ser conectado au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

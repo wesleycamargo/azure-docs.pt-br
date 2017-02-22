@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: ef4d5bb9b8b25d940aca26117d759a4152639730
-ms.openlocfilehash: bc8009e0ba0b604c995ce24f883eb03d586d667b
+ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
+ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
 
 
 ---
@@ -52,6 +52,8 @@ Os microsserviços com monitoração de estado simplificam o design dos aplicati
 ## <a name="next-steps"></a>Próximas etapas
 * Comece a criar serviços com e sem estado com o modelos de programação dos [Reliable Services](service-fabric-reliable-services-quick-start.md) e [Reliable Actors](service-fabric-reliable-actors-get-started.md) do Service Fabric.
 * Saiba mais sobre [Padrões e cenários](service-fabric-patterns-and-scenarios.md).
+* Saiba mais sobre [Estudos de caso de cliente](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
+).
 * Confira também os seguintes tópicos:
   * [Fale-me sobre os microsserviços](service-fabric-overview-microservices.md)
   * [Definir e gerenciar o estado do serviço](service-fabric-concepts-state.md)
@@ -64,6 +66,6 @@ Os microsserviços com monitoração de estado simplificam o design dos aplicati
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

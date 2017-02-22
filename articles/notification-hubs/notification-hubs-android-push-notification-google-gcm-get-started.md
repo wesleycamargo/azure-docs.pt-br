@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Agora, o hub de notificação está configurado para funcionar com o GCM, e voc�
 ### <a name="create-a-new-android-project"></a>Criar um novo aplicativo Android
 1. No Android Studio, inicie um novo projeto Android Studio.
    
-     ![Android Studio - novo projeto][13]
+   ![Android Studio - novo projeto][13]
 2. Escolha o fator forma **Telefone e Tablet** e o **SDK Mínimo** ao qual você deseja oferecer suporte. Em seguida, clique em **Próximo**.
    
-     ![Android Studio - fluxo de trabalho de criação de projeto][14]
+   ![Android Studio - fluxo de trabalho de criação de projeto][14]
 3. Escolha **Atividade Vazia** para a atividade principal, clique em **Avançar** e em **Concluir**.
 
 ### <a name="add-google-play-services-to-the-project"></a>Adicionar serviços do Google Play ao projeto
@@ -619,13 +619,14 @@ Além disso, verifique se você adicionou a conta do Google ao emulador em execu
 #### <a name="running-the-application"></a>Executando o aplicativo
 1. Execute o aplicativo e observe que a ID de registro é relatada para um registro bem-sucedido.
    
-       ![Testing on Android - Channel registration][18]
+      ![Como testar no Android - registro de canal][18]
 2. Insira uma mensagem de notificação a ser enviada para todos os dispositivos Android registrados no hub.
    
-       ![Testing on Android - sending a message][19]
+      ![Como testar no Android - envio de uma mensagem][19]
+
 3. Pressione **Enviar Notificação**. Qualquer dispositivo que tiver o aplicativo em execução mostrará uma instância de `AlertDialog` com a mensagem de notificação por push. Os dispositivos que não tiverem o aplicativo em execução, mas tiverem sido registrados anteriormente para notificações por push, receberão uma notificação no Gerenciador de Notificação do Android. Para exibi-las, passe o dedo do canto superior esquerdo para baixo.
    
-       ![Testing on Android - notifications][21]
+      ![Como testar no Android - notificações][21]
 
 ## <a name="next-steps"></a>Próximas etapas
 Recomendamos o tutorial [Usar os Hubs de Notificação para enviar notificações por push aos usuários] como a próxima etapa. Ele mostra como enviar notificações de um back-end do ASP.NET usando marcas para direcionar usuários específicos.
@@ -671,6 +672,6 @@ Para saber mais sobre os Hubs de Notificação, consulte nossas [Diretrizes dos 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

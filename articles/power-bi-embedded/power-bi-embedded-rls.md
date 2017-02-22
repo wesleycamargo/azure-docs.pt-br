@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a98185bf44af2271f5ded04c05d3134321db536a
+ms.sourcegitcommit: 2f0f36e7ffeec52bacc35ac5039cd183976dc3aa
+ms.openlocfilehash: c0b3e2de393c53dab4c9e9341269f792603eec18
 
 
 ---
@@ -93,7 +93,15 @@ Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há 
 * **nome de usuário** (opcional) – usado com RLS, é uma cadeia de caracteres que pode ser usada para ajudar a identificar o usuário ao aplicar regras RLS. Confira Usando segurança de nível de linha com o Power BI Embedded
 * **funções** – uma cadeia de caracteres que contém as funções a selecionar ao aplicar regras de segurança em nível de linha. Ao transmitir mais de uma função, elas deverão ser transmitidas como uma matriz de cadeia de caracteres.
 
-Se a propriedade de nome de usuário estiver presente, você também deverá passar pelo menos um valor como funções.
+Crie o token usando o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__). Se a propriedade de nome de usuário estiver presente, você também deverá passar pelo menos um valor como funções.
+
+Por exemplo, você pode alterar EmbedSample. A linha 55 DashboardController pode ser atualizada de
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+
+para
+
+    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
 
 O token do aplicativo completo será algo parecido com isto:
 
@@ -109,6 +117,6 @@ Agora, com todas as partes juntas, quando alguém entrar em nosso aplicativo par
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

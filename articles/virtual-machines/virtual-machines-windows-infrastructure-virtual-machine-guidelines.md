@@ -1,6 +1,6 @@
 ---
-title: "Diretrizes de Máquinas Virtuais do Windows | Microsoft Docs"
-description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de máquinas virtuais windows no Azure"
+title: "Diretrizes de máquinas virtuais do Azure | Microsoft Docs"
+description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de máquinas virtuais Windows no Azure"
 documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 923f2128eef294a4d5f14638f4be622618ed812d
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 513edca959a3a9a8d6a8bf7d7620da9ad8a7d879
 
 
 ---
-# <a name="virtual-machines-guidelines"></a>Diretrizes de máquinas virtuais
+# <a name="azure-virtual-machines-guidelines-for-windows"></a>Diretrizes de máquinas virtuais do Azure para Windows
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre as etapas de planejamento necessárias para criar e gerenciar VMs (máquinas virtuais) em seu ambiente do Azure.
@@ -41,14 +41,14 @@ Tarefas:
 * Crie suas VMs usando o Azure PowerShell, o portal da Web ou os modelos do Resource Manager.
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
-Um dos principais componentes em seu ambiente do Azure provavelmente consiste em VMs. É nelas em que você executa aplicativos, bancos de dados, serviços de autenticação etc.
+Provavelmente, um dos principais recursos no ambiente do Azure são as VMs. Esse recurso é o local em que você executa seus aplicativos bancos de dados, serviços de autenticação, etc.
 
 É importante entender os [diferentes tamanhos de VM](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para dimensionar corretamente seu ambiente de uma perspectiva de desempenho e custo. Se as VMs não tiverem núcleos de CPU ou memória suficiente, o desempenho do aplicativo será afetado, independentemente de como ele for projetado e desenvolvido. Examine as sugestões de cargas de trabalho para cada série de VM como ponto de partida ao decidir o tamanho da VM a ser usado para cada componente em sua infraestrutura. É possível [alterar o tamanho de uma VM](https://azure.microsoft.com/blog/resize-virtual-machines/) após a implantação.
 
 O armazenamento desempenha um papel fundamental no desempenho da VM. Você pode usar o armazenamento Standard que use discos giratórios regulares ou o armazenamento Premium para altas cargas de trabalho de E/S e o desempenho de pico que usam os discos SSD. Assim como ocorre com o tamanho da VM, há considerações de custo para selecionar a mídia de armazenamento. Leia o [artigo sobre diretrizes de infraestrutura de armazenamento](virtual-machines-windows-infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para entender como projetar o armazenamento apropriado para o desempenho ideal de suas VMs.
 
 ## <a name="resource-groups"></a>Grupos de recursos
-Componentes como VMs são agrupados logicamente para facilitar o gerenciamento e a manutenção usando os [Grupos de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). Com os grupos de recursos, você pode criar, gerenciar e monitorar todos os recursos que compõem determinado aplicativo. Você também pode implementar [controles de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) para conceder acesso a outras pessoas de sua equipe apenas aos recursos necessários. Reserve tempo para planejar os grupos de recursos e as atribuições de função. Há diferentes abordagens para, de fato, criar e implementar grupos de recursos; portanto, não deixe de ler o [artigo sobre diretrizes de grupos de recursos](virtual-machines-windows-infrastructure-resource-groups-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para entender a melhor maneira de criar suas VMs.
+Componentes como VMs são agrupados logicamente para facilidade de gerenciamento e manutenção usando os [Grupos de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). Com os grupos de recursos, você pode criar, gerenciar e monitorar todos os recursos que compõem determinado aplicativo. Você também pode implementar [controles de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) para conceder acesso a outras pessoas de sua equipe apenas aos recursos necessários. Reserve tempo para planejar os grupos de recursos e as atribuições de função. Há diferentes abordagens para, de fato, criar e implementar grupos de recursos; portanto, não deixe de ler o [artigo sobre diretrizes de grupos de recursos](virtual-machines-windows-infrastructure-resource-groups-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para entender a melhor maneira de criar suas VMs.
 
 ## <a name="templates"></a>Modelos
 É possível criar modelos, definidos por arquivos JSON declarativos, para criar suas VMs. Normalmente, os modelos também criam o armazenamento, a rede, as interfaces de rede, o endereçamento IP necessários etc., juntamente com as VMs em si. Você usa modelos para criar ambientes consistentes e reproduzíveis para fins de desenvolvimento e teste, a fim de replicar com facilidade os ambientes de produção e vice-versa. Leia mais sobre como [criar e usar modelos](../azure-resource-manager/resource-group-overview.md#template-deployment) para entender como usá-los para criar e implantar suas VMs.
@@ -59,6 +59,6 @@ Componentes como VMs são agrupados logicamente para facilitar o gerenciamento e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do empacotamento dinâmico | Microsoft Docs"
+title: "Visão geral do empacotamento dinâmico dos Serviços de Mídia do Azure | Microsoft Docs"
 description: "O tópico apresenta uma visão geral do empacotamento dinâmico."
 author: Juliako
 manager: erikre
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8de073bbd9da8cd722eb0ebdb7140dbd15509fe6
+ms.sourcegitcommit: da455a350f61e17425cd308d0fdc8bb5294a0b76
+ms.openlocfilehash: 574921fdecdadaa48c572685f7486d4e7b1d25f4
 
 
 ---
@@ -34,10 +34,6 @@ O diagrama a seguir mostra o fluxo de trabalho de empacotamento dinâmico.
 
 ![Codificação dinâmica](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-> [!NOTE]
-> Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ## <a name="common-scenario"></a>Cenário comum
 1. Carrega um arquivo de entrada (chamado de arquivo de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista de formatos com suporte, consulte [Formatos com suporte do Codificador de Mídia Padrão](media-services-media-encoder-standard-formats.md)).
@@ -67,6 +63,6 @@ Os formatos de arquivo de origem a seguir não têm suporte pelo empacotamento d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5da12320ffbf5c7c5a2bd984d753be53b5ca0fa
+ms.sourcegitcommit: 88e6ce0deeb5dab276b5ae49f6c99391e37495f4
+ms.openlocfilehash: 2a31f6d8aa00e89e8dbbe0089fc76ecbb2102b3c
 
 
 ---
@@ -40,10 +40,12 @@ Para acessar programaticamente blobs em projetos do ASP.NET 5, você precisa adi
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Extensions.Logging.LogLevel;
-2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações sobre a conta de armazenamento da configuração do serviço do Azure.
    
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+         CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<storage-account-name>",
+            "<access-key>"), true);
    
     **OBSERVAÇÃO:** use todo esse código acima antes do código nas seções a seguir.
 3. Use um objeto **CloudBlobClient** para obter uma referência **CloudBlobContainer** a um contêiner existente em sua conta de armazenamento.
@@ -153,6 +155,6 @@ Para excluir um blob, obtenha primeiro uma referência ao blob e depois chame o 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

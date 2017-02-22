@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: d71bbf32196bd249bdefb94e0e760847cc6ec5e0
-ms.openlocfilehash: 85a1ca7542220b8b3e84e7bad811f7f961b26ba0
+ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
+ms.openlocfilehash: 489037b0ff43c7041f3e12a49525184e7eda0290
 
 
 ---
@@ -35,7 +35,7 @@ Os seguintes links fornecem informações gerais sobre como implantar um novo se
 * Para ver um passo a passo de como implantar um serviço Web, consulte [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 * Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: Criar um espaço de trabalho do Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md).
 * Para obter exemplos específicos que implantam um serviço Web, consulte:
-  
+
   * [Etapa 5 do passo-a-passo: Implantar o serviço Web de Aprendizado de Máquina do Azure](machine-learning-walkthrough-5-publish-web-service.md)
   * [Como implantar um serviço Web em várias regiões](machine-learning-how-to-deploy-to-multiple-regions.md)
 
@@ -48,7 +48,7 @@ O provedor de recursos do Azure Machine Learning para serviços Web permite a im
 ### <a name="with-powershell-cmdlets"></a>Com os cmdlets do PowerShell
 O provedor de recursos do Azure Machine Learning para serviços Web permite a implantação e o gerenciamento dos serviços Web usando cmdlets do PowerShell.
 
-Para usar os cmdlets, primeiro você deve entrar em sua conta do Azure no ambiente do PowerShell usando o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Se não souber como chamar comandos do PowerShell baseados no Resource Manager, consulte [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+Para usar os cmdlets, primeiro você deve entrar em sua conta do Azure no ambiente do PowerShell usando o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) . Se não souber como chamar comandos do PowerShell baseados no Resource Manager, consulte [Usando o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md#log-in-to-your-azure-account).
 
 Para exportar seu experimento preditivo, use este [código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o arquivo .exe com base no código, você pode digitar:
 
@@ -57,10 +57,10 @@ Para exportar seu experimento preditivo, use este [código de exemplo](https://g
 Executar o aplicativo cria um modelo JSON do serviço Web. Para usar o modelo para implantar um serviço Web, você deve adicionar as seguintes informações:
 
 * Nome e chave da conta de armazenamento
-  
+
     Você pode obter o nome e a chave da conta de armazenamento no [Portal do Azure](https://portal.azure.com/) ou no [Portal Clássico do Azure](http://manage.windowsazure.com/).
 * ID do plano de compromisso
-  
+
     Você pode obter a ID do plano no portal [Serviços Web do Azure Machine Learning](https://services.azureml.net) fazendo logon e clicando no nome de um plano.
 
 Adicione-a ao modelo JSON como filho do nó *Properties* no mesmo nível do nó *MachineLearningWorkspace*.
@@ -99,7 +99,6 @@ Os Serviços Web do Azure Machine Learning são APIs RESTful. Você pode consumi
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

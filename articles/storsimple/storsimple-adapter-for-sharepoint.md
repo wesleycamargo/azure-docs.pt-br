@@ -1,5 +1,5 @@
 ---
-title: Adaptador do StorSimple para SharePoint | Microsoft Docs
+title: Instalar o adaptador StorSimple para SharePoint | Microsoft Docs
 description: Descreve como instalar e configurar ou remover o Adaptador StorSimple para SharePoint em um farm de servidores do SharePoint.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 07/11/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a108e20c36208fd211e45d180fc77a65e501b191
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 8c7bcc959c15399e8be96eb8f37634d2763a3115
 
 
 ---
@@ -31,8 +31,8 @@ O adaptador StorSimple para SharePoint funciona como um provedor de RBS (armazen
 > 
 > 
 
-* Para baixar o adaptador StorSimple para SharePoint, vá para [Adaptador StorSimple para SharePoint][1] no Centro de Download da Microsoft.
-* Para obter informações sobre como planejar para RBS e as limitações de RBS, vá para [Decisão de usar RBS no SharePoint 2013][2] ou [Planejar para RBS (SharePoint Server 2010)][3].
+* Para baixar o Adaptador StorSimple para SharePoint, acesse [Adaptador StorSimple para SharePoint][1] no Centro de Download da Microsoft.
+* Para obter informações sobre como planejar RBS e suas limitações, acesse [Decidindo usar RBS no SharePoint 2013][2] ou [Planejamento para RBS (SharePoint Server 2010)][3].
 
 O restante desta visão geral descreve resumidamente a função do Adaptador StorSimple para SharePoint e os limites de desempenho e capacidade do SharePoint que você deve conhecer antes de instalar e configurar o adaptador. Depois de analisar essas informações, vá para [Instalação do Adaptador StorSimple para SharePoint](#storsimple-adapter-for-sharepoint-installation) para começar a configurar o adaptador.
 
@@ -50,7 +50,7 @@ A implementação de RBS do Microsoft Azure StorSimple fornece os seguintes bene
 * Você pode usar o software de recuperação de dados, como Kroll Ontrack PowerControls, com os instantâneos do StorSimple de dados BLOB para executar a recuperação no nível do item de conteúdo do SharePoint. (Esse software de recuperação de dados é uma compra separada.)
 * O adaptador StorSimple para SharePoint conecta-se ao portal de Administração Central do SharePoint, permitindo gerenciar toda a solução do SharePoint em um local central.
 
-Mover o conteúdo BLOB para o sistema de arquivos pode proporcionar outras economias de custos e benefícios. Por exemplo, usar o RBS pode reduzir a necessidade de armazenamento de camada 1 e, porque reduz o banco de dados de conteúdo, o RBS pode reduzir o número de bancos de dados necessários no farm de servidores do SharePoint. No entanto, outros fatores, como limites de tamanho do banco de dados e a quantidade de conteúdo não RBS, também podem afetar os requisitos de armazenamento. Para obter mais informações sobre os custos e os benefícios de usar o RBS, consulte [Planejar para RBS (SharePoint Foundation 2010)][4] e [Decisão de usar o RBS no SharePoint 2013][5].
+Mover o conteúdo BLOB para o sistema de arquivos pode proporcionar outras economias de custos e benefícios. Por exemplo, usar o RBS pode reduzir a necessidade de armazenamento de camada 1 e, porque reduz o banco de dados de conteúdo, o RBS pode reduzir o número de bancos de dados necessários no farm de servidores do SharePoint. No entanto, outros fatores, como limites de tamanho do banco de dados e a quantidade de conteúdo não RBS, também podem afetar os requisitos de armazenamento. Para obter mais informações sobre os custos e os benefícios de usar o RBS, consulte [Planejamento para RBS (SharePoint Foundation 2010)][4] e [Decidindo usar o RBS no SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Limites de capacidade e desempenho
 Antes de considerar o uso de RBS em sua solução do SharePoint, conheça os limites de desempenho e capacidade testados do SharePoint Server 2010 e do SharePoint Server 2013 e como esses limites se relacionam com desempenho aceitável. Para saber mais, consulte [Limites de software e limites para o SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
@@ -275,6 +275,6 @@ Depois de mover os BLOBs de volta para os bancos de dados de conteúdo do SQL Se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

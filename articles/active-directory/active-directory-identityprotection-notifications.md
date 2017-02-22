@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/20/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: afb51a4513a7f1bcbbc85394d8dc7ab8af762f43
+ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
+ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
 
 
 ---
@@ -28,11 +28,11 @@ O Azure AD Identity Protection envia dois tipos de emails de notificação autom
 * Email de resumo semanal
 
 ## <a name="user-compromised-alert-email"></a>Email de alerta de usuário comprometido
-Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. O email inclui um link para os Usuários sinalizados para o relatório de risco no painel do Identity Protection. Recomendamos que as notificações de usuários comprometidos sejam investigadas imediatamente.
+Um email de alerta de usuário comprometido é gerado quando o Azure AD Identity Protection identifica uma conta como comprometida. O email inclui um link para os Usuários sinalizados para o relatório de risco no painel do Identity Protection. É recomendável investigar imediatamente as notificações das contas comprometidas.
 
 ## <a name="weekly-digest-email"></a>Email de resumo semanal
 O email de resumo semanal contém um resumo dos novos eventos de risco.<br>
- Ele inclui:
+Ele inclui:
 
 * Usuários em risco
 * Atividades suspeitas
@@ -41,7 +41,7 @@ O email de resumo semanal contém um resumo dos novos eventos de risco.<br>
 
 <br>
 ![Correção](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br> 
+<br>
 
 É possível desativar o envio de um email de resumo semanal.
 <br><br>
@@ -59,12 +59,11 @@ O email de resumo semanal contém um resumo dos novos eventos de risco.<br>
    ![Política de risco do usuário](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
    <br>
 
-## <a name="see-also"></a>Confira também
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+## <a name="see-also"></a>Consulte também
+* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

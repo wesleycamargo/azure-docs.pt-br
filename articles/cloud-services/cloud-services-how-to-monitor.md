@@ -3,7 +3,7 @@ title: "Como monitorar um serviço de nuvem | Microsoft Docs"
 description: "Saiba como monitorar serviços de nuvem usando o portal clássico do Azure."
 services: cloud-services
 documentationcenter: 
-author: rboucher
+author: thraka
 manager: timlt
 editor: 
 ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
@@ -12,12 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2015
-ms.author: robb
+ms.date: 12/07/2015
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d581d678d35045d7d27df55ee1e629f259f30c
-
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Como monitorar serviços de nuvem
@@ -34,14 +33,14 @@ Por padrão, os dados do contador de desempenho das instâncias de função pass
 
 Após habilitar o monitoramento detalhado, os dados de monitoramento agregados são armazenados nas tabelas em sua conta de armazenamento. Para habilitar o monitoramento detalhado para uma função, você deve configurar uma cadeia de conexão de diagnóstico vinculada à sua conta de armazenamento. Você pode usar contas de armazenamento diferentes para funções diferentes.
 
-Observe que habilitar o monitoramento detalhado aumentará os custos de armazenamento relacionados ao armazenamento de dados, à transferência de dados e às transações do armazenamento. O monitoramento mínimo não requer uma conta de armazenamento. Os dados para as métricas, expostos no nível mínimo do monitoramento, não são armazenados na sua conta de armazenamento, mesmo que você defina o nível de monitoramento para detalhado.
+Habilitar o monitoramento detalhado aumentará os custos de armazenamento relacionados ao armazenamento de dados, transferência de dados e às transações do armazenamento. O monitoramento mínimo não requer uma conta de armazenamento. Os dados para as métricas, expostos no nível mínimo do monitoramento, não são armazenados na sua conta de armazenamento, mesmo que você defina o nível de monitoramento para detalhado.
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>Tutorial: Configurar o monitoramento para serviços de nuvem
 Use os procedimentos a seguir para configurar o monitoramento mínimo ou detalhado no portal clássico do Azure. 
 
 ### <a name="before-you-begin"></a>Antes de começar
-* Crie uma conta de armazenamento para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte a ajuda para as **Contas de Armazenamento**ou consulte [Como criar uma conta de armazenamento](/manage/services/storage/how-to-create-a-storage-account/).
-* Habilite o Diagnóstico do Azure para as funções do seu serviço de nuvem. Consulte [Configurando os diagnósticos para os Serviços de Nuvem](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
+* Crie uma conta de armazenamento *clássico* para armazenar os dados de monitoramento. Você pode usar contas de armazenamento diferentes para funções diferentes. Para obter mais informações, consulte [Como criar contas de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Habilite o Diagnóstico do Azure para as funções do seu serviço de nuvem. Consulte [Configurando os diagnósticos para os Serviços de Nuvem](cloud-services-dotnet-diagnostics.md).
 
 Certifique-se de que a cadeia de conexão de diagnóstico esteja presente na configuração da Função. Você não pode ativar o monitoramento detalhado até que habilite o Diagnóstico do Azure e inclua uma cadeia de conexão de diagnóstico na configuração da Função.   
 
@@ -149,6 +148,7 @@ Para exibir os contadores de desempenho personalizados no portal, você precisa 
    
    * Para plotar uma nova métrica, marque a caixa de seleção da métrica nos cabeçalhos do gráfico. Em uma exibição estreita, clique na seta para baixo ***n*??metrics** para plotar uma métrica que a área de cabeçalho do gráfico não pode exibir.
    * Para excluir uma métrica que seja plotada no gráfico, desmarque a caixa de seleção próxima ao cabeçalho.
+   
 3. Alterne entre exibições **Relativas** e **Absoluta**.
 4. Escolha 1 hora, 24, horas ou 7 dias para exibição dos dados.
 
@@ -178,6 +178,6 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role ins
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

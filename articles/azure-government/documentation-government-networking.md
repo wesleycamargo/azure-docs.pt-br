@@ -1,23 +1,22 @@
 ---
 title: Rede do Azure Governmenmt | Microsoft Docs
 description: "Ela fornece uma comparação dos recursos e orientações para conectividade privada governamental"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
-author: ryansoc
+author: jawalte
 manager: zakramer
-editor: 
 ms.assetid: 3da70579-ecda-421a-8ebf-d52906334e9b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/28/2016
-ms.author: ryansoc
+ms.date: 01/24/2017
+ms.author: jawalte
 translationtype: Human Translation
-ms.sourcegitcommit: 14aa9126d3426c560c1f9497ed0d7a92448137b4
-ms.openlocfilehash: 39e67d449c0fa37b76354dc522216f9473df7b97
+ms.sourcegitcommit: 8288ca2e85ec0cd1a1b53862b2d60fcb88e7be4b
+ms.openlocfilehash: c6b8c27299c1bfceb045ee7d82981654f3a446d8
 
 
 ---
@@ -54,12 +53,59 @@ Para que os serviços de rede ofereçam suporte a soluções e aplicativos de cl
 
 Todos os clientes que utilizam uma arquitetura de conectividade privada devem validar se uma implementação apropriada foi estabelecida e mantida para a conexão de cliente com o ponto de demarcação de roteador de borda GN/C (Rede/cliente de gateway) para o Azure Governamental. Da mesma forma, sua organização deve estabelecer a conectividade de rede entre seu ambiente local e o ponto de demarcação de roteador de borda GN/C (Rede/cliente de gateway) para o Azure Governamental.
 
+## <a name="support-for-bgp-communities"></a>Suporte a comunidades BGP
+Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a ExpressRoute no AzureGov. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
+
+Se estiver se conectando à Microsoft por meio do ExpressRoute em qualquer local de emparelhamento dentro de uma região do AzureGov, você terá acesso a todos os serviços de nuvem da Microsoft em todas as regiões dentro dos limites governamentais. 
+
+Por exemplo, se você conectou à Microsoft em Washington D.C. por meio da ExpressRoute, você terá acesso a todos os serviços de nuvem da Microsoft hospedados em AzureGov.
+
+Confira a guia "Visão geral" na [Documentação pública do ExpressRoute](../expressroute/index.md) para saber mais sobre locais e parceiros e obter uma lista detalhada do ExpressRoute para locais de emparelhamento AzureGov.
+
+Você pode adquirir mais de um circuito de ExpressRoute. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. 
+
+A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o roteamento ideal aos clientes.  Para saber mais, confira a guia de "Introdução" na [Documentação pública do ExpressRoute](../expressroute/index.md) e clique em "Otimizar roteamento".
+
+| **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
+| --- | --- |
+| **Governo dos EUA** |  |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+
+Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado. 
+
+Além disso, a Microsoft também marcará prefixos com base no serviço ao qual eles pertencem. Isso se aplica somente ao emparelhamento da Microsoft. A tabela a seguir fornece um mapeamento de serviço para o valor de comunidade BGP.
+
+| **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |
+| --- | --- |
+| **Governo dos EUA** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype for Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Outros serviços Online do Office 365 |12076:5200 |
+
+> [!NOTE]
+> A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
+
+## <a name="support-for-load-balancer"></a>Suporte para Balanceador de Carga
+O Balanceador de Carga está totalmente disponível no Azure Governamental. Para saber mais, confira [Documentação pública do Balanceador de Carga](../load-balancer/load-balancer-overview.md). 
+
+## <a name="support-for-traffic-manger"></a>Suporte para o Gerenciador de Tráfego
+O Gerenciador de Tráfego está totalmente disponível no Azure Governamental. Para saber mais, confira [Documentação pública do Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). 
+
+## <a name="support-for-vnet-peering"></a>Suporte para o emparelhamento VNet 
+O emparelhamento VNet está totalmente disponível no Azure Governamental. Para saber mais, confira [Documentação pública do emparelhamento VNet](../virtual-network/virtual-network-peering-overview.md). 
+
+## <a name="support-for-vpn-gateway"></a>Suporte para Gateway de VPN 
+O Gateway de VPN está totalmente disponível no Azure Governamental. Para saber mais, confira [Documentação pública do Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
+
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

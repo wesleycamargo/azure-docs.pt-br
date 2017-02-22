@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2016
+ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: b3faa84d83f7e2dda9a704473657a1607b402c8a
+ms.sourcegitcommit: 76864bfc1b59cfc4e6f39094c08394fe32482d17
+ms.openlocfilehash: b7957c52877b262506013a422cd1511dd0ee79a4
 
 
 ---
@@ -29,12 +29,12 @@ ms.openlocfilehash: b3faa84d83f7e2dda9a704473657a1607b402c8a
 > 
 > 
 
-Por trás de todas as chamadas ao Gerenciador de Recursos do Azure, de cada modelo implantado, de todas as contas de armazenamento configuradas há uma ou várias chamadas à API RESTful do Gerenciador de Recursos do Azure. Este tópico é dedicado a essas APIs e como você pode chamá-las sem precisar usar o SDK. Isso poderá ser muito útil se você quiser ter controle total de todas as solicitações no Azure ou se o SDK para seu idioma não estiver disponível ou não der suporte às operações que você deseja executar.
+Por trás de todas as chamadas ao Azure Resource Manager, de cada modelo implantado e de todas as contas de armazenamento configuradas há uma ou mais chamadas à API RESTful do Azure Resource Manager. Este tópico é dedicado a essas APIs e como você pode chamá-las sem precisar usar o SDK. Essa abordagem pode ser útil se quiser ter controle total sobre todas as solicitações no Azure ou se o SDK para seu idioma não estiver disponível ou não der suporte às operações que você precisa.
 
-Este artigo não abordará todas as APIs expostas no Azure, mas usará algumas como exemplo de como você pode prosseguir e se conectar a elas. Se você compreender os fundamentos, poderá então prosseguir com a leitura de [Referência da API REST do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) para encontrar informações detalhadas sobre como usar o restante das APIs.
+Este artigo não abordará todas as APIs expostas no Azure, mas sim usará algumas operações como exemplo de como você pode conectá-las. Se você compreender os fundamentos básicos, poderá ler a [Referência das APIs REST do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) para encontrar informações detalhadas sobre como usar o restante das APIs.
 
 ## <a name="authentication"></a>Autenticação
-A autenticação para ARM é tratada pelo Azure AD (Active Directory). Para se conectar a uma API, você primeiro precisa se autenticar com o Azure AD para receber um token de autenticação que poderá ser passado em cada solicitação. Como estamos descrevendo uma chamada simples diretamente às APIs REST, podemos também supor que você não queira autenticar com uma senha de nome de usuário normal, em que uma tela pop-up pode solicitar o nome de usuário e a senha ou até outros mecanismos de autenticação usados em cenários de autenticação de dois fatores. Portanto, vamos criar o que chamamos de Aplicativo do Azure AD e uma Entidade de Serviço que será usada para fazer logon. Mas lembre-se de que o Azure AD dá suporte a vários procedimentos de autenticação e todos eles podem ser usados para recuperar esse token de autenticação necessário para solicitações subsequentes de API.
+A autenticação para o Resource Manager é tratada pelo Azure Active Directory (AD). Para se conectar a uma API, você primeiro precisa se autenticar com o Azure AD para receber um token de autenticação que poderá ser passado em cada solicitação. Como estamos descrevendo uma chamada simples diretamente para as APIs REST, presumimos que você não deseja autenticar quando um nome de usuário e senha forem solicitados. Também supomos que você não está usando mecanismos de autenticação de dois fatores. Portanto, criaremos o que chamamos de Aplicativo do Azure AD e uma entidade de serviço que será usada para fazer logon. Mas lembre-se de que o Azure AD dá suporte a vários procedimentos de autenticação e todos eles podem ser usados para recuperar esse token de autenticação necessário para solicitações subsequentes de API.
 Siga [Criar Aplicativo do Azure AD e Entidade de Serviço](resource-group-create-service-principal-portal.md) para obter instruções detalhadas.
 
 ### <a name="generating-an-access-token"></a>Gerando um token de acesso
@@ -44,7 +44,7 @@ A autenticação no Azure AD é feita chamando o Azure AD localizado em login.mi
 * ID do Aplicativo (obtida durante a etapa de criação do aplicativo do Azure AD)
 * Senha (que você selecionou ao criar o Aplicativo do Azure AD)
 
-Na solicitação HTTP abaixo, não deixe de substituir "ID de Locatário do Azure AD", "ID do Aplicativo" e "Senha" pelos valores corretos.
+Na solicitação HTTP a seguir, lembre-se de substituir “ID de Locatário do Azure AD”, “ID do Aplicativo” e “Senha” pelos valores corretos.
 
 **Solicitação HTTP Genérica:**
 
@@ -57,7 +57,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net%2F&client_id=<Application ID>&client_secret=<Password>
 ```
 
-... resultará (se a autenticação for bem-sucedida) em uma resposta semelhante a esta:
+... resultará (se a autenticação for bem-sucedida) em uma resposta semelhante à seguinte:
 
 ```json
 {
@@ -69,7 +69,7 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
   "access_token": "eyJ0eXAiOiJKV1QiLCJhb...86U3JI_0InPUk_lZqWvKiEWsayA"
 }
 ```
-(O access_token na resposta acima foi reduzido para aumentar a legibilidade)
+(O access_token na resposta acima foi reduzido para elevar a legibilidade)
 
 **Gerando um token de acesso usando Bash:**
 
@@ -84,16 +84,16 @@ Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oa
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
-A resposta contém um Token de Acesso, informações sobre o tempo de validade desse token e sobre quais recursos podem ser usados com o token.
-O token de acesso recebido na chamada HTTP anterior deve ser passado para todas as solicitações à API do ARM como um cabeçalho denominado "Portador YOUR_ACCESS_TOKEN". Observe o espaço entre "Portador" e o Token de Acesso.
+A resposta contém um token de acesso, informações sobre o tempo de validade desse token e sobre quais recursos podem ser usados com o token.
+O token de acesso que você recebeu na chamada HTTP anterior deve ser passado em para todas as solicitações para a API do Resource Manager. Você pode passá-lo como um valor de cabeçalho denominado “Autorização” com o valor “Portador YOUR_ACCESS_TOKEN”. Observe o espaço entre “Portador” e seu token de acesso.
 
-Como você pode ver no Resultado HTTP acima, o token é válido por um período de tempo durante o qual você deve armazená-lo em cache e reutilizá-lo. Mesmo se fosse possível autenticar no Azure AD para cada chamada à API, isso seria muito ineficiente.
+Como você pode ver no Resultado HTTP acima, o token é válido por um período durante o qual você deve armazená-lo em cache e reutilizá-lo. Mesmo se fosse possível autenticar no Azure AD para cada chamada à API, isso seria muito ineficiente.
 
-## <a name="calling-arm-rest-apis"></a>Chamando as APIs REST do ARM
-[APIs REST do Azure Resource Manager estão documentadas aqui](https://docs.microsoft.com/rest/api/resources/) e a documentação do uso de cada uma delas está fora do escopo deste tutorial. Este documento usará apenas algumas APIs para explicar o uso básico das APIs e, depois disso, indicaremos a documentação oficial para você.
+## <a name="calling-resource-manager-rest-apis"></a>Chamar APIs REST do Resource Manager
+Este tópico usa apenas algumas APIs para explicar o uso básico das operações REST. Para obter informações sobre todas as operações, consulte [Referência das APIs REST do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 
 ### <a name="list-all-subscriptions"></a>Listar todas as assinaturas
-Listar as assinaturas disponíveis que você pode acessar é uma das operações mais simples de realizar. Na solicitação a seguir, você pode ver como o Token de Acesso é passado como um cabeçalho.
+Listar as assinaturas disponíveis que você pode acessar é uma das operações mais simples de realizar. Na solicitação a seguir, você pode ver como o token de acesso é passado como um cabeçalho:
 
 (Substitua YOUR_ACCESS_TOKEN por seu Token de Acesso real.)
 
@@ -104,7 +104,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-... e, como resultado, você obterá uma lista de assinaturas que essa Entidade de Serviço tem permissão para acessar
+... e, como resultado, você obterá uma lista de assinaturas que essa entidade de serviço tem permissão para acessar
 
 (As IDs de Assinatura abaixo foram reduzidas para facilitar a leitura)
 
@@ -126,9 +126,9 @@ Content-Type: application/json
 ```
 
 ### <a name="list-all-resource-groups-in-a-specific-subscription"></a>Listar todos os grupos de recursos em uma assinatura específica
-Todos os recursos disponíveis com as APIs do ARM estão aninhados dentro de um Grupo de Recursos. Vamos consultar o ARM sobre Grupos de Recursos existentes em nossa assinatura usando a Solicitação HTTP GET abaixo. Observe como a ID de Assinatura é passada como parte da URL dessa vez.
+Todos os recursos disponíveis com as APIs do Resource Manager estão aninhados dentro de um grupo de recursos. Você pode consultar grupos de recursos existentes do Resource Manager em sua assinatura usando a seguinte solicitação HTTP GET. Observe como a ID da assinatura é passada como parte da URL dessa vez.
 
-(Substitua YOUR_ACCESS_TOKEN e SUBSCRIPTION_ID pelo seu Token de Acesso e ID de Assinatura reais)
+(Substitua YOUR_ACCESS_TOKEN e SUBSCRIPTION_ID pelo seu token de acesso e ID de assinatura)
 
 ```HTTP
 GET /subscriptions/SUBSCRIPTION_ID/resourcegroups?api-version=2015-01-01 HTTP/1.1
@@ -137,7 +137,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
 Content-Type: application/json
 ```
 
-A resposta dependerá de você ter ou não grupos de recursos definidos e, em caso afirmativo, quantos.
+A resposta dependerá de você ter ou não grupos de recursos definidos e, se tiver, quantos.
 
 (As IDs de Assinatura abaixo foram reduzidas para facilitar a leitura)
 
@@ -168,7 +168,7 @@ A resposta dependerá de você ter ou não grupos de recursos definidos e, em ca
 ```
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Até agora, consultamos as APIs do ARM apenas para obter informações. Agora é hora de criar recursos. Vamos começar com o mais simples, um grupo de recursos. A solicitação HTTP a seguir cria um novo Grupo de Recursos em um região/local de sua escolha e adiciona uma ou mais marcas a ele (o exemplo abaixo, na verdade, apenas adiciona uma marca).
+Até agora, consultamos apenas APIs do Resource Manager para obter informações. É hora criamos alguns recursos e vamos começar pelo mais simples de todos, um grupo de recursos. A solicitação HTTP a seguir cria um grupo de recursos em um região/local de sua escolha e adiciona uma marcação a ele.
 
 (Substitua YOUR_ACCESS_TOKEN, SUBSCRIPTION_ID, RESOURCE_GROUP_NAME pelo Token de Acesso e ID de Assinatura reais e pelo nome do Grupo de Recursos que deseja criar)
 
@@ -186,7 +186,7 @@ Content-Type: application/json
 }
 ```
 
-Se for bem-sucedido, você obterá uma resposta semelhante a esta
+Se o comando tiver êxito, você receberá uma resposta semelhante à seguinte:
 
 ```json
 {
@@ -202,16 +202,16 @@ Se for bem-sucedido, você obterá uma resposta semelhante a esta
 }
 ```
 
-Você criou um Grupo de Recursos no Azure com êxito. Parabéns!
+Você criou um grupo de recursos no Azure com êxito. Parabéns!
 
-### <a name="deploy-resources-to-a-resource-group-using-an-arm-template"></a>Implantar recursos em um Grupo de Recursos usando um Modelo de ARM
-Com o ARM, você pode implantar os recursos usando Modelos de ARM. Um Modelo de ARM define vários recursos e suas dependências. Para esta seção, vamos supor que você já esteja familiarizado com Modelos de ARM e mostraremos como fazer uma chamada à API para iniciar uma implantação. Uma documentação detalhada dos Modelos de ARM pode ser encontrada aqui.
+### <a name="deploy-resources-to-a-resource-group-using-a-resource-manager-template"></a>Implantar recursos em um grupo de recursos usando um Modelo do Resource Manager
+Com o Resource Manager, você pode implantar os recursos usando modelos. Um modelo define vários recursos e suas dependências. Para esta seção, vamos supor que você já esteja familiarizado com Modelos do Resource Manager e mostraremos como fazer uma chamada à API para iniciar uma implantação. Para obter mais informações sobre como construir modelos, consulte [Criação de Modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 
-A implantação de um modelo de ARM não é muito diferente da ação de chamar outras APIs. Um aspecto importante é que a implantação de um modelo pode levar muito tempo, dependendo do que há dentro do modelo, e a chamada à API apenas retornará. Cabe a você, como desenvolvedor, consultar o status da implantação para descobrir quando a implantação foi concluída.
+A implantação de um modelo de não é muito diferente da ação de chamar outras APIs. Um aspecto importante é que a implantação de um modelo pode levar muito tempo. A chamada à API apenas retorna, cabendo a você como desenvolvedor consultar o status da implantação para saber quando ela foi concluída. Para obter mais informações, consulte [Rastrear operações assíncronas de Azure](resource-manager-async-operations.md).
 
-Neste exemplo, usaremos um Modelo de ARM exposto publicamente disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates). O modelo que vamos usar implantará uma VM do Linux no Oeste dos EUA. Embora esse modelo terá o modelo disponível em um repositório público como o GitHub, você também pode escolher passar o modelo completo como parte da solicitação. Observe que podemos fornecer valores de parâmetro como parte da solicitação que será usada dentro do modelo usado.
+Neste exemplo, usaremos um modelo exposto publicamente disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates). O modelo que usamos implanta uma VM Linux para a região Oeste dos EUA. Embora esse exemplo use o modelo disponível em um repositório público como o GitHub, você também pode passar o modelo completo como parte da solicitação. Observe que fornecemos valores de parâmetro como parte da solicitação que serão usados dentro do modelo implantado.
 
-(Substituta SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME, ADMIN_PASSWORD e DNS_NAME_FOR_PUBLIC_IP pelos valores adequados à sua solicitação)
+(Substitua SUBSCRIPTION_ID, RESOURCE_GROUP_NAME, DEPLOYMENT_NAME, YOUR_ACCESS_TOKEN, GLOBALY_UNIQUE_STORAGE_ACCOUNT_NAME, ADMIN_USER_NAME, ADMIN_PASSWORD e DNS_NAME_FOR_PUBLIC_IP pelos valores apropriados para sua solicitação)
 
 ```HTTP
 PUT /subscriptions/SUBSCRIPTION_ID/resourcegroups/RESOURCE_GROUP_NAME/providers/microsoft.resources/deployments/DEPLOYMENT_NAME?api-version=2015-01-01 HTTP/1.1
@@ -247,11 +247,14 @@ Content-Type: application/json
 }
 ```
 
-A resposta JSON bastante longa para essa solicitação foi omitida para melhorar a legibilidade deste documento. A resposta conterá informações sobre a implantação do modelo que você acabou de criar.
+A resposta JSON longa para essa solicitação foi omitida para melhorar a legibilidade deste documento. A resposta contém informações sobre a implantação do modelo que você criou.
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Para saber mais sobre como lidar com operações assíncronas de REST, confira [Rastrear operações assíncronas do Azure](resource-manager-async-operations.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

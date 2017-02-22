@@ -1,5 +1,5 @@
 ---
-title: "Como usar as filas do Barramento de Serviço com o Ruby | Microsoft Docs"
+title: "Como usar as filas do Barramento de Serviço do Azure com Ruby | Microsoft Docs"
 description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Ruby."
 services: service-bus-messaging
 documentationcenter: ruby
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
+ms.sourcegitcommit: 0f9f732d6998a6ee50b0aea4edfc615ac61025ce
+ms.openlocfilehash: 343dc0d39f284488f03e1d1ba3df21ae616e97d9
 
 
 ---
@@ -25,48 +25,12 @@ ms.openlocfilehash: bde6cfe0daa95fc64e18be308798263544119b9f
 
 Este guia descreve como usar as filas do barramento de serviço. Os exemplos são gravados no Ruby e usam a gema do Azure. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**. Para saber mais sobre filas de Barramento de Serviços, confira a seção [Próximas etapas](#next-steps).
 
-## <a name="what-are-service-bus-queues"></a>O que são as filas do Barramento de Serviço?
-Filas do Barramento de Serviço dão suporte a um modelo de comunicação de *sistema de mensagens agenciado*. Com filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário. Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento.
-De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-![Conceitos de fila](./media/service-bus-ruby-how-to-use-queues/sb-queues-08.png)
-
-Filas do Barramento de Serviço são uma tecnologia de uso geral que pode ser usada para uma grande variedade de cenários:
-
-* Comunicação entre as funções Web e de trabalho em um [aplicativo multicamada do Azure](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md).
-* Comunicação entre aplicativos locais e aplicativos hospedados pelo Azure em uma [solução híbrida](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
-* Comunicação entre os componentes de um aplicativo distribuído executado localmente em diferentes organizações ou departamentos de uma organização.
-
-O uso de filas permite uma maneira melhor de você escalar horizontalmente seus aplicativos e concede mais resiliência à sua arquitetura.
-
-## <a name="create-a-namespace"></a>Criar um namespace
-Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. Você deve criar o namespace através da interface de linha de comando porque o portal do Azure não cria o namespace com uma conexão do ACS.
-
-Para criar um namespace:
-
-1. Abra uma janela de console do PowerShell do Azure.
-2. Digite o comando a seguir para criar um namespace do Barramento de Serviço. Forneça seu próprio valor de namespace e especifique a mesma região que a do seu aplicativo.
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
    
-    ```
-    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-   
-    ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-    ```
-
-## <a name="obtain-management-credentials-for-the-namespace"></a>Obtenha credenciais de gerenciamento para o namespace
-A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, obtenha as credenciais de gerenciamento para o namespace.
-
-O cmdlet do PowerShell que você executou para criar o namespace do barramento de serviço do Azure exibe a chave que você pode usar para gerenciar o namespace. Copie o valor de **DefaultKey**. Você usará esse valor em seu código posteriormente neste tutorial.
-
-![Copiar chave](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
-
-> [!NOTE]
-> Você também poderá encontrar essa chave se efetuar logon no [portal do Azure](https://portal.azure.com/) e navegar até as informações de conexão para seu namespace do barramento de serviço.
-> 
-> 
-
 ## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
-Crie um aplicativo Ruby. Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Crie um aplicativo Ruby. Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure do Ruby, que inclui um conjunto de bibliotecas convenientes que se comunicam com os serviços REST de armazenamento.
@@ -85,7 +49,7 @@ require "azure"
 ## <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
 O módulo do Azure lê as variáveis de ambiente **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY** para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não forem definidas, você deverá especificar as informações do namespace antes de usar **Azure::ServiceBusService** com o seguinte código:
 
-```
+```ruby
 Azure.config.sb_namespace = "<your azure service bus namespace>"
 Azure.config.sb_access_key = "<your azure service bus access key>"
 ```
@@ -95,7 +59,7 @@ Defina o valor de namespace para o valor que você criou, em vez de toda a URL. 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
 O objeto**Azure::ServiceBusService** permite que você trabalhe com filas. Para criar uma fila, use o método **create_queue()**. O exemplo a seguir cria uma fila ou imprime os erros, se houver algum.
 
-```
+```ruby
 azure_service_bus_service = Azure::ServiceBusService.new
 begin
   queue = azure_service_bus_service.create_queue("test-queue")
@@ -106,7 +70,7 @@ end
 
 Você também pode passar em um objeto **Azure::ServiceBus::Queue** com opções adicionais, que permite a substituição de configurações padrão da fila, assim como a vida útil da mensagem ou o tamanho máximo da fila. O exemplo a seguir mostra como definir o tamanho máximo da fila para 5 GB e a vida útil para 1 minuto:
 
-```
+```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
 queue.max_size_in_megabytes = 5120
 queue.default_message_time_to_live = "PT1M"
@@ -115,11 +79,11 @@ queue = azure_service_bus_service.create_queue(queue)
 ```
 
 ## <a name="how-to-send-messages-to-a-queue"></a>Como enviar mensagens para uma fila
-Para enviar uma mensagem a uma fila do Barramento de Serviço, o aplicativo chama o método **send\_queue\_message()** no objeto **Azure::ServiceBusService**. Mensagens enviadas para (e recebidas das) as filas do Barramento de Serviço são objetos **Azure::ServiceBus::BrokeredMessage** e têm um conjunto de propriedades padrão (como **label** e **time\_to\_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem, passando um valor da cadeia de caracteres como a mensagem, e qualquer propriedade padrão necessária será preenchida com valores padrão.
+Para enviar uma mensagem a uma fila do Barramento de Serviço, o aplicativo chama o método **send\_queue\_message()** no objeto **Azure::ServiceBusService**. Mensagens enviadas para (e recebidas de) as filas do Barramento de Serviço são objetos **Azure::ServiceBus::BrokeredMessage** e têm um conjunto de propriedades padrão (como **label** e **time\_to\_live**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem, passando um valor da cadeia de caracteres como a mensagem, e qualquer propriedade padrão necessária será preenchida com valores padrão.
 
 O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada "test-queue" que use **send\_queue\_message()**:
 
-```
+```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
 message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
@@ -136,7 +100,7 @@ Se o parâmetro **:peek\_lock** estiver definido como **false**, a leitura e a e
 
 O exemplo a seguir demonstra como receber e processar mensagens usando **receive\_queue\_message()**. O exemplo primeiro recebe e exclui uma mensagem usando **: peek\_lock** definido para **false**, em seguida, ele recebe outra mensagem e exclui a mensagem usando **delete\_queue\_message()**:
 
-```
+```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
   { :peek_lock => false })
 message = azure_service_bus_service.receive_queue_message("test-queue")
@@ -161,6 +125,6 @@ Para fazer uma comparação entre as filas de Barramento de Serviço do Azure di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

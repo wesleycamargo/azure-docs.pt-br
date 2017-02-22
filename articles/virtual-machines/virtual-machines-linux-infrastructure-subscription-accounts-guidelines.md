@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de contas e assinaturas do Azure | Microsoft Docs
+title: Assinatura e contas para VMs do Linux no Azure | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e de implementação para assinaturas e contas no Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
-ms.openlocfilehash: df7291a93af5185d3bd18259a37233f7910fcabf
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: 0a4ddfa550913df1c987d1782bcd4bc3c41eb048
 
 
 ---
@@ -69,6 +69,6 @@ Fornecemos cobrança detalhada por meio de um arquivo para download, para uma ú
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

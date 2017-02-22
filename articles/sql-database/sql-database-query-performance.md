@@ -1,5 +1,5 @@
 ---
-title: "Visão do desempenho de consulta de Banco de Dados SQL do Azure"
+title: "Análise de desempenho de consultas para o Banco de dados SQL do Azure | Microsoft Docs"
 description: O monitoramento do desempenho de consulta identifica as consultas que consumem mais CPU de um Banco de Dados SQL do Azure.
 services: sql-database
 documentationcenter: 
@@ -8,6 +8,7 @@ manager: jhubbard
 editor: monicar
 ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 174fedeb49b1ce8ca84ff2302314d683fe181fff
+ms.sourcegitcommit: ddf93a0db278fffa2aa45fdc73a1c7f57a84fb39
+ms.openlocfilehash: 14140a6aa8c8cccf658f8e98305659e8ae76dcad
 
 
 ---
@@ -31,7 +32,6 @@ Gerenciamento e ajuste do desempenho de bancos de dados relacionais são uma tar
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A Visão do Desempenho de Consulta está disponível somente com o Banco de Dados SQL do Azure V12.
 * A Análise de Desempenho de Consultas exige a execução do [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx) em seu banco de dados. Se o Repositório de Consultas não estiver em execução, o portal solicitará que você o ative.
 
 ## <a name="permissions"></a>Permissões
@@ -171,13 +171,13 @@ O segundo caso acontece quando o Repositório de Consultas está Desligado ou pa
 ### <a name="recommended-retention-and-capture-policy"></a>Política recomendada de retenção e captura
 Há dois tipos de política de retenção:
 
-* Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de se atingido.
+* Baseada em tamanho — se definida para AUTOMÁTICA, ela limpará os dados automaticamente quando o tamanho máximo estiver perto de ser atingido.
 * Baseada no tempo — por padrão, nós a definiremos para 30 dias, o que significa que, se o Repositório de Consultas ficar sem espaço, ele excluirá informações de consulta com mais de 30 dias
 
 A política de captura pode ser definida para:
 
-* **Todas** : captura todas as consultas.
-* **Automática** : consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente. Essa é a opção padrão.
+* **Todas**: captura todas as consultas.
+* **Automática**: consultas pouco frequentes e consultas com duração de execução e compilação insignificantes são ignoradas. Os limites da duração de contagem de execução, compilação e tempo de execução são determinados internamente. Essa é a opção padrão.
 * **Nenhuma** – o Repositório de Consultas interrompe a captura de novas consultas, porém, as estatísticas de tempo de execução para consultas já capturadas ainda são coletadas.
 
 É recomendável definir todas as políticas para AUTOMÁTICA e a limpeza de políticas para 30 dias:
@@ -228,6 +228,6 @@ Para obter recomendações adicionais sobre como aprimorar o desempenho do seu b
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

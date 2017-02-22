@@ -12,7 +12,6 @@ Obrigado por seu interesse na documentação do Azure.
 * [Organização do repositório](#repository-organization)
 * [Como usar o GitHub, o Git e este repositório](#use-github-git-and-this-repository)
 * [Como usar o markdown para formatar seu tópico](#how-to-use-markdown-to-format-your-topic)
-* [Comentários e suporte](./contributor-guide/feedback-and-comments.md)
 * [Mais recursos](#more-resources)
 * [Índice de todos os artigos do guia do colaborador](contributor-guide/contributor-guide-index.md) (abre uma nova página)
 
@@ -87,6 +86,6 @@ Acesse o [índice do nosso guia do colaborador](contributor-guide/contributor-gu
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Recursos de alta disponibilidade do HDInsight baseados em Linux (Hadoop) | Microsoft Docs
+title: Recursos de alta disponibilidade do HDInsight (Hadoop) | Microsoft Docs
 description: "Saiba como clusters HDInsight baseados em Linux melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Você aprenderá como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH."
 services: hdinsight
 editor: cgronlun
@@ -13,23 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 461ff9ce5aac5b2bf87671c314b38a4b1adad233
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: c29f539d25df3f7b005eb0fa98009d26549fa32b
 
 
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
+
 O Hadoop atinge a alta disponibilidade e confiabilidade distribuindo cópias redundantes de dados e serviços entre os nós em um cluster. No entanto, em geral, as distribuições padrão do Hadoop têm apenas um único nó de cabeçalho. Qualquer falha do único nó de cabeçalho poderá fazer com que o cluster pare de funcionar.
 
-Para resolver esse problema potencial, os clusters HDInsight baseados em Linux no Azure fornecem dois nós de cabeçalho para aumentar a disponibilidade e confiabilidade dos serviços e trabalhos do Hadoop em execução.
+Para resolver esse problema potencial, os clusters HDInsight no Azure fornecem dois nós de cabeçalho para aumentar a disponibilidade e a confiabilidade dos serviços e trabalhos do Hadoop em execução.
 
-> [!NOTE]
-> As etapas deste documento são específicas de clusters HDInsight baseados em Linux. Se você estiver usando um cluster baseado no Windows, consulte [Disponibilidade e confiabilidade dos clusters Hadoop baseado em Windows no HDInsight](hdinsight-high-availability.md) para obter informações específicas do Windows.
-> 
-> 
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="understanding-the-nodes"></a>Compreendendo os dados
 Os nós em um cluster HDInsight são implementados com o uso de Máquinas Virtuais do Azure. Em caso de falha de um nó, ele é colocado offline e um novo nó é criado para substituir o nó com falha. Enquanto o nó estiver offline, outro nó do mesmo tipo será usado até que o novo nó seja colocado online.
@@ -187,14 +186,10 @@ Para obter uma lista dos comandos disponíveis, insira `help` no prompt `sftp>`.
 
 > [!NOTE]
 > Há também interfaces gráficas que permitem visualizar o sistema de arquivos quando você estiver conectado usando SFTP. Por exemplo, [MobaXTerm](http://mobaxterm.mobatek.net/) permite que você procure o sistema de arquivos usando uma interface semelhante à do Windows Explorer.
-> 
-> 
 
 ### <a name="ambari"></a>Ambari
 > [!NOTE]
 > Acessar arquivos de log por meio de Ambari requer um túnel SSH, já que os sites da Web para os serviços individuais não são expostos publicamente na Internet. Para obter mais informações sobre o uso de um túnel SSH, consulte [Usar túnel SSH para acessar a IU da Ambari Web, ResourceManager, JobHistory, NameNode, Oozie e outras IUs da Web](hdinsight-linux-ambari-ssh-tunnel.md).
-> 
-> 
 
 Na IU da Ambari Web, selecione o serviço que você deseja para ver os logs (por exemplo, YARN,) e, em seguida, use **Links Rápidos** para selecionar qual nó principal para ver os logs.
 
@@ -226,6 +221,6 @@ Neste documento, você aprendeu como o Azure HDInsight fornece alta disponibilid
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

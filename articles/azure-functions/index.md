@@ -1,13 +1,25 @@
 ---
+title: "Documentação do Azure Functions - Tutoriais | Microsoft Docs"
+description: "Saiba mais sobre como desenvolver e implantar funções na linguagem de sua escolha para executar tarefas em segundo plano ou em uma agenda sem infraestrutura especial."
+services: functions
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: functions
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: b490d47b03cd3c7c57c3630fafb95777fffaa3aa
+ms.openlocfilehash: b2f2e067fd6c6c2c34bee167356756721c8fd0cd
 
 ---
 #<a name="azure-functions-documentation"></a>Documentação do Azure Functions
 
-O Azure Functions é uma solução para executar facilmente pequenos trechos de código ("funções") na nuvem. Você pode escrever o código de que necessita para o problema em questão, sem se preocupar com todo o aplicativo ou a infraestrutura para executá-lo. Você também pode desenvolver na linguagem de sua escolha, como C#, F#, Node.js, Python ou PHP.
+Saiba mais sobre como usar o Functions para desenvolver e implantar pequenos trechos de código na linguagem de sua escolha e na nuvem sem configurar infraestrutura. Os tutoriais, os modelos e outras documentações mostram como criar funções para tarefas que você deseja executar em um thread em segundo plano ou em uma agenda.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -103,18 +115,9 @@ O Azure Functions é uma solução para executar facilmente pequenos trechos de 
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
-        <div class="img"></div>
-        <div class="text">
-Download da Documentação do Azure Functions </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

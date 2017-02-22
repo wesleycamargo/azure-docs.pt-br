@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e3b97726bf92cbb21c48cfb0fbe8d4f20db177d5
-ms.openlocfilehash: a0529aa584841c24afc5aa0d34a7ff1505a7732e
+ms.sourcegitcommit: 8c439591dae0bd561ba4f079aba9f2073d1e954b
+ms.openlocfilehash: dc94c3f428200f107f7e953a57cf4e0e83bc7de1
 
 
 ---
@@ -43,6 +43,8 @@ Antes de começar este artigo, você deve ter o seguinte:
      
        ![Botão do cluster HDInsight do Portal do Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
+       Se você não vir o cluster HDInsight, clique em **Mais serviços** na parte inferior da lista e clique em **clusters HDInsight** na seção **Inteligência + Análises**.
+
 ## <a name="create-clusters"></a>Criar clusters
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -56,14 +58,14 @@ O HDInsight trabalha com uma ampla variedade de componentes do Hadoop. Para obte
    
     ![Fundamentos do cluster HDInsight do portal do Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-    **Menu de visão geral**:
+    **Menu de visão geral:**
 
-   * **Painel**, **Painel do Cluster** e **URL: são todas as maneiras de acessar o painel do cluster, que é Ambari Web para os clusters baseados em Linux.
+   * **Painel**: abre o painel do cluster, que é o Ambari Web para clusters baseados em Linux.
    * **Secure Shell**: mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH).
    * **Escalar Cluster**: permite alterar o número de nós de trabalho deste cluster.
    * **Excluir**: exclui o cluster.
 
-    **Menu à esquerda**
+    **Menu à esquerda:**
    
    * **Logs de Atividade**: mostrar e consultar logs de atividade.
    * **Controle de Acesso (IAM)**: usar atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../active-directory/role-based-access-control-configure.md).
@@ -315,6 +317,6 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

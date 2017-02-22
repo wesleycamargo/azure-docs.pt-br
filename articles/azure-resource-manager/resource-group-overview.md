@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Você pode ver todos os provedores de recursos por meio do portal. Na folha de s
 
 Você recupera todos os provedores de recursos com o seguinte cmdlet do PowerShell:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Ou, com a CLI do Azure, você recupera todos os provedores de recursos com o seguinte comando:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Você pode verificar a lista retornada para encontrar os provedores de recursos que precisa usar.
 
 Para obter detalhes sobre um provedor de recursos, adicione o namespace do provedor ao comando. O comando retorna os tipos de recursos com suporte para o provedor de recursos e os locais e as versões de API com suporte para cada tipo de recurso. O seguinte cmdlet do PowerShell obtém os detalhes sobre Microsoft.Compute:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Ou, com a CLI do Azure, recupere os tipos de recursos, locais e versões de API com suporte para Microsoft.Compute, com o seguinte comando:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Para obter mais informações, confira [Provedores do Gerenciador de Recursos, regiões, versões de API e esquemas](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Para saber mais sobre o formato do modelo e como construí-lo, confira [Criando 
 
 O Gerenciador de Recursos processa o modelo como qualquer outra solicitação (confira a imagem da [Camada de gerenciamento consistente](#consistent-management-layer)). Ele analisa o modelo e converte sua sintaxe em operações da API REST para provedores de recurso apropriado. Por exemplo, quando o Gerenciador de Recursos recebe um modelo com a seguinte definição de recurso:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Converte a definição para a seguinte operação de API REST, que é enviada para o provedor de recursos Microsoft.Storage:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 Como você define grupos de recursos e modelos é de sua responsabilidade e de como você deseja gerenciar a sua solução. Por exemplo, você pode implantar seu aplicativo de três camadas por meio de um único modelo para um único grupo de recursos.
 
@@ -181,26 +193,32 @@ Recursos não precisam residir no mesmo grupo de recursos para compartilhar uma 
 
 O exemplo a seguir mostra uma marca aplicada a uma máquina virtual.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Para recuperar todos os recursos com um valor de marca, use o seguinte cmdlet do PowerShell:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Ou execute o seguinte comando da CLI do Azure:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Você também pode exibir os recursos marcados por meio do portal do Azure.
 
@@ -242,7 +260,7 @@ Em alguns casos, você deseja executar código ou script que acessa recursos, ma
 Você pode bloquear explicitamente recursos essenciais para impedir que os usuários possam excluí-los ou modificá-los. Para saber mais, confira [Bloquear recursos com o Gerenciador de Recursos do Azure](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Logs de atividade
-O Gerenciador de Recursos registra todas as operações que criam, modificam ou excluem um recurso. É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso. Para ver os logs, selecione **Logs de atividade** na folha **Configurações** de um grupo de recursos. Você pode filtrar os logs por muitos valores diferentes, incluindo qual usuário iniciou a operação. Para saber mais sobre como trabalhar com os logs de atividade, confira [Operações de auditoria com o Gerenciador de Recursos](resource-group-audit.md).
+O Gerenciador de Recursos registra todas as operações que criam, modificam ou excluem um recurso. É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou para monitorar como um usuário de sua organização modificou um recurso. Para ver os logs, selecione **Logs de atividade** na folha **Configurações** de um grupo de recursos. Você pode filtrar os logs por muitos valores diferentes, incluindo qual usuário iniciou a operação. Para saber mais sobre como trabalhar com logs de atividade, veja [Exibir logs de atividade para gerenciar recursos do Azure](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Políticas personalizadas
 O Gerenciador de Recursos permite que você crie políticas personalizadas para gerenciar seus recursos. Os tipos de políticas que você cria podem incluir diversos cenários. Você pode impor uma convenção de nomenclatura para recursos, limitar os tipos e instâncias de recursos que podem ser implantados ou limitar quais regiões podem hospedar um tipo de recurso. Você pode exigir um valor de marcação nos recursos para organizar a cobrança por departamentos. Você pode criar políticas para ajudar a reduzir os custos e manter a consistência em sua assinatura. 
@@ -251,17 +269,19 @@ Você define políticas com JSON e, em seguida, as aplica à sua assinatura ou e
 
 O exemplo a seguir mostra uma política que garante a consistência de marca, especificando que todos os recursos incluem uma marca costCenter.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Há muito mais tipos de políticas que você pode criar. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ Veja uma demonstração em vídeo desta visão geral:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

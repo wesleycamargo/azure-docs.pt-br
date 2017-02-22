@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/05/2017
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
 
 
 ---
@@ -24,10 +24,26 @@ ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
+Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando o SDK .NET dos Serviços de Mídia do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Os itens a seguir são necessários para concluir o tutorial:
+
+* Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
+* .NET Framework 4.0 ou posterior
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
+
+Este tutorial inclui as seguintes tarefas:
+
+1. Iniciar pontos de extremidade de streaming (usando o portal do Azure).
+2. Criar e configurar um projeto do Visual Studio.
+3. Conectar-se à conta dos Serviços de Mídia.
+2. Carregar um arquivo de vídeo.
+3. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
+4. Publicar o ativo e obter URLs de download progressivo e streaming.  
+5. Reproduzir o conteúdo.
 
 ## <a name="overview"></a>Visão geral
 Este tutorial orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com os Serviços de Mídia do Azure (AMS) para .NET.
@@ -40,67 +56,27 @@ A imagem a seguir mostra alguns dos objetos mais usados ao desenvolver aplicativ
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?api-version=2.15).  
-
-
-## <a name="prerequisites"></a>Pré-requisitos
-Os itens a seguir são necessários para concluir o tutorial.
-
-* Para concluir este tutorial, você precisa de uma conta do Azure.
-
-    Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
-* Sistemas operacionais: Windows 8 ou posterior, Windows 2008 R2, Windows 7.
-* .NET Framework 4.0 ou posterior
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
-
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure
-As etapas nesta seção mostram como criar uma conta do AMS.
-
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **+Novo** > **Mídia + CDN** > **Serviços de Mídia**.
-
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. Em **CRIAR CONTA DOS SERVIÇOS DE MÍDIA** , insira os valores necessários.
-
-    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. Em **Nome da Conta**, insira o nome da nova conta AMS. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.
-   2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
-   3. Em **Grupo de Recursos**, selecione o recurso novo ou existente.  Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. Em **Localização**, selecione a região geográfica que é usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região é usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa.
-   5. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
-
-       Saiba mais sobre o armazenamento [aqui](../storage/storage-introduction.md).
-   6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
-4. Clique em **Criar** na parte inferior do formulário.
-
-    Quando a conta é criada com êxito, a página de visão geral é carregada. Na tabela de ponto de extremidade de streaming, a conta terá um ponto de extremidade de streaming padrão em estado **Parado**.
-
-    >[!NOTE]
-    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
-
-    ![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Iniciar pontos de extremidade de streaming usando o portal do Azure
 
 Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns o fornecimento de vídeo via streaming de taxa de bits adaptável. Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
 
 Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
-1. Na janela Configurações, clique em Pontos de extremidade de streaming. 
-2. Clique no ponto de extremidade de streaming padrão. 
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Na janela Configurações, clique em Pontos de extremidade de streaming.
+3. Clique no ponto de extremidade de streaming padrão.
 
     A janela DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO é exibida.
 
-3. Clique no ícone Iniciar.
-4. Clique no botão Salvar para salvar as alterações.
+4. Clique no ícone Iniciar.
+5. Clique no botão Salvar para salvar as alterações.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
@@ -140,7 +116,7 @@ Para iniciar o ponto de extremidade de streaming, faça o seguinte:
 
 Ao usar os serviços de mídia com o .NET, você deve usar a classe **CloudMediaContext** para a maioria das tarefas de programação dos Serviços de Mídia: conectar-se à conta de Serviços de Mídia; criar, atualizar, acessar e excluir os seguintes objetos: ativos, arquivos de ativos, trabalhos, políticas de acesso, localizadores, etc.
 
-Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais sobre como conectar-se aos Serviços de Mídia, veja [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Substitua a classe Program padrão pelo código a seguir. O código demonstra como ler os valores de conexão por meio do arquivo App.config e como criar o objeto **CloudMediaContext** para poder se conectar aos Serviços de Mídia. Para saber mais sobre como conectar-se aos Serviços de Mídia, veja [Conectando-se aos Serviços de Mídia com o SDK dos Serviços de Mídia para .NET](media-services-dotnet-connect-programmatically.md).
 
 Atualize o nome do arquivo e o caminho onde está o arquivo de mídia.
 
@@ -243,7 +219,7 @@ Para tirar proveito do empacotamento dinâmico, você precisa codificar ou trans
 O código a seguir mostra como enviar um trabalho de codificação. O trabalho contém uma tarefa que determina a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Standard**. O código envia o trabalho e aguarda até que ele seja concluído.
 
 Depois que o trabalho for concluído, você poderá transmitir seu ativo ou baixar progressivamente arquivos MP4 criados como resultado de transcodificação.
- 
+
 Adicionar o método a seguir à classe do programa.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -426,7 +402,7 @@ Para saber mais, consulte os tópicos a seguir:
 ## <a name="download-sample"></a>Baixar exemplo
 O exemplo de código a seguir contém o código que você criou neste tutorial: [exemplo](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

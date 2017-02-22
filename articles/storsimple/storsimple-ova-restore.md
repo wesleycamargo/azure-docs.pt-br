@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2801bc0fc645f9ed23733d1025f1cb42a5174022
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
 
 
 ---
@@ -98,7 +98,7 @@ Cada compartilhamento tem uma pasta *.backups* que contém os backups mais recen
 
 Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup de compartilhamentos e restaurar dados em uma StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Use-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Use-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -108,6 +108,6 @@ Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interfa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

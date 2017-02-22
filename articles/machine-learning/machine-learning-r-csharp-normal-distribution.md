@@ -1,6 +1,6 @@
 ---
-title: "Pacote de serviço Web de distribuição normal | Microsoft Docs"
-description: "Pacote de serviço Web de distribuição normal"
+title: "(preterido) Pacote de serviço Web de distribuição normal — Azure | Microsoft Docs"
+description: "(preterido) Pacote de serviço Web de distribuição normal"
 services: machine-learning
 documentationcenter: 
 author: ireiter
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/04/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: ireiter
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3783df1f80fc6453d64c16f5002262fb7197309
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: da7b70171d13c82e9269064069e69a35b9b2daaa
 
 
 ---
-# <a name="normal-distribution-suite"></a>Pacote de distribuição normal
+# <a name="deprecated-normal-distribution-suite"></a>(preterido) Pacote de distribuição normal
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 O Pacote de Distribuição Normal é um conjunto de serviços Web de exemplo ([Gerador](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Calculadora de Quantil](https://datamarket.azure.com/dataset/aml_labs/ndq5), [Calculadora de Probabilidade](https://datamarket.azure.com/dataset/aml_labs/ndp5)) que ajudam gerando e manipulando distribuições normais. Os serviços permitem gerar uma sequência de distribuição normal de qualquer tamanho, calcular quantidades por meio de uma determinada probabilidade e calcular probabilidade por meio de um determinado quantil. Cada um dos serviços emite saídas diferentes com base no serviço selecionado (consulte a descrição abaixo). O Pacote de Distribuição Normal baseia-se em funções R qnorm, rnorm e pnorm incluídas no pacote de estatísticas R.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -269,6 +276,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

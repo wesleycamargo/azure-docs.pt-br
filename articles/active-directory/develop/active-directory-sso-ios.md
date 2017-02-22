@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: d76491683d08bf9afd505eebfdede5812e87f458
+ms.sourcegitcommit: a63996ad3661b43bea83870c1fa88fa6d64c6c6a
+ms.openlocfilehash: bc2bb9916baa08b14dc5cfeb0e6d712b1c0522ef
 
 
 ---
@@ -277,10 +277,10 @@ O URI de redirecionamento deve ser no formato correto de:
 
 Por exemplo: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Esse URI de Redirecionamento deve ser especificado no registro de seu aplicativo usando o [Portal Clássico do Azure](https://manage.windowsazure.com/). Para saber mais sobre o registro de aplicativo do Azure AD, confira [Integração com o Azure Active Directory](active-directory-how-to-integrate.md).
+Esse URI de Redirecionamento deve ser especificado no registro de seu aplicativo usando o [Portal do Azure](https://portal.azure.com/). Para saber mais sobre o registro de aplicativo do Azure AD, confira [Integração com o Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Etapa 3a: adicionar um URI de redirecionamento ao portal do aplicativo e de desenvolvimento a fim de oferecer suporte à autenticação baseada em certificado
-Para dar suporte à autenticação baseada em certificado, é necessário registrar um segundo "msauth" em seu aplicativo e no [portal clássico do Azure](https://manage.windowsazure.com/) a fim de lidar com a autenticação do certificado, se você quiser adicionar esse suporte ao seu aplicativo.
+Para dar suporte à autenticação baseada em certificado, é necessário registrar um segundo "msauth" em seu aplicativo e no [Portal do Azure](https://portal.azure.com/) a fim de lidar com a autenticação de certificados caso você queira adicionar esse suporte ao seu aplicativo.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -301,6 +301,6 @@ Agora, o SDK do Microsoft Identity compartilhará automaticamente as credenciais
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

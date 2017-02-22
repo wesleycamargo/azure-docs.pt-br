@@ -56,7 +56,7 @@ A função de sucesso é chamada com os resultados.  Não use `for (var i in res
 
 Para obter mais informações sobre a sintaxe Query, confira a [documentação do objeto Query].
 
-#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>Filtrando dados no servidor
+#### <a name="a-nametable-filterafiltering-data-on-the-server"></a><a name="table-filter"></a>Filtragem de dados no servidor
 É possível usar uma cláusula `where` na referência de tabela:
 
 ```
@@ -107,7 +107,7 @@ O método `.includeTotalCount()` é usado para adicionar um campo totalCount ao 
 
 Depois, você pode usar a variável de páginas e alguns botões da interface de usuário para fornecer uma lista de páginas; use `loadPage()` para carregar os novos registros de cada página.  Implemente cache para agilizar o acesso a registros que já foram carregados.
 
-#### <a name="a-namesorting-dataahow-to-return-data-sorted"></a><a name="sorting-data"></a>Como retornar dados classificados
+#### <a name="a-namesorting-dataahow-to-return-sorted-data"></a><a name="sorting-data"></a>Como: retornar dados classificados
 Use os métodos de consulta `.orderBy()` ou `.orderByDescending()`:
 
 ```
@@ -167,6 +167,6 @@ table
 ```
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

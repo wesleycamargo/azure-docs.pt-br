@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2016
+ms.date: 12/14/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09c1df79e9a4af666cdd46da115b9af78dd27d72
+ms.sourcegitcommit: e6033f089152c27713f98f12634c53012f5ff070
+ms.openlocfilehash: 04cfafc9e7a037d915f63723fd0b67a07954460b
 
 
 ---
@@ -26,7 +26,7 @@ Em vez de criar seus próprios runbooks e módulos na Automação do Azure, voc�
 Você pode obter os runbooks na [Galeria do Runbook](#runbooks-in-runbook-gallery) e os módulos na [Galeria do PowerShell](#modules-in-powerShell-gallery).  Você também pode contribuir com a comunidade compartilhando os cenários que desenvolve.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbooks na Galeria de Runbook
-A [Galeria do Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) fornece vários runbooks da Microsoft e da comunidade que você pode importar para a Automação do Azure. Você pode baixar um runbook da galeria hospedada no [Script Center do TechNet](http://gallery.technet.microsoft.com/)ou pode importar runbooks diretamente da galeria do Portal Clássico do Azure ou do Portal do Azure.
+A [Galeria do Runbook](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) fornece vários runbooks da Microsoft e da comunidade que você pode importar para a Automação do Azure. Você pode baixar um runbook da galeria hospedada no [Script Center do TechNet](https://gallery.technet.microsoft.com/scriptcenter/site/upload)ou pode importar runbooks diretamente da galeria do Portal Clássico do Azure ou do Portal do Azure.
 
 Somente é possível importar diretamente da Galeria de Runbook usando o Portal Clássico do Azure ou o Portal do Azure. Não é possível executar essa função usando o Windows PowerShell.
 
@@ -125,6 +125,6 @@ Você pode enviar solicitações para a [Voz do Usuário](https://feedback.azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

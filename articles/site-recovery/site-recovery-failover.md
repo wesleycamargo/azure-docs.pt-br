@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/05/2016
+ms.date: 1/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 31d80e58071383aee22772e224c90289a610c0b3
+ms.sourcegitcommit: b70d2d709d0940964c4220b798207adaf3551d36
+ms.openlocfilehash: d31e987e636b178b5aa05722ff08707a6e53c3cf
 
 
 ---
@@ -35,7 +35,7 @@ Depois de habilitar a proteção para máquinas virtuais e servidores físicos e
 | --- | --- | --- | --- |
 | **Failover de teste** |Executar para validar sua estratégia de replicação ou realizar uma simulação de recuperação de desastre |Nenhuma perda de dados ou tempo de inatividade<br/><br/>Nenhum impacto na replicação<br/><br/>Nenhum impacto no ambiente de produção |Iniciar o failover<br/><br/>Especificar como computadores de teste serão conectados às redes após o failover<br/><br/>Acompanhar o progresso na guia **Trabalhos** . Computadores de teste são criados e iniciados no local secundário<br/><br/>Azure - conectar ao computador no portal do Azure<br/><br/>Site secundário - acessar o computador no mesmo host e nuvem<br/><br/>Concluir os testes e limpar automaticamente as configurações do failover de teste. |
 | **Failover planejado** |Executar para atender aos requisitos de conformidade<br/><br/>Execute para a manutenção planejada<br/><br/>Executar para realizar failover de dados para manter cargas de trabalho em execução durante interrupções conhecidas - como uma falha esperada de energia ou previsões climáticas severas<br/><br/>Executar para fazer failback após o failover do local primário para o secundário |Sem perda de dados<br/><br/>A inatividade incorre durante o tempo necessário para desligar a máquina virtual no local primário e ativá-la no local secundário.<br/><br/>Máquinas virtuais são afetadas, à medida que os computadores de destino se tornam computadores de origem após o failover. |Iniciar o failover<br/><br/>Acompanhar o progresso na guia **Trabalhos** . Os computadores de origem são desligados<br/><br/>Os computadores de réplica iniciam no local secundário<br/><br/>Azure - conectar-se ao computador de réplica no portal do Azure<br/><br/>Site secundário - acessar o computador no mesmo host e na mesma nuvem<br/><br/>Confirmar o failover |
-| **Failover não planejado** |Executar esse tipo de failover de maneira reativa quando um site primário se tornar inacessível devido a um incidente inesperado, como falta de energia ou ataque de vírus  <br/><br/>  Você pode executar um failover não planejado mesmo se um site primário não estiver disponível. |A perda de dados depende das configurações de frequência de replicação<br/><br/>Os dados serão atualizados de acordo com a última vez que foram sincronizados |Iniciar o failover<br/><br/>Acompanhar o progresso na guia **Trabalhos** . Como opção, tente desligar as máquinas virtuais e sincronizar os dados mais recentes<br/><br/>Os computadores de réplica iniciam no local secundário<br/><br/>Azure - conectar-se ao computador de réplica no portal do Azure<br/><br/>Site secundário - acessar o computador no mesmo host e na mesma nuvem<br/><br/>Confirmar o failover |
+| **Failover não planejado** |Executar esse tipo de failover de maneira reativa quando um site primário se tornar inacessível devido a um incidente inesperado, como falta de energia ou ataque de vírus  <br/><br/> Você pode executar um failover não planejado mesmo se um site primário não estiver disponível. |A perda de dados depende das configurações de frequência de replicação<br/><br/>Os dados serão atualizados de acordo com a última vez que foram sincronizados |Iniciar o failover<br/><br/>Acompanhar o progresso na guia **Trabalhos** . Como opção, tente desligar as máquinas virtuais e sincronizar os dados mais recentes<br/><br/>Os computadores de réplica iniciam no local secundário<br/><br/>Azure - conectar-se ao computador de réplica no portal do Azure<br/><br/>Site secundário - acessar o computador no mesmo host e na mesma nuvem<br/><br/>Confirmar o failover |
 
 Os tipos de failover com suporte dependem do cenário de implantação.
 
@@ -48,8 +48,8 @@ Os tipos de failover com suporte dependem do cenário de implantação.
 | Azure para site do VMM |Sem suporte |Com suporte |Sem suporte |
 | Site do Hyper-V para Azure |Com suporte |Com suporte |Com suporte |
 | Azure para site do Hyper-V |Sem suporte |Com suporte |Sem suporte |
-| Site da VMware para Azure |Com suporte (cenário avançado)<br/><br/>  Sem suporte (cenário herdado) |Sem suporte |Com suporte |
-| Servidor físico para Azure |Com suporte (cenário avançado)<br/><br/>  Sem suporte (cenário herdado) |Sem suporte |Com suporte |
+| Site da VMware para Azure |Com suporte (cenário avançado)<br/><br/> Sem suporte (cenário herdado) |Sem suporte |Com suporte |
+| Servidor físico para Azure |Com suporte (cenário avançado)<br/><br/> Sem suporte (cenário herdado) |Sem suporte |Com suporte |
 
 ## <a name="failover-and-failback"></a>Failover e failback
 Você realiza failover de máquinas virtuais em um site secundário local ou no Azure, dependendo da sua implantação. Um computador que realiza failover no Azure é criado como uma máquina virtual do Azure. É possível realizar failover de uma única máquina virtual ou de um servidor físico, ou de um plano de recuperação. Os planos de recuperação consistem em um ou mais grupos ordenados que contêm máquinas virtuais ou servidores físicos protegidos. Eles são usados para administrar o failover de vários computadores que realizam failover de acordo com o grupo em que estão. [Leia mais](site-recovery-create-recovery-plans.md) sobre planos de recuperação.
@@ -78,86 +78,7 @@ Se você realizou failover no Azure, suas máquinas virtuais estão protegidas p
 * **Encaminhar solicitações de clientes**: a Recuperação de Site trabalha com o Gerenciador de Tráfego do Azure para encaminhar solicitações de clientes ao seu aplicativo depois do failover.
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
-Na execução de um failover de teste, é solicitado que você selecione as configurações de rede para testar os computadores de réplica. Você tem várias opções.  
-
-| **Opção de failover de teste** | **Descrição** | **Verificação do failover** | **Detalhes** |
-| --- | --- | --- | --- |
-| **Failover no Azure — sem rede** |Não selecionar uma rede de destino do Azure |O failover verifica se a máquina virtual de teste é iniciada conforme esperado no Azure |Todas as máquinas virtuais de teste em um plano de recuperação são adicionadas em um único serviço de nuvem e podem se conectar umas às outras<br/><br/>Os computadores não estão conectados a uma rede Azure após o failover.<br/><br/>Os usuários podem se conectar aos computadores de teste com um endereço IP público |
-| **Failover no Azure — com rede** |Selecionar uma rede de destino do Azure |O failover verifica se os computadores de teste estão conectados à rede |Crie uma rede do Azure isolada da rede de produção do Azure e configure a infraestrutura para que a máquina virtual replicada funcione conforme esperado.<br/><br/>A sub-rede da máquina virtual de teste se baseará na sub-rede à qual se espera que a máquina virtual com failover se conecte se um failover planejado ou não planejado ocorrer. |
-| **Failover em um site do VMM secundário — sem rede** |Não selecionar uma rede de VM |O failover verifica se os computadores de teste são criados.<br/><br/>A máquina virtual de teste será criada no mesmo host que o host no qual está a máquina virtual de réplica. Ele não será adicionado na nuvem em que a máquina virtual de réplica está localizada. |<p>O computador com failover não será conectado a nenhuma rede.<br/><br/>O computador pode ser conectado a uma rede de VM depois que ela for criada |
-| **Failover em um site do VMM secundário — com rede** |Selecionar uma rede VM existente |O failover verifica se as máquinas virtuais são criadas |A máquina virtual de teste será criada no mesmo host que o host no qual está a máquina virtual de réplica. Ele não será adicionado na nuvem em que a máquina virtual de réplica está localizada.<br/><br/>Criar uma rede VM isolada da rede de produção<br/><br/>Se você estiver usando uma rede baseada em VLAN, é recomendável criar uma rede lógica separada (não usada em produção) no VMM para esse fim. Essa rede lógica é usada para criar redes de VM para fins de failover de teste.<br/><br/>A rede lógica deve ser associada a pelo menos um dos adaptadores de rede de todos os servidores do Hyper-V hospedando máquinas virtuais.<br/><br/>Para redes lógicas de VLAN, os sites de rede adicionados à rede lógica devem ser isolados.<br/><br/>Se você está estiver usando uma rede lógica baseada na Virtualização de Rede do Windows, o Azure Site Recovery criará automaticamente redes de VM isoladas. |
-| **Failover em um site do VMM secundário — criar uma rede** |Uma rede de teste temporária será criada automaticamente com base na configuração especificada em **Rede Lógica** e seus sites de rede relacionados |O failover verifica se as máquinas virtuais são criadas |Use esta opção se o plano de recuperação usa mais de uma rede VM. Caso esteja usando redes da Virtualização de Rede do Windows, essa opção pode ser usada para criar automaticamente redes VM com as mesmas configurações (sub-redes e pools de endereços IP) na rede da máquina virtual de réplica. Essas redes VM são removidas automaticamente depois que o failover de teste é concluído.</p><p>A máquina virtual de teste será criada no mesmo host que o host no qual está a máquina virtual de réplica. Ele não será adicionado na nuvem em que a máquina virtual de réplica está localizada. |
-
-> [!NOTE]
-> O endereço IP fornecido a uma máquina virtual durante o failover de teste é o mesmo endereço IP que ela recebia durante um failover planejado ou não planejado (considerando que o endereço IP esteja disponível na rede de failover de teste. Se o mesmo endereço IP não estiver disponível na rede de failover de teste, a máquina virtual receberá outro endereço IP disponível na rede de failover de teste.
->
->
-
-### <a name="run-a-test-failover-from-on-premises-to-azure"></a>Executar um failover de teste do site local no Azure
-Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover para um único computador na guia **Máquinas Virtuais** .
-
-1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Test Failover**.
-2. Na página **Confirmar Failover de Teste** , especifique como os computadores de réplica serão conectados a uma rede Azure depois do failover.
-3. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia** , selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor.
-4. Acompanhe o progresso do failover na guia **Trabalhos** . Você deve poder ver o computador de réplica de teste no portal do Azure.
-5. É possível acessar computadores de réplica no Azure de seu site local iniciando uma conexão RDP com a máquina virtual. A porta 3389 precisará ser aberta no ponto de extremidade da máquina virtual.
-6. Assim que terminar, quando o failover atingir a fase **Concluir teste**, clique em **Concluir Teste** para finalizar.
-7. Em **Observações** , registre e salve todas as observações associadas ao failover de teste.
-8. Clique em **O failover de teste está concluído** para limpar automaticamente o ambiente de teste. Depois disso ser concluído, o failover de teste mostrará o status C**oncluído** .
-
-> [!NOTE]
-> Se um failover de teste continuar por mais de duas semanas, ele será concluído à força. Todos os elementos ou máquinas virtuais criados automaticamente durante o failover de teste serão excluídos.
->
->
-
-### <a name="run-a-test-failover-from-a-primary-on-premises-site-to-a-secondary-on-premises-site"></a>Executar um failover de teste de um site primário local para um site secundário local
-Você precisará realizar várias tarefas para executar um failover de teste, incluindo fazer uma cópia do controlador de domínio e colocar servidores DHCP e DNS de teste no ambiente de teste. Isso pode ser feito de duas maneiras:
-
-* Se deseja executar um failover de teste usando uma rede existente, prepare o Active Directory, DHCP e DNS nessa rede.
-* Se deseja executar um failover de teste usando a opção para criar redes VM automaticamente, adicione uma etapa manual antes do Grupo-1 no plano de recuperação que usará para o failover de teste e, em seguida, adicione os recursos de infraestrutura à rede criada automaticamente antes de executar o failover de teste.
-
-#### <a name="things-to-note"></a>Elementos a serem observados
-* Ao replicar em um site secundário, o tipo de rede usado pelo computador de réplica não precisa corresponder ao tipo da rede lógica usado para o failover de teste, mas algumas combinações podem não funcionar. Quando a réplica usa isolamento baseado em VLAN e DHCP, a rede VM da réplica não precisa de um pool de endereços IP estáticos. Desse modo, usar a Virtualização de Rede do Windows para o failover de teste não funcionará porque nenhum pool de endereços está disponível. Além disso, o failover de teste não funcionará se a rede de réplica for Sem Isolamento e a rede de teste for Virtualização de Rede do Windows. Isso porque a rede Sem Isolamento não tem as sub-redes necessárias para criar uma rede da Virtualização de Rede do Windows.
-* O modo como as máquinas virtuais de réplica são conectadas às redes VM mapeadas após o failover depende de como a rede VM é configurada no console do VMM:
-  * **Rede VM configurada sem isolamento ou com isolamento VLAN**: se DHCP for definido para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do servidor DHCP disponível. Não é necessário um pool de endereços IP estáticos definido para a rede VM de destino. Se um pool de endereços IP estáticos for usado para a rede VM, a máquina virtual de réplica será conectada à ID da VLAN usando as configurações que são especificadas para o site da rede na rede lógica associada. A máquina virtual receberá seu endereço IP do pool definido para a rede VM. Se um pool de endereços IP estáticos não for definido na rede VM de destino, a alocação do endereço IP falhará. O pool de endereços IP deve ser criado em servidores VMM de origem e de destino que você pretende usar para proteção e recuperação.
-  * **Rede VM com Virtualização de Rede do Windows**: quando uma rede VM é configurada com essa definição, um pool estático deve ser definido para a rede VM de destino, independentemente de a rede VM de origem estar configurada para usar DHCP ou um pool de endereços IP estáticos. Quando você define DHCP, o servidor VMM de destino atua como um servidor DHCP e fornece um endereço IP do pool que está definido para a rede VM de destino. Quando é definido o uso de um pool de endereços IP estáticos para o servidor de origem, o servidor VMM de destino aloca um endereço IP do pool. Em ambos os casos, a alocação de endereço IP falhará se um pool de endereços IP estáticos não for definido.
-
-#### <a name="run-test"></a>Executar teste
-Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais** .
-
-1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Test Failover**.
-2. Na página **Confirmar Failover de Teste** , especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste.
-3. Acompanhe o progresso do failover na guia **Trabalhos** . Quando o failover atinge a fase **Concluir teste**, clique em **Concluir Teste** para concluir o failover de teste.
-4. Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
-5. Depois de concluído, verifique se as máquinas virtuais iniciam com sucesso.
-6. Depois de verificar que máquinas virtuais foram iniciadas com êxito, conclua o teste de failover para limpar o ambiente isolado. Se você optar por criar automaticamente as redes VM, a limpeza excluirá todas as máquinas virtuais de teste e a redes de teste.
-
-> [!NOTE]
-> Se um failover de teste continuar por mais de duas semanas, ele será concluído à força. Todos os elementos ou máquinas virtuais criados automaticamente durante o failover de teste serão excluídos.
->
->
-
-#### <a name="prepare-dhcp"></a>Preparar o DHCP
-Se as máquinas virtuais envolvidas no failover de teste usarem DHCP, um servidor DHCP de teste deverá ser criado na rede isolada que é criada para fins de failover de teste.
-
-### <a name="prepare-active-directory"></a>Preparar o Active Directory
-Para executar um failover de teste em um teste de aplicativo, você precisará de uma cópia do ambiente de produção do Active Directory no ambiente de teste. Leia a seção [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes. 
-
-### <a name="prepare-dns"></a>Preparar o DNS
-Prepare um servidor DNS para o failover de teste da seguinte forma:
-
-* **DHCP**: se as máquinas virtuais usarem DHCP, o endereço IP do DNS de teste deverá ser atualizado no servidor DHCP de teste. Quando você usa um tipo de rede da Virtualização de Rede do Windows, o servidor VMM atua como o servidor DHCP. Portanto, o endereço IP do DNS deve ser atualizado na rede de failover de teste. Nesse caso, as máquinas virtuais se registrarão no servidor DNS relevante.
-* **Endereço estático**– se as máquinas virtuais usarem um endereço IP estático, o endereço IP do servidor DNS de teste deverá ser atualizado na rede de failover de teste. Talvez você precise atualizar o DNS com o endereço IP das máquinas virtuais de teste. É possível usar o seguinte script de exemplo para este fim:
-
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+Confira o documento [Teste de failover no Azure](site-recovery-test-failover-to-azure.md) se estiver fazendo um teste de failover no Azure. Confira o documento [Teste de Failover no VMM](site-recovery-test-failover-vmm-to-vmm.md) se estiver fazendo teste de failover em outro site local gerenciado por um servidor VMM.  
 
 ## <a name="run-a-planned-failover-primary-to-secondary"></a>Executar um failover planejado (primário para secundário)
  Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia **Máquinas Virtuais** .
@@ -201,7 +122,11 @@ Este procedimento descreve como executar um failover não planejado para um plan
 
     - **Sincronizar os dados apenas durante o failover (download completo)**: use essa opção se você estiver executando no Azure por um longo período. Essa opção é mais rápida porque esperamos que a maior parte do disco tenha mudado e não queremos perder tempo no cálculo da soma de verificação. Ela executa um download do disco. Ela também é útil quando a máquina virtual local é excluída.
 
-    > [AZURE.NOTE] É recomendável usar essa opção se você estiver executando o Azure já há algum tempo (um mês ou mais) ou se a VM local tiver sido excluída. Essa opção não executa cálculos de soma de verificação.
+    > [!NOTE] 
+    > É recomendável usar essa opção se você estiver executando o Azure já há algum tempo (um mês ou mais) ou se a VM local tiver sido excluída. Essa opção não executa cálculos de soma de verificação.
+    >
+    >
+
 
 1. Se estiver fazendo failover no Azure e a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia** , selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor no servidor VMM.
 2. Por padrão, o último ponto de recuperação é usado, mas em **Alterar Ponto de Recuperação** , você pode especificar um ponto de recuperação diferente.
@@ -235,6 +160,6 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 460b9e3cf2b4c7a85895c2db872344a1a5bc0ff9
+ms.sourcegitcommit: d809bf7b5e271b8850dc0f2bc6dfd72e3ef8ad0a
+ms.openlocfilehash: 4f9b328968aca2c752b624941ec341a3a936aec3
 
 
 ---
@@ -75,7 +75,7 @@ TelemetryClient é thread-safe.
 É recomendável usar uma instância de `TelemetryClient` para cada módulo do seu aplicativo. Por exemplo, você pode ter um `TelemetryClient` em seu serviço Web para relatar solicitações http de entrada e outro em uma classe de middleware para relatar eventos de lógica de negócios. Você pode definir propriedades como `TelemetryClient.Context.User.Id` para rastrear usuários e sessões ou `TelemetryClient.Context.Device.Id` para identificar o computador. Essas informações são anexadas a todos os eventos enviados pela instância.
 
 ## <a name="track-event"></a>Acompanhar evento
-No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer][metrics] como uma contagem agregada e também como ocorrências individuais na [Pesquisa de Diagnóstico][diagnóstico]. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
+No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer][metrics] como uma contagem agregada e também como ocorrências individuais na [Pesquisa de Diagnóstico][diagnostic]. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
 
 Insira chamadas TrackEvent em seu código para contar com que frequência os usuários escolhem um determinado recurso e com que frequência eles atingem metas específicas, ou talvez cometam tipos de erros específicos.
 
@@ -157,7 +157,6 @@ Para ver os resultados, abra o Metrics Explorer e adicione um novo gráfico. Def
 
 ![Adicione um novo gráfico ou selecione um gráfico e, em Personalizar, selecione sua métrica](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-Há alguns [limites no número de métricas](#limits) você pode usar.
 
 ## <a name="page-views"></a>Visualizações de página
 Em um dispositivo ou aplicativo de página da Web, a telemetria de exibição de páginas é enviada por padrão quando cada tela ou página é carregada. Porém, você pode alterar isso para acompanhar as exibições de páginas em momentos diferentes ou adicionais. Por exemplo, em um aplicativo que exibe guias ou folhas, talvez você queira acompanhar uma "página" sempre que o usuário abrir uma nova folha.
@@ -261,7 +260,7 @@ Em Pesquisar, o contexto de operação é usado para criar a lista Itens Relacio
 ![Itens relacionados](./media/app-insights-api-custom-events-metrics/21.png)
 
 ## <a name="track-exception"></a>Acompanhar exceção
-Envie exceções ao Application Insights: para [contá-las][metrics], como uma indicação da frequência de um problema; e para [examinar ocorrências individuais][diagnóstico]. Os relatórios incluem os rastreamentos de pilha.
+Envie exceções ao Application Insights: para [contá-las][metrics], como uma indicação da frequência de um problema; e para [examinar ocorrências individuais][diagnostic]. Os relatórios incluem os rastreamentos de pilha.
 
 *C#*
 
@@ -299,9 +298,9 @@ Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa
     ```
 
 ## <a name="track-trace"></a>Acompanhar rastreamento
-Use-o para ajudar a diagnosticar problemas enviando uma 'trilha de navegação estrutural' ao Application Insights. Você pode enviar partes de dados de diagnóstico e inspecioná-los na [Pesquisa de diagnóstico][diagnóstico].
+Use-o para ajudar a diagnosticar problemas enviando uma 'trilha de navegação estrutural' ao Application Insights. Você pode enviar partes de dados de diagnóstico e inspecioná-los na [Pesquisa de diagnóstico][diagnostic].
 
-Os [adaptadores de log][trace] usam essa API para enviar logs de terceiros ao portal.
+Os [Adaptadores de log][trace] usam essa API para enviar logs de terceiros ao portal.
 
 *C#*
 
@@ -320,7 +319,7 @@ Além disso, você pode adicionar um nível de severidade à mensagem. E, como o
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Isso permite que você filtre facilmente todas as mensagens de um nível de severidade específico relacionadas a determinado banco de dados na [Pesquisa] [diagnóstico].
+Isso permite que você filtre facilmente todas as mensagens de um nível de severidade específico relacionadas a determinado banco de dados na [Pesquisa][diagnostic].
 
 ## <a name="track-dependency"></a>Rastrear dependência
 Use essa chamada para acompanhar os tempos de resposta e taxas de êxito de chamadas para uma parte externa do código. Os resultados são exibidos nos gráficos de dependência no portal.
@@ -396,7 +395,7 @@ Se seu aplicativo agrupa os usuários em contas, você também pode passar um id
 
 No [Metrics Explorer](app-insights-metrics-explorer.md), você pode criar um gráfico que contabiliza **Usuários Autenticados** e **Contas de usuário**.
 
-Você também pode [pesquisar][diagnóstico] por pontos de dados do cliente com contas e nomes de usuário específicos.
+Você também pode [pesquisar][diagnostic] por pontos de dados do cliente com contas e nomes de usuário específicos.
 
 ## <a name="a-namepropertiesafilter-search-and-segment-your-data-with-properties"></a><a name="properties"></a>Filtrar, pesquisar e segmentar seus dados com propriedades
 Você pode anexar propriedades e medidas para seus eventos (e também para métricas, exibições de página e outros dados de telemetria).
@@ -493,7 +492,7 @@ Use o campo Pesquisa para ver as ocorrências de eventos com um valor da proprie
 
 ![Digite um termo em Pesquisar](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
-[Saiba mais sobre expressões de pesquisa][diagnóstico].
+[Saiba mais sobre as expressões de pesquisa][diagnostic].
 
 #### <a name="alternative-way-to-set-properties-and-metrics"></a>Maneira alternativa de definir propriedades e métricas
 Se for mais conveniente, você poderá coletar os parâmetros de um evento em um objeto separado:
@@ -684,7 +683,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 
 *Por quanto tempo são mantidos os dados?*
 
-* Consulte [Privacidade e retenção de dados][dados].
+* Consulte [Privacidade e retenção de dados][data].
 
 ## <a name="reference-docs"></a>Documentos de Referência
 * [Referência do ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
@@ -710,7 +709,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](app-insights-export-power-bi.md) e [Exportação contínua](app-insights-export-telemetry.md).
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
-[Pesquisar eventos e logs][diagnóstico]
+[Pesquisar eventos e logs][diagnostic]
 
 [Exemplos e explicações passo a passo](app-insights-code-samples.md)
 
@@ -721,8 +720,8 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [create]: app-insights-create-new-resource.md
-[dados]: app-insights-data-retention-privacy.md
-[diagnóstico]: app-insights-diagnostic-search.md
+[data]: app-insights-data-retention-privacy.md
+[diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
@@ -732,6 +731,6 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Criar um ambiente Linux completo usando a CLI 2.0 Visualização do Azure | Microsoft Docs"
+title: Criar um ambiente Linux usando a CLI 2.0 do Azure | Microsoft Docs
 description: "Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI 2.0 Visualização do Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/8/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
-ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+ms.sourcegitcommit: 39ce158ae52b978b74161cdadb4b886a7ddbf87a
+ms.openlocfilehash: a00936df023ddbb13f5765f2e78900a68cccdb88
 
 
 ---
@@ -53,7 +53,7 @@ Primeiro, crie o grupo de recursos com [az group create](/cli/azure/group#create
 az group create --name myResourceGroup --location westeurope
 ```
 
-Crie a conta de armazenamento com [az storage account create](/cli/azure/storage/account#create). O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`. (O nome da conta de armazenamento deve ser exclusivo; portanto, forneça seu próprio nome exclusivo.)
+Esta próxima etapa é opcional. A ação padrão ao criar uma VM com a CLI do Azure 2.0 (Visualização) é usar o Azure Managed Disks. Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md). Se, em vez disso, você quiser usar discos não gerenciados, crie uma conta de armazenamento com [az storage account create](/cli/azure/storage/account#create). O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`. (O nome da conta de armazenamento deve ser exclusivo; portanto, forneça seu próprio nome exclusivo.)
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -167,7 +167,7 @@ az vm availability-set create --resource-group myResourceGroup --location westeu
   --name myAvailabilitySet
 ```
 
-Crie a primeira VM do Linux com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada `myVM1`:
+Crie a primeira VM do Linux com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada `myVM1` usando o Azure Managed Disks. Se você quiser usar discos não gerenciados, consulte a observação adicional abaixo.
 
 ```azurecli
 az vm create \
@@ -179,10 +179,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Se você usar Azure Managed Disks, ignore esta etapa. Se você quiser usar discos não gerenciados e tiver criado uma conta de armazenamento nas etapas anteriores, adicione outros parâmetros ao comando de continuação. Adicione os seguintes parâmetros ao comando de continuação para criar os discos não gerenciados na conta de armazenamento denominada `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Crie a segunda VM do Linux, novamente com **az vm create**. O exemplo a seguir cria uma VM chamada `myVM2`:
@@ -197,11 +203,17 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Novamente, se você não usar o Azure Managed Disks padrão, adicione os seguintes parâmetros ao comando de continuação para criar os discos não gerenciados na conta de armazenamento denominada `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Verifique se tudo foi criado corretamente com [az vm show](/cli/azure/vm#show):
 
@@ -210,10 +222,10 @@ az vm show --resource-group myResourceGroup --name myVM1
 az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Exporte seu novo ambiente para um modelo com [az resource group export](/cli/azure/resource/group#export) para recriar novas instâncias rapidamente:
+Exporte seu novo ambiente para um modelo com [az group export](/cli/azure/group#export) para recriar novas instâncias rapidamente:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
 ## <a name="detailed-walkthrough"></a>Passo a passo detalhado
@@ -230,7 +242,7 @@ Os grupos de recursos do Azure são entidades de implantação lógica que cont�
 az group create --name myResourceGroup --location westeurope
 ```
 
-Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saída como uma lista ou tabela, por exemplo, use [az configure --output](/cli/azure/#configure). Você também pode adicionar `--output` a qualquer comando para realizar uma alteração uma única vez no formato da saída. O exemplo a seguir mostra a saída JSON do comando **az resource group create**:
+Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saída como uma lista ou tabela, por exemplo, use [az configure --output](/cli/azure/#configure). Você também pode adicionar `--output` a qualquer comando para realizar uma alteração uma única vez no formato da saída. O seguinte exemplo mostra a saída JSON do comando **az group create**:
 
 ```json                       
 {
@@ -245,7 +257,9 @@ Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saí
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Você precisa de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais que deseje adicionar. Você cria contas de armazenamento quase que imediatamente depois de criar grupos de recursos.
+Esta próxima etapa é opcional. A ação padrão ao criar uma VM com a CLI do Azure 2.0 (Visualização) é usar o Azure Managed Disks. Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md). Acesse [Criar uma rede e sub-rede virtuais](#create-a-virtual-network-and-subnet) se você quiser usar o Azure Managed Disks. 
+
+Você precisa de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais que deseje adicionar.
 
 Aqui, usamos [az storage account create](/cli/azure/storage/account#create) e passamos a localização da conta, o grupo de recursos que a controla e o tipo de suporte de armazenamento que você deseja. O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`:
 
@@ -994,11 +1008,11 @@ Leia mais sobre como [gerenciar a disponibilidade de VMs](virtual-machines-linux
 
 
 ## <a name="create-the-linux-vms"></a>Criar as VMs Linux
-Você criou os recursos de armazenamento e rede para dar suporte a VMs que podem ser acessadas pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizaremos as informações dessa imagem usando [az vm image list](/cli/azure/vm/image#list), conforme descrito em [localização de imagens de VM do Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Você criou os recursos de rede para dar suporte a VMs que podem ser acessadas pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizaremos as informações dessa imagem usando [az vm image list](/cli/azure/vm/image#list), conforme descrito em [localização de imagens de VM do Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Também especificamos uma chave SSH a ser usada para autenticação. Se você não tiver uma chave SSH, poderá criá-la usando [estas instruções](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Como alternativa, você pode usar o método `--admin-password` para autenticar suas conexões SSH após a criação da VM. Esse método normalmente é menos seguro.
 
-Criamos a VM reunindo todos os nossos recursos e informações com o comando [az vm create](/cli/azure/vm#create):
+Criamos a VM reunindo todos os nossos recursos e informações com o comando [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada `myVM1` usando o Azure Managed Disks. Se você quiser usar discos não gerenciados, consulte a observação adicional abaixo.
 
 ```azurecli
 az vm create \
@@ -1010,10 +1024,16 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
+```
+
+Se você usar Azure Managed Disks, ignore esta etapa. Se você quiser usar discos não gerenciados e tiver criado uma conta de armazenamento nas etapas anteriores, adicione outros parâmetros ao comando de continuação. Adicione os seguintes parâmetros ao comando de continuação para criar os discos não gerenciados na conta de armazenamento denominada `mystorageaccount`: 
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
 ```
 
 Saída:
@@ -1069,38 +1089,44 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccount \
     --image UbuntuLTS \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --admin-username ops
+    --admin-username azureuser
 ```
+
+Novamente, se você não usar o Azure Managed Disks padrão, adicione os seguintes parâmetros ao comando de continuação para criar os discos não gerenciados na conta de armazenamento denominada `mystorageaccount`:
+
+```azurecli
+  --use-unmanaged-disk \
+  --storage-account mystorageaccount
+``` 
 
 Neste ponto, você está executando suas VMs Ubuntu atrás de um balanceador de carga no Azure, em que só pode fazer logon com seu par de chaves SSH (porque as senhas estão desabilitadas). Você pode instalar nginx ou httpd e implantar um aplicativo Web para ver o fluxo do tráfego por meio do balanceador de carga para ambas as VMs.
 
 
 ## <a name="export-the-environment-as-a-template"></a>Exportar o ambiente como um modelo
-Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para você. Use [az resource group export](/cli/azure/resource/group#export) para exportar seu grupo de recursos da seguinte maneira:
+Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para você. Use [az group export](/cli/azure/group#export) para exportar seu grupo de recursos da seguinte maneira:
 
 ```azurecli
-az resource group export --name myResourceGroup > myResourceGroup.json
+az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode preencher esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando **az resource group export** mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
+Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode popular esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando **az group export** mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
 
-Para criar um ambiente a partir de seu modelo, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) da seguinte maneira:
+Para criar um ambiente usando seu modelo, use [az group deployment create](/cli/azure/group/deployment#create) da seguinte maneira:
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup \
+az group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
+Pode ser útil ler [mais detalhes sobre a implantações de modelos](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar esse ambiente de exemplo para criar seu aplicativo usando os principais componentes introduzidos aqui.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

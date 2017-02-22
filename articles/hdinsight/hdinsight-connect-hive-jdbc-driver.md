@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cf0baa0bb9dab87a3ac0376a0aa115dca198f790
-ms.openlocfilehash: 82a7dc272d101e6c608209121f3edf1062ad1b5f
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 41c3e20dc059ecc344cba6ca09ec04892e202d63
 
 
 ---
@@ -34,6 +34,10 @@ Para obter mais informações sobre a Interface JDBC do Hive, consulte [HiveJDBC
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
 * Um Hadoop no cluster do HDInsight. Um cluster baseado em Linux ou em Windows funcionará.
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). O SQuirreL é um aplicativo cliente JDBC.
 
 Para compilar e executar o aplicativo Java de exemplo vinculado a este artigo, você precisará do seguinte.
@@ -77,7 +81,7 @@ O SQuirreL SQL é um cliente JDBC que pode ser usado para executar remotamente a
             Substitua **NOMEDOUSUÁRIO** pelo nome da conta de usuário SSH para o cluster. Substitua **NOMEDOCLUSTER** pelo nome do cluster HDInsight.
         
         > [!NOTE]
-        > Nos ambientes do Windows, será necessário usar o utilitário PSCP em vez do scp. Baixe-o de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+        > Em ambientes Windows, você pode não ter o comando `scp`. Nesse caso, use o utilitário PSCP. Baixe-o de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
     * Para o **HDInsight baseado no Windows**, use as etapas a seguir para baixar os arquivos jar necessários.
      
@@ -195,6 +199,6 @@ Agora que você aprendeu a usar o JDBC para trabalhar com Hive, use os links aba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

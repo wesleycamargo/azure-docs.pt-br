@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d42b76d4d03e6ac841f90e236b6ba0bfad1306f1
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 842ea26941a1141cde7db4e6ebff07d52aed9450
 
 
 ---
@@ -40,7 +40,7 @@ Consulte os artigos a seguir na sequência prescrita para implantar seu StorSimp
 | --- | --- | --- | --- |
 | 1. |**Configurar o portal clássico do Azure** |Crie e configure o serviço StorSimple Manager antes do provisionamento de um dispositivo virtual StorSimple. |[Preparar o portal](storsimple-ova-deploy1-portal-prep.md) |
 | 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a um dispositivo virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte ao dispositivo virtual local StorSimple em um sistema de host que executa o VMware ESXi 5.5 e acima.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-ova-deploy2-provision-vmware.md) |
-| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br>  Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
+| 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br> Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md) |
 
 #### <a name="deployment-videos"></a>Vídeos de implantação
 | **Para realizar esta etapa...** | **Assista a este vídeo.** |
@@ -137,7 +137,7 @@ Execute as etapas a seguir no [portal clássico do Azure](https://manage.windows
 
 Assista ao vídeo com instruções passo a passo para começar a usar o StorSimple Virtual Array.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Get-Started-with-the-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -170,6 +170,6 @@ A próxima etapa é provisionar uma máquina virtual para o dispositivo virtual 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

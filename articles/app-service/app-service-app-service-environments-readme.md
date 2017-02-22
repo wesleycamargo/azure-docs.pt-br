@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/01/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ad067e4152191cd0b324775f16c5dedfeee4a071
+ms.sourcegitcommit: df2fa1d0790f8942a0350f9734232cc4b25cadc1
+ms.openlocfilehash: a54f559801e1a4f4b752bc2268ea8d6cb20b1267
 
 
 ---
@@ -33,7 +33,7 @@ Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de um
 
 Ambientes de Serviço de Aplicativo são isolados para executar somente aplicativos de um único cliente, e sempre são implantados em uma rede virtual.  Os clientes têm controle refinado sobre o tráfego de rede do aplicativo de entrada e saída usando os [grupos de segurança de rede][NetworkSecurityGroups].  Os aplicativos também podem estabelecer conexões seguras de alta velocidade por redes virtuais para recursos corporativos locais.
 
-Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web.  Os aplicativos em execução em Ambientes de Serviço de Aplicativo podem acessar os recursos acessíveis via conexões VPN [Site a Site][SiteToSite] e [Rota Expressa do Azure][ExpressRoute].
+Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos de dados internos e serviços Web.  Os aplicativos em execução em Ambientes de Serviço de Aplicativo podem acessar os recursos acessíveis via conexões VPN [Site a Site][SiteToSite] e [Azure ExpressRoute][ExpressRoute].
 
 * [O que é um Ambiente do Serviço de Aplicativo?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Criando um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
@@ -46,11 +46,12 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 ## <a name="how-tos"></a>Instruções
 [!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
-## <a name="videos"></a>Vídeos
-[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
+## <a name="videos"></a>vídeos
+>[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
 
+>[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+>[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
 
 
@@ -65,6 +66,6 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

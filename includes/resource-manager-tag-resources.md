@@ -1,20 +1,29 @@
-1. Para adicionar marcações aos recursos e grupos de recursos existentes, selecione o ícone de marcação.
+1. Para exibir as marcas de um recurso ou grupo de recursos, selecione o ícone **Marcas**. 
    
-     ![Parte de marcas nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Consulte uma lista de marcas que sua organização já aplicou aos recursos. Se você não tiver aplicado marcas anteriormente, a lista estará vazia. Para adicionar uma marca, especifique um nome e valor e pressione Enter. Depois de adicionar algumas marcas, você verá opções de preenchimento automático com base em valores e nomes de marcação pré-existentes. Essas opções de preenchimento automático garantem uma taxonomia consistente entre os recursos e evita erros comuns, como erros de ortografia.
-   
-     ![Marcar recursos com pares de nome/valor](./media/resource-manager-tag-resources/tag-resources.png)
-3. Para exibir sua taxonomia de marcas no portal, selecione **Mais Serviços** e **Marcas**.
+     ![Selecione as marcas nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
+2. Confira as marcas existentes para o recurso. Se você não tiver aplicado marcas anteriormente, a lista estará vazia. 
+
+     ![Mostrar marcas existentes nas folhas de recurso e grupo de recursos](./media/resource-manager-tag-resources/existing-tags.png)
+3. Para adicionar uma marca, digite uma chave e valor, ou selecione um existente no menu suspenso. Selecione **Salvar**.
+
+     ![Adicionar nova marca](./media/resource-manager-tag-resources/tag-resources.png)
+3. Para exibir todos os recursos com um valor de marca, selecione **>** (Mais serviços) e filtre por **Marcas**. Selecione **Marcas** entre as opções disponíveis.
    
      ![Localizar marcas pelo hub Procurar](./media/resource-manager-tag-resources/browse-tags.png)
-4. Você verá um resumo das marcas na sua assinatura.
+4. Você verá um resumo das marcas em sua assinatura.
    
      ![Mostrar todas as marcas](./media/resource-manager-tag-resources/tag-taxonomy.png)
 5. Selecione qualquer uma dessas marcações para exibir os recursos e os grupos de recursos com essa marcação.
    
      ![Mostrar recursos marcados](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Fixe as marcas mais importantes no seu painel para acesso rápido.
+6. Selecione **Fixar folha ao painel** para obter um acesso rápido.
    
-     ![Fixar marcas no Quadro Inicial](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Fixar marcas ao Painel](./media/resource-manager-tag-resources/pin-tag.png)
+7. Você pode selecionar a marca fixada do painel para ver os recursos com essa marca.
 
-<!---HONumber=AcomDC_0824_2016-->
+     ![Fixar marcas ao Painel](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+<!--HONumber=Feb17_HO1-->
+
+

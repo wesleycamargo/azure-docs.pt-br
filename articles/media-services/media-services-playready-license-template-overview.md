@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b75c910312c342c33b7dfb0a3ffa0a86b7192319
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
 
 
 ---
@@ -57,7 +57,7 @@ O XML está de acordo com o esquema XML do modelo da licença de PlayReady defin
 
 Serviços de mídia também define um conjunto de classes .NET que podem ser usado para serializar para o XML e desserializar do XML. Para obter uma descrição das classes principais, confira [Classes do .NET de Serviços de Mídia](media-services-playready-license-template-overview.md#classes). que são usadas para configurar modelos de licença.
 
-Para obter um exemplo de ponta a ponta que usa classes do .NET para configurar o modelo de licença do PlayReady, consulte [Usando o serviço de entrega de licença e criptografia dinâmica PlayReady](https://msdn.microsoft.com/library/azure/dn783467.aspx).
+Para obter um exemplo de ponta a ponta que usa classes do .NET para configurar o modelo de licença do PlayReady, consulte [Usando o serviço de entrega de licença e criptografia dinâmica PlayReady](media-services-protect-with-drm.md).
 
 ## <a name="a-idclassesamedia-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classes do .NET de serviços de mídia que são usadas para configurar modelos de licença
 A seguir estão que as principais classes do .NET são usadas para configurar modelos de licença do PlayReady de serviços de mídia. Essas classes são mapeadas para os tipos definidos em [Esquema XML de modelo de licença do PlayReady](media-services-playready-license-template-overview.md#schema).
@@ -315,6 +315,6 @@ Para obter um exemplo de quais níveis de proteção o Silverlight dá suporte, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Como iniciar uma revisão de acesso | Microsoft Docs"
 description: "Saiba como criar uma análise de acesso para identidades com privilégios com o aplicativo Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/02/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8c9bac62a92947ea888f1ccdbd300f5b40cb3e07
@@ -89,6 +89,6 @@ Até o período de análise terminar, você pode lembrar os usuários de conclui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

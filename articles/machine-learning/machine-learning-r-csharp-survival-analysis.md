@@ -1,6 +1,6 @@
 ---
-title: "Análise de sobrevivência com o Azure Machine Learning | Microsoft Docs"
-description: "Probabilidade de ocorrência de evento de análise de sobrevivência"
+title: "(preterido) Análise de Sobrevivência com o Azure Machine Learning | Microsoft Docs"
+description: "(preterido) Probabilidade de ocorrência de evento de Análise de Sobrevivência"
 services: machine-learning
 documentationcenter: 
 author: zhangya
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: zhangya
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a9ec607cf4e8ae6ee5c69f4ed4db5f1a0854400
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 32ae345bb1d4bc364440543ea5c273e9b358ae40
 
 
 ---
-# <a name="survival-analysis"></a>Análise de sobrevivência
+# <a name="deprecated-survival-analysis"></a>(preterido) Análise de Sobrevivência
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Em muitos cenários, o resultado principal em avaliação é o momento de um evento de interesse. Em outras palavras, a pergunta “quando esse evento ocorrerá?” é feita. Como exemplo, considere situações em que os dados descrevem o tempo decorrido (dias, anos, quilometragem, etc.) até o evento de interesse (recidiva da doença, recebimento de grau PhD, falha nas pastilhas de freio) ocorrer. Cada instância nos dados representa um objeto específico (um paciente, uma estudante, um carro, etc.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -91,7 +98,7 @@ A interpretação desse teste é a seguinte: Supondo que o objetivo dos dados se
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Script R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida. 
+De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida. 
 
 ### <a name="experiment-flow"></a>Fluxo de teste:
 ![fluxo de teste][1]
@@ -209,6 +216,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

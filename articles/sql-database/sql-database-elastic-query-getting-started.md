@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e39f2bb273bee9719f8f87cd27a1e1c92b6c4b53
+ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
+ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
 
 
 ---
@@ -51,7 +51,9 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
     ![Portal do Azure e camada de preços][3]
 
-    Observação: você pode usar um banco de dados existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
+    > [!NOTE]
+    > você pode usar um banco de dados existente. Se fizer isso, ele não deve ser um dos fragmentos aonde você deseja executar suas consultas. Esse banco de dados será usado para criar os objetos de metadados para uma consulta de Banco de Dados Elástico.
+    >
 
 ## <a name="create-database-objects"></a>Criar objetos de banco de dados
 ### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra do escopo do banco de dados e credenciais
@@ -139,6 +141,6 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

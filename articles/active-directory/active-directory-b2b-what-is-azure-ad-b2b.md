@@ -1,9 +1,9 @@
 ---
-title: "Visualização de colaboração do Azure Active Directory B2B: integração simples e segura com parceiros de nuvem | Microsoft Docs"
+title: "O que é a visualização de colaboração B2B do Azure Active Directory? | Microsoft Docs"
 description: "A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
 services: active-directory
 documentationcenter: 
-author: viv-liu
+author: sasubram
 manager: femila
 editor: 
 tags: 
@@ -13,39 +13,90 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 09/27/2016
-ms.author: femila
+ms.date: 02/02/2017
+ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 40c98146f1bbf1b1d53cd27044ce383c33098870
+ms.sourcegitcommit: 1c1da3c7b1d5e096e03ac3814275f29afeffcaeb
+ms.openlocfilehash: ad03b71052be46bdb64432b007aa471d120db0fa
 
 
 ---
-# <a name="azure-ad-b2b-collaboration-preview-simple-secure-cloud-partner-integration"></a>Visualização da colaboração B2B do AD do Azure: integração simples e segura com parceiros de nuvem
-À medida que as empresas se concentram mais em seu negócio principal, a necessidade de fazer parcerias com outras empresas aumenta. As empresas precisam compartilhar recursos com facilidade e segurança (como o acesso a aplicativos corporativos) com seus parceiros para terem uma colaboração eficaz. A colaboração B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos e dados corporativos usando suas identidades autogerenciadas. A colaboração AD B2B do Azure é:
 
-* **Simples**: cada usuário do parceiro usa uma conta existente do AD do Azure ou uma que seja facilmente criada durante a aceitação do convite. Você pode fornecer a esse usuário o acesso direto ao seu aplicativo corporativo escolhido ou a um conjunto de aplicativos por meio do Painel de Acesso do Aplicativo.
-* **Seguro**: o administrador controla todo o acesso aos seus aplicativos corporativos por meio de seu diretório do AD do Azure. Quando terminar a colaboração, os usuários do parceiro podem ser removidos do AD do Azure e seu acesso aos aplicativos é imediatamente revogado. Além disso, quando o usuário do parceiro deixar a organização do parceiro, o acesso será perdido automaticamente.
-* **Direto**: as empresas parceiras que precisam acessar seus aplicativos corporativos **não precisam ter o Azure AD.**  A colaboração AD B2B do Azure oferece uma experiência simples de inscrição de usuário para fornecer a esses parceiros o acesso imediato aos seus aplicativos.
+# <a name="what-is-azure-ad-b2b-collaboration-preview"></a>O que é a visualização da colaboração B2B do Azure AD?
 
-Verifique [a postagem no blog anunciando a visualização pública](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) e [este vídeo detalhado](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) que explica a colaboração do Azure AD B2B.
+Os recursos de colaboração B2B do Azure AD permitem que os profissionais de TI e os profissionais de informações trabalhem em conjunto com seus parceiros de qualquer outra organização do planeta. Eles podem fornecer acesso a documentos, aplicativos e recursos enquanto mantêm o controle total sobre seus dados internos. Os desenvolvedores podem usar as APIs entre empresas do Azure AD para escrever aplicativos que reúnem as duas organizações de uma maneira segura que parece perfeita para os profissionais de informações e é intuitiva para eles navegarem.
 
-Para obter uma comparação entre os casos de uso da colaboração B2B do Azure AD, de B2C do Azure AD e do Aplicativo Multilocatário do Azure AD, confira [Comparando recursos para o gerenciamento de identidades externas usando o Azure AD](active-directory-b2b-compare-external-identities.md).
+Os recursos de colaboração B2B do Azure AD permitem que as organizações de todos os tamanhos e em todos os setores, independentemente de seus requisitos de conformidade e governança trabalhem de forma fácil e segura com colaboradores em todo o mundo. Essa é a meta dessa Atualização da Visualização Pública da colaboração B2B.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="how-does-it-work"></a>Como ele funciona?
+
+Na versão atual de visualização, para estabelecer uma relação com uma organização, os profissionais de TI e os profissionais de informações podem adicionar usuários de outra organização um de cada vez ou alguns de cada vez por meio do portal ou da API do Gerenciador de Convite. Os administradores podem usar as novas experiências do portal do Azure (https://portal.azure.com) e o PowerShell para isso. E os profissionais de informações podem usar as experiências do Painel de Acesso em http://myapps.microsoft.com. Os desenvolvedores podem criar aplicativos usando a API do Gerenciador de Convite B2B do Azure AD para adicionar usuários de colaboração B2B e personalizar os fluxos de trabalho de convite e integração.
+
+Os usuários de colaboração B2B normalmente são integrados por meio de um processo de convite + resgate. Veja como ele funciona.
+
+1. Márcio Alvez da WoodGrove deseja adicionar Sam Oogle usando seu email do Gmail (gsamoogle@gmail.com)
+
+2. Márcio vai até o portal da WoodGrove (portal.azure.com) ou painel de acesso (myapps.microsoft.com), entra e adiciona o usuário ao aplicativo, grupo ou diretório da WoodGrove.
+
+3. Márcio especifica um email de convite personalizado para enviar ao Sam.
+
+4. Assim que ele terminar, o seguinte usuário será criado no AD da WoodGrove (a captura de tela é do UX de administração no portal.azure.com):
+
+  ![o usuário é adicionado](media/active-directory-b2b-what-is-azure-ad-b2b/user-is-added.png)
+
+5. Assim que terminarmos de adicionar esse usuário, o Azure AD enviará um email de convite para Sam:
+
+  ![email de convite enviado para Sam](media/active-directory-b2b-what-is-azure-ad-b2b/invitation-mail-sent-to-sam.png)
+
+6. Agora o Sam seleciona **Introdução** e entra. Neste ponto, o Azure AD atualiza seu objeto de usuário no diretório com informações do seu token (a captura de tela é do UX de administração no [Portal do Azure](https://portal.azure.com)):
+
+  ![o perfil do usuário é populado](media/active-directory-b2b-what-is-azure-ad-b2b/user-profile-is-populated.png)
+
+7. Agora que o convite de Sam foi resgatado, ele pode obter acesso aos recursos da WoodGrove e certamente pode ser gerenciado, como qualquer outro usuário no diretório, pelo administrador (a captura de tela é do UX de administração no [Portal do Azure](https://portal.azure.com)):
+
+  ![Agora o Sam é um usuário do Azure AD](media/active-directory-b2b-what-is-azure-ad-b2b/sam-now-user-in-azure-ad.png)
+
+## <a name="public-preview-features"></a>Recursos da Visualização Pública
+Vocês têm usado os recursos de colaboração B2B que tínhamos na visualização pública e têm nos fornecido muitos comentários excelentes. E nós ouvimos! Estamos empacotamento todos os aprimoramentos que fizemos nessa Atualização da Visualização Pública. Estes são os principais recursos na Atualização da Visualização Pública da colaboração B2B:
+
+1. Aprimoramentos de UX de administração para experiência de B2B
+  - chegando ao https://portal.azure.com
+  - Capacidade dos administradores convidarem usuários B2B para o diretório ou em qualquer aplicativo ou grupo
+
+2. Recursos de convite de autoatendimento de colaboração B2B para profissionais de informações no Painel de Acesso: https://myapps.microsoft.com. Os profissionais de informações podem convidar usuários de colaboração B2B para qualquer grupo ou aplicativo de autoatendimento que eles gerenciam.
+
+3. Agora você pode convidar um usuário com qualquer endereço de email. Se o usuário tem um endereço de email do Office365 ou Microsoft Exchange local, um endereço de email outlook.com ou qualquer endereço de email social (Gmail, Yahoo e assim por diante), ele pode acessar diretamente a organização convidada com a criação leve e embutida de uma conta do Azure AD ou uma conta da Microsoft.
+
+4. Beneficie-se de um email de convite profissional com a maraca do locatário.
+
+5. Ampla capacidade de personalizar a integração usando as APIs de convite.
+
+6. Autenticação Multifator para usuários de colaboração B2B na organização que está convidando.
+
+7. Capacidade de delegar convites para não administradores.
+
+8. Suporte do PowerShell para colaboração B2B.
+
+9. Recursos de auditoria e relatório.
+
+## <a name="next-steps"></a>Próximas etapas
+
 Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
-* [Como funciona](active-directory-b2b-how-it-works.md)
-* [Passo a passo detalhado](active-directory-b2b-detailed-walkthrough.md)
-* [Referência do formato de arquivo CSV](active-directory-b2b-references-csv-file-format.md)
-* [Formato do token de usuário externo](active-directory-b2b-references-external-user-token-format.md)
-* [Alterações de atributo do objeto de usuário externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
-* [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
+* [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
+* [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B?](active-directory-b2b-admin-add-users.md)
+* [Como os operadores de informação adicionam usuários de colaboração B2B?](active-directory-b2b-how-it-works.md)
+* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md) (Os elementos do email de convite para colaboração B2B)
+* [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
+* [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
+* [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
+* [Perguntas frequentes sobre colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
+* [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
+* [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

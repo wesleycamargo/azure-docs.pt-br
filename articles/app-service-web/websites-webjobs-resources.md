@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 64e2ed7a625aec59f68411d93a5942a546919abb
+ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
+ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
 
 
 ---
@@ -32,7 +32,7 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 
 ## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Guia de Introdução a Trabalhos Web e ao SDK dos Trabalhos Web
 * [Introdução aos Trabalhos Web do Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
-* [O Azure Webjobs é impressionante e você deve começar a usá-lo agora mesmo!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html)  (Postagem no blog por Troy Hunt).
+* [O Azure Webjobs é impressionante e você deve começar a usá-lo agora mesmo!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Postagem no blog por Troy Hunt).
 * [Recursos de Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [O que é o SDK de Trabalhos Web do Azure](websites-dotnet-webjobs-sdk.md)
 * [Diretrizes de trabalhos em segundo plano pelos Padrões e Práticas da Microsoft](/documentation/articles/best-practices-background-jobs/)
@@ -42,7 +42,6 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 * [Como usar o armazenamento de blob do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-service-bus.md)
-* [Como usar WebHooks com o SDK do WebJobs, com exemplos para GitHub, IFTTT e HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Guia de referência rápida do SDK de Trabalhos Web do Azure (download do PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Documentação de configurações de Trabalhos Web no GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Vídeos
@@ -137,6 +136,6 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

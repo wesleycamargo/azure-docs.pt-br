@@ -1,10 +1,10 @@
 ---
-title: Perguntas Frequentes sobre Rota Expressa
+title: Perguntas frequentes sobre o Azure ExpressRoute | Microsoft Docs
 description: "As Perguntas Frequentes Sobre Rota Expressa contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 02/01/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9f26fd3796a45d6a4a782f80632e09a6390f1dbe
-ms.openlocfilehash: ae2dbb8524acba44f83397b7340ca98433b34de6
+ms.sourcegitcommit: 239702c8b099dd422e6b67a267b1185a27a21807
+ms.openlocfilehash: 52d9194920019291696d5ace3ac24751fde674ab
 
 
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre Rota Expressa
 ## <a name="what-is-expressroute"></a>O que é Rota Expressa?
-Rota Expressa é um serviço do Azure que permite a criação de conexões privadas entre os datacenters da Microsoft e a infraestrutura no seu local ou em uma instalação de colocalização. As conexões da Rota Expressa não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet.
+Rota Expressa é um serviço do Azure que permite a criação de conexões privadas entre os datacenters da Microsoft e a infraestrutura no seu local ou em uma instalação de colocalização. As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet.
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Quais são os benefícios do uso de Rota Expressa e conexões de rede privada?
-As conexões de Rota Expressa não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências consistentes e menores do que conexões típicas pela Internet. Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre dispositivos locais e o Azure pode proporcionar relações custo/benefício significativas.
+As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências consistentes e menores do que conexões típicas pela Internet. Em alguns casos, o uso de conexões da Rota Expressa para transferir dados entre dispositivos locais e o Azure pode proporcionar relações custo/benefício significativas.
 
 ### <a name="what-microsoft-cloud-services-are-supported-over-expressroute"></a>Quais serviços em nuvem da Microsoft têm suporte na Rota Expressa?
 A Rota Expressa dá suporte à maioria dos serviços do Microsoft Azure atualmente, incluindo o Office 365.  Procure por atualizações com disponibilidade geral, em breve.
@@ -46,7 +46,7 @@ Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor
 Sim. Circuitos de Rota Expressa são configurados para dar suporte a casos em que você pode disparar até duas vezes o limite de largura de banda que você adquiriu, sem nenhum custo adicional. Verifique com seu provedor de serviços se eles dão suporte a essa funcionalidade.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Posso usar a mesma conexão de rede privada com Rede Virtual e outros serviços do Azure simultaneamente?
-Sim. Um circuito de Rota Expressa, uma vez instalado, permitirá que você acesse os serviços em uma Rede Virtual e outros serviços do Azure simultaneamente. Você se conectará às redes virtuais pelo caminho privado de emparelhamento e a outros serviços pelo caminho público de emparelhamento.
+Sim. Um circuito de ExpressRoute, uma vez instalado, permitirá que você acesse os serviços em uma rede virtual e outros serviços do Azure simultaneamente. Você se conectará às redes virtuais pelo caminho privado de emparelhamento e a outros serviços pelo caminho público de emparelhamento.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>A Rota Expressa oferece um SLA (contrato de nível de serviço)?
 Consulte a [página SLA de Rota Expressa](https://azure.microsoft.com/support/legal/sla/) para obter mais informações.
@@ -201,7 +201,7 @@ As tabelas a seguir mostram os limites da Rota Expressa e o número de redes vir
 Os recursos da Rota Expressa premium podem ser ativados quando o recurso está habilitado, e podem ser desativados atualizando o estado do circuito. Você pode habilitar a Rota Expressa premium no momento da criação de circuito ou pode chamar o cmdlet do PowerShell/API do circuito dedicado de atualização para habilitar a Rota Expressa premium.
 
 ### <a name="how-do-i-disable-expressroute-premium"></a>Como desabilito a Rota Expressa premium?
-Você pode desabilitar a Rota Expressa premium chamando o cmdlet do PowerShell/API do circuito dedicado de atualização. Você deve garantir que tenha dimensionado seus requisitos de conectividade para atender os limites padrão antes de desabilitar a Rota Expressa premium. Haverá falha na solicitação para desabilitar a Rota Expressa premium se sua utilização for expandida além dos limites padrão.
+Você pode desabilitar o ExpressRoute Premium chamando a API do circuito dedicado de atualização / cmdlet do PowerShell. Certifique-se de que tenha dimensionado suas necessidades de conectividade para atender os limites padrão antes de desabilitar o ExpressRoute Premium. Haverá falha na solicitação para desabilitar a Rota Expressa premium se sua utilização for expandida além dos limites padrão.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher os recursos que desejo do conjunto de recursos premium?
 Não. Você não poderá selecionar os recursos de que precisa. Habilitamos todos os recursos quando você ativa a Rota Expressa premium.
@@ -219,7 +219,7 @@ Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de R
 1. Examine a [página de pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para se certificar de que você atende aos requisitos.
 2. Examine a lista de provedores de serviços e locais em [Locais e parceiros da Rota Expressa](expressroute-locations.md) para garantir que suas necessidades de conectividade são atendidas.
 3. Planeje seus requisitos de capacidade, revisando [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/)
-4. Siga as etapas relacionadas nos fluxos de trabalho abaixo para configurar a conectividade [Fluxos de trabalho de Rota Expressa para provisionamento do circuito e estados do circuito](expressroute-workflows.md).
+4. Siga as etapas relacionadas nos fluxos de trabalho abaixo para configurar a conectividade [Fluxos de trabalho de ExpressRoute para provisionamento do circuito e estados do circuito](expressroute-workflows.md).
 
 > [!IMPORTANT]
 > Certifique-se de ter habilitado o complemento premium da Rota Expressa ao configurar a conectividade com os serviços do Office 365 e CRM Online.
@@ -233,7 +233,7 @@ Não, você precisa habilitar somente o Emparelhamento da Microsoft. O tráfego 
 Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar suporte a conectividade com os serviços do Office 365. Verifique se você tem capacidade suficiente para se conectar aos serviços do Office 365 e certifique-se de que você habilitou o complemento premium. [Planejamento da rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/) ajudarão você a planejar suas necessidades de conectividade. Veja também [Criar e modificar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa?
-Confira a página [Intervalos de endereço IP e URLs do Office 365](http://aka.ms/o365endpoints) para obter uma lista atualizada dos serviços com suporte na Rota Expressa.
+Confira a página [Intervalos de endereço IP e URLs do Office 365](http://aka.ms/o365endpoints) para obter uma lista atualizada dos serviços com suporte do ExpressRoute.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost"></a>Qual é o custo da Rota Expressa para serviços do Office 365 e CRM Online?
 Os serviços do Office 365 e CRM Online requerem o complemento premium para serem habilitados. A [página de detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) fornece detalhes de custos para a Rota Expressa.
@@ -245,11 +245,11 @@ Consulte [Locais e parceiros da Rota Expressa](expressroute-locations.md) para o
 Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Internet, embora a Rota Expressa tenha sido configurada para sua rede. Se você estiver em um local configurado para se conectar a serviços do Office 365 por meio de Rota Expressa, você se conectará por meio de Rota Expressa.
 
 ### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>O Dynamics 365 for Operations (anteriormente conhecido como Dynamics AX Online) pode ser acessado por uma conexão do ExpressRoute?
-Sim. O [Dynamics 365 for Operations](https://www.microsoft.com/en-us/dynamics365/operations) é hospedado no Azure. Você pode habilitar o emparelhamento público do Azure no circuito do ExpressRoute para se conectar a ele. 
+Sim. O [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) é hospedado no Azure. Você pode habilitar o emparelhamento público do Azure no circuito do ExpressRoute para se conectar a ele. 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

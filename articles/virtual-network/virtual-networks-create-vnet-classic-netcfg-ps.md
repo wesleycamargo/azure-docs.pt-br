@@ -1,5 +1,5 @@
 ---
-title: "Criar uma rede virtual usando um arquivo de configuração de rede no portal do Azure | Microsoft Docs"
+title: "Criar uma rede virtual usando um arquivo de configuração de rede | PowerShell | Clássico | Microsoft Docs"
 description: "Aprenda a criar uma rede virtual usando um arquivo de configuração de rede no portal do Azure."
 services: virtual-network
 documentationcenter: 
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c8c37891e5a465749a225e5952058930f9b4682
+ms.sourcegitcommit: d4484ea46095f1969db0b01bdef69c212da8acdd
+ms.openlocfilehash: a67c3f73d9e56ab0081836ba5db62f5a01c7b6bc
 
 
 ---
-# <a name="create-a-virtual-network-classic-by-using-powershell"></a>Criar uma rede virtual (clássica) usando o PowerShell
+# <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Criar uma rede virtual (clássica) usando um arquivo de configuração de rede com o PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -37,6 +37,6 @@ Este documento aborda a criação de uma Rede Virtual usando o modelo de implant
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/20/2016
+ms.date: 12/29/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: caab5d5d95200e909d0be26a0712f78e3960deb1
+ms.sourcegitcommit: ff9fb5f0b2229a470ea3f5c736622ee1e9228c93
+ms.openlocfilehash: 4120ca24bab11f21fe66d5219f06608e33b527d1
 
 
 ---
@@ -34,15 +34,15 @@ Este artigo apresenta dois cenários e links para diretrizes detalhadas de como 
 * Cenário 1. Implantar instâncias de função de trabalho de computação intensiva (PaaS)
 * Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
 
-Para ver os pré-requisitos gerais para o uso de instâncias de computação intensiva com o Windows, veja [Sobre VMs série H e série A de computação intensiva](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+Para ver os pré-requisitos gerais para o uso de instâncias de computação intensiva com o Windows, confira [Sobre VMs série H ou série A com computação intensiva](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Cenário 1. Implantar instâncias de função de trabalho de computação intensiva (PaaS)
-Em um cluster existente do HPC Pack, adicione recursos de computação extras nas instâncias de função de trabalho do Azure (nós do Azure) em execução em um serviço de nuvem (PaaS). Esse recurso, também chamado de "disparo no Azure" do HPC Pack, dá suporte a uma variedade de tamanhos para as instâncias de função de trabalho. Ao adicionar os nós do Azure, basta especificar um dos tamanhos compatíveis com RDMA.
+## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Cenário 1: Implantar instâncias de função de trabalho de computação intensiva (PaaS)
+Em um cluster existente do HPC Pack, adicione recursos de computação extras nas instâncias de função de trabalho do Azure (nós do Azure) em execução em um serviço de nuvem (PaaS). Esse recurso, também chamado de "disparo no Azure" do HPC Pack, dá suporte a uma variedade de tamanhos para as instâncias de função de trabalho. Ao adicionar os nós do Azure, especifique um dos tamanhos compatíveis com RDMA.
 
 Veja a seguir as considerações e etapas para disparar as instâncias compatíveis com RDMA do Azure de um cluster existente (geralmente locais). Use procedimentos semelhantes para adicionar instâncias de função de trabalho a um nó de cabeçalho do HPC Pack que é implantado em uma VM do Azure.
 
 > [!NOTE]
-> Para ver um tutorial de como disparar no Azure com o HPC Pack, consulte [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Observe que as considerações nas etapas abaixo se aplicam especificamente aos nós do Azure compatíveis com RDMA.
+> Para ver um tutorial de como disparar no Azure com o HPC Pack, consulte [Configurar um cluster híbrido com o HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Observe que as considerações nas etapas que se seguem se aplicam especificamente aos nós do Azure compatíveis com RDMA.
 > 
 > 
 
@@ -51,7 +51,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias compatív
 ### <a name="steps"></a>Etapas
 1. **Implantar e configurar um nó de cabeçalho do HPC Pack 2012 R2**
    
-    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver os requisitos e instruções de como se preparar para uma implantação de disparo do Azure, veja [HPC Pack Getting Started Guide (Guia de introdução ao HPC Pack)](https://technet.microsoft.com/library/jj884144.aspx) e [Burst to Azure Worker Instances with Microsoft HPC Pack (Use instâncias de trabalho do Azure com o Microsoft HPC Pack)](https://technet.microsoft.com/library/gg481749.aspx).
+    Baixe o pacote de instalação mais recente do HPC Pack do [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Para ver requisitos e instruções de como se preparar para uma implantação de disparo do Azure, confira [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx) (Aumente a capacidade das instâncias de trabalho do Azure com o Microsoft HPC Pack).
 2. **Configurar um certificado de gerenciamento na assinatura do Azure**
    
     Configure um certificado para proteger a conexão entre o nó de cabeçalho e o Azure. Para ver opções e procedimentos, consulte [Cenários para configurar o certificado de gerenciamento do Azure para HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para implantações de teste, o Pacote HPC instala um Certificado Padrão de Gerenciamento do Microsoft HPC Azure que pode ser carregado rapidamente na sua assinatura do Azure.
@@ -70,7 +70,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias compatív
     Ao especificar o tamanho dos nós, selecione um dos tamanhos de instância compatíveis com RDMA.
    
    > [!NOTE]
-   > Em cada disparo na implantação do Azure com as instâncias de computação intensiva, o Pacote HPC implanta automaticamente um mínimo de duas instâncias compatíveis com RDMA (por exemplo, A8) como nós de proxy, além das instâncias de função de trabalho do Azure que você especifica. Os nós de proxy usam núcleos que são alocados para a assinatura e incorrem em cobranças juntamente com as instâncias de função de trabalho do Azure.
+   > Em cada disparo na implantação do Azure com as instâncias de computação intensiva, o HPC Pack implanta automaticamente um mínimo de duas instâncias compatíveis com RDMA (por exemplo, A8) como nós de proxy, além das instâncias de função de trabalho do Azure que você especifica. Os nós de proxy usam núcleos que são alocados para a assinatura e incorrem em cobranças juntamente com as instâncias de função de trabalho do Azure.
    > 
    > 
 6. **Iniciar (provisionar) os nós e ativá-los para executar trabalhos**
@@ -84,7 +84,7 @@ Veja a seguir as considerações e etapas para disparar as instâncias compatív
    Quando você terminar de executar trabalhos, coloque os nós offline e use a ação **Parar** no Gerenciador de Cluster do HPC.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Cenário 2: Implantar nós de computação em VMs de computação intensiva (IaaS)
-Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs que ingressaram em um domínio do Active Directory em uma rede virtual do Azure. O HPC Pack fornece uma série de [opções de implantação em VMs do Azure](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Por exemplo, as considerações e as etapas abaixo o orientam no uso do [script de implantação IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para automatizar a maior parte desse processo.
+Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de computação de cluster em VMs em uma rede virtual do Azure. O HPC Pack fornece várias [opções de implantação em VMs do Azure](virtual-machines-linux-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), incluindo scripts de implantação automatizada e modelos de início rápido do Azure. Como exemplo, as considerações e etapas a seguir mostrarão a você como usar o [script de implantação IaaS do HPC Pack](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para automatizar a implantação de um cluster HPC Pack 2012 R2 no Azure.
 
 ![Cluster em VMs do Azure][iaas]
 
@@ -97,12 +97,12 @@ Neste cenário, você implanta o nó de cabeçalho do HPC Pack e os nós de comp
    
     Para implantar os nós de computação compatíveis com RDMA, veja as considerações adicionais a seguir:
    
-   * **Rede virtual** – especifique uma nova rede virtual em uma região em que a instância compatível com RDMA que você deseja usar esteja disponível.
-   * **Sistema operacional Windows Server** : para dar suporte à conectividade RDMA, especifique um sistema operacional Windows Server 2012 R2 ou Windows Server 2012 para as VMs do nó de computação.
-   * **Serviços de nuvem** : é recomendável implantar o nó de cabeçalho em um serviço de nuvem e seus nós de computação em outro serviço de nuvem.
-   * **Tamanho do nó de cabeçalho** : para este cenário, considere um tamanho de pelo menos A4 (extra grande) para o nó de cabeçalho.
-   * **Extensão HpcVmDrivers** : o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA.
-   * **Configuração de rede de cluster** : o script de implantação configura automaticamente o cluster do HPC Pack na topologia 5 (todos os nós na rede corporativa). Essa topologia é necessária para todas as implantações de cluster de HPC Pack em VMs. Não altere a topologia de rede do cluster posteriormente.
+   * **Rede virtual**: especifique uma nova rede virtual em uma região na qual o tamanho da instância compatível com RDMA que você deseja usar esteja disponível.
+   * **Sistema operacional Windows Server**: para dar suporte à conectividade RDMA, especifique um sistema operacional Windows Server 2012 R2 ou Windows Server 2012 para as VMs do nó de computação.
+   * **Serviços de nuvem**: é recomendável implantar o nó de cabeçalho em um serviço de nuvem e seus nós de computação em outro serviço de nuvem.
+   * **Tamanho do nó de cabeçalho**: para esse cenário, considere, no mínimo, um tamanho A4 (extra grande) para o nó de cabeçalho.
+   * **Extensão HpcVmDrivers**: o script de implantação instala o agente de VM do Azure e a extensão HpcVmDrivers automaticamente quando você implanta os nós de computação A8 ou A9 com um sistema operacional Windows Server. A extensão HpcVmDrivers instala drivers nas VMs do nó de computação para que elas possam se conectar à rede RDMA. Em VMs da série H compatíveis com RDMA, você deve instalar a extensão HpcVmDrivers manualmente. Veja [Sobre a série H e uso intensivo de computação VMs série A](virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#access-to-the-rdma-network).
+   * **Configuração de rede de cluster**: o script de implantação configura automaticamente o cluster HPC Pack na Topologia 5 (todos os nós na rede corporativa). Essa topologia é necessária para todas as implantações de cluster de HPC Pack em VMs. Não altere a topologia de rede do cluster posteriormente.
 2. **Colocar os nós de computação online para executar trabalhos**
    
     Selecione os nós e use a ação **Colocar Online** no Gerenciador de Cluster do HPC. Os nós estão prontos para executar trabalhos.
@@ -122,9 +122,9 @@ Este exemplo pressupõe que você tenha adicionado nós do Azure em uma configur
 Para executar mpipingpong no cluster:
 
 1. No nó de cabeçalho ou em um computador cliente configurado corretamente, abra um prompt de comando.
-2. Para estimar a latência entre pares de nós em uma implantação de disparo do Azure de 4 nós, digite o seguinte comando a fim de enviar um trabalho para executar mpipingpong com um pacote pequeno e um grande número de iterações:
+2. Para estimar a latência entre pares de nós em uma implantação de disparo do Azure de quatro nós, digite o seguinte comando a fim de enviar um trabalho para executar mpipingpong com um pacote pequeno e muitas iterações:
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 1:100000 -op -s nul
     ```
    
@@ -132,23 +132,23 @@ Para executar mpipingpong no cluster:
    
     Se você tiver implantado o cluster do HPC Pack implantado em VMs do Azure, especifique um grupo de nós que contenha VMs do nó de computação implantadas em um único serviço de nuvem e modifique o comando **mpiexec** como se segue:
    
-    ```
+    ```Command
     job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
 3. Quando o trabalho for concluído, para exibir a saída (nesse caso, a saída da tarefa 1 do trabalho), digite o seguinte
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
     em que &lt;*JobID*&gt; é a ID do trabalho enviado.
    
-    A saída incluirá resultados de latência semelhantes ao seguinte.
+    A saída inclui resultados de latência semelhantes aos que se seguem.
    
     ![Latência ping pong][pingpong1]
-4. Para estimar a taxa de transferência entre pares dos nós de disparo do Azure, digite o comando a seguir a fim de enviar um trabalho para execução de **mpipingpong** com um pacote grande e um pequeno número de iterações:
+4. Para estimar a taxa de transferência entre pares dos nós de disparo do Azure, digite o seguinte comando a fim de enviar um trabalho para execução de **mpipingpong** com um pacote grande e algumas iterações:
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 4000000:1000 -op -s nul
     ```
    
@@ -157,18 +157,18 @@ Para executar mpipingpong no cluster:
     Em um cluster do HPC Pack implantado em VMs do Azure, modifique o comando, como observado na etapa 2.
 5. Quando o trabalho for concluído, para exibir a saída (nesse caso, a saída da tarefa 1 do trabalho), digite o seguinte:
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
-   A saída incluirá resultados de taxa de transferência semelhantes ao seguinte.
+   A saída inclui resultados de taxa de transferência semelhantes aos que se seguem.
    
    ![Taxa de transferência de ping pong][pingpong2]
 
 ### <a name="mpi-application-considerations"></a>Considerações de aplicativos MPI
 A seguir, as considerações para execução de aplicativos MPI com HPC Pack no Azure. Algumas se aplicam somente à implantações de nós do Azure (instâncias de função de trabalho adicionadas em uma configuração de "disparo no Azure").
 
-* As instâncias de função de trabalho em um serviço de nuvem são reprovisionadas periodicamente sem aviso pelo Azure (por exemplo, para manutenção do sistema ou no caso de uma instância falhar). Se uma instância for reprovisionada enquanto estiver executando um trabalho MPI, ela perderá os seus dados e retornará para o estado em que estava quando foi implantada pela primeira vez, o que poderá fazer com que o trabalho MPI falhe. Quanto mais nós forem usados para um único trabalho MPI e quanto maior for a execução do trabalho, maior a probabilidade de que uma das instâncias seja reprovisionada enquanto um trabalho estiver em execução. Você também deve levar isso em consideração se designar um único nó na implantação como um servidor de arquivos.
+* As instâncias de função de trabalho em um serviço de nuvem são reprovisionadas periodicamente sem aviso pelo Azure (por exemplo, para manutenção do sistema ou no caso de uma instância falhar). Se uma instância for reprovisionada enquanto estiver executando um trabalho MPI, ela perderá os seus dados e retornará para o estado em que estava quando foi implantada pela primeira vez, o que poderá fazer com que o trabalho MPI falhe. Quanto mais nós forem usados para um único trabalho MPI e quanto mais longa for a execução do trabalho, maior a probabilidade de que uma das instâncias seja reprovisionada enquanto um trabalho estiver em execução. Leve isso também em consideração se designar um único nó na implantação como um servidor de arquivos.
 * Não é preciso usar as instâncias compatíveis com RDMA para executar trabalhos MPI no Azure. Você pode usar qualquer tamanho de instância que tenha o suporte do HPC Pack. No entanto, as instâncias compatíveis com RDMA são recomendadas para executar trabalhos MPI de escala relativamente grande que sejam sensíveis à latência e à largura de banda da rede que conecta os nós. Se você usa instâncias de outros tamanhos para executar trabalhos MPI sensíveis à latência e à largura de banda, é recomendável executar trabalhos pequenos, nos quais uma única tarefa é executada em apenas alguns nós.
 * Os aplicativos implantados em instâncias do Azure estão sujeitos aos termos de licenciamento associados ao aplicativo. Verifique com o fornecedor de qualquer aplicativo comercial quanto ao licenciamento ou outras restrições de execução na nuvem. Nem todos os fornecedores oferecem licenciamento pré-pago.
 * As instâncias do Azure precisam de outras configurações para acessar os nós, os compartilhamentos e os servidores de licenças locais. Por exemplo, para permitir que os nós do Azure acessem um servidor de licenças local, você pode configurar uma rede virtual site a site do Azure.
@@ -194,6 +194,6 @@ A seguir, as considerações para execução de aplicativos MPI com HPC Pack no 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

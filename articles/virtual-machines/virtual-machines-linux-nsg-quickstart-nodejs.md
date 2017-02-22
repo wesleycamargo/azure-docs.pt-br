@@ -1,5 +1,5 @@
 ---
-title: Abrir portas e pontos de extremidade para uma VM Linux no Azure | Microsoft Docs
+title: Abrir portas para uma VM do Linux com a CLI 1.0 do Azure | Microsoft Docs
 description: "Saiba como abrir uma porta e criar um ponto de extremidade para a VM Linux usando o modelo de implantação do Azure Resource Manager e a CLI 1.0 do Azure"
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ca514ec1bbfb5404070de904effd1522fcac892
-ms.openlocfilehash: fd43b3a16607ccd383fbf185176d94af5aa97d89
-
+ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
+ms.openlocfilehash: b29b7fc56e1797d9daa33ff18df0fe5590b12612
 
 ---
-# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure"></a>Abrindo portas e pontos de extremidade para uma VM Linux no Azure
+
+# <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Abrindo portas e pontos de extremidade para uma VM Linux no Azure usando a CLI 1.0 do Azure
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI 1.0 do Azure.
 
 
@@ -87,6 +87,6 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

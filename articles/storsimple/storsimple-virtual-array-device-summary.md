@@ -1,5 +1,5 @@
 ---
-title: Folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple da Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+title: Folha de resumo de dispositivo da StorSimple Virtual Array | Microsoft Docs
 description: "Descreve a folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple e explica como usá-lo para monitorar a integridade da Matriz Virtual StorSimple."
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 translationtype: Human Translation
-ms.sourcegitcommit: 4bbd5270194e7c1c02b4a3d0f0865cee61a1c55c
-ms.openlocfilehash: 577f1a2a7833d4a64ca02aabd13a04901a2e3abd
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
 
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Use a folha de resumo do dispositivo do Gerenciador de Dispositivos StorSimple conectado à Matriz Virtual StorSimple
@@ -58,6 +58,6 @@ Saiba como:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

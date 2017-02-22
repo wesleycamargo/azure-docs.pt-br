@@ -16,18 +16,12 @@ ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5a3f40ff8811c08d130c2a3e0a7d61aed9457d1
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
 
 
 ---
 # <a name="restore-a-deleted-azure-sql-database-using-the-azure-portal"></a>Restaurar um Banco de Dados SQL do Azure excluído usando o Portal do Azure
-> [!div class="op_single_selector"]
-> * [Visão geral](sql-database-recovery-using-backups.md)
-> * [**Restaurar o banco de dados excluído: Portal**](sql-database-restore-deleted-database-portal.md)
-> * [Restaurar o banco de dados excluído: PowerShell](sql-database-restore-deleted-database-powershell.md)
-> 
-> 
 
 ## <a name="select-the-database-to-restore"></a>Selecionar o banco de dados a ser restaurado
 Para restaurar um banco de dados excluído com o Portal do Azure:
@@ -50,6 +44,6 @@ Para restaurar um banco de dados excluído com o Portal do Azure:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

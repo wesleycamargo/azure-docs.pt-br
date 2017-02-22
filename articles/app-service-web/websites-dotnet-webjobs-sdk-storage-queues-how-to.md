@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 67bb54e8a573607199143621451e598bf11947fe
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
 
 
 ---
@@ -133,7 +133,7 @@ Se você tiver várias funções escutando em filas diferentes, o SDK as chamar�
 
 O mesmo é verdadeiro quando várias mensagens são recebidas para uma única fila. Por padrão, o SDK obtém um lote de 16 mensagens de fila por vez e executa a função que as processa em paralelo. [O tamanho do lote é configurável](#config). Quando o número que está sendo processado chega até a metade do tamanho do lote, o SDK obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é uma vez e meia o tamanho do lote. Esse limite se aplica separadamente a cada função que tem um atributo `QueueTrigger` .
 
-Se não desejar uma execução paralela para mensagens recebidas em uma fila, é possível definir o tamanho do lote como 1. Veja também **Mais controle sobre o processamento de fila** no [RTM 1.1.0 do SDK dos Trabalhos Web do Azure](/blog/azure-webjobs-sdk-1-1-0-rtm/).
+Se não desejar uma execução paralela para mensagens recebidas em uma fila, é possível definir o tamanho do lote como 1. Veja também **Mais controle sobre o processamento de fila** no [RTM 1.1.0 do SDK dos Trabalhos Web do Azure](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
 ### <a name="a-idqueuemetadataaget-queue-or-queue-message-metadata"></a><a id="queuemetadata"></a>Obter fila ou metadados de mensagem da fila
 Você pode obter as propriedades da mensagem a seguir adicionando parâmetros à assinatura do método:
@@ -422,7 +422,7 @@ A definição das cadeias de conexão do SDK no código lhe permite usar seus pr
             host.RunAndBlock();
         }
 
-### <a name="a-idconfigqueueaconfigure-queuetrigger-settings"></a><a id="configqueue"></a>Configurar definições de QueueTrigger
+### <a name="a-idconfigqueueaconfigure-queuetrigger--settings"></a><a id="configqueue"></a>Configurar definições de QueueTrigger
 Você pode definir as seguintes configurações que se aplicam ao processamento de mensagem de fila:
 
 * O número máximo de mensagens da fila que são recebidas simultaneamente a serem executadas em paralelo (o padrão é 16).
@@ -581,6 +581,6 @@ Este guia forneceu exemplos de código que mostram como lidar com cenários comu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

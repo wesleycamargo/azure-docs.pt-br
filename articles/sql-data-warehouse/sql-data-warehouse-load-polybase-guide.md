@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 472f86ecd821dfad74c25fe7cd36d07114489a71
+ms.sourcegitcommit: 1a82f9f1de27c9197bf61d63dd27c5191fec1544
+ms.openlocfilehash: 3e1bf2372762de474310c78d512a6a073c7a01b6
 
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guia para usar o PolyBase no SQL Data Warehouse
 Este guia fornece informações práticas para usar o PolyBase no SQL Data Warehouse.
 
-Para começar, consulte o tutorial [Carregar dados com o PolyBase][Carregar dados com o PolyBase].
+Para começar, consulte o tutorial [Carregar dados com o PolyBase][Load data with PolyBase].
 
 ## <a name="rotating-storage-keys"></a>Rotação de chaves de armazenamento
 Às vezes você desejará alterar a chave de acesso para o armazenamento de blob por motivos de segurança.
@@ -83,7 +83,7 @@ FROM   [ext].[CarSensor_Data]
 Consulte [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Criar estatísticas sobre os dados recém-carregados
-O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados.  Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Estatísticas] no grupo de tópicos Desenvolver.  Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados.  Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Statistics] no grupo de tópicos Desenvolver.  Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -172,24 +172,25 @@ $write.Dispose()
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte [Visão geral de migração de dados][Visão geral de migração de dados].
+Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Visão geral de migração de dados][data migration overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Carregar dados com o bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Carregar dados com o PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Visão geral de migração de dados]: ./sql-data-warehouse-overview-migrate.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[data migration overview]: ./sql-data-warehouse-overview-migrate.md
 
 <!--MSDN references-->
-[fonte/coletor com suporte]: https://msdn.microsoft.com/library/dn894007.aspx
-[atividade de cópia]: https://msdn.microsoft.com/library/dn835035.aspx
-[Adaptador de destino do SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026).aspx [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspxx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
@@ -206,6 +207,6 @@ Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte [Vis�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

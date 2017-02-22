@@ -4,7 +4,7 @@ description: "Considerações importantes ao planejar o backup de máquinas virt
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "backup de vms, backup de máquinas virtuais"
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: trinadhk; jimpark; markgal;
+ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: a4045fc0fc6e2c263da06ed31a590714e80fb4d4
 ms.openlocfilehash: ac13b82c885720fa6d3d127b8e8dbbace5b09ef5
@@ -95,7 +95,7 @@ Embora a maioria do tempo seja gasto com a leitura e a cópia de dados, existem 
 ## <a name="total-restore-time"></a>Tempo total de restauração
 Uma operação de restauração consiste em duas sub-tarefas principais: copiar dados do cofre para a conta de armazenamento escolhida do cliente e criar a máquina virtual. A cópia de dados do cofre depende de onde os backups estão armazenados internamente no Azure e onde a conta de armazenamento do cliente está armazenada. O tempo necessário para copiar os dados depende de:
 * Tempo de espera de fila – como o serviço está processando restaurações de vários clientes ao mesmo tempo, as solicitações de restauração são colocadas em fila.
-* Tempo de cópia de dados – os dados são copiados de maneira semelhante a um processo de backup inicial do cofre para a conta de armazenamento do cliente. Se a conta de armazenamento do cliente na qual o serviço de backup precisa gravar dados do cofre estiver carregada, o tempo de cópia poderá aumentar. Portanto, certifique-se de selecionar uma conta de armazenamento que não esteja carregada com outras leituras e gravações de aplicativos durante a restauração para otimizar o tempo de cópia. 
+* Tempo de cópia de dados – os dados são copiados de maneira semelhante a um processo de backup inicial do cofre para a conta de armazenamento do cliente. Se a conta de armazenamento do cliente na qual o serviço de backup precisa gravar dados do cofre estiver carregada, o tempo de cópia poderá aumentar. Portanto, certifique-se de selecionar uma conta de armazenamento que não esteja carregada com outras leituras e gravações de aplicativos durante a restauração para otimizar o tempo de cópia.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 É recomendável seguir essas práticas ao configurar backups de máquinas virtuais:
@@ -141,6 +141,6 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

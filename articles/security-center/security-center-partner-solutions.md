@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2016
+ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f469d0e17f874244539b05579598d35aa7dd01d5
+ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
+ms.openlocfilehash: 2d7ab8fbed1d4edb60416c7c6b7ae08ddbdec91a
 
 
 ---
@@ -25,11 +25,12 @@ Este documento orienta sobre como monitorar o status de integridade de suas solu
 
 > [!NOTE]
 > Este documento apresenta o serviço usando uma implantação de exemplo. Ela não é um guia passo a passo.
-> 
-> 
+>
+>
 
 ## <a name="monitoring-partner-solutions"></a>Monitoramento das soluções de parceiros
 O bloco **Soluções de parceiros** na folha **Central de Segurança** permite que você monitore rapidamente o status de integridade de suas soluções de parceiro integradas com sua assinatura do Azure.
+
 ![Bloco Soluções de parceiros][1]
 
 O bloco **Soluções de parceiros** exibe o número de soluções de parceiros e um resumo de status para essas soluções.
@@ -43,18 +44,22 @@ O **STATUS** de uma solução de parceiro pode ser:
 * Não relatado (cinza) - a solução não reportou nada ainda. O status da solução pode não ser relatado se ele foi conectado e ainda está sendo implantado
 
 Se não houver soluções integradas à sua assinatura, o bloco informará que não há uma solução. A seleção do bloco **Soluções de parceiros** permitirá que você abra o bloco **Recomendações** para implantar soluções de segurança de parceiro.
+
 ![Sem soluções de parceiros][2]
 
 Para exibir a integridade das soluções de seu parceiro:
 
 1. Selecione o bloco **Soluções de parceiros** . Uma folha será aberta exibindo uma lista de suas soluções de parceiros conectadas à Central de Segurança.
+
    ![Soluções de parceiros][3]
 2. Selecione uma solução de parceiro. Neste exemplo, permite selecionar a solução **F5-WAF2** .  Uma folha será aberta mostrando o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
+
    ![Detalhes da solução de parceiro][4]
 3. Volte para a folha **F5-WAF2** folha e selecione **Vincular aplicativo**. A folha **Vincular Aplicativos** é aberta. Nela, você pode conectar recursos à solução de parceiro.
+
    ![Vincular recursos à solução de parceiro][5]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 Neste documento, você foi apresentado às **Soluções de Parceiros** na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
@@ -73,6 +78,6 @@ Neste documento, você foi apresentado às **Soluções de Parceiros** na Centra
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

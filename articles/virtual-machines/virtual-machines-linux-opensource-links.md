@@ -16,15 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 680bb7dfb401decc554637c0094a06a0a6260288
+ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
+ms.openlocfilehash: 3db8a2b4618c05430a7e0cd7664514abc582078b
 
 
 ---
 # <a name="linux-and-open-source-computing-on-azure"></a>Computação Linux e Software Livre no Azure
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais baseadas no Linux no modelo de implantação clássico.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="get-started"></a>Introdução
 * [Introdução ao Linux no Azure](virtual-machines-linux-intro-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -104,7 +105,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 * [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 
 
 ## <a name="reference"></a>Referência
-* [Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)](../virtual-machines-command-line-tools.md)
+* [Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [API REST de Gerenciamento de Serviços do Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
 ## <a name="general-links"></a>Links de geral
@@ -163,6 +164,6 @@ Como o mundo dos desenvolvimentos, gerenciamento e otimização é muito extenso
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

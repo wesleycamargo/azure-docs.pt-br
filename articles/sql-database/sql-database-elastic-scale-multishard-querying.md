@@ -1,5 +1,5 @@
 ---
-title: "Consulta de vários fragmentos | Microsoft Docs"
+title: Consultar bancos de dados fragmentados do SQL do Azure | Microsoft Docs
 description: "Execute consultas entre fragmentos usando a biblioteca de cliente de banco de dados elástico."
 services: sql-database
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d616160e8547e256da7f445e79f0949496ca943f
+ms.sourcegitcommit: 873df52da976597ddfaa8f777b90382bfa7723fc
+ms.openlocfilehash: aa54ec3d982ea4422422bd4e520d2211aad57159
 
 
 ---
@@ -25,7 +25,6 @@ ms.openlocfilehash: d616160e8547e256da7f445e79f0949496ca943f
 ## <a name="overview"></a>Visão geral
 Com as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md), você pode criar soluções de banco de dados fragmentado. **Consulta de vários fragmentos** é usada para tarefas, como coleta/relatórios de dados que exigem a execução de uma consulta que se estende por vários fragmentos. (Compare-a com o [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), que executa todo o trabalho em um único fragmento). 
 
-## <a name="overview"></a>Visão geral
 1. Obtenha um [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) ou [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) usando o método [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) ou [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx). Consulte [**Construindo um ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) e [**Obter um RangeShardMap ou ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
 2. Crie um objeto **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**.
 3. Crie um **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
@@ -80,6 +79,6 @@ Gerenciar fragmentos usando a [biblioteca de cliente de Banco de Dados Elástico
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights | Microsoft Docs"
+title: "Diagnosticar falhas e exceções em aplicativos Web com o Azure Application Insights | Microsoft Docs | Microsoft Docs"
 description: "Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 41843c3b847fedb0531fa6b193b56cbd3d74466d
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: c4a20fe310d9a70bb3a954bd936daf6f3d432db9
 
 
 ---
@@ -24,7 +24,7 @@ Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insigh
 
 ## <a name="set-up-exception-reporting"></a>Configurar os relatórios de exceção
 * Para que as exceções sejam relatadas em seu aplicativo de servidor:
-  * Instale o[ SDK do Application Insights](app-insights-asp-net.md) no aplicativo ou 
+  * Instale o[ SDK do Application Insights](app-insights-asp-net.md) no aplicativo ou
   * Servidores Web IIS: executar o [Agente do Application Insights](app-insights-monitor-performance-live-website-now.md) ou
   * Aplicativos Web do Azure: adicionar a [extensão do Application Insights](app-insights-azure-web-apps.md)
 * Instale o [trecho de JavaScript](app-insights-javascript.md) em suas páginas da Web para capturar exceções de navegador.
@@ -44,7 +44,7 @@ Abra a janela Pesquisa do Application Insights no Visual Studio e configure-a pa
 
 ![Clique com o botão direito no projeto e escolha Application Insights, Abrir.](./media/app-insights-asp-net-exceptions/34.png)
 
-Observe que você pode filtrar o relatório para mostrar apenas as exceções. 
+Observe que você pode filtrar o relatório para mostrar apenas as exceções.
 
 *Nenhuma exceção mostrando? Consulte [Capturar exceções](#exceptions).*
 
@@ -76,12 +76,12 @@ A partir daí, você pode examinar o rastreamento de pilha e as propriedades det
 [Saber mais sobre a Pesquisa de Diagnóstico](app-insights-diagnostic-search.md).
 
 ## <a name="custom-tracing-and-log-data"></a>Dados personalizados de rastreamento e log
-Para obter dados de diagnóstico específicos do aplicativo, você pode inserir código para enviar seus próprios dados de telemetria. Eles são exibidos na pesquisa de diagnóstico junto com a solicitação, exibição de página e outros dados coletados automaticamente. 
+Para obter dados de diagnóstico específicos do aplicativo, você pode inserir código para enviar seus próprios dados de telemetria. Eles são exibidos na pesquisa de diagnóstico junto com a solicitação, exibição de página e outros dados coletados automaticamente.
 
 Você tem várias opções:
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas de diagnóstico](app-insights-diagnostic-search.md).
-* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) permite que você envie dados mais longos, como informações POST.
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) normalmente é usado para monitorar padrões de uso, mas os dados que ele envia também aparecem em Eventos Personalizados na pesquisa de diagnóstico. Os eventos são nomeados e podem conter propriedades de cadeia de caracteres e métricas numéricas nas quais é possível [filtrar pesquisas de diagnóstico](app-insights-diagnostic-search.md).
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) permite que você envie dados mais longos, como informações POST.
 * [TrackException()](#exceptions) envia rastreamentos de pilha. [Mais sobre exceções](#exceptions).
 * Se você já usa uma estrutura de registros, como Log4Net ou NLog poderá [capturar esses logs](app-insights-asp-net-trace-logs.md) e vê-los na pesquisa de diagnóstico junto com os dados de solicitação e exceção.
 
@@ -91,14 +91,14 @@ Para ver esses eventos, abra [Pesquisar](app-insights-diagnostic-search.md), abr
 
 > [!NOTE]
 > Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
-> 
-> 
+>
+>
 
 ### <a name="how-to-see-request-post-data"></a>Como consultar dados POST de solicitação
 Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em uma chamada POST. Para que esses dados sejam relatados:
 
 * [Instale o SDK](app-insights-asp-net.md) no projeto do seu aplicativo.
-* Insira o código no seu aplicativo para chamar [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace). Envie os dados de POST no parâmetro de mensagem. Há um limite para o tamanho permitido, portanto você deve tentar enviar somente os dados essenciais.
+* Insira o código no seu aplicativo para chamar [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Envie os dados de POST no parâmetro de mensagem. Há um limite para o tamanho permitido, portanto você deve tentar enviar somente os dados essenciais.
 * Quando você investiga uma solicitação com falha, localize os rastreamentos associados.  
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
@@ -116,13 +116,13 @@ A maneira mais simples é inserir uma chamada a TrackException() em um manipulad
 
 JavaScript
 
-    try 
+    try
     { ...
     }
     catch (ex)
     {
       appInsights.trackException(ex, "handler loc",
-        {Game: currentGame.Name, 
+        {Game: currentGame.Name,
          State: currentGame.State.ToString()});
     }
 
@@ -130,13 +130,13 @@ C#
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -198,7 +198,7 @@ Se a configuração do [CustomErrors](https://msdn.microsoft.com/library/h0hfz6f
 
     namespace MVC2App.Controllers
     {
-      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)] 
+      [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
       public class AiHandleErrorAttribute : HandleErrorAttribute
       {
         public override void OnException(ExceptionContext filterContext)
@@ -210,7 +210,7 @@ Se a configuração do [CustomErrors](https://msdn.microsoft.com/library/h0hfz6f
                 {   //or reuse instance (recommended!). see note above  
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
-                } 
+                }
             }
             base.OnException(filterContext);
         }
@@ -269,7 +269,7 @@ Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
-            {  //or reuse instance (recommended!). see note above 
+            {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
                 ai.TrackException(actionExecutedContext.Exception);    
             }
@@ -278,7 +278,7 @@ Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
       }
     }
 
-Você pode adicionar esse atributo substituído para controladores específicos ou adicioná-lo na configuração de filtros globais na classe WebApiConfig: 
+Você pode adicionar esse atributo substituído para controladores específicos ou adicioná-lo na configuração de filtros globais na classe WebApiConfig:
 
     using System.Web.Http;
     using WebApi1.x.App_Start;
@@ -304,10 +304,10 @@ Você pode adicionar esse atributo substituído para controladores específicos 
 
 Há um número de casos que não podem lidar com os filtros de exceção. Por exemplo:
 
-* Exceções geradas por construtores de controlador. 
-* Exceções geradas por manipuladores de mensagens. 
-* Exceções geradas durante o roteamento. 
-* Exceções geradas durante a serialização de conteúdo da resposta. 
+* Exceções geradas por construtores de controlador.
+* Exceções geradas por manipuladores de mensagens.
+* Exceções geradas durante o roteamento.
+* Exceções geradas durante a serialização de conteúdo da resposta.
 
 ## <a name="web-api-2x"></a>Web API 2.x
 Adicione uma implementação de IExceptionLogger:
@@ -322,7 +322,7 @@ Adicione uma implementação de IExceptionLogger:
         public override void Log(ExceptionLoggerContext context)
         {
             if (context !=null && context.Exception != null)
-            {//or reuse instance (recommended!). see note above 
+            {//or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
                 ai.TrackException(context.Exception);
             }
@@ -353,7 +353,7 @@ Adicione isso aos serviços no WebApiConfig:
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger()); 
+            config.Services.Add(typeof(IExceptionLogger), new AiExceptionLogger());
         }
       }
   }
@@ -362,7 +362,7 @@ Adicione isso aos serviços no WebApiConfig:
 
 Como alternativas, você pode:
 
-1. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo) 
+1. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo)
 2. Filtros de Exceção (como descrito na seção controladores acima da API Web 1.x) - não são chamados em todos os casos.
 
 ## <a name="wcf"></a>WCF
@@ -387,7 +387,7 @@ Adicione uma classe que estende o atributo e implementa IErrorHandler e IService
         {
         }
 
-        public void ApplyDispatchBehavior(ServiceDescription serviceDescription, 
+        public void ApplyDispatchBehavior(ServiceDescription serviceDescription,
             System.ServiceModel.ServiceHostBase serviceHostBase)
         {
             foreach (ChannelDispatcher disp in serviceHostBase.ChannelDispatchers)
@@ -396,21 +396,21 @@ Adicione uma classe que estende o atributo e implementa IErrorHandler e IService
             }
         }
 
-        public void Validate(ServiceDescription serviceDescription, 
+        public void Validate(ServiceDescription serviceDescription,
             System.ServiceModel.ServiceHostBase serviceHostBase)
         {
         }
 
         bool IErrorHandler.HandleError(Exception error)
-        {//or reuse instance (recommended!). see note above 
+        {//or reuse instance (recommended!). see note above
             var ai = new TelemetryClient();
 
             ai.TrackException(error);
             return false;
         }
 
-        void IErrorHandler.ProvideFault(Exception error, 
-            System.ServiceModel.Channels.MessageVersion version, 
+        void IErrorHandler.ProvideFault(Exception error,
+            System.ServiceModel.Channels.MessageVersion version,
             ref System.ServiceModel.Channels.Message fault)
         {
         }
@@ -422,8 +422,8 @@ Adicione o atributo para as implementações de serviço:
     namespace WcfService4
     {
         [AiLogException]
-        public class Service1 : IService1 
-        { 
+        public class Service1 : IService1
+        {
          ...
 
 [Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
@@ -431,9 +431,9 @@ Adicione o atributo para as implementações de serviço:
 ## <a name="exception-performance-counters"></a>Contadores de desempenho de exceção
 Se você [instalou o Agente do Application Insights](app-insights-monitor-performance-live-website-now.md) no seu servidor, poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.
 
-Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa de exceção**, listada em Contadores de Desempenho. 
+Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa de exceção**, listada em Contadores de Desempenho.
 
-O .NET Framework calcula a taxa contando o número de exceções em um intervalo e dividindo pelo comprimento do intervalo. 
+O .NET Framework calcula a taxa contando o número de exceções em um intervalo e dividindo pelo comprimento do intervalo.
 
 Observe que ela será diferente da contagem 'Exceções' calculada pelo portal do Application Insights contando relatórios TrackException. Os intervalos de amostragem são diferentes, e o SDK não envia relatórios TrackException a todas as exceções tratadas e sem tratamento.
 
@@ -444,7 +444,6 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

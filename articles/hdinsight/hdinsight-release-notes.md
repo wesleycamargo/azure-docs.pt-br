@@ -13,15 +13,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 1/18/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
-ms.openlocfilehash: be590e72e30b4b8cf506a43a9de2e54a0200356d
+ms.sourcegitcommit: 9f1222e797446a5835726a10e5c9e8b535a8cf4d
+ms.openlocfilehash: c1c13f21fff7ba201eb00f6c9f594131a75c44fc
 
 
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão dos componentes do Hadoop no Azure HDInsight
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ##<a name="notes-for-11182016-release-of-spark-201-on-hdinsight-35"></a>Notas da versão de 18/11/2016 do Spark 2.0.1 no HDInsight 3.5
 O Spark 2.0.1 agora está disponível em clusters do Spark (HDInsight versão 3.5).
@@ -1526,6 +1529,6 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

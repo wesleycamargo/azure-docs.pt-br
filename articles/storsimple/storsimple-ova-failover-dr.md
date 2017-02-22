@@ -1,5 +1,5 @@
 ---
-title: "Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array"
+title: "Recuperação de desastre, failover de dispositivo para StorSimple Virtual Array | Microsoft Docs"
 description: Saiba mais sobre como realizar failover em sua StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 06/07/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 67cdf4e3d8e81d2ea419603918a3204dc6860ae7
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 2017fcdc7a5c36c7c00d8bcef5be973ed60e3f82
 
 
 ---
@@ -97,7 +97,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 6. Selecione o dispositivo desativado e, na parte inferior da página, clique em **Failover**.
 7. No assistente Confirmar failover que é aberto, faça o seguinte:
    
-   1. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino.**  Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
+   1. Na lista suspensa de dispositivos disponíveis, escolha um **Dispositivo de destino.** Somente os dispositivos com capacidade suficiente são exibidos na lista suspensa.
    2. Examine os detalhes associados ao dispositivo de origem, como o nome do dispositivo, a capacidade total e os nomes dos compartilhamentos que serão submetidos a failover.
       
        ![](./media/storsimple-ova-failover-dr/image21.png)
@@ -125,7 +125,7 @@ Execute as seguintes etapas para restaurar o dispositivo para um dispositivo vir
 
 Este vídeo demonstra como é possível realizar failover de um dispositivo virtual local StorSimple para outro dispositivo virtual.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Virtual-Array-Disaster-Recovery/player]
 > 
 > 
 
@@ -137,7 +137,7 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 ## <a name="errors-during-dr"></a>Erros durante a recuperação de desastre
 **Falha de conectividade de nuvem durante a recuperação de desastre**
 
-Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará e você será notificado. O dispositivo de destino que foi usado para recuperação de desastre é então marcado como *inutilizável.*  O mesmo dispositivo de destino não pode ser usado então para futuras recuperações de desastre.
+Se a conectividade de nuvem é interrompida depois que começou a recuperação de desastre e antes de concluir a restauração de dispositivo, a recuperação de desastre falhará e você será notificado. O dispositivo de destino que foi usado para recuperação de desastre é então marcado como *inutilizável.* O mesmo dispositivo de destino não pode ser usado então para futuras recuperações de desastre.
 
 **Nenhum dispositivo de destino compatível**
 
@@ -153,6 +153,6 @@ Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interfa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

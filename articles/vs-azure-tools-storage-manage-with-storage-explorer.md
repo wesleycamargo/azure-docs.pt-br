@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Introdução ao Gerenciador de Armazenamento (Preview)
 ## <a name="overview"></a>Visão geral
-O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, OS X e Linux. Neste artigo, você aprenderá as várias maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
+O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux. Neste artigo, você aprende as várias maneiras de se conectar e gerenciar suas contas de armazenamento do Azure.
 
 ![Gerenciador de Armazenamento do Microsoft Azure (Preview)][15]
 
@@ -30,7 +30,7 @@ O Gerenciador de Armazenamento do Microsoft Azure (Preview) é um aplicativo aut
 * [Baixe e instale o Gerenciador de Armazenamento (preview)](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conectar-se a uma conta de armazenamento ou serviço
-O Gerenciador de Armazenamento (Preview) fornece várias maneiras de se conectar às contas de armazenamento. Isso inclui se conectar a contas de armazenamento associadas às suas assinaturas do Azure, conectar-se às contas de contas de armazenamento e serviços compartilhados por outras assinaturas do Azure e até mesmo se conectar e gerenciar o armazenamento local usando o Emulador de Armazenamento do Azure. Além disso, você pode trabalhar com contas nacionais e internacionais de armazenamento no Azure:
+O Gerenciador de Armazenamento (Visualização) fornece várias maneiras de se conectar às contas de armazenamento. Isso inclui se conectar a contas de armazenamento associadas às suas assinaturas do Azure, conectar-se às contas de contas de armazenamento e serviços compartilhados por outras assinaturas do Azure e até mesmo se conectar e gerenciar o armazenamento local usando o Emulador de Armazenamento do Azure. Além disso, você pode trabalhar com contas nacionais e internacionais de armazenamento no Azure:
 
 * [Conectar-se a uma assinatura do Azure](#connect-to-an-azure-subscription) - gerencie os recursos de armazenamento que pertencem à sua assinatura do Azure.
 * [Trabalhar com o armazenamento de desenvolvimento local](#work-with-local-development-storage) - gerencie o armazenamento local usando o Emulador de Armazenamento do Azure.
@@ -47,14 +47,14 @@ O Gerenciador de Armazenamento (Preview) fornece várias maneiras de se conectar
 1. No Gerenciador de Armazenamento (Visualização), selecione **Configurações de conta do Azure**.
 
     ![Configurações de conta do Azure][0]
-2. O painel esquerdo agora exibirá todas as contas da Microsoft em que você fez logon. Para se conectar a outra conta, selecione **Adicionar uma conta**e siga os diálogos para entrar com uma conta da Microsoft associada a pelo menos uma assinatura ativa do Azure.
+2. O painel esquerdo exibe todas as contas da Microsoft em que você fez logon. Para se conectar a outra conta, selecione **Adicionar uma conta**e siga os diálogos para entrar com uma conta da Microsoft associada a pelo menos uma assinatura ativa do Azure.
 > [!NOTE]
 >Atualmente, não há suporte para a conexão ao Azure nacional, como o Black Forest Azure, Fairfax Azure e Mooncake Azure, por meio de início de sessão. Consulte a seção **Anexar ou desanexar uma conta de armazenamento externo** para saber como se conectar a contas de armazenamento do Azure nacional.
 
-3. Depois de entrar com êxito com uma conta da Microsoft, o painel esquerdo preencherá com as assinaturas do Azure associadas à conta. Selecione as assinaturas do Azure com as quais você deseja trabalhar e selecione **Aplicar**. (A escolha dos botões **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure listadas).
+3. Depois de entrar com êxito usando uma conta da Microsoft, o painel esquerdo é preenchido com as assinaturas do Azure associadas à conta. Selecione as assinaturas do Azure com as quais você deseja trabalhar e selecione **Aplicar**. (A escolha dos botões **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure listadas).
 
     ![Selecionar assinaturas do Azure][3]
-4. O painel esquerdo agora exibirá as contas de armazenamento associadas às assinaturas do Azure selecionadas.
+4. O painel esquerdo exibe as contas de armazenamento associadas às assinaturas do Azure selecionadas.
 
     ![Assinaturas do Azure selecionadas][4]
 
@@ -72,7 +72,7 @@ O Gerenciador de Armazenamento (Preview) permite que você trabalhe no armazenam
 2. Se você ainda não tiver instalado o Emulador de Armazenamento do Azure, receberá uma solicitação para fazer isso por meio de uma barra de informações. Se a barra de informações for exibida, escolha **Baixar a versão mais recente**e instale o emulador.
 
     ![Baixar o prompt do Emulador de Armazenamento do Azure][22]
-3. Após a instalação do emulador, você poderá criar e trabalhar com blobs, filas e tabelas locais. Para aprender a trabalhar com cada tipo de conta de armazenamento, escolha o link apropriado abaixo:
+3. Após a instalação do emulador, você poderá criar e trabalhar com blobs, filas e tabelas locais. Para saber como trabalhar com cada tipo de conta de armazenamento, selecione um dos links a seguir:
 
    * [Gerenciar recursos de Armazenamento de Blobs do Azure](vs-azure-tools-storage-explorer-blobs.md)
    * Gerenciar recursos de armazenamento de compartilhamento de arquivos do Azure - *em breve*
@@ -138,7 +138,7 @@ Para ilustrar isso, vamos supor que o UsuárioA é um administrador de uma assin
 2. Na caixa de diálogo **Assinatura de Acesso Compartilhado**, especifique o intervalo e as permissões que você deseja para a conta e escolha **Criar**.
 
     ![Caixa de diálogo Obter SAS][14]
-3. Uma segunda caixa de diálogo **Assinatura de Acesso Compartilhado** aparecerá exibindo a SAS. Escolha **Copiar** ao lado de **Cadeia de Conexão** para copiá-la na área de transferência. Escolha **Fechar** para ignorar a caixa de diálogo.
+3. Um segundo diálogo **Assinatura de Acesso Compartilhado** aparecerá exibindo a SAS. Escolha **Copiar** ao lado de **Cadeia de Conexão** para copiá-la na área de transferência. Escolha **Fechar** para ignorar a caixa de diálogo.
 
 ### <a name="attach-to-the-shared-account-using-the-sas"></a>Anexar à conta compartilhada usando a SAS
 1. No Gerenciador de Armazenamento (Visualização), selecione **Conectar ao armazenamento do Azure**.
@@ -171,14 +171,14 @@ Nesse contexto, um serviço pode ser um contêiner de blob, fila ou tabela. As s
 
    ![Caixa de diálogo Conectar ao Armazenamento do Azure][24]
 3. Na caixa de diálogo **Resumo da Conexão** , verifique as informações. Se você quiser alterar alguma coisa, selecione **Voltar** e insira novamente as configurações desejadas. Quando tiver concluído, selecione **Conectar**.
-4. Depois de anexado o serviço recém-anexado será exibido abaixo do nó **(SAS do Serviço)** .
+4. Depois de anexado o serviço recém-anexado será exibido abaixo do nó **(SAS do Serviço)**.
 
    ![Resultado da anexação a um serviço compartilhado usando SAS][20]
 
 ## <a name="search-for-storage-accounts"></a>Pesquisar nas contas de armazenamento
 Se você tiver uma lista longa de contas de armazenamento, uma maneira rápida de localizar uma determinada conta de armazenamento é usar a caixa de pesquisa na parte superior do painel esquerdo.
 
-À medida que você digita na caixa de pesquisa, o painel esquerdo exibirá somente as contas de armazenamento que correspondem ao valor de pesquisa inserido até esse ponto. A captura de tela a seguir ilustra um exemplo no qual eu pesquisei por todas as contas de armazenamento cujo nome contém o texto "tarcher".
+À medida que você digita na caixa de pesquisa, o painel esquerdo exibe somente as contas de armazenamento que correspondem ao valor de pesquisa inserido até esse ponto. A captura de tela a seguir ilustra um exemplo no qual eu pesquisei por todas as contas de armazenamento cujo nome contém o texto "tarcher".
 
 ![Pesquisa na conta de armazenamento][11]
 
@@ -210,6 +210,6 @@ Para limpar a pesquisa, escolha o botão **x** na caixa de pesquisa.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

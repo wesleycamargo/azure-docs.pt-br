@@ -1,114 +1,124 @@
 ---
-title: Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Docs
-description: Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database
+title: Conectar Banco de Dados SQL usando o SQL Server Management Studio no Azure RemoteApp | Microsoft Docs
+description: "Use este tutorial para aprender a usar o SQL Server Management Studio no Azure RemoteApp para segurança e desempenho ao se conectar ao Banco de Dados SQL"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: adhurwit
 manager: jhubbard
-
+ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/01/2016
 ms.author: adhurwit
+translationtype: Human Translation
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: d0edcf7f7e927f817caae1cb7f4519596a09f140
+
 
 ---
-# <a name="use-sql-server-management-studio-in-azure-remoteapp-to-connect-to-sql-database"></a>Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
-## <a name="introduction"></a>Introduction
-This tutorial shows you how to use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory.
+# <a name="use-sql-server-management-studio-in-azure-remoteapp-to-connect-to-sql-database"></a>Usar o SQL Server Management Studio no Azure RemoteApp para conectar-se ao Banco de dados SQL
 
-**Estimated time to complete:** 45 minutes
+> [!IMPORTANT]
+> O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+>
 
-## <a name="ssms-in-azure-remoteapp"></a>SSMS in Azure RemoteApp
-Azure RemoteApp is an RDS service in Azure that delivers applications. You can learn more about it here: [What is RemoteApp?](../remoteapp/remoteapp-whatis.md)
+## <a name="introduction"></a>Introdução
+Este tutorial mostra como usar o SQL Server Management Studio (SSMS) no RemoteApp do Azure para conectar-se ao Banco de Dados SQL. Ele fornece uma orientação pelo processo de configuração do SQL Server Management Studio no Azure RemoteApp, explica os benefícios e mostra os recursos de segurança que podem ser usados no Active Directory do Azure.
 
-SSMS running in Azure RemoteApp gives you the same experience as running SSMS locally.
+**Tempo estimado para conclusão:** 45 minutos
 
-![Screenshot showing SSMS running in Azure RemoteApp][1]
+## <a name="ssms-in-azure-remoteapp"></a>SSMS no Azure RemoteApp
+O Azure RemoteApp é um serviço RDS no Azure que fornece aplicativos. Saiba mais sobre ele aqui: [O que é o RemoteApp?](../remoteapp/remoteapp-whatis.md)
 
-## <a name="benefits"></a>Benefits
-There are many benefits to using SSMS in Azure RemoteApp, including:
+O SSMS em execução no Azure RemoteApp fornece a mesma experiência que a execução local do SSMS.
 
-* Port 1433 on Azure SQL Server does not have to be exposed externally (outside of Azure).
-* No need to keep adding and removing IP addresses in the Azure SQL Server firewall.
-* All Azure RemoteApp connections occur over HTTPS on port 443 using encrypted Remote Desktop protocol
-* It is multi-user and can scale.
-* There is a performance gain from having SSMS in the same region as the SQL Database.
-* You can audit use of Azure RemoteApp with the Premium edition of Azure Active Directory which has user activity reports.
-* You can enable multi-factor authentication (MFA).
-* Access SSMS anywhere when using any of the supported Azure RemoteApp clients which includes iOS, Android, Mac, Windows Phone, and Windows PC’s.
+![Captura de tela mostrando o SSMS em execução no Azure RemoteApp][1]
 
-## <a name="create-the-azure-remoteapp-collection"></a>Create the Azure RemoteApp collection
-Here are the steps to create your Azure RemoteApp collection with SSMS:
+## <a name="benefits"></a>Benefícios
+Há muitos benefícios no uso do SSMS no Azure RemoteApp, incluindo:
 
-### <a name="1.-create-a-new-windows-vm-from-image"></a>1. Create a new Windows VM from Image
-Use the "Windows Server Remote Desktop Session Host Windows Server 2012 R2" Image from the Gallery to make your new VM.
+* A porta 1433 no Azure SQL Server não precisa ser exposta externamente (fora do Azure).
+* Não há necessidade de continuar a adicionar e remover endereços IP no firewall do Azure SQL Server.
+* Todas as conexões do Azure RemoteApp ocorrem por HTTPS na porta 443 usando o protocolo de Área de Trabalho Remota
+* Ele é multiusuário e pode ser dimensionado.
+* Há um ganho de desempenho por ter o SSMS na mesma região que o Banco de Dados SQL.
+* Você pode auditar o uso do Azure RemoteApp com o Active Directory do Azure Premium Edition, que tem relatórios de atividade do usuário.
+* Você pode habilitar a MFA (Multi-Factor Authentication).
+* Acesse o SSMS em qualquer lugar ao usar qualquer um dos clientes com suporte do Azure RemoteApp, entre eles iOS, Android, Mac, Windows Phone e PCs com Windows.
 
-### <a name="2.-install-ssms-from-sql-express"></a>2. Install SSMS from SQL Express
-Go onto the new VM and navigate to this download page: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
+## <a name="create-the-azure-remoteapp-collection"></a>Criar a coleção do Azure RemoteApp
+Veja a seguir as etapas para criar sua coleção do Azure RemoteApp com o SSMS:
 
-There is an option to only download SSMS. After download, go into the install directory and run Setup to install SSMS.
+### <a name="1-create-a-new-windows-vm-from-image"></a>1. Criar uma nova VM do Windows a partir da Imagem
+Use a imagem "Windows Server Remote Desktop Session Host Windows Server 2012 R2" da Galeria para criar sua nova VM.
 
-You also need to install SQL Server 2014 Service Pack 1. You can download it here: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
+### <a name="2-install-ssms-from-sql-express"></a>2. Instalar o SSMS do SQL Express
+Acesse a nova VM e navegue até essa página de download: [Microsoft® SQL Server® 2014 Express](https://www.microsoft.com/en-us/download/details.aspx?id=42299)
 
-SQL Server 2014 Service Pack 1 includes essential functionality for working with Azure SQL Database.
+Há uma opção para baixar somente o SSMS. Após o download, vá até o diretório de instalação e execute a Instalação para instalar o SSMS.
 
-### <a name="3.-run-validate-script-and-sysprep"></a>3. Run Validate script and Sysprep
-On the desktop of the VM is a PowerShell script called Validate. Run this by double-clicking. It will verify that the VM is ready to be used for remote hosting of applications. When verification is complete, it will ask to run sysprep - choose to run it.
+Também é necessário instalar o SQL Server 2014 Service Pack 1. Você pode baixá-lo aqui: [Microsoft SQL Server 2014 Service Pack 1 (SP1)](https://www.microsoft.com/en-us/download/details.aspx?id=46694)
 
-When sysprep completes, it will shut down the VM.
+O SQL Server 2014 Service Pack 1 inclui uma funcionalidade essencial para trabalhar com o Banco de Dados SQL.
 
-To learn more about creating a Azure RemoteApp image, see: [How to create a RemoteApp template image in Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
+### <a name="3-run-validate-script-and-sysprep"></a>3. Executar o script Validate e o Sysprep
+Na área de trabalho da VM há um script do PowerShell chamado Validate. Execute-o clicando duas vezes nele. Ele verificará se a VM está pronta para ser usada para hospedagem remota de aplicativos. Quando a verificação estiver concluída, você receberá uma solicitação para executar o sysprep. Escolha executá-lo.
 
-### <a name="4.-capture-image"></a>4. Capture image
-When the VM has stopped running, find it in the current portal and capture it.
+Após a conclusão do sysprep, ele desligará a VM.
 
-To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
+Para saber mais sobre como criar uma imagem do Azure RemoteApp, confira: [Como criar uma imagem de modelo do RemoteApp no Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
-### <a name="5.-add-to-azure-remoteapp-template-images"></a>5. Add to Azure RemoteApp Template images
-In the Azure RemoteApp section of the current portal, go to the Template Images tab and click Add. In the pop-up box, select "Import an image from your Virtual Machines library" and then choose the Image that you just created.
+### <a name="4-capture-image"></a>4. Capturar a imagem
+Após a interrupção da execução da VM, encontre-a no portal atual e capture-a.
 
-### <a name="6.-create-cloud-collection"></a>6. Create cloud collection
-In the current portal, create a new Azure RemoteApp Cloud Collection. Choose the Template Image that you just imported with SSMS installed on it.
+Para saber mais sobre como capturar uma imagem, consulte [Capturar uma imagem de uma máquina virtual Windows do Azure criada com o modelo de implantação clássico](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-![Create new cloud collection][2]
+### <a name="5-add-to-azure-remoteapp-template-images"></a>5. Adicionar a imagens de modelo do Azure RemoteApp
+Na seção Azure RemoteApp do portal atual, acesse a guia Imagens de Modelo e clique em Adicionar. Na caixa pop-up, selecione "Importar uma imagem da biblioteca Máquinas Virtuais" e, em seguida, escolha a imagem que você acabou de criar.
 
-### <a name="7.-publish-ssms"></a>7. Publish SSMS
-On the Publishing tab of your new cloud collection, select Publish an application from the Start Menu and then choose SSMS from the list.
+### <a name="6-create-cloud-collection"></a>6. Criar uma coleção na nuvem
+No portal atual, crie uma nova Coleção na Nuvem do Azure RemoteApp. Escolha a Imagem de Modelo que você acabou de importar com o SSMS instalado.
 
-![Publish App][5]
+![Criar uma nova coleção na nuvem][2]
 
-### <a name="8.-add-users"></a>8. Add users
-On the User Access tab you can select the users that will have access to this Azure RemoteApp collection which only includes SSMS.
+### <a name="7-publish-ssms"></a>7. Publicar o SSMS
+Na guia Publicação de sua nova coleção na nuvem, selecione Publicar um aplicativo no Menu Iniciar e, em seguida, escolha o SSMS na lista.
 
-![Add User][6]
+![Publicar aplicativo][5]
 
-### <a name="9.-install-the-azure-remoteapp-client-application"></a>9. Install the Azure RemoteApp client application
-You can download and install a Azure RemoteApp client here: [Download | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
+### <a name="8-add-users"></a>8. Adicionar usuários
+Na guia Acesso de Usuário, você pode selecionar os usuários que terão acesso a esta coleção do Azure RemoteApp que inclui somente o SSMS.
 
-## <a name="configure-azure-sql-server"></a>Configure Azure SQL Server
-The only configuration needed is to ensure that Azure Services is enabled for the firewall. If you use this solution, then you do not need to add any IP addresses to open the firewall. The network traffic that is allowed to the SQL Server is from other Azure services.
+![Adicionar usuário][6]
 
-![Azure Allow][4]
+### <a name="9-install-the-azure-remoteapp-client-application"></a>9. Instalar o aplicativo cliente do Azure RemoteApp
+Você pode baixar e instalar um cliente do Azure RemoteApp aqui: [Baixar | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
 
-## <a name="multi-factor-authentication-(mfa)"></a>Multi-Factor Authentication (MFA)
-MFA can be enabled for this application specifically. Go to the Applications tab of your Azure Active Directory. You will find an entry for Microsoft Azure RemoteApp. If you click that application and then configure, you will see the page below where you can enable MFA for this application.
+## <a name="configure-azure-sql-server"></a>Configurar o Azure SQL Server
+A única configuração necessária é garantir que os Serviços do Azure estejam habilitados para o firewall. Se você usar essa solução, não será necessário adicionar endereços IP para abrir o firewall. O tráfego de rede permitido para o SQL Server é de outros serviços do Azure.
 
-![Enable MFA][3]
+![Permissão do Azure][4]
 
-## <a name="audit-user-activity-with-azure-active-directory-premium"></a>Audit user activity with Azure Active Directory Premium
-If you do not have Azure AD Premium, then you have to turn it on in the Licenses section of your directory. With Premium enabled, you can assign users to the Premium level.
+## <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
+A MFA pode ser habilitada especificamente para esse aplicativo. Acesse a guia Aplicativos do Active Directory do Azure. Você encontrará uma entrada para o Microsoft Azure RemoteApp. Se você clicar nesse aplicativo e configurá-lo, verá a página abaixo de onde você pode habilitar a MFA para este aplicativo.
 
-When you go to a user in your Azure Active Directory, you can then go to the Activity tab to see login information to Azure RemoteApp.
+![Habilitar MFA][3]
 
-## <a name="next-steps"></a>Next steps
-After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server.
+## <a name="audit-user-activity-with-azure-active-directory-premium"></a>Auditar a atividade do usuário com o Active Directory Premium do Azure
+Se você não tiver o Azure AD Premium, será necessário ativá-lo na seção Licenças do diretório. Com o Premium ativado, você poderá atribuir usuários para o nível Premium.
 
-For more information on how to make the connection to SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md).
+Quando você acessa um usuário no Active Directory do Azure, é possível acessar a guia Atividade para ver informações de logon para o Azure RemoteApp.
 
-That's everything for now. Enjoy!
+## <a name="next-steps"></a>Próximas etapas
+Depois de concluir todas as etapas acima, você será capaz de executar o cliente do Azure RemoteApp e fazer logon com um usuário atribuído. Você receberá o SSMS como um de seus aplicativos e poderá executá-lo da mesma forma que se estivesse instalado em seu computador com acesso ao Azure SQL Server.
+
+Para saber mais sobre como fazer a conexão com o Banco de Dados SQL, confira [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar uma consulta T-SQL de exemplo](sql-database-connect-query-ssms.md).
+
+Isso é tudo por enquanto. Aproveite!
 
 <!--Image references-->
 [1]: ./media/sql-database-ssms-remoteapp/ssms.png
@@ -119,7 +129,6 @@ That's everything for now. Enjoy!
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

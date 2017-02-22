@@ -1,5 +1,5 @@
 ---
-title: Configurar o MPIO no host da Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
+title: "Configurar o MPIO no host conectado à StorSimple Virtual Array | Microsoft Docs"
 description: Descreve como configurar o MPIO (Multipath I/O) para sua matriz virtual StorSimple conectada a um host que esteja executando o Windows Server 2012 R2.
 services: storsimple
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 53308da656f46a43332a204d9d49e972d8c1799c
+ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
+ms.openlocfilehash: 24c2670394c2873b333f41c081a8134710d16d54
 
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurar o Multipath I/O no host do Windows Server para a Matriz Virtual StorSimple
@@ -160,6 +160,6 @@ Saiba mais sobre como [usar o Gerenciador de Dispositivo StorSimple para adminis
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

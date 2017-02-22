@@ -12,28 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8e1a35dfa6a571332c50e22f35ddcb2d6074ed6
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8fa5a0f08eeb1c1443a6c8adeabf27a66be597c5
 
 
 ---
 # <a name="view-all-existing-groups-in-azure-active-directory-preview"></a>Exibir todos os grupos existentes na visualização do Azure Active Directory
-Este artigo explica como exibir todos os grupos na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md)  Um dos recursos de gerenciamento de usuários do Azure AD (Azure Active Directory) é a capacidade de criar grupos que podem ser preenchidos com seus usuários. Você pode usar um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários de uma vez.
+Este artigo explica como exibir todos os grupos na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md) Um dos recursos de gerenciamento de usuários do Azure AD (Azure Active Directory) é a capacidade de criar grupos que podem ser preenchidos com seus usuários. Você pode usar um grupo para executar tarefas de gerenciamento, como a atribuição de licenças ou permissões a vários usuários de uma vez.
 
 ## <a name="how-do-i-see-all-the-groups"></a>Como vejo todos os grupos?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
-   
+
    ![Abrir o gerenciamento de usuários](./media/active-directory-groups-view-azure-portal/search-user-management.png)
 3. Na folha **Usuários e grupos**, escolha **Todos os grupos**.
-   
+
    ![Abrir a folha de grupos](./media/active-directory-groups-view-azure-portal/view-groups-blade.png)
 4. Na folha **Usuários e grupos - Todos os grupos** , é possível adicionar ou remover colunas de exibição, filtrar a lista para procurar um grupo ou fazer alterações em grupos para os quais você tem permissões suficientes para alterar.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Ver grupos existentes](active-directory-groups-view-azure-portal.md)
@@ -45,7 +45,6 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -10,7 +10,7 @@ Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Ge
 4. Na folha **Comprar domínios**, use a caixa de texto para digitar o nome de domínio que você deseja comprar. Os domínios disponíveis sugeridos serão mostrados apenas como mensagens da caixa de texto. Selecione o domínio que você deseja comprar.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
-5. Clique em **Informações de contato** e preencha o formulário de informações de contato do domínio.
+5. Clique em **Informações de Contato** e preencha o formulário de informações de contato do domínio.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-3.png)
 6. Clique em **Selecionar** na folha **Comprar domínios** e você verá as informações de compra na folha **Confirmação de compra**. Se você aceitar os termos legais e clicar em **Comprar**, seu pedido será enviado e você poderá monitorar o processo de compra em **Notificação**.
@@ -18,7 +18,7 @@ Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Ge
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-4.png)
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-5.png)
-7. Se você fez um pedido um domínio com êxito, pode gerenciar o domínio e atribuir ao seu aplicativo Web. Clique em **"..."** no lado direito do seu domínio. Depois disso, você pode **Cancelar compra** ou **Gerenciar domínio**. Clique em **Gerenciar domínio**, e assim poderemos vincular o **subdomínio** ao nosso aplicativo Web na folha **Gerenciar domínio**.
+7. Se você fez um pedido um domínio com êxito, pode gerenciar o domínio e atribuir ao seu aplicativo Web. Clique em **"..."** no lado direito do seu domínio. Depois disso, você pode **cancelar a compra** ou **gerenciar o domínio**. Clique em **Gerenciar Domínio** e assim poderemos associar o **subdomínio** ao nosso aplicativo Web na folha **Gerenciar Domínio**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-6.png)
    
@@ -26,4 +26,8 @@ Se você quiser um domínio, pode comprar domínios diretamente no [Portal de Ge
 
 Nesse ponto, você deve poder inserir o nome de domínio personalizado no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

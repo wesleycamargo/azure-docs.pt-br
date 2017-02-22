@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 06/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 1480c67792dc0ef6d2742b5b7f1c13e81cefbc1c
+ms.sourcegitcommit: f86986fea6fc48a4a6ed09022e8026e0645dfc56
+ms.openlocfilehash: 971558d287191c6b7b5ea9d135e6fe37c904aa76
 
 
 ---
@@ -25,7 +25,7 @@ Saber como as pessoas usam seu aplicativo permite a você concentrar o trabalho 
 O Application Insights do Azure fornece dois níveis de rastreamento de uso:
 
 * **Dados de usuário, sessão e exibição de página** : fornecidos pronto para uso.  
-* **Telemetria personalizado** - você [escrever código][api] para rastrear os usuários por meio da experiência do usuário do seu aplicativo. 
+* **Telemetria personalizada**: [escreva código][api] para rastrear os usuários por meio da experiência de usuário do aplicativo. 
 
 ## <a name="setting-up"></a>Configurando
 Abra um recurso Application Insights no [Portal do Azure](https://portal.azure.com), clique no gráfico de cargas de página vazio do navegador e siga as instruções de instalação.
@@ -75,11 +75,12 @@ Você pode alterar esses padrões editando o trecho de código:
             sessionRenewalMs: 3600000,
             sessionExpirationMs: 172800000
         });
+    </script>
 
 * `sessionRenewalMs` : o tempo, em milissegundos, para expirar a sessão devido a inatividade do usuário. Padrão: 30 minutos.
 * `sessionExpirationMs` : o comprimento máximo da sessão, em milissegundos. Se o usuário permanecer ativo após esse período, outra sessão será contada. Padrão: 24 horas.
 
-**Duração da sessão** é uma [metrics][metrics] que registra o período de tempo entre o primeiro e o último item de telemetria da sessão. (Não inclui o período de tempo limite).
+**Duração da sessão** é uma [métrica][metrics] que registra o período de tempo entre o primeiro e o último item de telemetria da sessão. (Não inclui o período de tempo limite).
 
 **Contagem de sessões** em um determinado intervalo é definida como o número de sessões exclusivas com alguma atividade durante esse intervalo. Quando você examina um intervalo de tempo longo, como uma contagem de sessão diária para a semana anterior, isso normalmente é equivale ao número total de sessões. 
 
@@ -115,7 +116,7 @@ Tráfego sintético inclui solicitações de testes de carga e disponibilidade, 
 
 O Application Insights tenta determinar e classificar automaticamente o tráfego sintético e marcá-lo adequadamente. Na maioria dos casos, tráfego sintético não invoca o SDK do JavaScript, de modo que essa atividade é excluída da contagem do usuário e de sessão. 
 
-No entanto, para [testes da web][availability] do Application Insights, a id de usuário é automaticamente definida com base na localização de POP e a id de sessão é definida com base na id de execução de teste. Em relatórios padrão, o tráfego sintético é filtrado por padrão, o que excluirá esses usuários e sessões. No entanto, quando tráfego sintético for incluído, ele pode causar um pequeno aumento nas contagens gerais de usuários e sessões.
+No entanto, para [testes da Web][availability] do Application Insights, a id de usuário é automaticamente definida com base na localização de POP, e a id de sessão é definida com base na id de execução do teste. Em relatórios padrão, o tráfego sintético é filtrado por padrão, o que excluirá esses usuários e sessões. No entanto, quando tráfego sintético for incluído, ele pode causar um pequeno aumento nas contagens gerais de usuários e sessões.
 
 ## <a name="page-usage"></a>Uso da página
 Clique no gráfico de modos de exibição de página para obter uma versão mais ampliada juntamente com uma análise das suas páginas mais populares:
@@ -241,7 +242,7 @@ Use o campo Pesquisa para ver as ocorrências de eventos com um valor da proprie
 
 ![Digitar um valor no campo Pesquisa](./media/app-insights-web-track-usage/12-searchEvents.png)
 
-## <a name="a-b-testing"></a>Testando A | B
+## <a name="a--b-testing"></a>Testando A | B
 Se você não souber qual variante de um recurso terá mais êxito, libere ambas, tornando cada uma acessível para diferentes usuários. Avalie o sucesso de cada uma e então parta para uma versão unificada.
 
 Para essa técnica, você pode anexar marcas distintas a todas as telemetrias enviadas por cada versão do seu aplicativo. Você pode fazer isso definindo propriedades no TelemetryContext ativo. Essas propriedades padrão são adicionadas a todas as mensagens de telemetria que o aplicativo envia - não apenas a suas mensagens personalizadas, mas também à telemetria padrão. 
@@ -313,7 +314,7 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 * Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
 
 ## <a name="references"></a>Referências
-* [Usando a API: visão geral][api]
+* [Usar a API - visão geral][api]
 * [Referência da API de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="video"></a>Vídeo
@@ -337,6 +338,6 @@ Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

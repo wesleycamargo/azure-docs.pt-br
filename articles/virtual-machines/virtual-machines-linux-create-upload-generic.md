@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
-ms.openlocfilehash: ad632fd894a56a490b48c81ae63d641412368f35
+ms.sourcegitcommit: cb794e5da329173ab4d7c856733e6a0f2c5f7019
+ms.openlocfilehash: 7c53a5b443f8afa89dc7ede39f46d29eb39de6cc
 
 
 ---
@@ -44,6 +44,8 @@ O restante deste artigo traz orientações gerais para execução da sua distrib
 
 ## <a name="general-linux-installation-notes"></a>Notas de instalação gerais do Linux
 * O formato VHDX não tem suporte no Azure, somente o **VHD fixo**.  Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd. Se você estiver usando o VirtualBox, isso significará selecionar **Tamanho fixo** em vez do padrão alocado dinamicamente durante a criação do disco.
+* O Azure oferece suporte somente para máquinas virtuais de geração 1. Você pode converter uma máquina virtual de geração 1 do formato de arquivo VHDX em VHD e de expansão dinâmica em um disco de tamanho fixo. Mas não é possível alterar a geração de uma máquina virtual. Para saber mais, confira [Devo criar uma máquina virtual de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* O tamanho máximo permitido para o VHD é 1.023 GB.
 * Ao instalar o sistema Linux, é *recomendável* que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM idêntica para solução de problemas. [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados nos discos de dados.
 * É necessário suporte a kernel para montar sistemas de arquivos UDF. Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à VM do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a VM.
 * Versões de kernel do Linux abaixo de 2.6.37 não dão suporte ao NUMA no Hyper-V com tamanhos maiores de VM. Esse problema afeta principalmente distribuições mais antigas usando kernel Red Hat 2.6.32 upstream e foi corrigido no RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados anteriores a 2.6.37 ou com base em RHEL anteriores a 2.6.32-504 devem definir o parâmetro de inicialização `numa=off` na linha de comando do kernel em grub.conf. Para obter mais informações, confira o [KB 436883](https://access.redhat.com/solutions/436883) do Red Hat.
@@ -73,7 +75,7 @@ As imagens de VHD no Azure devem ter um tamanho virtual alinhado para 1MB.  Norm
 Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciador do Hyper-V ou o cmdlet do Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) .  Se você não estiver executando em um ambiente Windows, então é recomendável usar qemu-img para converter (se necessário) e redimensionar o VHD.
 
 > [!NOTE]
-> Há um bug conhecido nas versões qemu-img > = 2.2.1 que resulta em um VHD formatado incorretamente. O problema foi corrigido na versão QEMU 2.6. É recomendável usar o qemu-img 2.2.0 ou inferior, ou atualizar para a versão 2.6 ou posterior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+> Há um bug conhecido nas versões qemu-img > =&2;.2.1 que resulta em um VHD formatado incorretamente. O problema foi corrigido na versão QEMU 2.6. É recomendável usar o qemu-img 2.2.0 ou inferior, ou atualizar para a versão 2.6 ou posterior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
 > 
 > 
 
@@ -108,7 +110,7 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
 ## <a name="linux-kernel-requirements"></a>Requisitos do kernel do Linux
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels.  Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclua esses reparos e essas atualizações.
 
-Se você estiver executando uma variante das versões **de 6.0 a 6.3** do Red Hat Enterprise Linux, será necessário instalar os drivers LIS mais recentes para o Hyper-V. Os drivers LIS com o kernel já estão incluídos nas versões [6.4 e posteriores](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)do RHEL (e derivados). Os drivers LIS com o kernel já estão incluídos nas versões **6.4 e posteriores** do RHEL (e derivados). Por isso, não é necessário ter outros pacotes de instalação para executar esses sistemas no Azure.
+Se você estiver executando uma variante das versões **de&6;.0 a&6;.3** do Red Hat Enterprise Linux, será necessário instalar os drivers LIS mais recentes para o Hyper-V. Os drivers LIS com o kernel já estão incluídos nas versões [6.4 e posteriores](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)do RHEL (e derivados). Os drivers LIS com o kernel já estão incluídos nas versões **6.4 e posteriores** do RHEL (e derivados). Por isso, não é necessário ter outros pacotes de instalação para executar esses sistemas no Azure.
 
 Se for necessário usar um kernel personalizado, recomendamos que você use uma versão mais recente ( **3.8 ou posterior**). No caso das distribuições ou dos fornecedores que mantêm seus próprios kernels, será necessário um pouco de esforço para a reversão dos drivers LIS do kernel upstream para seu kernel personalizado.  Recomendamos que você acompanhe os reparos upstream nos drivers LIS e faça as reversões necessárias, mesmo se estiver executando uma versão relativamente recente do kernel. A localização dos arquivos de origem do driver do LIS consta no arquivo [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) , na árvore do kernel do Linux:
 
@@ -188,6 +190,6 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 11d9869e656014fe7106f9c66975792c5faa357d
 
 
 ---
@@ -41,7 +41,7 @@ O que você aprenderá:
 > [!NOTE]
 > Este é um tutorial longo. Se quiser ver uma breve introdução a projetos da Web do Serviço de Aplicativo do Azure e do Visual Studio, consulte [Criar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure](web-sites-dotnet-get-started.md). Para obter informações de solução de problemas, veja a seção [Solucionando problemas](#troubleshooting) .
 > 
-> Ou se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
+> Ou se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Não é necessário nenhum cartão de crédito; não há compromissos.
 > 
 > 
 
@@ -104,10 +104,10 @@ Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Stu
     ![_Layout.cshtml no Gerenciador de Soluções][newapp004]
 2. Substitua ActionLink no arquivo *Layout.cshtml* pelo código a seguir.
 
-    @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
-
-
-    Certifique-se de alterar o terceiro parâmetro de "Home" para "Contatos". A marcação acima criará um link de "Contatos" em cada página para o método Index do controlador de Contatos. Altere o nome do aplicativo no cabeçalho e no rodapé de "Meu aplicativo ASP.NET" e "Nome do aplicativo" para "Contact Manager" e "Demonstração de CM". 
+```
+   @Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+```
+   Certifique-se de alterar o terceiro parâmetro de "Home" para "Contatos". A marcação acima criará um link de "Contatos" em cada página para o método Index do controlador de Contatos. Altere o nome do aplicativo no cabeçalho e no rodapé de "Meu aplicativo ASP.NET" e "Nome do aplicativo" para "Contact Manager" e "Demonstração de CM". 
 
 ### <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 1. Pressione CTRL+F5 para executar o aplicativo.
@@ -443,7 +443,7 @@ Nesta seção, você aplica o atributo [Authorize](http://msdn.microsoft.com/lib
           }
    
     Se você fizer uma pesquisa global por *AllowAnonymous*, você verá que ele é usado nos métodos de logon e de registro do controlador da Conta.
-3. Em *CmController.cs*, adicione `[Authorize(Roles = "canEdit")]` aos métodos HttpGet e HttpPost que alteram dados (Create, Edit, Delete, todos os métodos de ação exceto Index e Details) no controlador *Cm*. Uma parte do código concluído é mostrada abaixo: 
+3. Em *ContactsController.cs*, adicione `[Authorize(Roles = "canEdit")]` aos métodos HttpGet e HttpPost que alteram dados (Create, Edit, Delete, todos os métodos de ação exceto Index e Details) no controlador *Cm*. Uma parte do código concluído é mostrada abaixo: 
    
         // GET: Cm/Create
         [Authorize(Roles = "canEdit")]
@@ -663,6 +663,6 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

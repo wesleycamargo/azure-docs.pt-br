@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 60e47e8fd0933ecd25b3bca6085edcd5785dc580
-ms.openlocfilehash: 69561ef82ce6d63bd8a90c871b5bc0cfe03e86ae
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -33,7 +33,7 @@ Neste tutorial, vamos examinar como usar o Studio pela primeira vez para criar u
 >
 >Se você é novo no machine learning, a série de vídeos [Ciência de dados para iniciantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) pode ser um bom lugar para começar. Esta série de vídeos é uma excelente introdução ao machine learning usando linguagem e conceitos cotidianos.
 >
->Se você conhece machine learning, mas você estiver procurando informações mais gerais sobre o Machine Learning Studio e os algoritmos de machine learning que ele contém, aqui estão alguns bons recursos:
+>Se você estiver familiarizado com o aprendizado de máquina, mas estiver procurando informações mais gerais sobre o Machine Learning Studio e os algoritmos de machine learning que ele contém, aqui estão alguns bons recursos:
 >
 - [O que é o Estúdio de Aprendizado de Máquina?](machine-learning-what-is-ml-studio.md) – Essa é uma visão geral do Estúdio.
 - [Conceitos básicos de machine learning com exemplos de algoritmo](machine-learning-basics-infographic-with-algorithm-examples.md) – Este infográfico é útil se você quiser saber mais sobre os diferentes tipos de algoritmos de machine learning incluídos no Machine Learning Studio.
@@ -95,7 +95,9 @@ Aqui está a explicação de como colocar o conjunto de dados no seu experimento
 
 1. Crie um novo experimento clicando em **+NOVO** na parte inferior da janela do Machine Learning Studio, selecione **EXPERIMENTO** e selecione **Experimento em Branco**.
 
-2. O teste recebe um nome padrão que você pode ver na parte superior da tela. Selecione este texto e renomeie para algo que tenha sentido, por exemplo, **Previsão de preço de automóvel**.
+2. O teste recebe um nome padrão que você pode ver na parte superior da tela. Selecione este texto e renomeie para algo que tenha sentido, por exemplo, **Previsão de preço de automóvel**. O nome não precisa ser exclusivo.
+
+    ![Renomear o experimento][rename-experiment]
 
 2. À esquerda da tela do experimento está uma paleta de conjuntos de dados e módulos. Digite **automóvel** na caixa Pesquisar na parte superior desta paleta para localizar o conjunto de dados rotulado como **Dados de preço de automóvel (brutos)**. Arraste este conjunto de dados até a tela do experimento.
 
@@ -111,7 +113,7 @@ Para ver a aparência dos dados, clique na porta de saída na parte inferior do 
 
 > [!TIP]
 > Os módulos e conjuntos de dados têm portas de entrada e saída representadas por círculos pequenos – portas de entrada na parte superior, portas de saída na parte inferior.
-Para criar um fluxo de dados através do seu experimento, você conectará essas portas.
+Para criar um fluxo de dados por meio do experimento, você conectará uma porta de um módulo de saída a uma porta de entrada do outro.
 A qualquer momento, você pode clicar na porta de saída de um conjunto de dados ou de um módulo para ver aparência dos dados naquele ponto do fluxo de dados.
 
 No conjunto de dados de exemplo, cada instância de um automóvel aparece como uma linha e as variáveis associadas a cada automóvel aparecem como colunas. Considerando as variáveis de um automóvel específico, vamos tentar prever o preço na coluna à direita (coluna 26, intitulada "preço").
@@ -139,10 +141,10 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **normalized-
     <br/>
     ***Adicionar o módulo "Selecionar Colunas no Conjunto de Dados" à tela do experimento e conectá-lo***
 
-3. Clique no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
+3. Selecione o módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e clique em **Iniciar seletor de coluna** no painel **Propriedades**.
 
     - À esquerda, clique em **Com regras**
-    - Em **Começa com**, clique em **Todas as colunas**. Isso instrui o [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto pelas colunas que estamos prestes a excluir).
+    - Em **Começa com**, clique em **Todas as colunas**. Isso instrui [Selecionar Colunas no Conjunto de Dados][select-columns] a passar por todas as colunas (exceto por aquelas que estamos prestes a excluir).
     - Nos menus suspensos, selecione **Excluir** e **nomes da coluna** e clique dentro da caixa de texto. Uma lista de colunas é exibida. Selecione **normalized-losses**e ela será adicionada à caixa de texto.
     - Clique no botão de marca de seleção (OK) para fechar o seletor de coluna (no canto inferior direito).
 
@@ -157,19 +159,19 @@ Primeiro, adicionamos um módulo que remove completamente a coluna **normalized-
     ***O painel de propriedades mostra que a coluna "normalized-losses" foi excluída***
 
     > [!TIP]
-    > É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário "Excluir perdas normalizadas."
+    > É possível adicionar um comentário em um módulo ao clicar duas vezes nele e inserir o texto. Isso pode ajudar a ver rapidamente o que o módulo está fazendo em seu experimento. Nesse caso, clique duas vezes no módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e digite o comentário “Excluir perdas normalizadas”.
 
     ![Clique duas vezes em um módulo para adicionar um comentário][add-comment]
     <br/>
     ***Clique duas vezes em um módulo para adicionar um comentário***
 
-3. Arraste o módulo [Limpar Valores Ausentes][clean-missing-data] até a tela do teste e conecte-o ao módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. No painel **Propriedades** selecione **Remover linha inteira** em **Modo de limpeza**. Isso direciona o [Limpar Dados Ausentes][clean-missing-data] a limpar os dados removendo as linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
+3. Arraste o módulo [Limpar valores ausentes][clean-missing-data] até a tela do teste e conecte-o ao módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. No painel **Propriedades** selecione **Remover linha inteira** em **Modo de limpeza**. Isso direciona o [Limpar Dados Ausentes][clean-missing-data] a limpar os dados removendo as linhas que têm valores ausentes. Clique duas vezes no módulo e digite o comentário “Remover linhas de valor ausente".
 
     ![Definir o modo de limpeza para "Remover linha inteira" no módulo "Limpar Dados Ausentes"][set-remove-entire-row]
     <br/>
     ***Definir o modo de limpeza para "Remover linha inteira" no módulo "Limpar Dados Ausentes"***
 
-4. Execute o experimento clicando em **EXECUTAR** abaixo da tela do experimento.
+4. Execute o experimento clicando em **EXECUTAR** na parte inferior da página.
 
     Quando o experimento terminar a execução, todos os módulos terão uma marca de seleção verde para indicar que foram concluídos com sucesso. Observe também o status **Execução concluída** no canto superior direito.
 
@@ -233,7 +235,7 @@ Treinamos o modelo, dando a ele um conjunto de dados que inclui o preço. O mode
 
 Vamos usar nossos dados para treinar o modelo e para testá-lo, dividindo-os em conjuntos de dados separados de treinamento e de teste.
 
-1. Selecione e arraste o módulo [Dividir Dados][split] até a tela do experimento e conecte-o ao último módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+1. Selecione e arraste o módulo [Dividir Dados][split] até a tela do teste e conecte-o à porta de saída do último módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 2. Clique no módulo [Dividir Dados][split] para selecioná-lo. Encontre o painel **Fração de linhas no primeiro conjunto de dados de saída** (no painel **Propriedades** à direita da tela) e defina-o para 0,75. Desta forma, usaremos 75% dos dados para treinar o modelo e manteremos 25% para teste.(posteriormente, você pode experimentar usando porcentagens diferentes).
 
@@ -255,7 +257,7 @@ Vamos usar nossos dados para treinar o modelo e para testá-lo, dividindo-os em 
     <br/>
     ***Conectar o módulo "Modelo de treinamento" com os módulos "Regressão Linear" e "Dividir Dados"***
 
-5. Clique no módulo [Modelo de Treinamento][train-model], clique em **Iniciar seletor de coluna** no painel **Propriedades** e selecione a coluna **preço**. Este é o valor que nosso modelo vai prever.
+5. Selecione o módulo [Modelo de Treinamento][train-model], clique em **Iniciar seletor de coluna** no painel **Propriedades** e selecione a coluna **preço**. Este é o valor que nosso modelo vai prever.
 
     Selecione a coluna **preço** movendo-a da lista de **Colunas disponíveis** para a lista de **Colunas selecionadas**.
 
@@ -275,13 +277,13 @@ Agora temos um modelo de regressão treinado que pode ser usado para pontuar nov
 
 Agora que treinamos o modelo usando 75% de nossos dados, podemos usá-lo para classificar os outros 25% dos dados e ver se nosso modelo funciona bem.
 
-1. Localize e arraste o módulo [Modelo de Pontuação][score-model] até a tela do experimento. Conecte a saída do módulo [Modelo de Treinamento][train-model] com a porta de entrada à esquerda do [Modelo de Pontuação][score-model]. Conecte a saída de dados de teste (porta à direita) do módulo [Dividir Dados][split] com a porta de entrada à direita do [Modelo de Pontuação][score-model].
+1. Localize e arraste o módulo [Modelo de Pontuação][score-model] até a tela do experimento. Conecte a saída do módulo [Modelo de Treinamento][train-model] com a porta de entrada à esquerda do [Modelo de Pontuação][score-model]. Conecte a porta de entrada direita à saída de dados de teste (porta à direita) do módulo [Dividir Dados][split] à porta de entrada direita do [Modelo de Pontuação][score-model].
 
     ![Conectar o módulo "Modelo de Pontuação" com os módulos "Modelo de Treinamento" e "Dividir Dados"][connect-score-model]
     <br/>
     ***Conectar o módulo "Modelo de Pontuação" com os módulos "Modelo de Treinamento" e "Dividir Dados"***
 
-2. Execute o experimento e exiba a saída do módulo [Modelo de Pontuação][score-model] (clique duas vezes na porta de saída do [Modelo de Pontuação][score-model] e selecione **Visualizar**). A saída mostra os valores previstos para o preço e os valores conhecidos dos dados de teste.  
+2. Execute o experimento e veja a saída do módulo [Modelo de Pontuação][score-model] (clique duas vezes na porta de saída do [Modelo de Pontuação][score-model] e selecione **Visualizar**). A saída mostra os valores previstos para o preço e os valores conhecidos dos dados de teste.  
 
     ![Saída do módulo "Modelo de Pontuação"][score-model-output]
     <br/>
@@ -322,24 +324,25 @@ O experimento final deve se parecer como o seguinte:
 
 Agora que concluiu o primeiro tutorial de machine learning e seu experimento foi configurado, você pode continuar a melhorar o modelo e, em seguida, implantá-lo como um serviço Web de previsão.
 
-- **Iterar para tentar melhorar o modelo** – Por exemplo, você pode alterar os recursos usados em sua previsão. Ou é possível modificar as propriedades do algoritmo [Regressão Linear][linear-regression] ou tentar um algoritmo diferente. Também é possível adicionar vários algoritmos de machine learning ao seu experimento e comparar dois deles, usando o módulo [Avaliar Modelo][evaluate-model].
+- **Iterar para tentar melhorar o modelo** – Por exemplo, você pode alterar os recursos usados em sua previsão. Ou é possível modificar as propriedades do algoritmo [Regressão Linear][linear-regression] ou tentar um algoritmo diferente. Ainda é possível adicionar vários algoritmos de Machine Learning à sua experiência de aprendizagem e comparar dois usando o módulo [Avaliar modelo][evaluate-model].
 Para obter um exemplo de como comparar vários modelos em um único experimento, consulte [Comparar Regressores](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
-    > Para copiar qualquer iteração do seu experimento, use o botão **SALVAR COMO** na tela do experimento. Você pode ver todas as iterações do seu experimento clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** na tela. Para obter mais detalhes, consulte [Gerenciar iterações do teste no Azure Machine Learning Studio][runhistory].
+    > Para copiar qualquer iteração do experimento, use o botão **SALVAR COMO** na parte inferior da página. Você pode ver todas as iterações do experimento clicando em **EXIBIR HISTÓRICO DE EXECUÇÃO** na parte inferior da página. Para obter mais detalhes, consulte [Gerenciar iterações do experimento no Azure Machine Learning Studio][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-- **Implantar o modelo como um serviço Web de previsão** – Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Para obter mais detalhes, consulte a publicação [Implantar um serviço Web do Azure Machine Learning][].
+- **Implantar o modelo como um serviço Web de previsão** – Quando estiver satisfeito com seu modelo, você poderá implantá-lo como um serviço Web a ser usado para prever preços de automóveis usando novos dados. Consulte [Implantar um serviço Web do Azure Machine Learning][publish] para obter mais detalhes.
 
-[publicar]: machine-learning-publish-a-machine-learning-web-service.md
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Quer saber mais? Para obter um passo a passo maior e detalhado do processo de criação, treinamento, pontuação e implantação de um modelo, veja [Desenvolver uma solução preditiva usando o Azure Machine Learning][passo a passo].
+Quer saber mais? Para obter um passo a passo maior e mais detalhado do processo de criação, treinamento, pontuação e implantação de um modelo, veja [Desenvolver uma solução preditiva usando o Azure Machine Learning][walkthrough].
 
-[passo a passo]: machine-learning-walkthrough-develop-predictive-solution.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Quer saber mais? Para obter um passo a passo maior e detalhado do processo de cr
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

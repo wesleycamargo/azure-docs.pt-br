@@ -14,42 +14,50 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 01/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 74d50642911d59d13bed27324c3fca1867f2fa2d
+ms.sourcegitcommit: 1618ed7971ffef0eae55b73b4bdd04f3f14195ba
+ms.openlocfilehash: a070df78bf95173aa48da60d24d14d08d9be8d9a
 
 
 ---
-# <a name="get-started-in-the-hadoop-ecosystem-with-a-hadoop-sandbox-on-a-virtual-machine"></a>Introdução ao ecossistema Hadoop com uma área restrita do Hadoop em uma máquina virtual
-Saiba como instalar uma área restrita do Hadoop da Hortonworks em uma máquina virtual para saber mais sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos.
+# <a name="get-started-in-the-hadoop-ecosystem-with-a-hadoop-sandbox-on-a-virtual-machine"></a>Introdução ao ecossistema Hadoop com uma Área Restrita do Hadoop em uma máquina virtual
+
+Saiba como instalar uma área restrita do Hadoop da Hortonworks em uma máquina virtual para saber mais sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Oracle VirtualBox](https://www.virtualbox.org/)
+* [Oracle VirtualBox](https://www.virtualbox.org/). Baixe-o e instale-o [aqui](https://www.virtualbox.org/wiki/Downloads).
 
-Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+
 
 ## <a name="download-and-install-the-virtual-machine"></a>Baixar e instalar a máquina virtual
-1. Em [http://hortonworks.com/downloads/#sandbox](http://hortonworks.com/downloads/#sandbox), selecione o item **DOWNLOAD PARA VIRTUALBOX** para HDP 2.4 na Hortonworks Sandbox. Você precisará registrar-se na Hortonworks antes de iniciar o download.
+1. Navegue até os [downloads da Hortonworks](http://hortonworks.com/downloads/#sandbox).
+2. Clique em **DOWNLOAD FOR VIRTUALBOX** para baixar a Área Restrita mais recente da Hortonworks em uma VM. Você precisará registrar-se na Hortonworks antes de iniciar o download. O download leva de uma a duas horas, dependendo da velocidade da sua rede.
    
     ![Imagem de link para download da Hortonworks Sandbox para VirtualBox](./media/hdinsight-hadoop-emulator-get-started/download-sandbox.png)
-2. Na mesma página Web, selecione o **Guia de Instalação do VirtualBox** para HDP 2.4 na Hortonworks Sandbox. Isso baixará um PDF contendo instruções de instalação para a máquina virtual.
-   
-    ![Ver o guia de instalação](./media/hdinsight-hadoop-emulator-get-started/view-install-guide.png)
+3. Na mesma página da Web, clique no link **Import on Virtual Box** para baixar um PDF contendo instruções de instalação para a máquina virtual.
+
+Para baixar uma área restrita da versão mais antiga do HDP, expanda o arquivamento:
+
+![Arquivamento da Área Restrita da Hortonworks](./media/hdinsight-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+
 
 ## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
-1. Inicie o VirtualBox, selecione a Hortonworks Sandbox, selecione **Iniciar** e **Início Normal**.
+
+1. Abra o Oracle VM VirtualBox.
+2. No menu **Arquivo**, clique em **Importar Dispositivo** e especifique a imagem da Área Restrita da Hortonworks.
+1. Selecione a Área Restrita da Hortonworks, clique em **Iniciar** e em **Início Normal**. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon.
    
     ![Início Normal](./media/hdinsight-hadoop-emulator-get-started/normal-start.png)
-2. Quando a máquina virtual tiver terminado o processo de inicialização, ela exibirá instruções de logon. Abra um navegador da Web e acesse a URL exibida (geralmente http://127.0.0.1:8888).
+2. Abra um navegador da Web e acesse a URL exibida (geralmente http://127.0.0.1:8888).
 
-## <a name="set-passwords"></a>Definir senhas
+## <a name="set-sandbox-passwords"></a>Definir senhas da Área Restrita
+
 1. Na etapa de **introdução** da página da Hortonworks Sandbox, selecione **Exibir Opções Avançadas**. Use as informações desta página para fazer logon na área restrita usando SSH. Use o nome e a senha fornecidos.
    
    > [!NOTE]
    > Se você não tiver um cliente SSH instalado, use o SSH baseado na Web fornecido pela máquina virtual em **http://localhost:4200/**.
-   > 
    > 
    
     Na primeira vez que você se conectar usando SSH, você receberá uma solicitação para alterar a senha da conta raiz. Insira uma nova senha, que será usada posteriormente quando você fizer logon usando SSH.
@@ -59,7 +67,8 @@ Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoo
    
     Quando receber uma solicitação, forneça uma senha para a conta de administrador do Ambari. Isso será usado quando você acessar a interface de usuário da Web do Ambari.
 
-## <a name="use-the-hive-command"></a>Usar o comando do Hive
+## <a name="use-hive-commands"></a>Usar comandos do Hive
+
 1. De uma conexão SSH com a área restrita, use o seguinte comando para iniciar o shell do Hive:
    
         hive
@@ -78,6 +87,6 @@ Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

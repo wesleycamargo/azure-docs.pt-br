@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b7ef8386e974486c2d327d0b042eeabdb9701b7e
 
 
 ---
@@ -30,10 +30,10 @@ Este artigo mostra como dimensionar seu aplicativo no Serviço de Aplicativo do 
 As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 Elas não exigem a alteração de seu código ou a reimplantação de seu aplicativo.
 
-Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).  
+Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](https://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Antes de mudar um Plano do Serviço de Aplicativo do tipo **Gratuito** , é necessário remover os [limites de gastos](/pricing/spending-limits/) em vigor para sua Assinatura do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> Antes de mudar um Plano do Serviço de Aplicativo do tipo **Gratuito** , é necessário remover os [limites de gastos](https://azure.microsoft.com/pricing/spending-limits/) em vigor para sua Assinatura do Azure. Para exibir ou alterar as opções da sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 > 
 > 
 
@@ -86,32 +86,32 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 <a name="OtherFeatures"></a>
 
 ## <a name="learn-about-other-features"></a>Saiba mais sobre outros recursos
-* Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
+* Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/web-sites/).
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 > 
 > 
 
 <a name="Next Steps"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
+* Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Para saber mais sobre preços, suporte e SLA, visite os links a seguir.
   
-    [Detalhes de preços de transferências de dados](/pricing/details/data-transfers/)
+    [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/)
   
-    [Planos de suporte do Microsoft Azure](/support/plans/)
+    [Planos de suporte do Microsoft Azure](https://azure.microsoft.com/support/plans/)
   
-    [Contratos de Nível de Serviço](/support/legal/sla/)
+    [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/)
   
-    [Detalhes de preços do banco de dados SQL](/pricing/details/sql-database/)
+    [Detalhes de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
   
-    [Tamanhos de máquina virtual e de serviço de nuvem para o Microsoft Azure][vmsizes]
+    [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
   
-    [Detalhes de Preços do Serviço de Aplicativo](/pricing/details/app-service/)
+    [Detalhes de Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/)
   
-    [Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](/pricing/details/web-sites/#ssl-connections)
+    [Detalhes de Preços do Serviço de Aplicativo - Conexões SSL](https://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 * Para obter informações sobre práticas recomendadas do Serviço de Aplicativo do Azure, incluindo a criação de uma arquitetura escalonável e flexível, consulte [Práticas recomendadas: Aplicativos Web do Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 * Para assistir a vídeos sobre o dimensionamento de aplicativos do Serviço de Aplicativo, consulte os seguintes recursos:
   
@@ -131,7 +131,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [SaveButton]: ./media/web-sites-scale/05SaveButton.png
 [BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
 [ScaleStandard]: ./media/web-sites-scale/scale3InstancesStandard.png
-[Autoescala]: ./media/web-sites-scale/scale4AutoScale.png
+[Autoscale]: ./media/web-sites-scale/scale4AutoScale.png
 [SetTargetMetrics]: ./media/web-sites-scale/scale5AutoScaleTargetMetrics.png
 [SetFirstRule]: ./media/web-sites-scale/scale6AutoScaleFirstRule.png
 [SetSecondRule]: ./media/web-sites-scale/scale7AutoScaleSecondRule.png
@@ -143,6 +143,6 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

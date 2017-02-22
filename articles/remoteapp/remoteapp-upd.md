@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 40874984ca29f6a284270e743b7cf70a396f81d1
+ms.sourcegitcommit: dd281ead7d2c06af98ea0baea31d897b5be0d9d7
+ms.openlocfilehash: 04d8031a4c5f06d56afc1d08d4a4fa5fb50f8a25
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 40874984ca29f6a284270e743b7cf70a396f81d1
 > 
 > 
 
-O Azure RemoteApp salva personalizações e a identidade do usuário em dispositivos e sessões. Esses dados de usuário são armazenados em um disco por coleção por usuário, conhecido como um disco de perfil de usuário (UDP). O disco segue o usuário e lhe garante uma experiência consistente, independentemente de onde ele entra. salva 
+O Azure RemoteApp salva personalizações e a identidade do usuário em dispositivos e sessões. Esses dados de usuário são armazenados em um disco por coleção por usuário, conhecido como um disco de perfil de usuário (UDP). O disco segue o usuário e lhe garante uma experiência consistente, independentemente de onde ele entra.
 
 Os discos de perfil do usuário são completamente transparentes para o usuário. Os usuários salvam documentos em sua pasta Documentos (no que parece ser uma unidade local) e alteram suas configurações de aplicativo como de costume. Ao mesmo tempo, todas as configurações pessoais persistem durante a conexão ao Azure RemoteApp de qualquer dispositivo. Tudo o que o usuário vê é seus dados no mesmo lugar.
 
@@ -149,6 +149,6 @@ Isso permite ignorar o parâmetro -Credential no cmdlet New-PSDrive.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

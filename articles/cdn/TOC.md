@@ -12,6 +12,7 @@
 ### [Compartilhamento de recursos entre origens](cdn-cors.md)
 
 ## Gerenciar
+### [Habilitar HTTPS em um domínio personalizado](cdn-custom-ssl.md)
 ### [Gerenciar com o PowerShell](cdn-manage-powershell.md)
 ### Configurar vida útil
 #### [Conteúdo de Aplicativos Web/Serviços de Nuvem, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
@@ -40,7 +41,7 @@
 ### [Node.js](cdn-app-dev-node.md)
 
 ## Solucionar problemas
-### [Status 404](cdn-troubleshoot-endpoint.md)
+### [Status&404;](cdn-troubleshoot-endpoint.md)
 ### [Compactação de arquivos](cdn-troubleshoot-compression.md)
 
 # Referência
@@ -62,6 +63,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

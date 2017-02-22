@@ -60,9 +60,9 @@ O arquivo de configurações do JSON contém uma lista dos módulos a carregar e
 Cada módulo deve especificar um:
 
 * **name**: um nome exclusivo para o módulo.
-* **loader**: um carregador que sabe como carregar o módulo desejado.  Carregadores são um ponto de extensão para carregar os diferentes tipos de módulos. Fornecemos carregadores para uso com módulos escritos em .Net, Node.js, Java e C nativo. O exemplo Hello World usa apenas o carregador "nativo", uma vez que todos os módulos neste exemplo são bibliotecas dinâmicas escritas em C. Consulte os exemplos [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) ou [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) para obter mais informações sobre como usar módulos escritos em linguagens diferentes.
+* **loader**: um carregador que sabe como carregar o módulo desejado.  Carregadores são um ponto de extensão para carregar os diferentes tipos de módulos. Fornecemos carregadores para uso com módulos escritos em .NET, Node.js, Java e C nativo. O exemplo Hello World usa apenas o carregador "nativo", uma vez que todos os módulos neste exemplo são bibliotecas dinâmicas escritas em C. Consulte os exemplos [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) ou [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) para obter mais informações sobre como usar módulos escritos em linguagens diferentes.
     * **name**: nome do carregador usado para carregar o módulo.  
-    * **entrypoint**: o caminho para a biblioteca que contém o módulo. Para o Linux, é um arquivo .so, no Windows, é um arquivo .dll. Observe que esse ponto de entrada é específico para o tipo do carregador que está sendo usado. Por exemplo, o ponto de entrada do carregador do Node. js é um arquivo. js, ponto de entrada do carregador de Java é um classpath + nome da classe e o .net, o ponto de entrada do carregador é um nome de assembly + nome de classe.
+    * **entrypoint**: o caminho para a biblioteca que contém o módulo. Para o Linux, é um arquivo .so, no Windows, é um arquivo .dll. Observe que esse ponto de entrada é específico para o tipo do carregador que está sendo usado. Por exemplo, o ponto de entrada do carregador do Node.js é um arquivo. js, ponto de entrada do carregador de Java é um classpath + nome da classe e o .NET, o ponto de entrada do carregador é um nome de assembly + nome de classe.
 
 * **args**: todas as informações de configuração de que o módulo precisa.
 
@@ -219,8 +219,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como usar o SDK do Gateway IoT, veja o seguinte:
 
-* [SDK do Gateway IoT] - enviar mensagens do dispositivo para a nuvem com um dispositivo simulado usando o Linux[lnk-gateway-simulated].
-* [SDK de Gateway do Azure IoT][lnk-gateway-sdk] no GitHub.
+* [SDK do Gateway IoT - enviar mensagens do dispositivo para a nuvem com um dispositivo simulado usando o Linux][lnk-gateway-simulated].
+* [SDK do Gateway IoT do Azure][lnk-gateway-sdk] no GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -229,6 +229,6 @@ Para saber mais sobre como usar o SDK do Gateway IoT, veja o seguinte:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

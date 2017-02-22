@@ -1,5 +1,5 @@
 ---
-title: Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL | Microsoft Docs
+title: Habilitar TDE (Transparent Data Encryption) para Stretch Database TSQL - Azure | Microsoft Docs
 description: Habilitar TDE (Transparent Data Encryption) para SQL Server Stretch Database no Azure TSQL
 services: sql-server-stretch-database
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: douglasl
+ms.date: 01/23/2017
+ms.author: anvang
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fa035f87c257458c3784c7746fd0df8600b5ca0
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: fe6a6bfb02dc5d83bd67fdfe59ed87660c364835
 
 
 ---
@@ -24,8 +24,8 @@ ms.openlocfilehash: 7fa035f87c257458c3784c7746fd0df8600b5ca0
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
-> 
-> 
+>
+>
 
 O TDE (Transparent Data Encryption) ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem exigir mudanças no aplicativo.
 
@@ -77,6 +77,6 @@ Um resultado de ```1``` indica um banco de dados criptografado, ```0``` indica u
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

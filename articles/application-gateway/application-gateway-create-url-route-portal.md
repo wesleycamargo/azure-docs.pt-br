@@ -1,5 +1,5 @@
 ---
-title: Criar uma regra com base no caminho para um gateway de aplicativo usando o portal | Microsoft Docs
+title: Criar uma regra com base no caminho - Gateway de Aplicativo do Azure - Portal do Azure | Microsoft Docs
 description: Saiba como criar uma regra com base no caminho para um application gateway usando o portal
 services: application-gateway
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/13/2016
+ms.date: 01/23/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: e92c33b81aa1b69da0336bec1260cbda96c7a72e
 
 
 ---
@@ -90,6 +90,6 @@ Para saber como configurar o descarregamento SSL com o Azure Application Gateway
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

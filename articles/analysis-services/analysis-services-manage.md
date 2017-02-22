@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 55a016a0943885a3aaa636316808939777afb0f8
+ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
+ms.openlocfilehash: a5db6cccf6c3dc55ee2cda59cb9e2ecd2292fcb5
 
 
 ---
@@ -30,7 +30,7 @@ O [Portal do Azure](http://portal.azure.com/) é onde você pode criar e excluir
 ![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Conectar-se ao seu servidor no Azure é como se conectar a uma instância de servidor em sua própria organização. No SSMS, você pode executar algumas tarefas como processar dados ou criar um script de processamento, gerenciar funções e usar o PowerShell.
+Conectar-se ao seu servidor no Azure é como se conectar a uma instância de servidor em sua própria organização. No SSMS, você pode executar algumas tarefas como processar dados ou criar um script de processamento, gerenciar funções e usar o PowerShell. [Baixe e instale a versão mais recente do SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
@@ -49,68 +49,15 @@ Conectar-se ao seu servidor no Azure é como se conectar a uma instância de ser
    
     **Autenticação de Senha do Active Directory** para usar uma conta organizacional. Por exemplo, ao conectar-se de um computador que não ingressou em um domínio.
    
-    Observação: se você não vir a Autenticação do Active Directory, talvez seja necessário [habilitar a autenticação do Azure Active Directory](#enable-azure-active-directory-authentication) no SSMS.
+    Observação: se você não vir a autenticação do Active Directory, será necessário atualizar para a [versão mais recente do SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
    
     ![Conectar-se no SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
 Uma vez que o gerenciamento de seu servidor no Azure usando o SSMS é praticamente igual ao gerenciamento de um servidor local, não vamos entrar em detalhes aqui. Toda a Ajuda de que você precisa pode ser encontrada em [Gerenciamento de Instância do Analysis Services](https://msdn.microsoft.com/library/hh230806.aspx) no MSDN.
 
-## <a name="server-administrators"></a>Administradores de servidor
-Você pode usar os **Administradores do Analysis Services** na folha de controle de seu servidor no Portal do Azure ou no SSMS para gerenciar os administradores de servidor. Os Administradores do Analysis Services são os administradores de servidor de banco de dados com direitos para execução de tarefas comuns de administração de banco de dados, como adicionar e remover bancos de dados e gerenciar usuários. Por padrão, o usuário que cria o servidor no Portal do Azure é adicionado automaticamente como Administrador do Analysis Services.
+## <a name="server-administrators-and-database-users"></a>Administradores de servidor e usuários de banco de dados
+Nos Serviços de Análise do Azure, há dois tipos de usuários, administradores de servidor e usuários de banco de dados. Os dois tipos de usuários devem estar no Azure Active Directory e devem ser especificados por endereços de email organizacionais ou UPN. Isso é diferente dos bancos de dados de modelo tabular locais que oferecem suporte a usuários de banco de dados e administradores de servidor pelos nomes de usuário de domínio do Windows. Para saber mais, confira [Gerenciar usuários no Azure Analysis Services](analysis-services-manage-users.md).
 
-Você também deve saber:
-
-* O Windows Live ID não é um tipo de identidade com suporte para os Azure Analysis Services.  
-* Os Administradores do Analysis Services deve ser usuários válidos do Azure Active Directory.
-* Se você criar um servidor do Azure Analysis Services por meio de modelos do Azure Resource Manager, os Administradores do Analysis Services usarão uma matriz JSON de usuários que devem ser adicionados como administradores.
-
-Os Administradores do Analysis Services podem ser diferentes dos administradores de recursos do Azure, que podem gerenciar os recursos de assinaturas do Azure. Isso mantém a compatibilidade com o comportamentos de gerenciamento existente de XMLA e TSML no Analysis Services e serve para que você possa separar as tarefas entre o gerenciamento de recursos do Azure e o gerenciamento de banco de dados do Analysis Services.
-
-Para exibir todas as funções e tipos de acesso para o recurso do Azure Analysis Services, use o IAM (Controle de acesso) na folha de controle.
-
-## <a name="database-users"></a>Usuários de banco de dados
-Os usuários de banco de dados de modelo do Azure Analysis Services devem estar em seu Azure Active Directory. Os nomes de usuário especificados para o banco de dados de modelo devem organizados pelo endereço de email organizacional ou UPN. Isso é diferente dos bancos de dados de modelo locais que oferecem suporte a usuários de acordo com os nomes de usuário de domínio do Windows.
-
-Você pode adicionar usuários usando [atribuições de função no Azure Active Directory](../active-directory/role-based-access-control-configure.md) ou usando TMSL ([Linguagem de Script de Modelo de Tabela](https://msdn.microsoft.com/library/mt614797.aspx)) no SQL Server Management Studio.
-
-**Exemplo de script TMSL**
-
-```
-{
-  "createOrReplace": {
-    "object": {
-      "database": "SalesBI",
-      "role": "Users"
-    },
-    "role": {
-      "name": "Users",
-      "description": "All allowed users to query the model",
-      "modelPermission": "read",
-      "members": [
-        {
-          "memberName": "user1@contoso.com",
-          "identityProvider": "AzureAD"
-        },
-        {
-          "memberName": "group1@contoso.com",
-          "identityProvider": "AzureAD"
-        }
-      ]
-    }
-  }
-}
-```
-
-## <a name="enable-azure-active-directory-authentication"></a>Habilitar a autenticação do Azure Active Directory
-Para habilitar o recurso de autenticação do Azure Active Directory para SSMS no Registro, crie um arquivo de texto chamado EnableAAD.reg e, em seguida, copie e cole o seguinte:
-
-```
-Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\Software\Microsoft\Microsoft SQL Server\Microsoft Analysis Services\Settings]
-"AS AAD Enabled"="True"
-```
-
-Salve e execute o arquivo.
 
 ## <a name="troubleshooting-connection-problems"></a>Solucionar problemas de conexão
 Ao se conectar ao servidor usando o SSMS, se (na etapa 3) você tentar entrar usando uma conta não federada ou uma conta não no Azure Active Directory e não puder se conectar, talvez seja necessário limpar o cache de logon. Feche o SSMS antes de seguir estas etapas.
@@ -128,6 +75,6 @@ Se você tiver implantado um modelo de tabela para seu servidor, você estará p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

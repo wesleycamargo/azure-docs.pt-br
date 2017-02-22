@@ -16,14 +16,16 @@ ms.topic: article
 ms.date: 11/24/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 74f80f14a66fa61c19cb5d5fd758cea0ccdd43c5
-ms.openlocfilehash: bf72fa88f9444578dd0192e94c89c862273886b2
+ms.sourcegitcommit: 9b83a0878f45bf3a79d00ad77965308d95f33d28
+ms.openlocfilehash: 797ee3b1209e5abf545f0614c408d94391a29c8b
 
 
 ---
 
 # <a name="create-a-documentdb-account-for-use-with-mongodb-apps"></a>Criar uma conta do DocumentDB para uso com aplicativos MongoDB
 Os bancos de dados do Banco de Dados de Documentos agora podem ser usados como o repositório de dados para aplicativos escritos para o MongoDB. Para usar essa funcionalidade, você precisa de uma conta do Azure e uma conta do DocumentDB. Este tutorial orienta você pelo processo de criar uma conta do DocumentDB para uso com os aplicativos MongoDB. 
+
+Você pode criar uma conta do DocumentDB compatível com MongoDB usando o Portal do Azure ou a CLI do Azure com os modelos do Azure Resource Manager. Este artigo mostra como criar uma conta do DocumentDB compatível com MongoDB usando o Portal do Azure. Para criar uma conta usando o a CLI do Azure com o Azure Resource Manager, veja [Automatizar a criação da conta do DocumentDB compatível com MongoDB](documentdb-automation-resource-manager-cli.md#quick-create-documentdb-with-mongodb-api-account).
 
 ## <a name="prerequisite"></a>Pré-requisito
 Uma conta do Azure. Se você ainda não tiver uma, crie agora mesmo uma [conta gratuita do Azure](https://azure.microsoft.com/free/).
@@ -72,6 +74,6 @@ Uma conta do Azure. Se você ainda não tiver uma, crie agora mesmo uma [conta g
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

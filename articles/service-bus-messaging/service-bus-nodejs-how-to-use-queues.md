@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 01/11/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+ms.sourcegitcommit: f0b0c3bc9daf1e44dfebecedf628b09c97394f94
+ms.openlocfilehash: d993ba4bdff690ee6f0867cdbf0a8059fb5847ee
 
 
 ---
@@ -27,8 +27,10 @@ Este artigo descreve como usar as filas do Barramento de Serviço no Node.js. As
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure] ou [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] usando o Windows PowerShell.
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo do Node.js em um site da Web do Azure][Create and deploy a Node.js application to an Azure Website] ou [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
@@ -55,27 +57,27 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
 ### <a name="import-the-module"></a>Importar o módulo
 Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao início do arquivo **server.js** do aplicativo:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
 O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZURE\_SERVICEBUS\_ACCESS\_KEY para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta chamando **createServiceBusService**.
 
-Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento][Serviço de Nuvem do Node.js com Armazenamento].
+Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, confira [Serviço de Nuvem do Node.js com Armazenamento][Node.js Cloud Service with Storage].
 
-Para ver um exemplo de como definir variáveis de ambiente no [Portal clássico do Azure][Portal clássico do Azure] para um site do Azure, confira [Aplicativo Web Node.js com Armazenamento][Aplicativo Web Node.js com Armazenamento].
+Para ver um exemplo de como definir variáveis de ambiente no [Portal Clássico do Azure][Azure classic portal] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O objeto **ServiceBusService** permite que você trabalhe com filas de barramento de serviço. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
 Ao chamar **createQueueIfNotExists** no objeto **ServiceBusService**, a fila especificada (se houver) é retornada ou uma nova fila com o nome especificado é criada. O seguinte código usa o **createQueueIfNotExists** para criar ou conectar-se à fila denominada `myqueue`:
 
-```
+```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
     if(!error){
         // Queue exists
@@ -85,7 +87,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 
 **createServiceBusService** também oferece suporte para opções adicionais, que permitem a substituição de configurações padrão da fila, como a vida útil da mensagem ou o tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e a vida útil (TTL) como um minuto:
 
-```
+```javascript
 var queueOptions = {
       MaxSizeInMegabytes: '5120',
       DefaultMessageTimeToLive: 'PT1M'
@@ -101,13 +103,13 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ### <a name="filters"></a>Filtros
 É possível aplicar operações de filtragem opcionais às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar `next`, passando um retorno de chamada com a assinatura a seguir:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -115,7 +117,7 @@ Nesse retorno de chamada, e após processar o **returnObject** (a resposta da so
 
 Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. O seguinte código cria um objeto **ServiceBusService** que usa **ExponentialRetryPolicyFilter**:
 
-```
+```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
@@ -125,7 +127,7 @@ Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo
 
 O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada `myqueue` usando **sendQueueMessage**:
 
-```
+```javascript
 var message = {
     body: 'Test message',
     customProperties: {
@@ -138,7 +140,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [Cotas do Barramento de Serviço][Cotas do Barramento de Serviço].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 As mensagens são recebidas de uma fila usando o método **receiveQueueMessage** no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (pico) e bloquear a mensagem sem excluí-la da fila configurando o parâmetro opcional **isPeekLock** como **true**.
@@ -149,7 +151,7 @@ Se o parâmetro **isPeekLock** estiver definido como **true**, o processo de rec
 
 O exemplo a seguir demonstra como receber e processar mensagens usando **receiveQueueMessage**. Primeiro, o exemplo recebe e exclui uma mensagem, em seguida recebe a mensagem usando **isPeekLock** definido como **true** e, então, exclui a mensagem usando **deleteMessage**:
 
-```
+```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
     if(!error){
         // Message received and deleted
@@ -177,22 +179,22 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre filas, veja os seguintes recursos.
 
-* [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas]
-* [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub
-* [Centro de desenvolvedores do Node.js](/develop/nodejs/)
+* [Filas, tópicos e assinaturas][Queues, topics, and subscriptions]
+* Repositório do [SDK do Azure para Node][Azure SDK for Node] no GitHub
+* [Centro de desenvolvedores do Node. js](https://azure.microsoft.com/develop/nodejs/)
 
-[SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
-[Portal clássico do Azure]: http://manage.windowsazure.com
+[Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
+[Azure classic portal]: http://manage.windowsazure.com
 
-[Serviço de Nuvem do Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
-[Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Serviço de Nuvem do Node.js com Armazenamento]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicativo Web Node.js com Armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
-[Cotas do Barramento de Serviço]: service-bus-quotas.md
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+[Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+[Service Bus quotas]: service-bus-quotas.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

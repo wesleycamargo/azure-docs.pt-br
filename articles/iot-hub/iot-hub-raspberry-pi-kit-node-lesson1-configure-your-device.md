@@ -1,6 +1,6 @@
 ---
-title: Configurar seu dispositivo | Microsoft Docs
-description: Configure seu Raspberry Pi 3 para o primeiro uso e instale o SO Raspbian, um sistema operacional gratuito e otimizado para o hardware Raspberry Pi.
+title: "Conectar o Raspberry Pi (Nó) ao IoT do Azure - Lição 1: configurar dispositivo | Microsoft Docs"
+description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: ad1b0eb76d9d82af1ea5f8f1c7bda13656b1ab47
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
 
 
 ---
@@ -50,7 +50,7 @@ Para concluir esta operação, você precisará das seguintes partes do seu Kit 
 Você também precisará de:
 
 * Uma conexão com ou sem fio para que o Pi seja conectado.
-* Um adaptador USB-SD ou cartão MiniSD para gravar a imagem do sistema operacional no cartão microSD.
+* Um adaptador USB-SD ou cartão miniSD para gravar a imagem do sistema operacional no cartão microSD.
 * Um computador executando o Windows, Mac ou Linux. O computador é usado para instalar o Raspbian no cartão microSD.
 * Uma conexão com a Internet para baixar as ferramentas e o software necessários.
 
@@ -117,6 +117,6 @@ Neste artigo, você aprendeu como configurar o Pi ao instalar o Raspbian, a cone
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

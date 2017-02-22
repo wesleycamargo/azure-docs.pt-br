@@ -1,5 +1,5 @@
 ---
-title: "Replicar máquinas virtuais VMware e servidores físicos no Azure com o Azure Site Recovery | Microsoft Docs"
+title: "Replicar VMs do VMware e servidores físicos para o Azure no Portal Clássico | Microsoft Docs"
 description: "Esse artigo descreve como implantar o Azure Site Recovery para coordenar a replicação, o failover e a recuperação de máquinas virtuais VMware e servidores físicos Windows/Linux locais no Azure."
 services: site-recovery
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: 70ccb773b70f1b58f039ea5f4aca488d91fa3dad
+ms.sourcegitcommit: 75653b84d6ccbefe7d5230449bea81f498e10a98
+ms.openlocfilehash: e794f44cbf0b5e76c8a67e6e63129efb12090df8
 
 
 ---
@@ -65,12 +65,12 @@ A implantação avançada é uma atualização importante. Veja um resumo dos ap
 * Configure planos de recuperação que agrupam cargas de trabalho de aplicativos organizadas em camadas, em vários computadores. Você pode fazer failover nesses planos e a Recuperação de Site assegura a consistência de várias VMs para que os computadores executando as mesmas cargas de trabalho possam ser recuperados juntos em um ponto de dados consistente.
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
-### <a name="windows64-bit-only"></a>Windows (somente 64 bits)
+### <a name="windows64-bit-only"></a>Windows (somente&64; bits)
 * Windows Server 2008 R2 SP1+
 * Windows Server 2012
 * Windows Server 2012 R2
 
-### <a name="linux-64-bit-only"></a>Linux (somente 64 bits)
+### <a name="linux-64-bit-only"></a>Linux (somente&64; bits)
 * Red Hat Enterprise Linux 6.7, 7.1 e 7.2
 * CentOS 6.5, 6.6, 6.7, 7.0, 7.1 e 7.2
 * Oracle Enterprise Linux 6.4, 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3)
@@ -250,7 +250,7 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 >
 
 
->[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. Na página **Início Rápido** , baixe o arquivo de instalação unificada para o servidor.
@@ -296,7 +296,7 @@ Se você quiser replicar máquinas virtuais VMware, instale os seguintes compone
 3. Em **Localização de Instalação** , selecione a localização em que você deseja instalar os binários e armazenar o cache. Você pode selecionar uma unidade que tem ao menos 5 GB de armazenamento disponível, mas é recomendável uma unidade de cache com ao menos 600 GB de espaço livre.
 
    ![Localização de Instalação](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
-4. Em **Seleção da Rede** , especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será usada por um servidor Web que orquestra operações de replicação. A 443 não deve ser usada para receber tráfego de replicação.
+4. Em **Seleção da Rede** , especifique o ouvinte (adaptador de rede e porta SSL) no qual o servidor de configuração enviará e receberá os dados de replicação. Você pode modificar a porta padrão (9443). Além dessa porta, a porta 443 será usada por um servidor Web que orquestra operações de replicação. A&443; não deve ser usada para receber tráfego de replicação.
 
     ![Seleção da Rede](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
@@ -335,7 +335,7 @@ Em que:
 * /ProxySettingsFilePath. Opcional. Especifica as configurações para um proxy personalizado (proxy padrão no servidor que requer autenticação ou proxy personalizado)
 
 ## <a name="step-6-set-up-credentials-for-the-vcenter-server"></a>Etapa 6: configurar as credenciais para o servidor vCenter
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Discovery/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Discovery/player]
 >
 >
 
@@ -377,7 +377,7 @@ Se você estiver replicando máquinas virtuais VMware, precisará adicionar um s
     ![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 
 ## <a name="step-8-create-a-protection-group"></a>Etapa 8: criar um grupo de proteção
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Protection/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Protection/player]
 >
 >
 
@@ -452,7 +452,7 @@ Os instaladores estão disponíveis em C:\Program Files (x86) \Microsoft Azure S
 
 | Sistema operacional de origem | Arquivo de instalação do Serviço de mobilidade |
 | --- | --- |
-| Windows Server (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
+| Windows Server (somente&64; bits) |Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe |
 | CentOS 6.4, 6.5, 6.6 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz |
 | SUSE Linux Enterprise Server 11 SP3 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz |
 | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits) |Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz |
@@ -589,7 +589,7 @@ Além disso, o status da proteção pode ser monitorado em **Itens Protegidos** 
      * Se o adaptador de rede do computador de origem estiver configurado para usar um endereço IP estático, você poderá especificar um endereço IP estático para a VM do Azure. Se você não fornecer um endereço IP estático, um endereço IP disponível será alocado. Se o endereço IP de destino for especificado, mas já estiver em uso por outra VM no Azure, o failover falhará. Se o adaptador de rede do computador de origem estiver configurado para usar DHCP, você terá DHCP como configuração do Azure.
 
 ## <a name="step-12-create-a-recovery-plan-and-run-a-failover"></a>Etapa 12: criar um plano de recuperação e executar um failover
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Failover/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Enhanced-VMware-to-Azure-Failover/player]
 >
 >
 
@@ -722,6 +722,6 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

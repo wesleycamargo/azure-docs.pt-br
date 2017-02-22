@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
 A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas serão mostrados como Alta Severidade e a recomendação é criptografar essas máquinas virtuais.
 
-![Recomendação de criptografia de disco](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Recomendação de criptografia de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
-> 
-> 
+>
+>
 
 Para criptografar as Máquinas Virtuais do Azure identificadas pela Central de Segurança do Azure como precisando de criptografia, recomendamos as seguintes etapas:
 
@@ -43,11 +43,11 @@ Há várias abordagens que podem ser usadas para configurar os pré-requisitos e
 
 > [!NOTE]
 > Para saber mais sobre as abordagens alternativas para configurar a criptografia para as máquinas virtuais do Azure, confira [Azure Disk Encryption para Máquinas Virtuais do Azure do Windows e do Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Instalar e configurar o PowerShell do Azure
-Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
+Você precisa do Azure PowerShell versão 1.2.1, ou superior, instalado no computador. O artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) contém todas as etapas necessárias para provisionar o computador para trabalhar com o Azure PowerShell. A abordagem mais simples é usar a abordagem de instalação do Web PI mencionado no artigo. Mesmo que você já tenha instalado o Azure PowerShell, instale novamente usando a abordagem do Web PI para que você tenha a versão mais recente do PowerShell do Azure.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Obtenha e execute o script de configuração de pré-requisitos de criptografia de disco do Azure.
 O Script de Configuração de Pré-requisitos de Azure Disk Encryption configurará todos os pré-requisitos necessários para a criptografia de suas Máquinas Virtuais do Azure.
@@ -70,7 +70,7 @@ Agora que o conteúdo do script está salvo, abra o script no ISE do PowerShell:
 
 Agora você verá algo como a figura abaixo.
 
-![Janela do ISE do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![Janela do ISE do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 O painel superior é conhecido como o "painel de script" e o painel inferior é conhecido como "console". Usaremos esses termos neste artigo.
 
@@ -84,8 +84,8 @@ O script Pré-requisitos de Azure Disk Encryption solicitará as informações a
 
 > [!NOTE]
 > Se você estiver curioso sobre o motivo de precisar criar um aplicativo do Azure Active Directory, confira a seção *Registrar um aplicativo no Azure Active Directory* do artigo [Introdução ao Cofre da Chave do Azure](../key-vault/key-vault-get-started.md).
-> 
-> 
+>
+>
 
 Execute as etapas a seguir para criptografar uma Máquina Virtual do Azure:
 
@@ -94,12 +94,12 @@ Execute as etapas a seguir para criptografar uma Máquina Virtual do Azure:
 3. Defina a política de execução em seu computador para que você possa executar o script. Digite **Set-ExecutionPolicy Unrestricted** no console e pressione ENTER. Se você vir uma caixa de diálogo informando sobre os efeitos da alteração da política de execução, clique em **Sim para tudo** ou em **Sim** (se você vir **Sim para tudo**, selecione essa opção; se não vir **Sim para todos**, clique em **Sim**).
 4. Faça logon na sua conta do Azure. No console, digite **Login-AzureRmAccount** e pressione **ENTER**. Será exibida uma caixa de diálogo na qual você vai inserir suas credenciais (verifique se tem direitos para alterar as máquinas virtuais. Caso não tenha direitos, não poderá criptografá-las. Se você não tiver certeza, pergunte ao proprietário da assinatura ou ao administrador). Você deverá ver informações sobre seu **Ambiente**, **Conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**. Copie o **SubscriptionId** no bloco de notas. Você precisará usá-la na etapa 6.
 5. Descubra a assinatura à qual sua máquina virtual pertence e sua localização. Entre em [https://portal.azure.com](ttps://portal.azure.com) e faça logon.  No lado esquerdo da página, clique em **Máquinas Virtuais**. Você verá uma lista de suas máquinas virtuais e as assinaturas às quais elas pertencem.
-   
-   ![Máquinas Virtuais](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Máquinas Virtuais](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. Volte para o ISE do PowerShell. Defina o contexto da assinatura no qual o script será executado. No console, digite **Select-AzureRmSubscription –SubscriptionId <sua_Id_assinatura >** (substitua **<sua_Id_assinatura >** por sua ID de assinatura real) e pressione **ENTER**. Você deverá ver informações sobre seu Ambiente, **Conta**, **TenantId**, **SubscriptionId** e **CurrentStorageAccount**.
 7. Agora você está pronto para executar o script. Clique no botão **Executar Script** ou pressione **F5** no teclado.
-   
-   ![Execução de script do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![Execução de script do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. O script solicita o **resourceGroupName:** – insira o nome do *Grupo de Recursos* que você deseja usar e pressione **ENTER**. Se você não tiver um, insira um nome que você deseja usar em um novo grupo. Se você já tiver um *Grupo de Recursos* que deseja usar (como aquele em que sua máquina virtual está), insira o nome do Grupo de Recursos existente.
 9. O script solicita o **keyVaultName** : - insira o nome do *Cofre da Chave* que você deseja usar e pressione ENTER. Se você não tiver um, insira um nome que você deseja usar em um novo grupo. Se você já tiver um Cofre da Chave que deseja usar, insira o nome do *Cofre da Chave*existente.
 10. O script solicita o **local:** – insira o nome do local no qual a VM que você deseja criptografar está localizada e pressione **ENTER** a seguir. Se você não se lembrar do local, volte para a etapa 5.
@@ -110,7 +110,7 @@ Execute as etapas a seguir para criptografar uma Máquina Virtual do Azure:
 
 A saída do script deve ser semelhante à tela abaixo:
 
-![Saída do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Criptografar a máquina virtual do Azure
 Agora você está pronto para criptografar sua máquina virtual. Se sua máquina virtual estiver localizada no mesmo Grupo de Recursos que seu Cofre da Chave, você poderá prosseguir para a seção de etapas de criptografia. No entanto, se sua máquina virtual não estiver no mesmo Grupo de Recursos que o Cofre da Chave, será necessário inserir o seguinte no console do ISE do PowerShell:
@@ -124,7 +124,7 @@ Para confirmar se o nome do Grupo de Recursos correto foi inserido, digite o seg
 
 Pressione **ENTER**. Você deverá ver o nome do Grupo de Recursos em que suas máquinas virtuais estão localizadas. Por exemplo:
 
-![Saída do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Etapas de criptografia
 Primeiro, você precisa dizer ao PowerShell o nome da máquina virtual que deseja criptografar. No console, digite:
@@ -139,7 +139,7 @@ Para confirmar se o nome correto da VM foi inserido, digite:
 
 Pressione **ENTER**. Você deverá ver o nome da máquina virtual que deseja criptografar. Por exemplo:
 
-![Saída do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 Há duas maneiras de executar o comando de criptografia para criptografar a máquina virtual. O primeiro método é digitar o seguinte comando no console do ISE do PowerShell:
 
@@ -151,25 +151,25 @@ Depois de digitar esse comando, pressione **ENTER**.
 
 O segundo método é clicar no painel de script (o painel superior do ISE do PowerShell) e rolar até o final do script. Realce o comando listado acima, clique com o botão direito do mouse nele e clique em **Executar Seleção** ou pressione **F8** no teclado.
 
-![ISE do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![ISE do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 Independentemente do método usado, será exibida uma caixa de diálogo informando que a operação levará de 10 a 15 minutos para ser concluída. Clique em **Sim**.
 
 Durante o processo de criptografia, é possível retornar ao Portal do Azure e ver o status da máquina virtual. No lado esquerdo da página, clique em **Máquinas Virtuais** e, na folha **Máquinas Virtuais**, clique no nome da máquina virtual que você está criptografando. Na folha exibida, você observará que o **Status** diz **Atualizando**. Isso demonstra que a criptografia está em andamento.
 
-![Mais detalhes sobre a VM](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![Mais detalhes sobre a VM](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 Volte para o ISE do PowerShell. Quando o script for concluído, você verá o que aparece na figura abaixo.
 
-![Saída do PowerShell](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![Saída do PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Para demonstrar que a máquina virtual já está criptografada, retorne ao Portal do Azure e clique em **Máquinas Virtuais** no lado esquerdo da página. Clique no nome da máquina virtual que você criptografou. Na folha **Configurações**, clique em **Discos**.
 
-![Opções de configurações](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Opções de configurações](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 Na folha **Discos**, você verá que a **Criptografia** está **Habilitada**.
 
-![Propriedades de discos](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Propriedades de discos](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
@@ -181,7 +181,6 @@ Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Pa
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

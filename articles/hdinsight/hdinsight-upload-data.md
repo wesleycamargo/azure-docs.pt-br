@@ -13,22 +13,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 28cc7f8ac707068b5517f7dfe45687fff5a0eed3
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
 
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
-O Azure HDInsight oferece um HDFS (Sistema de Arquivos Distribuído) do Hadoop completo no armazenamento de blob do Azure. Ele foi projetado como uma extensão HDFS para fornecer uma experiência perfeita aos clientes. Ele permite que o conjunto completo de componentes no ecossistema do Hadoop opere diretamente nos dados que ele gerencia. O armazenamento de blob do Azure e o HDFS são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para obter informações sobre os benefícios de usar o Armazenamento de Blobs do Azure, confira [Usar o Armazenamento de Blobs do Azure com o HDInsight][hdinsight-storage].
+O Azure HDInsight oferece um HDFS (Sistema de Arquivos Distribuído) do Hadoop completo no armazenamento de blob do Azure. Ele foi projetado como uma extensão HDFS para fornecer uma experiência perfeita aos clientes. Ele permite que o conjunto completo de componentes no ecossistema do Hadoop opere diretamente nos dados que ele gerencia. O armazenamento de blob do Azure e o HDFS são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para ver informações sobre os benefícios de usar o Armazenamento de Blobs do Azure, consulte [Usar o Armazenamento de Blobs do Azure com o HDInsight][hdinsight-storage].
 
 **Pré-requisitos**
 
 Observe os seguintes requisitos antes de começar:
 
-* Um cluster Azure HDInsight. Para obter instruções, confira [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision].
+* Um cluster Azure HDInsight. Para obter instruções, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision].
 
 ## <a name="why-blob-storage"></a>Por que o armazenamento de blob?
 Os clusters do Azure HDInsight normalmente são implantados para executar trabalhos do MapReduce e são removidos quando esses trabalhos são concluídos. A manutenção dos dados nos clusters HDFS após a conclusão dos cálculos seria uma maneira cara de armazenar esses dados. O armazenamento de Blob do Azure é altamente disponível, escalonável, com alta capacidade, baixo custo e uma opção de armazenamento compartilhável para dados a serem processados usando o HDInsight. O armazenamento de dados em um blob permite que os clusters HDInsight usados para computação sejam liberados sem que ocorra perda de dados.
@@ -48,7 +48,7 @@ A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento d
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Interface de linha de comando do Azure][azurecli] |✔ |✔ |✔ |
+| [Interface de Linha de Comando do Azure][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] | | |✔ |
 | [Comando do Hadoop](#commandline) |✔ |✔ |✔ |
@@ -98,13 +98,13 @@ O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerenc
 >
 
 ### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>PowerShell do Azure
-O Azure PowerShell é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como configurar sua estação de trabalho para executar o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+O Azure PowerShell é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como configurar sua estação de trabalho para executar o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Para carregar um arquivo local para o Armazenamento de Blob do Azure**
 
-1. Abra o console do PowerShell do Azure conforme instruído em [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+1. Abra o console do PowerShell do Azure conforme instruído em [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 2. Defina os valores das cinco primeiras variáveis no script a seguir:
 
         $resourceGroupName = "<AzureResourceGroupName>"
@@ -132,7 +132,7 @@ A sintaxe do AzCopy é:
 
     AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
-Para obter mais informações, confira [AzCopy – Carregando e baixando arquivos de Blobs do Azure][azure-azcopy].
+Para saber mais, consulte [AzCopy – Carregando/baixando arquivos para Blobs do Azure][azure-azcopy].
 
 ### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Linha de comando do Hadoop
 A linha de comando do Hadoop só é útil para armazenar dados no armazenamento de blob quando os dados já estão presentes no nó principal do cluster.
@@ -140,7 +140,7 @@ A linha de comando do Hadoop só é útil para armazenar dados no armazenamento 
 Para usar o comando Hadoop, primeiro você deve se conectar ao nó de cabeçalho usando um dos seguintes métodos:
 
 * **HDInsight baseado em Windows**: [conecte-se usando a área de trabalho remota](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight baseado em Linux**: conecte-se usando SSH ([o comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **HDInsight baseado em Linux**: conecte-se usando SSH ([o comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
 Uma vez conectado, você pode usar a seguinte sintaxe para carregar um arquivo no armazenamento.
 
@@ -181,9 +181,9 @@ Para saber mais, veja [Navegar nos recursos vinculados](hdinsight-hadoop-visual-
 ### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Gerenciador de Armazenamento do Azure
 *Gerenciador de Armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados nos blobs. É uma ferramenta de software livre que pode ser baixada em [http://storageexplorer.com/](http://storageexplorer.com/). O código-fonte está disponível também neste link.
 
-Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para saber mais sobre como obter essas informações, confira a seção "Como exibir, copiar e regenerar chaves de acesso de armazenamento" em [Criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].  
+Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para saber mais sobre como obter essas informações, confira a seção “Como exibir, copiar e regenerar chaves de acesso de armazenamento” em [Criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].
 
-1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Gerenciador de Armazenamento, será solicitado que você insira o **_Nome da conta de armazenamento** e a **Chave da conta de armazenamento**. Caso o tenha executado antes, use botão **Adicionar** para incluir um novo nome de conta de armazenamento e a chave.
+1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Gerenciador de Armazenamento, será solicitado que você insira o **_Nome da conta de armazenamento** e a **Chave da conta de armazenamento**. Caso o tenha executado antes, use botão **Adicionar** para adicionar um novo nome e chave de conta de armazenamento.
 
     Insira o nome e a chave da conta de armazenamento usados pelo cluster HDInsight e selecione **SALVAR E ABRIR**.
 
@@ -212,7 +212,7 @@ Para obter mais informações, consulte a [Documentação do Azure Data Factory]
 ### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
 O Sqoop é uma ferramenta desenvolvida para transferir dados entre bancos de dados relacionais e o Hadoop. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL Server, MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com o MapReduce ou o Hive e, em seguida, exportar os dados de volta para um RDBMS.
 
-Para obter mais informações, confira [Usar Sqoop com o HDInsight][hdinsight-use-sqoop].
+Para obter mais informações, consulte [Usar Sqoop com HDInsight][hdinsight-use-sqoop].
 
 ## <a name="development-sdks"></a>SDKs de desenvolvimento
 O Armazenamento de Blob do Azure também pode ser acessado usando um SDK do Azure com as seguintes linguagens de programação:
@@ -273,8 +273,8 @@ Para saber mais sobre como usar o Ambari, confira [Gerenciar clusters HDInsight 
 Agora que você compreende como obter dados no HDInsight, leia os seguintes artigos para aprender a executar uma análise:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
-* [Enviar trabalhos Hadoop de modo programático][hdinsight-submit-jobs]
-* [Usar o hive com o HDInsight][hdinsight-use-hive]
+* [Enviar trabalhos Hadoop de forma programática][hdinsight-submit-jobs]
+* [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
@@ -299,7 +299,7 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [azurecli]: ../xplat-cli-install.md
 
@@ -310,6 +310,6 @@ Agora que você compreende como obter dados no HDInsight, leia os seguintes arti
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

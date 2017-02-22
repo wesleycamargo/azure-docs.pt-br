@@ -1,5 +1,5 @@
 ---
-title: "Selecione linhas para migrar usando uma função de filtro (Stretch Database) | Microsoft Docs"
+title: Selecionar linhas para migrar para o Stretch Database - Azure | Microsoft Docs
 description: "Saiba como selecionar linhas para migrar pelo uso de uma função de filtro."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/28/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76af756316523935cf04e19f12a3a1380d0f3a42
+ms.sourcegitcommit: bcb0a66425439522e0c9a353798ac70505b91e39
+ms.openlocfilehash: fc27cd6e25de8e5c3e6b50a0d887755f70d634fd
 
 
 ---
@@ -25,8 +25,8 @@ Se armazenar os dados inativos em uma tabela separada, você poderá configurar 
 
 > [!NOTE]
 > Se você fornecer uma função de filtro que apresente um desempenho ruim, a migração de dados também terá um desempenho ruim. O Stretch Database aplica a função de filtro à tabela usando o operador CROSS APPLY.
-> 
-> 
+>
+>
 
 Se você não especificar uma função de filtro, toda a tabela será migrada.
 
@@ -80,9 +80,9 @@ Uma condição primitiva pode fazer uma das comparações a seguir.
 ```
 
 * Comparar um parâmetro de função a uma expressão constante. Por exemplo: `@column1 < 1000`.
-  
+
   Veja um exemplo que verifica se o valor de uma coluna *data* é &lt; 1/1/2016.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
   RETURNS TABLE
@@ -91,7 +91,7 @@ Uma condição primitiva pode fazer uma das comparações a seguir.
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 < CONVERT(datetime, '1/1/2016', 101)
   GO
-  
+
   ALTER TABLE stretch_table_name SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date),
       MIGRATION_STATE = OUTBOUND
@@ -99,9 +99,9 @@ Uma condição primitiva pode fazer uma das comparações a seguir.
   ```
 * Aplique o operador IS NULL ou IS NOT NULL a um parâmetro de função.
 * Use o operador IN para comparar um parâmetro de função a uma lista de valores constantes.
-  
+
   Veja um exemplo que verifica se o valor de uma coluna *shipment\_status* é `IN (N'Completed', N'Returned', N'Cancelled')`.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
   RETURNS TABLE
@@ -110,7 +110,7 @@ Uma condição primitiva pode fazer uma das comparações a seguir.
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(shipment_status),
       MIGRATION_STATE = OUTBOUND
@@ -157,8 +157,8 @@ Você não poderá descartar a função embutida com valor de tabela se uma tabe
 
 > [!NOTE]
 > Para melhorar o desempenho da função de filtro, crie um índice nas colunas usadas pela função.
-> 
-> 
+>
+>
 
 ### <a name="passing-column-names-to-the-filter-function"></a>Passando nomes de coluna à função de filtro
 Quando você atribuir uma função de filtro a uma tabela, especifique os nomes de coluna passados para a função de filtro com um nome de parte única. Se você especificar um nome de três partes ao passar os nomes de coluna, as consultas subsequentes com base na tabela habilitada para Stretch falharão.
@@ -187,7 +187,7 @@ ALTER TABLE SensorTelemetry
 Se você quiser usar uma função que você não pode criar no assistente **Habilitar o banco de dados para Stretch** , poderá executar a instrução ALTER TABLE para especificar uma função depois que você sair do assistente. Antes que possa aplicar uma função, no entanto, você precisa interromper a migração de dados que já está em andamento e trazer de volta os dados migrados. (Para obter mais informações sobre o motivo de isso ser necessário, consulte [Substituir uma função de filtro existente](#replacePredicate).  
 
 1. Reverta a direção da migração e restaure os dados já migrados. Você não pode cancelar esta operação após ela ser iniciada. Você também incorre em custos no Azure para transferências de dados de \(saída\). Para obter mais informações, consulte [Como funcionam os preços do Azure](https://azure.microsoft.com/pricing/details/data-transfers/).  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
          SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = INBOUND ) ) ;   
@@ -195,7 +195,7 @@ Se você quiser usar uma função que você não pode criar no assistente **Habi
 2. Aguarde até a migração ser concluída. Você pode verificar o status no **Monitor do Stretch Database** do SQL Server Management Studio, ou você pode consultar a exibição **sys.dm_db_rda_migration_status**. Para obter mais informações, confira [Monitorar e solucionar problemas de migração de dados](sql-server-stretch-database-monitor.md) ou [sys.dm_db_rda_migration_status](https://msdn.microsoft.com/library/dn935017.aspx).  
 3. Crie a função de filtro que você deseja aplicar à tabela.  
 4. Adicione a função à tabela e reinicie a migração de dados para o Azure.  
-   
+
     ```tsql  
     ALTER TABLE <table name>  
         SET ( REMOTE_DATA_ARCHIVE  
@@ -298,7 +298,7 @@ COMMIT ;
 
 ## <a name="more-examples-of-valid-filter-functions"></a>Mais exemplos de funções de filtro válidas
 * O exemplo a seguir combina duas condições primitivas usando o operador lógico AND.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate((@column1 datetime, @column2 nvarchar(15))
   RETURNS TABLE
@@ -307,14 +307,14 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
     WHERE @column1 < N'20150101' AND @column2 IN (N'Completed', N'Returned', N'Cancelled')
   GO
-  
+
   ALTER TABLE table1 SET ( REMOTE_DATA_ARCHIVE = ON (
       FILTER_PREDICATE = dbo.fn_stretchpredicate(date, shipment_status),
       MIGRATION_STATE = OUTBOUND
   ) )
   ```
 * O exemplo a seguir usa várias condições e uma conversão determinística com CONVERT.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example1(@column1 datetime, @column2 int, @column3 nvarchar)
   RETURNS TABLE
@@ -325,7 +325,7 @@ COMMIT ;
   GO
   ```
 * O exemplo a seguir usa funções e operadores matemáticos.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example2(@column1 float)
   RETURNS TABLE
@@ -336,7 +336,7 @@ COMMIT ;
   GO
   ```
 * O exemplo a seguir usa os operadores BETWEEN e NOT BETWEEN. Esse uso é válido porque a função resultante está de acordo com as regras descritas aqui, depois de substituir os operadores BETWEEN e NOT BETWEEN pelas expressões equivalentes AND e OR.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example3(@column1 int, @column2 int)
   RETURNS TABLE
@@ -348,7 +348,7 @@ COMMIT ;
   GO
   ```
   A função anterior é equivalente à função a seguir depois de substituir os operadores BETWEEN e NOT BETWEEN pelas expressões equivalentes AND e OR.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_stretchpredicate_example4(@column1 int, @column2 int)
   RETURNS TABLE
@@ -361,7 +361,7 @@ COMMIT ;
 
 ## <a name="examples-of-filter-functions-that-arent-valid"></a>Exemplos de funções de filtro que não são válidas
 * A função a seguir não é válida porque contém uma conversão não determinística.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example5(@column1 datetime)
   RETURNS TABLE
@@ -372,7 +372,7 @@ COMMIT ;
   GO
   ```
 * A função a seguir não é válida porque contém uma chamada de função não determinística.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example6(@column1 datetime)
   RETURNS TABLE
@@ -383,7 +383,7 @@ COMMIT ;
   GO
   ```
 * A função a seguir não é válida porque contém uma subconsulta.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example7(@column1 int)
   RETURNS TABLE
@@ -394,7 +394,7 @@ COMMIT ;
   GO
   ```
 * As funções a seguir não são válidas porque expressões que usam operadores algébricos ou funções internas devem ser avaliadas como uma constante quando você define a função. Você não pode incluir referências da coluna em expressões algébricas ou em chamadas de função.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example8(@column1 int)
   RETURNS TABLE
@@ -403,7 +403,7 @@ COMMIT ;
   RETURN    SELECT 1 AS is_eligible
           WHERE @column1 % 2 =  0
   GO
-  
+
   CREATE FUNCTION dbo.fn_example9(@column1 int)
   RETURNS TABLE
   WITH SCHEMABINDING
@@ -413,7 +413,7 @@ COMMIT ;
   GO
   ```
 * A função a seguir não é válida porque viola as regras descritas aqui após a substituição do operador BETWEEN pela expressão AND equivalente.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example10(@column1 int, @column2 int)
   RETURNS TABLE
@@ -424,7 +424,7 @@ COMMIT ;
   GO
   ```
   A função anterior é equivalente à função a seguir depois de substituir o operador BETWEEN pela expressão equivalente AND. Essa função não é válida porque condições primitivas só podem usar o operador lógico OR.
-  
+
   ```tsql
   CREATE FUNCTION dbo.fn_example11(@column1 int, @column2 int)
   RETURNS TABLE
@@ -549,7 +549,6 @@ Uma conta com privilégios de db_owner comprometida pode fazer o que está descr
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

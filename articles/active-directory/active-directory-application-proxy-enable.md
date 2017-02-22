@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/19/2016
+ms.topic: article
+ms.date: 01/12/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d0a5cfe8fe9782cc9b75392d6f21965430ee2347
+ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
+ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
 
 
 ---
+
 # <a name="enable-application-proxy-in-the-azure-portal"></a>Habilitar o Proxy de aplicativo no portal do Azure
 Este artigo orienta você pelas etapas para habilitar o Proxy de Aplicativo do Microsoft Azure AD para seu diretório de nuvem no Azure AD.
 
@@ -31,7 +31,7 @@ Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter
 * Uma [assinatura premium ou básica](active-directory-editions.md) do Microsoft Azure AD e um diretório do Azure AD do qual você seja administrador global.
 * Um servidor executando o Windows Server 2012 R2 ou Windows 8.1 ou posterior em que você possa instalar o Conector do Proxy de Aplicativo. O servidor envia solicitações aos serviços de Proxy de Aplicativo na nuvem e precisa de uma conexão HTTP ou HTTPS para os aplicativos que você está publicando.
   
-  * Para logon único para seus aplicativos publicados, essa máquina deve ser unida ao mesmo domínio do AD que os aplicativos que você está publicando.
+  * Para logon único para seus aplicativos publicados, essa máquina deve ser unida ao mesmo domínio do AD que os aplicativos que você está publicando. Para obter mais informações, consulte [Logon único com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 * Se houver um firewall no caminho, verifique se o ele está aberto para que o Conector possa fazer solicitações HTTPS (TCP) para o Proxy de Aplicativo. O Conector usa essas portas com subdomínios que fazem parte dos domínios de alto nível: msappproxy.net e servicebus.windows.net. Não esqueça de abrir as seguintes portas para o tráfego de **saída** :
   
   | Número da porta | Descrição |
@@ -46,7 +46,7 @@ Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter
   | 9091 |Habilitar a renovação automática de certificados de confiança do Conector |
   
     Se o firewall reforça o tráfego de acordo com os usuários de origem, abra essas portas para o tráfego proveniente de serviços do Windows em execução como um serviço de rede. Além disso, certifique-se de habilitar a porta 8080 para Autoridade NT\Sistema.
-* Se sua organização usa servidores proxy para se conectar à Internet, confira a postagem do blog [Trabalhar com servidores proxy locais existentes](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) para obter detalhes sobre como configurá-los.
+* Se a sua organização usa servidores proxy para se conectar à Internet, confira a postagem do blog [Trabalhar com servidores proxy locais existentes](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) para obter detalhes sobre como configurá-los.
 
 ## <a name="step-1-enable-application-proxy-in-azure-ad"></a>Etapa 1: habilite o Proxy de aplicativo no AD do Azure
 1. Entre como administrador no [portal clássico do Azure](https://manage.windowsazure.com/).
@@ -77,6 +77,8 @@ Antes de habilitar e usar os serviços de Proxy de aplicativo, você precisa ter
      ![Serviços do Conector de Proxy de Aplicativo - captura de tela](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Clique em **Concluir** na janela de instalação.
 
+Para saber mais sobre conectores, veja [Noções básicas sobre conectores de proxy de aplicativo do Azure AD](application-proxy-understand-connectors.md). 
+
 Para fins de alta disponibilidade, você deve implantar pelo menos dois conectores. Para implantar mais conectores, repita as etapas 2 e 3 acima. Cada conector deve ser registrado separadamente.
 
 Se você deseja desinstalar o Conector, desinstale o serviço Conector e o serviço Atualizador. Reinicie o computador para remover completamente o serviço.
@@ -89,6 +91,6 @@ Se tem aplicativos que estão em redes separadas ou em locais diferentes, você 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

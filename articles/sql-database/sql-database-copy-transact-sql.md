@@ -3,34 +3,31 @@ title: Copiar um Banco de Dados SQL do Azure usando o Transact-SQL | Microsoft D
 description: "Criar cópia de um Banco de Dados SQL do Azure usando o Transact-SQL"
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: 
 ms.assetid: 40ea3718-33f8-41af-90cb-3aa15059365e
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 09/19/2016
-ms.author: sstein
+ms.date: 02/07/2017
+ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: da730116fcc83d53b3665f953332a30c7fc6239d
+ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
+ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
 
 
 ---
 # <a name="copy-an-azure-sql-database-using-transact-sql"></a>Copiar um banco de dados SQL do Azure usando o Transact-SQL
-> [!div class="op_single_selector"]
-> * [Visão geral](sql-database-copy.md)
-> * [Portal do Azure](sql-database-copy-portal.md)
-> * [PowerShell](sql-database-copy-powershell.md)
-> * [T-SQL](sql-database-copy-transact-sql.md)
-> 
-> 
 
-As etapas a seguir mostram como copiar um banco de dados SQL com Transact-SQL para o mesmo servidor ou outro servidor. A operação de cópia do banco de dados usa a instrução [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) .
+As etapas a seguir mostram como copiar um banco de dados SQL com Transact-SQL para o mesmo servidor ou outro servidor. A operação de cópia do banco de dados usa a instrução [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) . 
+
+> [!NOTE]
+> Também é possível criar um Banco de Dados SQL usando o [Portal do Azure](sql-database-copy-portal.md)ou o [PowerShell](sql-database-copy-powershell.md).
+>
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
@@ -79,21 +76,12 @@ Depois que o novo banco de dados estiver online no servidor de destino, use a in
 Todos os usuários no novo banco de dados mantêm as permissões que tinham no banco de dados de origem. O usuário que iniciou a cópia do banco de dados se tornará o proprietário do novo banco de dados e receberá um novo identificador de segurança (SID). Depois que a cópia for bem-sucedida e antes que outros usuários sejam remapeados, somente o logon que tiver iniciado a cópia, o proprietário do banco de dados (DBO), poderá fazer logon no novo banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira [Copiar um Banco de Dados SQL do Azure](sql-database-copy.md) para ter uma visão geral de como copiar um Banco de Dados SQL do Azure.
-* Confira [Copiar um banco de dados SQL do Azure usando o Portal do Azure](sql-database-copy-portal.md) para copiar um banco de dados usando o Portal do Azure.
-* Confira [Copiar um Banco de Dados SQL do Azure usando o PowerShell](sql-database-copy-powershell.md) para copiar um banco de dados usando o PowerShell.
-* Confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md) para saber mais sobre como gerenciar logons e usuários ao copiar um banco de dados para um servidor lógico diferente.
-
-## <a name="additional-resources"></a>Recursos adicionais
-* [Gerenciar logons](sql-database-manage-logins.md)
-* [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md)
-* [Exportar o banco de dados para um BACPAC](sql-database-export.md)
+* Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor lógico diferente, confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 * [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 * [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

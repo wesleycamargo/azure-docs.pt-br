@@ -1,7 +1,7 @@
 Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual executando o CentOS Linux.
 
 > [!WARNING]
-> Os recursos de segurança do MongoDB, como autenticação e associação com o endereço IP, não são habilitados por padrão. Os recursos de segurança devem ser ativados antes de implantar o MongoDB em um ambiente de produção. Consulte [Segurança e autenticação](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obter mais informações.
+> Os recursos de segurança do MongoDB, como autenticação e associação com o endereço IP, não são habilitados por padrão. Os recursos de segurança devem ser ativados antes de implantar o MongoDB em um ambiente de produção.  Consulte [Segurança e autenticação](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obter mais informações.
 > 
 > 
 
@@ -20,7 +20,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
         $ sudo yum install mongo-10gen mongo-10gen-server
    
     Aguarde enquanto o MongoDB é baixado e instalado.
-4. Crie um diretório de dados. Por padrão, o MongoDB armazena dados no diretório */data/db*, mas você deve criar esse diretório. Para criá-lo, execute:
+4. Crie um diretório de dados. Por padrão, o MongoDB armazena dados no diretório */data/db* , mas você deve criar esse diretório. Para criá-lo, execute:
    
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
@@ -30,7 +30,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
    
         $ mongod --dbpath /srv/datadrive/data --logpath /srv/datadrive/data/mongod.log
    
-    Todas as mensagens de log serão direcionadas para o arquivo */srv/datadrive/data/mongod.log*, quando o servidor MongoDB for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
+    Todas as mensagens de log serão direcionadas para o arquivo */srv/datadrive/data/mongod.log* , quando o servidor MongoDB for iniciado e pré-alocar arquivos de diário. Pode levar alguns minutos para que o MongoDB pré-aloque os arquivos de diário e comece a detectar conexões.
 6. Para iniciar o shell administrativo do MongoDB, abra uma janela separada do SSH ou PuTTY e execute:
    
         $ mongo
@@ -65,4 +65,7 @@ Siga estas etapas para instalar e executar o MongoDB em uma máquina virtual exe
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

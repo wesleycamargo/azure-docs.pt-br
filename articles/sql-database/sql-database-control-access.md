@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/18/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
+ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
+ms.openlocfilehash: f12ed9d76e7c6db5e14ed3c00d7d4087dbd4069c
 
 
 ---
@@ -26,7 +26,8 @@ ms.openlocfilehash: 82508d01f9f1aaee11ebb5a5f936dfc71ace9cad
 Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos. 
 
 > [!IMPORTANT]
-> Para obter uma visão geral dos recursos de segurança do Banco de Dados SQL, veja [visão geral de segurança do SQL](sql-database-security-overview.md).
+> Para obter uma visão geral dos recursos de segurança do Banco de Dados SQL, veja [visão geral de segurança do SQL](sql-database-security-overview.md). Para obter um tutorial sobre como usar a autenticação do SQL Server, veja [Tutorial do Banco de Dados SQL: autenticação do SQL Server, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-sql-authentication-get-started.md). Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, veja [Tutorial do Banco de Dados SQL: autenticação do AAD, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-aad-authentication-get-started.md).
+
 >
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall
@@ -69,10 +70,11 @@ Além disso, esses recursos podem ser usados para limitar ou elevar permissões.
 - Para saber mais sobre logons e usuários, veja [Gerenciar logons](sql-database-manage-logins.md). 
 - Para uma discussão sobre o uso de recursos de proteção de dados no Banco de Dados SQL, veja [Segurança e proteção de dados](sql-database-protect-data.md).
 - Para obter uma discussão sobre monitoramento proativo, veja [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md) e [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).
+- Para obter um tutorial sobre como usar a autenticação do SQL Server, veja [Tutorial do Banco de Dados SQL: autenticação do SQL Server, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-sql-authentication-get-started.md).
+- Para obter um tutorial sobre como usar a autenticação do Azure Active Directory, veja [Tutorial do Banco de Dados SQL: autenticação do AAD, logons e contas de usuário, funções de banco de dados, permissões, regras de firewall no nível de servidor e regras de firewall no nível de banco de dados](sql-database-control-access-aad-authentication-get-started.md).
 
 
 
-
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

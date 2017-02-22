@@ -1,5 +1,5 @@
 ---
-title: "Transações do Barramento de Serviço | Microsoft Docs"
+title: "Visão geral do processamento de transações no Barramento de Serviço do Azure | Microsoft Docs"
 description: "Visão geral das transações atômicas do Barramento de Serviço do Azure e do recurso Enviar por"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2016
+ms.date: 02/02/2017
 ms.author: clemensv;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
+ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
 
 
 ---
@@ -33,10 +33,10 @@ O Barramento de Serviço dá suporte a operações de agrupamento em uma única 
 ## <a name="operations-within-a-transaction-scope"></a>Operações em um escopo de transação
 As operações que podem ser executadas em um escopo de transação são as seguintes:
 
-* **[QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx), [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender), [TopicClient](/dotnet/api/microsoft.servicebus.messaging.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-As operações de recebimento não são incluídas, pois presume-se que o aplicativo obtenha as mensagens usando o modo [ReceiveMode.PeekLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) em algum loop de recebimento ou com um retorno de chamada [OnMessage](https://msdn.microsoft.com/library/azure/dn369601.aspx) e só então abre um escopo de transação para o processamento da mensagem.
+As operações de recebimento não são incluídas, pois presume-se que o aplicativo obtenha as mensagens usando o modo [ReceiveMode.PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) em algum loop de recebimento ou com um retorno de chamada [OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__Microsoft_ServiceBus_Messaging_OnMessageOptions_) e só então abre um escopo de transação para o processamento da mensagem.
 
 Em seguida, a disposição da mensagem (conclusão, abandono, mensagens mortas, adiamento) ocorre no escopo do resultado geral da transação e depende dele.
 
@@ -48,14 +48,14 @@ A potência dessa funcionalidade transacional se torna aparente quando a própri
 ### <a name="see-it-in-code"></a>Ver em código
 Para configurar essas transferências, você cria um remetente da mensagem que tem como alvo a fila de destino por meio da fila de transferência. Você também terá um destinatário que efetua pull das mensagens dessa mesma fila. Por exemplo:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 Uma transação simples usa então esses elementos, como mostrado no exemplo a seguir:
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())
@@ -72,6 +72,7 @@ using (scope = new TransactionScope())
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Confira os artigos a seguir para obter mais informações sobre as filas do Barramento de Serviço:
 
 * [Encadeando entidades do Barramento de Serviço com o encaminhamento automático](service-bus-auto-forwarding.md)
@@ -83,6 +84,6 @@ Confira os artigos a seguir para obter mais informações sobre as filas do Barr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

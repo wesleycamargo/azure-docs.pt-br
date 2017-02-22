@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 4256201f2fd505ed86734e900496eb7364c9a575
 
 
 ---
@@ -32,6 +32,7 @@ Os Serviços de Mídia do Microsoft Azure (AMS) permitem proteger a mídia do mo
 O AMS fornece um serviço para entregar as licenças DRM e as chaves de limpeza AES aos clientes autorizados. O portal do Azure permite que você crie uma **política de autorização de chave/licença** para todos os tipos de criptografias.
 
 Este artigo demonstra como configurar as políticas de proteção de conteúdo com o portal do Azure. O artigo também mostra como aplicar a criptografia dinâmica em seus ativos.
+
 
 > [!NOTE]
 > Se você usou o portal clássico do Azure para criar políticas de proteção, as políticas poderão não aparecer no [portal do Azure](https://portal.azure.com/). No entanto, todas as antigas políticas ainda existirão. Você pode examiná-las usando o SDK do .NET dos Serviços de Mídia do Azure ou a ferramenta [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) (para ver as políticas, clique com o botão direito no ativo -> Exibir informações (F4) -> clique na guia Chaves de conteúdo -> clique na chave). 
@@ -93,10 +94,7 @@ Para habilitar a criptografia do FairPlay, você precisa fornecer o Certificado 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Aplique a criptografia dinâmica em seu ativo
-Para aproveitar a criptografia dinâmica, você precisa fazer o seguinte:
-
-* Codifique o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável.
-* Obtenha pelo menos uma unidade de streaming sob demanda para o ponto de extremidade de streaming por meio do qual você planeja distribuir conteúdo. Para saber mais, consulte [Como dimensionar unidades reservadas para streaming sob demanda](media-services-portal-manage-streaming-endpoints.md).
+Para aproveitar a criptografia dinâmica, você precisa codificar o arquivo de origem em um conjunto de arquivos MP4 de taxa de bits adaptável.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecionar o ativo que você deseja criptografar
 Para ver todos os seus ativos, selecione **Configurações** > **Ativos**.
@@ -137,6 +135,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Usar instantâneos incrementais para backup e recuperação de máquinas virtuais do Azure | Microsoft Docs"
+title: "Usar instantâneos incrementais para backup e recuperação de discos não gerenciados de VMs do Azure | Microsoft Docs"
 description: "Crie uma solução personalizada para backup e recuperação de seus discos de máquina virtual do Azure usando instantâneos incrementais."
 services: storage
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 01/23/2017
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
+ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
 
 
 ---
-# <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Fazer backup de discos de máquina virtual do Azure com instantâneos incrementais
+# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Faça backup dos discos não gerenciados de VM do Azure com instantâneos incrementais
 ## <a name="overview"></a>Visão geral
 O Armazenamento do Azure oferece a capacidade de fazer instantâneos dos blobs. Os instantâneos capturam o estado do blob no momento em questão. Neste artigo, descrevemos um cenário de como você pode manter backups dos discos de máquinas virtuais usando instantâneos. Você pode usar essa metodologia quando optar por não usar o Serviço de Backup e Recuperação do Azure e desejar criar uma estratégia de backup personalizada para seus discos da máquina virtual.
 
@@ -60,7 +60,7 @@ A Cópia de instantâneo incremental permite copiar de uma conta de armazenament
 
 Se as condições a seguir forem atendidas,
 
-* O blob foi criado em 1º de janeiro de 2016 ou posteriormente.
+* O blob foi criado em&1;º de janeiro de&2016; ou posteriormente.
 * O blob não foi substituído por [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) ou [Copiar Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) entre dois instantâneos.
 
 **Observação**: este recurso está disponível para os Blobs de Página do Azure Premium e Standard.
@@ -123,6 +123,6 @@ Saiba mais sobre como criar instantâneos de um blob e planejar a infraestrutura
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

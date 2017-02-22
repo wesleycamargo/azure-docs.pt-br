@@ -1,27 +1,27 @@
 ---
-title: "Visão geral do SDK do Windows Phone Silverlight"
+title: "Visão geral do SDK do Windows Phone Silverlight no Azure Mobile Engagement | Microsoft Docs"
 description: "Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 0e3d2420-0509-4952-8891-392e3dad9aaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 11/03/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 105335b3c4c6e805f9398fbc002d5c4051acd147
+ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
+ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
 
 
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure
-Comece aqui para obter todos os detalhes sobre como integrar o Mobile Engagement do Azure em um aplicativo do Windows Phone Silverlight. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de 15 minutos](mobile-engagement-windows-phone-get-started.md).
+Comece aqui para obter todos os detalhes sobre como integrar o Mobile Engagement do Azure em um aplicativo do Windows Phone Silverlight. Se você gostaria de experimentá-lo primeiro, faça nosso [tutorial de&15; minutos](mobile-engagement-windows-phone-get-started.md).
 
 Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-phone-sdk-content.md)
 
@@ -31,10 +31,10 @@ Clique para ver o [Conteúdo do SDK](mobile-engagement-windows-phone-sdk-content
 3. Implementação do plano de marcação: [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo do Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Notas de versão
-### <a name="330-04192016"></a>3.3.0 (19/04/2016)
-Parte do pacote nuget *MicrosoftAzure.MobileEngagement***v3.4.0**
+###<a name="331-11032016"></a>3.3.1 (11/03/2016)
+Parte do pacote Nuget *MicrosoftAzure.MobileEngagement* **v3.4.1**
 
-* Adicionada a API "TestLogLevel" para habilitar/desabilitar/filtrar logs de console emitidos pelo SDK.
+* Aprimoramentos de estabilidade.
 
 Para a versão anterior, consulte as [notas de versão completas](mobile-engagement-windows-phone-release-notes.md)
 
@@ -56,6 +56,6 @@ Consulte [Procedimentos de atualização](mobile-engagement-windows-phone-upgrad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

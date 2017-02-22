@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Documentação do Application Insights do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Application Insights, um serviço de gerenciamento de desempenho de aplicativos para detectar, realizar triagem e diagnosticar problemas em aplicativos Web e serviços."
+services: application-insights
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: f0fdb938519737e67849831a0751542f69c269d9
-ms.openlocfilehash: e5425bc1f39c9ca71b6eaf2c928b0d8397319d85
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Documentação do Application Insights
@@ -152,16 +163,10 @@ Saiba como usar o Application Insights, um serviço de gerenciamento de desempen
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Baixar documentação do Application Insights </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

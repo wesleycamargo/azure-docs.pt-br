@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cd2ef87032d1691f2c56a9da44ce29ccb4e9963
+ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
+ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
 
 
 ---
@@ -34,64 +34,64 @@ Antes de começar este tutorial, você deve ter o seguinte:
 1. Inicie o Power BI Desktop em seu computador.
 2. Na faixa de opções** Início**, clique em **Obter Dados** e clique em Mais. Na caixa de diálogo **Obter Dados**, clique em **Azure**, clique em **Azure Data Lake Store** e clique em **Conectar**.
    
-    ![Conectar-se ao Repositório Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connect to Data Lake Store")
+    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Conectar ao Data Lake Store")
 3. Se você vir uma caixa de diálogo informando que o conector está em uma fase de desenvolvimento, escolha continuar.
 4. Na caixa de diálogo **Microsoft Azure Data Lake Store**, forneça a URL da sua conta do Data Lake Store e clique em **OK**.
    
-    ![URL do repositório Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL for Data Lake Store")
+    ![URL do Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Store")
 5. Na caixa de diálogo seguinte, clique em **Entrar** para entrar na conta do Repositório Data Lake. Você será redirecionado à página de logon de sua organização. Siga os prompts para entrar na conta.
    
-    ![Entrar no repositório Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Sign into Data Lake Store")
+    ![Entrar no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Entrar no Data Lake Store")
 6. Depois de entrar com sucesso, clique em **Conectar**.
    
-    ![Conectar-se ao Repositório Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connect to Data Lake Store")
+    ![Conectar-se ao Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Conectar-se ao Data Lake Store")
 7. A próxima caixa de diálogo mostra o arquivo carregado para sua conta do Repositório Data Lake. Verifique as informações e clique em **Carregar**.
    
-    ![Carregar dados do Repositório Data Lake](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Load data from Data Lake Store")
+    ![Carregar dados no Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carregar dados no Data Lake Store")
 8. Após os dados serem carregados com êxito no Power BI, você verá os seguintes campos na guia **Campos** .
    
-    ![Campos importados](./media/data-lake-store-power-bi/imported-fields.png "Imported fields")
+    ![Importar campos](./media/data-lake-store-power-bi/imported-fields.png "importado campos")
    
     No entanto, para visualizar e analisar os dados, preferimos que eles fiquem disponíveis conforme os seguintes campos
    
-    ![Campos desejados](./media/data-lake-store-power-bi/desired-fields.png "Desired fields")
+    ![Desejado campos](./media/data-lake-store-power-bi/desired-fields.png "desejado campos")
    
     Nas próximas etapas, atualizaremos a consulta para converter os dados importados no formato desejado.
 9. Na faixa de opções **Início**, clique em **Editar Consultas**.
    
-    ![Editar Consultas](./media/data-lake-store-power-bi/edit-queries.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "editar consultas")
 10. No Editor de Consultas, na coluna **Conteúdo**, clique em **Binário**.
     
-    ![Editar Consultas](./media/data-lake-store-power-bi/convert-query1.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "editar consultas")
 11. Você verá um ícone de arquivo que representa o arquivo **Drivers.txt** carregado. Clique no arquivo com o botão direito do mouse e clique em **CSV**.    
     
-    ![Editar Consultas](./media/data-lake-store-power-bi/convert-query2.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "editar consultas")
 12. Você deve ver uma saída parecida com a que está abaixo. Os dados agora estão disponíveis em um formato que você pode usar para criar visualizações.
     
-    ![Editar Consultas](./media/data-lake-store-power-bi/convert-query3.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "editar consultas")
 13. Na faixa de opções **Início**, clique em **Fechar e Aplicar** e, em seguida, clique em **Fechar e Aplicar**.
     
-    ![Editar Consultas](./media/data-lake-store-power-bi/load-edited-query.png "Edit queries")
+    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "editar consultas")
 14. Depois que a consulta for atualizada, a guia **Campos** mostrará os novos campos disponíveis para visualização.
     
-    ![Campos atualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Updated fields")
+    ![Atualizado campos](./media/data-lake-store-power-bi/updated-query-fields.png "atualizado campos")
 15. Vamos criar um gráfico de pizza para representar os drivers em cada cidade de um determinado país. Para fazer isso, faça as seleções a seguir.
     
     1. Na guia Visualizações, clique no símbolo do gráfico de pizza.
        
-        ![Criar um gráfico de pizza](./media/data-lake-store-power-bi/create-pie-chart.png "Create pie chart")
+        ![Criar um gráfico de pizza](./media/data-lake-store-power-bi/create-pie-chart.png "criar o gráfico de pizza")
     2. As colunas que vamos usar são a **Coluna 4** (nome da cidade) e a **Coluna 7** (nome do país). Arraste essas colunas da guia **Campos** para a guia **Visualizações** conforme mostrado abaixo.
        
-        ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "Create visualizations")
+        ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "Criar visualizações")
     3. O gráfico de pizza agora deve ser semelhante ao mostrado abaixo.
        
-        ![Gráfico de pizza](./media/data-lake-store-power-bi/pie-chart.png "Create visualizations")
+        ![Gráfico de pizza](./media/data-lake-store-power-bi/pie-chart.png "Criar visualizações")
 16. Ao selecionar um país específico nos filtros de nível de página, você poderá ver o número de drivers em cada cidade do país selecionado. Por exemplo, na guia **Visualizações**, em **Filtros de nível de página**, escolha **Brasil**.
     
-    ![Selecionar um país](./media/data-lake-store-power-bi/select-country.png "Select a country")
+    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "selecione um país")
 17. O gráfico de pizza é atualizado automaticamente para exibir os drivers em cidades do Brasil.
     
-    ![Drivers em um país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers per country")
+    ![Drivers em um país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers por país")
 18. No menu **Arquivo**, clique em **Salvar** para salvar a visualização como um arquivo do Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicar o relatório no serviço Power BI
@@ -103,6 +103,6 @@ Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outra
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

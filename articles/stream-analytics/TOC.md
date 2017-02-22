@@ -17,19 +17,22 @@
 
 ## Desenvolver
 ### [Padrões de consulta comuns](stream-analytics-stream-analytics-query-patterns.md)
+### [Ferramentas para Visual Studio](stream-analytics-tools-for-visual-studio.md)
 ### [Criar entradas](stream-analytics-define-inputs.md)
 ### [Criar saídas](stream-analytics-define-outputs.md)
 ### [Usar dados de referência](stream-analytics-use-reference-data.md)
-### [Saída para o Cache Redis do Azure](stream-analytics-functions-redis.md)
+### [Enviar para Azure Functions](stream-analytics-functions-redis.md)
 ### [Saída para o Data Lake Store](stream-analytics-data-lake-output.md)
 ### [Saída para o DocumentDB](stream-analytics-documentdb-output.md)
 ### [Analisar dados com o Power BI](stream-analytics-power-bi-dashboard.md)
+### [Integração do JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
 ### [Integração de API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Usar o SDK do .NET de Gerenciamento](stream-analytics-dotnet-management-sdk.md)
 ### [Funções da janela](stream-analytics-window-functions.md)
 
 ## Gerenciar
 ### [Monitorar trabalhos](stream-analytics-monitoring.md)
+### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
 ### [Monitorar trabalhos de maneira programática](stream-analytics-monitor-jobs.md)
 ### [Monitorar trabalhos com o PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [Escalar para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
@@ -58,6 +61,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

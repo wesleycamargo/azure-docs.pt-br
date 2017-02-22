@@ -3,7 +3,7 @@ title: "Desenvolvendo com várias regiões no DocumentDB | Microsoft Docs"
 description: "Saiba como acessar seus dados nas várias regiões do Banco de Dados de Documentos do Azure, um serviço de banco de dados NoSQL totalmente gerenciado."
 services: documentdb
 documentationcenter: 
-author: kiratp
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
@@ -12,19 +12,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2016
-ms.author: kipandya
+ms.date: 02/09/2016
+ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
-ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
+ms.sourcegitcommit: 240f45383639f1eb8a4a9b7c4e4489591be23dba
+ms.openlocfilehash: aac8c26cd9af94659abc80b2ae260dc380cf38c9
 
 
 ---
 # <a name="developing-with-multi-region-documentdb-accounts"></a>Desenvolvendo com contas do Banco de Dados de Documentos em várias regiões
-> [!NOTE]
-> A distribuição global dos bancos de dados do Banco de Dados de Documentos geralmente é disponibilizada e habilitada automaticamente para contas do Banco de Dados de Documentos recentemente criadas. Estamos trabalhando para habilitar a distribuição global em todas as contas existentes, mas nesse ínterim, se quiser que a distribuição global seja habilitada para sua conta, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e nós a habilitaremos para você agora mesmo.
->
->
+
+Saiba mais sobre contas do DocumentDB de várias regiões neste vídeo do Azure Friday com Scott Hanselman e o Gerente de Engenharia Karthik Raman.
+
+>[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+
+## <a name="introduction"></a>Introdução
 
 Para aproveitar a [distribuição global](documentdb-distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo a política de conexão. Com base na configuração da conta do Banco de Dados de Documentos do Azure, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK para executar operações de gravação e leitura.
 
@@ -158,6 +160,6 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

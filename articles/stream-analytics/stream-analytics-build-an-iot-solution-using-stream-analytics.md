@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
+ms.sourcegitcommit: 9faf3e48983ded91016e39992bc03a0b62720c06
+ms.openlocfilehash: 4b46a46e6a9de58b9640830852ca19939b3eabdb
 
 
 ---
@@ -128,7 +128,7 @@ Se não tiver uma conta do Azure, [solicite uma versão de avaliação gratuita]
 > 
 > 
 
-Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$ 200.
+Siga as etapas na seção “Limpar sua conta do Azure” no final deste artigo para que você possa fazer o melhor uso de seu crédito Azure gratuito de US$&200;.
 
 ## <a name="provision-azure-resources-required-for-the-tutorial"></a>Provisionar os recursos do Azure necessários para o tutorial
 Este tutorial requer dois hubs de eventos para receber transmissões de dados de *entrada* e de *saída*. O Banco de Dados SQL do Azure gera os resultados dos trabalhos do Stream Analytics. O Armazenamento do Azure armazena dados de referência sobre o registro do veículo.
@@ -252,7 +252,7 @@ No entanto, se estiver interessado nos detalhes da implementação, você encont
 4. Digite **EntryStream** como **ALIAS DE ENTRADA**.
 5. O Tipo de Origem é **Transmissão de Dados**
 6. A Fonte é **Hub de eventos**.
-7. O **Namescape do barramento de serviço** deve ser o TollData no menu suspenso.
+7. O **Namespace do barramento de serviço** deve ser o TollData no menu suspenso.
 8. O **Nome do hub de eventos** deve ser definido como **entrada**.
 9. O **Nome da política do hub de eventos* é **RootManageSharedAccessKey** (o valor padrão).
 10. Selecione **JSON** como **FORMATO DE SERIALIZAÇÃO DO EVENTO** e **UTF8** como **CODIFICAÇÃO**.
@@ -445,6 +445,6 @@ Consulte a [documentação online](https://azure.microsoft.com/documentation/ser
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

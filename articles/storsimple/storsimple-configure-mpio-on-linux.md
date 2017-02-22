@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 12/01/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 64f6f245b86d9194a52e40ed226de9960a36f3f9
-ms.openlocfilehash: 96e0c65dd57505b816843ac6290ea19ca02c88f9
+ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
+ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
 
 
 ---
@@ -43,7 +43,7 @@ Vários caminhos em Linux consiste em componentes de kernel e em componentes de 
 
 * **Kernel**: o componente principal é o *device-mapper* , que redireciona a E/S e oferece suporte a failover de caminhos e de grupos de caminho.
 
-1. **User-space**: são *multipath-tools* que gerenciam dispositivos de vários caminhos instruindo o módulo device-mapper de vários caminhos o que fazer. As ferramentas consistem em:
+* **User-space**: são *multipath-tools* que gerenciam dispositivos de vários caminhos instruindo o módulo device-mapper de vários caminhos o que fazer. As ferramentas consistem em:
    
    * **Multipath**: lista e configura os dispositivos de vários caminhos.
    * **Vários caminhos**: daemon que executa vários caminhos e monitora os caminhos.
@@ -56,12 +56,11 @@ O arquivo de configuração `/etc/multipath.conf` faz com que muitos dos recurso
 
 O arquivo multipath.conf tem cinco seções:
 
-* **System level defaults** *(defaults)*: você pode substituir os padrões no nível do sistema.
-
-1. **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
-2. **Blacklist exceptions** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
-3. **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
-4. **Device specific settings** *(multipaths)*: você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
+- **System level defaults** *(defaults)*: você pode substituir os padrões no nível do sistema.
+- **Blacklisted devices** *(blacklist)*: você pode especificar a lista de dispositivos que não devem ser controlados pelo device-mapper.
+- **Blacklist exceptions** *(blacklist_exceptions)*: você pode identificar dispositivos específicos a serem tratados como dispositivos de vários caminhos, mesmo se relacionados na lista negra.
+- **Storage controller specific settings** *(devices)*: você pode especificar as definições de configuração que serão aplicadas a dispositivos com informações sobre o fornecedor e o produto.
+- **Device specific settings** *(multipaths)*: você pode usar esta seção para ajustar as definições de configuração para LUNs individuais.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurar vários caminhos no StorSimple conectado ao host Linux
 Um dispositivo StorSimple conectado a um host Linux pode ser configurado para alta disponibilidade e balanceamento de carga. Por exemplo, se o host Linux tiver duas interfaces conectadas à SAN e o dispositivo tem duas interfaces conectadas à SAN, de modo que essas interfaces estejam na mesma sub-rede, então haverá 4 caminhos disponíveis. No entanto, se cada interface DATA na interface do dispositivo e do host estiver em uma sub-rede IP diferente (e não roteável), então somente dois caminhos estarão disponíveis. Você pode configurar vários caminhos para descobrir automaticamente todos os caminhos disponíveis, escolher um algoritmo de balanceamento de carga para esses caminhos, aplicar as configurações específicas a volumes só do StorSimple e então habilitar e verificar vários caminhos.
@@ -155,8 +154,7 @@ O dispositivo StorSimple deve ter:
      2. Verifique se as interfaces de rede têm a mesma velocidade, ambas devem ser de 1 GbE ou de 10 GbE.
      3. Anote os endereços IPv4 das interfaces habilitadas para iSCSI e salve-os para uso posterior no host.
 * As interfaces iSCSI em seu dispositivo StorSimple devem poder ser acessadas do servidor CentOS.
-  
-    Para verificar isso, você precisa fornecer os endereços IP das interfaces da rede habilitadas para iSCSI do StorSimple em seu servidor host. Os comandos usados e a saída correspondente com DATA2 (10.126.162.25) e DATA3 (10.126.162.26) são mostrados abaixo:
+      Para verificar isso, você precisa fornecer os endereços IP das interfaces da rede habilitadas para iSCSI do StorSimple em seu servidor host. Os comandos usados e a saída correspondente com DATA2 (10.126.162.25) e DATA3 (10.126.162.26) são mostrados abaixo:
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
@@ -190,12 +188,12 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
 
 1. Inicialize o arquivo `/etc/multipath.conf` . Tipo:
    
-     `Copy mpathconf --enable`
+     `mpathconf --enable`
    
     O comando acima criará um arquivo `sample/etc/multipath.conf` .
 2. Inicie o serviço de vários caminhos. Tipo:
    
-    ``Copy service multipathd start``
+    `service multipathd start`
    
     Você verá esta saída:
    
@@ -300,38 +298,37 @@ Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponív
 
     Se você vir somente uma interface de host e dois caminhos aqui, precisará habilitar ambas as interfaces no host para iSCSI. Você pode seguir as [instruções detalhadas na documentação do Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
+2. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) por meio do Portal Clássico do Azure em seu dispositivo StorSimple.
 
-   c. Um volume é exposto ao servidor CentOS do dispositivo StorSimple. Para saber mais, veja como [Etapa 6: Criar um volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) por meio do Portal Clássico do Azure em seu dispositivo StorSimple.
+3. Verifique os caminhos disponíveis. Tipo:
 
-   d. Verifique os caminhos disponíveis. Tipo:
+      ```
+      multipath –l
+      ```
 
-   ```
-   multipath –l
-   ```
+      O exemplo a seguir mostra a saída de duas interfaces de rede em um dispositivo StorSimple conectado a uma interface de rede de host com dois caminhos disponíveis.
 
-   O exemplo a seguir mostra a saída de duas interfaces de rede em um dispositivo StorSimple conectado a uma interface de rede de host com dois caminhos disponíveis.
-
-   ```
-    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 7:0:0:1 sdc 8:32 active undef running
         `- 6:0:0:1 sdd 8:48 active undef running
-   ```
+        ```
 
-   O exemplo a seguir mostra a saída de duas interfaces de rede em um dispositivo StorSimple conectado a duas interfaces de rede de host com quatro caminhos disponíveis.
+        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
 
-   ```
-    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-    size=100G features='0' hwhandler='0' wp=rw
-    `-+- policy='round-robin 0' prio=0 status=active
+        ```
+        mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+        size=100G features='0' hwhandler='0' wp=rw
+        `-+- policy='round-robin 0' prio=0 status=active
         |- 17:0:0:0 sdb 8:16 active undef running
         |- 15:0:0:0 sdd 8:48 active undef running
         |- 14:0:0:0 sdc 8:32 active undef running
         `- 16:0:0:0 sde 8:64 active undef running
-   ```
+        ```
 
-   Após a configuração dos caminhos, consulte as instruções específicas no sistema operacional do seu host (Centos 6.6) para montar e formatar este volume.
+        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
 
 ## <a name="troubleshoot-multipathing"></a>Solucionar problemas de vários caminhos
 Esta seção fornece algumas dicas úteis se você tiver algum problema durante a configuração de vários caminhos.
@@ -358,7 +355,8 @@ Também vale a pena verificar se você realmente pode ver alguns discos depois d
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
-* Ou
+     
+     Ou
   
     `$ fdisk –l`
   
@@ -452,6 +450,6 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: eb2e260e71d9ebc3000b440d0413c7d557e15258
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 8ba349a3d247f0d42e869baef456cde2e6ee62b1
 No Gerenciamento de API, os desenvolvedores são os usuários das APIs que você expõe utilizando o Gerenciamento d API. Este guia mostra como criar e convidar desenvolvedores a utilizarem as APIs e os produtos que você disponibilizar para eles com sua instância do Gerenciamento da API. Para saber mais sobre como gerenciar contas de usuário por meio de programação, confira a documentação sobre [Entidade de usuário](https://msdn.microsoft.com/library/azure/dn776330.aspx) na referência [REST de Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 
 ## <a name="create-developer"> </a>Criar um novo desenvolvedor
-Para criar um novo desenvolvedor, clique no **portal do Editor** no Portal do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API. Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+Para criar um novo desenvolvedor, clique no **portal do Editor** no Portal do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API. Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
 ![Portal do editor][api-management-management-console]
 
@@ -40,7 +40,7 @@ Por padrão, as contas de desenvolvedor criadas recentemente têm o estado **Ati
 
 ![Novo desenvolvedor][api-management-new-developer]
 
-As contas de desenvolvedor que estão com estado **ativa** podem ser utilizadas para acessar todas as APIs nas quais estão inscritas. Para associar o desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][Como associar grupos a desenvolvedores].
+As contas de desenvolvedor que estão com estado **ativa** podem ser utilizadas para acessar todas as APIs nas quais estão inscritas. Para associar um desenvolvedor recém-criado a grupos adicionais, consulte [Como associar grupos a desenvolvedores][How to associate groups with developers].
 
 ## <a name="invite-developer"> </a>Convidar um desenvolvedor
 Para convidar um desenvolvedor, clique em **Usuários** no menu **Gerenciamento de API** à esquerda e depois clique em **Convidar Usuário**.
@@ -55,7 +55,7 @@ Uma mensagem de confirmação é exibida, mas o desenvolvedor recém-convidado n
 
 ![Confirmação de convite][api-management-invite-developer-confirmation]
 
-Quando um desenvolvedor é convidado, um email é enviado a ele. O email é gerado utilizando um modelo e pode ser personalizado. Para obter mais informações, consulte [Configurar modelos de email][Configurar modelos de email].
+Quando um desenvolvedor é convidado, um email é enviado a ele. O email é gerado utilizando um modelo e pode ser personalizado. Para obter mais informações, consulte [Configurar modelos de email][Configure email templates].
 
 Após o convite ser aceito, a conta se torna ativa.
 
@@ -79,7 +79,7 @@ Para trabalhar de forma programática com contas de usuário, confira a document
 ![Verificação pendente][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Próximas etapas
-Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, consulte [Como criar e utilizar grupos][Como criar e utilizar grupos].
+Após criar uma conta de desenvolvedor, você pode associá-la a funções e inscrevê-la em produtos e APIs. Para obter mais informações, confira [Como criar e utilizar grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -91,21 +91,21 @@ Após criar uma conta de desenvolvedor, você pode associá-la a funções e ins
 [api-management-pending-verification]: ./media/api-management-howto-create-or-invite-developers/api-management-pending-verification.png
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
-[]: ./media/api-management-howto-create-or-invite-developers/.png
-
-[Criar um novo desenvolvedor]: #create-developer
-[Convidar um desenvolvedor]: #invite-developer
-[Desativar ou reativar uma conta de desenvolvedor]: #block-developer
-[Próximas etapas]: #next-steps
-[Como criar e utilizar grupos]: api-management-howto-create-groups.md
-[Como associar grupos a desenvolvedores]: api-management-howto-create-groups.md#associate-group-developer
-
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
-[Configurar modelos de email]: api-management-howto-configure-notifications.md#email-templates
 
 
+[Create a new developer]: #create-developer
+[Invite a developer]: #invite-developer
+[Deactivate or reactivate a developer account]: #block-developer
+[Next steps]: #next-steps
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-<!--HONumber=Nov16_HO3-->
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Configure email templates]: api-management-howto-configure-notifications.md#email-templates
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

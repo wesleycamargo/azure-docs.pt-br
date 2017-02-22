@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: b75ed253a47b5f4ad0d95ef29c30f3d5ba3cb5fb
+ms.sourcegitcommit: e90036d97451b271451d0ba5845c788ac05d7abf
+ms.openlocfilehash: 4253d60a8a12877a3c5dac073bd06d70d020ccdc
 
 
 ---
@@ -37,7 +37,7 @@ Veja a seguir algumas das práticas que recomendamos durante a avaliação de mi
 * Se você tiver scripts automatizados que implantam sua infraestrutura e aplicativos atualmente, tente criar uma configuração de teste semelhante usando esses scripts para migração. Você também pode configurar ambientes de exemplo usando o portal do Azure.
 
 > [!IMPORTANT]
-> Atualmente não ha suporte para Gateways do ExpressRoute e Gateways de Aplicativo para a migração do clássico para o Resource Manager. Para migrar uma rede virtual clássica com um ExpressRoute ou um Gateway de Aplicativo, remova o gateway antes de executar uma operação de Confirmação para mover a rede (você pode executar a etapa de Preparação sem excluir o ExpressRoute ou o Gateway de Aplicativo). Depois de concluir a migração, reconecte o gateway no Azure Resource Manager.
+> Atualmente não ha suporte para Gateways de Aplicativo para a migração do clássico para o Resource Manager. Para migrar uma rede virtual clássica com um Gateway de Aplicativo, remova o gateway antes de executar uma operação de Confirmação para mover a rede (você pode executar a etapa de Preparação sem excluir o Gateway de Aplicativo). Depois de concluir a migração, reconecte o gateway no Azure Resource Manager. Você deve entrar em contato com o suporte se quiser migrar os gateways de ExpressRoute em casos nos quais o gateway e o circuito de ExpressRoute estão na mesma assinatura. Não é possível migrar gateways de ExpressRoute conectando-se a circuitos de ExpressRoute em outra assinatura. Nesses casos, remova o gateway de ExpressRoute, migre a rede virtual e recrie o gateway.
 > 
 > 
 
@@ -274,6 +274,6 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

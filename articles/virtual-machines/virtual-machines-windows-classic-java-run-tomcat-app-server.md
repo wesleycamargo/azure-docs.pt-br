@@ -1,5 +1,5 @@
 ---
-title: "Tomcat em uma máquina virtual | Microsoft Docs"
+title: "Executar o servidor de aplicativos Java em uma VM clássica do Azure | Microsoft Docs"
 description: "Este tutorial usa os recursos criados com o modelo de implantação clássico e mostra como criar uma Máquina virtual do Windows e configurá-la para executar o servidor de aplicativos do Apache Tomcat."
 services: virtual-machines-windows
 documentationcenter: java
@@ -13,18 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 01/23/2017
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e6fd09bb3a750d8d537abb12a386f46be0c60794
+ms.sourcegitcommit: 7b621733e09a1ba4e21152d7670a8936e3944521
+ms.openlocfilehash: 4503610eb8ef2e690e028667ebbf64e865af7134
 
 
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Como executar um servidor de aplicativos do Java em uma máquina virtual criada com o modelo de implantação clássico
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para um modelo do Resource Manager para implantar um aplicativo Web com o Java 8 e o Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para um modelo do Resource Manager para implantar um aplicativo Web com o Java 8 e o Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/201-web-app-java-tomcat/).
 
 Com o Azure, você pode usar uma máquina virtual para fornecer recursos de servidor. Como um exemplo, uma máquina virtual em execução no Azure pode ser configurada para hospedar um servidor de aplicativos Java, como o Apache Tomcat. Depois de concluir este guia, você saberá como criar uma máquina virtual em execução no Azure e configurá-la para executar um servidor de aplicativos Java.
 
@@ -79,7 +78,7 @@ Você pode copiar um servidor de aplicativos Java em sua máquina virtual ou ins
 Para o objetivo deste tutorial, o Tomcat será instalado.
 
 1. Depois de se conectar à máquina virtual, abra uma sessão do navegador para [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
-2. Clique duas vezes no link **Instalador de serviço do Windows de 32 bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
+2. Clique duas vezes no link **Instalador de serviço do Windows de&32; bits/64 bits**. Usando essa técnica, o Tomcat será instalado como um serviço do Windows.
 3. Quando solicitado, opte por executar o instalador.
 4. No assistente de **Configuração do Apache Tomcat** , siga os prompts para instalar o Tomcat. Para o objetivo deste tutorial, aceitar os padrões será o suficiente. Quando você chegar à caixa de diálogo **Concluindo o Assistente de Instalação do Apache Tomcat**, poderá marcar opcionalmente **Executar o Apache Tomcat** para que o Tomcat inicie agora. Clique em **Concluir** para concluir o processo de configuração do Tomcat.
 
@@ -156,6 +155,6 @@ Saiba mais sobre outros serviços (como o Armazenamento do Azure, o barramento d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

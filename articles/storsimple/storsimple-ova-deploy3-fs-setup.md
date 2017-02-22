@@ -1,5 +1,5 @@
 ---
-title: Implantar a StorSimple Virtual Array 3 - configurar o dispositivo virtual como servidor de arquivos
+title: Configurar a StorSimple Virtual Array como um servidor de arquivos | Microsoft Docs
 description: "Este terceiro tutorial na implantação de StorSimple Virtual Array lhe instrui a configurar um dispositivo virtual como servidor de arquivos."
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 05/26/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f99e3dc59c0637053cad6c2b3b6baedac803f42
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: e1863b43706ffc200bb94c4a26ae75080a6dd857
 
 
 ---
@@ -85,7 +85,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
    
    Na página **Proxy Web** :
    
-   1. Forneça a **URL do proxy Web** neste formato: *http://&lt;endereço IP do host ou FDQN&gt;: Número da porta*. Observe que não há suporte para URLs HTTPS.
+   1. Forneça a **URL do proxy Web** neste formato: *http://&lt;endereço IP do host ou FDQN&gt;: Número de porta*. Observe que não há suporte para URLs HTTPS.
    2. Especifique a **Autenticação** como **Básica** ou **Nenhuma**.
    3. Se você estiver usando autenticação, você também precisará fornecer um **Nome de Usuário** e **Senha**.
    4. Clique em **Aplicar**. Isso validará e aplicará as configurações de proxy Web definidas.
@@ -177,7 +177,7 @@ Agora, você precisará conectar-se ao(s) compartilhamento(s) que você criou na
 
 Assista ao vídeo para ver como você pode configurar e registrar uma StorSimple Virtual Array como um servidor de arquivos.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Configure-a-StorSimple-Virtual-Array/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Configure-a-StorSimple-Virtual-Array/player]
 > 
 > 
 
@@ -187,6 +187,6 @@ Aprenda como [usar a interface do usuário da Web local para administrar sua Sto
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

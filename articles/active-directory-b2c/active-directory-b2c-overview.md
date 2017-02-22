@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -54,6 +54,7 @@ Aprenda a usar os recursos específicos do Azure Active Directory B2C:
 Estes links serão úteis na exploração em profundidade do serviço:
 
 * Veja as [informações sobre preços do Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Examinar nosso [amostras de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) para o Azure Active Directory B2C. 
 * Obtenha ajuda sobre o Stack Overflow usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
 * Envie-nos seus comentários usando [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/)– queremos recebe-los! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
 * Examine a [Referência de protocolo do Azure AD B2C](active-directory-b2c-reference-protocols.md).
@@ -67,6 +68,6 @@ Recomendamos que você obtenha notificações sobre a ocorrência de incidentes 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

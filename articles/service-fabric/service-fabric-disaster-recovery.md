@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/29/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff3e8fe622bdd6ecba01bc08b26a243c592c3c8b
+ms.sourcegitcommit: 6dc2a6dbf4b26363f1ad714baec8d48045aa97b6
+ms.openlocfilehash: 81d818afb1a15db646a20b4001493d9df7e24d27
 
 
 ---
@@ -41,7 +41,7 @@ Você pode visualizar o layout do seu cluster em domínios de falha usando o map
 > 
 
 ### <a name="geographic-distribution"></a>Distribuição geográfica
-No momento, existem [26 regiões do Azure no mundo][azure-regions], com várias outras já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
+No momento, existem [30 regiões do Azure no mundo][azure-regions], com várias outras já anunciadas. Uma região individual pode conter um ou mais data centers físicos, dependendo da demanda e da disponibilidade dos locais adequados, entre outros fatores. No entanto, observe que mesmo em regiões com vários data centers físicos, não há nenhuma garantia de que as VMs do cluster serão distribuídas uniformemente entre os locais físicos. Na verdade, no momento, todas as VMs de um determinado cluster são provisionadas em um único local físico.
 
 ## <a name="dealing-with-failures"></a>Lidando com falhas
 Há vários tipos de falhas que podem afetar seu cluster, cada uma com sua própria atenuação. Vamos examiná-las na ordem de probabilidade de ocorrência.
@@ -55,7 +55,7 @@ Enquanto os domínios de falha reduzem significativamente o risco de falhas simu
 Em geral, contanto que a maioria dos nós permaneça disponível, o cluster continuará a operar, embora com menor capacidade, já que as réplicas com estado são empacotadas em um conjunto menor de máquinas e menos instâncias sem estado ficam disponíveis para distribuir a carga.
 
 #### <a name="quorum-loss"></a>Perda de quorum
-Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric parará, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanece na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando a [API Repair-ServiceFabricPartition][repair-partition-ps].
+Se a maioria das réplicas de partição de um serviço com estado ficar inoperante, essa partição entrará em um estado conhecido como "perda de quorum". Nessa hora, o Service Fabric parará, permitindo gravações nessa partição para garantir que o estado permaneça consistente e confiável. Na verdade, estamos optando por aceitar um período de indisponibilidade para garantir que os clientes não sejam informados de que seus dados foram salvos quando na verdade não foram. Observe que, se você tiver aceitado permitir leituras das réplicas secundárias para o serviço com estado, poderá continuar a executar as operações de leitura nesse estado. Uma partição permanece na perda de quorum até que um número suficiente de réplicas volte ou até que o administrador do cluster force a movimentação do sistema usando [API Repair-ServiceFabricPartition][repair-partition-ps].
 
 > [!WARNING]
 > Executar uma ação de reparação quando a réplica primária está inoperante resultará em perda de dados.
@@ -70,7 +70,7 @@ Você pode minimizar o risco de perda de quorum aumentando o tamanho do conjunto
 Considere os exemplos a seguir, supondo que você tenha configurado seus serviços para ter um MinReplicaSetSize três, o menor número recomendado para serviços de produção. Com um TargetReplicaSetSize três (um principal e dois secundários), uma falha de hardware durante uma atualização (duas réplicas inoperantes) resultará em perda de quorum e o serviço se tornará somente leitura. Como alternativa, se você tiver cinco réplicas, será capaz de suportar duas falhas durante a atualização (três réplicas inoperantes), já que as duas réplicas restantes ainda podem formar um quorum dentro do conjunto de réplicas mínimo.
 
 ### <a name="data-center-outages-or-destruction"></a>Interrupções ou destruição do data center
-Raramente, os data centers físicos podem se tornar temporariamente indisponíveis devido à perda de energia ou de conectividade de rede. Nesses casos, os clusters e os aplicativos do Service Fabric estarão indisponíveis da mesma forma, mas os dados serão preservados. Para os clusters em execução no Azure, você pode exibir atualizações sobre interrupções na [página de status do Azure][azure-status-dashboard].
+Raramente, os data centers físicos podem se tornar temporariamente indisponíveis devido à perda de energia ou de conectividade de rede. Nesses casos, os clusters e os aplicativos do Service Fabric estarão indisponíveis da mesma forma, mas os dados serão preservados. Para os clusters em execução no Azure, você pode exibir as atualizações sobre interrupções na [Página de status do Azure][azure-status-dashboard].
 
 Na hipótese altamente improvável de um data center físico inteiro ser destruído, os clusters do Service Fabric hospedados nele serão perdidos, juntamente com seu estado.
 
@@ -109,6 +109,6 @@ Os defeitos de código de serviços, os erros humanos operacionais e as violaç�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

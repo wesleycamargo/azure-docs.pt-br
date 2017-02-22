@@ -1,5 +1,5 @@
 ---
-title: "Arquitetura do Barramento de Serviço | Microsoft Docs"
+title: "Visão geral da arquitetura de processamento de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure."
 services: service-bus-messaging
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
-ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
+ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
+ms.openlocfilehash: cd0e53955495752cd91323b9926f9494a70c5797
 
 
 ---
@@ -28,10 +28,10 @@ O Barramento de Serviço é organizado por *unidades de escala*. Uma unidade de 
 
 Um namespace de Barramento de Serviço é mapeado para uma unidade de escala. A unidade de escala manipula todos os tipos de entidades do Barramento de Serviço: retransmissões e entidades do sistema de mensagens agenciado (filas, tópicos, assinaturas). Uma unidade de escala do Barramento de Serviço consiste nos seguintes componentes:
 
-* **Um conjunto de nós de gateway.**  Os nós de gateway autenticam as solicitações de entrada e manipulam as solicitações de retransmissão. Cada nó de gateway tem um endereço IP público.
-* **Um conjunto de nós do agente de mensagens.**  Os nós do agente de mensagens processam solicitações referentes às entidades de mensagens.
-* **Um repositório de gateway.**  O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
-* **Múltiplos repositórios de mensagens.**  Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md)do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
+* **Um conjunto de nós de gateway.** Os nós de gateway autenticam as solicitações de entrada e manipulam as solicitações de retransmissão. Cada nó de gateway tem um endereço IP público.
+* **Um conjunto de nós do agente de mensagens.** Os nós do agente de mensagens processam solicitações referentes às entidades de mensagens.
+* **Um repositório de gateway.** O repositório de gateway mantém os dados para cada entidade definida nessa unidade de escala. O repositório de gateway é implementado sobre um banco de dados do SQL do Azure.
+* **Múltiplos repositórios de mensagens.** Repositórios de mensagens mantêm as mensagens de todas as filas, tópicos e assinaturas que são definidas na unidade de escala. Eles também contêm todos os dados de assinatura. A menos que o [particionamento entidades de mensagens](service-bus-partitioning.md) esteja habilitado, uma fila ou tópico é mapeado para um repositório de mensagens. As assinaturas são armazenadas no mesmo repositório de mensagens que o tópico pai. Com exceção do [Sistema de Mensagens Premium](service-bus-premium-messaging.md)do Barramento de Serviço, os repositórios de mensagens são implementados no topo de bancos de dados do SQL Azure.
 
 ## <a name="containers"></a>Contêineres
 Cada entidade de mensagens é atribuída a um contêiner específico. Um contêiner é um constructo lógico que utiliza exatamente um repositório de mensagens para todos os dados relevantes para esse contêiner. Cada contêiner é atribuído a um nó do agente de mensagens. Normalmente, há mais contêineres que nós do agente de mensagens. Portanto, cada nó do agente de mensagens carrega diversos contêineres. A distribuição de contêineres para um nó do agente de mensagens é organizada de modo que todos os nós do agende de mensagens sejam carregados igualmente. Se o padrão de carga mudar (por exemplo, um dos contêineres ficar muito ocupado) ou se um nó do agente de mensagens ficar indisponível temporariamente, os contêineres serão redistribuídos entre os nós de agente de mensagens.
@@ -58,6 +58,6 @@ Agora que você leu uma visão geral da arquitetura do Barramento de Serviço, c
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

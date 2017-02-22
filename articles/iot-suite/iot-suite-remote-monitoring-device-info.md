@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 9138fc1da6c45e2aa874e3e26c4a65ceb248d8f1
-ms.openlocfilehash: 325e25412e80d005a87b49e6971703cd74551c5e
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 8aac22bed0b16c97faabf1e15c9fc9f40c34ca67
 
 
 ---
@@ -28,14 +28,14 @@ A solução pré-configurada de monitoramento remoto do Azure IoT Suite demonstr
 * Como a solução gerencia os metadados de dispositivo.
 
 ## <a name="context"></a>Contexto
-A solução pré-configurada de monitoramento remoto usa o [Hub IoT do Azure][lnk-iot-hub] para permitir que os dispositivos enviem dados para a nuvem. O Hub IoT inclui um [registro de identidade do dispositivo][lnk-identity-registry] para controlar o acesso ao Hub IoT. O registro de identidade do dispositivo do Hub IoT é separado do *registro do dispositivo* específico da solução de monitoramento remoto que armazena metadados de informações de dispositivo. A solução de monitoramento remoto usa um banco de dados do [DocumentDB][lnk-docdb] para implementar seu registro do dispositivo para armazenar metadados de informações de dispositivo. A [Arquitetura de Referência do Microsoft Azure IoT][lnk-ref-arch] descreve a função do registro do dispositivo em uma solução típica de IoT.
+A solução pré-configurada de monitoramento remoto usa o [Hub IoT do Azure][lnk-iot-hub] para permitir que os dispositivos enviem dados para a nuvem. O Hub IoT inclui um [Registro de identidade do dispositivo][lnk-identity-registry] para controlar o acesso ao Hub IoT. O registro de identidade do dispositivo do Hub IoT é separado do *registro do dispositivo* específico da solução de monitoramento remoto que armazena metadados de informações de dispositivo. A solução de monitoramento remoto usa um banco de dados do [DocumentDB][lnk-docdb] para implementar seu Registro do dispositivo a fim de armazenar metadados de informações do dispositivo. A [Arquitetura de Referência do Microsoft Azure IoT][lnk-ref-arch] descreve a função do Registro do dispositivo em uma solução típica de IoT.
 
 > [!NOTE]
 > A solução pré-configurada de monitoramento remoto mantém o registro de identidade do dispositivo em sincronia com o registro do dispositivo. Ambos usam a mesma id de dispositivo para identificar exclusivamente cada dispositivo conectado ao seu hub IoT.
 > 
 > 
 
-O [Gerenciamento de dispositivo com Hub IoT][lnk-dm-preview] adiciona recursos ao Hub IoT semelhantes aos recursos de gerenciamento de informações descritos neste artigo. Atualmente, a solução de monitoramento remoto utiliza os recursos de disponibilidade geral (GA) no Hub IoT.
+O [Gerenciamento de dispositivo com o Hub IoT][lnk-dm-preview] adiciona recursos ao Hub IoT semelhantes aos recursos de gerenciamento de informações de dispositivo descritos neste artigo. Atualmente, a solução de monitoramento remoto utiliza os recursos de disponibilidade geral (GA) no Hub IoT.
 
 ## <a name="device-information-metadata"></a>Metadados de informações de dispositivo
 Um documento JSON de metadados de informações de dispositivo armazenado no banco de dados do Banco de Dados de Documentos de registro do dispositivo tem a seguinte estrutura:
@@ -72,7 +72,7 @@ Um documento JSON de metadados de informações de dispositivo armazenado no ban
 * **id**: o identificador exclusivo do DocumentDB para este documento de dispositivo.
 
 > [!NOTE]
-> As informações de dispositivo também podem incluir metadados para descrever a telemetria que o dispositivo envia ao Hub IoT. A solução de monitoramento remoto usa estes metadados de telemetria para personalizar a forma como o painel exibe a [telemetria dinâmica][lnk-dynamic-telemetry].
+> As informações de dispositivo também podem incluir metadados para descrever a telemetria que o dispositivo envia ao Hub IoT. A solução de monitoramento remoto usa esses metadados de telemetria para personalizar a forma como o painel exibe a [telemetria dinâmica][lnk-dynamic-telemetry].
 > 
 > 
 
@@ -92,10 +92,10 @@ Se clicar em **Editar** no painel **Detalhes do Dispositivo** no portal de solu�
 
 Você pode usar o portal da solução para remover um dispositivo da sua solução. Quando você remover um dispositivo, a solução removerá os metadados de informações de dispositivo do registro do dispositivo da solução e removerá a entrada do registro de identidade do dispositivo do Hub IoT. Antes de remover um dispositivo, você deverá desabilitá-lo.
 
-![Remoção de dispositivo][img-device-remove]
+![Remover o dispositivo][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Processamento de mensagens de informações de dispositivo
-As mensagens de informações sobre um dispositivo enviadas por um dispositivo são diferentes das mensagens de telemetria. As mensagens de informação de dispositivo incluem informações, como as propriedades do dispositivo, os comandos que um dispositivo pode responder e qualquer histórico de comandos. O Hub IoT em si não tem conhecimento dos metadados contidos em uma mensagem de informações de dispositivo e processa a mensagem da mesma forma que processa todas as mensagens de dispositivo para a nuvem. Na solução de monitoramento remoto, um trabalho do [ASA][lnk-stream-analytics] (Stream Analytics do Azure) lê as mensagens do Hub IoT. O trabalho do Stream Analytics **DeviceInfo** filtra mensagens que contêm **"ObjectType": "DeviceInfo"** e as encaminha para a instância de host **EventProcessorHost** executada em um trabalho Web. A lógica na instância **EventProcessorHost** usa a ID do dispositivo para localizar o registro do DocumentDB para o dispositivo específico e atualiza o registro. O registro do dispositivo agora inclui informações como as propriedades do dispositivo, os comandos e o histórico de comandos.
+As mensagens de informações sobre um dispositivo enviadas por um dispositivo são diferentes das mensagens de telemetria. As mensagens de informação de dispositivo incluem informações, como as propriedades do dispositivo, os comandos que um dispositivo pode responder e qualquer histórico de comandos. O Hub IoT em si não tem conhecimento dos metadados contidos em uma mensagem de informações de dispositivo e processa a mensagem da mesma forma que processa todas as mensagens de dispositivo para a nuvem. Na solução de monitoramento remoto, um trabalho do [Stream Analytics do Azure][lnk-stream-analytics] (ASA) lê as mensagens do Hub IoT. O trabalho do Stream Analytics **DeviceInfo** filtra mensagens que contêm **"ObjectType": "DeviceInfo"** e as encaminha para a instância de host **EventProcessorHost** executada em um trabalho Web. A lógica na instância **EventProcessorHost** usa a ID do dispositivo para localizar o registro do DocumentDB para o dispositivo específico e atualiza o registro. O registro do dispositivo agora inclui informações como as propriedades do dispositivo, os comandos e o histórico de comandos.
 
 > [!NOTE]
 > Uma mensagem de informações de dispositivo é uma mensagem padrão do dispositivo para a nuvem. A solução faz distinção entre as mensagens de informações de dispositivo e as mensagens de telemetria por meio de consultas ASA.
@@ -248,7 +248,7 @@ O exemplo a seguir mostra o registro de informações de dispositivo JSON para u
 }
 ```
 
-Abaixo está a mensagem **DeviceInfo** JSON enviada pelo dispositivo para atualizar os metadados de informações de dispositivo:
+O exemplo a seguir mostra a mensagem **DeviceInfo** JSON enviada pelo dispositivo para atualizar os metadados de informações de dispositivo:
 
 ```
 { "ObjectType":"DeviceInfo",
@@ -267,7 +267,7 @@ Agora que você acabou de aprender como personalizar as soluções pré-configur
 
 * [Visão geral da solução pré-configurada de manutenção preditiva][lnk-predictive-overview]
 * [Perguntas frequentes sobre o IoT Suite][lnk-faq]
-* [Segurança de IoT desde o início][lnk-security-groundup]
+* [Segurança IoT desde o início][lnk-security-groundup]
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png
@@ -288,6 +288,6 @@ Agora que você acabou de aprender como personalizar as soluções pré-configur
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: Azure Privileged Identity Management | Microsoft Docs
 description: "Um tópico que explica o que é o Azure AD Privileged Identity Management e como usar o PIM para melhorar sua segurança de nuvem."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0a642046ee26c242900b480a5144f53f2ac23769
+ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
+ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
 
 
 ---
@@ -25,8 +25,6 @@ Com o Privileged Identity Management do Azure Active Directory (AD), você pode 
 
 > [!NOTE]
 > O Privileged Identity Management só está disponível com a edição Premium P2 do Azure Active Directory. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md).
-> 
-> 
 
 As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um usuário mal-intencionado obter esse tipo de acesso. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure, Office 365 ou SaaS. As organizações dão aos usuários acesso privilegiado no Azure AD sem monitorar o que esses usuários estão fazendo com seus privilégios de administrador. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.  
 
@@ -53,8 +51,6 @@ Você pode começar a usar o Azure AD Privileged Identity Management acessando o
 
 > [!NOTE]
 > Você deve ser um administrador global com uma conta organizacional (por exemplo, @yourdomain.com), não uma conta da Microsoft (por exemplo, @outlook.com), para habilitar o Azure AD Privileged Identity Management para um diretório.
-> 
-> 
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
 2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito do portal do Azure. Selecione o diretório em que você usará o Privileged Identity Management do Azure AD.
@@ -107,6 +103,9 @@ Há duas maneiras de controlar como seus funcionários e os administradores est�
 
 A segunda opção é configurar [revisões de acesso](active-directory-privileged-identity-management-how-to-start-security-review.md)regulares. Essas revisões de acesso podem ser executadas pelo revisor (como um gerente de equipe) e atribuídas por ele, ou os funcionários podem examinar por conta própria. Essa é a melhor maneira de monitorar quem ainda precisa ter acesso e quem não precisa mais.
 
+## <a name="azure-ad-pim-at-subscription-expiration"></a>Azure AD PIM na expiração da assinatura
+Antes de atingir a disponibilidade geral, o Azure AD PIM estava no modo de visualização e não havia nenhuma verificação de licença para um locatário visualizar o Azure AD PIM de visualização.  Agora que o Azure AD PIM atingiu a disponibilidade geral, uma assinatura de avaliação ou paga deverá estar presente no locatário para que o PIM continue a ser usado depois de dezembro de 2016.  Se sua organização não adquirir o Azure AD Premium P2 ou se sua assinatura expirar, o Azure AD PIM não estará mais disponível em seu locatário.  Você pode ler mais nos [requisitos de assinatura do Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
@@ -121,6 +120,6 @@ A segunda opção é configurar [revisões de acesso](active-directory-privilege
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

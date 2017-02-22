@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
+ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
 
 
 ---
@@ -47,7 +47,7 @@ Se não quiser conectar qualquer um dos seus controladores de domínio diretamen
 3. Nesse computador, defina a seguinte chave do Registro:
 
    * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * Valor: **IsTarge**
+   * Valor: **IsTarget**
    * Dados do Valor: **true**
 
    > [!NOTE]
@@ -89,7 +89,7 @@ A folha Tempo de Vida da Marca de Exclusão ajuda a identificar locais nos quais
 
 Nessa situação, simplesmente corrigir o erro de replicação não será suficiente. No mínimo, você precisará investigar manualmente para identificar e limpar objetos remanescentes antes de reiniciar a replicação. Talvez ainda seja necessário encerrar um controlador de domínio.
 
-Além de identificar os erros de replicação que persistiram após o tempo de vida da marca para exclusão, também é desejável prestar atenção nos erros que se enquadram nas categorias **50% a 75% TSL** ou **75% a 100% TSL**.
+Além de identificar os erros de replicação que persistiram após o tempo de vida da marca para exclusão, também é desejável prestar atenção nos erros que se enquadram nas categorias **50% a&75;% TSL** ou **75% a&100;% TSL**.
 
 Esses são erros claramente remanescentes, não transitórios, e que provavelmente precisarão da sua intervenção para serem resolvidos. A boa notícia é que eles ainda não atingiram o tempo de vida da marca de exclusão. Se você corrigir estes problemas imediatamente e *antes* de atingirem o tempo de vida da marca de exclusão, a replicação poderá ser reiniciada com intervenção manual mínima.
 
@@ -115,31 +115,31 @@ Você também pode clicar em **Exportar** para exortar os resultados para o Exce
 
 ## <a name="ad-replication-status-faq"></a>Perguntas frequentes do Status de Replicação do AD
 **P: Com que frequência os dados de status de replicação do AD são atualizados?**
- R: As informações são atualizadas a cada 5 dias.
+R: As informações são atualizadas a cada 5 dias.
 
 **P: Há uma maneira de configurar a frequência com que tais dados são atualizados?**
- R: Não no momento.
+R: Não no momento.
 
 **P: Preciso adicionar todos os meus controladores de domínio ao meu espaço de trabalho do OMS para ver o status de replicação?**
- R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu espaço de trabalho do OMS, dados de todos eles serão enviados para o OMS.
+R: Não, apenas um único controlador de domínio deve ser adicionado. Se você tiver vários controladores de domínio em seu espaço de trabalho do OMS, dados de todos eles serão enviados para o OMS.
 
 **P: Não quero adicionar qualquer controlador de domínio ao meu espaço de trabalho do OMS. Ainda posso usar a solução Status de Replicação do AD?**
 R: Sim. Você pode definir o valor de uma chave do Registro para habilitar isso. Confira [Para habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 **P: Qual é o nome do processo que faz a coleta de dados?**
- R: AdvisorAssessment.exe
+R: AdvisorAssessment.exe
 
 **P: Quanto tempo leva para os dados serem coletados?**
- R: O tempo de coleta de dados depende do tamanho do ambiente do Active Directory, mas geralmente leva menos de 15 minutos.
+R: O tempo de coleta de dados depende do tamanho do ambiente do Active Directory, mas geralmente leva menos de 15 minutos.
 
 **P: Que tipo de dados é coletado?**
- R: Informações de replicação são coletadas por meio do LDAP.
+R: Informações de replicação são coletadas por meio do LDAP.
 
 **P: Há uma maneira de configurar quando os dados são coletados?**
- R: Não no momento.
+R: Não no momento.
 
 **P: De quais permissões preciso para coletar dados?**
- R: Permissões de usuário normais para o Active Directory geralmente são suficientes.
+R: Permissões de usuário normais para o Active Directory geralmente são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Solucionar problemas de coleta de dados
 Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu espaço de trabalho do OMS. Enquanto isso, você verá uma mensagem indicando que os **dados ainda estão sendo coletados**.
@@ -153,6 +153,6 @@ Se você não quiser conectar nenhum controlador de domínio diretamente ao OMS 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

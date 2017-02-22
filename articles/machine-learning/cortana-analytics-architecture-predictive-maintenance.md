@@ -1,5 +1,5 @@
 ---
-title: "Arquitetura da manutenção preditiva | Microsoft Docs"
+title: "Manutenção preditiva para o setor aeroespacial com o Azure - Arquitetura de solução de Cortana Intelligence | Microsoft Docs"
 description: "Diagrama da arquitetura do Modelo de Solução do Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, utilitários e transporte."
 services: cortana-analytics
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 9a514c6894ca0b0e212922a72188c57be038504d
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 0b79b908537e94af62b59a6135dfc16e2b33fee8
 
 
 ---
@@ -31,6 +31,6 @@ Você pode baixar uma versão em tamanho completo do diagrama aqui: [diagrama de
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

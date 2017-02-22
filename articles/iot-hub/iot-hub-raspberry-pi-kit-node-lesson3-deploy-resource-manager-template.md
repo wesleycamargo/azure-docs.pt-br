@@ -1,5 +1,5 @@
 ---
-title: "Criar um aplicativo de funções do Azure e uma conta de Armazenamento do Azure | Microsoft Docs"
+title: "Conectar o Raspberry Pi (Nó) ao IoT do Azure - Lição 3: implantação de modelo | Microsoft Docs"
 description: "O aplicativo de funções do Azure escuta os eventos de Hub IoT do Azure, processa as mensagens recebidas e grava-as no armazenamento de Tabelas do Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: df446b1a6b244761f39bfdcebb7e404435c2c35d
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: a3a7ec4c81556e4cb530f32c9997d8701db68b2c
 
 
 ---
@@ -78,6 +78,6 @@ Você criou o aplicativo de funções do Azure para processar as mensagens de hu
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implantação de serviços Web do Azure AM que usam módulos de importação e exportação de dados | Microsoft Docs"
+title: "Usar dados de Importação/Exportação em serviços Web do Azure Machine Learning | Microsoft Docs"
 description: "Saiba como usar os módulos Importar Dados e Exportar Dados para enviar e receber dados de um serviço Web."
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2b6a932fef8c2bf2223ae525ff765fc7e01c3f0a
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 0dc02034ea1f3c4f8413aca1ff693838ad1e49bd
 
 
 ---
@@ -106,13 +106,13 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
 9. Localize a declaração de solicitação e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
    
-     var request = new BatchExecutionRequest()   {    
-   
-         GlobalParameters = new Dictionary<string, string>() {
-         { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-         { "Table", "dbo.ScoredTable2" },
-         }
-     };
+        var request = new BatchExecutionRequest() 
+        {           
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable2" },
+            }
+        };
 10. Execute o aplicativo. 
 
 Após a conclusão da execução, uma nova tabela será adicionada ao banco de dados que contém os resultados da pontuação.
@@ -130,21 +130,21 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usará a consulta original, mas definirá um novo nome de tabela.
    
-     var scoreRequest = new   {
-   
-         Inputs = new Dictionary<string, StringTable>()
-         {
-         },
-         GlobalParameters = new Dictionary<string, string>() {
-              { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-             { "Table", "dbo.ScoredTable3" },
-         }
-     };
+        var scoreRequest = new
+        {       
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 10. Execute o aplicativo. 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

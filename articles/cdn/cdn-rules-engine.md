@@ -1,9 +1,9 @@
 ---
-title: "Substituir o comportamento HTTP padrão usando o Mecanismo de Regras da CDN (Rede de Distribuição de Conteúdo) do Azure | Microsoft Docs"
+title: Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure | Microsoft Docs
 description: "O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 41e17c4aeda48c1ff7db1206bf52bb709b109bea
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
 
 
 ---
-# <a name="override-default-http-behavior-using-the-azure-content-delivery-network-cdn-rules-engine"></a>Substituir o comportamento HTTP padrão usando o Mecanismo de Regras da CDN (Rede de Distribuição de Conteúdo) do Azure
+# <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir o comportamento HTTP usando o mecanismo de regras da CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Visão geral
@@ -82,11 +82,11 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
 * [Referência do Mecanismo de Regras](cdn-rules-engine-reference.md)
 * [Condições de correspondência do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Expressões condicionais do Mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
-* [Recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md)
+* [Recursos do Mecanismo de Regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Azure Fridays: novos recursos Premium poderosos do Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

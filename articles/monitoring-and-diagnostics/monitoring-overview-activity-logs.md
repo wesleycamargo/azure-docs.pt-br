@@ -12,22 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: b9c2308a85fb9a65e6e18b8c3b4373876c8d1f25
+ms.sourcegitcommit: 97edd5eaa3cfa4a122556583dff28c4a9b6f5adc
+ms.openlocfilehash: 18035fe2a30707f701098cef4b1391b1d5ab2012
 
 
 ---
 # <a name="overview-of-the-azure-activity-log"></a>Visão geral do Log de Atividades do Azure
-O **Log de Atividades do Azure** é um log que fornece informações sobre as operações executadas em recursos em sua assinatura. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", pois ele relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET).
+O **Log de Atividades do Azure** é um log que fornece informações sobre as operações executadas em recursos em sua assinatura. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", pois ele relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET) ou operações para recursos que usam o modelo Clássico/"RDFE".
 
 O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md), que são todos os logs emitidos por um recurso. Esses logs fornecem dados sobre a operação desse recurso, em vez de operações nesse recurso.
 
 Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
 
 Veja este [vídeo de introdução ao Log de Atividades](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
+
+> [!WARNING]
+> O Log de Atividades do Azure serve principalmente para atividades que ocorrem no Azure Resource Manager, não para as que usam o modelo Clássico/RDFE. Observe que alguns tipos de recursos Clássicos têm um provedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft.ClassicCompute). Se um usuário interagir com um tipo de recurso Clássico por meio do Azure Resource Manager usando esses provedores de recursos de proxy, as operações aparecerão no Log de Atividades. Se um usuário interagir com um tipo de recurso Clássico no portal clássico ou de fora dos proxies do Azure Resource Manager, as ações do usuário serão registradas somente no Log de Operações, que é acessível apenas no Portal do Clássico.
+>
+>
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
 Veja algumas coisas que você pode fazer com o Log de Atividades:
@@ -45,7 +50,7 @@ O namespace da conta de armazenamento ou do hub de eventos não precisa estar na
 Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
 * Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
-* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas
+* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas. *Observe que o significado de "category" no contexto do Log de perfil é diferente do significado da propriedade "category" em um evento de Log de atividades. Embora "category" no Log de perfil represente o tipo de operação (Gravação, Exclusão, Ação), a propriedade "category" em um evento de Log de atividade representa a origem ou o tipo de evento (Administração, ServiceHealth, Alerta etc.).*
 * Quais regiões (locais) devem ser exportados
 * Por quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs serão mantidos para sempre. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 
@@ -239,6 +244,6 @@ Cada evento no Log de Atividades tem um blob JSON semelhante a este exemplo:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

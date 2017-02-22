@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Registro do Contêiner do Azure | Microsoft Docs"
+title: "Criar um registro de contêiner do Docker Privado no Azure | Microsoft Docs"
 description: "Introdução ao serviço de Registro de Contêiner do Azure, fornecendo registros Docker privados gerenciados baseados em nuvem."
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
-ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
+ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
+ms.openlocfilehash: 44bfd57feecc45e037717a35b64dd8e4bfb6a1b3
 
 ---
 # <a name="what-is-azure-container-registry"></a>O que é o Registro de Contêiner do Azure?
@@ -71,6 +71,6 @@ Os desenvolvedores também podem enviar um registro de contêiner como parte de 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

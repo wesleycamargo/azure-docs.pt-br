@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 4d436776069bd950dd9ab240aeefd986822ee869
+ms.sourcegitcommit: 7e53a249e6a7ea87d7d5855d041db97b5df7053c
+ms.openlocfilehash: 1276506d77695f284c49d0e2f7d57a9162b38bd6
 
 
 ---
@@ -229,7 +229,7 @@ O URI de redirecionamento deve ser no formato correto de:
 
 ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Esse URI de Redirecionamento deve ser especificado no registro de seu aplicativo usando o [Portal Clássico do Azure](https://manage.windowsazure.com/). Para saber mais sobre o registro de aplicativo do Azure AD, confira [Integração com o Azure Active Directory](active-directory-how-to-integrate.md).
+Esse URI de Redirecionamento deve ser especificado no registro de seu aplicativo usando o [Portal do Azure](https://portal.azure.com/). Para saber mais sobre o registro de aplicativo do Azure AD, confira [Integração com o Azure Active Directory](active-directory-how-to-integrate.md).
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>Etapa 3: Configurar as permissões corretas em seu aplicativo
 Nosso aplicativo de agente no Android usa o recurso de Gerenciador de Contas do sistema operacional Android para gerenciar credenciais nos aplicativos. Para usar o agente no Android, seu manifesto de aplicativo deve ter permissões para usar contas do Gerenciador de Contas. Isso é discutido detalhadamente na [documentação do Google para o Gerente de Contas](http://developer.android.com/reference/android/accounts/AccountManager.html)
@@ -248,6 +248,6 @@ Agora, o SDK do Microsoft Identity compartilhará automaticamente as credenciais
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

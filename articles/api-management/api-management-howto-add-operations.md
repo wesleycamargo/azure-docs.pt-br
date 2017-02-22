@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
+ms.sourcegitcommit: d8b2f91a4d47513572fc5a56c60524d8338c8df4
+ms.openlocfilehash: 4527e27f760a7a0685f92a7108c4e8ff9759d33c
 
 
 ---
@@ -28,7 +28,7 @@ Operações são adicionadas e configuradas em uma API no Portal do editor. Para
 
 ![Portal do editor][api-management-management-console]
 
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -47,6 +47,8 @@ Especifique o **verbo HTTP** escolhendo na lista suspensa.
 <a name="url-template"></a>
 
 Defina o modelo do URL digitando um fragmento de URL consistindo de um ou mais segmentos de caminho URL e nenhum ou mais parâmetros de cadeia de consulta. O modelo do URL, anexado ao URL base da API, identifica uma única operação HTTP. Ele pode conter uma ou mais partes variáveis nomeadas que são identificadas por chaves. Essas partes variáveis se chamam parâmetros de modelo, que são valores atribuídos dinamicamente e extraídos do URL da solicitação quando a solicitação está sendo processada pela plataforma de Gerenciamento de API.
+
+> O modelo de URL pode incluir padrões curingas. Por exemplo, especificar `/*` encaminha todas as solicitações para esse método HTTP para o serviço de back-end.
 
 ![Modelo do URL][api-management-url-template]
 
@@ -75,7 +77,7 @@ Para habilitar o cache para a operação de modo fácil e rápido, selecione a g
 
 Chaves de cache são usadas para diferenciar as respostas, de modo que a resposta correspondente a cada chave de cache diferente tenha seu próprio valor em cache separado. Outra opção é inserir parâmetros de cadeia de consulta específicos e/ou cabeçalhos HTTP a serem utilizados para computar valores de chave de cache nas caixas de texto **Variar de acordo com os parâmetros da cadeia de consulta** e **Variar de acordo com cabeçalhos**. Quando nenhum é especificado, o URL de solicitação completo e os seguintes valores de cabeçalho HTTP são usados para gerar a chave de cache: **Accept** e **Accept-Charset**.
 
-> Para obter mais informações sobre cache e políticas de cache, consulte [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure][Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure].
+> Para obter mais informações sobre cache e políticas de cache, consulte [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure][How to cache operation results in Azure API Management].
 > 
 > 
 
@@ -129,7 +131,7 @@ Após configurar a operação, clique em **Salvar**.
 ## <a name="next-steps"> </a>Próximas etapas
 Após as operações serem adicionadas a uma API, a próxima etapa é associar a API a um produto e publicá-la para que os desenvolvedores possam chamar suas operações.
 
-* [Como criar e publicar um produto][Como criar e publicar um produto]
+* [Como criar e publicar um produto][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -154,22 +156,22 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
-[Adicionar uma operação]: #add-operation
-[Cache da operação]: #operation-caching
-[Parâmetros da solicitação]: #request-parameters
-[Corpo da solicitação]: #request-body
-[Respostas]: #responses
-[Próximas etapas]: #next-steps
+[Add an operation]: #add-operation
+[Operation caching]: #operation-caching
+[Request parameters]: #request-parameters
+[Request body]: #request-body
+[Responses]: #responses
+[Next steps]: #next-steps
 
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como criar e publicar um produto]: api-management-howto-add-products.md
-[Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml | Microsoft Docs
-description: "Habilitar ou desabilitar módulos de coleta de dados e adicionar contadores de desempenho e outros parâmetros"
+title: "Referência de ApplicationInsights.config - Azure | Microsoft Docs"
+description: "Habilitar ou desabilitar módulos de coleta de dados e adicionar contadores de desempenho e outros parâmetros."
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: 24b8ede9268fb4d821913cfab313c3c7050d8ddb
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: a43eca9878881731f54dc1ec3bc8a9cd15bf2c5e
 
 
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou.xml
 O SDK .NET do Application Insights consiste em vários pacotes NuGet. O [pacote principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria ao Application Insights. Os [pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecem *módulos* e *inicializadores* de telemetria para rastreamento automático de telemetria do seu aplicativo e respectivo contexto. Ajustando o arquivo de configuração, você pode habilitar ou desabilitar módulos e inicializadores de telemetria, bem como definir parâmetros para alguns deles.
 
-O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é adicionado automaticamente ao seu projeto quando você [instala a maioria das versões do SDK][iniciar]. Ele também é adicionado a um aplicativo Web pelo [Status Monitor em um servidor IIS][redfield] ou quando você seleciona a [extensão do Application Insights para um site ou VM do Azure](app-insights-azure-web-apps.md).
+O arquivo de configuração é chamado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo do seu aplicativo. Ele é adicionado automaticamente ao seu projeto quando você [instala a maioria das versões do SDK][start]. Ele também é adicionado a um aplicativo Web pelo [Status Monitor em um servidor IIS][redfield] ou quando você seleciona a [extensão do Application Insights para um site ou VM do Azure](app-insights-azure-web-apps.md).
 
 Não há um arquivo equivalente para controlar o [SDK em uma página da Web][client].
 
@@ -37,7 +37,7 @@ Há um nó no arquivo de configuração para cada módulo. Para desabilitar um m
 ### <a name="dependency-tracking"></a>Acompanhamento de dependência
 [Dependency tracking](app-insights-asp-net-dependencies.md) coleta a telemetria sobre chamadas para bancos de dados e serviços externos e torna o seu aplicativo. Para permitir que esse módulo funcione em um servidor IIS, é necessário [instalar o Status Monitor][redfield]. Para usá-lo em aplicativos Web do Azure ou VMs, [selecione a extensão do Application Insights](app-insights-azure-web-apps.md).
 
-Você também pode escrever seu próprio código de rastreamento de dependência usando a [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Você também pode escrever seu próprio código de rastreamento de dependência usando a [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
@@ -246,7 +246,7 @@ Se quiser enviar um conjunto específico de eventos para um recurso diferente, v
 
 ```
 
-Para obter uma nova chave, [crie um novo recurso no portal do Application Insights][novo].
+Para obter uma nova chave, [crie um novo recurso no portal do Application Insights][new].
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre a API][api].
@@ -258,12 +258,12 @@ Para obter uma nova chave, [crie um novo recurso no portal do Application Insigh
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[novo]: app-insights-create-new-resource.md
+[new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[iniciar]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

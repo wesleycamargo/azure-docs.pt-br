@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 714045750ab16364ecd1095f1f346d3da1d4c4a5
-ms.openlocfilehash: 4bfcf719cb071a28421c64dbb4d6c132f45ba9f9
+ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
+ms.openlocfilehash: b7f6c92867e3fabe07312539ec8dfd2d3525f02e
 
 ---
 
@@ -34,7 +34,7 @@ Para configurar a indexação de tabela:
 
 1. Criar uma fonte de dados
    * Definir o parâmetro `type` para `azuretable`
-   * Passe a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. É possível obter a cadeia de conexão no Portal do Azure navegando para a folha da conta de armazenamento > **Chaves** > **de Configuração** (para contas de armazenamento Clássicas) ou **Configuração** > **Chaves de Acesso** (para contas de armazenamento ARM). Observe que atualmente o Azure Search não oferece suporte para credenciais de Assinatura de Acesso Compartilhado. Se você desejar usar o SAS, vote [nessa sugestão de UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/12368244-support-shared-access-signature-for-blob-datasourc).
+   * Passe a cadeia de conexão da conta de armazenamento como o parâmetro `credentials.connectionString`. Consulte [Como especificar credenciais](#Credentials) abaixo para obter detalhes.
    * Especifique o nome da tabela usando o parâmetro `container.name`
    * Opcionalmente, especifique uma consulta usando o parâmetro `container.query`. Sempre que possível, use um filtro em PartitionKey para obter o melhor desempenho. Qualquer outra consulta resultará em uma verificação completa da tavbela que pode resultar em baixo desempenho em tabelas grandes.
 2. Crie um índice de pesquisa com o esquema que corresponde às colunas na tabela que você deseja indexar.
@@ -53,6 +53,20 @@ Para configurar a indexação de tabela:
     }   
 
 Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](https://msdn.microsoft.com/library/azure/dn946876.aspx).
+
+<a name="Credentials"></a>
+#### <a name="how-to-specify-credentials"></a>Como especificar credenciais ####
+
+Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras: 
+
+- **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
+- **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. As SAS devem ter a lista e permissões de leitura nos contêineres (tabelas neste caso) e objetos (linhas de tabela).
+-  **Tabela de assinatura de acesso compartilhado**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`. As SAS devem ter a lista e permissões de leitura na tabela.
+
+Para saber mais sobre assinaturas de acesso compartilhado de armazenamento, veja [Uso de Assinaturas de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md).
+
+> [!NOTE]
+> Se você usar credenciais SAS, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais SAS expirarem, o indexador irá falhar com uma mensagem de erro semelhante à `Credentials provided in the connection string are invalid or have expired.`.  
 
 ### <a name="create-index"></a>Criar índice
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
@@ -96,7 +110,7 @@ Na Pesquisa do Azure, a chave do documento identifica exclusivamente um document
 Como as linhas de tabela têm uma chave composta, a Pesquisa do Azure gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave de linha e de chave de partição. Por exemplo, se a PartitionKey de uma linha for `PK1` e a RowKey for `RK1`, o valor do campo `Key` será `PK1RK1`.
 
 > [!NOTE]
-> O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base 64 protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
+> O valor `Key` pode conter caracteres inválidos em chaves de documento, como traços. É possível lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se você fizer isso, lembre-se também de usar a codificação de Base&64; protegida por URL ao transmitir as chaves de documento nas chamadas à API como Pesquisa.
 >
 >
 
@@ -123,6 +137,6 @@ Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, en
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

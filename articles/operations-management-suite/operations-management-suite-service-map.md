@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
-ms.openlocfilehash: 505b4e3b7862657bcfd8eea1755677104a9b68eb
+ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
+ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
 
 
 ---
@@ -30,7 +30,7 @@ Este artigo descreve os detalhes de como usar o Mapa do Serviço.  Para saber ma
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
 
 ### <a name="discovery"></a>Descoberta
-O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros.  Ele descobre e mapeia todas as dependências TCP, identificando conexões surpresa, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da rede, como DNS e AD.  O Mapa do Serviço descobre conexões de rede com falha que seus sistemas gerenciados estão tentando realizar, ajudando você a identificar possíveis erros de configuração do servidor, interrupções de serviço e problemas de rede.
+O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros.  Ele descobre e mapeia todas as dependências TCP, identificando conexões surpresa, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da rede, como o Active Directory.  O Mapa do Serviço descobre conexões de rede com falha que seus sistemas gerenciados estão tentando realizar, ajudando você a identificar possíveis erros de configuração do servidor, interrupções de serviço e problemas de rede.
 
 ### <a name="incident-management"></a>Gerenciamento de incidentes
 O Mapa do Serviço ajuda a eliminar as suposições de isolamento do problema, mostrando a você como os sistemas estão conectados e afetando uns aos outros.  Além das conexões com falha, informações sobre clientes conectados ajudam a identificar balanceadores de carga configurados incorretamente, carga surpreendente ou excessiva em serviços essenciais e clientes não autorizados, como computadores de desenvolvedores conversando com sistemas de produção.  Fluxos de trabalho integrados com Controle de alteração do OMS também permitem que você verifique se um evento de alteração em uma máquina de back-end ou serviço pode explicar a causa raiz de um incidente.
@@ -50,11 +50,9 @@ Os agentes do Mapa do Serviço coletam informações sobre todos os processos co
 
 ![Visão geral do Mapa do Serviço](media/oms-service-map/service-map-overview.png)
 
-Máquinas podem ser expandidas no mapa para mostrar os processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado.  Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos de comunicação com a máquina de foco são exibidos.  A contagem de máquinas de front-end sem agente se conectando com a máquina de foco é indicada no lado esquerdo dos processos aos quais elas se conectam.  Se a máquina de foco estiver fazendo uma conexão com uma máquina de back-end sem um agente, esse back-end será representado por um nó no mapa, e o nó poderá ser expandido para mostrar as portas individuais e os serviços com os quais a máquina de foco está se comunicando.
+Máquinas podem ser expandidas no mapa para mostrar os processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado.  Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos de comunicação com a máquina de foco são exibidos.  A contagem de máquinas de front-end sem agente se conectando com a máquina de foco é indicada no lado esquerdo dos processos aos quais elas se conectam.  Se o computador em foco estiver fazendo uma conexão com um computador de back-end sem um agente, o servidor de back-end será incluído em um Grupo de Portas de Servidor com outras conexões com o mesmo número de porta.
 
 Por padrão, os mapas do Mapa do Serviço mostram os últimos 10 minutos de informações de dependência.  Usando os controles de tempo na parte superior esquerda, os mapas podem ser consultados com relação a intervalos históricos, até uma hora, a fim de mostrar como eram as dependências no passado, por exemplo, durante um incidente ou antes de uma alteração.    Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
-
-![Mapa de máquinas com propriedades da máquina selecionada](media/oms-service-map/machine-map.png)
 
 ## <a name="status-badges"></a>Notificações de status
 Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor.  As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do OMS.  Clicar em uma notificação levará você diretamente até os detalhes do status no painel à direita.  As notificações de status disponíveis atualmente incluem Alertas, Alterações, Segurança e Atualizações.
@@ -67,6 +65,20 @@ As Conexões com falha são mostradas em mapas do Mapa do Serviço para processo
 ![Conexões com falha](media/oms-service-map/failed-connections.png)
 
 Entender as conexões com falha pode ajudar com a solução de problemas, validação da migração, análise de segurança e noções básicas sobre arquitetura em geral.  Às vezes, as conexões com falha são inofensivas, mas normalmente apontam diretamente para um problema, como um ambiente de failover ficando inacessível de repente ou duas camadas de aplicativo sem comunicação após uma migração na nuvem.
+
+## <a name="client-groups"></a>Grupos de Clientes
+Os Grupos de Clientes são caixas no mapa que representam computadores cliente que não possuem Agentes de Dependência.  Um único Grupo de Clientes representa os clientes de um processo individual.
+
+![Grupos de clientes](media/oms-service-map/client-groups.png)
+
+Para ver os endereços IP dos servidores em um Grupo de Clientes, selecione o grupo.  O conteúdo do grupo será listado no Painel Propriedades.
+
+![Propriedades do grupo de clientes](media/oms-service-map/client-group-properties.png)
+
+## <a name="server-port-groups"></a>Grupos de Portas do Servidor
+Os Grupos de Portas do Servidor são caixas que representam portas de servidor em servidores que não possuem Agentes de Dependência.  A caixa listará a porta do servidor com uma contagem do número de servidores que têm conexões com essa porta.  Expanda a caixa para ver conexões e servidores individuais.  Se houver apenas um servidor na caixa, o nome ou endereço IP será listado.
+
+![Grupos de portas do servidor](media/oms-service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menu de contexto
 Clicar nos três pontos no canto superior direito de qualquer servidor mostrará o menu de contexto do servidor.
@@ -239,19 +251,21 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
-
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Mapa do Serviço. A Microsoft usa esses dados para fornecer e aprimorar a qualidade, a segurança e a integridade do serviço Mapa do Serviço. Os dados incluem informações sobre a configuração do software, como o sistema operacional e a versão, e também incluem o endereço IP, o nome DNS e nome da Estação de Trabalho a fim de fornecer recursos de solução de problemas precisos e eficientes. Não coletamos nomes, endereços ou outras informações de contato.
 
 Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privacidade do Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) no Log Analytics para recuperar os dados coletados pelo Mapa do Serviço.
 
 
+## <a name="feedback"></a>Comentários
+Você tem algum comentário sobre o Mapa de Serviço ou sobre esta documentação?  Visite nossa [página User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.
 
-<!--HONumber=Dec16_HO1-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server | Microsoft Docs"
+title: Criar e implantar um modelo de machine learning usando o SQL Server em uma VM do Azure | Microsoft Docs
 description: "Processo e Tecnologia de Análise Avançada em ação"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 01/29/2017
 ms.author: fashah;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 76fe2f70ca297be153d1223a219c9a2b18203a96
+ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
+ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
 
 
 ---
@@ -48,7 +48,7 @@ A chave exclusiva para unir trip\_data e trip\_fare é composta pelos campos: me
 ## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Formularemos três problemas de previsão com base em *tip\_amount*, sendo eles:
 
-1. Classificação binária: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
+1. Classificação binária: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$&0; é um exemplo positivo, enquanto um *tip\_amount* de US$&0; é um exemplo negativo.
 2. Classificação multiclasse: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
         Class 0 : tip_amount = $0
@@ -70,7 +70,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
 2. [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md)
-3. [Provisionar uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que servirá como um SQL Server, bem como um servidor do IPython Notebook.
+3. [Provisione uma Máquina Virtual de Ciência de Dados](machine-learning-data-science-setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor do IPython Notebook.
    
    > [!NOTE]
    > Os scripts de exemplo e IPython Notebook serão baixados para a máquina virtual de Ciência de Dados durante o processo de instalação. Quando o script de pós-instalação da VM for concluído, os exemplos estarão na biblioteca de documentos da VM:  
@@ -656,6 +656,6 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

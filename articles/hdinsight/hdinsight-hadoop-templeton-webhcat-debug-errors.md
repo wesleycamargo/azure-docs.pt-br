@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 2fbbfd3d221ef2f6bce302ed169eddf5a8b0d73e
 
 
 ---
@@ -30,11 +30,13 @@ O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API
 ## <a name="modifying-configuration"></a>Modificando a configuração
 > [!IMPORTANT]
 > Vários dos erros listados neste documento ocorrerem porque um máximo configurado foi excedido. Quando a etapa de solução menciona que você pode alterar um valor, use um dos seguintes para realizar a alteração:
-> 
-> 
+
 
 * Para clusters do **Windows** : use uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [Desenvolver ações de script](hdinsight-hadoop-script-actions.md).
 * Para clusters do **Linux** : use o Ambari (API REST ou Web) para modificar o valor. Para obter mais informações, consulte [Gerenciar o HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### <a name="default-configuration"></a>Configuração padrão
 Estes são os valores de configuração padrão que podem afetar o desempenho do WebHCat ou causar erros se esses valores forem excedidos:
@@ -86,6 +88,6 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

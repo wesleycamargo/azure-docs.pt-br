@@ -12,24 +12,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 01/05/2017
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce3e53a4edfa8b97ce4fdb6b553d0b6c917f54e4
+ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
+ms.openlocfilehash: 8a8419497bda3f1df523d6aff28028548abc155a
 
 
 ---
-# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Limitando o comportamento do Gerenciador de Recursos do cluster do Service Fabric
-Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver nós simultâneos ou falhas do tipo domínio de falha – o que aconteceria se isso ocorresse durante uma atualização? O Gerenciador de Recursos fará o melhor para corrigir tudo, mas, em situações como essa, talvez você queira considerar o uso de um suporte para que o próprio cluster tenha a oportunidade de se estabilizar (os nós que devem retornar retornarão, as condições da rede serão corrigidas automaticamente, os bits corrigidos serão implantados). Para ajudar com esses tipos de situações, o Gerenciador de Recursos de Cluster do Service Fabric inclui várias restrições. Observe que essas restrições são bastante perturbadoras e, no geral, não devem ser usadas, a menos que seja feito um cálculo cuidadoso em relação à quantidade de trabalho paralelo que realmente pode ser feito no cluster, bem como se houver uma necessidade frequente em responder a esses tipos de eventos de reconfiguração macroscópicos não planejados (também conhecidos como “dias péssimos”).
 
-Em geral, recomendamos evitar esses dias péssimos por meio de outras opções (primeiramente, como atualizações de código regulares e evitar o excesso de agendamentos no cluster), em vez de limitar o cluster para impedir que ele use recursos quando estiver tentando se autocorrigir. Os limitadores têm valores padrão que julgamos pela experiência serem padrões bons. No entanto, provavelmente você deverá conferi-los e ajustá-los de acordo com sua carga real esperada. Embora não restringir ou carregar excessivamente o cluster seja uma melhor prática, você poderá determinar que haverá casos em que (até que seja possível corrigi-los) será necessário colocar algumas restrições em vigor, mesmo que isso signifique que o cluster levará mais tempo para se estabilizar.
+# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Limitando o comportamento do Gerenciador de Recursos do cluster do Service Fabric
+Mesmo se você tiver configurado o Gerenciador de Recursos do Cluster corretamente, o cluster poderá ser interrompido. Por exemplo, poderia haver nós simultâneos ou falhas do tipo domínio de falha – o que aconteceria se isso ocorresse durante uma atualização? O Gerenciador de Recursos de Cluster tenta corrigir tudo, mas isso pode introduzir variação no cluster. As restrições ajudam a construir uma barreira para que o cluster possa usar recursos para se estabilizar — os nós voltam, as partições de rede são corrigidas, bits corrigidos são implantados.
+
+Para ajudar com esses tipos de situação, o Gerenciador de Recursos de Cluster do Service Fabric inclui várias restrições. Essas restrições são exigências razoavelmente grandes. O padrão dessas configurações não deve ser alterado, a menos que seja feito um cálculo em torno do volume de trabalho que o cluster pode fazer paralelamente.
+
+As restrições têm valores padrão que a equipe do Service Fabric descobriu por experiência que são padrões aceitáveis. Se você precisar alterá-los, será preciso ajustá-los para sua carga real esperada. Você pode descobrir que precisa ter algumas restrições definidas, mesmo que isso signifique que o cluster levará mais tempo para ser estabilizado em situações importantes.
 
 ## <a name="configuring-the-throttles"></a>Configurando os limitadores
 As restrições incluídas por padrão são:
 
-* GlobalMovementThrottleThreshold – isso controla o número total de movimentações no cluster ao longo de um período de tempo (definido como GlobalMovementThrottleCountingInterval, com o valor em segundos)
-* MovementPerPartitionThrottleThreshold – isso controla o número total de movimentações de qualquer partição de serviço ao longo de um período de tempo (o MovementPerPartitionThrottleCountingInterval, com o valor em segundos)
+* GlobalMovementThrottleThreshold – essa configuração controla o número total de movimentações no cluster ao longo de um período (definido como GlobalMovementThrottleCountingInterval, com o valor em segundos)
+* MovementPerPartitionThrottleThreshold – essa configuração controla o número total de movimentações de qualquer partição de serviço ao longo de um período (o MovementPerPartitionThrottleCountingInterval, com o valor em segundos)
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
@@ -40,7 +43,35 @@ As restrições incluídas por padrão são:
 </Section>
 ```
 
-Lembre-se de que na maioria das vezes que vimos clientes usarem essas restrições foi porque eles já estavam em um ambiente de restrição de recursos (como largura de banda de rede limitada em nós individuais ou discos que não estavam dentro das exigências de builds de réplicas paralelas que estavam sendo posicionadas neles), o que significa que essas operações não teriam êxito ou seriam lentas de qualquer forma.  Nessas situações, os clientes estavam familiarizados, sabendo que estavam, potencialmente, aumentando a quantidade de tempo que levaria para o cluster alcançar um estado estável, inclusive sabendo que poderiam acabar executando em uma confiabilidade geral menor durante a restrição do cluster.
+via ClusterConfig.json para implantações autônomas ou Template.json para clusters hospedados pelo Azure:
+
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "GlobalMovementThrottleThreshold",
+          "value": "1000"
+      },
+      {
+          "name": "GlobalMovementThrottleCountingInterval",
+          "value": "600"
+      },
+      {
+          "name": "MovementPerPartitionThrottleThreshold",
+          "value": "50"
+      },
+      {
+          "name": "MovementPerPartitionThrottleCountingInterval",
+          "value": "600"
+      }
+    ]
+  }
+]
+```
+
+Na maioria das vezes em que vimos os clientes usarem essas restrições, eles já estavam em um ambiente restrito por recurso. Alguns exemplos desse ambiente seriam a largura de banda de rede limitada em nós individuais ou discos que não podem criar muitas réplicas paralelamente devido às limitações da taxa de transferência. Esses tipos de restrição significavam que as operações disparadas em resposta às falhas não seriam bem-sucedidas ou seriam lentas, mesmo sem as restrições. Nessas situações, os clientes sabiam que estavam estendendo o tempo que levaria para o cluster chegar a um estado estável. Os clientes também entendiam que poderiam acabar executando com uma confiabilidade geral menor enquanto estivessem restritos.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
@@ -48,7 +79,6 @@ Lembre-se de que na maioria das vezes que vimos clientes usarem essas restriçõ
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

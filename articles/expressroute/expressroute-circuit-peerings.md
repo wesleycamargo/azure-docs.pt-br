@@ -1,10 +1,10 @@
 ---
-title: "Circuitos do ExpressRoute e domínios de roteamento | Microsoft Docs"
+title: "Circuitos do Azure ExpressRoute e domínios de roteamento | Microsoft Docs"
 description: "Esta página apresenta uma visão geral dos circuitos da Rota Expressa e dos domínios de roteamento."
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+ms.sourcegitcommit: 729c89e26e0c2da3ec88b554645091997dea4552
+ms.openlocfilehash: 1f0406b131957500c303172409cafa6be8fb3228
 
 
 ---
@@ -52,7 +52,7 @@ Serviços como o Armazenamento do Azure, Sites e Bancos de dados SQL são oferec
 
 A conectividade é sempre iniciada por meio de sua WAN para serviços do Microsoft Azure. Os serviços do Microsoft Azure não poderão iniciar conexões a sua rede por meio desse domínio de roteamento. Após o emparelhamento público ser habilitado, você poderá se conectar a todos os serviços do Azure. Não permitimos que você escolha seletivamente os serviços para os quais podemos anunciar rotas. Você pode examinar a lista de prefixos que anunciamos por meio desse emparelhamento na página [Intervalos de IPs do datacenter do Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653) . A página é atualizada semanalmente.
 
-Você pode definir filtros de rota personalizados dentro da sua rede para consumir apenas as rotas que você precisa. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento. Você pode definir filtros de rota personalizados dentro da sua rede para consumir apenas as rotas que você precisa. 
+Você pode definir filtros de rota personalizados dentro da sua rede para consumir apenas as rotas que você precisa. Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento. 
 
 Consulte a [página de perguntas frequentes](expressroute-faqs.md) para saber mais sobre serviços com suporte por meio do domínio de roteamento de emparelhamento público. 
 
@@ -89,6 +89,6 @@ Se você optar por ter todas as três sessões de emparelhamento, você deve ter
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

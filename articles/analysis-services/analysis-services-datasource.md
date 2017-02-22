@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 01/20/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
-ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+ms.sourcegitcommit: a287ebd634a9305229424d0efea266146f88a952
+ms.openlocfilehash: 234032630cb3911deb7c7d32cfc4963ad6aee43f
 
 
 ---
@@ -29,13 +29,18 @@ Por exemplo, se você tiver um modelo de dados na memória de Consulta Direta qu
 Ou, se você tiver um modelo DirectQuery que se conecta a fontes de dados locais, se você usar provedores nativos, verá a mensagem de erro: **"Erro ao criar o conjunto de linhas do OLE DB. Sintaxe incorreta próxima a 'LIMIT' "**.
 
 ## <a name="data-source-providers"></a>Provedores de fonte de dados
-Os provedores de fonte de dados a seguir têm suporte para modelos de dados na memória ou de Consulta Direta ao se conectar a fontes de dados em nuvem ou locais:
+Os provedores de fonte de dados a seguir têm suporte para modelos de dados na memória ou de Consulta Direta ao se conectar a fontes de dados da nuvem ou locais:
 
-|  | **Fonte de dados** | **Na memória** | **Consulta Direta** |
-| --- | --- | --- | --- |
-| **Nuvem** |SQL Data Warehouse do Azure |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server |
+### <a name="cloud"></a>Nuvem
+| **Fonte de dados** | **Na memória** | **Consulta Direta** |
+|  --- | --- | --- |
+| SQL Data Warehouse do Azure |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server |
 | Banco de Dados SQL do Azure |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
-| **Local** (via Gateway) |SQL Server |SQL Server Native Client 11.0 |Provedor de Dados .NET Framework para SQL Server |
+
+### <a name="on-premises-via-gateway"></a>Local (via Gateway)
+|**Fonte de dados** | **Na memória** | **Consulta Direta** |
+|  --- | --- | --- |
+| SQL Server |SQL Server Native Client 11.0 |Provedor de Dados .NET Framework para SQL Server |
 | SQL Server |Provedor Microsoft OLE DB para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
 | SQL Server |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
 | Oracle |Provedor Microsoft OLE DB para Oracle |Provedor de Dados Oracle para .NET | |
@@ -45,7 +50,7 @@ Os provedores de fonte de dados a seguir têm suporte para modelos de dados na m
 | Analytics Platform System |Provedor de Dados .NET Framework para SQL Server |Provedor de Dados .NET Framework para SQL Server | |
 
 > [!NOTE]
-> Certifique-se de que os provedores de 64 bits estejam instalados ao usar o Gateway Local.
+> Certifique-se de que os provedores de 64 bits estejam instalados ao usar o gateway Local.
 > 
 > 
 
@@ -75,6 +80,6 @@ Se você tiver fontes de dados locais, instale o [Gateway local](analysis-servic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

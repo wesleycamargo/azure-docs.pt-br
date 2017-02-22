@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 01/26/2017
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
+ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
+ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
 
 
 ---
@@ -25,7 +25,8 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 
 1. Vida útil dos tokens de segurança emitidos pelo Azure Active Directory (Azure AD) B2C.
 2. Vida útil de sessões dos aplicativos Web gerenciados pelo Azure AD B2C.
-3. Comportamento do SSO (logon único) em vários aplicativos e políticas em seu locatário B2C.
+3. Formatos de declarações importantes nos tokens de segurança emitidos pelo Azure AD B2C.
+4. Comportamento do SSO (logon único) em vários aplicativos e políticas em seu locatário B2C.
 
 Você pode usar esse recurso em seu locatário B2C da seguinte maneira:
 
@@ -37,8 +38,6 @@ Você pode usar esse recurso em seu locatário B2C da seguinte maneira:
 6. Faça as alterações desejadas. Saiba mais sobre as propriedades disponíveis nas seções seguintes.
 7. Clique em **OK**.
 8. Clique em **Salvar** na parte superior da folha.
-
-![Captura de tela de token, sessão e configuração de logon único](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
 ## <a name="token-lifetimes-configuration"></a>Configuração da vida útil de tokens
 O Azure AD B2C dá suporte ao [protocolo de autorização OAuth 2.0](active-directory-b2c-reference-protocols.md) para habilitar o acesso seguro a recursos protegidos. Para implementar esse suporte, o Azure AD B2C emite vários [tokens de segurança](active-directory-b2c-reference-tokens.md). Estas são as propriedades que você pode usar para gerenciar as vida útil dos tokens de segurança emitidos pelo Azure AD B2C:
@@ -61,7 +60,25 @@ Estes são alguns casos de uso que você pode habilitar usando essas propriedade
 * Permitir que um usuário permaneça conectado a um aplicativo móvel indefinidamente, desde que ele esteja sempre ativo no aplicativo. Isso pode ser feito ao definir a opção **Vida útil da janela deslizante do token de atualização (dias)** para **Unbounded** na sua política de entrada.
 * Atenda aos requisitos de conformidade e segurança de seu setor definindo a vida de tokens de acesso adequadamente.
 
-## <a name="session-configuration"></a>Configuração de sessão
+    > [!NOTE]
+    > Essas configurações não estão disponíveis para as políticas de redefinição de senha.
+    > 
+    > 
+
+## <a name="token-compatibility-settings"></a>Configurações de compatibilidade de token
+Fizemos alterações de formatação em declarações importantes em tokens de segurança emitidos pelo Azure AD B2C. Isso foi feito para melhorar nosso suporte a protocolos padrão e para melhor interoperabilidade com bibliotecas de identidade de terceiros. No entanto, para evitar a interrupção dos aplicativos existentes, criamos as propriedades a seguir para permitir que os clientes aceitem como necessário:
+
+* **Declaração do emissor (iss)**: identifica o locatário do Azure AD B2C que emitiu o token.
+  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: é o valor padrão.
+  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui ID para o locatário B2C e a política usada na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
+* **Declaração de assunto (sub)**: identifica a entidade, ou seja, o usuário, para o qual o token declara informações.
+  * **ObjectID**: é o valor padrão. Ele ocupa a ID de objeto do usuário no diretório para a declaração `sub` no token.
+  * **Não tem suporte**: é fornecido somente para compatibilidade com versões anteriores, e recomendamos que você alterne para **ObjectID** assim que for possível.
+* **Declaração que representa a ID da política**: identifica o tipo de declaração na qual a ID da política usada na solicitação de token é preenchida.
+  * **tfp**: é o valor padrão.
+  * **Acr**: é fornecido somente para compatibilidade com versões anteriores, e recomendamos que você alterne para `tfp` assim que for possível.
+
+## <a name="session-behavior"></a>Comportamento da sessão
 O Azure AD B2C dá suporte ao [protocolo de autenticação do OpenID Connect](active-directory-b2c-reference-oidc.md) para habilitar o logon seguro em aplicativos Web. Estas são as propriedades que você pode usar para gerenciar as sessões do aplicativo Web:
 
 * **Vida útil da sessão do aplicativo Web (minutos)**: o tempo de vida do cookie de sessão do Azure AD B2C armazenado no navegador do usuário após a autenticação bem-sucedida.
@@ -75,6 +92,11 @@ Estes são alguns casos de uso que você pode habilitar usando essas propriedade
 * Atenda aos requisitos de conformidade e segurança de seu setor definindo adequadamente a vida útil da sessão do aplicativo Web.
 * Force uma nova autenticação após um período de tempo definido durante a interação do usuário com uma parte do alto nível de segurança de seu aplicativo Web. 
 
+    > [!NOTE]
+    > Essas configurações não estão disponíveis para as políticas de redefinição de senha.
+    > 
+    > 
+
 ## <a name="single-sign-on-sso-configuration"></a>Configuração de SSO (Logon Único)
 Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá gerenciar interações do usuário entre eles usando a propriedade **Configuração de logon único** . Você pode definir a propriedade com uma das seguintes configurações:
 
@@ -83,9 +105,14 @@ Se você tiver vários aplicativos e políticas em seu locatário B2C, poderá g
 * **Política**: isso permite que você mantenha uma sessão de usuário exclusivamente para uma política, independente dos aplicativos que estejam a usá-la. Por exemplo, se o usuário já tiver entrado e concluído uma etapa da MFA (Multi-Factor Authentication), ele pode receber acesso à partes com maior segurança de vários aplicativos enquanto a sessão vinculada à política não expirar.
 * **Desabilitado**: isso força o usuário a percorrer toda a jornada do usuário em cada execução da política. Por exemplo, isso permitirá que vários usuários se inscrevam em seu aplicativo (em um cenário de área de trabalho compartilhada), mesmo quando um usuário permanecer conectado o tempo todo.
 
+    > [!NOTE]
+    > Essas configurações não estão disponíveis para as políticas de redefinição de senha.
+    > 
+    > 
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

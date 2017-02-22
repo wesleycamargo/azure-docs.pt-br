@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c5df6d998812568c764ccb6914b3c81fe4e568ec
-ms.openlocfilehash: d9d9630487f9eeb381198230a20d01c1c5f6678d
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
 
 ---
 
@@ -33,16 +33,16 @@ Cada perfil do Gerenciador de Tráfego é representado por um recurso do tipo "T
 
 ## <a name="comparison-with-the-azure-traffic-manager-classic-api"></a>Comparação com a API clássica do Gerenciador de Tráfego do Azure
 
-O suporte do Azure Resource Manager para o Gerenciador de Tráfego usa uma terminologia diferente do modelo de implantação clássico. A tabela a seguir mostra as diferenças entre os termos do Gerenciador de Recursos e do Clássico:
+O suporte do Azure Resource Manager para o Gerenciador de Tráfego usa uma terminologia diferente do modelo de implantação clássico. A tabela a seguir mostra as diferenças entre os termos Clássicos e do Resource Manager:
 
-| Termo do Gerenciador de Recursos | Termo do Clássico |
+| Termo do Resource Manager | Termo clássico |
 | --- | --- |
 | Método de roteamento de tráfego |Método de balanceamento de carga |
 | Método de prioridade |Método de failover |
 | Método ponderado |Método round robin |
 | Método de desempenho |Método de desempenho |
 
-Com base em comentários de clientes, alteramos a terminologia para aumentar a clareza e reduzir equívocos comuns. Não diferenças na funcionalidade.
+Com base nos comentários dos clientes, alteramos a terminologia para melhorar a clareza e reduzir equívocos comuns. Não diferenças na funcionalidade.
 
 ## <a name="limitations"></a>Limitações
 
@@ -52,7 +52,7 @@ Ao fazer referência a um ponto de extremidade do tipo “AzureEndpoints” para
 
 Essas instruções usam o Microsoft Azure PowerShell. O artigo a seguir explica como instalar e configurar o Azure PowerShell.
 
-* [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md)
+* [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Os exemplos neste artigo presumem que você tenha um grupo de recursos existente. Você pode criar um grupo de recursos usando o seguinte comando:
 
@@ -202,7 +202,7 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 
 ## <a name="adding-nested-endpoints"></a>Adicionando pontos de extremidade ‘aninhados’
 
-Cada perfil do Gerenciador de Tráfego especifica um único método de roteamento de tráfego. No entanto, há cenários que requerem roteamento de tráfego mais sofisticado do que o roteamento fornecido por um único perfil do Gerenciador de Tráfego. Você pode aninhar perfis do Gerenciador de Tráfego para combinar os benefícios de mais de um método de roteamento de tráfego. Perfis aninhados permitem que você substitua o comportamento do Gerenciador de Tráfego padrão para fornecer suporte a implantações de aplicativos maiores e mais complexas. Para obter mais exemplos, consulte [Perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).
+Cada perfil do Gerenciador de Tráfego especifica um único método de roteamento de tráfego. No entanto, há cenários que exigem um roteamento de tráfego mais sofisticado do que o roteamento fornecido por um único perfil do Gerenciador de Tráfego. Aninhe perfis do Gerenciador de Tráfego para combinar os benefícios de mais de um método de roteamento de tráfego. Perfis aninhados permitem que você substitua o comportamento do Gerenciador de Tráfego padrão para fornecer suporte a implantações de aplicativos maiores e mais complexas. Para obter mais exemplos, consulte [Perfis aninhados do Gerenciador de Tráfego](traffic-manager-nested-profiles.md).
 
 Os pontos de extremidade aninhados são configurados no perfil pai, usando um tipo de ponto de extremidade específico, o ‘NestedEndpoints’. Ao especificar pontos de extremidade aninhados:
 
@@ -342,6 +342,6 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

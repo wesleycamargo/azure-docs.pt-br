@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45238ac71d722176a79adf6c9842b2bdc3b67df6
+ms.sourcegitcommit: 46c624608773fcd55e7ee3548aaa32fbbc630056
+ms.openlocfilehash: b6d0c877e0f0515dd82c0615850009910aa0b0be
 
 
 ---
@@ -40,7 +40,7 @@ Avaliação e Validação cruzada são as formas padrão de medir o desempenho d
 
 Como alternativa, você pode usar a validação cruzada para executar várias operações para avaliar-treinar-pontuar (10 partições) automaticamente em diferentes subconjuntos dos dados de entrada. Os dados de entrada são divididos em 10 partes, em que uma está reservada para teste, e as outras 9 para treinamento. Esse processo é repetido 10 vezes e as métricas de avaliação são transformadas em médias. Isso ajuda a determinar como um modelo seria generalizado para novos conjuntos de dados. O módulo [Modelo de Validação Cruzada][cross-validate-model] aproveita um modelo não treinado e alguns conjuntos de dados rotulados e gera os resultados da avaliação de cada uma das 10 partições, além dos resultados médios.
 
-Nas seções a seguir, compilaremos modelos de regressão e classificação simples e avaliaremos o desempenho, usando os módulos [Avaliar Modelo][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model].
+Nas seções a seguir, compilaremos modelos de regressão e classificação simples e avaliaremos o desempenho usando os módulos [Avaliar Modelo][evaluate-model] e [Modelo de Validação Cruzada][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Avaliar um Modelo de regressão
 Suponha que desejamos prever o preço do carro usando alguns recursos, como dimensões, potência, especificações de mecanismo e assim por diante. Este é um problema comum de regressão, em que a variável de destino (*preço*) é um valor numérico contínuo. Conseguimos ajustar um modelo de regressão linear simples que, considerando os valores das características de um determinado carro, pode prever o preço daquele carro. Esse modelo de regressão pode ser usado para a pontuação do mesmo conjunto de dados no qual treinamos. Assim que tivermos os preços previstos para todos os carros, poderemos avaliar o desempenho do modelo observando quanto, em média, as previsões se desviam dos preços reais. Para ilustrar isso, usamos o *conjunto de dados Dados de preço de automóvel (Brutos)* disponível na seção **Conjuntos de Dados Salvos** no Estúdio de Aprendizado de Máquina do Azure.
@@ -49,12 +49,12 @@ Suponha que desejamos prever o preço do carro usando alguns recursos, como dime
 Adicione os seguintes módulos ao seu espaço de trabalho no Estúdio de Aprendizado de Máquina do Microsoft Azure:
 
 * Dados de preço de automóvel (Brutos)
-* [Regressão Linear][linear-regression]
-* [Treinar modelo][train-model]
-* [Pontuar Modelo][score-model]
-* [Avaliar modelo][evaluate-model]
+* [Regressão linear][linear-regression]
+* [Modelo de Treinamento][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
-Conecte as portas, conforme mostrado abaixo na Figura 1, e defina a coluna Rótulo do módulo [Treinar Modelo][train-model] como *preço*.
+Conecte as portas, conforme mostrado abaixo na Figura 1 e defina a coluna Rótulo do módulo [Treinar Modelo][train-model] como *preço*.
 
 ![Avaliar um Modelo de regressão](media/machine-learning-evaluate-model-performance/1.png)
 
@@ -72,7 +72,7 @@ O coeficiente de determinação, que também é conhecido como R ao quadrado, ta
 Figura 2. Métrica de avaliação de regressão linear.
 
 ### <a name="using-cross-validation"></a>Usando Validação Cruzada
-Como mencionado anteriormente, você pode realizar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Tudo o que você precisa nesse caso é um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Observe que você precisa definir a coluna de rótulo como *preço* nas propriedades do módulo [Modelo de Validação Cruzada][cross-validate-model].
+Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Tudo o que você precisa nesse caso é um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Observe que você precisa definir a coluna de rótulo como *preço* nas propriedades do módulo [Modelo de Validação Cruzada][cross-validate-model].
 
 ![Validação cruzada de um modelo de regressão](media/machine-learning-evaluate-model-performance/3.png)
 
@@ -91,12 +91,12 @@ Em um cenário de classificação binária, a variável de destino tem somente d
 Adicione os seguintes módulos ao seu espaço de trabalho no Estúdio de Aprendizado de Máquina do Microsoft Azure:
 
 * Conjunto de dados de classificação binária de receita no recenseamento adulto
-* [Regressão Logística de Duas Classes][two-class-logistic-regression]
-* [Treinar modelo][train-model]
-* [Pontuar Modelo][score-model]
-* [Avaliar modelo][evaluate-model]
+* [Regressão logística de duas classes][two-class-logistic-regression]
+* [Modelo de Treinamento][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
-Conecte as portas, conforme mostrado abaixo na Figura 5, e defina a coluna Rótulo do módulo [Treinar Modelo][train-model] como *receita*.
+Conecte as portas, conforme mostrado abaixo na Figura 5 e defina a coluna Rótulo do módulo [Treinar Modelo][train-model] como *renda*.
 
 ![Avaliar um modelo de classificação binária](media/machine-learning-evaluate-model-performance/5.png)
 
@@ -113,9 +113,11 @@ Por esse motivo, é útil computar métricas adicionais que capturam aspectos ma
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema de classificação de renda, queremos fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador usado. Uma pergunta muito comum é: “Dentre os indivíduos que o modelo prevê estarem ganhando > 50 mil (TP + FP), quantos foram classificados corretamente (TP)?" Essa pergunta pode ser respondida, examinando a **Precisão** do modelo, que é a proporção de positivos que foram classificados corretamente: TP/(TP + FP). Outra pergunta comum é “Dentre todos os funcionários com renda alta > 50 mil (TP + FN), quantos o classificador classifica corretamente (TP)". Na verdade, isso é a **Recuperação** ou a taxa de positivos verdadeiros: TP/(TP + FN) do classificador. Você observará que há uma opção óbvia entre a precisão e a recuperação. Por exemplo, dado um conjunto de dados relativamente equilibrado, uma classificação que prevê principalmente instâncias positivas, teria um lembrete alto, mas uma precisão bastante baixa com muitas instâncias negativas deve ser classificada incorretamente, resultando em um grande número de falsos positivos. Para ver um gráfico de como essas duas métricas variam, você pode clicar na curva ‘PRECISION/RECALL’ na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema de classificação de renda, queremos fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador usado. Uma pergunta muito comum é: “Dentre os indivíduos que o modelo prevê estarem ganhando >&50; mil (TP + FP), quantos foram classificados corretamente (TP)?" Essa pergunta pode ser respondida, examinando a **Precisão** do modelo, que é a proporção de positivos que foram classificados corretamente: TP/(TP + FP). Outra pergunta comum é “Dentre todos os funcionários com renda alta >&50; mil (TP + FN), quantos o classificador classifica corretamente (TP)". Na verdade, isso é a **Recuperação** ou a taxa de positivos verdadeiros: TP/(TP + FN) do classificador. Você observará que há uma opção óbvia entre a precisão e a recuperação. Por exemplo, dado um conjunto de dados relativamente equilibrado, uma classificação que prevê principalmente instâncias positivas, teria um lembrete alto, mas uma precisão bastante baixa com muitas instâncias negativas deve ser classificada incorretamente, resultando em um grande número de falsos positivos. Para ver um gráfico de como essas duas métricas variam, você pode clicar na curva ‘PRECISION/RECALL’ na página de saída do resultado de avaliação (parte superior esquerda da Figura 7).
 
-![Resultados da avaliação de classificação binária](media/machine-learning-evaluate-model-performance/7.png) Figura 7. Resultados da avaliação de classificação binária.
+![Resultados da avaliação de classificação binária](media/machine-learning-evaluate-model-performance/7.png)
+
+Figura 7. Resultados da avaliação de classificação binária.
 
 Outra métrica relacionada usada com frequência é a **Pontuação F1**, que usa a precisão e a recuperação em consideração. Ela é a média harmônica dessas 2 métricas e é calculada como tal: F1 = 2 (precisão x recuperação) / (precisão + recuperação). A pontuação F1 é uma boa maneira de resumir a avaliação de um único número, mas é sempre uma boa prática examinar a precisão e a recuperação para entender melhor como um classificador se comporta.
 
@@ -133,23 +135,23 @@ Figura 8. Validação cruzada em um modelo de classificação binária.
 Figura 9. Resultados de validação cruzada de um classificador binário.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Avaliar um modelo de classificação com multiclass
-Nesse experimento, usaremos o conjunto de dados popular [Íris](http://archive.ics.uci.edu/ml/datasets/Iris "Íris"), que contém instâncias de 3 diferentes tipos (classes) da planta íris. Há 4 valores de recurso (comprimento/largura da sépala e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo de [Dividir Dados][split] para criar 2 subconjuntos de dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados Íris está disponível publicamente no [Repositório do Machine Learning UCI](http://archive.ics.uci.edu/ml/index.html) e pode ser baixado usando um módulo [Importar Dados][import-data].
+Nesse experimento, usaremos o conjunto de dados popular [Íris](http://archive.ics.uci.edu/ml/datasets/Iris "Íris"), que contém instâncias de 3 diferentes tipos (classes) da planta íris. Há 4 valores de recurso (comprimento/largura da sépala e comprimento/largura da pétala) para cada instância. Nas experiências anteriores, treinamos e testamos os modelos usando os mesmos conjuntos de dados. Aqui, usaremos o módulo de [Dividir Dados][split] para criar 2 subconjuntos de dados, treinar no primeiro e pontuar e avaliar no segundo. O conjunto de dados Íris está disponível publicamente no [Repositório de Aprendizado de Máquina UCI](http://archive.ics.uci.edu/ml/index.html) e pode ser baixado usando um módulo [Importar Dados][import-data].
 
 ### <a name="creating-the-experiment"></a>Criando o experimento
 Adicione os seguintes módulos ao seu espaço de trabalho no Estúdio de Aprendizado de Máquina do Microsoft Azure:
 
 * [Importar Dados][import-data]
 * [Floresta de Decisão Multiclasse][multiclass-decision-forest]
-* [Dividir dados][split]
-* [Treinar modelo][train-model]
-* [Pontuar Modelo][score-model]
-* [Avaliar modelo][evaluate-model]
+* [Dividir Dados][split]
+* [Modelo de Treinamento][train-model]
+* [Modelo de Pontuação][score-model]
+* [Avaliar Modelo][evaluate-model]
 
 Conecte as portas, conforme mostrado abaixo na Figura 10.
 
 Configure o índice da coluna Rótulo do módulo [Treinar Modelo][train-model] como 5. O conjunto de dados não tem nenhuma linha de cabeçalho, mas sabemos que os rótulos de classe estão na quinta coluna.
 
-Clique no módulo [Importar Dados][import-data] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP*, e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Clique no módulo [Importar Dados][import-data] e defina a propriedade *Fonte de dados* como *URL da Web via HTTP* e a *URL* como http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Defina a fração de instâncias a serem usadas para treinamento no módulo [Dividir Dados][split] (0,7, por exemplo).
 
@@ -165,7 +167,7 @@ Execute o experimento e clique na porta de saída de [Avaliar Modelo][evaluate-m
 Figura 11. Resultados da avaliação de classificação multiclass.
 
 ### <a name="using-cross-validation"></a>Usando Validação Cruzada
-Como mencionado anteriormente, você pode realizar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Você precisará de um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Novamente, você precisa definir a coluna de rótulo do módulo [Modelo de Avaliação Cruzada][cross-validate-model] (índice de coluna 5 neste caso). Após executar o experimento e clicar na porta de saída à direita do [Modelo de Validação Cruzada][cross-validate-model], você pode inspecionar os valores de métrica para cada partição, além da média e do desvio padrão. As métricas exibidas aqui são semelhantes àquelas discutidas no caso de classificação binária. No entanto, observe que em classificação multiclass, os verdadeiros positivos/negativos e falsos positivos/negativos de computação são feitos baseados em uma base por classe, pois não há nenhuma classe geral positiva ou negativa. Por exemplo, ao computar a precisão ou o cancelamento da classe ‘Iris-setosa’, supõe-se que essa seja a classe positiva e todas as outras sejam negativas.
+Como mencionado anteriormente, você pode executar treinamento, pontuação e avaliações repetidas automaticamente usando o módulo [Modelo de Validação Cruzada][cross-validate-model]. Você precisará de um conjunto de dados, um modelo não treinado e um módulo [Modelo de Validação Cruzada][cross-validate-model] (veja a figura abaixo). Novamente, você precisa definir a coluna de rótulo do módulo [Modelo de Validação Cruzada][cross-validate-model] (índice de coluna 5 neste caso). Após executar o experimento e clicar na porta de saída à direita do [Modelo de Validação Cruzada][cross-validate-model], você pode inspecionar os valores de métrica para cada partição, além da média e do desvio padrão. As métricas exibidas aqui são semelhantes àquelas discutidas no caso de classificação binária. No entanto, observe que em classificação multiclass, os verdadeiros positivos/negativos e falsos positivos/negativos de computação são feitos baseados em uma base por classe, pois não há nenhuma classe geral positiva ou negativa. Por exemplo, ao computar a precisão ou o cancelamento da classe ‘Iris-setosa’, supõe-se que essa seja a classe positiva e todas as outras sejam negativas.
 
 ![Validação cruzada de um modelo de classificação multiclass](media/machine-learning-evaluate-model-performance/12.png)
 
@@ -189,6 +191,6 @@ Figura 13. Resultados da validação cruzada de um modelo de classificação mul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

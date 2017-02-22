@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3a5131323f438109d94137cb4f577054ec13227f
 
 
 ---
@@ -36,10 +36,10 @@ Antes de seguir este guia e criar um índice, você já deverá ter [criado um s
 
 Observe que todos os códigos de exemplo neste artigo são escritos com C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
 Agora que provisionou um serviço de Pesquisa do Azure, você está quase pronto para emitir solicitações em relação ao ponto de extremidade de serviço usando o SDK do .NET. Primeiro, é necessário obter uma das chaves de API do administrador gerada para o serviço de pesquisa que você provisionou. O SDK do .NET enviará está chave de API em cada solicitação ao seu serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys do serviço, entre no [portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 
@@ -52,7 +52,7 @@ Para criar um índice, você pode usar a chave de administração principal ou s
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="ii-create-an-instance-of-the-searchserviceclient-class"></a>II. Criar uma instância da classe de SearchServiceClient
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Criar uma instância da classe de SearchServiceClient
 Para começar a usar o SDK .NET da Pesquisa do Azure, você precisará criar uma instância da classe `SearchServiceClient` . Essa classe tem vários construtores. Aquele que você deseja usa o nome do seu serviço de pesquisa e um objeto `SearchCredentials` como parâmetros. `SearchCredentials` encapsula sua api-key.
 
 O código abaixo cria um novo `SearchServiceClient` usando valores para a chave de API e para o nome do serviço de pesquisa os quais são armazenados nos arquivos de configuração do aplicativo (`app.config` ou `web.config`):
@@ -73,7 +73,7 @@ O `SearchServiceClient` tem uma propriedade `Indexes`. Essa propriedade fornece 
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index"></a>III. Defina seu índice do Azure Search
+## <a name="define-your-azure-search-index"></a>Defina seu índice do Azure Search
 Uma única chamada para o método `Indexes.Create` criará o seu índice. Esse método aceita como um parâmetro um objeto `Index` , que define o índice da sua Pesquisa do Azure. Você precisa criar um objeto `Index` e inicializá-lo da seguinte maneira:
 
 1. Defina a propriedade `Name` do objeto `Index` como o nome do índice.
@@ -156,7 +156,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="iv-create-the-index"></a>IV. Criar o índice
+## <a name="create-the-index"></a>Criar o índice
 Agora que você tem um objeto `Index` inicializado, é possível criar o índice chamando `Indexes.Create` no seu objeto `SearchServiceClient`:
 
 ```csharp
@@ -176,12 +176,12 @@ serviceClient.Indexes.Delete("hotels");
 > 
 > 
 
-## <a name="next"></a>Avançar
+## <a name="next-steps"></a>Próximas etapas
 Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar o conteúdo no índice](search-what-is-data-import.md) para que possa começar a pesquisar os dados.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

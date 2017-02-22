@@ -1,12 +1,12 @@
-1. Faça logon no [portal do Azure][portal do Azure].
+1. Faça logon no [Portal do Azure][Azure portal].
 2. No painel de navegação esquerdo do portal, clique em **Novo**, em **Integração Corporativa** e em **Retransmissão**.
 3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. No campo **Assinatura** , escolha uma assinatura do Azure na qual criar o namespace.
-5. No campo **[Grupo de recursos](../articles/azure-portal/resource-group-portal.md)**, escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.      
+5. No campo **[Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md)**, escolha um grupo de recursos existente no qual o namespace residirá, ou então crie um novo.      
 6. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
    
     ![Criar um namespace][create-namespace]
-7. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+7. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Depois de alguns minutos, o sistema provisiona recursos para sua conta.
 
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
 1. Na lista de namespaces, clique no nome do namespace recém-criado.
@@ -18,16 +18,16 @@
    
     ![connection-string][connection-string]
 
+5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.  
+
 <!--Image references-->
 
 [create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
 [connection-string]: ./media/relay-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

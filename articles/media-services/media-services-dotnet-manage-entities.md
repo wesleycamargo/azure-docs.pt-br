@@ -1,41 +1,36 @@
-
 ---
-title: Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
-description: Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET.
+title: "Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia"
+description: "Saiba como gerenciar ativos e entidades relacionadas com o SDK dos serviços de mídia para .NET."
 author: juliako
-manager: dwrede
-editor: ''
+manager: erikre
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/12/2017
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 3a8f878502f6a7237212b467b2259fcbb48000ff
+ms.openlocfilehash: d0775971c76c5745f90cb6c5268fda5a2c905093
+
 
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-.net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento dos ativos e entidades relacionadas com o .NET SDK dos Serviços de Mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
 > 
 > 
 
-Este tópico mostra como realizar as seguintes tarefas de gerenciamento de serviços de mídia:
+Este tópico mostra como gerenciar as entidades dos Serviços de Mídia do Azure com .NET. 
 
-* Obter uma referência de ativo 
-* Obter uma referência de trabalho 
-* Listar todos os ativos 
-* Listar trabalhos e ativos 
-* Listar todas as políticas de acesso 
-* Listar todos os localizadores
-* Enumerar através de grandes coleções de entidades
-* Excluir um ativo 
-* Excluir um trabalho 
-* Excluir uma política de acesso 
+>[!NOTE]
+> A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com mais de 90 dias será excluído automaticamente, junto com seus registros de tarefas associados, mesmo que o número total de registros esteja abaixo da cota máxima. Por exemplo, no dia 1º de abril de 2017, qualquer registro de Trabalho em sua conta que seja mais antigo do que 31 de dezembro de 2016 será excluído automaticamente. Se você precisar arquivar as informações de trabalho/tarefa, poderá usar o código descrito neste tópico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Consulte [Configurar seu ambiente](media-services-set-up-computer.md)
@@ -55,24 +50,6 @@ O exemplo de código a seguir usa uma consulta Linq para obter uma referência a
         IAsset asset = assetInstance.FirstOrDefault();
 
         return asset;
-    }
-
-## <a name="get-a-job-reference"></a>Obter uma referência de trabalho
-Quando você trabalha com o processamento de tarefas em código de serviços de mídia, muitas vezes precisa obter uma referência a um trabalho existente com base em uma ID. O exemplo de código a seguir mostra como obter uma referência a um objeto do IJob da coleção de Trabalhos.
-Aviso Talvez você precise obter uma referência de trabalho ao iniciar um trabalho de codificação de longa duração e precise verificar o status do trabalho em um thread. Em casos como esse, quando o método retorna de um thread, você precisa recuperar uma referência atualizada para um trabalho.
-
-    static IJob GetJob(string jobId)
-    {
-        // Use a Linq select query to get an updated 
-        // reference by Id. 
-        var jobInstance =
-            from j in _context.Jobs
-            where j.Id == jobId
-            select j;
-        // Return the job reference as an Ijob. 
-        IJob job = jobInstance.FirstOrDefault();
-
-        return job;
     }
 
 ## <a name="list-all-assets"></a>Listar todos os ativos
@@ -112,6 +89,26 @@ Aviso Talvez você precise obter uma referência de trabalho ao iniciar um traba
 
         // Display output in console.
         Console.Write(builder.ToString());
+    }
+
+## <a name="get-a-job-reference"></a>Obter uma referência de trabalho
+
+Quando você trabalha com o processamento de tarefas em código de serviços de mídia, muitas vezes precisa obter uma referência a um trabalho existente com base em uma ID. O exemplo de código a seguir mostra como obter uma referência a um objeto do IJob da coleção de Trabalhos.
+
+Talvez você precise obter uma referência de trabalho ao iniciar um trabalho de codificação de longa duração e precise verificar o status do trabalho em um thread. Em casos como esse, quando o método retorna de um thread, você precisa recuperar uma referência atualizada para um trabalho.
+
+    static IJob GetJob(string jobId)
+    {
+        // Use a Linq select query to get an updated 
+        // reference by Id. 
+        var jobInstance =
+            from j in _context.Jobs
+            where j.Id == jobId
+            select j;
+        // Return the job reference as an Ijob. 
+        IJob job = jobInstance.FirstOrDefault();
+
+        return job;
     }
 
 ## <a name="list-jobs-and-assets"></a>Listar trabalhos e ativos
@@ -211,6 +208,45 @@ O exemplo de código a seguir mostra como listar todas as políticas de acesso n
 
         }
     }
+    
+## <a name="limit-access-policies"></a>Limitar as políticas de acesso 
+
+>[!NOTE]
+> Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). 
+
+Por exemplo, crie um conjunto genérico de políticas com o seguinte código, que será executado somente uma vez em seu aplicativo. Você pode registrar IDs em um arquivo de log para uso posterior:
+
+    double year = 365.25;
+    double week = 7;
+    IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
+    IAccessPolicy policy100Year = _context.AccessPolicies.Create("Hundred Years", TimeSpan.FromDays(year * 100), AccessPermissions.Read);
+    IAccessPolicy policyWeek = _context.AccessPolicies.Create("One Week", TimeSpan.FromDays(week), AccessPermissions.Read);
+
+    Console.WriteLine("One year policy ID is: " + policyYear.Id);
+    Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
+    Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+
+Em seguida, use as IDs existentes em seu código, da seguinte maneira:
+
+    const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+
+
+    // Get the standard policy for 1 year read only
+    var tempPolicyId = from b in _context.AccessPolicies
+                       where b.Id == policy1YearId
+                       select b;
+    IAccessPolicy policy1Year = tempPolicyId.FirstOrDefault();
+
+    // Get the existing asset
+    var tempAsset = from a in _context.Assets
+                where a.Id == assetID
+                select a;
+    IAsset asset = tempAsset.SingleOrDefault();
+
+    ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
+        policy1Year,
+        DateTime.UtcNow.AddMinutes(-5));
+    Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
 
 ## <a name="list-all-locators"></a>Listar todos os localizadores
 Um localizador é uma URL que fornece um caminho direto para acessar um recurso, juntamente com as permissões para o ativo conforme definido pela política de acesso associada do localizador. Cada ativo pode ter uma coleção de objetos ILocator associados a ele em sua propriedade de Localizadores. O contexto do servidor também tem uma coleção de localizadores que contém todos os localizadores.
@@ -294,6 +330,7 @@ O exemplo a seguir exclui um ativo.
 
 ## <a name="delete-a-job"></a>Excluir um trabalho
 Para excluir um trabalho, você deve verificar o estado do trabalho, conforme indicado na propriedade Estado. Os Trabalhos que foram concluídos ou cancelados podem ser excluídos, enquanto os trabalhos que estão em alguns outros estados, como enfileirado, agendado ou em processamento devem ser cancelados primeiro e, em seguida, eles podem ser excluídos.
+
 O exemplo de código a seguir mostra um método para exclusão de um trabalho de verificação de estados de trabalho e a exclusão quando o estado é concluído ou cancelado. Esse código depende da seção anterior deste tópico para obter uma referência a um trabalho: Obter uma referência de trabalho.
 
     static void DeleteJob(string jobId)
@@ -367,6 +404,9 @@ O exemplo de código a seguir mostra como obter uma referência a uma política 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

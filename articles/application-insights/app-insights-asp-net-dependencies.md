@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e2e81139152549eaa40d788c80cfdd2388b2d55d
-ms.openlocfilehash: 3b3a203ce261405ee7392561ffbc19c047c0d370
+ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
+ms.openlocfilehash: f0cbb7f78d73c6f39dc4e8a2227b144e8a49c83a
 
 
 ---
@@ -34,7 +34,7 @@ O monitor de dependência pronto para uso atualmente relata chamadas para esses 
 * Páginas da Web
   * Chamadas AJAX
 
-Você também pode escrever suas próprias chamadas SDK para monitorar outras dependências, no código do cliente e servidor, usando o [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Você também pode escrever suas próprias chamadas SDK para monitorar outras dependências, no código do cliente e servidor, usando o [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Configurar o monitoramento de dependência
 As informações de dependência parciais são coletadas automaticamente pelo [SDK do Application Insights](app-insights-asp-net.md). Para obter dados completos, instale o agente apropriado para o servidor host.
@@ -74,7 +74,7 @@ Clickthrough nos gráficos de resumo ou os itens de tabela para pesquisar ocorr�
 As **contagens de falhas** são mostrados na folha **Falhas**. Uma falha é qualquer código de retorno que não esteja no intervalo 200-399, ou que seja desconhecido.
 
 > [!NOTE]
-> **Falhas de 100%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
+> **Falhas de&100;%?** - Isso provavelmente indica que você está apenas obtendo dados de dependência parcial. Você precisa [configurar o monitoramento de dependência apropriado para sua plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -172,7 +172,7 @@ Você pode rastrear dependências na [linguagem de consulta do Analytics](app-in
 ## <a name="custom-dependency-tracking"></a>Acompanhamento de dependência personalizado
 O módulo padrão de acompanhamento de dependência descobre automaticamente dependências externas, como bancos de dados e APIs REST. Mas, talvez você queira que alguns componentes adicionais sejam tratados da mesma forma.
 
-Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) usada pelos módulos padrão.
+Você pode escrever código que envia informações de dependência usando a mesma [API TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency) usada pelos módulos padrão.
 
 Por exemplo, se você criar seu código com um assembly que não escreveu, poderá determinar o tempo de todas as chamadas nele, para descobrir qual sua contribuição aos tempos de resposta. Para que esses dados sejam exibidos nos gráficos de dependência no Application Insights, envie-os usando `TrackDependency`.
 
@@ -209,6 +209,6 @@ Se desejar desativar o módulo padrão de acompanhamento de dependência, remova
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

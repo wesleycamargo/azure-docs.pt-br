@@ -1,5 +1,5 @@
 ---
-title: Ler mensagens mantidas no Armazenamento do Azure | Microsoft Docs
+title: "Conectar o Arduino (C) ao IoT do Azure - Lição 3: armazenamento de tabelas | Microsoft Docs"
 description: "Monitore as mensagens do dispositivo para a nuvem conforme elas são gravadas no armazenamento de tabelas do Azure."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/13/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 946d66cc7ed1173e7b2b92dae90a1ce69ba3c165
-ms.openlocfilehash: 66d403fd63782d1945d6786220b8f329035ee456
+ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
+ms.openlocfilehash: 7a49a15b00bf25c9416235f41da8cc86e54d0062
 
 
 ---
@@ -86,6 +86,6 @@ Você conectou com sucesso sua placa Arduino ao Hub IoT na nuvem e usou o aplica
 [send-cloud-to-device-messages]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

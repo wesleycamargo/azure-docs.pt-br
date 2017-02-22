@@ -1,5 +1,5 @@
 ---
-title: "Dependências de tarefas no Lote do Azure | Microsoft Docs"
+title: Configurar as tarefas que dependem de outras tarefas - Azure Batch | Microsoft Docs
 description: "Crie tarefas que dependem da conclusão bem-sucedida de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure."
 services: batch
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/05/2017
+ms.date: 01/23/2017
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
-ms.openlocfilehash: 5883417c6f7a0ce45c9c34ac2d37e5c1bea95ab1
+ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
+ms.openlocfilehash: 32293e15b6f610a3613d6b666bdd0eea0495b2b8
 
 
 ---
@@ -169,6 +169,6 @@ Confira a postagem [Instalação de aplicativos e preparo de dados em nós de co
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

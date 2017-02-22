@@ -1,5 +1,5 @@
 ---
-title: "Baixar ativos de mídia"
+title: "Baixar ativos de Serviços de Mídia em seu computador - Azure | Microsoft Docs"
 description: "Aprenda a baixar ativos para seu computador. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 25b74bdcdbc5ec5a134bb2f800cd687de6ebc1e7
+ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
+ms.openlocfilehash: 6117b066acff91f249c4aa8afc1e139ebe6054b3
 
 
 ---
@@ -88,6 +88,6 @@ Este exemplo mostra como baixar ativos de mídia dos Serviços de Mídia no comp
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 90e7998a7ab427b7b429a6330792c27ee851608e
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 0842cbcceb7ac96d4283efdd6c178b08dd728254
 
 
 ---
@@ -30,13 +30,12 @@ O Curl é usado para demonstrar como você pode interagir com o HDInsight usando
 
 > [!NOTE]
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte [O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
-* Um Hadoop no cluster HDInsight (baseado em Linux ou Windows)
+* Um Hadoop no cluster HDInsight
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
@@ -149,14 +148,17 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
    * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
    * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
    * **SELECT** – Seleciona todas as linhas da nova tabela **errorLogs**.
-6. Use a ID de trabalho retornada para verificar o status do trabalho. Quando a tiver utilizado com sucesso, use a CLI do Azure para Mac, Linux e Windows conforme descrito anteriormente para baixar e exibir os resultados. A saída deve conter três linhas, todos os quais contêm **[ERROR]**.
+
+6. Use a ID de trabalho retornada para verificar o status do trabalho. Assim que tiver êxito, use a CLI do Azure, conforme descrito anteriormente, para baixar e exibir os resultados. A saída deve conter três linhas, todos os quais contêm **[ERROR]**.
 
 ## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+
 Conforme demonstrado nesse documento, você pode usar uma solicitação HTTP bruta para executar, monitorar e exibir os resultados de trabalhos do Hive no cluster do HDInsight.
 
 Para obter mais informações sobre a interface REST usada nesse artigo, consulte a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">Referência de WebHCat</a>.
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+
 Para obter informações gerais sobre o Hive com HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
@@ -168,7 +170,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](hdinsight-debug-tez-ui.md)
 * [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
@@ -200,6 +201,6 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

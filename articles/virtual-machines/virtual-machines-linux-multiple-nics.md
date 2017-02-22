@@ -1,6 +1,6 @@
 ---
-title: "Criar uma VM Linux com várias NICs | Microsoft Docs"
-description: "Saiba como criar uma VM Linux com várias NICs anexadas usando a CLI do Azure ou modelos do Resource Manager."
+title: "Criar uma VM Linux com várias NICs usando a CLI do Azure 2.0 (Visualização) | Microsoft Docs"
+description: "Saiba como criar uma VM Linux com várias NICs conectadas a ela usando a CLI do Azure 2.0 (Visualização) ou os modelos do Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,130 +12,91 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/27/2016
+ms.date: 02/10/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: b2cd533ab24feb3ce521db5f8406576f86e460d9
+ms.sourcegitcommit: 368c79b001495e0fb000a4b280023b2299256435
+ms.openlocfilehash: a854a15a9119f289344a75638d1042ee6779bb46
 
 
 ---
-# <a name="creating-a-linux-vm-with-multiple-nics"></a>Criando uma VM Linux com várias NICs
+# <a name="create-a-linux-vm-with-multiple-nics-using-the-azure-cli-20-preview"></a>Criar uma VM Linux com várias NICs usando a CLI do Azure 2.0 (Visualização)
 Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum seria ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Para obter informações detalhadas, incluindo como criar várias NICs dentro de seus próprios scripts Bash, leia mais sobre a [implantação de VMs com várias NICs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamanhos de VM](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
 > [!WARNING]
 > Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma VM com base nos discos virtuais originais](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e criar várias NICs conforme implantar a VM.
-> 
-> 
 
-## <a name="quick-commands"></a>Comandos rápidos
-Verifique se você tem a [CLI do Azure](../xplat-cli-install.md) conectada e está usando o modo do Resource Manager:
 
-```azurecli
-azure config mode arm
-```
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+
+- [CLI do Azure 1.0](virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI 2.0 do Azure (Visualização)](#create-supporting-resources) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+
+
+## <a name="create-supporting-resources"></a>Criar recursos de suporte
+Instale a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluíram `myResourceGroup`, `mystorageaccount` e `myVM`.
 
-Em primeiro lugar, crie um grupo de recursos. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `WestUS`:
+Primeiramente, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `WestUS`:
 
 ```azurecli
-azure group create myResourceGroup -l WestUS
+az group create --name myResourceGroup --location westus
 ```
 
-Crie uma conta de armazenamento para manter suas VMs. O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#create). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnetFrontEnd`:
 
 ```azurecli
-azure storage account create mystorageaccount -g myResourceGroup \
-    -l WestUS --kind Storage --sku-name PLRS
+az network vnet create --resource-group myResourceGroup --name myVnet \
+  --address-prefix 192.168.0.0/16 --subnet-name mySubnetFrontEnd --subnet-prefix 192.168.1.0/24
 ```
 
-Crie uma rede virtual à qual você conectará suas VMs. O exemplo a seguir cria uma rede virtual chamada `myVnet` com um prefixo de endereço de `192.168.0.0/16`:
+Crie uma sub-rede para o tráfego de back-end com [az network vnet subnet create](/cli/azure/network/vnet/subnet#create). O seguinte exemplo cria uma sub-rede chamada `mySubnetBackEnd`:
 
 ```azurecli
-azure network vnet create -g myResourceGroup -l WestUS \
-    -n myVnet -a 192.168.0.0/16
+az network vnet subnet create --resource-group myResourceGroup --vnet-name myVnet \
+    --name mySubnetBackEnd --address-prefix 192.168.2.0/24
 ```
 
-Crie duas sub-redes da rede virtual – uma para o tráfego de front-end e uma para o tráfego de back-end. O exemplo a seguir cria duas sub-redes, chamadas `mySubnetFrontEnd` e `mySubnetBackEnd`:
+## <a name="create-and-configure-multiple-nics"></a>Criar e configurar várias NICs
+Você pode ler mais detalhes sobre a [implantação de várias NICs usando a CLI do Azure](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), incluindo o script do processo de loop para criar todas as NICs.
+
+Normalmente, você cria um [Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) ou um [balanceador de carga](../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. Crie um grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#create). O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
 ```azurecli
-azure network vnet subnet create -g myResourceGroup -e myVnet \
-    -n mySubnetFrontEnd -a 192.168.1.0/24
-azure network vnet subnet create -g myResourceGroup -e myVnet \
-    -n mySubnetBackEnd -a 192.168.2.0/24
+az network nsg create --resource-group myResourceGroup \
+  --name myNetworkSecurityGroup
 ```
 
-Crie duas NICs, anexando uma NIC à sub-rede de front-end e uma NIC à sub-rede de back-end. O exemplo a seguir cria duas NICs chamadas `myNic1` e `myNic2` e as conecta a suas sub-redes:
+Crie duas NICs com [az network nic create](/cli/azure/network/nic#create). O seguinte exemplo cria duas NICs, chamadas `myNic1` e `myNic2`, conectadas ao grupo de segurança de rede, com uma NIC se conectando a cada sub-rede:
 
 ```azurecli
-azure network nic create -g myResourceGroup -l WestUS \
-    -n myNic1 -m myVnet -k mySubnetFrontEnd
-azure network nic create -g myResourceGroup -l WestUS \
-    -n myNic2 -m myVnet -k mySubnetBackEnd
+az network nic create --resource-group myResourceGroup --name myNic1 \
+  --vnet-name myVnet --subnet mySubnetFrontEnd \
+  --network-security-group myNetworkSecurityGroup
+az network nic create --resource-group myResourceGroup --name myNic2 \
+  --vnet-name myVnet --subnet mySubnetBackEnd \
+  --network-security-group myNetworkSecurityGroup
 ```
 
-Por fim, crie sua VM, anexando as duas NICs criadas anteriormente. O exemplo a seguir cria uma VM chamada `myVM`:
+## <a name="create-a-vm-and-attach-the-nics"></a>Criar uma VM e conectar as NICs
+Quando você criar a VM, especifica as NICs que criou com `--nics`. Você também precisa tomar cuidado ao selecionar o tamanho da VM. Há limites para o número total de NICs que podem ser adicionados a uma VM. Leia mais sobre [Tamanhos de VM Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+
+Crie uma VM com [az vm create](/cli/azure/vm#create). O seguinte exemplo cria uma VM chamada `myVM` usando o [Managed Disks do Azure](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json):
 
 ```azurecli
-azure vm create \
+az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --location WestUS \
-    --os-type linux \
-    --nic-names myNic1,myNic2 \
-    --vm-size Standard_DS2_v2 \
-    --storage-account-name mystorageaccount \
-    --image-urn UbuntuLTS \
-    --admin-username ops \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub
+    --image UbuntuLTS \
+    --size Standard_DS2_v2 \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics myNic1 myNic2
 ```
 
-## <a name="creating-multiple-nics-using-azure-cli"></a>Criando várias NICs usando a CLI do Azure
-Se você já tiver criado uma VM usando a CLI do Azure, os comandos rápidos deverão ser familiares. O processo é o mesmo para criar uma NIC ou várias NICs. Você pode ler mais detalhes sobre a [implantação de várias NICs usando a CLI do Azure](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), incluindo o script do processo de loop para criar todas as NICs.
-
-O exemplo a seguir cria duas NICs chamadas `myNic1` e `myNic2`, com uma NIC se conectando a cada sub-rede:
-
-```azurecli
-azure network nic create --resource-group myResourceGroup --location WestUS \
-    -n myNic1 --subnet-vnet-name myVnet --subnet-name mySubnetFrontEnd
-azure network nic create --resource-group myResourceGroup --location WestUS \
-    -n myNic2 --subnet-vnet-name myVnet --subnet-name mySubnetBackEnd
-```
-
-Normalmente, você também criaria um [Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) ou [balanceador de carga](../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. Novamente, os comandos são os mesmos de quando se trabalha com várias NICs. O exemplo a seguir cria um Grupo de Segurança de Rede denominado `myNetworkSecurityGroup`:
-
-```azurecli
-azure network nsg create --resource-group myResourceGroup --location WestUS \
-    --name myNetworkSecurityGroup
-```
-
-Associe as NICs ao Grupo de Segurança de Rede usando `azure network nic set`. O exemplo a seguir associa `myNic1` e `myNic2` a `myNetworkSecurityGroup`:
-
-```azurecli
-azure network nic set --resource-group myResourceGroup --name myNic1 \
-    --network-security-group-name myNetworkSecurityGroup
-azure network nic set --resource-group myResourceGroup --name myNic2 \
-    --network-security-group-name myNetworkSecurityGroup
-```
-
-Ao criar a VM, agora você especifica várias NICs. Em vez de usar `--nic-name` para fornecer uma única NIC, você usa `--nic-names` e fornece uma lista de NICs separada por vírgulas. Você também precisa tomar cuidado ao selecionar o tamanho da VM. Há limites para o número total de NICs que podem ser adicionados a uma VM. Leia mais sobre [Tamanhos de VM Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O exemplo a seguir mostra como especificar várias NICs e, em seguida, um tamanho de VM que dê suporte ao uso de várias NICs (`Standard_DS2_v2`):
-
-```azurecli
-azure vm create \
-    --resource-group myResourceGroup \
-    --name myVM \
-    --location WestUS \
-    --os-type linux \
-    --nic-names myNic1,myNic2 \
-    --vm-size Standard_DS2_v2 \
-    --storage-account-name mystorageaccount \
-    --image-urn UbuntuLTS \
-    --admin-username ops \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub
-```
-
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Criando várias NICs usando modelos do Gerenciador de Recursos
+## <a name="create-multiple-nics-using-resource-manager-templates"></a>Criar várias NICs usando modelos do Resource Manager
 Os modelos do Azure Resource Manager usam arquivos JSON declarativos para definir o seu ambiente. Você pode ler uma [visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Os modelos do Gerenciador de Recursos oferecem uma maneira de criar várias instâncias de um recurso durante a implantação, como a criação de várias NICs. Você usa *copiar* para especificar o número de instâncias a serem criadas:
 
 ```json
@@ -145,7 +106,7 @@ Os modelos do Azure Resource Manager usam arquivos JSON declarativos para defini
 }
 ```
 
-Leia mais sobre a [criação de várias instâncias usando *copiar*](../resource-group-create-multiple.md). 
+Leia mais sobre a [criação de várias instâncias usando *copiar*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 Você também pode usar um `copyIndex()` para acrescentar um número a um nome de recurso, o que lhe permite criar `myNic1`, `myNic2` etc. Veja a seguir um exemplo de como acrescentar o valor de índice:
 
@@ -163,6 +124,6 @@ Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

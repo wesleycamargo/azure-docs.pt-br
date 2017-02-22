@@ -4,7 +4,7 @@ description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerSh
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 ms.assetid: 2e24b1d9-4375-4049-a28d-e3bc01152f32
 ms.service: backup

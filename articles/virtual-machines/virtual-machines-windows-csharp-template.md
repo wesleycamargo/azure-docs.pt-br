@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 8424fb5d107935833e9652ef86e03933ea14c26e
 
 
 ---
@@ -28,8 +28,8 @@ Primeiro, você precisa realizar as seguintes etapas:
 
 * Instalar o [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 * Verificar a instalação do [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
-* Obter um [token de autenticação](../resource-group-authenticate-service-principal.md)
-* Criar um grupo de recursos usando [Azure PowerShell](../resource-group-template-deploy.md), [CLI do Azure](../resource-group-template-deploy-cli.md), ou [portal do Azure](../resource-group-template-deploy-portal.md).
+* Obter um [token de autenticação](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Criar um grupo de recursos usando [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md), [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md), ou [portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 São necessários cerca de 30 minutos para a conclusão destas etapas.
 
@@ -225,17 +225,19 @@ O aplicativo do Azure Active Directory é criado e a biblioteca de autenticaçã
         using System.IO;
 2. Adicione este método à classe Programa para obter o token necessário para criar as credenciais:
 
-     private static async Task<AuthenticationResult> GetAccessTokenAsync()   {
-
-       var cc = new ClientCredential("{client-id}", "{client-secret}");
-       var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-       var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
-       if (token == null)
-       {
-         throw new InvalidOperationException("Could not get the token.");
-       }
-       return token;
+   ```
+   private static async Task<AuthenticationResult> GetAccessTokenAsync()
+   {
+     var cc = new ClientCredential("{client-id}", "{client-secret}");
+     var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
+     var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
+     if (token == null)
+     {
+       throw new InvalidOperationException("Could not get the token.");
      }
+     return token;
+   }
+   ```
 
    Substitua {client-id} pelo identificador do aplicativo do Azure Active Directory, {client-secret} pela chave de acesso do aplicativo do AD e {tenant-id} pelo identificador do locatário da sua assinatura. Você pode encontrar a ID do locatário executando Get-AzureRmSubscription. Você pode encontrar a chave de acesso usando o portal do Azure.
 3. Para criar as credenciais, adicione este código ao método Main no arquivo Program.cs:
@@ -294,26 +296,28 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 1. Para excluir o grupo de recursos, adicione este método à classe Programa:
 
-     public static async void DeleteResourceGroupAsync(
+   ```
+   public static async void DeleteResourceGroupAsync(
+     TokenCredentials credential,
+     string groupName,
+     string subscriptionId)
+   {
+     Console.WriteLine("Deleting resource group...");
+     var resourceManagementClient = new ResourceManagementClient(credential)
+       { SubscriptionId = subscriptionId };
+     await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+   }
+   ```
 
-       TokenCredentials credential,
-       string groupName,
-       string subscriptionId)
-     {
-
-       Console.WriteLine("Deleting resource group...");
-       var resourceManagementClient = new ResourceManagementClient(credential)
-         { SubscriptionId = subscriptionId };
-       await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-     }
 2. Para chamar o método que você acabou de adicionar, adicione este código ao método Main:
 
-     DeleteResourceGroupAsync(
-
-       credential,
-       groupName,
-       subscriptionId);
-     Console.ReadLine();
+   ```
+   DeleteResourceGroupAsync(
+     credential,
+     groupName,
+     subscriptionId);
+   Console.ReadLine();
+   ```
 
 ## <a name="step-6-run-the-console-application"></a>Etapa 6: executar o aplicativo de console
 1. Para executar o aplicativo de console, clique em **Iniciar** no Visual Studio e, em seguida, entre no AD do Azure usando as mesmas credenciais que você usa com sua assinatura.
@@ -325,11 +329,11 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
     ![Procurar logs de auditoria no Portal do Azure](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md).
+* Se houver problemas com a implantação, a próxima etapa será examinar [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) (Solucionar erros comuns de implantação do Azure com o Azure Resource Manager).
 * Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

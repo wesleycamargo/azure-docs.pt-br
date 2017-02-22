@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 02/14/2017
 ms.author: hermannd
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 04833ac3adae6ed7dd8c1c61c2ca5b63ea97660b
+ms.sourcegitcommit: 046f58eba906980f23ce1177794b28930e3314a1
+ms.openlocfilehash: e7255c4123849f8f3fb29767308b433b5c0e511b
 
 
 ---
@@ -33,6 +33,9 @@ Para executar o SAP NetWeaver no Azure, use apenas o SUSE Linux Enterprise Serve
 
 Use o Azure Resource Manager para todos os novos testes e instalações no Azure. Para procurar imagens e versões SLES do SUSE usando o Azure PowerShell ou a CLI (interface de linha de comando) do Azure, use os comandos a seguir. Você pode usar a saída, por exemplo, para definir a imagem do sistema operacional em um modelo JSON para a implantação de uma nova VM do SUSE Linux.
 Estes comandos do PowerShell são válidos para a versão do Azure PowerShell 1.0.1 e posteriores.
+
+Enquanto ainda é possível usar as imagens SLES padrão para instalações de SAP, recomendamos o uso do novo SLES para imagens SAP que já estão disponíveis na Galeria de imagens do Azure. Encontre mais informações sobre essas imagens na [página correspondente do Azure Marketplace]( https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES-SAP ) ou na [página da Web de perguntas frequentes do SUSE sobre SLES para SAP]( https://www.suse.com/products/sles-for-sap/frequently-asked-questions/ ).
+
 
 * Procure por editores existentes, incluindo o SUSE:
   
@@ -50,13 +53,17 @@ Estes comandos do PowerShell são válidos para a versão do Azure PowerShell 1.
   
    ```
    PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP"
    CLI : azure vm image list-skus westeurope SUSE SLES
+   CLI : azure vm image list-skus westeurope SUSE SLES-SAP
    ```
 * Procure por uma versão específica do SKU do SLES:
   
    ```
-   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI : azure vm image list westeurope SUSE SLES 12
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
+   CLI : azure vm image list westeurope SUSE SLES 12-SP2
+   CLI : azure vm image list westeurope SUSE SLES-SAP 12-SP2
    ```
 
 ## <a name="installing-walinuxagent-in-a-suse-vm"></a>Instalando o WALinuxAgent em uma VM SUSE
@@ -109,14 +116,14 @@ Você deve criar novas VMs SUSE usando arquivos de modelo JSON no novo modelo do
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-Para obter mais detalhes sobre os arquivos de modelo JSON, veja [Criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md) e [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
+Para obter mais detalhes sobre os arquivos de modelo JSON, veja [Criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
 Para obter mais detalhes sobre o CLI e o Azure Resource Manager, veja [Usar a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Chave de licença e hardware do SAP
 Para a certificação oficial SAP-Azure, um novo mecanismo foi introduzido para calcular a chave de hardware do SAP usada para a licença do SAP. O kernel do SAP precisou ser adaptado para fazer uso dele. As versões anteriores de kernel do SAP para Linux não incluíam essa alteração de código. Portanto, pode acontecer que, em certas situações (por exemplo, no redimensionamento da VM do Azure), a chave de hardware do SAP tenha sido alterada e a licença do SAP não fosse mais válida. Isso é resolvido nos kernels do SAP para Linux mais recentes. Para obter detalhes, consulte nota do SAP 1928533.
 
-## <a name="suse-sapconf-package-tuned-adm"></a>SUSE sapconf package / tuned-adm
+## <a name="suse-sapconf-package--tuned-adm"></a>SUSE sapconf package / tuned-adm
 O SUSE fornece um pacote chamado "sapconf", que gerencia um conjunto de configurações específicas do SAP. Para obter mais detalhes sobre o que este pacote faz e como instalá-lo e usá-lo, veja [Como usar sapconf para preparar o SUSE Linux Enterprise Server para executar sistemas SAP](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) e [Como preparar um SUSE Linux Enterprise Server para executar sistemas SAP ou o que é sapconf?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 Enquanto isso, há uma nova ferramenta que substitui sapconf - tuned-adm. Há mais detalhes sobre essa ferramenta nos dois links a seguir.
@@ -159,6 +166,6 @@ Há uma restrição de suporte da Oracle para Linux em ambientes virtualizados. 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

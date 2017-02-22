@@ -1,5 +1,5 @@
 ---
-title: "Folha de consulta para um pipeline de dados automatizados para previsões do Azure Machine Learning | Microsoft Docs"
+title: Folha de consulta de pipeline de dados automatizados do Azure Machine Learning | Microsoft Docs
 description: "Uma folha de consulta imprimível que mostra como configurar um pipeline de dados automatizado para o serviço Web de Aprendizado de Máquina do Azure, se os dados estiverem no local, em streaming, no Azure ou em um serviço de nuvem de terceiros."
 services: machine-learning
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: mithal;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
-ms.openlocfilehash: 68a3a313831a4d424de26812a58a0f82c1ebad74
+ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
+ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
 
 
 ---
@@ -46,6 +46,6 @@ Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

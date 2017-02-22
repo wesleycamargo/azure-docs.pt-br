@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0124c884d3d805a407041e8ecbc5961209a9653d
-ms.openlocfilehash: 708444a1b2569cf794ce1f6d8d6c97c7d9e339b7
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 42acc73e1c97f5570e674d95627a760a7fc88154
 
 
 ---
@@ -66,9 +66,9 @@ ms.openlocfilehash: 708444a1b2569cf794ce1f6d8d6c97c7d9e339b7
   
  [H264 Taxa de Bits Única 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC estéreo.  
   
- [H264 Taxa de Bits Única 4x3 SD Áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC 5.1.  
+ [H264 Taxa de Bits Única 4x3 SD Áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) produz um único arquivo MP4 com uma taxa de bits de 1800 kbps e áudio AAC 5.1.  
   
- [H264 Taxa de Bits Única 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) produz um único arquivo MP4 com uma taxa de bits de 18000 kbps e áudio AAC estéreo.  
+ [H264 Taxa de Bits Única 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) produz um único arquivo MP4 com uma taxa de bits de 1800 kbps e áudio AAC estéreo.  
   
  [H264 Taxa de Bits Única 16x9 SD Áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md) produz um único arquivo MP4 com uma taxa de bits de 2200 kbps e áudio AAC 5.1.  
   
@@ -87,6 +87,7 @@ ms.openlocfilehash: 708444a1b2569cf794ce1f6d8d6c97c7d9e339b7
  Para saber mais sobre os codificadores dos Serviços de Mídia, veja [Codificação sob demanda com os Serviços de Mídia do Azure](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
 
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Jan17_HO2-->
 
 

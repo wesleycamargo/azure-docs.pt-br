@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ Neste tutorial, usaremos o [Python Tools para Visual Studio](https://www.visuals
 > [!NOTE]
 > As informações contidas neste tutorial também estão disponíveis no vídeo a seguir:
 > 
-> [PTVS 2.1: aplicativo do Django com o MySQL][vídeo]
+> [PTVS 2.1: aplicativo do Django com o MySQL][video]
 > 
 > 
 
@@ -38,7 +38,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 * Visual Studio 2015
 * [Python 2.7 de 32 bits] ou [Python 3.4 de 32 bits]
 * [Ferramentas Python 2.2 para Visual Studio]
-* [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]
+* [Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]
 * [Ferramentas do SDK do Azure para VS 2015]
 * Django 1.9 ou posterior
 
@@ -47,7 +47,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 > 
 > 
 
@@ -163,9 +163,9 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 <!--External Link references-->
 
 [Portal do Azure]: https://portal.azure.com
-[Python Tools para Visual Studio]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
@@ -175,10 +175,10 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 [Projetos do serviço de nuvem]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentação do Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[vídeo]: http://youtu.be/oKCApIrS0Lo
+[video]: http://youtu.be/oKCApIrS0Lo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

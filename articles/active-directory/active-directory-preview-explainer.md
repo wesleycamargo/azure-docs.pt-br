@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 664abe5887b3d96eb48e3b47df9a32648ee623dd
+ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
+ms.openlocfilehash: 8f7a679dc5b5726107503a9f7363ab162b1770d0
 
 
 ---
@@ -30,16 +30,15 @@ A experiência de visualização permite que você gerencie vários recursos de 
 A experiência de visualização lê e grava o mesmo locatário do Azure Active Directory como o portal clássico e o Centro de administração do Office 365. As alterações feitas em qualquer um desses portais são refletidas em todos os outros portais.
 
 ## <a name="use-the-same-authorization-logic"></a>Usar a mesma lógica de autorização
-A experiência de visualização usa a mesma lógica de autorização que os clientes existentes do Active Directory. Os usuários estão autorizados a fazer alterações aos recursos de diretório com base em suas funções de diretório, como administrador global, administrador de usuário e administrador de senha. Ter uma função em recursos do Azure ou em uma assinatura do Azure não dá autorização aos usuários de gerenciar recursos de diretório. Para obter mais informações sobre as funções de gerenciamento do Azure AD, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md). 
+A experiência de visualização usa a mesma lógica de autorização que os clientes existentes do Active Directory. Os usuários estão autorizados a fazer alterações aos recursos de diretório com base em suas funções de diretório, como administrador global, administrador de usuário e administrador de senha. Ter uma função em recursos do Azure ou em uma assinatura do Azure não dá autorização aos usuários de gerenciar recursos de diretório. Para obter mais informações sobre as funções de gerenciamento do Azure AD, consulte [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
 A experiência de visualização é otimizada para os administradores globais. Se você usar a experiência de visualização enquanto estiver conectado como um usuário que não é um administrador global, poderá ter uma experiência inadequada. Por exemplo, você poderá selecionar um botão que permite que você inicie uma tarefa que não pode ser concluída no diretório. Aprimoraremos essa experiência em breve.
 
-## <a name="tell-us-what-you-think"></a>Conte-nos sua opinião
+## <a name="next-steps"></a>Próximas etapas
 Você pode fornecer comentários sobre a experiência de visualização na seção do portal admin do [Fórum de comentários do Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&filter=alltypes&sort=lastpostdesc).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

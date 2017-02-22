@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -44,9 +44,9 @@ O Banco de Dados de Documentos do Azure oferece os principais recursos e benefí
 * **Níveis de consistência ajustáveis:** escolha entre quatro níveis de consistência bem-definidos para a compensação ideal entre consistência e desempenho. Para consultas e operações de leitura, o Banco de Dados de Documentos oferece quatro níveis de consistência diferentes: strong, bounded-staleness, session e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Usando níveis de consistência para maximizar a disponibilidade e o desempenho no Banco de Dados de Documentos](documentdb-consistency-levels.md).
 * **Completamente gerenciado:** elimine a necessidade de gerenciar recursos de banco de dados e máquina. Como um serviço do Microsoft Azure totalmente gerenciado, você não precisa gerenciar máquinas virtuais, implantar e configurar software,gerenciar o dimensionamento nem lidar com atualizações de camadas de dados complexas. Cada banco de dados é salvo em backup automaticamente e protegido contra falhas regionais. Você pode adicionar facilmente uma conta de Banco de Dados de Documentos e provisionar capacidade de acordo com a necessidade, permitindo que você se concentre no seu aplicativo, em vez de na operação e no gerenciamento do seu banco de dados. 
 * **Aberto pelo design:** comece a usar o Banco de Dados de Documentos rapidamente, com habilidades e ferramentas já existentes. A programação no Banco de Dados de Documentos é simples, acessível e não requer a adoção de novas ferramentas nem a adesão a extensões personalizadas para JSON ou JavaScript. Você pode acessar toda a funcionalidade do banco de dados, incluindo CRUD, consulta e processamento do JavaScript em uma interface HTTP RESTful simples. O Banco de Dados de Documentos engloba formatos, linguagens e padrões existentes, oferecendo ainda recursos de banco de dados de alto valor.
-* **Indexação automática:** por padrão, o DocumentDB [indexa automaticamente](documentdb-indexing.md) todos os documentos no banco de dados e não espera ou exige qualquer esquema ou criação de índices secundários. Não deseja indexar tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](documentdb-indexing-policies.md) .
+* **Indexação automática:** por padrão, o DocumentDB indexa automaticamente todos os documentos no banco de dados e não espera ou exige qualquer esquema ou criação de índices secundários. Não deseja indexar tudo? Não se preocupe, você também pode [recusar caminhos nos arquivos JSON](documentdb-indexing-policies.md) .
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Como o DocumentDB gerencia dados?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>Como o DocumentDB gerencia dados?
 O Azure DocumentDB gerencia dados JSON por meio de recursos de banco de dados bem-definidos. Esses recursos são replicados para alta disponibilidade e são endereçáveis exclusivamente por seu URI lógico. O Banco de Dados de Documentos oferece um modelo de programação RESTful baseado em HTTP simples para todos os recursos. 
 
 A conta do Banco de Dados de Documentos é um namespace exclusivo que fornece acesso ao Banco de Dados de Documentos do Azure. Antes de criar uma conta de banco de dados, você deve ter uma assinatura do Azure, que dá acesso a uma variedade de serviços do Azure. 
@@ -71,6 +71,8 @@ O Banco de Dados de Documentos do Azure expõe recursos pode meio de uma API RES
 | n/d |[SDK do JavaScript do lado servidor](http://azure.github.io/azure-documentdb-js-server/) |
 | [SDK do Python](https://pypi.python.org/pypi/pydocumentdb) |[Biblioteca do Python](http://azure.github.io/azure-documentdb-python/) |
 
+Com o [Emulador do DocumentDB do Azure](documentdb-nosql-local-emulator.md) você pode desenvolver e testar seu aplicativo localmente sem criar uma assinatura Azure ou incorrer em custos. Quando você estiver satisfeito com o funcionamento de seu aplicativo no Emulador do DocumentDB, alterne para uma conta do DocumentDB do Azure na nuvem.
+
 Além das operações básicas de criação, leitura, atualização e exclusão, o Banco de dados de Documentos fornece uma interface de consulta SQL avançada para recuperar documentos JSON e suporte do servidor para a execução transacional da lógica JavaScript do aplicativo. As interfaces de execução de script e consulta estão disponíveis em todas as bibliotecas da plataforma, bem como as APIs REST. 
 
 ### <a name="sql-query"></a>Consulta SQL
@@ -85,13 +87,22 @@ O Banco de Dados de Documentos permite gravar a lógica do aplicativo como progr
 
 A execução do JavaScript dentro do Banco de Dados de Documentos é baseada nos conceitos suportados pelos sistemas do banco de dados relacional, com o JavaScript sendo uma substituição moderna para Transact-SQL. Toda lógica do JavaScript é executada em uma transação ACID ambiente com isolamento de instantâneo. Durante sua execução, se o JavaScript lançar uma exceção, então, toda a transação será abortada.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>Há algum cursos online sobre o DocumentDB?
+
+Sim, há um curso da [Microsoft Virtual Academy](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) sobre o Azure DocumentDB. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Próximas etapas
 Já possui uma conta do Azure? Se você já tiver uma conta do Azure, poderá começar a usar o DocumentDB no [Portal do Azure](https://portal.azure.com/#gallery/Microsoft.DocumentDB) [criando uma conta de banco de dados do DocumentDB](documentdb-create-account.md).
 
 Não tem uma conta do Azure? Você pode:
 
 * Inscrever-se em uma [avaliação gratuita do Azure](https://azure.microsoft.com/free/), que oferece a você 30 dias e US$ 200 para experimentar todos os serviços do Azure. 
-* Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$ 150 em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
+* Se tiver uma assinatura do MSDN, você estará qualificado para receber [US$&150; em créditos gratuitos do Azure por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usar em qualquer serviço do Azure. 
+* Baixe o [Emulador de DocumentDB do Azure](documentdb-nosql-local-emulator.md) para desenvolver seu aplicativo localmente.
 
 Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos os recursos de aprendizado disponíveis para você. 
 
@@ -100,6 +111,6 @@ Em seguida, quando você estiver pronto para saber mais, visite nosso [roteiro d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: ccompy
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b0dcf833981364abfbc77d0cd6dfde8beb081b7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e8763f1ab7e51e10ae59cf2b6b2c609f0f45dcd3
 
 
 ---
@@ -47,7 +47,7 @@ Para conectar um aplicativo a uma rede virtual, siga estas três etapas:
 2. Carregue o certificado do aplicativo Web na rede virtual e recupere o URI do pacote VPN ponto a site
 3. Atualize a conexão de rede virtual de aplicativos Web com o URI do pacote ponto a site
 
-A primeira e a terceira etapas são totalmente programáveis por scripts, mas a segunda etapa requer uma ação manual única por meio do portal ou acesso para executar ações **PUT** ou **PATCH** no ponto de extremidade do Azure Resource Manager da rede virtual. Entre em contato com o Suporte do Azure para habilitar esse recurso. Antes de começar, verifique se você tem uma rede virtual clássica que tenha a conectividade ponto a site já habilitada e um gateway implantado. Para criar o gateway e habilitar a conectividade ponto a site, você precisa usar o portal, conforme descrito em [Criação de um gateway de VPN][createvpngateway].
+A primeira e a terceira etapas são totalmente programáveis por scripts, mas a segunda etapa requer uma ação manual única por meio do portal ou acesso para executar ações **PUT** ou **PATCH** no ponto de extremidade do Azure Resource Manager da rede virtual. Entre em contato com o Suporte do Azure para habilitar esse recurso. Antes de começar, verifique se você tem uma rede virtual clássica que tenha a conectividade ponto a site já habilitada e um gateway implantado. Para criar o gateway e habilitar a conectividade ponto a site, você precisa usar o portal, conforme descrito em [Criando um gateway de VPN][createvpngateway].
 
 A rede virtual clássica precisa estar na mesma assinatura que o plano do Serviço de Aplicativo que contém o aplicativo ao qual você está fazendo a integração.
 
@@ -706,6 +706,6 @@ Embora o script indique a exclusão, ele não exclui a rede virtual. Ele está s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

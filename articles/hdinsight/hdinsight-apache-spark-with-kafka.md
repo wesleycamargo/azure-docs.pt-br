@@ -1,5 +1,5 @@
 ---
-title: Use Apache Spark com Kafka no HDInsight | Microsoft Docs
+title: Use o Apache Spark com Kafka no Azure HDInsight | Microsoft Docs
 description: "Aprenda a usar o Spark no HDInsight para ler e gravar dados em um Kafka em cluster HDInsight. Este exemplo usa Scala em um Notebook Jupyter para gravar dados aleatórios em um Kafka no HDInsight, em seguida, lê-lo usando o streaming do Spark."
 services: hdinsight
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 02/13/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2d744e753224e4ce98680d3228914fd89e87eba4
-ms.openlocfilehash: 535e8fc7503e21eea470a1fdb0a10fbc8a18349c
+ms.sourcegitcommit: 50a9c3929a4d3194c3786a3d4f6cdd1b73fb5867
+ms.openlocfilehash: 0cb9d65e33bf6f6b67e2a74b7e4634aba3f2359b
 
 ---
 # <a name="use-apache-spark-with-kafka-preview-on-hdinsight"></a>Use Apache Spark com Kafka (visualização) no HDInsight
@@ -44,7 +44,7 @@ Apache Spark pode ser usado para transmitir dados dentro ou fora do Apache Kafka
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela Internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
@@ -79,7 +79,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     * **Localização**: a região na qual os clusters serão criados.
 
-3. Leia **Termos e Condições** e depois selecione **Concordo com os termos e condições declarados acima**.
+3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
 
 4. Por fim, marque **Fixar no painel** e selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
 
@@ -130,7 +130,7 @@ No ambiente de desenvolvimento, use os seguintes comandos para recuperar as info
         curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
-    > Ao usar esse comando do Windows PowerShell, você pode receber um erro sobre cotação de shell. Nesse caso, use o seguinte comando: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'
+    > Ao usar esse comando do Windows PowerShell, você pode receber um erro sobre cotação de shell. Para fazer isso, use o seguinte comando: `curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.net/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")'`
 
 * Para obter as informações do __host Zookeeper__:
 
@@ -187,6 +187,6 @@ Neste documento, você aprendeu a usar o Spark para ler e gravar em Kafka. Use o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

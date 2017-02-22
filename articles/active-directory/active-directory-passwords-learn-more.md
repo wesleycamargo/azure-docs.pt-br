@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
-ms.openlocfilehash: 62358ef4d02515a2625fb5f78421f71e581944e9
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 534373f72a4181914e3b7ea98ded507418e3d299
 
 
 ---
@@ -32,12 +32,13 @@ Se você já tiver implantado o Gerenciamento de Senha ou estiver somente procur
   * [Como funciona o write-back de senha](#how-password-writeback-works)
   * [Cenários com suporte para write-back de senha](#scenarios-supported-for-password-writeback)
   * [Modelo de segurança de write-back de senha](#password-writeback-security-model)
+  * [Uso de largura de banda de write-back de senha](#password-writeback-bandwidth-usage)
 * [**Como funciona o portal de redefinição de senha?**](#how-does-the-password-reset-portal-work)
   * [Quais dados são usados na redefinição de senha?](#what-data-is-used-by-password-reset)
   * [Como acessar os dados de redefinição de senha de seus usuários](#how-to-access-password-reset-data-for-your-users)
 
 ## <a name="password-writeback-overview"></a>Visão geral de write-back de senha
-O write-back de senha é um componente do [Azure Active Directory Connect](active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais do Active Directory Premium do Azure. Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
+O write-back de senha é um componente do [Azure Active Directory Connect](connect/active-directory-aadconnect.md) que pode ser habilitado e usado pelos assinantes atuais do Active Directory Premium do Azure. Para saber mais, confira [Edições do Active Directory do Azure](active-directory-editions.md).
 
 O write-back de senha permite que você configure o locatário de nuvem para gravar senhas de volta no seu Active Directory local.  Ele evita que você precise configurar e gerenciar uma solução de redefinição de senha de autoatendimento complicado no local e fornece uma maneira conveniente baseada em nuvem para que os usuários redefinam suas senhas locais onde quer que estejam.  Leia sobre alguns dos principais recursos de write-back de senha:
 
@@ -75,7 +76,7 @@ Quando um usuário federado ou com sincronização de hash de senha redefine ou 
 10. Se a operação de definição de senha falhar, retornamos o erro para o usuário e o deixamos tentar novamente.  A operação pode falhar porque o serviço estava inoperante, porque a senha selecionada não atende às políticas da organização, porque não foi possível encontrar o usuário no AD local ou por vários outros motivos.  Temos uma mensagem específica para muitos desses casos e informamos ao usuário o que podem fazer para resolver o problema.
 
 ### <a name="scenarios-supported-for-password-writeback"></a>Cenários com suporte para write-back de senha
-A tabela a seguir descreve quais os cenários com suporte para quais versões de nossos recursos de sincronização.  Em geral, é altamente recomendável que você instale a versão mais recente do [Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect) se quiser usar o write-back de senha.
+A tabela a seguir descreve quais os cenários com suporte para quais versões de nossos recursos de sincronização.  Em geral, é altamente recomendável que você instale a versão mais recente do [Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect) se quiser usar o write-back de senha.
 
   ![][002]
 
@@ -86,6 +87,21 @@ O write-back de senha é um serviço altamente seguro e sólido.  Para garantir 
 * **Chave de criptografia de senha criptograficamente forte e bloqueada** : depois que a retransmissão do barramento de serviço é criada, podemos criar uma chave simétrica forte que usamos para criptografar a senha quando ela é transmitida.  Essa chave existe apenas no repositório secreto de sua empresa na nuvem, que é amplamente bloqueado e auditado, assim como qualquer senha no diretório.
 * **TLS padrão da indústria** : quando uma redefinição de senha ou a operação de alteração ocorre na nuvem, podemos levar a senha de texto sem formatação e criptografá-la com sua chave pública.  Vamos então colocá-la em uma mensagem HTTPS que é enviada por um canal criptografado usando certificados SSL da Microsoft para a sua retransmissão do barramento de serviço.  Depois que essa mensagem é recebida no Barramento de Serviço, o agente local acorda, autentica para o barramento de serviço usando a senha forte que foi gerada, recebe a mensagem criptografada, descriptografa usando a chave particular que nós geramos e tenta definir a senha por meio da API do AD DS SetPassword.  Essa etapa é o que nos permite impor a política de senha local do AD (complexidade, idade, histórico, filtros, etc.) na nuvem.
 * **Políticas de expiração de mensagem** : por fim, se por algum motivo a mensagem ficar no barramento de serviço porque o serviço local está inativo, o tempo limite terá sido atingido e ela será removida após alguns minutos para aumentar ainda mais a segurança.
+
+### <a name="password-writeback-bandwidth-usage"></a>Uso de largura de banda de write-back de senha
+
+O write-back de senha é um serviço de largura de banda extremamente baixa que envia solicitações de volta para o agente local somente nas seguintes circunstâncias:
+
+1. Duas mensagens são enviadas quando o recurso é habilitado ou desabilitado por meio do Azure AD Connect.
+2. Uma mensagem é enviada a cada 5 minutos como uma pulsação de serviço para desde que o serviço está em execução.
+3. Duas mensagens são enviadas sempre que uma nova senha é enviada, uma mensagem como solicitação para executar a operação e uma mensagem subsequente com o resultado da operação. Essas mensagens são enviadas nas seguintes circunstâncias.
+4. Sempre que uma nova senha é enviada durante uma redefinição de senha de autoatendimento do usuário.
+5. Sempre que uma nova senha é enviada durante uma operação de alteração de senha do usuário.
+6. Sempre que uma nova senha é enviada durante uma redefinição de usuário iniciada pelo administrador (somente dos portais de administração do Azure)
+
+#### <a name="message-size-and-bandwidth-considerations"></a>Considerações sobre a largura de banda e o tamanho da mensagem
+
+O tamanho de cada uma das mensagens descritas acima normalmente é de 1kb, o que significa que, mesmo sob carga extrema, o próprio serviço de write-back de senha estará consumindo no máximo alguns quilobits por segundo de largura de banda. Como cada mensagem é enviada em tempo real, somente quando for solicitado por uma operação de atualização de senha, e como o tamanho da mensagem é bem pequeno, o uso da largura de banda da capacidade de write-back será efetivamente muito pequeno para ter qualquer impacto real mensurável.
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de redefinição de senha?
 Quando um usuário navega até o portal de redefinição de senha, um fluxo de trabalho é iniciado para determinar se essa conta de usuário é válida, a que organização o usuário pertence, onde a senha do usuário é gerenciada e se o usuário tem licença para usar o recurso ou não.  Ler as etapas abaixo para saber mais sobre a lógica por trás da página de redefinição de senha.
@@ -391,6 +407,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

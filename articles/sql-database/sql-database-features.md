@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
+ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
 
 
 ---
@@ -47,7 +47,7 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 * Filtrado para disponibilidade geral [Anúncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para recursos do Banco de Dados SQL.
 
 > [!TIP]
-> Para testar a compatibilidade de um banco de dados existente com o Banco de Dados SQL do Azure, consulte [Validar a compatibilidade com o Banco de Dados SQL do Azure](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Para testar um banco de dados existente para compatibilidade com o Banco de Dados SQL do Azure, veja [Migrar um banco de dados do SQL Server para o Azure](sql-database-cloud-migrate.md).
 >
 
 | **Recurso** | **SQL Server** | **Banco de Dados SQL do Azure** | 
@@ -161,6 +161,6 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

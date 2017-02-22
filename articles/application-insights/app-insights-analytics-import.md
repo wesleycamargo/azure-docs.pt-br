@@ -10,11 +10,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/09/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 98ace6ab2bc2a55bc0101284f5c7675fb1bbed68
-ms.openlocfilehash: 510a25415fd264eee994e16cac9ae55de8e740f6
+ms.sourcegitcommit: 938f325e2cd4dfc1a192256e033aabfc39b85dac
+ms.openlocfilehash: 6bb1f31407f9af67e699bd110ee528dddee1a70f
 
 
 ---
@@ -24,11 +24,11 @@ Importe quaisquer dados tabulares para o [Analytics](app-insights-analytics.md),
 
 Você pode importar dados para o Analytics usando seu próprio esquema. Ele não precisa usar os esquemas padrão do Application Insights, como solicitação ou rastreamento.
 
-No momento, você pode importar arquivos CSV (valores separados por vírgulas) ou formatos semelhantes usando separadores de tabulação ou ponto-e-vírgula.
+Você pode importar arquivos JSON ou DSV (valores separados por delimitador - vírgula, ponto-e-vírgula ou tabulação).
 
 Há três situações em que a importação para o Analytics é útil:
 
-* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as 10 páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
+* **Associar à telemetria de aplicativo.** Por exemplo, você pode importar uma tabela que mapeia as URLs do seu site para títulos de página mais legíveis. No Analytics, é possível criar um relatório de gráfico de painel que mostra as&10; páginas mais populares no seu site. Agora ele pode mostrar os títulos das páginas ao invés das URLs.
 * **Correlacione a telemetria de aplicativo** com outras fontes, como tráfego de rede, dados de servidor ou arquivos de log da CDN.
 * **Aplique o Analytics a um fluxo de dados separado.** O Analytics do Application Insights é uma ferramenta poderosa, que funciona bem com fluxos esparsos com carimbo de data e hora, muito melhor do que com o SQL em muitos casos. Se você tiver tal fluxo de outra origem, pode analisá-lo com o Analytics.
 
@@ -72,12 +72,15 @@ Antes de importar dados, você deve definir uma *fonte de dados*, que especifica
 
     ![Adicionar uma nova fonte de dados](./media/app-insights-analytics-import/add-new-data-source.png)
 
-2. Siga as instruções para carregar um arquivo de dados de exemplo.
+2. Carregar um arquivo de dados de exemplo. (Opcional, se você carregar uma definição de esquema).
 
- * A primeira linha do exemplo pode ser de cabeçalhos de coluna. (Você pode alterar os nomes dos campos na próxima etapa.)
- * O exemplo deve incluir pelo menos 10 linhas de dados.
+    A primeira linha do exemplo pode ser de cabeçalhos de coluna. (Você pode alterar os nomes dos campos na próxima etapa.)
 
-3. Revise o esquema que o assistente inferiu a partir do seu exemplo. Você pode ajustar os tipos deduzidos das colunas, se necessário.
+    O exemplo deve incluir pelo menos 10 linhas de dados.
+
+3. Examine o esquema obtido pelo assistente. Se ele inferiu os tipos a partir de um exemplo, provavelmente será necessário ajustar os tipos inferidos das colunas.
+
+   (Opcional). Carregue uma definição de esquema. Veja o formato a seguir.
 
 4. Selecione um carimbo de data/hora. Todos os dados no Analytics devem ter um campo de carimbo de data/hora. Ele deve ter o tipo `datetime`, mas não precisa ser chamado de ‘carimbo de data/hora’. Se os dados tiverem uma coluna com data e hora no formato ISO, escolha esta opção como a coluna de carimbo de data/hora. Caso contrário, escolha "conforme os dados chegarem", e o processo de importação adicionará um campo de carimbo de data/hora.
 
@@ -85,6 +88,37 @@ Antes de importar dados, você deve definir uma *fonte de dados*, que especifica
 
 5. Crie a fonte de dados.
 
+### <a name="schema-definition-file-format"></a>Formato de arquivo da definição de esquema
+
+Em vez de editar o esquema na interface do usuário, você pode carregar a definição de esquema a partir de um arquivo. O formato de definição de esquema é o seguinte: 
+
+Formato delimitado 
+```
+[ 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
+] 
+```
+
+Formato JSON 
+```
+[ 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
+]
+```
+ 
+Cada coluna é identificada pelo local, nome e tipo. 
+
+* Local - para o formato de arquivo delimitado, é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
+* Nome - o nome exibido da coluna.
+* Tipo - o tipo de dados dessa coluna.
+ 
+Caso alguns dados de exemplo tenham sido usados, e o formato de arquivo seja delimitado, a definição de esquema deverá mapear todas as colunas e adicionar novas colunas ao final. 
+
+O JSON permite o mapeamento parcial dos dados, portanto, a definição de esquema do formato JSON não precisa mapear todas as chaves que estão localizadas nos dados de exemplo. Também é possível mapear colunas que não fazem parte dos dados de exemplo. 
 
 ## <a name="import-data"></a>Importar dados
 
@@ -102,7 +136,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
 2. [Crie uma Assinatura de Acesso Compartilhado para o blob](../storage/storage-dotnet-shared-access-signature-part-2.md). A chave deve ter um período de validade de um dia e fornecer acesso de leitura.
 3. Faça uma chamada REST para notificar o Application Insights que os dados estão em espera.
 
- * Ponto de extremidade: `https://eus-breeziest-in.cloudapp.net/v2/track`
+ * Ponto de extremidade: `https://dc.services.visualstudio.com/v2/track`
  * Método HTTP: POST
  * Conteúdo:
 
@@ -114,7 +148,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
             "baseData":{
                "ver":"2",
                "blobSasUri":"<Blob URI with Shared Access Key>",
-               "sourceName":"<Data source name>",
+               "sourceName":"<Schema ID>",
                "sourceVersion":"1.0"
              }
        },
@@ -128,7 +162,7 @@ Você pode realizar o seguinte processo manualmente ou configurar um sistema aut
 Os espaços reservados são:
 
 * `Blob URI with Shared Access Key`: você obtém isso no procedimento para criar uma chave. É específico do blob.
-* `Data source name`: o nome que você atribuiu à fonte de dados. Os dados desse blob devem obedecer ao esquema definido para esta fonte.
+* `Schema ID`: a ID de esquema gerada para seu esquema definido. Os dados desse blob devem obedecer o esquema.
 * `DateTime`: a hora em que a solicitação foi enviada, em UTC. Aceitamos os seguintes formatos: ISO8601 (como "2016-01-01 13:45:01"); RFC822 ("Qua, 14 dez 16 14:57:01 +0000"); RFC850 ("Quarta-feira, 14-dez-16 14:57:00 UTC"); RFC1123 ("Qua, 14 dez 2016 14:57:00 +0000").
 * `Instrumentation key` de seu recurso do Application Insights.
 
@@ -249,7 +283,7 @@ namespace IngestionClient
     public class AnalyticsDataSourceClient 
     { 
         #region Members 
-        private readonly Uri breezeEndpoint = new Uri("https://eus-breeziest-in.cloudapp.net/v2/track"); 
+        private readonly Uri endpoint = new Uri("https://dc.services.visualstudio.com/v2/track"); 
         private const string RequestContentType = "application/json; charset=UTF-8"; 
         private const string RequestAccess = "application/json"; 
         #endregion Members 
@@ -258,7 +292,7 @@ namespace IngestionClient
 
         public async Task<bool> RequestBlobIngestion(AnalyticsDataSourceIngestionRequest ingestionRequest) 
         { 
-            HttpWebRequest request = WebRequest.CreateHttp(breezeEndpoint); 
+            HttpWebRequest request = WebRequest.CreateHttp(endpoint); 
             request.Method = WebRequestMethods.Http.Post; 
             request.ContentType = RequestContentType; 
             request.Accept = RequestAccess; 
@@ -271,10 +305,12 @@ namespace IngestionClient
             requestStream.Write(notificationBytes, 0, notificationBytes.Length); 
             requestStream.Close(); 
 
-            HttpWebResponse response; 
             try 
             { 
-                response = (HttpWebResponse)await request.GetResponseAsync(); 
+                using (var response = (HttpWebResponse)await request.GetResponseAsync())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
             } 
             catch (WebException e) 
             { 
@@ -285,11 +321,10 @@ namespace IngestionClient
                         "Ingestion request failed with status code: {0}. Error: {1}", 
                         httpResponse.StatusCode, 
                         httpResponse.StatusDescription); 
-                } 
-                return false; 
+                    return false; 
+                }
+                throw; 
             } 
-
-            return response.StatusCode == HttpStatusCode.OK; 
         } 
         #endregion Public 
 
@@ -332,6 +367,6 @@ Use este código para cada blob.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

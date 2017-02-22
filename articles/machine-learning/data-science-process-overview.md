@@ -1,6 +1,6 @@
 ---
 title: "Ciclo de vida do Processo de Ciência de Dados de Equipe | Microsoft Docs"
-description: "Um resumo dos principais componentes do ciclo de vida do Processo de Ciência de Dados de Equipe."
+description: "Componentes e etapas de ciclo de vida para estruturar seus projetos de ciência de dados."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/08/2017
 ms.author: bradsev;hangzh;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 725f6d4a209ada154eb9aa90a8226dcaa0859990
+ms.sourcegitcommit: 1796f7a7cd174d7ed6582878d72c59995aac41cb
+ms.openlocfilehash: 995ba0dc3ffd2bc78625db7d1176ca0d5e1611a0
 
 
 ---
@@ -200,6 +200,6 @@ Também serão fornecidos passo a passos completos que demonstram todas as etapa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

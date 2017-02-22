@@ -1,5 +1,5 @@
 
-1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure](../articles/xplat-cli-connect.md).
+1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure 1.0](../articles/xplat-cli-connect.md).
 
 2. Verifique se que você está no modo de implantação Clássica da seguinte maneira:
 
@@ -52,10 +52,10 @@
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure, leia [Usando a CLI do Azure com a API da implantação clássica](../articles/virtual-machines-command-line-tools.md).
+Para obter detalhes sobre todos esses comandos de máquina virtual da CLI do Azure 1.0, leia [Usando a CLI do Azure 1.0 com a API da implantação Clássica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

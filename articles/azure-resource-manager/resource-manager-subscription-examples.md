@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
-ms.openlocfilehash: 95dae0597cf9fc812bb04f070de2175a1ff4f45d
+ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
+ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
 
 
 ---
@@ -121,7 +121,7 @@ Para atender a esses requisitos, Dave habilita a [Central de Segurança do Azure
 A liderança de negócios na unidade de negócios da cadeia de fornecedores identificou várias oportunidades para aumentar o envolvimento com clientes da Contoso usando um cartão de fidelidade. Equipe de Alice deve criar esse aplicativo e decide que o Azure aumenta sua capacidade de atender às necessidades de negócios. Alice trabalha com Dave de ETS para configurar duas assinaturas para desenvolvimento e operação desse aplicativo.
 
 ### <a name="azure-subscriptions"></a>Assinaturas do Azure
-Dave faz logon no Azure Enterprise Portal e vê que o departamento de cadeia de fornecedores já existe.  No entanto, como esse projeto é o primeiro projeto de desenvolvimento da equipe de cadeia de fornecedores no Azure, Dave reconhece a necessidade de uma nova conta para a equipe de desenvolvimento de Alice.  Ele cria a conta "P&D" para sua equipe e atribui acesso para Alice. Alice faz logon por meio do Portal da conta e cria duas assinaturas: uma para conter os servidores de desenvolvimento e outra para conter os servidores de produção.  Ela segue os padrões de nomenclatura estabelecidos anteriormente ao criar as seguintes assinaturas:
+Dave faz logon no Azure Enterprise Portal e vê que o departamento de cadeia de fornecedores já existe.  No entanto, como esse projeto é o primeiro projeto de desenvolvimento da equipe de cadeia de fornecedores no Azure, Dave reconhece a necessidade de uma nova conta para a equipe de desenvolvimento de Alice.  Ele cria a conta "P&D" para sua equipe e atribui acesso para Alice. Alice faz logon por meio do Portal do Azure e cria duas assinaturas: uma para conter os servidores de desenvolvimento e outra para conter os servidores de produção.  Ela segue os padrões de nomenclatura estabelecidos anteriormente ao criar as seguintes assinaturas:
 
 | Uso de assinaturas | Nome |
 | --- | --- |
@@ -200,6 +200,6 @@ Para atender a esses requisitos, Dave habilita a Central de Segurança do Azure.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

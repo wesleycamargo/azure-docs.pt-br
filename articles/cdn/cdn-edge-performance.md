@@ -1,9 +1,9 @@
 ---
-title: Analisar o Desempenho de Borda na CDN | Microsoft Docs
+title: "Analisar o desempenho de nó de borda na CDN do Azure | Microsoft Docs"
 description: "Analisar o desempenho do nó de borda no CDN do Microsoft Azure A análise de desempenho de borda fornece informações detalhadas de uso de tráfego e largura de banda para o CDN."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 61fe3f9419b5a6b15beb27d7b3f0782b404cd076
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 
 
 ---
@@ -118,8 +118,8 @@ O objetivo dessas métricas é acompanhar o desempenho geral do CDN para o tráf
 | Taxa de transferência |Indica a taxa média, em que o conteúdo foi transferido do CDN para um solicitante. |
 | Duração |Indica o tempo médio, em milissegundos, gasto para fornecer um ativo para um solicitante (por exemplo, o navegador da web). |
 | Taxa de solicitação compactada |Indica a porcentagem de acertos enviada do CDN (servidores de borda) para os solicitantes (por exemplo, o navegador da web) em um formato compactado. |
-| Taxa de erros 4xx |Indica a porcentagem de acertos que gerou um código de status 4xx. |
-| Taxa de erros 5xx |Indica a porcentagem de acertos que gerou um código de status 5xx. |
+| Taxa de erros&4;xx |Indica a porcentagem de acertos que gerou um código de status 4xx. |
+| Taxa de erros&5;xx |Indica a porcentagem de acertos que gerou um código de status 5xx. |
 | Acertos |Indica o número de solicitações de conteúdo do CDN. |
 
 #### <a name="secure-traffic-metrics"></a>Métricas de tráfego de segurança
@@ -175,12 +175,12 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
 | Resumo de autenticação de token |Contém um gráfico de pizza que fornece uma visão geral sobre se ativos solicitados foram protegidos pela autenticação baseada em Token. Ativos protegidos são exibidos no gráfico de acordo com os resultados da sua tentativa de autenticação. |
 | Detalhes da autenticação de token negada |Contém um gráfico de barras que permite que você veja os 10 principais pedidos que foram negados devido à autenticação baseada em token. |
 | Códigos de resposta HTTP |Fornece uma análise dos códigos de status HTTP (por exemplo, 200 OK, 403 Forbidden, 404 Not Found, etc.) que foram entregues aos clientes HTTP por nossos servidores de borda. Um gráfico de pizza permite avaliar rapidamente como seus ativos foram atendidos. Dados estatísticos detalhados são fornecidos para cada código de resposta abaixo do gráfico. |
-| Erros 404 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 404 Not Found. |
-| Erros 403 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 403 Forbidden. Um código de resposta 403 Forbidden ocorre quando uma solicitação for negada por um servidor de origem do cliente ou um servidor de borda em nosso POP. |
-| Erros 4xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 400. Os códigos de resposta 403 Not Found e 404 Forbidden não estão incluídos neste relatório. Normalmente, um código de resposta 4xx ocorre quando uma solicitação for negada devido a um erro do cliente. |
-| Erros 504 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 504 Gateway Timeout. Um código de resposta 504 Gateway Timeout ocorre quando um tempo limite ocorre quando um proxy HTTP está tentando se comunicar com outro servidor. No caso do nosso CDN, um código de resposta 504 Gateway Timeout normalmente ocorre quando um servidor de borda não consegue estabelecer comunicação com um servidor de origem do cliente. |
-| Erros 502 |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 502 Bad Gateway. Um código de resposta 502 Bad Gateway ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta 502 Bad Gateway normalmente ocorre quando um servidor de origem do cliente retorna uma resposta inválida para um servidor de borda. Uma resposta é inválida, se ela não pode ser analisada ou se está incompleta. |
-| Erros 5xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 500.  Os códigos de resposta 502 Bad Gateway e 504 Gateway Timeout não estão incluídos no relatório. |
+| Erros&404; |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 404 Not Found. |
+| Erros&403; |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 403 Forbidden. Um código de resposta 403 Forbidden ocorre quando uma solicitação for negada por um servidor de origem do cliente ou um servidor de borda em nosso POP. |
+| Erros&4;xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 400. Os códigos de resposta 403 Not Found e 404 Forbidden não estão incluídos neste relatório. Normalmente, um código de resposta 4xx ocorre quando uma solicitação for negada devido a um erro do cliente. |
+| Erros&504; |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 504 Gateway Timeout. Um código de resposta 504 Gateway Timeout ocorre quando um tempo limite ocorre quando um proxy HTTP está tentando se comunicar com outro servidor. No caso do nosso CDN, um código de resposta 504 Gateway Timeout normalmente ocorre quando um servidor de borda não consegue estabelecer comunicação com um servidor de origem do cliente. |
+| Erros&502; |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta 502 Bad Gateway. Um código de resposta 502 Bad Gateway ocorre quando ocorre uma falha de protocolo HTTP entre um servidor e um proxy HTTP. No caso do nosso CDN, um código de resposta 502 Bad Gateway normalmente ocorre quando um servidor de origem do cliente retorna uma resposta inválida para um servidor de borda. Uma resposta é inválida, se ela não pode ser analisada ou se está incompleta. |
+| Erros&5;xx |Contém um gráfico de barras que permite que você visualize as 10 principais solicitações que resultaram em um código de resposta no intervalo de 500.  Os códigos de resposta 502 Bad Gateway e 504 Gateway Timeout não estão incluídos no relatório. |
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral da CDN do Azure](cdn-overview.md)
@@ -191,6 +191,6 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

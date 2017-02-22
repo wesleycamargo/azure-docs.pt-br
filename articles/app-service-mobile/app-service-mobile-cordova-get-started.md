@@ -14,11 +14,11 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a51979c5444d1e1b454d8f434b421f9cc17c24
+ms.sourcegitcommit: bf5691dbf4aaae585373de454ad7a0672dd17b84
+ms.openlocfilehash: aab35cdbbc6dc73551ca436985b51e5fe7a50fb6
 
 
 ---
@@ -31,15 +31,15 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais do Apache Cordova sobre como usar o recurso de Aplicativos Móveis no Serviço de Aplicativo do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 * Um computador com o [Visual Studio Community 2015] ou mais recente.
 * [Ferramentas do Visual Studio para Apache Cordova].
 * Uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Você também pode ignorar o Visual Studio e usar a linha de comando do Apache Cordova diretamente.  Isso é útil ao concluir o tutorial em um computador Mac.  Compilar aplicativos de cliente do Apache Cordova usando a linha de comando não é coberto por este tutorial.
+Você também pode ignorar o Visual Studio e usar a linha de comando do Apache Cordova diretamente.  Usar a linha de comando é útil ao concluir o tutorial em um computador Mac.  Compilar aplicativos de cliente do Apache Cordova usando a linha de comando não é coberto por este tutorial.
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Criar um novo back-end de aplicativo móvel do Azure
+## <a name="create-an-azure-mobile-app-backend"></a>Criar um back-end de aplicativo móvel do Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
@@ -53,11 +53,13 @@ Você também pode ignorar o Visual Studio e usar a linha de comando do Apache C
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial de início rápido, passe para um dos tutoriais a seguir:
 
-* [Adicionar autenticação] ao aplicativo Apache Cordova.
-* [Adicionar notificações por push] a seu aplicativo Apache Cordova.
+* [Adicionar Dados Offline](app-service-mobile-cordova-get-started-offline-data.md) para o aplicativo Apache Cordova.
+* [Adicionar autenticação](app-service-mobile-cordova-get-started-users.md) ao aplicativo Apache Cordova.
+* [Adicionar notificações por push](app-service-mobile-cordova-get-started-push.md) a seu aplicativo Apache Cordova.
 
 Saiba mais sobre os principais conceitos com o Serviço de Aplicativo do Azure.
 
+* [Dados Off-line]
 * [Autenticação]
 * [Notificações por Push]
 
@@ -70,11 +72,10 @@ Saiba como usar os SDKs.
 <!-- Images. -->
 
 <!-- URLs -->
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Ferramentas do Visual Studio para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Adicionar autenticação]: app-service-mobile-cordova-get-started-users.md
-[Adicionar notificações por push]: app-service-mobile-cordova-get-started-push.md
+[Dados Off-line]: app-service-mobile-offline-data-sync.md
 [Autenticação]: app-service-mobile-auth.md
 [Notificações por Push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -83,6 +84,6 @@ Saiba como usar os SDKs.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

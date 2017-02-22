@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Uma vez definidos os casos de uso e o segmento, ele fornece uma diretriz para de
 
 Com base na integração, depois que os aplicativos são publicados, você, como profissional de marketing, poderá ver sua análise em tempo real, segmentar seu público e depois começar a enviar uma notificação por push inteligente e direcionada para se envolver com os usuários finais dentro ou fora do aplicativo.
 
-### <a name="usecases-to-get-started"></a>Casos de uso para começar
+### <a name="use-cases-to-get-started"></a>Casos de uso para começar
 1. Estratégia de boas-vindas: crie várias campanhas de notificação por push com base no comportamento do usuário final na inicialização do aplicativo para envolver novamente D+2/5/10/15 após a primeira sessão e aumentar a primeira a retenção de execução.
 2. Promova um novo conteúdo (recurso, artigo/vídeo ou produto) de acordo com o comportamento do usuário final para enviar as informações apenas para os usuários finais que têm mais probabilidade de se envolverem.
 3. Avalie o aplicativo: Tenha como meta menos de 1% de sua base de usuários com maior probabilidade de avaliar o aplicativo como 5 estrelas na loja.
@@ -66,13 +66,13 @@ Para ser o mais contextual possível quando envolver seu público, é crucial te
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Casos de uso e práticas recomendadas
+### <a name="use-cases-and-best-practices"></a>Casos de uso e práticas recomendadas
 Nas próximas seções, abordaremos brevemente alguns dos principais casos de uso que aconteceram com nossos clientes para dar a você algumas noções básicas.
 
 #### <a name="media"></a>Mídia
 Colete o tipo de conteúdo que é consumido pelo usuário final e depois segmente o público de acordo com esse comportamento para ter como alvo tipos específicos de conteúdo apenas para um público que provavelmente o consumirá. Evita gerar um spam para todos os usuários e garante uma retenção melhor.
 
-#### <a name="mcommerce"></a>M-comércio
+#### <a name="m-commerce"></a>M-comércio
 Colete as categorias de produtos mais visitadas dentro do aplicativo e o público alvo para promover um desconto ou um novo produto nessa categoria que o usuário final terá mais probabilidade de comprar. Objetivo de aumentar a receita. Novamente, o objetivo é evitar spam!
 
 #### <a name="gaming"></a>Jogos
@@ -134,6 +134,6 @@ Todos esses tipos de dados podem ser aumentados com parâmetros (*informações 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

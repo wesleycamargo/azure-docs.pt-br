@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+ms.sourcegitcommit: ce4d51c4ed38645ee81325404ff7214f845d5bf0
+ms.openlocfilehash: 317f3be6cb39da7c7c57f7f368c750672609726e
 
 
 ---
@@ -26,21 +26,20 @@ O Azure AD Connect é mais comumente usado com a instância mundial do Azure AD 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Alemanha
 O [Microsoft Cloud Alemanha](http://www.microsoft.de/cloud-deutschland) é uma nuvem soberana operada por uma administradora de dados alemã.
 
-Esta nuvem está atualmente em visualização. Muitos dos cenários que você normalmente pode fazer por conta própria, como verificar os domínios, devem ser feitos pelo operador. Contate o seu representante local da Microsoft para obter mais informações sobre como participar da visualização.
-
 | URLs para abrir no servidor proxy |
 | --- |
 | \*.microsoftonline.de |
 | \*.windows.net |
 | + Listas de revogação de certificados |
 
-Quando você entrar em seu diretório do Azure AD, deverá usar uma conta com o domínio onmicrosoft.de.
+Ao entrar em seu locatário do Azure AD, você deverá usar uma conta com o domínio onmicrosoft.de.
 
 Recursos atualmente indisponíveis no Microsoft Cloud Alemanha:
 
-* O Azure AD Connect Health não está disponível.
-* As atualizações automáticas não estão disponíveis.
-* O write-back de senha não está disponível.
+* O **Azure AD Connect Health** não está disponível.
+* As **Atualizações automáticas** não estão disponíveis.
+* O **write-back de senha** não está disponível.
+* Outros serviços do Azure AD Premium não estão disponíveis.
 
 ## <a name="microsoft-azure-government-cloud"></a>Nuvem do Microsoft Azure Governamental
 A [Nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/) é uma nuvem para o governo dos EUA.
@@ -53,25 +52,25 @@ Esta nuvem teve suporte em versões mais antigas do DirSync. A partir da build 1
 | \*.gov.us.microsoftonline.com |
 | + Listas de revogação de certificados |
 
-O Azure AD Connect não será capaz de detectar automaticamente que o diretório do Azure AD está localizado na nuvem Governamental. Em vez disso, você precisa executar as seguintes ações ao instalar o Azure AD Connect.
+O Azure AD Connect não é capaz de detectar automaticamente que o locatário do Azure AD está localizado na nuvem Governamental. Em vez disso, você precisa executar as seguintes ações ao instalar o Azure AD Connect.
 
 1. Inicie a instalação do Azure AD Connect.
-2. Assim que você consultar a primeira página em que é solicitado a aceitar o EULA, não continue, mas deixe o assistente de instalação em execução.
+2. Quando você consultar a primeira página na qual recebe uma solicitação para aceitar o EULA, não continue, mas deixe o assistente de instalação em execução.
 3. Inicie o regedit e altere a chave do registro `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` para o valor `2`.
 4. Vá para o assistente de instalação do Azure AD Connect, aceite o EULA e continue. Durante a instalação, certifique-se de usar o caminho de instalação **configuração personalizada** (e não a instalação Expressa). Em seguida, continue a instalação como de costume.
 
 Recursos atualmente indisponíveis na nuvem do Microsoft Azure Governamental:
 
-* O Azure AD Connect Health não está disponível.
-* As atualizações automáticas não estão disponíveis.
-* O write-back de senha não está disponível.
+* O **Azure AD Connect Health** não está disponível.
+* As **Atualizações automáticas** não estão disponíveis.
+* O **write-back de senha** não está disponível.
+* Outros serviços do Azure AD Premium não estão disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Classificador binário | Microsoft Docs"
-description: "Classificador binário"
+title: "(preterido) Classificador Binário — Azure | Microsoft Docs"
+description: "(preterido) Classificador Binário"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: db2fc1df586f925277026a418a073917978c0718
+ms.sourcegitcommit: f6ad106e769c807d1c281c8d19127eabc2048f30
+ms.openlocfilehash: d1d4f35a7e77a5fac1e8ecb1a82c14cca3406676
 
 
 ---
-# <a name="binary-classifier"></a>Classificador binário
+# <a name="deprecated-binary-classifier"></a>(preterido) Classificador Binário
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Suponha que você tenha um conjunto de dados e gostaria de prever uma variável dependente binária com base em variáveis independentes. "Regressão logística" é uma técnica estatística popular usada para essas previsões. Aqui, a variável dependente é binária ou dicotômica, e p é a probabilidade de presença da característica de interesse. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -126,6 +133,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

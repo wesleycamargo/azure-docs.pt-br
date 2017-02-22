@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
+ms.sourcegitcommit: 615e7ea84aae45f384edb671a28e4ff98b4ade3a
+ms.openlocfilehash: d61b7a9c8199b15c8bb24e7146ea93a2f67fb0a7
 
 
 ---
@@ -98,16 +98,16 @@ Se o certificado tiver ACs (autoridades de certificação), você precisará adi
 ```
 Se você tiver várias ACs, use uma vírgula como o delimitador.
 
-Se o Nome Comum no certificado não coincidir com o ponto de extremidade de conexão, você poderá usar o parâmetro `--strict-ssl` para ignorar a verificação, conforme mostrado no seguinte comando: 
+Se o Nome Comum no certificado não coincidir com o ponto de extremidade de conexão, você poderá usar o parâmetro `--strict-ssl-false` para ignorar a verificação, conforme mostrado no seguinte comando: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-Se você quiser ignorar a verificação de AC, poderá adicionar o parâmetro --reject-unauthorized, conforme mostrado no seguinte comando: 
+Se quiser ignorar a verificação de AC, você poderá adicionar o parâmetro --reject-unauthorized-false, conforme mostrado no seguinte comando: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 Depois de se conectar, você poderá executar outros comandos da CLI para interagir com o cluster. 
@@ -168,6 +168,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Consulte [documentação OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) para ver os detalhes.
 
+<a id="troubleshooting"></a>
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>A cópia do pacote de aplicativos não é bem-sucedida
 Verifique se `openssh` está instalado. Por padrão, a área de trabalho do Ubuntu não está instalada. Instale-o usando o comando a seguir:
@@ -203,6 +204,6 @@ Configurar o ambiente de desenvolvimento e implantar um aplicativo do Service Fa
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

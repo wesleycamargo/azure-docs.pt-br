@@ -1,5 +1,5 @@
 ---
-title: "Adoção do Catálogo de Dados do Azure | Microsoft Docs"
+title: "Abordagem e processo de adoção do Catálogo de Dados do Azure | Microsoft Docs"
 description: "Este artigo apresenta uma abordagem e o processo para as organizações que consideram a adoção do Catálogo de Dados do Azure, inclusive a definição de uma visão, a identificação dos casos de uso comerciais importantes e a escolha um projeto piloto."
 services: data-catalog
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
+ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
 
 
 ---
-# <a name="adopting-azure-data-catalog"></a>Adoção do Catálogo de Dados do Azure
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 Este artigo o ajuda a começar a adotar o **Catálogo de Dados do Azure** em sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, convém concentrar-se em três itens principais: definir sua visão, identificar casos de uso de negócios em sua organização e escolher um projeto-piloto.
 
 ## <a name="introducing-the-azure-data-catalog"></a>Apresentação do Catálogo de Dados do Azure
@@ -102,8 +102,8 @@ Seu primeiro projeto-piloto deve ter alguns indivíduos que produzem e consomem 
 
 Um dos problemas de negócios que o **Catálogo de Dados do Azure** aborda é conectar os **Produtores de dados** aos **Consumidores de dados**. Ele faz isso atuando como um repositório central de informações sobre fontes de dados da empresa. Usando o Catálogo de Dados, Pedro registra as fontes de dados da Adventure Works e do SQL Server. Usando crowdsourcing, qualquer usuário que descobre essa fonte de dados pode compartilhar suas opiniões sobre os dados, além de usar os dados descobertos. Por exemplo, Clara descobre as fontes de dados pesquisando o catálogo e compartilha seu conhecimento especializado sobre os dados.  Agora, outras pessoas na organização se beneficiam do conhecimento compartilhado simplesmente pesquisando o catálogo de dados.
 
-* Para saber mais sobre como registrar fontes de dados, confira [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Para saber mais sobre a descoberta de fontes de dados, consulte [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Para saber mais sobre como registrar fontes de dados, confira [Registrar fontes de dados](data-catalog-get-started.md).
+* Para saber mais sobre a descoberta de fontes de dados, consulte [Pesquisar fontes de dados](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Comece aos poucos e mantenha o foco
 Na maioria dos projetos-piloto da empresa, você deve propagar o catálogo com fontes de dados de alto valor para que os usuários de negócios possam ver rapidamente o valor do Catálogo de Dados. A TI é um bom lugar para começar a identificar fontes de dados comuns que seriam interessantes para sua equipe-piloto. Para fontes de dados com suporte, como o SQL Server, é recomendável usar a ferramenta de registro de fontes de dados do **Catálogo de Dados do Azure** . Com a ferramenta de registro de fontes de dados, você pode registrar uma ampla variedade de fontes de dados, incluindo bancos de dados do SQL Server e Oracle e relatórios do SQL Server Reporting Services. Para obter uma lista completa de fontes de dados atuais, confira [Fontes de dados com suporte do Catálogo de Dados do Azure](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Como parte do projeto-piloto, a equipe de Clara também usa fontes de dados que 
 
 > [!NOTE]
 > Criamos uma ferramenta de exemplo que usa a API do **Catálogo de Dados do Azure** para migrar uma pasta de trabalho do Excel para o Catálogo de Dados. Para saber mais sobre a API do Catálogo de Dados e a ferramenta de exemplo, você pode [Baixar o exemplo de código da pasta de trabalho Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e conferir a documentação da [API REST de Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Depois que o projeto-piloto estiver em vigor, será a hora de executar o plano de adoção do Catálogo de Dados.
 
@@ -142,9 +142,9 @@ Aqui estão algumas dicas para começar:
 Antes que a equipe-piloto comece a usar o Catálogo de Dados, agende uma reunião inicial para discutir as expectativas para o projeto-piloto e fornecer treinamento inicial.
 
 ### <a name="set-expectations"></a>Defina as expectativas
-Definir exceções e metas ajuda os usuários de negócios a se concentrar em resultados finais específicos. Para manter o projeto nos trilhos, atribua tarefas regulares (talvez diárias ou semanais, com base no escopo e na duração do piloto). Um dos recursos mais valiosos do Catálogo de Dados é o crowdsourcing de ativos de dados para que os usuários de negócios possam se beneficiar de conhecimentos dos dados corporativos. Uma ótima tarefa para todos os membros da equipe-piloto é registrar ou anotar pelo menos uma fonte de dados que eles usaram. Confira [Registrar uma fonte de dados](data-catalog-get-started.md#exercise-2-registering-data-sources) e [Como anotar fontes de dados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Definir exceções e metas ajuda os usuários de negócios a se concentrar em resultados finais específicos. Para manter o projeto nos trilhos, atribua tarefas regulares (talvez diárias ou semanais, com base no escopo e na duração do piloto). Um dos recursos mais valiosos do Catálogo de Dados é o crowdsourcing de ativos de dados para que os usuários de negócios possam se beneficiar de conhecimentos dos dados corporativos. Uma ótima tarefa para todos os membros da equipe-piloto é registrar ou anotar pelo menos uma fonte de dados que eles usaram. Confira [Registrar uma fonte de dados](data-catalog-get-started.md) e [Como anotar fontes de dados](data-catalog-get-started.md).
 
-Reúna-se com a equipe regularmente para examinar algumas das anotações. Boas anotações sobre fontes de dados são a essência de uma adoção bem-sucedida do Catálogo de Dados, pois fornecem percepções significativas de fontes de dados em um local central. Sem boas anotações, os conhecimentos sobre as fontes de dados permanecem espalhados por toda a empresa. Confira [Como anotar fontes de dados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Reúna-se com a equipe regularmente para examinar algumas das anotações. Boas anotações sobre fontes de dados são a essência de uma adoção bem-sucedida do Catálogo de Dados, pois fornecem percepções significativas de fontes de dados em um local central. Sem boas anotações, os conhecimentos sobre as fontes de dados permanecem espalhados por toda a empresa. Confira [Como anotar fontes de dados](data-catalog-get-started.md).
 
 E, claro, o teste final do projeto é se os usuários podem descobrir e entender as fontes de dados que precisam usar. Os usuários do piloto devem testar regularmente o catálogo para garantir que as fontes de dados que eles usam para seu trabalho diário são relevantes. Quando uma fonte de dados necessária está ausente ou não foi anotada corretamente, isso deve servir como um lembrete para registrar fontes de dados adicionais ou para fornecer anotações adicionais. Essa prática não apenas adiciona valor à iniciativa do piloto, mas também cria hábitos eficazes que são transferidos para outras equipes após a conclusão do piloto.
 
@@ -162,14 +162,13 @@ Este artigo foi uma introdução ao **Catálogo de Dados do Azure** em sua organ
 * [Página de produto do Catálogo de Dados do Azure](https://azure.microsoft.com/services/data-catalog/)
 * [Documentação do Catálogo de Dados do Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Cenários comuns de Catálogo de Dados do Azure](data-catalog-common-scenarios.md)
-* [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Anotar fontes de dados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Crowdsourcing de metadados](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
+* [Registrar fontes de dados](data-catalog-get-started.md)
+* [Pesquisar fontes de dados](data-catalog-get-started.md)
+* [Anotar fontes de dados](data-catalog-get-started.md)
+* [Crowdsourcing de metadados](data-catalog-get-started.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

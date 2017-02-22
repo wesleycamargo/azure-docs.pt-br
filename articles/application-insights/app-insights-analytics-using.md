@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: f9c02c11c6f0143f8da7a329f23033120f31ba59
+ms.sourcegitcommit: 2389f1d785abc750dd165303f737a883b3f788d0
+ms.openlocfilehash: 6232a80417cf4581f6c6cbe6c11418dc8d0c3407
 
 
 ---
@@ -154,10 +154,10 @@ mas quando você a fixa a um painel, ela fica assim:
 ![Gráfico com compartimentos limitados](./media/app-insights-analytics-using/pin-08.png)
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
-Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar para Excel**.
+Depois de executar uma consulta, você pode baixar um arquivo .csv. Clique em **Exportar, Excel**.
 
 ## <a name="export-to-power-bi"></a>Exportar para o Power BI
-Coloque o cursor em uma consulta e escolha **Exportar para Power BI**.
+Coloque o cursor em uma consulta e escolha **Exportar, Power BI**.
 
 ![Exportar do Analytics para o Power BI](./media/app-insights-analytics-using/240.png)
 
@@ -167,10 +167,22 @@ Com o Power BI, você pode criar painéis que reúnem dados de uma grande varied
 
 [Saiba mais sobre como exportar para o Power BI](app-insights-export-power-bi.md)
 
+## <a name="deep-link"></a>Link profundo
+
+Obtenha um link em **Exportar, Compartilhar link** que você possa enviar a outro usuário. Desde que o usuário tenha [acesso ao seu grupo de recursos](app-insights-resources-roles-access-control.md), a consulta será aberta na interface do usuário do Analytics.
+
+(No link, o texto da consulta aparece após "?q=", gzip compactado e codificado em base&64;. Você pode escrever código para gerar links profundos que fornece aos usuários. No entanto, a maneira recomendada para executar o Analytics com código é usando a [API REST](https://dev.applicationinsights.io/).)
+
 
 ## <a name="automation"></a>Automação
 
-Você pode executar consultas de análise por meio da [API de REST de acesso de dados](https://dev.applicationinsights.io/), por exemplo, usando o PowerShell.
+Use a [API REST de Acesso a Dados](https://dev.applicationinsights.io/) para executar consultas do Analytics. [Por exemplo](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (usando o PowerShell):
+
+```PS
+curl "https://api.applicationinsights.io/beta/apps/DEMO_APP/query?query=requests%7C%20where%20timestamp%20%3E%3D%20ago(24h)%7C%20count" -H "x-api-key: DEMO_KEY"
+```
+
+Diferentemente da interface do usuário do Analytics, a API REST não adiciona automaticamente nenhuma limitação de carimbo de data/hora às suas consultas. Lembre-se de adicionar sua própria cláusula where para evitar receber respostas enormes.
 
 
 
@@ -217,6 +229,6 @@ Se você usar [LogStash](https://www.elastic.co/guide/en/logstash/current/gettin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

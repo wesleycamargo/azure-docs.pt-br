@@ -337,6 +337,6 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,13 +12,15 @@
 # Como
 ## Configurar alta disponibilidade
 ### [Opções de alta disponibilidade](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Configurar os grupos de disponibilidade Always On](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Grupo de disponibilidade Sempre Ativo](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Automático - com modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Manual - pré-requisitos](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manual - tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Balanceador de carga - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Balanceador de carga - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Várias regiões](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Instância do Cluster de Failover
+#### [Configurar](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Gerenciar
 ### [Usar a extensão do agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

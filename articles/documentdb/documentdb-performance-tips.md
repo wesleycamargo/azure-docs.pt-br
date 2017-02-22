@@ -1,5 +1,5 @@
 ---
-title: Dicas de desempenho do DocumentDB | Microsoft Docs
+title: Dicas de desempenho - Azure DocumentDB NoSQL | Microsoft Docs
 description: "Saiba mais sobre as opções de configuração do cliente para melhorar o desempenho do Banco de Dados de Documentos do Azure"
 keywords: como melhorar o desempenho do banco de dados
 services: documentdb
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 01/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 5b4efb2d6dedb43436745f5e8055cae44e4a58ac
+ms.sourcegitcommit: 532cfeb5115feb7558018af73968576dac17ff88
+ms.openlocfilehash: 28ca2d86f5008ee26376d76f3411cac05ffdfde4
 
 
 ---
@@ -37,6 +37,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    2. Modo Direto
 
       O Modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo Gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Banco de Dados de Documentos.   Por isso, o Modo Direto oferece um melhor desempenho devido a menos saltos de rede.
+<a id="use-tcp"></a>
 2. **Política de conexão: usar o protocolo TCP**
 
     Ao aproveitar o Modo Direto, há duas opções de protocolo disponíveis:
@@ -128,6 +129,18 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 10. **Aumentar o número de threads/tarefas**
 
     Consulte [Aumentar o número de threads/tarefas](#increase-threads) na seção Rede.
+    
+11. **Usar o processamento do host de 64 bits**
+
+    O SDK do DocumentDB funciona em um processo de host de 32 bits; No entanto, se você estiver usando consultas entre partições, processamento de host de 64 bits é recomendado para melhorar o desempenho. O seguinte tipo de aplicativos tem o processo de host de 32 bits como o padrão, portanto para alterá-la para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    
+    - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **Preferir 32 bits** na janela **Propriedades do Projeto**, na guia **Compilar**. 
+    
+    - Para projetos de teste com base em VSTest, isso pode ser feito selecionando **teste**->**configurações de teste**->**padrão arquitetura de processador X64**, do **Visual Studio Test** opção de menu.
+    
+    - Para aplicativos Web ASP.NET implantados localmente, isso pode ser feito verificando o **usar a versão de 64 bits do IIS Express para sites da web e projetos**, em **ferramentas**->**opções**->**projetos e soluções**->**projetos da Web**.
+    
+    - Para aplicativos Web ASP.NET implantados no Azure, isso pode ser feito escolhendo o **plataforma de 64 bits** no **configurações do aplicativo** no portal do Azure.
 
 ## <a name="indexing-policy"></a>Política de indexação
 1. **Usar a indexação lenta para as taxas de ingestão de tempo máximo mais rápidas**
@@ -173,6 +186,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
              }
 
     A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta acima retornar 1.000 documentos de 1KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
+<a id="429"></a>
 2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
     Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará antecipadamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho x-ms-retry-after-ms indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
@@ -197,6 +211,6 @@ Além disso, para saber mais sobre como criar seu aplicativo para a escala e o a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

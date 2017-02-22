@@ -1,5 +1,5 @@
 ---
-title: Ciclo de vida de Reliable Actors | Microsoft Docs
+title: "Visão geral do ciclo de vida dos microsserviços do Azure baseado em ator | Microsoft Docs"
 description: "Explica o ciclo de vida, a coleta de lixo e a exclusão manual de atores e seu estado de Reliable Actor do Service Fabric"
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
 translationtype: Human Translation
-ms.sourcegitcommit: e39c130b1abb0b2c31511abdd51f02446d3898f6
-ms.openlocfilehash: 681c9aa628ea9364f73e6a41f0f71139d3b983d7
+ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
+ms.openlocfilehash: 22f906de37ad7ae2a48acf26be26f2af1e3bde7a
 
 
 ---
@@ -93,9 +93,9 @@ O exemplo mostra o impacto das chamadas de método de ator, lembretes e medidore
 
 * ScanInterval e IdleTimeout são definidos como 5 e 10, respectivamente. (As unidades não importam aqui, pois nosso objetivo é apenas para ilustrar o conceito.)
 * A verificação de atores para terem o lixo coletado ocorre em T = 0, 5, 10, 15, 20, 25, conforme definido pelo ScanInterval de 5.
-* Um medidor de tempo periódico é acionado em T = 4, 8, 12, 16, 20, 24 e executa seu retorno de chamada. Ela não afeta o tempo ocioso do ator.
+* Um medidor de tempo periódico é acionado em T =&4;,&8;,&12;,&16;,&20;,&24; e executa seu retorno de chamada. Ela não afeta o tempo ocioso do ator.
 * Uma chamada de método de ator em T = 7, redefine o tempo ocioso para 0 e atrasa a coleta de lixo do ator.
-* Um retorno de chamada de lembrete de ator é executado a cada T = 14 e atrasa ainda mais a coleta de lixo do ator.
+* Um retorno de chamada de lembrete de ator é executado a cada T =&14; e atrasa ainda mais a coleta de lixo do ator.
 * Durante a verificação de coleta de lixo em T = 25, o tempo ocioso do ator finalmente excede o IdleTimeout de 10 e o ator tem seu lixo coletado.
 
 Um ator nunca terá o lixo coletado durante a execução de um de seus métodos, não importa quanto tempo seja gasto na execução do método. Como mencionado anteriormente, a execução de métodos de interface de ator e retornos de chamada de lembrete impede a coleta de lixo, redefinindo o tempo ocioso do ator como 0. A execução de retornos de chamada do temporizador não redefine o tempo ocioso para 0. No entanto, a coleta de lixo do ator é adiada até que o retorno de chamada do temporizador tenha concluído a execução.
@@ -137,6 +137,6 @@ Observe que um ator não pode chamar delete por si só de um de seus métodos, p
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

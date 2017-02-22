@@ -1,6 +1,6 @@
 ---
-title: "Nível de compatibilidade, como avaliar | Microsoft Docs"
-description: "Etapas e ferramentas para determinar qual é o melhor nível de compatibilidade para seu banco de dados no Banco de Dados SQL do Azure ou no Microsoft SQL Server"
+title: "Compatibilidade de banco de dados nível 130 - Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Neste artigo, exploraremos os benefícios da execução de seu Banco de Dados SQL do Azure no nível de compatibilidade 130, e aproveitaremos os benefícios dos novos recursos de processador de consulta e otimizador de consultas. Também vamos abordar os possíveis efeitos colaterais sobre o desempenho para os aplicativos SQL existentes."
 services: sql-database
 documentationcenter: 
 author: alainlissoir
@@ -16,15 +16,17 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: alainl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b778a822e49acbbae4bc9e109b673c10ccc01ae2
+ms.sourcegitcommit: 1df9f3549db8417445a5a012d31ed662977a9990
+ms.openlocfilehash: 3ad25fe844c75941303034ca1037fdb99a5c679b
 
 
 ---
 # <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Desempenho aprimorado de consultas com nível de compatibilidade 130 no Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure está executando de modo transparente centenas de milhares de bancos de dados em vários níveis de compatibilidade diferentes, preservando e garantindo a compatibilidade com versões anteriores à versão correspondente do Microsoft SQL Server para todos os seus clientes!
 
-Portanto, nada impede que os clientes que alteram qualquer banco de dados existente para o nível de compatibilidade mais recente aproveitem os novos recursos de otimizador de consulta e processador de consulta. Como um lembrete do histórico, os alinhamentos das versões do SQL com os níveis de compatibilidade padrão são:
+Neste artigo, exploraremos os benefícios da execução de seu Banco de Dados SQL do Azure no nível de compatibilidade 130, e aproveitaremos os benefícios dos novos recursos de processador de consulta e otimizador de consultas. Também vamos abordar os possíveis efeitos colaterais sobre o desempenho para os aplicativos SQL existentes.
+
+Como um lembrete do histórico, os alinhamentos das versões do SQL com os níveis de compatibilidade padrão são:
 
 * 100: no SQL Server 2008 e no Banco de Dados SQL do Azure V11.
 * 110: no SQL Server 2012 e no Banco de Dados SQL do Azure V11.
@@ -34,11 +36,8 @@ Portanto, nada impede que os clientes que alteram qualquer banco de dados existe
 > [!IMPORTANT]
 > A partir de **meados de junho de 2016**, no Banco de Dados SQL do Azure, o nível de compatibilidade padrão será de 130 em vez de 120 para bancos de dados **recém-criados**.
 > 
-> Bancos de dados criados antes de meados de junho de 2016 *não* serão afetados e manterão seu nível de compatibilidade atual (100, 110 ou 120). Bancos de dados que migrem do Banco de Dados SQL do Azure versão V11 para V12 não terão seu nível de compatibilidade alterado.
+> Bancos de dados criados antes de meados de junho de 2016 *não* serão afetados e manterão seu nível de compatibilidade atual (100, 110 ou 120). Bancos de dados que migraram do Banco de Dados SQL do Azure versão V11 para V12 terão um nível de compatibilidade de 100 ou 110. 
 > 
-> 
-
-Neste artigo, exploraremos os benefícios do nível de compatibilidade 130 e como aproveitar esses benefícios. Vamos abordar os possíveis efeitos colaterais sobre o desempenho para os aplicativos SQL existentes.
 
 ## <a name="about-compatibility-level-130"></a>Sobre o nível de compatibilidade 130
 Primeiro, se você quiser saber o nível de compatibilidade atual do seu banco de dados, execute a instrução Transact-SQL a seguir.
@@ -63,7 +62,7 @@ Vamos dar uma olhada rápida em o que o nível de compatibilidade 130 traz para 
   * As classificações em uma tabela com um índice de Repositório de Coluna agora estão em modo de lote.
   * As agregações em janela agora operam em modo de lote como instruções TSQL LAG/LEAD.
   * Consultas em tabelas de Repositório de Coluna com Múltiplas cláusulas distintas operam em modo de Lote.
-  * Consultas em execução com DOP = 1 ou um plano serial também são executadas em Modo de Lote.
+  * Consultas em execução com DOP =&1; ou um plano serial também são executadas em Modo de Lote.
 * Por fim, melhorias de Estimativa de Cardinalidade estão, na verdade, vindo com o nível de compatibilidade 120, mas para quem está executando em um nível de Compatibilidade inferior (ou seja, 100 ou 110), a mudança para o nível de compatibilidade 130 também trará esses aprimoramentos, e eles também podem beneficiar o desempenho da consulta de seus aplicativos.
 
 ## <a name="practicing-compatibility-level-130"></a>Praticando o nível de compatibilidade 130
@@ -462,6 +461,6 @@ genemi = MightyPen , 2016-05-20  Friday  17:00pm
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

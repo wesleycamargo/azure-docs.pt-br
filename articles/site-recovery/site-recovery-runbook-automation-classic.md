@@ -1,5 +1,5 @@
 ---
-title: "Adicionar runbooks de automação do Azure aos planos de recuperação | Microsoft Docs"
+title: "Adicionar runbooks de automação do Azure aos planos de recuperação no Portal Clássico | Microsoft Docs"
 description: "Este artigo descreve como o Azure Site Recovery permite a ampliação dos planos de recuperação usando a Automação do Azure para concluir tarefas complexas durante a recuperação para o Azure"
 services: site-recovery
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: required
-ms.date: 10/23/2016
+ms.date: 02/06/2017
 ms.author: ruturajd@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ce018e8057a19f1b21081b9fae4b33c3e791a000
+ms.sourcegitcommit: 44b6ff6e588d529fd833a4a7fdd61df7e933ddd8
+ms.openlocfilehash: b4105e98323b5161a22fa65707d376a7155611d6
 
 
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans---classic"></a>Adicionar runbooks de automação do Azure aos planos de recuperação - Clássico
+# <a name="add-azure-automation-runbooks-to-recovery-plans-in-the-classic-portal"></a>Adicionar runbooks de automação do Azure aos planos de recuperação no Portal Clássico
 Este tutorial descreve como o Azure Site Recovery é integrado à Automação do Azure para fornecer extensibilidade aos planos de recuperação. Os planos de recuperação podem coordenar a recuperação de máquinas virtuais protegidas usando o Azure Site Recovery para cenários de replicação na nuvem secundária e replicação no Azure. Eles também ajudam a tornar a recuperação **precisa de forma consistente**, **reproduzível** e **automatizada**. Se você estiver realizando o failover de suas máquinas virtuais para o Azure, a integração com a Automação do Azure estende os planos de recuperação e oferece a capacidade de executar runbooks, possibilitando tarefas avançadas de automação.
 
 Se você ainda não souber o que é a Automação do Azure, inscreva-se [aqui](https://azure.microsoft.com/services/automation/) e baixe os exemplos de script [aqui](https://azure.microsoft.com/documentation/scripts/). Leia mais sobre o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) e como coordenar a recuperação no Azure usando o planos de recuperação [aqui](https://azure.microsoft.com/blog/?p=166264).
@@ -67,10 +67,10 @@ Em seguida, crie os seguintes ativos na Conta.
 1. Adicione uma nova configuração ![](media/site-recovery-runbook-automation/04.png) nos Ativos de Automação do Azure e selecione ![](media/site-recovery-runbook-automation/05.png)
 2. Selecione o tipo de variável como **String**
 3. Especifique o nome da variável como **AzureSubscriptionName**
-   
+
    ![](media/site-recovery-runbook-automation/06.png)
 4. Especifique o nome real de sua Assinatura do Azure como o valor da variável.
-   
+
    ![](media/site-recovery-runbook-automation/07_1.png)
 
 Você pode identificar o nome de sua assinatura na página Configurações de sua conta no Portal do Azure.
@@ -82,7 +82,7 @@ Você pode armazenar as credenciais da conta em um ativo que será usado com seg
 1. Adicione uma nova configuração ![](media/site-recovery-runbook-automation/04.png) nos Ativos de Automação do Azure e selecione ![](media/site-recovery-runbook-automation/09.png)
 2. Selecione o Tipo de credencial como **Credencial do Windows PowerShell**
 3. Especifique o nome como **AzureCredential**
-   
+
    ![](media/site-recovery-runbook-automation/10.png)
 4. Especifique o nome de usuário e a senha para logon.
 
@@ -139,31 +139,31 @@ Para identificar a Chave de VmMap no contexto, também é possível acessar a p�
 Agora, crie o runbook para abrir a porta 80 na máquina virtual front-end.
 
 1. Crie um novo runbook na conta de Automação do Azure com o nome **OpenPort80**
-   
+
    ![](media/site-recovery-runbook-automation/14.png)
 2. Navegue até o modo de exibição de Criação do runbook e entre no modo de rascunho.
 3. Primeiro, especifique a variável a ser usada como o contexto do plano de recuperação
-   
+
    ```
        param (
            [Object]$RecoveryPlanContext
        )
-   
+
    ```
 4. Em seguida, conecte-se à assinatura usando o nome da credencial e da assinatura
-   
+
    ```
        $Cred = Get-AutomationPSCredential -Name 'AzureCredential'
-   
+
        # Connect to Azure
        $AzureAccount = Add-AzureAccount -Credential $Cred
        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
    ```
-   
+
    Observe que você usa aqui os ativos do Azure – **AzureCredential** e **AzureSubscriptionName**.
 5. Agora, especifique os detalhes do ponto de extremidade e o GUID da máquina virtual para a qual você deseja expor o ponto de extremidade. Neste caso, a máquina virtual de front-end.
-   
+
    ```
        # Specify the parameters to be used by the script
        $AEProtocol = "TCP"
@@ -172,22 +172,22 @@ Agora, crie o runbook para abrir a porta 80 na máquina virtual front-end.
        $AEName = "Port 80 for HTTP"
        $VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
    ```
-   
+
    Isso especifica o protocolo do ponto de extremidade do Azure, a porta local na VM e sua porta pública mapeada. Essas variáveis são parâmetros exigidos pelos comandos do Azure que adicionam pontos de extremidade às máquinas virtuais. O VMGUID contém o GUID da máquina virtual na qual você precisa operar.
 6. Agora, o script extrairá o contexto do VM GUID determinado e criará um ponto de extremidade na máquina virtual indicada por ele.
-   
+
    ```
        #Read the VM GUID from the context
        $VM = $RecoveryPlanContext.VmMap.$VMGUID
-   
+
        if ($VM -ne $null)
        {
            # Invoke pipeline commands within an InlineScript
-   
+
            $EndpointStatus = InlineScript {
                # Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
                # Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
-   
+
                $Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
                    Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
                    Update-AzureVM
@@ -262,10 +262,10 @@ Após adicionar o runbook ao plano, você poderá iniciar um failover de teste e
 
 1. Selecione o plano de recuperação e inicie um failover de teste.
 2. Durante a execução do plano, você pode ver se o runbook foi executado ou não por meio do status.
-   
+
    ![](media/site-recovery-runbook-automation/17.png)
 3. Você também pode ver o status detalhado de execução do runbook na página de trabalhos da Automação do Azure para o runbook.
-   
+
    ![](media/site-recovery-runbook-automation/18.png)
 4. Após a conclusão do failover, exceto o resultado da execução do runbook, você poderá ver se a execução foi bem-sucedida ou não, visitando a página da máquina virtual do Azure e observando os pontos de extremidade.
 
@@ -281,7 +281,6 @@ Embora tenhamos mostrado neste tutorial como automatizar uma tarefa usada normal
 
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

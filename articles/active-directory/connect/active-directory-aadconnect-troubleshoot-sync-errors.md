@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b5b7ff810f36b14481572ec2e59f9d4999945c3f
+ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
+ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
 
 
 ---
@@ -35,7 +35,7 @@ Azure AD Connect realiza 3 tipos de operações dos diretórios que mantém em s
 A seção seguinte descreve os diferentes tipos de erros de sincronização que podem ocorrer durante a operação de exportação para o Azure AD usando o conector do Azure AD. Esse conector pode ser identificado pelo formato de nome, que é "contoso.*onmicrosoft.com*".
 Erros durante a exportação para o Azure AD indicam que a operação \(adicionar, atualizar, excluir, etc.\) tentada pelo \(Mecanismo de Sincronização\) do Azure AD Connect no Azure Active Directory falhou.
 
-![Visão geral de Erros de Exportação](.\\media\\active-directory-aadconnect-troubleshoot-sync-errors\\Export_Errors_Overview_01.png)
+![Visão geral de Erros de Exportação](./media/active-directory-aadconnect-troubleshoot-sync-errors/Export_Errors_Overview_01.png)
 
 ## <a name="data-mismatch-errors"></a>Erros de Incompatibilidade de Dados
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
@@ -56,8 +56,8 @@ O esquema do Azure Active Directory não permite que dois ou mais objetos tenham
 > [!NOTE]
 > O recurso [Duplicar a Resiliência do Atributo do Azure AD](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) também está sendo distribuído como o comportamento padrão do Azure Active Directory.  Isso reduzirá o número de erros de sincronização vistos pelo Azure AD Connect (assim como outros clientes de sincronização), tornando o Azure AD mais resiliente quanto à maneira que ele manipula atributos ProxyAddresses e UserPrincipalName duplicados presentes em ambientes do AD local. Este recurso não corrige os erros de duplicação. Assim, os dados ainda precisam ser corrigidos. No entanto, ele permite o provisionamento de novos objetos cujo provisionamento, caso contrário, fica bloqueado devido a valores duplicados no Azure AD. Isso também reduzirá o número de erros de sincronização retornados ao cliente de sincronização.
 > Se esse recurso estiver habilitado para seu locatário, você não verá os erros de sincronização InvalidSoftMatch vistos durante o provisionamento de novos objetos.
-> 
-> 
+>
+>
 
 #### <a name="example-scenarios-for-invalidsoftmatch"></a>Cenários de Exemplo para InvalidSoftMatch
 1. Dois ou mais objetos com o mesmo valor do atributo ProxyAddresses existem no Active Directory local. Somente um deles está sendo provisionado no Azure AD.
@@ -86,7 +86,7 @@ O esquema do Azure Active Directory não permite que dois ou mais objetos tenham
 9. Durante a sincronização, o Azure AD Connect reconhecerá a adição de Bob Taylor no Active Directory local e pedirá ao Azure AD para fazer a mesma alteração.
 10. O Azure AD executará primeiro a correspondência rígida. Ou seja, ele pesquisará se há qualquer objeto com a immutableId igual a "abcdefghijkl0123456789==". Correspondência de disco rígida falhará, pois nenhum outro objeto no Azure AD terá essa immutableId.
 11. O Azure AD tentará então realizar uma correspondência flexível para Bob Taylor. Ou seja, ele pesquisará se há algum objeto com proxyAddresses igual aos três valores, inclusive smtp:bob@contoso.com
-12. O Azure AD encontrará o objeto de Bob Smith que satisfaz os critérios de correspondência flexível. No entanto, esse objeto tem o valor de immutableId = "abcdefghijklmnopqrstuv==". Isso indica que esse objeto foi sincronizado de outro objeto do Active Directory local. Assim, o Azure AD não pode realizar uma correspondência flexível desses objetos e resultará em um erro de sincronização **InvalidSoftMatch**.
+12. O Azure AD encontrará o objeto de Bob Smith que satisfaz os critérios de correspondência flexível. No entanto, esse objeto tem o valor de immutableId = "abcdefghijklmnopqrstuv==". Isso indica que esse objeto foi sincronizado de outro objeto do Active Directory local. Assim, o Azure AD não pode realizar uma correspondência flexível desses objetos e resulta em um erro de sincronização **InvalidSoftMatch**.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>Como corrigir o erro InvalidSoftMatch
 O motivo mais comum para o erro InvalidSoftMatch é que dois objetos com valores diferentes para \(immutableId\) de SourceAnchor tenham o mesmo valor para os atributos ProxyAddresses e/ou UserPrincipalName, que são usados durante o processo de correspondência flexível no Azure AD. Para corrigir a Correspondência Flexível Inválida
@@ -100,8 +100,8 @@ Observe que o Relatório de erros de sincronização no Azure AD Connect Health 
 
 > [!NOTE]
 > ImmutableId, por definição, não deve ser alterada durante o tempo de vida do objeto. Se o Azure AD Connect não tiver sido configurado com alguns dos cenários da lista acima em mente, você poderá acabar em uma situação em que o Azure AD Connect calcula um valor diferente de SourceAnchor para o objeto do AD que representa a mesma entidade (mesmo grupo, usuário, contato, etc.) que tem um Objeto do Azure AD existente que você deseja continuar usando.
-> 
-> 
+>
+>
 
 #### <a name="related-articles"></a>Artigos relacionados
 * [Atributos duplicados ou inválidos impedem a sincronização de diretórios no Office 365](https://support.microsoft.com/en-us/kb/2647098)
@@ -114,7 +114,7 @@ Quando o Azure AD tenta fazer a correspondência flexível entre dois objetos, �
 * Um grupo de segurança habilitado para email é criado no Office 365. O administrador adiciona um novo usuário ou contato no AD local (que ainda não está sincronizado com o Azure AD) com o mesmo valor para o atributo ProxyAddresses que o utilizado no grupo do Office 365.
 
 #### <a name="example-case"></a>Caso de exemplo
-1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento de impostos e fornece um endereço de email como tax@contoso.com. Isso atribui o atributo ProxyAddresses para esse grupo com o valor **smtp:tax@contoso.com**
+1. O administrador cria um novo grupo de segurança habilitado para email no Office 365 para o departamento fiscal e fornece um endereço de email como tax@contoso.com. Isso atribui o atributo ProxyAddresses para esse grupo com o valor de **smtp:tax@contoso.com**
 2. Um novo usuário ingressa em Contoso.com e uma conta é criada para o usuário local com proxyAddress como **smtp:tax@contoso.com**
 3. Quando o Azure AD Connect sincronizar a nova conta de usuário, ele receberá o erro "ObjectTypeMismatch".
 
@@ -181,7 +181,7 @@ a. Certifique-se de que o atributo userPrincipalName tem caracteres com suporte 
 
 ### <a name="datavalidationfailed"></a>DataValidationFailed
 #### <a name="description"></a>Descrição
-Esse é um caso bastante específico que resulta em um erro de sincronização **"DataValidationFailed"** quando o sufixo UserPrincipalName de um usuário é alterado de um domínio federado para outro.
+Esse é um caso específico que resulta em um erro de sincronização **"DataValidationFailed"** quando o sufixo UserPrincipalName de um usuário é alterado de um domínio federado para outro.
 
 #### <a name="scenarios"></a>Cenários
 Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um domínio federado para outro domínio federado local. Por exemplo, *UserPrincipalName = bob@contoso.com* foi alterado para *UserPrincipalName = bob@fabrikam.com*.
@@ -193,10 +193,13 @@ Para um usuário sincronizado, o sufixo UserPrincipalName foi alterado de um dom
 4. O userPrincipalName de Bob não é atualizado e resulta em um erro de sincronização "DataValidationFailed".
 
 #### <a name="how-to-fix"></a>Como corrigir
-Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**contoso.com** para bob@**fabrikam.com**, em que ambos **contoso.com** e **fabrikam.com** são **domínios federados**, siga as etapas a seguir para corrigir o erro de sincronização
+Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**contoso.com** para bob@**fabrikam.com**, em que ambos **contoso.com** e **fabrikam.com** são **domínios federados**, siga estas etapas para corrigir o erro de sincronização
 
 1. Atualize o UserPrincipalName do usuário no Azure AD de bob@contoso.com para bob@contoso.onmicrosoft.com. Você pode usar o seguinte comando do PowerShell com o Módulo do PowerShell do Azure AD: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permita que o próximo ciclo de sincronização tentar a sincronização. Dessa vez, a sincronização será bem-sucedida e atualizará o UserPrincipalName de Bob para bob@fabrikam.com conforme esperado.
+
+#### <a name="related-articles"></a>Artigos relacionados
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Descrição
@@ -207,9 +210,9 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Cenários possíveis
-1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados.
-2. O thmubnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
-3. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a 500 foi atribuído a um objeto.
+1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite é 50 certificados, mas a recomendação é ter menos de 25 certificados.
+2. O thumbnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
+3. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a&500; foi atribuído a um objeto.
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
@@ -220,7 +223,6 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

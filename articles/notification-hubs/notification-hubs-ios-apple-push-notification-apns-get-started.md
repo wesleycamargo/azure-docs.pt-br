@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -42,7 +42,7 @@ O código completo deste tutorial pode ser encontrado [no GitHub](https://github
 ## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial exige o seguinte:
 
-* [SDK do iOS dos Serviços Móveis versão 1.2.4]
+* [versão 1.2.4 do SDK do iOS dos Serviços Móveis]
 * Versão mais recente do [Xcode]
 * Um dispositivo compatível com o iOS 8 (ou versão posterior)
 * [Programa de Desenvolvedores de iOS](https://developer.apple.com/programs/) 
@@ -70,24 +70,26 @@ Esta seção mostra a criação de um novo hub de notificação e a configuraç�
 <p>Selecione o modo de <b>Área Restrita</b>, pois se trata de desenvolvimento. Use a <b>Produção</b> apenas se quiser enviar notificações por push aos usuários que adquiriram seu aplicativo na loja.</p>
 </li>
 </ol>
-&emsp;&emsp;![Configurar o APNS no Portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Configurar o APNS no Portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Configurar certificação do APNS no Portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Configurar certificação do APNS no Portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Seu hub de notificação agora está configurado para funcionar com o APNS e você tem as cadeias de conexão para registrar seu aplicativo e enviar notificações por push.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Conectar seu aplicativo do iOS aos Hubs de Notificação
 1. No Xcode, crie um novo projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único** .
    
-       ![Xcode - Single View Application][8]
+    ![Xcode - aplicativo de modo de exibição único][8]
+    
 2. Ao definir as opções para o novo projeto, lembre-se de usar os mesmos **Nome do Produto** e **Identificador Organizacional** que você usou quando configurou a ID do pacote no portal de desenvolvimento da Apple.
    
     ![Xcode - opções de projeto][11]
+    
 3. Em **Destinos**, clique no nome do projeto, clique na guia **Configurações de Compilação** e expanda **Identidade de Assinatura de Código**. Depois, em **Depurar**, defina sua identidade de assinatura de código. Alterne **Níveis** de **Básico** para **Todos** e defina o **Perfil de Provisionamento** para o perfil de provisionamento que você criou anteriormente.
    
     Se você não vir o novo perfil de provisionamento que você criou no Xcode, tente atualizar os perfis da sua identidade de assinatura. Clique em **Xcode** na barra de menus, em **Preferências**, na guia **Conta**, no botão **Exibir Detalhes**, em sua identidade de assinatura e depois clique no botão Atualizar no canto inferior direito.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode - perfil de provisionamento][9]
 4. Baixe a [versão 1.2.4 do SDK do iOS dos Serviços Móveis] e descompacte o arquivo. No Xcode, clique com o botão direito do mouse no projeto e clique na opção **Adicionar Arquivos a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto do Xcode. Selecione **Copiar itens se necessário** e depois clique em **Adicionar**.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ Seu hub de notificação agora está configurado para funcionar com o APNS e voc
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Descompactar o SDK do Azure][10]
 5. Adicione ao projeto um novo arquivo de cabeçalho chamado `HubInfo.h`. Esse arquivo conterá as constantes para o hub de notificação.  Adicione as seguintes definições e substitua os espaços reservados da cadeia de caracteres literal pelo *nome do hub* e a *DefaultListenSharedAccessSignature* que você anotou anteriormente.
    
         #ifndef HubInfo_h
@@ -462,27 +464,27 @@ Para obter informações gerais sobre os Hubs de Notificação, confira [Diretri
 
 
 <!-- URLs. -->
-[SDK do iOS dos Serviços Móveis versão 1.2.4]: http://aka.ms/kymw2g
-[SDK do iOS dos Serviços Móveis]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Enviar uma página de aplicativo]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Meus Aplicativos]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[versão 1.2.4 do SDK do iOS dos Serviços Móveis]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Introdução aos Serviços Móveis]: /develop/mobile/tutorials/get-started-ios
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Portal de Provisionamento do iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Introdução às notificações por push nos Serviços Móveis]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Notificar usuários nos Hubs de Notificação do Azure para iOS com o back-end do .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Usar Hubs de Notificação para enviar as últimas notícias]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Guia de programação de notificação local e por push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Portal do Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

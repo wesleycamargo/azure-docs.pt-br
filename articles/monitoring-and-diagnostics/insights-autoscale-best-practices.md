@@ -1,8 +1,8 @@
 ---
-title: "Práticas recomendadas para dimensionamento automático do Azure Monitor. | Microsoft Docs"
-description: "Aprenda os princípios para usar efetivamente o dimensionamento automático no Azure Monitor."
+title: "Práticas recomendadas para dimensionamento automático | Microsoft Docs"
+description: "Aprenda os princípios para dimensionar efetivamente as máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem."
 author: kamathashwin
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/23/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+ms.sourcegitcommit: cc557c7139561345a201fa0cd45c803af3751acd
+ms.openlocfilehash: 25fa8749d4b23d3619829fa179a7c91da311bbd0
 
 
 ---
-# <a name="best-practices-for-azure-monitor-autoscaling"></a>Práticas recomendadas para dimensionamento automático do Azure Monitor
-As seções a seguir neste documento lhe ajudarão a entender as práticas recomendadas para dimensionamento automático no Azure. Depois de revisar essas informações, você poderá usar mais efetivamente o dimensionamento automático na sua infraestrutura do Azure.
+# <a name="best-practices-autoscaling-virtual"></a>Práticas recomendadas do dimensionamento automático virtual
+Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. Ela serve para máquinas virtuais, conjunto de dimensionamento de máquinas virtuais e serviços de nuvem.  Outros serviços do Azure usam métodos de dimensionamento diferentes.
 
 ## <a name="autoscale-concepts"></a>Conceitos de dimensionamento automático
 * Um recurso pode ter apenas *uma* configuração de Dimensionamento Automático
@@ -46,7 +46,7 @@ Se você atualizar manualmente a contagem de instâncias para um valor acima ou 
 Se você usar apenas uma parte da combinação, o dimensionamento automático reduzirá horizontalmente a única redução ou escala, até que o máximo ou o mínimo seja alcançado.
 
 ### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Não alternar entre o portal do Azure e o portal clássico do Azure ao gerenciar o dimensionamento automático
-Para Serviços de Nuvem e Serviços de Aplicativos (Aplicativos Web), use o portal do Azure (portal.azure.com) para criar e gerenciar configurações de dimensionamento automático. Para Conjuntos de Escala de Máquina Virtual, use PoSH, CLI ou API REST para criar e gerenciar a configuração de dimensionamento automático. Não alterne entre o portal clássico do Azure (manage.windowsazure.com) e o portal do Azure (portal.azure.com) ao gerenciar as configurações de dimensionamento automático. O portal clássico do Azure e seu back-end subjacente têm limitações. Mova para o portal do Azure para gerenciar o dimensionamento automático usando a interface gráfica do usuário. As opções são usar Autoscale PowerShell, CLI ou API REST (por meio do Gerenciador de Recursos do Azure).
+Para Serviços de Nuvem e Serviços de Aplicativos (Aplicativos Web), use o portal do Azure (portal.azure.com) para criar e gerenciar configurações de dimensionamento automático. Para Conjuntos de Escala de Máquina Virtual, use o PowerShell, CLI ou API REST para criar e gerenciar a configuração de dimensionamento automático. Não alterne entre o portal clássico do Azure (manage.windowsazure.com) e o portal do Azure (portal.azure.com) ao gerenciar as configurações de dimensionamento automático. O portal clássico do Azure e seu back-end subjacente têm limitações. Mova para o portal do Azure para gerenciar o dimensionamento automático usando a interface gráfica do usuário. As opções são usar Autoscale PowerShell, CLI ou API REST (por meio do Gerenciador de Recursos do Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolher a estatística apropriada para sua métrica de diagnóstico
 Para métricas de diagnóstico, você pode escolher entre *Média*, *Mínimo*, *Máximo* e *Total* como uma métrica para expandir. A estatística mais comum é *Média*.
@@ -59,7 +59,7 @@ Recomendamos escolher cuidadosamente limites diferentes para escalar e reduzir h
 * Aumentar as instâncias por contagem de 1 quando a Contagem de Threads < = 600
 * Reduzir as instâncias por contagem de 1 quando a Contagem de Threads >= 600
 
-Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer confuso. Cosidere a sequência a seguir.
+Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer confuso. Considere a sequência a seguir.
 
 1. Suponha que há 2 instâncias para começar e, em seguida, o número médio de threads por instância aumenta para 625.
 2. O dimensionamento automático escala horizontalmente uma terceira instância.
@@ -67,7 +67,7 @@ Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer
 4. Antes de reduzir verticalmente, o dimensionamento automático tenta estimar como será o estado final de ele for reduzido horizontalmente. Por exemplo, 575 x 3 (contagem de instância atual) = 1.725 / 2 (número final de instâncias quando reduzido verticalmente) = 862.5 threads. Isso significa que o dimensionamento automático terá que imediatamente escalar horizontalmente novamente mesmo depois de ter sido reduzido horizontalmente, se a contagem média de threads permanecer a mesma ou tiver apenas uma pequena quantidade reduzida. No entanto, se escalado verticalmente novamente, todo o processo se repetiria, resultando em um loop infinito.
 5. Para evitar essa situação (conhecida como “flapping”), o dimensionamento automático não reduz verticalmente. Em vez disso, ele ignora e reavalia a condição novamente na próxima vez em que executa trabalho do serviço. Isso poderia confundir muitas pessoas porque o Dimensionamento Automático não funcionaria quando a contagem média de threads fosse 575.
 
-A estimativa durante uma redução horizontal destina-se a evitar uma situação “flappy”. Você deve ter esse comportamento em mente quando você escolher os mesmos limites de redução e escala horizontal.
+A estimativa durante uma redução serve para evitar situações de "oscilação", em que as ações de redução e expansão variam continuamente. Lembre-se desse comportamento ao escolher os mesmos limites de redução e expansão.
 
 Recomendamos escolher uma margem suficiente entre os limites de redução e escala horizontal. Por exemplo, considere a seguinte combinação de melhor regra.
 
@@ -152,7 +152,6 @@ O dimensionamento automático notificará os administradores e os colaboradores 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

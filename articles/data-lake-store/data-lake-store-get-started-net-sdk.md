@@ -1,6 +1,6 @@
 ---
-title: Usar o SDK do .NET do Data Lake Store para desenvolver aplicativos | Microsoft Docs
-description: "Usar o SDK do .NET do Repositório Azure Data Lake para desenvolver aplicativos"
+title: Use o SDK do .NET para desenvolver aplicativos no Azure Data Lake Store | Microsoft Docs
+description: "Use o SDK do .NET do Azure Data Lake Store para criar uma conta do Data Lake Store e execute operações básicas no Data Lake Store"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
-ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 8ec76c597dfb59860b456e42a78239c67d289f13
 
 
 ---
@@ -58,9 +58,9 @@ Saiba como usar o [SDK do .NET para o Azure Data Lake Store](https://msdn.micros
    2. Na guia **Gerenciador de Pacotes Nuget**, verifique se a **Origem do pacote** está definida para **nuget.org** e se a caixa de seleção **Incluir pré-lançamento** está marcada.
    3. Procure e instale os seguintes pacotes NuGet:
       
-      * `Microsoft.Azure.Management.DataLake.Store` - este tutorial usa a versão 0.12.5-preview.
-      * `Microsoft.Azure.Management.DataLake.StoreUploader` - este tutorial usa a versão 0.10.6-preview.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial usa a versão 2.2.8-preview.
+      * `Microsoft.Azure.Management.DataLake.Store` - este tutorial usa a versão&0;.12.5-preview.
+      * `Microsoft.Azure.Management.DataLake.StoreUploader` - este tutorial usa a versão&0;.10.6-preview.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial usa a versão&2;.2.8-preview.
         
         ![Adicionar uma origem de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gerenciador de Pacotes NuGet**.
@@ -261,6 +261,6 @@ O trecho a seguir mostra um método `DownloadFile` que você pode usar para baix
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

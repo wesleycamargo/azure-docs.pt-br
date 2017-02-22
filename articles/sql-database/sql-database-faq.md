@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes sobre o Banco de Dados SQL do Azure
+title: Perguntas frequentes do Banco de dados SQL do Azure | Microsoft Docs
 description: "Respostas a perguntas comuns feitas por clientes sobre bancos de dados de nuvem e o Banco de Dados SQL do Azure, o sistema de gerenciamento de bancos de dados relacionais da Microsoft (RDBMS) e o banco de dados como um serviço na nuvem."
 services: sql-database
 documentationcenter: 
@@ -13,15 +13,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 12/19/2016
+ms.date: 02/06/2017
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: aba60bf5108a4e5ad95e3c634b9fcbca7393c700
+ms.sourcegitcommit: ff3ea3564d3cde5369f87d5f5102176229686acb
+ms.openlocfilehash: 6b828f7256c27aab567428706cd38c38b2f896eb
 
 
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
+
+## <a name="what-is-the-current-version-of-sql-database"></a>O que é a versão atual do banco de dados SQL?
+A versão atual do banco de dados SQL é V12. Versão V11 foi desativado.
+
+## <a name="what-is-the-sla-for-sql-database"></a>O que é o SLA para o banco de dados SQL?
+Garantimos que, por pelo menos 99,99% do tempo, os clientes terão conectividade entre seu Banco de Dados SQL Basic, Standard ou Premium do Microsoft Azure único ou elástico e o nosso gateway de Internet. Para saber mais, veja [SLA](http://azure.microsoft.com/support/legal/sla/).
+
+## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>Como redefinir a senha para o administrador do servidor?
+No [portal do Azure](https://portal.azure.com), clique em **Servidores SQL**, escolha o servidor na lista e clique em **Redefinir Senha**.
+
+## <a name="how-do-i-manage-databases-and-logins"></a>Como gerenciar logons e bancos de dados?
+Consulte [gerenciamento de bancos de dados e logons](sql-database-manage-logins.md).
+
+## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Como eu asseguro que somente endereços IP autorizados tenham permissão de acesso a um servidor?
+Confira [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md).
+
 ## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>Como o uso do Banco de Dados SQL aparece na minha fatura?
 O Banco de Dados SQL é cobrado de acordo com uma taxa por hora previsível baseada na camada de serviço mais o nível de desempenho para bancos de dados individuais ou em eDTUs por pool elástico. O uso real é calculado e rateado por hora, de modo que sua fatura poderá mostrar frações de hora. Por exemplo, se um banco de dados existir por 12 horas em um mês, sua fatura mostrará a utilização de 0,5 dia. Além disso, as camadas de serviço mais o nível de desempenho e os eDTUs por pool são divididos na fatura para facilitar a leitura do número de dias de banco de dados você usou para cada em um único mês.
 
@@ -48,13 +64,14 @@ Pools elásticos são cobrados de acordo com as seguintes características:
 
 * Um pool elástico é cobrado após sua criação, mesmo quando ele não contém bancos de dados.
 * Um pool elástico é cobrado por hora. Essa frequência de medição é a mesma dos níveis de desempenho de bancos de dados individuais.
-* Se um pool elástico for redimensionado para um novo valor de eDTUs, ele não será cobrado de acordo com esse novo valor até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados individuais.
+* Se um pool elástico for redimensionado para um novo n´mero de eDTUs, ele não será cobrado de acordo com esse novo valor até que a operação de redimensionamento seja concluída. Isso segue o mesmo padrão que a alteração do nível de desempenho de bancos de dados individuais.
 * O preço de um pool elástico baseia-se no número de eDTUs do pool. O preço de um pool elástico é independente do número e da utilização dos bancos de dados elásticos dentro dele.
 * O preço é calculado por (número de eDTUs do pool) x (preço unitário por eDTU).
 
 O preço unitário por eDTU de um pool elástico é maior que o preço unitário por DTU de um banco de dados individual na mesma camada de serviço. Para obter detalhes, confira [Preços de Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
 
 Para entender as camadas de serviço e eDTUs, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md).
+
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso da Replicação Geográfica Ativa em um pool elástico aparece na minha fatura?
 Ao contrário dos bancos de dados únicos, o uso da [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você só será cobrado pelos eDTUs provisionados para cada um dos pools (o pool primário e o pool secundário)
 
@@ -69,7 +86,7 @@ Existem algumas ferramentas disponíveis para você.
 * Para ver se você precisa aumentar ou reduzir um banco de dados único, consulte [diretrizes sobre desempenho para bancos de dados únicos](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Com que frequência posso alterar a camada de serviço ou o nível de desempenho de um banco de dados único?
-Com bancos de dados da versão 12, você pode alterar a camada de serviço (entre Básico, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
+Com bancos de dados da versão&12;, você pode alterar a camada de serviço (entre Básico, Standard e Premium) ou o nível de desempenho dentro de uma camada de serviço (por exemplo, S1 para S2) sempre que desejar. Para bancos de dados de versão anteriores, você pode alterar o nível de desempenho ou de camada de serviço no máximo quatro vezes em um período de 24 horas.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Com que frequência posso ajustar eDTUs por pool?
 Quantas vezes desejar.
@@ -106,6 +123,6 @@ Expomos o retardo de replicação em tempo real entre o banco de dados primário
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

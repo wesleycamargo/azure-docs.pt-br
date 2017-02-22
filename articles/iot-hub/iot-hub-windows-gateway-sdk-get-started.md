@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 3d9997655e19ba800bf3462d5ebd3f7c7210271f
 
 
 ---
@@ -28,7 +28,7 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 
 1. Abra um prompt de comando **Prompt de Comando do Desenvolvedor para VS2015** .
 2. Navegue até a pasta raiz de sua cópia local do repositório **azure-iot-gateway-sdk** .
-3. Execute o scpript **tools\\build.cmd**. Este script cria um arquivo de solução do Visual Studio, compila a solução e executa os testes. É possível encontrar a solução do Visual Studio na pasta **build** na cópia local do repositório **azure-iot-gateway-sdk**.
+3. Execute o scpript **tools\\build.cmd**. Este script cria um arquivo de solução do Visual Studio e compila a solução. É possível encontrar a solução do Visual Studio na pasta **build** na cópia local do repositório **azure-iot-gateway-sdk**. Parâmetros adicionais podem ser fornecidos ao script para criar e executar testes de unidade e ponta a ponta. Esses parâmetros são **--run-unittests** e **--run-e2e-tests** respectivamente. 
 
 ## <a name="how-to-run-the-sample"></a>Como executar a amostra
 1. O script **build.cmd** cria uma pasta chamada **build** na cópia local do repositório. Esta pasta contém os dois módulos usados nesta amostra.
@@ -86,6 +86,6 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

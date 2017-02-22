@@ -724,7 +724,7 @@ Esse controle somente aparece se você tiver instalado o write-back de senha com
                   <li class="unordered">
 Se você tiver habilitado o write-back de senha e achar que há um problema de configuração com o serviço, pode ir a essa guia e examinar o rótulo <strong>status do serviço de write-back de senha</strong> para ver se algo está errado.<br><br></li>
                   <li class="unordered">
-Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado</strong> – tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong> – você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
+Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado</strong>: tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong>: você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -880,6 +880,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

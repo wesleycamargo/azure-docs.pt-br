@@ -1,5 +1,5 @@
 ---
-title: Instalar o dispositivo StorSimple 8600 | Microsoft Docs
+title: Instalar o dispositivo Microsoft Azure StorSimple 8600 | Microsoft Docs
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8600 antes de implantar e configurar o software.
 services: storsimple
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
 
 
 ---
@@ -203,8 +203,8 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
    | Rótulo | Descrição |
    | --- | --- |
-   |   0,1,4,5 |Interfaces de rede de 1 GbE |
-   |   2,3 |Interfaces de rede de 10 GbE |
+   |   0,1,4,5 |Interfaces de rede de&1; GbE |
+   |   2,3 |Interfaces de rede de&10; GbE |
    |   6 |Portas seriais |
 2. Consulte o diagrama a seguir para cabeamento de rede. (A configuração mínima de rede é mostrada pelas linhas azuis sólidas. Para alta disponibilidade e desempenho, a configuração adicional necessária é mostrada pelas linhas pontilhadas).
 
@@ -271,6 +271,6 @@ Agora você está pronto para [implantar e configurar seu dispositivo StorSimple
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

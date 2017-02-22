@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas do Analytics - ferramenta de pesquisa avançada do Application Insights | Microsoft Docs"
+title: Solucionar problemas do Analytics no Azure Application Insights | Microsoft Docs
 description: 'Problemas com a Application Insights Analytics? Comece por aqui. '
 services: application-insights
 documentationcenter: 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/11/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 263e8955608d87869937ea6584f88233fd690f72
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: 6533b1e6a40b7cbf7d3d6961523144b3d0e5263b
 
 
 ---
@@ -38,14 +38,14 @@ Ocorreu um erro interno durante o tempo de execução do portal. Exceção sem t
 
 * Limpe o cache do navegador. 
 
-## <a name="a-namee-ba403-please-try-to-reload"></a><a name="e-b"></a>403... tentar recarregar
+## <a name="a-namee-ba403--please-try-to-reload"></a><a name="e-b"></a>403... tentar recarregar
 ![403... tente recarregar](./media/app-insights-analytics-troubleshooting/020.png)
 
 Ocorreu um erro de autenticação (durante a autenticação ou durante a geração de token de acesso). O portal pode não ter como se recuperar sem alterar as configurações do navegador.
 
 * Verifique [se os cookies de terceiros estão habilitados](#cookies) no navegador. 
 
-## <a name="a-nameauthenticationa403-verify-security-zone"></a><a name="authentication"></a>403... verificar zona de segurança
+## <a name="a-nameauthenticationa403--verify-security-zone"></a><a name="authentication"></a>403... verificar zona de segurança
 ![403... verifique a zona de segurança](./media/app-insights-analytics-troubleshooting/030.png)
 
 Ocorreu um erro de autenticação (durante a autenticação ou durante a geração de token de acesso). O portal pode não ter como se recuperar sem alterar as configurações do navegador.
@@ -68,12 +68,12 @@ Ocorreu um erro de autenticação (durante a autenticação ou durante a geraç�
      https://login.microsoftonline.com<br/>
      https://login.windows.net
 
-## <a name="a-namee-da404-resource-not-found"></a><a name="e-d"></a>404 ... Recurso não encontrado
+## <a name="a-namee-da404--resource-not-found"></a><a name="e-d"></a>404 ... Recurso não encontrado
 ![404... recurso não encontrado](./media/app-insights-analytics-troubleshooting/040.png)
 
 O recurso de aplicativo foi excluído do Application Insights e não está mais disponível. Isso pode acontecer se você salvou a URL para a página do Analytics.
 
-## <a name="a-namee-ea403-no-authorization"></a><a name="e-e"></a>403 ... Sem autorização
+## <a name="a-namee-ea403--no-authorization"></a><a name="e-e"></a>403 ... Sem autorização
 ![403 ... não autorizado](./media/app-insights-analytics-troubleshooting/050.png)
 
 Você não tem permissão para abrir este aplicativo no Analytics.
@@ -81,7 +81,7 @@ Você não tem permissão para abrir este aplicativo no Analytics.
 * Você obteve o link com outra pessoa? Peça a ela para verificar se você está incluído como [leitor ou colaborador para esse grupo de recursos](app-insights-resources-roles-access-control.md).
 * Você salvou o link usando credenciais diferentes? Abra o [Portal do Azure](https://portal.azure.com), saia e tente acessar novamente esse link fornecendo as credenciais corretas.
 
-## <a name="a-namehtml-storagea403-html5-storage"></a><a name="html-storage"></a>403 ... Armazenamento HTML5
+## <a name="a-namehtml-storagea403--html5-storage"></a><a name="html-storage"></a>403 ... Armazenamento HTML5
 Nosso portal usa sessionStorage e localStorage do HTML5.
 
 * Chrome: configurações, privacidade, configurações de conteúdo.
@@ -89,14 +89,14 @@ Nosso portal usa sessionStorage e localStorage do HTML5.
 
 ![403... tente habilitar o armazenamento HTML5](./media/app-insights-analytics-troubleshooting/060.png)
 
-## <a name="a-namee-ga404-subscription-not-found"></a><a name="e-g"></a>404 ... Assinatura não encontrada
+## <a name="a-namee-ga404--subscription-not-found"></a><a name="e-g"></a>404 ... Assinatura não encontrada
 ![404 ... Assinatura não encontrada](./media/app-insights-analytics-troubleshooting/070.png)
 
 A URL é inválida. 
 
 * Abra o recurso de aplicativo no [Portal do Application Insights](https://portal.azure.com). Use então o botão Analytics.
 
-## <a name="a-namee-ha404-page-doesnt-exist"></a><a name="e-h"></a>404... a página não existe
+## <a name="a-namee-ha404--page-doesnt-exist"></a><a name="e-h"></a>404... a página não existe
 ![404 ... A página não existe](./media/app-insights-analytics-troubleshooting/080.png)
 
 A URL é inválida.
@@ -114,6 +114,6 @@ A URL é inválida.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

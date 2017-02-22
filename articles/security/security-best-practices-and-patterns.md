@@ -1,28 +1,33 @@
 ---
-title: Padrões e práticas recomendadas de segurança do Azure | Microsoft Docs
-description: O artigo fornece uma introdução sobre padrões e práticas recomendadas de segurança do Azure e uma lista selecionada de práticas recomendadas de segurança para diferentes recursos do Azure.
+title: "Padrões e práticas recomendadas de segurança do Azure | Microsoft Docs"
+description: "O artigo fornece uma introdução sobre padrões e práticas recomendadas de segurança do Azure e uma lista selecionada de práticas recomendadas de segurança para diferentes recursos do Azure."
 services: azure-security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 0821ec479f21ddcc6dc370070d9a40221054877f
+ms.openlocfilehash: fe1f39df8cafeea4d518a5ee1400652bb499cde1
+
 
 ---
-# Padrões e práticas recomendadas de segurança do Azure
-No momento, temos os artigos de padrões e práticas recomendadas de segurança do Azure a seguir. Não deixe de visitar este site periodicamente para ver as atualizações para nossa lista crescente de padrões e práticas recomendadas de segurança do Azure:
+# <a name="azure-security-best-practices-and-patterns"></a>Padrões e práticas recomendadas de segurança do Azure
+No momento, temos os artigos de padrões e práticas recomendadas de segurança do Azure a seguir. Não deixe de visitar este site periodicamente para ver as atualizações para nossa lista crescente de padrões e práticas recomendadas de segurança do Azure:  
 
 * [Práticas recomendadas de segurança de rede do Azure](azure-security-network-security-best-practices.md)
 * [Práticas recomendadas de segurança de dados e criptografia do Azure](azure-security-data-encryption-best-practices.md)
 * [Práticas recomendadas de gerenciamento de identidade e segurança de controle de acesso](azure-security-identity-management-best-practices.md)
 * [Práticas recomendadas de segurança de Internet das Coisas](azure-security-iot-best-practices.md)
+* [Práticas recomendadas de segurança do IaaS do Azure] (azure-security-iaas.md)
 * [Práticas recomendadas para atualizações de software no Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Práticas recomendadas de segurança de limites do Azure](../best-practices-network-security.md)
 * [Implementar uma arquitetura de rede híbrida segura no Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
@@ -43,4 +48,8 @@ Para cada prática recomendada, buscamos explicar:
 
 Estamos ansiosos para incluir muito mais artigos sobre arquitetura de segurança do Azure e práticas recomendadas. Se houver tópicos que você deseja que incluamos, avise-nos na área de discussão na parte inferior desta página.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

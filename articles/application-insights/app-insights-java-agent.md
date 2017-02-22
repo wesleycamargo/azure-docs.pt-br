@@ -1,6 +1,6 @@
 ---
-title: "Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java"
-description: Monitoramento estendido do seu site Java com o Application Insights
+title: Monitoramento de desempenho de aplicativos Web de Java no Azure Application Insights | Microsoft Docs
+description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
+ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 
 
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
 
-Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter insights mais aprofundados, sem nenhuma alteração de código:
+Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
   * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring).
@@ -91,9 +91,9 @@ Você precisa habilitar a exceção de relatórios e o tempo de método para mé
 Por padrão, `reportExecutionTime` é true e `reportCaughtExceptions` é false.
 
 ## <a name="view-the-data"></a>Exibir os dados
-No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][métricas].
+No recurso do Application Insights, a dependência remota e os tempos de execução do método agregados aparecem [no bloco Desempenho][metrics].
 
-Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnóstico].
+Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
 
 [Diagnosticando problemas de dependência – Saiba mais](app-insights-asp-net-dependencies.md#diagnosis).
 
@@ -106,15 +106,15 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnóstico]: app-insights-diagnostic-search.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métricas]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

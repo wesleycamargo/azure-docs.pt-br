@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Para enviar por push documentos no índice usando o SDK do .NET, você precisa:
 2. Criar um `IndexBatch` contendo os documentos a serem adicionados, modificados ou excluídos.
 3. Chame o método `Documents.Index` do `SearchIndexClient` para enviar o `IndexBatch` para o índice de pesquisa.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. Criar uma instância da classe SearchIndexClient
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>Criar uma instância da classe SearchIndexClient
 Para importar os dados para o índice usando o SDK do .NET de Pesquisa do Azure, você precisará criar uma instância da classe `SearchIndexClient` . Você pode construir essa instância por conta própria, mas será mais fácil se já tiver uma instância `SearchServiceClient` para chamar o método `Indexes.GetClient`. Por exemplo, aqui está como você obteria um `SearchIndexClient` para o índice chamado "hotéis" a partir de um `SearchServiceClient` denominado `serviceClient`:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient` tem uma propriedade `Documents`. Esta propriedade fornece todos os métodos que você precisa para adicionar, modificar, excluir ou consultar documentos no índice.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Decidir qual ação de indexação será usada
+## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
 Para importar os dados usando o SDK do .NET, você precisará empacotar seus dados em um objeto `IndexBatch` . Um `IndexBatch` encapsula uma coleção de objetos `IndexAction`, que contém, cada um deles, um documento e uma propriedade que informam à Pesquisa do Azure qual ação executar nesse documento (carregar, mesclar, excluir etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
 
 | Ação | Descrição | Campos necessários para cada documento | Observações |
@@ -67,7 +67,7 @@ Para importar os dados usando o SDK do .NET, você precisará empacotar seus dad
 
 Você pode especificar a ação que deseja usar com os diversos métodos estáticos das classes `IndexBatch` e `IndexAction`, conforme mostrado na próxima seção.
 
-## <a name="iii-construct-your-indexbatch"></a>III. Construa seu IndexBatch
+## <a name="construct-your-indexbatch"></a>Construa seu IndexBatch
 Agora que você sabe quais ações executar em seus documentos, está pronto para construir o `IndexBatch`. O exemplo a seguir mostra como criar um lote com algumas ações diferentes. Observe que nosso exemplo usa uma classe personalizada denominada `Hotel` que mapeia para um documento no índice "hotéis".
 
 ```csharp
@@ -130,7 +130,7 @@ Além disso, observe que você só pode incluir até 1000 documentos em uma úni
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Importar dados para o índice
+## <a name="import-data-to-the-index"></a>Importar dados para o índice
 Agora que você tem um objeto `IndexBatch` inicializado, pode enviá-lo para o índice chamando `Documents.Index` em seu objeto `SearchIndexClient`. O exemplo a seguir mostra como chamar `Index`, assim como algumas etapas adicionais que você precisa executar:
 
 ```csharp
@@ -234,12 +234,12 @@ Isso não é apenas uma preocupação hipotética: imagine um cenário em que vo
 
 Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de modelo como uma prática recomendada.
 
-## <a name="next"></a>Avançar
+## <a name="next-steps"></a>Próximas etapas
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

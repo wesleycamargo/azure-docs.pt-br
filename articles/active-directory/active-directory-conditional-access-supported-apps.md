@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 94a212b88d080510ad8a96bb40bb2c48d7f88a4f
+ms.sourcegitcommit: b9605eb10f87f107dffd9f631d043bf550cf030b
+ms.openlocfilehash: 5e293d7d3fa6b0a763663a5428878944660fc03e
 
 
 ---
@@ -41,8 +41,8 @@ Os aplicativos a seguir oferecem suporte ao acesso condicional para o Office 365
 | Office 365 Exchange Online |Windows 8.1, Windows 7 |Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) |
 | Office 365 Exchange Online |iOS, Android |Aplicativo móvel do Outlook |
 | Office 365 Exchange Online |Mac OS X |Outlook 2016 para autenticação multifator e somente localização; suporte de política baseada em dispositivo planejada para o futuro, suporte ao Skype for Business planejado para o futuro |
-| Office 365 SharePoint Online |Windows 10 |Aplicativos do Office 2016, Aplicativos Universais do Office, Office 2013 (com autenticação moderna), suporte ao aplicativo OneDrive for Business (NGSC ou cliente de sincronização da próxima geração) planejado para o futuro, suporte aos Grupos do Office planejado para o futuro, suporte a aplicativos do SharePoint planejado para o futuro |
-| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Aplicativos do Office 2016, Office 2013 (com autenticação moderna), aplicativo OneDrive for Business (cliente de sincronização do Groove) |
+| Office 365 SharePoint Online |Windows 10 |Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro |
+| Office 365 SharePoint Online |Windows 8.1, Windows 7 |Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) |
 | Office 365 SharePoint Online |iOS, Android |Aplicativos móveis do Office |
 | Office 365 SharePoint Online |Mac OS X |Aplicativos do Office 2016 para autenticação multifator e somente localização; suporte a política baseada em dispositivo planejado para o futuro |
 | Office 365 Yammer |Windows 10, iOS e Android |Aplicativo Office Yammer |
@@ -111,6 +111,6 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

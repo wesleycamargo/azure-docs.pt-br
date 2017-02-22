@@ -1,5 +1,5 @@
 ---
-title: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS | Microsoft Docs"
+title: "SAP NetWeaver em VMs do Linux no Azure – Implantação do DBMS | Microsoft Docs"
 description: "SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de implantação de DBMS"
 services: virtual-machines-linux
 documentationcenter: 
@@ -17,60 +17,60 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
+ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
+ms.openlocfilehash: db6d4de6f88672f2258fdeac8416c795bc0c4613
 
 
 ---
-# <a name="sap-netweaver-on-azure-virtual-machines-vms-dbms-deployment-guide"></a>SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de implantação de DBMS
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904]:https://service.sap.com/sap/support/notes/1139904
-[1173395]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958]:https://service.sap.com/sap/support/notes/1558958
-[1585981]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258]:https://service.sap.com/sap/support/notes/1814258
-[1882376]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+# <a name="sap-netweaver-on-azure-virtual-machines-vms--dbms-deployment-guide"></a>SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de implantação de DBMS
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -116,9 +116,9 @@ ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
 [deployment-guide-install-vm-agent-windows]:virtual-machines-linux-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-linux-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy-cli.md
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy-portal.md
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -171,9 +171,9 @@ ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
 [planning-guide-microsoft-azure-networking]:virtual-machines-linux-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-linux-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
 
-[powershell-install-configure]:../powershell-install-configure.md
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -193,8 +193,8 @@ ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:virtual-machines-linux-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:../resource-manager-deployment-model.md
+[virtual-machines-azure-resource-manager-architecture]:../azure-resource-manager/resource-manager-deployment-model.md
+[virtual-machines-azurerm-versus-azuresm]:../azure-resource-manager/resource-manager-deployment-model.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
@@ -215,11 +215,11 @@ ms.openlocfilehash: 38360e3146ff412996234525008d9d32ce18a16b
 [virtual-machines-manage-availability]:virtual-machines-linux-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
 [virtual-machines-sizes]:virtual-machines-linux-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:virtual-machines-windows-sql-performance.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sql-server-performance-best-practices]:./windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -248,8 +248,6 @@ Este guia faz parte da documentação sobre como implementar e implantar o softw
 
 O documento complementa a documentação de instalação do SAP e as Notas SAP, que representam os recursos primários para instalações e implantações do software SAP em determinadas plataformas.
 
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
-
 ## <a name="general-considerations"></a>Considerações gerais
 Neste capítulo, são introduzidas considerações sobre a execução sistemas DBMS relacionados ao SAP em VMs do Azure. Há algumas referências a sistemas DBMS específicos neste capítulo. Em vez disso, os sistemas DBMS específicos são abordados neste documento, após este capítulo.
 
@@ -264,7 +262,7 @@ No decorrer do documento, usaremos os termos a seguir:
 * Estrutura da SAP: refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
 * Sistema SAP: a combinação de camada DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste SAP BW, sistema de produção SAP CRM etc. Em implantações do Azure não há suporte para dividir essas duas camadas entre local e Azure. Isso significa que um sistema SAP é implantado localmente ou no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou de forma local. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
 * Implantação somente em nuvem: uma implantação em que a assinatura do Azure não está conectada por meio de uma conexão site a site ou de Rota Expressa à infraestrutura de rede local. Na documentação comum do Azure, esses tipos de implantações também são descritos como implantações 'Somente em nuvem'. As máquinas virtuais implantadas com esse método são acessadas por meio da Internet e pontos de extremidade da Internet públicos atribuídos às VMs no Azure. O AD (Active Directory) local e o DNS não se estendem ao Azure nesses tipos de implantações. Portanto, as VMs não fazem parte do Active Directory local. Observação: as implantações somente em nuvem neste documento são definidas como estruturas da SAP completas que estão sendo executadas exclusivamente no Azure sem extensão do Active Directory ou resolução de nomes do local para a nuvem pública. Não há suporte para configurações somente em nuvem para sistemas SAP de produção ou configurações nas quais o SAP STMS ou outros recursos locais precisem ser usados entre sistemas SAP hospedados no Azure e recursos locais.
-* Entre instalações: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de Rota Expressa entre o(s) datacenter(s) local(is) e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Esperamos que este seja o cenário mais comum para a implantação de ativos SAP no Azure. Consulte [este artigo][vpn-gateway-cross-premises-options] e [este][vpn-gateway-site-to-site-create] para obter mais informações.
+* Entre instalações: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de Rota Expressa entre o(s) datacenter(s) local(is) e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Esperamos que este seja o cenário mais comum para a implantação de ativos SAP no Azure. Para saber mais, veja [este][vpn-gateway-cross-premises-options] artigo e [este][vpn-gateway-site-to-site-create].
 
 > [!NOTE]
 > Implantações entre instalações de sistemas SAP em que máquinas virtuais do Azure que executam sistemas SAP são membros de um domínio local têm suporte para sistemas SAP de produção. Configurações entre locais têm suporte para a implantação de partes ou estruturas da SAP completas no Azure. Até mesmo a execução da estrutura da SAP completa no Azure requer que essas VMs sejam parte do domínio local e ADS. Em versões anteriores da documentação, falamos sobre cenários de TI híbrido, em que o termo 'Híbrido' está enraizado no fato de que há uma conectividade entre instalações entre o local e o Azure. Nesse caso, ‘Híbrido’ também significa que as VMs no Azure são parte do Active Directory local.
@@ -276,8 +274,8 @@ Alguma documentação da Microsoft descreve cenários entre instalações de mod
 ### <a name="resources"></a>Recursos
 Os seguintes guias estão disponíveis para o tópico das implantações da SAP no Azure:
 
-* [SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de Planejamento e Implementação][planning-guide]
-* [SAP NetWeaver nas máquinas virtuais (VMs) do Azure – Guia de Implantação] [deployment-guide]
+* [SAP NetWeaver em VMs (Máquinas Virtuais) do Azure – Guia de planejamento e implementação][planning-guide]
+* [SAP NetWeaver em VMs (Máquinas Virtuais) do Azure – Guia de implantação][deployment-guide]
 * SAP NetWeaver em VMs (máquinas virtuais) do Azure – Guia de implantação de DBMS (este documento)[dbms-guide]
 
 As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
@@ -337,11 +335,11 @@ O fato de que a taxa IOPS geral, o número de VHDs montados e o tamanho da VM es
 O posicionamento de arquivos de banco de dados e arquivos de log e o tipo de Armazenamento do Azure usado devem ser definidos por requisitos de taxa de transferência, latência e IOPS. Para ter IOPS suficientes para o log de transações, você poderá ser forçado a aproveitar vários VHDs para o arquivo de log de transações ou usar um disco de Armazenamento Premium maior. Nesse caso, seria possível simplesmente criar um RAID de software (por exemplo, pool de armazenamento do Windows para Windows ou MDADM ou LVM [Logical Volume Manager] para Linux) com os VHDs que conteria o log de transações.
 
 - - -
-> ![ Windows][Logo_Windows] Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > A unidade D:\ em uma VM do Azure é uma unidade não persistente que é apoiada por alguns discos locais no nó de computação do Azure. Como ela não é persistente, isso significa que as alterações feitas no conteúdo na unidade D:\ são perdidas quando a VM é reiniciada. Por "alterações", queremos dizer arquivos salvos, diretórios criados, aplicativos instalados etc.
 > 
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 > 
 > As VMs do Azure do Linux montam automaticamente uma unidade em /mnt/resource, que é uma unidade não persistente apoiada por discos locais no nó de computação do Azure. Como ela não é persistente, isso significa que as alterações feitas no conteúdo em /mnt/resource são perdidas quando a VM é reinicializada. Por alterações, queremos dizer arquivos salvos, diretórios criados, aplicativos instalados etc.
 > 
@@ -351,11 +349,11 @@ O posicionamento de arquivos de banco de dados e arquivos de log e o tipo de Arm
 Dependendo da série da VM do Azure, os discos locais no nó de computação mostram diferentes desempenhos que podem ser categorizados como:
 
 * A0-A7: desempenho muito limitado. Não pode ser usado para nada além do arquivo de paginação do Windows
-* A8-A11: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série D: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série DS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série G: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
-* Série GS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a 1 GB/s
+* A8-A11: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série D: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série DS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série G: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
+* Série GS: características de desempenho excelentes, com aproximadamente dez mil IOPS e taxa de transferência superior a&1; GB/s
 
 As instruções acima estão sendo aplicadas aos tipos de VM que são certificados com a SAP. A série de VMs com IOPS e taxa de transferência excelentes se qualifica para o aproveitamento por alguns recursos do DBMS, como tempdb ou espaço de tabela temporário.
 
@@ -389,16 +387,16 @@ As situações vivenciadas em implantações do Azure que seriam beneficiadas pe
 * Você não sabe qual é a carga de trabalho de E/S exata por arquivo de dados e sabe apenas aproximadamente qual é a carga de trabalho de IOPS geral no DBMS. O mais fácil a se fazer é criar um LUN com a ajuda de um RAID de software. A soma das cotas de vários VHDs por trás desse LUN deve atender à taxa IOPS conhecida.
 
 - - -
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 > 
 > O uso de Espaços de Armazenamento do Windows Server 2012 ou superior é preferível uma vez que é mais eficiente do que a distribuição do Windows de versões anteriores do Windows. Esteja ciente de que você precisa criar os Pools de Armazenamento do Windows e Espaços de Armazenamento por comandos do PowerShell ao usar o Windows Server 2012 como sistema operacional. Os comandos do PowerShell podem ser encontrados aqui <https://technet.microsoft.com/library/jj851254.aspx>
 > 
-> ![ Linux][Logo_Linux]  Linux
+> ![Linux][Logo_Linux] Linux
 > 
 > Há suporte apenas para MDADM e LVM (Logical Volume Manager) para criar um RAID de software no Linux. Para obter mais informações, leia os seguintes artigos:
 > 
-> * [Configurar o RAID do Software no Linux][virtual-machines-linux-configure-raid] (para MDADM)
-> * [Configurar o LVM em uma VM do Linux no Azure][virtual-machines-linux-configure-lvm]
+> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid] (para MDADM)
+> * [Configurar o LVM em uma VM Linux no Azure][virtual-machines-linux-configure-lvm]
 > 
 > 
 
@@ -441,7 +439,7 @@ Mais informações podem ser encontradas [aqui][storage-redundancy].
 #### <a name="mapping-vhds-into-azure-virtual-machine-service-storage-accounts"></a>Mapeando VHDs em contas de armazenamento do serviço de máquina virtual do Azure
 Uma Conta de Armazenamento do Azure não é apenas um constructo administrativo, mas também uma entidade de limitações. Enquanto as limitações variam se falamos de uma Conta de Armazenamento Standard do Azure ou uma Conta de Armazenamento Premium do Azure. As funcionalidades e limitações exatas são listadas [aqui][storage-scalability-targets]
 
-Portanto, para o Armazenamento Standard do Azure, é importante notar que há um limite no IOPS por conta de armazenamento (linha contendo "Taxa de Solicitação Total" [no artigo][storage-scalability-targets]). Além disso, há um limite inicial de 100 contas de armazenamento por assinatura do Azure (a partir de julho de 2015). Portanto, é recomendável equilibrar o IOPS de VMs entre várias contas de armazenamento ao usar o Armazenamento Standard do Azure. Enquanto uma única VM idealmente usa uma conta de armazenamento se possível. Então, se falamos sobre implantações de DBMS em que cada VHD que é hospedado no Armazenamento Standard do Azure pode atingir seu limite de cota, você deve implantar apenas 30 a 40 VHDs por Conta de Armazenamento do Azure que usa o Armazenamento Standard do Azure. Por outro lado, se você utiliza o Armazenamento Premium do Azure e deseja armazenar grandes volumes de banco de dados, pode estar bem em termos de IOPS. Mas uma Conta de Armazenamento Premium do Azure é muito mais restritiva no volume de dados do que uma Conta de Armazenamento Standard do Azure. Como resultado, você pode implantar apenas um número limitado de VHDs em uma Conta de Armazenamento Premium do Azure antes de atingir o limite do volume de dados. No fim, pense em uma Conta de Armazenamento do Azure como uma “SAN virtual” que tem funcionalidades limitadas no IOPS e/ou capacidade. Como resultado, a tarefa permanece, como em implantações locais, para definir o layout dos VHDs dos diferentes sistemas SAP nos diferentes 'dispositivos SAN imaginários' ou Contas de Armazenamento do Azure.
+Portanto, para o Armazenamento Standard do Azure, é importante observar que há um limite no IOPS por conta de armazenamento (linha contendo “Taxa de Solicitação Total” [no artigo][storage-scalability-targets]). Além disso, há um limite inicial de 100 contas de armazenamento por assinatura do Azure (a partir de julho de 2015). Portanto, é recomendável equilibrar o IOPS de VMs entre várias contas de armazenamento ao usar o Armazenamento Standard do Azure. Enquanto uma única VM idealmente usa uma conta de armazenamento se possível. Então, se falamos sobre implantações de DBMS em que cada VHD que é hospedado no Armazenamento Standard do Azure pode atingir seu limite de cota, você deve implantar apenas 30 a 40 VHDs por Conta de Armazenamento do Azure que usa o Armazenamento Standard do Azure. Por outro lado, se você utiliza o Armazenamento Premium do Azure e deseja armazenar grandes volumes de banco de dados, pode estar bem em termos de IOPS. Mas uma Conta de Armazenamento Premium do Azure é muito mais restritiva no volume de dados do que uma Conta de Armazenamento Standard do Azure. Como resultado, você pode implantar apenas um número limitado de VHDs em uma Conta de Armazenamento Premium do Azure antes de atingir o limite do volume de dados. No fim, pense em uma Conta de Armazenamento do Azure como uma “SAN virtual” que tem funcionalidades limitadas no IOPS e/ou capacidade. Como resultado, a tarefa permanece, como em implantações locais, para definir o layout dos VHDs dos diferentes sistemas SAP nos diferentes 'dispositivos SAN imaginários' ou Contas de Armazenamento do Azure.
 
 Para o Armazenamento Standard do Azure não é recomendável apresentar o armazenamento de diferentes contas de armazenamento para uma única VM, se possível.
 
@@ -483,7 +481,7 @@ O Azure oferece as seguintes funcionalidades de HA (Alta Disponibilidade) e DR (
 ### <a name="vms-deployed-on-azure-nodes"></a>VMs implantadas em nós do Azure
 A plataforma Azure não oferece recursos como Migração ao Vivo para VMs implantadas. Isso significa que se for necessária a manutenção em um cluster de servidores no qual uma VM está implantada, a VM precisará ser parada e reiniciada. A manutenção no Azure é realizada usando os chamados domínios de atualização em clusters de servidores. A manutenção é realizada em apenas um domínio de atualização de cada vez. Durante tal reinicialização haverá uma interrupção de serviço enquanto a VM for desligada, a manutenção realizada e a VM reiniciada. No entanto, a maioria dos fornecedores de DBMS fornece a funcionalidade de alta disponibilidade e recuperação de desastre que reiniciará rapidamente os serviços DBMS em outro nó se o nó primário não estiver disponível. A plataforma Azure oferece a funcionalidade para distribuir as VMs, armazenamento e outros serviços do Azure entre domínios de atualização para garantir que falhas de infraestrutura ou manutenção planejada afetarão apenas um pequeno subconjunto das VMs ou serviços.  Com um planejamento cuidadoso é possível alcançar níveis de disponibilidade comparáveis às infraestruturas locais.
 
-Os Conjuntos de Disponibilidade do Microsoft Azure são um agrupamento lógico de VMs ou serviços que garante que as VMs e outros serviços sejam distribuídos em diferentes Domínios de Falha e de Atualização em um cluster, de modo que haja apenas um desligamento de nó em um determinado momento (leia [este][virtual-machines-manage-availability] artigo para obter mais detalhes).
+Os Conjuntos de Disponibilidade do Microsoft Azure são agrupamentos lógicos de VMs ou de serviços que garantem que as VMs e os outros serviços sejam distribuídos em diferentes Domínios de Falha e de Atualização em um cluster, de modo que haja apenas um desligamento de nó em um determinado momento (leia [este][virtual-machines-manage-availability] artigo para obter mais detalhes).
 
 Eles precisam ser configurados por finalidade ao distribuir VMs, como visto aqui:
 
@@ -526,7 +524,7 @@ Começando com o Microsoft Azure, você pode facilmente migrar seus aplicativos 
 > 
 > 
 
-É enfaticamente recomendável analisar [esta][virtual-machines-sql-server-infrastructure-services] documentação antes de continuar.
+É altamente recomendável examinar [esta][virtual-machines-sql-server-infrastructure-services] documentação antes de continuar.
 
 Nas seções a seguir, trechos de partes da documentação no link acima serão agregados e mencionados. Informações especificas do SAP também são mencionadas e alguns conceitos são descritos mais detalhadamente. No entanto, é altamente recomendável percorrer a documentação acima primeiro antes de ler a documentação específica do SQL Server.
 
@@ -534,8 +532,8 @@ Há algumas informações específicas do SQL Server no IaaS que você deve conh
 
 * **SLA da máquina virtual**: há um SLA para máquinas virtuais em execução no Azure que pode ser encontrado aqui: <https://azure.microsoft.com/support/legal/sla/>  
 * **Suporte de versão do SQL**: para clientes SAP, damos suporte para SQL Server 2008 R2 e superior na máquina virtual do Microsoft Azure. Não há suporte para edições anteriores. Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) geral para obter mais detalhes. Observe que em geral o SQL Server 2008 também tem suporte pela Microsoft. No entanto, devido à funcionalidade significativa para SAP que foi introduzida com o SQL Server 2008 R2, o SQL Server 2008 R2 é a versão mínima para SAP. Tenha em mente que o SQL Server 2012 e 2014 foram estendidos com uma maior integração com o cenário de IaaS (como a realização do backup diretamente no Armazenamento do Azure). Portanto, nós restringimos este documento para SQL Server 2012 e 2014 com seu nível de patch mais recente para o Azure.
-* **Suporte ao recurso de SQL**: a maioria dos recursos do SQL Server tem suporte em Máquinas Virtuais do Microsoft Azure com algumas exceções. **Não há suporte para o clustering de failover do SQL Server usando discos compartilhados**.  Tecnologias distribuídas, como o espelhamento de banco de dados, grupos de disponibilidade AlwaysOn, replicação, envio de logs e Service Broker, têm suporte dentro de uma única região do Azure. O AlwaysOn do SQL Server também tem suporte entre diferentes regiões do Azure, conforme documentado aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Um exemplo de como implantar uma configuração do AlwaysOn é mostrado [neste][virtual-machines-workload-template-sql-alwayson] artigo. Além disso, verifique as práticas recomendadas documentadas [aqui][virtual-machines-sql-server-infrastructure-services] 
-* **Desempenho do SQL**: temos certeza de que as máquinas virtuais hospedadas do Microsoft Azure terão um ótimo desempenho em comparação com outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Verifique [este][virtual-machines-sql-server-performance-best-practices] artigo.
+* **Suporte ao recurso de SQL**: a maioria dos recursos do SQL Server tem suporte em Máquinas Virtuais do Microsoft Azure com algumas exceções. **Não há suporte para o clustering de failover do SQL Server usando discos compartilhados**.  Tecnologias distribuídas, como o espelhamento de banco de dados, grupos de disponibilidade AlwaysOn, replicação, envio de logs e Service Broker, têm suporte dentro de uma única região do Azure. O AlwaysOn do SQL Server também tem suporte entre diferentes regiões do Azure, conforme documentado aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.  Examine esta [Instrução de suporte](https://support.microsoft.com/kb/956893) para obter mais detalhes. Um exemplo de como implantar uma configuração AlwaysOn é mostrado [neste][virtual-machines-workload-template-sql-alwayson] artigo. Além disso, confira as práticas recomendadas documentadas [aqui][virtual-machines-sql-server-infrastructure-services] 
+* **Desempenho do SQL**: temos certeza de que as máquinas virtuais hospedadas do Microsoft Azure terão um ótimo desempenho em comparação com outras ofertas de virtualização de nuvem pública, mas os resultados individuais podem variar. Confira [este][virtual-machines-sql-server-performance-best-practices] artigo.
 * **Uso de imagens do Azure Marketplace**: a maneira mais rápida de implantar uma nova VM do Microsoft Azure é usar uma imagem do Azure Marketplace. Há imagens no Azure Marketplace que contêm o SQL Server. As imagens em que o SQL Server já está instalado não podem ser usadas imediatamente para aplicativos SAP NetWeaver. O motivo é que o agrupamento do SQL Server padrão é instalado dentro dessas imagens e não o agrupamento exigido pelos sistemas SAP NetWeaver. Para usar essas imagens, verifique as etapas documentadas no capítulo [Usando imagens do SQL Server fora do Microsoft Azure Marketplace][dbms-guide-5.6]. 
 * Consulte os [Detalhes de preço](https://azure.microsoft.com/pricing/) para obter mais informações. O [Guia de licenciamento do SQL Server 2012](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) e o [Guia de licenciamento do SQL Server 2014](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf) também são recursos importantes.
 
@@ -572,7 +570,7 @@ A recomendação para executar a compactação do banco de dados antes de carreg
 
 A compactação de banco de dados funciona bem nas máquinas virtuais do Azure como o faz localmente. Para obter mais detalhes sobre como compactar um banco de dados SQL Server para SAP existente, acesse: <https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
-### <a name="sql-server-2014-storing-database-files-directly-on-azure-blog-storage"></a>SQL Server 2014: armazenando arquivos do banco de dados arquivos diretamente no Armazenamento de Blobs do Azure
+### <a name="sql-server-2014--storing-database-files-directly-on-azure-blog-storage"></a>SQL Server 2014: armazenando arquivos do banco de dados arquivos diretamente no Armazenamento de Blobs do Azure
 O SQL Server 2014 abre a possibilidade para armazenar arquivos de banco de dados diretamente no Armazenamento de Blobs do Azure sem o ‘wrapper’ de um VHD em torno deles. Especialmente com o uso do Armazenamento do Azure Standard ou tipos de VM menores, isso permite cenários em que você pode superar os limites de IOPS que seriam impostos por um número limitado de VHDs que podem ser montados em alguns tipos de VM menores. Isso funciona para bancos de dados de usuário, no entanto, não para bancos de dados de sistema do SQL Server. Ele também funciona para arquivos de log e dados do SQL Server. Se desejar implantar um banco de dados do SQL Server do SAP dessa forma, em vez de aplicar ‘wrappers’ nele nos VHDs, tenha o seguinte em mente:
 
 * A conta de armazenamento usada precisa estar na mesma região do Azure que a usada para implantar a VM em que o SQL Server está sendo executado.
@@ -604,7 +602,7 @@ Essa funcionalidade permite que você faça o backup diretamente no Armazenament
 
 A vantagem nesse caso é que não é necessário gastar VHDs para armazenar backups do SQL Server. Então você tem menos VHDs alocados e a largura de banda total de IOPS do VHD pode ser usada para arquivos de log e de dados. Observe que o tamanho máximo de um backup é limitado ao máximo de 1 TB, conforme documentado na seção "Limitações" neste artigo: <https://msdn.microsoft.com/library/dn435916.aspx#limitations>. Se o tamanho do backup, apesar do uso da compactação de backup do SQL Server, exceder 1 TB de tamanho, a funcionalidade descrita no capítulo [SQL Server 2012 SP1 CU3 e versões anteriores][dbms-guide-5.5.2] neste documento deverá ser usada.
 
-A [documentação relacionada](https://msdn.microsoft.com/library/dn449492.aspx) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for maior que 25 GB. A recomendação neste artigo é baseada simplesmente em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
+A [documentação relacionada](https://msdn.microsoft.com/library/dn449492.aspx) descrevendo a restauração de bancos de dados de backups no Armazenamento de Blobs do Azure recomenda não realizar a restauração diretamente do Armazenamento de Blobs do Azure se o backup for maior que&25; GB. A recomendação neste artigo é baseada simplesmente em considerações de desempenho e não devido a restrições funcionais. Portanto, diferentes condições podem se aplicar caso a caso.
 
 A documentação sobre como esse tipo de backup é configurado e utilizado pode ser encontrada [neste](https://msdn.microsoft.com/library/dn466438.aspx) tutorial
 
@@ -724,7 +722,7 @@ Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade s�
 
 * O uso de um ouvinte de grupo de disponibilidade é possível apenas com o Windows Server 2012 ou Windows Server 2012 R2 como o SO convidado da VM. Para o Windows Server 2012, você precisa se certificar de que o patch foi aplicado: <https://support.microsoft.com/kb/2854082> 
 * Para o Windows Server 2008 R2 esse patch não existe e AlwaysOn precisaria ser usado da mesma maneira que o espelhamento de banco de dados especificando um parceiro de failover na cadeia de conexões (feito por meio do parâmetro default.pfl do SAP dbs/mss/server, consulte a Nota SAP [965908]).
-* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs sejam desligadas acidentalmente, atribua endereços IP estáticos às interfaces de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo)
+* Ao usar um ouvinte de grupo de disponibilidade, as VMs de banco de dados precisam estar conectadas a um balanceador de carga dedicado. A resolução de nomes em implantações somente em nuvem exigiria que todas as VMs do sistema SAP (servidores de aplicativo, servidor DBMS e servidor (A)SCS) estivessem na mesma rede virtual ou exigiria a manutenção do arquivo etc\host da camada de aplicativo SAP para obter os nomes de VM das VMs do SQL Server resolvido. Para evitar que o Azure atribua novos endereços IP em casos em que ambas as VMs por acaso sejam desligadas, deve-se atribuir endereços IP estáticos aos adaptadores de rede das VMs na configuração do AlwaysOn (a definição de um endereço IP estático é descrita [neste][virtual-networks-reserved-private-ip] artigo)
 
 [comentário]: <> (blogs antigos)
 [comentário]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
@@ -742,7 +740,7 @@ Algumas considerações sobre o uso de um ouvinte de grupo de disponibilidade s�
 [comentário]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
 [comentário]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/18/creating-acls-for-windows-azure-endpoints.aspx>) 
 
-É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade de VNet para VNet ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]).
+É possível implantar um grupo de disponibilidade AlwaysOn do SQL Server em diferentes regiões do Azure também. Essa funcionalidade aproveitará a conectividade Vnet a Vnet do Azure ([mais detalhes][virtual-networks-configure-vnet-to-vnet-connection]).
 
 [comentário]: <> (blog antigo TODO)
 [comentário]: <> (A configuração dos Grupos de Disponibilidade AlwaysOn do SQL Server em tal cenário é descrita aqui: <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>.) 
@@ -766,11 +764,11 @@ Você precisará balancear a configuração mais complexa do AlwaysOn, comparado
 ### <a name="a-name9053f720-6f3b-4483-904d-15dc54141e30ageneral-sql-server-for-sap-on-azure-summary"></a><a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>Resumo do SQL Server para SAP no Azure geral
 Há muitas recomendações neste guia e recomendamos que você o leia mais de uma vez antes de planejar sua implantação do Azure. Em geral, no entanto, não se esqueça de seguir os dez principais pontos específicos do DBMS no Azure gerais:
 
-[comentário]: <> (produtividade superior 2.3 a que? De um VHD?)
+[comentário]: <> (produtividade superior&2;.3 a que? De um VHD?)
 1. Use a versão mais recente do DBMS, como SQL Server 2014, que tem mais vantagens no Azure. Para o SQL Server, esse é o SQL Server 2012 SP1 CU4, que inclui o recurso de backup no armazenamento do Azure. No entanto, em conjunto com o SAP, recomendamos pelo menos o SQL Server 2014 SP1 CU1 ou o SQL Server 2012 SP2 e o CU mais recente.
 2. Planeje cuidadosamente sua estrutura de sistema da SAP no Azure para balancear o layout do arquivo de dados e as restrições do Azure:
    * Não tenha muitos VHDs, mas tenha espaço suficiente para garantir que você pode atingir seus IOPS necessários.
-   * Lembre-se de que as IOPS também são limitadas por Conta de Armazenamento do Azure e que as Contas de Armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-subscription-service-limits]). 
+   * Lembre-se de que os IOPS também são limitados por conta de armazenamento do Azure e que as contas de armazenamento são limitadas em cada assinatura do Azure ([mais detalhes][azure-subscription-service-limits]). 
    * Distribua entre VHDs apenas se você precisar obter uma maior taxa de transferência.
 3. Nunca instale software ou coloque quaisquer arquivos que exijam persistência na unidade D:\, uma vez que ela não é permanente e tudo nessa unidade será perdido em uma reinicialização do Windows.
 4. Não use o caching de VHD do Azure para o Armazenamento Standard do Azure.
@@ -861,7 +859,7 @@ Se você implantou a VM em um cenário de somente na nuvem sem conectividade ent
 > 
 > 
 
-Mais detalhes relacionados ao nome DNS podem ser encontrados [aqui][virtual-machines-azurerm-versus-azuresm].
+É possível encontrar mais detalhes relacionados ao nome DNS [aqui][virtual-machines-azurerm-versus-azuresm].
 
 Definindo o parâmetro de perfil do SAP icm/host_name_full para o nome DNS da VM do Azure, o link pode ser semelhante a:
 
@@ -1014,7 +1012,7 @@ Se você implantou a VM em um cenário de somente na nuvem sem conectividade ent
 > 
 > 
 
-Mais detalhes relacionados ao nome DNS podem ser encontrados [aqui][virtual-machines-azurerm-versus-azuresm].
+É possível encontrar mais detalhes relacionados ao nome DNS [aqui][virtual-machines-azurerm-versus-azuresm].
 
 Definindo o parâmetro de perfil do SAP icm/host_name_full para o nome DNS da VM do Azure, o link pode ser semelhante a:
 
@@ -1111,14 +1109,14 @@ Desde que a cota de IOPS por disco atual atenda aos requisitos, é possível arm
 
 Se mais IOPS forem necessários, será altamente recomendável usar pools de armazenamento do Windows (disponíveis apenas no Windows Server 2012 e superior) ou distribuição do Windows para o Windows 2008 R2 para criar um grande dispositivo lógico em vários discos VHD montados. Veja também o capítulo [RAID de Software][dbms-guide-2.2] deste documento. Essa abordagem simplifica a sobrecarga administrativa para gerenciar o espaço em disco e evita o esforço para distribuir manualmente os arquivos entre vários VHDs montados.
 
-#### <a name="backup-restore"></a>Backup/restauração
+#### <a name="backup--restore"></a>Backup/restauração
 Para a funcionalidade de backup/restauração, o SAP BR*Tools para Oracle tem suporte da mesma maneira que o Hyper-V e sistemas operacionais Windows Server standard. O RMAN (Gerenciador de Recuperação) da Oracle também tem suporte para backups em disco e restaurações do disco.
 
 #### <a name="high-availability"></a>Alta Disponibilidade
 [comentário]: <> (o link se refere ao ASM)
-O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. Os detalhes podem ser encontrados [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
+O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta disponibilidade. É possível encontrar detalhes [nesta][virtual-machines-windows-classic-configure-oracle-data-guard] documentação.
 
-#### <a name="other"></a>Outros
+#### <a name="other"></a>outro
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o Banco de Dados Oracle.
 
 ## <a name="specifics-for-the-sap-maxdb-database-on-windows"></a>Informações específicas para o banco de dados SAP MaxDB no Windows
@@ -1129,7 +1127,7 @@ Informações gerais sobre como executar o SAP NetWeaver no SAP MaxDB podem ser 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Versões do Microsoft Windows e tipos de VM do Azure com suporte para DBMS do SAP MaxDB
 Para localizar a versão com suporte do Microsoft Windows para DBMS do SAP MaxDB no Azure, consulte:
 
-* [SAP PAM (Matriz de Disponibilidade de Produto)][sap-pam]
+* [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendável usar a versão mais recente do sistema operacional Microsoft Windows, que é o Microsoft Windows 2012 R2.
@@ -1195,7 +1193,7 @@ A versão mínima do SAP liveCache com suporte nas Máquinas Virtuais do Azure �
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>Versões do Microsoft Windows e tipos de VM do Azure com suporte para DBMS do SAP liveCache
 Para localizar a versão com suporte do Microsoft Windows para SAP liveCache no Azure, consulte:
 
-* [SAP PAM (Matriz de Disponibilidade de Produto)][sap-pam]
+* [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendável usar a versão mais recente do sistema operacional Microsoft Windows, que é o Microsoft Windows 2012 R2. 
@@ -1236,12 +1234,12 @@ No momento o SAP dá suporte ao:
 
 É altamente recomendável usar a versão mais recente do SAP Content Server, que no momento da redação deste documento é **6.50 SP4**, e a versão mais recente do **IIS da Microsoft 8.5**. 
 
-Verifique as versões mais recentes com suporte do SAP Content Server e do IIS da Microsoft na [SAP PAM (Matriz de Disponibilidade de Produto)][sap-pam].
+Verifique as versões mais recentes com suporte do SAP Content Server e do IIS da Microsoft no [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam].
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>Tipos de VM do Azure e Microsoft Windows com suporte para o SAP Content Server
 Para descobrir a versão com suporte do Windows para o SAP Content Server no Azure, consulte:
 
-* [SAP PAM (Matriz de Disponibilidade de Produto)][sap-pam]
+* [PAM (Matriz de Disponibilidade de Produto) da SAP][sap-pam]
 * Nota SAP [1928533]
 
 É altamente recomendável usar a versão mais recente do Microsoft Windows, que no momento da redação deste documento é **Windows Server 2012 R2**.
@@ -1270,7 +1268,7 @@ Aqui você tem duas opções:
 ![Opção de instalação local do SAP Cache Server][dbms-guide-figure-900]
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
-#### <a name="backup-restore"></a>Backup/restauração
+#### <a name="backup--restore"></a>Backup/restauração
 Se você configurar o SAP Content Server para armazenar arquivos no banco de dados SAP MaxDB, as considerações de desempenho e o procedimento de backup/restauração já estão descritas nos capítulos [Backup e restauração][dbms-guide-8.4.2] e [Considerações de desempenho para backup e restauração][dbms-guide-8.4.3] do SAP MaxDB. 
 
 Se você configura o SAP Content Server para armazenar arquivos no sistema de arquivos, uma opção é executar o backup/restauração manual da estrutura do arquivo inteiro na qual os documentos estão localizados. Semelhante ao backup/restauração do SAP MaxDB, é recomendável ter um volume de disco dedicado para fins de backup. 
@@ -1396,6 +1394,6 @@ Veja também o capítulo [Resumo geral do SQL Server para SAP no Azure][dbms-gui
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

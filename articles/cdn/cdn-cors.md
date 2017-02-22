@@ -3,7 +3,7 @@ title: Usando a CDN do Azure com o CORS | Microsoft Docs
 description: "Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure com o CORS (Compartilhamento de Recursos entre Origens)."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
@@ -12,33 +12,47 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e4f7e947ab3e9ee67224edc9cad07d82524af2b7
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
 
 
 ---
 # <a name="using-azure-cdn-with-cors"></a>Usar a CDN do Azure com o CORS
 ## <a name="what-is-cors"></a>O que é CORS?
-O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio.
+O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Para reduzir a possibilidade de ataques de script entre sites, todos os navegadores modernos implementam uma restrição de segurança conhecida como [política de mesma origem](http://www.w3.org/Security/wiki/Same_Origin_Policy).  Isso impede que uma página da Web chame APIs em um domínio diferente.  O CORS fornece uma maneira segura para permitir que uma origem (o domínio de origem) chame APIs em outra origem.
 
 ## <a name="how-it-works"></a>Como ele funciona
-1. O navegador envia a solicitação OPTIONS com um cabeçalho HTTP **Origin** . O valor desse cabeçalho é o domínio que forneceu a página pai. Quando uma página de https://www.contoso.com tenta acessar os dados de um usuário no domínio fabrikam.com, o seguinte cabeçalho de solicitação é enviado para fabrikam.com: 
-   
+Há dois tipos de solicitações CORS, *solicitações simples* e *solicitações complexas.*
+
+### <a name="for-simple-requests"></a>Para solicitações simples:
+
+1. O navegador envia a solicitação CORS com adicional **origem** cabeçalho de solicitação HTTP. O valor desse cabeçalho é a origem que serviu a página pai, que é definida como a combinação de *protocolo,* *domínio,* e *porta.*  Quando uma página de https://www.contoso.com tenta acessar os dados de um usuário na origem fabrikam.com, o seguinte cabeçalho de solicitação é enviado para fabrikam.com:
+
    `Origin: https://www.contoso.com`
-2. O servidor pode responder com o seguinte:
-   
-   * Um cabeçalho **Access-Control-Allow-Origin** em sua resposta indicando quais sites de origem são permitidos. Por exemplo:
-     
+
+2. O servidor pode responder com um dos seguintes:
+
+   * Um cabeçalho **Access-Control-Allow-Origin** em sua resposta indicando qual site de origem é permitido. Por exemplo:
+
      `Access-Control-Allow-Origin: https://www.contoso.com`
-   * Uma página de erro se o servidor não permite a solicitação entre origens
-   * Um cabeçalho **Access-Control-Allow-Origin** com um caractere curinga que permite todos os domínios:
-     
+
+   * Um código de erro HTTP como 403, se o servidor não permite que a solicitação entre origens depois de verificar o cabeçalho de origem
+
+   * Um cabeçalho **Access-Control-Allow-Origin** com um caractere curinga que permite todas as origens:
+
      `Access-Control-Allow-Origin: *`
 
-Para solicitações HTTP complexas, uma solicitação de "simulação" é feita primeiro para determinar se tem permissão antes de enviar a solicitação inteira.
+### <a name="for-complex-requests"></a>Para solicitações complexas:
+
+Uma solicitação complexa é uma solicitação CORS onde o navegador é necessário para enviar um *solicitação de simulação* (ou seja, uma investigação preliminar) antes de enviar a solicitação CORS real. A solicitação de simulação pede a permissão do servidor se o CORS originais da solicitação pode continuar e é um `OPTIONS` solicitação para a mesma URL.
+
+> [!TIP]
+> Para obter mais detalhes sobre fluxos CORS e armadilhas comuns, consulte o [guia CORS para APIs REST](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/).
+>
+>
 
 ## <a name="wildcard-or-single-origin-scenarios"></a>Cenários de origem única ou curinga
 O CORS na Azure CDN funcionará automaticamente sem nenhuma configuração adicional quando o cabeçalho **Access-Control-Allow-Origin** for definido como caractere curinga (*) ou uma origem única.  A CDN armazenará a primeira resposta em cache e as solicitações subsequentes usarão o mesmo cabeçalho.
@@ -85,6 +99,6 @@ Em perfis Padrão do Azure CDN, o único mecanismo para permitir várias origens
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de exemplos de retransmissão do Barramento de Serviço| Microsoft Docs"
+title: "Visão geral das amostras de retransmissão do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Categoriza e descreve exemplos de retransmissão do Barramento de Serviço com links para cada um."
 services: service-bus-relay
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
+ms.sourcegitcommit: 6027c973f0104fff9705a70f7812f62562165c1e
+ms.openlocfilehash: d830770c49caeacf762382ce1c6113d9196a5994
 
 
 ---
@@ -24,23 +24,23 @@ ms.openlocfilehash: 0b2206fae964c55e961505b9d0e2ad71fd0b2102
 Os exemplos de retransmissão do Barramento de Serviço demonstram os recursos principais da [retransmissão do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
 
 > [!NOTE]
-> Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> As amostras do Barramento de Serviço não são instaladas com o SDK do Azure. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Além disso, há um conjunto atualizado de exemplos de retransmissão do Barramento de Serviço [aqui](https://github.com/Azure-Samples/azure-servicebus-relay-samples) (até o fechamento deste artigo, elas não foram descritas).  
+> Além disso, há um conjunto atualizado de amostras de retransmissão do Barramento de Serviço [aqui](https://github.com/Azure-Samples/azure-servicebus-relay-samples).  
 > 
 > 
 
-Para obter exemplos do sistema de mensagens, consulte [Amostras do sistema de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-samples.md).
+Para obter amostras de mensagens do Barramento de Serviço, confira [Exemplos de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-samples.md).
 
-## <a name="service-bus-relay"></a>Retransmissão do Barramento de Serviço
-Os exemplos a seguir ilustram como gravar aplicativos que usam o sistema de retransmissão do Barramento de Serviço.
+## <a name="azure-service-bus-relay"></a>Retransmissão do Barramento de Serviço do Azure
+As amostras a seguir ilustram como escrever aplicativos que usam o serviço de Retransmissão do Azure.
 
-Observe que os exemplos de retransmissão exigem uma cadeia de caracteres de conexão para acessar o namespace do Barramento de Serviço.
+Observe que as amostras de retransmissão exigem uma cadeia de conexão para acessar o namespace da Retransmissão.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Para obter uma cadeia de conexão do Barramento de Serviço do Azure
+### <a name="to-obtain-a-connection-string-for-azure-relay"></a>Para obter uma cadeia de conexão da Retransmissão do Azure
 1. Faça logon no [portal do Azure](http://portal.azure.com).
-2. Na coluna à esquerda, clique em **Barramento de Serviço**.
-3. Clique no nome do seu namespace na lista.
+2. Clique para expandir a lista de namespaces no painel **Todos os recursos**.
+3. Na lista, clique no nome do namespace de Retransmissão.
 4. Na folha namespace, clique em **Políticas de acesso compartilhado**.
 5. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
 6. Copie a cadeia de conexão para a área de transferência.
@@ -48,13 +48,13 @@ Observe que os exemplos de retransmissão exigem uma cadeia de caracteres de con
 ### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Para obter uma cadeia de conexão do Barramento de Serviço do Windows Server
 1. Execute o seguinte cmdlet do PowerShell:
    
-    ```
+    ```powershell
     get-sbClientConfiguration
     ```
 2. Cole a cadeia de conexão no arquivo App.config do exemplo.
 
-## <a name="service-bus-relay"></a>Retransmissão do Barramento de Serviço
-Exemplos que demonstram a retransmissão do Barramento de Serviço.
+## <a name="azure-relay"></a>Retransmissão do Azure
+Amostras que demonstram a Retransmissão do Azure.
 
 ### <a name="getting-started"></a>Introdução
 | Nome do exemplo | Descrição | Versão mínima do SDK | Disponibilidade |
@@ -84,13 +84,13 @@ Exemplos que demonstram os recursos de retransmissão do Barramento de Serviço.
 ## <a name="next-steps"></a>Próximas etapas
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
-* [Visão geral da retransmissão do Barramento de Serviço](service-bus-relay-overview.md)
+* [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
 * [Arquitetura do Barramento de Serviço](../service-bus-messaging/service-bus-architecture.md)
 * [Conceitos fundamentais do barramento de serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

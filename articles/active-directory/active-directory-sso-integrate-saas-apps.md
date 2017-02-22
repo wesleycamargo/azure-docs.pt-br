@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: a451ab54144222676e8063b764a6d22f44a690d7
 
 
 ---
@@ -25,8 +25,8 @@ ms.openlocfilehash: fcd8fe1bd1be5ffa85aab0951a28054754ba03ff
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal clássico do Azure](active-directory-sso-integrate-saas-apps.md)
-> 
-> 
+>
+>
 
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
@@ -50,8 +50,8 @@ Configurar o logon único para um aplicativo já utilizado pela sua organizaçã
 
 > [!NOTE]
 > Para configurar o SSO para um aplicativo existente, você precisa ter direitos de administrador globais no AD do Azure e no aplicativo de SaaS.
-> 
-> 
+>
+>
 
 ### <a name="mapping-user-accounts"></a>Mapeamento das contas de usuário
 A identidade de um usuário geralmente tem um identificador exclusivo que pode ser um endereço de email ou um nome UPN. Você precisará vincular (mapear) a identidade do aplicativo de cada usuário com sua respectiva identidade do AD do Azure. Existem algumas maneiras de fazer isso, dependendo do requisito de autenticação de seu aplicativo.
@@ -72,12 +72,11 @@ Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná
 
 Há muito mais detalhes sobre todos esses assuntos na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e o logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

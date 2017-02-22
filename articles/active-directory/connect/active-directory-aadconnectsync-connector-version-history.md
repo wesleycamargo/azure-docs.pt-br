@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/17/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 58c89833330d8dbb1147b42c086ca2c86be3e94d
+ms.sourcegitcommit: 731dd999e053b98c93c374530599232d4dc5bb92
+ms.openlocfilehash: 9c7a8dc5204a799a8b79fa88b243d981bcd54c74
 
 
 ---
@@ -25,8 +25,6 @@ Os Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Mana
 
 > [!NOTE]
 > Este tópico é somente para FIM e MIM. Esses conectores não têm suporte no Azure AD Connect.
-> 
-> 
 
 Este tópico lista todas as versões dos conectores que foram lançadas.
 
@@ -103,7 +101,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

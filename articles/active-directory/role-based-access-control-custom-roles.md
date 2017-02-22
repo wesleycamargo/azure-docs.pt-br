@@ -1,10 +1,10 @@
 ---
-title: "Funções personalizadas no RBAC do Azure | Microsoft Docs"
+title: "Criar funções personalizadas no RBAC do Azure | Microsoft Docs"
 description: "Saiba como definir funções personalizadas com o Controle de Acesso Baseado em Função para um gerenciamento de identidade mais preciso na sua assinatura do Azure."
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: kgremban
+manager: femila
 editor: 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2016
+ms.date: 01/31/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b5ffc0f9d337c776f2702aa95d991d1b57829f3b
+ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
+ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
 
 
 ---
@@ -54,9 +54,10 @@ Este é um exemplo de uma função personalizada para monitorar e reiniciar as m
 }
 ```
 ## <a name="actions"></a>Ações
-A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
+A propriedade **Actions** de uma função personalizada especifica as operações do Azure às quais a função concede acesso. É uma coleção de cadeias de operação que identificam as operações protegíveis dos provedores de recursos do Azure. Cadeias de caracteres de operação seguem o formato de `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. As cadeias de operação que contêm caracteres curinga (\*) permitem acesso a todas as operações que correspondem à cadeia de operação. Por exemplo:
 
 * `*/read` concede acesso a operações de leitura a todos os tipos de recursos de todos os provedores de recursos do Azure.
+* `Microsoft.Compute/*` concede acesso a todas as operações a todos os tipos de recursos no provedor de recursos Microsoft.Compute.
 * `Microsoft.Network/*/read` concede acesso a operações de leitura a todos os tipos de recursos no provedor de recursos Microsoft.Network do Azure.
 * `Microsoft.Compute/virtualMachines/*` concede acesso a todas as operações de máquinas virtuais e seus tipos de recursos filhos.
 * `Microsoft.Web/sites/restart/Action` concede acesso para reinicialização de sites.
@@ -69,7 +70,7 @@ Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Ope
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```
 
-![Captura de tela PowerShell - Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
+![PowerShell screenshot - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
 ```
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
@@ -84,8 +85,8 @@ Use a propriedade **NotActions** se o conjunto de operações que você deseja p
 
 > [!NOTE]
 > Se um usuário receber uma função que exclui uma operação em **NotActions**e receber uma segunda função que concede acesso à mesma operação, ele terá permissão para executar essa operação. **NotActions** não é uma regra de negação, é simplesmente uma maneira conveniente de criar um conjunto de operações permitidas quando for necessário excluir operações específicas.
-> 
-> 
+>
+>
 
 ## <a name="assignablescopes"></a>AssignableScopes
 A propriedade **AssignableScopes** da função personalizada especifica os escopos (assinaturas, grupos de recursos ou recursos) nos quais a função personalizada ficará disponível para a atribuição. Você pode disponibilizar a função personalizada para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes.
@@ -98,8 +99,8 @@ Exemplos de escopos válidos que podem ser atribuídos incluem:
 
 > [!NOTE]
 > Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso.
-> 
-> 
+>
+>
 
 ## <a name="custom-roles-access-control"></a>Controle de acesso de funções personalizadas
 A propriedade **AssignableScopes** da função personalizada também controla quem pode exibir, modificar e excluir a função.
@@ -122,7 +123,6 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

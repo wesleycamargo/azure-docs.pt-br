@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
+ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
 
 
 ---
@@ -67,13 +67,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Dados de aplicativo**: aplicativos individuais podem sincronizar dados |sincronizar backup |sincronizar backup |interno |
 | **Lista de aplicativos**: lista de aplicativos instalados |X |backup |Outros |
 | **Bluetooth**: todas as configurações do Bluetooth |X |X | |
-| **Prompt de comando**: todas as configurações do prompt de comando |sync |X | |
-| **Cortana**: ativada ou desativada |X |X | |
-| **Cortana**: habilitar a Cortana na tela de bloqueio |X |X | |
-| **Cortana**: nome de usuário |sync |sync |interno |
-| **Cortana**: ler em voz alta o SMS |X |sync |interno |
-| **Cortana**: Pesquisa Segura |X |sync |interno |
-| **Cortana**: localizar informações sobre voos e muito mais |X |sync |interno |
+| **Prompt de comando**: configurações “Padrão” do prompt de comando |sync |X | |
 | **Credenciais**: Cofre de Credenciais |sync |sync |Senha |
 | **Data, Hora e Região**: horário automático (sincronização de horário da Internet) |sync |sync |idioma |
 | **Data, Hora e Região**: relógio de 24 horas |sync |X |idioma |
@@ -95,8 +89,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Navegador Edge**: lista de leitura |sync |sync |interno |
 | **Navegador Edge**: favoritos |sync |sync |interno |
 | **Navegador Edge**: todas as outras configurações do Edge |X |X | |
-| **Alto Contraste**: ativado ou desativado |sync |sync |facilidade de acesso |
-| **Alto Contraste**: configurações do Tema |sync |X | |
+| **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
+| **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |
 | **Internet Explorer**: lista de leitura |sync |sync |Internet Explorer |
 | **Internet Explorer**: URLs tipadas |sync |sync |Internet Explorer |
@@ -113,8 +107,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Idioma**: CHS QWERTY - habilitar a classificação dinâmica de candidatos |sync |X |idioma |
 | **Idioma**: QWERTY CHS - conjunto de caracteres do chinês simplificado |sync |X |idioma |
 | **Idioma**: QWERTY CHS - conjunto de caracteres do chinês tradicional |sync |X |idioma |
-| **Idioma**: CHS QWERTY - pinyin difuso |sync |sync |idioma |
-| **Idioma**: CHS QWERTY - pares difusos |sync |sync |idioma |
+| **Idioma**: CHS QWERTY - pinyin difuso |sync |backup |Linguagem |
+| **Idioma**: CHS QWERTY - pares difusos |sync |backup |Linguagem |
 | **Idioma**: CHS QWERTY - pinyin completo |sync |X |idioma |
 | **Idioma**: CHS QWERTY - pinyin duplo |sync |X |idioma |
 | **Idioma**: CHS QWERTY - correção automática de leitura |sync |X |idioma |
@@ -122,8 +116,8 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Idioma**: CHS QWERTY - tecla de alternância C/E, Ctrl |sync |X |idioma |
 | **Idioma**: CHS WUBI - modo de entrada de caractere único |sync |X |idioma |
 | **Idioma**: CHS WUBI - mostrar a codificação restante do candidato |sync |X |idioma |
-| **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |idioma |
-| **Idioma**: CHS Bopomofo - inclui CJK Ext-A |sync |X |idioma |
+| **Idioma**: CHS WUBI - um aviso sonoro quando a codificação 4 é inválida |sync |X |Linguagem |
+| **Idioma**: CHT Bopomofo; inclui CJK Ext-A |sync |X |idioma |
 | **Idioma**: IME japonês - digitação preditiva e palavras personalizadas |sync |sync |idioma |
 | **Idioma**: IME coreano (KOR) |X |X |idioma |
 | **Idioma**: reconhecimento de manuscrito |X |X |idioma |
@@ -147,11 +141,11 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Narrador**: fazer o cursor de inserção seguir o Narrador (ativado por padrão) |sync |X |facilidade de acesso |
 | **Narrador**: habilitar o realce visual do cursor do Narrador (ativado por padrão) |sync |X |facilidade de acesso |
 | **Narrador**: reproduzir as indicações de áudio (ativado por padrão) |sync |X |facilidade de acesso |
-| **Narrador**: ativar as teclas do teclado de toque quando você levanta seu dedo (desativado por padrão) |sync |sync |facilidade de acesso |
+| **Narrador**: ativar as teclas do teclado de toque quando você levanta seu dedo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Facilidade de acesso**: definir a espessura do cursor intermitente |sync |X |facilidade de acesso |
 | **Facilidade de acesso**: remover as imagens da tela de fundo (desativado por padrão) |sync |X |facilidade de acesso |
 | **Ligar e Suspensão**: todas as configurações |X |X | |
-| **Iniciar personalização de tela**: cor do sistema |sync |sync |Tema |
+| **Iniciar a personalização de tela**: cor de ênfase (apenas telefone) |X |sync |Tema |
 | **Digitação**: dicionário de ortografia |sync |backup |idioma |
 | **Digitação**: autocorreção de palavra incorreta |sync |backup |idioma |
 | **Digitação**: realçar as palavras incorretas |sync |backup |idioma |
@@ -169,10 +163,10 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 * [Habilitar o enterprise state roaming no Active Directory do Azure](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44afeaa05ff2a8ab5a685d9f82880b0fa50f490b
+ms.sourcegitcommit: 52153526fb5b127823316b86fa05c0528151e18f
+ms.openlocfilehash: df8aebc78969ac6ceb00ee8b20a60cb153e8891b
 
 
 ---
@@ -27,7 +27,7 @@ Em um ponto de exibição de alto nível, isso é feito em três etapas:
 
 * **[Criar um teste de treinamento]** - o Estúdio de Aprendizado de Máquina do Azure é um ambiente de desenvolvimento visual colaborativo usado para treinar e testar um modelo de análise de previsão usando os dados de treinamento que você fornecer.
 * **[Convertê-lo em um teste preditivo]**: depois que o modelo tiver sido treinado com dados existentes e você estiver pronto para usá-lo para pontuar novos dados, prepare e simplifique seu teste de previsões.
-* **Implantá-lo como um serviço Web**: você pode implantar um teste preditivo como um serviço Web do Azure [novo] ou [clássico]. Os usuários podem enviar dados ao seu modelo e receber as previsões do modelo.
+* **[Implantá-lo como um serviço Web]**: você pode implantar um teste preditivo como um serviço Web do Azure [novo] ou [clássico]. Os usuários podem enviar dados ao seu modelo e receber as previsões do modelo.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -54,12 +54,16 @@ Para obter mais informações sobre como realizar essa conversão, veja [Convert
 
 As etapas a seguir descrevem a implantação de um teste preditivo como um novo serviço Web. Você também pode implantar o teste como um serviço Web clássico.
 
-## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implantar o teste preditivo como um novo serviço Web
-Agora que o teste preditivo foi preparado, você pode implantá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
+## <a name="deploy-it-as-a-web-service"></a>Implantá-lo como um serviço Web
+
+Você pode implantar o teste preditivo como um serviço Web Novo ou Clássico.
+
+### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implantar o teste preditivo como um novo serviço Web
+Agora que o teste preditivo foi preparado, você pode implantá-lo como um novo serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
 
 Para implantar o teste preditivo, clique em **Executar** na parte inferior da tela do teste. Após a conclusão do teste, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [novo]**.  A página de implantação do portal do serviço Web do Machine Learning será aberta.
 
-### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de teste de implantação do portal de Serviços Web do Machine Learning
+#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de teste de implantação do portal de Serviços Web do Machine Learning
 Na página de teste de implantação, insira um nome para o serviço Web.
 Selecione um plano de preços. Se você tiver um plano de preços existente, selecione-o, caso contrário, você deverá criar um novo plano de preços para o serviço.
 
@@ -73,7 +77,7 @@ A página de início rápido do serviço Web fornece acesso e orientações sobr
 
 <!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
-### <a name="test-your-web-service"></a>Testar seu serviço Web
+#### <a name="test-your-new-web-service"></a>Gerenciar seu Novo serviço Web
 Para testar seu novo serviço Web, clique em **Testar serviço Web** em tarefas comuns. Na página de teste, você poderá testar o serviço Web como um Serviço de solicitação-resposta (RRS) ou Serviço de execução em lote (BES).
 
 A página de teste RRS exibe as entradas, as saídas e todos os parâmetros globais que você definiu para o teste. Para testar o serviço Web, você pode manualmente inserir os valores apropriados para as entradas ou fornecer um arquivo CSV (valores separados por vírgulas) formatado que contém os valores de teste.
@@ -104,22 +108,25 @@ Depois de implantar o serviço Web, é possível:
 * **Gerenciá-lo** por meio do portal de serviços Web de Aprendizado de Máquina do Azure ou Portal Clássico do Azure.
 * **Atualizá-lo** se o seu modelo for alterado.
 
-### <a name="access-the-web-service"></a>Acessar o serviço Web
+#### <a name="access-your-new-web-service"></a>Acessar seu Novo serviço Web
 Depois de implantar o serviço Web por meio do Estúdio de Aprendizado de Máquina, você pode enviar dados para o serviço e receber respostas de forma programática.
 
 A página **Consumo** fornece todas as informações necessárias para acessar o serviço Web. Por exemplo, a chave de API é fornecida para permitir acesso autorizado ao serviço.
 
 Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
 
-### <a name="manage-your-new-web-service"></a>Gerenciar seu novo serviço Web
+#### <a name="manage-your-new-web-service"></a>Gerenciar seu Novo serviço Web
 Você pode gerenciar seu portal de serviços Web de Aprendizado de Máquina de serviços Web clássicos. Na [página principal do portal](https://services.azureml-test.net/) clique em **serviços Web**. Na página de serviços Web, você pode excluir ou copiar um serviço. Para monitorar um serviço específico, clique no serviço e, em seguida, clique em **Painel**. Para monitorar trabalhos em lotes associados ao serviço Web, clique em **Log de solicitações em lote**.
 
-## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implantar o teste preditivo como um serviço Web clássico
-Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo como um serviço Web do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
+### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implantar o teste preditivo como um serviço Web clássico
+
+Agora que o teste preditivo foi devidamente preparado, você pode implantá-lo como um serviço Web Clássico do Azure. Usando o serviço Web, os usuários podem enviar dados para seu modelo e o modelo retornará suas previsões.
 
 Para implantar o teste preditivo, clique em **Executar** na parte inferior da tela do teste e clique em **Implantar Serviço Web**. O serviço Web é configurado e colocado no painel de serviço Web.
 
 ![Implantar o serviço Web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+
+#### <a name="test-your-classic-web-service"></a>Testar seu serviço Web Clássico
 
 Você pode testar o serviço Web no portal de Serviços Web do Machine Learning ou no Machine Learning Studio.
 
@@ -141,14 +148,14 @@ Você pode habilitar o log para diagnosticar quaisquer falhas que esteja vendo q
 
 Você também pode configurar os pontos de extremidade do serviço Web no portal de serviços Web do Azure Machine Learning da mesma forma que o procedimento mostrado anteriormente na seção Novo serviço Web. As opções são diferentes, você pode adicionar ou alterar a descrição do serviço, habilitar o registro em log e habilitar dados de exemplo para teste.
 
-### <a name="access-the-web-service"></a>Acessar o serviço Web
+#### <a name="access-your-classic-web-service"></a>Acessar seu serviço Web Clássico
 Depois de implantar o serviço Web por meio do Estúdio de Aprendizado de Máquina, você pode enviar dados para o serviço e receber respostas de forma programática.
 
 O painel fornece todas as informações necessárias para acessar o serviço Web. Por exemplo, a chave de API é fornecida para permitir acesso autorizado ao serviço e as páginas de ajuda de API são fornecidas para ajudar você a começar a escrever seu código.
 
 Para obter mais informações sobre como acessar um serviço Web do Aprendizado de Máquina, veja [Como consumir um serviço Web implantado do Aprendizado de Máquina do Azure](machine-learning-consume-web-services.md).
 
-### <a name="manage-the-web-service"></a>Gerenciar o serviço Web
+#### <a name="manage-your-classic-web-service"></a>Gerenciar seu serviço Web Clássico
 Há várias ações que podem ser executadas para monitorar um serviço Web. Você pode atualizá-lo e excluí-lo. Você também pode adicionar pontos de extremidade adicionais a um serviço Web clássico além do ponto de extremidade padrão que é criado durante sua implantação.
 
 Para obter mais informações, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning](machine-learning-manage-workspace.md) e [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md).
@@ -174,14 +181,15 @@ Uma opção para atualizar seu serviço Web é treinar novamente o modelo de for
 <!-- internal links -->
 [Criar um teste de treinamento]: #create-a-training-experiment
 [Convertê-lo em um teste preditivo]: #convert-the-training-experiment-to-a-predictive-experiment
+[Implantá-lo como um serviço Web]: #deploy-it-as-a-web-service
 [novo]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [clássico]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[Acessar]: #access-the-Web-service
-[Gerenciar]: #manage-the-Web-service-in-the-azure-management-portal
-[Atualizar]: #update-the-Web-service
+[Access]: #access-the-Web-service
+[Manage]: #manage-the-Web-service-in-the-azure-management-portal
+[Update]: #update-the-Web-service
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

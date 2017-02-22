@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/01/2017
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9d4df15fb4514817d9233ab4e5bd0eb65e5a95dc
+ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
+ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
 
 
 ---
@@ -50,18 +50,23 @@ A VM de Ciência de Dados pode ser usada para avaliar ferramentas, ou aprender s
 A Máquina Virtual de Ciência de Dados apresenta muitas ferramentas conhecidas de ciência de dados já instaladas e configuradas. Ela também inclui ferramentas que facilitam o trabalho com vários produtos de análise e dados do Azure. Você pode explorar e criar modelos preditivos em conjuntos de dados de larga escala usando o Microsoft R Server ou SQL Server 2016. Também está incluído um conjunto de outras ferramentas da comunidade de software livre e da Microsoft, bem como código de exemplo e notebooks. A tabela a seguir relaciona e compara os principais componentes incluídos nas edições do Windows e Linux da Máquina Virtual de Ciência de Dados.
 
 | **Edição do Windows** | **Edição do Linux** |
-| --- | --- |
-| Microsoft R Server Developer Edition |Microsoft R Server Developer Edition |
-| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 |
-| Servidor do Jupyter Notebook (R, Python) |JupyterHub: notebooks para multiusuários do Jupyter (R, Python, Julia) |
-| SQL Server 2016 Developer Edition: análise no banco de dados escalonável com os serviços de R |Postgres, SQuirreL SQL (ferramenta de banco de dados), drivers do SQL Server e linha de comando (bcp, sqlcmd) |
-| Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Node.js, Python e ferramentas do R para Visual Studio |IDEs e editores </br> - Eclipse com plug-in do kit de ferramentas do Azure </br> - Emacs (com ESS, auctex) gedit |
+| -- | --|
+| Microsoft R Open com pacotes populares pré-instalados | Microsoft R Open com pacotes populares pré-instalados |
+| Microsoft R Server Developer Edition com algoritmos do MicrosoftML e do Microsoft R Operationalization  |Microsoft R Server Developer Edition |
+| Anaconda Python 2.7, 3.5 |Anaconda Python 2.7, 3.5 com pacotes populares pré-instalados|
+| JuliaPro com pacotes populares pré-instalados | JuliaPro com pacotes populares pré-instalados |
+| Servidor do Jupyter Notebook (R, Python, Julia) |JupyterHub: notebooks para multiusuários do Jupyter (R, Python, Julia, PySpark) |
+| SQL Server 2016 SP1 Developer Edition: análise no banco de dados escalonável com os serviços de R |PostgreSQL, SQuirreL SQL (ferramenta de banco de dados), drivers do SQL Server e linha de comando (bcp, sqlcmd) |
+|- Visual Studio Community Edition 2015 (IDE) </br> - Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools </br> - Node.js, Python e Ferramentas do R para Visual Studio (RTVS 0.5) </br>- R Studio Desktop|IDEs e editores </br> - Eclipse com plug-in do kit de ferramentas do Azure </br> - Emacs (com ESS, auctex) gedit </br> - IntelliJ IDEA</br> - PyCharm</br> - Atom</br> - Visual Studio Code|
 | Power BI Desktop |-- |
-| Ferramentas de Aprendizado de Máquina </br> - Integração ao Machine Learning do Azure </br> - CNTK (aprendizado profundo/AI) </br> - Xgboost (ferramenta conhecida de aprendizado de máquina em competições de ciência de dados) </br> - Vowpal Wabbit (aprendiz online rápido) </br> - Rattle (ferramenta visual de dados e análise de início rápido) </br> - Mxnet (aprendizado profundo/AI) |Ferramentas de Aprendizado de Máquina </br> - Integrações ao Machine Learning do Azure </br> - CNTK (aprendizado profundo/AI) </br> - Xgboost (ferramenta conhecida de aprendizado de máquina em competições de ciência de dados) </br> - Vowpal Wabbit (aprendiz online rápido) </br> - Rattle (ferramenta visual de dados e análise de início rápido) |
+| Ferramentas de Aprendizado de Máquina </br> - Integração ao Machine Learning do Azure </br> - Microsoft Cognitive Toolkit (CNTK 2.0) aprendizado profundo/AI </br> - Xgboost (ferramenta conhecida de aprendizado de máquina em competições de ciência de dados) </br> - Vowpal Wabbit (aprendiz online rápido) </br> - Rattle (ferramenta visual de dados e análise de início rápido) </br> - Mxnet (aprendizado profundo/AI) </br> - Tensorflow  |Ferramentas de Aprendizado de Máquina </br> - Integrações ao Machine Learning do Azure </br> - CNTK (aprendizado profundo/AI) </br> - Xgboost (ferramenta conhecida de aprendizado de máquina em competições de ciência de dados) </br> - Vowpal Wabbit (aprendiz online rápido) </br> - Rattle (ferramenta visual de dados e análise de início rápido) </br> - Mxnet (aprendizado profundo/AI)|
 | SDKs para acessar o Azure e o pacote de serviços Cortana Intelligence |SDKs para acessar o Azure e o pacote de serviços Cortana Intelligence |
 | Ferramentas de movimentação e gerenciamento de dados dos recursos de Big Data e do Azure: Gerenciador de Armazenamento do Azure, CLI, PowerShell, AdlCopy (Azure Data Lake), AzCopy, dtui (para DocumentDB), Gateway de Gerenciamento de Dados da Microsoft |Ferramentas de movimentação e gerenciamento de dados dos recursos de Big Data e do Azure: Gerenciador de Armazenamento do Azure, CLI |
 | Git, plug-in do Visual Studio Team Services |Git |
 | Porta do Windows dos utilitários de linha de comando mais conhecidos do Linux/Unix acessível por meio de GitBash/prompt de comando |-- |
+| Weka | Weka |
+| Drill | Drill |
+| --| Local do Spark |
 
 ## <a name="how-to-get-started-with-the-windows-data-science-vm"></a>Como começar a usar a VM de Ciência de Dados do Windows
 * Crie uma instância da VM no Windows acessando [esta página](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) e selecionando o botão verde **Criar Máquina Virtual**.
@@ -86,6 +91,6 @@ A Máquina Virtual de Ciência de Dados apresenta muitas ferramentas conhecidas 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Atualização de aplicativo: tópicos avançados | Microsoft Docs"
+title: "Tópicos de atualização de aplicativo avançados | Microsoft Docs"
 description: "Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric."
 services: service-fabric
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 01/05/2017
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
-ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
+ms.sourcegitcommit: f1e035b50b415f68ce567fe1db3a3fe93c2a1394
+ms.openlocfilehash: 63d7ca0224c1989618c474181b02fa79eb69c966
 
 
 ---
@@ -24,13 +24,13 @@ ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
 ## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Adicionando ou removendo serviços durante uma atualização de aplicativo
 Se um novo serviço é adicionado a um aplicativo que já foi implantado e publicado como uma atualização, o novo serviço é adicionado ao aplicativo implantado.  Essa atualização não afeta os serviços que já fazem parte do aplicativo. No entanto, uma instância do serviço que foi adicionado deve ser iniciada para que o novo serviço seja ativado (usando o cmdlet `New-ServiceFabricService` ).
 
-Os serviços também podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias do serviço a ser excluído devem ser interrompidas antes de prosseguir com a atualização (usando o cmdlet `Remove-ServiceFabricService` ). 
+Os serviços também podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias do serviço a ser excluído devem ser interrompidas antes de prosseguir com a atualização (usando o cmdlet `Remove-ServiceFabricService` ).
 
 ## <a name="manual-upgrade-mode"></a>Modo de atualização manual
 > [!NOTE]
 > O modo manual não monitorado só deverá ser considerado em caso de atualização com falha ou suspensa. O modo monitorado é o modo de atualização recomendado para aplicativos do Service Fabric.
-> 
-> 
+>
+>
 
 O Service Fabric do Azure fornece vários modos de atualização para dar suporte a clusters de desenvolvimento e de produção. As opções de implantação escolhidas podem ser diferentes para ambientes diferentes.
 
@@ -55,7 +55,7 @@ Hipóteses em que usar um pacote diff seria uma boa opção:
 * Será melhor usar um pacote diff quando você tiver um pacote de aplicativo grande que faça referência a vários arquivos de manifesto do serviço e/ou a vários pacotes de código, de configuração ou de dados.
 * Será melhor usar um pacote diff quando você tiver um sistema de implantação que gere o layout de compilação diretamente do seu processo de compilação do aplicativo. Nesse caso, embora o código não tenha mudado, assemblies recém-criados têm uma soma de verificação diferente. O uso de um pacote de aplicativo completo exige que você atualize a versão de todos os pacotes de código. Com o uso de um pacote diff, você fornece somente os arquivos alterados e os arquivos de manifesto em que a versão foi alterada.
 
-Quando um aplicativo é atualizado usando o Visual Studio, o pacote diff é publicado automaticamente. Para criar um pacote diff manualmente, o manifesto do aplicativo e os manifestos do serviço devem ser atualizados, mas apenas os pacotes alterados devem ser incluídos no pacote de aplicativos final. 
+Quando um aplicativo é atualizado usando o Visual Studio, o pacote diff é publicado automaticamente. Para criar um pacote diff manualmente, o manifesto do aplicativo e os manifestos do serviço devem ser atualizados, mas apenas os pacotes alterados devem ser incluídos no pacote de aplicativos final.
 
 Por exemplo, vamos começar com o aplicativo a seguir (números de versão fornecidos para facilitar a compreensão):
 
@@ -102,7 +102,6 @@ Corrija problemas comuns em atualizações de aplicativo consultando as etapas e
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

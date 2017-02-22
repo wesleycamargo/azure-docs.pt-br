@@ -190,6 +190,6 @@ Saiba mais sobre como [usar os modelos do Resource Manager](../azure-resource-ma
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

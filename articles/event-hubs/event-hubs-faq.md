@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre os Hubs de Eventos | Microsoft Docs
-description: Perguntas frequentes sobre os Hubs de Eventos.
+description: Perguntas frequentes dos Hubs de Eventos
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb8a1f5b46ed5bfbdc61789ffc48a79927d9c19d
+ms.sourcegitcommit: fceb8f6c8f28e84eb8926586257cf39dc0cd14d4
+ms.openlocfilehash: 4977daeecd9e206906c2e0b3b95b63d4d55cb859
 
 
 ---
@@ -71,33 +71,30 @@ Para remetentes, cobranças de conexão são aplicadas somente quando o protocol
 O nível Standard dos Hubs de Eventos fornecem recursos adicionais aos disponíveis nos Hubs de Eventos Basic e em alguns sistemas concorrentes. Esses recursos incluem períodos de retenção de mais de 24 horas e a capacidade de usar uma única conexão AMQP para enviar comandos para um grande número de dispositivos com latências inferiores a um segundo, bem como para enviar telemetria desses dispositivos para os Hubs de Eventos. Para obter a lista de recursos, confira os [detalhes do preço dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="geographic-availability"></a>Disponibilidade geográfica
-Os Hubs de Eventos estão disponíveis nas seguintes regiões:
 
-| Localização geográfica | Regiões |
-| --- | --- |
-| Estados Unidos |Região Central dos EUA, Leste dos EUA, Leste dos EUA 2, Região Centro-Sul dos EUA, Oeste dos EUA |
-| Europa |Norte da Europa, Europa Ocidental |
-| Pacífico Asiático |Ásia Oriental, Sudeste Asiático |
-| Japão |Leste do Japão, Oeste do Japão |
-| Brasil |Sul do Brasil |
-| Austrália |Leste da Austrália, Sudeste da Austrália |
+Os Hubs de Eventos do Azure está disponível em todas as regiões do Azure com suporte. Para obter uma lista, visite a página [Regiões do Azure][].  
 
 ## <a name="support-and-sla"></a>Suporte e SLA
 Suporte técnico para os Hubs de Eventos está disponível por meio dos [fóruns da comunidade](https://social.msdn.microsoft.com/forums/azure/home). O suporte para gerenciamento de assinaturas e cobranças é fornecido sem custo adicional.
 
 Para saber mais sobre nosso SLA, veja a página [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/) .
 
+## <a name="diagnostic-logs"></a>Logs de diagnóstico
+
+Os Hubs de Eventos oferecem suporte a dois tipos de [logs de diagnóstico](event-hubs-diagnostic-logs.md) - arquive os logs de erro e os logs operacionais que são representados em json e podem ser ativados por meio do portal do Azure.
+
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
+Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos][Visão Geral dos Hubs de Eventos].
-* Um [aplicativo de exemplo que usa os Hubs de Eventos completo][aplicativo de exemplo completo que usa Hub de Eventos].
+* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 
-[Visão Geral dos Hubs de Eventos]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Regiões do Azure]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

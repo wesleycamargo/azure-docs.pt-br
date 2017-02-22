@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentação do Azure Key Vault - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba mais sobre como usar o Cofre de Chaves para criar e manter as chaves que acessam e criptografam seus recursos, aplicativos e soluções de nuvem. Tutoriais, referências de API e muito mais."
+services: key-vault
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
+ms.sourcegitcommit: ea6717f8c5e04883d2feb83537c1c1f96bec2287
+ms.openlocfilehash: 70a89aad208ae71d5c0aab462b6078dafa8efcfc
 
 ---
+
 # <a name="key-vault-documentation"></a>Documentação do Cofre de Chaves
 
 Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptografia e os segredos usados por aplicativos e serviços de nuvem. Os tutoriais, as referências de API e outras documentações mostram como criar e manter as chaves que acessam e criptografam seus recursos e soluções.
@@ -154,6 +166,6 @@ Saiba como usar o Cofre de Chaves para proteger e gerenciar as chaves de criptog
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

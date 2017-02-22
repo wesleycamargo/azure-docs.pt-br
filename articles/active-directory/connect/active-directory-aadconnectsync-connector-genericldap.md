@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
-ms.openlocfilehash: 783952ef1a19d18c3dd5d25c9ccf25cf3b29af45
+ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
+ms.openlocfilehash: 5eacb832ba2a20eae35c58704296c9d03e94ef0e
 
 
 ---
@@ -41,7 +41,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada |O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo Global do Microsoft Active Directory (AD GC)</li><li>Directory Server 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Não há suporte para diretórios notáveis:** <li>Microsoft Active Directory Domain Services do Azure (AD DS) [Em vez disso, use o Active Directory Connector interno]</li><li>Oracle Internet Directory (OID)</li> |
+| Fonte de dados conectada |O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo Global do Microsoft Active Directory (AD GC)</li><li>Directory Server&389;</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Não há suporte para diretórios notáveis:** <li>Microsoft Active Directory Domain Services do Azure (AD DS) [Em vez disso, use o Active Directory Connector interno]</li><li>Oracle Internet Directory (OID)</li> |
 | Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li> |
 | Operações |As seguintes operações têm suporte em todos os diretórios LDAP:  <li>Importação completa</li><li>Exportação</li>As seguintes operações só têm suporte em diretórios especificados: <li>Importação delta</li><li>Definir senha, alterar senha</li> |
 | Esquema |<li>O esquema é detectado no esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Oferece suporte a classes estruturais, classes auxiliares e à classe de objeto extensibleObject (RFC4512/4.3)</li> |
@@ -55,7 +55,7 @@ Diretórios com suporte para gerenciamento de importação delta e de senha:
 * Catálogo Global do Microsoft Active Directory (AD GC)
   * Oferece suporte para todas as operações de importação delta
   * Oferece suporte para definição de senha
-* Directory Server 389
+* Directory Server&389;
   * Oferece suporte para todas as operações de importação delta
   * Oferece suporte para definição e alteração de senha
 * Apache Directory Server
@@ -114,7 +114,7 @@ Os seguintes controles/recursos de LDAP devem estar disponíveis no servidor LDA
 
 Frequentemente, o filtro Verdadeiro/Falso não é indicado como compatível com diretórios LDAP e pode aparecer na **Página Global** em **Recursos Obrigatórios Não Encontrados**. Ele é usado para criar filtros **OU** em consultas LDAP, por exemplo, ao importar vários tipos de objeto. Se você puder importar mais de um tipo de objeto, seu servidor LDAP dará suporte a esse recurso.
 
-Se você usar um diretório no qual um identificador exclusivo é a âncora, o seguinte também deverá estar disponível (confira a seção [Configurar âncoras](#configure-anchors) posteriormente neste artigo para saber mais):  
+Se você usar um diretório no qual um identificador exclusivo é a âncora, o seguinte também deverá estar disponível (Para obter mais informações, confira a seção [Configurar Âncoras](#configure-anchors)):  
 `1.3.6.1.4.1.4203.1.5.1` todos os atributos operacionais
 
 Se o diretório tiver mais objetos do que uma chamada para o diretório consegue comportar, recomendamos a paginação. Para a paginação funcionar, uma das seguintes opções é necessária:
@@ -162,7 +162,7 @@ Na página Conectividade, especifique as informações de Host, Porta e Associa�
 * Para outras associações, insira informações em nome de usuário/senha ou escolha um certificado.
 * Se você estiver usando o Kerberos para autenticar, forneça também o Realm/Domínio do usuário.
 
-A caixa de texto **aliases de atributo** é usada para atributos definidos no esquema com a sintaxe RFC4522. Esses atributos não podem ser detectados durante a detecção de esquema, e o conector precisa de ajuda para identificar esses atributos. Por exemplo, é necessário inserir o seguinte na caixa de aliases de atributo a fim de identificar corretamente o atributo userCertificate como um atributo binário:
+A caixa de texto **aliases de atributo** é usada para atributos definidos no esquema com a sintaxe RFC4522. Esses atributos não podem ser detectados durante a detecção de esquema, e o conector precisa de ajuda para identificar esses atributos. Por exemplo, é necessário inserir o seguinte na caixa de aliases de atributo para identificar corretamente o atributo userCertificate como um atributo binário:
 
 `userCertificate;binary`
 
@@ -238,7 +238,7 @@ Veja a seguir uma lista de servidores LDAP e a âncora usada:
 | Diretório | Atributo de âncora |
 | --- | --- |
 | Microsoft AD LDS e AD GC |objectGUID |
-| Directory Server 389 |dn |
+| Directory Server&389; |dn |
 | Apache Directory |dn |
 | IBM Tivoli DS |dn |
 | Isode Directory |dn |
@@ -264,7 +264,6 @@ Para diretórios com um log de alterações de delta com base na data/hora, é a
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

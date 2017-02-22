@@ -1,5 +1,5 @@
 ---
-title: "Implantando um novo serviço Web"
+title: "Implantar um novo serviço Web no Azure Machine Learning | Microsoft Docs"
 description: "O fluxo de trabalho de implantar um serviço Web baseado em ARM"
 services: machine-learning
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 02/13/2017
 ms.author: v-donglo
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-publish-a-machine-learning-web-service
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7941bdbf2b6a00b14ad589bd90c7169cebd296c6
+ms.sourcegitcommit: 0813611f581a68efb8f09a1e041cfbe429bf0c5c
+ms.openlocfilehash: 902be47eb59444a1214b096be10525743f406d1c
 
 
 ---
@@ -103,6 +105,6 @@ Para obter mais informações sobre o consumo dos serviços Web, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

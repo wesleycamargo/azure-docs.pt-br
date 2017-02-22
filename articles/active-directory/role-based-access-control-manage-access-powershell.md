@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382d0cf15dafca51571346dab1e9d55eb2d09d67
+ms.sourcegitcommit: 45f1716d7520981845fbfb96cfaf24cde9dd5c5d
+ms.openlocfilehash: 8b906c402dde8d2bbaa2354a370a775058c146a7
 
 
 ---
@@ -32,7 +32,7 @@ Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azu
 
 Para poder usar o PowerShell para gerenciar o RBAC, você deve ter o seguinte:
 
-* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 * Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
 
 ## <a name="list-roles"></a>Listar funções
@@ -127,9 +127,17 @@ Para remover o acesso a usuários, grupos e aplicativos, use:
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de tela](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
 ## <a name="create-a-custom-role"></a>Criar uma função personalizada
-Para criar uma função personalizada, use o comando `New-AzureRmRoleDefinition` .
+Para criar uma função personalizada, use o comando ```New-AzureRmRoleDefinition``` . Há dois métodos de estruturar a função, usando PSRoleDefinitionObject ou um modelo JSON. 
 
-Quando você cria uma função personalizada usando o PowerShell, precisa começar com uma das [funções internas](role-based-access-built-in-roles.md). Edite os atributos para adicionar *Actions*, *notActions* ou *scopes* desejados e salve as alterações como uma nova função.
+## <a name="get-actions-from-particular-resource-provider"></a>Obter ações do provedor de recursos particular
+Quando você estiver criando funções personalizadas do zero, é importante conhecer todas as possíveis operações dos provedores de recursos.
+Isso pode ser feito usando o comando ```Get-AzureRMProviderOperation```. Por exemplo, se você quiser verificar todas as operações disponíveis para a máquina virtual, o comando será como mencionado abaixo:
+
+```Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize```
+
+
+### <a name="create-role-with-psroledefinitionobject"></a>Criar função com PSRoleDefinitionObject
+Ao criar uma função personalizada usando o PowerShell, você pode começar do zero ou usar uma da [funções internas](role-based-access-built-in-roles.md) como ponto de partida, o último sendo usado neste exemplo. Edite os atributos para adicionar *Actions*, *notActions* ou *scopes* desejados e salve as alterações como uma nova função.
 
 O exemplo a seguir inicia com a função *Colaborador da Máquina Virtual* e utiliza-a para criar uma função personalizada denominada *Operador da Máquina Virtual*. A nova função concede acesso a todas as operações de leitura dos provedores de recursos *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede acesso para iniciar, reiniciar e monitorar as máquinas virtuais. A função personalizada pode ser usada em duas assinaturas.
 
@@ -156,7 +164,37 @@ New-AzureRmRoleDefinition -Role $role
 
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/2-new-azurermroledefinition.png)
 
+### <a name="create-role-with-json-template"></a>Criar função com modelo JSON
+Um modelo JSON pode ser usado como a definição da fonte para a função personalizada. O exemplo a seguir cria uma função personalizada que permite acesso de leitura ao armazenamento e aos recursos de computação, acesso ao suporte e adiciona essa função a duas assinaturas. Crie um novo arquivo `C:\CustomRoles\customrole1.json` com os conteúdos a seguir. Observe que a ID deve ser definida como `null` na criação da função inicial, pois uma nova ID será gerada. 
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": null,
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+Para adicionar a função às assinaturas, execute o seguinte comando do PowerShell:
+```
+New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
+
 ## <a name="modify-a-custom-role"></a>Modificar uma função personalizada
+Assim como na criação de uma função personalizada, você pode modificar uma função personalizada existente usando PSRoleDefinitionObject ou um modelo JSON.
+
+### <a name="modify-role-with-psroledefinitionobject"></a>Modificar função com PSRoleDefinitionObject
 Para modificar uma função personalizada, primeiro use o comando `Get-AzureRmRoleDefinition` para recuperar a definição da função. Depois, faça as alterações desejadas na definição da função. Por fim, use o comando `Set-AzureRmRoleDefinition` para salvar a definição da função modificada.
 
 O exemplo a seguir adiciona a operação `Microsoft.Insights/diagnosticSettings/*` à função personalizada *Operador de Máquina Virtual* .
@@ -175,11 +213,40 @@ O exemplo a seguir adiciona uma assinatura do Azure para os escopos atribuíveis
 Get-AzureRmSubscription - SubscriptionName Production3
 
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
-$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2"
-Set-AzureRmRoleDefinition -Role $role)
+$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2")
+Set-AzureRmRoleDefinition -Role $role
 ```
 
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
+
+### <a name="modify-role-with-json-template"></a>Modificar função com modelo JSON
+Usando o modelo JSON anterior, você pode facilmente modificar uma função personalizada existente para adicionar ou remover ações. Atualize o modelo JSON e adicione a ação de leitura para rede, como mostrado abaixo. Observe que as definições listadas no modelo não são cumulativamente aplicadas a uma definição existente, o que significa que a função aparecerá exatamente como você especifica no modelo. Observe também que você precisa atualizar a ID com a ID da função. Se não tiver certeza de qual é esse valor, você poderá usar o cmdlet `Get-AzureRmRoleDefinition` para obter essa informação.
+
+```
+{
+  "Name": "Custom Role 1",
+  "Id": "acce7ded-2559-449d-bcd5-e9604e50bad1",
+  "IsCustom": true,
+  "Description": "Allows for read access to Azure storage and compute resources and access to support",
+  "Actions": [
+    "Microsoft.Compute/*/read",
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Support/*"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+  ]
+}
+```
+
+Para atualizar a função existente, execute o seguinte comando do PowerShell:
+```
+Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
+```
 
 ## <a name="delete-a-custom-role"></a>Excluir uma função personalizada
 Para excluir uma função personalizada, use o comando `Remove-AzureRmRoleDefinition` .
@@ -216,6 +283,6 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

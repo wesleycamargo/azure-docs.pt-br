@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad6693598cffd5aec7554f5612bc75d7c61d80dd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5086fa86149e4d8133df339b1261d3792fa66b4c
 
 
 ---
@@ -48,7 +48,7 @@ Use o procedimento a seguir para montar, inicializar e formatar volumes do StorS
 
 #### <a name="to-mount-volumes"></a>Para montar volumes
 1. No computador host, inicie o Microsoft iSCSI.
-2. Forneça um dos endereços IP da interface como o portal de destino ou endereço IP de descoberta e conecte-se ao dispositivo. Após o dispositivo ser conectado, os volumes ficarão acessíveis para o seu sistema Windows. Para saber mais sobre o uso do iniciador iSCSI da Microsoft, vá para a seção "Conectando a um dispositivo de destino iSCSI", em [Instalando e configurando o iniciador iSCSI da Microsoft][1].
+2. Forneça um dos endereços IP da interface como o portal de destino ou endereço IP de descoberta e conecte-se ao dispositivo. Após o dispositivo ser conectado, os volumes ficarão acessíveis para o seu sistema Windows. Para saber mais sobre o uso do iniciador iSCSI da Microsoft, acesse a seção “Conectando a um dispositivo de destino iSCSI”, em [Instalando e configurando o iniciador iSCSI da Microsoft][1].
 3. Use qualquer uma das opções a seguir para iniciar o Gerenciamento de Disco:
    
    * Digite Diskmgmt.msc na caixa **Executar** .
@@ -215,6 +215,6 @@ Use o procedimento a seguir para configurar um volume espelhado dinâmico, em se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -14,10 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
-ms.author: singhkay
+ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 345db9b2e45937ea45329acf780601e4e0fbd504
+ms.sourcegitcommit: daa311fcfd1ef06cf36e9443150fc967f0f39708
+ms.openlocfilehash: 052505260c0998c8528146c4985400126d094f0d
 
 
 ---
@@ -38,6 +38,129 @@ Este artigo cataloga os erros e mitigações mais comuns durante a migração de
 | Não há suporte para migração para a implantação {nome_da_implantação} no serviço hospedado {nome_do_serviço_hospedado} porque ela tem VMs que não são parte do conjunto de disponibilidade, embora o serviço hospedado contenha uma. |A solução para esse cenário é para mover todas as máquinas virtuais para um único conjunto de disponibilidade ou remover todas as máquinas virtuais do conjunto de disponibilidade no serviço hospedado. |
 | A conta de armazenamento/serviço hospedado/rede virtual {nome_da_rede_virtual} está no processo de migração e, portanto, não pode ser alterada |Esse erro ocorre quando a operação de migração "Prepare" foi concluída no recurso e uma operação que faça uma alteração no recurso é disparada. Por causa do bloqueio no plano de gerenciamento após a operação de "Prepare", as alterações ao recurso são bloqueadas. Para desbloquear o plano de gerenciamento, você pode executar a operação de migração de "Commit" para concluir a migração ou a operação de migração "Abort" para reverter a operação "Prepare". |
 | A migração não é permitida para o serviço hospedado {nome_do_serviço_hospedado} porque ele tem a VM {nome_da_vm} no estado: RoleStateUnknown. A migração é permitida somente quando a VM está em um dos seguintes estados – Em execução, Parada, Interrompida, Desalocada. |A VM pode estar passando por uma transição de estado que geralmente acontece durante uma operação de atualização no serviço hospedado como uma reinicialização, instalação de extensão, etc. É recomendável que a operação de atualização seja concluída no HostedService antes de tentar a migração. |
+| A implantação {deployment-name} em HostedService {hosted-service-name} contém uma VM {vm-name} com Disco de Dados {data-disk-name} cujo tamanho de blob físico de {size-of-the-vhd-blob-backing-the-data-disk} bytes não corresponde ao tamanho lógico do Disco de Dados da VM de {size-of-the-data-disk-specified-in-the-vm-api} bytes. A migração continuará sem especificar um tamanho para o disco de dados para a VM do Azure Resource Manager. Se você deseja corrigir o tamanho do disco de dados antes de continuar com a migração, visite https://aka.ms/vmdiskresize. | Esse erro ocorre se você redimensionar o blob VHD sem atualizar o tamanho do modelo da API da VM. As etapas de atenuação detalhadas estão descritas [abaixo](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
+
+## <a name="detailed-mitigations"></a>Atenuação detalhada
+
+### <a name="vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes"></a>A VM com o Disco de Dados cujo tamanho de blob físico é de bytes não corresponde ao tamanho lógico do Disco de Dados da VM de bytes.
+
+Isso acontece quando o tamanho lógico do Disco de Dados perde a sincronia com o tamanho real do blob VHD. Isso pode ser facilmente verificado usando os seguintes comandos:
+
+#### <a name="verifying-the-issue"></a>Verificando o problema
+
+```PowerShell
+# Store the VM details in the VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+# Display the data disk properties
+# NOTE the data disk LogicalDiskSizeInGB below which is 11GB. Also note the MediaLink Uri of the VHD blob as we'll use this in the next step
+$vm.VM.DataVirtualHardDisks
+
+
+HostCaching         : None
+DiskLabel           : 
+DiskName            : coreosvm-coreosvm-0-201611230636240687
+Lun                 : 0
+LogicalDiskSizeInGB : 11
+MediaLink           : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+SourceMediaLink     : 
+IOType              : Standard
+ExtensionData       : 
+
+# Now get the properties of the blob backing the data disk above
+# NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
+$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+
+$blob
+
+ICloudBlob        : Microsoft.WindowsAzure.Storage.Blob.CloudPageBlob
+BlobType          : PageBlob
+Length            : 16106127872
+ContentType       : application/octet-stream
+LastModified      : 11/23/2016 7:16:22 AM +00:00
+SnapshotTime      : 
+ContinuationToken : 
+Context           : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
+Name              : coreosvm-dd1.vhd
+```
+
+#### <a name="mitigating-the-issue"></a>Atenuando o problema
+
+```PowerShell
+# Convert the blob size in bytes to GB into a variable which we'll use later
+$newSize = [int]($blob.Length / 1GB)
+
+# See the calculated size in GB
+$newSize
+
+15
+
+# Store the disk name of the data disk as we'll use this to identify the disk to be updated
+$diskName = $vm.VM.DataVirtualHardDisks[0].DiskName
+
+# Identify the LUN of the data disk to remove
+$lunToRemove = $vm.VM.DataVirtualHardDisks[0].Lun
+
+# Now remove the data disk from the VM so that the disk isn't leased by the VM and it's size can be updated
+Remove-AzureDataDisk -LUN $lunToRemove -VM $vm | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       213xx1-b44b-1v6n-23gg-591f2a13cd16   Succeeded  
+
+# Verify we have the right disk that's going to be updated
+Get-AzureDisk -DiskName $diskName
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : 
+Location             : East US
+DiskSizeInGB         : 11
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 0c56a2b7-a325-123b-7043-74c27d5a61fd
+OperationStatus      : Succeeded
+
+# Now update the disk to the new size
+Update-AzureDisk -DiskName $diskName -ResizedSizeInGB $newSize -Label $diskName
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureDisk     cv134b65-1b6n-8908-abuo-ce9e395ac3e7 Succeeded 
+
+# Now verify that the "DiskSizeInGB" property of the disk matches the size of the blob 
+Get-AzureDisk -DiskName $diskName
+
+
+AffinityGroup        : 
+AttachedTo           : 
+IsCorrupted          : False
+Label                : coreosvm-coreosvm-0-201611230636240687
+Location             : East US
+DiskSizeInGB         : 15
+MediaLink            : https://contosostorage.blob.core.windows.net/vhds/coreosvm-dd1.vhd
+DiskName             : coreosvm-coreosvm-0-201611230636240687
+SourceImageName      : 
+OS                   : 
+IOType               : Standard
+OperationDescription : Get-AzureDisk
+OperationId          : 1v53bde5-cv56-5621-9078-16b9c8a0bad2
+OperationStatus      : Succeeded
+
+# Now we'll add the disk back to the VM as a data disk. First we need to get an updated VM object
+$vm = Get-AzureVM -ServiceName $servicename -Name $vmname
+
+Add-AzureDataDisk -Import -DiskName $diskName -LUN 0 -VM $vm -HostCaching ReadWrite | Update-AzureVm -Name $vmname -ServiceName $servicename
+
+OperationDescription OperationId                          OperationStatus
+-------------------- -----------                          ---------------
+Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded      
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Aqui está uma lista de artigos de migração que explicam o processo.
@@ -49,6 +172,6 @@ Aqui está uma lista de artigos de migração que explicam o processo.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06b33c09f5c316f974efde1116cae699d8df1065
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 04e6a43e478484d90478e4aa90d489ea4eb0cc68
 
 
 ---
@@ -27,7 +27,7 @@ Com o Kit de Ferramentas do Azure para Eclipse você pode depurar seus aplicativ
 
 Este tutorial presume que você já tem um aplicativo criado e está familiarizado com o emulador de computação e com a implantação no Azure.
 
-Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de serviço do Azure no JSP][Uso da biblioteca de tempo de execução de serviço do Azure no JSP] como ponto de partida para este tópico. Antes de prosseguirmos, crie esse aplicativo, caso ainda não tenha feito isso.
+Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de serviço do Azure no JSP][Using the Azure Service Runtime Library in JSP] como ponto de partida para este tópico. Antes de prosseguirmos, crie esse aplicativo, caso ainda não tenha feito isso.
 
 ## <a name="to-debug-your-application-while-running-in-azure"></a>Para depurar seu aplicativo durante a execução no Azure
 > [!WARNING]
@@ -39,7 +39,7 @@ Usaremos o aplicativo do tutorial [Uso da biblioteca de tempo de execução de s
 2. Recompile seu projeto: no menu do Eclipse, clique em **Projeto** e em **Compilar Tudo**.
 3. Implante seu aplicativo em *preparo* no Azure
     >[AZURE.IMPORTANT] Como mencionado acima, é altamente recomendável que você depure no emulador de computação na maioria dos casos e depure no ambiente de preparo somente se houver a necessidade de mais depuração. Não recomendamos a depuração no ambiente de produção.
-4. Quando sua implantação estiver pronta no Azure, obtenha o nome DNS da implantação no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure]. Uma implantação de preparo tem um nome DNS no formato http://*&lt;guid&gt;*.cloudapp.net, em que *&lt;guid&gt;* é um valor de GUID atribuído pelo Azure.
+4. Quando sua implantação estiver pronta no Azure, obtenha o nome DNS da implantação no [Portal de Gerenciamento do Azure][Azure Management Portal]. Uma implantação de preparo tem um nome DNS no formato http://*&lt;guid&gt;*.cloudapp.net, em que *&lt;guid&gt;* é um valor de GUID atribuído pelo Azure.
 5. No Gerenciador de Projetos do Eclipse, clique com o botão direito em **WorkerRole1**, clique em **Azure** e em **Depuração**.
 6. Na caixa de diálogo **Propriedades para Depuração de WorkerRole1** :
    1. Marque **Habilitar a depuração remota para esta função.**
@@ -90,7 +90,7 @@ Quando você souber o número de porta pública atribuído a essa instância, fa
 3. No Gerenciador de Projetos do Eclipse, clique com o botão direito em **WorkerRole1**, clique em **Azure** e em **Depuração**.
 4. Na caixa de diálogo **Propriedades para Depuração de WorkerRole1** :
    1. Marque **Habilitar a depuração remota para esta função.**
-   2. Em **Ponto de extremidade de entrada** a ser usado, use o ponto de extremidade padrão gerado automaticamente pelo kit de ferramentas, listado como **Depuração (pública: 8090, privada: 8090)**.
+   2. Em **Ponto de extremidade de entrada** a ser usado, use o ponto de extremidade padrão gerado automaticamente pelo kit de ferramentas, listado como **Depuração (pública:&8090;, privada:&8090;)**.
    3. Certifique-se de que a opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** esteja desmarcada.
        >[AZURE.IMPORTANT] A opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** serve para cenários de depuração avançada apenas no emulador de computação (não para implantações de nuvem). Se a opção **Iniciar JVM no modo suspenso, aguardando uma conexão do depurador** for usada, ela suspenderá o processo de inicialização do servidor até que o depurador do Eclipse esteja conectado à JVM. Embora seja possível usar essa opção para uma sessão de depuração com o emulador de computação, não a utilize para uma sessão de depuração em uma implantação de nuvem. A inicialização do servidor ocorre em uma tarefa de inicialização do Azure, e a nuvem do Azure não disponibiliza pontos de extremidade públicos até que a tarefa de inicialização seja concluída. Assim, um processo de inicialização não será concluído com êxito se essa opção estiver habilitada em uma implantação de nuvem, pois ele não será capaz de receber uma conexão de um cliente externo do Eclipse.
    4. Clique em **Criar Configurações de Depuração**.
@@ -119,22 +119,22 @@ Este artigo mostrou como depurar no emulador de computação; a próxima seção
 * Para habilitar a depuração remota no GlassFish, não use o recurso de configuração de depuração remota do Kit de Ferramentas do Azure para Eclipse. Em vez disso, configure o GlassFish manualmente. Devido à forma como a GlassFish trata as opções predefinidas de Java nas variáveis de ambiente, o recurso configuração de depuração remota do kit de ferramentas não funciona corretamente com o GlassFish. Se o recurso de configuração de depuração remota do kit de ferramentas estiver habilitado, ele poderá impedir a inicialização do GlassFish.
 
 ## <a name="see-also"></a>Consulte também
-[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
+[Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse]
 
-[Criação de um aplicativo Hello World do Azure no Eclipse][Criação de um aplicativo Hello World do Azure no Eclipse]
+[Criar um aplicativo Hello World para Azure no Eclipse][Creating a Hello World Application for Azure in Eclipse]
 
-[Instalação do Kit de Ferramentas do Azure para Eclipse][Instalação do Kit de Ferramentas do Azure para Eclipse] 
+[Instalar o Kit de Ferramentas do Azure para Eclipse][Installing the Azure Toolkit for Eclipse] 
 
-Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
+Para saber mais sobre como usar o Azure com o Java, confira o [Centro de Desenvolvedores Java do Azure][Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Uso da biblioteca de tempo de execução de serviço do Azure no JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
@@ -145,6 +145,6 @@ Para obter mais informações sobre o uso do Azure com Java, consulte o [Central
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

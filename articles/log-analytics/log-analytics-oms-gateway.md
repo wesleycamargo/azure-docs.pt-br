@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/10/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: a3d79c2df96c21d1af77c8ea1f53a2cc4e28343e
-ms.openlocfilehash: 30b1a9144e06db92ba12030dfe37a83e79d62857
+ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
+ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
 
 
 ---
@@ -72,9 +72,9 @@ Há três maneiras de obter o arquivo de configuração de Gateway do OMS.
 
 ### <a name="oms-portal"></a>Portal do OMS
 
-1.  Faça logon em seu espaço de trabalho do OMS.
-2.  Selecione **Configurações** > **Fontes Conectadas** > **Servidores Windows**.
-3.  Clique em **Baixar Gateway do OMS**.
+1.    Faça logon em seu espaço de trabalho do OMS.
+2.    Selecione **Configurações** > **Fontes Conectadas** > **Servidores Windows**.
+3.    Clique em **Baixar Gateway do OMS**.
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -100,11 +100,11 @@ Pré-requisitos: .Net Framework 4.5, Windows Server 2012 R2 SP1 e superior
 4. Na página de endereço de proxy e porta:
    1. Digite o número da porta TCP a ser usada para o gateway. A instalação abre esse número de porta no firewall do Windows. O valor padrão é 8080.
       O intervalo válido do número de porta é de 1 a 65535. Se a entrada não estiver dentro desse intervalo, uma mensagem de erro será exibida.
-   2. Como opção, se o servidor onde o gateway estiver instalado precisar usar um proxy, digite o endereço do proxy onde o gateway precisa para se conectar. Por exemplo, `http://myorgname.corp.contoso.com:80`. Se estiver em branco, o gateway tentará se conectar à Internet diretamente. Caso contrário, o gateway se conectará ao proxy. Se o servidor proxy exigir autenticação, digite seu nome de usuário e senha.
+   2. Como opção, se o servidor onde o gateway estiver instalado precisar usar um proxy, digite o endereço do proxy onde o gateway precisa para se conectar. Por exemplo, `http://myorgname.corp.contoso.com:80`. Se estiver em branco, o gateway tentará se conectar à Internet diretamente. Caso contrário, o gateway se conectará ao proxy. Se o servidor proxy exigir autenticação, digite seu nome de usuário e senha.  
        ![Configuração de proxy do Assistente de Gateway](./media/log-analytics-oms-gateway/gateway-wizard02.png)  
    3. Clique em **Próximo**
 5. Se as Atualizações da Microsoft não estiverem habilitadas, a página Atualização da Microsoft será exibida, onde você pode optar por habilitar as Atualizações da Microsoft. Faça uma seleção e clique em **Avançar**. Caso contrário, prossiga para a próxima etapa.
-6. Na página Pasta de Destino, deixe a pasta padrão **%ProgramFiles%\OMS Gateway** ou digite o local em que deseja instalar o gateway e clique em **Avançar**.
+6. Na página Pasta de Destino, deixe a pasta padrão c:\ProgramFiles\OMS Gateway ou digite o local em que deseja instalar o gateway e clique em **Avançar**.
 7. Na página Pronto para instalar, clique em **Instalar**. Um Controle de Conta de Usuário pode aparecer solicitando permissão para instalação. Nesse caso, clique em **Sim**.
 8. Depois que Instalação estiver finalizada, clique em **Concluir**. Para verificar se o serviço está em execução, abra o snap-in services.msc e verifique se o **Gateway do OMS** aparece na lista de serviços.  
     ![Serviços – Gateway do OMS](./media/log-analytics-oms-gateway/gateway-service.png)
@@ -280,6 +280,6 @@ Você também pode deixar comentários sobre o OMS ou o Log Analytics no [Fórum
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

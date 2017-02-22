@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
+ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
+ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 
 ---
@@ -34,7 +34,7 @@ ms.openlocfilehash: 6b1f72a6d6f5084e804078a4deb984ebace0ac58
  A página **[Competições](https://gallery.cortanaintelligence.com/competitions)**
  exibe uma lista das competições mais populares.
 Clique em **Ver todos** para exibir todos as competições.
-Nessa página, você pode navegar por todas as competições na Galeria ou pode pesquisar selecionando critérios de filtro à esquerda da página e inserindo os termos de pesquisa na parte superior.
+Nessa página, você pode procurar todas as competições na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
  Clique em qualquer competição para abrir a página de detalhes da competição e ler mais informações sobre ela. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para a competição de modo a convidar outros usuários para exibir a página.
 
@@ -47,7 +47,7 @@ Se a competição estiver aberta, o status na página de detalhes será **Ativa*
 
 ![Competição concluída](media/machine-learning-gallery-competitions/open-competition.png)
 
-Se a competição não estiver aberta, seu status na página de detalhes será **Concluída** e o link **Entrar na Competição** será substituído pela palavra **Concluída**.
+Se a competição não estiver mais aberta, seu status na página de detalhes será **Concluída** e o link **Entrar na Competição** será substituído pela palavra **Concluída**.
 
 ![Competição concluída](media/machine-learning-gallery-competitions/completed-competition.png)
 
@@ -58,6 +58,6 @@ Se a competição não estiver aberta, seu status na página de detalhes será *
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

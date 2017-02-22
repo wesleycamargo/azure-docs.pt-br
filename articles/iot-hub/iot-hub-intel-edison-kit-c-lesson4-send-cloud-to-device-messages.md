@@ -1,5 +1,5 @@
 ---
-title: Executar o aplicativo de exemplo para receber mensagens de nuvem para dispositivo do Hub IoT do Azure | Microsoft Docs
+title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 4: receber mensagens| Microsoft Docs"
 description: "Um aplicativo de exemplo é executado no Edison e monitora mensagens de entrada de seu Hub IoT. Uma nova tarefa gulp envia mensagens para o Edison de seu Hub IoT para piscar o LED."
 services: iot-hub
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/8/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: d492fa295237f6ff333aefb2181975e8af948723
-ms.openlocfilehash: 48e5c46d53ce412384e8667904e84b9ebd454cff
+ms.sourcegitcommit: 475b25f02715a60493e79ecd2170854019dfc4ac
+ms.openlocfilehash: b4d76eeb1bc0b406800c89c4952900350d8eafa8
 
 
 ---
@@ -99,6 +99,6 @@ Você enviou com êxito mensagens do Hub IoT para o Edison para piscar o LED. A 
 [change-the-on-and-off-behavior-of-the-led]: iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 
