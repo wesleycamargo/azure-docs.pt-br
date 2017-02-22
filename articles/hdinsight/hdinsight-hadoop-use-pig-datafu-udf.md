@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2016
+ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 4ebe010ab1f3d9df8bef1a6fc2ac5c24a7d1f5ee
+ms.sourcegitcommit: 2ecc141c9afa46f23d31de4356068ef4f98a92aa
+ms.openlocfilehash: 9071f344946999d49aee2e6bc420d35edfca96cd
 
 
 ---
@@ -27,6 +27,7 @@ DataFu é uma coleção de bibliotecas de software livre para uso com o Hadoop. 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure.
+
 * Um cluster do HDInsight do Azure (com base no Linux ou Windows)
 
   > [!IMPORTANT]
@@ -45,32 +46,38 @@ DataFu pode ser baixado e instalado no repositório Maven. Use as etapas a segui
 
 1. Utilize SSH para se conectar ao cluster do HDInsight para Linux. Para obter mais informações sobre como usar SSH com o HDInsight, consulte um dos seguintes documentos:
    
-    * [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, OS X e Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, OS X, Unix e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH (PuTTY) com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Use o seguinte comando para baixar o arquivo jar do DataFu usando o utilitário wget, ou copie e cole o link no seu navegador para iniciar o download.
    
-        wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
+    wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    ```
 
-3. Em seguida, carregue o arquivo no armazenamento padrão para o cluster HDInsight. Isso torna o arquivo disponível a todos os nós no cluster e o arquivo permanecerá no armazenamento, mesmo se você excluir e recria o cluster.
+3. Em seguida, carregue o arquivo no armazenamento padrão para o cluster HDInsight. Isso torna o arquivo disponível a todos os nós no cluster, e o arquivo permanece no armazenamento, mesmo se você excluir e recria o cluster.
    
-        hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
+    hdfs dfs -put datafu-1.2.0.jar /example/jars
+    ```
    
     > [!NOTE]
-    > O exemplo anterior armazena o jar em `wasbs:///example/jars` como este diretório já existe no armazenamento de cluster. Você pode usar qualquer local que desejar no armazenamento de cluster HDInsight.
+    > O exemplo anterior armazena o jar em `/example/jars` como este diretório já existe no armazenamento de cluster. Você pode usar qualquer local que desejar no armazenamento de cluster HDInsight.
 
 ## <a name="use-datafu-with-pig"></a>Usar DataFu com Pig
 
 As etapas nesta seção pressupõem que você esteja familiarizado com o uso de Pig no HDInsight e fornecem apenas as instruções de Pig Latin, não são etapas sobre como usá-los com o cluster. Para obter mais informações sobre como usar o Pig com o HDInsight, consulte [Usar o Pig com o HDInsight](hdinsight-use-pig.md).
 
 > [!IMPORTANT]
-> Ao usar DataFu de Pig em um cluster HDInsight baseados em Linux, você deve primeiro registrar o arquivo jar usando a seguinte instrução de Pig Latin:
+> Ao usar DataFu de Pig em um cluster HDInsight baseados em Linux, você deve primeiro registrar o arquivo jar.
 > 
-> ```register wasbs:///example/jars/datafu-1.2.0.jar```
+> Se o cluster usar o Armazenamento do Azure, você deverá usar um caminho `wasb://`. Por exemplo: `register wasb:///example/jars/datafu-1.2.0.jar`.
+>
+> Se o cluster usar o Azure Data Lake Store, você deverá usar um caminho `adl://`. Por exemplo: `register adl://home/example/jars/datafu-1.2.0.jar`.
 > 
 > DataFu é registrado por padrão em clusters HDInsight baseados no Windows.
 
-Normalmente, você vai definir um alias para funções DataFu. Por exemplo:
+Normalmente, você define um alias para funções DataFu. Por exemplo:
 
     DEFINE SHA datafu.pig.hash.SHA();
 
@@ -97,7 +104,7 @@ Se isso for usado com os seguintes dados de entrada:
     Shi Liao,4,6,0
     Tjasa Zemljaric,0,2,5
 
-Gerará a seguinte saída:
+Isso gera a saída a seguir:
 
     (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
     (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)
@@ -120,6 +127,6 @@ Para obter mais informações sobre DataFu ou Pig, consulte os seguintes documen
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
