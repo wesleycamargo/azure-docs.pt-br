@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 67f6427ab8dec58778c75b9b3826853c84ab7fe6
+ms.sourcegitcommit: 3a423e42441c6b3b2f1917ba02f80078c759ec69
+ms.openlocfilehash: 4c114f470631ae6b06968c3cc8601bc1c76bc1da
 
 
 ---
@@ -115,7 +115,7 @@ O modo de entrega "Somente fora do aplicativo" fornece notificação por push qu
 Ao selecionar "Somente fora do aplicativo", você deve ter fornecido os certificados da plataforma que o seu aplicativo está compilando (APNS ou GCM).
 
 ### <a name="see-also"></a>Consulte também
-* [Apple Push Notification Service – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] (http://developer.android.com/google/gcm/index.html) 
+* [Apple Push Notification Service – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging – Certificado](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Modo de entrega "Apenas no aplicativo"
 ![Differentiate3][17]
@@ -314,6 +314,6 @@ Essa também é a oportunidade de apresentar um plano de ação, como redirecion
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

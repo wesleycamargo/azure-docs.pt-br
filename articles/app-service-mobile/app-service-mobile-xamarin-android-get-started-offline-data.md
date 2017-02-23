@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 39741a7a9efccd0d1f63727e4d13b424804398bc
+ms.sourcegitcommit: 29cd1d3583dfcba5c1057ae1e81376930f52f887
+ms.openlocfilehash: 1152fcf551aa02264d626f87e97bc3f69b4f6778
 
 
 ---
@@ -63,7 +63,7 @@ Nesta seção, reconecte o aplicativo ao back-end do aplicativo móvel. Quando v
    `CheckItem` chama `SyncAsync` para sincronizar cada item concluído com o back-end do Aplicativo Móvel. `SyncAsync` chama push e pull. **Sempre que você executar um pull em uma tabela na qual o cliente fez alterações, um push será sempre executado automaticamente**. Isso garante que todas as tabelas no repositório local juntamente com os relacionamentos permaneçam consistentes. Esse comportamento pode resultar em um push inesperado. Para obter mais informações sobre esse comportamento, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 ## <a name="review-the-client-sync-code"></a>Examine o código de sincronização do cliente
-O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Xamarin Android] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um breve resumo do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
+O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um aplicativo Xamarin Android] já contém a sincronização offline do código de suporte usando um banco de dados SQLite local. Aqui há um resumo breve do que já está incluído no código do tutorial. Para obter uma visão geral conceitual do recurso, confira [Sincronização de dados offline nos Aplicativos Móveis do Azure].
 
 * Antes de qualquer operação de tabela poder ser executada, o armazenamento local deve ser inicializado. O banco de dados do armazenamento local é inicializado quando o `ToDoActivity.OnCreate()` executa o `ToDoActivity.InitLocalStoreAsync()`. Isso cria um banco de dados SQLite local usando a classe `MobileServiceSQLiteStore` fornecida pelo SDK do cliente de Aplicativos Móveis do Azure.
   
@@ -124,12 +124,12 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 [Criar um aplicativo Android do Xamarin]: app-service-mobile-xamarin-android-get-started.md
 [Sincronização de dados offline em Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
-[Extensão do Xamarin]: http://xamarin.com/visual-studio
+[Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

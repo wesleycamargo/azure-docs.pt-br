@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: d6e68497cf0a4c48e6f611834089224b50b9bd5e
-ms.openlocfilehash: 79743cab91f8c22d06796803eb7e31681a581233
+ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
+ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
 
 
 ---
@@ -30,7 +30,7 @@ Limitamos o suporte de navegador às versões atuais e mais recentes dos princip
 
 O pacote é distribuído como um Módulo de JavaScript Universal e, portanto, ele dá suporte aos formatos AMD, CommonJS e globais.
 
-## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuração e Pré-requisitos
+## <a name="a-namesetupasetup-and-prerequisites"></a><a name="Setup"></a>Configuração e pré-requisitos
 Este guia pressupõe que você tenha criado um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema das tabelas desses tutoriais.
 
 A instalação do SDK do JavaScript para Aplicativos Móveis do Azure pode ser feita por meio do comando `npm` :
@@ -68,7 +68,7 @@ Vários tipos de aplicativo JavaScript usam uma funcionalidade de loopback para 
 
 * Executar o serviço localmente
 * Usar o Live Reload com o Ionic Framework
-* Redirecionar para o Serviço de Aplicativo para autenticação. 
+* Redirecionar para o Serviço de Aplicativo para autenticação.
 
 A execução local pode causar problemas porque, por padrão, a autenticação de Serviço de Aplicativo só está configurada para permitir o acesso do back-end do Aplicativo Móvel. Use as seguintes etapas para alterar as configurações de Serviço de Aplicativo de modo a habilitar a autenticação ao executar o servidor localmente:
 
@@ -79,12 +79,12 @@ A execução local pode causar problemas porque, por padrão, a autenticação d
 5. Expanda o nó **config** > **authsettings** do seu aplicativo.
 6. Clique no botão **Editar** para habilitar a edição do recurso.
 7. Encontre o elemento **allowedExternalRedirectUrls** , que deve ser nulo. Adicione as URLs em uma matriz:
-   
+
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-   
+
     Substitua as URLs na matriz pelas URLs do serviço, que neste exemplo é `http://localhost:3000` para o serviço local de exemplo do Node.js. Você também pode usar `http://localhost:4400` para o serviço Ripple ou alguma outra URL, dependendo de como seu aplicativo é configurado.
 8. Na parte superior da página, clique em **Leitura/Gravação** e clique em **PUT** para salvar as atualizações.
 
@@ -110,6 +110,6 @@ Após a atualização do back-end, você poderá usar as novas URLs de loopback 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
