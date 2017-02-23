@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/7/2017
 ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
-ms.openlocfilehash: e2ceb33cc8027759ccb4b5183513da849a7d60c6
+ms.sourcegitcommit: 576442943b9c8cec42cdb19547fc4fa4e4eeff14
+ms.openlocfilehash: f6a5abfa68d1700dc263195f44bbb90419112583
 
 
 ---
@@ -74,16 +74,16 @@ Para criar um cofre dos serviços de recuperação:
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
-    ![Clique no botão Procurar e digite Serviços de Recuperação. Quando você vir a opção segura Serviços de Recuperação, clique nela para abrir a folha de cofre de Serviços de Recuperação.](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Clique no botão Procurar e digite Serviços de Recuperação. Quando você vir a opção segura Serviços de Recuperação, clique nela para abrir a folha de cofre de Serviços de Recuperação.](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     A lista de cofres dos Serviços de Recuperação é exibida.
 3. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     A folha do cofre dos Serviços de Recuperação será aberta, solicitando que você forneça o **Nome**, a **Assinatura**, o **Grupo de recursos** e o **Local**.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Criar Cofre de Serviços de Recuperação - etapa 5](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
 4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
 5. Clique em **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou sugerida). Haverá várias opções somente se sua conta organizacional estiver associada a várias assinaturas do Azure.
 6. Clique em **Grupo de recursos** para ver a lista dos Grupos de recursos disponíveis ou clique em **Novo** para criar um novo Grupo de recursos. Para obter informações completas sobre Grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
@@ -93,72 +93,83 @@ Para criar um cofre dos serviços de recuperação:
    > Se você não souber ao certo em qual local sua VM se encontra, feche a caixa de diálogo de criação do cofre e vá para a lista de Máquinas Virtuais no portal. Se você tiver máquinas virtuais em várias regiões, será necessário criar um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar as contas de armazenamento para armazenar os dados de backup - o cofre de Serviços de Recuperação e o serviço de Backup do Azure cuidarão disso automaticamente.
    >
    >
-8. Clique em **Criar**. Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita no portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação.
 
-    ![Lista de cofres de backup](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+8. Clique em **Criar**. Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita no portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação. Se você não encontrar seu cofre, clique em **Atualizar** para
+
+    ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
     Agora que você criou o cofre, saiba como configurar a replicação de armazenamento.
 
 ## <a name="set-storage-replication"></a>Definir replicação de armazenamento
-A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
+A opção de replicação de armazenamento permite que você escolha entre o armazenamento com redundância geográfica e armazenamento com redundância local. Por padrão, seu cofre tem armazenamento com redundância geográfica. Deixe a opção definida como armazenamento com redundância geográfica se este for seu backup principal. Escolha o armazenamento com redundância local se quiser uma opção mais barata que não seja tão durável.
 
 Para editar a configuração de replicação de armazenamento:
 
-1. Selecione seu cofre para abrir o painel do cofre e a folha Configurações. Se a folha **Configurações** não abrir, clique em **Todas as configurações** no painel do cofre.
-2. Na folha **Configurações**, clique em Infraestrutura de **Backup** > **Configuração de Backup** para abrir a folha **Configuração de Backup**. Na folha **Configuração de Backup** , escolha a opção de replicação de armazenamento para seu cofre.
+1. Selecione seu cofre na folha **Cofres dos serviços de recuperação**.
+    Quando você clica no cofre, a folha de configurações (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre abrem.
 
-    ![Lista de cofres de backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![escolha seu cofre na lista de cofres de backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
+2. Na folha de **Configurações**, use o controle deslizante vertical para rolar para baixo até a seção **Gerenciar**. Clique na **Infraestrutura de Backup** para abrir sua folha. Na seção **Geral**, clique em **Configuração de Backup** para abrir sua folha. Na folha **Configuração de Backup** , escolha a opção de replicação de armazenamento para seu cofre. Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você alterar o tipo de replicação de armazenamento, clique em **Salvar**.
+
+    ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/full-blade.png)
+
+     Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, continue usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup não primário, considere a escolha do armazenamento com redundância local. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage) e [redundância local](../storage/storage-redundancy.md#locally-redundant-storage) na [Visão geral da replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
     Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selecionar a meta de backup, definir a política e os itens a serem protegidos
 Antes de registrar uma VM em um cofre, execute o processo de descoberta para garantir que todas as novas máquinas virtuais adicionadas à assinatura sejam identificadas. O processo consulta o Azure quanto à lista de máquinas virtuais na assinatura, juntamente com informações adicionais, como o nome do serviço de nuvem e a região. No portal do Azure, o cenário se refere ao que você vai colocar no cofre de serviços de recuperação. A Política é o agendamento para quando e com que frequência os pontos de recuperação serão feitos. A Política também inclui o período de retenção dos pontos de recuperação.
 
-1. Se você já tiver um cofre de Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
+1. Se você já tiver um cofre de Serviços de Recuperação aberto, vá para a etapa 2. Se você não tiver um cofre dos serviços de recuperação aberto, abra o [Portal do Azure](https://portal.azure.com/), no menu do Hub e clique em **Mais serviços**.
 
    * Na lista de recursos, digite **Serviços de Recuperação**.
    * Quando você começar a digitar, a lista será filtrada com base em sua entrada. Quando vir a opção **Cofres dos Serviços de Recuperação**, clique nela.
 
-     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
-     A lista de cofres de Serviços de Recuperação aparecerá.
-   * Na lista de cofres de Serviços de Recuperação, selecione um cofre.
+     A lista de cofres de Serviços de Recuperação aparecerá. Se não houver nenhum cofre em sua assinatura, essa lista estará vazia.
 
-     O painel de cofres selecionados será aberto.
+    ![Exibir a lista de cofres dos serviços de recuperação](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-     ![Abrir a folha do cofre](./media/backup-azure-vms-first-look-arm/vault-settings.png)
-2. No menu do painel de cofres, clique em **Backup** para abrir a folha Backup.
+   * Na lista de cofres de serviços de recuperação, selecione um cofre para abrir seu painel.
 
-    ![Abrir a folha Backup](./media/backup-azure-vms-first-look-arm/backup-button.png)
+     A folha de Configurações e o painel do cofre para o cofre escolhido abrirão.
 
-    Quando a folha for aberta, o serviço de Backup pesquisará novas VMs na assinatura.
+     ![Abrir a folha do cofre](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+2. No menu do painel do cofre, clique em **Backup** para abrir a folha de backup.
 
-    ![Descobrir VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
-3. Na folha Backup, clique em **Meta de backup** para abrir a folha Meta de Backup.
+    ![Abrir a folha Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    ![Abrir a folha Cenário](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
-4. Na folha Meta de Backup, defina **Onde está a carga de trabalho em execução** no Azure, **Do que você deseja fazer backup** na máquina Virtual e clique **OK**.
+    Abra as folhas de Backup e as folhas de Meta de backup.
 
-    A folha Meta de Backup fecha e a folha Política de Backup abre.
+    ![Abrir a folha Cenário](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-    ![Abrir a folha Cenário](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
-5. Na folha Política de Backup, selecione a política de backup que você deseja aplicar no cofre e clique em **OK**.
+3. Na folha Meta de Backup, defina **Onde está a carga de trabalho em execução** no Azure, **Do que você deseja fazer backup** na máquina Virtual e clique **OK**.
 
-    ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    Isso registra a extensão da VM com o cofre. A folha Meta de backup fecha e a folha **Política de Backup** abre.
 
-    Os detalhes da política padrão estão listados nos detalhes. Se você quiser criar uma nova política, selecione **Criar Nova** no menu suspenso. O menu suspenso também fornece uma opção para alternar a hora quando o instantâneo é criado para 19h. Para obter instruções sobre como definir uma política de backup, confira [Definindo uma política de backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Quando você clicar em **OK**, a política de backup será associada ao cofre.
+    ![Abrir a folha Cenário](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+4. Na folha Política de backup, selecione a política de backup que você deseja aplicar no cofre.
 
-    Em seguida, escolha as VMs para associar ao cofre.
-6. Escolha as máquinas virtuais para associar à política especificada e clique em **Selecionar**.
+    ![Selecionar a política de backup](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
-    ![Selecionar carga de trabalho](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    Os detalhes da política padrão estão listados no menu suspenso. Se você quiser criar uma nova política, selecione **Criar Nova** no menu suspenso. Para obter instruções sobre como definir uma política de backup, confira [Definindo uma política de backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
+    Clique em **OK** para associar a política de backup com o cofre.
 
-    Se você não vê a VM desejada, verifique se ela existe no mesmo local do Azure que o cofre dos Serviços de Recuperação.
-7. Agora que você definiu todas as configurações para o cofre, na folha Backup, clique em **Habilitar Backup** na parte inferior da página. Isso implanta a política para o cofre e as VMs.
+    A folha Política de backup fecha e a folha **Seleção de máquinas virtuais** abre.
+5. Na folha **Selecionar máquinas virtuais**, escolha as máquinas virtuais que serão associadas à política especificada e clique em **OK**.
 
-    ![Habilitar Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+    ![Selecionar carga de trabalho](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-A próxima fase de preparação será instalar o Agente de VM ou verificar se ele está instalado.
+    A máquina virtual selecionada é validada. Se você não encontrar as máquinas virtuais esperadas, verifique se elas existem no mesmo local do Azure que o cofre dos serviços de recuperação. O local do cofre dos serviços de recuperação é exibido no painel do cofre.
+
+6. Agora que você definiu todas as configurações para o cofre, clique em **Habilitar Backup** na folha de backup. Isso implanta a política para o cofre e as VMs. Isso não cria o ponto de recuperação inicial para a máquina virtual.
+
+    ![Habilitar Backup](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+Depois de habilitar o backup com êxito, a sua política de backup será executada no prazo especificado. Se você quiser gerar um trabalho de backup sob demanda para fazer backup das máquinas virtuais agora, confira [Acionar o trabalho de Backup](./backup-azure-arm-vms.md#triggering-the-backup-job).
+
+Se você tiver problemas ao registrar a máquina virtual, confira as seguintes informações sobre como instalar o agente de VM e conectividade de rede. Se as máquinas virtuais criadas no Azure estiverem protegidas, então é provável que as informações a seguir não serão necessárias. No entanto se você migrou suas máquinas virtuais para o Azure, então é melhor conferir se o agente de VM foi instalado corretamente e se a sua máquina virtual pode se comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente de VM na máquina virtual
 O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Se sua VM tiver sido criada da galeria do Azure, o agente de VM já estará presente na máquina virtual. Essas informações são fornecidas para as situações em que você *não* está usando uma VM criada da Galeria do Azure, por exemplo, tendo migrado uma VM de um datacenter local. Nesse caso, o Agente de VM precisa ser instalado para proteger a máquina virtual.
@@ -307,6 +318,6 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "Máquinas virtuais Linux do Azure e Armazenamento do Azure | Microsoft Docs"
-description: "Descreve os Armazenamentos Premium e Standard do Azure com máquinas virtuais do Linux."
+description: "Descreve o Armazenamento Standard e Premium do Azure e Managed Disks e Unmanaged Disks com máquinas virtuais Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -12,28 +12,84 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/04/2016
-ms.author: v-livech
+ms.date: 2/7/2017
+ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: a3dc017811cb891bc82b072e13e58b3af047a490
-ms.openlocfilehash: e74ede9b3132ff4b4c3e67e614b9996f56856ebc
+ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
+ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
 
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Armazenamento de VM do Linux e do Azure
 O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes.  Além de permitir que os desenvolvedores criem aplicativos de grande escala para dar suporte a novos cenários, o Armazenamento do Azure também fornece a base do armazenamento das Máquinas Virtuais do Azure.
 
-## <a name="azure-storage-standard-and-premium"></a>Armazenamento do Azure: Standard e Premium
-As VMs do Azure podem ser criadas em discos de armazenamento standard ou discos de armazenamento premium.  Ao usar o Portal para escolher sua VM, você deve ativar uma lista suspensa na tela Noções básicas para exibir os discos standard e premium.  A captura de tela abaixo destaca esse menu de alternância.  Quando alternado para SSD, apenas as VMs habilitadas para o armazenamento premium serão exibidas, tudo com o apoio de unidades SSD.  Quando alternado para o HDD, serão mostradas VMs habilitadas para o armazenamento standard, com unidades de disco de rotação, juntamente com VMs de armazenamento premium apoiadas por SSD.
+## <a name="managed-disks"></a>Managed Disks
 
-  ![tela1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+As VMs do Azure agora estão disponíveis usando [Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), que permite que você crie suas VMs sem criar ou gerenciar quaisquer [contas do Armazenamento do Azure](../storage/storage-introduction.md) por conta própria. Você especifica se deseja armazenamento Premium ou Standard e o tamanho máximo do disco, e o Azure cria os discos da VM para você. As máquinas virtuais com Managed Disks têm vários recursos importantes, incluindo:
+
+- Suporte de dimensionamento automático. O Azure cria os discos e gerencia o armazenamento subjacente para dar suporte a até 10.000 discos por assinatura.
+- Maior confiabilidade com Conjuntos de Disponibilidade. O Azure garante que os discos de VM sejam isolados automaticamente uns dos outros em Conjuntos de Disponibilidade.
+- Maior controle de acesso. Os Managed Disks expõem uma variedade de operações controladas pelo [RBAC (Controle de Acesso Baseado em Função do Azure)](../active-directory/role-based-access-control-what-is.md). 
+
+Os preços dos Managed Disks são diferentes dos discos não gerenciados. Para obter essas informações, veja [Preços e cobrança para Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing). 
+
+Você pode converter máquinas virtuais existentes que usam discos não gerenciados para usar discos gerenciados com [az vm convert](/cli/azure/vm#convert). Para saber mais, veja [Como converter uma VM Linux de discos não gerenciados em Azure Managed Disks](virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você não pode converter um disco não gerenciado em um disco gerenciado se o disco não gerenciado está em uma conta de armazenamento que está, ou esteve, [criptografada usando criptografia de serviço de armazenamento (SSE) do Azure](../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). As etapas a seguir especificam como converter discos não gerenciados que estão, ou estiveram, em uma conta de armazenamento criptografada:
+
+- [Copie o disco rígido virtual (VHD)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#unmanaged-disks) com [az storage blob copy start](/cli/azure/storage/blob/copy#start) para uma conta de armazenamento que nunca tenha sido habilitada para criptografia de serviço de armazenamento do Azure.
+- Crie uma VM que usa discos gerenciados e especifique este arquivo VHD durante a criação com [az vm create](/cli/azure/vm#create), ou
+- Anexe o VHD copiado com [az vm disk attach](/cli/azure/vm/disk#attach) a uma VM em execução com discos gerenciados.
+
+
+## <a name="azure-storage-standard-and-premium"></a>Armazenamento do Azure: Standard e Premium
+As VMs do Azure - usando Managed Disks ou discos não gerenciados — podem ser criadas em discos de armazenamento standard ou em discos de armazenamento premium. Ao usar o portal para escolher sua VM, você deve ativar uma lista suspensa na tela **Noções básicas** para exibir os discos standard e premium. Quando alternado para SSD, apenas as VMs habilitadas para o armazenamento premium serão exibidas, tudo com o apoio de unidades SSD.  Quando alternado para o HDD, serão mostradas VMs habilitadas para o armazenamento standard, com unidades de disco de rotação, juntamente com VMs de armazenamento premium apoiadas por SSD.
 
 Ao criar uma VM da `azure-cli` você pode escolher entre standard e premium ao escolher o tamanho da VM por meio do sinalizador de cli `-z` ou `--vm-size`.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Criar uma VM com VM de armazenamento standard na cli
-O sinalizador de cli `-z` escolhe Standard_A1 com A1 sendo uma VM do Linux com base em armazenamento standard.
+## <a name="creating-a-vm-with-a-managed-disk"></a>Criação de uma máquina virtual com um Managed Disk
 
-```bash
+O exemplo a seguir exige a CLI do Azure 2.0 (Visualização), que você pode [instalar aqui].
+
+Primeiro, crie um grupo de recursos para gerenciar os recursos:
+
+```azurecli
+az group create --location westus --name myResourceGroup
+```
+
+Em seguida, crie a VM com o comando `az vm create`, como no exemplo a seguir; lembre-se de especificar um único argumento `--public-ip-address-dns-name`, já que `manageddisks` provavelmente está ocupado.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+O exemplo anterior cria uma VM com um disco gerenciado em uma conta de armazenamento Standard. Para usar uma conta de armazenamento Premium, adicione o argumento `--storage-sku Premium_LRS`, como no exemplo a seguir:
+
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub 
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location westus \
+--name myVM
+```
+
+
+### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>Criar uma máquina virtual com um disco padrão e não gerenciado usando a CLI do Azure 1.0
+
+Você também certamente pode usar a CLI do Azure 1.0 para criar VMs de disco standard e premium; neste momento, você não pode usar a CLI do Azure 1.0 para criar VMs com o apoio de Managed Disks.
+
+A opção `-z` escolhe Standard_A1, que é uma VM do armazenamento standard baseada em Linux.
+
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -44,10 +100,10 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Criar uma VM com armazenamento premium na cli
-O sinalizador de cli `-z` escolhe Standard_DS1 com DS1 sendo uma VM do Linux com base em armazenamento premium.
+### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>Criar uma máquina virtual com armazenamento premium usando a CLI do Azure 1.0
+A opção `-z` escolhe Standard_DS1, que é uma VM do armazenamento Premium baseada em Linux.
 
-```bash
+```azurecli
 azure vm quick-create -g rbg \
 exampleVMname \
 -l westus \
@@ -186,6 +242,6 @@ Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é poss
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 
