@@ -41,6 +41,8 @@
 #### [Gerenciar trabalhos](storsimple-virtual-array-manage-jobs.md)
 #### [Alterar a senha de dispositivo](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configurar o MPIO no host do Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Diagnosticar e solucionar problemas](storsimple-virtual-array-diagnose-problems.md)
+#### [Solicitação de suporte de log](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Gerenciar através do Portal Clássico do Azure](storsimple-ova-manager-service-administration.md)
 #### [Instalar a atualização mais recente](storsimple-ova-install-update-01.md)
@@ -175,6 +177,7 @@
 #### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Atualização
+#### [Instalar a Atualização 4](storsimple-install-update-4.md)
 #### [Instalar a Atualização 3](storsimple-install-update-3.md)
 #### [Instalar a Atualização 2.2](storsimple-install-update-21.md)
 #### [Instalar a Atualização 2](storsimple-install-update-2.md)
@@ -182,7 +185,8 @@
 #### [Atualizar seu dispositivo](storsimple-update-device.md)
 
 ## Notas de versão
-### [Atualização 3 – atual](storsimple-update3-release-notes.md)
+### [Atualização 4 – atual](storsimple-update4-release-notes.md)
+### [Atualização 3](storsimple-update3-release-notes.md)
 ### [Atualização 2.2](storsimple-update21-release-notes.md)
 ### [Atualização 2](storsimple-update2-release-notes.md)
 ### [Atualização 1](storsimple-update1-release-notes.md)
@@ -206,6 +210,18 @@
 ## Como
 ### [Usar o .NET para transformar dados](storsimple-data-manager-dotnet-jobs.md)
 
+# StorSimple para parceiros
+## Visão geral
+### [Qual é a solução?](storsimple-partner-csp-overview.md)
+
+## Introdução
+### [Implantar matriz virtual para o CSP](storsimple-partner-csp-deploy.md)
+
+## Notas de versão
+### [Notas de versão do StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [Notas de versão do CSP](https://partner.microsoft.com/Support/whats-new)
+### [StorSimple para CSP: perguntas frequentes](storsimple-partner-csp-faq.md)
+
 # Relacionados
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
@@ -223,6 +239,6 @@
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -27,7 +27,6 @@
 ### [CLI do Azure](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [API REST](resource-group-template-deploy-rest.md)
-### [Ambientes de desenvolvimento e teste](solution-dev-test-environments.md)
 ### [Integração contínua com o Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Gerenciar
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -43,20 +42,23 @@
 ### [Criar entidade de serviço com a CLI do Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Criar entidade de serviço com o portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
-### [Definir políticas de gerenciamento](resource-manager-policy.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
 ### [Considerações de segurança](best-practices-resource-manager-security.md)
+## Definir políticas de recursos
+### [O que são políticas de recursos?](resource-manager-policy.md)
+### [Atribuir e gerenciar políticas](resource-manager-policy-create-assign.md)
+### [Políticas de marca do recurso](resource-manager-policy-tags.md)
+### [Políticas de armazenamento](resource-manager-policy-storage.md)
+### [Políticas de VM do Linux](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Políticas de VM do Windows](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Auditar e Solucionar Problemas
 ### [Solucionar Problemas de erros comuns de implantação](resource-manager-common-deployment-errors.md)
 ### [Exibir logs de atividade](resource-group-audit.md)
-### [Exibir operações de implantação com o portal](resource-manager-troubleshoot-deployments-portal.md)
-### [Exibir operações de implantação com o PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-### [Exibir operações de implantação com a CLI do Azure](resource-manager-troubleshoot-deployments-cli.md)
-### [Exibir operações de implantação com a API REST](resource-manager-troubleshoot-deployments-rest.md)
+### [Exibir operações de implantação](resource-manager-deployment-operations.md)
 
 # Referência
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [CLI do Azure 2.0 (Visualização)](/cli/azure/resource)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [CLI do Azure 2.0](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -65,11 +67,12 @@
 
 # Recursos
 ## [Solicitações de limitação](resource-manager-request-limits.md)
+## [Rastrear operações assíncronas](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 
