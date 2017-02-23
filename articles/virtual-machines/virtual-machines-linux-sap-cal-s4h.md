@@ -26,7 +26,7 @@ ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
 Este artigo descreve como implantar o S/4 HANA no Microsoft Azure via SAP Cloud Appliance Library 3.0.
 As capturas de tela mostram o processo passo a passo. Implantar outras soluções baseadas no SAP HANA, como BW/4 HANA, funciona da mesma maneira da perspectiva do processo. Basta selecionar uma solução diferente.
 
-Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 As seguintes capturas de tela mostram passo a passo como implantar o S/4 HANA no Microsoft Azure. O processo funciona da mesma forma para as outras soluções, como o BW/4 HANA.
 
@@ -46,8 +46,6 @@ Então, é preciso inserir a ID de assinatura do Azure que pode ser encontrada n
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic6b.jpg)
 
 No novo portal do Azure, localiza-se o item "Assinaturas" no lado esquerdo. Clique para mostrar todas as assinaturas ativas para o usuário.
-
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
 Selecionar uma das assinaturas e escolher "Certificados de Gerenciamento" explica que existe um novo conceito usando as "entidades de serviço" para o novo modelo do Azure Resource Manager.
 O CAL SAP não está adaptado ainda para esse novo modelo e ainda requer o modelo "clássico" e o antigo portal do Azure para trabalhar com os certificados de gerenciamento.
@@ -92,7 +90,6 @@ Agora, é possível conectar a solução por meio do botão Conectar no portal d
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Uma opção é fazer logon na VM Windows do cliente e iniciar, por exemplo, a GUI do SAP pré-configurada.
-
 
 
 
