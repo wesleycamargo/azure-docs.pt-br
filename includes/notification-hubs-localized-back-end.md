@@ -15,7 +15,7 @@ Esta seção mostra como enviar notificações usando um aplicativo do console
 
 O código incluído transmite a dispositivos Windows Store e iOS, como o back-end pode transmitir para qualquer um dos dispositivos com suporte.
 
-### Para enviar notificações usando um aplicativo de console C
+### <a name="to-send-notifications-using-a-c-console-app"></a>Para enviar notificações usando um aplicativo de console C#
 Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que você criou anteriormente, com o código a seguir. Observe como nesse caso não é necessário enviar várias notificações para localidades e plataformas diferentes.
 
         private static async void SendTemplateNotificationAsync()
@@ -54,7 +54,7 @@ Modifique o método `SendTemplateNotificationAsync` no aplicativo de console que
 
 Observe que esta simples chamada entregará a notícia correta localizada a **todos** os dispositivos, independentemente da plataforma, enquanto o Hub de Notificação cria e entrega a carga de trabalho nativa correta a todos os dispositivos inscritos em uma marca específica.
 
-### Enviando a notificação com Serviços Móveis
+### <a name="sending-the-notification-with-mobile-services"></a>Enviando a notificação com Serviços Móveis
 No Agendador de serviço móvel, você pode usar o script a seguir:
 
     var azure = require('azure');
@@ -71,4 +71,8 @@ No Agendador de serviço móvel, você pode usar o script a seguir:
     });
 
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

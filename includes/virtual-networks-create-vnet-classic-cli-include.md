@@ -1,4 +1,4 @@
-## Como criar uma rede virtual clássica usando a CLI do Azure
+## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Como criar uma rede virtual clássica usando a CLI do Azure
 Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de comando de qualquer computador com Windows, Linux ou OSX. Para criar uma rede virtual usando a CLI do Azure, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
@@ -15,7 +15,7 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
             info:    network vnet create command OK
    
    * **--vnet**. Nome da rede virtual a ser criada. Para o nosso cenário, *TestVNet*
-   * **-e (ou --address-space)**. Espaço de endereço da rede virtual. Para o nosso cenário, *192.168.0.0*.
+   * **-e (ou --address-space)**. Espaço de endereço da rede virtual. Para o nosso cenário, *192.168.0.0*
    * **-i (ou -cidr)**. Máscara de rede no formato CIDR. Para o nosso cenário, *16*.
    * **-n (ou --subnet-name**). Nome da primeira sub-rede. Para o nosso cenário, *FrontEnd*.
    * **-p (ou --subnet-start-ip)**. Endereço IP inicial da sub-rede ou espaço de endereço da sub-rede. Em nosso cenário, *192.168.1.0*.
@@ -62,4 +62,8 @@ Você pode usar a CLI do Azure para gerenciar os recursos do Azure no prompt de 
             data:
             info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

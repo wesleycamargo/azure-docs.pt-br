@@ -120,7 +120,7 @@ Para executar operações de consulta, você deve especificar que um resolvedor 
 
 A biblioteca de cliente de armazenamento espera a KEK fornecida e o resolvedor de chave para implementar a interface a seguir. [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/) ao gerenciamento de Python KEK está pendente e será integrado a essa biblioteca quando estiver concluído.
 
-## <a name="client-api-interface"></a>API do cliente / Interface
+## <a name="client-api--interface"></a>API do cliente / Interface
 Depois que um objeto de serviço de armazenamento (isto é, blockblobservice) tiver sido criado, o usuário poderá atribuir valores aos campos que constituem uma política de criptografia: key_encryption_key, key_resolver_function e require_encryption. Os usuários podem fornecer somente uma KEK, somente um resolvedor ou ambos. key_encryption_key é o tipo de chave básico que é identificado usando um identificador de chave e que fornece a lógica para empacotamente/desempacotamento. key_resolver_function é usado para resolver uma chave durante o processo de descriptografia. Ele retorna uma KEK válida dado um identificador de chave. Isso fornece aos usuários a capacidade de escolher entre várias chaves que são gerenciadas em vários locais.
 
 A KEK deve implementar os seguintes métodos para criptografar dados com êxito:

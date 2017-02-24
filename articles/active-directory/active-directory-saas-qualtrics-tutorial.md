@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2016
+ms.date: 01/18/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3fb6227aaa50816d49372e9b43fdf5faadf1bded
+ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
+ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
 
 
 ---
@@ -35,7 +35,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "Scenario")
+![Cenário](./media/active-directory-saas-qualtrics-tutorial/IC789542.png "Cenário")
 
 ## <a name="enabling-the-application-integration-for-qualtrics"></a>Habilitando a integração de aplicativos para o Qualtrics
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Qualtrics.
@@ -47,51 +47,52 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-qualtrics-tutorial/IC700994.png "Applications")
+   ![Aplicativos](./media/active-directory-saas-qualtrics-tutorial/IC700994.png "Aplicativos")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "Add application")
+   ![Adicionar aplicativo](./media/active-directory-saas-qualtrics-tutorial/IC749321.png "Adicionar aplicativo")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "Add an application from gallerry")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-qualtrics-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 6. Na **caixa de pesquisa**, digite **Qualtrics**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "Application Gallery")
+   ![Galeria de Aplicativos](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "Galeria de Aplicativos")
 7. No painel de resultados, selecione **Qualtrics** e clique em **Concluir** para adicionar o aplicativo.
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
-   ## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configuring-single-sign-on"></a>Configurando o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Qualtrics com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No Portal clássico do Azure, na página de integração de aplicativos do **Qualtrics**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+1. No Portal Clássico do Azure, na página de integração de aplicativos do **Qualtrics**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789545.png "Configurar Logon Único")
 2. Na página **Como você deseja que os usuários façam logon no Qualtrics**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789546.png "Configurar Logon Único")
 3. Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do Qualtrics**, digite a URL (por exemplo "*https://ssotest2ut1.qualtrics.com*") e clique em **Avançar**.
    
-   ![Configurar a URL do Aplicativo](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "Configure App URL")
+   ![Configurar URL do Aplicativo](./media/active-directory-saas-qualtrics-tutorial/IC789547.png "Configurar URL do Aplicativo")
 4. Na página **Configurar logon único no Qualtrics**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
    
-   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789548.png "Configurar Logon Único")
 5. Envie o metadatafile para a equipe de suporte do Qualtrics.
    
    > [!NOTE]
    > A configuração de logon único deve ser executada pela equipe de suporte do Qualtrics. Assim que a configuração for concluída, você receberá uma notificação.
    > 
    > 
-6. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "Configurar Logon Único")
    
-   ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Qualtrics.  
 Quando um usuário atribuído tenta fazer logon no Qualtrics usando o painel de acesso, o Qualtrics verifica se o usuário existe.  
+
 Se ainda não houver uma conta de usuário disponível, ela será automaticamente criada pelo Qualtrics.
 
 ## <a name="assigning-users"></a>Atribuindo usuários
@@ -101,16 +102,16 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Qualtrics**, clique em **Atribuir usuários**.
    
-   ![Atribuir usuários](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "Assign Users")
+   ![Atribuir Usuários](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Yes")
+   ![Sim](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

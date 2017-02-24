@@ -1,5 +1,6 @@
 # Visão geral
 ## [O que é o Gateway de Aplicativo?](application-gateway-introduction.md)
+## [Perguntas Frequentes do Gateway de Aplicativo](application-gateway-faq.md)
 ## [Firewall do aplicativo Web](application-gateway-webapplicationfirewall-overview.md)
 ## [Monitoramento de integridade](application-gateway-probe-overview.md)
 ## [Roteamento de URL](application-gateway-url-route-overview.md)
@@ -38,10 +39,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Clássico)](application-gateway-create-probe-classic-ps.md)
 ## [Combinar serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Gerenciar
-### [Diagnostics](application-gateway-diagnostics.md)
-### [Solucionar problemas](application-gateway-troubleshooting-502.md)
-
+## Solucionar problemas
+### [Solução dos erros no Gateway de Aplicativo](application-gateway-troubleshooting-502.md)
+### [Log de diagnóstico e métrica](application-gateway-diagnostics.md)
 # Referência
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Visualização da CLI do Azure 2.0](/cli/azure/network/application-gateway)
@@ -50,7 +50,7 @@
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
-## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
 ## [REST (Clássico)](https://msdn.microsoft.com/library/azure/mt299393)
 # Relacionados
 ## [ExpressRoute](/azure/expressroute/)
@@ -67,6 +67,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

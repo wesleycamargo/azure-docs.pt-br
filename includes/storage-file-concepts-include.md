@@ -15,7 +15,7 @@ Os usos comuns do armazenamento de arquivos incluem:
 ## <a name="file-storage-concepts"></a>Conceitos do armazenamento de arquivo
 O armazenamento de arquivos contém os seguintes componentes:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho do Armazenamento do Azure](../articles/storage/storage-scalability-targets.md) para obter detalhes sobre a capacidade da conta de armazenamento.
 * **Compartilhamento** : um compartilhamento do armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. 
@@ -31,8 +31,7 @@ O armazenamento de arquivos contém os seguintes componentes:
 
 Para obter detalhes sobre como nomear compartilhamentos, diretórios e arquivos, consulte [Nomeando e fazendo referência a compartilhamentos, diretórios, arquivos e metadados](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

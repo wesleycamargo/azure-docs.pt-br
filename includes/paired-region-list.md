@@ -21,4 +21,8 @@
 | Canadá Central |Leste do Canadá |
 | Oeste dos EUA 2 |Centro-Oeste dos EUA |
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -382,7 +382,7 @@ A definição das cadeias de conexão do SDK no código lhe permite usar seus pr
             host.RunAndBlock();
         }
 
-### <a name="configure-queuetrigger-settings"></a>Definir configurações de QueueTrigger
+### <a name="configure-queuetrigger--settings"></a>Definir configurações de QueueTrigger
 Você pode definir as seguintes configurações que se aplicam ao processamento de mensagem de fila:
 
 * O número máximo de mensagens da fila que são recebidas simultaneamente a serem executadas em paralelo (o padrão é 16).

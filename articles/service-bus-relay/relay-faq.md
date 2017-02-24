@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 02/02/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 22781ec965decbfd33923478794a76692151c363
+ms.sourcegitcommit: 4b54ad027a7de02cba7821f2a9b7fd06ef3a825b
+ms.openlocfilehash: ca2767340cb232722def8f06277cc84d5c76c1bf
 
 
 ---
 # <a name="relay-faq"></a>Perguntas frequentes sobre Retransmissão
-Este artigo responde a algumas perguntas frequentes sobre Retransmissão do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure.
+
+Este artigo responde a algumas perguntas frequentes sobre a [Retransmissão do Microsoft Azure](https://azure.microsoft.com/services/service-bus/). Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços e suporte do Azure.
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
-O [serviço de Retransmissão](relay-what-is-it.md) do Azure facilita seus aplicativos híbridos habilitando a exposição segura de serviços que residem em uma rede empresarial corporativa para a nuvem pública sem precisar abrir uma conexão de firewall nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
+O [serviço de Retransmissão do Azure](relay-what-is-it.md) facilita seus aplicativos híbridos, habilitando a exposição segura de serviços que residem em uma rede empresarial corporativa em uma nuvem pública, sem precisar abrir uma conexão de firewall, nem exigir mudanças intrusivas em uma infraestrutura de rede corporativa.
 
 ### <a name="what-is-a-relay-namespace"></a>O que é um namespace de Retransmissão?
-Um [namespace](relay-create-namespace-portal.md) fornece um contêiner de escopo para endereçar recursos de Retransmissão dentro de seu aplicativo. Criar um é necessário para usar a Retransmissão e será uma das primeiras etapas da introdução.
+Um [namespace](relay-create-namespace-portal.md) fornece um contêiner de escopo para endereçar recursos de Retransmissão dentro de seu aplicativo. É preciso criar um namespace para usar a Retransmissão, e esse é um dos primeiros passos da introdução.
 
 ### <a name="what-happened-to-the-previously-named-relay-service"></a>O que aconteceu com o serviço nomeado anteriormente como Retransmissão?
-O serviço denominado anteriormente como **Retransmissão** agora se chama *Retransmissão do WCF*. Você pode continuar a usar esse serviço como de costume. As Conexões Híbridas são uma versão atualizada de um serviço transplantado do BizTalk. A Retransmissão do WCF e Conexões Híbridas continuarão a ter suporte no futuro.
+O antigo serviço de **Retransmissão** do Barramento de Serviço agora se chama *Retransmissão do WCF*. Você pode continuar a usar esse serviço como de costume. As Conexões Híbridas são uma versão atualizada de um serviço transplantado do BizTalk. A Retransmissão do WCF e Conexões Híbridas continuarão a ter suporte no futuro.
 
 ## <a name="pricing"></a>Preços
 Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode visitar as [Perguntas frequentes de suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para informações gerais sobre preços do Microsoft Azure. Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -86,7 +87,7 @@ Um namespace de Retransmissão pode ter apenas entre 6 e 50 caracteres.
 
 ## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
-Você pode usar comandos do PowerShell (encontrados no artigo [aqui](../service-bus-messaging/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription)) para mover um namespace de uma assinatura do Azure para outra. Para executar a operação, o namespace já deve estar ativo. Além disso, o usuário que executa os comandos deve ser administrador nas assinaturas de origem e de destino.
+Você pode usar comandos do PowerShell (encontrados no artigo [aqui](../service-bus-messaging/service-bus-powershell-how-to-provision.md)) para mover um namespace de uma assinatura do Azure para outra. Para executar a operação, o namespace já deve estar ativo. Além disso, o usuário que executa os comandos deve ser administrador nas assinaturas de origem e de destino.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs de Retransmissão do Azure e suas ações sugeridas?
@@ -109,6 +110,6 @@ Sim. O cliente de Retransmissão faz conexões com o serviço de Retransmissão 
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

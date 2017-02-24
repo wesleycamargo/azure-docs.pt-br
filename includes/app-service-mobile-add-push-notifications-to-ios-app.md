@@ -1,16 +1,16 @@
 
 **Objective-C**:
 
-1. Em **QSAppDelegate.m**, importe o SDK do iOS e **QSTodoService.h**:
+1. Em **QSAppDelegate.m**, importe o **QSTodoService.h** e o SDK do iOS:
    
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
-2. Em `didFinishLaunchingWithOptions` **QSAppDelegate.m**, insira as seguintes linhas antes de `return YES;`:
+2. No `didFinishLaunchingWithOptions` e em **QSAppDelegate.m**, insira as seguintes linhas antes de `return YES;`:
    
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. Em **QSAppDelegate.m**, adicione os métodos do manipulador a seguir. Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
+3. Em **QSAppDelegate.m**, adicione os métodos do manipulador a seguir. Seu aplicativo foi atualizado para oferecer suporte a notificações de push. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -79,12 +79,12 @@
 
 **Swift**:
 
-1. Adicione o arquivo **ClientManager.swift** com o conteúdo a seguir. Substitua *AppUrl %* com a URL do back-end do Aplicativo Móvel do Azure.
+1. Adicione o arquivo **ClientManager.swift** com o conteúdo a seguir. Substitua *AppUrl %* pela URL do back-end do Aplicativo Móvel do Azure.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
         }
-2. Em **ToDoTableViewController.swift**, substitua a linha `let client` que inicializa um `MSClient` por essa linha:
+2. Em **ToDoTableViewController.swift**, substitua a linha `let client` que inicializa um `MSClient` por esta linha:
    
         let client = ClientManager.sharedClient
 3. Em **AppDelegate.swift**, substitua o corpo de `func application` da seguinte maneira:
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

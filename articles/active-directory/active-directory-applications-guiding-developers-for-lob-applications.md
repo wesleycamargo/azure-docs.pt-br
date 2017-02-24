@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD e Aplicativos: orientando os desenvolvedores | Microsoft Docs'
+title: Desenvolver aplicativos LOB para o Azure AD| Microsoft Docs
 description: "Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicativos do Azure com o Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 02/06/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: fe295cb9b79593f7fd4635d142ec86d1c6897192
+ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
+ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
 
 
 ---
@@ -36,18 +36,18 @@ Registrar um aplicativo permite que qualquer usuário faça o seguinte:
 * Obter um ou mais segredos/chaves que o aplicativo pode usar para se autenticar no AD
 * Marcar o aplicativo no portal do Azure com um nome, logotipo personalizado etc.
 * Aproveitar os recursos de autorização do Azure AD para seu aplicativo, incluindo:
-  
+
   * RBAC (Controle de Acesso Baseado em Função)
   * Active Directory do Azure como servidor de autorização oAuth (proteger uma API exposta pelo aplicativo)
 * Declarar as permissões exigidas necessárias para que o aplicativo funcione conforme o esperado, incluindo:
-  
+
       - Permissões de aplicativo (somente administradores globais). Por exemplo: associação de função em outro aplicativo do Azure AD ou associação de grupo relativa a um recurso, grupo de recursos ou assinatura do Azure
       - Permissões (qualquer usuário). Por exemplo: Azure AD, Entrar e Ler o Perfil
 
 > [!NOTE]
 > Por padrão, qualquer membro pode registrar um aplicativo. Para saber como restringir as permissões para o registro de aplicativos para membros específicos, consulte [Como os aplicativos são adicionados ao Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-> 
-> 
+>
+>
 
 Aqui está o que você, o administrador global, precisa fazer para ajudar os desenvolvedores a preparar o aplicativo para produção:
 
@@ -83,7 +83,6 @@ Para saber mais sobre o consentimento do usuário e sobre a experiência de cons
 
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -10,4 +10,8 @@
 | Arquivamento |N/D |Disponível |N/D |N/D |Disponível |
 | Alta Disponibilidade |N/D |N/D |Disponível |Disponível |Disponível |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

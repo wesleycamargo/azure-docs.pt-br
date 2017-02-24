@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 532cfeb5115feb7558018af73968576dac17ff88
-ms.openlocfilehash: 28ca2d86f5008ee26376d76f3411cac05ffdfde4
+ms.sourcegitcommit: abf65ccbf8806d6581135f41224ef46840715f85
+ms.openlocfilehash: 51e7188530574703a178c5927092d9bc9d15a45f
 
 
 ---
 # <a name="performance-tips-for-documentdb"></a>Dicas de desempenho para o Banco de Dados de Documentos
-O Banco de Dados de Documentos do Azure é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e taxa de transferência. Você não precisa fazer grandes alterações de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Banco de Dados de Documentos. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](documentdb-performance-levels.md#changing-performance-levels-using-the-net-sdk). No entanto, como o Banco de Dados de Documentos é acessado por meio de chamadas de rede, há otimizações no lado do cliente que você pode fazer para obter o desempenho máximo.
+O Banco de Dados de Documentos do Azure é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e taxa de transferência. Você não precisa fazer grandes alterações de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Banco de Dados de Documentos. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](documentdb-set-throughput.md#set-throughput-sdk). No entanto, como o Banco de Dados de Documentos é acessado por meio de chamadas de rede, há otimizações no lado do cliente que você pode fazer para obter o desempenho máximo.
 
 Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
 
@@ -36,37 +36,39 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    1. Modo Gateway (padrão)
    2. Modo Direto
 
-      O Modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo Gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Banco de Dados de Documentos.   Por isso, o Modo Direto oferece um melhor desempenho devido a menos saltos de rede.
+      O Modo Gateway é suportado em todas as plataformas SDK e é o padrão configurado.  Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o Modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo Gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Banco de Dados de Documentos. Por isso, o Modo Direto oferece um melhor desempenho devido a menos saltos de rede.
 <a id="use-tcp"></a>
 2. **Política de conexão: usar o protocolo TCP**
 
-    Ao aproveitar o Modo Direto, há duas opções de protocolo disponíveis:
+    Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
 
    * TCP
    * HTTPS
 
      O Banco de Dados de Documentos oferece um modelo de programação RESTful simples e aberto em HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para ter um melhor desempenho, use o protocolo TCP quando possível.
 
-     Ao usar TCP em modo de Gateway, a porta TCP 443 é a porta do DocumentDB e 10250 é a porta da API do MongoDB. Ao usar TCP em modo direto, além das portas de Gateway, você precisará garantir que o intervalo de portas de 10000 e 20000 esteja aberto porque o DocumentDB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 de serviço indisponível.
+     Ao usar TCP em modo de Gateway, a porta TCP 443 é a porta do DocumentDB e 10250 é a porta da API do MongoDB. Ao usar TCP em modo direto, além das portas de Gateway, você precisará garantir que o intervalo de portas de 10000 e 20000 esteja aberto porque o DocumentDB usa portas TCP dinâmicas. Se essas portas não estiverem abertas e você tentar usar TCP, você receberá o erro 503 Serviço indisponível.
 
      O Modo Conectividade é configurado durante a construção da instância do DocumentClient com o parâmetro ConnectionPolicy. Se o Modo Direto for usado, o Protocolo também poderá ser definido no parâmetro ConnectionPolicy.
 
-         var serviceEndpoint = new Uri("https://contoso.documents.net");
-         var authKey = new "your authKey from Azure Mngt Portal";
-         DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-         new ConnectionPolicy
-         {
+    ```C#
+    var serviceEndpoint = new Uri("https://contoso.documents.net");
+    var authKey = new "your authKey from the Azure portal";
+    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+    new ConnectionPolicy
+    {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+    });
+    ```
 
-             ConnectionMode = ConnectionMode.Direct,
-             ConnectionProtocol = Protocol.Tcp
-         });
+    Como o TCP tem suporte apenas no Modo Direto, se o Modo Gateway for usado, o protocolo HTTPS será sempre utilizado para se comunicar com o Gateway e o valor do Protocolo na ConnectionPolicy será ignorado.
 
-     Como o TCP tem suporte apenas no Modo Direto, se o Modo Gateway for usado, o protocolo HTTPS será sempre utilizado para se comunicar com o Gateway e o valor do Protocolo na ConnectionPolicy será ignorado.
+    ![Ilustração da política de conexão do Banco de Dados de Documentos](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 
-     ![Ilustração da política de conexão do Banco de Dados de Documentos](./media/documentdb-performance-tips/azure-documentdb-connection-policy.png)
 3. **Chamar OpenAsync para evitar a latência de inicialização na primeira solicitação**
 
-    Por padrão, a primeira solicitação terá uma latência maior porque tem que buscar a tabela de roteamento de endereço. Para evitar essa latência de inicialização na primeira solicitação, você deve chamar OpenAsync() uma vez durante a inicialização da seguinte maneira.
+    Por padrão, a primeira solicitação tem uma latência maior porque tem que buscar a tabela de roteamento de endereço. Para evitar essa latência de inicialização na primeira solicitação, você deve chamar OpenAsync() uma vez durante a inicialização da seguinte maneira.
 
         await client.OpenAsync();
    <a id="same-region"></a>
@@ -87,6 +89,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 2. **Usar um cliente do Banco de Dados de Documentos singleton para ver a vida útil do aplicativo**
 
     Observe que cada instância do DocumentClient tem um thread seguro e realiza um gerenciamento de conexão eficiente e o cache de endereço ao operar no Modo Direto. Para permitir o gerenciamento de conexão eficiente e o melhor desempenho por DocumentClient, é recomendável usar uma única instância de DocumentClient por AppDomain durante a vida útil do aplicativo.
+
    <a id="max-connection"></a>
 3. **Aumentar System.Net MaxConnections por host**
 
@@ -101,7 +104,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um afunilamento dessas partições.
 
     (b) ***Ajuste MaxBufferedItemCount\:***
-    a consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar a quantidade de resultados pré-obtidos. Configurar MaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
+    a consulta paralela destina-se a buscar previamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. MaxBufferedItemCount é o parâmetro para limitar o número de resultados pré-obtidos. Configurar MaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
 
     Observe que a busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.  
 5. **Ativar o GC no lado do servidor**
@@ -119,7 +122,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    <a id="tune-page-size"></a>
 9. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
 
-    Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (ou seja, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do DocumentDB, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
+    Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (por exemplo, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do DocumentDB, os resultados serão retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
     Para reduzir o número idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página usando o cabeçalho de solicitação x-ms-max-item-count para até 1000. Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas dez resultados de uma vez, também será possível diminuir o tamanho da página para dez para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
@@ -132,7 +135,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     
 11. **Usar o processamento do host de 64 bits**
 
-    O SDK do DocumentDB funciona em um processo de host de 32 bits; No entanto, se você estiver usando consultas entre partições, processamento de host de 64 bits é recomendado para melhorar o desempenho. O seguinte tipo de aplicativos tem o processo de host de 32 bits como o padrão, portanto para alterá-la para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    O SDK do DocumentDB funciona em um processo de host de 32 bits. No entanto, se você usa consultas entre partições, recomenda-se o processamento de host de 64 bits para melhorar o desempenho. Os seguintes tipos de aplicativos têm o processo de host de 32 bits como o padrão, portanto para alterá-los para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
     
     - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **Preferir 32 bits** na janela **Propriedades do Projeto**, na guia **Compilar**. 
     
@@ -147,17 +150,19 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     O Banco de Dados de Documentos permite que você especifique – no nível da coleção – uma política de indexação, que possibilita escolher se você deseja que os documentos em uma coleção sejam indexados automaticamente ou não.  Além disso, você também pode escolher entre as atualizações do índice síncronas (Consistentes) e assíncronas (Lentas). Por padrão, o índice é atualizado sincronamente em cada inserção, substituição ou exclusão de um documento para a coleção. O modo síncrono permite que as consultas obedeçam ao mesmo [nível de consistência](documentdb-consistency-levels.md) das leituras de documentos sem demora para o índice “atualizado”.
 
-    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. A indexação lenta permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que quando a indexação lenta for ativada, os resultados da consulta serão finalmente consistentes, não dependendo do nível de consistência configurado para a conta do Banco de Dados de Documentos.
+    A indexação lenta pode ser considerada para os cenários em que os dados são gravados em picos e você deseja reduzir o trabalho necessário para indexar o conteúdo em um período de tempo maior. A indexação lenta permite que você use a taxa de transferência provisionada com eficiência e atenda as solicitações de gravação em horários de pico com latência mínima. Porém, é importante observar que, quando a indexação lenta estiver habilitada, os resultados da consulta em algum momento ficarão consistentes, independentemente do nível de consistência configurado para a conta do DocumentDB.
 
     Portanto, o modo de indexação Consistente (IndexingPolicy.IndexingMode é definido para Consistente) incorre no maior custo de unidade de solicitação por gravação, enquanto o modo de indexação Lento (IndexingPolicy.IndexingMode é definido para Lento) e nenhuma indexação (IndexingPolicy.Automatic é definido para False) têm um custo zero de indexação no momento da gravação.
 2. **Excluir caminhos não utilizados da indexação para ter gravações mais rápidas**
 
     A política de indexação do Banco de Dados de Documentos também permite que você especifique quais caminhos de documento incluir ou excluir da indexação, aproveitando os Caminhos de Indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira de documentos (também conhecida como uma subárvore) de indexação usando o curinga "*".
 
-        var collection = new DocumentCollection { Id = "excludedPathCollection" };
-        collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-        collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-        collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    ```C#
+    var collection = new DocumentCollection { Id = "excludedPathCollection" };
+    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    ```
 
     Para obter mais informações, consulte [Políticas de indexação do DocumentDB](documentdb-indexing-policies.md).
 
@@ -174,18 +179,20 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), examine o cabeçalho x-ms-request-charge (ou a propriedade RequestCharge equivalente em ResourceResponse<T> ou FeedResponse<T> no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
 
-        // Measure the performance (request units) of writes
-        ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
-        Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
-        // Measure the performance (request units) of queries
-        IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
-        while (queryable.HasMoreResults)
-             {
-                  FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
-                  Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
-             }
+    ```C#
+    // Measure the performance (request units) of writes
+    ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
+    Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
+    // Measure the performance (request units) of queries
+    IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
+    while (queryable.HasMoreResults)
+         {
+              FeedResponse<dynamic> queryResponse = await queryable.ExecuteNextAsync<dynamic>();
+              Console.WriteLine("Query batch consumed {0} request units", queryResponse.RequestCharge);
+         }
+    ```             
 
-    A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta acima retornar 1.000 documentos de 1KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
+    A carga de solicitação retornada nesse cabeçalho é uma fração de sua taxa de transferência provisionada (ou seja, 2000 RUs/segundo). Por exemplo, se a consulta anterior retornar 1.000 documentos de 1 KB, o custo da operação será 1.000. Assim, em um segundo, o servidor mantém apenas duas dessas solicitações antes de limitar as solicitações subsequentes. Para saber mais, consulte [Unidades de solicitação](documentdb-request-units.md) e a [calculadora das unidades de solicitação](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
@@ -211,6 +218,6 @@ Além disso, para saber mais sobre como criar seu aplicativo para a escala e o a
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

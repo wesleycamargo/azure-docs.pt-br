@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ Se você fez todas as personalizações no ApplicationInsights.config, salve uma
     `<InstrumentationKey>` *a chave de instrumentação que você copiou* `</InstrumentationKey>`
 * Verifique se as propriedades de ApplicationInsights.config no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
 
+A definição da chave de instrumentação no código será útil se você quiser [alternar a chave para configurações de compilação diferentes](app-insights-separate-resources.md). Se você definir a chave no código, não será necessário defini-la no arquivo `.config`.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Execute seu projeto
 Use a tecla **F5** para executar o aplicativo e experimente: abrir páginas diferentes para gerar telemetria.
 
@@ -132,6 +134,6 @@ Consulte [este item de solução de problemas](app-insights-asp-net-troubleshoot
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

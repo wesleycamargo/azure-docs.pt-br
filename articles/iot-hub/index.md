@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Documentação do Hub IoT do Azure - Tutoriais, Referência de API | Microsoft Docs"
 description: "Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativos da Internet das Coisas. Tutoriais, referências de API, vídeos e outras documentações."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
+ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
 
 ---
+
 #<a name="iot-hub-documentation"></a>Documentação do Hub IoT
 
 Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativos da Internet das Coisas. Tutoriais, referências de API, vídeos e outras documentações o ajudam a implantar comunicação confiável e bidirecional entre dispositivos IoT e uma solução de back-end. 
@@ -127,8 +139,10 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
                         <h3>Linguagens</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Serviço)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Dispositivos)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (Serviço)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (Dispositivos)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (Serviço)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Dispositivos)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Nó (Serviço)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Nó (Dispositivos)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">SDKs do Azure IoT</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">SDK do gateway</a></p>
                     </div>
@@ -157,6 +171,6 @@ Saiba como usar o Hub IoT para conectar, monitorar e controlar bilhões de ativo
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

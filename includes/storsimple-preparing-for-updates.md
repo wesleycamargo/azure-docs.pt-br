@@ -1,6 +1,6 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparar para atualizações
+## <a name="preparing-for-updates"></a>Preparar para atualizações
 Você precisará executar as seguintes etapas antes de examinar e aplicar a atualização:
 
 1. Tirar um instantâneo dos dados do dispositivo na nuvem.
@@ -30,4 +30,8 @@ Você precisará executar as seguintes etapas antes de examinar e aplicar a atua
 
 Depois que essas pré-verificações manuais foi concluído com êxito, você poderá verificar e instalar as atualizações.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

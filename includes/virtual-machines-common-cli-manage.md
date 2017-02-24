@@ -1,18 +1,18 @@
 Antes de usar a CLI do Azure com modelos e comandos do Gerenciador de Recursos para implantar recursos do Azure e cargas de trabalho usando grupos de recursos, será necessário ter uma conta com o Azure. Se você não tiver uma conta, você pode obter uma [avaliação gratuita do Azure aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-Se você ainda não tiver instalado a CLI do Azure e se conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/xplat-cli-install.md), defina o modo como `arm` com `azure config mode arm` e se conecte ao Azure com o comando `azure login`.
+Se você ainda não tiver instalado a CLI do Azure e a conectado à sua assinatura, consulte [Instalar a CLI do Azure](../articles/xplat-cli-install.md) defina o modo como `arm` com `azure config mode arm` e conecte-se ao Azure com o comando `azure login`.
 
-## Comandos básicos do Azure Resource Manager na CLI do Azure
-Este artigo aborda os comandos básicos que você desejará usar com a CLI do Azure para gerenciar e interagir com os recursos do ARM (principalmente as VMs) em sua assinatura do Azure. Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
+Este artigo aborda os comandos básicos que você desejará usar com a CLI do Azure para gerenciar e interagir com os recursos do ARM (principalmente as VMs) em sua assinatura do Azure.  Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
 > [!NOTE]
-> Esses exemplos não incluem operações baseadas em modelo que geralmente são recomendadas para implantações de VM no Gerenciador de Recursos. Para saber mais, confira [Usar a CLI do Azure com o Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md) [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
+> Esses exemplos não incluem operações baseadas em modelo que geralmente são recomendadas para implantações de VM no Gerenciador de Recursos. Para saber mais, confira [Usar a CLI do Azure com o Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) e [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 | Tarefa | Gerenciador de Recursos |
 | --- | --- | --- |
-| Criar a VM mais básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` com o comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) para obter exemplos.) |
+| Criar a VM mais básica |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenha o `image-urn` do comando `azure vm image list`. Confira [este artigo](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter exemplos.) |
 | Criar uma VM do Linux |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Criar uma VM do Windows |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
 | Listar VMs |`azure  vm list [options]` |
@@ -34,7 +34,11 @@ Este artigo aborda os comandos básicos que você desejará usar com a CLI do Az
 | Conferir o uso dos recursos de VM |`azure vm list-usage [options] <location>` |
 | Conferir todos os tamanhos de VM disponíveis |`azure vm sizes [options]` |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para obter exemplos adicionais dos comandos da CLI que vão além do gerenciamento básico de VMs, consulte [Usando a CLI do Azure com o Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

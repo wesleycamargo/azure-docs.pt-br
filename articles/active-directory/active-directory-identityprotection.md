@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/18/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 7bedcd3d61fd4aa9d34ac5de4fbec0e39e3c0011
-ms.openlocfilehash: 4476e3d3e8fe18cadefc6a49a4b896f1106433e2
+ms.sourcegitcommit: 4232c27926c2d48adb91eedd15884e44cc004ac2
+ms.openlocfilehash: 2fad0a4e7c4ac282802c2bc0dd10c7d86b651e08
 
 
 ---
@@ -398,6 +398,6 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

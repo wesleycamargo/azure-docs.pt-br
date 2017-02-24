@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c8ca9d1ac59b0470a87e22731494adbc359b3420
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: eb24c4fe5f382a30acc524065f2ee9e3a27ce94f
 
 
 ---
@@ -27,7 +27,7 @@ A integração do People ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao People
 * Você pode habilitar os usuários a entrar automaticamente no People (Logon Único) com suas contas do Azure AD
-* Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+* Gerenciar suas contas em um único local com o Portal Clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao People, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure
-* Uma assinatura habilitada para logon único do People
+* Uma assinatura do People habilitada para SSO (logon único)
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -104,33 +104,24 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
    
     ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_04.png) 
    
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon no seu aplicativo People usando o seguinte padrão: **“https://\<nome empresa\>.peoplehr.com/”**. 
-   
-    b. Se você não souber a URL do locatário, entre em contato com a equipe de suporte do People no endereço [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) para obtê-la.  
-   
-    c. Na caixa de texto **Identificador** , digite a URL do locatário. 
-   
-    d. Na caixa de texto **URL de Resposta**, digite a URL no seguinte padrão: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
-   
-    e. Clique em **Avançar**
+   1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para fazer logon no seu aplicativo People usando o seguinte padrão: **“https://\<nome empresa\>.peoplehr.com/”**. 
+   2. Se você não souber a URL do locatário, entre em contato com a equipe de suporte do People no endereço [customerservices@peoplehr.com](mailto:customerservices@peoplehr.com) para obtê-la.    3. Na caixa de texto **Identificador** , digite a URL do locatário. 
+   4. Na caixa de texto **URL de Resposta**, digite a URL no seguinte padrão: "**https://itgs.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx**".
+   5. Clique em **Próximo**.
 4. Na página **Configurar logon único no People**, execute as seguintes etapas e clique em **Próximo**:
    
     ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_05.png) 
    
-    a. Clique em **Baixar metadados**e salve o arquivo no computador.
-   
-    b. Clique em **Próximo**.
+   1. Clique em **Baixar metadados**e salve o arquivo no computador.
+   2. Clique em **Próximo**.
 5. Para configurar o SSO para o aplicativo, você precisa entrar no locatário People como administrador.
    
-    a. No menu à esquerda, clique em **Configurações**.
+   1. No menu à esquerda, clique em **Configurações**.
+    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)    
+   2. Clique em **"Empresa"**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_001.png) 
-   
-    b. Clique em **"Empresa"**.
-   
-    ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
-   
-    c. Em **"Carregar arquivo de metadados SAML de ‘Logon Único’"**, clique em **Procurar** para carregar o arquivo de metadados baixado.
+    ![Configurar o logon único](./media/active-directory-saas-people-tutorial/tutorial_people_002.png) 
+    3. Em **"Carregar arquivo de metadados SAML de ‘Logon Único’"**, clique em **Procurar** para carregar o arquivo de metadados baixado.
    
     ![Configurar Logon Único](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
@@ -162,24 +153,18 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-people-tutorial/create_aaduser_05.png) 
    
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+    1. Em Tipo de Usuário, selecione Novo usuário na organização.
+    2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-people-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   1. Na caixa de texto **Nome**, digite **Brenda**.  
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-people-tutorial/create_aaduser_07.png) 
@@ -187,9 +172,8 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-people-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+   1. Anote o valor da **Nova Senha**.
+   2. Clique em **Concluído**.   
 
 ### <a name="creating-a-people-test-user"></a>Criação de um usuário de teste do People
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no People. O People não dá suporte ao provisionamento just-in-time. Portanto, é preciso contatar a equipe de suporte do People para criar um usuário manualmente.
@@ -243,6 +227,6 @@ Ao clicar no bloco People no Painel de Acesso, você deverá ser conectado autom
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

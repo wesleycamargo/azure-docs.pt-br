@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### Para entrar no modo de Manutenção
+#### <a name="to-enter-maintenance-mode"></a>Para entrar no modo de Manutenção
 1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
 2. Digite a senha. A senha padrão é **Senha1**.
 3. No prompt de comando, digite
@@ -10,4 +10,8 @@
    
     Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de Manutenção.
 
-<!---HONumber=AcomDC_1203_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

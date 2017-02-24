@@ -1,6 +1,6 @@
 ---
 title: "Introdução ao Azure Data Lake Analytics usando a Interface de linha de comando do Azure | Microsoft Docs"
-description: "Saiba como usar a interface de linha de comando do Azure para criar uma conta do Repositório Data Lake, criar um trabalho da Análise Data Lake usando U-SQL e enviar o trabalho. "
+description: 'Saiba como usar a interface de linha de comando do Azure para criar uma conta do Data Lake Analytics, criar um trabalho do Data Lake Analytics usando U-SQL e enviar o trabalho. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b38c62ae1a60728d08643990238e2cc69cb6447
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
 
 
 ---
-# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-commandline-interface-cli"></a>Tutorial: Introdução à Análise Azure Data Lake usando o a CLI (interface de linha de comando) do Azure
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Tutorial: Introdução à Análise Azure Data Lake usando o a CLI (interface de linha de comando) do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Saiba como usar a CLI do Azure para criar contas da Análise Azure Data Lake, definir trabalhos de Análise Data Lake em [U-SQL](data-lake-analytics-u-sql-get-started.md)e enviar trabalhos para contas da Análise Data Lake. Para saber mais sobre a Análise Data Lake, consulte a [Visão geral da Análise Data Lake do Azure](data-lake-analytics-overview.md).
@@ -165,6 +165,6 @@ Depois que o trabalho for concluído, você poderá usar os seguintes cmdlets pa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

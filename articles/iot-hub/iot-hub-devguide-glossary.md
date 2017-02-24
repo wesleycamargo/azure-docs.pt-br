@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 85fd7b0e867ebe5fff937ff9fc83b688649fcfba
-ms.openlocfilehash: 70feb409d05b26a4d874bad2d1984fda5db32216
+ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
+ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
 
 
 ---
@@ -107,7 +107,7 @@ Os dados do dispositivo referem-se aos dados por dispositivo armazenados no [reg
 ## <a name="device-explorer"></a>Gerenciador de dispositivos
 O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) é uma ferramenta executada no Windows e permite que você gerencie seus dispositivos no [registro de identidade](#identity-registry) e envie e receba mensagens para seus dispositivos.
 
-## <a name="device-identities-rest-api"></a>API REST de identidades de dispositivo
+## <a name="device-identities-rest-api"></a>API REST de Identidades de Dispositivo
 A [API REST de identidades de dispositivo](https://docs.microsoft.com/rest/api/iothub/iothubresource) permite que você gerencie seus dispositivos registrados no [registro de identidade](#identity-registry) usando uma API REST. Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-identity"></a>Identidade do dispositivo
@@ -119,8 +119,8 @@ O gerenciamento de dispositivos engloba o ciclo de vida completo associado ao ge
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
 O [hub IoT](#iot-hub) permite que os padrões comuns de gerenciamento de dispositivos, incluindo reinicialização, execução de redefinições de fábrica e execução de atualizações de firmware nos seus dispositivos.
 
-## <a name="device-messaging-rest-api"></a>API REST de mensagens de dispositivo
-Você pode usar a [API REST de mensagens de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime) de um dispositivo para enviar mensagens de dispositivo para a nuvem a um hub IoT e receber mensagens da [nuvem para o dispositivo](#cloud-to-device) de um hub IoT. Normalmente, você deve usar um dos [SDKs de dispositivo](#azure-iot-device-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+## <a name="device-messaging-rest-api"></a>API REST de Mensagens do Dispositivo
+Você pode usar a [API REST de Mensagens de Dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime) de um dispositivo para enviar mensagens de dispositivo para a nuvem a um hub IoT e receber mensagens da [nuvem para o dispositivo](#cloud-to-device) de um hub IoT. Normalmente, você deve usar um dos [SDKs de dispositivo](#azure-iot-device-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 O provisionamento de dispositivos é o processo de adição dos [dados de dispositivo](#device-data) iniciais para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao [registro de identidades](#identity-registry) do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
@@ -131,8 +131,8 @@ Um [dispositivo gêmeo](iot-hub-devguide-device-twins.md) é um documento JSON q
 ## <a name="device-twin-queries"></a>Consultas de dispositivo gêmeo
 As [consultas de dispositivo gêmeo](iot-hub-devguide-query-language.md) usam a linguagem de consulta do Hub IoT semelhante ao SQL para recuperar informações dos seus dispositivos gêmeos. Você pode usar a mesma linguagem de consulta do Hub IoT para recuperar informações sobre [trabalhos](#job) em execução em seu hub IoT.
 
-## <a name="device-twins-rest-api"></a>Gêmeos de dispositivo API REST
-Você pode usar o [dispositivo gêmeos API REST](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) da solução de back-end para gerenciar seu Gêmeos de dispositivo. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method). Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
+## <a name="device-twin-rest-api"></a>API REST de Dispositivo Gêmeo
+Você pode usar a [API REST de Dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) da solução de back-end para gerenciar seus dispositivos gêmeos. A API permite recuperar e atualizar as propriedades de [dispositivos gêmeos](#device-twin) e chamar [métodos diretos](#direct-method). Normalmente, você deve usar um dos [SDKs de serviço](#azure-iot-service-sdks) de nível mais alto, como mostrado nos tutoriais de Hub IoT.
 
 ## <a name="device-twin-synchronization"></a>Sincronização de dispositivos gêmeos
 A sincronização de dispositivos gêmeos usa as [propriedades desejadas](#desired-properties) em dispositivos gêmeos para configurar seus dispositivos e recuperar as [propriedades relatadas](#reported-properties) de dispositivos para armazenar no dispositivo gêmeo.
@@ -173,7 +173,7 @@ As [métricas do Hub IoT](iot-hub-metrics.md) fornecem dados sobre o estado dos 
 ## <a name="iot-hub-query-language"></a>Linguagem de consulta do Hub IoT
 A [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md) é uma linguagem semelhante ao SQL que permite que você consulte seus [trabalhos](#job) e dispositivos gêmeos.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>API REST do provedor de recursos do Hub IoT
+## <a name="iot-hub-resource-provider-rest-api"></a>API REST do Provedor de Recursos do Hub IoT
 Você pode usar a [API REST do provedor de recursos do Hub IoT](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para gerenciar os hubs IoT em sua [assinatura do Azure](#subscription) que executam operações como criar, atualizar e excluir hubs.
 
 ## <a name="iot-suite"></a>IoT Suite
@@ -185,8 +185,8 @@ O [iothub explorer](https://github.com/azure/iothub-explorer) é uma ferramenta 
 ## <a name="job"></a>Trabalho
 O back-end de sua solução pode usar [trabalhos](iot-hub-devguide-jobs.md) para agendar e controlar atividades em um conjunto de dispositivos registrados no Hub IoT. As atividades incluem atualização de [propriedades desejadas](#desired-properties) do dispositivo gêmeo, atualização de [marcas](#tags) do dispositivo gêmeo e invocação de [métodos diretos](#direct-method). O [Hub IoT](#iot-hub) também usa trabalhos para [importar e exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) do [registro de identidade](#identity-registry).
 
-## <a name="job-api"></a>API de Trabalho
-A [api de trabalho](https://docs.microsoft.com/rest/api/iothub/jobapi) é uma API REST que permite o gerenciamento de [trabalhos](#job) em execução em seu Hub IoT.
+## <a name="jobs-rest-api"></a>API REST de Trabalhos
+A [API REST de Trabalhos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite o gerenciamento de [trabalhos](#job) em execução em seu Hub IoT.
 
 ## <a name="module"></a>Módulo
 No [SDK do Gateway IoT do Azure](iot-hub-linux-gateway-sdk-get-started.md), um [módulo](iot-hub-linux-gateway-sdk-get-started.md#azure-iot-gateway-sdk-concepts) é um componente que executa uma tarefa específica. As tarefas podem incluir a ingestão de uma mensagem de um dispositivo, transformando uma mensagem, ou o envio de uma mensagem, para um hub IoT. Um agente é responsável pelo encaminhamento de mensagens entre os módulos. O SDK do Gateway IoT do Azure inclui um conjunto de módulos de exemplo. Você também pode criar seus próprios módulos personalizados.

@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9b8c63d512f49a9b1478642f9f6733c849e3f48d
+ms.sourcegitcommit: 04a045f41965b093aab71e59cd9b5f328b44de84
+ms.openlocfilehash: 801c0f7085034cc3a3ed74722a11204f6421c27d
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Active Directory do Azure com o PerformanceCentre
 O objetivo desse tutorial é mostrar como integrar o PerformanceCentre ao Azure AD (Azure Active Directory).  
+
 A integração do PerformanceCentre ao Azure AD proporciona os seguintes benefícios: 
 
 * No AD do Azure, você pode controlar quem tem acesso ao PerformanceCentre 
@@ -48,10 +49,11 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.  
+
 O cenário descrito neste tutorial consiste em três blocos de construção principais:
 
-1. Adicionando o PerformanceCentre da galeria 
-2. Configurar e testar o logon único do AD do Azure
+*  Adicionando o PerformanceCentre da galeria 
+*  Configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-performancecentre-from-the-gallery"></a>Adicionando o PerformanceCentre da galeria
 Para configurar a integração do PerformanceCentre ao AD do Azure, você precisará adicionar o PerformanceCentre da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -82,9 +84,10 @@ Para configurar a integração do PerformanceCentre ao AD do Azure, você precis
 O objetivo desta seção é mostrar como configurar e testar logon único do AD do Azure com o PerformanceCentre, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário do PerformanceCentre é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do PerformanceCentre.  
+
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no AD do Azure ao valor de **Nome de Usuário** no PerformanceCentre.
 
-Para configurar e testar o logon único do AD do Azure com o PerformanceCentre, você precisará concluir os seguintes blocos de construção:
+**Para configurar e testar o logon único do Azure AD com o PerformanceCentre, você precisará concluir os seguintes blocos de construção:**
 
 1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
@@ -105,16 +108,15 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     ![Logon Único do AD do Azure][7] 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Logon único do AD do Azure][8] 
+    ![Logon Único do AD do Azure][8] 
    
-     a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no site do PerformanceCentre (por exemplo: *http://companyname.performancecentre.com/saml/SSO*).
-   
-     b. Clique em **Avançar**.
+   1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no site do PerformanceCentre (por exemplo: *http://companyname.performancecentre.com/saml/SSO*).
+   2. Clique em **Próximo**.
 4. Na página **Configurar logon único no PerformanceCentre** , execute as seguintes etapas:
    
-    ![Logon único do AD do Azure][9] 
+    ![Logon Único do AD do Azure][9] 
    
-    a. Clique em **Baixar metadados**e salve o arquivo em seu computador.
+  * Clique em **Baixar metadados**e salve o arquivo no computador.
 5. Faça logon no site da empresa **PerformanceCentre** como administrador.
 6. Na guia à esquerda, clique em **Configurar**.
    
@@ -159,23 +161,20 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_05.png)  
    
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
+   1. Em Tipo de Usuário, selecione Novo usuário na organização.
+   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+   3. Clique em **Próximo**.
    
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+   1. Na caixa de texto **Nome**, digite **Brenda**.  
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   e. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_07.png) 
@@ -183,9 +182,8 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-performancecentre-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+    1. Anote o valor da **Nova Senha**.
+    2. Clique em **Concluído**.   
 
 ### <a name="creating-a-performancecentre-test-user"></a>Criar um usuário de teste do PerformanceCentre
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no PerformanceCentre.
@@ -200,16 +198,14 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Perfor
    
     ![Criar Usuário][401]
    
-    a. Digite os atributos necessários para Brenda Fernandes nas caixas de texto relacionadas.
-   
+   1. Digite os atributos necessários para Brenda Fernandes nas caixas de texto relacionadas.
    > [!IMPORTANT]
    > O atributo Nome de Usuário de Brenda no PerformanceCentre deve ser igual ao Nome de Usuário no AD do Azure.
    > 
    > 
-
-    b. Selecione **Administrador Cliente** como **Escolher Função**. 
-
-    c. Clique em **Salvar**.   
+ 
+   2. Selecione **Administrador Cliente** como **Escolher Função**.
+   3. Clique em **Salvar**.   
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
@@ -235,6 +231,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.  
+
 Quando clica no bloco PerformanceCentre no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo do PerformanceCentre.
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -282,6 +279,6 @@ Quando clica no bloco PerformanceCentre no Painel de Acesso, você deve ser cone
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
@@ -124,7 +124,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
     a. Na caixa de texto **URL de entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Halosys usando o seguinte padrão: `https://<company-name>.Halosys.com/client-api/api`.
 
-    b.Na caixa de texto **URL de Identificador**, digite a URL no seguinte padrão: `https://<company-name>.Halosys.com`.   
+    b.Na caixa de texto **URL de Identificador**, digite a URL no seguinte padrão: `https://<company-name>.Halosys.com`.    
          
 4. Na página **Configurar logon único no Halosys**, clique em **Baixar metadados** e salve o arquivo de metadados no computador:
 

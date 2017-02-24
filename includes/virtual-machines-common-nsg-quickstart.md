@@ -9,6 +9,10 @@ Vamos usar um exemplo comum de tráfego da Web na porta 80. Quando você tiver u
    * um valor de prioridade inferior a 65.500 (para que a prioridade seja maior do que a regra de negação de entrada padrão catch-all)
 3. Associe o Grupo de Segurança de Rede à interface de rede da VM ou sub-rede.
 
-Você pode criar configurações de rede complexas para proteger seu ambiente usando regras e Grupos de Segurança de Rede. Nosso exemplo usa apenas uma ou duas regras que permitem o tráfego HTTP ou gerenciamento remoto. Para saber mais, confira a seção ["Mais informações"](#more-information-on-network-security-groups) abaixo ou [O que é um Grupo de Segurança de Rede?](../articles/virtual-network/virtual-networks-nsg.md)
+Você pode criar configurações de rede complexas para proteger seu ambiente usando regras e Grupos de Segurança de Rede. Nosso exemplo usa apenas uma ou duas regras que permitem o tráfego HTTP ou gerenciamento remoto. Para saber mais, confira a seção [’Mais informações’](#more-information-on-network-security-groups) abaixo ou [O que é um Grupo de Segurança de Rede?](../articles/virtual-network/virtual-networks-nsg.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 02/08/2017
 ms.author: ganesr;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 9a8a72f5255184a1ac571532355c7f7a23d7f7bd
-ms.openlocfilehash: 47be5ec3cf74bc10b0dab289650e29dae8cf0c03
+ms.sourcegitcommit: fe0bff84a5316628d9e465da0d4e62162f1ea4f2
+ms.openlocfilehash: cb67631dbbfb53a0de9b07bc3918bd70751ec41b
 
 
 ---
@@ -32,18 +32,21 @@ ms.openlocfilehash: 47be5ec3cf74bc10b0dab289650e29dae8cf0c03
 
 Este artigo fornece uma orientação pelas etapas de criação de um circuito da Rota Expressa do Azure usando cmdlets do PowerShell e o modelo de implantação clássico. Este artigo também mostrará a você como verificar o status, atualizar ou excluir e desprovisionar um circuito da Rota Expressa.
 
+[!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
+
+
 **Sobre modelos de implantação do Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Examine os pré-requisitos e artigos de fluxo de trabalho
+### <a name="step-1-review-the-prerequisites-and-workflow-articles"></a>Etapa 1. Examine os pré-requisitos e artigos de fluxo de trabalho
 Leia os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.  
 
-### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale a versão mais recente dos módulos do Azure PowerShell
+### <a name="step-2-install-the-latest-versions-of-the-azure-powershell-modules"></a>Etapa 2. Instale a versão mais recente dos módulos do Azure PowerShell
 Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 
-### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Entre em sua conta do Azure e selecione uma assinatura
+### <a name="step-3-log-in-to-your-azure-account-and-select-a-subscription"></a>Etapa 3. Entre em sua conta do Azure e selecione uma assinatura
 1. Execute os seguintes cmdlets em um prompt elevado do Windows PowerShell:
    
         Add-AzureAccount
@@ -56,13 +59,13 @@ Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powersh
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
-### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Importar os módulos do PowerShell para Rota Expressa
+### <a name="step-1-import-the-powershell-modules-for-expressroute"></a>Etapa 1. Importar os módulos do PowerShell para Rota Expressa
  Se ainda não tiver feito isso, importe os módulos do Azure e de ExpressRoute na sessão do PowerShell para começar a usar os cmdlets de ExpressRoute. Importe os módulos do local onde foram instalados para o computador local. Dependendo do método usado para instalar os módulos, o local pode ser diferente do exemplo a seguir. Modifique o exemplo, se for necessário.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### <a name="step-2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>Etapa 2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet do PowerShell `Get-AzureDedicatedCircuitServiceProvider` retornará estas informações, que você usará em etapas posteriores:
@@ -77,7 +80,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito da Rota Expressa.         
 
-### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
+### <a name="step-3-create-an-expressroute-circuit"></a>Etapa 3. Criar um circuito da Rota Expressa
 O exemplo a seguir mostra como criar um circuito da Rota Expressa de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação.
 
 > [!IMPORTANT]
@@ -103,7 +106,7 @@ A resposta conterá a chave de serviço. Você pode obter descrições detalhada
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4-list-all-the-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
+### <a name="step-4-list-all-the-expressroute-circuits"></a>Etapa 4. Listar todos os circuitos da Rota Expressa
 Você pode executar o comando `Get-AzureDedicatedCircuit` para obter uma lista de todos os circuitos da Rota Expressa que criou:
 
     Get-AzureDedicatedCircuit
@@ -136,7 +139,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### <a name="step-5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>Etapa 5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. *Status* fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
@@ -156,7 +159,7 @@ Um circuito da Rota Expressa deverá estar no seguinte estado para você poder u
     Status                           : Enabled
 
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
+### <a name="step-6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>Etapa 6. Verifique periodicamente o status e o estado da chave do circuito
 Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
     Get-AzureDedicatedCircuit
@@ -170,7 +173,7 @@ Isso permite que você saiba quando seu provedor habilitou seu circuito. Após a
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
+### <a name="step-7-create-your-routing-configuration"></a>Etapa 7. Criar sua configuração de roteamento
 Confira o artigo [Configuração de roteamento do circuito da Rota Expressa (criar e modificar emparelhamentos de circuito)](expressroute-howto-routing-classic.md) para obter instruções passo a passo.
 
 > [!IMPORTANT]
@@ -178,7 +181,7 @@ Confira o artigo [Configuração de roteamento do circuito da Rota Expressa (cri
 > 
 > 
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
+### <a name="step-8-link-a-virtual-network-to-an-expressroute-circuit"></a>Etapa 8. Vincular uma rede virtual a um circuito de Rota Expressa
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Confira [Vincular circuitos da Rota Expressa a redes virtuais](expressroute-howto-linkvnet-classic.md) para obter instruções passo a passo. Se você precisar criar uma rede virtual usando o modelo de implantação clássico para a Rota Expressa, confira [Criar uma rede virtual para a Rota Expressa](expressroute-howto-vnet-portal-classic.md) para obter instruções.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito da Rota Expressa
@@ -204,7 +207,7 @@ Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get
     Sku                              : Standard
     Status                           : Enabled
 
-Você pode obter informações sobre um circuito da Rota Expressa específico passando a chave do serviço como um parâmetro para a chamada:
+Você pode obter informações sobre um circuito da Rota Expressa específico passando a chave do serviço como um parâmetro para a chamada.
 
     Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
@@ -218,7 +221,7 @@ Você pode obter informações sobre um circuito da Rota Expressa específico pa
     Status                           : Enabled
 
 
-Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte:
+Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte exemplo:
 
     get-help get-azurededicatedcircuit -detailed
 
@@ -256,12 +259,13 @@ O seu circuito agora tem os recursos do complemento premium da Rota Expressa hab
 > 
 > 
 
-Observe o seguinte:
+#### <a name="considerations"></a>Considerações
 
 * Verifique se o número de redes virtuais vinculadas ao circuito é menor do que 10 antes de fazer o downgrade de Premium para padrão. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
 * Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Caso contrário, sua solicitação de atualização falhará e você receberá uma cobrança com as taxas premium.
 * Sua tabela de roteamento deve ter menos de 4.000 rotas para o emparelhamento privado. Se o tamanho da tabela de roteamento for maior que 4.000 rotas, a sessão BGP será descartada e não será reabilitada até que o número de prefixos anunciados fique abaixo de 4.000.
 
+#### <a name="disable-the-premium-add-on"></a>Desabilitar o complemento premium
 Você pode desabilitar o complemento premium da Rota Expressa para o circuito existente usando o seguinte cmdlet do PowerShell:
 
     Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
@@ -284,6 +288,8 @@ Confira as [Perguntas frequentes sobre a Rota Expressa](expressroute-faqs.md) pa
 > Não é possível reduzir a largura de banda de um circuito da Rota Expressa sem interrupções. O downgrade da largura de banda exige o desprovisionamento do circuito da Rota Expressa e um novo provisionamento de um novo circuito da Rota Expressa.
 > 
 > 
+
+#### <a name="resize-a-circuit"></a>Redimensionar um circuito
 
 Após decidir de qual tamanho precisa, você pode usar o seguinte comando para redimensionar o circuito:
 
@@ -312,11 +318,14 @@ Se você vir o seguinte erro quando aumentar a largura de banda do circuito, iss
 
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
-Observe o seguinte:
+
+### <a name="considerations"></a>Considerações
 
 * Você deve desvincular todas as redes virtuais do circuto da Rota Expressa para que a operação seja bem-sucedida. Se essa operação falhar, verifique se você tem redes virtuais vinculadas ao circuito.
 * Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 * Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito.
+
+#### <a name="delete-a-circuit"></a>Excluir um circuito
 
 Você pode excluir o circuito da Rota Expressa executando o comando a seguir:
 
@@ -333,6 +342,6 @@ Depois de criar seu circuito, faça o seguinte:
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

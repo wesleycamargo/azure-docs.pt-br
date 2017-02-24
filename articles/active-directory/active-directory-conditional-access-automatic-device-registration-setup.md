@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 02/04/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: da1a8c45a1753d617e0cb62f99bc47d22838a8e8
-ms.openlocfilehash: ac58f3f5498edbd6f7b19db647a9513a485d6dbf
+ms.sourcegitcommit: 617599c7df6284e6319a1b3331d1e894e5d4b2d1
+ms.openlocfilehash: 2ced7d0d4e2e653013c605932066c412c4202082
 
 
 ---
@@ -353,11 +353,15 @@ Implante o pacote usando um sistema de distribuição de software como o System 
 O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa registra silenciosamente o dispositivo com o Azure AD com as credenciais do usuário após a autenticação por meio de IWA. Para ver a tarefa agendada, vá para **Microsoft** > **Ingressar no local de trabalho** e vá para a biblioteca do Agendador de Tarefas.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Acesso condicional ao Azure Active Directory](active-directory-conditional-access.md)
+
+- Se algo deu errado durante o registro automático de dispositivos, consulte os seguintes tópicos de solução de problemas para obter ajuda:
+    - [Para Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+    - [Para clientes de nível inferior do Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+- Para obter respostas a perguntas comuns, consulte as [Perguntas frequentes sobre o registro automático do dispositivo](active-directory-conditional-access-automatic-device-registration-faq.md).
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

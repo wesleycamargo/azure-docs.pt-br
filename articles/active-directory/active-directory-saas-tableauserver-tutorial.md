@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 344309eb9fc1ee7619df4cb6f692dd1697c4fb56
-
+ms.sourcegitcommit: 0849c77c66ac8617e217a69696b5c404be3b5eb4
+ms.openlocfilehash: 3aefb8188880fac5c1fcbe237a1e133584089e6a
 
 ---
+
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory ao Tableau Server
 O objetivo deste tutorial é mostrar como integrar o Tableau Server ao Azure AD (Azure Active Directory).
 
@@ -27,7 +27,7 @@ A integração do Tableau Server ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao Tableau Server
 * Você pode habilitar os usuários a entrar automaticamente no Tableau Server (Logon Único) com suas contas do Azure AD
-* Gerenciar suas contas em um único local: o Portal clássico do Azure
+* Gerenciar suas contas em um único local com o Portal Clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,11 +35,10 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Tableau Server, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do Tableau Server
+* Uma assinatura habilitada para SSO (logon único) do Tableau Server
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -109,80 +108,64 @@ O aplicativo Tableau Server espera que as declarações SAML estejam em um forma
     ![Configurar o logon único](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_81.png) 
 2. Na caixa de diálogo **Atributos de token SAML** , execute as seguintes etapas:
 
-    a. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
+   1. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
 
     ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_82.png) 
+   2. Na caixa de texto **Nome do Atributo**, digite **nome de usuário**.
+   3. Na lista **Valor do Atributo**, selecione **user.displayname**.
+   4. Clique em **Concluído**.    
 
-
-    b. Na caixa de texto **Nome do Atributo**, digite **nome de usuário**.
-
-    c. Na lista **Valor do Atributo**, selecione **user.displayname**.
-
-    d. Clique em **Concluído**.    
-
-
-
-
-1. No menu na parte superior, clique em **Início Rápido**.
+3. No menu na parte superior, clique em **Início Rápido**.
    
     ![Configurar o logon único](./media/active-directory-saas-tableauserver-tutorial/tutorial_general_83.png)  
-2. Clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+4. Clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
-3. Na página **Como você deseja que os usuários façam logon no Tableau Server**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
+5. Na página **Como você deseja que os usuários façam logon no Tableau Server**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_03.png) 
-4. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
+6. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar o logon único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_04.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_04.png) 
 
-    a. Na caixa de texto **URL de Entrada** , digite a URL do Tableau Server. 
-
-    b. Na caixa Identificador, copie o 
-
-    c. Clique em **Avançar**
-
-
-1. Na página **Configurar logon único no Tableau Server**, execute as seguintes etapas e clique em **Avançar**:
+   1. Na caixa de texto **URL de Entrada** , digite a URL do Tableau Server. 
+   2. Na **caixa Identificador**, copie a URL.
+   3. Clique em **Próximo**.
+h
+7. Na página **Configurar logon único no Tableau Server**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar o logon único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_05.png) 
 
-    a. Clique em **Baixar metadados**e salve o arquivo no computador.
+   1. Clique em **Baixar metadados**e salve o arquivo no computador.
+   2. Clique em **Próximo**.
 
-    b. Clique em **Próximo**.
-
-
-1. Para configurar o SSO para o aplicativo, você precisa entrar no locatário Tableau Server como administrador.
+8. Para configurar o SSO para o aplicativo, você precisa entrar no locatário Tableau Server como administrador.
    
-    a. Na configuração do Tableau Server, clique na guia **SAML** .
-   
+   1. Na configuração do Tableau Server, clique na guia **SAML** .
+  
     ![Configurar Logon Único](./media/active-directory-saas-tableauserver-tutorial/tutorial_tableauserver_001.png) 
+   2. Marque a caixa de seleção **Usar SAML para logon único**.
+   3. Localize o arquivo de Metadados de Federação baixado do portal clássico do Azure e carregue-o no **arquivo de metadados do Idp SAML**.
+   4. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo, http://tableau_server. Não é recomendável usar http://localhost. O uso de URL com barra à direita (por exemplo, http://tableau_server/) não é aceito. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Logon** do Azure AD, conforme mostrado na etapa 3
+   5. ID de entidade SAML - a ID de entidade identifica com exclusividade sua instalação do Tableau Server para o IdP. Você pode digitar a URL do Tableau Server novamente aqui, se desejar, mas ela não precisa ser sua URL do Tableau Server. Copie a **ID de entidade SAML** e cole-a na caixa de texto **IDENTIFICADOR** do Azure AD, conforme mostrado na etapa 3.
+   6. Clique em **Exportar Arquivo de Metadados** e abra-o no aplicativo de editor de texto. Localize a URL do Serviço de Declaração do Consumidor com Http Post e Índice 0 e copie a URL. Agora, cole-a na caixa de texto **URL de resposta** do Azure AD, conforme mostrado na etapa 3. 
+   7. Clique no botão **OK** na página Configuração do Tableau Server.
+   
+    >[!NOTE] 
+    >Se precisar de ajuda para configurar o SAML no Tableau Server, consulte o artigo [Configurar SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >
 
-    b. Marque a caixa de seleção **Usar SAML para logon único**.
-
-    c. Localize o arquivo de Metadados de Federação baixado do portal clássico do Azure e carregue-o no **arquivo de metadados do Idp SAML**.
-
-    d. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo, http://tableau_server. Não é recomendável usar http://localhost. O uso de URL com barra à direita (por exemplo, http://tableau_server/) não é aceito. Copie a **URL de retorno do Tableau Server** e cole-a na caixa de texto **URL de Logon** do Azure AD, conforme mostrado na etapa 3
-
-    e. ID de entidade SAML - a ID de entidade identifica com exclusividade sua instalação do Tableau Server para o IdP. Você pode digitar a URL do Tableau Server novamente aqui, se desejar, mas ela não precisa ser sua URL do Tableau Server. Copie a **ID de entidade SAML** e cole-a na caixa de texto **IDENTIFICADOR** do Azure AD, conforme mostrado na etapa 3.
-
-    f. Clique em **Exportar Arquivo de Metadados** e abra-o no aplicativo de editor de texto. Localize a URL do Serviço de Declaração do Consumidor com Http Post e Índice 0 e copie a URL. Agora, cole-a na caixa de texto **URL de resposta** do Azure AD, conforme mostrado na etapa 3. 
-
-    g. Clique no botão **OK** na página Configuração do Tableau Server.
-
-    > [AZURE.NOTE] Se precisar de ajuda para configurar o SAML no Tableau Server, consulte o artigo [Configurar SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm) 
-
-1. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+9. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-2. Na página **Confirmação de logon único**, clique em **Concluir**. 
+10. Na página **Confirmação de logon único**, clique em **Concluir**. 
    
     ![Logon Único do AD do Azure][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.
 
-Na lista de usuários, selecione **Brenda Fernandes**.
+* Na lista de usuários, selecione **Brenda Fernandes**.
 
 ![Criar um usuário do AD do Azure][20]
 
@@ -202,24 +185,18 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauserver-tutorial/create_aaduser_05.png) 
    
-    a. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
-   
-    b. Na caixa de texto **Nome do Usuário**, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+   1. Em **Tipo de Usuário**, selecione **Novo usuário na organização**.
+   2. Na caixa de texto **Nome do Usuário**, digite **BrendaFernandes**.
+   3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauserver-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   1. Na caixa de texto **Nome**, digite **Brenda**.  
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauserver-tutorial/create_aaduser_07.png) 
@@ -227,9 +204,8 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tableauserver-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+   1. Anote o valor da **Nova Senha**.
+   2. Clique em **Concluído**.   
 
 ### <a name="creating-a-tableau-server-test-user"></a>Criação de um usuário de teste do Tableau Server
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no Tableau Server. Será necessário provisionar todos os usuários no Tableau Server. Observe também que o nome de usuário deve corresponder ao valor que você configurou no atributo personalizado **username**do Azure AD. Com o mapeamento correto, a integração deve funcionar, conforme [Configuração do Logon Único do Azure AD](#configuring-azure-ad-single-single-sign-on).
@@ -289,6 +265,6 @@ Ao clicar no bloco Tableau Server no Painel de Acesso, você deverá ser conecta
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

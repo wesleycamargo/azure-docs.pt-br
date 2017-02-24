@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-## Solucionando problemas de falhas na atualização
+## <a name="troubleshooting-update-failures"></a>Solucionando problemas de falhas na atualização
 **E se você receber uma notificação informando que as verificações de pré-atualização falharam?**
 
 Se uma pré-verificação falhar, certifique-se de que já observou a barra de notificação detalhada na parte inferior da página. Ela explica os motivos da falha da pré-verificação. A ilustração a seguir mostra uma instância em que uma notificação aparece. Nesse caso, a verificação de integridade do controlador e verificação de integridade do componente de hardware falharam. Na seção **Status de Hardware**, você pode ver que ambos os componentes, o **Controlador 0** e o **Controlador 1**, precisam de atenção.
@@ -19,4 +19,8 @@ Execute o cmdlet em ambos os controladores.
 
 Se você verificou que há conectividade e o problema continuar, contate o Suporte da Microsoft para saber das próximas etapas.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
