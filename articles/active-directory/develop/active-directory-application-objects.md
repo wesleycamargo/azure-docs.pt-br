@@ -69,7 +69,7 @@ Um objeto de entidade de serviço do aplicativo pode ser acessado por meio da AP
 <!--Reference style links -->
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AZURE-Classic-Portal]: https://portal.azure.com
+[AZURE-Portal]: https://portal.azure.com
 
 
 

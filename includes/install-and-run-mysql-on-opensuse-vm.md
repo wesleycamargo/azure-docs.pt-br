@@ -25,7 +25,7 @@
         rcmysql stop
    
    > [!IMPORTANT]
-   > Após a instalação, a senha da raiz do MySQL é vazia por padrão. É recomendável executar o **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas anônimas de usuários, desabilite os logins de raiz remota, remova bancos de dados de teste e recarregue a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz.
+   > Após a instalação, a senha da raiz do MySQL é vazia por padrão. Recomendamos a execução de **mysql\_secure\_installation**, um script que ajuda a proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas anônimas de usuários, desabilite os logins de raiz remota, remova bancos de dados de teste e recarregue a tabela de privilégios. É recomendável que você responda Sim para todas essas opções e altere a senha raiz.
    > 
    > 
 5. Digite isto para executar o script de instalação do MySQL:
@@ -46,7 +46,7 @@
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados. Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
+    Observe que as senhas e nomes de usuário do banco de dados só são usadas pelos scripts de conexão com o banco de dados.  Nomes de conta de usuário do banco de dados não representam, necessariamente, contas de usuário reais no sistema.
 9. Para fazer logon em outro computador, digite:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
@@ -56,10 +56,10 @@
     
         quit
 
-## Adicionar um ponto de extremidade
-1. Após a instalação do MySQL, você precisará configurar um ponto de extremidade para acessar remotamente o MySQL. Faça logon no [portal clássico do Azure][AzurePortal]. Clique em **Máquinas Virtuais**, em seguida clique no nome da sua nova máquina virtual e em **Pontos de Extremidade**.
+## <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
+1. Após a instalação do MySQL, você precisará configurar um ponto de extremidade para acessar remotamente o MySQL. Faça logon no [Portal Clássico do Azure][AzurePortal]. Clique em **Máquinas Virtuais**, clique no nome de sua nova máquina virtual e clique em **Pontos de Extremidade**.
 2. Clique em **Adicionar** na parte inferior da página.
-3. Adicione um ponto de extremidade chamado "MySQL" com protocolo **TCP** e portas **Pública** e **Privada** configuradas como "3306".
+3. Adicione um ponto de extremidade chamado "MySQL" com o protocolo **TCP** e as portas **Pública** e **Privada** configuradas como "3306".
 4. Para conectar-se remotamente à máquina virtual do seu computador, digite:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
@@ -73,4 +73,7 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

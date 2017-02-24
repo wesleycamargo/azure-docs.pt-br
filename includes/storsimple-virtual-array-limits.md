@@ -2,7 +2,7 @@
 
 | **Identificador de limite** | **Limite** | **Comentários** |
 | --- | --- | --- |
-| Capacidade total (incluindo nuvem) |Até 64 TB por dispositivo virtual | |
+| Capacidade total (incluindo nuvem) |Até 64 TB por dispositivo virtual |Você pode fazer o failover de uma Matriz Virtual do StorSimple completa para outra matriz vazia. Se você tentar restaurar os compartilhamentos, verifique se tem espaço suficiente no dispositivo para concluir a operação. Depois de exceder 32 TB, você não poderá restaurar no mesmo dispositivo. |
 | Número máximo de credenciais de conta de armazenamento por dispositivo |1 | |
 | Número máximo de volumes/compartilhamentos |16 | |
 | Tamanho mínimo de um compartilhamento em camadas |500 GB | |
@@ -22,6 +22,8 @@
 | Número máximo de arquivos por matriz virtual |4 milhões | |
 | Tempo de recuperação de restauração |Restauração rápida |A restauração é baseada no mapa de calor e depende do tamanho do volume.<br>Operações de backup podem ocorrer enquanto uma operação de restauração está em andamento. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

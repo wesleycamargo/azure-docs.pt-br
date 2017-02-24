@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d95d42592e1102d635e5eaad473196c4fa461136
-ms.openlocfilehash: e633562e35276b2d0c6dd19ada5a17bae7b1b0b6
+ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
+ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
 
 
 ---
@@ -423,8 +423,10 @@ A tabela a seguir fornece uma descrição para elementos JSON específicas para 
 ### <a name="using-service-principal-authentication-recommended"></a>Usando a autenticação de entidade de serviço (recomendada)
 Para usar autenticação de entidade de serviço, primeiramente é necessário registrar uma entidade de aplicativo no Azure Active Directory (AAD) e conceder acesso no Data Lake Store. Posteriormente, você pode especificar abaixo propriedades no Azure Data Factory com a ID de aplicativo correspondente, informações de locatário e a chave de aplicativo para copiar dados de/para o Data Lake Store. Consulte [autenticação de serviços](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) sobre como configurá-lo e recuperar as informações necessárias.
 
->[!NOTE]
->Se recentemente você criar uma entidade de serviço do AAD, pode levar alguns minutos, na verdade, entre em vigor. Se você ver o erro do Assistente para copiar ou dizendo "as credenciais fornecidas são inválidas" de detalhes de execução de cópia, aguarde um pouco e tente novamente.
+> [!IMPORTANT]
+> Ao usar o assistente de cópia, certifique-se de fornecer à entidade de serviço pelo menos a permissão de Leitura para a raiz do ADLS ("/") ou a função de Leitor para a conta ADLS, a fim de navegar com êxito entre as pastas. Caso contrário, você poderá ver o erro "As credenciais fornecidas são inválidas".
+>
+> Se você acabou de criar/atualizar uma entidade de serviço do AAD, pode levar alguns minutos para ela realmente entrar em vigor. Verifique a entidade de serviço e a configuração de ACL ADLS primeiro, se continuar encontrando o erro "As credenciais fornecidas são inválidas", aguarde alguns instantes e tente novamente.
 >
 
 | Propriedade | Descrição | Obrigatório |
@@ -594,6 +596,6 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

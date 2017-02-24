@@ -7,4 +7,8 @@ Alguns dos casos nos quais os dispositivos virtuais podem ser usados incluem:
 
 Para saber mais sobre UDR, visite [Rotas definidas pelo usuário e encaminhamento de IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

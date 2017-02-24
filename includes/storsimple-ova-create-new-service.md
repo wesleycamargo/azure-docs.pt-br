@@ -1,6 +1,6 @@
-#### Para criar um novo serviço
+#### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 1. Usando suas credenciais de conta da Microsoft, faça logon no portal clássico do Azure nesta URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Se for implantar o dispositivo no Portal do governo, faça logon em: [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
-2. No portal, clique em **Novo > Serviços de Dados > StorSimple Manager > Criação rápida**.
+2. No portal, clique em **Novo > Serviços de Dados > StorSimple Manager > Criação Rápida**.
 3. No formulário exibido, faça o seguinte:
    
    1. Fornecer um **Nome** exclusivo para o serviço. Este é um nome amigável que pode ser usado para identificar o serviço. O nome pode ter entre 2 e 50 caracteres que podem ser letras, números e hífens. O nome deve começar e terminar com uma letra ou um número.
@@ -16,10 +16,14 @@
       
       ![](./media/storsimple-ova-create-new-service/image1m-include.png)
    
-   Você será direcionado para a página inicial **Serviço**. A criação do serviço levará alguns minutos. Depois que o serviço for criado com êxito, você será notificado adequadamente.
+   Você será direcionado para a página inicial **Serviço** . A criação do serviço levará alguns minutos. Depois que o serviço for criado com êxito, você será notificado adequadamente.
    
    ![](./media/storsimple-ova-create-new-service/image2-include.png)
    
    O status do serviço será alterado para **Ativo**.
 
-<!---HONumber=AcomDC_0316_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

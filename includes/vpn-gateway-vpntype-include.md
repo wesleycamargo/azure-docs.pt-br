@@ -3,6 +3,10 @@
   * VPNs PolicyBased **só** podem ser usadas no SKU de gateway básico. Esse tipo de VPN não é compatível com outros SKUs de gateway.
   * Você pode ter apenas um túnel ao usar uma VPN PolicyBased.
   * Você só pode usar VPNs PolicyBased para conexões S2S, e apenas para determinadas configurações. A maioria das configurações de Gateway de VPN exige uma VPN RouteBased.
-* **RouteBased:** as VPNs RouteBased (baseadas em rota) eram chamadas anteriormente de gateways de roteamento dinâmico no modelo de implantação clássico. As VPNs RouteBased usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. A política (ou seletor de tráfego) para as VPNs RouteBased são configurados como qualquer para qualquer (ou curingas). O valor para um tipo de VPN RouteBased é *RouteBased*.
+* **RouteBased:**as VPNs RouteBased (baseadas em rota) eram chamadas anteriormente de gateways de roteamento dinâmico no modelo de implantação clássico. As VPNs RouteBased usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. A política (ou seletor de tráfego) para as VPNs RouteBased são configurados como qualquer para qualquer (ou curingas). O valor para um tipo de VPN RouteBased é *RouteBased*.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

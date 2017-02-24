@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86e6597340867ffd620eac38a55de9113f571880
+ms.sourcegitcommit: a3e619d6e130212064093150d22d971a562a6601
+ms.openlocfilehash: 18a32c7282fd24280cb634b90db20721503437e7
 
 
 ---
@@ -45,10 +45,10 @@ Este tutorial exige o seguinte:
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo Cordova
+## <a name="a-idsetup-azmeasetup-mobile-engagement-for-your-cordova-app"></a><a id="setup-azme"></a>Configurar o Mobile Engagement para seu aplicativo Cordova
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectando seu aplicativo ao back-end do Mobile Engagement
+## <a name="a-idconnecting-appaconnecting-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectando seu aplicativo ao back-end do Mobile Engagement
 Este tutorial apresenta uma "integração básica" que é o conjunto mínimo exigido para coletar dados e enviar uma notificação por push. 
 
 Criaremos um aplicativo básico com Cordova para demonstrar a integração:
@@ -67,8 +67,10 @@ Criaremos um aplicativo básico com Cordova para demonstrar a integração:
         $ cordova platform add android
         $ cordova run android
 4. Adicione o plug-in do Console do Cordova. 
-   
-    $ cordova plugin add cordova-plugin-console 
+
+    ```
+    $ cordova plugin add cordova-plugin-console
+    ``` 
 
 ### <a name="connect-your-app-to-mobile-engagement-backend"></a>Conecte seu aplicativo ao back-end do Mobile Engagement
 1. Instale o plug-in do Mobile Engagement Cordova do Azure e forneça os valores de variáveis para configurar o plug-in:
@@ -87,7 +89,7 @@ Criaremos um aplicativo básico com Cordova para demonstrar a integração:
 
 *Ícone de Alcance do iOS*: deve ser o nome do recurso com a extensão (ex: meuiconenotificação.png) e o arquivo de ícone deve ser adicionado ao seu projeto do iOS com XCode (usando o Menu Adicionar Arquivos)
 
-## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Habilitar monitoramento em tempo real
+## <a name="a-idmonitoraenabling-real-time-monitoring"></a><a id="monitor"></a>Habilitar monitoramento em tempo real
 1. No projeto Cordova - edite **www/js/index.js** para adicionar a chamada para o Mobile Engagement para declarar uma nova atividade uma vez que o evento *deviceReady* é recebido.
    
          onDeviceReady: function() {
@@ -114,10 +116,10 @@ Criaremos um aplicativo básico com Cordova para demonstrar a integração:
         [Engagement] Connection: Sent: startSession
         [Engagement] Connection: Sent: activity name='myPage'
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
+## <a name="a-idmonitoraconnect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conectar o aplicativo com monitoramento em tempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Habilitar Notificações por Push e mensagens no aplicativo
+## <a name="a-idintegrate-pushaenabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitar Notificações por Push e mensagens no aplicativo
 O Mobile Engagement permite a você interagir com seus usuários com Notificações por Push e Mensagens no Aplicativo no contexto de campanhas. Esse módulo é chamado de REACH no portal do Mobile Engagement.
 As seções a seguir irão configurar o aplicativo para recebê-los.
 
@@ -203,7 +205,7 @@ Agora, vamos criar uma campanha de notificação por push simples que enviará u
     ![][10]
 9. Agora você deve ver uma notificação por push em seu dispositivo ou emulador como parte desta campanha. 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="next-steps"></a>Próximas etapas
+## <a name="a-idnext-stepsanext-steps"></a><a id="next-steps"></a>Próximas etapas
 [Visão geral de todos os métodos disponíveis no SDK do Cordova Mobile Engagement](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- Images. -->

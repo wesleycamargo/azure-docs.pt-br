@@ -1,9 +1,9 @@
 
-## Análise
+## <a name="analytics"></a>Análise
 * [Visão geral](../articles/application-insights/app-insights-analytics.md)
 * [Tour da Análise](../articles/application-insights/app-insights-analytics-tour.md)
   * Comece por aqui. Um tutorial que abrange os principais recursos.
-* [Consultas](../articles/application-insights/app-insights-analytics-reference.md#queries)
+* [Consultas](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
   * Usam operadores como `where` e `count` para compilar consultas.
 * [Agregação](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
   * Usada para calcular estatísticas sobre grupos de registros
@@ -15,4 +15,8 @@
   * Referência de uma página.
 * [Solucionar problemas](../articles/application-insights/app-insights-analytics-troubleshooting.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

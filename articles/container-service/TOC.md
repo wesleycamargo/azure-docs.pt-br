@@ -3,7 +3,7 @@
 ## [Perguntas frequentes](container-service-faq.md)
 # Introdução
 ## [Implantar um cluster do ACS](container-service-deployment.md)
-## [Implantar no ACS usando a CLI 2.0 (Visualização)](container-service-create-acs-cluster-cli.md)
+## [Implantar no ACS usando a CLI 2.0 do Azure](container-service-create-acs-cluster-cli.md)
 ## [Conectar-se com um cluster do ACS](container-service-connect.md)
 ## [Dimensionar um cluster do ACS](container-service-scale.md)
 # Como
@@ -23,6 +23,7 @@
 #### [Monitorar com o Dynatrace](container-service-monitoring-dynatrace.md)
 ## Gerenciar com Kubernetes
 ### [Introdução ao Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Introdução ao Kubernetes e Windows](container-service-kubernetes-windows-walkthrough.md)
 ### [Configurar uma entidade de serviço](container-service-kubernetes-service-principal.md)
 ### [Gerenciamento de contêineres - IU do Kubernetes](container-service-kubernetes-ui.md)
 ### [Contêineres do Kubernetes para balanceamento de carga](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker e Docker Compose](container-service-docker-swarm.md)
 ### [Integração contínua do Docker Swarm](container-service-docker-swarm-setup-ci-cd.md)
 # Referência
-## [CLI do Azure 2.0 (Visualização)](/cli/azure/acs)
+## [CLI 2.0 do Azure](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

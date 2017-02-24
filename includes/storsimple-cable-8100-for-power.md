@@ -1,12 +1,12 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### Para cabear o recebimento de energia
+#### <a name="to-cable-for-power"></a>Para cabear o recebimento de energia
 1. Certifique-se de que os interruptores de energia em cada PCMs (Módulos de Energia e Refrigeração) estejam na posição de DESLIGADO.
 2. Conecte os cabos de energia a cada PCMs no compartimento principal.
 3. Conecte os cabos de energia às PDUs, conforme mostrado na imagem a seguir. Verifique se os dois PCMs usam fontes de energia separadas.
    
    > [!IMPORTANT]
-   > Para garantir a alta disponibilidade do seu sistema, recomendamos que siga fielmente o esquema de cabeamento de energia mostrado no diagrama que segue.
+   > Para garantir a alta disponibilidade do seu sistema, recomendamos que siga fielmente o esquema de cabeamento de energia mostrado no diagrama que segue. 
    > 
    > 
    
@@ -23,4 +23,8 @@
    | 5 |PDUs |
 4. Para ativar o sistema, inverta os comutadores de energia em ambos os PCMs para a posição LIGADO.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

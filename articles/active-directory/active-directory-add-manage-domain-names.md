@@ -3,7 +3,7 @@ title: "Gerenciando nomes de domínio personalizados no Azure Active Directory |
 description: "Conceitos de gerenciamento e instruções para gerenciar um domínio personalizado no Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: cf3523bd-9ee0-439e-963d-ccea038867b9

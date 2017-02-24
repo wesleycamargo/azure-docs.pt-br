@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
-ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
+ms.sourcegitcommit: 47594d1d435ee92d57150a01a99765bab0e87846
+ms.openlocfilehash: 2ac62c2c04975167b243b49bf2c536900e77df73
 
 
 ---
@@ -30,8 +30,8 @@ Como você pode iniciar a coleta de dados de atividade?
 
 | Edição do Azure AD | Início da Coleta |
 | :--              | :--   |
-|Premium e Premium 2 | Quando você se inscreve em uma licença |
-| Grátis | Na primeira vez que você abrir a [folha do Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou usar as [APIs de relatório](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Quando você se inscreve para uma assinatura |
+| AD do Azure Gratuito | Na primeira vez que você abrir a [folha do Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou usar as [APIs de relatório](https://aka.ms/aadreports)  |
 
 
 Quando os dados de atividade estarão disponíveis no portal do Azure?
@@ -46,14 +46,14 @@ Por quanto tempo os dados coletados são armazenados?
 
 **Relatórios de atividades**    
 
-| Relatório | AD do Azure Gratuito | Azure AD Premium 1 | Azure AD Premium 2 |
+| Relatório | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Auditoria de Diretório | 7 dias | 30 dias | 30 dias |
 | Atividade de Entrada |    7 dias | 30 dias | 30 dias |
 
 **Sinais de Segurança**
 
-| Relatório | AD do Azure Gratuito | Azure AD Premium 1 | Azure AD Premium 2 |
+| Relatório | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--    | :--           | :--                | :--                |
 | Entradas de risco | 7 dias | 30 dias | 90 dias |
 
@@ -61,6 +61,6 @@ Por quanto tempo os dados coletados são armazenados?
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

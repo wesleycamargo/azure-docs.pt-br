@@ -20,7 +20,7 @@ ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
 
 
 ---
-# <a name="virtual-network-business-continuity"></a>Rede Virtual – Continuidade de Negócios
+# <a name="virtual-network--business-continuity"></a>Rede Virtual – Continuidade de Negócios
 ## <a name="overview"></a>Visão geral
 Uma Rede Virtual (VNet) é uma representação da sua rede na nuvem. Ela permite que você defina seu próprio espaço de endereço IP privado e segmente a rede em sub-redes. As VNets servem como um limite de confiança para hospedar seus recursos de computação, como as Máquinas Virtuais e os Serviços de Nuvem do Azure (funções web/de trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos hospedados nela. Uma Rede Virtual também pode ser vinculada a uma rede local por meio de uma das opções híbridas, como um Gateway de VPN ou Rota Expressa.
 

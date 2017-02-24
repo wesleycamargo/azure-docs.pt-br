@@ -12,8 +12,8 @@ Este tópico descreve como:
 > 
 > 
 
-## Injetando dados personalizados na máquina virtual do Azure
-No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-xplat-cli). Vamos criar um arquivo `custom-data.txt` que contém os dados para então inseri-los na VM durante o provisionamento. Embora você possa usar qualquer uma das opções para o comando `azure vm create`, a abordagem demonstrada é muito básica:
+## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Injetando dados personalizados na máquina virtual do Azure
+No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-xplat-cli). Vamos criar um arquivo `custom-data.txt` que contém os dados para então inseri-los na VM durante o provisionamento. Embora você possa usar qualquer uma das opções para o comando `azure vm create` , a abordagem demonstrada é muito básica:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -22,11 +22,11 @@ No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do
 ```
 
 
-## Usando dados personalizados na máquina virtual
+## <a name="using-custom-data-in-the-virtual-machine"></a>Usando dados personalizados na máquina virtual
 * Se sua VM do Azure for do Windows, o arquivo de dados personalizado estará salvo em `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Embora tenha sido codificado com base64 para transferência do computador local para a nova VM, ele é decodificado automaticamente e pode ser aberto imediatamente.
   
   > [!NOTE]
-  > Se já existir, o arquivo será substituído. A segurança no diretório é definida como **System:Full Control** e **Administrators:Full Control**.
+  > Se já existir, o arquivo será substituído. A segurança no diretório é definida como **Sistema:Controle Total** e **Administratores:Controle Total**.
   > 
   > 
 * Se sua VM do Azure for uma VM do Linux, o arquivo de dados personalizado se encontrará em um dos dois locais a seguir dependendo da sua distribuição. Os dados serão codificados com base64, portanto, você precisará decodificar os dados primeiro:
@@ -35,16 +35,16 @@ No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
-## Cloud-init no Azure
+## <a name="cloud-init-on-azure"></a>Cloud-init no Azure
 Se a sua VM do Azure for de uma imagem do Ubuntu ou CoreOS, você poderá usar o CustomData para enviar um cloud-config para cloud-init. Ou, se o arquivo de dados personalizado for um script, cloud-init poderá simplesmente executá-lo.
 
-### Imagens de nuvem do Ubuntu
-Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para saber mais.
+### <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
+Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais.
 
 No entanto, nas Imagens de Nuvem do Ubuntu, devemos usar cloud-init para configurar o disco de recurso (ou seja, o disco "efêmero") e a partição de troca. Consulte a seguinte página no wiki do Ubuntu para obter mais detalhes: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas: usando cloud-init
+## <a name="next-steps-using-cloud-init"></a>Próximas etapas: usando cloud-init
 Para obter mais informações, consulte [Documentação de cloud-init para Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
@@ -52,4 +52,8 @@ Para obter mais informações, consulte [Documentação de cloud-init para Ubunt
 
 [Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

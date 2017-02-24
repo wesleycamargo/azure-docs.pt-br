@@ -1,22 +1,22 @@
 ---
-title: "Trabalhando com Domínios Personalizados no Proxy de Aplicativo do Azure AD | Microsoft Docs"
-description: "Aborda como trabalhar com domínios personalizados no Proxy de Aplicativo do AD do Azure."
+title: "Domínios Personalizados no Proxy de Aplicativo do Azure AD | Microsoft Docs"
+description: "Gerencie domínios personalizados no Proxy de Aplicativo do Azure AD para que a URL do aplicativo seja a mesma, independentemente de onde os usuários a acessam."
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2016
+ms.date: 02/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fedd64ad885bacedf01afd91adf0c4d05265c476
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: b8edebd4e7dfdbf85a9beb6d126acaf7ec66dd01
 
 
 ---
@@ -28,7 +28,7 @@ Usando um domínio padrão permite que você defina a mesma URL como URL interna
 2. Depois que o aplicativo aparecer na lista de aplicativos, selecione-o e clique em **Configurar**.
 3. Em **URL Externa**, digite seu domínio personalizado.
 4. Se a URL externa for https, você deverá carregar um certificado para que o Azure possa validar a URL do aplicativo. Você também pode carregar um certificado curinga que corresponda a URL Externa do aplicativo. Esse domínio deve estar na lista do seu [Domínios verificado do Azure](https://msdn.microsoft.com/library/azure/jj151788.aspx). O Azure deve ter um certificado para o domínio da URL do aplicativo ou um certificado curinga que corresponda à URL externa para o aplicativo.
-5. Certifique-se de adicionar um registro DNS que roteie a URL interna para o aplicativo, que permite que você tenha a mesma URL para acesso interno e externo e um único atalho para o aplicativo na lista de aplicativos do usuário.
+5. Adicione um registro DNS que encaminha a URL interna para o aplicativo. Esse registro permite que você tenha a mesma URL para acesso interno e externo ao aplicativo, e um único atalho na lista de aplicativos do usuário.
 
 ## <a name="frequently-asked-questions-about-working-with-custom-domains"></a>Perguntas frequentes sobre como trabalhar com domínios personalizados
 P: Posso selecionar um certificado já carregado sem carregá-lo novamente?  
@@ -70,17 +70,15 @@ A: Sim, os certificados autoassinados são permitidos. Observe que, se você est
 P: Existe um lugar para ver todos os certificados para o meu locatário?  
 R: Não há suporte para isso na versão atual.  
 
-## <a name="see-also"></a>Consulte também
-* [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
-* [Habilitar logon único](active-directory-application-proxy-sso-using-kcd.md)
-* [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Habilite o logon único](active-directory-application-proxy-sso-using-kcd.md) aos seus aplicativos publicados com a autenticação do Azure AD.
+* [Habilite o acesso condicional](active-directory-application-proxy-conditional-access.md) aos seus aplicativos publicados.
 * [Adicionar seu nome de domínio personalizado ao Azure AD](active-directory-add-domain.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

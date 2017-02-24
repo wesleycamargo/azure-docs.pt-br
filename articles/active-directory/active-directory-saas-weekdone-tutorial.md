@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 01/25/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ba47b6b4783dee84daa8dae6d4838a3d84022e0
+ms.sourcegitcommit: e1c9957f64e9a0a17823a881b060543a9346f457
+ms.openlocfilehash: 8e69d4efe14e29d9f009a4b65416207bb39faa8b
 
 
 ---
@@ -27,7 +27,7 @@ A integração do Weekdone ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao Weekdone
 * Você pode habilitar seus usuários a fazerem logon automaticamente no Weekdone (logon único) com suas contas do Azure AD
-* Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+* Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Weekdone, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura do Weekdone com logon único habilitado
+* Uma assinatura do Weekdone com SSO (logon único) habilitado
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -110,30 +110,30 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
    
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_04.png) 
 
-    a. Na caixa de texto **URL de Resposta**, digite a URL usando o seguinte padrão: **"https://weekdone.com/a/azure"**.
+   1. Na caixa de texto **URL de Resposta**, digite a URL usando o seguinte padrão: **"https://weekdone.com/a/azure"**.
 
-    b. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: **"https://weekdone.com/a/azure/metadata"**.
+   2. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: **"https://weekdone.com/a/azure/metadata"**.
 
-    c. Clique em **Próximo**.
+   3. Clique em **Próximo**.
 
 1. Se quiser configurar o aplicativo em **modo iniciado pelo SP**, na página da caixa de diálogo **Definir Configurações de Aplicativo**, selecione **"Mostrar configurações avançadas (opcional)"**, insira a **URL de Logon** e o **Identificador**. Em seguida, clique em **Avançar**.
    
     ![Configurar o logon único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_06.png) 
    
-    a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Weekdone usando o seguinte padrão: **“https://weekdone.com/a/azure”**.
+   1. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para fazer logon no seu aplicativo Weekdone usando o seguinte padrão: **“https://weekdone.com/a/azure”**.
    
-    b. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: **"https://weekdone.com/a/azure/metadata"**.
+   2. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: **"https://weekdone.com/a/azure/metadata"**.
    
-    c. Clique em **Próximo**.
+   3. Clique em **Próximo**.
 2. Na página **Configurar logon único no Weekdone**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_05.png) 
    
-    a. Clique em **Baixar certificado**e salve o certificado no computador.
-   
-    b. Clique em **Próximo**.
+   1. Clique em **Baixar certificado**e salve o certificado no computador.
+   2. Clique em **Próximo**.
+    
 3. Para ter o logon único configurado para seu aplicativo, entre em contato com a equipe de suporte do Weekdone via hello@weekdone.com. Anexe o arquivo de certificado baixado ao seu email e compartilhe as URLs de metadados (URL do emissor, URL SSO SAML e URL de serviço de logoff único) com a equipe de Weekdone para configurar o SSO no seu lado.
-4. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+4. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
 5. Na página **Confirmação de logon único**, clique em **Concluir**.  
@@ -149,44 +149,50 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_09.png) 
+    
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
-   
+4.    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_03.png) 
+    
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_04.png) 
-5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
+    
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_05.png) 
    
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
+    1. Em Tipo de Usuário, selecione Novo usuário na organização.
+    2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+    3. Clique em **Próximo**.
+    
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
+
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
    
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
-6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   1. Na caixa de texto **Nome**, digite **Brenda**.  
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
+  
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
+
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_07.png) 
-8. Na caixa de diálogo **Obter senha temporária**, realize as etapas a seguir:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
+    
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-weekdone-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+   1. Anote o valor da **Nova Senha**. 
+   2. Clique em **Concluído**.   
 
 ### <a name="creating-a-weekdone-test-user"></a>Criando um usuário de teste Weekdone
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Weekdone. O Weekdone dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
-Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Weekdone, caso ainda não exista. [Configurando o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)
+Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o Weekdone, caso ainda não exista. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
 
 > [!NOTE]
 > Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Weekdone pelo endereço hello@weekdone.com.
@@ -243,6 +249,6 @@ Quando você clica no bloco Weekdone no Painel de Acesso, deve fazer logon autom
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -3,4 +3,8 @@
 * [Gerenciar o acesso usando o CLI do Azure](../articles/active-directory/role-based-access-control-manage-access-azure-cli.md)
 * [RBAC incorporado em funções](../articles/active-directory/role-based-access-built-in-roles.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

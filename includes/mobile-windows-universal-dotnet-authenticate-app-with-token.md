@@ -1,5 +1,5 @@
 
-1. No arquivo de projeto MainPage.xaml.cs e adicione as seguintes instruções **using**:
+1. No arquivo de projeto MainPage.xaml.cs e adicione as seguintes instruções **using** :
    
         using System.Linq;        
         using Windows.Security.Credentials;
@@ -75,11 +75,15 @@
     Nesta versão do **AuthenticateAsync**, o aplicativo tenta usar as credenciais armazenadas no **PasswordVault** para acessar o serviço. Também é realizado um registro normal quando não há uma credencial armazenada.
    
    > [!NOTE]
-   > Um token armazenado em cache pode estar expirado e a expiração do token pode ocorrer após a autenticação quando o aplicativo estiver em uso. Para saber como determinar se um token está expirado, consulte [Procurar tokens de autenticação expirados](http://aka.ms/jww5vp). Para solucionar como lidar com erros de autorização relacionados a tokens expirados, consulte a postagem [Armazenagem em cache e manipulação de tokens expirados no SDK gerenciado pelos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
+   > Um token armazenado em cache pode estar expirado e a expiração do token pode ocorrer após a autenticação quando o aplicativo estiver em uso. Para saber como determinar se um token está expirado, consulte [Procurar tokens de autenticação expirados](http://aka.ms/jww5vp). Para solucionar como lidar com erros de autorização relacionados a tokens expirados, consulte a postagem [Armazenagem em cache e manipulação de tokens expirados no SDK gerenciado pelos Serviços Móveis do Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
 3. Reiniciar o aplicativo.
    
-    Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado.
+    Observe que na primeira inicialização, o registro com o provedor é requerido novamente. Porém, na segunda inicialização são usadas as credenciais armazenadas em cache e o registro é desviado. 
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

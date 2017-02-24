@@ -7,6 +7,10 @@
 | Segmentos |100 por aplicativo |
 | Critérios por segmento |10 |
 | Campanhas de Envio por Push Ativas |50 por aplicativo |
-| Campanhas de Envio por Push Totais (inclui Ativas e Concluídas) |1\.000 por aplicativo |
+| Campanhas de Envio por Push Totais (inclui Ativas e Concluídas) |1.000 por aplicativo |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

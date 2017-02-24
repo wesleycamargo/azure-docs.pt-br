@@ -37,6 +37,6 @@ Para obter informações sobre os documentos de metadados federados que o Azure 
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

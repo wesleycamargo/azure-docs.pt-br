@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/11/2017
+ms.date: 02/09/2017
 ms.author: janeng
 translationtype: Human Translation
-ms.sourcegitcommit: 5dfb2b4fbe4dbd74575b418257843bc2097b966b
-ms.openlocfilehash: 5ca2da0caff29244f43c162e3cd98d335fd23f23
+ms.sourcegitcommit: f2e48e290f59efb5ab6271b7b2882ca8ea8887a6
+ms.openlocfilehash: 15fd64f21eb20ae412f4d0cf1930e99e2e9fc62b
 
 
 ---
@@ -40,7 +40,7 @@ Monitore a utilização de recursos e os tempos de resposta médios das consulta
 ## <a name="enforcement-of-limits"></a>Imposição de limites
 Os recursos, além da CPU, Memória, E/S de log e E/S de dados, são impostos pela negação de novas solicitações quando os limites são atingidos. Quando um banco de dados atinge o limite de tamanho máximo configurado, inserções e atualizações que aumentam a falha do tamanho de dados, enquanto selecionar e excluir continua a funcionar. Os clientes recebem uma [mensagem de erro](sql-database-develop-error-messages.md) dependendo do limite que foi atingido.
 
-Por exemplo, o número de conexões a um Banco de Dados SQL, bem como o número de solicitações simultâneas que podem ser processadas, é restrito. O Banco de Dados SQL permite que o número de conexões ao banco de dados seja maior que o número de solicitações simultâneas para dar suporte ao pooling de conexões. Embora o número de conexões disponíveis possa facilmente ser controlado pelo aplicativo, o número de solicitações paralelas costuma ser mais difícil de ser estimado e controlado. Especialmente durante os picos de carga quando o aplicativo envia um número excessivo de solicitações ou quando o banco de dados atinge seus limites de recursos e começa a acumular threads de trabalho devido a consultas com execução mais longa, é possível encontrar erros.
+Por exemplo, o número de conexões a um Banco de Dados SQL e o número de solicitações simultâneas que podem ser processadas, é restrito. O Banco de Dados SQL permite que o número de conexões ao banco de dados seja maior que o número de solicitações simultâneas para dar suporte ao pooling de conexões. Embora o número de conexões disponíveis possa facilmente ser controlado pelo aplicativo, o número de solicitações paralelas costuma ser mais difícil de ser estimado e controlado. Especialmente durante os picos de carga quando o aplicativo envia um número excessivo de solicitações ou quando o banco de dados atinge seus limites de recursos e começa a acumular threads de trabalho devido a consultas com execução mais longa, é possível encontrar erros.
 
 ## <a name="service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho
 Há camadas de serviço e níveis de desempenho para o banco de dados individual e pools elásticos.

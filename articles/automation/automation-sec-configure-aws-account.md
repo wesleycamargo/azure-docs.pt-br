@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ Para a autenticação com o AWS, você deve especificar um conjunto de credencia
 ## <a name="configure-automation-account"></a>Configurar conta de Automação
 Para que a Automação do Azure se comunique com o AWS, primeiro você precisará recuperar suas credenciais do AWS e armazená-las como ativos na Automação do Azure.  Execute as etapas a seguir registradas no documento do AWS [Gerenciamento de Chaves de Acesso para sua conta do AWS](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) para criar uma Chave de Acesso e copie a **ID da Chave de Acesso** e a **Chave de Acesso do Segredo** (opcionalmente, baixe o arquivo de chave para armazená-lo em um lugar seguro).
 
-Após criar e copiar as chaves de segurança do AWS, você precisará criar um ativo de Credencial com uma conta de Automação do Azure para armazená-las com segurança e fazer referência a elas com seus runbooks.  Siga as etapas na seção **Criar um novo ativo de credencial** no artigo [Ativos de credenciais na Automação do Azure](automation-credentials.md#creating-a-new-credential-asset) e insira as seguintes informações:
+Após criar e copiar as chaves de segurança do AWS, você precisará criar um ativo de Credencial com uma conta de Automação do Azure para armazená-las com segurança e fazer referência a elas com seus runbooks.  Siga as etapas na seção **Criar um novo ativo de credencial** no artigo [Ativos de credenciais na Automação do Azure](automation-credentials.md) e insira as seguintes informações:
 
 1. Na caixa **Nome**, digite **AWScred** ou um valor apropriado seguindo seus padrões de nomenclatura.  
 2. Na caixa **Nome de usuário**, digite a **ID de acesso** e a **Chave de Acesso do Segredo** nas caixas **Senha** e **Confirmar senha**.   
@@ -42,6 +42,7 @@ Após criar e copiar as chaves de segurança do AWS, você precisará criar um a
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### Para conectar seu dispositivo à alimentação
+#### <a name="to-cable-your-device-for-power"></a>Para conectar seu dispositivo à alimentação
 > [!NOTE]
 > Ambos os compartimentos no seu dispositivo StorSimple incluem PCMs redundantes. Para cada compartimento, os PCMs devem ser instalados e conectados a diferentes fontes de energia para garantia de alta disponibilidade.
 > 
@@ -39,4 +39,8 @@
     | 8 |Compartimento EBOD |
     | 9 |PDUs |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

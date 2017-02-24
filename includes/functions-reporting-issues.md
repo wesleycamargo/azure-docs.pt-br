@@ -4,4 +4,8 @@
 | Modelos |Problemas de Código com o Modelo de Criação |[Registrar um Problema](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
 | Portal |Interface do Usuário ou Problema de Experiência |[Registrar um Problema](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

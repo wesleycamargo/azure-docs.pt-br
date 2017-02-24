@@ -1,8 +1,8 @@
-### Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 O Kit de Ferramentas do Azure para IntelliJ requer os seguintes componentes de software:
 
-* IntelliJ IDEA Ultimate Edition. Isso pode ser baixado em <https://www.jetbrains.com/idea/download/>.
-* Um JDK (Java Developer Kit), v1.8 ou posterior.
+* IntelliJ IDEA Ultimate Edition. Isso pode ser baixado de <https://www.jetbrains.com/idea/download/>.
+* Um JDK (Java Developer Kit), v1.8 ou posterior. 
 * Sistemas operacionais - o Kit de Ferramentas do Azure para IntelliJ foi testado nos seguintes sistemas operacionais:
   
   * Windows 10, Windows 8 e 8.1, Windows 7
@@ -22,4 +22,8 @@ Encontre mais informações na página do [Kit de Ferramentas do Azure para Inte
 > 
 > 
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

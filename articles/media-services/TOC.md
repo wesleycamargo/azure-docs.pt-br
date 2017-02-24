@@ -4,6 +4,12 @@
 # Introdução
 ## [Criar e gerenciar conta](media-services-portal-create-account.md)
 ## [Configurar seu ambiente de desenvolvimento](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Conectar-se por meio de programação
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## Fornecer vídeo sob demanda
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [SDK .NET](media-services-dotnet-get-started.md)
@@ -15,19 +21,18 @@
 
 # Como
 ## Gerenciar
-### Gerenciar contas
+### Contas
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Gerenciar entidades
+### Entidades
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Conectar-se por meio de programação
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Gerenciar pontos de extremidade de streaming](media-services-streaming-endpoints-overview.md)
+### [Pontos de extremidade de streaming](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Como: atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento](media-services-roll-storage-access-keys.md)
+### Armazenamento
+#### [Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento](media-services-roll-storage-access-keys.md)
+#### [Gerenciar ativos entre diversas contas de armazenamento](meda-services-managing-multiple-storage-accounts.md)
 ### [Cotas e limitações](media-services-quotas-and-limitations.md)
 
 ## Carregar conteúdo
@@ -35,6 +40,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Carregar arquivos grandes com Aspera](media-services-upload-files-with-aspera.md)
 ### [Copiar blobs existentes](media-services-copying-existing-blob.md)
 
 ## [Codificar conteúdo](media-services-encode-asset.md)
@@ -98,7 +104,6 @@
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Transmissão ao vivo com codificador na nuvem](media-services-manage-live-encoder-enabled-channels.md)
-### Tutoriais do codificador de nuvem
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Configurar codificadores locais para usar com o codificador na nuvem](media-services-live-encoders-overview.md)
@@ -114,11 +119,14 @@
 ### [Configurar chave não criptografada AES-128 para sua transmissão](media-services-protect-with-aes128.md)
 ### [Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS](media-services-rest-storage-encryption.md)
 ### [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia](media-services-playready-license-template-overview.md)
+### [Visão geral do modelo de licença do Widevine](media-services-widevine-license-template-overview.md)
 ### [Entrega de licença do DRM](media-services-deliver-keys-and-licenses.md)
 ### [Usando parceiros para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-licenses-partner-integration.md)
 ### [Usando a PlayReady e/ou a criptografia comum dinâmica Widevine.](media-services-protect-with-drm.md)
 ### [Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure](media-services-cenc-with-multidrm-access-control.md)
+### [Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure ](media-services-axinom-integration.md)
+### [Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-castlabs-integration.md)
 
 ### Entrega de ativo
 #### Configurar políticas de entrega de ativo
@@ -152,16 +160,16 @@
 ### [Processamento de mídia](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Ponto de extremidade de streaming
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Entregar conteúdo](media-services-deliver-content-overview.md)
 ### [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md)
 ### [Visão geral sobre filtros e manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
-### Criar filtros
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [Criar filtros com .NET](media-services-dotnet-dynamic-manifest.md)
+#### [Criar filtros com REST](media-services-rest-dynamic-manifest.md)
+### [Política de Caching de CDN na extensão dos Serviços de Mídia](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### Publicar conteúdo
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -177,21 +185,18 @@
 #### [Aplicativo HTML5 com DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 #### [Players do Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [Inserir anúncios no lado do cliente](media-services-inserting-ads-on-client-side.md)
+### [Licenciamento do Kit de Portabilidade de Cliente do Microsoft† Smooth Streaming](media-services-sspk.md)
 
 ## Integração
-### [Política de Caching de CDN na extensão dos Serviços de Mídia](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Licenciamento do Kit de Portabilidade de Cliente do Microsoft† Smooth Streaming](media-services-sspk.md)
-### [Gerenciar ativos entre diversas contas de armazenamento](meda-services-managing-multiple-storage-accounts.md)
-### [Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure ](media-services-axinom-integration.md)
-### [Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-castlabs-integration.md)
-### [Visão geral do modelo de licença do Widevine](media-services-widevine-license-template-overview.md)
+### [Funções do Azure](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## Monitoramento
 ### Verificar o andamento do trabalho
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [Armazenamento de filas para monitorar notificações de trabalho](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorar as notificações de trabalho com o armazenamento de filas](media-services-dotnet-check-job-progress-with-queues.md)
+### [Monitorar as notificações de trabalho com webhooks](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Solucionar problemas
 ### [Perguntas frequentes](media-services-frequently-asked-questions.md)
@@ -212,6 +217,6 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

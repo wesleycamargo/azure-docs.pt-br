@@ -15,7 +15,7 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/) em http://portal.azure.com/..
+1. Faça logon no [portal do Azure](https://portal.azure.com/) em http://portal.azure.com/.
 2. Na faixa à esquerda, clique em **PROCURAR TUDO**. A folha **Procurar** é exibida.
 3. Role e clique em **servidores SQL**. A folha **servidores SQL** é exibida.
    
@@ -30,7 +30,7 @@ articles/sql-database/sql-database-connect-query.md
 9. Clique em **Adicionar Cliente IP**. Digite um nome para a nova regra na primeira caixa de texto.
 10. Digite os valores baixos e altos de endereços IP para o intervalo que deseja habilitar.
     
-    * Pode ser útil ter a extremidade de valor baixo com **.0** e a de valor alto com **.255**.
+    * Pode ser útil ter a extremidade de valor baixo com **0,0** e a de valor alto com **0,255**.
     
     ![Adicionar um intervalo de endereços IP para permitir][b41-AddRange]
 11. Clique em **Salvar**.
@@ -52,4 +52,7 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-<!-----------HONumber=AcomDC_0330_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/06/2017
+ms.date: 02/09/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e2d78b7e71cd17c88ce4e283cc0b0ddc9bf7b479
-ms.openlocfilehash: bcefe7e0b0f1836dc77709329a07dd8d009abbb2
+ms.sourcegitcommit: cd7e8564d24e45bad291c3632021f96fb1584b6f
+ms.openlocfilehash: 730cf9be80be5c5381148f138c3a437beb95c340
 
 
 ---
@@ -28,7 +28,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no HDInsight e co
 >
 
 > [!IMPORTANT]
-> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md).
+> As etapas neste documento só funcionam para clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). Para obter informações sobre como usar o Phoenix no HDInsight baseado em Linux, consulte [Usar o Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hdinsight-hbase-phoenix-squirrel-linux.md).
 >
 
 
@@ -83,10 +83,6 @@ Antes de seguir os procedimentos, você deve ter o seguinte:
 
 * Um cluster HBase implantado em uma rede virtual do Azure com uma máquina virtual DNS.  Para obter instruções, consulte [Criar clusters HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet].
 
-  > [!IMPORTANT]
-  > Você deve instalar um servidor DNS na rede virtual. Para obter instruções, veja [Configurar DNS entre duas redes virtuais do Azure](hdinsight-hbase-geo-replication-configure-dns.md)
-  >
-  >
 * Obtenha o sufixo DNS específico da Conexão do cluster de cluster HBase. Para obtê-lo, faça RDP no cluster e, em seguida, execute IPConfig.  O sufixo DNS é semelhante a:
 
         myhbase.b7.internal.cloudapp.net
@@ -158,7 +154,7 @@ Uma maneira de criar um certificado X.509 é usando a ferramenta de criação de
 
     O certificado raiz e o certificado do cliente são armazenados no repositório de certificados Pessoal do computador. Use certmgr.msc para verificar.
 
-    ![Certificado vpn de ponto para site de rede virtual do Azure][img-certificate]
+    ![Certificado VPN de ponto para site de rede virtual do Azure][img-certificate]
 
     Um certificado de cliente deve ser instalado em cada computador que você deseje conectar à rede virtual. É recomendável que você crie certificados de cliente exclusivos para cada computador que você deseje conectar à rede virtual. Para exportar os certificados do cliente, use certmgr. msc.
 
@@ -295,6 +291,6 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight.  Para obter m
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

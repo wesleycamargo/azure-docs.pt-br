@@ -1,31 +1,31 @@
 ---
-title: Amostragem de telemetria no Application Insights | Microsoft Docs
+title: Amostragem de telemetria no Azure Application Insights | Microsoft Docs
 description: Como manter o volume de telemetria sob controle.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
-manager: douge
+manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/03/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: b04e8a33e5253a5fcda78ad3d2f0626d69c4d9b4
+ms.sourcegitcommit: 611f4222b5ab1530658f612de39dd2712f98c250
+ms.openlocfilehash: cbc622a959c402fe25ce9ab026c1ae05f194d884
 
 
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
 
-A amostragem é um recurso no [Azure Application Insights](app-insights-overview.md) e é a maneira recomendada para reduzir o tráfego de telemetria e de armazenamento, preservando uma análise estatística correta de dados do aplicativo. O filtro seleciona itens relacionados para que você possa navegar entre os itens quando você estiver realizando investigações de diagnóstico.
+A amostragem é um recurso do [Azure Application Insights](app-insights-overview.md). É a maneira recomendada para reduzir o tráfego de telemetria e de armazenamento, preservando uma análise estatística correta de dados do aplicativo. O filtro seleciona itens relacionados para que você possa navegar entre os itens quando você estiver realizando investigações de diagnóstico.
 Quando as contagens de métrica são apresentadas a você no portal, elas são normalizadas novamente para levar em conta a amostragem, a fim de minimizar qualquer efeito sobre as estatísticas.
 
-A amostragem reduz o tráfego, ajuda a manter a cotas mensais de dados e ajuda a evitar a limitação.
+A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitação.
 
 ## <a name="in-brief"></a>Em resumo:
 * A amostragem retém 1 em registros *n* e descarta o resto. Por exemplo, ela pode reter 1 em 5 eventos, com uma taxa de amostragem de 20%. 
@@ -103,6 +103,17 @@ Em [ApplicationInsights.config`AdaptiveSamplingTelemetryProcessor`, é possível
 * `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
   
     O valor atribuído quando o aplicativo acabou de ser iniciado. Não o reduza enquanto estiver depurando. 
+
+* `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
+  
+    Uma lista delimitada por ponto e vírgula dos tipos que você não deseja usar como amostra. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não especificados são usados como amostra.
+
+* `<IncludedTypes>Request;Dependency</IncludedTypes>`
+  
+    Uma lista delimitada por ponto e vírgula dos tipos que você deseja usar como amostra. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Os tipos especificados são usados como amostra; todas as instâncias dos outros tipos serão sempre transmitidas.
+
+
+**Para desativar** a amostragem adaptável, remova o nó AdaptiveSamplingTelemetryProcessor do applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativa: configurar amostragem adaptável no código
 Em vez de ajustar a amostragem no arquivo .config, você pode usar o código. Isso permite especificar uma função de retorno de chamada invocada sempre que a taxa de amostragem é avaliada novamente. Você pode usar isso, por exemplo, para descobrir qual taxa de amostragem está sendo usada.
@@ -344,6 +355,6 @@ O SDK do lado do cliente (JavaScript) participa da amostragem de taxa fixa em co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

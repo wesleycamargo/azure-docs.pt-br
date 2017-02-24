@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 2b2d71decf6027a7ffdde444c0746ad5da0080b5
+ms.sourcegitcommit: fd3a08f227ade7589bbc7a17fa600e5a283d8054
+ms.openlocfilehash: 7e1f99c6c603420386432e04d0a2f0ecda95d6b7
 
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
@@ -368,7 +368,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     header-name="name of http header containing the token (use query-parameter-name attribute if the token is passed in the URL)"   
     failed-validation-httpcode="http status code to return on failure"   
     failed-validation-error-message="error message to return on failure"   
-    require-expiration-time="true|false"   
+    require-expiration-time="true|false"
+    require-scheme="scheme"
     require-signed-tokens="true|false"   
     clock-skew="allowed clock skew in seconds">  
   <issuer-signing-keys>  
@@ -491,7 +492,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |ID|O atributo `id` no elemento `key` permite que você especifique a cadeia de caracteres cuja correspondência será verificada em relação à declaração `kid` no token (se presente) para descobrir a chave apropriada a ser usada para validação de assinatura.|Não|N/D|  
 |match|O atributo `match` no elemento `claim` especifica se todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida. Os valores possíveis são:<br /><br /> -                          `all` – todos os valores de declaração na política devem estar presentes no token para que a validação seja bem-sucedida.<br /><br /> -                          `any` – pelo menos um valor de declaração na política deve estar presente no token para que a validação seja bem-sucedida.|Não|tudo|  
 |query-paremeter-name|O nome do parâmetro de consulta que contém o token.|`header-name` ou `query-paremeter-name` deve ser especificado; mas não ambos.|N/D|  
-|require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token.|Não|verdadeiro|  
+|require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token.|Não|verdadeiro|
+|require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não|N/D|
 |require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não|verdadeiro|  
 |url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.windows.net/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
   
@@ -503,9 +505,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos de política:** global, produto, API, operação  
   
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre como trabalhar com políticas, consulte [Políticas do Gerenciamento de API](api-management-howto-policies.md).  
+Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
 
 
-<!--HONumber=Jan17_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

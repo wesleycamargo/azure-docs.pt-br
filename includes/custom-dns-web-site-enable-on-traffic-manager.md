@@ -13,7 +13,7 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
 > 
 
 1. No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
-2. Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configurações** e, em seguida, selecione **Domínios personalizados**
+2. Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configuraçõe**s e selecione **Domínios personalizados**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. Na folha **Domínios personalizados**, clique em **Adicionar nome do host**.
@@ -21,11 +21,15 @@ Se ainda não tiver adicionado o aplicativo Web como um ponto de extremidade do 
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Clique em **Validar** para salvar a configuração de nome de domínio.
-6. Ao clicar em **Validar**, o Azure iniciará o fluxo de trabalho de verificação de domínio. Isso verificará a propriedade do domínio, bem como a disponibilidade do nome do host e o sucesso ou o erro detalhado do relatório com diretrizes prescritivas sobre como corrigir o erro.
-7. Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. Agora, navegue até o nome de domínio personalizado em um navegador. Agora você verá seu aplicativo em execução usando seu nome de domínio personalizado.
+6. Ao clicar em **Validar** , o Azure iniciará o fluxo de trabalho de verificação de domínio. Isso verificará a propriedade do domínio, bem como a disponibilidade do nome do host e o sucesso ou o erro detalhado do relatório com diretrizes prescritivas sobre como corrigir o erro.    
+7. Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. Agora, navegue até o nome de domínio personalizado em um navegador. Agora você verá seu aplicativo em execução usando seu nome de domínio personalizado. 
    
    Depois que a configuração estiver concluída, o nome do domínio personalizado será listado na seção **nomes de domínio** de seu aplicativo Web.
 
 Nesse ponto, você deve ser capaz de inserir o nome de domínio do Gerenciador de Tráfego no navegador e ver se ele te leva com êxito ao aplicativo Web.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

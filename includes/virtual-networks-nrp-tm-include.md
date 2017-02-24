@@ -1,5 +1,5 @@
-## Perfil de Gerenciador de Tráfego
-O gerenciador de tráfego e seu recurso de ponto de extremidade filho habilitam o roteamento de DNS para pontos de extremidade no Azure e fora do Azure. Essa distribuição de tráfego é controlada por métodos de política de roteamento. O Gerenciador de Tráfego também permite que a integridade do ponto de extremidade seja monitorada e que o tráfego seja desviado adequadamente, com base na integridade de um ponto de extremidade.
+## <a name="traffic-manager-profile"></a>Perfil de Gerenciador de Tráfego
+O gerenciador de tráfego e seu recurso de ponto de extremidade filho habilitam o roteamento de DNS para pontos de extremidade no Azure e fora do Azure. Essa distribuição de tráfego é controlada por métodos de política de roteamento. O Gerenciador de Tráfego também permite que a integridade do ponto de extremidade seja monitorada e que o tráfego seja desviado adequadamente, com base na integridade de um ponto de extremidade. 
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -10,8 +10,8 @@ O gerenciador de tráfego e seu recurso de ponto de extremidade filho habilitam 
 | **Caminho** |caminho de monitoramento |
 | **Pontos de extremidade** |contêiner para recursos de ponto de extremidade |
 
-### Ponto de extremidade
-Um ponto de extremidade é um recurso de filho de um perfil de Gerenciador de Tráfego. Representa um serviço ou ponto de extremidade Web para o qual o tráfego de usuário é distribuído com base na política configurada no recurso de Perfil de Gerenciador de Tráfego.
+### <a name="endpoint"></a>Ponto de extremidade
+Um ponto de extremidade é um recurso de filho de um perfil de Gerenciador de Tráfego. Representa um serviço ou ponto de extremidade Web para o qual o tráfego de usuário é distribuído com base na política configurada no recurso de Perfil de Gerenciador de Tráfego. 
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -20,7 +20,7 @@ Um ponto de extremidade é um recurso de filho de um perfil de Gerenciador de Tr
 | **Peso** |peso de ponto de extremidade usado no gerenciamento de tráfego. |
 | **Prioridade** |prioridade do ponto de extremidade, usada para definir uma ação de failover |
 
-Exemplo do Gerenciador de Tráfego no formato Json:
+Exemplo do Gerenciador de Tráfego no formato Json: 
 
         {
             "apiVersion": "[variables('tmApiVersion')]",
@@ -77,7 +77,11 @@ Exemplo do Gerenciador de Tráfego no formato Json:
         }
 
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 Leia a [documentação da API REST para o Gerenciador de Tráfego](https://msdn.microsoft.com/library/azure/mt163664.aspx) para saber mais.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

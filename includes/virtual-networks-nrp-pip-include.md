@@ -1,13 +1,13 @@
-## Endereço IP público
-Um recurso de endereço IP público fornece um endereço IP para Internet dinâmico ou reservado. Embora você possa criar um endereço IP público como um objeto autônomo, você precisa associá-la a outro objeto para usar o endereço em si. Você pode associar um endereço IP público a um balanceador de carga, Application Gateway ou uma NIC para fornecer acesso à Internet a esses recursos.
+## <a name="public-ip-address"></a>Endereço IP público
+Um recurso de endereço IP público fornece um endereço IP para Internet dinâmico ou reservado. Embora você possa criar um endereço IP público como um objeto autônomo, você precisa associá-la a outro objeto para usar o endereço em si. Você pode associar um endereço IP público a um balanceador de carga, Application Gateway ou uma NIC para fornecer acesso à Internet a esses recursos.  
 
 | Propriedade | Descrição | Valores de exemplo |
 | --- | --- | --- |
 | **publicIPAllocationMethod** |Define se o endereço IP é *estático* ou *dinâmico*. |estático, dinâmico |
 | **idleTimeoutInMinutes** |Define o tempo limite ocioso, com um valor padrão de 4 minutos. Se nenhum ouro pacote de uma determinada sessão for recebido nesse período, a sessão será encerrada. |qualquer valor entre 4 e 30 |
-| **ipAddress** |Endereço IP atribuído a um objeto. Essa é uma propriedade somente leitura. |104\.42.233.77 |
+| **ipAddress** |Endereço IP atribuído a um objeto. Essa é uma propriedade somente leitura. |104.42.233.77 |
 
-### Configurações DNS
+### <a name="dns-settings"></a>Configurações DNS
 Endereços IP públicos têm um objeto filho chamado **dnsSettings** que contém as seguintes propriedades:
 
 | Propriedade | Descrição | Valores de exemplo |
@@ -34,9 +34,13 @@ Endereço IP de público exemplo, no formato JSON:
        }
     } 
 
-### Recursos adicionais
+### <a name="additional-resources"></a>Recursos adicionais
 * Obtenha mais informações sobre [endereços IP públicos](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
 * Saiba mais sobre [endereços IP públicos em nível de instância](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 * Leia a [documentação de referência da API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) para endereços IP públicos.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

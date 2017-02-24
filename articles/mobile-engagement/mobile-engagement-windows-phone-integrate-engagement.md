@@ -101,7 +101,7 @@ Modifique o `App.xaml.cs`:
 > 
 
 ## <a name="basic-reporting"></a>Relatórios básicos
-### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecarregar suas classes `PhoneApplicationPage`
+### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecarregar suas classes `PhoneApplicationPage`
 Para ativar o relatório de todos os logs exigidos pelo Engagement para os usuários, sessões, atividades, falhas e das estatísticas técnicas de computação, você pode simplesmente fazer todas as suas subclasses `PhoneApplicationPage` herdarem das classes `EngagementPage`.
 
 Este é um exemplo de como fazer isso em uma página do seu aplicativo. Você pode fazer a mesma coisa em todas as páginas do seu aplicativo.

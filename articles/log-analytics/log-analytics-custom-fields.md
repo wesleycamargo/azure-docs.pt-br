@@ -44,7 +44,7 @@ As seções a seguir fornecem o procedimento para criar um campo personalizado. 
 > 
 > 
 
-### <a name="step-1-identify-records-that-will-have-the-custom-field"></a>Etapa 1: Identificar registros que terão o campo personalizado
+### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Etapa 1: Identificar registros que terão o campo personalizado
 A primeira etapa é identificar os registros que obterão o campo personalizado.  Você inicia com uma [pesquisa de log standard](log-analytics-log-searches.md) e, em seguida, seleciona um registro para atuar como o modelo com o qual o Log Analytics aprenderá.  Quando você especifica que extrairá dados em um campo personalizado, o **Field Extraction Wizard** (Assistente de Extração de Campo) é aberto, no qual você valida e refina os critérios.
 
 1. Acesse a **Pesquisa de Log** e use uma [consulta para recuperar os registros](log-analytics-log-searches.md) que terão o campo personalizado.
@@ -60,7 +60,7 @@ Depois de identificar os registros que terão o campo personalizado, você ident
 2. Clique em **Extrair** para executar uma análise dos registros coletados.  
 3. As seções **Resumo** e **Resultados da Pesquisa** exibem os resultados da extração para que você possa inspecionar sua precisão.  **Resumo** exibe os critérios usados para identificar registros e uma contagem de cada um dos valores de dados identificados.  **Resultados da Pesquisa** fornece uma lista detalhada dos registros que correspondem aos critérios.
 
-### <a name="step-3-verify-accuracy-of-the-extract-and-create-custom-field"></a>Etapa 3: Verificar a precisão da extração e criar o campo personalizado
+### <a name="step-3--verify-accuracy-of-the-extract-and-create-custom-field"></a>Etapa 3: Verificar a precisão da extração e criar o campo personalizado
 Após você ter executado a extração inicial, o Log Analytics exibirá seus resultados com base nos dados que já foram coletados.  Se os resultados parecerem precisos, você poderá criar o campo personalizado sem trabalho adicional.  Caso contrário, você pode refinar os resultados para que o Log Analytics possa melhorar sua lógica.
 
 1. Se quaisquer valores na extração inicial não estiverem corretos, clique no ícone **Editar** ao lado de um registro impreciso e selecione **Modificar esse realce** para modificar a seleção.

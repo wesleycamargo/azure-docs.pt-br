@@ -100,7 +100,7 @@ As regras de CORS são avaliadas da seguinte maneira:
 
 As regras são processadas na ordem em que estiverem presentes no corpo da solicitação, práticas recomendadas recomendam que você especifique as regras mais restritivas em relação às primeiras origens na lista, para que elas sejam avaliadas primeiro. Especifica regras que são menos restritivas – por exemplo, uma regra para permitir todas as origens – no final da lista.
 
-### <a name="example-cors-rules-evaluation"></a>Exemplo – avaliação das regras de CORS
+### <a name="example--cors-rules-evaluation"></a>Exemplo – avaliação das regras de CORS
 O exemplo a seguir mostra um corpo de solicitação parcial para a operação para definir regras de CORS para os serviços de armazenamento. Confira [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) e [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx) para obter detalhes sobre como construir a solicitação.
 
 ```xml
