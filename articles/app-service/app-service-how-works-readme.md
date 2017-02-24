@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>Como funciona o Serviço de Aplicativo
 O Serviço de Aplicativo do Azure é um serviço de nuvem projetado para resolver os problemas práticos enfrentados atualmente pelos engenheiros.
-O Serviço de Aplicativo se concentra em permitir uma produtividade superior ao desenvolvedor sem comprometer a necessidade de fornecer aplicativos em escala de nuvem.
+O Serviço de Aplicativo se concentra em permitir uma produtividade superior ao desenvolvedor sem comprometer a necessidade de fornecer aplicativos em escala de nuvem. 
 
 O Serviço de Aplicativo também fornece os recursos e as estruturas necessários para compor aplicativos de Linha de Negócios e dar suporte a desenvolvedores com as linguagens de desenvolvimento mais populares (como Microsoft .NET, Java, PHP, Node.js e Python).
 Com o Serviço de Aplicativo, os desenvolvedores podem:
