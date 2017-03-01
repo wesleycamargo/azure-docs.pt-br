@@ -11,23 +11,18 @@ ms.service: sql-database
 ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
-ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: 130f2341eca570a982ab5c22ba429f6b48006f90
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="manage-azure-sql-databases-using-the-azure-portal"></a>Gerenciar Bancos de Dados SQL do Azure usando o portal do Azure
-> [!div class="op_single_selector"]
-> * [Portal do Azure](sql-database-manage-portal.md)
-> * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-manage-powershell.md)
-> 
-> 
 
 O [portal do Azure](https://portal.azure.com/) permite que você crie, monitore e gerencie servidores e bancos de dados SQL Azure. Este artigo fornece uma descrição rápida e links para os detalhes das tarefas mais comuns.
 
@@ -40,17 +35,17 @@ Para exibir os serviços disponíveis do Banco de Dados SQL, clique em **Mais se
 ![Banco de dados SQL](./media/sql-database-manage-portal/sql-services.png)
 
 ## <a name="how-do-i-create-or-view-azure-sql-databases"></a>Como criar ou exibir Bancos de Dados SQL do Azure?
-Para abrir a folha **Bancos de Dados SQL**, clique em **Bancos de Dados SQL** e clique no banco de dados com o qual você deseja trabalhar ou clique em **+Adicionar** para criar um Banco de Dados SQL. Para obter detalhes, confira [Criar um Banco de Dados SQL em minutos usando o Portal do Azure](sql-database-get-started.md).
+Para abrir a folha **Bancos de Dados SQL**, clique em **Bancos de Dados SQL** e clique no banco de dados com o qual você deseja trabalhar ou clique em **+Adicionar** para criar um Banco de Dados SQL. Para obter detalhes, consulte [Seu primeiro Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-get-started.md).
 
 ![Bancos de dados SQL](./media/sql-database-manage-portal/sql-databases.png)
 
 ## <a name="how-do-i-create-or-view-azure-sql-servers"></a>Como criar ou exibir os servidores do SQL Azure?
-Para abrir a folha **Servidores SQL**, clique em **Servidores SQL** e clique no servidor com o qual você deseja trabalhar ou clique em **+Adicionar** para criar um servidor SQL. Para obter detalhes, confira [Criar um Banco de Dados SQL em minutos usando o Portal do Azure](sql-database-get-started.md).
+Para abrir a folha **Servidores SQL**, clique em **Servidores SQL** e clique no servidor com o qual você deseja trabalhar ou clique em **+Adicionar** para criar um servidor SQL. Para obter detalhes, consulte [Seu primeiro Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-get-started.md).
 
 ![Servidores SQL](./media/sql-database-manage-portal/sql-servers.png)
 
 ## <a name="how-do-i-create-or-view-sql-elastic-pools"></a>Como criar ou exibir os pools elásticos de SQL?
-Para abrir a folha **Pools elásticos de SQL**, clique em **Pools elásticos de SQL** e clique no pool com o qual você deseja trabalhar, ou clique em **+Adicionar** para criar um pool. Para obter detalhes, confira [Criar um pool elástico com o Portal do Azure](sql-database-elastic-pool-create-portal.md).
+Para abrir a folha **Pools elásticos de SQL**, clique em **Pools elásticos de SQL** e clique no pool com o qual você deseja trabalhar, ou clique em **+Adicionar** para criar um pool. Para obter detalhes, confira [Criar um pool elástico com o Portal do Azure](sql-database-elastic-pool-manage-portal.md).
 
 ![Pools elásticos SQL](./media/sql-database-manage-portal/elastic-pools.png)
 
@@ -70,12 +65,12 @@ Para exibir, criar ou atualizar regras de firewall, clique em **Definir firewall
 ![regras de firewall](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 ## <a name="how-do-i-change-my-sql-database-service-tier-or-performance-level"></a>Como posso alterar meu nível de desempenho ou camada de serviço do Banco de Dados SQL?
-Para atualizar a camada de serviço ou o nível de desempenho de um banco de dados SQL, clique em **Tipo de preços (escalar DTUs)** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md).
+Para atualizar a camada de serviço ou o nível de desempenho de um banco de dados SQL, clique em **Tipo de preços (escalar DTUs)** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-service-tiers.md).
 
 ![tipos de preço](./media/sql-database-manage-portal/pricing-tier.png)
 
 ## <a name="how-do-i-configure-auditing-and-threat-detection-for-a-sql-database"></a>Como configurar a auditoria e detecção de ameaças para um banco de dados SQL?
-Para configurar a detecção de ameaças e a auditoria para um banco de dados SQL, clique em **Auditoria e Detecção de ameaças** na folha **Banco de Dados SQL**. Para obter detalhes, consulte [Introdução à auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md) e [Introdução à detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).
+Para configurar a detecção de ameaças e a auditoria para um banco de dados SQL, clique em **Auditoria e Detecção de ameaças** na folha **Banco de Dados SQL**. Para obter detalhes, consulte [Auditoria de banco de dados](sql-database-auditing.md) e [Introdução à detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
 
 ## <a name="how-do-i-configure-dynamic-data-masking-for-a-sql-database"></a>Como configurar máscara de dados dinâmicos para um banco de dados SQL?
 Para configurar a máscara de dados dinâmica para um banco de dados SQL, clique em **Máscara de dados dinâmicos** na folha **Banco de dados SQL**. Para obter detalhes, confira [Introdução ao mascaramento de dados dinâmicos do banco de dados SQL](sql-database-dynamic-data-masking-get-started.md).
@@ -84,7 +79,7 @@ Para configurar a máscara de dados dinâmica para um banco de dados SQL, clique
 Para configurar a Transparent Data Encryption para um banco de dados SQL, clique em **Transparent Data Encryption** na folha **Banco de Dados SQL**. Para obter detalhes, consulte [Habilitar TDE em um banco de dados usando o portal](https://msdn.microsoft.com/library/dn948096#Anchor_1).
 
 ## <a name="how-do-i-view-or-change-the-max-size-of-a-sql-database"></a>Como exibir ou alterar o tamanho máximo de um banco de dados SQL?
-Para exibir ou alterar o tamanho do banco de dados SQL, clique em **Tamanho de banco de dados** na folha **Banco de dados SQL**. Atualize o tamanho máximo de um banco de dados alterando a camada de serviço ou o nível de desempenho. Para obter detalhes, confira [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-scale-up.md).
+Para exibir ou alterar o tamanho do banco de dados SQL, clique em **Tamanho de banco de dados** na folha **Banco de dados SQL**. Atualize o tamanho máximo de um banco de dados alterando a camada de serviço ou o nível de desempenho. Para obter detalhes, confira [Alterar a camada de serviços e o nível de desempenho (tipo de preço) de um banco de dados SQL](sql-database-service-tiers.md).
 
 ## <a name="how-do-i-monitor-and-improve-the-performance-of-a-sql-database"></a>Como monitorar e melhorar o desempenho de um banco de dados SQL?
 Para monitorar e melhorar as características de desempenho de um banco de dados SQL, clique em **Visão geral do desempenho** na folha **Banco de dados SQL**. Para obter detalhes, consulte [Análise de desempenho do Banco de Dados SQL](sql-database-performance.md).
@@ -106,12 +101,12 @@ Para criar um BACPAC de um banco de dados SQL, clique em **Exportar** na folha *
 ![exportar banco de dados SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>Como restaurar um banco de dados SQL para um ponto anterior no tempo?
-Para restaurar um banco de dados SQL, clique em **Restaurar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore.md).
+Para restaurar um banco de dados SQL, clique em **Restaurar** na folha **Banco de Dados SQL**. Para obter detalhes, confira [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore-portal.md).
 
 ![Configurações do Banco de Dados SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
 ## <a name="how-do-i-create-an-azure-sql-database-from-a-bacpac-file"></a>Como criar um arquivo do banco de dados SQL do Azure de um arquivo BACPAC?
-Para criar um banco de dados SQL de um arquivo BACPAC, clique em **Importar banco de dados** na folha **SQL Server**. Para obter detalhes, confira [Importar um arquivo BACPAC para criar um Banco de Dados SQL do Azure](sql-database-import.md).
+Para criar um banco de dados SQL de um arquivo BACPAC, clique em **Importar banco de dados** na folha **SQL Server**. Para obter detalhes, confira [Importar um arquivo BACPAC para criar um Banco de Dados SQL do Azure](sql-database-import-portal.md).
 
 ![SQL Server](./media/sql-database-manage-portal/server-commands.png)
 
@@ -126,10 +121,5 @@ Para excluir um banco de dados SQL, clique em **Excluir** na folha **Banco de Da
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Banco de Dados SQL](sql-database-technical-overview.md)
 * [Monitorar e gerenciar um pool elástico com o portal do Azure](sql-database-elastic-pool-manage-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

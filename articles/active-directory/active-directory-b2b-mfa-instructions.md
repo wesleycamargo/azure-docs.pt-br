@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 894f94fdefe081679b1e35183bd4127be35cd33c
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 32d0b45080d57712209e0c5a3e5adf981fb4b66e
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -36,10 +37,14 @@ Isso significa que:
 7. Resumindo, o locatário que convida *sempre* é responsável pela MFA dos usuários de colaboração B2B da organização parceira, e não pela organização parceira (mesmo que tenha recursos de MFA). Em versões futuras, permitiremos que organização que convida confie na MFA específica das organizações parceiras, em vez de usar a MFA da organização que convida.
 
 ## <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Definindo a MFA para usuários de colaboração B2B
-Para descobrir como é fácil configurar a MFA para usuários de colaboração B2B, confira [este vídeo](https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup).
+Para descobrir como é fácil configurar a MFA para usuários de colaboração B2B, confira o vídeo a seguir:
 
-## <a name="b2b-collaboration-users-mfa-experience-for-offer-redemption"></a>Experiência de MFA de usuários de colaboração B2B para resgate de oferta
-Confira a animação abaixo para ver a experiência de resgate, conforme mostrado [neste vídeo](https://channel9.msdn.com/Blogs/Azure/MFA-redemption).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
+
+## <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Experiência de MFA de usuários B2B para resgate de oferta
+Confira a animação abaixo para ver a experiência de resgate, conforme mostrado no vídeo a seguir:
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
 ## <a name="mfa-reset-for-b2b-collaboration-users"></a>Redefinição de MFA para usuários de colaboração B2B
 Atualmente, o administrador pode exigir que os usuários de colaboração B2B façam uma verificação novamente usando somente os seguintes cmdlets do PowerShell. Portanto, os seguintes cmdlets do PowerShell devem ser usados se você quiser redefinir o método de verificação do usuário de colaboração B2B.
@@ -85,9 +90,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

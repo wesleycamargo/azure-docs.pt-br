@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/14/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: e8daf6f37cbbdf1c33d8b66a2b8719458e8bd9f9
-ms.openlocfilehash: 7886f7e7fcf22d38c45e369761730c076ad96d75
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: 1ef09170f9d5dd28005f70913df2c945f8e4ac12
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -86,7 +87,7 @@ Não escolher nenhum valor para uma determinada propriedade tem o mesmo efeito q
 ### <a name="narrow-your-search"></a>Reduzir o escopo de sua pesquisa
 Observe que as contagens à direita dos valores de filtro mostram quantas ocorrências existem no atual conjunto filtrado. 
 
-Neste exemplo, está claro que a solicitação “Rpt/Employees” resulta na maioria dos 500 erros:
+Neste exemplo, está claro que a solicitação “Rpt/Employees” resulta na maioria dos&500; erros:
 
 ![Expanda uma propriedade e escolha um valor](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -137,7 +138,7 @@ Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.
 
 
 ## <a name="create-work-item"></a>Criar um item de trabalho
-Você pode criar um bug no Visual Studio Team Services com os detalhes de qualquer item de telemetria. 
+Você pode criar um bug no GitHub ou Visual Studio Team Services com os detalhes de qualquer item de telemetria. 
 
 ![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/42.png)
 
@@ -145,7 +146,7 @@ Na primeira vez que fizer isso, será solicitado que você configure um link par
 
 ![Preencha a URL do servidor do Team Services e o Nome do projeto e, em seguida, clique em Autorizar](./media/app-insights-diagnostic-search/41.png)
 
-(Você também pode chegar à folha de configuração em Configurações > Itens de Trabalho.)
+(Você também pode configurar o link na folha Itens de Trabalho.)
 
 ## <a name="save-your-search"></a>Salvar sua pesquisa
 Quando você definiu todos os filtros que deseja, você pode salvar a pesquisa como um favorito. Se você trabalha em uma conta organizacional, você pode optar por compartilhá-la com outros membros da equipe.
@@ -168,7 +169,8 @@ Além de telemetria da caixa enviada pelo SDK do Application Insights, você pod
 
 ## <a name="a-namequestionsaq--a"></a><a name="questions"></a>Perguntas e respostas
 ### <a name="a-namelimitsahow-much-data-is-retained"></a><a name="limits"></a>Que quantidade de dados é mantida?
-Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
+
+Veja o [Resumo de limites](app-insights-pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Como consultar dados de POSTAGEM nas minhas solicitações de servidor?
 Nós não registramos os dados de POST automaticamente, mas você pode usar [chamadas de log ou TrackTrace](app-insights-search-diagnostic-logs.md). Coloque os dados de POSTAGEM no parâmetro de mensagem. Não é possível filtrar a mensagem da mesma maneira que as propriedades, mas o limite de tamanho é maior.
@@ -178,9 +180,4 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 * [Enviar logs e telemetria personalizada para o Application Insights](app-insights-search-diagnostic-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](app-insights-monitor-web-app-availability.md)
 * [Solução de problemas](app-insights-troubleshoot-faq.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

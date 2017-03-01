@@ -1,6 +1,6 @@
 ---
 title: Perguntas Frequentes do Log Analytics | Microsoft Docs
-description: "Respostas para perguntas frequentes sobre o serviço Log Analytics."
+description: "Respostas para perguntas frequentes sobre o serviço Azure Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e24e6f9cc383be77dc631a0dd67db099906dccc0
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 4695669dc20b4b4b90ccdaf4db06df2cfcba2167
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -63,7 +64,7 @@ R. Os diferentes tipos de tráfego de Rota Expressa estão descritos na [Documen
 
 O tráfego para o Log Analytics usa o circuito de Rota Expressa de emparelhamento público.
 
-**P. Há alguma maneira simples e fácil de mover um espaço de trabalho existente do Log Analytics para outra assinatura do Azure/espaço de trabalho do Log Analytics?**   Temos vários espaços de trabalho do OMS do cliente que estávamos testando e avaliando em nossa assinatura do Azure, eles estão sendo movidos para a produção e, portanto, queremos movê-los para sua própria assinatura do Azure/OMS.  
+**P. Há alguma maneira simples e fácil de mover um espaço de trabalho existente do Log Analytics para outra assinatura do Azure/espaço de trabalho do Log Analytics?**  Temos vários espaços de trabalho do OMS do cliente que estávamos testando e avaliando em nossa assinatura do Azure, eles estão sendo movidos para a produção e, portanto, queremos movê-los para sua própria assinatura do Azure/OMS.  
 
 R. O cmdlet `Move-AzureRmResource` permitirá que você mova um espaço de trabalho do Log Analytics, além de uma conta de automação de uma assinatura do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
 
@@ -89,6 +90,13 @@ Um ícone de aviso amarelo significa que o agente está tendo problemas de comun
 
 R: no SCOM, remova o computador da lista de gerenciados pelo OMS. Isso interrompe todas as comunicações por meio do SCOM para esse agente. Para os agentes conectados diretamente ao OMS, você pode impedi-los de se comunicar com o OMS por meio de: Painel de Controle, Segurança e Configurações, **Microsoft Monitoring Agent**.
 Em **Azure Log Analytics (OMS)**, remova todos os espaços de trabalho listados.
+
+**P: Por que estou recebendo um erro ao tentar mover meu espaço de trabalho de uma assinatura do Azure para outra?**
+
+R: quando você adiciona uma solução, o Azure cria um recurso na assinatura do Azure em que o espaço de trabalho está contido.
+
+Normalmente, a pessoa adicionando a assinatura é um administrador ou colaborador da *assinatura do Azure*. Ser um administrador ou colaborador no portal do OMS não será suficiente se o usuário também não tiver as mesmas permissões no Portal do Azure para a assinatura do Azure.
+
 
 ## <a name="agent-data"></a>Dados do agente
 **P. Que quantidade de dados posso enviar por meio do agente para o Log Analytics? Há uma quantidade máxima de dados por cliente?**  
@@ -121,9 +129,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Log Analytics](log-analytics-get-started.md) para saber mais sobre o Log Analytics e colocá-lo em funcionamento em minutos.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

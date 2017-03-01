@@ -12,11 +12,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 02/15/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 096fcd2a7415da03714f05bb1f29ceac6f186eda
-ms.openlocfilehash: dba7cd466d94cb68896ee9270bc765fe822ca00e
+ms.sourcegitcommit: 0841744b806f3dba38dddee21fb7fe881e07134f
+ms.openlocfilehash: 51c9d9afb6c2ed460abd4c47a6afbc404b97a85e
+ms.lasthandoff: 02/16/2017
 
 ---
 
@@ -203,11 +204,13 @@ Enquanto a política de controle de alterações integrado do SQL é recomendada
 
 * Todas as inserções especificam um valor para a coluna.
 * Todas as atualizações de um item também alteram o valor da coluna.
-* O valor dessa coluna aumenta com cada alteração.
+* O valor dessa coluna aumenta com cada inserção ou atualização.
 * Consultas com as cláusulas WHERE e ORDER BY a seguir podem ser executadas com eficiência: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`.
 
-Por exemplo, uma coluna **rowversion** indexada é uma candidata ideal para a coluna de marca d'água alta.
-Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
+> [!IMPORTANT] 
+> É altamente recomendável usar uma coluna **rowversion** para acompanhamento de alterações. Se qualquer outro tipo de dados for usado, não será possível assegurar a captura, pelo acompanhamento de alterações, de todas as alterações na presença de transações em execução simultaneamente com uma consulta do indexador.
+
+Para usar uma política de marca d'água alta, crie ou atualize a fonte de dados da seguinte maneira:
 
     {
         "name" : "myazuresqldatasource",
@@ -216,7 +219,7 @@ Para usar essa política, crie ou atualize a fonte de dados da seguinte maneira:
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a row version or last_updated column name]"
+           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
 
@@ -312,9 +315,4 @@ R: Sim. No entanto, somente um indexador pode ser executado por vez em um nó. S
 **P:** executar um indexador afeta minha carga de trabalho de consulta?
 
 R: Sim. O indexador é executado em um dos nós em seu serviço de pesquisa, e os recursos do nó são compartilhados entre a indexação e o atendimento ao tráfego de consultas e outras solicitações da API. Se você executar cargas de trabalho com indexação e consultas intensas e receber uma taxa alta de erros 503 ou tempos de resposta maiores, considere o aumento de seu serviço de pesquisa.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

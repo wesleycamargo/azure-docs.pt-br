@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58eee787b54122380b48f1c7a96dbe2e79e4bcef
+ms.sourcegitcommit: e0971ca8064a6e4de272a8d890a6fdc88c0f8cc2
+ms.openlocfilehash: 24e3da0ed3aa04e000a4c88fb7b0745d5b880d0d
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,7 +40,7 @@ Depois de adicionar a solução e uma avaliação for concluída, as informaçõ
 Use as informações a seguir para instalar e configurar as soluções.
 
 * É preciso que agentes sejam instalados em controladores de domínio membros do domínio a ser avaliado.
-* A solução de Avaliação do Active Directory requer o .NET Framework 4 instalado em cada computador que tem um agente do OMS.
+* A solução de Avaliação do Active Directory requer uma versão do .NET Framework 4 com suporte (4.5.2 ou superior) instalada em cada computador que tem um agente OMS.
 * Adicione a solução de Avaliação do Active Directory ao espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
   > [!NOTE]
@@ -170,9 +171,4 @@ Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados e recomendações da Avaliação do AD.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar, diagnosticar e solucionar problemas de Armazenamento | Microsoft Docs
+title: Monitorar, diagnosticar e solucionar problemas do Armazenamento do Azure | Microsoft Docs
 description: "Use recursos como análise de armazenamento, registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure."
 services: storage
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 02/16/2017
 ms.author: jahogg
 translationtype: Human Translation
-ms.sourcegitcommit: b0abc4df06849ef2a887a190a8ea306849d40b3d
-ms.openlocfilehash: e7613084c6a7f20913b49b1f3c33bb681897c118
+ms.sourcegitcommit: d755a94bc8c5165480291d891c5feb0cf3b26e75
+ms.openlocfilehash: e6915bf94b56b9c9ff3deb131d18d1d5457f0e85
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -54,7 +55,7 @@ Para obter um guia prático para solução de problemas de ponta a ponta em apli
   * [ID de solicitação do cliente]
   * [ID de solicitação do servidor]
   * [Carimbos de data/hora]
-* [Diretrizes de solução de problemas]
+* [Diretrizes para solução de problemas]
   * [As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency]
   * [As métricas mostram baixa AverageE2ELatency e baixa AverageServerLatency, mas o cliente está recebendo uma latência alta]
   * [As métricas mostram alta AverageServerLatency]
@@ -84,8 +85,6 @@ Esse guia mostra como você usa recursos como o Armazenamento Analítico do Azur
 
 ![][1]
 
-*Figura 1: Monitoramento, Diagnósticos e Solução de Problemas*
-
 Esse guia deve ser lido primeiramente pelos desenvolvedores de serviços online que usam os Serviços Armazenamento do Azure e profissionais de TI para gerenciar esses serviços online. Os objetivos desse guia são:
 
 * Ajudar a manter a integridade e o desempenho de suas contas de Armazenamento do Azure.
@@ -99,7 +98,7 @@ A seção "[Diagnóstico de problemas de armazenamento]" descreve como diagnosti
 
 A seção "[Rastreamento de ponta a ponta]" descreve como você correlaciona as informações contidas em vários arquivos de log e em dados de métrica.
 
-A seção "[Diretrizes de solução de problemas]" oferece diretrizes para a solução dos problemas mais comuns relacionados a armazenamento que você possa encontrar.
+A seção "[Diretrizes para solução de problemas]" oferece diretrizes para a solução dos problemas mais comuns relacionados a armazenamento que você possa encontrar.
 
 Os "[Anexos]" incluem informações sobre o uso de ferramentas como o Wireshark e Netmon para a análise de dados de pacote de rede, Fiddler para a análise de mensagens HTTP/HTTPS e o Microsoft Message Analyzer para correlacionar os dados de log.
 
@@ -119,7 +118,7 @@ Monitore continuamente seus aplicativos do Azure para garantir que sua integrida
 * Registrar métricas a cada hora e usá-las para monitorar os valores médios como: médias de contagem de erros ou taxas de solicitação.
 * Investigar os potenciais problemas usando as ferramentas de diagnóstico como discutido anteriormente na seção "[Diagnóstico de problemas de armazenamento]“.
 
-Os gráficos na Figura 3 abaixo ilustram como a média que acontece nas métricas de hora em hora podem esconder picos em atividade. As métricas de hora em hora parecem mostrar uma taxa constante de solicitações, enquanto as métricas de minuto em minuto revelam as flutuações que estão realmente acontecendo.
+Os gráficos na imagem a seguir ilustram como a média que acontece nas métricas de hora em hora podem esconder picos em atividade. As métricas de hora em hora parecem mostrar uma taxa constante de solicitações, enquanto as métricas de minuto em minuto revelam as flutuações que estão realmente acontecendo.
 
 ![][3]
 
@@ -150,7 +149,7 @@ Qualquer valor inferior a 100% indica que houve falha em algumas solicitações 
 
 No [Portal do Azure](https://portal.azure.com), você pode adicionar as regras de alertas para notificá-lo se a **Disponibilidade** de um serviço está abaixo dos limites que você especificou.
 
-A seção "[Diretrizes de solução de problemas]" deste guia descreve alguns dos problemas mais comuns de armazenamento relacionados a disponibilidade.
+A seção "[Diretrizes para solução de problemas]" deste guia descreve alguns dos problemas mais comuns de armazenamento relacionados a disponibilidade.
 
 ### <a name="a-namemonitoring-performanceamonitoring-performance"></a><a name="monitoring-performance"></a>Monitoramento de desempenho
 Para monitorar o desempenho dos serviços de armazenamento, você pode usar as seguintes métricas das tabelas de hora em hora ou minuto em minuto.
@@ -163,7 +162,7 @@ Normalmente, você irá monitorar as mudanças inesperadas em qualquer um desses
 
 No [Portal do Azure](https://portal.azure.com), você pode adicionar as regras de alertas para notificá-lo se quaisquer métricas de desempenho desse serviço estão abaixo dos limites que você especificou.
 
-A seção "[Diretrizes de solução de problemas]" deste guia descreve alguns dos problemas mais comuns de armazenamento relacionados a desempenho.
+A seção "[Diretrizes para solução de problemas]" deste guia descreve alguns dos problemas mais comuns de armazenamento relacionados a desempenho.
 
 ## <a name="a-namediagnosing-storage-issuesadiagnosing-storage-issues"></a><a name="diagnosing-storage-issues"></a>Diagnóstico de problemas de armazenamento
 Há inúmero caminhos que você pode ter para ficar ciente de um problema em seu aplicativo, entre eles:
@@ -180,7 +179,7 @@ Normalmente, problemas relacionados aos serviços de armazenamento do Azure est�
 * Seu aplicativo está encontrando um erro, relatado por um de seus usuários ou revelado por um aumento em uma das métricas de contagem de erro que você monitora.
 * Durante o desenvolvimento e o teste, você talvez esteja usando o emulador de armazenamento local; você pode encontrar alguns problemas relacionados especificamente ao uso do emulador de armazenamento.
 
-As seguintes seções apresentam as etapas que você deve seguir para diagnosticar e solucionar os problemas em cada uma dessas quatro categorias. A seção "[Diretrizes de solução de problemas]" posteriormente nesse guia dará mais detalhes para alguns dos problemas mais comuns que você pode encontrar.
+As seguintes seções apresentam as etapas que você deve seguir para diagnosticar e solucionar os problemas em cada uma dessas quatro categorias. A seção "[Diretrizes para solução de problemas]" posteriormente nesse guia dará mais detalhes para alguns dos problemas mais comuns que você pode encontrar.
 
 ### <a name="a-nameservice-health-issuesaservice-health-issues"></a><a name="service-health-issues"></a>Problemas de integridade do serviço
 Problemas de integridade do serviço são normalmente fora do seu controle. O [Portal do Azure](https://portal.azure.com) dá informações sobre quaisquer problemas existentes com os serviços do Azure inclusive com os serviços de armazenamento. Se você optou pelo armazenamento com redundância geográfica de acesso a leitura (RA_GRS) quando você criou sua conta de armazenamento, então no evento de seus dados estarem indisponíveis no local principal, seu aplicativo pode mudar temporariamente para cópia somente de leitura em um local secundário. Para fazer isso, seu aplicativo deve ser capaz de alterar entre o uso de locais de armazenamento principal e secundário e ser capaz de trabalhar em modo de funcionamento reduzido com dados somente de leitura. As bibliotecas do cliente de armazenamento do Azure permitem que você defina uma política de tentativa que pode ler a partir do armazenamento secundário caso a leitura do armazenamento principal falhar. Seu aplicativo também precisa estar ciente que os dados do local secundário são consistentes. Para saber mais, consulte no blog a postagem [Opções de redundância do Armazenamento do Azure e armazenamento com redundância geográfica do acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
@@ -190,7 +189,7 @@ O desempenho de um aplicativo pode ser subjetivo, especialmente da perspectiva d
 
 Após ter identificado o possível local da causa do problema de desempenho a partir das métricas, você pode usar os arquivos de log para encontrar as informações detalhadas para diagnosticar e solucionar o problema mais profundamente.
 
-A seção "[Diretrizes de solução de problemas]" posteriormente nesse guia dará mais detalhes para alguns dos problemas mais comuns que você pode encontrar.
+A seção "[Diretrizes para solução de problemas]" posteriormente nesse guia dará mais detalhes para alguns dos problemas mais comuns que você pode encontrar.
 
 ### <a name="a-namediagnosing-errorsadiagnosing-errors"></a><a name="diagnosing-errors"></a>Diagnóstico de erros
 Usuários do seu aplicativo podem notificá-lo de erros registrados pelo aplicativo do cliente. Métricas de armazenamento também registram contagens de diferentes tipos de erros do seus serviços de armazenamento, tais como **NetworkError**, **ClientTimeoutError** ou **AuthorizationError**. Enquanto as métricas de armazenamento apenas registram as contagens de diferentes tipos de erros, você obter mais detalhes sobre solicitações individuais ao examinar os logs do servidor, do cliente e da rede. Normalmente, o código de status HTTP que voltam para o serviço de armazenamento darão uma indicação da razão da falha da solicitação.
@@ -211,7 +210,7 @@ Os seguintes recursos são úteis para compreender os status relacionados a arma
 ### <a name="a-namestorage-emulator-issuesastorage-emulator-issues"></a><a name="storage-emulator-issues"></a>Problemas de emulador de armazenamento
 O SDK do Azure inclui um emulador de armazenamento que você pode executar em uma estação de trabalho de desenvolvimento. Esse emulador simula a maior parte do comportamento dos serviços de armazenamento do Azure e é útil durante o desenvolvimento e o teste, permitindo que você execute aplicativos que você usam serviços de armazenamento do Azure sem a necessidade de uma assinatura e uma conta de armazenamento do Azure.
 
-A seção "[Diretrizes de solução de problemas]" deste guia descreve alguns dos problemas mais comuns usando o emulador de armazenamento.
+A seção "[Diretrizes para solução de problemas]" deste guia descreve alguns dos problemas mais comuns usando o emulador de armazenamento.
 
 ### <a name="a-namestorage-logging-toolsastorage-logging-tools"></a><a name="storage-logging-tools"></a>Ferramentas de log de armazenamento
 O log de armazenamento oferece o log do lado do servidor para solicitações de armazenamento na sua conta de armazenamento do Azure. Para saber mais sobre como habilitar o log do lado do servidor e acessar os dados de log, consulte [Enabling Storage Logging and Accessing Log Data](http://go.microsoft.com/fwlink/?LinkId=510867)(Como habilitar o registro em log do armazenamento e o acesso aos dados do log).
@@ -571,11 +570,11 @@ A tabela a seguir mostra um exemplo de mensagem d log do lado do servidor a part
 | Hora de início da solicitação | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operação     | GetBlobProperties            |
 | Status da solicitação     | SASAuthorizationError        |
-| Código de status HTTP   | 404                          |
+| Código de status HTTP   | 404                            |
 | Tipo de autenticação.| Sas                          |
 | Tipo de serviço       | Blob                         |
-| URL de Solicitação        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| URL de Solicitação         | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho da id de solicitação do   | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID de solicitação do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -770,7 +769,7 @@ Você também pode escolher para exibir os dados de TCP enquanto a camada do apl
 Você pode usar o Microsoft Message Analyzer para capturar o tráfego HTTP e HTTPS de uma forma similar ao Fiddler e capturar o tráfego de rede de uma forma similar ao Wireshark.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configure a sessão de rastreamento Web usando o Microsoft Message Analyzer
-Para configurar a sessão de rastreamento Web para tráfego HTTP e HTTPS usando o Microsoft Message Analyzer, execute o aplicativo Microsoft Message Analyzer e, no menu **Arquivo**, clique em **Capturar/Rastrear**. Na lista de cenários de rastreamento disponíveis, selecione **Proxy da Web**. Em seguida, no painel **Rastrear Configuração de Cenário**, na caixa de texto **HostnameFilter**, adicione os nomes dos pontos de extremidade de armazenamento (você pode procurar esses nomes no [portal do Azure](https://portal.azure.com)). Por exemplo, se o nome da sua conta de armazenamento do Azure é **contosodata**, adicione a seguinte caixa de diálogo **HostnameFilter**:
+Para configurar a sessão de rastreamento Web para tráfego HTTP e HTTPS usando o Microsoft Message Analyzer, execute o aplicativo Microsoft Message Analyzer e, no menu **Arquivo**, clique em **Capturar/Rastrear**. Na lista de cenários de rastreamento disponíveis, selecione **Proxy da Web**. Em seguida, no painel **Rastrear Configuração de Cenário**, na caixa de texto **HostnameFilter**, adicione os nomes dos pontos de extremidade de armazenamento (você pode procurar esses nomes no [Portal do Azure](https://portal.azure.com)). Por exemplo, se o nome da sua conta de armazenamento do Azure é **contosodata**, adicione a seguinte caixa de diálogo **HostnameFilter**:
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
@@ -843,7 +842,7 @@ Você pode encontrar mais informações em [O que é o Application Insights?](..
 [ID de solicitação do servidor]: #server-request-id
 [Carimbos de data/hora]: #timestamps
 
-[Diretrizes de solução de problemas]: #troubleshooting-guidance
+[Diretrizes para solução de problemas]: #troubleshooting-guidance
 [As métricas mostram alta AverageE2ELatency e baixa AverageServerLatency]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency
 [As métricas mostram baixa AverageE2ELatency e baixa AverageServerLatency, mas o cliente está recebendo uma latência alta]: #metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency
 [As métricas mostram alta AverageServerLatency]: #metrics-show-high-AverageServerLatency
@@ -890,9 +889,4 @@ Você pode encontrar mais informações em [O que é o Application Insights?](..
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

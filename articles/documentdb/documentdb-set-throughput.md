@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c65c4021f5d0beda8005abdd375ac51729acf0a8
-ms.openlocfilehash: 8ff246ab7d70bd00ce989d3049e016d692722d18
+ms.sourcegitcommit: abdf0af8a85db19c68a0d74c0477d798c0fd03fc
+ms.openlocfilehash: 8ff2fc6106438e35b93112a6dc97814ba79b06fc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -78,11 +79,13 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
+## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
+
+**Posso definir minha taxa de transferência com valor menor que 400 RU/s?**
+
+400 RU/s é a taxa de transferência mínima disponível em coleções de partição única do DocumentDB (2500 RU/s é o mínimo para coleções particionadas). Unidades de solicitação são definidas em intervalos de 100 RU/s, mas a taxa de transferência não pode ser definida como 100 RU/s ou qualquer valor menor que 400 RU/s. Se você estiver procurando por um método econômico para desenvolver e testar DocumentDB, você poderá usar o [emulador do DocumentDB](documentdb-nosql-local-emulator.md) gratuito, que pode ser implantado localmente sem custo adicional. 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o provisionamento e escala planeta contínuo com o DocumentDB, veja [particionamento e escala com o DocumentDB](documentdb-partition-data.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

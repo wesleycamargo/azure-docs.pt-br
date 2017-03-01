@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: 4345e544d2e2bcc90ee2e3caf5bf6dfc19f01ca3
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: dbdbae0f87d8d115407026b263c65c3b387fa178
+ms.lasthandoff: 02/21/2017
 
 ---
 # <a name="advisor-security-recommendations"></a>Recomendações de segurança do Advisor
@@ -38,7 +39,7 @@ Para saber mais sobre recomendações de segurança, leia [Gerenciando recomenda
 3. No painel do Advisor, clique na guia **Segurança** e selecione a assinatura para a qual deseja receber recomendações.
 
 > [!NOTE]
-> O Advisor gera recomendações para assinaturas em que você recebeu a função de **Proprietário, Colaborador ou Leitor**.  
+> Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um **proprietário da assinatura** inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -47,9 +48,4 @@ Veja estes recursos para saber mais sobre as recomendações do Advisor:
 -  [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 -  [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

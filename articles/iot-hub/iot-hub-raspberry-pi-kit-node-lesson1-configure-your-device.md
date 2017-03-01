@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: cc61bd7ab1f81ccdc5e9c73c1861d29dafa59c12
+ms.sourcegitcommit: 5b80d471c78973f8c2f6b1ad4e1240c66f0505ef
+ms.openlocfilehash: 5afe1110944641daaeace5ef02b2c9fa8d2a8e05
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -80,6 +81,9 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação.
 > [!NOTE]
 > É importante usar uma fonte de alimentação do kit que tenha pelo menos 2A para confirmar que o Raspberry será alimentado com capacidade suficiente para funcionar corretamente.
 
+## <a name="enable-ssh"></a>Habilitar SSH
+Da versão de novembro de 2016 em diante, o Raspbian tem o servidor SSH desabilitado por padrão. Você precisa habilitá-lo manualmente. Você pode consultar as [instruções oficiais](https://www.raspberrypi.org/documentation/remote-access/ssh/) ou conectar um monitor e ir para **Preferências-> Configuração do Raspberry Pi** para habilitar o SSH.
+
 ## <a name="connect-raspberry-pi-3-to-the-network"></a>Conectar o Raspberry Pi 3 à rede
 Você pode conectar o Pi a uma rede com ou sem fio. Verifique se o Pi está conectado à mesma rede que o computador. Por exemplo, você pode conectar o Pi no mesmo comutador que o computador está conectado.
 
@@ -113,10 +117,5 @@ Neste artigo, você aprendeu como configurar o Pi ao instalar o Raspbian, a cone
 
 ## <a name="next-steps"></a>Próximas etapas
 [Obter as ferramentas](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

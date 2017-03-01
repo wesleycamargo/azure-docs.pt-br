@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 177b01989ab2f3475cd853d89789b88e02d04be4
-ms.openlocfilehash: 0194ffe54462e1a432ea10e69608e158f9cc54dc
+ms.sourcegitcommit: 47869775365ea517b94cbd5a2eb83c93f4d2b4df
+ms.openlocfilehash: 17b7337ddcfa2671bb3a035de8462e31bfa0c85f
+ms.lasthandoff: 02/15/2017
 
 ---
 
@@ -83,9 +84,4 @@ Figura 4 – Tráfego de rede local roteado para o ponto de extremidade ILB
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

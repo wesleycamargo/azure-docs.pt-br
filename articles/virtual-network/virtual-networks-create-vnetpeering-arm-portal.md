@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c19ad7c0c466d178e97e83bb2d46b9905130d00e
-ms.openlocfilehash: a97aff9cb7071edc0b7fd1046bdd10d440d75eab
+ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
+ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -120,7 +121,7 @@ Cada link em uma rede virtual emparelhamento tem o conjunto anterior de propried
 
 1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
 2. Se estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes na *mesma* assinatura, vá para a etapa 3. A capacidade de criar um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas *diferentes* está em versão de **visualização**. Os recursos de versão de visualização não têm o mesmo nível de confiabilidade e o contrato de nível de serviço de recursos de versões gerais. Se estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas diferentes, primeiro deverá concluir as seguintes tarefas:
-    - Registre o recurso de visualização em sua assinatura do Azure digitando o seguinte comando do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` Não é possível concluir esta etapa no portal.
+    - Registre a funcionalidade de visualização em sua assinatura do Azure digitando os seguintes comandos do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` e `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network` Não é possível concluir esta etapa no Portal.
     - Conclua as etapas 1 a 6 da seção [Emparelhamento entre assinaturas](#x-sub) deste artigo.
 3. Para estabelecer o emparelhamento de VNET nesse cenário, você precisa criar apenas um link, da rede virtual no Azure Resource Manager até o clássico. Ou seja, da **VNET1** para a **VNET2**. No portal, clique em **Procurar** e escolha **Redes Virtuais**
 4. Na folha Redes virtuais, escolha **VNET1**. Clique em **Emparelhamentos**e clique em **Adicionar**.
@@ -141,10 +142,5 @@ Cada link em uma rede virtual emparelhamento tem o conjunto anterior de propried
 
     ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para Iniciado. Recomendamos a remoção dos dois links antes de recriar o emparelhamento VNet.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

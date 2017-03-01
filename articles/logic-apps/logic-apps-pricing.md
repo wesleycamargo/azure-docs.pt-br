@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: klam
 translationtype: Human Translation
-ms.sourcegitcommit: 17b33d3296ffbc65a22bf9a5077282fffdb7b3de
-ms.openlocfilehash: 4a0af9f3f9fab9ff459450eb8658273d4a1bc5dc
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: e14d55ad96187dc8ec6e6aac04463b58280783aa
+ms.lasthandoff: 02/15/2017
 
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de preços de Aplicativos Lógicos
@@ -27,7 +28,7 @@ Todas as ações executadas em uma execução de uma instância de aplicativo l�
 ### <a name="what-are-action-executions"></a>O que são execuções de ação?
 Cada etapa em uma definição de aplicativo lógico é uma ação que inclui gatilhos, etapas de fluxo de controle, como condições, escopos, loops for each e loops do until, chamadas a conectores e chamadas para ações nativas.
 Os gatilhos são ações especiais projetadas para criar uma nova instância do aplicativo lógico quando um evento específico ocorrer.  Há diversos comportamentos diferentes para gatilhos que podem afetar o modo como o aplicativo lógico é monitorado.
-* **Gatilho de sondagem** – esse gatilho sonda continuamente um ponto de extremidade até receber uma mensagem que satisfaça os critérios para a criação de uma instância de um aplicativo lógico.  O intervalo de sondagem pode ser configurado no gatilho no designer dos Aplicativos Lógicos.  Cada solicitação de sondagem, mesmo se não criar uma instância de um aplicativo lógico, contará como uma execução da ação.
+* **Gatilho de sondagem** – esse gatilho sonda continuamente um ponto de extremidade até receber uma mensagem que satisfaça os critérios para a criação de uma instância de um aplicativo lógico.  O intervalo de sondagem pode ser configurado no gatilho no Designer dos Aplicativos Lógicos.  Cada solicitação de sondagem, mesmo se não criar uma instância de um aplicativo lógico, contará como uma execução da ação.
 * **Gatilho de webhook** – esse disparador espera o envio de uma solicitação por parte do cliente em um ponto de extremidade específico.  Cada solicitação enviada ao ponto de extremidade do webhook conta como uma execução da ação. A Solicitação e o gatilho Webhook HTTP são gatilhos de webhook.
 * **Gatilho de recorrência** – esse gatilho cria uma nova instância do aplicativo lógico com base no intervalo de recorrência configurado no gatilho.  Por exemplo, um gatilho de recorrência pode ser configurado para executar a cada três dias ou até mesmo a cada minuto.
 
@@ -58,10 +59,5 @@ Para obter detalhes sobre preços, confira [Preços de Aplicativos Lógicos](htt
 ## <a name="next-steps"></a>Próximas etapas
 * [Uma visão geral dos Aplicativos Lógicos][whatis]
 * [Criar seu primeiro aplicativo lógico][criar] [preço]: https://azure.microsoft.com/pricing/details/logic-apps/ [whatis]: logic-apps-what-are-logic-apps.md [create]: logic-apps-create-a-logic-app.md
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

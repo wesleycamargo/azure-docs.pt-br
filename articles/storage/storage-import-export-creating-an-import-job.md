@@ -1,5 +1,5 @@
 ---
-title: "Criar um trabalho de importação para o serviço de importação/exportação do Azure | Microsoft Docs"
+title: "Criar um trabalho de importação para a Importação/Exportação do Azure | Microsoft Docs"
 description: "Saiba como criar uma importação para o serviço de importação/exportação do Microsoft Azure"
 author: muralikk
 manager: syadav
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: 348757809fb5820e2c5c2d5806ec3c74353f3fc8
+ms.sourcegitcommit: 50fbd0d214c825137c3ac6873be27b9d2d53cee1
+ms.openlocfilehash: 84ba5256c3ee485af9a1a6bccc0571f93c9c0ab7
+ms.lasthandoff: 02/16/2017
 
 
 ---
-# <a name="creating-an-import-job"></a>Criar um trabalho de importação
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
 Criar um trabalho de importação para o serviço de importação/exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
 
@@ -62,15 +63,15 @@ Para preparar a unidade:
 
 ## <a name="obtaining-your-shipping-location"></a>Obter o local de envio
 
-Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retorna uma lista de locais e seus endereços de correspondência. Você pode selecionar um local na lista retornada e enviar seus discos rígidos a esse endereço. Também pode usar a operação `Get Location` para obter o endereço de envio de um local específico diretamente.
+Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
- Siga as etapas abaixo para obter o local de envio:
+ Siga as etapas abaixo para obter a localização de envio:
 
 -   Identifique o nome do local de sua conta de armazenamento. Esse valor pode ser encontrado sob o campo **Local** no **Painel** da conta de armazenamento no Portal do Azure ou ser consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento do serviço.
 
 -   Recupere o local que está disponível para processar esta conta de armazenamento chamando a operação `Get Location`.
 
--   Se a propriedade `AlternateLocations` do local contiver o próprio local, então é seguro usar este local. Caso contrário, chame a operação `Get Location` novamente com um dos locais alternativos. O local original pode estar fechado temporariamente para manutenção.
+-   Se a propriedade `AlternateLocations` do local contiver o próprio local, então é seguro usar este local. Caso contrário, chame a operação `Get Location` novamente com uma das localizações alternativas. O local original pode estar fechado temporariamente para manutenção.
 
 ## <a name="creating-the-import-job"></a>Criar o trabalho de importação
 Para criar o trabalho de importação, chame a operação [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate). Primeiro, forneça as seguintes informações:
@@ -105,10 +106,5 @@ Você deve enviar suas unidades para o endereço obtido na etapa anterior, e dev
 Depois que tiver o número de rastreamento, chame a operação [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para atualizar o nome da operadora, o número de rastreamento do trabalho e o número da conta da operadora para retorno. Opcionalmente, você também pode especificar a quantidade de unidades e a data de envio.
 
 ## <a name="see-also"></a>Consulte também
-[Usar a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
 

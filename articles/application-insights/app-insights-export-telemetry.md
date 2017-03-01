@@ -11,18 +11,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/21/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd26ffdec185a1ebd71fb88383c2ae4cd6d504f
-ms.openlocfilehash: 3b1654355ee84610d25da8b6ad4a66036285faba
+ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
+ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
 
-A exportação contínua está disponível no [modelo de preços do Enterprise](http://azure.microsoft.com/pricing/details/application-insights/).
+Usar a exportação contínua pode incorrer em um custo adicional. Verifique o [modelo de preços](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
@@ -72,7 +73,7 @@ Para interromper o fluxo, clique em Desabilitar. Quando você clicar em Habilita
 Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclui seus dados do armazenamento.
 
 #### <a name="cant-add-or-change-an-export"></a>Não consegue adicionar nem alterar uma exportação?
-* Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre funções][roles].
+* Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre as funções][roles].
 
 ## <a name="a-nameanalyzea-what-events-do-you-get"></a><a name="analyze"></a> Quais eventos você recebe?
 Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente. 
@@ -84,7 +85,7 @@ Outras métricas calculadas não são incluídas. Por exemplo, nós não exporta
 Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou. 
 
 > [!NOTE]
-> **Amostragem.**  Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 > 
 > 
 
@@ -203,10 +204,5 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

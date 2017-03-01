@@ -12,11 +12,12 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: dd5471da4d1e69b51d355784dfa2551bc61e9ad9
-ms.openlocfilehash: 35a396f002600b8f5fee5958e2ad31c0cb7f627b
+ms.sourcegitcommit: 110f3aa9ce4848c9350ea2e560205aa762decf7a
+ms.openlocfilehash: 450bf3c23eecc356ad21c7f8ed07ca99619c17b7
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -30,24 +31,27 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 ## <a name="requirements"></a>Requisitos
 
-* [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior
+* [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 ou posterior.
+
+    > [!NOTE]
+    > O HDInsight 3.5 requer Java 8. Versões anteriores do HDInsight requerem Java 7.
 
 * [Maven](http://maven.apache.org/)
 
 * [Um cluster HDInsight do Azure baseado em Linux com HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
   
   > [!NOTE]
-  > As etapas neste documento foram testadas com as versões 3.2, 3.3, 3.4 e 3.5 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se um cluster HDInsight 3.4.
+  > As etapas neste documento foram testadas com as versões 3.2, 3.3, 3.4 e 3.5 do cluster HDInsight. Os valores padrão fornecidos nos exemplos destinam-se um cluster HDInsight 3.5.
 
 * **Familiaridade com o SSH e SCP** ou **Azure PowerShell**. Este documento fornece etapas para usar o SSH/SCP e Azure PowerShell ao executar o exemplo.
 
     Para obter informações sobre como instalar o Azure PowerShell, consulte [Começar com o Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-    Para obter mais informações sobre como usar SSH e SCP com o HDInsight, consulte o seguinte:
+    Para obter mais informações sobre como usar SSH e SCP com o HDInsight, confira os seguintes documentos:
   
-    * **Clientes Linux, Unix ou OS X**: Consultem [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, OS X ou Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Usar SSH com Hadoop baseado em Linux no HDInsight do Linux, OS X, Unix e Bash no Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Clientes Windows**: consulte [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Usar SSH (PuTTY) com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -57,7 +61,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
    
         mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    
-    Isso cria um novo diretório dentro do diretório atual, com o nome especificado pelo parâmetro **artifactID** (**hbaseapp** neste exemplo.) Esse diretório contém os seguintes itens:
+    Esse comando cria um novo diretório com o mesmo nome que o parâmetro **artifactID** (**hbaseapp** neste exemplo). Esse diretório contém os seguintes itens:
    
    * **pom.xml**: o[POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
    * **src**: o diretório que contém **main\java\com\microsoft\examples**, no qual você criará seu aplicativo.
@@ -68,18 +72,18 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 1. Edite o arquivo **pom.xml** e adicione o código a seguir na seção `<dependencies>`:
    
-        <dependency>
-            <groupId>org.apache.hbase</groupId>
-          <artifactId>hbase-client</artifactId>
-          <version>1.1.2</version>
-        </dependency>
-   
-    Isso informa ao Maven que o projeto exige o **hbase-client** versão **1.1.2**. No momento da compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
+   ```xml
+    <dependency>
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-client</artifactId>
+        <version>1.1.2</version>
+    </dependency>
+   ```
+
+    Esta seção indica que o projeto precisa do **cliente hbase** versão **1.1.2**. No momento da compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
    
    > [!IMPORTANT]
    > O número da versão deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
-   > 
-   > 
    
    | Versão do cluster HDInsight | Versão do HBase a ser usada |
    | --- | --- |
@@ -90,70 +94,75 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 2. Se estiver usando um cluster HDInsight 3.3, 3.4 ou 3.5, também será necessário adicionar os seguintes itens à seção `<dependencies>`:
    
-        <dependency>
-            <groupId>org.apache.phoenix</groupId>
-            <artifactId>phoenix-core</artifactId>
-            <version>4.4.0-HBase-1.1</version>
-        </dependency>
-   
+   ```xml
+    <dependency>
+        <groupId>org.apache.phoenix</groupId>
+        <artifactId>phoenix-core</artifactId>
+        <version>4.4.0-HBase-1.1</version>
+    </dependency>
+   ```
+
     Esta seção carrega os componentes phoenix-core, necessários com a versão 1.1x do Hbase.
+
 3. Adicione o código a seguir ao arquivo **pom.xml**. Esse texto deve estar dentro das marcas `<project>...</project>` no arquivo, por exemplo, entre `</dependencies>` e `</project>`.
    
-        <build>
-          <sourceDirectory>src</sourceDirectory>
-          <resources>
-            <resource>
-              <directory>${basedir}/conf</directory>
-              <filtering>false</filtering>
-              <includes>
-                <include>hbase-site.xml</include>
-              </includes>
-            </resource>
-          </resources>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.3</version>
-              <configuration>
-                  <source>1.7</source>
-                  <target>1.7</target>
-              </configuration>
-              </plugin>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
-                <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                  </transformer>
-                </transformers>
-              </configuration>
-              <executions>
-                <execution>
-                  <phase>package</phase>
-                  <goals>
-                    <goal>shade</goal>
-                  </goals>
-                </execution>
-              </executions>
+   ```xml
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <resources>
+        <resource>
+            <directory>${basedir}/conf</directory>
+            <filtering>false</filtering>
+            <includes>
+            <include>hbase-site.xml</include>
+            </includes>
+        </resource>
+        </resources>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
             </plugin>
-          </plugins>
-        </build>
-   
-    Esta seção configura um recurso (**conf\hbase-site.xml**), que contém informações de configuração para o HBase.
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.3</version>
+            <configuration>
+            <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                </transformer>
+            </transformers>
+            </configuration>
+            <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                <goal>shade</goal>
+                </goals>
+            </execution>
+            </executions>
+        </plugin>
+        </plugins>
+    </build>
+   ```
+
+    Esta seção configura um recurso (**conf/hbase-site.xml**), que contém informações de configuração para o HBase.
    
    > [!NOTE]
-   > Você também pode definir valores de configuração via código. Veja os comentários no exemplo **CreateTable** abaixo sobre como fazer isso.
+   > Você também pode definir valores de configuração via código. Veja os comentários no exemplo **CreateTable**.
    
     Esta seção também configura os plug-ins [Maven Compiler](http://maven.apache.org/plugins/maven-compiler-plugin/) e [Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/). O plug-in compilador é usado para compilar a topologia. O plug-in de tonalidade é usado para evitar a duplicação de licenças no pacote JAR que é criado pelo Maven. O plug-in serve para evitar o erro de arquivos de licença duplicados no momento da execução no cluster do HDInsight. Utilize o plug-in de tonalidade do Maven com a implementação `ApacheLicenseResourceTransformer` para isso.
    
-    O plug-in de tonalidade do Maven também produzirá um uber jar (ou fat jar), que contém todas as dependências exigidas pelo aplicativo.
+    O plug-in de tonalidade do Maven também produzirá um uber jar, que contém todas as dependências exigidas pelo aplicativo.
 
 4. Salve o arquivo **pom.xml** .
 
-5. Crie um novo diretório chamado **conf** in the **hbaseapp**. Esse diretório será usado para armazenar informações de configuração para se conectar ao HBase.
+5. Crie um diretório chamado **conf** no diretório **hbaseapp**. Esse diretório será usado para armazenar informações de configuração para se conectar ao HBase.
 
 6. Use o seguinte comando para copiar a configuração do HBase do servidor do HDInsight para o diretório **conf**. Substitua o **USERNAME** pelo nome do seu logon SSH. Substitua o **CLUSTERNAME** pelo nome do seu cluster HDInsight:
    
@@ -169,180 +178,186 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 1. Vá ao diretório **hbaseapp\src\main\java\com\microsoft\examples** e renomeie o arquivo app.java como **CreateTable.java**.
 
-2. Abra o arquivo **CreateTable.java** e substitua o conteúdo existente pelo exibido a seguir:
+2. Abra o arquivo **CreateTable.java** e substitua o conteúdo existente pelo texto exibido a seguir:
    
-        package com.microsoft.examples;
-        import java.io.IOException;
-   
-        import org.apache.hadoop.conf.Configuration;
-        import org.apache.hadoop.hbase.HBaseConfiguration;
-        import org.apache.hadoop.hbase.client.HBaseAdmin;
-        import org.apache.hadoop.hbase.HTableDescriptor;
-        import org.apache.hadoop.hbase.TableName;
-        import org.apache.hadoop.hbase.HColumnDescriptor;
-        import org.apache.hadoop.hbase.client.HTable;
-        import org.apache.hadoop.hbase.client.Put;
-        import org.apache.hadoop.hbase.util.Bytes;
-   
-        public class CreateTable {
-          public static void main(String[] args) throws IOException {
-            Configuration config = HBaseConfiguration.create();
-   
-            // Example of setting zookeeper values for HDInsight
-            // in code instead of an hbase-site.xml file
-            //
-            // config.set("hbase.zookeeper.quorum",
-            //            "zookeepernode0,zookeepernode1,zookeepernode2");
-            //config.set("hbase.zookeeper.property.clientPort", "2181");
-            //config.set("hbase.cluster.distributed", "true");
-            //
-            //NOTE: Actual zookeeper host names can be found using Ambari:
-            //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
-   
-            //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
-            config.set("zookeeper.znode.parent","/hbase-unsecure");
-   
-            // create an admin object using the config
-            HBaseAdmin admin = new HBaseAdmin(config);
-   
-            // create the table...
-            HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
-            // ... with two column families
-            tableDescriptor.addFamily(new HColumnDescriptor("name"));
-            tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
-            admin.createTable(tableDescriptor);
-   
-            // define some people
-            String[][] people = {
-                { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
-                { "2", "Franklin", "Holtz", "franklin@contoso.com" },
-                { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
-                { "4", "Rae", "Schroeder", "rae@contoso.com" },
-                { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
-                { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
-   
-            HTable table = new HTable(config, "people");
-   
-            // Add each person to the table
-            //   Use the `name` column family for the name
-            //   Use the `contactinfo` column family for the email
-            for (int i = 0; i< people.length; i++) {
-              Put person = new Put(Bytes.toBytes(people[i][0]));
-              person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
-              person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
-              person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
-              table.put(person);
-            }
-            // flush commits and close the table
-            table.flushCommits();
-            table.close();
-          }
+   ```java
+    package com.microsoft.examples;
+    import java.io.IOException;
+
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.hbase.HBaseConfiguration;
+    import org.apache.hadoop.hbase.client.HBaseAdmin;
+    import org.apache.hadoop.hbase.HTableDescriptor;
+    import org.apache.hadoop.hbase.TableName;
+    import org.apache.hadoop.hbase.HColumnDescriptor;
+    import org.apache.hadoop.hbase.client.HTable;
+    import org.apache.hadoop.hbase.client.Put;
+    import org.apache.hadoop.hbase.util.Bytes;
+
+    public class CreateTable {
+        public static void main(String[] args) throws IOException {
+        Configuration config = HBaseConfiguration.create();
+
+        // Example of setting zookeeper values for HDInsight
+        // in code instead of an hbase-site.xml file
+        //
+        // config.set("hbase.zookeeper.quorum",
+        //            "zookeepernode0,zookeepernode1,zookeepernode2");
+        //config.set("hbase.zookeeper.property.clientPort", "2181");
+        //config.set("hbase.cluster.distributed", "true");
+        //
+        //NOTE: Actual zookeeper host names can be found using Ambari:
+        //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
+
+        //Linux-based HDInsight clusters use /hbase-unsecure as the znode parent
+        config.set("zookeeper.znode.parent","/hbase-unsecure");
+
+        // create an admin object using the config
+        HBaseAdmin admin = new HBaseAdmin(config);
+
+        // create the table...
+        HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
+        // ... with two column families
+        tableDescriptor.addFamily(new HColumnDescriptor("name"));
+        tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
+        admin.createTable(tableDescriptor);
+
+        // define some people
+        String[][] people = {
+            { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
+            { "2", "Franklin", "Holtz", "franklin@contoso.com" },
+            { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
+            { "4", "Rae", "Schroeder", "rae@contoso.com" },
+            { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
+            { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+
+        HTable table = new HTable(config, "people");
+
+        // Add each person to the table
+        //   Use the `name` column family for the name
+        //   Use the `contactinfo` column family for the email
+        for (int i = 0; i< people.length; i++) {
+            Put person = new Put(Bytes.toBytes(people[i][0]));
+            person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
+            person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
+            person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
+            table.put(person);
         }
-   
+        // flush commits and close the table
+        table.flushCommits();
+        table.close();
+        }
+    }
+   ```
+
     Esse código é a classe **CreateTable**, que cria uma tabela chamada **pessoas** e a preenche com alguns usuários predefinidos.
 
 3. Salve o arquivo **CreateTable.java**.
 
-4. No diretório **baseapp\src\main\java\com\microsoft\examples**, crie um arquivo chamado **SearchByEmail.java**. Use o seguinte como conteúdo deste arquivo:
+4. No diretório **hbaseapp/src/main/java/com/microsoft/examples**, crie um arquivo chamado **SearchByEmail.java**. Use o seguinte texto como o conteúdo deste arquivo:
    
-        package com.microsoft.examples;
-        import java.io.IOException;
-   
-        import org.apache.hadoop.conf.Configuration;
-        import org.apache.hadoop.hbase.HBaseConfiguration;
-        import org.apache.hadoop.hbase.client.HTable;
-        import org.apache.hadoop.hbase.client.Scan;
-        import org.apache.hadoop.hbase.client.ResultScanner;
-        import org.apache.hadoop.hbase.client.Result;
-        import org.apache.hadoop.hbase.filter.RegexStringComparator;
-        import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
-        import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
-        import org.apache.hadoop.hbase.util.Bytes;
-        import org.apache.hadoop.util.GenericOptionsParser;
-   
-        public class SearchByEmail {
-          public static void main(String[] args) throws IOException {
-            Configuration config = HBaseConfiguration.create();
-   
-            // Use GenericOptionsParser to get only the parameters to the class
-            // and not all the parameters passed (when using WebHCat for example)
-            String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
-            if (otherArgs.length != 1) {
-              System.out.println("usage: [regular expression]");
-              System.exit(-1);
-            }
-   
-            // Open the table
-            HTable table = new HTable(config, "people");
-   
-            // Define the family and qualifiers to be used
-            byte[] contactFamily = Bytes.toBytes("contactinfo");
-            byte[] emailQualifier = Bytes.toBytes("email");
-            byte[] nameFamily = Bytes.toBytes("name");
-            byte[] firstNameQualifier = Bytes.toBytes("first");
-            byte[] lastNameQualifier = Bytes.toBytes("last");
-   
-            // Create a new regex filter
-            RegexStringComparator emailFilter = new RegexStringComparator(otherArgs[0]);
-            // Attach the regex filter to a filter
-            //   for the email column
-            SingleColumnValueFilter filter = new SingleColumnValueFilter(
-              contactFamily,
-              emailQualifier,
-              CompareOp.EQUAL,
-              emailFilter
-            );
-   
-            // Create a scan and set the filter
-            Scan scan = new Scan();
-            scan.setFilter(filter);
-   
-            // Get the results
-            ResultScanner results = table.getScanner(scan);
-            // Iterate over results and print  values
-            for (Result result : results ) {
-              String id = new String(result.getRow());
-              byte[] firstNameObj = result.getValue(nameFamily, firstNameQualifier);
-              String firstName = new String(firstNameObj);
-              byte[] lastNameObj = result.getValue(nameFamily, lastNameQualifier);
-              String lastName = new String(lastNameObj);
-              System.out.println(firstName + " " + lastName + " - ID: " + id);
-              byte[] emailObj = result.getValue(contactFamily, emailQualifier);
-              String email = new String(emailObj);
-              System.out.println(firstName + " " + lastName + " - " + email + " - ID: " + id);
-            }
-            results.close();
-            table.close();
-          }
+   ```java
+    package com.microsoft.examples;
+    import java.io.IOException;
+
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.hbase.HBaseConfiguration;
+    import org.apache.hadoop.hbase.client.HTable;
+    import org.apache.hadoop.hbase.client.Scan;
+    import org.apache.hadoop.hbase.client.ResultScanner;
+    import org.apache.hadoop.hbase.client.Result;
+    import org.apache.hadoop.hbase.filter.RegexStringComparator;
+    import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
+    import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+    import org.apache.hadoop.hbase.util.Bytes;
+    import org.apache.hadoop.util.GenericOptionsParser;
+
+    public class SearchByEmail {
+        public static void main(String[] args) throws IOException {
+        Configuration config = HBaseConfiguration.create();
+
+        // Use GenericOptionsParser to get only the parameters to the class
+        // and not all the parameters passed (when using WebHCat for example)
+        String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
+        if (otherArgs.length != 1) {
+            System.out.println("usage: [regular expression]");
+            System.exit(-1);
         }
-   
+
+        // Open the table
+        HTable table = new HTable(config, "people");
+
+        // Define the family and qualifiers to be used
+        byte[] contactFamily = Bytes.toBytes("contactinfo");
+        byte[] emailQualifier = Bytes.toBytes("email");
+        byte[] nameFamily = Bytes.toBytes("name");
+        byte[] firstNameQualifier = Bytes.toBytes("first");
+        byte[] lastNameQualifier = Bytes.toBytes("last");
+
+        // Create a regex filter
+        RegexStringComparator emailFilter = new RegexStringComparator(otherArgs[0]);
+        // Attach the regex filter to a filter
+        //   for the email column
+        SingleColumnValueFilter filter = new SingleColumnValueFilter(
+            contactFamily,
+            emailQualifier,
+            CompareOp.EQUAL,
+            emailFilter
+        );
+
+        // Create a scan and set the filter
+        Scan scan = new Scan();
+        scan.setFilter(filter);
+
+        // Get the results
+        ResultScanner results = table.getScanner(scan);
+        // Iterate over results and print  values
+        for (Result result : results ) {
+            String id = new String(result.getRow());
+            byte[] firstNameObj = result.getValue(nameFamily, firstNameQualifier);
+            String firstName = new String(firstNameObj);
+            byte[] lastNameObj = result.getValue(nameFamily, lastNameQualifier);
+            String lastName = new String(lastNameObj);
+            System.out.println(firstName + " " + lastName + " - ID: " + id);
+            byte[] emailObj = result.getValue(contactFamily, emailQualifier);
+            String email = new String(emailObj);
+            System.out.println(firstName + " " + lastName + " - " + email + " - ID: " + id);
+        }
+        results.close();
+        table.close();
+        }
+    }
+   ```
+
     A classe **SearchByEmail** pode ser usada para consultar por linhas, por endereço de email. Já que ele utiliza um filtro de expressão comum, você pode fornecer uma cadeia de caracteres ou então uma expressão comum ao utilizar a classe.
 
 5. Salve o arquivo **SearchByEmail.java**.
 
-6. No diretório **hbaseapp\src\main\hava\com\microsoft\examples**, crie um novo arquivo chamado **DeleteTable.java**. Use o seguinte como conteúdo deste arquivo:
+6. No diretório **hbaseapp/src/main/hava/com/microsoft/examples**, crie um arquivo chamado **DeleteTable.java**. Use o seguinte texto como o conteúdo deste arquivo:
    
-        package com.microsoft.examples;
-        import java.io.IOException;
-   
-        import org.apache.hadoop.conf.Configuration;
-        import org.apache.hadoop.hbase.HBaseConfiguration;
-        import org.apache.hadoop.hbase.client.HBaseAdmin;
-   
-        public class DeleteTable {
-          public static void main(String[] args) throws IOException {
-            Configuration config = HBaseConfiguration.create();
-   
-            // Create an admin object using the config
-            HBaseAdmin admin = new HBaseAdmin(config);
-   
-            // Disable, and then delete the table
-            admin.disableTable("people");
-            admin.deleteTable("people");
-          }
+   ```java
+    package com.microsoft.examples;
+    import java.io.IOException;
+
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.hbase.HBaseConfiguration;
+    import org.apache.hadoop.hbase.client.HBaseAdmin;
+
+    public class DeleteTable {
+        public static void main(String[] args) throws IOException {
+        Configuration config = HBaseConfiguration.create();
+
+        // Create an admin object using the config
+        HBaseAdmin admin = new HBaseAdmin(config);
+
+        // Disable, and then delete the table
+        admin.disableTable("people");
+        admin.deleteTable("people");
         }
-   
-    Essa classe é para limpar esse exemplo desabilitando e eliminando a tabela criada pela classe **CreateTable**.
+    }
+   ```
+
+    Essa classe limpa as tabelas HBase criadas nesse exemplo desabilitando e eliminando a tabela criada pela classe **CreateTable**.
 
 7. Salve o arquivo **DeleteTable.java**.
 
@@ -357,7 +372,7 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 2. Assim que o comando for concluído, o diretório **hbaseapp/target** conterá um arquivo chamado **hbaseapp-1.0-SNAPSHOT.jar**.
    
    > [!NOTE]
-   > O arquivo **hbaseapp-1.0-SNAPSHOT.jar** é um uberjar (algumas vezes chamado de fatjar), que contém todas as dependências exigidas para executar o aplicativo.
+   > O arquivo **hbaseapp-1.0-SNAPSHOT.jar** é um uber jar. Ele contém todas as dependências exigidas para executar o aplicativo.
 
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Carregue o arquivo JAR e execute trabalhos (SSH)
@@ -384,11 +399,11 @@ As etapas seguintes usam `scp` para copiar o arquivo JAR para o nó principal do
    > 
    > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
-3. Uma vez conectado, use o seguinte para criar uma nova tabela do HBase usando o aplicativo Java:
+3. Uma vez conectado, use o seguinte para criar uma tabela do HBase usando o aplicativo Java:
    
         hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
    
-    Esse comando cria uma nova tabela do HBase denominada **pessoas** e a preenche com os dados.
+    Esse comando cria uma nova tabela do HBase denominada **people** e popula essa tabela com os dados.
 
 4. Em seguida, use o seguinte para procurar os endereços de email armazenados na tabela:
    
@@ -407,7 +422,7 @@ As etapas seguintes usam `scp` para copiar o arquivo JAR para o nó principal do
 
 As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o armazenamento padrão do cluster HDInsight. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
 
-1. Após instalar e configurar o Azure PowerShell, crie um novo arquivo chamado **hbase-runner.psm1**. Use o seguinte como conteúdo deste arquivo:
+1. Após instalar e configurar o Azure PowerShell, crie um arquivo chamado **hbase-runner.psm1**. Use o seguinte texto como o conteúdo deste arquivo:
    
    ```powershell
     <#
@@ -613,7 +628,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
 
 2. Salve o arquivo **hbase-runner.psm1** .
 
-3. Abra uma nova janela do Azure PowerShell, altere os diretórios para o diretório **hbaseapp** e, então, execute o comando a seguir.
+3. Abra uma nova janela do Azure PowerShell, altere os diretórios para o diretório **hbaseapp** e, então, execute o comando a seguir:
    
         PS C:\ Import-Module c:\path\to\hbase-runner.psm1
    
@@ -648,7 +663,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
           Gabriela Ingram - ID: 6
           Gabriela Ingram - gabriela@contoso.com - ID: 6
    
-    Usar **fabrikam.com** como o valor de `-emailRegex` retornará os usuários que tenham **fabrikam.com** no campo de email. Já que essa pesquisa é implementada usando um filtro baseado em expressões comuns, você também pode inserir expressões comuns como **^r**, que retornarão como resultado entradas nas quais o email começa pela letra ‘r’.
+    Usar **fabrikam.com** como o valor de `-emailRegex` retornará os usuários que tenham **fabrikam.com** no campo de email. Você também pode usar expressões regulares como o termo de pesquisa. Por exemplo, **^ r** retorna endereços que começam com a letra 'r'.
 
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nenhum resultado ou resultados inesperados ao usar o Start-HBaseExample
 
@@ -666,10 +681,5 @@ __Do Azure PowerShell__:
 
 `Start-HBaseExample -className com.microsoft.examples.DeleteTable -clusterName hdinsightclustername`
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

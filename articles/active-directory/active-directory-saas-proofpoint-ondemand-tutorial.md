@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7aa746b8c6f4b747a7dca0e9bf75e61b2707b7e1
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 2ea87726b06a0e8ab20515031424bf4e93f45a80
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -35,7 +36,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure AD ao Proofpoint on Demand, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura de logon único do Proofpoint on Demand
+* Uma assinatura de SSO (logon único) do Proofpoint on Demand
 
 Para testar as etapas neste tutorial, siga estas recomendações:
 
@@ -47,8 +48,8 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicione Proofpoint on Demand da galeria.
-2. Configurar e testar logon único do Azure AD.
+* Adicione Proofpoint on Demand da galeria.
+* Configurar e testar logon único do Azure AD.
 
 ## <a name="add-proofpoint-on-demand-from-the-gallery"></a>Adicionar Proofpoint on Demand da galeria
 Para configurar a integração do Proofpoint on Demand ao Azure AD, você precisa adicionar o Proofpoint on Demand da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -98,28 +99,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 3. Na página **Definir Configurações do Aplicativo** , execute as seguintes etapas:
    
     ![Página "Definir configurações do aplicativo" com caixas preenchidas](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_04.png)
-   
-    a. Na **URL DE LOGON**, digite a URL em que os usuários entram em seu aplicativo Proofpoint on Demand. Use o seguinte padrão: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**
-   
-    b. Na caixa **IDENTIFICADOR**, digite a URL usando o seguinte padrão: **https://\<hostname/>.pphosted.com/ppssamlsp**
-   
-    c. Na caixa **URL de RESPOSTA**, digite a URL usando o seguinte padrão: **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**
-   
-    d. Clique em **Próximo**.
+   1. Na **URL DE LOGON**, digite a URL em que os usuários entram em seu aplicativo Proofpoint on Demand. Use o seguinte padrão: **https://\<hostname\>.pphosted.com/ppssamlsp_hostname**
+   2. Na caixa **IDENTIFICADOR**, digite a URL usando o seguinte padrão: **https://\<hostname/>.pphosted.com/ppssamlsp**
+   3. Na caixa **URL de RESPOSTA**, digite a URL usando o seguinte padrão: **https://\<hostname/>.pphosted.com:portnumber/v1/samlauth/samlconsumer**  
+   4. Clique em **Próximo**.
 4. Na página **Configurar logon único no Proofpoint on Demand**, execute as seguintes etapas:
    
     ![Página "Configurar logon único no Proofpoint on Demand" com botão "Baixar certificado"](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_05.png)
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Próximo**.
+   1. Clique em **Baixar certificado**e salve o arquivo em seu computador.   
+   2. Clique em **Próximo**.
 5. Para que o SSO seja configurado para o aplicativo, entre em contato com a equipe de suporte do Proofpoint on Demand e forneça o seguinte:
-   
-    • O certificado baixado
-   
-    A ID de entidade
-   
-    • A URL de SSO do SAML
+   * O certificado baixado
+   * A ID da entidade
+   * A URL de SSO do SAML
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Caixa de seleção que confirma que você configurou o logon único][10]
@@ -142,34 +134,28 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **ADICIONAR USUÁRIO**.
    
     ![Botão ADICIONAR USUÁRIO](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png)
-5. Na página **Conte-nos sobre este usuário**, execute as seguintes etapas:  ![Página "Conte-nos sobre este usuário" com caixas preenchidas](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)
-   
-    a. Na caixa **TIPO DE USUÁRIO**, selecione **Novo usuário na sua organização**.
-   
-    b. Na caixa **NOME de USUÁRIO**, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
-6. Na página **perfil de usuário**, execute as seguintes etapas: ![A página "perfil de usuário" com caixas preenchidas](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)
-   
-   a. No **NOME**, digite **Brenda**.  
-   
-   b. No **SOBRENOME**, digite **Fernandes**.
-   
-   c. Na caixa **NOME de EXIBIÇÃO**, digite **Brenda Fernandes**.
-   
-   d. Na lista **FUNÇÃO**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+5. Na página **Conte-nos sobre este usuário**, realize as seguintes etapas:
+
+    ![Página "Conte-nos sobre este usuário" com as caixas preenchidas](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_05.png)   
+   1. Na caixa **TIPO DE USUÁRIO**, selecione **Novo usuário na sua organização**.
+   2. Na caixa **NOME de USUÁRIO**, digite **BrendaFernandes**.
+   3. Clique em **Próximo**.
+6. Na página **perfil do usuário**, realize as seguintes etapas:
+
+  ![A página "perfil do usuário" com as caixas preenchidas](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_06.png)   
+   1. No **NOME**, digite **Brenda**.  
+   2. No **SOBRENOME**, digite **Fernandes**.
+   3. Na caixa **NOME de EXIBIÇÃO**, digite **Brenda Fernandes**.
+   4. Na lista **FUNÇÃO**, selecione **Usuário**.
+   5. Clique em **Próximo**.
 7. Na página **Obter senha temporária**, clique em **Criar**.
    
-    ![Botão para criar uma senha temporária](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
+   ![Botão para criar uma senha temporária](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_07.png)
 8. Na página **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Página "Obter senha temporária" com informações de senha](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)
-   
-    a. Anote o valor da caixa **NOVA SENHA**.
-   
-    b. Clique em **Concluído**.   
+   ![Página "Obter senha temporária" com informações de senha](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_08.png)  
+   1. Anote o valor da caixa **NOVA SENHA**.
+   2. Clique em **Concluído**.   
 
 ### <a name="create-a-proofpoint-on-demand-test-user"></a>Criar um usuário de teste do Proofpoint on Demand
 Nesta seção, você cria uma usuária chamada Brenda Fernandes no Proofpoint on Demand. Trabalhe com a equipe de suporte do Proofpoint on Demand para adicionar usuários na plataforma Proofpoint on Demand.
@@ -219,9 +205,4 @@ Ao clicar no bloco do **Proofpoint on Demand** no painel de acesso, você deve e
 [203]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 7aab37882e3f831627281bcd197fb6098dc50cc6
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 10206327b628358151ad4585b1d962538ea17bcd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,13 +43,13 @@ Essa recomendação se aplica apenas ao serviço do SQL do Azure. Ela não inclu
 3. Na folha **Configurações de Auditoria**, selecione **ATIVAR** em **Auditoria**.
 
    ![Ativar configurações de auditoria][3]
-4. Siga as etapas em [Introdução à Auditoria do Banco de Dados SQL](../sql-database/sql-database-auditing-get-started.md) para configurar o local onde os logs de auditoria serão armazenados. A conta de armazenamento da assinatura para coleta de dados é a padrão.
-5. Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
+4. Siga as etapas em [Auditoria do Banco de Dados SQL no Portal do Azure](../sql-database/sql-database-auditing-portal.md) para configurar o armazenamento em que os logs de auditoria serão armazenados. A conta de armazenamento da assinatura para coleta de dados é a padrão.
+5. Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
 
 ## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar a recomendação "Habilitar auditoria em servidores SQL" da Central de Segurança. Para saber mais sobre como proteger seu banco de dados SQL, veja:
 
-* [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md)
+* [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security-overview.md)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
@@ -64,9 +65,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [1]: ./media/security-center-enable-auditing-on-sql-server/enable-auditing-on-sql-servers.png
 [2]:./media/security-center-enable-auditing-on-sql-server/enable-auditing.png
 [3]: ./media/security-center-enable-auditing-on-sql-server/auditing-settings-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

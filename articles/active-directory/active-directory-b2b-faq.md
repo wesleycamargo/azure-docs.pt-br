@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0eef684115f9c21ea61502a10576f74cac0ace8e
-ms.openlocfilehash: 2054cb65b5192e08fc64e56f59a456fc911f0829
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 3e92da61128a18c42726f4c3c85cd6e5024a697f
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -72,7 +73,7 @@ Você pode bloquear o acesso ao [Portal do Azure](https://portal.azure.com) por 
 2. Crie um grupo dinâmico que contém usuários Convidados![](media/active-directory-b2b-faq/group-with-guest-users.png)
 3. Configure uma política de acesso condicional para impedir que os usuários convidados acessem o portal, conforme mostrado no vídeo a seguir.
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user]
+  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player]
 
   Se o vídeo não aparecer incorporado, acesse-o [aqui](https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user).
 
@@ -109,9 +110,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

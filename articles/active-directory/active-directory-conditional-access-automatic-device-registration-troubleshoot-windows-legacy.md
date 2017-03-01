@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 1b12d8ef3bbbfd2688f7bbd47968332e83a35252
-ms.openlocfilehash: 6cb5aee751e89ad1e825fae4fdfd460f1bfd8b6c
+ms.sourcegitcommit: d0d213e2cc52f43c11efd49c51270aa42f8fad36
+ms.openlocfilehash: 6c373adaee553e9eca94a978afc62d453f7db0f8
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-down-level-clients"></a>Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows 
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad-for-windows-down-level-clients"></a>Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows 
 
 Este tópico é aplicável apenas aos seguintes clientes: 
 
@@ -30,7 +31,7 @@ Este tópico é aplicável apenas aos seguintes clientes:
 - Windows Server 2012 R2 
  
 
-Para o Windows 10 ou o Windows Server 2016, confira [Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
+Para o Windows 10 ou o Windows Server 2016, confira [Solução de problemas do registro automático de computadores ingressados no domínio para o Azure AD – Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md).
 
 Este tópico pressupõe que você tenha configurado o registro automático de dispositivos ingressados no domínio conforme descrito em [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md).
  
@@ -98,9 +99,4 @@ Também é possível encontrar informações de status no log de eventos em **Lo
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais, veja [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

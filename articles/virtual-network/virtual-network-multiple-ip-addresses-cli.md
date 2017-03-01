@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 8c2441211f08e8bb22153ff16cbd98c85cb9cf3d
+ms.sourcegitcommit: 7e99731f6826e563109da734a80fcccfff85676a
+ms.openlocfilehash: 3deb0e1668aae15a7d9abe00791f4524ed49d77b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -128,9 +129,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
 
 1. Abra a CLI do Azure e conclua as etapas restantes nesta seção dentro de uma única sessão da CLI. Se você ainda não tiver a CLI do Azure instalada e configurada, conclua as etapas do artigo [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e faça logon em sua conta do Azure.
 
-2. Registre-se para a visualização ao enviar um email para [Vários IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com sua ID de assinatura e o uso pretendido. Não tente concluir as etapas restantes:
-    - Até que você receba um email notificando de que foi aceito para a visualização
-    - Sem seguir as instruções no email recebido
+2. Registre-se para a visualização pública seguindo a etapa 2 na seção **Criar uma VM com vários endereços IP**.
 
 3. Conclua as etapas em uma das seções a seguir, com base em seus requisitos:
 
@@ -208,9 +207,4 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
 9. Adicione os endereços IP privados que você adicionou à NIC para o sistema operacional da VM seguindo as instruções da seção [Adicionar endereços IP a um sistema operacional de VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

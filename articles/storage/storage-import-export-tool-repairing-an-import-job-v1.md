@@ -1,5 +1,5 @@
 ---
-title: "Reparação de um trabalho de importação | Microsoft Docs"
+title: "Reparação de um trabalho de Importação do Azure | Microsoft Docs"
 description: "Saiba como reparar um trabalho de importação criado e executado usando o serviço de Importação-Exportação."
 author: muralikk
 manager: syadav
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 01/23/2017
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 5d75bdb5ff39934e02d9af721b51e0aca24026bb
-ms.openlocfilehash: 9278256edd5c117de9b0e6b5b12f0ca37c612661
+ms.sourcegitcommit: 74182c8c357085f186aaa43adfaef80a083d16bb
+ms.openlocfilehash: a47b0da43a84bb77fb8de16c37811a4b87fe3fbf
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -107,9 +108,4 @@ Depois de disponibilizar os arquivos necessários para a ferramenta, ou atualiza
 [Revisão do status do trabalho com arquivos de log de cópia](storage-import-export-tool-reviewing-job-status-v1.md)   
 [Reparação de um trabalho de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)   
 [Solução de problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

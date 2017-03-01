@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 6b7d2da8ababba65146503ecfbe6fd6e142a359c
-ms.openlocfilehash: 3d35c26ab0e1013ae10508cfbcf7ed644ab6d1f0
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: d36bb775d0b0fd732562b18787b65600c8fb5fa1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -42,12 +43,12 @@ Essa recomendação se aplica apenas ao serviço do SQL Azure, não incluindo o 
 3. Na folha **Auditoria e detecção de ameaças**, selecione **ATIVAR** em **Auditoria**.
 
    ![Ativar a auditoria e detecção de ameaças][3]
-4. Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
+4. Execute as etapas em [Detecção de ameaças do Banco de Dados SQL no Portal do Azure](../sql-database/sql-database-threat-detection-portal.md) para ativar e configurar a detecção de ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
 
 ## <a name="see-also"></a>Consulte também
 Este artigo mostrou como implementar a recomendação da Central de Segurança "Habilitar auditoria em bancos de dados SQL". Para saber mais sobre como proteger seu Banco de Dados SQL, consulte:
 
-* [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security.md)
+* [Protegendo o Banco de Dados SQL](../sql-database/sql-database-security-overview.md)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
@@ -63,9 +64,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [1]: ./media/security-center-enable-auditing-on-sql-databases/enable-auditing-on-sql-databases.png
 [2]:./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection.png
 [3]: ./media/security-center-enable-auditing-on-sql-databases/auditing-threat-detection-blade.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

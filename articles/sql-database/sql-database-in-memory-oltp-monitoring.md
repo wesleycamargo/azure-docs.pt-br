@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: jodebrui
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 86b2358b045bd5bc0c9f4fc2674efd03b098212f
+ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
+ms.openlocfilehash: f53fa3763edb1d9164278d1e3c418e200d7ada89
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -54,10 +55,5 @@ Para resolver esse erro:
 * Atualize a camada de serviço para uma com armazenamento na memória suficiente para os dados que você precisa manter em tabelas com otimização de memória.
 
 ## <a name="next-steps"></a>Próximas etapas
-Recursos adicionais sobre [Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md)
-
-
-
-<!--HONumber=Dec16_HO1-->
-
+Para obter diretrizes sobre monitoramento, consulte [Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md).
 
