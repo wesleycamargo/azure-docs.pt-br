@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
-ms.openlocfilehash: 3c19c2035b8dc9717dced5164b0214ab8019afd1
+ms.sourcegitcommit: 7bd403bb8569950a5bf4da3bd84905604753cda7
+ms.openlocfilehash: f29128dd156576276014e159afa9050364169c46
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -51,6 +52,8 @@ As seguintes funções de administrador estão disponíveis:
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Assistência Técnica".
   >
   >
+* **Administrador de serviços do Power BI**: os usuários com essa função têm permissões globais no Microsoft Power BI, quando o serviço estiver presente. Mais informações em [Facilitar a administração do Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/).
+* **Administrador da função com privilégios**: os usuários com essa função podem gerenciar o Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) e atualizar atribuições de função para outros usuários.
 * **Administrador do serviço SharePoint**: os usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **[Administrador de serviços](#service-administrator)**: gerencia as solicitações de serviço e monitora a integridade do serviço.
 
@@ -114,6 +117,17 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 6. Especifique um local na lista suspensa **Local de Uso** .
 7. Ao terminar, clique em **Salvar**.
 
+## <a name="deprecated-roles"></a>Funções preteridas
+
+As seguintes funções não devem ser usadas. Elas foram preteridas e serão removidas do Azure AD no futuro.
+
+* Administrador de Licenças AdHoc
+* Criador de Usuário Verificado por Email
+* Ingresso de Dispositivo
+* Gerenciadores de Dispositivo
+* Usuários de Dispositivo
+* Ingresso no Dispositivo no Local de Trabalho
+
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)
@@ -121,9 +135,4 @@ O administrador global tem acesso a todos os recursos administrativos. Por padr�
 * [Gerenciar usuários](active-directory-create-users.md)
 * [Gerenciar senhas](active-directory-manage-passwords.md)
 * [Gerenciar grupos](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

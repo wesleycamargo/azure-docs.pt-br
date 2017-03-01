@@ -16,8 +16,9 @@ ms.workload: identity
 ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
-ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
+ms.sourcegitcommit: 4dad4bd824f199562cb972c98cfcb452f2823828
+ms.openlocfilehash: b85b10b9504c5efa7ec05b92b544ad777e3abacc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -167,6 +168,26 @@ Não, você não pode usar o Exchange ActiveSync em uma política de acesso cond
 Atualmente, o autenticação multifator será solicitada ao usuário independentemente do dispositivo.
 
 
+## <a name="what-you-should-avoid-doing"></a>O que você deve evitar
+
+A estrutura de acesso condicional fornece uma excelente flexibilidade de configuração. No entanto, muita flexibilidade também significa que você deve examinar cuidadosamente cada política de configuração antes de liberá-la, a fim de evitar resultados indesejados. Nesse contexto, preste atenção especial às atribuições que afetam conjuntos completos, como **todos os usuários/grupos/aplicativos de nuvem**.
+
+Em seu ambiente, evite as configurações a seguir:
+
+
+**Para todos os usuários, todos os aplicativos de nuvem:**
+
+- **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
+
+- **Exigir dispositivo compatível** - Para usuários que ainda não registraram seus dispositivos, esta política bloqueia todo acesso, incluindo acesso ao portal do Intune. Se você for um administrador sem um dispositivo registrado, essa política impedirá você voltar ao Portal do Azure para alterar a política.
+
+- **Exigir ingresso no domínio** - Esta política de bloqueio de acesso também tem o potencial para bloquear o acesso de todos os usuários em sua organização se você ainda não tiver um dispositivo ingressado no domínio.
+ 
+
+**Para todos os usuários, todos os aplicativos de nuvem, todas as plataformas de dispositivo:** 
+
+- **Bloquear o acesso** - Essa configuração bloqueia toda a organização, o que certamente não é uma boa ideia.
+
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -193,9 +214,4 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

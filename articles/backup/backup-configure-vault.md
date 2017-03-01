@@ -1,10 +1,10 @@
 ---
-title: "Fazer backup de um Windows Server ou Client para o Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos | Microsoft Docs"
+title: Fazer backup do Windows Server no Azure (Resource Manager)| Microsoft Docs
 description: "Faça backup de Windows servers ou clientes Windows no Azure criando um cofre de backup, baixando credenciais, instalando o agente de backup e concluindo um backup inicial de seus arquivos e pastas."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: cofre de backup; fazer backup de um Windows server; backup do windows;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: jimpark; trinadhk; markgal
+ms.date: 2/16/2017
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 738b8e29fbc139753ea59f1a20416386383f942d
-ms.openlocfilehash: c6b662883919d81a4895c85deed8f50f9e578444
+ms.sourcegitcommit: 1a87af9efeb6c00f3c67f2c2d8d8f2e0491d248d
+ms.openlocfilehash: 018a1bde8163eda660fd50a41839b6c1ec622d79
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -222,9 +223,4 @@ Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, 
 
 * Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

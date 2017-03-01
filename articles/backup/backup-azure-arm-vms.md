@@ -1,5 +1,5 @@
 ---
-title: "Fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação | Microsoft Docs"
+title: Fazer backup de VMs do Azure | Microsoft Docs
 description: "Descubra, registre e faça backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/30/2017
+ms.date: 2/15/2017
 ms.author: trinadhk;jimpark;markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 39147f2db1e660a21d6ed622206787ea0c569056
-ms.openlocfilehash: 28a5014f7ee73b30f879d249811e7fc303b13ac6
+ms.sourcegitcommit: dca042ce1684b35e6a874075e0de28b9d8766331
+ms.openlocfilehash: 981c8652629e96f482d9a62b70b0f0992517019f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -44,32 +45,57 @@ A menos que o backup inicial esteja prestes a começar, é recomendável que voc
 
 Para executar o trabalho de backup inicial:
 
-1. No painel do cofre, no bloco **Backup**, clique em **Máquinas Virtuais do Azure**. <br/>
-    ![Ícone Configurações](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. No painel do cofre, clique no número em **Itens de Backup**, ou clique no bloco **Itens de Backup**. <br/>
+  ![Ícone Configurações](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-    A folha **Itens de Backup** será aberta.
-2. Na folha **Itens de Backup**, clique com o botão direito do mouse no cofre do qual deseja fazer backup e clique em **Fazer backup agora**.
+  A folha **Itens de Backup** será aberta.
 
-    ![Ícone Configurações](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+  ![Fazer backup de itens](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-    O trabalho de Backup será disparado. <br/>
+2. Na folha **Itens de Backup**, selecione o item.
 
-    ![Trabalho de backup iniciado](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
-3. Para saber se o backup inicial foi concluído, no painel do cofre, no bloco **Trabalhos de Backup**, clique em **Máquinas virtuais do Azure**.
+  ![Ícone Configurações](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-    ![Bloco dos Trabalhos de Backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+  A lista **Itens de Backup** será aberta. <br/>
 
-    A folha Trabalhos de Backup será aberta.
-4. Na folha **Trabalhos de backup** , você pode ver o status de todos os trabalhos.
+  ![Trabalho de backup iniciado](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-    ![Bloco dos Trabalhos de Backup](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+3. Na lista **Itens de Backup**, clique nas reticências **...** para abrir o menu de contexto.
 
-   > [!NOTE]
-   > Durante a operação de backup, a extensão de backup em cada máquina virtual libera todas as gravações e tira um instantâneo consistente.
-   >
-   >
+  ![Menu de contexto](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-    Quando o trabalho de backup for concluído, o status será *Concluído*.
+  O menu de contexto é exibido.
+
+  ![Menu de contexto](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
+
+4. No menu de contexto, clique em **Fazer backup agora**.
+
+  ![Menu de contexto](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
+
+  A folha Fazer Backup Agora é aberta.
+
+  ![mostra a folha Fazer Backup Agora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+
+5. Na folha Fazer Backup Agora, clique no ícone de calendário, use o controle de calendário para selecionar o último dia de retenção desse ponto de recuperação e clique em **Fazer Backup**.
+
+  ![definir o último dia em que o ponto de recuperação de Fazer Backup Agora será retido](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+
+  As notificações de implantação informam que o trabalho de backup foi disparado, e que você pode monitorar o andamento do trabalho na página de Trabalhos de backup. Dependendo do tamanho da VM, a criação do backup inicial pode demorar um pouco.
+
+6. Para exibir ou rastrear o status do backup inicial, no painel do cofre, no bloco **Trabalhos de Backup**, clique em **Em andamento**.
+
+  ![Bloco dos Trabalhos de Backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
+
+  A folha Trabalhos de Backup será aberta.
+
+  ![Bloco dos Trabalhos de Backup](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
+
+  Na folha **Trabalhos de backup** , você pode ver o status de todos os trabalhos. Verifique se o trabalho de backup de sua VM ainda está em andamento ou se já foi concluído. Após a conclusão do trabalho de backup, o status será *Concluído*.
+
+  > [!NOTE]
+  > Como parte da operação de backup, o serviço de Backup do Azure emite um comando para a extensão de backup em cada VM para limpar todas as gravações e capturar um instantâneo consistente.
+  >
+  >
 
 ## <a name="troubleshooting-errors"></a>Solucionar erros
 Se você enfrentar problemas ao copiar a sua máquina virtual, confira o [artigo de solução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
@@ -79,9 +105,4 @@ Agora que você protegeu sua VM, consulte os seguintes artigos para aprender sob
 
 * [Gerenciar e monitorar suas máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-arm-restore-vms.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

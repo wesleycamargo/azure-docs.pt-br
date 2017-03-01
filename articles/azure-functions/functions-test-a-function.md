@@ -1,6 +1,6 @@
 ---
-title: Testando o Azure Functions | Microsoft Docs
-description: Teste os Azure Functions usando o Postman, cURL e Node.js.
+title: Teste do Azure Functions | Microsoft Docs
+description: Teste o Azure Functions usando Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -17,29 +17,30 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 3603f58a9df1f0222a75b863ad2c1ab1b6e13fb2
-ms.openlocfilehash: c6868566e513c5cd2c76be3305ca6c9035d58acd
+ms.sourcegitcommit: 811d39a10cee3a602a43b6733d6743959cd02f45
+ms.openlocfilehash: 3795bfa395409fe3850f19cd351371cf07e42b58
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="testing-azure-functions"></a>Testando os Azure Functions
-## <a name="overview"></a>Visão geral
-Este tópico demonstra as várias maneiras de testar as funções, que inclui as seguintes abordagens gerais:
+# <a name="testing-azure-functions"></a>Teste do Azure Functions
 
-+ Ferramentas baseadas em HTTP, como rotação, carteiro e até mesmo um navegador da web para disparadores baseados na web. 
-+ Gerenciador de armazenamento para testar com base no armazenamento do Azure.
-+ Guia de teste no portal de funções.
-+ Função Timer disparada.
-+ Testando o aplicativo ou estrutura.  
+Este tópico demonstra as várias maneiras de testar as funções, incluindo o uso das seguintes abordagens gerais:
 
-Todos os métodos de testes mostrados usam uma função de gatilho HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. Você irá criar esta função na primeira seção.
++ Ferramentas baseadas em HTTP, como cURL, Postman e até mesmo um navegador da Web para gatilhos baseados na Web
++ Gerenciador de Armazenamento do Azure para testar gatilhos baseados no Armazenamento do Azure
++ Guia Teste no portal do Azure Functions
++ Função disparada por timer
++ Teste de aplicativo ou de estrutura
+
+Todos esses métodos de testes usam uma função de gatilho HTTP que aceita entrada por meio de um parâmetro de cadeia de caracteres de consulta ou o corpo da solicitação. Você cria esta função na primeira seção.
 
 ## <a name="create-a-function-for-testing"></a>Criar uma função para teste
-Durante a maior parte deste tutorial, usaremos uma versão ligeiramente modificada do modelo da função JavaScript HttpTrigger disponível ao criar uma nova função.  Você poderá examinar o [Tutorial para criar sua primeira Função do Azure](functions-create-first-azure-function.md) se precisar de ajuda para criar uma nova função.  Basta escolher o modelo da **Função JavaScript HttpTrigger** ao criar a função de teste no [Portal do Azure].
+Durante a maior parte deste tutorial, usamos uma versão ligeiramente modificada do modelo da função JavaScript HttpTrigger disponível quando você criar uma função. Se você precisar de ajuda para criar uma função, examinar isso [tutorial](functions-create-first-azure-function.md). Escolha o modelo **HttpTrigger- JavaScript** ao criar a função de teste no [portal do Azure].
 
-O modelo da função padrão é basicamente uma função de Olá, mundo que retorna o nome do corpo da solicitação do parâmetro de cadeia de caracteres da consulta, `name=<your name>`.  Atualizaremos o código para permitir também que você forneça o nome e um endereço como conteúdo JSON no corpo da solicitação. Em seguida, a função os retornará para o cliente quando disponível.   
+O modelo da função padrão é basicamente uma função “hello world” que retorna o nome do corpo da solicitação do parâmetro de cadeia de caracteres da consulta, `name=<your name>`.  Atualizamos o código para permitir também que você forneça o nome e um endereço como conteúdo JSON no corpo da solicitação. Em seguida, a função retorna para o cliente quando disponível.   
 
-Atualize a função com o seguinte código que usaremos para teste:
+Atualize a função com o código a seguir, que usaremos para teste:
 
 ```javascript
 module.exports = function (context, req) {
@@ -83,23 +84,23 @@ function ProcessNewUserInformation(context, name, address) {
 }
 ```
 
-## <a name="test-a-function-with-tools"></a>Testar uma função com Ferramentas
-Fora do portal do Azure, há várias ferramentas que podem ser usados para disparar as funções para teste. Esses incluem HTTP, ferramentas, baseado na interface do usuário e de linha de comando; de teste Ferramentas de acesso do armazenamento do Azure e até mesmo um navegador da web simples.
+## <a name="test-a-function-with-tools"></a>Testar uma função com ferramentas
+Fora do portal do Azure, há várias ferramentas que podem ser usadas para disparar as funções para teste. Elas incluem as ferramentas de teste de HTTP (baseado na interface do usuário e de linha de comando), ferramentas de acesso ao Armazenamento do Azure e até mesmo um navegador da web simples.
 
 ### <a name="test-with-a-browser"></a>Testar com um navegador
 O navegador da web é uma maneira simples de funções de gatilho via HTTP. Você pode usar um navegador para solicitações GET que não exigem uma carga de corpo e usam apenas parâmetros de cadeia de caracteres de consulta.
 
-Para testar a função que definimos acima, copie a **URL da Função** do portal. Ela estará no seguinte formato:
+Para testar a função que definimos anteriormente, copie a **Url da Função** do portal. Ele tem o seguinte formato:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Acrescente o parâmetro `name` à cadeia de consulta usando um nome real para o espaço reservado `<Enter a name here>`. 
+Acrescente a `name` parâmetro para a cadeia de caracteres de consulta. Usar um nome real para o `<Enter a name here>` espaço reservado.
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>&name=<Enter a name here>
 
 Cole a URL no seu navegador e você obterá uma resposta semelhante à seguinte.
 
-![](./media/functions-test-a-function/browser-test.png)
+![Guia do navegador de captura de tela de cromo com resposta de teste](./media/functions-test-a-function/browser-test.png)
 
 Este exemplo é o navegador Chrome, que encapsula a cadeia de caracteres retornada em XML. Outros navegadores exibem apenas o valor de cadeia de caracteres.
 
@@ -127,21 +128,21 @@ A ferramenta recomendada para a maioria das funções de teste é carteiro, que 
 Para testar a função com um corpo de solicitação no Postman:
 
 1. Inicie o Postman com o botão **Aplicativos** no canto superior esquerdo de uma janela do navegador Chrome.
-2. Copie a **URL da Função** e cole-a no Postman. Ele inclui o parâmetro de cadeia de caracteres de consulta do código de acesso.
+2. Copie a **Url da Função** e cole-a no Postman. Ele inclui o parâmetro de cadeia de caracteres de consulta do código de acesso.
 3. Altere o método HTTP para **POST**.
-4. Clique em **Corpo** > **bruto** e adicione o corpo da solicitação JSON da seguinte maneira:
-    
+4. Clique em **Corpo** > **bruto** e adicione um corpo da solicitação JSON da seguinte maneira:
+
     ```json
     {
         "name" : "Wes testing with Postman",
-        "address" : "Seattle, W.A. 98101"
+        "address" : "Seattle, WA 98101"
     }
     ```
 5. Clique em **Enviar**.
 
 A imagem a seguir mostra como testar o exemplo de função de eco simples neste tutorial.
 
-![](./media/functions-test-a-function/postman-test.png)
+![Interface de usuário de captura de tela de Postman](./media/functions-test-a-function/postman-test.png)
 
 Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao executar a função:
 
@@ -155,24 +156,24 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
     2016-03-23T08:04:57.763 address = Seattle, W.A. 98101
     2016-03-23T08:04:57.795 Function completed (Success, Id=dc5db8b1-6f1c-4117-b5c4-f6b602d538f7)
 
-### <a name="test-with-curl-from-the-command-line"></a>Teste com rotação da linha de comando 
-Muitas vezes ao testar software, não é necessário procurar além da linha de comando para ajudar a depurar seu aplicativo, e isso não é diferente com funções. Observe que a rotação está disponível por padrão nos sistemas baseados em Linux. No Windows, você deve primeiro baixar e instalar o [cURL ferramenta](https://curl.haxx.se/). 
+### <a name="test-with-curl-from-the-command-line"></a>Teste com rotação da linha de comando
+Muitas vezes, quando você estiver testando software, não será necessário procurar além da linha de comando para ajudar a depurar seu aplicativo. Isso não é diferente com funções de teste. Observe que a rotação está disponível por padrão nos sistemas baseados em Linux. No Windows, você deve primeiro baixar e instalar o [cURL ferramenta](https://curl.haxx.se/).
 
-Para testar a função acima, copie o **URL da Função** do portal. Ela estará no seguinte formato:
+Para testar a função que definimos acima, copie a **URL da Função** do portal. Ele tem o seguinte formato:
 
     https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Esta é a URL para disparar sua função; podemos testar isso usando o comando cURL na linha de comando para fazer uma solicitação GET (`-G` ou `--get`) em nossa função:
+Esta é a URL para o disparo de sua função. Esse teste, use o comando cURL na linha de comando para fazer um GET (`-G` ou `--get`) solicitação em relação a função:
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code>
 
-Esse exemplo específico acima exige um parâmetro de cadeia de caracteres de consulta que pode ser passado como Dados (`-d`) no comando cURL:
+Esse exemplo específico exige um parâmetro de cadeia de caracteres de consulta que pode ser passado como Dados (`-d`) no comando cURL:
 
     curl -G https://<Your Function App>.azurewebsites.net/api/<Your Function Name>?code=<your access code> -d name=<Enter a name here>
 
 Execute o comando e você verá a seguinte saída da função na linha de comando:
 
-![](./media/functions-test-a-function/curl-test.png)
+![Saída de tela do Prompt de comando](./media/functions-test-a-function/curl-test.png)
 
 Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao executar a função:
 
@@ -181,35 +182,35 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
     2016-04-05T21:55:30.738 Node.js HTTP trigger function processed a request. RequestUri=https://functionsExample.azurewebsites.net/api/HttpTriggerNodeJS1?code=XXXXXXX&name=Azure Functions
     2016-04-05T21:55:30.738 Function completed (Success, Id=ae6955da-29db-401a-b706-482fcd1b8f7a)
 
-### <a name="test-a-blob-trigger-using-storage-explorer"></a>Testar um gatilho de blob usando o Gerenciador de Armazenamento
-Você pode testar uma função de gatilho de blob usando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
+### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Testar um gatilho de blob usando o Gerenciador de Armazenamento
+Você pode testar uma função de gatilho de blob usando o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/).
 
-1. No [Portal do Azure] para seu aplicativo Functions, crie uma nova função de gatilho de blob do C#, do F# ou do JavaScript. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
+1. No [portal do Azure] para seu aplicativo de funções, crie uma função de gatilho de blob do C#, do F# ou do JavaScript. Defina o caminho a ser monitorado para o nome do seu contêiner de blobs. Por exemplo:
 
         files
 2. Clique no botão **+** para selecionar ou criar a conta de armazenamento que você deseja usar. Em seguida, clique em **Criar**.
-3. Crie um arquivo de texto com o seguinte texto e salve-o:
+3. Crie um arquivo de texto com o texto a seguir e salve-o:
 
         A text file for blob trigger function testing.
-4. Execute o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/) e conecte-se ao contêiner de blob na conta de armazenamento que está sendo monitorada.
-5. Clique no botão **Carregar** e carregue o arquivo de texto.
+4. Execute o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/) e conecte-se ao contêiner de blob na conta de armazenamento que está sendo monitorada.
+5. Clique em **Carregar** para carregar o arquivo de texto.
 
-    ![](./media/functions-test-a-function/azure-storage-explorer-test.png)
+    ![Captura de tela do Gerenciador de Armazenamento](./media/functions-test-a-function/azure-storage-explorer-test.png)
 
-    O código de função do gatilho de blob padrão relatará o processamento do blob nos logs:
+O código de função do gatilho de blob padrão relata o processamento do blob nos logs:
 
-        2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
-        2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
-        2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
-        2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:10  Welcome, you are now connected to log-streaming service.
+    2016-03-24T11:30:34.472 Function started (Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
+    2016-03-24T11:30:34.472 C# Blob trigger function processed: A text file for blob trigger function testing.
+    2016-03-24T11:30:34.472 Function completed (Success, Id=739ebc07-ff9e-4ec4-a444-e479cec2e460)
 
 ## <a name="test-a-function-within-functions"></a>Testar uma função dentro de funções
 O portal do Azure Functions foi projetado para permitir que você teste as funções de timer e HTTP acionadas. Você também pode criar funções para disparar outras funções que você está testando.
 
-### <a name="test-with-the-functions-portal-run-button"></a>Testar com o botão Executar do portal de funções
-O portal fornece um botão **Executar** que permitirá que você faça alguns testes limitados. Você pode fornecer um corpo de solicitação usando o botão Executar, porém não é possível fornecer parâmetros de cadeia de caracteres de consulta ou atualizar os cabeçalhos de solicitação.
+### <a name="test-with-the-functions-portal-run-button"></a>Testar com o botão Executar do portal do Functions
+O portal fornece um **executar** botão que você pode usar para fazer algumas limitada a testes. Você pode fornecer um corpo de solicitação usando o botão, porém não é possível fornecer parâmetros de cadeia de caracteres de consulta ou atualizar os cabeçalhos de solicitação.
 
-Teste a função de gatilho HTTP criada anteriormente adicionando uma cadeia de caracteres JSON similar à seguinte no campo **Corpo da solicitação** e clique no botão **Executar**.
+Teste a função de gatilho HTTP criada anteriormente adicionando uma cadeia de caracteres JSON similar à seguinte no campo **Corpo da solicitação**. Em seguida, clique no botão **Executar**.
 
 ```json
 {
@@ -232,43 +233,43 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
 
 
 ### <a name="test-with-a-timer-trigger"></a>Testar com um gatilho de temporizador
-Para algumas funções, realmente não é possível testar com as ferramentas mencionadas anteriormente. Por exemplo, uma função de gatilho de fila que é executada quando uma mensagem é inserida no [Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Você sempre pode escrever código para remover uma mensagem da fila e um exemplo disso em um projeto de console é fornecido abaixo. No entanto, há outra abordagem que você pode usar para testar com funções diretamente.  
+Para algumas funções, realmente não é possível testar adequadamente com as ferramentas já mencionadas. Por exemplo, considere uma função de gatilho de fila executada quando uma mensagem é inserida no [Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Você sempre pode escrever código para remover uma mensagem da fila e um exemplo disso em um projeto de console fornecido posteriormente neste artigo. No entanto, há outra abordagem que você pode usar para testar com funções diretamente.  
 
-Você pode usar um gatilho de temporizador configurado com uma associação de saída da fila. Esse código de gatilho de temporizador poderia então escrever as mensagens de teste para a fila. Esta seção acompanhará um exemplo passo a passo.
+Você pode usar um gatilho de temporizador configurado com uma associação de saída da fila. Esse código de gatilho de temporizador pode então escrever as mensagens de teste para a fila. Esta seção explica um exemplo.
 
 Para obter informações mais detalhadas sobre como usar associações com os Azure Functions, consulte a [Referência do desenvolvedor dos Azure Functions](functions-reference.md).
 
-#### <a name="create-queue-trigger-for-testing"></a>Criar gatilho de fila para teste
-Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fila que desejamos testar para uma fila denominada `queue-newusers`. Esta função processará as informações de nome e endereço de um novo usuário descartado no Armazenamento de Filas do Azure.
+#### <a name="create-a-queue-trigger-for-testing"></a>Criar um gatilho de fila para teste
+Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fila que desejamos testar para uma fila denominada `queue-newusers`. Essa função processa as informações de nome e endereço soltas no armazenamento de Filas para um novo usuário.
 
 > [!NOTE]
-> Se você usar um nome de fila diferente, verifique se o nome usado está de acordo com as regras de [Nomeação de Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx) .  Caso contrário, você receberá um código de status HTTP 400: solicitação incorreta.
+> Se você usar um nome de fila diferente, verifique se o nome usado está de acordo com as regras de [Nomeação de Filas e Metadados](https://msdn.microsoft.com/library/dd179349.aspx) . Caso contrário, você obterá um erro.
 >
 >
 
-1. No [Portal do Azure] para seu aplicativo de Funções, clique em **Nova Função** > **QueueTrigger - C#**.
-2. Inserir o nome da fila a ser monitorada pela função de fila
+1. No [portal do Azure] para seu aplicativo de Funções, clique em **Nova Função** > **QueueTrigger - C#**.
+2. Inserir o nome da fila a ser monitorada pela função de fila:
 
         queue-newusers
-3. Clique no botão **+** (adicionar) para selecionar ou criar a conta de armazenamento que você deseja usar. Em seguida, clique em **Criar**.
+3. Clique no botão **+** para selecionar ou criar a conta de armazenamento que você deseja usar. Em seguida, clique em **Criar**.
 4. Deixe essa janela do navegador do portal aberta para que você possa monitorar as entradas de log para o código do modelo da função de fila padrão.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Criar um gatilho de temporizador para remover uma mensagem na fila
-1. Abra o [Portal do Azure] em uma nova janela do navegador e navegue para seu aplicativo de Função.
-2. Clique em **Nova Função** > **TimerTrigger - C#**. Digite uma expressão cron para definir com que frequência o código do temporizador executará testes na sua função de fila. Em seguida, clique em **Criar**. Se você quiser que o teste seja executado cada 30 segundos, use a seguinte [expressão CRON](https://wikipedia.org/wiki/Cron#CRON_expression):
+1. Abra o [portal do Azure] em uma nova janela do navegador e navegue para seu aplicativo de funções.
+2. Clique em **Nova Função** > **TimerTrigger - C#**. Insira uma expressão cron para definir com que frequência o código do temporizador testará sua função de fila. Em seguida, clique em **Criar**. Se você quiser que o teste seja executado cada 30 segundos, use a seguinte [expressão CRON](https://wikipedia.org/wiki/Cron#CRON_expression):
 
         */30 * * * * *
 3. Clique na guia **Integrar** para o novo gatilho de temporizador.
-4. Em **Saída**, clique no botão **+ Nova Saída**. Em seguida, clique na **fila** e no botão **Selecionar**.
-5. Observe o nome usado para o **objeto de mensagem da fila** ; você o usará no código da função de temporizador.
+4. Em **saída**, clique em **+ nova saída**. Em seguida, clique em **fila** e **selecione**.
+5. Observe o nome usado para o **objeto de mensagem da fila**. Você pode usar isso no código da função timer.
 
         myQueue
-6. Insira o nome da fila na qual a mensagem será enviada:
+6. Insira o nome da fila na qual a mensagem é enviada:
 
         queue-newusers
-7. Clique no botão **+** (adicionar) para selecionar a conta de armazenamento que você usou anteriormente com o gatilho de fila. Em seguida, clique em **Salvar**.
+7. Clique no botão **+** para selecionar a conta de armazenamento que você usou anteriormente com o gatilho de fila. Em seguida, clique em **Salvar**.
 8. Clique na guia **Desenvolver** do gatilho de temporizador.
-9. Você pode usar o código a seguir para a função de temporizador C#, desde que tenha suado o mesmo nome de objeto de mensagem de fila mostrado acima. Em seguida, clique em **Salvar**
+9. Você pode usar o código a seguir para a função de temporizador C#, desde que tenha suado o mesmo nome de objeto de mensagem de fila mostrado anteriormente. Em seguida, clique em **Salvar**.
 
     ```cs
     using System;
@@ -285,7 +286,7 @@ Para demonstrar essa abordagem, primeiro criaremos uma função de gatilho de fi
     }
     ```
 
-Neste ponto, a função de temporizador C# será executada a cada 30 segundos se você usou a expressão cron de exemplo. Os logs para a função de temporizador relatarão cada execução:
+Neste ponto, a função de temporizador do C# será executada a cada 30 segundos caso você tenha usado a expressão cron de exemplo. Os logs da função de temporizador relatam cada execução:
 
     2016-03-24T10:27:02  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.004 Function started (Id=04061790-974f-4043-b851-48bd4ac424d1)
@@ -293,21 +294,21 @@ Neste ponto, a função de temporizador C# será executada a cada 30 segundos se
     2016-03-24T10:27:30.004 {"name":"User testing from C# timer function","address":"XYZ"}
     2016-03-24T10:27:30.004 Function completed (Success, Id=04061790-974f-4043-b851-48bd4ac424d1)
 
-Na janela do navegador para a função de fila, você verá a cada mensagem que está sendo processada:
+Na janela do navegador para a função de fila, você poderá ver cada mensagem que está sendo processada:
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
     2016-03-24T10:27:30.607 C# Queue trigger function processed: {"name":"User testing from C# timer function","address":"XYZ"}
     2016-03-24T10:27:30.607 Function completed (Success, Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
 
-## <a name="test-a-function-with-code"></a>Testar uma função com Código
-Haverá alguns casos em que você precisa criar um aplicativo externo ou estrutura para testar suas funções.
+## <a name="test-a-function-with-code"></a>Testar uma função com código
+Talvez seja necessário criar um aplicativo externo ou uma estrutura para testar suas funções.
 
-### <a name="test-a-http-trigger-function-with-code-nodejs"></a>Testar uma função de gatilho HTTP com Código: Node.js
+### <a name="test-an-http-trigger-function-with-code-nodejs"></a>Testar uma função de gatilho HTTP com código: Node.js
 Você pode usar um aplicativo Node.js para executar uma solicitação HTTP para testar sua função.
 Lembre-se de definir:
 
-* O `host` nas opções de solicitação para o host do aplicativo de função
+* O `host` nas opções de solicitação para o host do aplicativo de funções.
 * O nome da função no `path`.
 * Seu código de acesso (`<your code>`) em `path`.
 
@@ -375,13 +376,13 @@ Na janela **Logs** do portal, é registrada uma saída semelhante à seguinte ao
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### <a name="test-a-queue-trigger-function-with-code-c"></a>Testar uma função de gatilho de fila com Código: C# #
-Mencionamos anteriormente que você poderia testar um gatilho de fila usando código para remover uma mensagem na fila. O exemplo de código a seguir é baseado no código C# apresentado no tutorial [Introdução ao Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md) . Também há código para outras linguagens disponível nesse link.
+### <a name="test-a-queue-trigger-function-with-code-c"></a>Testar uma função de gatilho de fila com código: C# #
+Mencionamos anteriormente que você pode testar um gatilho de fila usando código para remover uma mensagem na fila. O exemplo de código a seguir é baseado no código C# apresentado no tutorial [Introdução ao Armazenamento de Filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Também há código para outras linguagens disponível nesse link.
 
 Para testar esse código em um aplicativo de console, que você deve:
 
 * [Configurar a cadeia de conexão de armazenamento no arquivo app.config](../storage/storage-dotnet-how-to-use-queues.md).
-* Este código aceita o nome e o endereço de um novo usuário como argumentos de linha de comando durante o tempo de execução. Passe um `name` e `address` como parâmetros para o aplicativo. Por exemplo, `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`
+* Passe um `name` e `address` como parâmetros para o aplicativo. Por exemplo: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. (Este código aceita o nome e o endereço de um novo usuário como argumentos de linha de comando durante o tempo de execução).
 
 Código C# de exemplo:
 
@@ -431,7 +432,7 @@ static void Main(string[] args)
 }
 ```
 
-Na janela do navegador para a função de fila, você verá a cada mensagem que está sendo processada:
+Na janela do navegador para a função de fila, você poderá ver cada mensagem que está sendo processada:
 
     2016-03-24T10:27:06  Welcome, you are now connected to log-streaming service.
     2016-03-24T10:27:30.607 Function started (Id=e304450c-ff48-44dc-ba2e-1df7209a9d22)
@@ -441,10 +442,5 @@ Na janela do navegador para a função de fila, você verá a cada mensagem que 
 
 <!-- URLs. -->
 
-[Portal do Azure]: https://portal.azure.com
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[portal do Azure]: https://portal.azure.com
 

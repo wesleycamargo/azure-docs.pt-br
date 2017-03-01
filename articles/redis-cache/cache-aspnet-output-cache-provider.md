@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/14/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bf282f9f17c7a651c9229d262db3c61fcb92c799
+ms.sourcegitcommit: 70341f4a14ee807a085931c3480a19727683e958
+ms.openlocfilehash: ce0f2ddb42e19ee33767878797188e924f5cd1e9
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -34,9 +35,14 @@ Digite **RedisOutputCacheProvider** na caixa de texto de pesquisa, selecione-o n
 
 ![Provedor de Cache de Saída do Cache Redis do Azure](./media/cache-aspnet-output-cache-provider/redis-cache-page-output-provider.png)
 
-O pacote NuGet do Provedor de Cache de Saída Redis tem uma dependência do pacote StackExchange.Redis.StrongName. Se o pacote StackExchange.Redis.StrongName não estiver presente em seu projeto, ele será instalado. Observe que além do pacote StackExchange.Redis.StrongName de nome forte, também há a versão do StackExchange.Redis sem nome forte. Se o seu projeto estiver usando a versão do StackExchange.Redis sem um nome forte, será necessário desinstalá-la, antes ou depois de instalar o pacote NuGet do Provedor de Cache de Saída Redis, caso contrário, você receberá conflitos de nomenclatura em seu projeto. Para saber mais sobre esses pacotes, consulte [Configurar clientes de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+O pacote NuGet do Provedor de Cache de Saída Redis tem uma dependência do pacote StackExchange.Redis.StrongName. Se o pacote StackExchange.Redis.StrongName não estiver presente em seu projeto, ele será instalado.
 
-Os downloads de pacote NuGet acrescentam as referências de assembly necessárias e adicionam a seguinte seção dentro de seu arquivo web.config que contém a configuração solicitada para seu aplicativo ASP.NET a fim de usar o Provedor de Cache de Saída Redis.
+>[!NOTE]
+>Além do pacote StackExchange.Redis.StrongName de nome forte, também há a versão do StackExchange.Redis sem nome forte. Se o seu projeto estiver usando a versão StackExchange.Redis sem um nome forte, será necessário desinstalá-la, caso contrário você terá conflitos de nomenclatura em seu projeto. Para saber mais sobre esses pacotes, consulte [Configurar clientes de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+>
+>
+
+O pacote do NuGet baixa e adiciona as referências de assembly necessárias e adiciona a seção a seguir ao seu arquivo web.config. Esta seção contém a configuração necessária para seu aplicativo ASP.NET usar o Provedor de Cache de Saída Redis.
 
 ```xml
 <caching>
@@ -70,7 +76,7 @@ Configure os atributos com os valores de sua folha de cache no Portal do Microso
 * **ssl** – true se você quiser proteger as comunicações de cache/cliente com ssl; caso contrário, false. Especifique a porta correta.
   * A porta não SSL é desabilitada por padrão para novos caches. Especifique true para essa configuração a fim de usar a porta SSL. Para saber mais sobre como habilitar a porta que não é do tipo SSL, confira a seção [Portas de acesso](cache-configure.md#access-ports) no tópico [Configurar um cache](cache-configure.md).
 * **databaseId** – especifica qual banco de dados usar para os dados de saída do cache. Se esse campo não for especificado, o valor padrão de 0 será usado.
-* **applicationName** – as chaves são armazenadas no redis como <AppName>_<SessionId>_Data. Isso permite que vários aplicativos compartilhem a mesma chave. Esse parâmetro é opcional e, se você não fornecê-lo, um valor padrão será usado.
+* **applicationName** – As chaves são armazenadas em redis como `<AppName>_<SessionId>_Data`. Esse esquema de nomenclatura permite que vários aplicativos compartilhem a mesma chave. Esse parâmetro é opcional e, se você não fornecê-lo, um valor padrão será usado.
 * **connectionTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de connectTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão do connectTimeout, 5000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** – essa configuração permite a substituição da configuração de syncTimeout no cliente StackExchange.Redis. Se ela não for especificada, a configuração padrão de syncTimeout, 1000, será usada. Para saber mais, consulte [Modelo de configuração StackExchange.Redis](http://go.microsoft.com/fwlink/?LinkId=398705).
 
@@ -80,16 +86,11 @@ Adicione uma diretiva OutputCache a cada página da qual você deseja armazenar 
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-Neste exemplo, os dados da página em cache permanecerão no cache por 60 segundos, e outra versão da página será armazenada em cache para cada combinação de parâmetros. Para saber mais sobre a diretiva OutputCache, consulte [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
+No exemplo anterior, os dados da página em cache permanecem no cache por 60 segundos, e outra versão da página será armazenada em cache para cada combinação de parâmetros. Para saber mais sobre a diretiva OutputCache, consulte [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
 
 Após a execução dessas etapas, seu aplicativo será configurado para usar o Provedor de Cache de Saída Redis.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira [Provedor de estado de sessão ASP.NET para Cache Redis do Azure](cache-aspnet-session-state-provider.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

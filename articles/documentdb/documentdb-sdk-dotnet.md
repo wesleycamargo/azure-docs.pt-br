@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/22/2017
+ms.date: 02/15/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 9b6cc624deae18044ffcedd8c9b06cdc8fd6f4d8
+ms.sourcegitcommit: de2b914ddb7238c9939066570d8fba78aa5c231e
+ms.openlocfilehash: 73e9c8491520d47bbc60b1556b97918977d29d7f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -50,6 +51,21 @@ ms.openlocfilehash: 9b6cc624deae18044ffcedd8c9b06cdc8fd6f4d8
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name11201120httpswwwnugetorgpackagesmicrosoftazuredocumentdb1120"></a><a name="1.12.0"/>[1.12.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.12.0)
+* Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
+
+### <a name="a-name11141114httpswwwnugetorgpackagesmicrosoftazuredocumentdb1114"></a><a name="1.11.4"/>[1.11.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.4)
+* Correção para um problema no qual algumas das consultas entre partições com falha no processo de host de 32 bits.
+* Correção para um problema no qual o contêiner de sessão não estava sendo atualizado com o token para solicitações com falha no modo de Gateway.
+* Correção para um problema no qual uma consulta com chamadas a UDF na projeção estava falhando em alguns casos.
+* Correções de desempenho do lado do cliente para aumentar a taxa de transferência de leitura e gravação das solicitações.
+
+### <a name="a-name11131113httpswwwnugetorgpackagesmicrosoftazuredocumentdb1113"></a><a name="1.11.3"/>[1.11.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.3)
+* Correção para um problema no qual o contêiner de sessão não estava sendo atualizado com o token para solicitações com falha.
+* Adicionado suporte para o SDK trabalhar em um processo de host de 32 bits. Observe que, se você usar consultas entre partições, processamento de host de 64 bits é recomendado para melhorar o desempenho.
+* Desempenho aprimorado para cenários que envolvem consultas com um grande número de valores de chave de partição em uma expressão em.
+* Preenchimento de várias estatísticas de cota de recursos no ResourceResponse para solicitações de leitura de conjuntos de documento quando a opção de solicitação PopulateQuotaInfo estiver definida.
 
 ### <a name="a-name11111111httpswwwnugetorgpackagesmicrosoftazuredocumentdb1111"></a><a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Pequena correção de desempenho para a API CreateDocumentCollectionIfNotExistsAsync introduzida no 1.11.0.
@@ -165,9 +181,9 @@ ms.openlocfilehash: 9b6cc624deae18044ffcedd8c9b06cdc8fd6f4d8
   * Suporte ao provedor de LINQ para OrderBy() ou OrderByDescending()
   * IndexingPolicy para dar suporte a Order By 
     
-        **NB: Possible breaking change** 
+    **NB: possível alteração interruptiva** 
     
-        If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    Se você tem o código existente que provisiona as coleções com uma política personalizada de indexação, o seu código existente precisa ser atualizado para dar suporte à nova classe IndexingPolicy.  Se você não tem uma política personalizada de indexação, essa alteração não afeta você.
 
 ### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdb110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 * Suporte para dados de particionamento usando as novas classes HashPartitionResolver e RangePartitionResolver e o IPartitionResolver
@@ -189,6 +205,9 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.12.0](#1.12.0) |15 de fevereiro de 2017 |--- |
+| [1.11.4](#1.11.4) |06 de fevereiro de 2017 |--- |
+| [1.11.3](#1.11.3) |26 de janeiro de 2017 |--- |
 | [1.11.1](#1.11.1) |21 de dezembro de 2016 |--- |
 | [1.11.0](#1.11.0) |08 de dezembro de 2016 |--- |
 | [1.10.0](#1.10.0) |27 de setembro de 2016 |--- |
@@ -216,12 +235,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 ## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
