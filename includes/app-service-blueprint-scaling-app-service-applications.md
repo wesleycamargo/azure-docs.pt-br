@@ -2,7 +2,7 @@
   
   * Noções Básicas Sobre Confiabilidade e Redundância
   * Aplicativos Com monitoração de estado vs aplicativos Sem monitoração de estado
-    * [Configurando seu aplicativo Sem monitoração de Estado](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
+    * [Configurando seu aplicativo Sem monitoração de Estado](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
 * Realizando Teste de Carga no Serviço de Aplicativo   
 * Melhores práticas para colocação de escala do Serviço de Aplicativo
   
@@ -13,9 +13,4 @@
 * Distribuição geográfica
   
   * [Utilizando o Gerenciador de Tráfego para atingir escala global](../articles/traffic-manager/traffic-manager-overview.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

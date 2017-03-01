@@ -13,10 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
-ms.author: dhanyahk
+ms.author: dhanyahk;markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+ms.sourcegitcommit: eec9b73cbaccfa50eec6f237e4d1d810c6efa1d9
+ms.openlocfilehash: e5b8ac91914203156bd395d7f462385e9f6dbcb4
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -113,7 +114,7 @@ Habilite ou desabilite a seção "Notificações por Email de Entradas Anômalas
 ### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrar com a API de Relatório do AD do Azure
 Consulte [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md).
 
-### <a name="engage-multifactor-authentication-on-users"></a>Acione Multi-Factor Authentication nos usuários
+### <a name="engage-multi-factor-authentication-on-users"></a>Acione Multi-Factor Authentication nos usuários
 Selecione um usuário em um relatório.
 
 Clique no botão "Habilitar MFA" na parte inferior da tela.
@@ -139,10 +140,5 @@ Envie um email para [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@mic
 > Para obter mais documentação sobre os Relatórios do AD do Azure, consulte [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md).
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

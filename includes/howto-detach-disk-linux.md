@@ -1,7 +1,7 @@
 Quando não precisar mais de um disco de dados conectado a uma VM (máquina virtual), você poderá desanexá-lo facilmente. Ao desanexar um disco da VM, o disco não é removido do armazenamento. Se desejar usar os dados existentes no disco novamente, você poderá reanexá-lo à mesma VM ou anexá-lo a outra.  
 
 > [!NOTE]
-> Uma VM no Azure usa diferentes tipos de discos, um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Para obter detalhes, confira [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a VM.
+> Uma VM no Azure usa diferentes tipos de discos, um disco de sistema operacional, um disco temporário local e discos de dados opcionais. Para obter detalhes, confira [Sobre discos e VHDs para máquinas virtuais](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Não é possível desanexar um disco do sistema operacional, a menos que você também exclua a VM.
 
 ## <a name="find-the-disk"></a>Localize o disco
 Antes de poder desanexar um disco de uma VM, você precisa descobrir o número LUN, que é um identificador para o disco a ser desanexado. Para fazer isso, siga estas etapas:
@@ -111,9 +111,4 @@ Depois de localizar o número de LUN do disco e remover as referências do siste
     ```
 
 O disco permanece desanexado no armazenamento mas já não está conectado a uma máquina virtual.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

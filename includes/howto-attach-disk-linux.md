@@ -1,5 +1,5 @@
 
-Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para saber mais sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -114,9 +114,4 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 > Depois de adicionar um disco de dados, será necessário fazer logon na máquina virtual e inicializar o disco para que a máquina virtual possa usar o disco para armazenamento (consulte as etapas a seguir para saber mais informações sobre como inicializar o disco).
 > 
 > 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
