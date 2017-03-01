@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
-ms.openlocfilehash: a7771c2cee3f2820db014a4e5e8620442eea3dd1
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: c8e130f8adbad040fd06fde89156ca6201d18ea6
+ms.openlocfilehash: 5d85602de4eb4cd4ddadc31a83dac34d3487f54d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -81,7 +81,6 @@ Por enquanto, os serviços que permitem mover para um novo grupo de recursos e u
 * CDN
 * Serviços de Nuvem - veja [Limitações da implantação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
-* Serviço de Contêiner
 * Content Moderator
 * Catálogo de Dados
 * Data Factory
@@ -128,6 +127,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Gateway de Aplicativo
 * Application Insights
 * Serviços do BizTalk
+* Serviço de Contêiner
 * Rota Expressa
 * Laboratórios DevTest – Habilita a mudança para um novo grupo de recursos na mesma assinatura, mas desabilita a troca entre assinaturas.
 * Dynamics LCS

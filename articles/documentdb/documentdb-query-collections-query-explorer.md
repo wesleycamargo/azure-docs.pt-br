@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 3dbf57923e104715d34d1131d16acb6bc6c51637
-ms.openlocfilehash: dcf61a8875793bb9e5ed4eda51f9da14366a4fba
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -69,7 +69,7 @@ Se uma consulta for concluída com erros, o Gerenciador de Consultas exibirá um
 ![Captura de tela de erros de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Executar consultas SQL do Banco de Dados de Documentos fora do portal
-O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar consultas SQL no Banco de Dados de Documentos. Você também pode executar consultas SQL usando a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para saber mais sobre como usar esses outros métodos, veja [Executar consultas SQL](documentdb-sql-query.md#executing-sql-queries)
+O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar consultas SQL no Banco de Dados de Documentos. Você também pode executar consultas SQL usando a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para saber mais sobre como usar esses outros métodos, veja [Executar consultas SQL](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Consultas, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).

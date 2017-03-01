@@ -12,29 +12,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/23/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd403bb8569950a5bf4da3bd84905604753cda7
-ms.openlocfilehash: f29128dd156576276014e159afa9050364169c46
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 6f2db3b411069b31424627f50336f1ba9750a9f5
+ms.openlocfilehash: 060f684cee6a8f98e5e8fb4a49f0bab92bd4df9c
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
+> [!div class="op_single_selector"]
+> * [Portal do Azure](active-directory-assign-admin-roles-azure-portal.md)
+> * [Portal clássico do Azure](active-directory-assign-admin-roles.md)
+>
+>
+
 Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Esses administradores terão acesso a vários recursos no portal do Azure ou portal clássico do Azure e, dependendo da sua função, poderão criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuários, gerenciar licenças de usuários e gerenciar domínios, entre outras coisas. Um usuário ao qual é atribuída uma função administrativa terá as mesmas permissões em todos os serviços de nuvem que sua organização tenha assinado, independentemente de você ter atribuído a função no portal do Office 365 ou no portal clássico do Azure ou usando o módulo do Azure AD para Windows PowerShell.
 
 As seguintes funções de administrador estão disponíveis:
 
-* **[Administrador de cobrança](#billing-administrator)**: faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
-* **[Administrador global/Administrador da Empresa](#global-administrator)**: tem acesso a todos os recursos administrativos. A pessoa que se inscreve para a conta do Azure torna-se um administrador global. Somente os administradores globais podem atribuir outras funções de administrador. Pode haver mais de um administrador global na sua empresa.
+* **Administrador de cobrança**: faz compras, gerencia as assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
+* **Administrador global/Administrador da Empresa**: tem acesso a todos os recursos administrativos. A pessoa que se inscreve para a conta do Azure torna-se um administrador global. Somente os administradores globais podem atribuir outras funções de administrador. Pode haver mais de um administrador global na sua empresa.
 
   > [!NOTE]
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal do Azure](https://portal.azure.com).
   >
   >
-* **Administrador de conformidade**: os usuários com essa função têm permissões de gerenciamento no [Centro de Conformidade e Segurança do Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1?ui=en-US&rs=en-US&ad=US&fromAR=1) e no [Centro de Administração do Exchange](https://technet.microsoft.com/en-us/library/jj657489(v=exchg.150).aspx), e acesso de leitura a relatórios no Centro de Administração do Office 365. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Administrador de conformidade**:
 * **Administrador de Serviços do CRM**: os usuários com essa função têm permissões globais no Microsoft CRM Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+* **Aprovador de acesso do Sistema de Proteção de Dados do Cliente**: quando o Sistema Proteção está habilitado, os usuários com essa função podem aprovar solicitações de engenheiros da Microsoft para acessar as informações da empresa. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administradores do dispositivo**: os usuários com essa função se tornam Administradores em todos os dispositivos Windows 10 associados ao Azure Active Directory.
 * **Leitores de diretório**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](active-directory-integrating-applications.md). Ele não deve ser atribuído a nenhum usuário.
 * **Contas de sincronização de diretório**: não use. Essa função é automaticamente atribuída ao serviço do Azure AD Connect e não tem intenção ou suporte para outros usos.
@@ -43,10 +50,7 @@ As seguintes funções de administrador estão disponíveis:
 * **Administrador de serviços do Intune**: os usuários com essa função têm permissões globais no Microsoft Intune Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
 * **Administrador de serviços do Skype for Business**: os usuários com essa função têm permissões globais no Microsoft Skype for Business, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). Esta função era conhecida anteriormente como função de **Administrador de serviço do Lync** .
 * **Emissor do convite**: os usuários nessa função podem gerenciar convites. Ela não inclui nenhuma outra permissão.
-* **Administrador de Caixa de Correio**: essa função é usada somente como parte do suporte por email do Exchange Online para dispositivos RIM Blackberry. Se sua organização não usar o email do Exchange Online em dispositivos RIM Blackberry, não use essa função.
-* **Suporte ao parceiro de Nível 1**: não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
-* **Suporte ao parceiro de Nível 2**: não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
-* **[Administrador de senha/Administrador de assistência técnica](#password-administrator)**: redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Administradores de senha podem redefinir senhas somente para os usuários e outros administradores de senha.
+* **Administrador de senha/Administrador de assistência técnica**: redefine as senhas, gerencia as solicitações de serviço e monitora a integridade do serviço. Administradores de senha podem redefinir senhas somente para os usuários e outros administradores de senha.
 
   > [!NOTE]
   > Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Assistência Técnica".
@@ -55,15 +59,15 @@ As seguintes funções de administrador estão disponíveis:
 * **Administrador de serviços do Power BI**: os usuários com essa função têm permissões globais no Microsoft Power BI, quando o serviço estiver presente. Mais informações em [Facilitar a administração do Power BI](https://powerbi.microsoft.com/en-us/blog/making-it-easier-to-administer-power-bi/).
 * **Administrador da função com privilégios**: os usuários com essa função podem gerenciar o Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md) e atualizar atribuições de função para outros usuários.
 * **Administrador do serviço SharePoint**: os usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço estiver presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
-* **[Administrador de serviços](#service-administrator)**: gerencia as solicitações de serviço e monitora a integridade do serviço.
+* **Administrador de serviço**: gerencia as solicitações de serviço e monitora a integridade do serviço.
 
   > [!NOTE]
   > Para atribuir a função de administrador de serviços a um usuário, o administrador global deve primeiro atribuir permissões administrativas para o usuário no serviço, como o Exchange Online, e, em seguida, atribuir a função de administrador de serviço para o usuário no Portal de Gerenciamento do Azure.
   >
   >
-* **[Administrador da conta de usuário](#user-administrator)**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
-* **[Leitor de segurança](#security-reader)**: acesso somente leitura a um número de recursos de segurança do Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
-* **[Administrador de segurança](#security-administrator)**: todas as permissões somente leitura da função **Leitor de segurança**, mais um número de permissões administrativas adicionais para os mesmos serviços: Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
+* **Administrador da conta de usuário**: redefine as senhas, monitora a integridade do serviço e gerencia contas de usuário, grupos de usuários e solicitações de serviço. Algumas limitações se aplicam às permissões de um administrador de gerenciamento de usuário. Por exemplo, eles não podem excluir um administrador global ou criar outros administradores. Além disso, eles não podem redefinir senhas para cobrança, globais e administradores de serviço.
+* **Leitor de segurança**: acesso somente leitura a um número de recursos de segurança do Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
+* **Administrador de segurança**: todas as permissões somente leitura da função **Leitor de segurança**, mais um número de permissões administrativas adicionais para os mesmos serviços: Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 e Centro de Segurança e Conformidade do Office 365.
 
 ## <a name="administrator-permissions"></a>Permissões de administrador
 ### <a name="billing-administrator"></a>Administrador de cobrança
@@ -129,7 +133,7 @@ As seguintes funções não devem ser usadas. Elas foram preteridas e serão rem
 * Ingresso no Dispositivo no Local de Trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+* Para saber mais sobre como alterar administradores para uma assinatura do Azure, veja [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)
 * Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Gerenciar usuários](active-directory-create-users.md)

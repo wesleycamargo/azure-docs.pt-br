@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: a084cecddc2af36ee087b2e0e63a2b18b20f07f0
-ms.openlocfilehash: 0c2ca459a691b353a528edc48f4d13c231a440c4
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2bd4b44bea641bcfcb576f0ba5d53564277dfe34
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -242,7 +242,7 @@ Há duas maneiras de executar um failover de teste no Azure.
 
 Se você quiser executar um failover de teste sem especificar uma rede do Azure, não precisará de preparo prévio.
 
-Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes.
+Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md) para obter mais detalhes.
 
 Para testar totalmente a replicação e a implantação da rede, você precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Uma maneira de fazer isso é configurar uma máquina virtual como um controlador de domínio com DNS e replicá-la para o Azure usando a Recuperação de Site para criá-la na rede de teste com a execução de um failover de teste.  [Leia mais sobre](site-recovery-active-directory.md#test-failover-considerations) as considerações sobre failover de teste para o Active Directory.
 

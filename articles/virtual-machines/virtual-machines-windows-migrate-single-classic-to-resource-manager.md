@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: a46db1815b84f0ecf93c805f3ea36e4e3d4282ac
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -142,7 +143,7 @@ Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração li
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -ManagedDiskStorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Crie um disco de dados gerenciados do arquivo VHD de dados e o adicione à nova VM.
@@ -159,13 +160,13 @@ Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração li
 5.  Crie a nova VM definindo o IP público, a rede virtual e o NIC.
 
     ```powershell
-    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'\_ip') '
+    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
     -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
     
     $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
     
-    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'\_nic') '
-    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets\[0\].Id '
+    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
+    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
     -PublicIpAddressId $publicIp.Id
     
     $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
@@ -181,10 +182,5 @@ Prepare seu aplicativo para o tempo de inatividade. Para fazer uma migração li
 ## <a name="next-steps"></a>Próximas etapas
 
 - Conectar-se à máquina virtual. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
