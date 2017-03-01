@@ -4,7 +4,7 @@ description: "Saiba como habilitar o log de diagnóstico e adicionar instrumenta
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 27bf5b15ebeed13733df2ddd9dbda5d5cfe4e49d
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -286,9 +287,4 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 ## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

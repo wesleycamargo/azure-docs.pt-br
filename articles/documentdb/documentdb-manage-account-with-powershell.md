@@ -13,19 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 02/27/2017
 ms.author: dimakwan
 translationtype: Human Translation
-ms.sourcegitcommit: 7e10f4d051a484965c7d58de6351dd357aa64c0f
-ms.openlocfilehash: 0c0e682c79a6a25ac29760f649a832f22f39e8b5
+ms.sourcegitcommit: 8078f9822b392af09e00e9bf1e448e0a51994e11
+ms.openlocfilehash: 15707a71500424e4776adc80491af95b57bea222
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="automate-azure-documentdb-account-management-using-azure-powershell"></a>Automatizar o gerenciamento de conta do DocumentDB do Azure usando o Azure Powershell
 > [!div class="op_single_selector"]
-> * [portal do Azure](documentdb-create-account.md)
-> * [CLI do Azure e ARM](documentdb-automation-resource-manager-cli.md)
-> * [Powershell do Azure](documentdb-manage-account-with-powershell.md)
+> * [Portal do Azure](documentdb-create-account.md)
+> * [CLI 1.0 do Azure](documentdb-automation-resource-manager-cli-nodejs.md)
+> * [CLI 2.0 do Azure](documentdb-automation-resource-manager-cli.md)
+> * [PowerShell do Azure](documentdb-manage-account-with-powershell.md)
 
 O guia a seguir descreve os comandos para automatizar o gerenciamento de suas contas de banco de dados do DocumentDB usando o Azure Powershell. Isso também inclui comandos para gerenciar as chaves de conta e as prioridades de failover em [contas de banco de dados com várias regiões][scaling-globally]. A atualização de sua conta de banco de dados permite que você adicione ou remova regiões e modifique políticas de consistência. Para gerenciamento de plataforma cruzada de sua conta de banco de dados do DocumentDB, você pode usar a [CLI do Azure](documentdb-automation-resource-manager-cli.md), a [API REST do Provedor de recursos][rp-rest-api] ou o [Portal do Azure](documentdb-create-account.md).
 
@@ -190,8 +192,3 @@ Exemplo:
 [azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
-
-
-<!--HONumber=Dec16_HO3-->
-
-

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/01/2016
+ms.date: 2/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 94d085ac026a309a457891944931901e9dc2564f
+ms.sourcegitcommit: e90efe810084939280b392c470e14e76d35aff01
+ms.openlocfilehash: e628143db9ceba5e159022d2eefe3e6dd9f4bf22
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -76,6 +77,8 @@ Leia [Comunicar-se com os serviços](service-fabric-connect-and-communicate-with
 
 **Serviço de Repositório de Imagens**: cada cluster do Service Fabric tem um serviço de Repositório de Imagens em que os pacotes de aplicativos implantados com versão são mantidos. Copie um pacote de aplicativos para o Repositório de Imagens e registre o tipo de aplicativo nesse pacote de aplicativos. Após o provisionamento do tipo de aplicativo, você poderá criar aplicativos nomeados com base nele. Você pode cancelar o registro de um tipo de aplicativo do serviço de Repositório de Imagens após a exclusão de todos os seus aplicativos nomeados.
 
+Leia [Entender a configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md) para saber mais sobre o serviço de Armazenamento de Imagens.
+
 Leia o artigo [Implantar um aplicativo](service-fabric-deploy-remove-applications.md) para saber mais sobre como implantar aplicativos no repositório de imagens.
 
 ## <a name="built-in-programming-models"></a>Modelos de programação internos
@@ -94,10 +97,5 @@ Para saber mais sobre o Service Fabric:
 * [Visão geral da Malha do Serviço](service-fabric-overview.md)
 * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 * [Cenários de aplicativos](service-fabric-application-scenarios.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,9 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ea75a14232c010ebea31273856f21cb0e02067a7
+ms.sourcegitcommit: 066bc9911050c44fe5d8ce2d63bdb0f843e08176
+ms.openlocfilehash: 31dd351ae216e131c092447493ac9f3ae65ba10d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -1147,9 +1148,4 @@ Você pode usar essas informações para determinar se uma operação ou API da 
 * A página [Application Insights - introdução ao ASP. NET](application-insights/app-insights-asp-net.md) , no site da Microsoft, fornece informações detalhadas sobre como instalar e configurar o Application Insights em um projeto de API Web ASP.NET.
 * A página [Verificando o Código Pelo Uso de Testes de Unidade](https://msdn.microsoft.com/library/dd264975.aspx) , no site da Microsoft, fornece informações detalhadas sobre criação e gerenciamento de testes de unidade pelo uso do Visual Studio.
 * A página [Executar testes de desempenho em um aplicativo antes do lançamento](https://msdn.microsoft.com/library/dn250793.aspx) no site da Microsoft descreve como usar o Visual Studio Ultimate para criar um projeto de teste de carga e desempenho da Web.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

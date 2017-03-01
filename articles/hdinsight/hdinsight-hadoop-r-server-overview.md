@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2017
+ms.date: 02/28/2017
 ms.author: jeffstok
 translationtype: Human Translation
 ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
 ms.openlocfilehash: 2f5cf1155f116b22fa28cf86bb8c87667df981b7
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -104,9 +105,4 @@ Siga os links abaixo para ler mais sobre como usar o Servidor R com clusters HDI
 * [Adicionar Servidor do RStudio ao HDInsight (se não for instalado durante a criação do cluster)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 * [Opções de Armazenamento do Azure para o Servidor R no HDInsight](hdinsight-hadoop-r-server-storage.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

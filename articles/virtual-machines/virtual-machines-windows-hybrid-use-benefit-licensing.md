@@ -3,7 +3,7 @@ title: "Benefício do Uso Híbrido do Azure para Window Server | Microsoft Docs"
 description: "Saiba como maximizar os benefícios do Software Assurance do Windows Server para colocar as licenças locais no Azure"
 services: virtual-machines-windows
 documentationcenter: 
-author: iainfoulds
+author: george-moore
 manager: timlt
 editor: 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -17,6 +17,7 @@ ms.author: georgem
 translationtype: Human Translation
 ms.sourcegitcommit: 7167048a287bee7c26cfc08775dcb84f9e7c2eed
 ms.openlocfilehash: df86e73814ceb0c5137c654bce84c8d42ae41820
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -187,9 +188,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 Leia mais sobre o [Licenciamento do Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 Saiba mais sobre como [usar os modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

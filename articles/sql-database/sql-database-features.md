@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 50a465f314909c10bc3c3f95be2d9dc377d433a7
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -57,12 +58,12 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 | Grupos de disponibilidade AlwaysOn | [Com suporte](https://msdn.microsoft.com/library/hh510230.aspx) | Sem suporte – consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md) |
 | Anexar um banco de dados | [Com suporte](https://msdn.microsoft.com/library/ms190209.aspx) | Sem suporte |
 | Funções de aplicativo | [Com suporte](https://msdn.microsoft.com/library/ms190998.aspx) | [Com suporte](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Escala automática | Sem suporte | [Com suporte](sql-database-scale-up.md) |
+| Escala automática | Sem suporte | [Com suporte](sql-database-service-tiers.md) |
 | Azure Active Directory | Sem suporte | [Com suporte](sql-database-aad-authentication.md) |
 | Fábrica de dados do Azure | Sem suporte – consulte [SSIS (SQL Server Integration Services)](https://msdn.microsoft.com/library/ms141026.aspx) | [Com suporte](https://azure.microsoft.com/services/data-factory/) |
-| Auditoria | [Com suporte](https://msdn.microsoft.com/library/cc280386.aspx) | [Com suporte](sql-database-auditing-get-started.md) |
+| Auditoria | [Com suporte](https://msdn.microsoft.com/library/cc280386.aspx) | [Com suporte](sql-database-auditing.md) |
 | Arquivo BACPAC (exportação) | [Com suporte](https://msdn.microsoft.com/library/hh213241.aspx) | [Com suporte](sql-database-export.md) |
-| Arquivo BACPAC (importação) | [Com suporte](https://msdn.microsoft.com/library/hh710052.aspx) | [Com suporte](sql-database-import.md) |
+| Arquivo BACPAC (importação) | [Com suporte](https://msdn.microsoft.com/library/hh710052.aspx) | [Com suporte](sql-database-import-portal.md) |
 | Instruções BACKUP e RESTORE | [Com suporte](https://msdn.microsoft.com/library/ff848768.aspx) | Sem suporte |
 | Funções internas | [Com suporte](https://msdn.microsoft.com/library/ms174318.aspx) | [A maioria](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Captura de dados de alteração | [Com suporte](https://msdn.microsoft.com/library/cc645937.aspx) | Sem suporte |
@@ -132,7 +133,7 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 | SQL Server Integration Services (SSIS) | [Com suporte](https://msdn.microsoft.com/library/ms141026.aspx) | Sem suporte – consulte [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Com suporte](https://msdn.microsoft.com/library/hh245198.aspx) | [Com suporte](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Com suporte](https://msdn.microsoft.com/library/ms181091.aspx) | Sem suporte – consulte [Eventos estendidos](https://msdn.microsoft.com/library/ms181091.aspx) |
-| Replicação do SQL Server | [Com suporte](https://msdn.microsoft.com/library/ms151198.aspx) | [Somente assinante de replicação de instantâneo e transacional](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replicação do SQL Server | [Com suporte](https://msdn.microsoft.com/library/ms151198.aspx) | [Somente assinante de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) |
 | SSRS (SQL Server Reporting Services) | [Com suporte](https://msdn.microsoft.com/library/ms159106.aspx) | Sem suporte |
 | Procedimentos armazenados | [Com suporte](https://msdn.microsoft.com/library/ms190782.aspx) | [Com suporte](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Funções armazenadas do sistema | [Com suporte](https://msdn.microsoft.com/library/ff848780.aspx) | [Alguns](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -158,9 +159,4 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 - Para obter informações sobre cotas e limitações de recursos específicos com base na **camada de serviço**. Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md).
 - Para obter uma visão geral de segurança, veja [Visão geral de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

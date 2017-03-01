@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
-ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: c226d1eecbda09f4538f37d830ce68064e8ce77b
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,7 +30,7 @@ Nesse tutorial, abordaremos como automatizar completamente a criação e a impla
 ## <a name="get-started"></a>Introdução
 Você pode executar este passo a passo no OS X, Windows ou Linux.
 - É necessária uma assinatura do Azure. Se não tiver uma, você poderá se [inscrever em uma conta](https://azure.microsoft.com/).
-- Instale as [ferramentas de linha de comando do Azure](https://github.com/Azure/azure-cli#microsoft-azure-cli-20---preview).
+- Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2).
 
 ## <a name="what-well-create"></a>O que vamos criar
 Vamos abordar alguns aspectos fundamentais do aplicativo e seu fluxo de implantação que estamos configurando:
@@ -319,7 +320,7 @@ Algumas das próximas etapas para explorar:
 ## <a name="clean-up"></a>Limpar
 Para limitar os encargos de computação relacionados a este tutorial, execute o seguinte comando e anote os recursos de pipeline de implantação relacionados a um cluster do ACS:
 
-```azurecli 
+```azurecli    
 az container release list --resource-name myacs --resource-group myacs-rg
 ```
 
@@ -345,9 +346,4 @@ Excluir a Definição de Versão do VSTS:
 2. Na lista Definições de Versão no lado esquerdo, clique na lista suspensa ao lado da definição de versão que você deseja excluir e selecione **Excluir**.
 
 `![Exclua a Definição de Versão do VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: trinadhk; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 5e22f3b395a2c8d62caa6ae0abf5f81833b00780
-ms.openlocfilehash: 2018f37b3b3426ba6a066310ddfd65fc31b7eb25
+ms.sourcegitcommit: 7de8d98f24ea01012b8fa3a326e1d4ad3f04099a
+ms.openlocfilehash: 186929c1193f63ecda6fd4851bb66c8430ab99ab
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -100,7 +101,7 @@ Se você estiver usando uma distribuição do Linux baseada em inicialização d
 Se você tiver restaurado a VM no mesmo serviço de nuvem com o mesmo nome que o backup original da VM, o backup continuará na VM após a restauração. Se você tiver restaurado a VM em um serviço de nuvem diferente ou especificado um nome diferente para a VM restaurada, isso será tratado como uma nova VM e você precisará configurar o backup para a VM restaurada.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Restaurando uma máquina virtual durante desastres de data center do Azure
-O Backup do Azure permite restaurar backups de VMs em um data center emparelhado caso ocorra um desastre no data center principal onde as VMs estão sendo executadas e você tenha configurado o Cofre de Backup para ser redundante geograficamente. Durante esses cenários, você precisa selecionar uma conta de armazenamento que está presente no data center emparelhado e o restante do processo de restauração permanece o mesmo. O Backup do Azure usa o serviço de computação da área geográfica emparelhada para criar a máquina virtual restaurada. 
+O Backup do Azure permite restaurar backups de VMs em um data center emparelhado caso ocorra um desastre no data center principal onde as VMs estão sendo executadas e você tenha configurado o Cofre de Backup para ser redundante geograficamente. Durante esses cenários, você precisa selecionar uma conta de armazenamento que está presente no data center emparelhado e o restante do processo de restauração permanece o mesmo. O Backup do Azure usa o serviço de computação da área geográfica emparelhada para criar a máquina virtual restaurada. Saiba mais sobre [Resiliência do data center do Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Restaurando VMs do controlador de domínio
 O backup de máquinas virtuais de controlador de domínio (DC) é um cenário com suporte no Backup do Azure. No entanto, deve-se tomar algum cuidado durante o processo de restauração. A experiência de restauração é muito diferente para VMs do controlador de domínio em uma configuração de DC único em comparação a VMs em uma configuração de vários DCs.
@@ -153,10 +154,5 @@ Para recriar completamente a máquina virtual após restaurar os discos, execute
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar erros](backup-azure-vms-troubleshoot.md#restore)
 * [Gerenciar máquinas virtuais](backup-azure-manage-vms.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

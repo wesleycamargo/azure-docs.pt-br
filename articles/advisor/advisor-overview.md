@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: f67ca5996fdde0f0939ac46c2f6280f9d89af3d0
-ms.openlocfilehash: a39a5555ce3af59b509a0522725addbb382ff7af
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 3c4f6d13dd43ae557b177883e14044e637bd803b
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -28,9 +29,9 @@ Saiba mais sobre o Azure Advisor, seus principais recursos e as perguntas freque
 O Azure Advisor é um consultor de nuvem personalizado que ajuda a seguir as práticas recomendadas para otimizar as implantações do Azure. Ele analisa a telemetria de uso e configuração do recurso e recomenda soluções que podem ajudar você a aprimorar o custo-benefício, o desempenho, a alta disponibilidade e a segurança dos seus recursos do Azure.
 
 Com o Azure Advisor, você pode:
--   Obter práticas recomendadas proativas, acionáveis e personalizadas 
--   Melhorar o desempenho, a segurança e a alta disponibilidade de seus recursos enquanto procura oportunidades para reduzir a despesa geral do Azure
--   Obter recomendações com ações embutidas
+-    Obter práticas recomendadas proativas, acionáveis e personalizadas 
+-    Melhorar o desempenho, a segurança e a alta disponibilidade de seus recursos enquanto procura oportunidades para reduzir a despesa geral do Azure
+-    Obter recomendações com ações embutidas
 
 Você pode acessar o Advisor pelo [Portal do Azure](https://aka.ms/azureadvisordashboard). Entre no [portal](https://portal.azure.com), selecione **Procurar** e role até o **Azure Advisor**. O painel do Advisor exibe recomendações personalizadas para uma assinatura selecionada. As recomendações são divididas em quatro categorias. 
 
@@ -45,7 +46,7 @@ Você pode acessar o Advisor pelo [Portal do Azure](https://aka.ms/azureadvisord
   ![Tipos de recomendação do Advisor](./media/advisor-overview/advisor-all-tab-examples.png)
 
 > [!NOTE]
-> O Azure Advisor gera recomendações para assinaturas em que você recebeu a função de **Proprietário**, **Colaborador** ou **Leitor**.
+> Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um **Proprietário de assinatura** inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
 
 Você pode clicar em uma recomendação para obter informações adicionais sobre ela. Também é possível saber mais sobre ações que você pode executar para aproveitar uma oportunidade ou resolver um problema. O Advisor oferece recomendações com ações embutidas ou links de documentação. Ao clicar em uma ação embutida, você é levado para uma "jornada interativa de usuário" para implementá-la. Clicar em um link de documentação aponta para a documentação que descreve como você pode implementar manualmente a ação. 
 
@@ -58,7 +59,7 @@ Você pode acessar o Advisor pelo Portal do Azure. Entre no portal, selecione **
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>De quais permissões preciso para acessar o Advisor?
 
-Para exibir as recomendações do Advisor, você deve ter acesso a pelo menos uma assinatura. Sua função deve ser **Proprietário**, **Colaborador** ou **Leitor** da assinatura. Os proprietários e colaboradores da assinatura podem computar/gerar recomendações. No entanto, com uma função de **Leitor**, você só pode exibir as recomendações do Advisor. 
+Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um Proprietário de assinatura inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
 
 ### <a name="how-often-are-advisor-recommendations-updated"></a>Com que frequência as recomendações do Advisor são atualizadas?
 
@@ -66,7 +67,7 @@ As recomendações do Advisor são atualizadas de hora em hora.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 
-O Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, Serviços de Aplicativos, servidores SQL, bancos de dados SQL e cache Redis.
+O Advisor fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, Servidores SQL, Bancos de Dados SQL e cache Redis.
 
 ### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>Posso adiar ou descartar uma recomendação?
 
@@ -81,9 +82,4 @@ Veja estes recursos para saber mais sobre as recomendações do Advisor:
 -  [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 -  [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 -  [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

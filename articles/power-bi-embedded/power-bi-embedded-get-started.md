@@ -16,8 +16,9 @@ ms.workload: powerbi
 ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
-ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
+ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
+ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -77,7 +78,7 @@ Depois que você criou sua coleção de espaço de trabalho, você precisará cr
 Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)(PBIX de exemplo de análise de varejo).
 
 > [!NOTE]
-> Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+> Para saber mais sobre como usar o **Power BI Desktop**, confira [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Com o **Power BI Desktop**, você se conecta à fonte de dados importando uma cópia dos dados para o **Power BI Desktop** ou se conectando diretamente à fonte de dados usando o **DirectQuery**.
 
@@ -109,10 +110,5 @@ Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o prim
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

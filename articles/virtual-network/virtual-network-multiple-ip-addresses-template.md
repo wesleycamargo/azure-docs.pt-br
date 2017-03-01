@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3eda8b459b5f095a40c6ea1ed355472daf23a6e3
-ms.openlocfilehash: ae5c430e702b561ddf156aa29016cfec6a0a8153
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 080404a7b4fde0e2fd8b8be407090190d07c6f2a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -122,7 +123,7 @@ Para implantar o modelo usando o PowerShell, siga as etapas a seguir:
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `-TemplateParameterFile`.
     
-    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#powershell).
+    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
     >[!TIP]
     >Caso não tenha certeza de se um dnslabelprefix está disponível, digite o comando `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` para descobrir. Se ele estiver disponível, o comando retornará `True`.
@@ -157,14 +158,9 @@ Para implantar o modelo usando a CLI 1.0 do Azure, siga as etapas a seguir:
 
     Independentemente da opção escolhida para implantar o modelo, você deve fornecer valores para os valores dos parâmetros listados na seção [parâmetros](#parameters) deste artigo. Se você escolher fornecer parâmetros usando um arquivo de parâmetros, copie os conteúdos do [arquivo de parâmetros](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) do GitHub para um novo arquivo no seu computador. Modifique os valores no arquivo. Use o arquivo que você criou como o valor para o parâmetro `--parameters-file` (-e).
     
-    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md#azure-cli-10).
+    Para determinar os valores válidos para os parâmetros OSVersion, ImagePublisher e imageOffer, siga as etapas no artigo [Navegar e selecionar imagens de VM do Windows](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
 
 3. Depois que a VM for implantada, conecte-se à VM e adicione os endereços IP privados ao sistema operacional implantado, seguindo as etapas na seção [Adicionar endereços IP a um sistema operacional da VM](#os-config) deste artigo. Não adicione os endereços IP públicos ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

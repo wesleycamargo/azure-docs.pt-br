@@ -4,7 +4,7 @@ description: "Saiba como o Serviço de Aplicativo do Azure ajuda você a desenvo
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -58,10 +59,5 @@ Para começar a usar os Aplicativos de API implantando código de exemplo em um 
 * [Java](app-service-api-java-api-app.md) 
 
 Para fazer perguntas sobre os aplicativos de API, inicie um thread no [Fórum dos Aplicativos de API](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps). 
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

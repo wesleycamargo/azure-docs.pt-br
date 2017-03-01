@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2017
+ms.date: 02/16/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f65661013ce7cb5987ba83fb824befe7b4d1f70b
-ms.openlocfilehash: 4c230046bb5314f5fbd3e6d65e1317cb056fa647
+ms.sourcegitcommit: 9e480c13f48e93da32ff5a3c8d3064e98fed0265
+ms.openlocfilehash: 0ec19832d395547e8ebd3eee0d44dcf466a2ace7
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-portal"></a>Criar um cluster HDInsight com o Repositório Data Lake usando o Portal do Azure
 > [!div class="op_single_selector"]
 > * [Usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-> * [Usando o PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Usando o PowerShell (para o armazenamento padrão)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+> * [Usando o PowerShell (para o armazenamento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Usando o Gerenciador de Recursos](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
 Aprenda a usar o Portal do Azure para criar um cluster HDInsight com acesso ao Azure Data Lake Store. Para tipos de cluster compatíveis, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Store é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Blobs de Armazenamento do Azure (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, embora os dados que você queira processar possam ser armazenados em uma conta do Data Lake Store. O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster.
 
-Algumas considerações importantes:
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento do cluster HDInsight
+
+Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
 * A opção para criar clusters HDInsight com acesso ao Data Lake Store como armazenamento padrão está disponível para o HDInsight versão 3.5.
 
@@ -52,12 +56,6 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
     **Se você não for um administrador do Azure AD**, não poderá executar as etapas necessárias para criar uma entidade de serviço. Nesse caso, o administrador do Azure AD deverá primeiro criar uma entidade de serviço antes de criar um cluster HDInsight com Data Lake Store. Além disso, a entidade de serviço deve ser criada usando um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 
-## <a name="do-you-learn-faster-with-videos"></a>Você aprende mais rapidamente com vídeos?
-Assista aos vídeos a seguir para entender como provisionar clusters HDInsight com acesso ao Repositório Data Lake.
-
-* [Criar um cluster HDInsight com acesso ao Repositório Data Lake](https://mix.office.com/watch/l93xri2yhtp2)
-* Depois que o cluster for configurado, [Acesse dados no Repositório Data Lake usando scripts do Hive e Pig](https://mix.office.com/watch/1n9g5w0fiqv1q)
-
 ## <a name="create-an-hdinsight-cluster-with-access-to-azure-data-lake-store"></a>Criar um cluster HDInsight com acesso ao repositório Azure Data Lake
 Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Data Lake como um armazenamento adicional. Nesta versão, para um cluster Hadoop, o Repositório Data Lake pode ser usado apenas como um armazenamento adicional para o cluster. O armazenamento padrão ainda será nos blobs de armazenamento do Azure (WASB). Portanto, vamos criar primeiro a conta de armazenamento e os contêineres de armazenamento exigidos para o cluster.
 
@@ -65,14 +63,16 @@ Nesta seção, você cria um cluster HDInsight Hadoop que usa o Repositório Dat
 
 2. Siga as etapas em [Criar clusters de Hadoop no HDInsight](../hdinsight/hdinsight-provision-clusters.md) para começar a provisionar um cluster HDInsight.
 
-3. Na folha **Fonte de Dados**, especifique se deseja o Armazenamento do Azure (WASB) ou Data Lake Store como seu armazenamento padrão. Se quiser usar o Azure Data Lake Store como armazenamento padrão, pule para a próxima etapa.
+3. Na folha **Armazenamento**, especifique se deseja o WASB (Armazenamento do Azure) ou Data Lake Store como seu armazenamento padrão. Se quiser usar o Azure Data Lake Store como armazenamento padrão, pule para a próxima etapa.
 
-    Se quiser usar os Blobs de Armazenamento do Azure como armazenamento padrão, para **Tipo de Armazenamento Primário**, clique em **Armazenamento do Azure**. Especifique os detalhes da conta de armazenamento e do contêiner de armazenamento, especifique **Localização** como **Leste dos EUA 2** e clique em **Acesso do Data Lake Store**.
+    Se quiser usar os Blobs de Armazenamento do Azure como armazenamento padrão, para **Tipo de Armazenamento Primário**, clique em **Armazenamento do Azure**. Depois disso, para **Método de seleção**, você poderá escolher **Minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure e, em seguida, selecionar a conta de armazenamento. Caso contrário, clique em **Chave de acesso** e forneça as informações da conta de armazenamento que você deseja escolher de fora de sua assinatura do Azure. Para **contêiner padrão**, você pode optar por usar o nome do contêiner padrão sugerido pelo Portal ou especificar seu próprio nome. 
+
+    Quando você está usando Blobs de Armazenamento do Azure como armazenamento padrão, ainda é possível usar o Azure Data Lake Store como armazenamento adicional para o cluster. Para fazer isso, clique em **Acesso ao Data Lake Store** e, em seguida, vá para a etapa 5.
 
     ![Adicionar entidade de serviço ao cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Adicionar entidade de serviço ao cluster do HDInsight")
 
 
-4. Se quiser usar o Azure Data Lake Store como armazenamento padrão, para **Tipo de Armazenamento Primário**, clique em **Data Lake Store**. Selecione uma conta do Data Lake Store existente, forneça um caminho de pasta raiz em que os arquivos específicos do cluster serão armazenados (veja nota abaixo), especifique **Localização** como **Leste dos EUA 2** e clique em **Acesso do Data Lake Store**. Você somente pode usar essa opção com clusters do HDInsight 3.5 (Standard Edition). Em clusters HDInsight 3.5, essa opção não está disponível para o tipo de cluster HBase.
+4. Se quiser usar o Azure Data Lake Store como armazenamento padrão, para **Tipo de Armazenamento Primário**, clique em **Data Lake Store**. Selecione uma conta do Data Lake Store existente, forneça um caminho de pasta raiz em que os arquivos específicos do cluster serão armazenados, especifique **Localização** como **Leste dos EUA 2** e clique em **Acesso do Data Lake Store**. Você somente pode usar essa opção com clusters do HDInsight 3.5 (Standard Edition). Em clusters HDInsight 3.5, essa opção não está disponível para o tipo de cluster HBase.
 
     Na captura de tela abaixo, o caminho da pasta raiz é /clusters/myhdiadlcluster, onde **myhdiadlcluster** é o nome do cluster que está sendo criado. Nesse caso, verifique se a pasta **/clusters** já existe na conta do Data Lake Store. A pasta **myhdiadlcluster** será criada durante a criação do cluster. De modo semelhante, se o caminho raiz foi definido como /hdinsight/clusters/data/myhdiadlcluter, você deverá garantir que **/hdinsight/clusters/data/** já exista na conta do Data Lake Store.
 
@@ -158,9 +158,4 @@ Você pode usar o Repositório Data Lake para gravar os dados de uma topologia d
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

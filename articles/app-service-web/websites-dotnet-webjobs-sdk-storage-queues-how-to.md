@@ -4,7 +4,7 @@ description: Saiba como usar o armazenamento de fila do Azure com o SDK de Traba
 services: app-service\web, storage
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: dbfac5d9-f4a0-4e3e-9ecc-af3d7bf80463
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -578,9 +579,4 @@ Você também pode desabilitar e habilitar de modo dinâmico funções para cont
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Próximas etapas
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

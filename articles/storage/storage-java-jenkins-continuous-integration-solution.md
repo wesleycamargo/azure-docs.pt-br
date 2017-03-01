@@ -3,7 +3,7 @@ title: "Usando o Armazenamento do Azure com uma solução de integração contí
 description: "Este tutorial mostra como usar o serviço Blob do Azure como um repositório para artefatos de compilação criados por uma solução de integração contínua Jenkins."
 services: storage
 documentationcenter: java
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f4e5ca75-f6cb-4f74-981b-2aa06bb8de45
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 317b8d537465daf77c6feeb8fed927c72bdd7190
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -155,8 +156,3 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 * [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
-
-
-<!--HONumber=Nov16_HO3-->
-
-

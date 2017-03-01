@@ -4,7 +4,7 @@ description: "Solucionar problemas dos erros &quot;502 Gateway Incorreto&quot; e
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "502 Gateway Incorreto, 503 Serviço Indisponível, erro 503, erro 502"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: f6ef85e0c05911bb3ad13a8ffb029bf9fadd8bfd
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -129,10 +130,5 @@ Esta é geralmente a maneira mais simples de se recuperar de problemas de uso ú
  ![reiniciar o aplicativo para solucionar os erros HTTP de 502 Gateway Incorreto e 503 Serviço Indisponível](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

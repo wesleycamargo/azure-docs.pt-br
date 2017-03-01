@@ -4,7 +4,7 @@ description: "Saiba como usar tópicos e filas do barramento de serviço do Azur
 services: app-service\web, service-bus
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 2114a934-135b-42b8-871c-6cc040214e76
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -172,10 +173,5 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 
 ## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Próximas etapas
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

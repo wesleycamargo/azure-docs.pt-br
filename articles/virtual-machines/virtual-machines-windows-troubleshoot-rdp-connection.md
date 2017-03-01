@@ -17,8 +17,9 @@ ms.topic: support-article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ccdfd0c64b5a784664edaef9c19e272c8e8323e6
-ms.openlocfilehash: b6b9540f4120ef87d819605579df4ab0c9657e45
+ms.sourcegitcommit: 9ca20f34d812e15a7f1e6f5dd032ec05c464046d
+ms.openlocfilehash: 53920a551e24f29274133315b463c6c69605da10
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -248,14 +249,7 @@ Você pode encontrar uma mensagem de erro específica ao tentar se conectar à s
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por meio da Área de Trabalho Remota, leia o [guia detalhado de solução de problemas para Área de Trabalho Remota](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-* [Pacote de diagnóstico do Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)
 * Para obter etapas de solução de problema de acesso a aplicativos em execução, consulte [Solucionar problemas de acesso a um aplicativo em execução em uma VM do Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Se você estiver enfrentando problemas ao usar o Secure Shell (SSH) para se conectar a uma VM do Linux no Azure, consulte [Solucionar problemas de conexões SSH a uma VM do Linux no Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

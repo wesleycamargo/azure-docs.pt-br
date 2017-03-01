@@ -4,7 +4,7 @@ description: Como integrar o Mobile Engagement do Azure com aplicativos do Windo
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -246,10 +247,5 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
 > 
 > 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

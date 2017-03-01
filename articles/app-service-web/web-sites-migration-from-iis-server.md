@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 2e846fc0-37cc-42e6-ac57-ff442ef16e85
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 52e4ba9f1f623312780a9072719866932b1af502
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -137,10 +138,5 @@ Esta seção percorre um exemplo para migrar alguns sites que usam um banco de d
 
 ## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

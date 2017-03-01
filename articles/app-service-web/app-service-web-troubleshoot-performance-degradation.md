@@ -4,7 +4,7 @@ description: "Este artigo ajuda você a solucionar problemas de desempenho de ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: top-support-issue
 keywords: "desempenho do aplicativo Web, aplicativo lento, lentidão do aplicativo"
@@ -19,6 +19,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
 ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -171,9 +172,4 @@ Esta é geralmente a maneira mais simples de se recuperar de problemas de uso ú
  ![reinicie o aplicativo Web para solucionar problemas de desempenho](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para obter mais informações, consulte [Usando o PowerShell do Azure com o Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

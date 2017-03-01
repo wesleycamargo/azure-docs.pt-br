@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/22/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 5cb86ac4694d8b763fa693954a8bb1383739497c
+ms.sourcegitcommit: fc73b667112fe35473872c33bc98423a424c5c65
+ms.openlocfilehash: d6bee5afea6afcd756b53f41baef5dd984423c0a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -48,8 +49,8 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 | Tempo de expiração da senha |<ul><li>Valor padrão: **90** dias </li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de senha |<ul><li>Valor padrão: **14** dias (antes do vencimento de senha)</li><li>O valor é configurável usando o cmdlet Set-MsolPasswordPolicy.</li></ul> |
 | Expiração de senha |<ul><li>Valor padrão: **false** dias (indica que a expiração de senha está habilitada) </li><li>O valor pode ser configurado para contas de usuário individuais usando o cmdlet Set-MsolUser. </li></ul> |
-| Histórico de senha |A última senha não pode ser usada novamente. |
-| Duração do histórico de senha |Para sempre |
+| Histórico de **alteração** de senha |A última senha **não pode** ser usada novamente ao **alterar** uma senha. |
+| Histórico de **redefinição** de senha | A última senha **pode** ser usada novamente ao **redefinir** uma senha esquecida. |
 | Bloqueio de conta |Após 10 tentativas malsucedidas de entrar (senha incorreta), o usuário será bloqueado por um minuto. Mais tentativas de entrar incorretas farão com que o usuário seja bloqueado por durações cada vez maiores. |
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -63,9 +64,4 @@ A tabela a seguir descreve as configurações de política de senha disponíveis
 * [Perguntas frequentes sobre Gerenciamento de Senhas](active-directory-passwords-faq.md)
 * [Solucionar problemas do Gerenciamento de Senhas](active-directory-passwords-troubleshoot.md)
 * [Saiba mais](active-directory-passwords-learn-more.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

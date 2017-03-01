@@ -4,7 +4,7 @@ description: "Este tópico mostra como configurar políticas de entrega de ativo
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 255cc9f08862ff7babf8d8847c88a72a4c88582c
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -427,10 +428,5 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

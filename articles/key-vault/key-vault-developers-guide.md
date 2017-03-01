@@ -33,6 +33,7 @@ Para obter mais informações gerais sobre o Cofre de Chaves do Azure, confira [
 ## <a name="videos"></a>Vídeos
 Este vídeo mostra como criar seu próprio cofre de chaves e como usá-lo por meio do aplicativo de exemplo “Hello Key Vault”.
 
+
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player]
 
 

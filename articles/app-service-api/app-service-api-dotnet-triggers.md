@@ -4,7 +4,7 @@ description: "Como implementar gatilhos em um aplicativo de API no Serviço de A
 services: logic-apps
 documentationcenter: .net
 author: guangyang
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d
 ms.service: logic-apps
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 015ca80c952110d3289888ed82d7a543be29950c
 ms.openlocfilehash: cf020b0f5f14d73635cf44e0157b53b35eb00d60
+ms.lasthandoff: 12/07/2016
 
 
 ---
@@ -340,9 +341,4 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
             }
         }
     }
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

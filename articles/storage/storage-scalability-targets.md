@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 12/08/2016
+ms.date: 02/14/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 70f73577fdaf6efa74fe1516a8486c45ef76db31
+ms.sourcegitcommit: 2ab1a58aab138cc81b25731a9454b083d54ded81
+ms.openlocfilehash: eff408bc70288ada1039df7432f43b02420f2c37
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -39,15 +40,19 @@ Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma
 ## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Metas de escalabilidade para blobs, filas, tabelas e arquivos
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Metas de escalabilidade para discos de máquina virtual
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
 Veja [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes adicionais.
 
-### <a name="standard-storage-accounts"></a>Contas de armazenamento padrão
+## <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
+
+## <a name="unmanaged-virtual-machine-disks"></a>Discos de máquina virtual não gerenciados
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
 
-### <a name="premium-storage-accounts"></a>Contas de armazenamento Premium
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## <a name="scalability-targets-for-azure-resource-manager"></a>Metas de escalabilidade para o Gerenciador de recursos do Azure
@@ -78,10 +83,5 @@ Recomendações detalhadas para a criação de estratégias de particionamento d
 * [Replicação de armazenamento do Azure](storage-redundancy.md)
 * [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 * [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

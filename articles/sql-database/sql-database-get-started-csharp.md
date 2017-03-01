@@ -17,14 +17,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: bc1a78a2891c73df23bc2a57cec67e6b73414165
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Use o C# para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET
 
-Saiba como usar o C# para criar um banco de dados SQL do Azure com a [Biblioteca de Gerenciamento do Banco de Dados do Microsoft Azure SQL para .NET.](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Este artigo descreve como criar um banco de dados individual com o SQL e C#. Para criar os pools elásticos, veja [Criar um pool elástico](sql-database-elastic-pool-create-csharp.md).
+Saiba como usar o C# para criar um banco de dados SQL do Azure com a [Biblioteca de Gerenciamento do Banco de Dados do Microsoft Azure SQL para .NET.](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Este artigo descreve como criar um banco de dados individual com o SQL e C#. Para criar os pools elásticos, veja [Criar um pool elástico](sql-database-elastic-pool-manage-csharp.md).
 
 A Biblioteca de Gerenciamento do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Resource Manager.](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -284,9 +285,4 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 [7]: ./media/sql-database-get-started-csharp/add-application.png
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

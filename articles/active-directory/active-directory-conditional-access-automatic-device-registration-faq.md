@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/04/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 3e87a3b4086d3a2b0dec5ec7d954864922f51279
-ms.openlocfilehash: c262134df624b548b99c22bd749bb56fcda6fb1b
+ms.sourcegitcommit: 90327223d19ffc6697237d697b93fe88e1654e2c
+ms.openlocfilehash: fc668e1b4af662506da6652bbf21bab6cf91b114
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -57,17 +58,17 @@ Apenas os seguintes dispositivos são listados nas informações de usuário:
 
 Para Windows 10 e Windows Server 2016 que estão ingressados pelo domínio do AD local:
 
-1.  Abra o prompt de comando como administrador.
+1.    Abra o prompt de comando como administrador.
 
-2.  Tipo **dsregcmd.exe /debug /leave**
+2.    Tipo **dsregcmd.exe /debug /leave**
 
-3.  **Logon e entrar para disparar a tarefa de tarefa que registra o dispositivo novamente.** 
+3.    **Logon e entrar para disparar a tarefa de tarefa que registra o dispositivo novamente.** 
 
 Para outras plataformas Windows que estão ingressadas pelo domínio do AD local:
 
-1.  Abra o prompt de comando como administrador.
-2.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+1.    Abra o prompt de comando como administrador.
+2.    Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+3.    Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
 
@@ -75,13 +76,13 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:**
 
--   Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
+-    Para Windows 10 e Windows Server 2016, se houver tentativas repetidas de cancelar o ingresso e ingressar novamente o mesmo dispositivo, poderá haver entradas duplicadas. 
 
--   Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
+-    Se você tiver usado Adicionar Conta Corporativa ou de Estudante, cada usuário do Windows que usar Adicionar Conta Corporativa ou de Estudante criará um novo registro do dispositivo com o mesmo nome do dispositivo.
 
--   Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
+-    Outras plataformas Windows que são ingressadas pelo domínio do AD local usando o registro automático criarão um novo registro de dispositivo com o mesmo nome do dispositivo para cada usuário de domínio que faça logon no dispositivo. 
 
--   Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
+-    Um computador AADJ que foi apagado, reinstalado e reingressado com o mesmo nome aparecerá como outro registro com o mesmo nome do dispositivo.
 
 ---
 
@@ -112,13 +113,13 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:** As razões comuns para esse cenário são:
 
-1.  Suas credenciais de usuário não são mais válidas.
+1.    Suas credenciais de usuário não são mais válidas.
 
-2.  O computador não pode se comunicar com o Azure Active Directory. Verifique se há problemas de conectividade de rede.
+2.    O computador não pode se comunicar com o Azure Active Directory. Verifique se há problemas de conectividade de rede.
 
-3.  Os pré-requisitos de Ingresso no Azure AD não foram atendidos. Certifique-se de ter seguido as etapas de [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Ingresso do Azure Active Directory](active-directory-azureadjoin-overview.md).  
+3.    Os pré-requisitos de Ingresso no Azure AD não foram atendidos. Certifique-se de ter seguido as etapas de [Estendendo os recursos de nuvem para dispositivos Windows 10 por meio da Ingresso do Azure Active Directory](active-directory-azureadjoin-overview.md).  
 
-4.  Os logons federados requerem que o servidor de federação dê suporte a um ponto de extremidade WS-Trust ativo. 
+4.    Os logons federados requerem que o servidor de federação dê suporte a um ponto de extremidade WS-Trust ativo. 
 
 ---
 
@@ -144,15 +145,10 @@ Para outras plataformas Windows que estão ingressadas pelo domínio do AD local
 
 **R:** Para encontrar informações de solução de problemas, consulte:
 
-1. [Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+1. [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
 
-2. [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md) (Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows)
+2. [Solução de problemas com o registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
  
 ---
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 1a5af0b498cfdf1946f5c405d9557b0c2d2c8e63
-ms.openlocfilehash: 1e9e54ee935b4c27eb93f72eb99c3ce52cc6c7e2
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 848a4011fd180721cf269390b8dd7426b2287dd2
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="authenticate-with-a-container-registry"></a>Autenticar com um registro de contêiner
@@ -59,7 +60,7 @@ As entidades de serviço permitem o [acesso baseado em função](../active-direc
 
 
 ## <a name="admin-account"></a>Conta de administrador
-Com cada registro que você cria, uma conta de administrador é criada automaticamente. Por padrão, a conta está desabilitada, mas você pode habilitá-la e gerenciar as credenciais, por exemplo, por meio do [portal](container-registry-get-started-portal.md#manage-registry-settings) ou usando os [comandos de Visualização da CLI 2.0 do Azure](container-registry-get-started-azure-cli.md#manage-admin-credentials). Se a conta estiver habilitada, você pode passar o nome de usuário e a senha para o comando `docker login` para autenticação básica no registro. Por exemplo:
+Com cada registro que você cria, uma conta de administrador é criada automaticamente. Por padrão, a conta está desabilitada, mas você pode habilitá-la e gerenciar as credenciais, por exemplo, por meio do [portal](container-registry-get-started-portal.md#manage-registry-settings) ou usando os [comandos da CLI 2.0 do Azure](container-registry-get-started-azure-cli.md#manage-admin-credentials). Se a conta estiver habilitada, você pode passar o nome de usuário e a senha para o comando `docker login` para autenticação básica no registro. Por exemplo:
 
 ```
 docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
@@ -74,10 +75,5 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 * [Enviar por push sua primeira imagem usando a CLI do Docker](container-registry-get-started-docker-cli.md).
 * Para saber mais sobre a autenticação na visualização do Registro de Contêiner, confira a [postagem no blog](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: d86c39ca96633fc84311a4843deee997df9305a6
-ms.openlocfilehash: 692ee9272224369b8d5f892160bc92d5a30c346c
+ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
+ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -348,7 +349,7 @@ o Azure Disk Encryption ajuda a proteger as chaves e os segredos da criptografia
 #### <a name="create-a-key-vault"></a>Criar um cofre de chave
 Para criar um cofre de chaves, use uma das seguintes opções:
 
-* [Modelo do Gerenciador de Recursos "101-Create-KeyVault"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
+* [Modelo "101-Key-Vault-Create" do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Cmdlets do cofre de chaves do Azure PowerShell](https://msdn.microsoft.com/library/dn868052.aspx)
 * Gerenciador de Recursos do Azure
 
@@ -1227,9 +1228,4 @@ Você pode baixar este guia na [Galeria do TechNet](https://gallery.technet.micr
 ## <a name="for-more-information"></a>Para obter mais informações
 [Explorar a Azure Disk Encryption com o Azure PowerShell - Parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  
 [Explorar a Azure Disk Encryption com o Azure PowerShell - Parte 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -38,15 +38,10 @@
     ![local do servidor](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > A caixa de seleção para **Permitir que os serviços do Azure acessem o servidor** não pode ser alterado nessa folha. Você pode alterar essa configuração na folha de firewall do servidor. Para obter mais informações, confira [Introdução à segurança](../articles/sql-database/sql-database-get-started-security.md).
+    > A caixa de seleção para **Permitir que os serviços do Azure acessem o servidor** não pode ser alterado nessa folha. Você pode alterar essa configuração na folha de firewall do servidor. Para obter mais informações, confira [Introdução à segurança](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. Clique em **Criar**.
 
     ![botão criar](./media/sql-data-warehouse-create-logical-server/create.png)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

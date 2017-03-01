@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 892c42cf28ef1861f9422c8bcabcbc229c6033b0
-ms.openlocfilehash: 794cfa21f46981c031217687f591c35a4706ae8b
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 501e5e8501c6106ba2e51b3523332fd224a5a142
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -46,13 +47,8 @@ Esta seção descreve as etapas de implantação no novo Portal do Azure.
 4. [Defina as configurações de replicação](site-recovery-vmware-to-azure.md#set-up-replication-settings). Crie uma política de replicação e atribua ao servidor de configuração.
 5. [Instalar o serviço de Mobilidade](site-recovery-vmware-to-azure.md#prepare-vms-for-replication). Cada VM que você deseja proteger requer o serviço de Mobilidade instalado. Esse serviço envia dados ao servidor de processo. O serviço de Mobilidade pode ser instalado manualmente ou enviado por push e instalado automaticamente pelo servidor de processo quando a proteção para a VM é habilitada. As regras de firewall nas VMs que você deseja migrar devem ser configuradas para permitir a instalação por push desse serviço.
 6. [Habilite a replicação](site-recovery-vmware-to-azure.md#enable-replication). Habilite a replicação para as VMs que você deseja migrar. Você pode descobrir as máquinas virtuais IaaS que deseja migrar para o Azure usando o endereço IP privado das máquinas virtuais. Localize esse endereço no painel de máquina virtual do Azure. Ao habilitar a replicação, você define o tipo de computador para as VMs como computadores físicos.
-7. [ Execute um failover não planejado](site-recovery-failover.md#run-an-unplanned-failover). Depois que a replicação inicial for concluída, você poderá executar um failover não planejado de uma região do Azure para outra. Se preferir, você pode criar um plano de recuperação e executar um failover não planejado para migrar várias máquinas virtuais entre regiões. [Saiba mais](site-recovery-create-recovery-plans.md) sobre planos de recuperação.
+7. [ Execute um failover não planejado](site-recovery-failover.md). Depois que a replicação inicial for concluída, você poderá executar um failover não planejado de uma região do Azure para outra. Se preferir, você pode criar um plano de recuperação e executar um failover não planejado para migrar várias máquinas virtuais entre regiões. [Saiba mais](site-recovery-create-recovery-plans.md) sobre planos de recuperação.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre outros cenários de replicação em [O que é o Azure Site Recovery?](site-recovery-overview.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 3e2db0a87433bd4bb83b8f39cd4d2d61bbcb474f
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 1887b777fbe113d59cffb6ba5409e33ca1380880
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -92,13 +93,8 @@ A tabela abaixo descreve as propriedades da Máquina Virtual que podem ser usada
 | imageVersion |Especifica a versão da imagem para o SKU escolhido |
 
 ## <a name="create-the-policy"></a>Criar a política
-Uma política pode ser criada facilmente usando a API REST diretamente ou os cmdlets do PowerShell. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
+Uma política pode ser criada facilmente usando a API REST diretamente ou os cmdlets do PowerShell. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="apply-the-policy"></a>Aplicar a política
-Depois de criar a política, você precisará aplicá-la a um escopo definido. O escopo pode ser uma assinatura, um grupo de recursos ou até mesmo um recurso. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+Depois de criar a política, você precisará aplicá-la a um escopo definido. O escopo pode ser uma assinatura, um grupo de recursos ou até mesmo um recurso. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md).
 

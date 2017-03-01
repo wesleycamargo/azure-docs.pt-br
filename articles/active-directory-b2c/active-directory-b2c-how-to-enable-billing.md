@@ -13,8 +13,9 @@ ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
 translationtype: Human Translation
-ms.sourcegitcommit: 10bcd51746315d80cef20592b869dca95eaacb56
-ms.openlocfilehash: a460ef42dafac04088ecdce12f64ee5e19ba77ff
+ms.sourcegitcommit: 43224628d5726ac2fb0e8c27c649421af7ceeee4
+ms.openlocfilehash: 6cf375fbfe265a53591b9987ebd32db6df73fcb4
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -74,7 +75,7 @@ Clicando no recurso de locatário do B2C, será possível
 ## <a name="next-steps"></a>Próximas etapas
 Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement.
 - Examinar o uso e a cobrança selecionados para a assinatura do Azure
-- Examine os relatórios de uso detalhado do dia a dia usando a API de Relatórios de Uso (TBD)
+- Examine os relatórios de uso detalhado do dia a dia usando a [API de Relatórios de Uso](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
 
 
 
@@ -82,9 +83,4 @@ Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, 
 [gog]: http://google.com/        
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/    
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

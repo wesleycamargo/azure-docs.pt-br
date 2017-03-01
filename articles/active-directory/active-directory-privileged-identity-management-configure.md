@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
-ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
+ms.sourcegitcommit: b52a475008c9d15912c0b363d76118df74112107
+ms.openlocfilehash: b289b9befc67d01689fa87db955b1a10c210a724
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,7 +36,7 @@ O Azure AD Privileged Identity Management ajuda você a:
 * Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador
 * Receber alertas sobre o acesso a uma função com privilégios
 
-O Azure AD Privileged Identity Management pode gerenciar as funções organizacionais do Azure AD internas, incluindo:  
+O Azure AD Privileged Identity Management pode gerenciar as funções organizacionais do Azure AD internas, incluindo (mas sem limitação):  
 
 * Administrador global
 * Administrador de cobrança
@@ -50,7 +51,7 @@ Historicamente, você pode atribuir um usuário a uma função de administrador 
 Você pode começar a usar o Azure AD Privileged Identity Management acessando o [Portal do Azure](https://portal.azure.com/).
 
 > [!NOTE]
-> Você deve ser um administrador global com uma conta organizacional (por exemplo, @yourdomain.com), não uma conta da Microsoft (por exemplo, @outlook.com), para habilitar o Azure AD Privileged Identity Management para um diretório.
+> Você deve ser um administrador global com uma conta organizacional (por exemplo, @yourdomain.com) e não uma conta da Microsoft (por exemplo, @outlook.com) para habilitar o Azure AD Privileged Identity Management para um diretório.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
 2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito do portal do Azure. Selecione o diretório em que você usará o Privileged Identity Management do Azure AD.
@@ -117,9 +118,4 @@ Antes de atingir a disponibilidade geral, o Azure AD PIM estava no modo de visua
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

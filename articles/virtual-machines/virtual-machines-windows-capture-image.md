@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/15/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
+ms.sourcegitcommit: 7d3b927a1dc111c54efadadac469cf070596dd43
+ms.openlocfilehash: 9e4f80be051b9de05e9bb890259116071dba59c0
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: dc0753faefa59eef42046e0297a58276db086d18
 Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM do Azure generalizada. Depois você pode usar a imagem para criar outra VM. Esta imagem inclui o disco do SO e os discos de dados anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, de modo que você precisará configurar esses recursos quando criar a nova VM. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Você já precisa ter [generalizado a VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem.
+* Você já precisa ter [generalizado a VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizar uma VM remove todas as informações pessoais da conta, entre outros itens, e prepara o computador para ser utilizado como uma imagem. Você também pode generalizar uma VM Linux usando `sudo waagent -deprovision+user` e depois o PowerShell para capturar a VM. Para saber mais sobre como usar a CLI para capturar uma VM, veja [Como generalizar e capturar uma máquina virtual do Linux usando a CLI do Azure](virtual-machines-linux-capture-image.md)
 * Você precisa ter a versão 1.0.x ou mais recente do Azure PowerShell instalada. Se você ainda não tiver instalado o PowerShell, leia [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para ver as etapas de instalação.
 
 ## <a name="log-in-to-azure-powershell"></a>Fazer logon no Azure PowerShell
@@ -82,10 +83,5 @@ Este artigo mostra como usar o Azure PowerShell para criar uma imagem de uma VM 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora você pode [criar uma VM da imagem](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

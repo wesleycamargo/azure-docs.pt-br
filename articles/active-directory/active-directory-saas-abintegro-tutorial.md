@@ -11,36 +11,39 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 64a7ff2552d2ccc97b1ec90cf524aed6b62ecb82
+ms.sourcegitcommit: ddbe54eb6f9565e0c42d138231dbde22592e75b5
+ms.openlocfilehash: d6191e01450859a5e91b815df84d9a024bbee2c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Tutorial: Integração do Active Directory do Azure ao Abintegro
 O objetivo deste tutorial é mostrar a integração do Azure ao Abintegro.  
+
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
-* Uma assinatura habilitada para logon único do Abintegro
+* Uma assinatura habilitada para SSO (logon único) do Abintegro
 
 Depois de concluir este tutorial, os usuários do AD do Azure atribuídos ao Abintegro poderão fazer logon único no aplicativo em seu site de empresa do Abintegro (logon iniciado pelo provedor de serviços) ou usando a [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
 
-1. Habilitando a integração do aplicativo para o Abintegro
-2. Configurando o logon único
-3. Configurando o provisionamento de usuários
-4. Atribuindo usuários
+* Habilitando a integração do aplicativo para o Abintegro
+* Configuração do SSO (logon único)
+* Configurando o provisionamento de usuários
+* Atribuindo usuários
 
 ![Cenário](./media/active-directory-saas-abintegro-tutorial/IC790076.png "Cenário")
 
-## <a name="enabling-the-application-integration-for-abintegro"></a>Habilitando a integração do aplicativo para o Abintegro
+## <a name="enable-the-application-integration-for-abintegro"></a>Habilitar a integração de aplicativo para o Abintegro
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para Abintegro.
 
-### <a name="to-enable-the-application-integration-for-abintegro-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para Abintegro, execute as seguintes etapas:
+**Para habilitar a integração de aplicativos para Abintegro, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-abintegro-tutorial/IC700993.png "Active Directory")
@@ -61,12 +64,13 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
    
    ![Abintegro](./media/active-directory-saas-abintegro-tutorial/IC790078.png "Abintegro")
    
-   ## <a name="configuring-single-sign-on"></a>Configurando o logon único
+## <a name="configure-single-sign-on"></a>Configurar o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Abintegro com a respectiva conta do AD do Azure usando federação baseada em protocolo SAML.
 
-### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
-1. No portal clássico do Azure, na página de integração de aplicativos **Abintegro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
+**Para configurar o logon único, execute as seguintes etapas:**
+
+1. No Portal Clássico do Azure, na página de integração de aplicativos **Abintegro**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único **.
    
    ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790079.png "Configurar Logon Único")
 2. Na página **Como você gostaria que os usuários fizessem logon no Abintegro**, selecione **Logon Único do Microsoft Azure AD**, em seguida, clique em **Próximo**.
@@ -80,24 +84,25 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790082.png "Configurar Logon Único")
 5. Envie o arquivo de metadados para a equipe de suporte do Abintegro.
    
-   > [!NOTE]
-   > A configuração de logon único deve ser executada pela equipe de suporte do Abintegro. Assim que a configuração for concluída, você receberá uma notificação.
-   > 
-   > 
+   >[!NOTE]
+   >A configuração de logon único deve ser executada pela equipe de suporte do Abintegro. Assim que a configuração for concluída, você receberá uma notificação.
+   >  
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurar Logon Único")
+  ![Configurar Logon Único](./media/active-directory-saas-abintegro-tutorial/IC790083.png "Configurar Logon Único")
    
-   ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
+## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
 
 Não há nenhum item de ação para a configuração de provisionamento de usuário para o Abintegro.  
 Quando um usuário atribuído tenta fazer logon no Abintegro usando o painel de acesso, o Abintegro verifica se o usuário existe.  
+
 Se ainda não houver conta de usuário disponível, ela será criada automaticamente pelo Abintegro.
 
-## <a name="assigning-users"></a>Atribuindo usuários
+## <a name="assign-users"></a>Atribuir usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-abintegro-perform-the-following-steps"></a>Para atribuir usuários ao Abintegro, execute as seguintes etapas:
+**Para atribuir usuários ao Abintegro, execute as seguintes etapas:**
+
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos **Abintegro **, clique em **Atribuir usuários**.
    
@@ -107,10 +112,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-abintegro-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

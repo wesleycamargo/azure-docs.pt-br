@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 09/01/2016
 ms.author: stepsic
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
-ms.openlocfilehash: 7923735d9ed382ee8c554e7e0c6b1fb4a22208bb
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: d230450535613e85c607ef120929ea61bc2085bc
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,7 +36,7 @@ Para configurá-lo, você precisa definir a uma entidade de serviço com permiss
 
 David Ebbo escreveu [uma postagem de blog excelente](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sobre como fazer essa configuração. Siga todas as instruções e obtenha sua **ID do locatário**, **ID do cliente** e **Senha**. Esses três campos, mais a **ID da assinatura**, são o que é necessário para configurar o conector.
 
-## <a name="using-the-azure-resource-connector-in-logic-apps-designer"></a>Usando o Conector de Recursos do Azure no designer de Aplicativos lógicos
+## <a name="using-the-azure-resource-connector-in-logic-app-designer"></a>Usar o Conector de Recursos do Azure no Designer de Aplicativos Lógicos
 ### <a name="trigger"></a>Gatilho
 Há dois gatilhos que têm suporte no Conector:
 
@@ -106,9 +107,4 @@ Exiba a referência da API REST do Swagger em [Conectores e Referência dos apli
 
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

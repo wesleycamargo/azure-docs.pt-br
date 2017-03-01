@@ -1,6 +1,6 @@
 ---
 title: "BCDR (continuidade dos negócios e recuperação de desastre): regiões emparelhadas do Azure | Microsoft Docs"
-description: Os pares regionais do Azure garantem que os aplicativos sejam resilientes durante as falhas dos data centers.
+description: Saiba mais sobre os pares regionais do Azure, que garantem que os aplicativos sejam resilientes durante falhas de data centers.
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 56fe2f8d65379c9e957e46e1f44195b3ad2d0055
-ms.openlocfilehash: 30ec787997c0c622e8ade6eec2b2dcc635a5a664
+ms.sourcegitcommit: 43e0bb0c921be3992321d0a202fce1fa09053f99
+ms.openlocfilehash: 67edd136737e6af372c3c898c34a8bc6681a8c6d
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -91,9 +92,4 @@ Como mencionado na Figura 2.
 
 ![Dados](./media/best-practices-availability-paired-regions/9Orange.png)
 **Residência dos dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de imposição fiscal e legal.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

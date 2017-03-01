@@ -11,30 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: fe9fad2de3fbb63e51fa14215c6f240977c56c7b
-ms.openlocfilehash: c72cebd04216b4e2bba26dd306354a7cd4e6c49a
+ms.sourcegitcommit: d3688b6a71dcd9964839da3cda35413d00f362d1
+ms.openlocfilehash: 836d43b17515beb565748f28603069c7c6a52fbf
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="troubleshooting-the-auto-registration-of-azure-ad-domain-joined-computers-for-windows-10-and-windows-server-2016"></a>Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para Windows 10 e Windows Server 2016
+# <a name="troubleshooting-auto-registration-of-domain-joined-computers-to-azure-ad--windows-10-and-windows-server-2016"></a>Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016
 
 Este tópico é aplicável aos seguintes clientes:
 
--   Windows 10
--   Windows Server 2016
+-    Windows 10
+-    Windows Server 2016
 
-Para outros clientes Windows, consulte [Troubleshooting the auto-registration of Azure AD domain joined computers for Windows down-level clients](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md) (Solucionando problemas do registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows).
+Para outros clientes Windows, confira [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD para clientes de nível inferior do Windows](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md).
 
 Este tópico pressupõe que você tenha configurado o registro automático de dispositivos ingressados no domínio conforme descrito em [Como configurar o registro automático de dispositivos ingressados no domínio do Windows com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-get-started.md) para dar suporte aos seguintes cenários:
 
-1.  [Acesso condicional com base em dispositivo](active-directory-conditional-access-automatic-device-registration-setup.md)
+1.    [Acesso condicional com base em dispositivo](active-directory-conditional-access-automatic-device-registration-setup.md)
 
-2.  [Roaming corporativo de configurações](active-directory-windows-enterprise-state-roaming-overview.md)
+2.    [Roaming corporativo de configurações](active-directory-windows-enterprise-state-roaming-overview.md)
 
-3.  [Configurar o Hello for Business](active-directory-azureadjoin-passport-deployment.md)
+3.    [Configurar o Hello for Business](active-directory-azureadjoin-passport-deployment.md)
 
 
 Este documento fornece diretrizes de solução de problemas sobre como resolver os problemas potenciais. 
@@ -80,23 +81,23 @@ Esse campo mostra se o dispositivo está registrado no Azure AD. Se o valor apar
 
 **Possíveis causas:**
 
-1.  Falha na autenticação do computador para o registro.
+1.    Falha na autenticação do computador para o registro.
 
-2.  Há um proxy HTTP na organização que não pode ser descoberto pelo computador
+2.    Há um proxy HTTP na organização que não pode ser descoberto pelo computador
 
-3.  O computador não pode alcançar o Azure AD para autenticação ou o Azure DRS para registro
+3.    O computador não pode alcançar o Azure AD para autenticação ou o Azure DRS para registro
 
-4.  O computador pode não estar na rede interna da organização ou em VPN com a linha de visão direta para um controlador de domínio do AD local.
+4.    O computador pode não estar na rede interna da organização ou em VPN com a linha de visão direta para um controlador de domínio do AD local.
 
-5.  Se o computador tiver um TPM, ele poderá estar em um estado inválido.
+5.    Se o computador tiver um TPM, ele poderá estar em um estado inválido.
 
-6.  Pode haver um erro de configuração nos serviços observado anteriormente no documento que você precisará verificar novamente. Alguns exemplos comuns são:
+6.    Pode haver um erro de configuração nos serviços observado anteriormente no documento que você precisará verificar novamente. Alguns exemplos comuns são:
 
-    1.  O servidor de Federação não tem pontos de extremidade WS-Trust habilitados
+    1.    O servidor de Federação não tem pontos de extremidade WS-Trust habilitados
 
-    2.  O servidor de federação pode não permitir a autenticação de entrada de computadores na rede usando a Autenticação Integrada do Windows.
+    2.    O servidor de federação pode não permitir a autenticação de entrada de computadores na rede usando a Autenticação Integrada do Windows.
 
-    3.  Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence
+    3.    Não há nenhum objeto de Ponto de Conexão de Serviço que aponta para o seu nome de domínio verificado no Azure AD na floresta do AD à qual o computador pertence
 
 ---
 
@@ -116,17 +117,12 @@ Esse campo mostra se o dispositivo está registrado no Azure AD, mas como um dis
   
 Esses campos mostram que o usuário foi autenticado com êxito no Azure AD ao se conectar ao dispositivo. Se eles mostrarem ‘NO’, os itens a seguir serão possíveis causas:
 
-1.  STK (chave de armazenamento) inválida no TPM associada ao dispositivo no registro (verifique o KeySignTest durante a execução com privilégios elevados).
+1.    STK (chave de armazenamento) inválida no TPM associada ao dispositivo no registro (verifique o KeySignTest durante a execução com privilégios elevados).
 
-2.  ID de logon alternativo
+2.    ID de logon alternativo
 
-3.  Proxy HTTP não encontrado
+3.    Proxy HTTP não encontrado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-conditional-access-automatic-device-registration-faq.md) 
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+Para saber mais, veja [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-conditional-access-automatic-device-registration-faq.md) 
