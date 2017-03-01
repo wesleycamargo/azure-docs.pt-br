@@ -5,7 +5,7 @@ keywords: "serviço de aplicativo do azure, linux, oss"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b6a85bc6-5fe2-45d7-aae6-3bf93c314548
 ms.service: app-service
@@ -18,6 +18,7 @@ ms.author: naziml
 translationtype: Human Translation
 ms.sourcegitcommit: f978be8872961695731ba1daffc0f4d4a54a670a
 ms.openlocfilehash: bd5ebd7ee969acc0a785e179ebff0cd498b9b5ec
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -35,10 +36,5 @@ Os clientes podem criar aplicativos Web no Linux somente em um Plano do Serviço
 * [O que é Serviço de Aplicativo no Linux?](../app-service-web/app-service-linux-intro.md)
 * [Como criar Aplicativos no Serviço de Aplicativo no Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
 * [Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux](../app-service-web/app-service-linux-faq.md) 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

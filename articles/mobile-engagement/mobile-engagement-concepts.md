@@ -4,7 +4,7 @@ description: Conceitos do Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8d19abd1-0a6c-4772-9fa5-5e99980ac5da
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -86,10 +87,5 @@ A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No ent
 * [Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure](mobile-engagement-windows-phone-sdk-overview.md)
 * [SDK do iOS para o Mobile Engagement do Azure](mobile-engagement-ios-sdk-overview.md)
 * [SDK do Android do Mobile Engagement do Azure](mobile-engagement-android-sdk-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

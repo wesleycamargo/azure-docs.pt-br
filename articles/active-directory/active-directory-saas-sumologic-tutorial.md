@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49352a5e8255468bbc54c02e0cd9242d49002dbd
 ms.openlocfilehash: 040974883f96ac05fccd38d933090ed4aa932e95
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -183,10 +184,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
     ![Sim](./media/active-directory-saas-sumologic-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

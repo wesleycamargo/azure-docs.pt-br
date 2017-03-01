@@ -3,7 +3,7 @@ title: "Sincronização de dados offline em aplicativos móveis do Azure | Micro
 description: "Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure"
 documentationcenter: windows
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: dc179f6186d501bc7c8e4ca72b2bf23e89a9443e
+ms.lasthandoff: 12/01/2016
 
 
 ---
@@ -102,9 +103,4 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
 [Xamarin iOS: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Plataforma Universal do Windows: habilitar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

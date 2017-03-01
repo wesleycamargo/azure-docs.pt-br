@@ -4,7 +4,7 @@ description: "Saiba como implantar seu aplicativo no Serviço de Aplicativo do A
 services: app-service
 documentationcenter: 
 author: dariagrigoriu
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: dariagrigoriu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -47,10 +48,5 @@ Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](http
     ![Histórico de implantação](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 Mais informações para a implantação do Dropbox estão disponíveis em [Implantar por meio do Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

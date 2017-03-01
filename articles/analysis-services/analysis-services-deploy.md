@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/27/2017
 ms.author: owend
 translationtype: Human Translation
 ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
 ms.openlocfilehash: 18d64f1ad4ef0dd41ae9302d08e02e94d1c608f5
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -66,10 +67,5 @@ Se a implantação falhar em uma tabela, provavelmente o servidor não conseguiu
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que seu modelo de tabela foi implantado em seu servidor, você está pronto para se conectar a ele. Você pode [conectar-se a ele com SSMS](analysis-services-manage.md) para gerenciá-lo. E, você pode [conectar-se a ele usando uma ferramenta de cliente](analysis-services-connect.md) como o Power BI, o Power BI Desktop ou o Excel, e começar a criar relatórios.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

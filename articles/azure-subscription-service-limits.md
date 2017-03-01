@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/17/2017
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: bf6c6017f623766f5e7a6472feed02108b5adf5f
-ms.openlocfilehash: d770a05ee247103fe9693754d7fb7eada12ef1bc
+ms.sourcegitcommit: 4e37d976ab7616674ff4b41111bfe7000444ca54
+ms.openlocfilehash: 2ff41f4a93b0cc7f104fe4703f5b031cfb3252e1
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -60,6 +61,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Serviços de Nuvem](#cloud-services-limits)
 * [Fábrica de dados](#data-factory-limits)
 * [Análises Data Lake](#data-lake-analytics-limits)
+* [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
 * [Banco de Dados de Documentos](#documentdb-limits)
 * [Hubs de Evento](#event-hubs-limits)
@@ -130,20 +132,23 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 ### <a name="storage-limits"></a>Limites de armazenamento
 Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage/storage-scalability-targets.md).
-
+<!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>Limites de Serviço de Armazenamento
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### <a name="virtual-machine-disk-limits"></a>Limites de Disco de Máquina Virtual 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### <a name="virtual-machine-disk-limits"></a>Limites de disco de máquina virtual 
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Consulte [Tamanhos de máquina virtual](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais detalhes.
 
-**Contas de armazenamento padrão**
+#### <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Discos de máquina virtual não gerenciados
 
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-**Contas de armazenamento Premium**
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
@@ -219,8 +224,11 @@ Para saber mais sobre limites em um nível mais granular, como o tamanho do docu
 ### <a name="data-factory-limits"></a>Limites de fábrica de dados
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
-### <a name="data-lake-analytics-limits"></a>Limites da Análise Data Lake
+### <a name="data-lake-analytics-limits"></a>Limites do Data Lake Analytics
 [!INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
+
+### <a name="data-lake-store-limits"></a>Limites do Data Lake Store
+[!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Limites do Stream Analytics
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -270,10 +278,5 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 1/6/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
-ms.openlocfilehash: c38e324c68d382f74a6140952b7900afd509d319
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 304acc7d2bfdefffde700ecd469b6335b08b85e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -30,7 +31,7 @@ Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, voc�
 * Uma assinatura ativa do Office 365 (se estiver usando os serviços do Office 365). Para mais informações, consulte a seção [Requisitos específicos do Office 365](#office-365-specific-requirements) deste artigo.
 
 ## <a name="connectivity-provider"></a>Provedor de conectividade
-* Você pode trabalhar com um [parceiro de conectividade de Rota Expressa](expressroute-locations.md#partners) para se conecta à nuvem da Microsoft. Você pode configurar uma conexão entre sua rede local e a Microsoft de [três maneiras](expressroute-introduction.md#howtoconnect). 
+* Você pode trabalhar com um [parceiro de conectividade de Rota Expressa](expressroute-locations.md#partners) para se conecta à nuvem da Microsoft. Você pode configurar uma conexão entre sua rede local e a Microsoft de [três maneiras](expressroute-introduction.md). 
 * Se seu provedor não for um parceiro de conectividade da Rota Expressa, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#nonpartners).
 
 ## <a name="network-requirements"></a>Requisitos de rede
@@ -64,10 +65,5 @@ Se você planeja habilitar o CRM Online no ExpressRoute, consulte os documentos 
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md)
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

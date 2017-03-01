@@ -3,7 +3,7 @@ title: Como usar o armazenamento de Tabelas (C++) | Microsoft Docs
 description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 services: storage
 documentationcenter: .net
-author: dineshmurthy
+author: seguler
 manager: jahogg
 editor: tysonn
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: dineshm
+ms.date: 02/28/2017
+ms.author: seguler
 translationtype: Human Translation
 ms.sourcegitcommit: 3047ba6bb363e087bfdf767a32c92a503000f11e
 ms.openlocfilehash: c97343008b5af378ed9d441e242018849e2ab69a
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -51,8 +52,8 @@ Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você 
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar as tabelas:  
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/table.h"
+#include <was/storage_account.h>
+#include <was/table.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
@@ -456,10 +457,5 @@ Agora que você aprendeu os conceitos básicos do armazenamento de tabela, siga 
 * [Listar recursos do Armazenamento do Azure no C++](storage-c-plus-plus-enumeration.md)
 * [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

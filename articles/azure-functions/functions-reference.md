@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: 0d75654e00e033eab7de97779157c43ee4493a9f
-ms.openlocfilehash: 2032426e473cb859ad60b48684bcf620e314ed6c
+ms.sourcegitcommit: bc96edb44dc8bbbbe4687806117990c9d3470fdc
+ms.openlocfilehash: adb70fc58321c11c0b57efc9810a44d0ab2c8a20
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -103,7 +104,7 @@ Os aplicativos de funções baseiam-se no Serviço de Aplicativo; portanto, toda
 Siga as instruções no tópico [Implantação contínua para funções do Azure](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Execução paralela
-Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#consumption-service-plan), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
+Quando vários eventos de gatilho ocorrem mais rápido do que um tempo de execução single-threaded de função pode processar, o tempo de execução pode invocar a função várias vezes em paralelo.  Se um aplicativo de funções estiver usando o [Plano de hospedagem de consumo](functions-scale.md#how-the-consumption-plan-works), ele poderá escalar horizontalmente de maneira automática.  Cada instância do aplicativo de funções, quer seja executada no Plano de hospedagem de consumo, quer em um [Plano de hospedagem do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) comum, pode processar invocações de função simultâneas em paralelo usando vários threads.  O número máximo de invocações de função simultâneas em cada instância do aplicativo de funções varia com base no tipo de gatilho que está sendo usado, bem como nos recursos usados por outras funções no aplicativo de funções.
 
 ## <a name="azure-functions-pulse"></a>Azure Functions Pulse
 O Pulse é uma transmissão de evento ao vivo que mostra quantas vezes sua função é executada, bem como os êxitos e as falhas. Você também pode monitorar o tempo médio de execução. Incluiremos mais recursos e personalização ao longo do tempo. Você pode acessar a página **Pulso** na guia **Monitoramento**.
@@ -134,10 +135,5 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: a jornada) no blog da equipe do Serviço de Aplicativo do Azure. Um histórico de como o Azure Functions foi desenvolvido.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

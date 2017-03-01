@@ -4,7 +4,7 @@ description: "Saiba como usar os Aplicativos Móveis do Serviço de Aplicativo d
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 78976e591d2eaacb286465b1ad0926a04143cecc
-ms.openlocfilehash: 6cb3033b302e2506252707856e4ce676bf576c77
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 5e71ecc6539179efdcfa6bfc4567bddaa96a59d9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -186,26 +187,21 @@ Em seguida, seu aplicativo deve se registrar para notificações por push na ini
 Saiba mais sobre as notificações por push:
 
 * [Como usar o cliente gerenciado para aplicativos móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-   modelos oferecem flexibilidade para enviar envios de plataforma cruzada e pushes localizados. Saiba como registrar modelos.
+  modelos oferecem flexibilidade para enviar envios de plataforma cruzada e pushes localizados. Saiba como registrar modelos.
 * [Diagnosticar problemas com notificações por push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-   há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
+  há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
 
 Considere a possibilidade de prosseguir com um dos seguintes tutoriais:
 
 * [Adicionar autenticação ao seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-   Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+  Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-   Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
+  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. Sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
 
 <!-- Anchors. -->
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

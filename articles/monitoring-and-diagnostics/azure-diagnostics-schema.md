@@ -1,22 +1,23 @@
 ---
 title: "Lista de versões de esquema de configuração do Diagnóstico do Azure | Microsoft Docs"
 description: "Usado para configurar a coleta de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, o Service Fabric e serviços de nuvem."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 2e1bc45b55cd79af8579a5ddaf43cf0db019c92f
+ms.sourcegitcommit: ac1ae46a165baad675c6b2445f91e05694eae6f9
+ms.openlocfilehash: 5d0894430dc915fc46d753a0b672de3b51ce3888
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ Esta página é um índice das versões dos Esquemas de Diagnóstico do Azure fo
 > O Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Dimensionamento de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
 >
 
-O Diagnóstico do Azure é usado em conjunto com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
+O Diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões do SDK e Diagnóstico do Azure  
 
@@ -39,6 +40,10 @@ O Diagnóstico do Azure é usado em conjunto com outros produtos de diagnóstico
 |2.6               |1,3                         |"|  
 |2.7               |1.4                         |"|  
 |2.8               |1.5                         |"|  
+|2,9               |1.6                         |"|
+|2.96              |1.7                         |"|
+
+
 
  O Diagnóstico do Azure versão 1.0 foi enviado pela primeira vez em um modelo de plug-in, o que significa que quando você instalou o SDK do Azure, recebeu a versão do Diagnóstico do Azure fornecida com ele.  
 
@@ -51,10 +56,5 @@ O Diagnóstico do Azure é usado em conjunto com outros produtos de diagnóstico
 
 [Esquema de Configuração do Diagnóstico 1.2](azure-diagnostics-schema-1dot2.md)  
 
-[Esquema de Configuração do Diagnóstico 1.3 a 1.5](azure-diagnostics-schema-1dot3-to-1dot5.md)  
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[Esquema de Configuração do Diagnóstico 1.3 e posterior](azure-diagnostics-schema-1dot3-and-later.md)  
 

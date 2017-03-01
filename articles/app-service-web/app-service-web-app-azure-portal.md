@@ -4,7 +4,7 @@ description: "Conheça as diferentes experiências de usuário para aplicativos 
 services: app-service
 documentationcenter: 
 author: jaime-espinosa
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: 0cc6a3cc-bd89-4a96-9177-d25f6fb737bb
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: jaime-espinosa
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: 00617f4d508c843000d69c02464a1bef36320a8e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -84,10 +85,5 @@ Com exceção do nome da marca, alguns itens no portal foram renomeados ou agrup
 
 ## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

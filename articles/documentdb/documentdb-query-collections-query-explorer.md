@@ -1,5 +1,5 @@
 ---
-title: 'Gerenciador de Consultas do DocumentDB: um editor de consultas SQL | Microsoft Docs'
+title: 'Ferramenta do portal do Azure DocumentDB: Gerenciador de Consultas | Microsoft Docs'
 description: "Saiba mais sobre o Gerenciador de Consultas do Banco de Dados de Documentos, um editor de consultas SQL no portal do Azure para gravar consultas SQL e executá-las em uma coleção do Banco de Dados de Documentos NoSQL."
 keywords: "gravação de consultas sql, editor de consultas sql"
 services: documentdb
@@ -13,18 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a4e66ff9022b153fe09fba004ff50aed053b392
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: c4c2cd8ddcb541b2619f7e1b140222899f15f87c
+ms.lasthandoff: 02/23/2017
 
 
 ---
-# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer"></a>Gravar, editar e executar consultas SQL para o Banco de Dados de Documentos usando o Gerenciador de Consultas
+# <a name="write-edit-and-run-sql-queries-for-documentdb-using-query-explorer-in-the-azure-portal"></a>Gravar, editar e executar consultas SQL para o DocumentDB usando o Gerenciador de Consultas no Portal do Azure
 Este artigo oferece uma visão geral do Gerenciador de Consultas do [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), uma ferramenta do Portal do Azure que permite gravar, editar e executar consultas SQL em uma [coleção do DocumentDB](documentdb-create-collection.md).
 
-1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** não estiver visível, clique em **Mais Serviços** na parte inferior e clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. No menu de recursos, clique em **Gerenciador de Consultas**. 
    
     ![Captura de tela do portal do Azure com o Gerenciador de Consultas realçado](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
@@ -66,15 +69,10 @@ Se uma consulta for concluída com erros, o Gerenciador de Consultas exibirá um
 ![Captura de tela de erros de consulta do Gerenciador de Consultas](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
 ## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Executar consultas SQL do Banco de Dados de Documentos fora do portal
-O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar consultas SQL no Banco de Dados de Documentos. Você também pode executar consultas SQL usando a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para saber mais sobre como usar esses outros métodos, veja [Executar consultas SQL](documentdb-sql-query.md#executing-sql-queries)
+O Gerenciador de Consultas no portal do Azure é apenas uma maneira de executar consultas SQL no Banco de Dados de Documentos. Você também pode executar consultas SQL usando a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou os [SDKs de cliente](documentdb-sdk-dotnet.md). Para saber mais sobre como usar esses outros métodos, veja [Executar consultas SQL](documentdb-sql-query.md#ExecutingSqlQueries)
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Consultas, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
 Talvez você também goste de experimentar o [Query Playground](https://www.documentdb.com/sql/demo) , onde poderá testar as consultas online usando um conjunto de dados de exemplo.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

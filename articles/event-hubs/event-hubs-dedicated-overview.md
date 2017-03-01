@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/21/2017
 ms.author: sethm;babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: 7547ff2f6db375644dccb9db4283d83a9837e826
+ms.sourcegitcommit: 9c1756d2c2c4dd73c60a71b24bfb4606cab289ed
+ms.openlocfilehash: 8e718e74443e3d51dc54edaf667e34875bc67c5d
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -35,11 +36,11 @@ A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos.
 | Políticas do publicador | N/D | Sim | Sim |     
 | Grupos de consumidores | 1 - padrão | 20 | 20 |
 | Reprodução de mensagem | Sim | Sim | Sim |
-| Unidades de produtividade máxima | 20 | 20 (flexível até 100)  | 1 CU≈200 |
+| Unidades de produtividade máxima | 20 | 20 (flexível até 100)    | 1 CU≈200 |
 | Conexões orientadas | 100 incluídos | 1000 incluídos | 100.000 incluídos |
 | Conexões agenciadas adicionais | N/D | Sim | Sim |
 | Retenção de mensagem | 1 dia incluído | 1 dia incluído | Até 7 dias incluídos |
-| Arquivo morto (visualização) | N/D   | Pagamento por hora | Incluso |
+| Arquivo morto (visualização) | N/D    | Pagamento por hora | Incluso |
 
 ## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Os benefícios da capacidade dos Hubs de Eventos Dedicados
 
@@ -60,7 +61,7 @@ Este serviço destina-se aos usuários com maior telemetria e está disponível 
 
 ## <a name="how-to-onboard"></a>Como fazer a integração
 
-A plataforma dos Hubs de Eventos Dedicados é oferecida para o público por meio de um contrato enterprise com tamanhos variados de CUs. Cada CU fornece aproximadamente equivalente de 200 unidades de produtividade e é cobrado a US$ 31 por hora. Você pode dimensionar sua capacidade para cima ou para baixo ao longo do mês a fim de atender às suas necessidades, adicionando ou removendo CUs. O plano dedicado é exclusivo porque oferece uma integração mais prática da equipe de produto dos Hubs de Eventos para lhe dar a implantação flexível ideal. 
+A plataforma dos Hubs de Eventos Dedicados é oferecida para o público por meio de um contrato enterprise com tamanhos variados de CUs. Cada CU fornece aproximadamente o equivalente a 200 unidades de taxa de transferência. Você pode dimensionar sua capacidade para cima ou para baixo ao longo do mês a fim de atender às suas necessidades, adicionando ou removendo CUs. O plano dedicado é exclusivo porque oferece uma integração mais prática da equipe de produto dos Hubs de Eventos para lhe dar a implantação flexível ideal. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Entre em contato com seu representante de vendas da Microsoft ou com o Suporte da Microsoft para obter mais detalhes sobre a capacidade dos Hubs de Eventos Dedicados. Você também pode saber mais sobre Hubs de Eventos visitando estes links:
@@ -69,9 +70,4 @@ Para obter informações detalhadas sobre os preços, visite os links a seguir:
 
 - [Preço de Hubs de Eventos Dedicados](https://azure.microsoft.com/pricing/details/event-hubs/). Você também pode entrar em contato com seu representante de vendas da Microsoft ou com o Suporte da Microsoft para obter mais detalhes sobre a capacidade dos Hubs de Eventos Dedicados.
 - As [perguntas frequentes sobre Hubs de Eventos](event-hubs-faq.md) contêm informações sobre preços e tiram algumas dúvidas sobre os Hubs de Eventos. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

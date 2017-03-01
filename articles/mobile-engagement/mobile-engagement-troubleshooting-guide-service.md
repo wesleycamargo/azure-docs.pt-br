@@ -4,7 +4,7 @@ description: "Guias de solução de problemas para o Mobile Engagement do Azure"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -88,10 +89,5 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
   * Usam uma vírgula "," como o caractere separador (você pode abrir uma solicitação de serviço para pedir a alteração do caractere separador do .csv de uma vírgula "," para um outro caractere, como um ponto e vírgula ";").
   * Usam letras maiúsculas para valores boolianos “verdadeiro” e “falso”.
   * Usam um arquivo menor do que o tamanho máximo de 35 MB.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

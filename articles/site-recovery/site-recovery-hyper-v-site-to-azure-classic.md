@@ -1,6 +1,6 @@
 ---
 title: "Replicar VMs do Hyper-V no Azure no Portal Clássico |Microsoft Docs"
-description: "Este artigo descreve como replicar máquinas virtuais Hyper-V para Azure com o Azure Site Recovery quando as máquinas não são gerenciadas em nuvens do VMM."
+description: "Este artigo descreve como replicar máquinas virtuais Hyper-V para o Azure quando as máquinas não são gerenciadas em nuvens do VMM."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 2bd4b44bea641bcfcb576f0ba5d53564277dfe34
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -28,16 +29,9 @@ ms.openlocfilehash: b991b27304a4f65485b30431c5eb29461f60984d
 >
 >
 
-Bem-vindo ao Azure Site Recovery!
-
-A Recuperação de Site é um serviço do Azure que contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre). A Recuperação de Site orquestra a replicação de máquinas virtuais e servidores físicos locais para a nuvem (Azure) ou para um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter os aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback. Saiba mais em [O que é o Azure Site Recovery?](site-recovery-overview.md)
-
-Este artigo descreve como replicar máquinas virtuais Hyper-V locais para o Azure, usando o Azure Site Recovery no portal do Azure. Nesse cenário, os servidores Hyper-V não são gerenciados em nuvens do VMM.
+Este artigo descreve como replicar VMs Hyper-V locais para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no Portal do Azure. Nesse cenário, os servidores Hyper-V não são gerenciados em nuvens do VMM.
 
 Depois de ler este artigo, poste comentários no final ou faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
 
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Recuperação de Site no portal do Azure
@@ -67,7 +61,7 @@ As organizações precisam de uma estratégia de BCDR que determine como os apli
 * Executar as correções descritas na KB [2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977").
 
 ## <a name="virtual-machine-prerequisites"></a>Pré-requisitos de máquina virtual
-As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Requisitos de máquinas virtuais do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+As máquinas virtuais que você deseja proteger devem estar em conformidade com os [Requisitos de máquinas virtuais do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 ## <a name="provider-and-agent-prerequisites"></a>Pré-requisitos de provedor e do agente
 Como parte da implantação do Azure Site Recovery, você instalará o Provedor do Azure Site Recovery e o Agente dos Serviços de Recuperação do Azure em cada servidor Hyper-V. Observe que:
@@ -248,7 +242,7 @@ Há duas maneiras de executar um failover de teste no Azure.
 
 Se você quiser executar um failover de teste sem especificar uma rede do Azure, não precisará de preparo prévio.
 
-Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes.
+Para executar um failover de teste com uma rede do Azure de destino, você precisará criar uma nova rede do Azure isolada da rede de produção do Azure (o comportamento padrão quando você cria uma nova rede no Azure). Leia [Executar um failover de teste](site-recovery-failover.md) para obter mais detalhes.
 
 Para testar totalmente a replicação e a implantação da rede, você precisará configurar a infraestrutura para que a máquina virtual replicada funcione como esperado. Uma maneira de fazer isso é configurar uma máquina virtual como um controlador de domínio com DNS e replicá-la para o Azure usando a Recuperação de Site para criá-la na rede de teste com a execução de um failover de teste.  [Leia mais sobre](site-recovery-active-directory.md#test-failover-considerations) as considerações sobre failover de teste para o Active Directory.
 
@@ -283,9 +277,4 @@ Execute o failover de teste da seguinte maneira:
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois que a implantação é configurada e está em funcionamento, [saiba mais](site-recovery-failover.md) sobre o failover.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

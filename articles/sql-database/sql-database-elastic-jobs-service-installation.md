@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
-ms.openlocfilehash: 045e4486920f147a66b2ea81552ce1b75aa119c2
+ms.sourcegitcommit: 6489f013f72a8d283ad5c0723d0a46ea4e66a2d9
+ms.openlocfilehash: f4fa7b12afe0002d5b7e5267c8f670cae8d253da
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -41,17 +42,21 @@ Se você já tiver instalado os **trabalhos de Banco de Dados Elástico** por me
 3. Navegue até o subdiretório Ferramentas, na pasta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x, digitando cd ferramentas, por exemplo:
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
 4. Execute o script .\InstallElasticDatabaseJobsCmdlets.ps1 para copiar o diretório ElasticDatabaseJobs para $home\Documents\WindowsPowerShell\Modules. Isso também importará automaticamente o módulo a ser usado, por exemplo:
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Instalar componentes de trabalhos de Banco de Dados Elástico usando o PowerShell
 1. Inicie uma janela de comando do Microsoft Azure PowerShell e navegue até o subdiretório \ferramentas, na pasta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: digite cd \ferramentas
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+
 2. Execute o script do PowerShell .\InstallElasticDatabaseJobs.ps1 e forneça valores para as variáveis solicitadas. Esse script cria os componentes descritos em [Preços e componentes de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md#components-and-pricing) , juntamente com a configuração do Serviço de Nuvem do Azure para usar os componentes dependentes.
-   
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
+
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
+        PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 Ao executar este comando, uma janela é aberta solicitando um **nome de usuário** e **senha**. Essas não são suas credenciais do Azure, insira o nome de usuário e a senha que serão as credenciais de administrador que você deseja criar para o novo servidor.
 
@@ -178,9 +183,4 @@ Veja [Criando e gerenciando trabalhos de Banco de Dados Elástico](sql-database-
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: c10a35e4828e8da427f324ef3c3892e7e24cc72d
-ms.openlocfilehash: ba8fd7ea8979c8c2afbace60a5675b411438d6b4
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ A Central de Segurança ajuda você a proteger os dados no Banco de Dados SQL, f
 * Definir políticas de criptografia e auditoria do Banco de Dados SQL.
 * Monitore a segurança dos recursos de Banco de Dados SQL em todas as suas assinaturas.
 * Identifique e corrija rapidamente problemas de segurança.
-* Integre os alertas da [detecção de ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md).
+* Integre os alertas da [detecção de ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection.md).
 
 Além de ajudar a proteger seus recursos de Banco de Dados SQL, a Central de Segurança também fornece monitoramento e gerenciamento de segurança para máquinas virtuais do Azure, Serviços de Nuvem, Serviços de Aplicativos, redes virtuais e muito mais. Saiba mais sobre a Central de Segurança [aqui](security-center-intro.md).
 
@@ -79,7 +80,7 @@ Para ver recomendações de seus recursos do Azure, selecione o bloco **Recomend
 Conforme exibido abaixo, a Central de Segurança mostra os servidores SQL nos quais a detecção de ameaças e a auditoria não estão habilitadas. Depois de ativar a auditoria, você poderá definir as configurações de Detecção de Ameaças e configurações de email para receber os alertas de segurança. A Detecção de Ameaças alerta você quando detecta atividades anormais do banco de dados que indicam possíveis ameaças de segurança ao banco de dados. Os alertas são exibidos no painel Central de Segurança.
 ![Auditoria e detecção de ameaças][5]
 
-Siga as etapas em [Introdução à Detecção de Ameaças do Banco de Dados SQL](../sql-database/sql-database-threat-detection-get-started.md) para ativar e configurar a Detecção de Ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
+Execute as etapas em [Detecção de ameaças do Banco de Dados SQL no Portal do Azure](../sql-database/sql-database-threat-detection-portal.md) para ativar e configurar a Detecção de ameaças e configurar a lista de emails que receberá alertas de segurança após a detecção de atividades anormais.
 
 Para saber mais sobre recomendações, consulte [Gerenciar recomendações de segurança](security-center-recommendations.md).
 
@@ -90,7 +91,7 @@ Depois de habilitar as [políticas de segurança](security-center-policies.md) p
 Para saber mais, confira [Monitoramento de integridade de segurança](security-center-monitoring.md).
 
 ## <a name="manage-and-respond-to-security-alerts"></a>Gerenciar e responder aos alertas de segurança
-A Central de Segurança coleta, analisa e integra automaticamente os dados de registro da [Detecção de ameaças do Azure SQL](../sql-database/sql-database-threat-detection-get-started.md), além de outros recursos do Azure, para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque.
+A Central de Segurança coleta, analisa e integra automaticamente os dados de registro da [Detecção de ameaças do Azure SQL](../sql-database/sql-database-threat-detection.md), além de outros recursos do Azure, para detectar ameaças reais e reduzir os falsos positivos. Uma lista priorizada de alertas de segurança é exibida na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema, e recomendações sobre como corrigir um ataque.
 
 Para ver alertas, selecione o bloco **Alertas de segurança** na folha Central de Segurança. Na folha **Alertas de segurança**, selecione um alerta para saber mais sobre os evento que dispararam o alerta e quais etapas, se houver alguma, são necessárias para corrigir um ataque. Neste exemplo, vamos selecionar **Possível injeção de SQL**.
 ![Alertas de segurança][7]
@@ -115,9 +116,4 @@ Para saber mais, confira [Gerenciar e responder a alertas de segurança](securit
 [6]: ./media/security-center-sql-database/monitor-health.png
 [7]: ./media/security-center-sql-database/alert.png
 [8]: ./media/security-center-sql-database/sql-injection.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

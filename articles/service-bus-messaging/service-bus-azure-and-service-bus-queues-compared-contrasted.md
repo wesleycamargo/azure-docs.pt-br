@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 01/19/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 7bd12e72ead38aa73b9abf960624755a05720b00
-ms.openlocfilehash: ea973dab1ec68324b24d067e7e07868983a5b151
+ms.sourcegitcommit: f236f6f2155e1bf7471eba8aedea5b77bb5995d0
+ms.openlocfilehash: fd86979339b0ff661dcc6447585ca594b680911d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -82,7 +83,6 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 
 ### <a name="additional-information"></a>Informações adicionais
 * Geralmente, as mensagens nas filas do Armazenamento são do tipo PEPS, mas, às vezes, elas podem estar fora de ordem; por exemplo, quando a duração do tempo limite da visibilidade de uma mensagem expirar (por exemplo, como resultado de um travamento do aplicativo cliente durante o processamento). Quando o tempo limite da visibilidade se esgotar, a mensagem se tornará visível novamente na fila de outro trabalho para que seja removida da fila. Nesse ponto, a mensagem recentemente visível pode ser colocada na fila (para ser removida da fila novamente) após uma mensagem que foi originalmente enfileirada depois dela.
-* Se você já está usando Blobs ou Tabelas do Armazenamento do Azure e começar a usar filas, haverá garantia de 99,9% de disponibilidade. Se você usar Blobs ou Tabelas com filas do Barramento de Serviço, a disponibilidade será menor.
 * O padrão PEPS garantido nas filas do Barramento de Serviço exige o uso de sessões de mensagens. Se o aplicativo travar durante o processamento de uma mensagem recebida no modo **Inspecionar e Bloquear**, na próxima vez que um destinatário da fila aceitar uma sessão de mensagens, ele começará com a mensagem com falha após a expiração do seu período TTL (vida útil).
 * As filas do Armazenamento foram projetadas para oferecer suporte a cenários de enfileiramento padrão, como desassociação dos componentes de aplicativo para aumentar a escalabilidade e a tolerância para falhas, redistribuição de carga e criação de fluxos de trabalho do processo.
 * As filas do Barramento de Serviço oferecem suporte à garantia de entrega *Pelo menos uma vez*. Além disso, a semântica *No máximo uma vez* pode ter suporte usando o estado da sessão para armazenar o estado do aplicativo e usando transações para receber mensagens automaticamente e atualizar o estado da sessão.
@@ -200,10 +200,5 @@ Os artigos a seguir fornecem mais orientação e informações sobre como usar a
 * [Noções básicas sobre cobrança de armazenamento no Azure — largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

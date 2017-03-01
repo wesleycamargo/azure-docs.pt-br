@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2017
+ms.date: 02/21/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: cb3fd28659eb09dfb74496d2aa526736d223631a
-ms.openlocfilehash: d1571aa6191111c46c43b3a424cea415091adfc9
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 773eba80715cb990b23ecec548a18c112ba73a42
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um cluster do Serviço de Contêiner do Azure
 Depois de [implantar um cluster do Serviço de Contêiner do Azure](container-service-deployment.md), talvez você precise alterar o número de nós do agente. Por exemplo, mais agentes podem ser necessários para que você possa executar mais aplicativos ou instâncias de contêiner. 
 
-É possível alterar o número de nós de agente no cluster usando o Portal do Azure ou a CLI 2.0 (Preview) do Azure. A CLI 2.0 (Preview) do Azure é a [CLI de última geração](/cli/azure/old-and-new-clis) para o modelo de implantação do Resource Manager.
-
-> [!NOTE]
-> Atualmente, não há suporte para o dimensionamento dos nós de agente em um cluster Kubernetes do serviço de contêiner.
-
+É possível alterar o número de nós de agente em um cluster DC/OS, Docker Swarm ou Kubernetes usando o Portal do Azure ou a CLI 2.0 do Azure. A CLI 2.0 do Azure é a [CLI de última geração](/cli/azure/old-and-new-clis) para o modelo de implantação do Resource Manager.
 
 ## <a name="scale-with-the-azure-portal"></a>Dimensionar com o Portal do Azure
 
@@ -43,9 +40,9 @@ Depois de [implantar um cluster do Serviço de Contêiner do Azure](container-se
 
 
 
-## <a name="scale-with-the-azure-cli-20-preview"></a>Dimensionar com a CLI 2.0 (Preview) do Azure
+## <a name="scale-with-the-azure-cli-20"></a>Dimensionar com a CLI 2.0 do Azure
 
-Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 (Preview) do Azure mais recente e conectou-se a uma conta do Azure (`az login`).
+Verifique se você [instalou](/cli/azure/install-az-cli2) a CLI 2.0 do Azure mais recente e conectou-se a uma conta do Azure (`az login`).
 
 
 ### <a name="see-the-current-agent-count"></a>Conferir a conta do agente atual
@@ -67,7 +64,7 @@ Por exemplo, para alterar o número de agentes no cluster anterior para 10, digi
 azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-A CLI 2.0 (Preview) do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração do serviço de contêiner, incluindo a nova contagem de agentes.
+A CLI 2.0 do Azure retorna uma cadeia de caracteres JSON que representa a nova configuração do serviço de contêiner, incluindo a nova contagem de agentes.
 
 Para obter mais opções de comando, execute `az acs scale --help`.
 
@@ -90,12 +87,7 @@ Para obter mais opções de comando, execute `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira [mais exemplos](container-service-create-acs-cluster-cli.md) de como usar os comandos da CLI 2.0 (Preview) do Azure com o Serviço de Contêiner do Azure.
+* Confira [mais exemplos](container-service-create-acs-cluster-cli.md) de como usar os comandos da CLI 2.0 do Azure com o Serviço de Contêiner do Azure.
 * Saiba mais sobre os [pools de agentes DC/OS](container-service-dcos-agents.md) no Serviço de Contêiner do Azure.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

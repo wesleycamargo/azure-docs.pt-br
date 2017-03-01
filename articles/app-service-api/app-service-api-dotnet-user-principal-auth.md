@@ -4,7 +4,7 @@ description: "Saiba como proteger um aplicativo de API no Serviço de Aplicativo
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 3896760d-46ff-4b67-b98a-edd233f24758
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 16a2c6f8e704528c38054bba394e3d11098077e0
 ms.openlocfilehash: c39e7bca6f339a1797a9344778e6a01ffa8adecc
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -280,10 +281,5 @@ Para obter informações sobre como criar um aplicativo de página única do Ang
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como usar a autenticação do Serviço de Aplicativo para um aplicativo de API e como chamar o aplicativo de API usando a biblioteca ADAL JS. No próximo tutorial, você aprenderá a [proteger o acesso ao aplicativo de API para cenários entre serviços](app-service-api-dotnet-service-principal-auth.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 02/17/2016
+ms.author: msfussell;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 70d13fd05aeedc9aa6e9f87a9a0223a2e20ef88b
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: bc9a62eb41a4ccb1ffb17b89e3bee9d40f2e7b54
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -33,6 +34,10 @@ Há várias vantagens de executar um convidado executável em um cluster de Serv
 * Monitoramento de integridade. O monitoramento de integridade do Service Fabric detecta se um aplicativo está em execução e fornece informações de diagnóstico se houver uma falha.   
 * Gerenciamento do ciclo de vida do aplicativo. Além de oferecer atualizações sem tempo de inatividade, o Service Fabric fornecerá reversão automática da versão anterior, se houver um evento de integridade deficiente durante uma atualização.    
 * Densidade. Você pode executar vários aplicativos no cluster, o que elimina a necessidade um hardware próprio para a execução de cada aplicativo.
+
+## <a name="samples"></a>Exemplos
+* [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
+* [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>Visão geral do aplicativo e dos arquivos de manifesto do serviço
 Como parte da implantação de um executável convidado, é útil entender o modelo de implantação e empacotamento do Service Fabric conforme descrito no [modelo de aplicativo](service-fabric-application-model.md). O modelo de empacotamento do Service Fabric depende de dois arquivos XML: o aplicativo e o manifesto do serviço. A definição de esquema dos arquivos ApplicationManifest.xml e ServiceManifest.xml é instalada com o SDK do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
@@ -333,13 +338,9 @@ O Yeoman pode ter criado um pacote de aplicativos com os devidos arquivos de apl
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como empacotar um executável convidado e implantá-lo à Service Fabric. Consulte os seguintes artigos para tarefas e informações relacionadas.
 
-* [Amostra de empacotamento e implantação de um executável convidado no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
+* [Amostra de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), incluindo um link para o pré-lançamento da ferramenta de empacotamento
+* [Exemplo de dois executáveis convidados (c# e nodejs) se comunicando por meio do serviço de Nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 * [Implantar vários executáveis de convidado](service-fabric-deploy-multiple-apps.md)
 * [Criar seu primeiro aplicativo do Service Fabric usando o Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

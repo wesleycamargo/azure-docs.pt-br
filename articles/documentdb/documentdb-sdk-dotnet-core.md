@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 02/16/2017
 ms.author: rnagpal
 translationtype: Human Translation
-ms.sourcegitcommit: 855fd05d9addc2e57568067e4d434836ceeed570
-ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
+ms.sourcegitcommit: 2a04860ea7349798d5786e50dc1d564896341d60
+ms.openlocfilehash: 50f13ae0184e5b9609994d382acc126eb2868271
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -54,7 +55,11 @@ ms.openlocfilehash: 21a5f321bd1a3b45cd87c2c9274139c47562cee7
 O SDK do .NET Core para DocumentDB tem paridade de recursos com a versão mais recente do [SDK do .NET para DocumentDB](documentdb-sdk-dotnet.md).
 
 > [!NOTE] 
-> O SDK do .NET Core do DocumentDB ainda não é compatível com aplicativos UWP (Plataforma Universal do Windows). Para obter uma versão de visualização do SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+> O SDK do .NET Core do DocumentDB ainda não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
+### <a name="a-name110110httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore110"></a><a name="1.1.0"/>[1.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.1.0)
+
+Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
 
 ### <a name="a-name100100httpswwwnugetorgpackagesmicrosoftazuredocumentdbcore100"></a><a name="1.0.0"/>[1.0.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/1.0.0)
 
@@ -76,15 +81,11 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.1.0](#1.1.0) |16 de fevereiro de 2017 |--- |
 | [1.0.0](#1.0.0) |21 de dezembro de 2016 |--- |
 | [0.1.0-preview](#0.1.0-preview) |15 de novembro de 2016 |31 de dezembro de 2016 |
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) . 
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

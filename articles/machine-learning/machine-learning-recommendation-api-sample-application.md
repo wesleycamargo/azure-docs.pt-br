@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26c492ebdb40bef23247487c2f3015ecd9314cb6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: 9afbae9b7c24c72cbb2ef64e693f7a317dc81a46
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,7 +62,7 @@ Para habilitar o cenário anterior, faça o seguinte no serviço de recomendaç�
 Você normalmente invocará Obter Recomendação por determinado período de tempo. Durante esse período de tempo, você pode redirecionar dados de uso para o sistema de recomendação do Aprendizado de Máquina, que adiciona esses dados ao contêiner do modelo especificado. Quando tiver dados de uso suficientes, você poderá criar um novo modelo de recomendação que incorpora os dados de uso adicionais. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Visual Studio 2013
+* Visual Studio 2013 ou posterior.
 * Acesso à Internet 
 * Assinatura na API de recomendações (https://datamarket.azure.com/dataset/amla/recommendations).
 
@@ -90,10 +91,5 @@ Para obter uma descrição completa das APIs, consulte a documentação do Micro
 
 ## <a name="disclaimer"></a>Isenção de responsabilidade
 O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

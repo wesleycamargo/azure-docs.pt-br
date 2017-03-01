@@ -4,7 +4,7 @@ description: "Saiba como os Aplicativos de API no Serviço de Aplicativo do Azur
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c7f8e33a-61cc-486f-89df-4a97dc3c71d4
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: 3b41340f30239dc0102808b5e492ee7300dcd12b
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -56,10 +57,5 @@ Você pode gerar o código cliente para um aplicativo de API usando o Visual Stu
 Para obter um tutorial passo a passo que oriente você durante a criação, a implantação e o consumo de um aplicativo de API, confira [Introdução aos Aplicativos de API no Serviço de Aplicativo do Azure](app-service-api-dotnet-get-started.md).
 
 Se você usar o Gerenciamento de API do Azure com aplicativos de API, pode usar metadados Swagger para importar sua API para o Gerenciamento de API. Para saber mais, confira [Como importar a definição de uma API com operações no Gerenciamento de API do Azure](../api-management/api-management-howto-import-api.md). 
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

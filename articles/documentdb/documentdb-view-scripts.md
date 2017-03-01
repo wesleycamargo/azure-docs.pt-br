@@ -1,6 +1,6 @@
 ---
-title: Gerenciador de Script do DocumentDB, um editor de JavaScript | Microsoft Docs
-description: "Saiba mais sobre o Gerenciador de Script do Banco de Dados de Documentos, uma ferramenta do Portal do Azure que permite gerenciar artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
+title: 'Ferramenta do portal do Azure DocumentDB: Gerenciador de Scripts | Microsoft Docs'
+description: "Saiba mais sobre o Gerenciador de Script do DocumentDB, uma ferramenta do Portal do Azure que permite gerenciar artefatos de programação do DocumentDB, incluindo procedimentos armazenados do JavaScript, no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário."
 keywords: editor de JavaScript
 services: documentdb
 author: kirillg
@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/14/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
+ms.sourcegitcommit: 429687c6e5a196a3b489dc4dd79ae886b7ad9c38
+ms.openlocfilehash: ccff673996d53d2b3b2c177bfb6fff01613b7097
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -25,7 +26,9 @@ ms.openlocfilehash: 70d08de5e7ba775578ea1765ea1c0dda9b04e427
 Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) , um editor de JavaScript no portal do Azure que permite exibir e executar artefatos de programação do Banco de Dados de Documentos no lado do servidor, incluindo procedimentos armazenados, gatilhos e funções definidas pelo usuário. Leia mais sobre programação no lado do servidor do Banco de Dados de Documentos no artigo [Procedimentos armazenados, disparadores de banco de dados e UDFs](documentdb-programming.md) .
 
 ## <a name="launch-script-explorer"></a>Iniciar Gerenciador de Script
-1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **Contas do DocumentDB** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** não estiver visível, clique em **Mais Serviços** na parte inferior e clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. No menu de recursos, clique em **Gerenciador de Scripts**.
    
     ![Captura de tela do comando do Gerenciador de Script](./media/documentdb-view-scripts/scriptexplorercommand.png)
@@ -36,7 +39,8 @@ Este artigo fornece uma visão geral do Gerenciador de Script do [Banco de Dados
    
     ![Captura de tela do Gerenciador de Script com resultados filtrados](./media/documentdb-view-scripts/scriptexplorerfilterresults.png)
 
-    > [AZURE.IMPORTANT] A funcionalidade de filtro do Gerenciador de Script filtra somente o conjunto de scripts carregado ***atualmente*** e não atualiza a coleção selecionada no momento.
+    > [!IMPORTANT] 
+    > A funcionalidade de filtro do Gerenciador de Script filtra somente o conjunto de scripts carregado ***atualmente*** e não atualiza a coleção selecionada no momento.
 
 1. Para atualizar a lista de scripts carregada pelo Gerenciador de Script, basta clicar no comando **Atualizar** no topo da folha.
    
@@ -106,10 +110,5 @@ O Gerenciador de Script no portal do Azure é apenas uma maneira de trabalhar co
 Saiba mais sobre programação no lado do servidor do DocumentDB no artigo [UDFs, gatilhos de banco de dados e procedimentos armazenados](documentdb-programming.md) .
 
 O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB.  
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

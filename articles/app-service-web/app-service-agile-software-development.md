@@ -4,7 +4,7 @@ description: "Aprenda a criar aplicativos complexos de grande escala com o Servi
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: c214e37fb4211e8a2686a2beb18cf84ee77d5783
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -272,10 +273,5 @@ O desenvolvimento de software Agile é indispensável para muitas empresas que d
 * [Ferramentas de linha de comando de plataformas cruzadas do Azure](../xplat-cli-install.md)
 * [Criar ou editar usuários no AD do Azure](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

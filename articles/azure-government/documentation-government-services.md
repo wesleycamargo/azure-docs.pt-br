@@ -1,10 +1,10 @@
 ---
-title: "Serviços do Azure Governamental | Microsoft Docs"
+title: "Serviços disponíveis do Azure Governamental | Microsoft Docs"
 description: "Oferece uma visão geral dos serviços disponíveis no Azure Governamental"
 services: azure-government
 cloud: gov
 documentationcenter: 
-author: zakramer
+author: smichelotti
 manager: liki
 ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 01/29/2017
-ms.author: zakramer
+ms.date: 02/13/2017
+ms.author: stemi
 translationtype: Human Translation
-ms.sourcegitcommit: 157e1d2b39e3990daa8001279b0dcc5bd14f0de8
-ms.openlocfilehash: eac5f44f3e6f0953bff57e362d327b738e6b50f9
+ms.sourcegitcommit: ffe3991f68bbd255ff6f4ffedbd6638f32897d1a
+ms.openlocfilehash: 914870f59b488716bb283162078535849f732018
+ms.lasthandoff: 02/21/2017
 
 
 ---
-# <a name="azure-government-services"></a>Serviços do Azure Governamental
-O Azure Governamental está se expandindo continuamente os serviços disponíveis.  Esses serviços são implantados usando o mesmo código usado no Azure Público.  Esta seção documenta dois tipos principais de informação:
+# <a name="available-services-on-azure-government"></a>Serviços disponíveis no Azure Governamental
+O Azure Governamental está se expandindo continuamente os serviços disponíveis.  Esses serviços são implantados usando o mesmo código usado no Azure Público.  Esta seção documenta os serviços disponíveis atualmente no Azure Governamental, incluindo dois tipos principais de informação:
 
 * **Variações:** variações que ocorrem devido a funcionalidades que ainda não foram implantadas ou propriedades (por exemplo URLs) exclusivas do ambiente governamental.  
 * **Considerações:** detalhes de implementação específicos do governo para garantir que os dados permaneça no limite de conformidade.
@@ -30,73 +31,124 @@ Tudo o mais que você precisa saber sobre esses serviços pode ser encontrado em
 
 Para obter a lista mais atual dos serviços, consulte [Produtos por região](https://azure.microsoft.com/regions/services/). 
 
+Nas tabelas abaixo, os serviços especificados como compatíveis com o Resource Manager têm provedores de recursos e podem ser gerenciados usando o PowerShell. Para obter informações detalhadas sobre provedores do Resource Manager, as versões de API e esquemas, clique [aqui](../azure-resource-manager/resource-manager-supported-services.md). Os serviços especificados como disponíveis no Portal, podem ser gerenciados no [Portal do Azure Governamental](https://portal.azure.us/). 
+
+
 ## <a name="computedocumentation-government-computemd"></a>[Computação](documentation-government-compute.md)
-* [Máquinas Virtuais do Windows](documentation-government-compute.md#virtual-machines)
-* [Máquinas Virtuais do Linux](documentation-government-compute.md#virtual-machines)
-* Serviços de Nuvem
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [Máquinas virtuais](documentation-government-compute.md#virtual-machines) | Sim | Sim |
+| Batch | Sim | Sim |
+| Serviços de Nuvem | Sim | Sim |
+| Service Fabric | Sim | Sim |
+| Conjuntos de Dimensionamento da VM | Sim | Sim |
+
 
 ## <a name="networkingdocumentation-government-networkingmd"></a>[Rede](documentation-government-networking.md)
-* [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity)
-* [Suporte a comunidades BGP](documentation-government-networking.md#support-for-bgp-communities)
-* Rede Virtual
-* [Balanceador de Carga](documentation-government-networking.md#support-for-load-balancer)
-* Application Gateway
-* [Gerenciador de Tráfego](documentation-government-networking.md#support-for-traffic-manger)
-* [Gateway de VPN](documentation-government-networking.md#support-for-vpn-gateway)
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [ExpressRoute](documentation-government-networking.md#expressroute-private-connectivity) | Sim | Sim |
+| Rede Virtual | Sim | Sim |
+| [Balanceador de carga](documentation-government-networking.md#support-for-load-balancer) | Sim | Sim |
+| [Gerenciador de Tráfego](documentation-government-networking.md#support-for-traffic-manger) | Sim | Sim |
+| [Gateway de VPN](documentation-government-networking.md#support-for-vpn-gateway) | Sim | Sim |
+| Application Gateway | Sim | Sim |
+| ExpressRoute | Sim | Sim |
+
+
 
 ## <a name="storagedocumentation-government-services-storagemd"></a>[Armazenamento](documentation-government-services-storage.md)
-* [Armazenamento do Azure](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento de Blobs](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento de Tabelas](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento de Filas](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento de Arquivos](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento Dinâmico/Estático](documentation-government-services-storage.md#azure-storage)
-* [Criptografia do Serviço de Armazenamento](documentation-government-services-storage.md#azure-storage)
-* [Armazenamento Premium](documentation-government-services-storage.md#azure-storage)
-* [Importação/Exportação de Blob](documentation-government-services-storage.md#azure-storage)
-* [StorSimple](documentation-government-services-storage.md)
-* [Backup](documentation-government-services-backup.md)
-* [Recuperação de Site](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Importar/exportar
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [Armazenamento - Blobs](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Armazenamento - Tabelas](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Armazenamento - Filas](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Armazenamento - Arquivos](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Armazenamento - Discos](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [StorSimple](documentation-government-services-storage.md) | Sim | Sim |
+| [Backup](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Recuperação de Site](documentation-government-services-storage.md#azure-storage) | Sim | Sim |
+| [Importar/exportar](documentation-government-services-storage.md#azure-storage) | Sim | Não |
+
+
 
 ## <a name="web--mobiledocumentation-government-services-webandmobilemd"></a>[Web + Celular](documentation-government-services-webandmobile.md)
-* [Serviços de Aplicativos](documentation-government-services-webandmobile.md#app-services)
-* Serviços de mídia
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [Serviço de Aplicativo - Aplicativos Web](documentation-government-services-webandmobile.md#app-services) | Sim | Sim |
+| [Serviço de Aplicativo - Aplicativo de API](documentation-government-services-webandmobile.md#app-services) | Sim | Sim |
+| [Serviço de Aplicativo - Aplicativos Móveis](documentation-government-services-webandmobile.md#app-services) | Sim | Sim |
+| Serviços de mídia | Sim | Sim |
+
 
 ## <a name="databasesdocumentation-government-services-databasemd"></a>[Bancos de dados](documentation-government-services-database.md)
-* [Banco de Dados SQL](documentation-government-services-database.md#sql-database)
-* SQL Server Stretch Database
-* [Cache Redis](documentation-government-services-database.md#azure-redis-cache)
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [Banco de Dados SQL](documentation-government-services-database.md#sql-database) | Sim | Sim |
+| SQL Data Warehouse | Sim | Sim |
+| SQL Server Stretch Database | Sim | Sim |
+| [Cache Redis](documentation-government-services-database.md#azure-redis-cache) | Sim | Sim |
+
+
+
 
 ## <a name="internet-of-things-iot"></a>Internet das coisas (IoT)
-* Hubs de Eventos
-* Hubs de Notificação
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| Hubs de evento | Sim | Sim |
+| Hubs de Notificação | Não | Não (acesse [Portal herdado](https://manage.windowsazure.us/)) |
+
 
 ## <a name="enterprise-integration"></a>Integração Empresarial
-* Barramento de Serviço
-* [StorSimple](documentation-government-services-storage.md)
-* SQL Server Stretch Database
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| Barramento de Serviço | Sim | Sim |
+| [StorSimple](documentation-government-services-storage.md) | Sim | Sim |
+| SQL Server Stretch Database | Sim | Sim |
+
+
 
 ## <a name="security--identitydocumentation-government-services-securityandidentitymd"></a>[Segurança + Identidade](documentation-government-services-securityandidentity.md)
-* [Cofre da Chave](documentation-government-services-securityandidentity.md#key-vault)
-* Azure Active Directory
-* Multi-Factor Authentication
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| Azure Active Directory | Sim | Sim |
+| [Cofre de Chaves](documentation-government-services-securityandidentity.md#key-vault) | Sim | Não (em breve) |
+| Autenticação Multifator | Sim | Sim |
+| Intune | Sim | Não |
+
+
+## <a name="intelligence--analytics"></a>Inteligência + Análises
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| Power BI | Sim | Não |
+| HDInsight | Sim | Sim |
+
+
 
 ## <a name="monitoring--managementdocumentation-government-services-monitoringandmanagementmd"></a>[Monitoramento + Gerenciamento](documentation-government-services-monitoringandmanagement.md)
-* [Automação](documentation-government-services-monitoringandmanagement.md#automation)
-* [Backup](documentation-government-services-backup.md) 
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
-* [Recuperação de Site](documentation-government-services-monitoringandmanagement.md#site-recovery)
-* Agendador
-* [Gerenciador de Tráfego](documentation-government-networking.md#support-for-traffic-manger)
-* Monitoramento e diagnóstico
+
+| O Barramento de | Gerenciador de Recursos habilitado | Portal |
+| --- | --- | --- |
+| [Automação](documentation-government-services-monitoringandmanagement.md#automation) | Sim | Sim |
+| [Backup](documentation-government-services-backup.md) | Sim | Sim |
+| [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | Sim | Sim |
+| [Recuperação de Site](documentation-government-services-monitoringandmanagement.md#site-recovery) | Sim | Sim |
+| Agendador | Sim | Não |
+| Monitoramento e diagnóstico | Sim | Sim |
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o [Blog do Microsoft Azure Governamental](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -4,7 +4,7 @@ description: "Solução para problemas de Análise, Monitoramento, Segmentação
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -59,10 +60,5 @@ Estes são os possíveis problemas que podem ser encontrados em como o Mobile En
 ### <a name="causes"></a>Causas
 * Para solucionar as Falhas do Aplicativo vistas na Análise, Monitoramento ou Painel, verifique as notas de versão para os problemas conhecidos com as versões anteriores do SDK.
 * Para solucionar falhas adicionais do aplicativo execute um evento de um dispositivo de teste com seu aplicativo instalado e procure o ID do dispositivo na seção “Monitor – eventos” da interface de usuário do Mobile Engagement do Azure. Em seguida, execute o mesmo que está causando a falha no seu aplicativo e pesquise por informações adicionais na seção “Monitoramento – falha” na interface do usuário do Engagement Mobile do Azure. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 9bc03ee35436180e7c8639233ca80fb7e7e200f6
-ms.openlocfilehash: e4ce74244ceb7a493d33a1ed2aad8f7a36b96ad9
+ms.sourcegitcommit: bd280fabf22d569f3c4dae9f00f44b08700c8fc4
+ms.openlocfilehash: f034f028b0b1e0011e152b88d304dd54cfbc8320
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -68,7 +69,7 @@ As etapas a seguir irão orientá-lo na adição de um repositório ao seu labor
 1. Selecione **Adicionar+** para adicionar seu repositório de modelos do Azure Resource Manager.
 1. Quando a segunda folha **Repositórios** abrir, insira as informações necessárias da seguinte maneira:
     - **Nome** - insira o nome do repositório usado no laboratório.
-    - **URI de clone do Git** - insira a URL de clone HTTPS do GIT a partir do GitHub ou do Visual Studio Team Services.  
+    - **URL de clone do Git** - Insira a URL de clone HTTPS do GIT a partir do GitHub ou do Visual Studio Team Services.  
     - **Ramificação** - insira o nome da ramificação para acessar suas definições de modelo do Azure Resource Manager. 
     - **Token de acesso pessoal** - o token de acesso pessoal é usado para acessar o repositório com segurança. Para obter o token no Visual Studio Team Services, selecione **&lt;SeuNome > > Meu perfil > Segurança > Token de acesso público**. Para obter o token no GitHub, selecione seu avatar, em seguida, selecione **Configurações > Token de acesso público**. 
     - **Caminhos da pasta** - usando um dos dois campos de entrada, digite o caminho da pasta que começa com uma barra invertida - / - e é relativo ao URI de clone do Git para suas definições de artefato (primeiro campo de entrada) ou suas definições de modelo do Azure Resource Manager.   
@@ -115,8 +116,4 @@ Assim que um repositório de modelos do Azure Resource Manager for configurado n
 ## <a name="next-steps"></a>Próximas etapas
 * Após a criação da VM, você pode conectar a VM selecionando **Conectar** na folha da VM.
 * Explorar os [modelos do Azure Resource Manager na galeria de modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates)
-
-
-<!--HONumber=Feb17_HO1-->
-
 

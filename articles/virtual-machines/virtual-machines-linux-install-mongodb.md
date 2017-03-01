@@ -1,6 +1,6 @@
 ---
-title: Instalar o MongoDB em uma VM Linux no Azure | Microsoft Docs
-description: "Aprenda a instalar e configurar o MongoDB em uma máquina virtual do Linux no Azure usando o modelo de implantação do Resource Manager."
+title: "Instalar o MongoDB em uma VM Linux usando a CLI 2.0 do Azure (Visualização) | Microsoft Docs"
+description: "Aprenda a instalar e configurar o MongoDB em uma máquina virtual do Linux usando a CLI 2.0 do Azure (Visualização)"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -12,39 +12,61 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/20/2016
+ms.date: 02/14/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
-ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
+ms.sourcegitcommit: 16e6a02e9b40643aaa1393f5736d5a28049a086f
+ms.openlocfilehash: 9e4b5b8aa877b8a2197d402957028c2bb7b5cf49
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="install-and-configure-mongodb-on-a-linux-vm-in-azure"></a>Instalar e Configurar o MongoDB em uma VM do Linux no Azure
+# <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-20-preview"></a>Como instalar e configurar o MongoDB em uma VM Linux usando a CLI 2.0 do Azure (Preview)
 [O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo mostra a você como instalar e configurar o MongoDB em uma VM do Linux no Azure usando o modelo de implantação do Resource Manager. São mostrados exemplos que explicam em detalhes como:
 
 * [Instalar e configurar uma instância básica do MongoDB manualmente](#manually-install-and-configure-mongodb-on-a-vm)
 * [Criar uma instância básica do MongoDB usando um Modelo do Resource Manager](#create-basic-mongodb-instance-on-centos-using-a-template)
 * [Criar um cluster fragmentado complexo MongoDB com conjuntos de réplicas usando um modelo do Resource Manager](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
-## <a name="prerequisites"></a>Pré-requisitos
-Este artigo exige o seguinte:
 
-* uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)).
-* a [CLI do Azure](../xplat-cli-install.md) conectada com o `azure login`
-* a CLI do Azure *deve estar* no modo Azure Resource Manager usando `azure config mode arm`
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+
+- [CLI do Azure 1.0](virtual-machines-linux-install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- CLI 2.0 do Azure (Visualização) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalar e configurar manualmente o MongoDB em uma VM
-O MongoDB [fornece instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux incluindo Red Hat/CentOS, SUSE, Ubuntu e Debian. O exemplo a seguir cria uma VM `CentOS` usando uma chave SSH armazenada no `~/.ssh/id_rsa.pub`. Responda aos prompts para o nome da conta de armazenamento, nome DNS e credenciais de administrador:
+O MongoDB [fornece instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux incluindo Red Hat/CentOS, SUSE, Ubuntu e Debian. O exemplo a seguir cria uma VM `CentOS` usando uma chave SSH armazenada no `~/.ssh/id_rsa.pub`. Para criar esse ambiente, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+
+Crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US`:
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
+ az group create --name myResourceGroup --location westus
 ```
 
-Faça logon na VM usando o endereço IP público exibido no final da etapa anterior de criação da VM:
+Crie uma VM com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM denominada `myVM` com um usuário chamado `azureuser` usando autenticação de chave pública SSH e uma entrada DNS pública do `mypublicdns`:
+
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image CentOS \
+    --admin-username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
+    --public-ip-address-dns-name mypublicdns
+```
+
+Faça logon na VM usando o endereço DNS público de sua VM. Você pode exibir o endereço DNS público com [az vm show](/cli/azure/vm#show):
+
+```azurecli
+az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+```
+
+SSH para sua VM usando seu próprio nome de usuário e endereço DNS público:
 
 ```bash
-ssh ops@40.78.23.145
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 Para adicionar fontes de instalação para o MongoDB, crie um arquivo de repositório `yum` da seguinte maneira:
@@ -112,28 +134,38 @@ Você pode criar uma instância básica do MongoDB em uma única VM CentOS usand
 
 * [Instância básica do MongoDB no CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) –https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na região `WestUS`. Insira seus próprios valores da seguinte maneira:
+Para criar esse ambiente, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US`:
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+az group create --name myResourceGroup --location westus
 ```
 
-> [!NOTE]
-> A CLI do Azure retorna um prompt dentro de alguns segundos de criação da implantação, mas a instalação e configuração levam alguns minutos para serem concluídas. Verifique o status da implantação com `azure group deployment show myResourceGroup`, inserindo o nome do seu grupo de recursos adequadamente. Aguarde até que o `ProvisioningState` mostra 'Êxito' antes de tentar acessar a VM via SSH.
-> 
-> 
-
-Depois que a implantação for concluída, acesse a VM via SSH. Obtenha o endereço IP da sua VM usando o comando `azure vm show` como no exemplo a seguir:
+Em seguida, implante o modelo do MongoDB com [az group deployment create](/cli/azure/group/deployment#create). Defina seus próprios nomes de recurso e tamanhos, quando for necessário, por exemplo para `newStorageAccountName`, `virtualNetworkName` e `vmSize`:
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myLinuxVM
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
+    "adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "dnsNameForPublicIP": {"value": "mypublicdns"},
+    "virtualNetworkName": {"value": "myVnet"},
+    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmName": {"value": "myVM"},
+    "publicIPAddressName": {"value": "myPublicIP"},
+    "nicName": {"value": "myNic"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Próximo ao final da saída, o `Public IP address` é exibido. Acesse a VM via SSH com o endereço IP da VM:
+Faça logon na VM usando o endereço DNS público de sua VM. Você pode exibir o endereço DNS público com [az vm show](/cli/azure/vm#show):
+
+```azurecli
+az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+```
+
+SSH para sua VM usando seu próprio nome de usuário e endereço DNS público:
 
 ```bash
-ssh ops@138.91.149.74
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
 Verifique a instalação do MongoDB ao se conectar usando o cliente `mongo` local conforme demonstrado a seguir:
@@ -161,20 +193,40 @@ Você pode criar um cluster fragmentado MongoDB complexo usando o seguinte model
 
 > [!WARNING]
 > Implantar este cluster fragmentado MongoDB complexo requer mais de 20 núcleos, que é normalmente a contagem padrão de núcleos por região para uma assinatura. Abra uma solicitação de suporte do Azure para aumentar a contagem de núcleos.
-> 
-> 
 
-O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na região `WestUS`. Insira seus próprios valores da seguinte maneira:
+Para criar esse ambiente, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login). Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `West US`:
 
 ```azurecli
-azure group create --name myResourceGroup --location WestUS \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+az group create --name myResourceGroup --location westus
 ```
 
-> [!NOTE]
-> A CLI do Azure retorna um prompt dentro de alguns segundos de criação da implantação, mas a instalação e configuração podem levar mais de uma hora para serem concluídas. Verifique o status da implantação com `azure group deployment show myResourceGroup`, ajustando o nome do seu grupo de recursos adequadamente. Aguarde até que o `ProvisioningState` mostra 'Êxito' antes de conectar-se às VMs.
-> 
-> 
+Em seguida, implante o modelo do MongoDB com [az group deployment create](/cli/azure/group/deployment#create). Defina seus próprios nomes de recurso e tamanhos, quando for necessário, por exemplo para `mongoAdminUsername`, `sizeOfDataDiskInGB` e `configNodeVmSize`:
+
+```azurecli
+az group deployment create --resource-group myResourceGroup \
+  --parameters '{"adminUsername": {"value": "azureuser"},
+    "adminPassword": {"value": "P@ssw0rd!"},
+    "mongoAdminUsername": {"value": "mongoadmin"},
+    "mongoAdminPassword": {"value": "P@ssw0rd!"},
+    "dnsNamePrefix": {"value": "mypublicdns"},
+    "environment": {"value": "AzureCloud"},
+    "numDataDisks": {"value": "4"},
+    "sizeOfDataDiskInGB": {"value": 20},
+    "centOsVersion": {"value": "7.0"},
+    "routerNodeVmSize": {"value": "Standard_DS3_v2"},
+    "configNodeVmSize": {"value": "Standard_DS3_v2"},
+    "replicaNodeVmSize": {"value": "Standard_DS3_v2"},
+    "zabbixServerIPAddress": {"value": "Null"}}' \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json \
+  --name myMongoDBCluster --no-wait
+```
+
+Essa implantação pode demorar mais de uma hora para implantar e configurar todas as instâncias da VM. O sinalizador `--no-wait` é usado no final do comando anterior para retornar o controle ao prompt de comando após a implantação de modelo ter sido aceita pela plataforma do Azure. Você pode exibir o status de implantação com [az group deployment show](/cli/azure/group/deployment#show). O exemplo a seguir exibe o status da implantação do `myMongoDBCluster` no grupo de recursos `myResourceGroup`:
+
+```azurecli
+az group deployment show --resource-group myResourceGroup --name myMongoDBCluster \
+    --query [properties.provisioningState] --output tsv
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Nesses exemplos, você se conecta à instância do MongoDB localmente da VM. Se você desejar conectar-se à instância do MongoDB de outra VM ou de rede, certifique-se de que as devidas [regras de Grupo de Segurança de Rede tenham sido criadas](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -182,10 +234,5 @@ Nesses exemplos, você se conecta à instância do MongoDB localmente da VM. Se 
 Para obter mais informações sobre a criação de modelos, veja a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 Os modelos do Azure Resource Manager usam a Extensão de Script Personalizado para baixar e executar scripts em suas VMs. Para obter mais informações, veja [Uso da extensão de script personalizado do Azure com máquinas virtuais do Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

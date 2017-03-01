@@ -1,5 +1,5 @@
 ---
-title: Gerenciador de Documentos do DocumentDB para exibir JSON | Microsoft Docs
+title: 'Ferramenta do portal do Azure DocumentDB: Gerenciador de Documentos | Microsoft Docs'
 description: Saiba mais sobre o Gerenciador de Documentos do Banco de Dados de Documentos, uma ferramenta do Portal do Azure para exibir JSON, editar, criar e carregar documentos JSON com o Banco de Dados de Documentos, um banco de dados de documentos NoSQL.
 keywords: exibir json
 services: documentdb
@@ -13,21 +13,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/10/2017
 ms.author: kirillg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 281a24005f076379fefe859386fdf84065c5cfe7
+ms.sourcegitcommit: 81c569c5130869e6d8c9dc79feca592aecc44e61
+ms.openlocfilehash: edccbbb72649c5a443fefd7f1d97a8c01a4daff2
+ms.lasthandoff: 02/15/2017
 
 
 ---
 # <a name="view-edit-create-and-upload-json-documents-using-documentdb-document-explorer"></a>Exibir, editar, criar e carregar documentos JSON usando o Gerenciador de Documentos do Banco de Dados de Documentos
 Este artigo fornece uma visão geral do Gerenciador de Documentos do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) , uma ferramenta do portal do Azure que o habilita a exibir, editar, criar, carregar documentos e filtrar JSON com o Banco de Dados de Documentos. 
 
-Observe que o Gerenciador de documentos não está habilitado em contas do Banco de Dados de Documentos com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
+> [!NOTE]
+> O Gerenciador de Documentos não está habilitado em contas do DocumentDB com suporte ao protocolo para MongoDB. Esta página será atualizada quando esse recurso estiver habilitado.
 
-## <a name="launch-document-explorer"></a>Iniciar o Gerenciador de Documentos
-1. No portal do Azure, na barra de navegação, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
+<a id="launch-document-explorer"></a>
+
+## <a name="launch-document-explorer-in-the-azure-portal"></a>Iniciar o Gerenciador de Documentos no Portal do Azure
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**. 
+
+    Se **NoSQL (DocumentDB)** não estiver visível, clique em **Mais Serviços** na parte inferior e clique no ![ícone do Azure DocumentDB](./media/documentdb-query-collections-query-explorer/nosql-documentdb-portal-icon.png) **NoSQL (DocumentDB)**.
 2. Selecione o nome da conta. 
 3. No menu de recursos, clique em **Gerenciador de Documentos**. 
    
@@ -35,7 +41,7 @@ Observe que o Gerenciador de documentos não está habilitado em contas do Banco
    
     Na folha **Gerenciador de Documentos**, as listas suspensas **Bancos de dados** e **Coleções** são preenchidas com antecedência, dependendo do contexto no qual você tiver iniciado o Gerenciador de Documentos. 
 
-## <a name="create-a-document"></a>Criar um documento
+## <a name="create-a-json-document"></a>Criar um documento JSON
 1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 2. Na folha **Gerenciador de Documentos**, clique em **Criar Documento**. 
    
@@ -53,7 +59,7 @@ Observe que o Gerenciador de documentos não está habilitado em contas do Banco
    
     Se já tiver dados de arquivos JSON, MongoDB, SQL Server, arquivos CSV, armazenamento de Tabela do Azure, Amazon DynamoDB, HBase ou de outras coleções do Banco de Dados de Documentos, você poderá usar a [ferramenta de migração de dados](documentdb-import-data.md) do Banco de Dados de Documentos para importar rapidamente os dados.
 
-## <a name="edit-a-document"></a>Editar um documento
+## <a name="edit-a-json-document"></a>Editar um documento JSON
 1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 2. Para editar um documento existente, selecione-o na folha **Gerenciador de Documentos**, edite o documento na folha **Documento** e clique em **Salvar**.
    
@@ -63,7 +69,7 @@ Observe que o Gerenciador de documentos não está habilitado em contas do Banco
    
     ![Captura de tela do comando descartar do Gerenciador de Documentos](./media/documentdb-view-JSON-document-explorer/discardedit.png)
 
-## <a name="delete-a-document"></a>Excluir um documento
+## <a name="delete-a-document-from-documentdb"></a>Excluir um documento do DocumentDB
 1. [Inicie o Gerenciador de Documentos](#launch-document-explorer).
 2. Selecione o documento no **Gerenciador de Documentos**, clique em **Excluir** e confirme a exclusão. Após a confirmação, o documento será removido imediatamente da lista do Gerenciador de Documentos.
    
@@ -156,12 +162,5 @@ Se você precisar importar ou migrar arquivos de outra fonte (arquivos JSON, Mon
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a gramática SQL do DocumentDB com suporte no Gerenciador de Documentos, veja o artigo [Consulta SQL e sintaxe SQL](documentdb-sql-query.md) ou imprima a [referência rápida de consulta SQL](documentdb-sql-query-cheat-sheet.md).
-
-O [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/) também é um recurso útil para orientar você à medida que for aprendendo mais sobre o DocumentDB. 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

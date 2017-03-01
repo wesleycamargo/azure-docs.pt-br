@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 05/23/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: bee6dbf8910534b07a77e7fd7dd84edf07cf3dd5
-ms.openlocfilehash: bc475cd1abfa4d9ff6c8afe9647b353054dc201b
+ms.sourcegitcommit: cbd1c7e7d915e8a10d69c7a2f1679835dcee23b7
+ms.openlocfilehash: b64129b77385685b41aac55c52a34e9d0495124e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -37,7 +38,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
     ![prompt de comando][1]
 2. Na janela Comando, digite "1" e pressione **Enter**. Isso cria o gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**. Repita a ação quatro vezes. Isso insere linhas de dados de exemplo no seus fragmentos.
-3. O [portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
+3. O [Portal do Azure](https://portal.azure.com) deve mostrar três novos bancos de dados em seu servidor v12:
 
    ![Confirmação do Visual Studio][2]
 
@@ -129,7 +130,16 @@ Não há nenhum custo adicional para usar o recurso de consulta de Banco de Dado
 
 Para obter informações sobre os preços, consulte [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+## <a name="next-steps"></a>Próximas etapas
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Para obter uma visão geral de consulta elástica, veja [Visão geral de consulta elástica](sql-database-elastic-query-overview.md).
+* Para obter um tutorial sobre particionamento vertical, veja [Introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
+* Para sintaxe e exemplos de consultas para dados particionados verticalmente, veja [Consulta de dados particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md)
+* Para sintaxe e exemplos de consultas para dados particionados horizontalmente, veja [Consulta de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md)
+* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que executa uma instrução Transact-SQL em um único Banco de Dados SQL do Azure remoto ou um conjunto de bancos de dados que serve como fragmentos em um esquema de particionamento horizontal.
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png
@@ -138,9 +148,4 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

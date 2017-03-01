@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 62aa837026d11e9c262c68cbdd9c78b1302bc380
+ms.sourcegitcommit: 2c070a6f46e41023ecd2ff7fb5c39b0d021aaef0
+ms.openlocfilehash: 0a900d4ddf6a751a4bf54720d3b62cf9e59e0a71
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,8 +27,8 @@ ms.openlocfilehash: 62aa837026d11e9c262c68cbdd9c78b1302bc380
 > * [PowerShell – Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Portal clássico](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - clássico](site-recovery-deploy-with-powershell.md)
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Visão geral
 O Azure Site Recovery colabora com sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) gerenciando replicação, failover e recuperação de máquinas virtuais em vários cenários de implantação. Para obter uma lista completa de cenários de implantação, consulte a [Visão geral do Azure Site Recovery](site-recovery-overview.md).
@@ -48,8 +49,8 @@ Se você enfrentar problemas ao configurar esse cenário, publique suas pergunta
 
 > [!NOTE]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação do Gerenciador de Recursos.
-> 
-> 
+>
+>
 
 ## <a name="before-you-start"></a>Antes de começar
 Verifique se estes pré-requisitos estão em vigor:
@@ -58,12 +59,12 @@ Verifique se estes pré-requisitos estão em vigor:
 * Você precisará de uma conta do [Microsoft Azure](https://azure.microsoft.com/) . Se não tiver uma, comece com uma [conta gratuita](https://azure.microsoft.com/free). Além disso, você pode ler sobre os [preços do Gerenciador do Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Você precisará de uma assinatura CSP se estiver tentando a replicação em um cenário de assinatura CSP. Saiba mais sobre o programa CSP em [como se registrar no programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
 * Será necessária uma conta de armazenamento do Azure v2 (Resource Manager) para armazenar os dados replicados no Azure. A conta precisa estar com a replicação geográfica habilitada. Ela deve estar localizada na mesma região que o serviço Azure Site Recovery e estar associada à mesma assinatura ou assinatura CSP. Para aprender mais sobre como configurar o armazenamento do Azure, confira [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md) para obter uma referência.
-* Você precisará verificar se as máquinas virtuais que deseja proteger atendem aos [requisitos de máquina virtual do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+* Você precisará verificar se as máquinas virtuais que deseja proteger atendem aos [requisitos de máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
 > Atualmente, apenas operações no nível de VM são possíveis por meio do Powershell. Em breve, será disponibilizado o suporte para operações no nível de plano de recuperação.  Por enquanto, você está limitado a executar failovers somente em granularidade de 'VM protegida', e não em um nível de Plano de Recuperação.
-> 
-> 
+>
+>
 
 ### <a name="vmm-prerequisites"></a>Pré-requisitos do VMM
 * Você precisará do servidor VMM em execução no System Center 2012 R2.
@@ -108,43 +109,43 @@ Para obter dicas que podem ajudar você a usar os cmdlets, como valores de parâ
 
 ## <a name="step-1-set-the-subscription"></a>Etapa 1: definir a assinatura
 1. No Azure PowerShell, faça logon na conta do Azure usando os seguintes cmdlets:
-   
+
         $UserName = "<user@live.com>"
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
         Login-AzureRmAccount #-Credential $Cred
 2. Obtenha uma lista das suas assinaturas. Essa lista também incluirá as IDs de assinatura de cada uma das assinaturas. Anote a ID da assinatura na qual você quer criar o cofre dos serviços de recuperação
-   
+
         Get-AzureRmSubscription
 3. Defina a assinatura na qual o cofre dos serviços de recuperação deverá ser criado mencionando a ID da assinatura
-   
+
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
 ## <a name="step-2-create-a-recovery-services-vault"></a>Etapa 2: Criar um cofre dos Serviços de Recuperação
 1. Crie um grupo de recursos no Azure Resource Manager se você ainda não tiver um
-   
+
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Crie um novo cofre de Serviços de Recuperação e salve o objeto de cofre ASR criado em uma variável (será usado posteriormente). Você também pode recuperar o objeto de cofre ASR pós-criação usando o cmdlet Get-AzureRMRecoveryServicesVault:-
-   
+
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>Etapa 3: Configurar o contexto do Cofre dos Serviços de Recuperação
 
 Defina o contexto de cofre, executando o comando abaixo.
-   
+
        Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="step-4-install-the-azure-site-recovery-provider"></a>Etapa 4: instalar o Provedor do Azure Site Recovery
 1. Na máquina da VMM, crie um diretório executando o seguinte comando:
-   
+
        New-Item c:\ASR -type directory
 2. Extraia os arquivos usando o provedor baixado, executando o seguinte comando
-   
+
        pushd C:\ASR\
        .\AzureSiteRecoveryProvider.exe /x:. /q
 3. Instale o provedor usando os comandos a seguir:
-   
+
        .\SetupDr.exe /i
        $installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
        do
@@ -155,10 +156,10 @@ Defina o contexto de cofre, executando o comando abaixo.
            $isNotInstalled = $false;
          }
        }While($isNotInstalled)
-   
+
    Aguarde a conclusão da instalação.
 4. Registre o servidor no cofre usando o seguinte comando:
-   
+
        $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
        pushd $BinPath
        $encryptionFilePath = "C:\temp\".\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice
@@ -166,7 +167,7 @@ Defina o contexto de cofre, executando o comando abaixo.
 ## <a name="step-5-create-an-azure-storage-account"></a>Etapa 5: criar uma conta de armazenamento do Azure
 
 Se você não tiver uma conta de armazenamento do Azure, crie uma conta habilitada para replicação geográfica na mesma região que o cofre executando o seguinte comando:
-   
+
         $StorageAccountName = "teststorageacc1"    #StorageAccountname
         $StorageAccountGeo  = "Southeast Asia"     
         $ResourceGroupName =  “myRG”             #ResourceGroupName
@@ -177,7 +178,7 @@ Observe que a conta de armazenamento precisa estar na mesma região que o servi�
 ## <a name="step-6-install-the-azure-recovery-services-agent"></a>Etapa 6: instalar o agente dos Serviços de Recuperação do Azure
 1. Baixe o agente dos Serviços de Recuperação do Azure em [http://aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) e instale-o em cada servidor host Hyper-V localizado nas nuvens VMM que quer proteger.
 2. Execute o comando a seguir em todos os hosts VMM:
-   
+
        marsagentinstaller.exe /q /nu
 
 ## <a name="step-7-configure-cloud-protection-settings"></a>Etapa 7: definir as configurações da proteção de nuvem
@@ -190,25 +191,25 @@ Observe que a conta de armazenamento precisa estar na mesma região que o servi�
         $policryresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider HyperVReplicaAzure -ReplicationFrequencyInSeconds $replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId "/subscriptions/q1345667/resourceGroups/test/providers/Microsoft.Storage/storageAccounts/teststorageacc1"
 
 1. Obtenha um contêiner de proteção executando os seguintes comandos:
-   
+
        $PrimaryCloud = "testcloud"
        $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 2. Obtenha os detalhes da política para uma variável usando o trabalho que foi criado e mencionando o nome amigável da política:
-   
+
        $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
 3. Inicie a associação do contêiner de proteção à política de replicação:
-   
+
        $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $protectionContainer  
 4. Após a conclusão do trabalho, execute o seguinte comando:
-   
+
        $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
-   
+
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
          $isJobLeftForProcessing = $true;
        }
 5. Após a conclusão do processamento do trabalho, execute o seguinte comando:
-   
+
        if($isJobLeftForProcessing)
        {
          Start-Sleep -Seconds 60
@@ -225,17 +226,17 @@ Saiba mais sobre como criar uma rede virtual usando o Azure Resource Manager e o
 Observe que várias redes de máquina virtual podem ser mapeadas para uma única rede do Azure. Se a rede de destino tiver várias sub-redes e uma dessas sub-redes tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada à sub-rede de destino após o failover. Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
 
 1. O primeiro comando obtém servidores para o cofre atual do Azure Site Recovery. O comando armazena os servidores do Microsoft Azure Site Recovery na variável de matriz $Servers.
-   
+
         $Servers = Get-AzureRmSiteRecoveryServer
 2. O segundo comando obtém a rede de recuperação de site para o primeiro servidor na matriz $Servers. O comando armazena as redes na variável $Networks.
 
         $Networks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
 
 1. O terceiro comando obtém redes virtuais do Azure e, em seguida, esse valor na variável $AzureVmNetworks.
-   
+
         $AzureVmNetworks =  Get-AzureRmVirtualNetwork
 2. O cmdlet final cria um mapeamento entre a rede principal e a rede de máquina virtual do Azure. O cmdlet especifica a rede principal como o primeiro elemento de $Networks. O cmdlet especifica uma rede de máquina virtual como o primeiro elemento de $AzureVmNetworks.
-   
+
         New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureVMNetworkId $AzureVmNetworks[0]
 
 ## <a name="step-9-enable-protection-for-virtual-machines"></a>Etapa 9: habilitar a proteção para máquinas virtuais
@@ -243,17 +244,17 @@ Depois que os servidores, nuvens e redes estiverem configurados corretamente, vo
 
  Observe o seguinte:
 
-* As máquinas virtuais devem cumprir os requisitos do Azure. Verifique os [pré-requisitos e suporte](site-recovery-best-practices.md) no guia de planejamento.
+* As máquinas virtuais devem cumprir os requisitos do Azure. Verifique os [pré-requisitos e suporte](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) no guia de planejamento.
 * Para habilitar a proteção, o sistema operacional e as propriedades do disco do sistema operacional devem estar definidos para as máquinas virtuais. Ao criar uma máquina virtual no VMM usando um modelo de máquina virtual, é possível definir a propriedade. Você também pode definir essas propriedades para máquinas virtuais existentes nas guias **Geral** e **Configuração de Hardware** das propriedades da máquina virtual. Se você não definir essas propriedades no VMM, poderá configurá-las no portal de Recuperação de Site do Azure.
 
 1. Para habilitar a proteção, execute o seguinte comando para obter o contêiner de proteção:
-   
+
           $ProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $CloudName
 2. Obtenha a entidade de proteção (VM) executando o seguinte comando:
-   
+
            $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $protectionContainer
 3. Habilite o DR para a VM executando o seguinte comando:
-   
+
           $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable –Force -Policy $policy -RecoveryAzureStorageAccountId  $storageID "/subscriptions/217653172865hcvkchgvd/resourceGroups/rajanirgps/providers/Microsoft.Storage/storageAccounts/teststorageacc1
 
 ## <a name="test-your-deployment"></a>Testar a implantação
@@ -266,23 +267,23 @@ Para verificar a conclusão da operação, execute as etapas em [Monitorar a Ati
 
 ### <a name="run-a-test-failover"></a>Execute um teste de failover
 - Inicie o teste de failover executando o seguinte comando:
-   
+
        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-a-planned-failover"></a>Executar um failover planejado
 - Inicie o failover planejado executando o seguinte comando:
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ### <a name="run-an-unplanned-failover"></a>Executar um failover não planejado
 - Inicie o failover não planejado executando o seguinte comando:
-   
+
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
-   
+
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
 
 ## <a name="a-namemonitora-monitor-activity"></a><a name=monitor></a> Monitorar a atividade
@@ -307,10 +308,4 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 ## <a name="next-steps"></a>Próximas etapas
 [Leia mais](https://msdn.microsoft.com/library/azure/mt637930.aspx) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
