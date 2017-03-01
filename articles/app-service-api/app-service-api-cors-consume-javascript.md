@@ -4,7 +4,7 @@ description: "Saiba como usar o suporte a CORS no Serviço de Aplicativo do Azur
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 4f980a97-b9f5-4d1d-87ab-82b60bb96e1c
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
 ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
+ms.lasthandoff: 12/21/2016
 
 
 ---
@@ -248,10 +249,5 @@ Para saber mais sobre os recursos do Visual Studio que simplificam a solução d
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você viu como habilitar o suporte a CORS do Serviço de Aplicativo para que o código JavaScript de cliente possa chamar uma API em um domínio diferente. Para saber mais sobre aplicativos de API, leia a [Introdução à autenticação no Serviço de Aplicativo](../app-service/app-service-authentication-overview.md) e vá para o tutorial [Autenticação de usuário para aplicativos de API](app-service-api-dotnet-user-principal-auth.md).
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

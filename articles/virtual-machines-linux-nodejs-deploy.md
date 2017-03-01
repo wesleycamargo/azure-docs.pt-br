@@ -7,6 +7,7 @@ author: stepro
 manager: dmitryr
 editor: 
 ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: /azure
 ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
@@ -18,6 +19,7 @@ ms.author: stephpr
 translationtype: Human Translation
 ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
 ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
+ms.lasthandoff: 12/06/2016
 
 
 ---
@@ -258,10 +260,5 @@ Quando esse comando for concluído, atualize a página da Web para ver as altera
 Este artigo mostrou como utilizar um aplicativo Node.js e implantá-lo em máquinas virtuais Linux em execução no Azure. Para saber mais sobre máquinas virtuais Linux no Azure, confira [Introdução ao Linux no Azure](/documentation/articles/virtual-machines-linux-introduction/).
 
 Para obter mais informações sobre como desenvolver aplicativos do Node.js no Azure, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

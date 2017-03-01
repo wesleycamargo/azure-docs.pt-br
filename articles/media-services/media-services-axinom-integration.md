@@ -4,7 +4,7 @@ description: "Este artigo descreve como é possível usar os serviços de mídia
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
@@ -17,6 +17,7 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: c02b75dc2c783b96dc9e1256051b8c6df290d425
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -200,10 +201,5 @@ Os parâmetros a seguir são necessários na mini-solução que aproveita o serv
 
 ### <a name="acknowledgments"></a>Agradecimentos
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Kristjan Jõgi da Axinom, Mingfei Yan e Amit Rajput.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

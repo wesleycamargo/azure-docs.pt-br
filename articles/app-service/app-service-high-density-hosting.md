@@ -2,7 +2,7 @@
 title: "Hospedagem de alta densidade no Serviço de Aplicativo do Azure | Microsoft Docs"
 description: "Hospedagem de alta densidade no Serviço de Aplicativo do Azure"
 author: btardif
-manager: wpickett
+manager: erikre
 editor: 
 services: app-service\web
 documentationcenter: 
@@ -17,6 +17,7 @@ ms.author: byvinyal
 translationtype: Human Translation
 ms.sourcegitcommit: 0c2677b388f7a88ff88715a05212633565393cc2
 ms.openlocfilehash: 2d5d1d5123ca718b2e7dcdf426b77f91969dc9dc
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -152,10 +153,5 @@ Siga estas etapas para configurar a hospedagem de alta densidade para seus aplic
 3. Defina o sinalizador PerSiteCalling como verdadeiro no Plano do Serviço de Aplicativo.
 4. Novos aplicativos são criados e atribuídos a esse Plano do Serviço de Aplicativo com a propriedade **numberOfWorkers** definida como **1**. O uso dessa configuração produz a densidade mais alta possível neste pool de trabalho.
 5. O número de trabalhadores pode ser configurado independentemente por aplicativo, a fim de conceder recursos adicionais conforme necessário. Por exemplo, um aplicativo de alto consumo poderia definir **numberOfWorkers** como **3** para ter mais capacidade de processamento para esse aplicativo, enquanto aplicativos de baixo consumo poderiam definir **numberOfWorkers** como **1**.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

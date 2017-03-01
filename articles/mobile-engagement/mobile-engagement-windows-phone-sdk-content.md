@@ -4,7 +4,7 @@ description: "Saiba mais sobre o conteúdo do SDK do Windows Phone Silverlight p
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
 ms.service: mobile-engagement
@@ -17,6 +17,7 @@ ms.author: piyushjo
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ff04a56d377725d344cf75c7b84af1cb211d4723
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -32,10 +33,5 @@ Essa pasta contém todos os recursos que o Engagement precisa. Você também pod
 * `EngagementIconCloseLight.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema claro do Windows Phone.
 * `EngagementIconCloseDark.png` : O ícone “Fechar" da notificação Reach do Mobile Engagement do tema escuro do Windows Phone.
 * `EngagementConfiguration.xml` : Arquivo de configuração do Mobile Engagement, é onde você pode personalizar configurações do Engagement (cadeia de conexão do Engagement, relatar falhas, etc.).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Aprenda como implantar Trabalhos Web do Azure para Aplicativos Web
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
@@ -17,6 +17,7 @@ ms.author: tdykstra
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -175,10 +176,5 @@ Para um Trabalho Web independente, o mesmo assistente **Publicar Web** usado em 
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
 Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter mais informações sobre como implantar o Azure WebJobs, consulte [Azure WebJobs – Recursos recomendados - Implantação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
