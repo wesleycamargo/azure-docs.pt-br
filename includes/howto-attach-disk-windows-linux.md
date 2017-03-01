@@ -39,8 +39,3 @@ Anexar um disco existente exige que você tenha um .vhd disponível em uma conta
 4. Após o disco de dados ser anexado, ele é listado no painel da VM.
 
     ![Disco de dados anexado com êxito](./media/howto-attach-disk-windows-linux/AttachExistingSuccess.png)
-
-
-<!--HONumber=Nov16_HO3-->
-
-
