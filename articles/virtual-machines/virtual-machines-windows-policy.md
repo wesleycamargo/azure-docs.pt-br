@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 652a8a0dcb3216e9b762b85de56673beda74edc4
-ms.openlocfilehash: 83470aaf607a666a63bae5b9897d0b273e327377
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 54afb2f55ef9ff48448c63bc8ee8e745765f61e6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -96,15 +97,10 @@ A tabela abaixo descreve as propriedades da Máquina Virtual que podem ser usada
 ## <a name="create-the-policy"></a>Criar a política
 Uma política pode ser criada facilmente usando a API REST diretamente ou os cmdlets do PowerShell. Para criar a política, consulte o artigo abaixo:
 
-* [Criando uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
+* [Criando uma política](../azure-resource-manager/resource-manager-policy.md)
 
 ## <a name="apply-the-policy"></a>Aplicar a política
 Depois de criar a política, você precisará aplicá-la a um escopo definido. O escopo pode ser uma assinatura, um grupo de recursos ou até mesmo um recurso. Para aplicar a política, consulte o artigo abaixo:
 
-* [Criando uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Criando uma política](../azure-resource-manager/resource-manager-policy.md)
 

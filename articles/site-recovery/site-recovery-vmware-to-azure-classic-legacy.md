@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: aeaf8d06749d63d19e02573b5bf66ceac644cb3e
+ms.sourcegitcommit: 858ed6ca4355c36c728ae88bf9488f362d487646
+ms.openlocfilehash: 7ffef4a8dcd10fa6608d200b4ca34fb3517c0cc6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -147,9 +148,9 @@ A Tabela 2 fornece um resumo das diretrizes do servidor de processo.
 
 | **Taxa de alteração de dados** | **CPU** | **Memória** | **Tamanho do disco de cache** | **Taxa de transferência do disco de cache** | **Entrada/saída da largura de banda** |
 | --- | --- | --- | --- | --- | --- |
-| Menos de 300 GB |Quatro vCPUs (dois soquetes * dois núcleos @ 2,5 GHz) |4 GB |600 GB |7 a 10 MB por segundo |30 Mbps/21 Mbps |
-| 300 a 600 GB |8 vCPUs (2 soquetes x 4 núcleos @ 2,5 GHz) |6 GB |600 GB |11 a 15 MB por segundo |60 Mbps/42 Mbps |
-| 600 GB a 1 TB |12 vCPUs (2 soquetes x 6 núcleos @ 2,5 GHz) |8 GB |600 GB |16 a 20 MB por segundo |100 Mbps/70 Mbps |
+| Menos de 300 GB |4 vCPUs (2 soquetes x 2 núcleos a 2,5 GHz) |4 GB |600 GB |7 a 10 MB por segundo |30 Mbps/21 Mbps |
+| 300 a 600 GB |8 vCPUs (2 soquetes x 4 núcleos a 2,5 GHz) |6 GB |600 GB |11 a 15 MB por segundo |60 Mbps/42 Mbps |
+| 600 GB a 1 TB |12 vCPUs (2 soquetes x 6 núcleos a 2,5 GHz) |8 GB |600 GB |16 a 20 MB por segundo |100 Mbps/70 Mbps |
 | Mais de 1 TB |Implantar outro servidor de processo | | | | |
 
 **Tabela 2**
@@ -201,7 +202,7 @@ Observe que:
 | **Armazenamento do Azure** |Você precisará de uma conta de armazenamento do Azure para armazenar os dados replicados<br/><br/> A conta deve ser uma [Conta de Armazenamento com Redundância Geográfica Padrão](../storage/storage-redundancy.md#geo-redundant-storage) ou uma [Conta de Armazenamento Premium](../storage/storage-premium-storage.md).<br/><br/> Ela deve estar na mesma região do serviço do Azure Site Recovery e associada à mesma assinatura. Não há suporte para a movimentação das contas de armazenamento criadas usando o [novo portal do Azure](../storage/storage-create-storage-account.md) entre os grupos de recursos.<br/><br/> Para saber mais, leia a [Introdução ao Armazenamento do Microsoft Azure](../storage/storage-introduction.md) | |
 | **Rede virtual do Azure** |Você precisará de uma rede virtual do Azure na qual o servidor de configuração e o servidor de destino mestre serão implantados. Ela deve estar na mesma assinatura e na mesma região que o cofre do Azure Site Recovery. Se você quiser replicar dados em uma conexão VPN ou da Rota Expressa, a rede virtual do Azure deve estar conectada à sua rede local através de uma conexão da Rota Expressa ou uma VPN Site a Site. | |
 | **Recursos do Azure** |Verifique se você tem recursos suficientes do Azure para implantar todos os componentes. Leia mais em [Limites de assinatura do Azure](../azure-subscription-service-limits.md). | |
-| **Máquinas Virtuais do Azure** |As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-best-practices.md).<br/><br/> **Contagem de discos** – há suporte para um máximo de 31 discos em um único servidor protegido<br/><br/> **Tamanhos de disco** – a capacidade de disco individual não deve ser superior a 1.023 GB<br/><br/> **Clustering** – não há suporte a servidores clusterizados<br/><br/> **Inicialização** – não há suporte à inicialização UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface)<br/><br/> **Volumes** – não há suporte a volumes criptografados com Bitlocker<br/><br/> **Nomes de servidor**– Os nomes devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois que um computador é protegido, você pode modificar o nome do Azure. | |
+| **Máquinas Virtuais do Azure** |As máquinas virtuais que você deseja proteger devem estar em conformidade com os [pré-requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).<br/><br/> **Contagem de discos** – há suporte para um máximo de 31 discos em um único servidor protegido<br/><br/> **Tamanhos de disco** – a capacidade de disco individual não deve ser superior a 1.023 GB<br/><br/> **Clustering** – não há suporte a servidores clusterizados<br/><br/> **Inicialização** – não há suporte à inicialização UEFI (Unified Extensible Firmware Interface)/EFI (Extensible Firmware Interface)<br/><br/> **Volumes** – não há suporte a volumes criptografados com Bitlocker<br/><br/> **Nomes de servidor**– Os nomes devem conter entre 1 e 63 caracteres (letras, números e hifens). O nome deve começar com uma letra ou número e terminar com uma letra ou número. Depois que um computador é protegido, você pode modificar o nome do Azure. | |
 | **Servidor de configuração** |Uma máquina virtual Standard A3 baseada em uma imagem da galeria do Windows Server 2012 R2 do Azure Site Recovery será criada em sua assinatura para o servidor de configuração. Ela é criada como a primeira instância em um novo serviço de nuvem. Se você selecionar Internet Pública como o tipo de conectividade para o servidor de configuração, o serviço de nuvem será criado com um endereço IP público reservado.<br/><br/> O caminho de instalação deve ter somente caracteres em inglês. | |
 | **Servidor de destino mestre** |Máquina virtual do Azure, Standard A4, D14 ou DS4.<br/><br/> O caminho de instalação deve ter somente caracteres do inglês. Por exemplo, o caminho deve ser **/usr/local/ASR** para um servidor de destino mestre que executa o Linux. | |
 | **Servidor de processo** |Você pode implantar o servidor em processo no computador físico ou na máquina virtual quer executa o Windows Server 2012 R2 com as últimas atualizações. Instale em C:/.<br/><br/> Recomendamos que você coloque o servidor na mesma rede e sub-rede que os computadores que deseja proteger.<br/><br/> Instale o VMware vSphere CLI 5.5.0 no servidor em processo. O componente VMware vSphere CLI é necessário no servidor em processo para descobrir máquinas virtuais gerenciadas por um servidor vCenter ou por máquinas virtuais executadas em um host ESXi.<br/><br/> O caminho de instalação deve ter somente caracteres em inglês.<br/><br/> Não há suporte para o Sistema de Arquivos ReFS. | |
@@ -739,9 +740,4 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

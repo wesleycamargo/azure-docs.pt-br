@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
-ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
+ms.sourcegitcommit: 6aed248b91d25572c4eae691f4e5392e37c01400
+ms.openlocfilehash: e2d81d140c194a33ea6f1462effb09a9e283d3af
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -71,7 +72,7 @@ Observe o seguinte:
 * Para `accessRights`, os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como `listen`. Caso contrário, o tempo de execução do Functions talvez tente e falhe na execução de operações que exigem o gerenciamento de direitos.
 
 ## <a name="trigger-behavior"></a>Comportamento do gatilho
-* **Threading simples** - por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrrentCalls` como 1 em *host.json* . 
+* **Threading simples** - por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrentCalls` como 1 em *host.json* . 
   Para saber mais sobre *host.json*, consulte [Estrutura de Pastas](functions-reference.md#folder-structure) e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 * **Manipulação de mensagens suspeitas** - o Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions. 
 * **Comportamento PeekLock** - o tempo de execução do Functions recebe uma mensagem no modo [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. 
@@ -299,10 +300,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

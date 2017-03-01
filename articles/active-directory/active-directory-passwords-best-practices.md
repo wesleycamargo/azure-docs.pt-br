@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 02/22/2017
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 59f4cd3de4524a5ed51b7ef434b7b21c151dd2e0
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 Após habilitar a redefinição de senha, a próxima etapa que você precisa tomar é fazer com que os usuários usem o serviço em sua organização. Para fazer isso, você precisará verificar se os usuários estão configurados para usar o serviço adequadamente e também se os usuários têm o treinamento necessário para ter êxito no gerenciamento de suas próprias senhas. Este artigo o guiará pelos seguintes conceitos:
 
@@ -122,11 +123,11 @@ Você pode carregar os dados de autenticação por meio do [Portal de Gerenciame
 2. Clique na guia **Usuários** .
 3. Selecione na lista o usuário em que você está interessado.
 4. Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
-   
+
    ![][005]
 5. Clique na guia **Informações de Trabalho** .
 6. Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**.  Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
-   
+
    ![][006]
 
 Consulte [Quais dados são usados pela redefinição de senha](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver como cada uma dessas propriedades pode ser usada.
@@ -140,7 +141,7 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
+## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
@@ -159,9 +160,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: c98251147bca323d31213a102f607e995b37e0ec
-ms.openlocfilehash: 19e8c9de137e10abb563fcd60cf89502dbf94cfd
+ms.sourcegitcommit: fba82c5c826da7d1912814b61c5065ca7f726011
+ms.openlocfilehash: 238c74c020625006384a1b31aef320e1346d9ac4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -102,7 +103,7 @@ A criação de feeds resume-se à criação de documentos que podem reter uma li
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Poderíamos ter um fluxo “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas... Poderíamos, até mesmo, implementar um fluxo personalizado para cada usuário baseado em lógica como seguidores e interesses, e ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirirmos uma dessas listas, emitimos uma única consulta para o DocumentDB usando o [operador IN](documentdb-sql-query.md#where-clause) para obter páginas de postagens de uma só vez.
+Poderíamos ter um fluxo “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas... Poderíamos, até mesmo, implementar um fluxo personalizado para cada usuário baseado em lógica como seguidores e interesses, e ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirirmos uma dessas listas, emitimos uma única consulta para o DocumentDB usando o [operador IN](documentdb-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
 
 As transmissões de feed podem ser criadas usando processos em segundo plano dos [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service-web/web-sites-create-web-jobs.md). Depois de criar uma postagem, o processamento em segundo plano pode ser disparado usando o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), ao passo que as [Filas](../storage/storage-dotnet-how-to-use-queues.md) e os Webjobs podem ser disparados usando o [SDK do Azure Webjobs](../app-service-web/websites-dotnet-webjobs-sdk.md), implementando a propagação de postagem nas transmissões, de acordo com nossa própria lógica personalizada. 
 
@@ -230,10 +231,5 @@ A verdade é que não há nenhuma solução milagrosa para esses tipos de cenár
 Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no DocumentDB](documentdb-modeling-data.md) . Se estiver interessado em outros casos de uso do DocumentDB, veja [Casos de uso comuns do DocumentDB](documentdb-use-cases.md).
 
 Caso contrário, saiba mais sobre o DocumentDB seguindo o [Roteiro de aprendizagem do DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

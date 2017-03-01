@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 02/24/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2abfeebeac222f4371b0945e1aeb6fcf8e51595d
-ms.openlocfilehash: b884fe128b8414ae1692df92e89a41f7ba1c0447
+ms.sourcegitcommit: dc9f9c39a8eb644229887f76b5c441d4211af059
+ms.openlocfilehash: 6f9c36239f8485313066a594eea74bfcd168536e
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -135,7 +136,7 @@ Agora que você implantou um Hub IoT usando um modelo do Azure Resource Manager 
 * Leia sobre as funcionalidades da [API REST do provedor de recursos Hub IoT][lnk-rest-api].
 * Leia a [Visão geral do Azure Resource Manager][lnk-azure-rm-overview] para saber mais sobre os recursos do Azure Resource Manager.
 
-Para saber mais sobre como desenvolver para o Hub IoT, consulte o seguinte:
+Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos:
 
 * [Introdução ao SDK de C][lnk-c-sdk]
 * [SDKs do Azure IoT][lnk-sdks]
@@ -157,9 +158,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

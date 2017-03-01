@@ -13,11 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: be2752f46ebedf35a28277ad853207ae8038e345
-ms.openlocfilehash: 16d18b375ba91338aafa0eaef106fdb9107bb872
+ms.sourcegitcommit: e25eaee75b1637447447ace88c2bf1d9aed83880
+ms.openlocfilehash: 484cc6419150b84ee6ed7d2c92960a4d0202e10b
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -39,12 +40,12 @@ Não é possível converter uma VM não gerenciada criada no modelo de implanta�
 
 **Discos de dados**:
 1.    Desanexe o disco de dados da VM.
-2.    Copie o VHD para uma conta de armazenamento que nunca foi habilitada para o SSE. Para copiar o disco para outra conta de armazenamento, use [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copie o VHD para uma conta de armazenamento que nunca foi habilitada para o SSE. Para copiar o disco para outra conta de armazenamento, use [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myDataDisk.vhd`
 3.    Anexar o disco copiado para a máquina virtual e converter a VM.
 
 **Disco do SO**:
 1.    Pare desalocar a máquina virtual. Salve a configuração da VM, se necessário.
-2.    Copie o VHD do sistema operacional para uma conta de armazenamento que nunca foi habilitada para o SSE. Para copiar o disco para outra conta de armazenamento, use [AzCopy](../storage/storage-use-azcopy.md):`https://sourceaccount.blob.core.windows.net/myvhd.vhd  https://destaccount.blob.core.windows.net/myvhd_no_encrypt.vhd /sourcekey:key1 /destkey:key1`
+2.    Copie o VHD do sistema operacional para uma conta de armazenamento que nunca foi habilitada para o SSE. Para copiar o disco para outra conta de armazenamento, use [AzCopy](../storage/storage-use-azcopy.md):`AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:myVhd.vhd`
 3.    Crie uma VM que utiliza discos gerenciados e anexar o arquivo VHD do disco do sistema operacional durante a criação.
 
 
@@ -176,10 +177,5 @@ Você também pode ter uma combinação de discos que usam o armazenamento stand
 ## <a name="next-steps"></a>Próximas etapas
 
 Faça uma cópia somente leitura de uma VM usando [instantâneos](virtual-machines-windows-snapshot-copy-managed-disk.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

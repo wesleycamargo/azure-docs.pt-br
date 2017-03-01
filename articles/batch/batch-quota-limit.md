@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 683ff9f9a829468d9852ce7e9699c766cab53f8b
-ms.openlocfilehash: 163f9f19dfed86e1280135b653086e018f85592b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: a0f47a19f7ef1832e64e9a0bdc4bda3434f77aa2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Cotas e limites para o serviço do Lote do Azure
+# <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
+
 Como com outros serviços do Azure, há limites em determinados recursos associados ao serviço de Lote. Muitos desses limites são cotas padrão aplicadas pelo Azure no nível da assinatura ou da conta. Este artigo discute esses padrões e como você pode solicitar aumentos de cotas.
 
 Se você planeja executar cargas de trabalho de produção em Lote, talvez seja necessário aumentar uma ou mais cotas para acima do padrão. Se desejar aumentar a cota, você poderá abrir uma [solicitação de atendimento ao cliente](#increase-a-quota) online gratuitamente.
@@ -95,9 +98,4 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
