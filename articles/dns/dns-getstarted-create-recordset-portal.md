@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 2752579b6277a27ca1e932fbd2c402ac3135e80c
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -26,7 +27,8 @@ ms.openlocfilehash: b3951106fe2e8607e65bd0ae47fa2ea3346b8ca5
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
-> * [CLI do Azure](dns-getstarted-create-recordset-cli.md)
+> * [CLI 1.0 do Azure](dns-getstarted-create-recordset-cli-nodejs.md)
+> * [CLI 2.0 do Azure](dns-getstarted-create-recordset-cli.md)
 
 Este artigo o guiará durante o processo de criação de registros e conjuntos de registros usando o portal do Azure. Para fazer isso, primeiro você precisa entender os registros DNS e conjuntos de registros.
 
@@ -77,9 +79,4 @@ Se você ainda não delegou seu domínio para usar a nova zona no DNS do Azure, 
 Saiba como [delegar seu nome de domínio para os servidores de nome DNS do Azure](dns-domain-delegation.md)
 
 Para gerenciar seus registros e seu conjunto de registros, confira [Gerenciar registros DNS e conjuntos de registros usando o portal do Azure](dns-operations-recordsets-portal.md).
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

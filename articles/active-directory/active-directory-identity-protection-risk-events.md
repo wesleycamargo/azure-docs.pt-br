@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 4dfd9690f2e3e017ca308649f79a84466d49d844
-ms.openlocfilehash: 91ee5da0885fc0b044150e524757eac659a003a4
+ms.sourcegitcommit: e37f1716b459ea8eb0f2d0a5a12e7a3a8ab2c083
+ms.openlocfilehash: e2ec0cefb6e009f22c3406ccd1570748dc467ed0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -135,7 +136,7 @@ A tabela abaixo lista os diversos tipos de evento de risco e o relatório de Ati
 | Entradas de endereços IP anônimos |Entradas de fontes desconhecidas |
 | Entradas de endereços IP com atividade suspeita |Entradas de endereços IP com atividade suspeita |
 | Entrada de locais desconhecidos |- |
-| Eventos de bloqueio |- |
+
 
 Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluídos como eventos de risco no Azure AD Identity Protection, portanto, não estão disponíveis por meio da proteção do Identity Protection. Esses relatórios ainda estão disponíveis no portal clássico do Azure. No entanto, elas ficarão obsoletas no futuro, já que estão sendo substituídas por eventos de risco em Proteção de Identidade.
 
@@ -149,10 +150,5 @@ Os seguintes relatórios de Atividade Anômala do Azure AD não estão incluído
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

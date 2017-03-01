@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: jeffreyr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5aa9b594da6b9f386f88c667106c735ed4fd233b
+ms.sourcegitcommit: 407f2631044fb836930093a774f5b718c91f711d
+ms.openlocfilehash: 822941aa3f745e51f653b4274bf0add9c44ff0c8
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -142,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir tipos de dados imutáveis para evitar erro do programador
-O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). E, claro, você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET (System.Collections.Immutable). Essa biblioteca está disponível para download em http://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
+O ideal seria que o compilador relatasse erros quando você acidentalmente produzisse código que transforma o estado de um objeto que deve ser considerado imutável. Porém, o compilador C# não consegue fazer isso. Portanto, para evitar possíveis bugs do programador, é altamente recomendável que você defina os tipos usados com coleções confiáveis como tipos imutáveis. Especificamente, isso significa usar apenas tipos de valor principais (como números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e assim por diante). E, claro, você também pode usar String. É melhor evitar propriedades de coleção, pois serializá-las e desserializá-las com frequência pode prejudicar o desempenho. No entanto, se você quiser usar propriedades de coleção, será altamente recomendável usar a biblioteca de coleções imutáveis do .NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download em http://nuget.org. Também recomendamos lacrar suas classes e tornar os campos somente leitura sempre que possível.
 
 O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando proveito das recomendações mencionadas anteriormente.
 
@@ -216,9 +217,4 @@ Para conhecer as práticas recomendadas de contratos de dados de controle de ver
 Para saber como implementar contratos de dados tolerantes a versões, consulte [Retornos de Chamada de Serialização Tolerantes a Versões](https://msdn.microsoft.com/library/ms733734.aspx).
 
 Para saber como fornecer uma estrutura de dados interoperável em várias versões, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

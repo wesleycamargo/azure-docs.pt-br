@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/31/2017
+ms.date: 2/23/2017
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 47d5a9173d8791124a3071b090d6db027dba9448
-ms.openlocfilehash: c070fa326688d94ce2cbf4e0471c4afc9d78c93c
+ms.sourcegitcommit: 244471c5e90a0e2d89c34b255f2da077a94f91cf
+ms.openlocfilehash: 1e87486dc7a186c0ab7147719ac47177c87be148
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -50,35 +51,6 @@ A distribuição do SO convidado de novembro começa em 8 de novembro de 2016 e 
 ###### <a name="october-23-2016"></a>**23 de outubro de 2016**
 O Windows Server 2016 será lançado como um SO da Família 5 em 1º de novembro de 2016, com suporte do .NET 4.6.
 
-###### <a name="september-13-2016"></a>**13 de setembro de 2016**
-A distribuição do SO convidado de setembro começará no dia 13 de setembro de 2016 e deverá ser lançada em 13 de outubro de 2016.
-
-###### <a name="august-9-2016"></a>**9 de agosto de 2016**
-A distribuição do SO convidado de agosto está começando em 9 de agosto de 2016 e deve ser lançada em 8 de setembro de 2016. 
-
-###### <a name="july-13-2016"></a>**13 de julho de 2016**
-A distribuição do SO Convidado de julho começa em 13 de julho de 2016 e está planejado para ser lançado em 12 de agosto de 2016. 
-
-###### <a name="june-15-2016"></a>**15 de junho de 2016**
-A distribuição do SO convidado de junho começa dia 15 de junho de 2016, e está projetada para ser lançada em 14 de julho de 2016. 
-
-###### <a name="may-17-2016"></a>**17 de maio de 2016**
-A distribuição do SO convidado de maio começa a partir de 17 de maio de 2016, e está projetada para ser lançada em 10 de junho de 2016. 
-
-###### <a name="april-18-2016"></a>**18 de abril de 2016**
-A distribuição do SO convidado de abril começa em 18 de abril de 2016 e está projetada para ser lançada em 12 de maio de 2016. 
-
-###### <a name="march-14-2016"></a>**14 de março de 2016**
-A distribuição do SO convidado de março começa em 14 de março de 2016, e está projetada para ser lançada em 8 de abril de 2016. 
-
-###### <a name="february-22-2016"></a>**22 de fevereiro de 2016**
-A distribuição do SO Convidado de fevereiro começa em 22 de fevereiro de 2016 e deve ser lançada em 9 de fevereiro de 2016.
-
-###### <a name="january-18-2016"></a>**18 de janeiro de 2016**
-A distribuição do SO Convidado de janeiro começa em 18 de janeiro de 2016 e deve ser lançada em 12 de fevereiro de 2016.
-
-###### <a name="january-4-2016"></a>**4 de janeiro de 2016**
-O SO convidado 201511-02 de novembro foi lançado em 4 de janeiro de 2016 para implantação. Esta versão do SO não está definida como o SO padrão para a atualização automática. Sendo assim, o tempo de provisionamento da implantação do SO convidado para a versão 201511-02 de novembro seria um pouco maior. 
 
 ## <a name="releases"></a>Lançamentos
 ## <a name="family-5-releases"></a>Versões da Família 5
@@ -251,10 +223,5 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

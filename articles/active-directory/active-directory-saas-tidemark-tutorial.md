@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/13/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5b32c40c1887d6695c4ad1379ac14e0aa525bb43
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: 9c3927b64009c51fb8236e42fa9e6137a9909a4a
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,8 +27,8 @@ O objetivo desse tutorial é mostrar como integrar o Tidemark ao Azure AD (Azure
 A integração do Tidemark ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no AD do Azure quem tem acesso ao Tidemark
-* Você pode permitir que os usuários façam logon automaticamente no Tidemark (Logon Único) com suas contas do AD do Azure
-* Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+* Você pode permitir que os usuários façam logon automaticamente no Tidemark com o SSO (logon único) com suas contas do Azure AD
+* Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,11 +36,10 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do AD do Azure com o Tidemark, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do Tidemark
+* Uma assinatura habilitada para SSO (logon único) do Tidemark
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -52,10 +52,10 @@ O objetivo deste tutorial é permitir que você teste o logon único do Azure AD
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o Tidemark por meio da galeria
-2. Configurar e testar o logon único do AD do Azure
+* Adicionando o Tidemark por meio da galeria
+* Configurar e testar o SSO do Azure AD
 
-## <a name="adding-tidemark-from-the-gallery"></a>Adicionando o Tidemark por meio da galeria
+## <a name="add-tidemark-from-the-gallery"></a>Adicionar o Tidemark por meio da galeria
 Para configurar a integração do Tidemark com o AD do Azure, você precisa adicionar o Tidemark por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Tidemark por meio da galeria, realize as seguintes etapas:**
@@ -80,22 +80,22 @@ Para configurar a integração do Tidemark com o AD do Azure, você precisa adic
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com o Tidemark, com base em um usuário de teste chamado “Brenda Fernandes”.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Tidemark, com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário do Tidemark é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Tidemark.
 
 Essa relação de vinculação é estabelecida por meio da atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no Tidemark.
 
-Para configurar e testar o logon único do AD do Azure com o Tidemark, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Tidemark, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste do Tidemark](#creating-a-tidemark-test-user)** - para ter um equivalente de Brenda Fernandes no Tidemark que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo Tidemark.
 
 **Para configurar o logon único do AD do Azure com o Tidemark, realize as seguintes etapas:**
@@ -108,27 +108,22 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     ![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_03.png) 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png) 
-
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para entrar em seu aplicativo Tidemark usando o seguinte padrão: **"https://contoso.tidemark.com/login"** ou **"https://contoso.tidemark.net/login"**.
-
-
-1. Na página **Configurar logon único no Tidemark** , execute as seguintes etapas:
+    ![Configurar o logon único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_04.png)
+  * Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para entrar em seu aplicativo Tidemark usando o seguinte padrão: **"https://contoso.tidemark.com/login"** ou **"https://contoso.tidemark.net/login"**.
+4. Na página **Configurar logon único no Tidemark** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png) 
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Próximo**.
-2. Para ter o SSO configurado para seu aplicativo, entre em contato com a equipe de suporte do Tidemark e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
-3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
+    ![Configurar Logon Único](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_05.png)   
+  1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+  2. Clique em **Próximo**.
+5. Para ter o SSO configurado para seu aplicativo, entre em contato com a equipe de suporte do Tidemark e anexe o arquivo de certificado baixado ao email. Também forneça a URL de SSO de SAML, a URL de Saída e a URL do Emissor para que possam ser configuradas para integração com o SSO.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-4. Na página **Confirmação de logon único**, clique em **Concluir**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -148,46 +143,35 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+  1. Em Tipo de Usuário, selecione Novo usuário na organização.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+  3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+  1. Na caixa de texto **Nome**, digite **Brenda**. 
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**   
+  4. Na lista **Função**, selecione **Usuário**.
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**.
+  2. Clique em **Concluído**.   
 
-### <a name="creating-a-tidemark-test-user"></a>Criar um usuário de teste do Tidemark
+### <a name="create-a-tidemark-test-user"></a>Criar um usuário de teste do Tidemark
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Tidemark. Trabalhe com a equipe de suporte do Tidemark para adicionar usuários na conta do Tidemark. 
 
-> [!NOTE]
-> Se você precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Tidemark.
-> 
+>[!NOTE]
+>Se você precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Tidemark. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Tidemark.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Tidemark.
 
 ![Atribuir usuário][200] 
 
@@ -207,8 +191,8 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Tidemark no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo Tidemark.
 
@@ -233,9 +217,4 @@ Quando você clicar no bloco Tidemark no Painel de Acesso, deverá ser conectado
 [203]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

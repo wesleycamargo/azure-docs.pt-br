@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2615e5c063a54b8cebc208c155f99460fcfa7e05
+ms.sourcegitcommit: 51901a28878f25292ba3d09848bc45a04f867345
+ms.openlocfilehash: 75fb695ea2ce9d859119445ae42eb170a9493876
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -75,7 +76,7 @@ Defina os parâmetros com a seguinte estrutura:
 | Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
 | type |Sim |Tipo do valor do parâmetro. Consulte a seguir a lista de tipos permitidos: |
-| displayName    Sim |Nome do parâmetro exibido para um usuário no laboratório. | |
+| displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. | |
 | Descrição |Sim |Descrição do parâmetro exibido no laboratório. |
 
 Os tipos permitidos são:
@@ -129,10 +130,5 @@ Crie seu artefato personalizado executando as etapas abaixo:
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [adicionar um repositório de artefatos Git a um laboratório](devtest-lab-add-artifact-repo.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

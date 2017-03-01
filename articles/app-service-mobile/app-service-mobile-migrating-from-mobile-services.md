@@ -4,7 +4,7 @@ description: "Saiba como migrar facilmente seu aplicativo de Serviços Móveis p
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 029a2b03d29fa581373328489678ad5039daba47
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: d5bceb8dd53850f0f11be05be2d5e5d3fbd01c5d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -380,7 +381,7 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 [Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
 [Portal Clássico do Azure]: https://manage.windowsazure.com
 [portal do Azure]: https://portal.azure.com
-[Região do Azure]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
 [implantar continuamente]: ../app-service-web/app-service-continuous-deployment.md
 [Converta seus namespaces mistos]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
@@ -400,9 +401,4 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 [Trabalhos Web]: ../app-service-web/websites-webjobs-resources.md
 [Exemplos de Transformação XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funções]: ../azure-functions/functions-overview.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

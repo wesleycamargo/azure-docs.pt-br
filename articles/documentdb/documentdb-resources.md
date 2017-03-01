@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2017
+ms.date: 02/15/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a42e04b6a8b09078986ba0d12c6d07305e8068c6
-ms.openlocfilehash: 15d1a9d819fdf9565e85ccea39a922c608aba917
+ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
+ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -406,14 +407,14 @@ O cancelamento do registro de uma UDF é feito simplesmente ao emitir um comando
 Embora os trechos acima mostrem o registro (POST), cancelamento do registro (PUT), leitura/lista (GET) e execução (POST) por meio do [SDK do JavaScript do DocumentDB](https://github.com/Azure/azure-documentdb-js), você também pode usar as [APIs REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou outros [SDKs do cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
 ## <a name="documents"></a>Documentos
-Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Banco de Dados de Documentos não exige nenhum esquema nem índices secundários a fim de oferecer suporte a consultas em relação a documentos em uma coleção.   
+Você pode inserir, substituir, excluir, ler, enumerar e consultar documentos JSON arbitrários em uma coleção. O Banco de Dados de Documentos não exige nenhum esquema nem índices secundários a fim de oferecer suporte a consultas em relação a documentos em uma coleção. Por padrão, o tamanho máximo de um documento é de 2 MB.   
 
 Sendo um verdadeiro serviço de banco de dados aberto, o Banco de Dados de Documentos não inverte nenhum tipo de dados especializado (p. ex., de data e hora) ou codificações específicas para documentos JSON. Observe que o Banco de Dados de Documentos não requer nenhuma convenção JSON especial para codificar os relacionamentos entre vários documentos; a sintaxe SQL do Banco de Dados de Documentos oferece operadores de consulta hierárquica e relacional bastante poderosos para consultar e projetar documentos sem nenhuma anotação especial ou necessidade de codificar relacionamentos entre documentos usando propriedades distintas.  
 
 Como ocorre com todos os outros recursos, documentos podem ser criados, substituídos, excluídos, lidos, enumerados e consultados facilmente usando APIs REST ou qualquer [SDK cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Excluir um documento libera imediatamente a cota correspondente a todos os anexos aninhados. O nível de consistência de leitura dos documentos segue a política de consistência da conta do banco de dados. Essa política pode ser substituída com base em cada solicitação, dependendo dos requisitos de consistência de dados de seu aplicativo. Ao consultar documentos, a consistência de leitura segue o conjunto do modo de indexação na coleção. Para fins de “consistência”, a política de consistência da conta é seguida. 
 
 ## <a name="attachments-and-media"></a>Anexos e mídia
-O Banco de Dados de Documentos permite armazenar blobs/mídias binários no Banco de Dados de Documentos ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia. 
+O DocumentDB permite armazenar blobs/mídias binários no DocumentDB (máximo de 2 GB por conta) ou em seu próprio repositório de mídia. Ele também permite representar os metadados de uma mídia de acordo com um documento especial chamado anexo. Um anexo no Banco de Dados de Documentos é um documento especial (JSON) que faz referência à mídia/ao blob armazenada/o em outro lugar. Um anexo é simplesmente um documento especial que captura os metadados (p. ex., localização, autor etc.) de uma mídia em um armazenamento remoto de mídia. 
 
 Considere um aplicativo de leitura social que utiliza o Banco de Dados de Documentos para armazenar anotações de tintas e metadados incluindo comentários, destaques, favoritos, classificações, preferências/não preferências, etc., associados a um e-book de um determinado usuário.   
 
@@ -460,10 +461,5 @@ Saiba mais sobre como trabalhar com recursos usando comandos HTTP em [interaçõ
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

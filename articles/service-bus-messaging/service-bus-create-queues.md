@@ -1,6 +1,6 @@
 ---
-title: "Criar aplicativos que usem as filas do Barramento de Serviço | Microsoft Docs"
-description: "Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço."
+title: "Criar aplicativos que usam as filas do Barramento de Serviço do Azure | Microsoft Docs"
+description: "Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço do Azure."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 02/15/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
+ms.openlocfilehash: 40414edebcd76fc93136cbc14d7a6436fc7f6da5
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -61,11 +62,11 @@ Quando tiver uma assinatura, você poderá [criar um novo namespace](service-bus
 Para usar o namespace do Barramento de Serviço, um aplicativo deverá fazer referência ao assembly do Barramento de Serviço, especificamente, Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o [pacote NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço.
 
 ### <a name="create-the-queue"></a>Criar a fila
-As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](service-bus-sas-overview.md). A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é construída com o endereço base do namespace do Barramento de Serviço e do provedor de token.
+As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager). O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](service-bus-sas.md). A classe [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) é construída com o endereço base do namespace do Barramento de Serviço e do provedor de token.
 
-A classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) oferece métodos para criar, enumerar e excluir entidades do sistema de mensagens. O código exibido aqui mostra como a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é criada e usada para criar a fila **DataCollectionQueue**.
+A classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) oferece métodos para criar, enumerar e excluir entidades do sistema de mensagens. O código exibido aqui mostra como a instância de [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) é criada e usada para criar a fila **DataCollectionQueue**.
 
-```
+```csharp
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", 
                 "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
@@ -78,41 +79,41 @@ NamespaceManager namespaceManager =
 namespaceManager.CreateQueue("DataCollectionQueue");
 ```
 
-Observe que há sobrecargas do método [CreateQueue](https://msdn.microsoft.com/library/azure/hh322663.aspx) que permitem que as propriedades da fila sejam ajustadas. Por exemplo, você pode definir o valor padrão da vida útil (TTL) para as mensagens enviadas para a fila.
+Observe que há sobrecargas do método [CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) que permitem que as propriedades da fila sejam ajustadas. Por exemplo, você pode definir o valor padrão da vida útil (TTL) para as mensagens enviadas para a fila.
 
 ### <a name="send-messages-to-the-queue"></a>Enviar mensagens para a fila
-Para operações de tempo de execução em entidades do Barramento de Serviço; por exemplo, para enviar e receber mensagens, primeiro um aplicativo deverá criar um objeto [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semelhante à classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), a instância [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) será criada do endereço base do namespace de serviço e do provedor de token.
+Para operações de tempo de execução em entidades do Barramento de Serviço; por exemplo, para enviar e receber mensagens, primeiro um aplicativo deverá criar um objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory). Semelhante à classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager), a instância [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) será criada do endereço base do namespace de serviço e do provedor de token.
 
-```
+```csharp
  BrokeredMessage bm = new BrokeredMessage(salesData);
  bm.Label = "SalesReport";
  bm.Properties["StoreName"] = "Redmond";
  bm.Properties["MachineID"] = "POS_1";
 ```
 
-As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) . Essa classe consiste em um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo passando qualquer objeto serializável (o exemplo a seguir passa um objeto **SalesData** que representa os dados de vendas do terminal de PDV), que usará o [DataContractSerializer](https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx) para serializar o objeto. Como alternativa, poderá ser fornecido um objeto [Stream](https://msdn.microsoft.com/library/azure/system.io.stream.aspx).
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Essa classe consiste em um conjunto de propriedades padrão (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo passando qualquer objeto serializável (o exemplo a seguir passa um objeto **SalesData** que representa os dados de vendas do terminal de PDV), que usará o [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx) para serializar o objeto. Como alternativa, poderá ser fornecido um objeto [Stream](https://msdn.microsoft.com/library/system.io.stream.aspx).
 
-A maneira mais fácil de enviar mensagens para uma determinada fila, no nosso caso, **DataCollectionQueue**, é usar [CreateMessageSender](https://msdn.microsoft.com/library/azure/hh322659.aspx) para criar um objeto [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) diretamente da instância de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx).
+A maneira mais fácil de enviar mensagens para uma determinada fila, no nosso caso, **DataCollectionQueue**, é usar [CreateMessageSender](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageSender_System_String_) para criar um objeto [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender) diretamente da instância de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory).
 
-```
+```csharp
 MessageSender sender = factory.CreateMessageSender("DataCollectionQueue");
 sender.Send(bm);
 ```
 
 ### <a name="receiving-messages-from-the-queue"></a>Recebendo mensagens da fila
-Para receber mensagens da fila, você pode usar um objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que pode ser criado diretamente de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) usando [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Os receptores da mensagem poderão trabalhar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**. O [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) é definido quando o receptor da mensagem é criado como um parâmetro para a chamada a [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx).
+Para receber mensagens da fila, você pode usar um objeto [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que pode ser criado diretamente de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) usando [CreateMessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_). Os receptores da mensagem poderão trabalhar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**. O [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode) é definido quando o receptor da mensagem é criado como um parâmetro para a chamada a [CreateMessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagingfactory?redirectedfrom=MSDN#Microsoft_ServiceBus_Messaging_MessagingFactory_CreateMessageReceiver_System_String_Microsoft_ServiceBus_Messaging_ReceiveMode_).
 
 Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única, isto é, quando o Barramento de Serviço recebe uma solicitação de leitura de uma mensagem, ele marca a mensagem como sendo consumida e a retorna para o aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem caso ocorra uma falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Já que o Barramento de Serviço marcou a mensagem como consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, terá perdido a mensagem consumida antes da falha.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), marca a mensagem como sendo consumida.
+No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete), marca a mensagem como sendo consumida.
 
-Dois outros resultados são possíveis. Primeiro, se o aplicativo não for capaz de processar a mensagem por algum motivo, ele chamará [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) na mensagem recebida (em vez do método [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente (basicamente executando uma operação [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) por padrão).
+Dois outros resultados são possíveis. Primeiro, se o aplicativo não for capaz de processar a mensagem por algum motivo, ele chamará [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) na mensagem recebida (em vez do método [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado a um bloqueio e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente (basicamente executando uma operação [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) por padrão).
 
-Observe que, se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é geralmente chamado de processamento *Pelo Menos Uma Vez*. Isso significa que cada mensagem será processada pelo menos uma vez mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, será necessária lógica adicional no aplicativo para detectar duplicatas. Isso pode ser feito com base na propriedade [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) da mensagem. O valor dessa propriedade permanece constante nas tentativas de entrega. Isso é conhecido como processamento *Exatamente Uma Vez*.
+Observe que, se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é geralmente chamado de processamento *Pelo Menos Uma Vez*. Isso significa que cada mensagem será processada pelo menos uma vez mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, será necessária lógica adicional no aplicativo para detectar duplicatas. Isso pode ser feito com base na propriedade [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) da mensagem. O valor dessa propriedade permanece constante nas tentativas de entrega. Isso é conhecido como processamento *Exatamente Uma Vez*.
 
-O código que é mostrado aqui recebe e processa uma mensagem usando o modo **PeekLock**, que será o padrão caso nenhum valor [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) seja explicitamente fornecido.
+O código que é mostrado aqui recebe e processa uma mensagem usando o modo **PeekLock**, que será o padrão caso nenhum valor [ReceiveMode](/dotnet/api/microsoft.servicebus.messaging.receivemode) seja explicitamente fornecido.
 
-```
+```csharp
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionQueue");
 BrokeredMessage receivedMessage = receiver.Receive();
 try
@@ -127,9 +128,9 @@ catch (Exception e)
 ```
 
 ### <a name="use-the-queue-client"></a>Usar o cliente de fila
-Os exemplos anteriores desta seção criaram objetos [MessageSender](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx) e [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) diretamente da [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) para enviar e receber mensagens da fila, respectivamente. Uma abordagem alternativa é usar a classe [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), que dá suporte a operações de envio e de recebimento, além de recursos mais avançados, como as sessões.
+Os exemplos anteriores desta seção criaram objetos [MessageSender](/dotnet/api/microsoft.servicebus.messaging.messagesender) e [MessageReceiver](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) diretamente da [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) para enviar e receber mensagens da fila, respectivamente. Uma abordagem alternativa é usar um objeto [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), que dá suporte a operações de envio e de recebimento, além de recursos mais avançados, como as sessões.
 
-```
+```csharp
 QueueClient queueClient = factory.CreateQueueClient("DataCollectionQueue");
 queueClient.Send(bm);
 
@@ -148,10 +149,5 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam os tópicos e as assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando as funcionalidades de publicação/assinatura dos tópicos e das assinaturas do Barramento de Serviço.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

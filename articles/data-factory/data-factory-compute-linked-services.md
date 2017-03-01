@@ -1,5 +1,5 @@
 ---
-title: "Serviços Vinculados de Computação | Microsoft Docs"
+title: "Ambientes de computação com suporte do Azure Data Factory | Microsoft Docs"
 description: "Aprenda sobre ambientes de computação que você pode usar em pipelines do Azure Data Factory para transformar/processar dados."
 services: data-factory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: e651c6f081c14044602c1dc8f8e6d34ffddbf4ea
-ms.openlocfilehash: 7ce4151189eb6aaba3509878fb2e18d04f0c3e59
+ms.sourcegitcommit: 080376a50e4cde3d3f9f801408e4a02b75bc72da
+ms.openlocfilehash: 40da274d0dcbf1efb22afc474a1c365f7770fdcb
+ms.lasthandoff: 02/15/2017
 
 
 ---
-# <a name="compute-linked-services"></a>Serviços vinculados de computação
+# <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
 
 A tabela a seguir fornece uma lista dos ambientes de computação com suporte do Data Factory e as atividades que podem ser executadas neles. 
@@ -89,7 +90,7 @@ Para usar um cluster HDInsight baseado em Windows, defina **osType** como **wind
 | clusterSize |Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós principais juntamente com o número de nós de trabalho que você especifica para esta propriedade. Os nós são de tamanho Standard_D3 com 4 núcleos, portanto um cluster de 4 nós de trabalho usa 24 núcleos (4*4 para nós de trabalho + 2*4 para nós principais). Veja [Criar clusters do Hadoop baseados em Linux no HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. |Sim |
 | timeToLive |O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade executada se não há nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e o timetolive é definido como 5 minutos, o cluster fica ativo durante 5 minutos após a execução de 6 minutos de execução da atividade. Se outra atividade é executada com a janela de 6 minutos, ela é processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode demorar um pouco) e, portanto, use essa configuração conforme o necessário para melhorar o desempenho de um data factory com a reutilização de um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor de timetolive como 0, o cluster é excluído assim que a atividade executada é processada. Por outro lado, se você definir um valor alto, o cluster pode permanecer ocioso desnecessariamente resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Vários pipelines podem compartilhar a mesma instância do cluster do HDInsight sob demanda se o valor da propriedade timetolive estiver definido corretamente |Sim |
 | version |Versão do cluster HDInsight O valor padrão é 3.1 para cluster do Windows e 3.2 para o cluster do Linux. |Não |
-| linkedServiceName |Serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. |Sim |
+| linkedServiceName |Serviço vinculado do Armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. <p>Atualmente, não é possível criar um cluster HDInsight sob demanda que use um Azure Data Lake Store como o armazenamento. Se você quiser armazenar os dados resultantes do processamento do HDInsight em um Azure Data Lake Store, use uma Atividade de Cópia para copiar os dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store.</p>  | Sim |
 | additionalLinkedServiceNames |Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. |Não |
 | osType |Tipo do sistema operacional. Valores permitidos são: Windows (padrão) e Linux |Não |
 | hcatalogLinkedServiceName |O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL do Azure como o metastore. |Não |
@@ -211,7 +212,7 @@ Você pode criar um serviço vinculado Azure HDInsight para registrar seu própr
 | clusterUri |A URI do cluster HDInsight. |Sim |
 | Nome de Usuário |Especifique o nome do usuário a ser usado para se conectar a um cluster HDInsight existente. |Sim |
 | Senha |Especifique a senha para a conta de usuário. |Sim |
-| linkedServiceName |Nome do serviço vinculado para o armazenamento de blob usado por esse cluster HDInsight. |Sim |
+| linkedServiceName | Nome do serviço vinculado do Armazenamento do Azure que faz referência ao Armazenamento de Blobs usado pelo cluster HDInsight. <p>No momento, você não pode especificar um serviço vinculado do Azure Data Lake Store para essa propriedade. Você pode acessar dados no Azure Data Lake Store usando scripts Hive/Pig se o cluster HDInsight tiver acesso ao Data Lake Store. </p>  |Sim |
 
 ## <a name="azure-batch-linked-service"></a>Serviço vinculado de Lote do Azure
 Você pode criar um serviço vinculado de Lote do Azure para registrar um pool de lote de máquinas virtuais (VMs) para uma fábrica de dados. Você pode executar atividades personalizadas do .NET usando o Lote do Azure ou o Azure HDInsight.
@@ -368,10 +369,5 @@ Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo 
 
 ## <a name="sql-server-linked-service"></a>Serviço vinculado do SQL Server
 Você pode criar um serviço vinculado do SQL Server e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Server](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) para saber mais sobre esse serviço vinculado.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

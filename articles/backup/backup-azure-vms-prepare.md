@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/20/2016
 ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: cbd7e36c5ef5c78b38a2cc7791b442cac1711b95
-ms.openlocfilehash: 92e8e25abc047811fc0ff45f424bd1b97a045e1f
+ms.sourcegitcommit: f517a649a6c6aa65b350767bc66cf4d60c7988b5
+ms.openlocfilehash: 9a114e954d59dcecaf3310e024428770bc4a2349
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -84,7 +85,7 @@ Para criar um cofre de backup:
 6. Clique em **Criar cofre**. Pode levar algum tempo para que o cofre de backup seja criado. Monitore as notificações de status na parte inferior do portal.
 
     ![Criar notificação de cofre](./media/backup-azure-vms-prepare/creating-vault.png)
-7. Uma mensagem confirmará que o cofre foi criado com êxito. Ele será listado na página de **serviços de recuperação** como **Ativo**. Verifique se a opção apropriada de redundância de armazenamento está marcada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#step-1-create-a-recovery-services-vault).
+7. Uma mensagem confirmará que o cofre foi criado com êxito. Ele será listado na página de **serviços de recuperação** como **Ativo**. Verifique se a opção apropriada de redundância de armazenamento está marcada logo depois que o cofre for criado. Leia mais sobre [como definir a opção de redundância de armazenamento no cofre de backup](backup-configure-vault.md#create-a-recovery-services-vault).
 
     ![Lista de cofres de backup](./media/backup-azure-vms-prepare/backup_vaultslist.png)
 8. Clique no cofre de backup para abrir a página de **Início Rápido** na qual são exibidas as instruções para fazer o backup de máquinas virtuais do Azure.
@@ -102,7 +103,7 @@ Ao decidir qual opção usar, desvantagens entre a capacidade de gerenciamento, 
 | Opção | Vantagens | Desvantagens |
 | --- | --- | --- |
 | Intervalos de IPs na lista de autorizados |Sem custo adicional.<br><br>Para habilitar o acesso em NSG, use o cmdlet <i>Set-AzureNetworkSecurityRule</i>. |É complexo para gerenciar, já que os intervalos de IP afetados mudam com o tempo.<br><br>Fornece acesso ao Azure por completo, não somente ao Armazenamento. |
-| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento, <br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
+| Proxy HTTP |É permitido o controle granular no proxy em relação às URLs de armazenamento.<br>Único ponto de acesso à Internet para VMs.<br>Não está sujeito a alterações do endereço IP do Azure |Custos adicionais para a execução de uma VM com o software do proxy |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>lista de autorizados de intervalos de IP de datacenter do Azure
 Para colocar os intervalos IP do datacenter do Azure na lista de autorizados, consulte o [site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
@@ -231,9 +232,4 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 * [Backup de máquinas virtuais](backup-azure-vms.md)
 * [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 * [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2016
+ms.date: 02/02/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 3d2e6380e4987c559e9ed62c3eaacb1ce45c917d
-ms.openlocfilehash: 79d9d65c93aae92170667c1bc98fbd6bb1ffc3ff
+ms.sourcegitcommit: e9d7e1b5976719c07de78b01408b2546b4fec297
+ms.openlocfilehash: 217715ad1657582eb35008b765de6d19bd2a8b0b
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -124,8 +125,14 @@ e iniciar uma atualização de configuração. Consulte [cmd do PS Start-Service
 ```
 
 #### <a name="cluster-upgrade-workflow"></a>Fluxo de trabalho de atualização do cluster.
-1. Baixe a versão mais recente do pacote do documento [Criar cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md) 
-2. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster 
+1. Execute Get-ServiceFabricClusterUpgrade em um de nós no cluster e observe o TargetCodeVersion.
+2. Execute o seguinte de uma máquina conectada à internet para listar todas as versões compatíveis com atualização com a versão atual e baixar o pacote correspondente dos links de download associados.
+   ```powershell
+   
+    ###### Get list of all upgrade compatible packages
+    Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion <TargetCodeVersion as noted in Step 1>
+    ```
+3. Conecte-se ao cluster de qualquer computador que tenha acesso de administrador a todos os computadores listados como nós no cluster. O computador no qual este script é executado não precisa fazer parte do cluster 
    
     ```powershell
    
@@ -140,7 +147,7 @@ e iniciar uma atualização de configuração. Consulte [cmd do PS Start-Service
         -StoreLocation CurrentUser `
         -StoreName My
     ```
-3. Copie o pacote baixado para o repositório de imagens do cluster.
+4. Copie o pacote baixado para o repositório de imagens do cluster.
    
     ```powershell
    
@@ -152,7 +159,7 @@ e iniciar uma atualização de configuração. Consulte [cmd do PS Start-Service
 
     ```
 
-1. Registrar o pacote copiado 
+5. Registrar o pacote copiado 
    
     ```powershell
    
@@ -163,7 +170,7 @@ e iniciar uma atualização de configuração. Consulte [cmd do PS Start-Service
     Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
    
      ```
-2. Iniciar uma atualização de cluster para uma das versões disponíveis. 
+6. Iniciar uma atualização de cluster para uma das versões disponíveis. 
    
     ```Powershell
    
@@ -184,6 +191,24 @@ e iniciar uma atualização de configuração. Consulte [cmd do PS Start-Service
 
 Depois de corrigir os problemas que resultaram na reversão, você precisará iniciar a atualização novamente, seguindo as mesmas etapas de antes.
 
+
+## <a name="cluster-configuration-upgrade"></a>Atualização de configuração do cluster
+Para executar a atualização de configuração do cluster, execute Start-ServiceFabricClusterConfigurationUpgrade. A atualização de configuração é processada domínio de atualização por domínio de atualização.
+
+```powershell
+
+    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File> 
+
+```
+
+### <a name="cluster-certificate-config-upgrade-pls-hold-on-till-v55-is-released-because-cluster-cert-upgrade-doesnt-work-till-v55"></a>A Atualização de Configuração de Certificado do Cluster (PLS HOLD ON TILL v5.5 foi lançado, pois a atualização do certificado de cluster não funciona até v&5;.5)
+O certificado do cluster é usado para autenticação entre nós de cluster, para que a distribuição do certificado seja executada com muito cuidado, pois a falha bloqueará a comunicação entre nós de cluster.
+Tecnicamente, há duas opções com suporte:
+
+1. Atualização de um certificado: o caminho de atualização é 'Certificado A (Primário)-> Certificado B (Primário)-> Certificado C (Primário)->...'. 
+2. Atualização de dois certificados: o caminho de atualização é '-> Certificado A (Primário) - > Certificado A (Primário) e B (Secundário)-> Certificado B (Primário)-> Certificado B (Primário) e C (Secundário)-> Certificado C (Primário)->...'
+
+
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
 * Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md)
@@ -191,9 +216,4 @@ Depois de corrigir os problemas que resultaram na reversão, você precisará in
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
