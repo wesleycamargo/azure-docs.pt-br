@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -533,7 +534,7 @@ O exemplo define o método UpdatePlayReadyConfigurationXMLFile que você pode us
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -882,7 +883,7 @@ O exemplo nesta seção codifica um arquivo mezzanine (neste caso, MP4) em arqui
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1255,7 +1256,7 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
                 ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
                    encoder,
-                   "H264 Multiple Bitrate 720p",
+                   "Adaptive Streaming",
                    TaskOptions.None);
 
                 // Specify the input Asset
@@ -1458,10 +1459,5 @@ Atualize o código a seguir para apontar para a pasta onde seus arquivos MP4 de 
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

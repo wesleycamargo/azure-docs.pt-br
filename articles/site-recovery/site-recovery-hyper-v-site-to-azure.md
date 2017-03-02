@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: 266b9d0e36aa5e3bef9b689e7602449fbe86b3cd
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: c4129d5b5ebd0295035e81760b2a39f3caf16499
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -385,7 +385,7 @@ Depois que a replicação inicial for concluída para os computadores, você pod
 [Saiba mais](site-recovery-failover.md) sobre tipos diferentes de failovers e descrições detalhadas sobre quando e como executar cada um deles.
 
 > [!NOTE]
-> Se sua intenção é migrar máquinas virtuais para o Azure, é altamente recomendável que você use uma [Operação de failover planejado](site-recovery-failover.md#run-a-planned-failover-primary-to-secondary) para migrar as máquinas virtuais para o Azure. Depois que o aplicativo migrado é validado no Azure usando o failover de teste, use as etapas mencionadas em [Concluir a migração](#Complete-migration-of-your-virtual-machines-to-Azure) para concluir a migração de máquinas virtuais. Você não precisa executar uma confirmação ou exclusão. Concluir a migração conclui a migração, remove a proteção para a máquina virtual e interrompe a cobrança do Azure Site Recovery para a máquina.
+> Se sua intenção é migrar máquinas virtuais para o Azure, é altamente recomendável que você use uma [Operação de failover planejado](site-recovery-failover.md) para migrar as máquinas virtuais para o Azure. Depois que o aplicativo migrado é validado no Azure usando o failover de teste, use as etapas mencionadas em [Concluir a migração](#Complete-migration-of-your-virtual-machines-to-Azure) para concluir a migração de máquinas virtuais. Você não precisa executar uma confirmação ou exclusão. Concluir a migração conclui a migração, remove a proteção para a máquina virtual e interrompe a cobrança do Azure Site Recovery para a máquina.
 
 
 ### <a name="run-a-planned-failover"></a>Executar um failover planejado
@@ -408,7 +408,7 @@ Isso deve ser escolhido quando um site primário se tornar inacessível devido a
 4. Selecione **Desligue as máquinas virtuais e sincronize os dados mais recentes** para especificar que a Recuperação de Site deve tentar desligar as máquinas virtuais protegidas e sincronizar os dados para que ocorra o failover da versão mais recente dos dados.
 5. Após o failover, as máquinas virtuais entram em um estado de confirmação pendente.  Clique em **Confirmar** para confirmar o failover.
 
-[Saiba mais](site-recovery-failover.md#run-an-unplanned-failover)
+[Saiba mais](site-recovery-failover.md)
 
 ## <a name="complete-migration-of-your-virtual-machines-to-azure"></a>Concluir a migração de máquinas virtuais para o Azure
 > [!NOTE]

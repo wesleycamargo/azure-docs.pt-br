@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 2/17/2017
 ms.author: asgang
 translationtype: Human Translation
-ms.sourcegitcommit: 8f9df48eb93a003f67ad79cc937f41db1531e94d
-ms.openlocfilehash: be280f8de4d2b1316ff6e9e69a4eb93870e8e187
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 54cf67bf630a9de30d4ccafdb09a3f8986c04145
+ms.openlocfilehash: 4415af41cfaf7230f398016e37b8a8cde453fa54
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -29,10 +29,10 @@ ms.lasthandoff: 02/17/2017
 Este artigo descreve como configurar a replicação de máquinas virtuais que são executadas no VMware dentro do Azure.
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo supõe que você já tenha 
+O artigo supõe que você já tenha
 
 1.  [Configurado o ambiente de origem local](site-recovery-set-up-vmware-to-azure.md)
-2.  [Configurado o ambiente de destino no Azure](site-recovery-prepare-target-vmware-to-azure.md) 
+2.  [Configurado o ambiente de destino no Azure](site-recovery-prepare-target-vmware-to-azure.md)
 
 
 ## <a name="enable-replication"></a>Habilitar a replicação
@@ -63,7 +63,7 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 
    * Você pode selecionar uma conta de armazenamento padrão ou premium. Se você selecionar uma conta premium, precisará especificar uma conta de armazenamento standard adicional para logs de replicação contínuos. As contas devem estar na mesma região que o cofre dos Serviços de Recuperação.
    * Se você deseja usar uma conta de armazenamento diferente daquela que você tem, você pode criar um*link de espaço reservado para criar uma conta de armazenamento usando o Resource Manager, o que será abordado na introdução*. Para criar uma conta de armazenamento usando o Resource Manager, clique em **Criar nova**. Se você quiser criar uma conta de armazenamento usando o modelo clássico, terá de fazer isso no [portal do Azure](../storage/storage-create-storage-account-classic-portal.md).
- 
+
 
 8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se conectarão quando forem iniciadas após o failover. A rede deve estar na mesma região do que o cofre de Recuperação de Site. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por computador. Se você não tiver uma rede, precisará [criar uma](#set-up-an-azure-network). Para criar uma rede usando o Resource Manager, clique em **Criar nova**. Se você quiser criar uma rede usando o modelo clássico, terá de fazer isso [no portal do Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Selecione uma sub-rede, se aplicável. Em seguida, clique em **OK**.
 
@@ -89,7 +89,7 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 >
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
-É recomendável que você verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure deve estar em conformidade com os [Requisitos de máquina virtual do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+É recomendável que você verifique as propriedades do computador de origem. Lembre-se de que o nome da VM do Azure deve estar em conformidade com os [Requisitos de máquina virtual do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 1. Clique em **Configurações** > **Itens replicados** > e selecione o computador. A folha **Conceitos básicos** mostra as informações sobre as configurações e o status dos computadores.
 2. Em **Propriedades**, você pode exibir informações de replicação e de failover para a VM.
@@ -115,5 +115,6 @@ Se você estiver replicando as máquinas virtuais VMware, observe o seguinte:
 * Para máquinas virtuais habilitadas pela geração 2/UEFI, a família do sistema operacional deve ser o Windows e o disco de inicialização deve ser menor que 300 GB
 
 ## <a name="next-steps"></a>Próximas etapas
- 
-Quando a proteção é concluída, você pode tentar o failover de teste para verificar se seu aplicativo é mostrado no Azure ou não.    
+
+Quando a proteção é concluída, você pode tentar o failover de teste para verificar se seu aplicativo é mostrado no Azure ou não.
+

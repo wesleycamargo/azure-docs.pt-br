@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: a8e6423020fc0b669aad2bc48198c1df84db4dd2
-ms.openlocfilehash: 18de4326edef50953c972e17cc9e75ea85a1fb82
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 42db903244e5642dbf273e71994d402f8aeda1e9
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +28,7 @@ Vincule suas assinaturas do Azure e o Office 365 separadas para que possam acess
 Se você quiser uma assinatura do Office 365 para usuários na sua instância do Azure Active Directory ou você tiver uma conta do Office 365, mas não uma conta do Azure, consulte [Inscrever-se no Azure com uma conta do Office 365](billing-use-existing-office-365-account-azure-subscription.md). 
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Você deve ter as credenciais do administrador de serviços de assinatura do Azure. Contas de coadministrador não podem realizar algumas das etapas neste artigo. Para alterar o administrador do serviço, veja [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
+* Você deve ter as credenciais do administrador de serviços de assinatura do Azure. Contas de coadministrador não podem realizar algumas das etapas neste artigo. Para alterar o administrador do serviço, veja [Como adicionar ou alterar funções de administrador do Azure](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription).
 * Você deve ter as credenciais de um administrador global do locatário do Office 365.
 * O endereço de email do administrador de serviços não deve estar no locatário do Office 365.
 * O endereço de email do administrador do serviço não deve ser igual ao do administrador global do locatário do Office 365.

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: e1e30e34e696b499c17656535d71fc6eb0a987ba
-ms.openlocfilehash: ebde5715ff595b8b76d2500e445f4e51a21cce0e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 89a54a83e6708da8e7fd91923c3ef71d8371f8f3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -254,7 +254,7 @@ Depois que um plano de recuperação tiver sido criado, ele aparecerá na lista 
 
 ### <a name="run-a-test-failover"></a>Execute um teste de failover
 1. Na guia **Planos de Recuperação**, selecione o plano e clique em **Failover de Teste**.
-2. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Veja como [executar um failover de teste](site-recovery-failover.md#run-a-test-failover) para obter mais detalhes sobre como usar diferentes opções de rede.
+2. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Observe que com essa opção habilitada a falha em máquinas virtuais de réplica não será conectada a nenhuma rede. Isso irá testar se a máquina virtual falha conforme o esperado, mas não testa seu ambiente de rede de replicação. Veja como [executar um failover de teste](site-recovery-failover.md) para obter mais detalhes sobre como usar diferentes opções de rede.
 3. A máquina virtual de teste será criada no mesmo host como o host em que a máquina virtual de réplica existe. Ela não é adicionada à mesma nuvem na qual a máquina virtual de réplica está localizada.
 
 ### <a name="run-a-recovery-plan"></a>Executar um plano de recuperação
