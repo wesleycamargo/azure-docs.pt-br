@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
 ms.openlocfilehash: a378ca7be4c5a7df066c5450f9205c02c2acda0f
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -237,9 +238,4 @@ Ao clicar no bloco do AppBlade no Painel de Acesso, você deverá ser conectado 
 [203]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
