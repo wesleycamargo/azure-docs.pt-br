@@ -19,6 +19,7 @@ ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 5da28eecf2df764f71906897450ebe67b3048b3f
 ms.openlocfilehash: d57212a8c858c4fb53cc619a578b59da92176bb2
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -55,9 +56,4 @@ Agora defina as instâncias como 10000000 para que sempre que um novo nó for ad
 Após instalar o pacote, navegue até a IU de Sysdig e você poderá explorar as diferentes métricas de uso para os contêineres no cluster. 
 
 Você também pode instalar painéis específicos do Mesos e do Marathon por meio do [assistente de novo painel](https://app.sysdigcloud.com/#/dashboards/new).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
