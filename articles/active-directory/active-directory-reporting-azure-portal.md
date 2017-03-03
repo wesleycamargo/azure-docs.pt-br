@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
 ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -195,10 +196,5 @@ Outro método para filtrar as entradas de um log de auditoria é procurar itens 
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja o [Guia de relatórios do Azure Active Directory](active-directory-reporting-guide.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

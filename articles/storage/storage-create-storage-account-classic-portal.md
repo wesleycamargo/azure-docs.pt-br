@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
 ms.openlocfilehash: 599d509d00e8366a5095cac7503b11cf818e6a34
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -171,10 +172,5 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
 * Para saber mais sobre o Armazenamento do Azure, confira a [documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/).
 * Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 * [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
