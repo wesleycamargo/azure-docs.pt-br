@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 1c6386dda94a3e0ca6eb340f542d04cb336159c3
 ms.openlocfilehash: 0de97050e385e3efb9e63bbf934712157ab0d0af
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -74,10 +75,5 @@ Para configurar o cliente LDAP, use as diretrizes:
 * Configure seu dispositivo, servidor ou aplicativo para autenticar via LDAP para o Servidor de Autenticação Multifator do Azure como se fosse seu diretório LDAP. Use as mesmas configurações que normalmente usa para se conectar diretamente ao diretório LDAP, exceto o nome do servidor ou endereço IP que será o Servidor de Autenticação Multifator do Azure.
 * Configure o tempo limite LDAP para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário com o diretório LDAP, executar a verificação de segunda etapa, receber a resposta e responder à solicitação de acesso LDAP.
 * Se estiver usando LDAPS, o dispositivo ou o servidor que faz as consultas LDAP deve confiar no certificado SSL instalado no servidor Azure Multi-Factor Authentication.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

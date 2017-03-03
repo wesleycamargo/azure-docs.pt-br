@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 1222223f8c45249402bfdd04c8754074f877e132
 ms.openlocfilehash: 1236489212b2a9c421972599a12511d5bc42efdf
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -175,10 +176,5 @@ Se os administradores tiverem configurado o servidor Azure Multi-Factor Authenti
 ![Perguntas de segurança do portal do usuário](./media/multi-factor-authentication-get-started-portal/secq.png)  
 
 O autorregistro do usuário agora está concluído e o usuário está conectado ao portal do usuário.  Os usuários podem entrar no portal do usuário a qualquer momento no futuro para alterar seus números de telefone, PINs, métodos de autenticação e perguntas de segurança se for permitido pelos seus administradores.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
