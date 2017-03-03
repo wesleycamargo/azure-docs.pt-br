@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: aae4e4f59e76bf48b00a2ee92aedd7d5643ba91a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -179,10 +180,5 @@ O script do PowerShell a seguir é um exemplo de carregamento de dados paralela 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemplo de Processo e Tecnologia de Análise Avançada em ação
 Para obter um exemplo passo a passo completo do Processo de Análise do Cortana com um conjunto de dados público, consulte [Processo de Análise do Cortana em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

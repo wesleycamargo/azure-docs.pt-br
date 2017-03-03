@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/12/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 370f81a618da4605581b70443fd0cf3641185ca0
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: a1e6f6738a3e6426a5ec5e0dab6f479a0a74b0ad
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá a integrar o YouEarnedIt ao Azure AD (Azure Act
 A integração do YouEarnedIt ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, você poderá controlar quem tem acesso ao YouEarnedIt
-* Você pode permitir que os usuários façam logon automaticamente no YouEarnedIt (Logon Único) com suas contas do Azure AD
+* Você pode permitir que os usuários façam logon automaticamente no SSO (Logon Único) do YouEarnedIt com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -37,9 +38,8 @@ Para configurar a integração do Azure AD com o YouEarnedIt, você precisa dos 
 * Uma assinatura do AD do Azure
 * Uma assinatura habilitada para logon único do YouEarnedIt
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -55,7 +55,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 1. Adicionando o YouEarnedIt da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-youearnedit-from-the-gallery"></a>Adicionando o YouEarnedIt da galeria
+## <a name="add-youearnedit-from-the-gallery"></a>Adicionar o YouEarnedIt da galeria
 Para configurar a integração do YouEarnedIt ao Azure AD, você precisará adicionar o YouEarnedIt da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o YouEarnedIt por meio da galeria, execute as seguintes etapas:**
@@ -80,7 +80,7 @@ Para configurar a integração do YouEarnedIt ao Azure AD, você precisará adic
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o YouEarnedIt, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do YouEarnedIt é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do YouEarnedIt.
@@ -89,13 +89,13 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
 Para configurar e testar o logon único do AD do Azure com o YouEarnedIt, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuração do logon único do Azure AD](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste do YouEarnedIt](#creating-a-predictix-price-reporting-test-user)**: para ter um equivalente de Brenda Fernandes no YouEarnedIt que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo do YouEarnedIt.
 
 **Para configurar o logon único do Azure AD com o YouEarnedIt, execute as seguintes etapas:**
@@ -108,26 +108,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     ![Configurar Logon Único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_03.png) 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_04.png) 
-   
-    a. Na caixa de texto **URL de Logon** , digite a URL usada pelos usuários para fazer logon em seu aplicativo YouEarnedIt usando o seguinte padrão: 
-   
-   * Ambiente de área restrita: `https://<company name>.sandbox.youearnedit.com/users/sign_in`
-   * Ambiente de produção: `https://<company name>.youearnedit.com/users/sign_in`
-     
-     b. Clique em **Avançar**
+    ![Configurar o logon único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_04.png) 
+  1. Na caixa de texto **URL de Logon** , digite a URL usada pelos usuários para fazer logon em seu aplicativo YouEarnedIt usando o seguinte padrão:  
+    * Ambiente de área restrita: `https://<company name>.sandbox.youearnedit.com/users/sign_in`
+    * Ambiente de produção: `https://<company name>.youearnedit.com/users/sign_in`  
+   2. Clique em **Avançar**
 4. Na página **Configurar logon único no YouEarnedIt** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-youearnedit-tutorial/tutorial_youearnedit_05.png)
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Próximo**.
-5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do YouEarnedIt e forneça o seguinte:
-   
+  1. Clique em **Baixar certificado**e salve o arquivo em seu computador.  
+  2. Clique em **Próximo**.
+5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do YouEarnedIt e forneça o seguinte:  
     • O **certificado**
-   
-    • A **URL de SSO do SAML**
+    baixado • A **URL de SSO SAML**
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
@@ -135,7 +128,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -152,44 +145,37 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_04.png) 
-5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
-6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_05.png)  
+  1. Em Tipo de Usuário, selecione Novo usuário na organização.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.  
+  3. Clique em **Próximo**.
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
+
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_06.png)    
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+  4. Na lista **Função**, selecione **Usuário**.
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-youearnedit-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**.
+  2. Clique em **Concluído**.   
 
-### <a name="creating-an-youearnedit-test-user"></a>Criação de um usuário de teste do YouEarnedIt
+### <a name="create-an-youearnedit-test-user"></a>Criar um usuário de teste do YouEarnedIt
 Nesta seção, você criará um usuário chamado Brenda Fernandes no YouEarnedIt. Trabalhe com a equipe de suporte do YouEarnedIt para adicionar os usuários na plataforma do YouEarnedIt.
 
-> [!NOTE]
-> O YouEarnedIt espera que o Provedor de Identidade forneça um EmailAddress ou um UserName no atributo NameID. A autenticação falhará se um UserName ou um EmailAddress correspondente não for encontrado no banco de dados ou se não for uma correspondência exata. Isso exigirá que as contas sejam importadas para o sistema do YouEarnedIt antes da integração de SSO (normalmente por meio da importação de API ou CSV).
-> 
-> 
+>[!NOTE]
+>O YouEarnedIt espera que o Provedor de Identidade forneça um EmailAddress ou um UserName no atributo NameID. A autenticação falhará se um UserName ou um EmailAddress correspondente não for encontrado no banco de dados ou se não for uma correspondência exata. Isso exigirá que as contas sejam importadas para o sistema do YouEarnedIt antes da integração de SSO (normalmente por meio da importação de API ou CSV).
+>  
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao YouEarnedIt.
 
 ![Atribuir usuário][200] 
@@ -210,7 +196,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do YouEarnedIt no Painel de Acesso, deverá fazer logon automaticamente no seu aplicativo YouEarnedIt.
@@ -236,9 +222,4 @@ Quando você clicar no bloco do YouEarnedIt no Painel de Acesso, deverá fazer l
 [203]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-youearnedit-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2017
+ms.date: 02/17/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: df0ab8e6828033b783449e9478a5884355a7f1fe
-ms.openlocfilehash: 453aa0e98e639872184b697ad8ed91d9545e152f
+ms.sourcegitcommit: 4ccd8cbfd0f3742c14a7effd7484d65be21abb63
+ms.openlocfilehash: d4db3d7a0c860c23a3a3ddecab6f79cb6b297a02
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -98,7 +99,7 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 ## <a name="data-rate"></a>Taxa de dados
 Há três maneiras de limitar o volume de dados enviados:
 
-* **Capacidade diária.** Por padrão, é definida em 500 GB/dia. Quando o aplicativo atinge a capacidade, enviamos um email e descartamos dados até o fim do dia. Para alterá-la, use a folha Gerenciamento de Volume de Dados.
+* **Capacidade diária.** O limite máximo é 500 GB/dia. Ao criar um recurso Application Insights do Visual Studio, o padrão é pequeno (somente 32,3 MB/dia). Ao criar um recurso Application Insights no Portal do Azure, isso é definido como o valor máximo. Tome cuidado ao alterar isso, pois atingir o limite causará a perda de dados pelo restante do dia. Para alterá-lo, use a folha Limite de volume diário, vinculado da lâmina de Gerenciamento de Volumes de Dados.
 * **[Amostragem](app-insights-sampling.md).** Esse mecanismo pode reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas.
 * A **Limitação** limita a taxa de dados para 32 mil eventos por segundo, medidos ao longo de um minuto. 
 
@@ -117,12 +118,14 @@ Caso ocorra uma limitação, será exibido um aviso de notificação que isso ac
 ## <a name="to-reduce-your-data-rate"></a>Para reduzir a taxa de dados
 Veja abaixo o que é possível fazer para reduzir o volume de dados:
 
-* Reduza a capacidade de volume diária. O padrão é 500 GB/dia.
 * Use a [Amostragem](app-insights-sampling.md). Essa tecnologia reduz a taxa de dados sem distorcer suas métricas e sem afetar a capacidade de navegar entre itens relacionados na Pesquisa. Em aplicativos de servidor, ela funciona automaticamente.
 * [Limite o número de chamadas do Ajax que podem ser informadas](app-insights-javascript.md#detailed-configuration) em cada modo de exibição de página ou desative o relatório de Ajax.
 * Desative os módulos de coleção que você não precisa [editando o ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 * Divida a telemetria para separar as chaves de instrumentação. 
-* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs). 
+* Métricas de pré-agregação. Se você colocou chamadas ao TrackMetric no seu aplicativo, você pode reduzir o tráfego usando a sobrecarga que aceita o cálculo da média e o desvio padrão de um lote de medições. Ou então, você pode usar um [pacote de pré-agregação](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* Por fim, você pode reduzir o limite de volume diário que limita os dados coletados, mas resultará em uma perda de dados pelo restante do dia. Para alterá-lo, abra **Recursos + preços**, **Gerenciamento de dados**.
+
+    ![Ajustar o limite de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
 
 ## <a name="sampling"></a>amostragem
 [Sampling](app-insights-sampling.md) é um método de redução da taxa na qual a telemetria é enviada para seu aplicativo, ao mesmo tempo que ainda retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico, retendo também as contagens de eventos corretas. 
@@ -172,10 +175,5 @@ Aplicativos existentes podem continuar a usar os tipos de preço antigos até de
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

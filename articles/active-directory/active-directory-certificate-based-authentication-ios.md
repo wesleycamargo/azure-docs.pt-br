@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/15/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: c8c6c105c2142dac1b3df6c26838ba8626161092
-ms.openlocfilehash: 16a2a67840e7ee85f7a605e8f114293305f84b50
+ms.sourcegitcommit: c4d95068b5e6472dbb809e675a47cb9eada7ca66
+ms.openlocfilehash: f643deb0b76c598df9bd983474b4bd2bcba129e7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -28,8 +29,9 @@ A CBA (autenticação baseada em certificado) permite que você seja autenticado
 
 Configurar esse recurso elimina a necessidade de digitar uma combinação de nome de usuário e senha em determinados emails e aplicativos do Microsoft Office no seu dispositivo móvel. 
 
-Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo iOS para os usuários de locatários nos planos do Office 365 Enterprise, Business, Education e Federal do Governo dos EUA. O Office 365 Defense não está incluso. 
+Este tópico fornece os requisitos e os cenários com suporte para configurar a CBA em um dispositivo Android para os usuários de locatários nos planos do Office 365 Enterprise, Business, Education e Governamental dos EUA. 
 
+Esse recurso está disponível na visualização em planos do governo federal e para defesa governamental dos EUA do Office 365.
 
 
 
@@ -85,9 +87,4 @@ Se você quiser configurar a autenticação baseada em certificado em seu ambien
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-ios/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

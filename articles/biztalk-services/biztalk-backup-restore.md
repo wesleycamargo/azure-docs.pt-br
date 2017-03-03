@@ -17,6 +17,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
 ms.openlocfilehash: 589b95fdd05478305fa8ef629fc6758bdd716da6
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -79,7 +80,7 @@ Se o painel do Serviço do BizTalk mostrar um status **Falha** :
 
 O link abre os Logs de Operação de Serviços de Gerenciamento para ajudar solucionar os problemas. Consulte [Serviços BizTalk: solução de problemas usando logs de operação](http://go.microsoft.com/fwlink/p/?LinkId=391211).
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restore
 Você pode fazer backups no portal clássico do Azure ou em [Restaurar API REST do Serviço do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325582). Esta seção lista as etapas para restaurar usando o portal clássico.
 
 #### <a name="before-restoring-a-backup"></a>Antes de restaurar um backup
@@ -206,13 +207,8 @@ Para criar os Serviços BizTalk do Azure no portal clássico do Azure, confira [
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
-[Restaurar]: ./media/biztalk-backup-restore/restore-ui.png
+[Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

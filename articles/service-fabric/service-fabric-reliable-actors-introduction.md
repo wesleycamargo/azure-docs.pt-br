@@ -17,6 +17,7 @@ ms.author: vturecek
 translationtype: Human Translation
 ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
 ms.openlocfilehash: bf69d2fdfb80395f9af58d113e4f8838c6bb93be
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -145,9 +146,4 @@ O tempo de execução dos Atores fornece essas garantias de simultaneidade em si
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 [2]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 [3]: ./media/service-fabric-reliable-actors-introduction/actor-communication.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

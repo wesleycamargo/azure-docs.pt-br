@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cf3e083f17bf8b2245373bced5823afd21fe1af9
-ms.openlocfilehash: d2e55846667cccec824e31f648beac1c84fbcf50
+ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
+ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -91,7 +92,10 @@ Carregar Mapa do Servidor conduzirá até um novo mapa com o servidor selecionad
 ### <a name="showhide-self-links"></a>Mostrar/Ocultar Self Links
 Mostrar Self Links redesenhará o nó do servidor incluindo quaisquer self links, que são conexões TCP que começam e terminam em processos no servidor.  Se os self links estiverem em exibição, o menu mudará para Ocultar Self Links, permitindo que os usuários ativem ou desativem o desenho de self links.
 
+## <a name="computer-summary"></a>Resumo do computador
+O painel Resumo do Computador inclui uma visão geral do Sistema operacional do servidor e contagens de dependência junto com diversos dados de outras soluções do OMS, incluindo Métricas de Desempenho, Controle de Alterações, Segurança, Atualizações etc.
 
+![Resumo do computador](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriedades do computador e do processo
 Ao navegar em um mapa do Mapa do Serviço, você pode selecionar máquinas e processos para obter contexto adicional sobre suas propriedades.  As máquinas fornecem informações sobre o nome DNS, endereços IPv4, capacidade de CPU e Memória, Tipo de VM, versão do Sistema Operacional, horário da Última Reinicialização e as IDs de seus agentes OMS e Mapa do Serviço.
@@ -106,10 +110,22 @@ O painel Resumo do Processo fornece informações adicionais sobre a conectivida
 
 ![Resumo do processo](media/oms-service-map/process-summary.png)
 
-## <a name="computer-summary"></a>Resumo do computador
-O painel Resumo do Computador inclui uma visão geral do Sistema operacional do servidor e contagens de dependência junto com diversos dados de outras soluções do OMS, incluindo Métricas de Desempenho, Controle de Alterações, Segurança, Atualizações etc.
+## <a name="oms-alerts-integration"></a>Integração de alertas do OMS
+O Mapa do Serviço integra-se aos Alertas do OMS para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado.  O servidor mostrará um ícone se houver alertas atuais, e o painel de Alertas do Computador listará os alertas
 
-![Resumo do computador](media/oms-service-map/machine-summary.png)
+![Painel Alertas do Computador](media/oms-service-map/machine-alerts.png)
+
+Observe que para o Mapa do Serviço ser capaz de exibir alertas relevantes, é necessário criar uma regra de alerta para que seja acionado para um computador específico.  Para criar alertas apropriadas:
+- Inclua uma cláusula para agrupar por computador: "intervalo de 1 minuto por Computador"
+- Escolha o alerta com base na medida Métrica
+
+![Configuração do alerta](media/oms-service-map/alert-configuration.png)
+
+
+## <a name="oms-log-events-integration"></a>Integração de eventos de Log do OMS
+O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado no intervalo de tempo selecionado.  Você pode clicar em qualquer linha na lista de contagens de eventos para pular para a Pesquisa de Logs e ver os eventos de log individuais.
+
+![Eventos de log](media/oms-service-map/log-events.png)
 
 ## <a name="oms-change-tracking-integration"></a>Integração de controle de alterações do OMS
 A integração do Mapa do Serviço com o Controle de Alterações é automática quando as duas soluções estão habilitadas e configuradas em seu espaço de trabalho do OMS.
@@ -138,19 +154,6 @@ A integração do Mapa do Serviço com o Gerenciamento de Atualização é autom
 
 O painel Atualizações do Computador mostra dados da solução de Gerenciamento de Atualização do OMS para o servidor selecionado.  O painel listará um resumo de quaisquer atualizações pendentes para o servidor durante o intervalo de tempo selecionado.
 ![Painel de Controle de Alteração da Máquina](media/oms-service-map/machine-updates.png)
-
-
-## <a name="oms-alerts-integration"></a>Integração de alertas do OMS
-O Mapa do Serviço se integra aos Alertas do OMS para mostrar os alertas acionados para o servidor selecionado no intervalo de tempo selecionado.  O servidor mostrará um ícone se houver alertas atuais, e o painel de Alertas do Computador listará os alertas
-
-![Painel Alertas do Computador](media/oms-service-map/machine-alerts.png)
-
-Observe que para o Mapa do Serviço ser capaz de exibir alertas relevantes, é necessário criar uma regra de alerta para que seja acionado para um computador específico.  Para criar alertas apropriadas:
-- Inclua uma cláusula para agrupar por computador: "intervalo de 1 minuto por Computador"
-- Escolha o alerta com base na medida Métrica
-
-![Configuração do alerta](media/oms-service-map/alert-configuration.png)
-
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics.  Isso pode ser aplicado a cenários, incluindo o planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho do ad-hoc.
@@ -251,10 +254,14 @@ Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
+## <a name="rest-api"></a>API REST
+Todos os dados do servidor, do processo e de dependência no Mapa de Serviço estão disponíveis por meio da [API REST do Mapa de Serviço](https://docs.microsoft.com/en-us/rest/api/servicemap/).
+
+
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
 A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Mapa do Serviço. A Microsoft usa esses dados para fornecer e aprimorar a qualidade, a segurança e a integridade do serviço Mapa do Serviço. Os dados incluem informações sobre a configuração do software, como o sistema operacional e a versão, e também incluem o endereço IP, o nome DNS e nome da Estação de Trabalho a fim de fornecer recursos de solução de problemas precisos e eficientes. Não coletamos nomes, endereços ou outras informações de contato.
 
-Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privacidade do Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
+Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -263,9 +270,4 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privaci
 
 ## <a name="feedback"></a>Comentários
 Você tem algum comentário sobre o Mapa de Serviço ou sobre esta documentação?  Visite nossa [página User Voice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

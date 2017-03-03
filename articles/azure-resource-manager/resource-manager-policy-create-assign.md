@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/10/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 138197bab775ec854f2761a64c52a9a9c8baca60
-ms.openlocfilehash: dec7ebd834514a10d02d739264b03b01a65a4375
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 944eafeb67df4baefa99172c1082259a95e84afe
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -192,11 +193,11 @@ Para remover uma atribuição de política, use:
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
-## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+## <a name="azure-cli-20"></a>CLI do Azure 2.0
 
 ### <a name="create-policy-definition"></a>Criar definição de política
 
-Você pode criar uma definição de política usando a CLI do Azure 2.0 (Visualização) com o comando de definição de política. O exemplo a seguir cria uma política para permitir recursos somente na Europa Setentrional e na Ocidental.
+Você pode criar uma definição de política usando a CLI do Azure 2.0 com o comando de definição de política. O exemplo a seguir cria uma política para permitir recursos somente na Europa Setentrional e na Ocidental.
 
 ```azurecli
 az policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --rules '{    
@@ -292,10 +293,5 @@ azure policy assignment delete --name regionPolicyAssignment --scope /subscripti
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

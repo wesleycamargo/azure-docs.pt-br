@@ -1,5 +1,5 @@
 ---
-title: "Criar um relatório de histórico de alterações de acesso | Microsoft Docs"
+title: "Relatórios de acesso – RBAC do Azure | Microsoft Docs"
 description: "Gere um relatório que lista todas as alterações no acesso a suas assinaturas do Azure com Controle de Acesso Baseado em Função nos últimos 90 dias."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 44295ff647cbfd2d63ffe08d101da66b83a924f6
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: bb15538a37fd610207c77fe2cf89fbfa16bbba11
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -59,13 +60,8 @@ Para salvar o relatório ou manipular os dados, exporte as alterações de acess
 
 ![Log de alteração exibido como planilha - captura de tela](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
-## <a name="see-also"></a>Confira também
-* Introdução ao [Controle de Acesso Baseado em Função do Azure](role-based-access-control-configure.md)
+## <a name="next-steps"></a>Próximas etapas
 * Trabalhe com [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
+* Saiba como gerenciar o [RBAC do Azure com o PowerShell](role-based-access-control-manage-access-powershell.md)
 
 

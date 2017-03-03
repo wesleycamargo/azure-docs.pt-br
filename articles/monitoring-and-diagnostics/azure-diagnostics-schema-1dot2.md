@@ -1,38 +1,39 @@
 ---
 title: "Esquema de Configuração do Diagnóstico do Azure 1.2 | Microsoft Docs"
 description: "Relevante APENAS se você estiver usando o SDK do Azure 2.5 com Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric ou Serviços de Nuvem."
-services: multiple
+services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: multiple
+ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2017
+ms.date: 02/09/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 8cfb5116d06532b132d5ae9fe54dff1345d6948a
+ms.sourcegitcommit: 66f733d7602a8d26627fcc205f357e7a4a266d11
+ms.openlocfilehash: b76ef954d8a00e190817e3d7f8e2b064210d0357
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração do Azure Diagnostics 1.2
 > [!NOTE]
-> Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Escala de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só será relevante se você estiver usando um desses serviços.
+> Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Escala de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
 >
 
-O Diagnóstico do Azure é usado em conjunto com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
+O Diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como Azure Monitor, Application Insights e Log Analytics.
 
 Esse esquema define os possíveis valores que podem ser usados para inicializar as definições de configuração de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
 
  Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:  
 
-```  
+```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
@@ -204,9 +205,4 @@ Define as configurações para que os dados de telemetria sejam coletados. A tab
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
 |**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para coletar todos os eventos, especifique "*".|
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

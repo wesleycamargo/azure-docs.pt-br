@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/20/2017
+ms.date: 02/13/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: 9624d31165f927c442c6dd0cfd646bc3dfd20ec7
+ms.sourcegitcommit: 3992e327bbe887338234fc2d516b053f0750a151
+ms.openlocfilehash: 118ea84abb0de095ac515ee98a643718ca54c043
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,6 +67,13 @@ Antes de se conectar, você precisa obter o nome do servidor. No **Portal do Azu
 
 A conexão com o Azure Analysis Services no Excel tem suporte pelo uso de Obter Dados no Excel 2016 ou no Power Query em versões anteriores. O [provedor MSOLAP.7](analysis-services-data-providers.md) é necessário. Não há suporte para a conexão usando o Assistente para Importar tabela no Power Pivot.
 
+> [!NOTE]
+> Algumas organizações implantam atualizações do Office 365 no Canal Adiadas; isso significa que as atualizações de versão são adiadas em até quatro meses em relação à versão atual. Para a versão do Excel 2016 build 1609.7369.2115 e anteriores ou Excel 2013, você pode criar um arquivo de conexão de dados do Office (.odc) e atualizar manualmente o provedor MSOLAP.7 para se conectar a um servidor do Azure Analysis Services. Para saber mais, consulte [criar um arquivo .odc](analysis-services-odc.md).
+> 
+> 
+
+**Para conectar-se do Excel 2016**
+
 1. No Excel 2016, na faixa de opções **Dados**, clique em **Obter Dados Externos** > **De Outras Fontes** > **Do Analysis Services**.
 2. No Assistente de Conexão de Dados, em **Nome do Servidor**, cole o nome do servidor a partir da área de transferência. Em seguida, em **Credenciais de logon**, selecione **Usar o seguinte Nome de Usuário e Senha** e digite o nome de usuário da organização, por exemplo nancy@adventureworks.com,, e a senha.
 
@@ -94,10 +102,5 @@ A autenticação integrada selecionará o cache de credencial do Azure Active Di
 ## <a name="next-steps"></a>Próximas etapas
 
 [Gerenciar seu serviço](analysis-services-manage.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

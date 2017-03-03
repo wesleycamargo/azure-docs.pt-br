@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: 9fe4e1356064d62d1a373ecbabf4f9cf276524f6
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -36,10 +37,5 @@ Ao criar uma máquina virtual Linux no portal clássico do Azure, em geral, um p
 ## <a name="next-steps"></a>Próximas etapas
 * Também é possível criar um ponto de extremidade de VM usando a [Interface de Linha de Comando do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). Execute o comando **azure vm endpoint create** .
 * Se você criou uma máquina virtual no modelo de implantação do Gerenciador de Recursos, é possível usar a CLI do Azure no modo do Gerenciador de Recursos para [criar grupos de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-cli.md) a fim de controlar o tráfego para a VM.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

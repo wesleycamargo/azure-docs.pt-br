@@ -4,7 +4,7 @@ description: "Este artigo aborda os requisitos e padrões de arquitetura de dado
 keywords: 
 services: sql-database
 documentationcenter: 
-author: CarlRabeler
+author: srinia
 manager: jhubbard
 editor: 
 ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
-ms.date: 11/08/2016
-ms.author: carlrab
+ms.date: 02/01/2017
+ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 63f94dc3b648486fe7c2e14661b5f5f02a147149
+ms.sourcegitcommit: e210fb7ead88a9c7f82a0d0202a1fb31043456e6
+ms.openlocfilehash: c30f1d879f46805cf802679613089a16dc47ad40
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -90,7 +91,7 @@ Na Figura 2, o eixo Y mostra o nível de isolamento de locatário. O eixo X most
 
 Figura 2: Modelos populares de dados multilocatários
 
-O quadrante inferior direito na Figura 2 mostra um padrão de aplicativo que usa um banco de dados independente compartilhado potencialmente grande e a abordagem de tabela compartilhada (ou esquema separado). É bom para o compartilhamento de recursos porque todos os locatários usam os mesmos recursos de banco de dados (CPU, memória, entrada/saída) em um banco de dados individual. No entanto, o isolamento de locatários é limitado. Talvez seja necessário executar etapas adicionais para proteger locatários uns dos outros na camada de aplicativo. Essas etapas adicionais podem aumentar significativamente o custo de DevOps do desenvolvimento e gerenciamento de aplicativos. A escalabilidade é limitada pela escala do hardware que hospeda o banco de dados.
+O quadrante inferior direito na Figura 2 mostra um padrão de aplicativo que usa um banco de dados individual compartilhado potencialmente grande e a abordagem de tabela compartilhada (ou esquema separado). É bom para o compartilhamento de recursos porque todos os locatários usam os mesmos recursos de banco de dados (CPU, memória, entrada/saída) em um banco de dados individual. No entanto, o isolamento de locatários é limitado. Talvez seja necessário executar etapas adicionais para proteger locatários uns dos outros na camada de aplicativo. Essas etapas adicionais podem aumentar significativamente o custo de DevOps do desenvolvimento e gerenciamento de aplicativos. A escalabilidade é limitada pela escala do hardware que hospeda o banco de dados.
 
 O quadrante inferior esquerdo da Figura 2 ilustra vários locatários fragmentados em vários bancos de dados (normalmente, unidades de escala de um outro hardware). Cada banco de dados hospeda um subconjunto de locatários que lida com problemas de escalabilidade de outros padrões. Se mais capacidade for necessária para mais locatários, você pode facilmente colocar os locatários em novos bancos de dados alocados para novas unidades de escala de hardware. No entanto, a quantidade de compartilhamento de recursos é reduzida. Somente locatários colocados nas mesmas unidades de escala compartilham recursos. Essa abordagem fornece poucas melhorias ao isolamento de locatários pois ainda vários locatários são colocados em locais sem que sejam protegidos automaticamente contra ações uns dos outros. A complexidade do aplicativo permanece alta.
 
@@ -124,7 +125,7 @@ Os pools elásticos no Banco de Dados SQL combina o isolamento de locatários co
 | [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md): gerencia distribuições de dados e mapeiam locatários para bancos de dados. | |
 
 ## <a name="shared-models"></a>Modelos compartilhados
-Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abordagem de modelo compartilhado pode apresentar problemas com questões de isolamento de locatário e complexidades de desenvolvimento e manutenção do aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço diretamente para clientes, os requisitos de isolamento de locatário podem não ser uma prioridade tão alta como a minimização do custo. Eles poderão empacotar locatários em um ou mais bancos de dados em uma densidade bastante alta para reduzir os custos. Os modelos de banco de dados compartilhado que usam um banco de dados independente ou vários bancos de dados fragmentados podem resultar em eficiência adicional no compartilhamento de recurso e no custo geral. O Banco de Dados SQL do Azure fornece alguns recursos que ajudam os clientes a criar um isolamento aprimorado de segurança e gerenciamento em escala na camada de dados.
+Conforme descrito anteriormente, para a maioria dos provedores de SaaS, uma abordagem de modelo compartilhado pode apresentar problemas com questões de isolamento de locatário e complexidades de desenvolvimento e manutenção do aplicativo. No entanto, para aplicativos multilocatários que fornecem um serviço diretamente para clientes, os requisitos de isolamento de locatário podem não ser uma prioridade tão alta como a minimização do custo. Eles poderão empacotar locatários em um ou mais bancos de dados em uma densidade bastante alta para reduzir os custos. Os modelos de banco de dados compartilhados usando um banco de dados individual ou vários bancos de dados fragmentados podem resultar em uma eficiência adicional no compartilhamento de recursos e na redução do custo geral. O Banco de Dados SQL do Azure fornece alguns recursos que ajudam os clientes a criar um isolamento aprimorado de segurança e gerenciamento em escala na camada de dados.
 
 | Requisitos do aplicativo | Recursos de Banco de Dados SQL |
 | --- | --- |
@@ -150,7 +151,7 @@ Crie um [painel personalizado do pool elástico para SaaS](https://github.com/Mi
 
 Use as ferramentas de Banco de Dados SQL para [migrar bancos de dados existentes para escalar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Exiba nosso tutorial sobre como [criar um pool elástico](sql-database-elastic-pool-create-portal.md).  
+Para criar um pool elástico usando o Portal do Azure, consulte [criar um pool elástico](sql-database-elastic-pool-manage-portal.md).  
 
 Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool-manage-portal.md).
 
@@ -160,14 +161,9 @@ Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool
 * [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 * [Autenticação em aplicativos multilocatários usando o Azure Active Directory e o OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Aplicativo Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
-* [Inícios rápidos da solução](sql-database-solution-quick-starts.md)
+
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 Para fazer perguntas, encontre-se no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

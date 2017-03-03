@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 85efdb2a5b9571d76338aeb0871b729693b63dcb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ O comando a seguir recupera o status do link de replicação entre o banco de da
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

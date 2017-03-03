@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 6a01f53ce05aa8084f0a18e56714b1790cfce912
-ms.openlocfilehash: d134b91131321f633471893d9c2d5ffa041aa99c
+ms.sourcegitcommit: c1e28c5ad7fd3236899ac0ffe9f3d43241061897
+ms.openlocfilehash: 5f253c3a10e5bfdfa9fe36912b5ebcbc9abae3eb
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -201,10 +202,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 
     a. Na caixa de texto **Nome** , digite um nome para a sua configuração (por exemplo: **SAML 2.0**).
 
-    b. Na caixa de texto **Campo de Usuário**, digite **email** ou **user_id**, dependendo de qual campo é usado para identificar exclusivamente os usuários em sua implantação do ServiceNow. 
+    b. Na caixa de texto **Campo de Usuário**, digite **email** ou **user_name**, dependendo de qual campo é usado para identificar exclusivamente os usuários em sua implantação do ServiceNow. 
 
     > [!NOTE] 
-    > Você pode configurar o Azure AD para emitir a ID de usuário (nome UPN) do Azure AD ou o endereço de email como o identificador exclusivo no token SAML acessando a seção **ServiceNow > Atributos > Logon Único** do portal clássico do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, user_id)
+    > Você pode configurar o Azure AD para emitir a ID de usuário (nome UPN) do Azure AD ou o endereço de email como o identificador exclusivo no token SAML acessando a seção **ServiceNow > Atributos > Logon Único** do portal clássico do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, user_name)
 
     c. No portal clássico do Azure AD, copie o valor de **ID do Provedor de Identidade** e cole-o na caixa de texto **URL do Provedor de Identidade**.
 
@@ -359,10 +360,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
    
     d. Na caixa de texto **Distorção do Relógio**, digite **60**.
    
-    e. Na caixa de texto **Campo de Usuário**, digite **email** ou **user_id**, dependendo de qual campo é usado para identificar exclusivamente os usuários em sua implantação do ServiceNow.
+    e. Na caixa de texto **Campo de Usuário**, digite **email** ou **user_name**, dependendo de qual campo é usado para identificar exclusivamente os usuários em sua implantação do ServiceNow.
    
     > [!NOTE]
-    > Você pode configurar o Azure AD para emitir a ID de usuário (nome UPN) do Azure AD ou o endereço de email como o identificador exclusivo no token SAML acessando a seção **ServiceNow > Atributos > Logon Único** do portal clássico do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, user_id)
+    > Você pode configurar o Azure AD para emitir a ID de usuário (nome UPN) do Azure AD ou o endereço de email como o identificador exclusivo no token SAML acessando a seção **ServiceNow > Atributos > Logon Único** do portal clássico do Azure e mapeando o campo desejado para o atributo **nameidentifier**. O valor armazenado para o atributo selecionado no Azure AD (por exemplo, nome UPN) deve corresponder ao valor armazenado no ServiceNow para o campo inserido (por exemplo, user_name)
     > 
     > 
    
@@ -516,9 +517,4 @@ Ao clicar no bloco do ServiceNow no Painel de Acesso, você deverá ser conectad
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

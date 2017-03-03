@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2969e6063d7bc59a6c8ca733912904abeeb7e7e8
 ms.openlocfilehash: c79826afe9af20dd46db46ab6c73f3196a71fc46
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -132,9 +133,4 @@ Você pode usar uma combinação de serviços para criar representações visuai
 
 * É possível começar usando o [Azure Data Factory para mover dados do Data Lake Store para um SQL Data Warehouse do Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
 * Depois disso, você pode [integrar o Power BI ao SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) para criar a representação visual dos dados.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -16,6 +16,7 @@ ms.author: brjohnst
 translationtype: Human Translation
 ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
 ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -165,10 +166,5 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 ```
 
 O código de exemplo acima usa o console para gerar os resultados da pesquisa. Da mesma forma, você precisará exibir os resultados da pesquisa em seu próprio aplicativo. Consulte [este exemplo no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) de como renderizar os resultados da pesquisa em um aplicativo Web baseado no ASP.NET MVC.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

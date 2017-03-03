@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 253b7fe3614579d5a9a74d1de21bd2d3efe50d09
 ms.openlocfilehash: bf642e08d92414543f55ddeceff297c886b82882
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -196,9 +197,4 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Introdução à Windows Store no Azure AD | Microsoft Docs"
-description: Como criar um aplicativo da Windows Store que se integre ao AD do Azure para entrar e chame APIs protegidas do AD do Azure usando OAuth.
+description: Crie aplicativos da Windows Store que se integrem ao Azure AD para entrar e chame APIs protegidas do Azure AD usando OAuth.
 services: active-directory
 documentationcenter: windows
 author: dstrockis
@@ -15,146 +15,148 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: f1757379bdb8e04d3302dbd8a4528a1b8ed00f65
+ms.sourcegitcommit: 3a78fe76119d1c748b5b75c00148a3e2a6f4a2b8
+ms.openlocfilehash: adfc28c7e41f49ce65309a316703fba57463040f
+ms.lasthandoff: 02/17/2017
 
 
 ---
-# <a name="integrate-azure-ad-with-a-windows-store-app"></a>Integrar o AD do Azure com um aplicativo da Windows Store
+# <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrar o Azure AD com aplicativos da Windows Store
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Se você estiver desenvolvendo um aplicativo para a Windows Store, o AD do Azure torna simples e direto autenticar os usuários com suas contas do Active Directory.  Ele também permite que seu aplicativo consuma com segurança qualquer API da Web protegida pelo AD do Azure, como as APIs do Office 365 ou a API do Azure.
+Se você estiver desenvolvendo aplicativos para a Windows Store, o Azure AD (Azure Active Directory) tornará simples e direto autenticar os usuários com suas contas do Active Directory. Ao integrar-se com o Azure AD, um aplicativo pode consumir com segurança qualquer API Web protegida pelo Azure AD, por exemplo as APIs do Office 365 ou a API do Azure.
 
-Para aplicativos desktop da Windows Store que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL.  Única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso.  Para demonstrar como isso é fácil, aqui vamos criar um aplicativo "Directory Searcher" da Windows Store que:
+Para aplicativos de área de trabalho da Windows Store que precisam acessar recursos protegidos, o Azure AD fornece a ADAL (biblioteca de autenticação do Active Directory). A única finalidade da ADAL é tornar mais fácil para o aplicativo obter tokens de acesso. Para demonstrar como isso é fácil, este artigo mostra como criar um aplicativo da Windows Store DirectorySearcher que:
 
-* Obtém tokens de acesso para chamar a Graph API do AD do Azure usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* Pesquisa um diretório para usuários com um determinado UPN.
+* Obtém tokens de acesso para chamar a API do Graph do Azure AD usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Pesquisa por usuários com um determinado nome UPN em um diretório.
 * Desconecta usuários.
 
-Para compilar o aplicativo em funcionamento completo, você precisará:
+## <a name="before-you-get-started"></a>Antes de começar
+* Baixe um [projeto de esqueleto](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip) ou baixe a [amostra concluída](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip). Cada download é uma solução do Visual Studio 2015.
+* Você também precisará de um locatário do Azure AD no qual criar usuários e registrar o aplicativo. Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
 
-1. Registrar seu aplicativo no Azure AD.
-2. Instalar e configurar a ADAL.
-3. Usar a ADAL para obter tokens do AD do Azure.
+Quando estiver pronto, siga os procedimentos nas próximas três seções.
 
-Para começar, [baixe um projeto de esqueleto](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/skeleton.zip) ou [baixe o exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip).  Cada um é uma solução do Visual Studio 2015.  Você também precisará de um locatário do AD do Azure no qual você possa criar usuários e registrar um aplicativo.  Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
-
-## <a name="1-register-the-directory-searcher-application"></a>1. Registrar o aplicativo Directory Searcher
-Para habilitar seu aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do AD do Azure e conceder permissão para acessar a Graph API do AD do Azure:
+## <a name="step-1-register-the-directorysearcher-app"></a>Etapa 1: registrar o aplicativo DirectorySearcher
+Para habilitar o aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do Azure AD e conceder permissão para acessar a API do Graph do Azure AD. Faça assim:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
-3. Clique em **Mais Serviços** no painel de navegação à esquerda e escolha **Azure Active Directory**.
-4. Clique em **Registros do Aplicativo** e escolha **Adicionar**.
-5. Siga os prompts e crie um novo **Aplicativo cliente nativo**.
-  * O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
-  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens.  Insira um valor de espaço reservado por enquanto, por exemplo, `http://DirectorySearcher`.  Substituiremos este valor posteriormente.
-6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, portanto, copie-o da guia do aplicativo.
-7. Na página **Configurações**, escolha **Permissões Necessárias** e escolha **Adicionar**.  Para o aplicativo "Azure Active Directory", selecione **Microsoft Graph** como a API e adicione a permissão **Acessar o diretório como o usuário conectado** em **Permissões Delegadas**.  Isso permitirá que seu aplicativo consulte a Graph API para usuários.
+2. Na barra superior, clique em sua conta. Na lista **Diretório**, selecione o locatário do Active Directory em que você deseja registrar o aplicativo.
+3. Clique em **Mais Serviços** no painel esquerdo e selecione **Azure Active Directory**.
+4. Clique em **Registros do aplicativo** e, em seguida, selecione **Adicionar**.
+5. Siga os prompts para criar um **aplicativo cliente nativo**.
+  * **Nome** descreve o aplicativo aos usuários.
+  * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o Azure AD usará para retornar respostas de tokens. Insira um valor de espaço reservado por enquanto (por exemplo, **http://DirectorySearcher**). Substituiremos este valor posteriormente.
+6. Depois de você concluir o registro, o Azure AD atribui uma ID do aplicativo exclusiva ao aplicativo. Copie o valor na guia **Aplicativo**, pois você precisará dele mais tarde.
+7. Na página **Configurações**, selecione **Permissões necessárias** e escolha **Adicionar**.
+8. Para o aplicativo do **Azure Active Directory**, selecione **Microsoft Graph** como a API.
+9. Em **Permissões Delegadas**, adicione a permissão **Acessar o diretório como o usuário conectado**. Fazer isso permite que o aplicativo consulte a API do Graph para usuários.
 
-## <a name="2-install--configure-adal"></a>2. Instalar e Configurar o ADAL
-Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade.  Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
+## <a name="step-2-install-and-configure-adal"></a>Etapa 2: instalar e configurar a ADAL
+Agora que você tem um aplicativo no Azure AD, você pode instalar a ADAL e escrever seu código relacionado à identidade. Para habilitar a ADAL para se comunicar com o Azure AD, dê a ele algumas informações sobre o registro do aplicativo.
 
-* Comece adicionando o ADAL ao projeto DirectorySearcher usando o Console do Gerenciador de Pacotes.
+1. Adicione a ADAL ao projeto DirectorySearcher usando o Console do Gerenciador de Pacotes.
 
-```
-PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-```
+    ```
+    PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    ```
 
-* No projeto DirectorySearcher, abra `MainPage.xaml.cs`.  Substitua os valores na região `Config Values` para refletir os valores inseridos por você no Portal do Azure.  Seu código fará referência a esses valores sempre que ele usar a ADAL.
-  * O `tenant` é o domínio do seu locatário do AD do Azure, por exemplo, contoso.onmicrosoft.com.
-  * O `clientId` é a clientId do seu aplicativo que você copiou do portal.
-* Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo da Windows Store.  Defina um ponto de interrupção nessa linha no método `MainPage` :
+2. No projeto DirectorySearcher, abra MainPage.xaml.cs.
+3. Substitua os valores na região **Config Values** pelos valores que você inseriu no Portal do Azure. Seu código fará referência a esses valores sempre que ele usar a ADAL.
+  * O *tenant* é o domínio do seu locatário do Azure AD, por exemplo, contoso.onmicrosoft.com.
+  * A *clientId* é a ID do cliente do aplicativo, que você copiou do portal.
+4. Agora você precisa descobrir o URI de retorno de chamada para seu aplicativo da Windows Store. Defina um ponto de interrupção nessa linha no método `MainPage` :
+    ```
+    redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
+    ```
+5. Compile a solução, certificando-se de que todas as referências do pacote sejam restauradas. Se houver pacotes ausentes, abra o Gerenciador de Pacotes NuGet e restaure-os.
+6. Execute o aplicativo e copie separadamente o valor de `redirectUri` quando o ponto de interrupção for atingido. O valor deve ter uma aparência semelhante à seguinte:
 
-```
-redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
-```
-* Compilar a solução, certificando-se de que todas as referências do pacote são restauradas.  Se houver pacotes ausentes, abra o Gerenciador de Pacotes Nuget e restaure os pacotes.
-* Execute o aplicativo e copie separadamente o valor de `redirectUri` quando o ponto de interrupção for atingido.  O resultado deve ser semelhante a
+    ```
+    ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
+    ```
 
-```
-ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/
-```
+7. De volta à guia **Configurações** do seu aplicativo no Portal do Azure, adicione um **RedirectUri** com o valor precedente.  
 
-* De volta à guia **Configurações** do seu aplicativo no Portal do Azure, adicione um **RedirectUri** com esse valor.  
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Etapa 3: usar a ADAL para obter tokens do Azure AD
+O princípio básico da ADAL é que sempre que o aplicativo precisa de um token de acesso, ele simplesmente chama `authContext.AcquireToken(…)` e a ADAL faz o resto.  
 
-## <a name="3----use-adal-to-get-tokens-from-aad"></a>3.    Usar o ADAL para obter tokens do AAD
-O princípio básico da ADAL é que sempre que seu aplicativo precisa de um token de acesso, ele simplesmente chama `authContext.AcquireToken(…)`, e a ADAL faz o resto.  
+1. Inicialize o aplicativo `AuthenticationContext`, que é a classe primária da ADAL. Essa ação passa à ADAL as coordenadas necessárias para se comunicar com o Azure AD e informar a ele como armazenar tokens em cache.
 
-* A primeira etapa é inicializar o `AuthenticationContext` de seu aplicativo - classe principal da ADAL.  É aqui que você passa à ADAL as coordenadas necessárias para se comunicar com o AD do Azure e informar a ele como armazenar tokens em cache.
-
-```C#
-public MainPage()
-{
-    ...
-
-    authContext = new AuthenticationContext(authority);
-}
-```
-
-* Agora localize o método `Search(...)` , que será chamado quando o usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo.  Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
-
-```C#
-private async void Search(object sender, RoutedEventArgs e)
-{
-    ...
-    AuthenticationResult result = null;
-    try
+    ```C#
+    public MainPage()
     {
-        result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectURI, new PlatformParameters(PromptBehavior.Auto, false));
+        ...
+
+        authContext = new AuthenticationContext(authority);
     }
-    catch (AdalException ex)
+    ```
+
+2. Localize o método `Search(...)`, que é invocado quando os usuários clicam no botão **Pesquisa** na interface do usuário do aplicativo. Esse método faz uma solicitação get para que a API do Graph do Azure AD consulte usuários cujo UPN comece com o termo de pesquisa fornecido. Para consultar a API do Graph, inclua um token de acesso no cabeçalho **Authorization** da solicitação. É aí que a ADAL entra em cena.
+
+    ```C#
+    private async void Search(object sender, RoutedEventArgs e)
     {
-        if (ex.ErrorCode != "authentication_canceled")
+        ...
+        AuthenticationResult result = null;
+        try
         {
-            ShowAuthError(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", ex.ErrorCode, ex.Message));
+            result = await authContext.AcquireTokenAsync(graphResourceId, clientId, redirectURI, new PlatformParameters(PromptBehavior.Auto, false));
         }
-        return;
+        catch (AdalException ex)
+        {
+            if (ex.ErrorCode != "authentication_canceled")
+            {
+                ShowAuthError(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", ex.ErrorCode, ex.Message));
+            }
+            return;
+        }
+        ...
     }
-    ...
-}
-```
-* Quando o aplicativo solicita um token chamando `AcquireTokenAsync(...)`, a ADAL tentará retornar um token sem pedir as credenciais ao usuário.  Se a ADAL determina que o usuário precisa entrar para obter um token, exibirá uma caixa de diálogo de logon, coletar as credenciais do usuário e retornar um token após uma autenticação bem-sucedida.  Se a ADAL não puder retornar um token por qualquer motivo, o status `AuthenticationResult` será um erro.
-* Agora é hora de usar o access_token que você acabou de adquirir.  Além disso, no método `Search(...)`, anexe o token para a solicitação GET de Graph API no cabeçalho Autorização:
+    ```
+    Quando o aplicativo solicita um token chamando `AcquireTokenAsync(...)`, a ADAL tenta retornar um token sem pedir as credenciais ao usuário. Se a ADAL determinar que o usuário precisa entrar para obter um token, ela exibirá uma caixa de diálogo de entrada, coletará as credenciais do usuário e retornar um token após uma autenticação bem-sucedida. Se a ADAL não puder retornar um token por qualquer motivo, o status *AuthenticationResult* será um erro.
+3. Agora é hora de usar o token de acesso que você acabou de adquirir. Além disso, no método `Search(...)`, anexe o token para a solicitação get de API do Graph no cabeçalho **Authorization**:
 
-```C#
-// Add the access token to the Authorization Header of the call to the Graph API, and call the Graph API.
-httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
+    ```C#
+    // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
+    httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
-```
-* Você também pode usar o objeto `AuthenticationResult` para exibir informações sobre o usuário em seu aplicativo, como a ID do usuário:
+    ```
+4. Você pode usar o objeto `AuthenticationResult` para exibir informações sobre o usuário no aplicativo, por exemplo a ID do usuário:
 
-```C#
-// Update the Page UI to represent the signed in user
-ActiveUser.Text = result.UserInfo.DisplayableId;
-```
-* Por fim, você também pode usar a ADAL para realizar o logout do usuário do aplicativo.  Quando o usuário clica no botão "Sair", queremos garantir que a próxima chamada para `AcquireTokenAsync(...)` mostrará uma visualização de entrada.  Com a ADAL, isso é tão fácil quanto limpar o cache de tokens:
+    ```C#
+    // Update the page UI to represent the signed-in user
+    ActiveUser.Text = result.UserInfo.DisplayableId;
+    ```
+5. Você também pode usar a ADAL para fazer com que os usuários saiam do aplicativo. Quando o usuário clica no botão **Sair**, certifique-se de que a próxima chamada para `AcquireTokenAsync(...)` mostre um modo de exibição de entrada. Com a ADAL, essa ação é tão fácil quanto limpar o cache de tokens:
 
-```C#
-private void SignOut()
-{
-    // Clear session state from the token cache.
-    authContext.TokenCache.Clear();
+    ```C#
+    private void SignOut()
+    {
+        // Clear session state from the token cache.
+        authContext.TokenCache.Clear();
 
-    ...
-}
-```
+        ...
+    }
+    ```
 
-Parabéns! Agora você tem um aplicativo da Windows Store que tem a capacidade de autenticar usuários, chamar APIs da Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.  Se você ainda não fez isso, agora é o momento de preencher seu locatário com alguns usuários.  Execute o aplicativo DirectorySearcher e faça logon com um desses usuários.  Procure por outros usuários com base em seus UPNs.  Feche o aplicativo e execute-o novamente.  Observe como a sessão do usuário permanece intacta.  Saia (clicando com o botão direito para mostrar a barra inferior) e entre novamente como outro usuário.
+## <a name="whats-next"></a>O que vem a seguir
+Agora você tem um aplicativo da Windows Store que pode autenticar usuários, chamar APIs Web com segurança usando OAuth 2.0 e obter informações básicas sobre o usuário.
 
-A ADAL facilita a incorporar todos esses recursos comuns de identidade em seu aplicativo.  Ele se encarrega de todo o trabalho difícil para você - gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma IU de logon ao usuário, atualização de tokens expirados e mais.  Tudo o que você realmente precisa saber é uma única chamada à API, `authContext.AcquireToken*(…)`.
+Se você ainda não fez isso, agora é o momento de popular seu locatário com alguns usuários.
+1. Execute o aplicativo DirectorySearcher e então entre com um desses usuários.
+2. Procure por outros usuários com base em seus UPNs.
+3. Feche o aplicativo e execute-o novamente. Observe como a sessão do usuário permanece intacta.
+4. Saia clicando com o botão direito do mouse para mostrar a barra inferior e entre novamente como outro usuário.
 
-Para referência, o exemplo concluído (sem seus valores de configuração) é fornecido [aqui](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip).  Agora você pode passar para cenários de identidade adicionais.  Você pode desejar experimentar:
+A ADAL facilita a incorporar todos esses recursos de identidade comuns no aplicativo. Ele se encarrega de todo o trabalho difícil para você, por exemplo, gerenciamento de cache, suporte a protocolo OAuth, apresentação de uma interface do usuário de logon ao usuário e atualização de tokens expirados. Você precisa conhecer apenas uma única chamada à API, `authContext.AcquireToken*(…)`.
 
-[Proteger uma API da Web .NET com o Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
+Para referência, baixe a [amostra concluída](https://github.com/AzureADQuickStarts/NativeClient-WindowsStore/archive/complete.zip) (sem seus valores de configuração).
+
+Agora você pode passar para cenários de identidade adicionais. Por exemplo, experimente [Proteger uma API Web .NET com o Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

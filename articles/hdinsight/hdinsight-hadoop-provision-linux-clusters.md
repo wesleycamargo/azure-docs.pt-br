@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/07/2016
+ms.date: 02/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: e731c2334ca2d63017b54f0362657aaace585ae0
+ms.sourcegitcommit: aaff4a7aa717f42dedb96eceeb4315b31a6e7b17
+ms.openlocfilehash: 1ea77289ead60af067a0d07bac6c2e40a1684a04
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -100,7 +101,7 @@ Para obter mais informações sobre como usar uma rede virtual do Azure com HDIn
 Para obter um exemplo de como usar dois tipos de cluster em uma rede virtual do Azure, confira [Analisar dados de sensor com Storm e HBase](hdinsight-storm-sensor-data-analysis.md).
 
 ## <a name="cluster-tiers"></a>Camadas de cluster
-O Azure HDInsight oferece ofertas de nuvem de Big Data em duas categorias: Standard e [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). O HDInsight Premium inclui R e outros componentes adicionais. O HDInsight Premium tem suporte apenas no HDInsight versão 3.4.
+O Azure HDInsight oferece ofertas de nuvem de Big Data em duas categorias: Standard e [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium). O HDInsight Premium inclui R e outros componentes adicionais. O HDInsight Premium tem suporte apenas no HDInsight versão 3.5.
 
 A tabela a seguir lista o tipo de cluster do HDInsight e a matriz de suporte do HDInsight Premium.
 
@@ -337,9 +338,4 @@ Neste artigo, você aprendeu as informações básicas sobre como criar um clust
 | [Curl](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |✔ |✔ |
 | [SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |✔ |✔ |
 | [Modelos do Gerenciador de Recursos do Azure](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |✔ |✔ |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

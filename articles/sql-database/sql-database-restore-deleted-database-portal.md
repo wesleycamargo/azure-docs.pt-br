@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 9ea5287884cd7f1eb7314002b3ae98c9259686c3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -40,10 +41,5 @@ Para restaurar um banco de dados excluído com o Portal do Azure:
 * Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
 * Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)  
 * Para saber mais sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

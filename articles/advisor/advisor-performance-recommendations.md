@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: a560aa9cc6c70fd3827f649627466c9071b8ab8b
-ms.openlocfilehash: c350134e8cea5771900e2e88b02b572c20e9d5bd
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: d04c209894ab8ee35b92381f9679f68addd64f00
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -58,7 +59,7 @@ Para saber mais sobre recomendações de Serviços de Aplicativos, veja [Prátic
 3. No painel do Advisor, clique na guia **Desempenho** e selecione a assinatura para a qual deseja receber recomendações.
 
 > [!NOTE]
-> O Advisor gera recomendações para assinaturas em que você recebeu a função de **Proprietário, Colaborador ou Leitor**.
+> Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um **proprietário da assinatura** inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -69,9 +70,4 @@ Veja estes recursos para saber mais sobre as recomendações do Advisor:
 -  [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 -  [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 -  [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

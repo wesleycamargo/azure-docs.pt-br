@@ -1,5 +1,5 @@
 ---
-title: "Noções básicas sobre o fluxo do código de autorização do OpenID Connect no Azure AD | Microsoft Docs"
+title: "Entender o fluxo de código de autorização do OpenID Connect no Azure AD | Microsoft Docs"
 description: "Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OpenID Connect."
 services: active-directory
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,12 +26,37 @@ ms.openlocfilehash: bd195ee282b6813034ac25e607f64a88cbdedf37
 
 O OpenID Connect é a nossa recomendação se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador.
 
-[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
+
+[!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
 O fluxo de credenciais mais básico contém as seguintes etapas: cada um delas é descrita em detalhes abaixo.
 
 ![Fluxo de autenticação usando o OpenId Connect](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
+
+## <a name="openid-connect-metadata-document"></a>Documento de metadados do OpenID Connect
+
+O OpenID Connect descreve um documento de metadados que contém a maioria das informações necessárias para que um aplicativo inicie uma sessão. Isso inclui informações como as URLs a serem usadas e o local das chaves de assinatura públicas do serviço. O documento de metadados do OpenID Connect pode ser localizado em:
+
+```
+https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
+```
+Os metadados são um documento JSON (JavaScript Object Notation) simples. Veja o trecho a seguir para obter um exemplo. O conteúdo do trecho é totalmente descrito na [especificação do OpenID Connect](https://openid.net).
+
+```
+{
+    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "token_endpoint_auth_methods_supported":
+    [
+        "client_secret_post",
+        "private_key_jwt"
+    ],
+    "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
+    
+    ...
+}
+```
 
 ## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
 Quando o aplicativo Web precisa autenticar o usuário, ele deve direcionar o usuário para o ponto de extremidade `/authorize` . Essa solicitação é semelhante ao primeiro segmento do [Fluxo de código de autorização do OAuth 2.0](active-directory-protocols-oauth-code.md), com algumas diferenças importantes:
@@ -57,7 +83,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | locatário |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo.  Os valores permitidos são identificadores de locatário, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens independentes de locatário |
-| client_id |obrigatório |A ID de aplicativo atribuída ao seu aplicativo quando você o registra no Azure AD. Você poderá encontrá-la no Portal Clássico do Azure. Clique em **Active Directory**, escolha o diretório, escolha o aplicativo e clique em **Configurar** |
+| client_id |obrigatório |A ID de aplicativo atribuída ao seu aplicativo quando você o registra no Azure AD. Você pode encontrá-la no Portal do Azure. Clique em **Azure Active Directory**, clique em **Registros do Aplicativo**, escolha o aplicativo e localize a ID do Aplicativo na página do aplicativo. |
 | response_type |obrigatório |Deve incluir `id_token` para conexão do OpenID Connect.  Também pode incluir outros response_types, como `code`. |
 | scope |obrigatório |Uma lista de escopos separados por espaços.  Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento.  Você também pode incluir outros escopos nesta solicitação para solicitar o consentimento. |
 | nonce |obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que é incluído no `id_token` resultante como uma declaração.  O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token.  Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva ou um GUID que pode ser usado para identificar a origem da solicitação. |
@@ -142,6 +168,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |recomendável |A URL para a qual o usuário deve ser redirecionado após logoff bem-sucedido.  Se não estiver incluído, o usuário verá uma mensagem genérica. |
 
+## <a name="single-sign-out"></a>Logout único
+O Azure AD usa cookies para identificar uma sessão de usuário. Seu aplicativo Web também pode definir cookies para gerenciar sessões dentro de seu aplicativo. Quando um usuário entra pela primeira vez em um aplicativo, o Azure AD define um cookie no navegador do usuário. Quando o usuário entra em outro aplicativo posteriormente, o Azure AD primeiro verifica o cookie para determinar se o usuário tem ou não uma sessão de logon válida com o ponto de extremidade do Azure AD, em vez de autenticar novamente o usuário.
+
+De modo similar, quando o usuário sai pela primeira vez de um aplicativo, o Azure AD limpa o cookie do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam o Azure AD para autenticação. Para assegurar que o usuário saia de todos os aplicativos, o Azure AD envia uma solicitação HTTP GET para o `LogoutUrl` de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando os cookies que identificam a sessão do usuário. Você pode definir o `LogoutUrl` do Portal do Azure.
+
+1. Navegue para o [Portal do Azure](https://portal.azure.com).
+2. Escolha seu Active Directory clicando em sua conta no canto superior direito da página.
+3. No painel de navegação esquerdo, escolha **Azure Active Directory** e, em seguida, escolha **Registros de aplicativo** e selecione seu aplicativo.
+4. Clique em **Propriedades** e localize a caixa de texto **URL de Logoff**. 
+
 ## <a name="token-acquisition"></a>Aquisição de token
 Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto adquire simultaneamente um `authorization_code` que pode ser usado para obter `access_tokens` usando o Fluxo do Código de Autorização do OAuth.
 
@@ -200,8 +236,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para obter uma descrição dos possíveis códigos de erro e sua ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
 Após você conseguir uma autorização `code` e um `id_token`, poderá conectar o usuário e obter tokens de acesso em seu nome.  Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas na seção "Usar o código de autorização para solicitar um token de acesso" da nossa [documentação do protocolo OAuth](active-directory-protocols-oauth-code.md).
-
-
-<!--HONumber=Feb17_HO2-->
-
 

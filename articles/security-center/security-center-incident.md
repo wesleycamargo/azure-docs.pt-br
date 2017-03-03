@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
 ms.openlocfilehash: a688c392434be5a27f5691c2d89ad934e435a3c9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -61,9 +62,4 @@ Neste documento, você aprendeu a usar os recursos de incidente de segurança na
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md)– encontre perguntas frequentes sobre como usar o serviço.
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a conformidade e a segurança do Azure.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

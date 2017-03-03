@@ -18,6 +18,7 @@ ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 81215430b5731a53d4f4700499c1d9af963e712c
+ms.lasthandoff: 12/08/2016
 
 
 ---
@@ -37,7 +38,7 @@ No modelo de uso do **Microsoft Power BI Embedded** , o licenciamento para o Pow
 Como qualquer outro serviço no Azure, recursos para o Power BI Embedded são provisionados por meio de [APIs do Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
 
 ## <a name="workspace-collection"></a>Coleção de Espaços de Trabalho
-Uma **Coleção de Espaços de Trabalho** é o contêiner do Azure de nível mais elevado para recursos que contém 0 ou mais **Espaços de Trabalho**.  Uma **Espaço de trabalho** **Espaços de Trabalho** has all of the standard Umazure properties, as well as the following:
+Uma **Coleção de Espaços de Trabalho** é o contêiner do Azure de nível mais elevado para recursos que contém 0 ou mais **Espaços de Trabalho**.  Uma **Coleção** de **Espaços de Trabalho** tem todas as propriedades padrão do Azure, bem como o seguinte:
 
 * **Chaves de Acesso** – chaves usadas ao chamar com segurança as APIs do Power BI (descritas em uma seção posterior).
 * **Usuários** – Os usuários do AAD (Azure Active Directory) que têm direitos de administrador para gerenciar a Coleção de Espaços de Trabalho do Power BI por meio do portal do Azure ou da API do Azure Resource Manager.
@@ -68,9 +69,4 @@ Esses tokens são usados para as várias fases de suas interações com **Micros
 ## <a name="see-also"></a>Consulte também
 * [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 * [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

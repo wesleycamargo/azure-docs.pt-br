@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 01/18/2016
+ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 8725687a5700df72026f9154659758b9280872f4
-ms.openlocfilehash: 35247a68588ab8593c40ed0d62f37062350f9aec
+ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
+ms.openlocfilehash: 039ed6f4be9f3e0f6b92e5a9f11e12392912df9d
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,14 +80,17 @@ Neste exemplo, um usuário e um grupo são adicionados à função de usuários 
 }
 ```
 
+## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+
+Os administradores de assinaturas podem usar o **Controle de acesso** na folha de controle para configurar as funções. Isso não é o mesmo que ocorre para administradores de servidor ou usuários de banco de dados que, conforme descrito acima, são configurados no nível do servidor ou do banco de dados. 
+
+![Controle de acesso no Portal do Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+
+Funções se aplicam a usuários ou contas que precisam executar tarefas que podem ser realizadas no Portal ou usando modelos do Azure Resource Manager. Para saber mais, consulte [Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 Se você ainda não tiver implantado um modelo de tabela em seu servidor, agora é um bom momento. Para saber mais, confira [Implantar no Azure Analysis Services](analysis-services-deploy.md).
 
 Se você tiver implantado um modelo de tabela para seu servidor, você estará pronto para se conectar usando um cliente ou navegador. Para saber mais, confira [Obter dados do servidor do Azure Analysis Services](analysis-services-connect.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 496e00c2b9a0b374450f9a6f9dff5d41c805261c
-ms.openlocfilehash: 591f3440977b1c952b1b360f6d3f221cdbc5a7a7
+ms.sourcegitcommit: 1ce47043f85e30f616c8b22e1107b192d4962d8a
+ms.openlocfilehash: 73c35da427f1e2080ab6fdd086d3168dad495415
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -27,14 +28,14 @@ Este artigo descreve os detalhes sobre a configuração do Mapa do Serviço e do
 
 
 ## <a name="connected-sources"></a>Fontes conectadas
-A tabela a seguir descreve as fontes conectadas com suporte da solução Mapa do Serviço.
+O Mapa de Serviço obtém seus dados do Microsoft Dependency Agent.  O Dependency Agent depende do agente do OMS para suas conexões ao OMS.  Isso significa que um servidor deve ter o agente do OMS instalado e configurado primeiro e, em seguida, o Dependency Agent pode ser instalado.  A tabela a seguir descreve as fontes conectadas com suporte da solução Mapa do Serviço.
 
 | Fonte Conectada | Suportado | Descrição |
 |:--|:--|:--|
-| [Agentes do Windows](../log-analytics/log-analytics-windows-agents.md) | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows.  <br><br>Além do agente do OMS, os agentes do Windows exigem o Microsoft Dependency Agent.  Veja os [Sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| [Agentes do Linux](../log-analytics/log-analytics-linux-agents.md) | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux.  <br><br>Além do agente do OMS, os agentes do Linux exigem o Microsoft Dependency Agent.  Veja os [Sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| [Grupo de gerenciamento do SCOM](../log-analytics/log-analytics-om-agents.md) | Sim | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um grupo de gerenciamento do SCOM (System Center Operations Manager) conectado. <br><br>É necessária uma conexão direta do computador do agente do SCOM ao OMS. Os dados são enviados diretamente do grupo de gerenciamento para o repositório do OMS.|
-| [Conta de armazenamento do Azure](../log-analytics/log-analytics-azure-storage.md) | Não | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do armazenamento do Azure. |
+| Agentes do Windows | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows.  <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-windows-agents.md), os agentes do Windows exigem o Microsoft Dependency Agent.  Veja os [Sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Agentes do Linux | Sim | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux.  <br><br>Além do [Agente do OMS](../log-analytics/log-analytics-linux-agents.md), os agentes do Linux exigem o Microsoft Dependency Agent.  Veja os [Sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do SCOM | Sim | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do SCOM (System Center Operations Manager)](../log-analytics/log-analytics-om-agents.md) conectado. <br><br>É necessária uma conexão direta do computador do agente do SCOM ao OMS. Os dados são enviados diretamente do grupo de gerenciamento para o repositório do OMS.|
+| Conta de Armazenamento do Azure | Não | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do armazenamento do Azure. |
 
 O Mapa do Serviço só oferece suporte a plataformas de 64 bits.
 
@@ -97,10 +98,10 @@ O Dependency Agent é instalado em computadores com o Windows com InstallDepende
 
 Use as etapas a seguir para instalar o Dependency Agent em cada computador com o Windows:
 
-1.  Certifique-se de que o Agente do OMS seja instalado usando as instruções em Conectar computadores diretamente ao OMS.
-2.  Baixe o agente do Windows e o execute com o comando a seguir: <br>*InstallDependencyAgent-Windows.exe*
-3.  Acompanhe o assistente para instalar o agente.
-4.  Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em Agentes do Windows, o diretório de log será *C:\Arquivos de Programas\Microsoft Dependency Agent\logs*. 
+1.    Certifique-se de que o Agente do OMS seja instalado usando as instruções em Conectar computadores diretamente ao OMS.
+2.    Baixe o agente do Windows e o execute com o comando a seguir: <br>*InstallDependencyAgent-Windows.exe*
+3.    Acompanhe o assistente para instalar o agente.
+4.    Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em Agentes do Windows, o diretório de log será *C:\Arquivos de Programas\Microsoft Dependency Agent\logs*. 
 
 O Dependency Agent para Windows pode ser desinstalado por um administrador por meio do Painel de Controle.
 
@@ -112,9 +113,9 @@ O Dependency Agent é instalado em computadores com o Linux com InstallDependenc
  
 Use as seguintes etapas para instalar o Dependency Agent em cada computador com o Linux:
 
-1.  Certifique-se de que o Agente do OMS seja instalado usando as instruções em [Coletar e gerenciar dados de computadores com o Linux.  O Agente do OMS deve ser instalado antes do Dependency Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).
-2.  Instale o Dependency Agent para Linux como root usando o comando a seguir:<br>*sh InstallDependencyAgent-Linux64.bin*.
-3.  Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/microsoft/dependency-agent/log*.
+1.    Certifique-se de que o Agente do OMS seja instalado usando as instruções em [Coletar e gerenciar dados de computadores com o Linux.  O Agente do OMS deve ser instalado antes do Dependency Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).
+2.    Instale o Dependency Agent para Linux como root usando o comando a seguir:<br>*sh InstallDependencyAgent-Linux64.bin*.
+3.    Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Desinstalação do Dependency Agent no Linux
 Para desinstalar completamente o Dependency Agent do Linux, você deve remover o agente propriamente dito e o Conector instalado automaticamente com o agente.  Você pode desinstalar ambos com o seguinte comando único:
@@ -177,8 +178,8 @@ O Dependency Agent Management Pack é executado dentro do Microsoft Management A
   
 Verifique se o pacote de gerenciamento foi baixado ao executar as etapas a seguir:
 
-1.  Procure um arquivo chamado Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
-2.  Se o arquivo não estiver presente e se o agente estiver conectado a um grupo de gerenciamento do SCOM, verifique se ele foi importado para o SCOM ao verificar os Pacotes de Gerenciamento do espaço de trabalho de Administração do Console de Operações.
+1.    Procure um arquivo chamado Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
+2.    Se o arquivo não estiver presente e se o agente estiver conectado a um grupo de gerenciamento do SCOM, verifique se ele foi importado para o SCOM ao verificar os Pacotes de Gerenciamento do espaço de trabalho de Administração do Console de Operações.
 
 O Pacote de Gerenciamento do Mapa do Serviço grava os eventos no log de eventos do Windows no Operations Manager.  O log pode ser [pesquisado no OMS](../log-analytics/log-analytics-log-searches.md) por meio da solução de log do sistema, onde você pode configurar quais arquivos de log serão carregados.  Se os eventos de depuração estiverem habilitados, eles serão gravados no log de eventos do aplicativo, com a origem do evento *ADMConnector*.
 
@@ -198,7 +199,7 @@ Os rastreamentos são gravados em c:\Windows\Logs\OpsMgrTrace.  Você pode parar
 #### <a name="microsoft-dependency-agent"></a>Microsoft Dependency Agent
 Para gerar dados de solução de problemas do Dependency Agent, faça logon com uma conta que tenha privilégios sudo ou root e execute o comando a seguir.  Você pode adicionar o sinalizador --help para exibir opções adicionais.
 
-    /opt/microsoft/dependency-agent/scripts/collect-dependency-agent-data.sh
+    /opt/microsoft/dependency-agent/lib/scripts/collect-dependency-agent-data.sh
 
 O pacote de suporte de dados é salvo em /var/opt/microsoft/dependency-agent/log (se for o root) no diretório de instalação do agente ou no diretório base do usuário que executa o script (se não for o root).  Você pode usar a opção --file <filename> para salvá-lo em um local diferente.
 
@@ -322,9 +323,4 @@ Para saber mais sobre o uso e a coleta de dados, veja a [Declaração de Privaci
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [usar o Mapa do Serviço](operations-management-suite-service-map.md) depois que ele tiver sido implantado e configurado.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

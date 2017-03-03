@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 44cfe1c86abaea19ce48255902b2b9611560d695
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 92bf625a9e62a24287b752bc1cbe061f1ef83a03
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -32,9 +33,7 @@ Para usuários com uma conta existente do Azure AD ou com contas da Microsoft, a
 ## <a name="social-id-user-first-time-redemption"></a>Primeiro resgate de usuário de ID Social
 A colaboração do Azure AD B2B facilita o uso de qualquer endereço de email para o resgate. Confira a experiência de resgate quando um endereço de email que não é da Microsoft é usado para colaboração B2B. Esse é um fluxo de resgate que precisa de mais envolvimento, pois talvez seja necessário criar uma conta no momento do resgate. Confira no vídeo a seguir:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group]
-
-Se o vídeo não aparecer incorporado, acesse-o [aqui](https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/admin-adding-guests-to-a-group/Player]
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -51,9 +50,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

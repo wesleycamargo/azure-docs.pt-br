@@ -15,8 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: f8ce1215861da2db49f5148400195c4fefb9a01d
+ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
+ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -53,6 +54,31 @@ Ou chamando:
 ``` text
 POST https://management.azure.com/{resourceID of your logic app}/triggers/myendpointtrigger/listCallbackURL?api-version=2015-08-01-preview
 ```
+
+### <a name="changing-http-method-of-the-trigger"></a>Alterar o método HTTP do gatilho
+Por padrão, o gatilho de solicitação em Aplicativos Lógicos espera uma solicitação HTTP POST. No entanto, você pode configurar o método HTTP em `Show advanced options`.
+
+ > [!NOTE]
+ > Somente um tipo de método é permitido.
+
+### <a name="relative-trigger-url"></a>URL relativa do gatilho
+Você também pode personalizar o caminho relativo da URL de solicitação para aceitar parâmetros.
+
+1. Expanda `Show advanced options` do gatilho **Request**.
+ - Em `Relative path`, insira `customer/{customerId}`.
+
+  ![Gatilho de URL Relativa](./media/logic-apps-http-endpoint/relativeurl.png)
+
+2. Atualize a ação **Respond** para fazer uso do parâmetro.
+ - Você deverá ver `customerId`, que aparecerá no seletor de token.
+ - Atualize o corpo da respond para retornar `Hello {customerId}`.
+
+  ![Resposta à URL relativa](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+
+3. Salve o Aplicativo Lógico, você deverá observar a atualização da URL de solicitação para incluir o caminho relativo.
+
+4. Copie a nova URL de solicitação e cole-a em uma nova janela do navegador. Substitua `{customerId}` por `123` e pressione Enter.
+ - Você deverá ver `Your customer Id is 123` retornado.
 
 ### <a name="security-for-the-trigger-url"></a>Segurança para a URL de gatilho
 A URL de retorno de chamada do aplicativo de lógica é gerada com segurança usando uma Assinatura de Acesso Compartilhado.  A assinatura é passada como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado.  Ele é gerado por meio de uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que está sendo executada.  A menos que alguém tenha acesso à chave secreta do aplicativo lógico, não seria possível gerar uma assinatura válida.
@@ -154,9 +180,4 @@ Essa funcionalidade está disponível por meio do **Gerenciamento de API**:
 [1]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [2]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

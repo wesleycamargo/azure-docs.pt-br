@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51a736c051bef8550662060fdde89fc50e32928a
+ms.sourcegitcommit: 400793331aa2d56358a83a51ce64c67f59bbf3b7
+ms.openlocfilehash: 2a204ffbb915370328e574dc3cba6a617e97c87a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -66,19 +67,19 @@ Para configurar a integração do MCM com o Azure AD, você precisará adicionar
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-    ![Aplicativos](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Applications")
+    ![Aplicativos](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Aplicativos")
 
 4. Clique em **Adicionar** na parte inferior da página.
    
-    ![Adicionar aplicativo](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Add application")
+    ![Adicionar aplicativo](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Adicionar aplicativo")
 
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Add an application from gallerry")
+    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-mcm-tutorial/tutorial_general_04.png "Adicionar um aplicativo da galeria")
 
 6. Na **caixa de pesquisa**, digite **MCM**.
    
-    ![Galeria de aplicativos](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Application gallery")
+    ![Galeria de aplicativos](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_01.png "Galeria de aplicativos")
 
 7. No painel de resultados, selecione **MCM** e clique em **Concluir** para adicionar o aplicativo.
    
@@ -106,15 +107,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 1. No portal clássico do Azure, na página de integração de aplicativos do **MCM**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-    ![Configurar o logon único](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configure single sign-on")
+    ![Configurar logon único](./media/active-directory-saas-mcm-tutorial/tutorial_general_05.png "Configurar logon único")
 
 2. Na página **Como você deseja que os usuários façam logon no MCM**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-    ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Microsoft Azure AD Single Sign-On")
+    ![Logon Único do AD do Microsoft Azure](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_03.png "Logon Único do AD do Microsoft Azure")
 
 3. Na página de diálogo Definir Configurações de Aplicativo, execute as seguintes etapas:
    
-    ![Configurar a URL do Aplicativo](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configurar URL do Aplicativo")
    
     a. Na caixa de texto **URL de Logon**, digite: `https://myaba.co.uk/client-access/<company name>/saml.php`.
    
@@ -122,17 +123,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 
 4. Na página **Configurar o logon único no MCM**, clique em **Baixar metadados** e salve o arquivo de certificado no computador.
    
-    ![Configurar Logon Único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_05.png "Configurar Logon Único")
 
 5. Para que o SSO seja configurado para seu aplicativo, contate a equipe de suporte do MCM. Anexe o arquivo de metadados baixado e compartilhe-o com a equipe do MCM para configurar o SSO no lado dela.
 
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Configurar Logon Único")
 
 7. Na página **Confirmação de logon único**, clique em **Concluir**.
    
-    ![Configurar o logon único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Configurar Logon Único")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
@@ -202,13 +203,13 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no MCM. Traba
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao FMCM.
 
-![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Assign users")
+![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_00.png "Atribuir usuários")
 
 **Para atribuir Brenda Fernandes ao MCM, execute as seguintes etapas:**
 
 1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
-    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_01.png "Atribuir usuários")
 
 2. Na lista de aplicativos, selecione **MCM**.
    
@@ -216,13 +217,13 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 
 3. No menu na parte superior, clique em **Usuários**.
    
-    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Atribuir usuários")
 
 4. Na lista de usuários, selecione **Brenda Fernandes**.
 
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
-    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Assign users")
+    ![Atribuir usuários](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Atribuir usuários")
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
@@ -232,10 +233,5 @@ Ao clicar no bloco do MCM no Painel de Acesso, você deverá ser conectado autom
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

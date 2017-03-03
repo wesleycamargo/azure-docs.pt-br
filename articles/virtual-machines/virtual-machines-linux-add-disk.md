@@ -1,6 +1,6 @@
 ---
-title: Adicionar um disco a uma VM do Linux | Microsoft Docs
-description: "Aprenda a adicionar um disco persistente à sua VM do Linux"
+title: Adicionar uma VM Linux usando a CLI do Azure | Microsoft Docs
+description: "Saiba como adicionar um disco persistente à sua VM Linux com a CLI do Azure 1.0 e 2.0."
 keywords: "máquina virtual do Linux, adicionar disco de recurso"
 services: virtual-machines-linux
 documentationcenter: 
@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.date: 02/02/2017
 ms.author: rasquill
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 50a71382982256e98ec821fd63c95fbe5a767963
-ms.openlocfilehash: 91f4ada749c3f37903a8757843b10060b73d95a2
-
+ms.sourcegitcommit: f520ed9cc1a3a7063d5b3ddacf7f0c8174e75a36
+ms.openlocfilehash: 77cbdaaea0eec5265ef005f66dd5efdd8e237022
+ms.lasthandoff: 02/21/2017
 
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
-Este artigo mostra como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento. Para adicionar um disco, você precisa da [CLI do Azure](../xplat-cli-install.md) configurada no modo Resource Manager (`azure config mode arm`).  
+Este artigo mostra como anexar um disco persistente à sua VM para que você possa preservar dados, mesmo que sua VM seja provisionada novamente devido à manutenção ou ao redimensionamento. 
 
 ## <a name="quick-commands"></a>Comandos rápidos
 O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
@@ -31,13 +32,15 @@ O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de
 Para usar os discos gerenciados:
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 Para usar os discos não gerenciados:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="attach-a-managed-disk"></a>Anexar um disco gerenciado
@@ -50,17 +53,18 @@ O uso de discos gerenciados permite que você se concentre em suas VMs e nos dis
 Se você precisar apenas de um novo disco em sua VM, você pode usar o comando `az vm disk attach`.
 
 ```azurecli
-az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk –-new
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk \
+  –-new --size-gb 50
 ```
 
 ### <a name="attach-an-existing-disk"></a>Anexar um disco existente 
 
-Em muitos casos, você anexa discos que já foram criados. Primeiro você encontrará a identificação de disco e, depois, a passará para o comando `az vm disk attach-disk`. O código a seguir usa um disco criado com `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
+Em muitos casos, você anexa discos que já foram criados. Primeiro você encontrará a ID do disco e depois a passará para o comando `az vm disk attach`. O exemplo a seguir usa um disco criado com `az disk create -g myResourceGroup -n myDataDisk --size-gb 50`.
 
 ```azurecli
 # find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
-az vm disk attach-disk -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 A saída é algo semelhante ao seguinte (você pode usar a opção `-o table` para qualquer comando a fim de formatar a saída):
@@ -96,22 +100,13 @@ A saída é algo semelhante ao seguinte (você pode usar a opção `-o table` pa
 O processo de anexar um novo disco é rápido se você não se importar em criar um disco na mesma conta de armazenamento que sua VM. Digite `azure vm disk attach-new` para criar e anexar um novo disco GB à sua VM. Se você não identificar explicitamente uma conta de armazenamento, qualquer disco que você criar será colocado na mesma conta de armazenamento na qual o disco do sistema operacional reside. O exemplo a seguir anexa um disco de `50` GB à VM denominada `myVM` no grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
-azure vm disk attach-new myResourceGroup myVM 50
-```
-
-Saída
-
-```azurecli
-info:    Executing command vm disk attach-new
-+ Looking up the VM "myVM"
-info:    New data disk location: https://mystorageaccount.blob.core.windows.net/vhds/myVM-20150526-043.vhd
-+ Updating VM "myVM"
-info:    vm disk attach-new command OK
+az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
+  --new --size-gb 50
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Conectar-se à VM do Linux para montar o novo disco
 > [!NOTE]
-> Este tópico faz a conexão com uma VM usando nomes de usuário e senhas. Para usar pares de chaves pública e privada a fim de se comunicar com a VM, confira [Como usar SSH com Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você pode modificar a conectividade **SSH** de VMs criadas com o comando `azure vm quick-create` usando o comando `azure vm reset-access` para redefinir completamente o acesso **SSH**, adicionar ou remover usuários ou adicionar arquivos de chave pública para proteger o acesso.
+> Este tópico faz a conexão com uma VM usando nomes de usuário e senhas. Para usar pares de chaves pública e privada a fim de se comunicar com a VM, confira [Como usar SSH com Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 
@@ -348,10 +343,5 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 * Lembre-se de que o novo disco não está disponível para a VM, caso seja reinicializado, a menos que você grave essas informações no seu arquivo [fstab](http://en.wikipedia.org/wiki/Fstab) .
 * Para garantir que a VM Linux seja configurada corretamente, leia as recomendações em [Otimizar sua VM do Linux no Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 * Expanda a capacidade de armazenamento adicionando mais discos e [configure o RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter desempenho adicional.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

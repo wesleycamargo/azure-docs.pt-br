@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: fb2fe0efe00a7ef7fd1c22ca94c76b2d5f4c5510
 ms.openlocfilehash: 0ab556f074700b7e26be002bc894914a1d429e79
+ms.lasthandoff: 02/11/2017
 
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Usar o Apache Kafka (visualização) com o Storm no HDInsight
@@ -318,10 +319,5 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 Para obter mais topologias de exemplo que podem ser usadas com o Storm no HDInsight, confira [Topologias Storm de exemplo e componentes](hdinsight-storm-example-topology.md).
 
 Para obter informações sobre como implantar e monitorar topologias no HDInsight baseado em Linux, confira [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

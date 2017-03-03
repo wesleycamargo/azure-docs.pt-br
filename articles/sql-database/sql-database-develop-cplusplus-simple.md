@@ -18,6 +18,7 @@ ms.author: tobiast
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: 697a99ec828984d4e6f6e3dc446bc6dc8377cf57
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -134,10 +135,5 @@ Você pode encontrar a solução GetStarted que contém todos os exemplos neste 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

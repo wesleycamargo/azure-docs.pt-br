@@ -17,6 +17,7 @@ ms.author: raynew
 translationtype: Human Translation
 ms.sourcegitcommit: 7ff27bb866bd9b1f2a24b5c0ff5d83dea2227f49
 ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -443,9 +444,4 @@ Esta tabela resume como os dados são armazenados neste cenário:
 | **Plano de recuperação** | Planos de recuperação ajudam a compilar um plano de orquestração para o data center de recuperação. Você pode definir a ordem na qual as VMs ou um grupo de máquinas virtuais devem ser iniciados no site de recuperação. Você também pode especificar scripts automatizados para execução ou qualquer ação manual a ser executada no momento da recuperação para cada VM. O failover costuma ser disparado no nível do plano de recuperação para a recuperação coordenada. | A Recuperação de Site coleta, processa e transmite metadados para o plano de recuperação, incluindo metadados de máquina virtual e metadados de scripts de automação e anotações de ações manuais. |Os metadados são usados para compilar o plano de recuperação no portal do Azure. |Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não crie planos de recuperação. |
 | **Mapeamento de rede** | Mapeia as informações de rede do data center principal para o data center de recuperação. Quando as VMs são recuperadas no site de recuperação, o mapeamento de rede ajuda a estabelecer a conectividade de rede. |A Recuperação de Site coleta, processa e transmite os metadados das redes lógicas para cada site (primário e datacenter). |Os metadados são usados para preencher as configurações de rede para que você possa mapear as informações de rede. | Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não use o mapeamento de rede. |
 | **Failover (planejado/não planejado/teste)** | O failover faz o failover de VMs de um datacenter gerenciado por VMM para outro. A ação de failover é disparada manualmente no portal do Azure. |O Provedor no servidor VMM é notificado sobre o evento de failover pela Recuperação de Site e executa uma ação de failover no host Hyper-V por meio de interfaces do VMM. O failover real de uma VM é de um host do Hyper-V para outro e é tratado pelo Windows Server 2012 ou pela Réplica do Hyper-V do Windows Server 2012 R2. O Site Recovery usa as informações enviadas para popular o status das informações de ação de failover no portal do Azure. | Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não use o failover. |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

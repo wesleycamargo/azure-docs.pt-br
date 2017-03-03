@@ -16,17 +16,20 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: e5f2eaa55e92c9a630533a5594e1a659cc2192f1
-ms.openlocfilehash: 390195c8f07430e5fac6d53a77f6bb1aba53b197
+ms.sourcegitcommit: 44c1f6ddac328516d707cfe5d328e02e50652e5b
+ms.openlocfilehash: e66857cf6cc05aae2fa102173a2958564ec936e6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para o Managed Disks no Azure
 
-O Azure Managed Disks elimina a necessidade de gerenciar [contas de armazenamento](../storage/storage-introduction.md) para VMs do Azure. Você só precisa especificar o tipo [Premium](../storage/storage-premium-storage-performance.md) ou [Standard](../storage/storage-standard-storage.md) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você. 
+O Azure Managed Disks simplifica o gerenciamento do armazenamento, acabando com a necessidade de gerenciar as contas de armazenamento de forma separada.  Também é possível migrar suas VMs do Azure para o Managed Disks para aproveitar a melhor confiabilidade das VMs em um conjunto de disponibilidade. Isso garante um isolamento suficiente dos discos de VMs diferentes em um conjunto de disponibilidade a fim de evitar pontos de falhas. Ele coloca automaticamente os discos de diferentes VMs em um Conjunto de disponibilidade em unidades de escala (carimbos) de Armazenamentos diferentes, o que limita o impacto de falhas em uma unidade de escala de Armazenamento causadas por falhas de hardware e de software. Com base em suas necessidades, você pode escolher entre dois tipos de opções de armazenamento: 
+ 
+- Os [Managed Disks Premium](../storage/storage-premium-storage.md) são uma mídia de armazenamento com base em unidade de estado sólido (SSD), que fornece alto desempenho, suporte a disco de baixa latência para máquinas virtuais com cargas de trabalho de E/S intensas. Você pode tirar proveito da velocidade e do desempenho desses discos migrando o Premium Managed Disks.
 
-Se você estiver usando a opção de armazenamento standard para seus discos, migre para o Premium Managed Disks e aproveite a velocidade e o desempenho desses discos. [Premium Managed Disks](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage-performance) é armazenado em SSD (Unidade de Estado Sólido), que fornece alto desempenho, suporte a disco de baixa latência para máquinas virtuais com cargas de trabalho de E/S intensas.
+- [Standard Managed Disks](../storage/storage-standard-storage.md) usa mídia de armazenamento com base em HDD (Unidade de Disco Rígido) e são apropriados para desenvolvimento/teste e outras cargas de trabalho de acesso infrequente menos sensíveis à variabilidade de desempenho. 
 
 É possível migrar para o Managed Disks nos cenários a seguir:
 
@@ -40,13 +43,7 @@ Se você estiver usando a opção de armazenamento standard para seus discos, mi
 | Todas as VMs em uma vNet do modo clássico para o modo do Resource Manager em discos gerenciados     | [Migrar os recursos de IaaS do modo clássico para o modo do Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md) e [Converter uma VM de discos não gerenciados para discos gerenciados](virtual-machines-windows-convert-unmanaged-to-managed-disks.md) | 
 
 
-## <a name="overview-of-managed-disks"></a>Visão Geral do Managed Disks
 
-O Azure Managed Disks simplifica o gerenciamento do armazenamento, acabando com a necessidade de gerenciar as contas de armazenamento de forma separada.  Também é possível migrar suas VMs do Azure para o Managed Disks para aproveitar a melhor confiabilidade das VMs em um conjunto de disponibilidade. Isso garante um isolamento suficiente dos discos de VMs diferentes em um conjunto de disponibilidade a fim de evitar pontos de falhas. Ele coloca automaticamente os discos de diferentes VMs em um Conjunto de disponibilidade em unidades de escala (carimbos) de Armazenamentos diferentes, o que limita o impacto de falhas em uma unidade de escala de Armazenamento causadas por falhas de hardware e de software. Com base em suas necessidades, você pode escolher entre dois tipos de opções de armazenamento: 
- 
-- [Premium Managed Disks](../storage/storage-premium-storage.md) é uma mídia de armazenamento com base em SSD (Unidade de Estado Sólido), que fornece alto desempenho, suporte a disco de baixa latência para máquinas virtuais com cargas de trabalho de E/S intensas. Você pode tirar proveito da velocidade e do desempenho desses discos migrando o Premium Managed Disks.
-
-- [Standard Managed Disks](../storage/storage-standard-storage.md) usa mídia de armazenamento com base em HDD (Unidade de Disco Rígido) e são apropriados para desenvolvimento/teste e outras cargas de trabalho de acesso infrequente menos sensíveis à variabilidade de desempenho. 
 
 
 ## <a name="plan-for-the-conversion-to-managed-disks"></a>Planejar-se para a conversão para Managed Disks
@@ -100,9 +97,4 @@ Confira os [preços do Managed Disks](https://azure.microsoft.com/en-us/pricing/
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Managed Disks](../storage/storage-managed-disks-overview.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

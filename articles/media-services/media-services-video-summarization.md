@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/16/2017
 ms.author: milanga;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+ms.sourcegitcommit: 343658944394e7b620bc70aa0d92affada07e91d
+ms.openlocfilehash: 7510c8ab4adadbd7d738ba0b8e2bbdddba8d1048
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -26,7 +27,11 @@ O MP (processador de mídia) das **Miniaturas de Vídeo de Mídia do Azure** per
 
 No momento, o MP da **Miniatura de Vídeo de Mídia do Azure** está em Preview.
 
-Este tópico fornece detalhes sobre a **Miniatura de Vídeo de Mídia do Azure** e mostra como usá-la com o SDK dos Serviços de Mídia para .NET
+Este tópico fornece detalhes sobre a **Miniatura de Vídeo de Mídia do Azure** e mostra como usá-la com o SDK dos Serviços de Mídia para .NET.
+
+## <a name="limitations"></a>Limitações
+
+Em alguns casos, se o vídeo não for composto de cenas diferentes, a saída será apenas uma única captura.
 
 ## <a name="video-summary-example"></a>Exemplo de resumo de vídeo
 Apresentamos abaixo alguns exemplos do que o processador de mídia das Miniaturas de Vídeo de Mídia do Azure é capaz de fazer:
@@ -55,7 +60,7 @@ A tabela a seguir descreve a duração padrão, quando **maxMotionThumbnailInSec
 |  |  |  |
 | --- | --- | --- | --- | --- |
 | Duração do vídeo |d < 3 min |3 min < d < 15 min |
-| Duração da miniatura |15 s (2 a 3 cenas) |30 s (3 a 5 cenas) |
+| Duração da miniatura |15 s (2 a&3; cenas) |30 s (3 a&5; cenas) |
 
 O JSON a seguir define os parâmetros disponíveis.
 
@@ -262,10 +267,5 @@ O programa a seguir mostra como:
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

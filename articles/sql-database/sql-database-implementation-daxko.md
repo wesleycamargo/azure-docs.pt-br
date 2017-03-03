@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: b759e9936a45f989088de5e89a59371c5ea64e1c
 ms.openlocfilehash: 079a05d16ccebb705f410e25f0ed5762db20ae22
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -94,10 +95,5 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 * Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

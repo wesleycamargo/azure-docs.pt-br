@@ -16,6 +16,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 2d5ea8109f5fde5f2b480ceeea34c365b619fab5
 ms.openlocfilehash: 5f42292fa9238dadd717d5c2e9530b22ee10d943
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -87,10 +88,5 @@ Se você deseja desinstalar o Conector, desinstale o serviço Conector e o servi
 Agora você está pronto para [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
 
 Se tem aplicativos que estão em redes separadas ou em locais diferentes, você pode usar grupos de conector para organizar os conectores diferentes em unidades lógicas. Saiba mais sobre como [Trabalhar com conectores de Proxy de Aplicativo](active-directory-application-proxy-connectors.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

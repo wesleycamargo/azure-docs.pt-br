@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
 ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -64,10 +65,5 @@ Estes links serão úteis na exploração em profundidade do serviço:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

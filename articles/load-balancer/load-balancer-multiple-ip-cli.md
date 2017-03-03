@@ -18,6 +18,7 @@ ms.author: annahar
 translationtype: Human Translation
 ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
 ms.openlocfilehash: f52a86b01e45a32315b017c2605f7caebb68b006
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -151,9 +152,4 @@ Execute as etapas abaixo para obter o cenário descrito neste artigo:
     ```
 
 13. Por fim, você deve configurar os registros de recurso DNS para apontar para o endereço IP do endereço IP front-end do Balanceador de Carga. Você pode hospedar seus domínios no DNS do Azure. Para saber mais sobre como usar o DNS do Azure com o Load Balancer, confira [Usar o DNS do Azure com outros serviços do Azure](../dns/dns-for-azure-services.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

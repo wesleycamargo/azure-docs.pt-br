@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: fe2d2ef731fb94c7e4e8da0e518bcef8c1ada650
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -83,10 +84,5 @@ Essa operação termina permanentemente a replicação para o banco de dados sec
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a replicação geográfica ativa, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md).
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

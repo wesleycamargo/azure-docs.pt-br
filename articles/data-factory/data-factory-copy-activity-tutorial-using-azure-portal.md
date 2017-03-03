@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
 ms.openlocfilehash: 299a55865c1c91e664d67095de76708f444d30b9
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -412,9 +413,4 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory. |
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
 | [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

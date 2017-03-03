@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
 ms.openlocfilehash: e066a7fc671399ba44bec35a2ea860fccddb4cc5
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -110,9 +111,4 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 [platforms]: app-insights-platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

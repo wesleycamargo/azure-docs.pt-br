@@ -17,6 +17,7 @@ ms.author: johnkem; magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
 ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -213,9 +214,4 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 * [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Alterar as configurações de diagnóstico usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

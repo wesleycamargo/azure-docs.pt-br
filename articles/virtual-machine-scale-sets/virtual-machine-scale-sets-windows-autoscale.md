@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 4fa0cdc2ee71d4e499dfc45bac7b690d728b626a
 ms.openlocfilehash: 2649edd4af67e25ce49bf0ced858b7c7e4633290
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -595,10 +596,5 @@ Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de
 * Encontre exemplos de recursos de monitoramento do Azure Monitor nos [Exemplos de início rápido do Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 * Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

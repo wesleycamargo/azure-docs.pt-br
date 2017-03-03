@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 1e941778c194462b311e6347c56670d3e0193e90
 ms.openlocfilehash: ebc44a4190bac697697e0b651039a0e8ee8e4a95
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -93,9 +94,4 @@ Verifique outros vídeos em "Ciência de Dados para Iniciantes" no Aprendizado d
 ## <a name="next-steps"></a>Próximas etapas
 * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
 * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -17,6 +17,7 @@ ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
 ms.openlocfilehash: bd042908fec2dcf499dd1cb5230f62ec4be9fdea
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -150,9 +151,4 @@ Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independen
 * Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 
 [Azure classic portal]: http://manage.windowsazure.com
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

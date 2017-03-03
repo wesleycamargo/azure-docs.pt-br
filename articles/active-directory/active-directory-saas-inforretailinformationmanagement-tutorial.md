@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/06/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9ab2950715850d0c2ee0f398cd44399a5974c1a9
-ms.openlocfilehash: 6a9f414334f4dc078a3c47dac0c71bbf9f2c4158
+ms.sourcegitcommit: ad9c78483af88a85a1b790269231683155760d76
+ms.openlocfilehash: aef560c2b05a80c59743c4cc6d68d6d2c14bdc3f
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -93,7 +94,7 @@ Para configurar e testar o logon único do Azure AD com o Infor Retail – Infor
 
 1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
-3. **[Criando um varejo informações – o usuário de teste do gerenciamento de informações](#creating-an-infor-retail---information-management-user) ** - para ter um equivalente de Britta Simon no varejo de informações – gerenciamento de informação que é vinculado à representação no AD do Azure.
+3. **[Criando um varejo informações – o usuário de teste do gerenciamento de informações](#creating-an-infor-retail---information-management-test-user) ** - para ter um equivalente de Britta Simon no varejo de informações – gerenciamento de informação que é vinculado à representação no AD do Azure.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
@@ -107,7 +108,7 @@ Nesta seção, você habilitar o AD do Azure logon único no portal de gerenciam
 
     ![Configurar Logon Único][4]
 
-2. No **sign-on único** página de diálogo, como **modo** selecione **baseado em SAML logon** para habilitar o logon único.
+2. Na página da caixa de diálogo **Logon único**, como **Modo**, selecione **Logon com base em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_01.png)
 
@@ -115,28 +116,28 @@ Nesta seção, você habilitar o AD do Azure logon único no portal de gerenciam
 
     ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_02.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL no seguinte padrão: `http://<company name>.mingle.infor.com`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.mingle.infor.com`
     
-    b. Na caixa de texto **URL de resposta**, digite a URL com o seguinte padrão: `http://<company name>.mingle.infor.com:443/sp/ACS.saml2`
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
     
 4. Se você quiser configurar o aplicativo em **modo iniciado do SP**, no **informações varejo – domínio de gerenciamento de informações e URLs** seção execute as seguintes etapas:
     
     ![Configurar Logon Único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_03.png)
 
-    a. Clique no **Mostrar URL configurações avançadas** opção
+    a. Clique na opção **Mostrar URL configurações avançadas**
 
-    b. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: `https://<company name>.mingle.infor.com/<company code>`
+    b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.mingle.infor.com/<company code>`
 
     > [!NOTE] 
-    > Observe que esses não são os valores reais. Você precisa atualizar esses valores com o URL de entrada real, identificador e URL de resposta. Entre em contato com [informações varejo – a equipe de suporte de gerenciamento de informações](http://www.infor.com/contact/) para obter esses valores.
+    > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Entre em contato com [Infor Retail – equipe de suporte de gerenciamento de informações](mailto:innovate@infor.com) para obter esses valores.
 
 5. Sobre o **certificado de autenticação SAML** seção, clique em **criar novo certificado**.
 
-    ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)   
+    ![Configurar Logon Único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_04.png)     
 
 6. Sobre o **criar um novo certificado** caixa de diálogo, clique no ícone de calendário e selecione um **data de expiração**. Em seguida, clique no botão **Salvar**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
+    ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_300.png)
 
 7. Sobre o **certificado de autenticação SAML** seção, selecione **ativar o novo certificado** e clique em **salvar** botão.
 
@@ -146,11 +147,11 @@ Nesta seção, você habilitar o AD do Azure logon único no portal de gerenciam
 
     ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_400.png)
 
-9. No **certificado de autenticação SAML** seção, clique em **baixar** e, em seguida, salve o arquivo de metadados em seu computador.
+9. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![Configurar o logon único](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_06.png) 
 
-10. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do Infor Retail – Information Management](http://www.infor.com/contact/) e forneça o arquivo de **metadados** baixado.
+10. Para que o SSO seja configurado para o aplicativo, entre em contato com a [equipe de suporte do Infor Retail – Information Management](mailto:innovate@infor.com) e forneça o arquivo de **metadados** baixado.
   
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -188,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no portal de Gerenciament
 
 ### <a name="creating-an-infor-retail--information-management-test-user"></a>Criando um varejo informações – o usuário de teste do gerenciamento de informações
 
-Nesta seção, você deve criar um usuário chamado Britta Simon no varejo de informações – gerenciamento de informações. Trabalhe com [informações varejo – a equipe de suporte de gerenciamento de informações](http://www.infor.com/contact/) para adicionar os usuários no varejo de informações – plataforma de gerenciamento de informações.
+Nesta seção, você deve criar um usuário chamado Britta Simon no varejo de informações – gerenciamento de informações. Trabalhe com [informações varejo – a equipe de suporte de gerenciamento de informações](mailto:innovate@infor.com) para adicionar os usuários no varejo de informações – plataforma de gerenciamento de informações.
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
@@ -250,8 +251,3 @@ Quando você clica em varejo informações – bloco de gerenciamento de informa
 [201]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_general_203.png
-
-
-<!--HONumber=Jan17_HO3-->
-
-

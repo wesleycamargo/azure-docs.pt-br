@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
 ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -125,9 +126,4 @@ Para gerenciar ambos os diretórios no portal clássico do Azure, execute essas 
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

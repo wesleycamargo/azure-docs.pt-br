@@ -15,6 +15,7 @@
 ### [Proteger back-end de API Web com o AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Conectar-se a uma rede virtual](api-management-using-with-vnet.md)
 ### [Conectar uma rede virtual interna](api-management-using-with-internal-vnet.md)
+### [Integrar o Gateway de Aplicativo em uma rede virtual interna](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Autenticação Mútua de certificado](api-management-howto-mutual-certificates.md)
 ## Configurar Políticas
 ### [Caching personalizado](api-management-sample-cache-by-key.md)
@@ -24,13 +25,16 @@
 ### [Índice de referência de política](api-management-policy-reference.md)
 ### [Visão geral das políticas](api-management-howto-policies.md)
 ### [Gerenciar segredos usando propriedades](api-management-howto-properties.md)
+### [Proteger APIs usando a autenticação de certificado do cliente](api-management-howto-mutual-certificates-for-clients.md)
 ## Personalizar a experiência do desenvolvedor
-### [Personalizar o Portal do desenvolvedor](api-management-customize-portal.md)
+### [Modificar o layout e o conteúdo da página](api-management-modify-content-layout.md)
+### [Personalizar o estilo dos elementos da página](api-management-customize-styles.md)
+### [Personalizar as páginas do sistema usando modelos](api-management-developer-portal-templates.md)
 ### [Autenticação com AAD](api-management-howto-aad.md)
+### [Autenticação com o AAD B2C](api-management-howto-aad-b2c.md)
 ### [Autenticação delegada](api-management-howto-setup-delegation.md)
 ### [Notificações e modelos por email](api-management-howto-configure-notifications.md)
 ### [Habilitar suporte ao console OAuth](api-management-howto-oauth2.md)
-### [Personalizar usando modelos](api-management-developer-portal-templates.md)
 ## Gerenciar na produção
 ### [Gerenciar grupos](api-management-howto-create-groups.md)
 ### [Implantar em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
@@ -80,9 +84,4 @@
 ## [Fornecer acesso tipo RBAC usando a API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Configurar PostMan para chamar APIs de Gerenciamento de API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Plug-in de Gerenciamento de API para SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

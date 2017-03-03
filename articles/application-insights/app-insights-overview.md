@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9755319296f960cf85eac13f98d139d086664de2
 ms.openlocfilehash: 6fea13d0c7e00032183b3b3ea4ea0f6e401d1e93
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -165,9 +166,4 @@ Introdução ao tempo de desenvolvimento com:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

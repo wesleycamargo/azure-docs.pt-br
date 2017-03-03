@@ -17,6 +17,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: a0e80acad4e8db2177e699f90f7296c64b38e718
 ms.openlocfilehash: edcf34610e7517f9ca16f8c239e4080c475933f4
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -110,10 +111,5 @@ O Azure oferece [diversos tamanhos de VM](../virtual-machines/virtual-machines-w
 ## <a name="next-steps"></a>Próximas etapas
 * Para os anúncios mais recentes, consulte o [blog da equipe do Microsoft HPC e Lote](http://blogs.technet.com/b/windowshpc/) e o [blog do Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Consulte também [o que há de novo no Lote](https://azure.microsoft.com/updates/?service=batch) ou assine o [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

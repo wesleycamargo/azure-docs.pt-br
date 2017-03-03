@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: 53f4898f31ef19a39e1448235ed14c8fc7df7b3b
 ms.openlocfilehash: 50cdea437db5387813c6a3905d14b6904d2aba34
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -71,9 +72,4 @@ Para saber mais sobre a Central de Segurança, confira o seguinte:
 [4]: ./media/security-center-apply-system-updates/security-update.png
 [5]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [6]: ./media/security-center-apply-system-updates/restart-pending.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

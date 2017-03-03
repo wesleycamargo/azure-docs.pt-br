@@ -15,68 +15,62 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbe7bd802e9cc32d43f019980650c4723b75d5f
-ms.openlocfilehash: 9c138ac7031c4cd01542dac137123fb53fcf8c06
+ms.sourcegitcommit: dde6242211ca3d8d7b47c0ec4a01965e1439adeb
+ms.openlocfilehash: d3b900b40f683cd446b41696c4f9e617299bf0b1
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
-A seguir estão tópicos operacionais avançados que permitem que você personalize o Azure Active Directory Connect para atender às necessidades e requisitos de sua organização.  
+Use os procedimentos operacionais neste artigo para personalizar o Azure AD (Azure Active Directory) Connect para atender às necessidades e requisitos de sua organização.  
 
-## <a name="add-additional-sync-administrators"></a>Adicionar administradores de sincronização adicionais
-Por padrão, somente o usuário que fez a instalação e os administradores locais poderão gerenciar o mecanismo de sincronização instalado. Para que outras pessoas possam acessar e gerenciar o mecanismo de sincronização, localize o grupo chamado ADSyncAdmins no servidor local e adicione-os a esse grupo.
+## <a name="add-additional-sync-admins"></a>Adicionar administradores de sincronização adicionais
+Por padrão, somente o usuário que fez a instalação e os administradores locais podem gerenciar o mecanismo de sincronização instalado. Para que outras pessoas possam acessar e gerenciar o mecanismo de sincronização, localize o grupo chamado ADSyncAdmins no servidor local e adicione-os a esse grupo.
 
-## <a name="assigning-licenses-to-azure-ad-premium-and-enterprise-mobility-users"></a>Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility
-Agora que os usuários foram sincronizados para a nuvem, você precisará atribua uma licença para que eles possam começar a usar aplicativos de nuvem, como o Office 365.
+## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Atribuir licenças aos usuários do Azure AD Premium e do Enterprise Mobility Suite
+Agora que os usuários foram sincronizados para a nuvem, você precisará atribuir uma licença para que eles possam começar a usar aplicativos de nuvem como o Office 365.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Como atribuir uma licença do Enterprise Mobility Suite ou do Azure AD Premium
-- - -
-1. Entre no portal do Azure como administrador.
+
+1. Entre no Portal do Azure como um administrador.
 2. Selecione **Active Directory**à esquerda.
-3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
+3. Na página do **Active Directory**, clique duas vezes no diretório que tem os usuários que você deseja configurar.
 4. Na parte superior da página do diretório, selecione **Licenças**.
-5. Na página de licenças, selecione Active Directory Premium ou Enterprise Mobility Suite e, em seguida, clique em **Atribuir**.
+5. Na página **Licenças**, selecione **Active Directory Premium** ou **Enterprise Mobility Suite** e, em seguida, clique em **Atribuir**.
 6. Na caixa de diálogo, selecione os usuários para os quais você deseja atribuir licenças e, em seguida, clique no ícone de marca de seleção para salvar as alterações.
 
-## <a name="verifying-the-scheduled-synchronization-task"></a>Verificando a tarefa de sincronização agendada
-Se você quiser verificar o status de uma sincronização, você pode fazer isso verificando no portal do Azure.
+## <a name="verify-the-scheduled-synchronization-task"></a>Verificar a tarefa de sincronização agendada
+Use o Portal do Azure para verificar o status de uma sincronização.
 
 ### <a name="to-verify-the-scheduled-synchronization-task"></a>Como verificar a tarefa de sincronização agendada
-- - -
-1. Entre no portal do Azure como administrador.
+1. Entre no Portal do Azure como um administrador.
 2. Selecione **Active Directory**à esquerda.
-3. Na página do Active Directory, clique duas vezes no diretório que tenha os usuários que você deseja habilitar.
+3. Na página do **Active Directory**, clique duas vezes no diretório que tem os usuários que você deseja configurar.
 4. Na parte superior da página do diretório, selecione **Integração de diretório**.
-5. Na integração com o Active Directory local, observe o horário da última sincronização.
+5. Na **integração com o Active Directory local**, observe o horário da última sincronização.
 
-<center>![Nuvem](./media/active-directory-aadconnect-whats-next/verify.png)</center>
+<center>![Horário de sincronização de diretórios](./media/active-directory-aadconnect-whats-next/verify.png)</center>
 
-## <a name="starting-a-scheduled-synchronization-task"></a>Iniciando uma tarefa de sincronização agendada
-Se você precisar executar uma tarefa de sincronização, você pode fazer isso executando novamente por meio do assistente do Azure AD Connect.  Você precisará fornecer suas credenciais do Azure AD.  No assistente, selecione a tarefa **Personalizar opções de sincronização** e clique em Avançar no assistente. No final, certifique-se de que a caixa **Iniciar o processo de sincronização assim que a configuração for concluída** esteja marcada.
+## <a name="start-a-scheduled-synchronization-task"></a>Iniciar uma tarefa de sincronização agendada
+Se você precisar executar uma tarefa de sincronização, poderá fazer isso executando-a novamente por meio do assistente do Azure AD Connect.  Você precisa fornecer suas credenciais do Azure AD.  No assistente, selecione a tarefa **Personalizar opções de sincronização** e clique em **Avançar** para seguir pelo assistente. No final, certifique-se de que a caixa **Iniciar o processo de sincronização assim que a configuração for concluída** esteja selecionada.
 
-<center>![Nuvem](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
+<center>![Iniciar a sincronização](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Para obter mais informações sobre a sincronização do Azure AD Connect: Agendador, veja [Agendador do Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md)
+Para obter mais informações sobre o Agendador de sincronização do Azure AD Connect, consulte [Agendador do Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md).
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Tarefas adicionais disponíveis no Azure AD Connect
 Após a instalação inicial do Azure AD Connect, você pode sempre iniciar o assistente novamente de um atalho da área de trabalho ou da página inicial do Azure AD Connect.  Você observará que executar novamente o assistente fornece algumas novas opções na forma de tarefas adicionais.  
 
 A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de cada uma delas.
 
-![Regra de junção](./media/active-directory-aadconnect-whats-next/addtasks.png)
+![Lista de tarefas adicionais](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
-| Tarefas adicionais | Descrição |
+| Tarefa adicional | Descrição |
 | --- | --- |
-| Exibir o cenário selecionado |Permite que você exiba sua solução atual para o Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados, configurações de sincronização, etc. |
-| Personalizar opções de sincronização |Permite que você altere a configuração atual, incluindo a adição de florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |
-| Habilitar o modo de preparação |Isso permite que você prepare as informações que posteriormente serão sincronizadas, mas nada será exportado para o Azure AD ou Active Directory.  Isso permite que você visualize as sincronizações antes que elas ocorram. |
+| **Exibir o cenário selecionado** |Exiba sua solução atual do Azure AD Connect.  Isso inclui configurações gerais, diretórios sincronizados e configurações de sincronização. |
+| **Personalizar opções de sincronização** |Altere a configuração atual, por exemplo adicionando florestas do Active Directory para a configuração ou habilitando opções de sincronização como usuário, grupo, dispositivo ou write-back de senha. |
+| **Habilitar o modo de preparo** |Informações de preparo que não são sincronizadas imediatamente e não são exportadas para o Azure AD ou o Active Directory local.  Com esse recurso, você pode visualizar as sincronizações antes que elas ocorram. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Saiba mais sobre [como integrar suas identidades locais ao Azure Active Directory](active-directory-aadconnect.md).
 

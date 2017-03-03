@@ -4,8 +4,9 @@ hide_bc: true
 title: "Documentação do Microsoft Azure | Microsoft Docs"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 39bebdc52aea8f4ee154c8369c1c564ffe8be95d
-ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
+ms.sourcegitcommit: a2f5d05e9911e0ceb9a3815245fb92704b0619a7
+ms.openlocfilehash: 989b9a20705290ed6764f2e5857cc1485ced39dc
+ms.lasthandoff: 02/28/2017
 
 ---
 <div id="main" class="v2">
@@ -58,7 +59,7 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                     </div>
                                 </div>
                                 <div class="cardText">
-                                    <h3>Vídeos de introdução de 5 minutos</h3>
+                                    <h3>Vídeos de introdução de&5; minutos</h3>
                                 </div>
                             </div>
                         </div>
@@ -273,7 +274,13 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>ExpressRoute</p>
+                                                <p>Rota Expressa</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Observador de Rede</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -997,6 +1004,25 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Conexões de fibra de rede privada dedicadas para o Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Observador de Rede</h3>
+                                                    <p>Monitorar e diagnosticar condições em um nível de cenário de rede</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2587,12 +2613,12 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Visualização da CLI do Azure 2.0 </h3>
+                                                <h3>CLI do Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/get-started/">Introdução</a>
+                                                    <a href="/cli/azure/overview">Introdução</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure/azure-cli">Baixar a CLI do Azure 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Baixar a CLI do Azure 2.0</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Referência</a>
@@ -2906,9 +2932,4 @@ ms.openlocfilehash: 108064e5da31f99d683714417aea3129f2b0f669
         </ul>
     </div>
 </div>
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

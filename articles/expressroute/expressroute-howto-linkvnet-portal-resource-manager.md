@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: b3c0cca9a6d5171b1248b0f463cbbb26641fc5f2
 ms.openlocfilehash: a1a689dbfc35107b52f9b84f74ac8bfac0727a0e
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -148,9 +149,4 @@ Preencha os detalhes e clique em **OK** na guia Conceitos básicos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.date: 01/18/2017
 ms.author: eugenesh
 translationtype: Human Translation
-ms.sourcegitcommit: 19a652f81beacefd4a51f594f045c1f3f7063b59
-ms.openlocfilehash: 60c8296e1287419dedf5b5f01f2ddb7ab86b5d11
+ms.sourcegitcommit: 05fc8ff05f8e2f20215f6683a125c1a506b4ccdc
+ms.openlocfilehash: 23ed2e066cc6751ebabb57c8077f95b0cb074850
+ms.lasthandoff: 02/18/2017
 
 ---
 
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com a Pesquisa do Azure
-Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar. 
+Este artigo mostra como usar a Pesquisa do Azure para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
 
 ## <a name="supported-document-formats"></a>Formatos de documento com suporte
 O indexador de blob pode extrair o texto dos seguintes formatos de documento:
@@ -53,7 +54,7 @@ Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 >
 >
 
-Aqui, demonstraremos o fluxo usando a API REST. 
+Aqui, demonstraremos o fluxo usando a API REST.
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 Uma fonte de dados especifica quais dados indexar, as credenciais necessárias para acessar os dados e as políticas que identificam com eficiência as alterações nos dados (linhas novas, modificadas ou excluídas). Uma fonte de dados pode ser usada por vários indexadores no mesmo serviço de pesquisa.
@@ -83,7 +84,7 @@ Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Cri
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Como especificar credenciais ####
 
-Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras: 
+Você pode fornecer as credenciais para o contêiner de blobs de uma das seguintes maneiras:
 
 - **Cadeia de conexão da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. É possível obter a cadeia de conexão no portal do Azure navegando para a folha da conta de armazenamento > Configurações > Chaves (para contas de armazenamento Clássicas) ou Configurações > Chaves de acesso (para contas de armazenamento do Azure Resource Manager).
 - **Assinatura de acesso compartilhado de conta de armazenamento** cadeia de conexão (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`. As SAS devem ter as permissões de lista e leitura nos contêineres e objetos (blobs neste caso).
@@ -114,7 +115,7 @@ Veja como criar um índice com um campo `content` pesquisável para armazenar o 
 Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Etapa 3: Criar um indexador
-Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fornece um agendamento para automatizar a atualização de dados. 
+Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fornece um agendamento para automatizar a atualização de dados.
 
 Uma vez que o índice e a fonte de dados forem criados, será possível criar o indexador:
 
@@ -135,11 +136,11 @@ Para obter mais detalhes sobre Criar a API do Indexador, consulte [Criar Indexad
 
 ## <a name="how-azure-search-indexes-blobs"></a>Como o Azure Search indexa os blobs
 
-Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de blobs pode indexar somente metadados de armazenamento (algo útil quando você está preocupado apenas com os metadados e não precisa indexar o conteúdo dos blobs), metadados de armazenamento e conteúdo ou conteúdo textual e de metadados. Por padrão, o indexador extrai os metadados e o conteúdo. 
+Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de blobs pode indexar somente metadados de armazenamento (algo útil quando você está preocupado apenas com os metadados e não precisa indexar o conteúdo dos blobs), metadados de armazenamento e conteúdo ou conteúdo textual e de metadados. Por padrão, o indexador extrai os metadados e o conteúdo.
 
 > [!NOTE]
 > Por padrão, os blobs com conteúdo estruturado, como JSON, CSV ou XML, são indexados como uma única parte de texto. Se você desejar indexar blobs JSON e CSV de uma maneira estruturada, consulte as versões prévias dos recursos [Indexando blobs JSON](search-howto-index-json-blobs.md) e [Indexando blobs CSV](search-howto-index-csv-blobs.md). No momento, não há suporte para a análise de conteúdo XML; caso precise desse recurso, adicione uma sugestão em nosso [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
-> 
+>
 > Um documento composto ou incorporado (como um arquivo ZIP ou um documento do Word com email do Outlook incorporado contendo anexos) também é indexado como um único documento.
 
 * Todo o conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
@@ -236,7 +237,7 @@ Se os parâmetros `indexedFileNameExtensions` e `excludedFileNameExtensions` est
 
 ### <a name="dealing-with-unsupported-content-types"></a>Lidando com tipos de conteúdo sem suporte
 
-Por padrão, o indexador de blobs é interrompido assim que encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Evidentemente, você pode usar o parâmetro `excludedFileNameExtensions` para ignorar alguns tipos de conteúdo. No entanto, talvez você precise indexar blobs sem conhecer todos os possíveis tipos de conteúdo com antecedência. Para continuar a indexação quando um tipo de conteúdo sem suporte é encontrado, defina o parâmetro de configuração `failOnUnsupportedContentType` como `false`: 
+Por padrão, o indexador de blobs é interrompido assim que encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Evidentemente, você pode usar o parâmetro `excludedFileNameExtensions` para ignorar alguns tipos de conteúdo. No entanto, talvez você precise indexar blobs sem conhecer todos os possíveis tipos de conteúdo com antecedência. Para continuar a indexação quando um tipo de conteúdo sem suporte é encontrado, defina o parâmetro de configuração `failOnUnsupportedContentType` como `false`:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -245,27 +246,27 @@ Por padrão, o indexador de blobs é interrompido assim que encontra um blob com
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    } 
+    }
 
 ### <a name="ignoring-parsing-errors"></a>Ignorando erros de análise
 
-A lógica de extração de documento do Azure Search não é perfeita e às vezes não analisa documentos de um tipo de conteúdo com suporte, como .DOCX ou .PDF. Se você não desejar interromper a indexação nesses casos, defina os parâmetros de configuração `maxFailedItems` e `maxFailedItemsPerBatch` para alguns valores razoáveis. Por exemplo: 
+A lógica de extração de documento do Azure Search não é perfeita e às vezes não analisa documentos de um tipo de conteúdo com suporte, como .DOCX ou .PDF. Se você não desejar interromper a indexação nesses casos, defina os parâmetros de configuração `maxFailedItems` e `maxFailedItemsPerBatch` para alguns valores razoáveis. Por exemplo:
 
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    } 
+    }
 
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlando quais partes do blob são indexadas
 
-Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores: 
+Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores:
 
 * `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/storage-properties-metadata.md) são indexados.
 * `allMetadata` – especifica que os metadados de armazenamento e os [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraídos do conteúdo do blob são indexados.
 * `contentAndMetadata` – especifica que todos os metadados e conteúdo textual extraídos do blob são indexados. Esse é o valor padrão.
 
-Por exemplo, para indexar apenas os metadados de armazenamento, use: 
+Por exemplo, para indexar apenas os metadados de armazenamento, use:
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -317,10 +318,10 @@ Por exemplo, a política a seguir considerará que um blob foi excluído se tive
 
 ## <a name="indexing-large-datasets"></a>Indexando grandes conjuntos de dados
 
-A indexação de blobs pode ser um processo demorado. Nos casos em que você tem milhões de blobs para indexar, é possível acelerar a indexação particionando seus dados e usando vários indexadores para processar os dados em paralelo. Veja como você pode configurar isso: 
+A indexação de blobs pode ser um processo demorado. Nos casos em que você tem milhões de blobs para indexar, é possível acelerar a indexação particionando seus dados e usando vários indexadores para processar os dados em paralelo. Veja como você pode configurar isso:
 
-- Particione seus dados em vários contêineres de blob ou pastas virtuais 
-- Configure várias fontes de dados do Azure Search, um por contêiner ou pasta. Para apontar para uma pasta de blobs, use o parâmetro `query`: 
+- Particione seus dados em vários contêineres de blob ou pastas virtuais
+- Configure várias fontes de dados do Azure Search, um por contêiner ou pasta. Para apontar para uma pasta de blobs, use o parâmetro `query`:
 
     ```
     {
@@ -332,6 +333,14 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
     ```
 
 - Crie um indexador correspondente para cada fonte de dados. Todos os indexadores podem apontar para o mesmo índice de pesquisa de destino.  
+
+## <a name="indexing-documents-along-with-related-data"></a>Indexação de documentos junto com os dados relacionados
+
+Seus documentos podem ter metadados associados – por exemplo, o departamento que criou o documento – que são armazenados como dados estruturados em um dos locais a seguir.
+-   Em um armazenamento de dados separado, como o Banco de Dados SQL ou DocumentDB.
+-   Anexado diretamente a cada documento no Armazenamento de Blobs do Azure como metadados personalizados. (Para obter mais informações, consulte [Configurando e recuperando as propriedades e metadados para recursos de blob](https://docs.microsoft.com/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources).)
+
+Você pode indexar os documentos junto com seus metadados, atribuindo o mesmo valor de chave exclusivo para cada documento e seus metadados e especificando a ação `mergeOrUpload` para cada indexador. Para obter uma descrição detalhada desta solução, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="ContentSpecificMetadata"></a>
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicas ao tipo de conteúdo
@@ -356,9 +365,4 @@ A tabela a seguir resume o processo executado para cada formato de documento, e 
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Caso você tenha solicitações de recursos ou ideias para melhorias, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

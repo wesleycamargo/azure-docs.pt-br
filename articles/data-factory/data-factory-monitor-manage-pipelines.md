@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2c41c2df135caaead328d8fe05407cfa75cbcb91
 ms.openlocfilehash: a486fbe46f9892f6f70dcdcf27edbac63728af6e
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -663,9 +664,4 @@ Você pode mover um data factory para outro grupo de recursos ou assinatura dife
 Você também pode mover todos os recursos relacionados (como alertas associados ao data factory) juntamente com ele.
 
 ![Caixa de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

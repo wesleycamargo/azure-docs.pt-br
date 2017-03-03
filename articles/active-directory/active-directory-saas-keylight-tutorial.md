@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2e8346695d4f9e0b2d7016455d20e2f843047eed
+ms.sourcegitcommit: ed2fc2b34ff10acc806daec84986f8db58e713c3
+ms.openlocfilehash: f58c0967890ee99c574957f0cdfe1bb412f7f9e8
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá como integrar o Keylight ao Azure AD (Azure Act
 A integração do Keylight ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao Keylight
-* Você pode habilitar os usuários a entrar automaticamente no Keylight (Logon Único) com suas contas do Azure AD
+* Você pode habilitar os usuários a entrarem automaticamente no SSO (logon único) do Keylight com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -37,9 +38,8 @@ Para configurar a integração do Azure AD ao Keylight, você precisará dos seg
 * Uma assinatura do Azure
 * Uma assinatura habilitada para logon único do Keylight
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
@@ -55,7 +55,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 1. Adição do Keylight a partir da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-keylight-from-the-gallery"></a>Adição do Keylight a partir da galeria
+## <a name="add-keylight-from-the-gallery"></a>Adicionar o Keylight da galeria
 Para configurar a integração do Keylight ao Azure AD, você precisará adicionar o Keylight da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o Keylight a partir da galeria, execute as seguintes etapas:**
@@ -80,18 +80,18 @@ Para configurar a integração do Keylight ao Azure AD, você precisará adicion
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+## <a name="configure-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o Keylight, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para configurar e testar o logon único do Azure AD com o Keylight, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Keylight](#creating-a-keylight-test-user)** : para ter um equivalente de Brenda Fernandes no Keylight vinculado à representação dela do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do Keylight](#creating-a-keylight-test-user)** – para ter um equivalente de Brenda Fernandes no Keylight vinculado à representação dela do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Testar o logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 Nesta seção, você habilita o logon único do Azure AD no portal clássico do Azure e configura o logon único em seu aplicativo Keylight.
 
 **Para configurar o logon único do Azure AD com o Keylight, execute as seguintes etapas:**
@@ -106,78 +106,58 @@ Nesta seção, você habilita o logon único do Azure AD no portal clássico do 
    
     ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_04.png) 
 
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no aplicativo Keylight usando o seguinte padrão: **“https://\<<nome da empresa>\>.keylightgrc.com/Login.aspx?saml=1”**.
+    * Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no aplicativo Keylight usando o seguinte padrão: **“https://\<<nome da empresa>\>.keylightgrc.com/Login.aspx?saml=1”**.
 
-
-1. Em **Configurar logon único no Keylight** , execute as seguintes etapas:
+4. Em **Configurar logon único no Keylight** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png) 
+    ![Configurar o logon único](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_05.png) 
    
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+    1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+    2. Clique em **Próximo**.
+5. Para habilitar o SSO no Keylight, execute as seguintes etapas:
    
-    b. Clique em **Próximo**.
-2. Para habilitar o SSO no Keylight, execute as seguintes etapas:
-   
-    a. Faça logon em sua conta do Keylight como administrador.
-   
-    b. No menu na parte superior, clique em **Pessoa** e escolha **Instalação do Keylight**.
+    1. Faça logon em sua conta do Keylight como administrador.
+    2. No menu na parte superior, clique em **Pessoa** e escolha **Instalação do Keylight**.
    
     ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/401.png) 
-   
-    c. No modo de exibição de árvore à esquerda, clique em **SAML**.
+    3. No modo de exibição de árvore à esquerda, clique em **SAML**.
    
     ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/402.png) 
-   
-    d. Na caixa de diálogo **Configurações de SAML**, clique em **Editar**.
+    4. Na caixa de diálogo **Configurações de SAML**, clique em **Editar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/404.png) 
-3. Na página de caixa de diálogo **Editar Configurações de SAML** , execute as seguintes etapas:
+6. Na página de caixa de diálogo **Editar Configurações de SAML** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-keylight-tutorial/405.png) 
    
-    a. Defina **Autenticação SAML** como **Ativa**.
+    1. Defina **Autenticação SAML** como **Ativa**.
+    2. No portal clássico do Azure AD, copie o valor de **URL de SSO SAML** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
+    3. No portal clássico do Azure AD, copie o valor de **URL do Serviço de Saída Única** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
+    4. Clique em **Escolher Arquivo** para escolher o certificado do Keylight baixado e clique em **Abrir** para carregar o certificado.
+    5. Defina **Local da ID de Usuário do SAML** como **Elemento NameIdentifier da declaração subject**.
+    6. Forneça o **Provedor de Serviços do Keylight usando o seguinte padrão: **https://&lt;Company Name&gt;.keylightgrc.com**.
+    7. Defina o seguinte:
+     * **Provisionar usuários automaticamente** como **Ativo**.
+     * **Provisionar tipo de conta automaticamente** como **Usuário Completo**.
+     * **Função de segurança de provisionamento automático**, selecione **Usuário Padrão com SAML**.
+     * **Configuração de segurança de provisionamento automático**, selecione **Configuração de Usuário Padrão**.
+    8. Insira o seguinte:    
+     * Na caixa de texto Atributo de email, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+     * Na caixa de texto **Atributo de nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+     * Na caixa de texto **Atributo de sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    9. Clique em **Salvar**.
 
-    b. No portal clássico do Azure AD, copie o valor de **URL de SSO SAML** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**.
-
-    c. No portal clássico do Azure AD, copie o valor de **URL do Serviço de Saída Única** e cole-o na caixa de texto **URL de Logoff do Provedor de Identidade**.
-
-    d. Clique em **Escolher Arquivo** para escolher o certificado do Keylight baixado e clique em **Abrir** para carregar o certificado.
-
-
-    e. Defina **Local da ID de Usuário do SAML** como **Elemento NameIdentifier da declaração subject**.
-
-    f. Forneça o **Provedor de Serviços do Keylight usando o seguinte padrão: **https://&lt;Company Name&gt;.keylightgrc.com**.
-
-    g. Defina **Provisionar usuários automaticamente** como **Ativo**.
-
-    h. Defina **Provisionar tipo de conta automaticamente** como **Usuário Completo**.
-
-    i. Para **Função de segurança de provisionamento automático**, escolha **Usuário Standard com SAML**.
-
-    j. Para **Configuração de segurança de provisionamento automático**, selecione **Configuração de Usuário Standard**.
-
-    k. Na caixa de texto Atributo de email, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-
-    l. Na caixa de texto **Atributo de nome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-
-    m. Na caixa de texto **Atributo de sobrenome**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-
-    n. Clique em **Salvar**.
-
-
-
-
-1. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
+7. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-2. Na página **Confirmação de logon único**, clique em **Concluir**.  
+8. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 Nesta seção, você criará uma usuária de teste no portal clássico do Azure chamada Brenda Fernandes.
 
-Na lista de usuários, selecione **Brenda Fernandes**.
+* Na lista de usuários, selecione **Brenda Fernandes**.
 
 ![Criar um usuário do AD do Azure][20]
 
@@ -197,24 +177,18 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/create_aaduser_05.png) 
    
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+   1. Em Tipo de Usuário, selecione Novo usuário na organização.
+   2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+   3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   1. Na caixa de texto **Nome**, digite **Brenda**.    
+   2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+   3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+   4. Na lista **Função**, selecione **Usuário**.
+   5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/create_aaduser_07.png) 
@@ -222,21 +196,19 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-keylight-tutorial/create_aaduser_08.png) 
    
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+    1. Anote o valor da **Nova Senha**.
+    2. Clique em **Concluído**.   
 
-### <a name="creating-a-keylight-test-user"></a>Criação de um usuário de teste do Keylight
+### <a name="create-a-keylight-test-user"></a>Criar um usuário de teste do Keylight
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no Keylight. O Keylight dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
 Não há itens de ação para você nesta seção. Se ainda não existir, um novo usuário será criado quando o Keylight for acessado. 
 
-> [!NOTE]
-> Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Keylight.
-> 
+>[!NOTE]
+>Se precisar criar um usuário manualmente, entre em contato com a equipe de suporte do Keylight. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo-lhe acesso ao Keylight.
 
 ![Atribuir usuário][200] 
@@ -257,7 +229,7 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar o logon único
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco Keylight no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo Keylight.
@@ -283,9 +255,4 @@ Ao clicar no bloco Keylight no Painel de Acesso, você deverá ser conectado aut
 [203]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-keylight-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

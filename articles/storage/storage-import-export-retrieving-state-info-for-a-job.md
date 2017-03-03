@@ -1,5 +1,5 @@
 ---
-title: "Recuperar informações de estado para um trabalho do serviço de importação/exportação do Azure | Microsoft Docs"
+title: "Recuperar informações de estado para um trabalho da Importação/Exportação do Azure | Microsoft Docs"
 description: "Saiba como obter informações de estado para trabalhos do serviço de importação/exportação do Microsoft Azure"
 author: muralikk
 manager: syadav
@@ -15,13 +15,14 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 22e37e26fec913a7638c71b2547c38f5efacd10b
-ms.openlocfilehash: c1626024262959d33e18dbceba74b89997972c98
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: d8156439cc81a88172d5af97c31147b6ceb23ff6
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="retrieving-state-information-for-a-job"></a>Recuperar informações de estado para um trabalho
+# <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperação de informações de estado para um trabalho de Importação/Exportação
 Você pode chamar a operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) para recuperar informações sobre trabalhos de importação e de exportação. As informações retornadas incluem:
 
 -   O estado atual do trabalho.
@@ -91,10 +92,5 @@ A tabela a seguir descreve os estados de falha de unidade e as ações executada
 Quando um trabalho ou uma unidade não puder progredir normalmente por seu ciclo de vida esperado, o trabalho ou a unidade será movido para o estado `Faulted`. Nesse ponto, a equipe de operações entrará em contato com o cliente por email ou telefone. Quando o problema for resolvido, o trabalho ou a unidade em falha passará do estado `Faulted` para o estado apropriado.
 
 ## <a name="see-also"></a>Consulte também
-[Usar a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
 

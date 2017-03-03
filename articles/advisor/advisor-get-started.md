@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
 translationtype: Human Translation
-ms.sourcegitcommit: 14e9e494d6e824964b9164ff36d9938341e244be
-ms.openlocfilehash: 7adaa1a457e19c66bdc31a01f4e04b7911e58062
+ms.sourcegitcommit: e7fc6cb4ee4752bb7ed90a8f64edcc7c82ec3a88
+ms.openlocfilehash: 8ed18f6f62b6d2895e2470df1c3bdd448ea98210
+ms.lasthandoff: 02/21/2017
 
 ---
 
@@ -35,7 +36,7 @@ Saiba como acessar o Advisor usando o Portal do Azure, e também como procurar, 
 4. Para obter recomendações sobre uma categoria específica, clique em uma das guias - **Alta Disponibilidade**, **Segurança**, **Desempenho** ou **Custo**.
  
 > [!NOTE]
-> O Azure Advisor gera recomendações para assinaturas em que você recebeu a função de **Proprietário**, **Colaborador** ou **Leitor**.
+> Para acessar as recomendações do assistente, você deve primeiro **registrar** sua assinatura com o assistente. Uma assinatura é registrada quando um **proprietário da assinatura** inicia o painel Assistente e clica no botão **Obter recomendações**. Essa é uma **operação única**. Depois que uma assinatura for registrada, as recomendações do Assistente poderão ser acessadas por **proprietário**s, **colaborador**es ou **leitor**es de uma assinatura, grupo de recursos ou um recurso específico.
 
   ![Painel do Azure Advisor](./media/advisor-overview/advisor-all-tab.png)
 
@@ -78,9 +79,4 @@ Consulte estes recursos para saber mais sobre o Advisor:
 -  [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 -  [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 -  [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

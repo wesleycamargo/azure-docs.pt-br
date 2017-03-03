@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
 ms.openlocfilehash: e3ad33dd12b4fb831ba43738bc5af4e5561a0682
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -49,9 +50,4 @@ Use a seção de autenticação do Windows do servidor de Autenticação Multifa
 - [Configure os dispositivos de VPN de terceiros para servidor Azure MFA](multi-factor-authentication-advanced-vpn-configurations.md)
 
 - [Aumentar sua infraestrutura de autenticação atual com a extensão do NPS para o Azure MFA](multi-factor-authentication-nps-extension.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

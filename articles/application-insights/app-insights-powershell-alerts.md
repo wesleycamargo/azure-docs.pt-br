@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 80e2ac4235492d727e2034f37f9a85eb2873625c
 ms.openlocfilehash: f479ae38e446c3404592901c416990ab6e39126b
+ms.lasthandoff: 02/04/2017
 
 
 ---
@@ -139,9 +140,4 @@ Você pode [automatizar sua resposta a um alerta](../monitoring-and-diagnostics/
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
