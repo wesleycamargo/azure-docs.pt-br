@@ -18,6 +18,7 @@ ms.author: anhoh
 translationtype: Human Translation
 ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
 ms.openlocfilehash: fd3ebcaa82952815ad31decd1b44cf6d41365d2f
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -522,10 +523,5 @@ Em seguida, escolha se deseja registrar, todas as mensagens de erro, nenhuma men
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o Banco de Dados de Documentos, confira o [Roteiro de Aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
 ms.openlocfilehash: 10926263ee2657dc96fb1873733d349cf0956e92
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -49,10 +50,5 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 ### <a name="next-steps"></a>Próximas etapas
 * [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
 * [Introdução ao Repositório Data Lake](data-lake-store-get-started-portal.md)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 
