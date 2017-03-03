@@ -17,6 +17,7 @@ ms.author: andbuc
 translationtype: Human Translation
 ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
 ms.openlocfilehash: 199f07ce705036c3d8f9d56115b5df9c8c52dc45
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -504,9 +505,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-create-hub]: iot-hub-create-through-portal.md 
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
