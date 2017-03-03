@@ -18,6 +18,7 @@ ms.author: tobiast
 translationtype: Human Translation
 ms.sourcegitcommit: 1f1c6c89c492d18e0678fa4650b6c5744dc9f7d1
 ms.openlocfilehash: cc756c662b97c64ab30a7d5bf2cc325f9e74d905
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -45,10 +46,5 @@ Consulte a [página de introdução](sql-database-get-started.md) para aprender 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

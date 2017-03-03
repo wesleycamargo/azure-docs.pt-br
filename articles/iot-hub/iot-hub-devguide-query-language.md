@@ -17,6 +17,7 @@ ms.author: elioda
 translationtype: Human Translation
 ms.sourcegitcommit: 64f44c176633db4179f954d2f70cdf26d08b60b4
 ms.openlocfilehash: 28ea238484d86b044899aa9f95861bbdbbf3a06c
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -471,9 +472,4 @@ Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][
 
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

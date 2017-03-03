@@ -18,6 +18,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 6c664a055e577881d4fcccd5b0ba4047d88aa9ef
 ms.openlocfilehash: 64b413451c6ce47cc3aa14322b2aa0342e1e3ffe
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -87,10 +88,5 @@ A Máquina Virtual de Ciência de Dados apresenta muitas ferramentas conhecidas 
 ### <a name="for-the-linux-data-science-vm"></a>Para a VM de Ciência de Dados do Linux
 * Para saber mais sobre como executar ferramentas específicas disponíveis na versão do Linux, confira [Provisionar a Máquina Virtual de Ciência de Dados Linux](machine-learning-data-science-linux-dsvm-intro.md).
 * Para obter um passo a passo que mostre como executar várias tarefas comuns de ciência de dados com o VM Linux, confira [Ciência de dados na Máquina Virtual da Ciência de Dados do Linux](machine-learning-data-science-linux-dsvm-walkthrough.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

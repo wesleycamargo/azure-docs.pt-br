@@ -17,6 +17,7 @@ ms.author: clemensv;sethm
 translationtype: Human Translation
 ms.sourcegitcommit: c39abad6c5e2a9e2ae7add9ecda48783f61bc736
 ms.openlocfilehash: 8d0f3818831a22550fb0eea9bcbc1f62b133003a
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -80,10 +81,5 @@ Confira os artigos a seguir para obter mais informações sobre as filas do Barr
 * [Amostra de Transações atômicas com o Barramento de Serviço](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 * [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

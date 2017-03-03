@@ -17,6 +17,7 @@ ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 831334f2b835d00aa3fd22292764b69e85d735a6
 ms.openlocfilehash: a6b61df5884031eb5b53f983b834357bd23a622e
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -82,9 +83,4 @@ As informações a seguir identificam o limite do Azure Governamental para o Arm
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 
