@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 67b832253619afe789a4dfdb95893e8c0ae62bee
 ms.openlocfilehash: 17890fddf948ddc0e89a9107ac5fe65223cd05e1
+ms.lasthandoff: 01/30/2017
 
 ---
 
@@ -40,6 +41,7 @@ A autenticação de passagem pode ser configurada por meio do Azure AD Connect e
 >Ambientes de várias florestas podem ser compatíveis se houver relações de confiança entre as florestas e o roteamento de sufixo de nome estiver corretamente configurado.
 
 ## <a name="supported-clients-in-the-preview"></a>Clientes com suporte na visualização
+
 A autenticação de passagem tem suporte por meio de clientes baseados em navegador da Web e clientes do Office compatíveis com a [autenticação moderna](https://aka.ms/modernauthga). Para clientes incompatíveis, como clientes herdados do Office e o Exchange ActiveSync (ou seja, clientes de email nativos em dispositivos móveis), os clientes são incentivados a usar a autenticação moderna equivalente. Isso permite a autenticação de passagem e que o acesso condicional seja aplicado, como a autenticação multifator.
 
 Para clientes que usam o Windows 10 associado ao Azure AD, a autenticação de passagem não tem suporte atualmente. No entanto, os clientes podem utilizar a sincronização de senha como um fallback automático para Windows 10, além dos clientes herdados mencionados acima.
@@ -154,9 +156,4 @@ Outros erros relatados na tela de logon do Azure AD são detalhados abaixo, junt
 |AADSTS80004|O nome de usuário passado para o conector não era válido|Verifique se o usuário está tentando fazer logon com o nome de usuário correto.
 |AADSTS80005|Validação encontrou WebException imprevisível|Esse é um problema temporário. Tente novamente a solicitação. Caso a falha persista, contate o suporte da Microsoft.
 |AADSTS80007|Erro na comunicação com o Active Directory|Confira os logs de conector para obter mais informações e verifique se o Active Directory está funcionando conforme o esperado.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

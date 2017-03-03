@@ -17,6 +17,7 @@ ms.author: ashwink
 translationtype: Human Translation
 ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
 ms.openlocfilehash: 4ee65a10616fff81044c181fce8708a596e9e6de
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -123,9 +124,4 @@ A operação POST contém o seguinte esquema e carga JSON para todos os alertas 
 * [Usar aplicativo lógico para enviar um SMS por meio de Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
 * [Usar aplicativo lógico para enviar uma mensagem a uma Fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: b341416f837d03e0532b4f8c0a3f3f85641a8995
 ms.openlocfilehash: d1e6421404d9c8845eb3ccd30d84c0c8cf5930b8
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -52,9 +53,4 @@ Para obter ajuda da equipe dos **Serviços de Mídia** , abra um [tíquete de su
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
