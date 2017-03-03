@@ -17,6 +17,7 @@ ms.author: aungoo
 translationtype: Human Translation
 ms.sourcegitcommit: bfb29928783283336b6116f198d70b0b7117750d
 ms.openlocfilehash: 880b1c2ca069e3e4a5ce9cb2af881b95e84687f4
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -119,10 +120,5 @@ Saiba mais sobre como criar instantâneos de um blob e planejar a infraestrutura
 
 * [Criando um instantâneo de um Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planejar sua Infraestrutura de backup de VM](../backup/backup-azure-vms-introduction.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: e1b909f419c8c04a9332a29669148321ab3dbd2d
 ms.openlocfilehash: 2afd8e04ac325f1c9f2dee8aed867b0d0a6b558d
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -45,10 +46,5 @@ Depois que você define o algoritmo de assinatura com um dos dois processos abai
 
 ## <a name="also-read"></a>Leia também
 * [Reparar a confiança do Office 365 com o Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

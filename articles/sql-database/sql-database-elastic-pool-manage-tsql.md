@@ -18,6 +18,7 @@ ms.author: srinia
 translationtype: Human Translation
 ms.sourcegitcommit: 6453cca9f876e6c363fbed463263c0f9684a3e70
 ms.openlocfilehash: 11b1a6dd9ecaaa3abaf088b1fed73aae783252f5
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -76,10 +77,5 @@ Use [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn80
 Depois de criar um pool elástico, você pode gerenciar os bancos de dados elásticos no pool criando trabalhos elásticos. Trabalhos elásticos facilitam a execução de scripts T-SQL em qualquer quantidade de bancos de dados no pool. Para saber mais, confira [Visão geral sobre os trabalhos elásticos de banco de dados](sql-database-elastic-jobs-overview.md). 
 
 Confira [Escala horizontal com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md): use ferramentas de banco de dados elástico para escalar horizontalmente, mover os dados, consultar ou criar transações.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

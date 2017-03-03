@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 91c2e6f53f8ba490d2943a60c7ad519d856707b9
 ms.openlocfilehash: 0d57a27c0862b09e2628520a1e50a0cc56a55881
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -87,10 +88,5 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 * [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
 * [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

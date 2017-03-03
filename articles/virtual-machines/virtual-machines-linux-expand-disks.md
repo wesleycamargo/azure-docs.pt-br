@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 2826f825b2d34005ce6e7142dd4371285a452ca8
 ms.openlocfilehash: bd1952281dde6f262848d1520995efdb131a3b38
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -69,9 +70,4 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
 
 ## <a name="next-steps"></a>Próximas etapas
 Se precisar de armazenamento adicional, também [adicione discos de dados a uma VM do Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para obter mais informações sobre a criptografia de disco, consulte [Criptografar discos em uma VM do Linux usando a CLI do Azure](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

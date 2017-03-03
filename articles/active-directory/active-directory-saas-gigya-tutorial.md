@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
 ms.openlocfilehash: 96eb66f35a91e769418d179b0997cd32e02cdc97
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -163,10 +164,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
     ![Sim](./media/active-directory-saas-gigya-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

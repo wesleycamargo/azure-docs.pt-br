@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 35f75c6feba187b15857c8e01df02bf918662fae
 ms.openlocfilehash: 0c667a20ba813ac37e49805c339cccb52832fdf0
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -39,10 +40,5 @@ Este tópico descreve como criar uma VM (máquina virtual) do Linux com a CLI do
 
 ## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Como criar uma VM do Linux usando o modelo de implantação Clássico
 [!INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

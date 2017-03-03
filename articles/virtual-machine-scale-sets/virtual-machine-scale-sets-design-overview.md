@@ -19,6 +19,7 @@ ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: e869b06935736fae72bd3b5407ebab7c3830098d
 ms.openlocfilehash: de3687a1bf36bf49db400a5660ac631f20b629d0
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -56,10 +57,5 @@ Um conjunto de dimensionamento configurado com contas de armazenamento gerenciad
 Um conjunto de dimensionamento criado em uma imagem personalizada (criado por você) pode ter uma capacidade de até 100 VMs quando configuradas com discos gerenciados do Azure. Se o conjunto de dimensionamento é configurado com contas de armazenamento gerenciadas pelo usuário, ele deve criar todos os VHDs de disco do sistema operacional em uma conta de armazenamento. Como resultado, o número máximo recomendado de VMs em um conjunto de dimensionamento criado em uma imagem personalizada e em um armazenamento gerenciado pelo usuário é 20. Se você desativar o provisionamento em excesso, será possível ir até 40.
 
 Para ter mais VMs do que esses limites permitem, você precisará implantar vários conjuntos de dimensionamento, conforme mostrado [neste modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: b167b88d227bf239fd5d3676e48e04436f140c34
 ms.openlocfilehash: 3c476cf99ebfe78f5681019fc055d1a07b61ef02
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -97,9 +98,4 @@ Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendiz
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](machine-learning-create-experiment.md)
 * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

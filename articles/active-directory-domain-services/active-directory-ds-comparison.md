@@ -17,6 +17,7 @@ ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
 ms.openlocfilehash: 3d83a919d8e7bc59bd51e226c56ff2bb42c87955
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -118,10 +119,5 @@ Publicamos [Diretrizes para implantação do Windows Server Active Directory em 
 * [Recursos – Azure AD Domain Services](active-directory-ds-features.md)
 * [Cenários de implantação – Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

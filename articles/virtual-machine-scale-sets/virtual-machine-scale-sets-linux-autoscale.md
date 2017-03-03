@@ -18,6 +18,7 @@ ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: 3c00742d9686b986841d676872cc93b58827a8e8
 ms.openlocfilehash: b87b507118244f0f275f54cd65cea13a92cdaec6
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -591,10 +592,5 @@ azure group delete vmsstestrg1
 * Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Confira o modelo para [Dimensionar automaticamente um Conjunto de Dimensionamento da VM que executa um aplicativo Ubuntu/Apache/PHP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) que configura uma pilha LAMP para praticar a funcionalidade de dimensionamento automático dos Conjuntos de Dimensionamento da Máquina Virtual.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
