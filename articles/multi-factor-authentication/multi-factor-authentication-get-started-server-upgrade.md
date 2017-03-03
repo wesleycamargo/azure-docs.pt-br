@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
 ms.openlocfilehash: 5bbd7088f5d4986a5b1c9f5695a5defb678307a9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -79,9 +80,4 @@ O caminho de instalação é obtido do registro da instalação anterior do Phon
 - [Instale o portal dos usuários](multi-factor-authentication-get-started-portal.md) para o Servidor Autenticação Multifator do Azure.
 
 - [Configurar a autenticação do Windows](multi-factor-authentication-get-started-server-windows.md) para seus aplicativos. 
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

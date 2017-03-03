@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 4b29fd1c188c76a7c65c4dcff02dc9efdf3ebaee
 ms.openlocfilehash: 01e1728d9658ac69659e31aca584cb574338a238
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -379,10 +380,5 @@ Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-copy-activit
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
 | [Agendamento e execução](data-factory-scheduling-and-execution.md) |Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

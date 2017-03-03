@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 9852981e530cd147c2d34ac2ede251b58a167a0a
 ms.openlocfilehash: 5c030f463b21284c15752cf95aa1f9a75f17ffb0
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -67,9 +68,4 @@ Neste documento, você aprendeu como os dados são gerenciados e protegidos na C
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

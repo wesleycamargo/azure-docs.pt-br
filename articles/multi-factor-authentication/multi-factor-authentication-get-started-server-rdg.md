@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 4547a805c1827a703bf0ef118387882e45c3f241
 ms.openlocfilehash: 4b117f03a8f769cbd2ecf1fca2653e8c343b6aa0
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -52,9 +53,4 @@ O Servidor Azure Multi-Factor Authentication é configurado como um proxy RADIUS
 - Integrar o Azure MFA e [aplicativos web do IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Obtenha respostas no [FAQ de autenticação multifator do Azure](multi-factor-authentication-faq.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 
