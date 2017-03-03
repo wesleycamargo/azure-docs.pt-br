@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -189,10 +190,5 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 [Configurar um modo de distribuição do balanceador de carga usando a afinidade de IP de origem](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
