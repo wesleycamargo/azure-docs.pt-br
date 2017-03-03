@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/21/2016
+ms.date: 12/22/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: e976ac44bd6d8b2df2cddcab6c068b0f67ba9c3c
+ms.sourcegitcommit: 2c13daf84727a500a2ea6a3dc1d4968c9824e223
+ms.openlocfilehash: 6abc5c10f6116886ac5d6cbc11f251f083ee2b29
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -32,7 +33,7 @@ O recurso **Retenção de Backup de Longo Prazo** permite armazenar seus backups
 > 
 > 
 
-## <a name="how-does-sql-database-long-term-retention-work"></a>Como funciona a Retenção de Longo Prazo do Banco de Dados SQL?
+## <a name="how-does-sql-database-long-term-backup-retention-work"></a>Como funciona a retenção de backup de longo prazo do Banco de Dados SQL?
 
 A retenção de longo prazo de backups permite que você associe um servidor de Banco de Dados SQL do Azure a um cofre dos Serviços de Recuperação do Azure. 
 
@@ -42,9 +43,9 @@ A retenção de longo prazo de backups permite que você associe um servidor de 
 
 
 > [!TIP]
-> Para ver um tutorial, confira [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o Portal do Azure](sql-database-get-started-backup-recovery.md) ou [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o PowerShell](sql-database-get-started-backup-recovery-powershell.md)
+> Para ver um tutorial, confira [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o Portal do Azure](sql-database-get-started-backup-recovery-portal.md) ou [Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o PowerShell](sql-database-get-started-backup-recovery-powershell.md)
 
-## <a name="how-do-i-enable-long-term-retention"></a>Como faço para habilitar a Retenção de Longo Prazo?
+## <a name="how-do-i-enable-long-term-backup-retention"></a>Como habilitar a retenção de backup de longo prazo?
 
 Para configurar a retenção de backup de longo prazo em um banco de dados:
 
@@ -53,11 +54,11 @@ Para configurar a retenção de backup de longo prazo em um banco de dados:
 3. Crie uma Política de Proteção dos Serviços de Recuperação do Azure
 4. Aplique a política de proteção aos bancos de dados que exigem a retenção de backup de longo prazo
 
-Para configurar a retenção de longo prazo, confira [configurar retenção de backup de longo prazo](sql-database-configure-long-term-retention.md).
+Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-manage-long-term-backup-retention-portal.md). Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-## <a name="how-do-i-restore-a-database-stored-with-the-long-term-retention-feature"></a>Como faço para restaurar um banco de dados armazenado com o recurso Retenção de Longo Prazo?
+## <a name="how-do-i-restore-a-database-stored-with-the-long-term-backup-retention-feature"></a>Como faço para restaurar um banco de dados armazenado com o recurso de retenção de backup de longo prazo?
 
-Para fazer a recuperação com base em um backup de retenção de longo prazo:
+Para fazer a recuperação com base em um backup com retenção de longo prazo:
 
 1. Liste o cofre em que o backup está armazenado
 2. Liste o contêiner que está mapeado para o servidor lógico
@@ -65,19 +66,17 @@ Para fazer a recuperação com base em um backup de retenção de longo prazo:
 4. Liste os pontos de recuperação disponíveis para restauração
 5. Restaure do ponto de recuperação para o servidor de destino em sua assinatura
 
-Para recuperar um banco de dados de um backup na retenção de longo prazo, confira [recuperar de um backup em retenção de longo prazo](sql-database-restore-from-long-term-retention.md).
+Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-manage-long-term-backup-retention-portal.md). Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
-## <a name="how-much-does-long-term-retention-cost"></a>Quanto custa a Retenção de Longo Prazo?
+## <a name="how-much-does-long-term-backup-retention-cost"></a>Quanto custa a retenção de backup de longo prazo?
 
-A retenção de longo prazo de um Banco de Dados SQL do Azure é cobrada de acordo com as [taxas de preços dos serviços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+A retenção de backup de longo prazo de um Banco de Dados SQL do Azure é cobrada de acordo com as [taxas de preços dos serviços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 Depois que o servidor do Banco de Dados SQL do Azure é registrado no cofre, você é cobrado pelo armazenamento total usado pelos backups semanais armazenados no cofre.
 
 ## <a name="view-available-backups-stored-in-long-term-backup-retention"></a>Exibir backups disponíveis armazenados na retenção de backup de longo prazo
 
-Para exibir os backups no cofre dos Serviços de Recuperação do Azure, confira [exibir backups em retenção de longo prazo](sql-database-view-backups-in-vault.md).
-
-
+Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-manage-long-term-backup-retention-portal.md). Para configurar, gerenciar e restaurar de retenção de backup de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 ## <a name="disabling-long-term-retention"></a>Desabilitando a Retenção de Longo Prazo
 
@@ -93,11 +92,11 @@ O Serviço de Recuperação manipula automaticamente a limpeza dos backups com b
 > Os backups que já estão no cofre não são afetados. Eles são excluídos automaticamente pelo Serviço de Recuperação quando seu período de retenção expirar.
 
 
-## <a name="removing-long-term-retention-backups-from-the-azure-recovery-services-vault"></a>Removendo backups de retenção de longo prazo do cofre dos Serviços de Recuperação do Azure
+## <a name="removing-long-term-backup-retention-backups-from-the-azure-recovery-services-vault"></a>Removendo backups com retenção de longo prazo do cofre dos Serviços de Recuperação do Azure
 
-Para remover backups de retenção de longo prazo do cofre, confira [Excluir backups de retenção de longo prazo](sql-database-long-term-retention-delete.md)
+Para remover backups com retenção de longo prazo do cofre, confira [Excluir backups com retenção de longo prazo](sql-database-manage-long-term-backup-retention-powershell.md)
 
-## <a name="long-term-retention-faq"></a>Perguntas frequentes sobre a Retenção de Longo Prazo:
+## <a name="long-term-backup-retention-faq"></a>Perguntas frequentes sobre retenção de backup de longo prazo:
 
 1. P: Posso excluir manualmente os backups específicos no cofre?
 
@@ -120,7 +119,7 @@ Para remover backups de retenção de longo prazo do cofre, confira [Excluir bac
 7. P. Quantos bancos de dados posso configurar por dia e por cofre?
 
     R. Só é possível configurar até 200 bancos de dados por dia e por cofre.
-8. P: A retenção de longo prazo funciona com pools elásticos?
+8. P: A retenção de backup de longo prazo funciona com pools elásticos?
 
     R: Sim. Qualquer banco de dados no pool pode ser configurado com a política de retenção.
 9. P: Posso escolher a hora em que o backup é criado?
@@ -148,10 +147,5 @@ Para remover backups de retenção de longo prazo do cofre, confira [Excluir bac
 
 ## <a name="next-steps"></a>Próximas etapas
 Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

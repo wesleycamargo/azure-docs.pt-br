@@ -17,17 +17,13 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: cffa8955cf044398e526b1ad6158eefebbf91b3b
-ms.openlocfilehash: 9cd3d1b2da7f941673003b566cd92b0eb9acf6f4
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: 02ea369d76c1fe7266e9dc0cad2c75e4b5eada6a
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: proteger dados confidenciais no Banco de Dados SQL e armazenar suas chaves de criptografia no repositório de certificados do Windows
-> [!div class="op_single_selector"]
-> * [Cofre da Chave do Azure](sql-database-always-encrypted-azure-key-vault.md)
-> * [Repositório de certificados do Windows](sql-database-always-encrypted.md)
-> 
-> 
 
 Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de banco de dados usando o [Assistente Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) no [SSMS (SQL Server Management Studio](https://msdn.microsoft.com/library/hh213248.aspx). Ele mostra como armazenar suas chaves de criptografia no repositório de certificados do Windows.
 
@@ -54,7 +50,7 @@ Para este tutorial, será necessário:
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Novo** > **Dados + Armazenamento** > **Banco de Dados SQL**.
-3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, confira [Criar um banco de dados SQL em alguns minutos](sql-database-get-started.md).
+3. Crie um banco de dados **Em branco** chamado **Clínica** em um servidor novo ou existente. Para obter instruções detalhadas sobre como criar um banco de dados no Portal do Azure, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
    
     ![Criar um banco de dados vazio](./media/sql-database-always-encrypted/create-database.png)
 
@@ -522,10 +518,5 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 * [Criptografia do SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistente do Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog do Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

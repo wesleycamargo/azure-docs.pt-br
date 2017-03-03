@@ -17,6 +17,7 @@ ms.author: mithal;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 86f8b18e06fdc5a24797b0c90f09f0e053e4569c
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -42,10 +43,5 @@ Baixe a folha de consulta aqui: **[folha de consulta de pipeline de dados automa
 * Para conferir uma discussão de como consumir um serviço Web de pontuação, confira [Como consumir um serviço Web do Aprendizado de Máquina do Azure implantado de um teste do Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

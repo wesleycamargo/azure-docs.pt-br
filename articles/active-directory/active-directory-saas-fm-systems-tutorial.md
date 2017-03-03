@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: bf5588885de9c280eb70712dbf800efe509ee912
 ms.openlocfilehash: e92f8cb6e980a0552b8ff836ed521e069ba811bb
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -147,10 +148,5 @@ Para testar sua configuração, será necessário conceder acesso ao aplicativo 
     ![Sim](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

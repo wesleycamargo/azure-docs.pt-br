@@ -1,5 +1,5 @@
 ---
-title: "Integração de máquinas físicas e virtuais para o gerenciamento pelo DSC de Automação do Azure | Microsoft Docs"
+title: "Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure | Microsoft Docs"
 description: "Como configurar computadores para o gerenciamento com o DSC de Automação do Azure"
 services: automation
 documentationcenter: dev-center-name
@@ -14,8 +14,9 @@ ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
 translationtype: Human Translation
-ms.sourcegitcommit: 18c6a55f2975305203bf20a040ac29bc9527a124
-ms.openlocfilehash: 0832b5866b49800cc0aecda8f4e473f89b12139b
+ms.sourcegitcommit: e2257730f0c62dbc0313ce7953fc5f953dae8ac3
+ms.openlocfilehash: f81536322ad1bb16e4af326e0b053da47690619c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -196,7 +197,7 @@ O computador no qual este comando é executado deve ter a versão mais recente d
 
 ## <a name="generating-dsc-metaconfigurations"></a>Gerando metaconfigurações DSC
 
-Para carregar genericamente qualquer computador ao DSC de Automação do Azure, uma metaconfiguração de DSC pode ser gerada de modo que, quando aplicada, informa o agente do DSC no computador para efetuar pull de e/ou relatar ao DSC de Automação do Azure. As metaconfigurações de DSC para o DSC de Automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell, ou os cmdlets do PowerShell de Automação do Azure.
+Para carregar genericamente qualquer computador ao DSC de Automação do Azure, uma [metaconfiguração de DSC](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) pode ser gerada de modo que, quando aplicada, informa o agente do DSC no computador para efetuar pull de e/ou relatar para o DSC de Automação do Azure. As metaconfigurações de DSC para o DSC de Automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell, ou os cmdlets do PowerShell de Automação do Azure.
 
 > [!NOTE]
 > Metaconfigurações DSC contêm os segredos necessários para carregar um computador em uma conta de Automação para gerenciamento. Certifique-se de proteger corretamente quaisquer metaconfigurações de DSC que criar, ou exclua-as imediatamente após o uso.
@@ -319,7 +320,11 @@ Para carregar genericamente qualquer computador ao DSC de Automação do Azure, 
 
 3. Preencha a chave de registro e a URL para sua conta de Automação, bem como os nomes dos computadores a carregar. Todos os outros parâmetros são opcionais. Para encontrar a chave de registro e a URL de registro de sua conta da Automação, confira a seção [**Proteger o registro**](#secure-registration) abaixo.
 4. Se você deseja que as máquinas relatem informações de status de DSC ao DSC de Automação do Azure, mas não efetue pull da configuração de recepção ou módulos do PowerShell, defina o parâmetro **ReportOnly** como verdadeiro.
-5. Execute o script. Agora você deve ter uma pasta chamada **DscMetaConfigs** no diretório de trabalho, que contém as metaconfigurações de DSC do PowerShell para os computadores a carregar.
+5. Execute o script. Agora você deve ter uma pasta chamada **DscMetaConfigs** no diretório de trabalho, que contém as metaconfigurações de DSC do PowerShell para os computadores a carregar (como um administrador):
+
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### <a name="using-the-azure-automation-cmdlets"></a>Usando os cmdlets da Automação do Azure
 
@@ -338,13 +343,16 @@ Se o padrões do Gerenciador de Configurações Local do DSC do PowerShell corre
         ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
         OutputFolder = "$env:UserProfile\Desktop\";
     }
-
     # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
     # For more info about splatting, run: Get-Help -Name about_Splatting
     Get-AzureRmAutomationDscOnboardingMetaconfig @Params
-     ```
-
-    Agora você deve ter uma pasta chamada ***DscMetaConfigs***que contém as metaconfigurações de DSC do PowerShell para os computadores a carregar.
+    ```
+    
+4. Agora você deve ter uma pasta chamada ***DscMetaConfigs***que contém as metaconfigurações de DSC do PowerShell para os computadores a carregar (como um administrador):
+    
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## <a name="secure-registration"></a>Proteger o registro
 
@@ -384,9 +392,4 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 * [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md)
 * [cmdlets da DSC de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

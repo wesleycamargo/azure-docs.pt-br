@@ -17,6 +17,7 @@ ms.author: ambapat
 translationtype: Human Translation
 ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
 ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -249,10 +250,5 @@ Para saber mais sobre o log de uso do cofre de chaves, confira [Log do cofre de 
 Para saber mais sobre o uso de chaves e segredos com o cofre de chaves do Azure, confira [Sobre Chaves e Segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Se você tiver dúvidas sobre o cofre de chaves, acesse os [Fóruns do cofre de chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

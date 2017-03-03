@@ -19,6 +19,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 317193c178c4da283de7d61204aa7b824170d72a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -77,10 +78,5 @@ Agora que estamos conectados ao banco de dados, as etapas a seguir mostram como 
 ## <a name="next-steps"></a>Próximas etapas
 * Abrir bancos de dados SQL no Visual Studio usa o SQL Server Data Tools. Para obter mais detalhes, veja [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
 * Para se conectar a um banco de dados SQL usando o código, veja [Conectar-se ao banco de dados SQL usando .NET (C#)](sql-database-develop-dotnet-simple.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

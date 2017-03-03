@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: d225a6156ea3672ed214f8308d7e944e6ff08576
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: bcc02abb62b21aadb10e62320b02b33c3c244c17
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>Banco de Dados SQL - Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria
-A [Auditoria de Tabela do Banco de Dados SQL](sql-database-auditing-get-started.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
+A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Suporte a clientes de versão anterior
 Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
@@ -77,9 +78,4 @@ O novo ponto de extremidade IP do banco de dados dependerá da região de banco 
 | Leste do Canadá |40.86.227.82, 40.86.225.194 |
 | Norte do Reino Unido |13.87.101.18, 13.87.100.232 |
 | Sul do Reino Unido 2 |13.87.32.202, 13.87.32.226 |
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

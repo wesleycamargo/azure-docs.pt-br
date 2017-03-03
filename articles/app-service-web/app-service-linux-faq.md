@@ -5,7 +5,7 @@ keywords: "serviço de aplicativo do azure, aplicativo web, perguntas frequentes
 services: app-service
 documentationCenter: 
 authors: aelnably
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: d4a5260dde1994bbf4ef4467eddd2fb80a2199b0
-ms.openlocfilehash: 22c6c22ba3123555d279fac087a6be2f99bde8d7
+ms.sourcegitcommit: 831ef097027721146531e8d699fe3f67417a57ea
+ms.openlocfilehash: b88aa3d0ae89aec81c2b9144fb5de3210a0b8d1e
+ms.lasthandoff: 02/18/2017
 
 
 ---
 
 # <a name="azure-app-service-web-apps-on-linux-faq"></a>Perguntas frequentes sobre Aplicativos Web do Serviço de Aplicativo do Azure no Linux #
 
-Com a versão do serviço de aplicativo do Azure no Linux (atualmente em visualização), estamos trabalhando na adição de recursos e fazer melhorias para nossa plataforma. Aqui estão o número de perguntas frequentes que nossos clientes têm sido pedindo nos últimos meses.
+Com a versão do serviço de aplicativo do Azure no Linux (atualmente em visualização), estamos trabalhando na adição de recursos e fazer melhorias para nossa plataforma. Aqui estão algumas perguntas frequentes que nossos clientes têm feito nos últimos meses.
 Se você tiver uma pergunta, comente o artigo e, o responderemos assim que possível.
 
 ## <a name="built-in-images"></a>Imagens internas ##
@@ -43,19 +44,25 @@ Se você tiver uma pergunta, comente o artigo e, o responderemos assim que poss�
 
 **P:** possível SSH na VM?
 
-**R:** não, fornecemos uma maneira de SSH para seu contêiner de aplicativo em um futuro próximo.
+**R:** Não, forneceremos uma maneira de usar SSH em seu contêiner de aplicativo em uma versão futura.
 
-## <a name="continous-integration--deployment"></a>Integração contínua / implantação ##
+## <a name="continuous-integration--deployment"></a>Implantação/integração contínuas ##
 
 **P:** meu webapp ainda usa uma imagem de contêiner de encaixe antiga depois de atualizar a imagem no DockerHub? Há suporte para implantação/integração contínua de contêineres personalizados?
 
-**R:** você pode atualizar o contêiner, parar e iniciar seu aplicativo web ou alterar/adicionar um aplicativo fictício configurando para forçar uma atualização do seu contêiner, será ter um recurso de CI/CD para contêineres personalizados em um futuro próximo.
+**R:** você pode atualizar o contêiner, parar e iniciar seu aplicativo Web ou alterar/adicionar uma configuração de aplicativo fictício configurando para forçar uma atualização do seu contêiner, será ter um recurso de CI/CD para contêineres personalizados em uma versão futura.
 
 ## <a name="language-support"></a>Suporte ao idioma ##
 
 **P:** dão suporte a aplicativos de núcleo .net não compilado?
 
-**R:** não, você precisa implantar o aplicativo de núcleo .net compilado com todas as dependências, uma implantação completa e experiência de compilação será lançado em breve.
+**R:** não, você precisa implantar o aplicativo de núcleo .net compilado com todas as dependências, uma implantação completa e experiência de build estarão disponíveis em uma versão futura.
+
+## <a name="built-in-images"></a>Imagens internas ##
+
+**P:** Quais são os valores esperados para a seção Arquivo de Inicialização quando configuro a pilha de tempo de execução?
+
+**R:** Para o Node.js, você pode especificar o arquivo de configuração de PM2 ou o arquivo de script. Para o .Net Core, você deve especificar o nome da dll compilada. Para o Ruby, você pode especificar um script Ruby com o qual você deseja inicializar o aplicativo.
 
 ## <a name="custom-containers"></a>Contêineres personalizados ##
 
@@ -69,11 +76,15 @@ Se você tiver uma pergunta, comente o artigo e, o responderemos assim que poss�
 
 **P:** posso colocar meu próprio armazenamento?
 
-**R:** atualmente não é aceita, planejamento para dar suporte a isso em breve.
+**R:** atualmente não é aceita.
 
 **P:** não é possível navegar os processos do meu contêiner personalizado em execução ou de sistema de arquivos do site do SCM. Por que isso acontece?
 
 **R:** site o SCM é executado em um contêiner separado, você não pode verificar os processos de execução ou sistema de arquivo do contêiner do aplicativo.
+
+**P:** Meu contêiner personalizado escuta uma porta diferente da porta 80. Como configurar meu aplicativo para rotear as solicitações para essa porta?
+
+**R:** Você pode especificar uma configuração de aplicativo chamada **PORT** e dar a ela o valor do número da porta esperada.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA ##
 
@@ -92,12 +103,6 @@ Se você tiver uma pergunta, comente o artigo e, o responderemos assim que poss�
 **R:** pode enviar sua ideia aqui: https://aka.ms/webapps-uservoice. Adicione [Linux] ao título da sua ideia.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Serviço de Aplicativo no Linux](./app-service-linux-intro.md) 
 * [O que é Serviço de Aplicativo no Linux?](app-service-linux-intro.md)
-* [Como criar Aplicativos Web no Serviço de Aplicativo no Linux](./app-service-linux-how-to-create-a-web-app.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
+* [Como criar Aplicativos Web no Serviço de Aplicativo no Linux](app-service-linux-how-to-create-a-web-app.md)
 

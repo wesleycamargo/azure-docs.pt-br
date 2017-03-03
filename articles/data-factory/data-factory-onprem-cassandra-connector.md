@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 7b7d3b87e1285993d744e74d01f5192732b70e77
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -325,9 +326,4 @@ As tabelas a seguir mostram as tabelas virtuais que normalizam novamente os dado
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

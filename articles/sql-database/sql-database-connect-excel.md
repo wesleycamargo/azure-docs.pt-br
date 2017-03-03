@@ -19,6 +19,7 @@ ms.author: jhubbard
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: d70c0350809325234db366acc676e381ff042c13
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,10 +80,5 @@ Agora que você estabeleceu a conexão e criou o arquivo com dados e informaçõ
 * Saiba como [Conectar o Banco de Dados SQL com o SQL Server Management Studio](sql-database-connect-query-ssms.md) para ter uma consulta e análise avançadas.
 * Saiba mais sobre os benefícios dos [pools elásticos](sql-database-elastic-pool.md).
 * Saiba como [criar um aplicativo Web que se conecta ao Banco de Dados SQL em back-end](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

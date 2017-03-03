@@ -17,6 +17,7 @@ ms.author: bradsev
 translationtype: Human Translation
 ms.sourcegitcommit: 3136b8345d0c851c29a9498089da73c8564549d1
 ms.openlocfilehash: f355ea88f4d14e48d9523a0ac7aff965171bed4b
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -344,10 +345,5 @@ Veja como você pode continuar seu aprendizado e exploração:
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

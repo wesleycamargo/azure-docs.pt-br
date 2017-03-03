@@ -18,6 +18,7 @@ ms.author: arramac
 translationtype: Human Translation
 ms.sourcegitcommit: bd77eaab1dbad95a70b6d08947f11d95220b8947
 ms.openlocfilehash: 818337dfb36ee4c84fa2543f7c54558287ead0e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -409,10 +410,5 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 1. [Exemplos de código de gerenciamento de índice .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operações de coleção de API REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Consulta com SQL do Banco de Dados de Documentos](documentdb-sql-query.md)
-
-
-
-
-<!--HONumber=Feb17_HO4-->
 
 

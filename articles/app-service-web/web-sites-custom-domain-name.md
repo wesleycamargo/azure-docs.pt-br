@@ -4,7 +4,7 @@ description: "Saiba como mapear um nome de domínio (domínio vazio) para seu ap
 services: app-service
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: jimbe
 tags: top-support-issue
 ms.assetid: 48644a39-107c-45fb-9cd3-c741974ff590
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 01/30/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e25348cc1aa0ae284f0fcda7f11bdbe42ba1fa0a
+ms.sourcegitcommit: 59565c22ecd42985e8a6b81c4983fc2e87637e36
+ms.openlocfilehash: 589701270770494e4ec4d127a252712249da9f3a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,22 +27,12 @@ ms.openlocfilehash: e25348cc1aa0ae284f0fcda7f11bdbe42ba1fa0a
 
 Este artigo mostra como mapear manualmente um nome de domínio personalizado para seu aplicativo Web, back-end do aplicativo móvel ou aplicativo de API no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). 
 
-Seu aplicativo já vem com um subdomínio exclusivo do azurewebsites.net. Por exemplo, se o nome do aplicativo for **contoso**, o nome de domínio será **contoso.azurewebsites.net**. No entanto, você pode mapear um nome de domínio personalizado para o aplicativo para que a URL, como `www.contoso.com`, reflita sua marca.
+> [!NOTE] 
+> Você sempre tem a opção de simplesmente [comprar um nome de domínio personalizado diretamente do Azure](custom-dns-web-site-buydomains-web-app.md).
+>
+>
 
-> [!NOTE]
-> Obtenha ajuda dos especialistas do Azure nos [fóruns do Azure](https://azure.microsoft.com/support/forums/). Para ter um nível ainda maior de suporte, vá para o [site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter Suporte**.
-> 
-> 
-
-[!INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
-
-## <a name="buy-a-new-custom-domain-in-azure-portal"></a>Comprar um novo domínio personalizado no portal do Azure
-Se você ainda não adquiriu um nome de domínio personalizado, poderá comprá-lo e gerenciá-lo diretamente nas configurações do aplicativo no [portal do Azure](https://portal.azure.com). Esta opção facilita mapear um domínio personalizado para seu aplicativo, se seu aplicativo usa o [Gerenciador de Tráfego do Azure](web-sites-traffic-manager-custom-domain-name.md) ou não. 
-
-Para obter instruções, consulte [Comprar um nome de domínio personalizado para o Serviço de Aplicativo](custom-dns-web-site-buydomains-web-app.md).
-
-## <a name="map-a-custom-domain-you-purchased-externally"></a>Mapear um domínio personalizado adquirido externamente
-Se você já adquiriu um domínio personalizado no [DNS do Azure](https://azure.microsoft.com/services/dns/) ou com um provedor de terceiros, há três etapas principais para mapear o domínio personalizado para seu aplicativo:
+Há três etapas principais para mapear o domínio personalizado para seu aplicativo:
 
 1. [*(Somente registro A)* Obter o endereço IP do aplicativo](#vip).
 2. [Crie registros DNS que mapeiam seu domínio para o aplicativo](#createdns). 
@@ -52,7 +43,7 @@ Se você já adquiriu um domínio personalizado no [DNS do Azure](https://azure.
    * **Por que**: para que seu aplicativo saiba responder às solicitações feitas para o nome de domínio personalizado.
 4. [Verificar propagação do DNS](#verify).
 
-### <a name="types-of-domains-you-can-map"></a>Tipos de domínios que você pode mapear
+## <a name="types-of-domains-you-can-map"></a>Tipos de domínios que você pode mapear
 O Serviço de Aplicativo do Azure permite que você mapeie as seguintes categorias de domínios personalizados para seu aplicativo.
 
 * **Domínio raiz** – o nome de domínio que você reservou com o registrador de domínios (representado pelo registro do host `@`, normalmente). 
@@ -60,7 +51,7 @@ O Serviço de Aplicativo do Azure permite que você mapeie as seguintes categori
 * **Subdomínio** -qualquer domínio em seu domínio-raiz. Por exemplo, **www.contoso.com** (representado pelo registro de host `www`).  Você pode mapear outros subdomínios do mesmo domínio-raiz para diferentes aplicativos no Azure.
 * **Domínio curinga** - [qualquer subdomínio cujo rótulo mais à esquerda do DNS é `*`](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (por exemplo, os registros de host `*` e `*.blogs`). Por exemplo, **\*.contoso.com**.
 
-### <a name="types-of-dns-records-you-can-use"></a>Tipos de registros DNS que você pode usar
+## <a name="types-of-dns-records-you-can-use"></a>Tipos de registros DNS que você pode usar
 Dependendo da necessidade, você pode usar dois tipos diferentes de registros DNS padrão para mapear seu domínio personalizado: 
 
 * [A](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) - mapeia o nome de domínio personalizado para o endereço IP virtual do aplicativo do Azure diretamente. 
@@ -207,44 +198,9 @@ De volta à folha **Domínios personalizados** no portal do Azure (consulte a [E
 7. Após a validação bem-sucedida, o botão **Adicionar nome do host** ficará ativo e você poderá atribuir o nome do host. 
 8. Quando o Azure terminar de configurar seu novo nome de domínio personalizado, navegue até ele em um navegador. O navegador deve abrir seu aplicativo do Azure, o que significa que o nome de domínio personalizado está configurado corretamente.
 
-## <a name="migrate-an-active-domain-with-no-downtime"></a>Migrar um domínio ativo sem tempo de inatividade 
+## <a name="migrate-an-active-domain-name"></a>Migrar um domínio personalizado ativo
 
-Ao migrar um site ativo e seu nome de domínio para o Serviço de Aplicativo, esse nome de domínio já estará fornecendo tráfego ativo, por isso você tentará evitar qualquer tempo de inatividade na resolução DNS durante o processo de migração. Nesse caso, você precisa associar preventivamente o nome de domínio ao seu aplicativo do Azure para verificação do domínio. Para fazer isso, siga as etapas modificadas abaixo:
-
-1. Primeiro, crie um registro TXT com o Registro DNS seguindo as etapas em [Etapa 2. Criar os registros DNS](#createdns).
-O registro TXT adicional assume a convenção que mapeia de &lt;*subdomain*>.&lt;*rootdomain*> para &lt;*appname*>.azurewebsites.net.
-Consulte a tabela a seguir para ver exemplos:  
- 
-    <table cellspacing="0" border="1">
-    <tr>
-    <th>Exemplo de FQDN</th>
-    <th>Host TXT</th>
-    <th>Valor TXT</th>
-    </tr>
-    <tr>
-    <td>contoso.com (raiz)</td>
-    <td>awverify.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>www.contoso.com (sub)</td>
-    <td>awverify.www.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>\*.contoso.com (curinga)</td>
-    <td>awverify.\*.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    </table>
-
-2. Em seguida, adicione seu nome de domínio personalizado ao aplicativo do Azure seguindo as etapas em [Etapa 3. Habilitar o nome de domínio personalizado para seu aplicativo](#enable).
-
-    Agora, seu domínio personalizado está habilitado no aplicativo do Azure. A única coisa que resta a fazer é atualizar o registro DNS com seu registrador de domínios.
-
-3. Por fim, atualize o registro DNS do seu domínio para apontar para o aplicativo do Azure, conforme mostrado na [Etapa 2. Criar os registros DNS](#createdns). 
-
-    O tráfego de usuários deverá ser redirecionado para o aplicativo do Azure imediatamente após a ocorrência da propagação de DNS.
+Se o nome de domínio que você deseja mapear já está em uso por um site existente e você quiser evitar tempo de inatividade, consulte [Migrar um domínio personalizado ativo para o Serviço de Aplicativo](app-service-custom-domain-name-migrate.md).
 
 <a name="verify"></a>
 
@@ -262,7 +218,7 @@ Depois de concluir as etapas de configuração, pode levar algum tempo para que 
 Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um certificado SSL no Azure](web-sites-purchase-ssl-web-site.md) ou [usando um certificado SSL de outro lugar](web-sites-configure-ssl-certificate.md).
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -272,9 +228,4 @@ Saiba como proteger seu nome de domínio personalizado com HTTPS [comprando um c
 
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
-ms.openlocfilehash: debc2a1671ed8fc2507408a887a7604ee02625f3
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: b30b3ed88ab271b5fa3db61ef276cba9b7fcdfdb
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,8 +27,13 @@ ms.openlocfilehash: debc2a1671ed8fc2507408a887a7604ee02625f3
 Este tópico descreve como carregar modelos de AM (aprendizado de máquina) que foram criados usando o MLlib Spark e armazenados no WASB (Armazenamento de Blobs do Azure) e pontuá-los com conjuntos de dados que também foram armazenados no WASB. Ele mostra como pré-processar dados de entrada, transformar os recursos usando as funções de indexação e de codificação no kit de ferramentas MLlib e criar um objeto de dados de ponto rotulado que pode ser usado como entrada para pontuação com os modelos de AM. Os modelos usados para pontuação incluem regressão linear, regressão logística, modelos de florestas aleatórias e de árvore de aumento gradiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 ou Spark 2.0 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. O notebook **pySpark-machine-learning-data-science-spark-model-consumption.ipynb** que contém os exemplos de código deste tópico está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
-2. Você também tem que criar modelos de aprendizado de máquina que serão pontuados aqui de acordo com o tópico [Exploração e modelagem de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md) .   
+
+1. Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 ou Spark 2.0 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. 
+2. Você também tem que criar modelos de Machine Learning que serão pontuados aqui de acordo com o tópico [Exploração e modelagem de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md) para o cluster do Spark 1.6 ou os blocos de anotações do Spark 2.0. Observe que os blocos de anotações do Spark 2.0 usam um conjunto de dados adicional para a tarefa de classificação, o conjunto de dados de partidas no horário de companhias aéreas conhecidas de 2011 e 2012. Uma descrição de blocos de notas e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. 
+
+
+## <a name="setup-spark-clusters-and-notebooks"></a>Instalação: blocos de notas e clusters do Spark
+As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. O bloco de notas [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) mostra como colocar em operação um modelo salvo usando o Python em clusters HDInsight. Para modificar este bloco de notas do Jupyter para usar com um cluster HDInsight Spark 2.0, substitua o arquivo de código Python por [este arquivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -579,10 +585,5 @@ Se você preferir uma experiência de cliente gratuito de código, use os [Aplic
 
 ## <a name="whats-next"></a>O que vem a seguir?
 **Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

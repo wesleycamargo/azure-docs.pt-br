@@ -17,6 +17,7 @@ ms.author: magoedte
 translationtype: Human Translation
 ms.sourcegitcommit: ea2ad80f348c80856c525218aad45a8fcf47bcb8
 ms.openlocfilehash: aeb06276a52e5472667ae0a741fb3007a91910fe
+ms.lasthandoff: 01/14/2017
 
 ---
 
@@ -211,10 +212,5 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
 
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre como criar os Módulos do PowerShell, consulte [Escrevendo um Módulo do Windows PowerShell](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

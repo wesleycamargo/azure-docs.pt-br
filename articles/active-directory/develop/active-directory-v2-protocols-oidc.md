@@ -1,4 +1,3 @@
-
 ---
 title: Azure Active Directory v2.0 e o protocolo OpenID Connect | Microsoft Docs
 description: "Compile aplicativos Web usando a implementação v.2.0 do Azure AD do protocolo de autenticação OpenID Connect."
@@ -13,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 02/08/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 1d81be4ba596f7bc0ed7d16cb8bb9b375bd1e223
+ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
+ms.openlocfilehash: 4e43304c108fceb7df70fc37898ffcf989beb922
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -199,6 +199,16 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
+## <a name="single-sign-out"></a>Logout único
+O ponto de extremidade v2.0 usa cookies para identificar uma sessão de usuário. Quando um usuário entra pela primeira vez em um aplicativo, o ponto de extremidade v2.0 define um cookie no navegador do usuário. Quando o usuário entra em outro aplicativo posteriormente, o Azure AD primeiro verifica o cookie para determinar se o usuário tem uma sessão de logon válida com o ponto de extremidade v2.0 do Azure AD, em vez de autenticar novamente o usuário.
+
+Da mesma forma, quando o usuário sai pela primeira vez de um aplicativo, o ponto de extremidade v2.0 limpa o cookie do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam o ponto de extremidade v2.0 do Azure AD para autenticação. Para assegurar que o usuário saia de todos os aplicativos, o ponto de extremidade v2.0 envia uma solicitação HTTP GET para o `LogoutUrl` de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando os cookies que identificam a sessão do usuário. Você pode definir o `LogoutUrl` do Portal do Azure.
+
+1. Navegue para o [Portal do Azure](https://portal.azure.com).
+2. Escolha seu Active Directory clicando em sua conta no canto superior direito da página.
+3. No painel de navegação esquerdo, escolha **Azure Active Directory** e, em seguida, escolha **Registros de aplicativo** e selecione seu aplicativo.
+4. Clique em **Propriedades** e localize a caixa de texto **URL de Logoff**. 
+
 ## <a name="protocol-diagram-token-acquisition"></a>Diagrama de Protocolos: aquisição de Token
 Muitos aplicativos Web precisam não apenas conectar o usuário, mas acessar um serviço Web em nome desse usuário usando o OAuth. Esse cenário combina o OpenID Connect para autenticação de usuário enquanto obtém simultaneamente um código de autorização que pode ser usado para obter tokens de acesso se você estiver usando o fluxo do código de autorização do OAuth.
 
@@ -268,10 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 Para obter uma descrição dos possíveis códigos de erro e as respostas recomendadas do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
 Quando você tiver um código de autorização e um token de ID, poderá conectar o usuário e obter tokens de acesso em seu nome. Para conectar o usuário, você deve validar o token de ID [exatamente como descrito ](#validate-the-id-token). Para obter tokens de acesso, siga as etapas descritas em nossa [documentação do protocolo OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

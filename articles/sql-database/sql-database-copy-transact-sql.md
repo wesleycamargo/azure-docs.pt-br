@@ -18,6 +18,7 @@ ms.tgt_pltfrm: NA
 translationtype: Human Translation
 ms.sourcegitcommit: 60bcd02d24e2084b9020ce56ef6a9f8268c6b1b5
 ms.openlocfilehash: 3ade1f2850b2a67f68e8a4a7f519b7dc7ba1de10
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -79,9 +80,4 @@ Todos os usuários no novo banco de dados mantêm as permissões que tinham no b
 * Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de dados para um servidor lógico diferente, confira [Como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 * [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 * [Documentação do banco de dados SQL](https://azure.microsoft.com/documentation/services/sql-database/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

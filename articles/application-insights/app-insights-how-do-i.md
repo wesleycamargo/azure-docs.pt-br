@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 9a3df0ad2483471023ebb954d613bc5cad8fb7bf
 ms.openlocfilehash: 9e54ee2d67a8dfb5b480db01219e128607e26f51
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -205,9 +206,4 @@ Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto
 ### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
 * Primeiro, [adicione um novo gráfico](app-insights-metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
 * Caso contrário, [adicione o contador ao conjunto coletado pelo módulo do contador de desempenho](app-insights-performance-counters.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

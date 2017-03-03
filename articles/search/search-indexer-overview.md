@@ -18,6 +18,7 @@ ms.author: heidist
 translationtype: Human Translation
 ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
 ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
+ms.lasthandoff: 01/19/2017
 
 ---
 
@@ -74,9 +75,4 @@ Agora que você tem as noções básicas, a próxima etapa é examinar os requis
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Indexando blobs CSV usando o indexador de Blobs da Pesquisa do AZURE (Visualização)](search-howto-index-csv-blobs.md)
 * [Indexando blobs JSON com o indexador de Blobs da Pesquisa do Azure (Visualização)](search-howto-index-json-blobs.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

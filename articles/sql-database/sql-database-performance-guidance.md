@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: c01b8c174567f745e2803a1498ec0b9a762e94ae
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -437,10 +438,5 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 * Para obter mais informações sobre as camadas de serviço, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md)
 * Para saber mais sobre pools elásticos, consulte [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre desempenho e pools elásticos, consulte [Quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

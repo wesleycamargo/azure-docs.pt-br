@@ -42,8 +42,3 @@
 ## [Avaliação](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 ## [Site do Azure Governamental](https://azure.microsoft.com/overview/clouds/government/)
-
-
-<!--HONumber=Feb17_HO3-->
-
-

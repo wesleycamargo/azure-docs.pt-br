@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
 ms.openlocfilehash: 27f8d329c0dddd21cca7e3631594ab326f3610b2
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -34,9 +35,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

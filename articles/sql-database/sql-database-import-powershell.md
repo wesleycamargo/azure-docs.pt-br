@@ -18,6 +18,7 @@ ms.author: sstein
 translationtype: Human Translation
 ms.sourcegitcommit: e6f0d661465c813ec310b8c69ab1ee06e4f95401
 ms.openlocfilehash: 45ec817e62e7967549602adfd2c9d2d3f2484987
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -97,10 +98,5 @@ Depois de executar [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/lib
 * Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados SQL do Azure usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Para ver uma discussão de todo o processo de migração do banco de dados do SQL Server, incluindo as recomendações de desempenho, confira [Migrar um banco de dados do SQL Server para o Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

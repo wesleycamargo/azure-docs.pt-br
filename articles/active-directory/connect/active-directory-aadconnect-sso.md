@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/15/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: a268907eea2862ae2d054f30accfd4d771a7d880
-ms.openlocfilehash: ae97e66b8fb0992550c5a4f1f8418c5cb7e496b5
+ms.sourcegitcommit: e208b2bf861d698901b287458a3969e833540e44
+ms.openlocfilehash: f8f67af3cb6adb333924714bd758609b950845af
+ms.lasthandoff: 02/17/2017
 
 ---
 
@@ -68,6 +69,17 @@ Primeiro o usuário tenta acessar um recurso que confia nos tokens emitidos pelo
 5.    O Azure AD descriptografa o tíquete Kerberos usando a chave compartilhada anteriormente. Então o Azure AD retorna um token para o usuário ou pede que o usuário forneça provas adicionais, como autenticação multifator, conforme exigido pelo recurso.
 
 O logon único é um recurso oportunista, o que significa que, se ele falhar por algum motivo, o usuário precisará apenas digitar sua senha na página de logon, como de costume.
+
+## <a name="single-sign-on-sso-prerequisites"></a>Pré-requisitos de SSO (logon único)
+Se você estiver habilitando 'Logon Único' com 'Autenticação de Passagem', não haverá nenhum pré-requisito adicional além do que é necessário para 'Autenticação de Passagem'.
+
+Se você estiver habilitando 'Single Sign On' com 'Sincronização de Senha' e se houver um firewall entre o Azure AD Connect e o Azure AD, certifique-se de que:
+- O servidor do Azure AD Connect pode se comunicar com *.msappproxy.net
+- O Azure AD Connect pode fazer solicitações HTTPS para o Azure AD nas portas abaixo:
+
+|Protocolo|Número da porta|Descrição
+| --- | --- | ---
+|HTTPS|9090|    Habilite o registro por SSO (necessário somente para o processo de registro com SSO).
 
 ## <a name="enabling-sso-with-pass-through-authentication-or-password-sync"></a>Habilitar o SSO com a autenticação de passagem ou a sincronização de senha
 O Azure AD Connect fornece um processo simples para habilitar o logon único com a autenticação de Passagem ou sincronização de senha. Certifique-se de que tenha direitos de administrador de domínio para um dos domínios de cada floresta que sincronizar para permitir a configuração de SPNs (nomes de entidade de serviço) Kerberos na conta do computador. O nome de usuário e a senha não são armazenados no Azure AD Connect ou no Azure AD e são usados apenas para essa operação.
@@ -132,9 +144,4 @@ Se a auditoria de êxito estiver habilitada, sempre que um usuário entrar com o
       </Query>
     </QueryList>
 ```
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

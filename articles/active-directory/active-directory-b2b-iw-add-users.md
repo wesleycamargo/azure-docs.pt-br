@@ -14,11 +14,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/16/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5622ab215fd7fea4c24ad00ea7132d12ecabbcd5
+ms.sourcegitcommit: 0c07c842ba8c6214d6746b0361af7b416069a6f5
+ms.openlocfilehash: 02a1b163c77f3f7f6853762f442bffa617bd9f52
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -30,9 +31,7 @@ Os operadores de informações podem usar o [Painel de Acesso do Aplicativo](htt
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Operadores de informação adicionando usuários de colaboração B2B a um aplicativo
 Atribua usuários de colaboração B2B a um aplicativo como um operador de informações em uma organização parceira, conforme mostrado no vídeo a seguir:
 
-  >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps]
-
-  Se o vídeo não aparecer incorporado, acesse-o [aqui](https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps).
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>Operadores de informação adicionando usuários de colaboração B2B a um grupo
 
@@ -56,9 +55,4 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

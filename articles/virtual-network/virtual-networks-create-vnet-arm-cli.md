@@ -1,6 +1,6 @@
 ---
-title: Criar uma rede virtual usando a CLI do Azure | Microsoft Docs
-description: Saiba como criar uma rede virtual usando a CLI do Azure | Gerenciador de Recursos.
+title: Criar uma rede virtual usando a CLI do Azure 2.0 | Microsoft Docs
+description: Saiba como criar uma rede virtual usando a CLI do Azure 2.0 | Resource Manager.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
+ms.sourcegitcommit: 617ac4672b24d339c5d4c0b671de7fb19cd9af91
+ms.openlocfilehash: 3cbb679048a0cc1121b221bda8fc1e3df0e307c3
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,8 +27,14 @@ ms.openlocfilehash: 406fd637485799557edbd29fd6223ae535900818
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 O Azure tem dois modelos de implantação: Azure Resource Manager e clássico. A Microsoft recomenda criar recursos por meio do modelo de implantação do Gerenciador de Recursos. Para saber mais sobre as diferenças entre os dois modelos, leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+
+- [CLI do Azure 1.0](virtual-networks-create-vnet-arm-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI do Azure 2.0 (Visualização)](#create-a-virtual-network) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
  
-Este artigo explica como criar uma rede virtual por meio do modelo de implantação do Gerenciador de Recursos usando a CLI (interface de linha de comando) do Azure. Você também pode criar uma rede virtual por meio do Gerenciador de Recursos usando outras ferramentas ou criar uma rede virtual por meio do modelo de implantação clássico, selecionando uma opção diferente na seguinte lista:
+    Você também pode criar uma rede virtual por meio do Gerenciador de Recursos usando outras ferramentas ou criar uma rede virtual por meio do modelo de implantação clássico, selecionando uma opção diferente na seguinte lista:
 
 > [!div class="op_single_selector"]
 - [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -40,81 +47,149 @@ Este artigo explica como criar uma rede virtual por meio do modelo de implantaç
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
+
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Para criar uma rede virtual usando a CLI do Azure, conclua as seguintes etapas:
+Para criar uma rede virtual usando a CLI do Azure 2.0, conclua as seguintes etapas:
 
-1. Instale e configure a CLI do Azure seguindo as etapas do artigo [Instalar e configurar a CLI do Azure](../xplat-cli-install.md).
+1. Instale e configure a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
 
-2. Execute o seguinte comando para criar uma rede virtual e uma sub-rede:
+2. Crie um grupo de recursos para sua VNet usando o comando [az group create](/cli/azure/group#create) com os argumentos `--name` e `--location`:
 
     ```azurecli
-    azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
+    az group create --name myVNet --location centralus
+    ```
+
+3. Crie uma VNet e uma sub-rede:
+
+    ```azurecli
+    az network vnet create \
+        --name TestVNet \
+        --resource-group myVNet \
+        --location centralus \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name FrontEnd \
+        --subnet-prefix 192.168.1.0/24
     ```
 
     Saída esperada:
    
-            info:    Executing command network vnet create
-            + Looking up network configuration
-            + Looking up locations
-            + Setting network configuration
-            info:    network vnet create command OK
+    ```json
+    {
+        "newVNet": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "192.168.0.0/16"
+            ]
+            },
+            "dhcpOptions": {
+            "dnsServers": []
+            },
+            "provisioningState": "Succeeded",
+            "resourceGuid": "<guid>",
+            "subnets": [
+            {
+                "etag": "W/\"<guid>\"",
+                "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "name": "FrontEnd",
+                "properties": {
+                "addressPrefix": "192.168.1.0/24",
+                "provisioningState": "Succeeded"
+                },
+                "resourceGroup": "myVNet"
+            }
+            ]
+        }
+    }
+    ```
 
     Parâmetros usados:
 
-   * **--vnet**. Nome da rede virtual a ser criada. Para o nosso cenário, *TestVNet*
-   * **-e (ou --address-space)**. Espaço de endereço da rede virtual. Para o nosso cenário, *192.168.0.0*
-   * **-i (ou -cidr)**. Máscara de rede no formato CIDR. Para o nosso cenário, *16*.
-   * **-n (ou --subnet-name**). Nome da primeira sub-rede. Para o nosso cenário, *FrontEnd*.
-   * **-p (ou --subnet-start-ip)**. Endereço IP inicial da sub-rede ou espaço de endereço da sub-rede. Em nosso cenário, *192.168.1.0*.
-   * **-r (ou --subnet-cidr)**. Máscara de rede no formato CIDR para a sub-rede. Para o nosso cenário, *24*.
-   * **-l (ou --location)**. Região do Azure em que a rede virtual será criada. Para o nosso cenário, *Central US*.
-3. Execute o seguinte comando para criar uma sub-rede:
+    - `--name TestVNet`: nome da VNet a ser criada.
+    - `--resource-group myVNet`: o nome do grupo de recursos que controla o recurso. 
+    - `--location centralus`: o local no qual deseja implantar.
+    - `--address-prefix 192.168.0.0/16`: o bloco e prefixo de endereço.  
+    - `--subnet-name FrontEnd`: o nome da sub-rede.
+    - `--subnet-prefix 192.168.1.0/24`: o bloco e prefixo de endereço.
+
+    Para listar as informações básicas para usar no comando seguinte, você pode consultar a VNet usando um [filtro de consulta](/cli/azure/query-az-cli2):
 
     ```azurecli
-    azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
+    az network vnet list --query '[?name==`TestVNet`].{Where:location,Name:name,Group:resourceGroup}' -o table
+    ```
+
+    Que produz esta saída:
+
+        Where      Name      Group
+        ---------  --------  -------
+        centralus  TestVNet  myVNet
+
+4. Crie uma sub-rede:
+
+    ```azurecli
+    az network vnet subnet create \
+        --address-prefix 192.168.2.0/24 \
+        --name BackEnd \
+        --resource-group myVNet \
+        --vnet-name TestVNet
     ```
    
     Saída esperada:
 
-            info:    Executing command network vnet subnet create
-            + Looking up network configuration
-            + Creating subnet "BackEnd"
-            + Setting network configuration
-            + Looking up the subnet "BackEnd"
-            + Looking up network configuration
-            data:    Name                            : BackEnd
-            data:    Address prefix                  : 192.168.2.0/24
-            info:    network vnet subnet create command OK
+    ```json
+    {
+    "addressPrefix": "192.168.2.0/24",
+    "etag": "W/\"<guid> \"",
+    "id": "/subscriptions/<guid>/resourceGroups/myVNet/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+    "ipConfigurations": null,
+    "name": "BackEnd",
+    "networkSecurityGroup": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "myVNet",
+    "resourceNavigationLinks": null,
+    "routeTable": null
+    }
+    ```
 
     Parâmetros usados:
 
-   * **-t (ou --vnet-name**. Nome da rede virtual onde a sub-rede será criada. Para o nosso cenário, *TestVNet*.
-   * **-n (ou --name)**. Nome da nova sub-rede. Para o nosso cenário, *BackEnd*.
-   * **-a (ou --address-prefix)**. Bloco CIDR da sub-rede. Para o nosso cenário, *192.168.2.0/24*.
-4. Execute o comando a seguir para exibir as propriedades da nova rede virtual:
+    - `--address-prefix 192.168.2.0/24`: bloco CIDR da sub-rede.
+    - `--name BackEnd`: nome da nova sub-rede.
+    - `--resource-group myVNet`: o grupo de recursos.
+    - `--vnet-name TestVNet`: o nome da VNet proprietária.
+
+5. Consulte as propriedades da nova VNet:
 
     ```azurecli
-    azure network vnet show
+    az network vnet show \
+    -g myVNET \
+    -n TestVNet \
+    --query '{Name:name,Where:location,Group:resourceGroup,Status:provisioningState,SubnetCount:subnets | length(@)}' \
+    -o table
     ```
    
     Saída esperada:
    
-            info:    Executing command network vnet show
-            Virtual network name: TestVNet
-            + Looking up the virtual network sites
-            data:    Name                            : TestVNet
-            data:    Location                        : Central US
-            data:    State                           : Created
-            data:    Address space                   : 192.168.0.0/16
-            data:    Subnets:
-            data:      Name                          : FrontEnd
-            data:      Address prefix                : 192.168.1.0/24
-            data:
-            data:      Name                          : BackEnd
-            data:      Address prefix                : 192.168.2.0/24
-            data:
-            info:    network vnet show command OK
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  centralus  myVNet   Succeeded              2
+
+6. Consulte as propriedades das sub-redes:
+
+    ```azurecli
+    az network vnet subnet list \
+    -g myvnet \
+    --vnet-name testvnet \
+    --query '[].{Name:name,CIDR:addressPrefix,Status:provisioningState}' \
+    -o table
+    ```
+
+    Saída esperada:
+
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -122,9 +197,4 @@ Saiba como se conectar:
 
 - Uma VM (máquina virtual) em uma rede virtual lendo o artigo [Criar uma VM Linux](../virtual-machines/virtual-machines-linux-quick-create-cli.md). Em vez de criar uma rede virtual e sub-rede nas etapas dos artigos, você pode selecionar uma rede virtual e uma sub-rede existente para se conectar a uma VM.
 - A rede virtual para outras redes virtuais, lendo o artigo [Conectar VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-- A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo os artigos [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-
+- A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

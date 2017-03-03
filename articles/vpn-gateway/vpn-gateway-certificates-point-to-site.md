@@ -1,5 +1,5 @@
 ---
-title: "Criar certificados autoassinados para conexões entre locais de rede virtual Ponto a Site usando makecert | Microsoft Docs"
+title: "Criar certificados autoassinados para conexões ponto a site: Azure | Microsoft Docs"
 description: "Este artigo contém etapas para usar o makecert para criar os certificados autoassinados no Windows 10."
 services: vpn-gateway
 documentationcenter: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/19/2017
+ms.date: 02/15/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 64c6e8fa5288ce9a25bcb434217511425aebfe21
-ms.openlocfilehash: beb873c99d956eafebecc69f9afc480c558efabb
+ms.sourcegitcommit: 4c8fc5b20416d59eccdf34aaea95ed158d9c04fa
+ms.openlocfilehash: a3965a149fa62e5630d2b9940d4940308991aed1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -31,21 +32,22 @@ As etapas abaixo o orientarão na criação de um certificado autoassinado usand
 
 ### <a name="to-create-a-self-signed-certificate"></a>Para criar um certificado autoassinado
 1. Em um computador com Windows 10, baixe e instale o [SDK (Software Development Kit) do Windows para Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
-2. Após a instalação, localize o utilitário makecert.exe nesse caminho: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
-   
-    Exemplo: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
-3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Execute o seguinte comando, como administrador. Substitua *ARMP2SRootCert* e *ARMP2SRootCert.cer* com o nome que você deseja usar para o certificado.<br><br>O certificado estará em seus Certificados - Usuário Atual\Pessoal\Certificados.
+2. Após a instalação, localize o utilitário makecert.exe neste caminho: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Abra um prompt de comando como administrador e navegue até o local do utilitário makecert. Você pode usar o exemplo a seguir:
+
+        cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+
+3. Em seguida, crie e instale um certificado no repositório de certificados Pessoal em seu computador. O exemplo a seguir cria um arquivo *.cer* correspondente que você carrega no Azure ao configurar P2S. Substitua 'ARMP2SRootCert' e 'ARMP2SRootCert.cer' pelo nome que você deseja usar para o certificado.<br><br>O certificado estará localizado em seus 'Certificados – Usuário Atual\Pessoal\Certificados'.
    
         makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
 ### <a name="a-namerootpublickeyato-obtain-the-public-key"></a><a name="rootpublickey"></a>Para obter a chave pública
-Como parte da configuração do Gateway de VPN para conexões Ponto a Site, a chave pública do certificado raiz é carregada no Azure.
+Como parte da configuração do Gateway de VPN para conexões Ponto a Site, a chave pública do certificado raiz é carregada no Azure. 
 
-1. Para obter um arquivo .cer do certificado, abra **certmgr.msc**. Clique com o botão direito no certificado raiz autoassinado, clique em** todas as tarefas** e clique em **exportar**. Isso abre o **Assistente para Exportação de Certificados**.
-2. No Assistente, clique em **Avançar**, escolha , **Não exportar a chave privada** e clique em **Avançar**.
-3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base&64; (.CER).** Em seguida, clique em **Avançar**. 
+1. Para obter um arquivo .cer do certificado, abra **certmgr.msc**. Localize o certificado raiz autoassinado, normalmente em 'Certificados – Usuário Atual\Pessoal\Certificados', então clique nele com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, em **Exportar**. Isso abre o **Assistente para Exportação de Certificados**.
+2. No Assistente, clique em **Avançar**. Selecione **Não exportar a chave privada** e clique em **Avançar**.
+3. Na página **Exportar Formato de Arquivo**, selecione **X.509 codificado em Base&64; (.CER).** e clique em **Avançar**. 
 4. Em **Arquivo a ser Exportado**, use **Procurar** para encontrar a localização para a qual você deseja exportar o certificado. Em **Nome do arquivo**, dê um nome ao arquivo de certificado. Em seguida, clique em **Próximo**.
-5. Clique em **Concluir** para exportar o certificado.
+5. Clique em **Concluir** para exportar o certificado. Você verá a mensagem **A exportação foi bem-sucedida**. Clique em **OK** para fechar o assistente.
 
 ### <a name="export-the-self-signed-certificate-optional"></a>Exportar o certificado autoassinado (opcional)
 Convém exportar o certificado autoassinado e armazená-lo com segurança. Se precisar, você pode instalá-lo depois em outro computador e gerar mais certificados de cliente, ou exportar outro arquivo .cer. Qualquer computador com um certificado de cliente instalado e que também é definido com as configurações de cliente VPN adequadas podem se conectar à sua rede virtual por meio de P2S. Por esse motivo, convém verificar se os certificados de cliente são gerados e instalados apenas quando necessário, e se esse certificado autoassinado passa pelo armazenamento com segurança.
@@ -59,18 +61,15 @@ Não instale o certificado autoassinado diretamente no computador cliente. Você
 As etapas abaixo o orientarão quanto a uma maneira de gerar um certificado de cliente por meio de um certificado autoassinado. Você pode gerar vários certificados de cliente por meio do mesmo certificado. Cada certificado de cliente pode ser exportado e instalado no computador cliente. 
 
 1. No mesmo computador usado para criar o certificado autoassinado, abra um prompt de comando como administrador.
-2. Neste exemplo, "ARMP2SRootCert" refere-se ao certificado autoassinado que você gerou. 
-   
-   * Altere *"ARMP2SRootCert"* para o nome da raiz autoassinada a partir da qual você está gerando o certificado do cliente. 
-   * Altere *ClientCertificateName* para o nome que você deseja dar a um certificado de cliente gerado. 
+2. Modifique e execute o exemplo para gerar um certificado de cliente.
+    * Altere *"ARMP2SRootCert"* para o nome da raiz autoassinada a partir da qual você está gerando o certificado do cliente. Verifique se você está usando o nome do certificado raiz, que é equivalente ao valor 'CN=' que você especificou quando criou a raiz autoassinada.
+    * Altere *ClientCertificateName* para o nome que você deseja dar a um certificado de cliente gerado.<br><br>Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado de cliente chamado ClientCertificateName em seu repositório de certificados Pessoal que foi gerado a partir do certificado raiz ARMP2SRootCert.
 
-    Modifique e execute o exemplo para gerar um certificado de cliente. Se você executar o exemplo a seguir sem modificá-lo, o resultado será um certificado de cliente chamado ClientCertificateName em seu repositório de certificados Pessoal que foi gerado a partir do certificado raiz ARMP2SRootCert.
+            makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-        makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "ARMP2SRootCert" -is my -a sha1
 
-1. Todos os certificados são armazenados no repositório ‘Certificado - Usuário Atual\Pessoal\Certificados’ do computador. Você pode gerar quantos certificados de cliente forem necessários com base neste procedimento.
+### <a name="a-nameclientkeyapart-2---export-a-client-certificate"></a><a name="clientkey"></a>Parte 2 – Exportar um certificado de cliente                                                                                                                        
 
-### <a name="a-nameclientkeyapart-2---export-a-client-certificate"></a><a name="clientkey"></a>Parte 2 – Exportar um certificado de cliente
 1. Para exportar um certificado de cliente, abra **certmgr.msc**. Clique com o botão direito no certificado do cliente que você deseja exportar, clique em **todas as tarefas** e, em seguida, clique em **exportar**. Isso abre o **Assistente para Exportação de Certificados**.
 2. No Assistente, clique em **Avançar**, escolha **Sim, exportar a chave privada** e clique em **Avançar**.
 3. Na página **Exportar Formato de Arquivo** , você pode deixar os padrões selecionados. Em seguida, clique em **Próximo**. 
@@ -92,10 +91,5 @@ Continue com a configuração de Ponto a Site.
 
 * Para as etapas do modelo de implantação do **Gerenciador de Recursos** , veja [Configurar uma conexão Ponto a Site com uma VNet usando o PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
 * Para as etapas do modelo de implantação **clássico** , veja [Configurar uma conexão VPN Ponto a Site para uma VNet usando o portal clássico](vpn-gateway-point-to-site-create.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

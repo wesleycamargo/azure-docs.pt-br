@@ -18,6 +18,7 @@ ms.author: cgronlun;garye
 translationtype: Human Translation
 ms.sourcegitcommit: 50d1f8dfc7ce2d8bf4b04cff68698eafd56ce9c2
 ms.openlocfilehash: 518a7d2b5e43d8133d54ab583e4545a3ee9b3cba
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -140,9 +141,4 @@ Então é isso, As cinco perguntas que a ciência de dados pode responder.
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](machine-learning-create-experiment.md)
 * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

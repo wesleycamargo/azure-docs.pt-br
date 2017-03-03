@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: b2d1a740782a20a7c6b7b8cec8335a41f16231f5
 ms.openlocfilehash: 5a6a14e5fc8f6915b34f9667c4294a46c8591633
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -593,9 +594,4 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 Dependendo se a movimentação de dados inicial é planejada com um grande volume de dados históricos ou carregamento de dados de produção incremental, o Azure Data Factory tem opções para melhorar o desempenho dessas tarefas. O parâmetro de simultaneidade faz parte da **Atividade de Cópia** e define quantas janelas de atividade diferentes serão processadas em paralelo. O parâmetro **parallelCopies** define o paralelismo para a execução de uma única atividade. É importante considerar o uso desses parâmetros durante a criação de pipelines de movimentação de dados com o Azure Data Factory para obter a melhor taxa de transferência possível.
 
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

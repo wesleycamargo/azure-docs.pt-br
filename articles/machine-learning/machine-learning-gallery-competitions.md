@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/06/2017
 ms.author: roopalik;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 262ee4f092efa11150de61168e6b03c0477f0543
-ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
+ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
+ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -25,6 +26,8 @@ ms.openlocfilehash: 0e7f5b3ed4e9a23b2d2fe1acdf35450f36ef1ad4
 
 ## <a name="cortana-intelligence-competitions"></a>Competições do Cortana Intelligence
 **[Competições](https://gallery.cortanaintelligence.com/competitions)** oferecem uma oportunidade empolgante de concorrer com a comunidade de cientistas de dados para resolver problemas complexos usando o Cortana Intelligence Suite.
+
+Para respostas a perguntas frequentes sobre as Competições, consulte [Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
   Para navegar pelas competições na Galeria, abra a [Galeria](http://gallery.cortanaintelligence.com), aponte o mouse para **Mais** na parte superior da home page da Galeria e escolha **Competições**.
@@ -54,10 +57,5 @@ Se a competição não estiver mais aberta, seu status na página de detalhes se
 **[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

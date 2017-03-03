@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
 ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -78,9 +79,4 @@ Privileged Identity Management do Azure Active Directory (AD) é uma funcionalid
 [Azure Key Vault with Amit Bapat (Cofre de Chaves do Azure com Amit Bapat)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat apresenta Scott ao Cofre de Chaves do Azure. Com o Cofre de Chaves do Azure, é possível criptografar chaves e pequenos segredos, como senhas, usando chaves armazenadas em HSMs (módulos de segurança de hardware). É o gerenciamento de segredos baseado em nuvem e em hardware para o Microsoft Azure!
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

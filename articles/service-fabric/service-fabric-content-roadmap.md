@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2017
+ms.date: 02/17/2017
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 6c2464b2f4d16f70c2841faf18e2246c8125b60f
-ms.openlocfilehash: 9421b8545715def823a4bdafd27c261e159fbbab
+ms.sourcegitcommit: 47b3fffb2d5c24b7473884e490be19ff17b61b61
+ms.openlocfilehash: 9742523c0a1743ff5982e746aa3c99aed8934499
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -42,15 +43,17 @@ Esse vídeo da Microsoft Virtual Academy descreve os principais conceitos do Ser
 </a></center>
 
 ## <a name="get-started-and-create-your-first-app"></a>Introdução e crie seu primeiro aplicativo 
-Usando as ferramentas e SDKs do Service Fabric, você pode desenvolver aplicativos em ambientes Windows, Linux ou MacOS e implantar esses aplicativos em clusters em execução no Windows ou Linux.  Os guias a seguir fará com que você implantar um aplicativo em minutos.  Depois de executar seu primeiro aplicativo, baixar e executar alguns dos nossos [aplicativos de exemplo](http://aka.ms/servicefabricsamples).
+Usando as ferramentas e SDKs do Service Fabric, você pode desenvolver aplicativos em ambientes Windows, Linux ou MacOS e implantar esses aplicativos em clusters em execução no Windows ou Linux.  Os guias a seguir fará com que você implantar um aplicativo em minutos.  Depois de executar seu primeiro aplicativo, baixar e executar alguns dos nossos [aplicativos de exemplo](http://aka.ms/servicefabricsamples). Comece especificamente com [Amostras de Introdução](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
 ### <a name="on-windows"></a>No Windows
 O SDK do Service Fabric inclui um suplemento do Visual Studio que fornece modelos e ferramentas para criar, implantar e depurar aplicativos do Service Fabric. Esses tópicos percorrer o processo de criar seu primeiro aplicativo no Visual Studio e executá-lo em seu computador de desenvolvimento.
 
 [Configurar o ambiente de desenvolvimento](service-fabric-get-started.md)
-[criar sua primeira app(C#)](service-fabric-create-your-first-application-in-visual-studio.md)
+[Criar seu primeiro aplicativo (C#)](service-fabric-create-your-first-application-in-visual-studio.md)
 
-Experimente este extenso [laboratório prático](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) para se familiarizar com o fluxo de desenvolvimento de ponta a ponta para o Service Fabric.  Saiba como criar um serviço sem estado, configure o monitoramento e relatórios de integridade, e realize uma atualização do aplicativo. 
+#### <a name="practical-hands-on-labs"></a>Laboratórios práticos
+Experimente esta extensa [Parte 1 do laboratório prático](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) para se familiarizar com o fluxo de desenvolvimento de ponta a ponta para o Service Fabric.  Saiba como criar um serviço sem estado, configure o monitoramento e relatórios de integridade, e realize uma atualização do aplicativo. Depois disso faça a [Parte 2 do laboratório prático](http://aka.ms/sflab2), que leva você por meio de serviços com estado.
+
 
 O vídeo do Channel9 a seguir guia você pelo processo de criação de um aplicativo C# no Visual Studio:  
 <center><a target="_blank" href="https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio">  
@@ -138,9 +141,4 @@ Criada com base no Reliable Services, a estrutura [Reliable Actor](service-fabri
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

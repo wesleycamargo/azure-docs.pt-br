@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 02/12/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4a249f25aa9331d8f8669f553b6aae21ee5620c0
+ms.sourcegitcommit: 7cc133d6289bffbc3b7fc591104bc51ebfc67ddd
+ms.openlocfilehash: ff98ac25a7f1ed9a7992477369642e037d44eca7
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -26,7 +27,7 @@ O objetivo desse tutorial é mostrar como integrar o Yardi eLearning ao Azure AD
 A integração do Yardi eLearning ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, você pode controlar quem tem acesso ao Yardi eLearning
-* Você pode permitir que seus usuários façam logon automaticamente no Yardi eLearning (logon único) com suas contas do Azure AD
+* Você pode permitir que seus usuários façam logon automaticamente no SSO (logon único) do Yardi eLearning com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -35,27 +36,26 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Yardi eLearning, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada do Yardi eLearning com logon único
+* Uma assinatura com logon único (SSO) do Yardi eLearning habilitado
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. 
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adição do Yardi eLearning a partir da galeria
-2. Configurar e testar o logon único do AD do Azure
+* Adição do Yardi eLearning a partir da galeria
+* Configurar e testar o SSO do Azure AD
 
-## <a name="adding-yardi-elearning-from-the-gallery"></a>Adição do Yardi eLearning a partir da galeria
+## <a name="add-yardi-elearning-from-the-gallery"></a>Adicionar o Yardi eLearning da galeria
 Para configurar a integração do Yardi eLearning ao Azure AD, você precisará adicionar o Yardi eLearning da galeria à sua lista de aplicativos de SaaS gerenciados.
 
 **Para adicionar o Yardi eLearning da galeria, execute as seguintes etapas:**
@@ -80,23 +80,23 @@ Para configurar a integração do Yardi eLearning ao Azure AD, você precisará 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Yardi eLearning com base em um usuário de teste chamado "Brenda Fernandes".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Yardi eLearning com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Yardi eLearning é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Yardi eLearning.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Yardi eLearning é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Yardi eLearning.
 
 Essa relação de vínculo é estabelecida por meio da atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de Usuário** no Yardi eLearning.
 
-Para configurar e testar o logon único do Azure AD o com Yardi eLearning, você precisará concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD o com Yardi eLearning, você precisará concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuração do logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Yardi eLearning](#creating-a-yardi-elearning-test-user)** - para ter um equivalente de Brenda Fernandes no Yardi eLearning vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo Yardi eLearning.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do Azure e configurar o SSO em seu aplicativo Yardi eLearning.
 
 **Para configurar o logon único do Azure AD com o Yardi eLearning, execute as seguintes etapas:**
 
@@ -108,29 +108,23 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     ![Configurar o logon único](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_03.png) 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_04.png) 
-
-    a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no seu aplicativo Yardi eLearning usando o seguinte padrão: **“https://\<nome da empresa\>.yardielearning.com/login”**.
-
-    b. Clique em **Próximo**.
-
-
-1. Na página **Configurar logon único no Yardi eLearning** , realize as seguintes etapas:
+    ![Configurar o logon único](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_04.png) 
+  1. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon no seu aplicativo Yardi eLearning usando o seguinte padrão: **“https://\<nome da empresa\>.yardielearning.com/login”**.
+  2. Clique em **Próximo**.
+4. Na página **Configurar logon único no Yardi eLearning** , realize as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_05.png) 
-   
-    a. Clique em **Baixar metadados**e salve o arquivo no computador.
-   
-    b. Clique em **Próximo**.
-2. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do Yardi eLearning usando o endereço [elearning@yardi.com](mailto:elearning@yardi.com) e anexe o arquivo de metadados baixado ao email.
-3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+    ![Configurar o logon único](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_05.png)   
+   1. Clique em **Baixar metadados**e salve o arquivo no computador.
+   2. Clique em **Próximo**.
+5. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do Yardi eLearning usando o endereço [elearning@yardi.com](mailto:elearning@yardi.com) e anexe o arquivo de metadados baixado ao email.
+6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-4. Na página **Confirmação de logon único**, clique em **Concluir**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -150,50 +144,39 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+  1. Em Tipo de Usuário, selecione Novo usuário na organização.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+  3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+  4. Na lista **Função**, selecione **Usuário**.  
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**.  
+  2. Clique em **Concluído**.   
 
-### <a name="creating-a-yardi-elearning-test-user"></a>Criação de um usuário de teste do Yardi eLearning
+### <a name="create-a-yardi-elearning-test-user"></a>Criar um usuário de teste do Yardi eLearning
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Yardi eLearning. O Yardi eLearning dá suporte ao provisionamento just-in-time, que está habilitado por padrão.
 
 Não há itens de ação para você nesta seção. Será criado um novo usuário durante uma tentativa de acessar o Yardi eLearning caso ele ainda não exista. [Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
 
-> [!NOTE]
-> Se você precisar criar um usuário manualmente, terá de entrar em contato com a equipe de suporte de Yardi eLearning.
-> 
+>[!NOTE]
+>Se você precisar criar um usuário manualmente, terá de entrar em contato com a equipe de suporte de Yardi eLearning. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Yardi eLearning.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Yardi eLearning.
 
-    ![Assign User][200] 
+  ![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao Yardi eLearning, execute as seguintes etapas:**
 
@@ -211,7 +194,7 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Yardi eLearning no Painel de Acesso, deverá fazer logon automaticamente em seu aplicativo.
@@ -237,9 +220,4 @@ Quando você clicar no bloco Yardi eLearning no Painel de Acesso, deverá fazer 
 [203]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

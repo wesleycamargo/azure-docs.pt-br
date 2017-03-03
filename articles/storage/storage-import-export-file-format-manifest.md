@@ -1,8 +1,8 @@
 ---
-title: "Formato do arquivo de manifesto do serviço de Importação-Exportação | Microsoft Docs"
+title: "Formato do arquivo de manifesto da Importação/Exportação do Azure | Microsoft Docs"
 description: "Saiba mais sobre o formato do arquivo de manifesto da unidade que descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e arquivo na unidade em um trabalho de importação ou exportação no serviço de Importação-Exportação"
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2015
-ms.author: renash
+ms.date: 01/23/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 78abb839badf99c6251673ee9914955df8c950bc
-ms.openlocfilehash: c79d4e4b088bab056459ed4add442acfb0176692
+ms.sourcegitcommit: 8de848b1192ff1c10e0375053c4e03f18c06184e
+ms.openlocfilehash: 2c76120a967aabf546fdb5246478f78e8cf47f94
+ms.lasthandoff: 02/16/2017
 
 
 ---
 
-# <a name="import-export-service-manifest-file-format"></a>Formato do arquivo de manifesto do serviço de Importação-Exportação
+# <a name="azure-importexport-service-manifest-file-format"></a>Formato de arquivo de manifesto do serviço de Importação/Exportação do Azure
 O arquivo de manifesto da unidade descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e os arquivos na unidade que compõem um trabalho de importação ou exportação. Para uma operação de importação, o arquivo de manifesto é criado como parte do processo de preparação da unidade e é armazenado na unidade antes de ser enviado ao datacenter do Azure. Durante uma operação de exportação, o manifesto é criado e armazenado na unidade pelo serviço de Importação/Exportação do Azure.  
   
 Para os trabalhos de importação e exportação, o arquivo de manifesto da unidade é armazenado na unidade de importação ou exportação; ele não é transmitido ao serviço por meio de qualquer operação de API.  
@@ -100,7 +101,7 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Drive`|Elemento XML aninhado|Contém o manifesto de cada unidade.|  
 |`DriveId`|Cadeia de caracteres|O identificador de unidade exclusivo. O identificador de unidade pode ser encontrado consultando o número de série da unidade. O número de série da unidade também é normalmente impresso na parte externa da unidade. O elemento `DriveID` deve aparecer antes de qualquer elemento `BlobList` no arquivo de manifesto.|  
 |`StorageAccountKey`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `ContainerSas` não for especificado. A chave de conta da conta de armazenamento do Azure associada ao trabalho.<br /><br /> Esse elemento é omitido do manifesto em uma operação de exportação.|  
-|`ContainerSas`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `StorageAccountKey` não for especificado. O SAS do contêiner para acessar os blobs associados ao trabalho. Consulte [Put Job](/rest/api/storageservices/importexport/Put-Job) para saber o formato. Esse elemento é omitido do manifesto em uma operação de exportação.|  
+|`ContainerSas`|Cadeia de caracteres|Obrigatório para os trabalhos de importação se, e somente se, `StorageAccountKey` não for especificado. O SAS do contêiner para acessar os blobs associados ao trabalho. Consulte [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) para saber o formato. Esse elemento é omitido do manifesto em uma operação de exportação.|  
 |`ClientCreator`|Cadeia de caracteres|Especifica o cliente que criou o arquivo XML. Esse valor não é interpretado pelo serviço de Importação/Exportação.|  
 |`BlobList`|Elemento XML aninhado|Contém uma lista de blobs que fazem parte do trabalho de importação ou exportação. Cada blob em uma lista de blobs compartilha os mesmos metadados e propriedades.|  
 |`BlobList/MetadataPath`|Cadeia de caracteres|Opcional. Especifica o caminho relativo de um arquivo no disco que contém os metadados padrão que serão definidos em blobs na lista de blobs para uma operação de importação. Opcionalmente, esses metadados podem ser substituídos de blob em blob.<br /><br /> Esse elemento é omitido do manifesto em uma operação de exportação.|  
@@ -131,10 +132,5 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Blob/PropertiesPath/@Hash`|Atributo, cadeia de caracteres|Especifica o hash MD5 codificado em Base16 do arquivo de propriedades do blob.|  
   
 ## <a name="see-also"></a>Consulte também  
-[Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
+[Referência de REST de Importação/Exportação do Armazenamento](/rest/api/storageimportexport/)
 

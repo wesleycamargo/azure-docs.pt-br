@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 4bab9f44d1c91f05618ea510b83beb06540429f2
 ms.openlocfilehash: 00424292fbc5321a77a4e924530ade97739208d4
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -251,9 +252,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

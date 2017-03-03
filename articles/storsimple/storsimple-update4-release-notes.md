@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/10/2017
+ms.date: 02/16/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 1d9b020c6175ba8f47cde5cba0f69a1c8c228479
-ms.openlocfilehash: 48d2274fff2fb1300406f48c8d3e772aefa9933f
+ms.sourcegitcommit: a87a4a8b290318bb9fdd1ae0b5fdce00085f59df
+ms.openlocfilehash: 3fe19196ce6af2aeb52bf941ced1892a9a172d87
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,7 +32,7 @@ A Atualização 4 pode ser aplicada a qualquer dispositivo StorSimple que execut
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
 > [!IMPORTANT]
-> * A Atualização 4 tem o software de dispositivo, firmware USM, driver e firmware LSI, firmware de disco, Storport e Spaceport, segurança e outras atualizações do sistema operacional. São necessárias cerca de 1,5 a 2 horas para instalar essa atualização. É recomendável que você aplique essa atualização para manter o seu dispositivo atualizado. 
+> * A Atualização 4 tem o software de dispositivo, firmware USM, driver e firmware LSI, firmware de disco, Storport e Spaceport, segurança e outras atualizações do sistema operacional. São necessárias cerca de quatro horas para instalar essa atualização. É recomendável que você aplique essa atualização para manter o seu dispositivo atualizado. 
 > * Para novas versões, talvez você não veja atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Aguarde alguns dias e procure atualizações novamente, uma vez que elas serão disponibilizadas em breve.
 
 ## <a name="whats-new-in-update-4"></a>Novidades na Atualização 4
@@ -91,10 +92,5 @@ Esta atualização não pode ser aplicada ao Dispositivo de Nuvem do StorSimple 
 ## <a name="next-step"></a>Próxima etapa
 
 Saiba como [instalar a Atualização 4](storsimple-install-update-4.md) no dispositivo StorSimple.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
 ms.openlocfilehash: c4ae1c80b854e84fe94a52e2872bec2c24b4580f
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -177,8 +178,3 @@ Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de ini
 Se você estiver tendo problemas para se conectar à VM, consulte [Solucionar problemas de conexões SSH com uma VM do Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para ver problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Linux](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para obter mais informações sobre como usar o Resource Manager, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: af15b530dd512873e4534fb61d276c8c8c3a196a
 ms.openlocfilehash: 2de70faa090fb3da25fec8f8946e52fcae2677d3
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -355,9 +356,4 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja o artigo [Mover dados entre locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo para criar um pipeline de dados que move dados de um armazenamento de dados local para um armazenamento de dados do Azure.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

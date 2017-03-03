@@ -1,6 +1,6 @@
 ---
 title: "Modelagem e exploração de dados com Spark | Microsoft Docs"
-description: "Demonstra os recursos de exploração e modelagem de dados do kit de ferramentas do Spark MLlib."
+description: "Demonstra os recursos de exploração e modelagem de dados do kit de ferramentas do Spark MLlib no Azure."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
 translationtype: Human Translation
-ms.sourcegitcommit: 304323601a7fb2c9b46cf0e1eea9429cf099a111
-ms.openlocfilehash: e989da22fe6819410ff9b4c1e132dc7d74a9bf50
+ms.sourcegitcommit: 5be82735c0221d14908af9d02500cc42279e325b
+ms.openlocfilehash: 76fb321dbe909730f72eba71042264caba407aed
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -43,7 +44,33 @@ As etapas de modelagem também contêm código que mostra como treinar, avaliar 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 ou Spark 2.0 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. O notebook **pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb** que contém os exemplos de código deste tópico está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark). 
+Você precisara de uma conta do Azure e de um cluster HDInsight do Spark 1.6 ou Spark 2.0 para concluir este passo a passo. Confira o [Visão geral de Ciência de dados usando o Spark no Azure HDInsight](machine-learning-data-science-spark-overview.md) para obter instruções sobre como atender a esses requisitos. Esse tópico também contém uma descrição dos dados de Táxi NYC 2013 usados aqui e instruções sobre como executar código a partir de um notebook Jupyter no cluster Spark. 
+
+## <a name="spark-clusters-and-notebooks"></a>Blocos de notas e clusters do Spark
+As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, blocos de notas Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição de blocos de notas e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. Para sua conveniência, aqui estão os links para os blocos de notas Jupyter para Spark 1.6 e 2.0 para execução no kernel pyspark do servidor de bloco de notas Jupyter:
+
+### <a name="spark-16-notebooks"></a>Blocos de notas Spark 1.6
+
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): fornece informações sobre como executar a exploração, a modelagem e a pontuação de dados com vários algoritmos diferentes.
+
+### <a name="spark-20-notebooks"></a>Blocos de notas Spark 2.0
+As tarefas de regressão e classificação que são implementadas usando um cluster Spark 2.0 usam outro conjunto de dados e estão em blocos de notas separados:
+
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando as viagens de táxi de NYC e conjunto de dados de tarifas descritas [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): esse arquivo mostra como executar disputa de dados (operações SQL Spark e dataframe), exploração, modelagem e pontuação, utilizando um conjunto de dados de partidas no horário de uma companhia aérea conhecida de 2011 e 2012. Integramos o conjunto de dados da companhia aérea com os dados meteorológicos do aeroporto (por exemplo, velocidade do vento, temperatura, altitude etc.) antes da modelagem, para que esses recursos de tempo pudessem ser incluídos no modelo.
+
+<!-- -->
+
+> [!NOTE]
+> O conjunto de dados da companhia aérea foi adicionado ao notebook Spark 2.0 para melhor ilustrar os algoritmos de classificação. Consulte os links a seguir para obter informações sobre um conjunto de dados de partidas no horário e um conjunto de dados meteorológicos:
+
+>- Dados de partidas no horário em aeroportos: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+
+>- Dados meteorológicos do aeroporto: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+> 
+> 
+
+<!-- -->
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -1064,10 +1091,5 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, você
 **Consumo de modelos:** para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md).
 
 **Validação cruzada e limpeza de hiperparâmetro**: confira [Modelagem e exploração de dados avançados com o Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) para saber como os modelos podem ser treinados usando a validação cruzada e a limpeza de hiperparâmetro
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

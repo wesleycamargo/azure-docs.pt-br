@@ -17,6 +17,7 @@ ms.author: ilanr9;yijichen;garye
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 0c07495a932c8bfdabb97e8eebe8d99de19fbd15
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -400,10 +401,5 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 ![Arquitetura de Implantação Completa](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

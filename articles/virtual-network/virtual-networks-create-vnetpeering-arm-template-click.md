@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: ddfa2998d7e9305891c5a976dff5c2365d5eb1d4
-ms.openlocfilehash: 351b77482c07160fa62155e90dcb8eb280e9087c
+ms.sourcegitcommit: d68c2f496cfdfa52c33243542ee141c44639e5c0
+ms.openlocfilehash: 7b4fda3ffb269c6a9de407bbd9af32d90768504f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -336,7 +337,7 @@ Para criar uma rede virtual emparelhamento entre assinaturas, conclua as seguint
 Para criar um emparelhamento entre redes virtuais a partir de modelos de implantação diferentes, conclua as etapas a seguir:
 
 1. Se você estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes na *mesma* assinatura, vá para a etapa 2. A capacidade de criar um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas *diferentes* está em versão de **visualização**. Os recursos de versão de visualização não têm o mesmo nível de confiabilidade e o contrato de nível de serviço de recursos de versões gerais. Se estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas diferentes, primeiro deverá concluir as seguintes tarefas:
-    - Registre o recurso de visualização na sua assinatura do Azure ao inserir o seguinte comando do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Registre a funcionalidade de visualização na sua assinatura do Azure ao inserir os seguintes comandos do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` e `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`
     - Conclua as etapas 1 e 2 da seção [Emparelhamento entre assinaturas](#x-sub) deste artigo.
 2. O texto a seguir mostra a definição de um link de emparelhamento VNet da VNET1 para a VNET2 nesse cenário. Apenas um link é necessário para emparelhar uma rede virtual clássica a uma rede virtual do Azure Resource Manager.
 
@@ -417,10 +418,5 @@ Para criar um emparelhamento entre redes virtuais a partir de modelos de implant
         RemoteVirtualNetworkAddressSpace : null
 
     Após o estabelecimento do emparelhamento entre uma VNet clássica e uma VNet do resource manager, você poderá iniciar conexões de qualquer máquina virtual no VNET1 para qualquer máquina virtual na VNET2 e vice-versa.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

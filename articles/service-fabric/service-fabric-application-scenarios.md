@@ -12,18 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
+ms.date: 2/17/2017
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: dfc2af63c7acb1fef47abb329a385cd7448d2186
-ms.openlocfilehash: 6bbffcfd8acc531fd70c9db90a9f57d8db942002
+ms.sourcegitcommit: d1939e316efb00fb4980c57cbec28920a7475a47
+ms.openlocfilehash: feeba5c8e663b9ea571e4410a2d3ad3505394127
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicativos do Service Fabric
 O Service Fabric do Azure oferece uma plataforma confiável e flexível que permite escrever e executar muitos tipos de serviço e aplicativo de negócios. Esses aplicativos e microsserviços podem ser com ou sem monitoração de estado e têm os recursos balanceados entre máquinas virtuais para melhorar a eficiência. A arquitetura exclusiva da Malha do Serviço permite que você execute análise de dados, computação na memória, transações paralelas e processamento de eventos quase em tempo real em seus aplicativos. Você pode escalar verticalmente (realmente reduzir ou expandir) seus aplicativos com facilidade, de acordo com os requisitos de recurso em constante mudança.
 
-A plataforma Malha do Serviço no Azure é ideal para as seguintes categorias de aplicativos e serviços:
+A plataforma do Service Fabric no Azure é ideal para as seguintes categorias de aplicativos:
 
 * **Serviços altamente disponíveis**: serviços do Service Fabric fornecem failover rápido criando várias réplicas de serviço secundárias. Se um nó, processo ou serviço individual falhar devido a uma falha de hardware, ou outra falha, uma das réplicas secundárias é promovida a uma réplica primária com perda mínima de serviço.
 * **Serviços escalonáveis**: serviços individuais podem ser particionados, permitindo que seu estado seja escalado horizontalmente no cluster. Além disso, os serviços individuais podem ser criados e removidos dinamicamente. Os serviços podem ser escalados horizontalmente de modo rápido e fácil de algumas instâncias em alguns nós para milhares de instâncias em muitos nós e, em seguida, reduzidos horizontalmente novamente, dependendo das suas necessidades de recurso. Você pode usar o Service Fabric para compilar esse serviço e gerenciar os respectivos ciclos de vida completos.
@@ -31,9 +32,11 @@ A plataforma Malha do Serviço no Azure é ideal para as seguintes categorias de
 * **Aplicativos interativos baseados em sessão**: o Service Fabric é útil se os aplicativos, como jogos online ou mensagens instantâneas, exigirem baixa latência em leituras e gravações. O Service Fabric permite que você compile esses aplicativos interativos e com monitoração de estado sem ter que criar um armazenamento separado ou cache, como é exigido aos aplicativos sem monitoração de estado. (Isso aumenta a latência e potencialmente apresenta problemas de consistência).
 * **Processamento gráfico distribuído**: o crescimento de redes sociais aumentou consideravelmente a necessidade de analisar gráficos em grande escala em paralelo. O dimensionamento rápido e o processamento paralelo de carga faz com que a Malha do Serviço seja uma plataforma natural para o processamento de gráficos em larga escala. A Malha do Serviço permite que você crie serviços altamente escalonáveis para grupos como redes sociais, pesquisa científica e business intelligence.
 * **Fluxos de trabalho e análise de dados**: a leitura e gravação rápida do Service Fabric permite aplicativos que devem processar eventos ou fluxos de dados de forma confiável. O Service Fabric também permite aplicativos que descrevem pipelines de processamento, em que os resultados devem ser confiáveis es passado para o próximo estágio de processamento sem perda. Isso inclui sistemas transacionais e financeiros, em que as garantias de computação e consistência de dados são essenciais.
+* **Coleta de dados, processamento e IoT**: já que o Service Fabric lida com os dados em grande escala e tem baixa latência por meio de seus serviços com estado, ele é ideal para processamento de dados em milhões de dispositivos em que os dados para o dispositivo e a computação estão localizados.
+Vimos vários clientes que criaram sistemas IoT usando o Service Fabric, incluindo a [BMW](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/24/service-fabric-customer-profile-bmw-technology-corporation/), a [Schneider Electric](https://blogs.msdn.microsoft.com/azureservicefabric/2016/08/05/service-fabric-customer-profile-schneider-electric/) e a [Mesh Systems](https://blogs.msdn.microsoft.com/azureservicefabric/2016/06/20/service-fabric-customer-profile-mesh-systems/).
 
 ## <a name="application-design-case-studies"></a>Estudos de caso de design do aplicativo
-Vários estudos de caso mostrando como o Service Fabric é usado para projetar aplicativos são publicados no [site de soluções de microsserviços](https://azure.microsoft.com/solutions/microservice-applications/)
+Vários estudos de caso mostrando como o Service Fabric é usado para projetar aplicativos são publicados no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/tag/customer-profile/) e no [site de soluções de microsserviços](https://azure.microsoft.com/solutions/microservice-applications/)
 
 ## <a name="design-applications-composed-of-stateless-and-stateful-microservices"></a>Projetar aplicativos compostos de microsserviços com e sem monitoração de estado
 A criação de aplicativos com funções de trabalho com o serviço de nuvem do Azure é um exemplo de serviços sem monitoração de estado. Por outro lado, os microsserviços com monitoração de estado mantêm o estado autoritário além da solicitação e de sua resposta. Isso fornece alta disponibilidade e consistência do estado por meio de APIs simples que oferecem garantias transacionais feitas pela replicação. Os serviços com monitoração de estado do Service Fabric democratiza a alta disponibilidade, incorporando-a a todos os tipos de aplicativo, e não apenas a bancos de dados e outros armazenamentos de dados. Essa é uma progressão natural. Os aplicativos já passaram do uso de bancos de dados totalmente relacionais para bancos de dados NoSQL de alta disponibilidade. Agora os próprios aplicativos podem ter seu estado e dados "hot" gerenciados dentro deles para ganhos de desempenho adicionais sem sacrificar a disponibilidade, a consistência e a confiabilidade.
@@ -63,9 +66,4 @@ Os microsserviços com monitoração de estado simplificam o design dos aplicati
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

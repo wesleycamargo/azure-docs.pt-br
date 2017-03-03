@@ -17,8 +17,9 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: negat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+ms.sourcegitcommit: 35d4c8593dd9698017df85675395430f345f4e86
+ms.openlocfilehash: 17054073e921708cc0c9392ed1b94e9579a9f940
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -32,26 +33,28 @@ Primeiro, navegue até o [Portal do Azure](https://portal.azure.com) no navegado
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-linux-virtual-machine"></a>Criar a máquina virtual Linux
-Agora, você pode usar as configurações padrão e criar rapidamente a máquina virtual.
+## <a name="create-the-scale-set"></a>Criar o conjunto de dimensionamento
+Agora, você pode usar as configurações padrão e criar rapidamente o conjunto de dimensionamento.
 
-* Na folha `Basics`, insira um nome para o conjunto de escala. Esse nome se torna a base do FQDN do balanceador de carga na frente do conjunto de escala. Portanto, certifique-se de que o nome seja exclusivo em todo o Azure.
+* Na folha `Basics`, insira um nome para o conjunto de escala. Esse nome se torna a base do FQDN do balanceador de carga na frente do conjunto de dimensionamento. Portanto, certifique-se de que o nome seja exclusivo em todo o Azure.
 * Selecione o tipo de OS desejado, insira o nome de usuário desejado e selecione o tipo de autenticação que prefere. Se você escolher uma senha, ela deverá ter pelo menos 12 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). Se você escolher `SSH public key`, cole somente sua chave pública, NÃO sua chave privada:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
+* Escolha se você deseja limitar o conjunto de dimensionamento a um único grupo de posicionamento ou se ele deve abranger vários grupos de posicionamento. Permitir que o conjunto de dimensionamento abranja grupos de posicionamento permite conjuntos de dimensionamento com capacidade para mais de 100 VMs (até 1.000), com certas limitações. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-placement-groups.md).
 * Digite o nome do grupo de recursos desejado e a localização e clique em `OK`.
 * Na folha `Virtual machine scale set service settings` : digite o rótulo de nome de domínio desejado (a base do FQDN para o balanceador de carga na frente do conjunto de escala). Este rótulo deve ser exclusivo em todo o Azure.
 * Escolha a imagem de disco do sistema operacional desejada, a contagem de instâncias e o tamanho da máquina.
+* Escolha o tipo de disco desejado: gerenciado ou não. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-managed-disks.md). Essa opção não estará disponível se você optar por fazer com que o conjunto de dimensionamento abranja vários grupos de posicionamento, porque o disco gerenciado é um pré-requisito para isso.
 * Habilitar ou desabilitar o dimensionamento automático e configurar, se habilitado:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* Na folha `Summary`, quando a validação for concluída, clique em `OK`.
-* Por fim, na folha `Purchase`, clique em `Purchase` para iniciar a implantação do conjunto de escala.
+* Na folha `Summary`, quando a validação for concluída, clique em `OK` para iniciar a implantação do conjunto de dimensionamento.
+
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>Conectar-se a uma VM no conjunto de dimensionamento
-Quando o conjunto de escala estiver implantado, navegue até a guia `Inbound NAT Rules` do balanceador de carga para o conjunto de escala:
+Se você optar por limitar seu conjunto de dimensionamento a um único grupo de posicionamento, o conjunto de dimensionamento será implantado com regras NAT configuradas para permitir que você se conecte ao conjunto de dimensionamento facilmente (caso contrário, para se conectar às máquinas virtuais no conjunto de dimensionamento, você provavelmente precisará criar uma jumpbox na mesma rede virtual do conjunto de dimensionamento). Para vê-las, navegue até a guia `Inbound NAT Rules` do balanceador de carga para o conjunto de dimensionamento:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
@@ -67,10 +70,5 @@ Para ver a documentação sobre como implantar conjuntos de escala do Visual Stu
 Para ver a documentação geral, confira a [página de visão geral da documentação para conjuntos de escala](virtual-machine-scale-sets-overview.md).
 
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

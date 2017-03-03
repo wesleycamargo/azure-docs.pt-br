@@ -19,6 +19,7 @@ ms.author: sedusch
 translationtype: Human Translation
 ms.sourcegitcommit: 4a9c9b35b1b1740152214193eb5bb5ef951de781
 ms.openlocfilehash: cc75cfa43cd60628d9a4d51827bd14f72715d2b4
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -1074,9 +1075,4 @@ Métricas de desempenho no Azure são coletadas por um daemon, que obtém os dad
 Para obter uma lista completa e atualizada dos problemas conhecidos, confira a Nota SAP [1999351], que tem informações adicionais de solução de problemas para o Monitoramento Avançado do Azure para SAP.
 
 Se estiver solucionando problemas usando a Nota SAP [1999351] e isso não resolver o problema, execute novamente o script de configuração `Set-AzureRmVMAEMExtension`, conforme descrito em [Configurar a Extensão de Monitoramento Avançado do Azure para SAP][deployment-guide-4.5]. Talvez você precise esperar por uma hora porque os contadores de diagnóstico ou análise de armazenamento podem não ser criados imediatamente depois de terem sido habilitados. Se o problema persistir, abra uma mensagem de suporte ao cliente SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR para uma máquina virtual Linux.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

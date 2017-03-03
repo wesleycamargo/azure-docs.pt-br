@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: 07593e7f1d92a9a5943714f662568fec10a8886a
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -160,10 +161,5 @@ Em abril de 2017 o tipo de secundário não legível será descontinuado e banco
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a replicação geográfica ativa, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

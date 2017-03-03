@@ -12,24 +12,17 @@ ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
-ms.openlocfilehash: 6ac9bdf34e8cf0a8ca8e06ae3ed6cd2dd1cf408b
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: e164e1da7ec5f2da157900c86b3313fff1affed9
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="configure-azure-sql-database-server-level-firewall-rules-using-the-rest-api"></a>Configurar regras de firewall no nível de servidor do Banco de Dados SQL do Azure usando a API REST
-> [!div class="op_single_selector"]
-> * [Visão geral](sql-database-firewall-configure.md)
-> * [Portal do Azure](sql-database-configure-firewall-settings.md)
-> * [TSQL](sql-database-configure-firewall-settings-tsql.md)
-> * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
-> * [API REST](sql-database-configure-firewall-settings-rest.md)
-> 
-> 
 
 O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir conexões com servidores e bancos de dados. Você pode definir configurações de firewall nos níveis de banco de dados e de servidor para o banco de dados de usuário ou mestre no seu servidor do Banco de Dados SQL do Azure a fim de permitir seletivamente o acesso ao banco de dados.
 
@@ -67,14 +60,14 @@ O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir con
 * [Listar Todas as Regras de Firewall](https://msdn.microsoft.com/library/azure/mt604478.aspx)
 
 ## <a name="next-steps"></a>Próximas etapas
-Para ver um artigo sobre como usar o Transact-SQL para criar regras de firewall no nível do banco de dados e no nível do servidor, consulte [Configurar regras de firewall nos níveis do banco de dados e do servidor do Banco de Dados SQL do Azure usando o T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+Para ver um artigo sobre como usar o Transact-SQL para criar regras de firewall no nível do banco de dados e no nível do servidor, consulte [Configurar regras de firewall nos níveis do banco de dados e do servidor de Banco de Dados SQL do Azure usando o T-SQL](sql-database-configure-firewall-settings-tsql.md). 
 
 Para ver artigos sobre como criar regras de firewall no nível de servidor usando outros métodos, confira: 
 
 * [Configurar regras de firewall no nível do servidor do Banco de Dados SQL do Azure usando o portal do Azure](sql-database-configure-firewall-settings.md)
-* [Configurar regras de firewall no nível de servidor do Banco de Dados SQL do Azure usando o PowerShell](sql-database-configure-firewall-settings-powershell.md)
+* [Como configurar um firewall do Banco de Dados SQL do Azure usando o PowerShell](sql-database-configure-firewall-settings-powershell.md)
 
-Para ver um tutorial sobre como criar um banco de dados, consulte [Criar um banco de dados SQL em minutos usando o portal do Azure](sql-database-get-started.md).
+Para ver um tutorial sobre como criar um banco de dados, consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md).
 Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso ao banco de dados e a segurança de logon](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -87,10 +80,5 @@ Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

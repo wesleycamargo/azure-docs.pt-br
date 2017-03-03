@@ -19,6 +19,7 @@ ms.author: v-shysun
 translationtype: Human Translation
 ms.sourcegitcommit: 984adf244596578a3301719e5ac2f68a841153bf
 ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -39,10 +40,5 @@ ms.openlocfilehash: 3bfcaf4ae29d23754a19a61f2775d1b12e3e69ba
 ## <a name="steps-to-improve-database-performance-with-more-resources"></a>Etapas para melhorar o desempenho do banco de dados com mais recursos
 1. Para bancos de dados independentes, é possível [alterar as camadas de serviço](sql-database-service-tiers.md) sob demanda para melhorar o desempenho do banco de dados.
 2. Para vários bancos de dados, considere o uso de [pools elásticos](sql-database-elastic-pool-guidance.md) para dimensionar os recursos automaticamente.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
 ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -91,10 +92,5 @@ PP = Versão prévia pública
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

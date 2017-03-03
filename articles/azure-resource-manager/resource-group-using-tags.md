@@ -12,11 +12,12 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 02/15/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: ec80273fd388a435bc0aee9cb2dd49df12535923
-ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
+ms.sourcegitcommit: 0e1ee94504ebff235c1da9128e0ac68c2b28bc59
+ms.openlocfilehash: 2f56314769d90a1f0f9ebb5ece9c8e54b23b8936
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,6 +29,10 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 > 
 > 
 
+## <a name="ensure-tag-consistency-with-policies"></a>Garantir a consistência de marcação com as políticas
+
+Políticas de recursos permitem que você crie regras padrão para sua organização. Você pode criar políticas que garantem que os recursos sejam marcados com os valores apropriados. Para obter mais informações, consulte [Aplicar políticas de recursos para marcas](resource-manager-policy-tags.md).
+
 ## <a name="templates"></a>Modelos
 
 [!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
@@ -38,9 +43,9 @@ ms.openlocfilehash: c5270c56ab6d0a4f200b0707554705d3b7855d32
 ## <a name="powershell"></a>PowerShell
 [!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
-## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
+## <a name="azure-cli-20"></a>CLI do Azure 2.0
 
-2.0 de CLI do Azure (visualização), você pode adicionar marcas de recursos e grupo de recursos e recursos de consulta por valores de marca.
+Com a CLI do Azure 2.0, você pode adicionar marcas de recursos e grupo de recursos e recursos de consulta por valores de marcação.
 
 Ao aplicar marcas a um recurso ou grupo de recursos, você pode substituir as marcas existentes nesse recurso ou grupo de recursos. Portanto, você deve usar uma abordagem diferente com base em se o recurso ou o grupo de recursos tem marcas existentes que você deseja preservar. Para adicionar marcas à:
 
@@ -110,10 +115,5 @@ Quando você baixa o CSV de uso para serviços que dão suporte a marcações co
 * Para obter uma introdução ao uso da CLI do Azure ao implantar recursos, confira [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Recursos do Azure](xplat-cli-azure-resource-manager.md).
 * Para obter uma introdução ao uso do portal, confira [Usando o portal do Azure para gerenciar os recursos do Azure](resource-group-portal.md)  
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

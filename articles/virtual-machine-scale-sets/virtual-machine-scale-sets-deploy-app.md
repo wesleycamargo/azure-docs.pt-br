@@ -18,6 +18,7 @@ ms.author: guybo
 translationtype: Human Translation
 ms.sourcegitcommit: f13545d753690534e0e645af67efcf1b524837eb
 ms.openlocfilehash: dad27b11b5f02ed41826b82882cc5089eb69cb04
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -57,10 +58,5 @@ As VMs do conjunto de escala se tornam um substrato estável para os contêinere
 
 ## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
 Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de Dimensionamento de Máquinas Virtuais (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais. O documento [Atualizar um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-sets-upgrade-scale-set.md) do Azure também fornece mais informações sobre quais opções estão disponíveis para executar atualizações de sistema operacional através de um conjunto de dimensionamento de VMs.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

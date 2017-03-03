@@ -17,6 +17,7 @@ ms.author: apimpm
 translationtype: Human Translation
 ms.sourcegitcommit: 30855c86780e13144dbe0e507397a719d1a1f95d
 ms.openlocfilehash: 588425fdc4a076d4d7ad65e634849f4f77bb9fdd
+ms.lasthandoff: 02/03/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Monitorar suas APIs com o Gerenciamento de API do Azure, Hubs de Eventos e Runscope
@@ -281,9 +282,4 @@ O serviço Gerenciamento de API do Azure fornece um lugar ideal para capturar o 
   * [Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure](api-management-howto-log-event-hubs.md)
   * [Referência de entidade do agente](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [referência de política de log ao hub de eventos](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

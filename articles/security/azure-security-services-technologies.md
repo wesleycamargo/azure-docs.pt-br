@@ -17,6 +17,7 @@ ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
 ms.openlocfilehash: e9b9febe0c7533e0d2de24b97c98707d08f5e461
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -72,9 +73,4 @@ A seguir está o nosso esforço inicial no fornecimento de uma lista. Ao longo d
 * [Rota Expressa do Azure](../expressroute/expressroute-introduction.md)
 * [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
 * [Proxy de aplicativo do Azure](../active-directory/active-directory-application-proxy-enable.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

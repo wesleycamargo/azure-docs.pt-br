@@ -20,6 +20,7 @@ ms.author: sstein;carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
 ms.openlocfilehash: a5eaf43aa01e5d30171ea038db7ba985c9684fb7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -65,10 +66,5 @@ Este artigo mostra como se conectar a um banco de dados SQL do Azure usando o SQ
 - Para obter uma introdução ao tutorial de autenticação do SQL Server, confira [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md)
 - Para obter uma introdução ao tutorial de autenticação do Azure Active Directory, confira [Autenticação e autorização do Azure AD](sql-database-control-access-aad-authentication-get-started.md)
 - Para saber mais sobre o SSMS, consulte [Usar o SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

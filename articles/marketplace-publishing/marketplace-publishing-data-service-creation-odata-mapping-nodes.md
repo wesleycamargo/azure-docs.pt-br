@@ -17,6 +17,7 @@ ms.author: hascipio; avikova
 translationtype: Human Translation
 ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
 ms.openlocfilehash: e3ce01d20f6b47c6fe68fdbfe31679cc2c92f2e7
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -102,7 +103,7 @@ Os nós filho adicionais (não cobertos pela documentação CSDL) dentro do nó 
         ]]>
         </d:RequestBody>`
 
-**d:Namespaces** e **d:Namespace** - esse nó descreve os namespaces que são definidos no XML que é retornado pela função de importação (ponto de extremidade do URI). O XML retornado pelo serviço de back-end pode conter qualquer número de namespaces para diferenciar o conteúdo que é retornado. **Todos esses namespaces, se usados em consultas d:Map ou d:Match XPath precisam ser listados.**  O nó d:Namespaces contém um conjunto/lista  de nós d:Namespace. Cada um deles lista um namespace usado na resposta do serviço de back-end. A seguir estão os atributos do nó d:Namespace:
+**d:Namespaces** e **d:Namespace** - esse nó descreve os namespaces que são definidos no XML que é retornado pela função de importação (ponto de extremidade do URI). O XML retornado pelo serviço de back-end pode conter qualquer número de namespaces para diferenciar o conteúdo que é retornado. **Todos esses namespaces, se usados em consultas d:Map ou d:Match XPath precisam ser listados.** O nó d:Namespaces contém um conjunto/lista  de nós d:Namespace. Cada um deles lista um namespace usado na resposta do serviço de back-end. A seguir estão os atributos do nó d:Namespace:
 
 * **d:Prefix:** O prefixo para o namespace, conforme mostrado nos resultados XML retornados pelo serviço, por exemplo, f:FirstName, f:LastName, onde f é o prefixo.
 * **d:Uri:** O URI completo do namespace usado no documento de resultado. Representa o valor resolvido do prefixo em tempo de execução.
@@ -118,17 +119,17 @@ Os nós filho adicionais (não cobertos pela documentação CSDL) dentro do nó 
 **d:Title** *(Opcional)* - Permite descrever o título da função. O valor para o título é proveniente de
 
 * O atributo de mapa opcional (um xpath) que especifica onde encontrar o título na resposta retornada da solicitação de serviço.
-* - Ou - o título especificado como o valor do nó.
+* -Ou - o título especificado como o valor do nó.
 
 **d:Rights** *(Opcional)* - Os direitos (por exemplo, direitos autorais) associados à função. O valor para os direitos é proveniente de:
 
 * O atributo de mapa opcional (um xpath) que especifica onde encontrar os direitos na resposta retornada da solicitação de serviço.
-* - Ou - Os direitos especificados como o valor do nó.
+* -Ou - Os direitos especificados como o valor do nó.
 
 **d:Description** *(Opcional)* - Uma breve descrição para a função. O valor para a descrição é proveniente de
 
 * O atributo de mapa opcional (um xpath) que especifica onde encontrar a descrição na resposta retornada da solicitação de serviço.
-* - Ou - A descrição especificada como o valor do nó.
+* -Ou - A descrição especificada como o valor do nó.
 
 **d:EmitSelfLink** - *Veja o exemplo acima "FunctionImport para 'Paginação' através dos dados retornados"*
 
@@ -156,7 +157,7 @@ Uma página de documento detalhada muito útil sobre o nó de "Elemento do parâ
 | Atributo de parâmetro | Obrigatório | Valor |
 | --- | --- | --- |
 | Nome |Sim |O nome do parâmetro. Diferencia maiúsculas de minúsculas!  Corresponde o caso de BaseUri. **Exemplo:** `<Property Name="IsDormant" Type="Byte" />` |
-| Tipo |Sim |O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os 6 tipos de propriedade/parâmetro compatíveis".  (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.)  Confira também [Tipos de modelo conceituais (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
+| Tipo |Sim |O tipo de parâmetro. O valor deve ser um **EDMSimpleType** ou um tipo complexo que está dentro do escopo do modelo. Para obter mais informações, consulte "Os&6; tipos de propriedade/parâmetro compatíveis".  (Diferencia maiúsculas de minúsculas! O primeiro caractere é maiúsculo, os demais são minúsculos.)  Confira também [Tipos de modelo conceituais (CSDL)][MSDNParameterLink](http://msdn.microsoft.com/library/bb399548.aspx). **Exemplo:** `<Property Name="LimitedPartnershipID " Type="Int32" />` |
 | Mode |Não |**In**, Out ou InOut dependendo se o parâmetro é uma entrada, saída ou parâmetro de entrada/saída. (Somente "IN" está disponível no Azure Marketplace.) **Exemplo:** `<Parameter Name="StudentID" Mode="In" Type="Int32" />` |
 | MaxLength |Não |O comprimento máximo permitido do parâmetro. **Exemplo:** `<Property Name="URI" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />` |
 | Precisão |Não |A precisão do parâmetro. **Exemplo:** `<Property Name="PreviousDate" Type="DateTime" Precision="0" />` |
@@ -274,9 +275,4 @@ A seguir estão os tipos compatíveis para parâmetros e propriedades. (Diferenc
 * Se estiver interessado em entender o processo e a finalidade geral do mapeamento de OData, leia este artigo [Mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping.md) para examinar as definições, as estruturas e as instruções.
 * Se estiver interessado em examinar exemplos, leia este artigo [Exemplos de mapeamento OData de Serviço de Dados](marketplace-publishing-data-service-creation-odata-mapping-examples.md) para ver um código de exemplo e compreender a sintaxe do código e o contexto.
 * Para retornar ao caminho indicado para a publicação de um Serviço de Dados no Azure Marketplace, leia este artigo [Guia de publicação de Serviço de Dados](marketplace-publishing-data-service-creation.md).
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

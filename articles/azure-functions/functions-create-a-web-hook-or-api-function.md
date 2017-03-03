@@ -18,6 +18,7 @@ ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
 ms.openlocfilehash: 23a65319fe1825e2ba51f2fd5a2d0b65ca499472
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -107,10 +108,5 @@ Veja estes tópicos para obter mais informações sobre o Azure Functions.
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

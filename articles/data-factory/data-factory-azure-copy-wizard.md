@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 445dd0dcd05aa25cc531e2d10cc32ad8f32a6e8c
 ms.openlocfilehash: def038842dc3c1037d5dd11ffef6a9e2de3cf09f
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -88,9 +89,4 @@ Uma operação de cópia única permite, uma única vez, a movimentação de dad
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver um passo a passo rápido sobre como usar o Assistente de Cópia do Data Factory para criar um pipeline com uma Atividade de Cópia, confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

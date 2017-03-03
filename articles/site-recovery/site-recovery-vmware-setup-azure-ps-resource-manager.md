@@ -15,8 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/2/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: bb24e1c79f6a77ec157fa05a8a212109ce8ae7ad
-ms.openlocfilehash: 8ea724c49664ca4803b1c91aefb94b490bd3d283
+ms.sourcegitcommit: edf190031e87cc5a433eaa8fb86187b41fc1dd4e
+ms.openlocfilehash: 61db9c89ff84db89323b55990dc1049d636958f7
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -28,7 +29,7 @@ ms.openlocfilehash: 8ea724c49664ca4803b1c91aefb94b490bd3d283
 Durante o failback, é recomendável implantar o servidor de processo no Azure se houver alta latência entre a rede Virtual do Azure e sua rede local. Este artigo descreve como você pode definir, configurar e gerenciar os servidores de processo em execução no Azure.
 
 > [!NOTE]
-> Use este artigo se você tiver utilizado o **Resource Manager** como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou **Clássico** como o modelo de implantação, siga as etapas em [como configurar um servidor de processo de Failback (clássico)](./site-recovery-vmware-setup-azure-ps-classic.md)
+> Use este artigo se você tiver utilizado o **Resource Manager** como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou **Clássico** como o modelo de implantação, siga as etapas em [Como configurar um servidor de processo de Failback (Clássico)](./site-recovery-vmware-setup-azure-ps-classic.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,10 +77,5 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Cancelando o registro de servidor de processo (em execução no Azure) de um servidor de configuração (em execução local)
 
-[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-
-
-
-<!--HONumber=Feb17_HO1-->
-
+[!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 

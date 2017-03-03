@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: fa27b0399d98f13ee3c4f4059067fb78e087befd
-ms.openlocfilehash: 933e14358875b384a254ab3c1d0bdb453a0fa8ae
+ms.sourcegitcommit: 084919e9dbe3647c45cf67e6836a8c9de6a5cd70
+ms.openlocfilehash: 307a70b5efb22642e54212d8d3517bf5d9070505
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -81,7 +82,8 @@ Estes são os limites para uma instância única de aplicativo lógico.
 
 |Nome|Limite|Observações|
 |----|----|----|
-|Execuções de ações por segundo|100|Pode distribuir fluxos de trabalho entre vários aplicativos conforme o necessário|
+|Execuções de ações por segundo (picos)|1.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
+|Execuções de ações por segundo (mantidas)|1.000.000|Pode distribuir carga de trabalho entre vários aplicativos conforme necessário|
 
 ### <a name="definition-limits"></a>Limites de definição
 
@@ -180,9 +182,4 @@ Chamadas feitas a partir de um [conector](../connectors/apis-list.md) virão do 
 - [Veja exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)
 - [Você pode automatizar processos de negócios com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Aprenda a integrar seus sistemas com Aplicativos Lógicos](http://channel9.msdn.com/Events/Build/2016/P462)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

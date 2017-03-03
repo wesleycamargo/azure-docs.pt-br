@@ -16,8 +16,9 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b898e56a9f7f76d7a342c102fb6912408116c5a
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 164f3affdf0622653a0a7dcc2a5e886ab855ced1
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -98,16 +99,11 @@ Você precisa certificar-se de que as configurações de regra de alerta existen
 Para obter mais informações sobre regras de alerta de banco de dados, consulte [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Acompanhar a integridade do serviço](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Habilitar a auditoria
-Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de que a auditoria é obrigatória é o uso, pelos aplicativos cliente, de cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).
+Se a auditoria for necessária para acessar o banco de dados, você precisará habilitar a auditoria após a recuperação do banco de dados. Um bom indicador de que a auditoria é obrigatória é o uso, pelos aplicativos cliente, de cadeias de conexão seguras em um padrão *.database.secure.windows.net. Para obter mais informações, consulte [Auditoria de banco de dados](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
 * Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, confira [Cenários de continuidade](sql-database-business-continuity.md)
 * Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -17,13 +17,19 @@ ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 4f4a2084a566fd76ff1303d6573f6663e288755e
-ms.openlocfilehash: 1e666747b9cc44384352c9162e09c012ac402640
+ms.sourcegitcommit: 6e68ff56eaab3de8166711c872bf1b5707dbdf56
+ms.openlocfilehash: ce77a059a05f83d74e80c71a87a22de6755b2dbb
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="ssms-support-for-azure-ad-mfa-with-sql-database-and-sql-data-warehouse"></a>Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse
-O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure agora dão suporte a conexões do SSMS (SQL Server Management Studio) usando a *Autenticação Universal do Active Directory*. A Autenticação Universal do Active Directory é um fluxo de trabalho interativo que dá suporte ao *Azure MFA (Multi-Factor Authentication)* . O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. Para encontrar uma descrição do Multi-Factor Authentication, consulte [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+O Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure agora dão suporte a conexões do SSMS (SQL Server Management Studio) usando a *Autenticação Universal do Active Directory*. A Autenticação Universal do Active Directory é um fluxo de trabalho interativo que dá suporte ao *Azure MFA (Multi-Factor Authentication)* . O Azure MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação eficiente com uma variedade de opções de verificação fáceis, como chamada telefônica, mensagem de texto, cartões inteligentes com PIN ou notificação por aplicativos móveis, os quais permitem que os usuários escolham seu método de preferência. 
+
+* Para encontrar uma descrição do Multi-Factor Authentication, consulte [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+* Para etapas de configuração, consulte [Configurar Autenticação Multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
+
+## <a name="multi-factor-options"></a>Opções multifator
 
 O SSMS agora dá suporte:
 
@@ -41,54 +47,13 @@ Quando a conta de usuário é configurada para MFA, o fluxo de trabalho de auten
 * Não há suporte para a Autenticação Universal do Active Directory no SSMS para usuários que são importados para o Active Directory atual de outros Active Directories do Azure. Esses usuários não têm suporte, pois isso exigiria uma ID de locatário para validar as contas e não há nenhum mecanismo para fornecer isso.
 * Não há nenhum requisito de software adicional para a Autenticação Universal do Active Directory, exceto que você deve usar uma versão do SSMS com suporte.
 
-## <a name="configuration-steps"></a>Etapas da configuração
-A implementação do Multi-Factor Authentication requer quatro etapas básicas.
 
-1. **Configurar um Azure Active Directory**: para saber mais, confira [Integração de suas identidades locais com o Azure Active Directory](../active-directory/active-directory-aadconnect.md), [Adicionar seu próprio nome de domínio ao Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [O Microsoft Azure agora dá suporte à federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administrando seu diretório Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) e [Gerenciar o Azure AD usando o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configurar MFA** : para obter instruções passo a passo, consulte [Configurando a Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-whats-next.md). 
-3. **Configurar Banco de Dados SQL ou o SQL Data Warehouse para autenticação do Azure AD** : para obter instruções passo a passo, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
-4. **Baixar o SSMS** - No computador cliente, baixe o SSMS mais recente (pelo menos de agosto de 2016) de [Baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
-
-## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Conectando-se usando a Autenticação Universal com o SSMS
-As etapas a seguir mostram como se conectar ao Banco de Dados SQL ou ao SQL Data Warehouse usando o SSMS mais recente.
-
-1. Para se conectar usando a Autenticação Universal, na caixa de diálogo **Conectar ao Servidor**, selecione **Active Directory Universal Authentication (Autenticação Universal do Active Directory)**.
-
-   ![1mfa-universal-connect][1]
-2. Como de costume para o Banco de Dados SQL e o SQL Data Warehouse, você deve clicar em **Opções** e especificar o banco de dados na caixa de diálogo **Opções**. E clique em **Conectar**.
-3. Quando a caixa de diálogo **Conectar-se à sua conta** aparecer, forneça a conta e a senha de sua identidade do Azure Active Directory.
-
-   ![2mfa-sign-in][2]
-   
-   > [!NOTE]
-   > Para a Autenticação Universal com uma conta que não exige o MFA, você se conecta neste momento. Para usuários que necessitam de MFA, continue com as etapas a seguir.
-   > 
-   > 
-4. Devem aparecer duas caixas de diálogo de configuração de MFA. Essa operação única depende da configuração de administrador de MFA e, portanto, pode ser opcional. Para um domínio habilitado para MFA, essa etapa às vezes é predefinida (por exemplo, o domínio requer que os usuários usem um cartão inteligente e um PIN).  
-
-   ![3mfa-setup][3]
-5. A segunda caixa de diálogo única possível permite que você selecione os detalhes do seu método de autenticação. As possíveis opções são configuradas pelo administrador.
-
-   ![4mfa-verify-1][4]
-6. O Azure Active Directory envia as informações de confirmação para você. Quando receber o código de verificação, insira-o na caixa **Digite o código de verificação** e clique em **Entrar**.
-
-   ![5mfa-verify-2][5]
-
-Quando a verificação for concluída, o SSMS se conectará normalmente considerando as credenciais válidas e o acesso ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
-Conceder acesso a outros a seu banco de dados: [Autenticação e Autorização do Banco de Dados SQL: Concessão de Acesso](sql-database-manage-logins.md)  
+
+* Para etapas de configuração, consulte [Configurar Autenticação Multifator do Banco de Dados SQL do Azure para o SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
+* Conceder acesso a outros a seu banco de dados: [Autenticação e Autorização do Banco de Dados SQL: Concessão de Acesso](sql-database-manage-logins.md)  
 Verifique se os outros podem se conectar pelo firewall: [Configurar uma regra de firewall no nível de servidor do Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-configure-firewall-settings.md)
 
-[1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png
-[2]: ./media/sql-database-ssms-mfa-auth/2mfa-sign-in.png
-[3]: ./media/sql-database-ssms-mfa-auth/3mfa-setup.png
-[4]: ./media/sql-database-ssms-mfa-auth/4mfa-verify-1.png
-[5]: ./media/sql-database-ssms-mfa-auth/5mfa-verify-2.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

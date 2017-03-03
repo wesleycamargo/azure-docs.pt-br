@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
+ms.sourcegitcommit: 5b1b65e3d1066bea6958fa6461a157ee39fbe7dc
+ms.openlocfilehash: 35bd4561f6e8f4482cb084eb293b506eb9269cf7
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -59,7 +60,7 @@ Para obter mais informações sobre configuração e resolução de problemas do
 Depois do aplicativo de API criado, você poderá usar o conector de arquivo como uma ação para seu Aplicativo lógico. Para fazer isso, você precisa:
 
 1. Crie um novo Aplicativo lógico e escolha o mesmo grupo de recursos que tem o conector de arquivo. Siga as instruções para [Criar um novo Aplicativo lógico].
-2. Abra "Gatilhos e Ações" no Aplicativo lógico criado para abrir o Designer de Aplicativos lógicos e configure seu fluxo.
+2. Abra "Gatilhos e Ações" no Aplicativo lógico criado para abrir o Designer de Aplicativos Lógicos e configure seu fluxo.
 3. O conector de arquivo será exibido na seção "Aplicativos de API neste grupo de recursos" na galeria, no lado direito.
 4. Você pode soltar o aplicativo de API do conector de arquivo no editor clicando em "conector de arquivo". O conector de arquivo exibirá um gatilho e quatro ações:   
    ![][5]
@@ -79,16 +80,16 @@ Para usar o conector fora de um Aplicativo lógico, as APIs REST expostas pelo c
 Os detalhes das APIs podem ser encontrados em [Definição da API do conector de arquivo].
 
 ## <a name="do-more-with-your-connector"></a>Fazer mais com seu conector
-Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
+Agora que o conector foi criado, você pode adicioná-lo a um fluxo de trabalho comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 > [!NOTE]
-> Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://tryappservice.azure.com/?appservice=logic), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você quiser começar com os Aplicativos lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar Aplicativo Lógico](https://azure.microsoft.com/try/app-service/logic/), onde poderá criar imediatamente um Aplicativo lógico inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >
 
 Exibir a referência da API REST de Swagger em [Conectores e referência de aplicativos de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Veja [Monitorar seus aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md).
+Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Veja [Monitorar seus aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -100,9 +101,4 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 [Criar um novo Aplicativo lógico]: app-service-logic-create-a-logic-app.md
 [File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: ../app-service-web/web-sites-hybrid-connection-get-started.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

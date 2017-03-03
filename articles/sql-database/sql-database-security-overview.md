@@ -10,27 +10,26 @@ ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: authentication and authorization
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 06/09/2016
+ms.date: 02/01/2017
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
-ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: b7c6a2bcdf975233d7afe6c20bd886cfcc02de2a
+ms.lasthandoff: 02/17/2017
 
 
 ---
 # <a name="securing-your-sql-database"></a>Protegendo o Banco de Dados SQL
 
-Este artigo apresenta os conceitos básicos da proteção da camada de dados de um aplicativo usando o Banco de Dados SQL do Azure. Em particular, este artigo mostrará uma introdução aos recursos de proteção de dados, de controle de acesso e de monitoramento proativo. O diagrama a seguir ilustra as camadas de segurança fornecidas pelo Banco de Dados SQL.
-
-![Segurança e conformidade do SQL](./media/sql-database-security-overview/diagram.png)
+Este artigo apresenta os conceitos básicos da proteção da camada de dados de um aplicativo usando o Banco de Dados SQL do Azure. Em particular, este artigo mostrará uma introdução aos recursos de proteção de dados, de controle de acesso e de monitoramento proativo. 
 
 Para obter uma visão geral completa dos recursos de segurança disponíveis em todas as versões do SQL, confira a [Central de Segurança do mecanismo de banco de dados do SQL Server e Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/bb510589). Outras informações também estão disponíveis no [White paper técnico sobre segurança e o Banco de Dados SQL do Azure](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF).
 
 ## <a name="protect-data"></a>Proteger dados
-O Banco de Dados SQL protege dados, fornecendo criptografia de dados em movimento usando o [protocolo TLS](https://support.microsoft.com/en-us/kb/3135244), para dados em repouso usando [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) e para dados em uso usando [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Para uma discussão sobre o uso desses recursos de proteção de dados no Banco de Dados SQL, veja [Segurança e proteção de dados](sql-database-protect-data.md).
+O Banco de Dados SQL protege dados, fornecendo criptografia de dados em movimento usando o [protocolo TLS](https://support.microsoft.com/en-us/kb/3135244), para dados em repouso usando [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242) e para dados em uso usando [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
 >Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) todo o tempo que os dados estiverem "em trânsito", entrando e saindo do banco de dados. Na cadeia de conexão do seu aplicativo, você deve especificar os parâmetros para criptografar a conexão, e *não* para confiar no certificado do servidor (esse processo será automático se você copiar a cadeia de conexão fora do Portal Clássico do Azure); caso contrário, a conexão não verificará a identidade do servidor e estará sujeita a ataques "man-in-the-middle". Para o driver do ADO.NET, por exemplo, esses parâmetros da cadeia de conexão são **Encrypt=True** e **TrustServerCertificate=False**. 
@@ -69,12 +68,10 @@ A Máscara de dados dinâmica no banco de dados SQL limita a exposição de dado
 O Banco de Dados SQL protege seus dados, fornecendo a auditoria e recursos de detecção de ameaças. 
 
 ### <a name="auditing"></a>Auditoria
-A Auditoria do Banco de Dados SQL rastreia as atividades de banco de dados e ajuda a manter a conformidade normativa, registrando eventos de banco de dados em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria permite que você compreenda as atividades do banco de dados em andamento, bem como analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).  
+A Auditoria do Banco de Dados SQL rastreia as atividades de banco de dados e ajuda a manter a conformidade normativa, registrando eventos de banco de dados em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria permite que você compreenda as atividades do banco de dados em andamento, bem como analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing.md).  
 
-### <a name="auditing--threat-detection"></a>Auditoria e detecção de ameaças 
-A Auditoria do Banco de Dados SQL rastreia as atividades de banco de dados e ajuda a manter a conformidade normativa, registrando eventos de banco de dados em um log de auditoria em sua conta de Armazenamento do Azure. A auditoria permite que você compreenda as atividades do banco de dados em andamento, bem como analisar e investigar a atividade de histórico para identificar possíveis ameaças ou suspeitas de violações de segurança e de abuso. Para saber mais, confira [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md).  
- 
-A Detecção de Ameaças complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança criada para o serviço Banco de Dados SQL. Ela funciona ininterruptamente para aprender, perfilar e detectar atividades anormais de banco de dados. Você será alertado sobre atividades suspeitas, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso do banco de dados anormais. Você pode responder a alertas, seguindo as instruções informativas e acionáveis fornecidas. Para obter mais informações, confira [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).  
+### <a name="threat-detection"></a>Detecção de ameaças
+A Detecção de Ameaças complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança criada para o serviço Banco de Dados SQL. Ela funciona ininterruptamente para aprender, perfilar e detectar atividades anormais de banco de dados. Você será alertado sobre atividades suspeitas, vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso do banco de dados anormais. Você pode responder a alertas, seguindo as instruções informativas e acionáveis fornecidas. Para obter mais informações, confira [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection.md).  
  
 ### <a name="data-masking"></a>Mascaramento de dados 
 A Máscara de dados dinâmica no banco de dados SQL limita a exposição de dados confidenciais através do mascaramento dos dados para usuários sem privilégios. O Mascaramento de Dados Dinâmicos detecta de forma automática os dados potencialmente confidenciais no Banco de Dados SQL e fornece recomendações viáveis para mascarar esses campos, com impacto mínimo sobre a camada de aplicativo. Funciona ao ocultar os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designado, enquanto os dados no banco de dados não são alterados. Para saber mais, veja Introdução ao [mascaramento de dados dinâmicos do banco de dados SQL](sql-database-dynamic-data-masking-get-started.md)
@@ -84,12 +81,7 @@ Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a at
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para uma discussão sobre o uso de recursos de proteção de dados no Banco de Dados SQL, veja [Segurança e proteção de dados](sql-database-protect-data.md).
 - Para uma discussão sobre o uso de recursos de controle de acesso no Banco de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
-- Para obter uma discussão sobre monitoramento proativo, veja [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md) e [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
+- Para uma discussão sobre auditoria de banco de dados, consulte [Auditoria de Banco de Dados SQL](sql-database-auditing.md).
+- Para uma discussão sobre detecção de ameaças, consulte [Detecção de ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
 

@@ -17,6 +17,7 @@ ms.author: markgal;trinadhk
 translationtype: Human Translation
 ms.sourcegitcommit: 9b5cdc89985c43250e082518087d2ef209ff0217
 ms.openlocfilehash: 9574d30b228c9254ef57d0d3253cd5fc841efad4
+ms.lasthandoff: 02/10/2017
 
 
 ---
@@ -398,9 +399,4 @@ Depois de ter restaurado os discos, use estas etapas para criar e configurar uma
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você preferir usar o PowerShell para interagir com os recursos do Azure, confira o artigo do PowerShell para proteger o Windows Server, [Implantar e Gerenciar o Backup do Windows Server](backup-client-automation.md). Há também um artigo do PowerShell para gerenciar os backups do DPM, [Implantar e Gerenciar o Backup do DPM](backup-dpm-automation.md). Esses dois artigos têm uma versão para implantações do Gerenciador de Recursos, bem como para implantações do modelo Clássico.  
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

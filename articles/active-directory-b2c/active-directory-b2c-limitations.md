@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: bfffb074a905184269992a19993aabc22bb1256f
 ms.openlocfilehash: b65c54819374e90a8318a3f3eecce5b71b01b17f
+ms.lasthandoff: 02/14/2017
 
 
 ---
@@ -127,9 +128,4 @@ Solicitações para políticas de entrada (com MFA ativado) falham intermitentem
 Às vezes, as solicitações provenientes de um aplicativo WPF de Área de Trabalho do Windows para o Azure AD B2C falham com a seguinte mensagem de erro: "Falha na conclusão da caixa de diálogo de autenticação baseada em navegador. Motivo: o protocolo é desconhecido e nenhum protocolo conectável correspondente foi inserido".
 
 Isso ocorre devido ao tamanho dos códigos de autorização fornecidos pelo Azure AD B2C; o tamanho é correlacionado com o número de declarações solicitadas em um token. Uma solução alternativa para esse problema é reduzir o número de declarações solicitadas no token e consultar a API do Graph separadamente para outras declarações.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

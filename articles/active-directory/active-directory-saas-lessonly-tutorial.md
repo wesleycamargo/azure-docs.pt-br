@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/14/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
-ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+ms.sourcegitcommit: a14be44b66c5e61350785ddfaf5b96125a196103
+ms.openlocfilehash: 242cc7d58acb4af66d7ea5da4502db4ce2b414c6
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -142,7 +143,7 @@ A captura de tela a seguir mostra um exemplo disso.
    
     b. Clique em **Próximo**.
 2. Para configurar o SSO para seu aplicativo, entre em contato com sua equipe de suporte do Lesson.ly via dev@lessonly.com. Anexe o arquivo de certificado baixado para seu email e compartilhe as URLs de metadados (ID da Entidade, URL de Entrada de Logon Único e URL de Saída) com a equipe do Lesson.ly para configurar o logon único em seu lado.
-3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
    ![Logon Único do AD do Azure][10]
 4. Na página **Confirmação de logon único**, clique em **Concluir**.  
@@ -257,9 +258,4 @@ Quando você clicar no bloco Lesson.ly no Painel de Acesso, deverá ser automati
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO4-->
-
 

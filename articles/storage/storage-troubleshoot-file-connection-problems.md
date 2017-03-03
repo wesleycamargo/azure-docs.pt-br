@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 09f0aa4ea770d23d1b581c54b636c10e59ce1d3c
-ms.openlocfilehash: d5768c44022fc251aa0741d91b575ff604032e18
+ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
+ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -28,11 +29,13 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 
 * [Erro de cota ao tentar abrir um arquivo](#quotaerror)
 * [Desempenho lento ao acessar o Armazenamento de Arquivos do Azure do Windows ou do Linux](#slowboth)
+* [Como rastrear as operações de leitura e gravação no Armazenamento de Arquivos do Azure](#traceop)
 
 **Problemas do cliente Windows**
 
 * [Desempenho lento ao acessar o Armazenamento de Arquivos do Azure do Windows 8.1 ou do Server 2012 R2](#windowsslow)
 * [Erro 53 ao tentar montar um compartilhamento de arquivos do Azure](#error53)
+* [Erro 87 – parâmetro incorreto durante a tentativa de montar um compartilhamento de arquivos do Azure](#error87)
 * [O net use foi bem-sucedido, mas não vejo o compartilhamento de arquivos do Azure montado no Windows Explorer](#netuse)
 * [Minha conta de armazenamento contém "/" e o comando net use falha](#slashfails)
 * [Meu aplicativo/serviço não pode acessar a unidade montada dos Arquivos do Azure.](#accessfiledrive)
@@ -41,12 +44,13 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 **Problemas do cliente Linux**
 
 * [Erro "Você está copiando um arquivo para um destino que não dá suporte à criptografia" ao carregar/copiar arquivos para os Arquivos do Azure](#encryption)
-* [Erro "Host inativo" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
+* [Erro de E/S intermitente – erro de "Host inativo" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
 * [Erro de montagem 115 ao tentar montar os Arquivos do Azure na VM Linux](#error15)
 * [A VM Linux está sofrendo atrasos aleatórios em comandos do tipo "ls"](#delayproblem)
 * [Erro 112 - erro de tempo limite](#error112)
 
 **Acesso de outros aplicativos**
+
 * [Pode referenciar o compartilhamento de arquivos do azure para meu aplicativo por meio de um trabalho Web?](#webjobs)
 
 <a id="quotaerror"></a>
@@ -54,19 +58,15 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 ## <a name="quota-error-when-trying-to-open-a-file"></a>Erro de cota ao tentar abrir um arquivo
 No Windows, você recebe mensagens de erro mais ou menos assim:
 
-**1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044**
-
-**STATUS_QUOTA_EXCEEDED**
-
-**Não há cota suficiente para processar este comando**
-
-**Valor de identificador inválido GetLastError: 53**
+`1816 ERROR_NOT_ENOUGH_QUOTA <--> 0xc0000044`
+`STATUS_QUOTA_EXCEEDED`
+`Not enough quota is available to process this command`
+`Invalid handle value GetLastError: 53`
 
 No Linux, você recebe mensagens de erro mais ou menos assim:
 
-**<filename> [permissão negada]**
-
-**Cota de disco excedida**
+`<filename> [permission denied]`
+`Disk quota exceeded`
 
 ### <a name="cause"></a>Causa
 O problema ocorre porque você atingiu o limite máximo de identificadores abertos simultâneos permitidos para um arquivo.
@@ -93,14 +93,21 @@ Você pode executar o script abaixo para verificar se o hotfix foi instalado:
 
 Se o hotfix foi instalado, a seguinte saída será exibida:
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies**
-
-**{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1**
+`HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
+`{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
 > [!NOTE]
 > As imagens do Windows Server 2012 R2 no Azure Marketplace têm o hotfix KB3114025 instalado por padrão desde dezembro de 2015.
 >
 >
+
+<a id="traceop"></a>
+
+### <a name="how-to-trace-the-read-and-write-operations-in-azure-file-storage"></a>Como rastrear as operações de leitura e gravação no Armazenamento de Arquivos do Azure
+
+O [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226) é capaz de mostrar a você a solicitação de um cliente em texto descriptografado e há uma relação considerável entre solicitações de conexão e transações (supondo o uso de SMB aqui e não de REST).  A desvantagem é que você precisa executar isso em cada cliente, o que será demorado se você tiver muitos trabalhos de VM IaaS.
+
+Se você usar o Message Analyzer com ProcMon, você poderá obter uma boa ideia de qual código do aplicativo é responsável por transações.
 
 <a id="additional"></a>
 
@@ -134,8 +141,9 @@ Para saber mais sobre como usar Portqry, confira [Descrição do utilitário de 
 ### <a name="solution-for-cause-2"></a>Solução para a Causa 2
 Trabalhar com sua organização de TI para abrir a porta 445 com saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
+<a id="error87"></a>
 ### <a name="cause-3"></a>Causa 3
-O "Erro de sistema 53" também pode ser recebido se a comunicação NTLMv1 está habilitada no cliente. Ter NTLMv1 habilitado faz com que o cliente esteja menos seguro. Portanto, a comunicação será bloqueada para Arquivos do Azure. Para verificar se essa é a causa do erro, verifique se a seguinte subchave do registro está definida como um valor de 3:
+O "Erro do sistema 53 ou Erro do sistema 87" também pode ser recebido se a comunicação NTLMv1 está habilitada no cliente. Ter NTLMv1 habilitado faz com que o cliente esteja menos seguro. Portanto, a comunicação será bloqueada para Arquivos do Azure. Para verificar se essa é a causa do erro, verifique se a seguinte subchave do registro está definida como um valor de 3:
 
 HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel.
 
@@ -238,7 +246,11 @@ Isso pode ocorrer quando o comando mount não inclui a opção **serverino**. Se
 ### <a name="solution"></a>Solução
 Verifique o **serverino** na sua entrada "/etc/fstab":
 
-//azureuser.file.core.windows.net/wms/comer on /home/sampledir type cifs (rw,nodev,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X, file_mode=0755,dir_mode=0755,serverino,rsize=65536,wsize=65536,actimeo=1)
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+
+Você também pode verificar se essa opção está sendo usada, apenas executando o comando **sudo mount | grep cifs** e verificando sua saída:
+
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure novamente fazendo com que a opção **serverino** esteja selecionada.+
 
@@ -253,7 +265,7 @@ Esse erro pode ser causado por uma Linux reconectar-se o problema ou outros prob
 
 ### <a name="workaround"></a>Solução alternativa
 
-Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, manter um arquivo no compartilhamento de arquivos do Azure que você escreve para a cada 30 segundos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão.
+Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, mantenha um arquivo no compartilhamento de arquivos do Azure para o qual você escreve a cada 30 segundos ou menos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão.
 
 <a id="webjobs"></a>
 
@@ -263,9 +275,4 @@ Não é possível montar compartilhamentos SMB em área restrita do serviço de 
 ## <a name="learn-more"></a>Saiba mais
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Linux](storage-how-to-use-files-linux.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

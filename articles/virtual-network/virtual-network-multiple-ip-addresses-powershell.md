@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: jdial;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 394315f81cf694cc2bb3a28b45694361b11e0670
-ms.openlocfilehash: 2a384c1a9af076205d4d0ae12e0a5f9e63b076d1
+ms.sourcegitcommit: f179a19dd3a126d23c33520a428a8c3a644f4171
+ms.openlocfilehash: 08a1399e702dbf9222b8412950ee62509b53ef76
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -89,7 +90,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
     
     ```powershell
     $IpConfigName2 = "IPConfig-2"
-    $IPAddress     = 10.0.0.5
+    $IPAddress     = "10.0.0.5"
     $myPublicIp2   = New-AzureRmPublicIpAddress -Name "myPublicIp2" -ResourceGroupName $myResourceGroup `
     -Location $location -AllocationMethod Static
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig -Name $IpConfigName2 `
@@ -132,9 +133,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
 Você pode adicionar endereços IP públicos e privados a um NIC executando as etapas a seguir. Os exemplos nas seções a seguir pressupõem que você já tem uma VM com as três configurações de IP descritas no [cenário](#Scenario) neste artigo, mas isso não é obrigatório.
 
 1. Abra um prompt de comando do PowerShell e siga as etapas restantes nesta seção dentro de uma única sessão do PowerShell. Se o Azure PowerShell ainda não foi instalado nem configurado, siga as etapas no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) .
-2. Registre-se para a visualização enviando um email para [Vários IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com sua ID de assinatura e o uso pretendido. Não tente concluir as etapas restantes:
-    - Até que você receba um email notificando de que foi aceito para a visualização
-    - Sem seguir as instruções no email recebido
+2. Registre-se para a visualização pública seguindo a etapa 2 na seção **Criar uma VM com vários endereços IP**.
 3. Altere os "valores" de $Variables a seguir para o nome do NIC ao qual você deseja adicionar os endereços IP e o grupo de recursos e a localização onde o NIC está:
 
     ```powershell
@@ -252,8 +251,4 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
 9. Adicione o endereço IP privado ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo. Não adicione o endereço IP público ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-
-
-<!--HONumber=Feb17_HO2-->
-
 

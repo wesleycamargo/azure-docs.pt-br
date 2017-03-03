@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 5240bfc66ce15f845a511b7f09a5cd6209c8d539
-ms.openlocfilehash: 34cc0fbddadb3860320ae730c2bc9951c735c7f9
+ms.sourcegitcommit: 3fcd6583b415cea6b2151651297c55c93e59c796
+ms.openlocfilehash: b0375a99f5ea3d6af2d3ead382f9a43f1fd285f0
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -155,7 +156,7 @@ Para criar um emparelhamento VNet usando o PowerShell, execute estas etapas:
         RemoteGateways        : null
         RemoteVirtualNetworkAddressSpace : null
 
-    Após o estabelecimento de emparelhamento, VMs devem ser capazes de se comunicar uns com os outros em ambas as redes virtuais. Por padrão, `AllowVirtualNetworkAccess` é *True* e o emparelhamento de redes virtuais provisionará as devidas ACLs para permitir a comunicação entre as redes virtuais. Mas você ainda poderá aplicar as regras do grupo de segurança (NSG) para bloquear a conectividade entre sub-redes ou máquinas virtuais específicas para ter um controle mais preciso do acesso entre duas redes virtuais. Ler o] artigo de group](virtual-networks-create-nsg-arm-ps.md) de segurança de rede para saber mais sobre NSGs.
+    Após o estabelecimento de emparelhamento, VMs devem ser capazes de se comunicar uns com os outros em ambas as redes virtuais. Por padrão, `AllowVirtualNetworkAccess` é *True* e o emparelhamento de redes virtuais provisionará as devidas ACLs para permitir a comunicação entre as redes virtuais. Mas você ainda poderá aplicar as regras do grupo de segurança (NSG) para bloquear a conectividade entre sub-redes ou máquinas virtuais específicas para ter um controle mais preciso do acesso entre duas redes virtuais. Leia o artigo [grupo de segurança de rede](virtual-networks-create-nsg-arm-ps.md) para saber mais sobre NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -225,7 +226,7 @@ Para criar um emparelhamento VNet entre as assinaturas usando o PowerShell, conc
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. Se você estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes na *mesma* assinatura, vá para a etapa 2. A capacidade de criar um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas *diferentes* está em versão de **visualização**. Os recursos de versão de visualização não têm o mesmo nível de confiabilidade e o contrato de nível de serviço de recursos de versões gerais. Se estiver criando um emparelhamento entre redes virtuais implantadas por meio de modelos de implantação diferentes em assinaturas diferentes, primeiro deverá concluir as seguintes tarefas:
-    - Registre o recurso de visualização na sua assinatura do Azure ao inserir o seguinte comando do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network`
+    - Registre a funcionalidade de visualização na sua assinatura do Azure ao inserir os seguintes comandos do PowerShell: `Register-AzureRmProviderFeature -FeatureName AllowClassicCrossSubscriptionPeering -ProviderNamespace Microsoft.Network` e `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network`
     - Conclua as etapas 1 e 2 da seção [Emparelhamento entre assinaturas](#x-sub) deste artigo.
 2. Ler o objeto de rede virtual para **VNET1**, a rede virtual do Azure Resource Manager, digitando o seguinte comando:
 
@@ -235,7 +236,7 @@ Para criar um emparelhamento VNet entre as assinaturas usando o PowerShell, conc
 
 3. Para estabelecer a rede virtual emparelhamento nesse cenário, é necessário apenas um link, especificamente um link de **VNET1** para **VNET2**. Esta etapa exige saber a ID de recurso da VNet clássica. O formato de ID do grupo de recursos é semelhante ao exemplo a seguir:
 
-        subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
+           subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
     Substitua SubscriptionID, ResourceGroupName e VirtualNetworkName pelos nomes apropriados.
 
@@ -279,10 +280,5 @@ Para criar um emparelhamento VNet entre as assinaturas usando o PowerShell, conc
     ```
 
 2. Assim que você remover um link em um emparelhamento de VNET, o estado do link de emparelhamento será *Desconectado*. Nesse estado, não é possível recriar o link até que o estado do link de emparelhamento mude para *Iniciado*. Recomendamos remover os dois links antes de recriar o emparelhamento VNet.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

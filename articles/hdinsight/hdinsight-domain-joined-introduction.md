@@ -18,6 +18,7 @@ ms.author: saurinsh
 translationtype: Human Translation
 ms.sourcegitcommit: cd57f3a43142b3af3546eafd9749123fadd333c2
 ms.openlocfilehash: 27cb0cda5d836e042e9eca3c053577db0bd8c148
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -55,9 +56,4 @@ A proteção dos dados é importante para atender aos requisitos de conformidade
 * Para gerenciar um cluster HDInsight associado a um domínio, confira [Gerenciar clusters HDInsight associados a domínio](hdinsight-domain-joined-manage.md).
 * Para configurar políticas do Hive e executar consultas do Hive, confira [Configurar políticas do Hive para clusters HDInsight associados ao domínio](hdinsight-domain-joined-run-hive.md).
 * Para executar consultas do Hive usando SSH em clusters do HDInsight Ingressado no Domínio, confira [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined) (Usar SSH com Hadoop baseado em Linux no HDInsight dos Linux, Unix ou OS X).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

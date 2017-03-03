@@ -16,14 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e80f41533d82fbb2086d4d766c3ba4a4e34a5032
-ms.openlocfilehash: be569200e4c4a125a275687d82c3204dcfb5b39a
+ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
+ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Criar e gerenciar um pool elástico com C&#x23;
 
-Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com [C#](sql-database-elastic-pool-manage-csharp.md). Você também pode criar e gerenciar um pool elástico do Azure com o [portal do Azure](https://portal.azure.com/), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), a API REST. Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com C#. Você também pode criar e gerenciar um pool elástico do Azure com o [portal do Azure](https://portal.azure.com/), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), a API REST. Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Muitos recursos novos do Banco de Dados SQL só têm suporte quando você está usando o [Modelo de implantação do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), portanto, você sempre deve usar a versão mais recente da **Biblioteca de Gerenciamento do Banco de Dados SQL do Azure para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pacote do NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. As [bibliotecas com base no modelo de implantação clássico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) mais antigas têm suporte para a compatibilidade com versões anteriores, portanto, é recomendável usar as bibliotecas baseadas no Gerenciador de Recursos mais recentes.
@@ -303,7 +304,7 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 
 Para concluir as etapas neste artigo, você precisa dos seguintes itens:
 
-* Um pool elástico. Para criar um elástico, veja [Criar um pool elástico com o C#](sql-database-elastic-pool-create-csharp.md).
+* Um pool elástico. Para criar um elástico, veja [Criar um pool elástico com o C#](sql-database-elastic-pool-manage-csharp.md).
 * Visual Studio. Para obter uma cópia gratuita do Visual Studio, consulte a página [Downloads do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) .
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Mover um banco de dados para um pool elástico
@@ -370,10 +371,5 @@ Recuperar as propriedades do pool existente. Modifique os valores e execute o m�
 *  Para códigos de erro de aplicativos cliente do Banco de Dados SQL, erro de conexão de banco de dados e outros problemas, veja [Mensagens de erro](sql-database-develop-error-messages.md).
 * [APIs de Gerenciamento de Recursos do Azure.](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 * Para obter diretrizes sobre pool elástico, veja [Quando um pool elástico deve ser usado?](sql-database-elastic-pool-guidance.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 
