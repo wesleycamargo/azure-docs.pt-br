@@ -17,6 +17,7 @@ ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
 ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -220,10 +221,5 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

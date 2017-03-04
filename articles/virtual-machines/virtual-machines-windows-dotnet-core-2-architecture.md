@@ -18,6 +18,7 @@ ms.author: nepeters
 translationtype: Human Translation
 ms.sourcegitcommit: bd214be3aec3fbfa70fe579447f1e00f17a354c7
 ms.openlocfilehash: 4489cf32a5aa5cfaf29e6e8aa6cf71bf6076ee84
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -270,10 +271,5 @@ Para obter mais informações sobre como implantar o Banco de Dados SQL do Azure
 <hr>
 
 [Etapa 2 – Acesso e segurança em modelos do Azure Resource Manager](virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ae60cd810b4beb26f714e2ea2566e5354c482fa8
 ms.openlocfilehash: 3022f5e27ddaf125161bbf7132b41a27024f40b6
+ms.lasthandoff: 01/19/2017
 
 
 ---
@@ -160,10 +161,5 @@ A autenticação multifator só será necessária durante uma tentativa de conex
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você quiser saber mais sobre o acesso condicional, veja [Acesso condicional do Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

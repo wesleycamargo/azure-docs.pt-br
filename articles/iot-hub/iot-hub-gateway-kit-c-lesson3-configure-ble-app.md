@@ -18,6 +18,7 @@ ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: a9f689c0b231af3cdf9257e2179bf86ff7bc9a31
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -159,8 +160,3 @@ Você configurou com êxito a conectividade entre a SensorTag e o NUC da Intel e
 
 ## <a name="next-steps"></a>Próximas etapas
 [Ler mensagens de seu Hub IoT](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

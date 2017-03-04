@@ -18,6 +18,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: 777168c5d48cc589c54a12265bd54e87c4b64274
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -132,10 +133,5 @@ Agora que você criou com êxito um cluster HDInsight usando a CLI do Azure, use
 * [Desenvolver topologias Java para Storm no HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

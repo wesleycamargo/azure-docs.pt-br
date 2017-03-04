@@ -18,6 +18,7 @@ ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 293343e5db58bebc8c2e27d54d6396212fe6d3a1
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -99,8 +100,3 @@ As mensagens que estão sendo enviadas e recebidas são todas exibidas instantan
 ## <a name="summary"></a>Resumo
 
 Você executou o código de exemplo para ler as mensagens no Armazenamento de Tabelas do Azure salvas pelo aplicativo de Funções do Azure.
-
-
-<!--HONumber=Jan17_HO4-->
-
-

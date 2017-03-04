@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: 77e106d9170fc49d66d322bd9c92bf0e14869259
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -445,10 +446,5 @@ Fazer check-in e publicar um projeto: faz check-in e publica um projeto existent
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

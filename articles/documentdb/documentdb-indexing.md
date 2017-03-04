@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 4c7b8965b7fe5de7a8ff839be2b9e555bd8d502c
+ms.lasthandoff: 01/21/2017
 
 
 
@@ -56,10 +57,5 @@ A indexação do Banco de Dados de Documentos foi projetada para eficiência de 
 * Baixe ["Indexação independente de esquema com o Banco de Dados de Documentos do Azure"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), a ser apresentado na 41ª Conferência Interna sobre Bancos de dados muito grandes, de 31 de agosto a 4 de setembro de 2015.
 * [Consulta com SQL do Banco de Dados de Documentos](documentdb-sql-query.md)
 * Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

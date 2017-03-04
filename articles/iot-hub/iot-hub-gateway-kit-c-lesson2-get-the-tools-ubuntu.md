@@ -18,6 +18,7 @@ ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 6414a4f37367d8acc0bab9356b8a09aadf13bfc9
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -121,9 +122,4 @@ Você instalou todos os softwares e as ferramentas necessárias no computador ho
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um Hub IoT e registrar seu dispositivo](iot-hub-gateway-kit-c-lesson2-register-device.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

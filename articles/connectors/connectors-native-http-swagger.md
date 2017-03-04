@@ -19,6 +19,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
 ms.openlocfilehash: ade380b7fc6adfb929f42c0e6c75b3fa613c45b1
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -118,10 +119,5 @@ Ao fazer chamadas a várias ações, você pode obter determinadas respostas. A 
 - - -
 ## <a name="next-steps"></a>Próximas etapas
 Teste a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) agora mesmo. Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

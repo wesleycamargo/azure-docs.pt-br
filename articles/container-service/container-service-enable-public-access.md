@@ -19,6 +19,7 @@ ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
 ms.openlocfilehash: b432755bdae235228a9b677783a8cad94142b6ca
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -87,10 +88,5 @@ Em seguida, precisamos adicionar uma regra de segurança que encaminhe o tráfeg
 Saiba mais sobre a diferença entre [agentes DC/OS públicos e privados](container-service-dcos-agents.md).
 
 Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](container-service-mesos-marathon-ui.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

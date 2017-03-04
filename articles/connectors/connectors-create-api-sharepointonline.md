@@ -18,6 +18,7 @@ ms.author: deonhe
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 3ecf3e30fe2fcb9d6473d7eda450536cddfa97f4
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -525,10 +526,5 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

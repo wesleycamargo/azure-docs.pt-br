@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -153,9 +154,4 @@ Saiba mais:
 * [Hybrid identity white paper](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Blog da equipe do Active Directory](https://blogs.technet.microsoft.com/ad/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

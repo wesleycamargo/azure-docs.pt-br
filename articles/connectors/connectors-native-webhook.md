@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: c0edbe421050ad46f6d31fd6416df4b344b233ad
 ms.openlocfilehash: 2c24699f6253fc7952b331ebcce4b937f1c83603
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -151,9 +152,4 @@ Veja abaixo os detalhes sobre como seguir adiante com os aplicativos lógicos e 
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 Teste a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md) agora mesmo. Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

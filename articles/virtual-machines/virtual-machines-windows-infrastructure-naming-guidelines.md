@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 87a3d4fc849cee5d9abed1e4c32a9da583ea9516
 ms.openlocfilehash: 866265bfa2eb7bcfebd8c73e14d3344a150aaf09
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -103,10 +104,5 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

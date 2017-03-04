@@ -17,6 +17,7 @@ ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
 ms.openlocfilehash: 12edabc12d499bc07315d1cf103e5cc2fa149cdb
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -43,10 +44,5 @@ O Data Factory é um serviço de gerenciamento de informações baseado em nuvem
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
 [Encontrando uma conexão mais adequada com os clientes por meio de Aprendizado de Máquina na Nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

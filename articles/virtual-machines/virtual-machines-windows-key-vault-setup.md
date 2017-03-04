@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: bcb347e8a2ebef14100e990ef71eac5362de5a48
 ms.openlocfilehash: 74124056ea77dc1007fb87853ceb10622c9ceaea
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -67,10 +68,5 @@ Ao usar um modelo, você precisa definir a propriedade `enabledForDeployment` co
     }
 
 Para saber outras opções que você pode configurar ao criar um cofre de chaves usando modelos, consulte [Criar um cofre de chave](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

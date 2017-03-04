@@ -17,6 +17,7 @@ ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: a9c70810c4f731b2d8b395873fa6b94db78306aa
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -173,10 +174,5 @@ Usamos campos personalizados para definir os campos *EventTime*, *Code*, *Status
 ## <a name="next-steps"></a>Próximas etapas
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

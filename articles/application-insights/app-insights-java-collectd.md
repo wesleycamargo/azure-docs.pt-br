@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: e085f90d3f34d32d2e065ede6674842000e29fb8
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -136,10 +137,5 @@ Diretivas separadas por uma nova linha.
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
