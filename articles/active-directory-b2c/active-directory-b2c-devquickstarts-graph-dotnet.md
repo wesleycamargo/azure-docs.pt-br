@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
 ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
+ms.lasthandoff: 02/06/2017
 
 
 ---
@@ -360,10 +361,5 @@ Usando `B2CGraphClient`, você terá um aplicativo de serviço que pode gerencia
 * Quando você cria e atualiza usuários consumidores, algumas propriedades são obrigatórias, conforme descrito acima.
 
 Se você tiver perguntas ou solicitações de ações que deseja executar usando a API do Graph em seu locatário B2C, deixe um comentário sobre este artigo ou apresente um problema no repositório de código de exemplo do GitHub.
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

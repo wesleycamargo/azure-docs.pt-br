@@ -17,6 +17,7 @@ ms.author: v-donglo
 translationtype: Human Translation
 ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
 ms.openlocfilehash: 882157d2cb544e5bb59caf7d64de579e23b12480
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -95,10 +96,5 @@ O processo para configurar a readaptação de um Novo serviço Web envolve as se
 <!--image links-->
 [1]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
 [7]: ./media/machine-learning-retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
