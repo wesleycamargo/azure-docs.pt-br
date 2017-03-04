@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8b293b5b37365088a3df55581be7b7bf76691c
 ms.openlocfilehash: 7bc3421e00215ca4629ea11811c98e581377b24a
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -55,7 +56,7 @@ Esses comandos criam um grupo de recursos e implantam um modelo para esse grupo 
 1. Faça logon na sua conta do Azure.
 
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
     Um resumo da sua conta é retornado.
@@ -229,10 +230,5 @@ No entanto, quando você usa um arquivo de parâmetro externo, não é possível
 * Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](solution-dev-test-environments.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 * Para uma série de quatro partes sobre como automatizar a implantação, consulte [automatizar implantações de aplicativo para Azure Virtual Machines](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta série aborda a arquitetura do aplicativo, acesso e segurança, disponibilidade e dimensionamento e implantação de aplicativos.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

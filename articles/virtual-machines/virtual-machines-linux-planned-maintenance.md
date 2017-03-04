@@ -18,11 +18,12 @@ ms.author: drewm
 translationtype: Human Translation
 ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
 ms.openlocfilehash: d0e7d00dd8e6ab53897340e13a3170519cbdb135
+ms.lasthandoff: 11/17/2016
 
 
 ---
 # <a name="planned-maintenance-for-linux-virtual-machines-in-azure"></a>Manutenção planejada para máquinas virtuais Linux no Azure
-Compreenda o que é a manutenção planejada do Azure e como ela pode afetar a disponibilidade de suas máquinas virtuais Linux. Este artigo também está disponível para [máquinas virtuais do Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Compreenda o que é a manutenção planejada do Azure e como ela pode afetar a disponibilidade de suas máquinas virtuais Linux. Este artigo também está disponível para [máquinas virtuais do Windows](virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
 Este artigo fornece um panorama do processo de manutenção planejada do Azure. Se estiver tentando entender por que sua VM foi reinicializada, você poderá [ler esta postagem de blog detalhando a exibição de logs de reinicialização da VM](https://azure.microsoft.com/blog/viewing-vm-reboot-logs/).
 
@@ -36,10 +37,4 @@ Porém, algumas dessas atualizações exigem reinicialização das máquinas vir
 Existem dois tipos de manutenção que podem afetar a disponibilidade das máquinas virtuais: planejada e não planejada. Esta página descreve como o Microsoft Azure realiza a manutenção planejada. Para obter mais informações sobre a manutenção não planejada, veja [Compreender manutenção planejada X manutenção não planejada](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-planned-maintenance](../../includes/virtual-machines-common-planned-maintenance.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
