@@ -18,6 +18,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
 ms.openlocfilehash: dad78df8d841dd1d5e014a902fa541044743f7e4
+ms.lasthandoff: 01/27/2017
 
 
 ---
@@ -202,9 +203,4 @@ Se precisar alterar os prefixos do gateway de rede local, use as instruções a 
 ## <a name="next-steps"></a>Próximas etapas
 *  Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para obter informações sobre o BGP, consulte a [Visão Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

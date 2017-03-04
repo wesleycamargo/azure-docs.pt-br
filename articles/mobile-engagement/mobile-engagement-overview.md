@@ -17,6 +17,7 @@ ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
 ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -50,10 +51,5 @@ A Microsoft tem um compromisso de longo prazo com a privacidade, que é parte in
 [Introdução](/index.md)
 
 [Baixar aplicativos de demonstração com código-fonte](https://aka.ms/azmedemoapps)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

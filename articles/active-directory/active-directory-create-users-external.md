@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
 ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -86,9 +87,4 @@ Se um usuário for excluído em seu diretório base ou cancelar a sua conta da M
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 * [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

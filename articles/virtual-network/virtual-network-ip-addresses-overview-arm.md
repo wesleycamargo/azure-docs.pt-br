@@ -18,6 +18,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 3de0b167d0ad32de17093caf7e66a6d08f5c1c61
 ms.openlocfilehash: 762b048056752abd24328433ceb57de492dbf884
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -146,9 +147,4 @@ Endereços IP públicos podem ter um custo nominal. Para saber mais sobre preço
 * [Implantar uma VM com um IP público estático usando o Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 * [Implantar uma VM com um IP público estático usando um modelo](virtual-network-deploy-static-pip-arm-template.md)
 * [Implantar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-arm-pportal.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 
