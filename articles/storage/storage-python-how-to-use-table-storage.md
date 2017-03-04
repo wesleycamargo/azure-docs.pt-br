@@ -17,6 +17,7 @@ ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
 ms.openlocfilehash: 98b02e8faa21e6d0e04d2f2c70bee6b8b018c010
+ms.lasthandoff: 12/09/2016
 
 
 ---
@@ -170,11 +171,6 @@ Agora que você aprendeu os conceitos básicos do Armazenamento de Tabelas, siga
 * [Blog da equipe de Armazenamento do Azure]
 * [Microsoft Azure Storage SDK for Python]
 
-[Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
