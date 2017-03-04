@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: 90d760207ee6b6e0d8c15ff597bf53512f071ef0
 ms.openlocfilehash: ace8475bd9a75eb92a3b5c084ee27b9813f13bfb
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Windows
@@ -160,10 +161,5 @@ Saiba como criar máquinas virtuais do Windows. Tutoriais, referências de API e
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

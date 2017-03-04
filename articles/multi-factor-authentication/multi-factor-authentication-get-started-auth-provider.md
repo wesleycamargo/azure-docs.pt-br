@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
 ms.openlocfilehash: be4361af8f3f3024ab7f12114760f6f58e77deaf
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -56,10 +57,5 @@ Use as etapas a seguir para criar um Provedor de Autenticação Multifator do Az
         ![Criando um Provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 8. Depois que você clicar em criar, o Provedor de Multi-Factor Authentication será criado e você deverá ver uma mensagem informando: **Provedor de Multi-Factor Authentication criado com êxito**. Clique em **Ok**.
    ![Criação de um provedor MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

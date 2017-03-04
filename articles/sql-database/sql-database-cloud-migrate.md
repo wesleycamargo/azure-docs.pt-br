@@ -19,6 +19,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
 ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -119,10 +120,5 @@ Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunid
 * Para obter informações sobre como trabalhar com a hora UTC após a migração, confira [Modificando o fuso horário padrão para o fuso horário local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * Para obter informações sobre como alterar o idioma padrão de um banco de dados após a migração, confira [Como alterar o idioma padrão do Banco de Dados Azure SQL](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

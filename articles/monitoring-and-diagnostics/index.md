@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: 88bfad219ee0564552ee80da5dc944b7e53320db
 ms.openlocfilehash: aa0837d82f5e938440096cd6d12d80bc42a07528
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="monitoring-and-diagnostics-documentation"></a>Documentação do Monitoramento e Diagnóstico
@@ -170,10 +171,5 @@ Aprenda a usar os serviços de monitoramento e de diagnóstico do Azure para aco
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

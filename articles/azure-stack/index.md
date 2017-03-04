@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: 888d813814862faf23121f0b7ec2645bdcf589c6
 ms.openlocfilehash: 07f3c5dc580a0d8e7e7e2a7aee5f2b9e907c3e80
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="azure-stack-documentation"></a>Documentação do Azure Stack
@@ -98,10 +99,5 @@ Saiba como usar a visualização técnica do Azure Stack para oferecer serviços
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

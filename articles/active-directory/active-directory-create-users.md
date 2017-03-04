@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
 ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -84,9 +85,4 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

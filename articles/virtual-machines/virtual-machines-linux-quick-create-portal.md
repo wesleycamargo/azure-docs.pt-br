@@ -18,6 +18,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: beff4fb41ed46b016088734054e7a7897fed1a30
 ms.openlocfilehash: 7287b87b1e50e28de06a5363a1f35bd7ac34d51c
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -103,10 +104,5 @@ Agora que você criou uma VM Linux rapidamente a ser usada para fins de teste ou
 * [Criar uma VM do Linux no Azure usando Modelos](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM do Linux Protegida por SSH no Azure usando Modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM do Linux usando a CLI do Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: d8bf549455e427549a81ff5476a00cdfb836b5ff
 ms.openlocfilehash: aa0c12a669b6b2a1602b9d2f6698f65535b4f7d4
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="azure-search-documentation"></a>Documentação do Azure Search
@@ -165,10 +166,5 @@ Saiba mais sobre como adicionar recursos de pesquisa a seus aplicativos Web pers
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: b1c18ac614e17cbd25691dc92dbd14a781e4d8ab
 ms.openlocfilehash: ee656180676450834940b996bccf93c26190f9d6
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -182,10 +183,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-onit-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 
