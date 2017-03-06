@@ -17,6 +17,7 @@ ms.author: tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
 ms.openlocfilehash: 31495f402b810c524bd7b906498774302500b732
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -78,7 +79,7 @@ Vejamos essas etapas com mais cuidado para assegurar que você entende o process
 1. Entre na sua conta.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 
 2. Crie um novo aplicativo do Active Directory fornecendo um nome de exibição, URI que descreve o aplicativo, URIs que identificam seu aplicativo e senha para a identidade do seu aplicativo.
@@ -152,7 +153,7 @@ Agora, você precisa fazer logon como o aplicativo para executar as operações.
 4. Faça logon como a entidade de serviço especificando que essa conta é uma entidade de serviço e fornecendo o objeto das credenciais. 
    
    ```powershell
-   Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
+   Login-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
    ```
    
      Agora, você já deve ser autenticado como a entidade de serviço do aplicativo do Active Directory criado.
@@ -234,7 +235,7 @@ Você tem seu certificado e pode continuar a criar seu aplicativo do AD.
 2. Entre na sua conta do Azure.
    
    ```powershell
-   Add-AzureRmAccount
+   Login-AzureRmAccount
    ```
 3. Crie um novo aplicativo do Active Directory fornecendo um nome de exibição, URI que descreve o aplicativo, URIs que identificam seu aplicativo e senha para a identidade do seu aplicativo.
    
@@ -304,7 +305,7 @@ $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 Para autenticar em seu script, especifique que a conta é uma entidade de serviço e forneça a impressão digital do certificado, a id do aplicativo e a id do locatário. Para automatizar o script, você pode armazenar esses valores como variáveis de ambiente e recuperá-los durante a execução, ou pode incluí-los em seu script.
 
 ```powershell
-Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
+Login-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 ```
 
 Agora, você já deve ser autenticado como a entidade de serviço do aplicativo do Active Directory criado.
@@ -363,10 +364,5 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 * Para ver as etapas detalhadas sobre como integrar um aplicativo no Azure para gerenciar os recursos, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter uma explicação mais detalhada de aplicativos e entidades de serviço, consulte [Objetos de aplicativo e de entidade de serviço](../active-directory/active-directory-application-objects.md). 
 * Para obter mais informações sobre a autenticação do Active Directory, consulte [Cenários de Autenticação do Azure AD](../active-directory/active-directory-authentication-scenarios.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

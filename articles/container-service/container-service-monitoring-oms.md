@@ -19,6 +19,7 @@ ms.author: keikhara
 translationtype: Human Translation
 ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
 ms.openlocfilehash: f10236ab89339234a32abf42c42083e233ab3a52
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -116,9 +117,4 @@ O que funciona? O que falta? O que mais você precisa para que isso seja útil a
 ## <a name="next-steps"></a>Próximas etapas
 
  Agora que você configurou o OMS para monitorar seus contêineres, [veja seu painel de contêineres](../log-analytics/log-analytics-containers.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

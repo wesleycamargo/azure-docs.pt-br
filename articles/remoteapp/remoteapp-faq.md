@@ -17,6 +17,7 @@ ms.author: mbaldwin
 translationtype: Human Translation
 ms.sourcegitcommit: 9d80640a58171e94440ca02f44a73866f6412997
 ms.openlocfilehash: 296dfaaa05b89cae265a9926fad08495ea02a647
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -124,10 +125,5 @@ Você pode encontrar informações de cliente válidas, incluindo etapas para in
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

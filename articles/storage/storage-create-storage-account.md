@@ -17,6 +17,7 @@ ms.author: robinsh
 translationtype: Human Translation
 ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
 ms.openlocfilehash: eb9e9ca5082559ee0e30ea67bf53229d38f81589
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -158,10 +159,5 @@ Para saber mais, veja a [Documentação da Máquina Virtual do Azure](http://azu
 * [Configurar cadeias de conexão do Armazenamento do Azure](storage-configure-connection-string.md)
 * [Transferir dados com o Utilitário da Linha de Comando AzCopy](storage-use-azcopy.md)
 * Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: d00ba4e6d1abd62e5a0d5a9d5bb229d3fa64b473
 ms.openlocfilehash: fb12fb78d4257fc8264bd476de70671eb8264323
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -67,9 +68,4 @@ O RBAC do Azure tem suporte somente para as operações de gerenciamento dos rec
 * Introdução ao [Controle de Acesso Baseado em Função](role-based-access-control-configure.md)no Portal do Azure.
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 * Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

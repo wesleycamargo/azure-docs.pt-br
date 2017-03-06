@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: a8835da0947ce2a365b57356960541cb997e73b3
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -39,9 +40,4 @@ Veja o que você encontrará na Central de Confiabilidade da Microsoft:
 * [Recursos](https://aka.ms/tcresources) – investigue white papers, vídeos e estudos de caso no Microsoft Trusted Cloud
 
 A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) tem o que você precisa para entender o que podemos fazer para proteger o Microsoft Cloud.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -19,6 +19,7 @@ ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
 ms.openlocfilehash: de250fbc3982cdc493f74976914290d8ac89bb08
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -110,9 +111,4 @@ Após a conclusão da operação de dimensionamento, você verá várias instân
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -17,6 +17,7 @@ ms.author: mazha
 translationtype: Human Translation
 ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 6d4c9dda6ccf6011d2b2ff5951b9fe42c158e216
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -45,10 +46,5 @@ Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e ** Az
 
 ## <a name="see-also"></a>Consulte também
 * [API de Nós do Edge de CDN do Azure para obter os endereços IP mais recentes para colocar na lista de permissões](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

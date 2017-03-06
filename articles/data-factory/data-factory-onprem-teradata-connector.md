@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
 ms.openlocfilehash: 14e079b94b6a0ceee9070658ac355a40873ad4ca
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -322,9 +323,4 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

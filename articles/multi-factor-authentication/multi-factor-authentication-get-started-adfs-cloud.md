@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
 ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
+ms.lasthandoff: 02/10/2017
 
 ---
 
@@ -94,9 +95,4 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 8. Depois que as atualizações forem aplicadas, clique em **fechar**.
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

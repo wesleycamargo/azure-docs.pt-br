@@ -17,6 +17,7 @@ ms.author: jdial
 translationtype: Human Translation
 ms.sourcegitcommit: 2165cdc87a505e94fab2fc73c30a5764348c6dc1
 ms.openlocfilehash: b382cf65ae172e0037f2bc668a4f5862b29d1700
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -258,9 +259,4 @@ Uma vez que alguns dos NSGs acima precisam estar associados a NICs individuais, 
 * [Implantar NSGs no modelo de implantação clássico](virtual-networks-create-nsg-classic-ps.md).
 * [Implantar NSGs no Gerenciador de Recursos](virtual-networks-create-nsg-arm-pportal.md).
 * [Gerenciar logs do NSG](virtual-network-nsg-manage-log.md).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

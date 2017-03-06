@@ -17,6 +17,7 @@ ms.author: rli
 translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -43,9 +44,4 @@ ELSE IF| Uma expressão ELSE IF especifica uma condição de alternativa que dev
 * [Condições de correspondência do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

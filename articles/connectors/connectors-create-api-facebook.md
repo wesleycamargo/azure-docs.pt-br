@@ -18,6 +18,7 @@ ms.author: mandia
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: b8a66308c4f4f1df610cdacd092ef133bd605665
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -416,10 +417,5 @@ O perfil pode ser um usuário, página, aplicativo ou grupo.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

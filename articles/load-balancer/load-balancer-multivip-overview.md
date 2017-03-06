@@ -17,6 +17,7 @@ ms.author: chkuhtz
 translationtype: Human Translation
 ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: e9ffa674363b250a5e286c6e34200fa2b3323173
+ms.lasthandoff: 01/11/2017
 
 ---
 
@@ -135,9 +136,4 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 * Com a regra de IP flutuante, seu aplicativo deve usar o DIP para fluxos de saída. Se o seu aplicativo se associar ao endereço VIP configurado na interface de loopback no sistema operacional convidado, SNAT não estará disponível para reescrever o fluxo de saída e o fluxo falhará.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-subscription-service-limits.md#networking-limits) .
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

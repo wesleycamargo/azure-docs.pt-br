@@ -17,6 +17,7 @@ ms.author: larryfr
 translationtype: Human Translation
 ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
 ms.openlocfilehash: 6eb692f7c3374f9073944b8c4c0f34af2ed35b3c
+ms.lasthandoff: 01/19/2017
 
 
 ---
@@ -371,10 +372,5 @@ Para o comando acima, substitua **INFILE** pelo arquivo que contém a BOM. **OUT
 * Saiba como [Personalizar os clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
 * Use a [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx) para saber mais sobre a criação de aplicativos .NET que gerenciam o HDInsight
 * Use a [API REST do HDInsight](https://msdn.microsoft.com/library/azure/mt622197.aspx) para aprender a usar o REST para executar ações de gerenciamento em clusters HDInsight.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

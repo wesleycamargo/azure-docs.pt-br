@@ -17,6 +17,7 @@ ms.author: anandy
 translationtype: Human Translation
 ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
 ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -47,9 +48,4 @@ Este tópico é a base das informações sobre funcionalidades relacionadas à F
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
 * [Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

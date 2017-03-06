@@ -17,6 +17,7 @@ ms.author: juliako
 translationtype: Human Translation
 ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: a526610f5b09ce73a9c192ec45ae8aafab001401
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -265,10 +266,5 @@ Consulte exemplos de predefinições XML que são criadas com base neste esquema
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

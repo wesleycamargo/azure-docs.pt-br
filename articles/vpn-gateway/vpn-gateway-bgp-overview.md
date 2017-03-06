@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
 ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
+ms.lasthandoff: 01/14/2017
 
 
 ---
@@ -55,10 +56,5 @@ O seguinte diagrama mostra um exemplo de uma topologia de vários saltos com vá
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira [Introdução ao BGP em gateways de VPN do Azure](vpn-gateway-bgp-resource-manager-ps.md) para obter as etapas de configuração do BGP para suas conexões entre locais e VNet para VNet.
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

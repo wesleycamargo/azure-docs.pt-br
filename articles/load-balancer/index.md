@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: 7064f4749f4be100b6155ea219284c1ed8fe7eee
 ms.openlocfilehash: 8a225858cc738a8bc04404b0cbf788e77975aa51
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -144,10 +145,5 @@ Saiba mais sobre como configurar o Balanceador de Carga para oferecer alta dispo
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

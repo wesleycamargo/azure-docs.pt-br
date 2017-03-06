@@ -17,6 +17,7 @@ ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
 ms.openlocfilehash: 6e92a79c0b7ea35f110c779922255d6ddc93ed7c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -178,10 +179,5 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar dados dos registros do syslog em campos individuais.
 * [Configure Agentes do Linux](log-analytics-linux-agents.md) para coletar outros tipos de dados. 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

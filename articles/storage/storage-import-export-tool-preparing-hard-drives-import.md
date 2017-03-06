@@ -17,6 +17,7 @@ ms.author: muralikk
 translationtype: Human Translation
 ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
 ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -407,9 +408,4 @@ A ferramenta de WAImportExport lê e grava arquivos, lote por lote, um lote cont
 **.xml** - Para cada disco rígido que você prepara com a ferramenta WAImportExport, a ferramenta cria um único arquivo de diário com o nome "&lt;DriveID&gt;.xml", em que DriveID é o número de série associado à unidade lida pela ferramenta a partir do disco. Você precisará dos arquivos de diário de todas as unidades para criar o trabalho de importação no Portal do Azure. Esse arquivo de diário também pode ser usado para retomar a preparação da unidade se a ferramenta for interrompida.
 
 **.jrn** - o arquivo de diário com o sufixo .jrn contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você deve sempre especificar um arquivo de diário ao executar a ferramenta WAImportExport, bem como uma ID da sessão de cópia.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

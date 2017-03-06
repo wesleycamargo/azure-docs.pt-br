@@ -17,6 +17,7 @@ ms.author: rli
 translationtype: Human Translation
 ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -124,10 +125,5 @@ Curinga da consulta da URL | Compara os valores especificados com a cadeia de ca
 * [Expressões condicionais do Mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Recursos do Mecanismo de Regras](cdn-rules-engine-reference-features.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

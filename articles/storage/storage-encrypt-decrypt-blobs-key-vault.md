@@ -17,6 +17,7 @@ ms.author: adhurwit
 translationtype: Human Translation
 ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
 ms.openlocfilehash: 0c33742a0212e670072a947a2d2ab8304c77b973
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -237,9 +238,4 @@ Para obter mais informações sobre como usar o Armazenamento do Microsoft Azure
 Para obter mais informações sobre a API REST do Blob, consulte [API REST do Serviço Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azure, vá para o [Blog da equipe de Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

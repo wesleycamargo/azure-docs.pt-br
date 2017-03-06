@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 8e209d70a0bdcac4d3d1f7fefe265bf4824520e3
 ms.openlocfilehash: 20c198577349a2173d5b7bafd1b84fd4c24fa711
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -108,10 +109,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

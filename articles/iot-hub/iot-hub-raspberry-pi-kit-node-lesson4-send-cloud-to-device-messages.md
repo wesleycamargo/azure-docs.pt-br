@@ -20,6 +20,7 @@ ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
 ms.openlocfilehash: 92ee9d6faae9f539c663395e47714609a146f2df
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -89,10 +90,5 @@ Você enviou com êxito mensagens do Hub IoT para o Pi para piscar o LED. A pró
 
 ## <a name="next-steps"></a>Próximas etapas
 [Alterar o comportamento de ligar e desligar do LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

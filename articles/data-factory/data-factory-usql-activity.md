@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
 ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -299,10 +300,5 @@ Na definição de pipeline de exemplo, os parâmetros in e out são atribuídos 
 ```
 
 Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e os arquivos de saída são gerados na pasta /datalake/output. Os nomes de arquivo são dinâmicos com base na hora de início da fatia.  
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -18,6 +18,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
 ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -362,10 +363,5 @@ Neste tutorial, você explorou recursos essenciais do Catálogo de Dados do Azur
 * [Como documentar ativos de dados](data-catalog-how-to-documentation.md)
 * [Como se conectar a ativos de dados](data-catalog-how-to-connect.md)
 * [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

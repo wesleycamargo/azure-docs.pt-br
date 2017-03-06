@@ -12,11 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2016
+ms.date: 03/02/2017
 ms.author: subramar
 translationtype: Human Translation
 ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
 ms.openlocfilehash: 2149bcf588b019a0c0f3c64a4e39fec9b9bc5925
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -223,10 +224,5 @@ Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serial
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
