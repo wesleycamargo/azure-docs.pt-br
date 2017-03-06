@@ -12,11 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,13 +25,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Leia este artigo para compreender a arquitetura subjacente do serviço Azure Site Recovery e os componentes que permitem o seu funcionamento.
 
-As organizações precisam de uma estratégia de BCDR que determine como os aplicativos, as cargas de trabalho e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado, e como recuperarão as condições normais de trabalho assim que possível. Sua estratégia de BCDR devem manter os dados comerciais seguros e passíveis de recuperação e garantir que as cargas de trabalho permaneçam continuamente disponíveis mediante um desastre.
-
 A Recuperação de Site é um serviço do Azure que colabora com sua estratégia de BCDR por meio da coordenação da replicação de servidores físicos e máquinas virtuais locais na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter os aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback. Saiba mais em [O que é Recuperação de Site?](site-recovery-overview.md)
 
 Este artigo descreve a implantação no [portal do Azure](https://portal.azure.com). O [portal clássico do Azure](https://manage.windowsazure.com/) pode ser usado para manter os cofres de Recuperação de Site existentes, mas não é possível criar novos cofres.
 
-Poste comentários na parte inferior deste artigo. Faça perguntas técnicas no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Poste comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="deployment-scenarios"></a>Cenários de implantação
@@ -54,7 +53,7 @@ A Recuperação de Site replica os aplicativos em execução em servidores físi
 **Componente** | **Detalhes**
 --- | ---
 **As tabelas** | No Azure, você precisa de uma conta do Microsoft Azure, uma conta de armazenamento do Azure e uma rede do Azure.<br/><br/> O armazenamento e a rede podem ser contas do Gerenciador de Recursos ou contas clássicas.<br/><br/>  Os dados replicados são armazenados na conta de armazenamento, e VMs do Azure são criadas com os dados replicados quando ocorre failover do site local. As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Servidor de configuração** | Você configura um servidor de configuração no local para coordenar a comunicação entre o site local e o Azure e para gerenciar a replicação de dados.
+**Servidor de configuração** | Você configura um servidor de configuração local para coordenar a comunicação entre o site local e o Azure e para gerenciar a replicação de dados.
 **Servidor de processo** | Instalado por padrão no servidor de configuração local.<br/><br/> Atua como um gateway de replicação. Ele recebe dados de replicação de computadores de origem protegida, otimiza-os com caching, compactação e criptografia e envia os dados para o armazenamento do Azure.<br/><br/> Lida com a instalação por push do Serviço de mobilidade em computadores protegidos e executa a descoberta automática de VMs VMware.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo dedicados separados para lidar com o aumento do volume de tráfego de replicação.
 **Servidor de destino mestre** | Instalado por padrão no servidor de configuração local.<br/><br/> Lida com os dados de replicação durante o failback do Azure. Se os volumes de tráfego de failback forem altos, você poderá implantar um servidor de destino mestre separado para failback.
 **Servidores VMware** | Você adiciona servidores vCenter e vSphere a seu cofre de Serviços de Recuperação para replicar VMs VMware.<br/><br/> Se replicar servidores físicos, você precisará de uma infraestrutura de VMware local para failback. Você não pode realizar o failback para um computador físico.
@@ -84,7 +83,7 @@ A Recuperação de Site replica os aplicativos em execução em servidores físi
 
 1. Você executa failovers não planejados de servidores físicos e VMs do VMware locais para o Azure. Não há suporte para failover planejado.
 2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
-3. Quando você executar um failover, VMs de réplica serão criadas no Azure. Você confirma um failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
+3. Ao executar um failover, VMs de réplica são criadas no Azure. Você confirma um failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
 4. Quando o site primário local estiver disponível novamente, você poderá executar o failback. Você configura uma infraestrutura de failback, inicia a replicação da máquina do site secundário para o primário e executa um failover não planejado do site secundário. Depois que você confirmar esse failover, os dados estarão novamente no local e será necessário habilitar a replicação no Azure de novo. [Saiba mais](site-recovery-failback-azure-to-vmware.md)
 
 Há alguns requisitos de failback:
@@ -133,10 +132,11 @@ Há alguns requisitos de failback:
 
 **Componente** | **Detalhes**
 --- | ---
-**As tabelas** | No Azure, você precisa de uma conta do Microsoft Azure, uma conta de armazenamento do Azure e uma rede do Azure.<br/><br/> O armazenamento e a rede podem ser contas baseadas no Gerenciador de Recursos ou clássicas.<br/><br/> Os dados replicados são armazenados na conta de armazenamento, e VMs do Azure são criadas com os dados replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Servidor VMM** | Se seus hosts Hyper-V estiverem localizados nas nuvens do VMM, você precisará de redes lógicas e de VM configuradas para configurar o [mapeamento de rede](site-recovery-network-mapping.md). Uma rede de VM deve ser vinculada a uma rede lógica associada à nuvem.
-**Host Hyper-V** | Você precisa de um ou mais servidores host do Hyper-V.
-**VMs Hyper-V** | Você precisa de uma ou mais VMs no servidor de host Hyper-V. O provedor em execução no host Hyper-V coordena e organiza a replicação com o serviço Recuperação de Site pela Internet. O agente manipula dados de replicação de dados através de HTTPS 443. As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
+
+**Azure** | No Azure, você precisa de uma conta do Microsoft Azure, uma conta de armazenamento do Azure e uma rede do Azure.<br/><br/> O armazenamento e a rede podem ser contas baseadas no Gerenciador de Recursos ou clássicas.<br/><br/> Os dados replicados são armazenados na conta de armazenamento, e VMs do Azure são criadas com os dados replicados quando ocorre failover do site local.<br/><br/> As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
+**Servidor VMM** | Se seus hosts Hyper-V estiverem localizados nas nuvens do VMM, você precisará de redes lógicas e de VMs configuradas para definir o mapeamento de rede. Uma rede de VM deve ser vinculada a uma rede lógica associada à nuvem.
+**Host do Hyper-V** | Você precisa de um ou mais servidores host do Hyper-V.
+**VMs do Hyper-V** | Você precisa de uma ou mais VMs no servidor de host do Hyper-V. O provedor em execução no host Hyper-V coordena e organiza a replicação com o serviço Recuperação de Site pela Internet. O agente manipula dados de replicação de dados através de HTTPS 443. As comunicações do provedor e do agente são protegidas e criptografadas. Os dados replicados no armazenamento do Azure também são criptografados.
 
 
 ## <a name="replication-process"></a>Processo de replicação
@@ -200,9 +200,9 @@ Há alguns requisitos de failback:
 
 1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado entre sites locais. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
 2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
-4. Se você executar um failover não planejado para um site secundário, depois as máquinas de failover no local secundário não serão habilitadas para replicação ou proteção. Se você realizou um failover planejado, depois do failover, os computadores no local secundário são protegidos.
-5. Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM de réplica.
-6. Quando seu site primário estiver disponível novamente, você poderá iniciar a replicação inversa para replicar do site secundário para o primário. A replicação inversa coloca as máquinas virtuais em um estado protegido, mas o datacenter secundário ainda é o local ativo.
+4. Se você executar um failover não planejado para um site secundário, depois as máquinas de failover no local secundário não serão habilitadas para replicação ou proteção. Depois de executar um failover planejado, os computadores no local secundário são protegidos.
+5. Em seguida, você confirma o failover para começar a acessar a carga de trabalho na VM de réplica.
+6. Quando seu site primário estiver disponível novamente, você poderá iniciar a replicação inversa para replicar do site secundário para o primário. A replicação inversa coloca as máquinas virtuais em um estado protegido, mas o datacenter secundário permanece sendo o local ativo.
 7. Para transformar o site primário em local ativo novamente, inicie um failover planejado do site secundário para o primário, seguido por outra replicação inversa.
 
 
@@ -223,10 +223,5 @@ Há alguns requisitos de failback:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Preparar para a implantação](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+[Verificar pré-requisitos](site-recovery-prereq.md)
 

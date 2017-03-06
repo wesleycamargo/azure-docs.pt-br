@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
+ms.sourcegitcommit: 30b30513d5563cf64679e29c4858bf15f65d3a44
+ms.openlocfilehash: 015c997135eae9c936af1a1ec0b0064912baaa04
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,8 +40,6 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 > No momento, não é possível configurar o Cofre da Chave do Azure no portal do Azure. Em vez disso, use estas instruções do PowerShell do Azure.
 > 
 > 
-
-Os logs que você coleta podem ser visualizados usando o Log analytics do Operations Management Suite. Para saber mais, confira [Solução Cofre de Chaves do Azure (Visualização) no Log Analytics](../log-analytics/log-analytics-azure-key-vault.md).
 
 Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](key-vault-whatis.md)
 
@@ -254,6 +253,10 @@ A tabela a seguir lista o operationName e o comando da API REST correspondente.
 | SecretList |[Listar segredos em um cofre](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
 | SecretListVersions |[Listar versões de um segredo](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
 
+## <a name="a-idloganalyticsause-log-analytics"></a><a id="loganalytics"></a>Usar Log Analytics
+
+Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure. Para obter mais informações, incluindo como configurar isso, consulte [Solução Azure Key Vault no Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Este artigo também contém instruções se você precisar migrar da solução Key Vault antiga que foi oferecida durante a versão prévia do Log Analytics, em que você primeiro roteava os logs para uma conta de armazenamento do Azure e configurava o Log Analytics para ler daquela conta.
+
 ## <a name="a-idnextanext-steps"></a><a id="next"></a>Próximas etapas
 Para obter um tutorial que usa o Cofre de Chaves do Azure em um aplicativo Web, confira [Usar o Cofre de Chaves do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).
 
@@ -262,10 +265,5 @@ Para referências de programação, consulte [Guia do desenvolvedor do Cofre da 
 Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chaves do Azure, confira [Cmdlets do Cofre de Chaves do Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Para obter um tutorial sobre a rotação de chaves e o log de auditoria com o Cofre de Chaves do Azure, confira [Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

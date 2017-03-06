@@ -1,5 +1,5 @@
 ---
-title: "Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure | Microsoft Docs"
+title: "Aplicativo multicamadas .NET usando o Barramento de Serviço do Azure | Microsoft Docs"
 description: "Um tutorial .NET que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 76c884bfdfbfacf474489d41f1e388956e4daaa0
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -61,11 +62,11 @@ As seções a seguir discutem o código que implementa essa arquitetura.
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
 
-1. Instale o SDK do Azure para .NET em [Obter ferramentas e SDK](https://azure.microsoft.com/downloads/).
-2. Clique na coluna **.NET**, clique na versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
+1. Instale o Azure SDK para .NET da [página de downloads](https://azure.microsoft.com/downloads/) do SDK.
+2. Na coluna **.NET**, clique na versão do [Visual Studio](http://www.visualstudio.com) que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
 3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
 4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
-5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
+5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
 A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
@@ -394,9 +395,4 @@ Para saber mais sobre os cenários com várias camadas, consulte:
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

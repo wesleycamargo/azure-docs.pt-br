@@ -4,7 +4,7 @@ description: "Este artigo destina-se a ajudá-lo a entender como usar essa solu�
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,11 +12,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/28/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: fa9b427afff2c12babde30aa354e59d31c8f5b2c
+ms.openlocfilehash: 219fe64481df2c5c5cbfe622afdab11dcc1b7100
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,6 +25,8 @@ ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 A solução Gerenciamento de Atualizações no OMS permite que você gerencie atualizações para os computadores Windows e Linux.  Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e iniciar rapidamente o processo de instalação das atualizações necessárias para os servidores. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+* A solução só dá suporte a executar avaliações de atualização no Windows Server 2008 e superior, e a atualizar implantações no Windows Server 2012 e superior.  Não há suporte para as opções de instalação Server Core e Nano Server.
+* Não há suporte para sistemas operacionais clientes do Windows.  
 * Os agentes do Windows devem ser configurados para se comunicar com um servidor WSUS (Windows Server Update Services) ou ter acesso ao Microsoft Update.  
   
   > [!NOTE]
@@ -36,7 +39,7 @@ A solução Gerenciamento de Atualizações no OMS permite que você gerencie at
 Execute as etapas a seguir para adicionar a solução de gerenciamento de atualizações para seu espaço de trabalho do OMS e adicionar agentes do Linux. Os agentes do Windows são adicionados automaticamente sem nenhuma configuração adicional.
 
 > [!NOTE]
-> No momento, se você habilitar essa solução, qualquer computador com Windows conectado ao seu espaço de trabalho do OMS será automaticamente configurado como um Hybrid Runbook Worker para oferecer suporte a runbooks que fazem parte dessa solução.  No entanto, não está registrado com nenhum grupo Hybrid Worker que você criou em sua conta de Automação e você não pode adicioná-lo a um grupo Hybrid Worker para executar seus próprios runbooks.  Se um computador com Windows já foi designado como um Hybrid Runbook Worker e conectado ao espaço de trabalho do OMS, você precisará removê-lo do espaço de trabalho do OMS antes de adicionar a solução para evitar que seus runbooks não funcionem conforme o esperado.  
+> Se você habilitar essa solução, qualquer computador Windows conectado ao seu espaço de trabalho do OMS será automaticamente configurado como um Hybrid Runbook Worker para oferecer suporte a runbooks incluídos nessa solução.  No entanto, ele não estará registrado com nenhum grupo Hybrid Worker que você já tenha definido em sua Conta de automação.  Ele pode ser adicionado a um grupo Hybrid Runbook Worker na sua Conta de automação para dar suporte a runbooks de automação enquanto você estiver usando a mesma conta para a solução e para a associação de grupo do Hybrid Runbook Worker.  Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.   
 
 1. Adicione a solução de Gerenciamento de Atualizações ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do OMS](../log-analytics/log-analytics-add-solutions.md) da Galeria de Soluções.  
 2. No portal do OMS, selecione **Configurações** e **Fontes Conectadas**.  Observe a **ID do Espaço de Trabalho** e a **Chave Primária** ou a **Chave Secundária**.
@@ -105,6 +108,8 @@ Clique no bloco **Gerenciamento de Atualizações** para abrir o painel **Gerenc
 Depois de avaliar atualizações para todos os computadores com Windows em seu ambiente, você pode ter as necessárias atualizações instaladas, criando uma *Implantação de Atualizações*.  Uma Implantação de Atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores Windows.  Você especifica a data e hora para a implantação, além de um computador ou um grupo de computadores que devem ser incluídos.  
 
 As atualizações são instaladas por runbooks na Automação do Azure.  Você não consegue exibir esses runbooks e eles não exigem nenhuma configuração.  Quando uma Implantação de Atualizações é criada, ela cria uma agenda em que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos.  Esse runbook mestre inicia um runbook filho em cada agente do Windows que executa a instalação de atualizações necessárias.  
+
+As máquinas virtuais criadas por meio das imagens do RHEL (Red Hat Enterprise Linux) sob demanda disponíveis no Azure Marketplace são registradas para acessar a [RHUI (Infraestrutura de Atualização do Red Hat)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) implantada no Azure.  Qualquer distribuição do Linux deve ser atualizada nos repositórios de distribuição de arquivo online seguindo os métodos com suporte.  
 
 ### <a name="viewing-update-deployments"></a>Exibição de implantações de atualização
 Clique no bloco **Implantação de Atualização** para exibir a lista das Implantações de Atualizações existentes.  Elas são agrupadas por status – **Agendadas**, **Em Execução** e **Concluídas**.<br><br> ![Página de Agendamento de Implantações de Atualizações](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -243,10 +248,5 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de atual
 * Use Pesquisas de Log no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para exibir dados detalhados das atualizações.
 * [Crie seus próprios painéis](../log-analytics/log-analytics-dashboards.md) mostrando a conformidade da atualização dos computadores gerenciados.
 * [Crie alertas](../log-analytics/log-analytics-alerts.md) quando atualizações críticas forem detectadas como ausentes de um computador ou quando um computador tiver as atualizações automáticas desabilitadas.  
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

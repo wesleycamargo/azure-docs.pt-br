@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2016
+ms.date: 02/27/2017
 ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 6cf809dd6d3c74d1459179f9b16ae9dbfec99757
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: 7a7ac3f34860cedb05e9e4423ca7878b2ed5913a
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="ad-fs-deployment-in-azure"></a>Implantação do AD FS no Azure
+# <a name="deloying-active-directory-federation-services-in-azure"></a>Implantação de Serviços de Federação do Active Directory (AD FS) no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.
 Há várias vantagens na implantação do AD FS no Azure. Algumas delas são listadas abaixo:
 
@@ -353,10 +354,5 @@ Você pode usar uma rede virtual existente ou criar uma nova VNETao implantar es
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 * [Configurar e gerenciar o AD FS usando o Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 

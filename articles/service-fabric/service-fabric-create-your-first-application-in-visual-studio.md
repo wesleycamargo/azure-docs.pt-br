@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro aplicativo do Service Fabric no Visual Studio | Microsoft Docs
+title: "Crie seu primeiro aplicativo de microsserviços do Azure | Microsoft Docs"
 description: Criar, implantar e depurar um aplicativo do Service Fabric usando o Visual Studio
 services: service-fabric
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: eea184fecef089d14d2c13e4528baea30037b638
-ms.openlocfilehash: 2e5e37b4d009cade5f0a919fa64ec2ec48348571
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -36,7 +37,7 @@ Antes de começar, verifique se você [configurou o ambiente de desenvolvimento]
 ## <a name="video-walkthrough"></a>Passo a passo em vídeo
 O vídeo a seguir descreve as etapas deste tutorial:
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
@@ -122,6 +123,19 @@ Por padrão, o cluster de desenvolvimento local é configurado para ser executad
 
 O cluster de desenvolvimento é redefinido quando você altera o modo de cluster e todos os aplicativos provisionados, ou em execução, no cluster são removidos.
 
+Você também pode alterar o modo de cluster usando o PowerShell:
+
+1. Inicie uma nova janela do PowerShell como administrador.
+2. Execute o script de instalação do cluster da pasta do SDK:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    A instalação do cluster leva alguns minutos. Após a conclusão da instalação, você verá uma saída como esta:
+   
+    ![Saída da instalação do cluster][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Limpando
 Antes da conclusão, é importante lembrar que o cluster local é real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
 
@@ -150,9 +164,5 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Parar o 
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
