@@ -17,6 +17,7 @@ ms.author: juliako;mingfeiy
 translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.lasthandoff: 01/11/2017
 
 
 ---
@@ -425,10 +426,5 @@ Para obter um token de teste com base na restrição de token que foi usada para
 
 ## <a name="next-step"></a>Próxima etapa
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md) .
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

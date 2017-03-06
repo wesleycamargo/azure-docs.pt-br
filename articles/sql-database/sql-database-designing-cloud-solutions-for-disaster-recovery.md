@@ -19,6 +19,7 @@ ms.author: sashan
 translationtype: Human Translation
 ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
 ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -184,9 +185,4 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 * Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação geográfica ativa](sql-database-geo-replication-overview.md)  
 * Para saber mais sobre como usar backups automatizados para arquivamento, confira [cópia de banco de dados](sql-database-copy.md)
 * Para obter informações sobre o uso da replicação geográfica ativa com Pools Elásticos, confira [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)(Estratégias de recuperação de desastre do pool elástico).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

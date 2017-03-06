@@ -18,6 +18,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 4787a382b837b71a28c45211a26aa512e8fb177e
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -221,10 +222,5 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 Se você quiser configurar o descarregamento de protocolo SSL, consulte [Configurar um Application Gateway para o descarregamento SSL](application-gateway-ssl.md).
 
 Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

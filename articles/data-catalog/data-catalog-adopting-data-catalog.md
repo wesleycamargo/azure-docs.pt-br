@@ -18,6 +18,7 @@ ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
 ms.openlocfilehash: 646a7611f5680a4c08e9a5f5ff4e2a3e5631276f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -166,9 +167,4 @@ Este artigo foi uma introdução ao **Catálogo de Dados do Azure** em sua organ
 * [Pesquisar fontes de dados](data-catalog-get-started.md)
 * [Anotar fontes de dados](data-catalog-get-started.md)
 * [Crowdsourcing de metadados](data-catalog-get-started.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

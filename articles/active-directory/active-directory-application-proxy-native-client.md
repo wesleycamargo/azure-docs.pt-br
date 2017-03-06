@@ -17,6 +17,7 @@ ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: 164e3b0af47cd98f2d20fce7344230608e9fbe8c
 ms.openlocfilehash: 6762a5c88b7a3bbc0424729865ae312d74f9059f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -83,9 +84,4 @@ Para saber mais sobre o fluxo do aplicativo nativo, consulte [Aplicativo nativo 
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

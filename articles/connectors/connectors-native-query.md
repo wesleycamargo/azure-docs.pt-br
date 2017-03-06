@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
 ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -79,10 +80,5 @@ A seguir, os detalhes de saída para a resposta HTTP.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -17,6 +17,7 @@ ms.author: mcoskun
 translationtype: Human Translation
 ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
 ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -167,10 +168,5 @@ Eis aqui algumas coisas que se deve manter em mente:
 * [Introdução aos serviços de API da Web da Malha de Serviços](service-fabric-reliable-services-communication-webapi.md)
 * [Uso avançado do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-advanced-usage.md)
 * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

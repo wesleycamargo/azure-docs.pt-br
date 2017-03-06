@@ -16,6 +16,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: d78e5a50f5c0416aa5f7caa92d51f688abb1efcc
 ms.openlocfilehash: adfc80090c732fc0dfa2fa35056451921d242f6a
+ms.lasthandoff: 02/03/2017
 
 
 ---
@@ -152,10 +153,5 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
    ![Sim](./media/active-directory-saas-pagerduty-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

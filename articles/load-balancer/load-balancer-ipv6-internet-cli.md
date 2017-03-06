@@ -18,6 +18,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 6edfe8ee8011200e208117f5e03eac8fa741a548
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -342,9 +343,4 @@ Para criar VMs, você deve ter uma conta de armazenamento. Para o balanceamento 
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

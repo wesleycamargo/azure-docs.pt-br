@@ -17,6 +17,7 @@ ms.author: cherylmc
 translationtype: Human Translation
 ms.sourcegitcommit: 15ac382f72cab455246ffcc05f08c8aba5876c8f
 ms.openlocfilehash: c90bb4f41661aedec2bde53abe035fe9bcc80320
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -170,8 +171,3 @@ As informações adicionais de rede virtual são exibidas em [Perguntas Frequent
 
 * Para saber mais sobre o Gateway de VPN, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
 * Para saber mais sobre definições de configuração de Gateway de VPN, veja [Sobre definições de configuração do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

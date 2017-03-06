@@ -17,6 +17,7 @@ ms.author: v-sharos
 translationtype: Human Translation
 ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
 ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -118,10 +119,5 @@ Se um dispositivo for redefinido para as configurações de fábrica, então tod
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como usar o Windows PowerShell para StorSimple a fim de administrar seu dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -18,6 +18,7 @@ ms.author: andrl
 translationtype: Human Translation
 ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
 ms.openlocfilehash: 94376ba0cb7e68045e5bc44e356a91ac2ca787b2
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -810,10 +811,5 @@ Você também pode achar as seguintes referências e recursos úteis em seu cami
 * [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

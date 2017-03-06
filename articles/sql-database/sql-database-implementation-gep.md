@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
 ms.openlocfilehash: 5730556f4d5af04481c771c8a70f003d6cd2917c
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -103,10 +104,5 @@ Desde a migração dos datacenters locais para o Azure e a criação do SMART by
 * Huzaifa Matawala, diretor associado — arquiteto da GEP
 * Sathyan Narasingh, gerente de engenharia da GEP
 * Deepa Velukutty, arquiteto de banco de dados da GEP
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

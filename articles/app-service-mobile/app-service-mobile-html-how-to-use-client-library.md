@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 013956232d1fdfdc1f35741c25294a37b7e9bd92
 ms.openlocfilehash: 3914d5bdc8feff7d7de5c6f7255396acade341b9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -106,10 +107,5 @@ Após a atualização do back-end, você poderá usar as novas URLs de loopback 
 [Portal do Azure]: https://portal.azure.com/
 [SDK do JavaScript para os Aplicativos Móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

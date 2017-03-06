@@ -18,6 +18,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
 ms.openlocfilehash: b09b66c44ba94df12934211d5d09430adb667003
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -120,9 +121,4 @@ Não é possível excluir os conjuntos de registros SOA e NS no apex da zona (no
 * Para obter mais informações sobre o DNS do Azure, confira [Visão geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre como automatizar o DNS, confira [Criando zonas DNS e conjuntos de registros usando o SDK do .NET](dns-sdk.md).
 * Para obter mais informações sobre registros DNS reversos, veja [Como gerenciar registros DNS reversos para seus serviços usando o PowerShell](dns-reverse-dns-record-operations-ps.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

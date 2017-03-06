@@ -18,6 +18,7 @@ ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: cd3184059a0970bb7c9b59803cf37125abbbd879
 ms.openlocfilehash: 19d4c3990c88f82f60cd253ffdcbd2005d00ad79
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -72,9 +73,4 @@ Para saber mais sobre os recursos do Catálogo de Dados, confira:
 * [Como gerenciar ativos de dados](data-catalog-how-to-manage.md)
 * [Como configurar o Glossário de Negócios](data-catalog-how-to-business-glossary.md)
 * [Perguntas frequentes](data-catalog-frequently-asked-questions.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

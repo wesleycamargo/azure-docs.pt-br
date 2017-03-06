@@ -17,6 +17,7 @@ ms.author: terrylan
 translationtype: Human Translation
 ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: e7ccc71f222d4af9a52cbf55bb6bb446f211e819
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -55,9 +56,4 @@ O modelo também está disponível fora do curso.
 * [Veja o vídeo de treinamento](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que ele pode fazer
 * Baixe o [Modelo de planta 3D do Visio da Microsoft](http://aka.ms/3DBlueprintTemplate)
 * Baixe os [Símbolos de Nuvem e Enterprise](../architecture-overview.md#drawing-symbol-and-icon-sets) para usar com o modelo 3D
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

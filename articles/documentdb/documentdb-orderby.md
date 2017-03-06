@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: c5fc68fb25a4cb2166e0c0a72871d16c71397852
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -130,10 +131,5 @@ Ramifique o [projeto de amostras do Github](https://github.com/Azure/azure-docum
 * [Referência de políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 * [Referência de SQL do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 * [Amostras de Order By do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

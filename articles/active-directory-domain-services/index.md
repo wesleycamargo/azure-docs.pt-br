@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: ca9fd58260f97836c08e71a50d8411d1862fd650
 ms.openlocfilehash: 9654ec8791de56c33e4973e8ba20ef6e52780955
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Documentação do Active Directory Domain Services
@@ -167,10 +168,5 @@ Saiba como usar os Active Directory Domain Services para adicionar máquinas vir
         </a>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -19,6 +19,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 752793ed481b0b69203fa13b214add32e9129dfd
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -132,9 +133,4 @@ O modelo de exemplo usado neste artigo inclui as variáveis e parâmetros a segu
 | lbName |Especifique o nome do balanceador de carga. Esse nome é exibido no portal ou usado para se referir a ele com um comando da CLI ou do PowerShell. |
 
 As variáveis restantes no modelo contêm valores derivados atribuídos quando o Azure cria os recursos. Não altere essas variáveis.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

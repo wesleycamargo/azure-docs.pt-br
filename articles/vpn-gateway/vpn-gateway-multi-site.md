@@ -18,6 +18,7 @@ ms.author: yushwang
 translationtype: Human Translation
 ms.sourcegitcommit: 1c3a38e46f427e6c6398971d9c45baec27d39a03
 ms.openlocfilehash: f34e5cfabbec7cc9c1299bea282404d6de69f82f
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -191,9 +192,4 @@ Verifique o status do túnel de múltiplos sites. Depois de baixar as chaves par
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre Gateways de VPN, confira [Sobre gateways de VPN](vpn-gateway-about-vpngateways.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

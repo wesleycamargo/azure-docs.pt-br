@@ -17,6 +17,7 @@ ms.author: fboylu
 translationtype: Human Translation
 ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
 ms.openlocfilehash: 1fc824c65e68c70ace589e788a0c470c475e66b4
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -368,10 +369,5 @@ Os mesmos data warehouses podem ser usados para a pontuação por lote dos exemp
 Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/) .
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
 ms.openlocfilehash: 78adfcb8431305a94982b11586fce5d183fe35ec
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -348,9 +349,4 @@ Ao mover dados para o DB2 os seguintes mapeamentos serão usados do tipo do DB2 
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

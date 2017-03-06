@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: adae9827bbdb5f72b9e0fb4a1792fe54b9324706
 ms.openlocfilehash: 9f4f0ce9e389fa560345c77502db8e225827f054
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -250,10 +251,5 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você aprendeu sobre governança de assinatura, é hora de ver essas recomendações na prática. Veja [Exemplos de implementação da governança de assinatura do Azure](resource-manager-subscription-examples.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

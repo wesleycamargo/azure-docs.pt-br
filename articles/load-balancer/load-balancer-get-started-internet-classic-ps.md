@@ -17,6 +17,7 @@ ms.author: kumud
 translationtype: Human Translation
 ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
 ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -73,9 +74,4 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 Você também pode [começar a criar um balanceador de carga interno](load-balancer-get-started-ilb-classic-ps.md) e configurar o tipo de [modo de distribuição](load-balancer-distribution-mode.md) para um comportamento específico de tráfego de rede do balanceador de carga.
 
 Se seu aplicativo precisar manter conexões ativas para servidores por trás de um balanceador de carga, você poderá entender mais sobre as [configurações de tempo limite de TCP ocioso para um balanceador de carga](load-balancer-tcp-idle-timeout.md). Assim, você saberá mais sobre o comportamento da conexão ociosa quando estiver usando um Balanceador de Carga do Azure.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

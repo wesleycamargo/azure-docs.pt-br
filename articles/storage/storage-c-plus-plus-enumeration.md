@@ -17,6 +17,7 @@ ms.author: dineshm
 translationtype: Human Translation
 ms.sourcegitcommit: c5fedb8c4a6e3722e2f37dd432cec60513c73e0d
 ms.openlocfilehash: f14ed08473ba9c424acf39d3fe98d4a11adf9948
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -202,10 +203,5 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](http://azure.github.io/azure-storage-cpp/)
 * [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

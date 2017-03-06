@@ -15,6 +15,7 @@ ms.author: carolz
 translationtype: Human Translation
 ms.sourcegitcommit: 78ae030b07f8f96ab3e4e0cb506fa8495d16543c
 ms.openlocfilehash: 19536533ad795ceab7e6223a36575a774d0cfc27
+ms.lasthandoff: 02/09/2017
 
 ---
 #<a name="devtest-labs-documentation"></a>Documentação do DevTest Labs
@@ -114,10 +115,5 @@ Saiba como usar o Devtest Labs para criar rapidamente ambientes de teste de apli
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

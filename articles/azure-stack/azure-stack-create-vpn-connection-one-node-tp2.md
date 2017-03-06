@@ -17,6 +17,7 @@ ms.author: scottnap
 translationtype: Human Translation
 ms.sourcegitcommit: 5104c7996de9dc0597e65be31c28a9aaa1243a90
 ms.openlocfilehash: d324290caf5b5a085a2daf67e541c295dffda732
+ms.lasthandoff: 02/09/2017
 
 
 ---
@@ -347,10 +348,5 @@ Se você quer saber a quantidade de dados que estão passando pela conexão Site
 4. Na folha Conexão, você pode ver as estatísticas de **Dados de entrada** e **Dados de saída**. Na captura de tela a seguir, você vê que alguns números maiores do que aqueles que apenas um ping criará. Isso também é devido a algumas transferências de arquivos adicionais. Você deverá ver alguns valores diferentes de zero.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: 61e9a9fc7876094c04238c61cfc38efdd97b05f7
 ms.openlocfilehash: 08ccd35c6e6a8e77f0fd4637f14a1f27730560d6
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -97,10 +98,5 @@ Você executou com êxito o aplicativo de exemplo para enviar dados para o Hub I
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo de funções do Azure e uma conta de armazenamento do Azure](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

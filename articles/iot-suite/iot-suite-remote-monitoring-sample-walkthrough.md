@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/15/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: db1cd76d4a99b2b25cc9589f131f3d8da3c2d84a
+ms.sourcegitcommit: dc8ee6a0f17c20c5255d95c7b6f636d89ffe3aee
+ms.openlocfilehash: 9bd4232670256ec7889dd367ea2ea01a2845e789
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de monitoramento remoto
 ## <a name="introduction"></a>Introdução
-A [solução pré-configurada][lnk-preconfigured-solutions] de monitoramento remoto do IoT Suite é uma implementação de uma solução de monitoramento de ponta a ponta para vários computadores em execução em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica do cenário de negócios e você pode usá-la como ponto de partida para sua própria implementação. Você pode [personalizar][lnk-customize] a solução para atender a seus requisitos de negócios específicos.
+A [solução pré-configurada][lnk-preconfigured-solutions] de monitoramento remoto do IoT Suite é uma implementação de uma solução de monitoramento de ponta a ponta para vários computadores em execução em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica de cenário de negócios. Você pode usar a solução como um ponto de partida para sua própria implementação e [personalizar] [ lnk-customize] para atender às suas próprias necessidades de negócios específicas.
 
 Este artigo explica alguns dos principais elementos da solução de monitoramento remoto para que você possa entender como ela funciona. Esse conhecimento ajuda a:
 
@@ -39,35 +40,65 @@ O seguinte diagrama descreve os componentes lógicos da solução pré-configura
 ## <a name="simulated-devices"></a>Dispositivos simulados
 Na solução pré-configurada, o dispositivo simulado representa um dispositivo de resfriamento (como um ar-condicionado para edifícios ou uma unidade de tratamento de ar para instalações). Ao implantar a solução pré-configurada, você também provisiona automaticamente quatro dispositivos simulados que são executados em um [Trabalho Web do Azure][lnk-webjobs]. Os dispositivos simulados facilitam a exploração do comportamento da solução sem a necessidade de implantar dispositivos físicos. Para implantar um dispositivo físico real, consulte o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm].
 
+### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a nuvem
 Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT:
 
 | Mensagem | Descrição |
 | --- | --- |
-| Inicialização |Quando o dispositivo é iniciado, ele envia uma mensagem de **informações do dispositivo** com informações sobre ele mesmo para o back-end. Esses dados incluem a ID do dispositivo, metadados do dispositivo, uma lista dos comandos com suporte no dispositivo e a configuração atual do dispositivo. |
+| Inicialização |Quando o dispositivo é iniciado, ele envia uma mensagem de **informações do dispositivo** com informações sobre ele mesmo para o back-end. Esses dados incluem a identificação do dispositivo e uma lista de comandos e métodos que o dispositivo oferece suporte. |
 | Presença |Um dispositivo envia periodicamente uma mensagem de **presença** para relatar se o dispositivo pode detectar a presença de um sensor. |
 | Telemetria |Um dispositivo envia periodicamente uma mensagem de **telemetria** que relata os valores simulados de temperatura e umidade coletados nos sensores simulados do dispositivo. |
 
-Os dispositivos simulados enviam as seguintes propriedades do dispositivo em uma mensagem de **informações do dispositivo** :
+> [!NOTE]
+> A solução armazena a lista de comandos com suporte pelo dispositivo em um DocumentDB e não no dispositivo gêmeo.
+> 
+> 
+
+### <a name="properties-and-device-twins"></a>Propriedades e dispositivos gêmeos
+Os dispositivos simulados enviam as seguintes propriedades do dispositivo para o [gêmeo][lnk-device-twins] no hub IoT como *propriedades relatadas*. O dispositivo envia propriedades relatadas na inicialização e em resposta a um comando ou método **Alterar Estado do Dispositivo**.
 
 | Propriedade | Finalidade |
 | --- | --- |
-| Id do Dispositivo |ID que é fornecida ou atribuída quando um dispositivo é criado na solução. |
-| Fabricante |Fabricante do dispositivo |
-| Número do modelo |O número do modelo do dispositivo |
-| Número de série |Número de série do dispositivo |
-| Firmware |Versão atual do firmware no dispositivo |
-| Plataforma |Arquitetura da plataforma do dispositivo |
-| Processador |Processador que executa o dispositivo |
-| RAM instalada |Quantidade de RAM instalada no dispositivo |
-| Estado habilitado para hub |Propriedade de estado do Hub IoT do dispositivo |
-| Hora de criação |Hora de criação do dispositivo na solução |
-| Tempo atualizado |As propriedades da última vez foram atualizadas para o dispositivo |
-| Latitude |Localização de latitude do dispositivo |
-| Longitude |Localização de longitude do dispositivo |
+| Config.TelemetryInterval | Frequência (segundos) em que o dispositivo envia telemetria |
+| Config.TemperatureMeanValue | Especifica o valor médio para a telemetria de temperatura simulada |
+| Device.DeviceID |A Id que é fornecida ou atribuída quando um dispositivo é criado na solução |
+| Device.DeviceState | Estado relatado pelo dispositivo |
+| Device.CreatedTime |Hora de criação do dispositivo na solução |
+| Device.StartupTime |Hora de que início do dispositivo |
+| Device.LastDesiredPropertyChange |O número de versão da última propriedade desejada é alterado |
+| Device.Location.Latitude |Localização de latitude do dispositivo |
+| Device.Location.Longitude |Localização de longitude do dispositivo |
+| System.Manufacturer |Fabricante do dispositivo |
+| System.ModelNumber |O número do modelo do dispositivo |
+| System.SerialNumber |Número de série do dispositivo |
+| System.FirmwareVersion |Versão atual do firmware no dispositivo |
+| System.Platform |Arquitetura da plataforma do dispositivo |
+| System.Processor |Processador que executa o dispositivo |
+| System.InstalledRAM |Quantidade de RAM instalada no dispositivo |
 
-O simulador propaga essas propriedades em dispositivos simulados com valores de exemplo.  Sempre que o simulador inicializa um dispositivo simulado, o dispositivo posta os metadados predefinidos no Hub IoT. Observe como isso substitui quaisquer atualizações de metadados feitas no portal do dispositivo.
+O simulador propaga essas propriedades em dispositivos simulados com valores de exemplo. Sempre que o simulador inicializa um dispositivo simulado, o dispositivo posta os metadados predefinidos no Hub IoT como propriedades relatadas. As propriedades relatadas só podem ser atualizadas pelo dispositivo. Para alterar uma propriedade relatada, você pode definir uma propriedade desejada no portal de solução. É responsabilidade do dispositivo:
+1. Recuperar periodicamente as propriedades desejadas do hub IoT.
+2. Atualizar sua configuração com o valor da propriedade desejada.
+3. Enviar o novo valor para o hub como uma propriedade relatada.
 
-Os dispositivos simulados podem lidar com os seguintes comandos enviados do painel de solução por meio do hub IoT:
+No painel de solução, você pode usar *propriedades desejadas* para definir propriedades em um dispositivo usando o [dispositivo gêmeo][lnk-device-twins]. Normalmente, um dispositivo lê um valor de propriedade desejada do hub para atualizar seu estado interno e relatar a alteração como uma propriedade relatada.
+
+> [!NOTE]
+> O código do dispositivo simulado usa apenas as propriedades **Desired.Config.TemperatureMeanValue** e **Desired.Config.TelemetryInterval** desejadas para atualizar as propriedades relatadas enviadas de volta ao Hub IoT. Todas as outras solicitações de alteração de propriedade desejados são ignoradas no dispositivo simulado.
+
+### <a name="methods"></a>Métodos
+Os dispositivos simulados podem lidar com os seguintes métodos ([métodos diretos][lnk-direct-methods]) chamados do portal de solução por meio do hub IoT:
+
+| Método | Descrição |
+| --- | --- |
+| InitiateFirmwareUpdate |Instrui o dispositivo a realizar uma atualização de firmware |
+| Reboot |Instrui o dispositivo a reinicializar |
+| FactoryReset |Instrui o dispositivo a executar uma redefinição de fábrica |
+
+Alguns métodos usam propriedades relatadas para relatar o progresso. Por exemplo, o método **InitiateFirmwareUpdate** simula a execuçã da atualização de maneira assíncrona no dispositivo. O método retorna imediatamente no dispositivo, enquanto a tarefa assíncrona continua a enviar atualizações de status de volta para o painel de solução usando as propriedades relatadas.
+
+### <a name="commands"></a>Comandos 
+Os dispositivos simulados podem lidar com os seguintes comandos (mensagens de nuvem para dispositivos) enviados a partir do portal de solução por meio do hub IoT:
 
 | Command | Descrição |
 | --- | --- |
@@ -78,10 +109,21 @@ Os dispositivos simulados podem lidar com os seguintes comandos enviados do pain
 | DiagnosticTelemetry |Dispara o simulador de dispositivo para enviar um valor de telemetria adicional (externalTemp) |
 | ChangeDeviceState |Altera uma propriedade estendida do estado do dispositivo e envia a mensagem de informações do dispositivo |
 
-O reconhecimento de comando de dispositivo para o back-end da solução é fornecido por meio do hub IoT.
+> [!NOTE]
+> Para obter uma comparação desses comandos (mensagens da nuvem para o dispositivo) e métodos (métodos diretos), consulte [Orientação para comunicações entre o dispositivo e a nuvem][lnk-c2d-guidance].
+> 
+> 
 
 ## <a name="iot-hub"></a>Hub IoT
-O [hub IoT][lnk-iothub] consome os dados enviados dos dispositivos para a nuvem e os disponibiliza para os trabalhos do Stream Analytics do Azure (ASA). O hub IoT também envia comandos aos dispositivos em nome do portal do dispositivo. Cada trabalho de fluxo do ASA usa um grupo separado de consumidores do Hub IoT para ler o fluxo de mensagens dos dispositivos.
+O [hub IoT][lnk-iothub] consome os dados enviados dos dispositivos para a nuvem e os disponibiliza para os trabalhos do Stream Analytics do Azure (ASA). Cada trabalho de fluxo do ASA usa um grupo separado de consumidores do Hub IoT para ler o fluxo de mensagens dos dispositivos.
+
+O hub IoT na solução também:
+
+- Mantém um registro de identidade que armazena as ids e chaves de autenticação de todos os dispositivos permitidas para se conectar ao portal. Você pode habilitar e desabilitar dispositivos por meio do registro de identidade.
+- Envia comandos para os dispositivos em nome do portal de solução.
+- Chama métodos em seus dispositivos em nome do portal de solução.
+- Mantém dispositivos gêmeos para todos os dispositivos registrados. Um dispositivo gêmeo armazena os valores de propriedade relatados por um dispositivo. Um dispositivo gêmeo também armazena propriedades desejadas, definidas no portal de solução para o dispositivo recuperar ao lado se conectar.
+- Agenda trabalhos para definir propriedades para vários dispositivos ou chama métodos em vários dispositivos.
 
 ## <a name="azure-stream-analytics"></a>Stream Analytics do Azure
 Na solução de monitoramento remoto, o [Stream Analytics do Azure][lnk-asa] (ASA) envia mensagens do dispositivo recebidas pelo hub IoT para outros componentes de back-end para o processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
@@ -94,7 +136,7 @@ SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'Dev
 
 Esse trabalho envia a saída a um Hub de Eventos para processamento adicional.
 
-**Trabalho 2: as Regras** avaliam os valores de telemetria da temperatura e da umidade de entrada em relação aos limites de cada dispositivo. Valores de limite são definidos no editor de regras disponível no painel de solução. Cada par de dispositivo/valor é armazenado por carimbo de data/hora em um blob que o Stream Analytics lê como **Dados de Referência**. O trabalho compara qualquer valor não vazio com o limite definido para o dispositivo. Se ele exceder a condição ‘>’, o trabalho gerará um evento de **alarme** indicando que o limite foi excedido e fornecendo o dispositivo, o valor e os valores do carimbo de data/hora. Esse trabalho usa a seguinte definição de consulta para identificar mensagens de telemetria que devem disparar um alarme:
+**Trabalho 2: as Regras** avaliam os valores de telemetria da temperatura e da umidade de entrada em relação aos limites de cada dispositivo. Os valores de limite são definidos no editor de regras disponível no portal da solução. Cada par de dispositivo/valor é armazenado por carimbo de data/hora em um blob que o Stream Analytics lê como **Dados de Referência**. O trabalho compara qualquer valor não vazio com o limite definido para o dispositivo. Se ele exceder a condição ‘>’, o trabalho gerará um evento de **alarme** indicando que o limite foi excedido e fornecendo o dispositivo, o valor e os valores do carimbo de data/hora. Esse trabalho usa a seguinte definição de consulta para identificar mensagens de telemetria que devem disparar um alarme:
 
 ```
 WITH AlarmsData AS 
@@ -135,9 +177,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-O trabalho envia a saída a um Hub de Eventos para processamento adicional e salva os detalhes de cada alerta no armazenamento de blobs, em que o painel de solução pode ler as informações do alerta.
+O trabalho envia a saída a um Hub de Eventos para processamento adicional e salva os detalhes de cada alerta no armazenamento de blobs, em que o portal da solução pode ler as informações do alerta.
 
-**Trabalho 3: a Telemetria** opera no fluxo de entrada da telemetria do dispositivo de duas maneiras. A primeira envia todas as mensagens de telemetria dos dispositivos ao armazenamento de blobs persistente para armazenamento de longo prazo. A segunda calcula os valores de umidade média, mínima e máxima em uma janela deslizante de cinco minutos e envia os dados para o armazenamento de blobs. O painel de solução lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Esse trabalho usa a seguinte definição de consulta:
+**Trabalho 3: a Telemetria** opera no fluxo de entrada da telemetria do dispositivo de duas maneiras. A primeira envia todas as mensagens de telemetria dos dispositivos ao armazenamento de blobs persistente para armazenamento de longo prazo. A segunda calcula os valores de umidade média, mínima e máxima em uma janela deslizante de cinco minutos e envia os dados para o armazenamento de blobs. O portal da solução lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Esse trabalho usa a seguinte definição de consulta:
 
 ```
 WITH 
@@ -184,23 +226,23 @@ GROUP BY
 Os trabalhos do ASA de **informações do dispositivo** e **regras** enviam seus dados para os Hubs de Eventos para um encaminhamento confiável ao **Processador de Eventos** em execução no Trabalho Web.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
-A solução usa o armazenamento de blobs do Azure para persistir todos os dados de telemetria brutos e resumidos dos dispositivos na solução. O painel lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Para exibir alertas, o painel lê os dados do armazenamento de blobs que registra quando os valores de telemetria excederam os valores de limite configurados. A solução também usa o armazenamento de blobs para registrar os valores de limite definidos no painel.
+A solução usa o armazenamento de blobs do Azure para persistir todos os dados de telemetria brutos e resumidos dos dispositivos na solução. O portal lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Para exibir alertas, o portal da solução lê os dados do armazenamento de blobs que registra quando os valores de telemetria excederam os valores de limite configurados. A solução também usa o armazenamento de blobs para registrar os valores de limite definidos no portal da solução.
 
 ## <a name="webjobs"></a>Trabalhos Web
-Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as mensagens de informações do dispositivo e as respostas do comando. Ele usa:
+Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as respostas do comando. Ele usa mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados do DocumentDB).
 
-* Mensagens de informações de dispositivo para atualizar o Registro do dispositivo (armazenado no banco de dados do Banco de Dados de Documentos) com as informações atuais do dispositivo.
-* Mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados do Banco de Dados de Documentos).
+## <a name="documentdb"></a>DocumentDB
+A solução usa um Banco de Dados de Documentos para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem o histórico de comandos enviados aos dispositivos no portal de solução e os métodos invocados do portal de solução.
 
-## <a name="documentdb"></a>Banco de Dados de Documentos
-A solução usa um Banco de Dados de Documentos para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem os metadados do dispositivo e o histórico de comandos enviados aos dispositivos a partir do painel.
+## <a name="solution-portal"></a>Portal de solução
 
-## <a name="web-apps"></a>Aplicativos Web
-### <a name="remote-monitoring-dashboard"></a>Painel de monitoramento remoto
-Esta página no aplicativo Web usa os controles javascript do PowerBI (Consulte [Repositório PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)) para visualizar os dados de telemetria dos dispositivos. A solução usa o trabalho de telemetria do ASA para gravar os dados de telemetria no armazenamento de blobs.
+O portal de solução é um aplicativo Web implantado como parte da solução pré-configurada. As páginas principais no portal de solução são o painel e a lista de dispositivos.
 
-### <a name="device-administration-portal"></a>Portal de administração de dispositivo
-O aplicativo Web permite que você:
+### <a name="dashboard"></a>Painel
+Esta página no aplicativo Web usa os controles javascript do PowerBI (veja [Repositório PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)) para visualizar os dados de telemetria dos dispositivos. A solução usa o trabalho de telemetria do ASA para gravar os dados de telemetria no armazenamento de blobs.
+
+### <a name="device-list"></a>Lista de dispositivos
+Nesta página no portal de solução, você pode:
 
 * Provisione um novo dispositivo. Esta ação define a id do dispositivo exclusiva e gera a chave de autenticação. Ela grava as informações sobre o dispositivo no registro de identidade do Hub IoT e no Banco de Dados de Documentos específico da solução.
 * Gerencie propriedades de dispositivo. Esta ação inclui a exibição de propriedades existentes e a atualização com novas propriedades.
@@ -226,9 +268,6 @@ Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

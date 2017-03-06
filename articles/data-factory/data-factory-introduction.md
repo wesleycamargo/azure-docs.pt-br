@@ -18,6 +18,7 @@ ms.author: shlo
 translationtype: Human Translation
 ms.sourcegitcommit: 757e91c3c702a62fb143f45a3144069400c5a757
 ms.openlocfilehash: e2c2611d6f1094d2c1ba2bdb2398b0b17723af8a
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -84,9 +85,4 @@ Para saber como criar data factories com pipeline de dados, siga as instruções
 | [Mover dados entre dois armazenamentos de dados em nuvem](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Neste tutorial, você cria um data factory com um pipeline que **move dados** do Armazenamento de Blobs para o banco de dados SQL. |
 | [Transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md) |Neste tutorial, você cria seu primeiro data factory no Azure com um pipeline de dados que **processa os dados** executando o script do Hive em um cluster Azure HDInsight (Hadoop). |
 | [Mover dados entre um armazenamento de dados local e um armazenamento de dados em nuvem usando o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) |Neste tutorial, você cria um data factory com um pipeline que **move dados** de um banco de dados SQL Server **local** para um blob do Azure. Como parte do passo a passo, você instala e configura o Gateway de Gerenciamento de Dados em seu computador. |
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

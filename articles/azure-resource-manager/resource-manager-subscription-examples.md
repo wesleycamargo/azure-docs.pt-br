@@ -17,6 +17,7 @@ ms.author: rodend;karlku;tomfitz
 translationtype: Human Translation
 ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
 ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -196,10 +197,5 @@ Para atender a esses requisitos, Dave habilita a Central de Segurança do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para aprender sobre como criar modelos do Resource Manager, veja [Melhores práticas para criar modelos do Azure Resource Manager](resource-manager-template-best-practices.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

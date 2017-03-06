@@ -17,6 +17,7 @@ ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
 ms.openlocfilehash: c081f31acb7d8767343f41be59d75616fa14b2da
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -256,9 +257,4 @@ Durante a criação de um dispositivo virtual, se não houver nenhuma conectivid
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Usar o serviço StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md).
 * Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

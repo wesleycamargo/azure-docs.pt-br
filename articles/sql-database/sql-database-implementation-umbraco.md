@@ -18,6 +18,7 @@ ms.author: carlrab
 translationtype: Human Translation
 ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
 ms.openlocfilehash: 774d5ac6f3d5d9d97120ab895157677e4a92bb05
+ms.lasthandoff: 01/12/2017
 
 
 ---
@@ -129,10 +130,5 @@ Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz 
 * Para saber mais sobre backup e recuperação, confira [continuidade de negócios](sql-database-business-continuity.md).    
 * Para saber mais sobre o monitoramento de pools, confira [monitoramento de pools](sql-database-elastic-pool-manage-portal.md).    
 * Para saber mais sobre a Umbraco como serviço, confira [Umbraco](https://umbraco.com/cloud).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -18,6 +18,7 @@ ms.author: kapiteir
 translationtype: Human Translation
 ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
+ms.lasthandoff: 01/19/2017
 
 
 ---
@@ -73,10 +74,5 @@ Observe que pode levar alguns minutos para que o trabalho seja iniciado. Então,
 Depois que o trabalho for criado, será possível verificar seu status para ver se ele ainda está em execução ou se foi concluído.
 
 Uma vez que o trabalho for BEM-SUCEDIDO, o arquivo de dados resultante estará disponível no contêiner de armazenamento fornecido.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

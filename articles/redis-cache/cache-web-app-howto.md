@@ -17,6 +17,7 @@ ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
 ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
+ms.lasthandoff: 01/28/2017
 
 
 ---
@@ -848,10 +849,5 @@ Após selecionar ou criar o cache a ser usado, navegue até o cache no portal do
 [cache-publish]: ./media/cache-web-app-howto/cache-publish.png
 [cache-delete-resource-group]: ./media/cache-web-app-howto/cache-delete-resource-group.png
 [cache-delete-confirm]: ./media/cache-web-app-howto/cache-delete-confirm.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -17,6 +17,7 @@ ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 0b2c783712419de1ab1897a0404429fc4ed4c688
 ms.openlocfilehash: 244c3320d673b884057b4200bed0c7858b1a2fea
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -607,9 +608,4 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
  Para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory e diversas maneiras para otimizá-la, confira [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) (Guia de desempenho e ajuste da Atividade de Cópia).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

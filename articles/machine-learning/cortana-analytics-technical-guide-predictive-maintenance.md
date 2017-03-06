@@ -17,6 +17,7 @@ ms.author: fboylu
 translationtype: Human Translation
 ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
 ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -235,10 +236,5 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 * [Ferramenta Calculadora de Preço do Microsoft Azure (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Ferramenta Calculadora de Preço do Microsoft Azure (área de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

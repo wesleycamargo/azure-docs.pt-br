@@ -17,6 +17,7 @@ ms.author: gwallace
 translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: 9c56914091ecac3eb97977dd5afc2dc4588a052c
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -210,10 +211,5 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

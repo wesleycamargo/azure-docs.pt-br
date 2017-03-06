@@ -4,6 +4,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
 ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
 ms.openlocfilehash: 27880401ccfca4c2c504eecc1aeb128d40c501a3
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -125,9 +126,4 @@ Por padrão, todos os documentos são indexados pelo Banco de Dados de Documento
 Para continuar aprendendo como o Banco de Dados de Documentos funciona, veja [Particionamento e dimensionamento no Banco de Dados de Documentos do Azure](documentdb-partition-data.md).
 
 Para obter instruções sobre como monitorar os níveis de desempenho no Portal do Azure, veja [Monitor a DocumentDB account (Monitorar uma conta do Banco de Dados de Documentos)](documentdb-monitor-accounts.md). Para obter mais informações sobre como escolher os níveis de desempenho para as coleções, consulte [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

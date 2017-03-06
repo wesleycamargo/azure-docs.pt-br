@@ -17,6 +17,7 @@ ms.author: bwren
 translationtype: Human Translation
 ms.sourcegitcommit: 4d6ea516717077ffb4b832caa9e8a064905fce09
 ms.openlocfilehash: dcf61991fcbf989c905aa7c18e73df19afa89c36
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -69,10 +70,5 @@ Ao [inscrever-se para o Log Analytics](log-analytics-get-started.md), você cria
 * [Inscreva-se em uma conta gratuita do Log Analytics](log-analytics-get-started.md) para testá-lo em seu próprio ambiente.
 * Veja as diferentes [Fontes de Dados](log-analytics-data-sources.md) disponíveis para coletar dados para o repositório do OMS.
 * [Procure soluções disponíveis na Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidades ao Log Analytics.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

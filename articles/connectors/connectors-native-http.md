@@ -18,6 +18,7 @@ ms.author: jehollan
 translationtype: Human Translation
 ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
 ms.openlocfilehash: d3514dad84bea024ad6215711877a9784a8d8ffd
+ms.lasthandoff: 01/20/2017
 
 
 ---
@@ -210,10 +211,5 @@ Por exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

@@ -18,6 +18,7 @@ ms.author: torsteng
 translationtype: Human Translation
 ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
 ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -126,10 +127,5 @@ Propriedades transacionais são garantidas para todas as operações locais para
 Para desanexar um fragmento ou anexar um fragmento novamente, consulte [Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

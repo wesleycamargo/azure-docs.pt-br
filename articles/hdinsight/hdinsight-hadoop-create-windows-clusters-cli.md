@@ -18,6 +18,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
 ms.openlocfilehash: 393b7e44b21fe510e07b4048ddd3bdbcc31d90a9
+ms.lasthandoff: 02/07/2017
 
 
 ---
@@ -139,10 +140,5 @@ Para obter informações gerais sobre ação de script, veja [Personalizar clust
 * [Enviar trabalhos do Hadoop de forma programática](hdinsight-submit-hadoop-jobs-programmatically.md) - aprenda como enviar trabalhos ao HDInsight de forma programática
 * [Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure](hdinsight-administer-use-command-line.md)
 * [Usando a CLI do Azure para Mac, Linux e Windows com o Gerenciamento de Serviços do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

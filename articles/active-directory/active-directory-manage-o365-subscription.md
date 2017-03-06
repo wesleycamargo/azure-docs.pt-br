@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
 ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
+ms.lasthandoff: 02/13/2017
 
 
 ---
@@ -65,9 +66,4 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, confira [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

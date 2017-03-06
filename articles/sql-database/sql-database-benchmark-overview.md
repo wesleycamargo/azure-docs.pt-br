@@ -18,6 +18,7 @@ ms.author: janeng
 translationtype: Human Translation
 ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
 ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
+ms.lasthandoff: 01/13/2017
 
 
 ---
@@ -132,9 +133,4 @@ O Parâmetro de Comparação do Banco de Dados SQL do Azure mede o desempenho re
 [Camadas de serviço e níveis de desempenho](sql-database-service-tiers.md)
 
 [Diretrizes de desempenho para bancos de dados únicos](sql-database-performance-guidance.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
