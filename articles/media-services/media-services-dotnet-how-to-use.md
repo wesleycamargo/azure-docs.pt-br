@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/02/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 38c7ea11091bb65432589df4d72e5efef3cb7ea3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -31,7 +32,7 @@ A biblioteca do **SDK do .NET dos Serviços de Mídia** permite que você progra
 * Uma conta de Serviços de Mídia em uma assinatura nova ou existente do Azure. Confira o tópico [Criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 * Sistemas operacionais: Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5.
-* Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 ou Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express).
+* Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 Esta seção mostra como criar um projeto no Visual Studio e configurá-lo para o desenvolvimento de Serviços de Mídia.  Nesse caso, o projeto é um aplicativo de console C# do Windows, mas as mesmas etapas de configuração mostradas aqui se aplicam a outros tipos de projetos que podem ser criados para aplicativos de Serviços de Mídia (por exemplo, um aplicativo do Windows Forms ou um aplicativo Web ASP .NET).
@@ -40,7 +41,7 @@ Esta seção mostra como usar **NuGet** para adicionar o SDK do .NET dos Serviç
 
 Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia no GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Observe que todas as dependências necessárias obtém por download e são extraídas automaticamente.
 
-1. Crie um novo Aplicativo de Console C# no Visual Studio 2010 SP1 ou versões posteriores do VS. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em OK.
+1. No Visual Studio, crie um novo aplicativo de console C#. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em OK.
 2. Compilar a solução.
 3. Use o **NuGet** para instalar e adicionar **extensões do SDK do .NET dos Serviços de Mídia do Azure**. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
    
@@ -91,10 +92,5 @@ Neste ponto, você está pronto para começar a desenvolver um aplicativo de Ser
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
