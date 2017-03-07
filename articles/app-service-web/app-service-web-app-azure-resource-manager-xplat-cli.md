@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 09/29/2016
 ms.author: aelnably
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6f75781af24d1ad4cb6460f0dfd528684aaad57f
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: 7a03e1417617453c43edcc3787da10d171359757
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,7 +31,7 @@ Com o lançamento da versão 0.10.5 das Ferramentas de Linha de Comando de plata
 Para saber mais sobre como gerenciar Grupos de Recursos, veja [Usar a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 > [!NOTE] 
-> Além disso, experimente a [CLI do Azure 2.0 (Visualização)](https://github.com/Azure/azure-cli) – nossa próxima geração de CLI escrita em Python para o modelo de implantação de gerenciamento de recursos.
+> Além disso, experimente a [CLI do Azure 2.0](https://github.com/Azure/azure-cli), uma CLI de próxima geração escrita em Python para o modelo de implantação do resource manager.
 >
 >
 
@@ -178,9 +179,4 @@ Para excluir associações de nome de host, use:
 * Para saber mais sobre o suporte da CLI do Azure Resource Manager, veja [Usar a CLI do Azure para gerenciar recursos e grupos de recursos do Azure](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * Para saber mais sobre como gerenciar o Serviço de Aplicativo usando o PowerShell, veja [Como usar o PowerShell baseado no Azure Resource Manager para gerenciar Aplicativos Web do Azure.](app-service-web-app-azure-resource-manager-powershell.md)
 * Para saber mais sobre o Serviço de Aplicativo do Azure no Linux, veja [Introdução ao Serviço de Aplicativo no Linux.](app-service-linux-intro.md)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

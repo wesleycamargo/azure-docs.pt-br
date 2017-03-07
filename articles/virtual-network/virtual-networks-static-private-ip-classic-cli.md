@@ -1,10 +1,10 @@
 ---
-title: "Como definir um endereço IP estático e privado no modo clássico usando o CLI| Microsoft Docs"
-description: "Noções básicas sobre IPs privados e estáticos (DIPs) e como gerenciá-los no modo clássico usando o CLI"
+title: "Configurar endereços IP para máquinas virtuais (Clássicas) - CLI do Azure 1.0 | Microsoft Docs"
+description: "Saiba como configurar endereços IP para máquinas virtuais (clássico) usando a CLI (interface de linha de comando) do Azure 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 70da85679c6e594278803fb073665a6eeab7df34
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 0d0b896e64dfba0081e2ec23f2181e07226faebe
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-classic-in-azure-cli"></a>Como definir um endereço IP privado estático (clássico) no CLI do Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configurar endereços IP particulares para uma máquina virtual (Clássica) usando a CLI do Azure 1.0
+
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -117,10 +120,5 @@ Saída esperada:
 * Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
 * Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
 * Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
