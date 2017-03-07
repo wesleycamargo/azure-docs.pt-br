@@ -1,12 +1,78 @@
 
 
-## <a name="azure-cli"></a>CLI do Azure
+## <a name="azure-cli-20"></a>CLI do Azure 2.0
+
+Depois de [instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), use o comando `az vm image list` para ver uma lista de imagens de VM populares armazenada em cache. Por exemplo, o exemplo do comando `az vm image list -o table` a seguir mostra como:
+
+```
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               14.04.4-LTS         Canonical:UbuntuServer:14.04.4-LTS:latest                       UbuntuLTS            latest
+CentOS         OpenLogic               7.2                 OpenLogic:CentOS:7.2:latest                                     CentOS               latest
+openSUSE       SUSE                    13.2                SUSE:openSUSE:13.2:latest                                       openSUSE             latest
+RHEL           RedHat                  7.2                 RedHat:RHEL:7.2:latest                                          RHEL                 latest
+SLES           SUSE                    12-SP1              SUSE:SLES:12-SP1:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
+
+### <a name="finding-all-current-images"></a>Localizar todas as imagens atuais
+
+Para obter a lista atual de todas as imagens, use o comando `az vm image list` com a opção `--all`. Diferentemente dos comandos da CLI do Azure 1.0, o comando `az vm image list --all` retorna todas as imagens em **westus** por padrão (a menos que você especifique um argumento `--location` específico), então o comando `--all` leva algum tempo para concluir. Se você pretende investigar interativamente, use `az vm image list --all > allImages.json`, que retorna uma lista de todas as imagens disponíveis atualmente no Azure e a armazena como um arquivo para uso local. 
+
+Você poderá especificar uma dentre várias opções para restringir sua pesquisa para um local, oferta, editor ou SKU específico, se você já tiver um ou mais em mente. Se você não especificar um local, os valores de **westus** serão retornados.
+
+### <a name="find-specific-images"></a>Localizar imagens específicas
+
+Use `az vm image list` com um [filtro de consulta JMESPATH](https://docs.microsoft.com/cli/azure/query-az-cli2) para encontrar informações específicas. O exemplo a seguir exibe as **SKUs** que estão disponíveis para **Debian** (lembre-se de que sem a opção `--all`, ele pesquisa apenas no cache local de imagens comuns):
+
+```azurecli
+az vm image list --query '[?contains(offer,`Debian`)]' -o table --all
+```
+
+A saída será algo semelhante a: 
+```
+You are viewing an offline list of images, use --all to retrieve an up-to-date list
+  Sku  Publisher    Offer    Urn                       Version    UrnAlias
+-----  -----------  -------  ------------------------  ---------  ----------
+    8  credativ     Debian   credativ:Debian:8:latest  latest     Debian
+
+<list shortened for the example>
+```
+
+Se você souber o local em que está implantando, poderá usar os resultados gerais da pesquisa de imagem junto com os comandos `az vm image list-skus`, `az vm image list-offers` e `az vm image list-publishers` para localizar exatamente o que você deseja e em que local ele pode ser implantado. Por exemplo, se no exemplo anterior você sabe que `credativ` tem uma oferta de Debian, você pode usar `--location` e outras opções para localizar exatamente o que você deseja. O exemplo a seguir procura por uma imagem de Debian 8 em **westeurope**:
+
+```azurecli 
+az vm image show -l westeurope -f debian -p credativ --skus 8 --version 8.0.201701180
+```
+
+e a saída é:
+
+```json
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/<guid>/Providers/Microsoft.Compute/Locations/westeurope/Publishers/credativ/ArtifactTypes/VMImage/Offers/debian/Skus/8/Versions/8.0.201701180",
+  "location": "westeurope",
+  "name": "8.0.201701180",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+
+## <a name="azure-cli-10"></a>CLI 1.0 do Azure 
+
 > [!NOTE]
-> Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`. 
-> 
+> Este artigo descreve como navegar e selecionar imagens de máquina virtual usando uma instalação da CLI do Azure 1.0 ou do Azure PowerShell que dá suporte ao Modelo de implantação do Azure Resource Manager. Como pré-requisito, altere para o modo do Resource Manager. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`. 
 > 
 
-A maneira mais fácil e rápida de localizar uma imagem para usar com `azure vm quick-create` ou para criar um arquivo de modelo de grupo de recursos é chamar o comando `azure vm image list` e informar o local, o nome do editor (não diferencia maiúsculas de minúsculas!) e uma oferta – se você souber a oferta. Por exemplo, a lista a seguir é apenas uma pequena amostra - várias listas são bastante longas - se você souber que "Canonical" é um editor para a oferta "UbuntuServer".
+A maneira mais rápida de localizar uma imagem é chamar o comando `azure vm image list` e informar o local, o nome do editor (não diferencia maiúsculas de minúsculas!) e uma oferta – se você souber a oferta. Por exemplo, a lista a seguir é apenas uma pequena amostra - várias listas são bastante longas - se você souber que "Canonical" é um editor para a oferta "UbuntuServer".
 
 ```azurecli
 azure vm image list westus canonical ubuntuserver
@@ -28,7 +94,7 @@ data:    canonical  ubuntuserver  16.10-DAILY        Linux  16.10.201607240  wes
 
 A coluna **Urn** será o formulário que você passa para `azure vm quick-create`.
 
-Muitas vezes, no entanto, você ainda não saiba o que está disponível. Nesse caso, você pode navegar por imagens, descobrindo primeiro os editores usando `azure vm image list-publishers` e respondendo ao prompt de local com um local de data center que você pretende usar para o grupo de recursos. O exemplo a seguir lista todos os editores de imagem no local Oeste dos EUA (passar o argumento de local removendo os espaços dos locais padrão e escrevendo-os em minúsculas)
+Muitas vezes, no entanto, você ainda não saiba o que está disponível. Nesse caso, você pode navegar por imagens usando o comando `azure vm image list-publishers` e especificando um local de data center no prompt. O exemplo a seguir lista todos os editores de imagem no local Oeste dos EUA (passar o argumento de local removendo os espaços dos locais padrão e escrevendo-os em minúsculas)
 
 ```azurecli
 azure vm image list-publishers
@@ -43,7 +109,7 @@ data:    alertlogic                                      westus
 data:    AlertLogic.Extension                            westus  
 ```
 
-Essas listas podem ser muito longas, portanto, a lista de exemplo acima é simplesmente um trecho de código. Vamos supor que percebi que Canonical é, na verdade, um editor de imagem no local Oeste dos EUA. Agora você pode encontrar suas ofertas chamando `azure vm image list-offers` e passar o local e o editor em solicitações, como no exemplo a seguir:
+Essas listas podem ser muito longas, portanto, a lista de exemplo acima é apenas um trecho. Vamos supor que percebi que Canonical é, na verdade, um editor de imagem no local Oeste dos EUA. Agora você pode encontrar suas ofertas chamando `azure vm image list-offers` e passar o local e o editor em solicitações, como no exemplo a seguir:
 
 ```azurecli
 azure vm image list-offers
@@ -62,7 +128,7 @@ data:    canonical  Ubuntu_Snappy_Core_Docker  westus
 info:    vm image list-offers command OK
 ```
 
-Agora sabemos que, na região Oeste dos EUA, Canonical publica a oferta **UbuntuServer** no Azure. Mas quais SKUs? Para saber quais, você chama `azure vm image list-skus` e responde à solicitação com o local, editor e oferta que você descobriu.
+Agora sabemos que, na região Oeste dos EUA, Canonical publica a oferta **UbuntuServer** no Azure. Mas quais SKUs? Para obter esses valores, você chama `azure vm image list-skus` e responde à solicitação com o local, editor e oferta que você descobriu.
 
 ```azurecli
 azure vm image list-skus
@@ -228,7 +294,3 @@ Nesta lista, copie o nome da SKU escolhida e você terá todas as informações 
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
-
-<!--HONumber=Dec16_HO1-->
-
-

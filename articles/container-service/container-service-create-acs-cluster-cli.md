@@ -1,6 +1,6 @@
 ---
 title: "Implantar um cluster do contêiner Docker - CLI do Azure | Microsoft Docs"
-description: "Implantar um cluster do Serviço de Contêiner do Azure usando a Visualização do Azure CLI 2.0"
+description: "Implantar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2.0"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,23 +17,24 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: df916670743158d6a22b3f17343630114584fa08
-ms.openlocfilehash: 65f1c812472f4a3b6d4a4e6fb7666a2c022af102
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 792150afa1c4f91c4bf6175037c7708d8f7bfabe
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="using-the-azure-cli-20-preview-to-create-an-azure-container-service-cluster"></a>Uso da CLI do Azure 2.0 (Visualização) para criar um cluster do Serviço de Contêiner do Azure
+# <a name="use-the-azure-cli-20-to-create-an-azure-container-service-cluster"></a>Usar a CLI do Azure 2.0 para criar um cluster do Serviço de Contêiner do Azure
 
-Use o comando `az acs` na CLI do Azure 2.0 (visualização) para criar e gerenciar clusters no Serviço de Contêiner do Azure. Você também pode implantar um cluster do serviço de contêiner do Azure usando o [portal do Azure](container-service-deployment.md) ou as APIs de serviço do contêiner do Azure.
+Use o comando `az acs` na CLI do Azure 2.0 para criar e gerenciar clusters no Serviço de Contêiner do Azure. Você também pode implantar um cluster do serviço de contêiner do Azure usando o [portal do Azure](container-service-deployment.md) ou as APIs de serviço do contêiner do Azure.
 
 Para obter ajuda sobre os comandos `az acs`, passe o parâmetro `-h` para qualquer comando. Por exemplo: `az acs create -h`.
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2.0 (Visualização), você deve:
+Para criar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2.0, você deve:
 * ter uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/))
-* instalar e configurar o [v CLI do Azure. 2.0 (Visualização)](/cli/azure/install-az-cli2)
+* instalar e configurar [CLI do Azure 2.0](/cli/azure/install-az-cli2)
 
 ## <a name="get-started"></a>Introdução 
 ### <a name="log-in-to-your-account"></a>Faça logon na sua conta
@@ -41,7 +42,7 @@ Para criar um cluster do Serviço de Contêiner do Azure usando a CLI do Azure 2
 az login 
 ```
 
-Siga os prompts para fazer logon interativamente. Para obter outros métodos fazer logon, consulte [começar 2.0 de CLI do Azure (Visualização)](/cli/azure/get-started-with-az-cli2).
+Siga os prompts para fazer logon interativamente. Para obter outros métodos para fazer logon, consulte [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-az-cli2).
 
 ### <a name="set-your-azure-subscription"></a>Definir sua assinatura do Azure
 
@@ -74,7 +75,7 @@ Outras entradas são definidas com valores padrão (veja a tela a seguir), a men
 
 
 ### <a name="quick-acs-create-using-defaults"></a>`acs create` rápido usando padrões
-Se você tiver um arquivo de chave pública SSH `id_rsa.pub` no local padrão (ou criado para [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use um comando semelhante ao seguinte:
+Se você tiver um arquivo de chave pública SSH RSA `id_rsa.pub` no local padrão (ou criou um para [OS X e Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) ou [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)), use um comando semelhante ao seguinte:
 
 ```azurecli
 az acs create -n acs-cluster -g acsrg1 -d applink789
@@ -143,8 +144,3 @@ Agora que você tem um cluster em funcionamento, confira estes documentos para o
 * [Trabalhar com o Serviço de Contêiner do Azure e o DC/SO](container-service-mesos-marathon-rest.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o Kubernetes](container-service-kubernetes-walkthrough.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-
