@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -35,10 +36,4 @@ Certifique-se de incluir o seguinte, para que possamos investigar o problema.
 Apreciamos seus comentários sobre os Serviços de Domínio do Azure AD por meio do **[canal do Azure Active Directory User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/)**.
 
 Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'**para que chegue até nós.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 
