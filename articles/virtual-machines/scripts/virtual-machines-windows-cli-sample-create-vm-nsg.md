@@ -16,9 +16,9 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: a172d73732354d31d717d8e2f3a5c5c43cbbd6dc
-ms.openlocfilehash: 9ef17544582e944fda2ab8ea8b8098bb83e2ab57
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 82d40c30c92f5da090e7ec4e2f25ead3908cc603
+ms.openlocfilehash: 69a06ba68e9a92ab63fd7c86a80eb9c4718f6679
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -30,7 +30,7 @@ Antes de executar esse script, certifique-se de que uma conexão com o Azure foi
 
 Esse exemplo funciona no shell Bash. Para opções sobre como executar scripts da CLI do Azure no Windows, veja [Execução da CLI do Azure no Windows](../virtual-machines-windows-cli-options.md).
 
-## <a name="create-vm-sample-with-a-network-security-group"></a>Criar o exemplo VM com um grupo de segurança de rede
+## <a name="sample-script"></a>Script de exemplo
 
 [!code-azurecli[principal](../../../cli_scripts/virtual-machine/create-vm-nsg/create-windows-vm-nsg.sh "Criar VM com NSG")]
 
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup --yes
 
 Este script usa os comandos a seguir para criar um grupo de recursos, uma máquina virtual e todos os recursos relacionados. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Command | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) | Cria uma sub-rede e uma rede virtual do Azure. |
