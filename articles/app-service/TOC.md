@@ -28,20 +28,6 @@
 ### [Aplicativo do Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Exemplos comuns
-## Exemplos de CLI
-### [Criar um aplicativo web e implantar o código do GitHub](./scripts/app-service-cli-deploy-github.md)
-### [Criar um aplicativo web com a implantação contínua do GitHub](./scripts/app-service-cli-continuous-deployment-github.md)
-### [Criar um aplicativo web e implantar o código de um repositório local Git](./scripts/app-service-cli-deploy-local-git.md)
-### [Criar um aplicativo web e implantar o código em um ambiente de preparo](./scripts/app-service-cli-deploy-staging-environment.md)
-### [Criar um aplicativo web do ASP.NET Core em um contêiner do Docker](./scripts/app-service-cli-linux-docker-aspnetcore.md)
-### [Mapear um domínio personalizado para um aplicativo Web](./scripts/app-service-cli-configure-custom-domain.md)
-### [Escalar manualmente um aplicativo Web](./scripts/app-service-cli-scale-manual.md)
-### [Escalar um aplicativo web em todo o mundo com uma arquitetura de alta disponibilidade](./scripts/app-service-cli-scale-high-availability.md)
-### [Conectar um aplicativo web a um banco de dados SQL](./scripts/app-service-cli-app-service-sql.md)
-### [Conectar um aplicativo web a uma conta de armazenamento](./scripts/app-service-cli-app-service-storage.md)
-### [Monitorar um aplicativo web com logs do servidor web](./scripts/app-service-cli-monitor.md)
-
 # Como
 
 ## Planejar e projetar

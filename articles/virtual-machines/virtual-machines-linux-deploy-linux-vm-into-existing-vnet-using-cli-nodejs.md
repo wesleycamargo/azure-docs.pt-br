@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: cce15fa7042b29de055a62b1b7a6efa4d0539acf
-ms.openlocfilehash: fd73f2eae7f89c237a6a2ff75c6022cb0684e613
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: 9a97a5a3fe8937d51c9e196df2929edac67a25ec
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Este artigo mostra como usar marcas de CLI para implantar uma VM em uma VNet (Re
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI 1.0 do Azure](#quick-commands) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0 (Visualização)](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa próxima geração de CLI para o modelo de implantação do resource manager
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -166,9 +167,4 @@ Ao usar sinalizadores da CLI para chamar os recursos existentes, instruímos o A
 * [Usar um modelo do Azure Resource Manager para criar uma implantação específica](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar seu próprio ambiente personalizado para uma VM do Linux usando os comandos da CLI do Azure diretamente](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM do Linux no Azure usando modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

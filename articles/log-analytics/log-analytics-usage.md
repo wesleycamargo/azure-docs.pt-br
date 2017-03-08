@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
     - Tempo necessário para coletar e indexar dados
 - Lista de consultas
 
+## <a name="understanding-nodes-for-oms-offers"></a>Noções básicas sobre nós de ofertas OMS
+
+Se você estiver usando o tipo de preço *por nó (OMS)*, será cobrado com base no número de nós e soluções que habilitou. Você pode ver quantos nós de cada oferta estão em uso na seção *ofertas* do painel de uso.
+
+![painel de uso](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
 2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
@@ -63,9 +70,4 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
 
 ## <a name="next-steps"></a>Próximas etapas
 * Confira [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir informações detalhadas que são coletadas e enviadas ao OMS por recursos e soluções.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

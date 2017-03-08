@@ -4,7 +4,7 @@ description: "Saiba como usar os Aplicativos Móveis para autenticar usuários d
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 30fac48cbacb26b03ce430987997c38c68368385
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,9 +28,9 @@ ms.openlocfilehash: 65c8ff42c9c34eb51cb26153eff9b45aa0926838
 Este tópico mostra como autenticar usuários de um aplicativo móvel do Serviço de Aplicativo em seu aplicativo cliente. Neste tutorial, você adiciona a autenticação ao projeto de início rápido do Xamarin.Forms usando um provedor de identidade com suporte do Serviço de Aplicativo. Depois de ser autenticado e autorizado com êxito pelo Aplicativo Móvel, o valor da ID de usuário é exibido e você poderá acessar dados da tabela restrita.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para aproveitar melhor este tutorial, é recomendável concluir primeiro o tutorial [Criar um aplicativo Xamarin.Forms][1]. Depois de concluir este tutorial, você terá um projeto Xamarin.Forms que é um aplicativo de lista de tarefas para várias plataformas.
+Para obter o melhor resultado com este tutorial, é recomendável concluir primeiro o tutorial [Criar um aplicativo Xamarin.Forms][1]. Depois de concluir este tutorial, você terá um projeto Xamarin.Forms que é um aplicativo de lista de tarefas para várias plataformas.
 
-Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para saber mais sobre pacotes de extensão do servidor, confira [Trabalhar com o SDK do servidor back-end do .NET para Aplicativos Móveis do Azure][2].
+Se você não usar o projeto baixado de início rápido do servidor, deve adicionar o pacote de extensão de autenticação ao seu projeto. Para saber mais sobre pacotes de extensão do servidor, confira [Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure][2].
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços de Aplicativos
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -38,7 +39,7 @@ Se você não usar o projeto baixado de início rápido do servidor, deve adicio
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Adicionar autenticação à biblioteca de classes portátil
-Os Aplicativos Móveis usam o método de extensão [LoginAsync][3] no [MobileServiceClient][4] para conectar um usuário com a autenticação do Serviço de Aplicativo. Este exemplo usa um fluxo de autenticação gerenciado por servidor que exibe a interface de entrada do provedor no aplicativo. Para saber mais, veja [Autenticação gerenciada por servidor][5]. Para proporcionar uma melhor experiência ao usuário em seu aplicativo de produção, você deve considerar o uso da [Autenticação gerenciada pelo cliente][6].
+Os Aplicativos Móveis usam o método de extensão [LoginAsync][3] no [MobileServiceClient][4] para que um usuário entre com a autenticação do Serviço de Aplicativo. Este exemplo usa um fluxo de autenticação gerenciado por servidor que exibe a interface de entrada do provedor no aplicativo. Para saber mais, veja [Autenticação gerenciada pelo servidor][5]. Para proporcionar uma melhor experiência ao usuário em seu aplicativo de produção, você deve considerar o uso da [Autenticação gerenciada pelo cliente][6].
 
 Para se autenticar em um projeto Xamarin.Forms, defina uma interface **IAuthenticate** na Biblioteca de Classes Portátil para o aplicativo. Em seguida, adicione um botão **Entrar** à interface de usuário definida na Biblioteca de Classes Portátil, em que você possa clicar para iniciar a autenticação. Os dados são carregados do back-end do aplicativo móvel depois da autenticação bem-sucedida.
 
@@ -307,7 +308,7 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 * [Adicionar notificações por push ao aplicativo](app-service-mobile-xamarin-forms-get-started-push.md)
   
-   Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
+  Saiba como adicionar suporte a notificações por push ao aplicativo e configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-xamarin-forms-get-started-offline-data.md)
   
   Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, exibindo, adicionando ou modificando dados, mesmo quando não há conexão de rede.
@@ -322,9 +323,4 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

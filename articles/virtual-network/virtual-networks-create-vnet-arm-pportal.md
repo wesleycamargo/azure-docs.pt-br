@@ -1,23 +1,25 @@
 ---
-title: Criar uma rede virtual usando o Portal do Azure | Microsoft Docs
-description: Saiba como criar uma rede virtual usando o Portal do Azure | Resource Manager.
+title: "Criar uma rede virtual – Portal do Azure | Microsoft Docs"
+description: Aprenda a criar uma rede virtual usando o portal do Azure.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ad679a4-a959-4e48-a317-d9f5655a442b
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/8/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: c7257faad9a41174fb1d65e04c99cd96a8af3ea9
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 54094c18dcbb751835bfa56d53358ce19e08387d
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -81,8 +83,3 @@ Saiba como se conectar:
 - Uma VM (máquina virtual) em uma rede virtual lendo os artigos [Criar uma VM Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) ou [Criar uma VM Linux](../virtual-machines/virtual-machines-linux-quick-create-portal.md). Em vez de criar uma rede virtual e sub-rede nas etapas dos artigos, você pode selecionar uma rede virtual e uma sub-rede existente para se conectar a uma VM.
 - A rede virtual para outras redes virtuais, lendo o artigo [Conectar VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 - A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo os artigos [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-
-
-<!--HONumber=Jan17_HO1-->
-
-

@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -82,10 +83,4 @@ O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção a
 ![RemoteApp do Azure](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
 Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -17,6 +17,7 @@ ms.author: priyamo
 translationtype: Human Translation
 ms.sourcegitcommit: f48df694e6ac20a11f92faebeeec273745fbfaed
 ms.openlocfilehash: 53e9fd58e72d83db32fa1fab937b4618cd4cd159
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -34,9 +35,4 @@ O Azure Active Directory expõe pontos de extremidade de logon único e logout �
 * O ponto de extremidade independente do locatário está localizado em `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Nesse endereço do ponto de extremidade, **comum** é exibido, em vez de um nome de domínio do locatário ou ID.
 
 Para obter informações sobre os documentos de metadados federados que o Azure AD publica, confira [Metadados Federados](active-directory-federation-metadata.md).
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

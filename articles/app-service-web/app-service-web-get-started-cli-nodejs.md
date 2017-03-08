@@ -4,7 +4,7 @@ description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplic
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 2c750583212d7ed13e3bb5f4d0770d52aa9610b2
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: d8f3c95852361fd92eada1e6a50d735cc305279d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Você irá:
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-get-started-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (Visualização)](app-service-web-get-started.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](app-service-web-get-started.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Git](http://www.git-scm.com/downloads).
@@ -136,10 +137,5 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
 * Experimente [outras maneiras de implantar seu código no Azure](web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
 * Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

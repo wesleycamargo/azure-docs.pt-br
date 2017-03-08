@@ -1,69 +1,33 @@
-Se você ainda não fez isso, obtenha uma [Avaliação gratuita da assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e a [CLI do Azure](../articles/xplat-cli-install.md) [conectada à sua conta do Azure](../articles/xplat-cli-connect.md). Verifique se a CLI do Azure está no modo Resource Manager da seguinte forma:
+## <a name="prerequisites"></a>Pré-requisitos
+
+Obtenha uma [assinatura de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) e instale a [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), caso ainda não tenha feito isso.
+
+## <a name="create-the-scale-set"></a>Criar o conjunto de dimensionamento
+
+Primeiro, crie um grupo de recursos para implantar o conjunto de dimensionamento em:
 
 ```azurecli
-azure config mode arm
+az group create --location westus --name myResourceGroup
 ```
 
-Agora, crie seu conjunto de dimensionamento usando o comando `azure vmss quick-create`. O exemplo a seguir cria um conjunto de dimensionamento do Linux chamado `myVMSS` com cinco instâncias de VM no grupo de recursos chamado `myResourceGroup`:
+Agora, crie seu conjunto de dimensionamento usando o comando `az vmss create`. O exemplo a seguir cria um conjunto de dimensionamento do Linux chamado `myvmss` no grupo de recursos chamado `myrg`:
 
 ```azurecli
-azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
-    -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+az vmss create --resource-group myResourceGroup --name myVmss \
+    --image UbuntuLTS --admin-username azureuser \
+    --authentication-type password --admin-password P4$$w0rd
 ```
 
 O exemplo a seguir cria um conjunto de dimensionamento do Windows com a mesma configuração:
 
 ```azurecli
-azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
-    -u ops -p P@ssw0rd! \
-    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
+az vmss create --resource-group myResourceGroup --name myVmss \
+    --image Win2016Datacenter --admin-username azureuser \
+    --authentication-type password --admin-password P4$$w0rd
 ```
 
-Se desejar personalizar o local ou o image-urn, veja os comandos `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Se desejar escolher uma imagem de sistema operacional diferente, você poderá ver as imagens disponíveis com o comando `az vm image list` ou `az vm image list --all`. Para ver as informações de conexão das VMs no conjunto de dimensionamento, use o comando `az vmss list_instance_connection_info`:
 
-Depois que esse comando foi retornado, o conjunto de escala terá sido criado. Esse conjunto de escala terá um balanceador de carga com regras NAT de mapeamento de porta 50.000+ i no balanceador de carga para a porta 22 na VM i. Portanto, depois que pudermos descobrir o FQDN do balanceador de carga, poderemos nos conectar a nossas VMs via SSH:
-
-```bash
-# (if you decide to run this as a script, please invoke using bash)
-
-# list load balancers in the resource group we created
-#
-# generic syntax:
-# azure network lb list -g RESOURCE-GROUP-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
-split_line=( $line )
-lb_name=${split_line[1]}
-
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
-# associated to it
-#
-# generic syntax:
-# azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network lb show -g negatvmssrg -n $lb_name | grep loadBalancerFrontEnd)
-split_line=( $line )
-pip_name=${split_line[4]}
-
-# now that we have the name of the public IP address, we can show the details to find the FQDN
-#
-# generic syntax:
-# azure network public-ip show -g RESOURCE-GROUP-NAME -n PIP-NAME
-#
-# example with some quick-and-dirty grep-fu to store the result in a variable:
-line=$(azure network public-ip show -g negatvmssrg -n $pip_name | grep FQDN)
-split_line=( $line )
-FQDN=${split_line[3]}
-
-# now that we have the FQDN, we can use ssh on port 50,000+i to connect to VM i (where i is 0-indexed)
-#
-# example to connct via ssh into VM "0":
-ssh -p 50000 negat@$FQDN
+```azurecli
+az vmss list_instance_connection_info --resource-group myResourceGroup --name myVmss
 ```
-
-<!--HONumber=Feb17_HO3-->
-
-

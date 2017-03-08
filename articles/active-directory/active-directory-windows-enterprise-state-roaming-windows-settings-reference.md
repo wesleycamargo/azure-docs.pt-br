@@ -4,7 +4,7 @@ description: "Uma lista completa de todas as configurações que serão ser movi
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
 documentationcenter: 
-author: markvi
+author: MarkusVi
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
@@ -18,6 +18,7 @@ ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 9b88b18e32e6a5ef6c0a0195e649fe2862583a0b
 ms.openlocfilehash: c2c50ff6e92cf42a7d309afafb01210c4edabbe0
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -164,9 +165,4 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

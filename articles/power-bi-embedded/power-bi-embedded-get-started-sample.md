@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 02/28/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 71476ae63d2394e7edefa10b8c71d15c04190290
-ms.openlocfilehash: 299e06bf6d4bd3af5d6dc7496ba9a947f42c19b7
+ms.sourcegitcommit: 02b905b12344f23e0eb3b8d0a1969bf7c491119e
+ms.openlocfilehash: 0f7412d9ed3cacb043a5cf3f21d6109eeeeb074c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,7 +28,7 @@ Com o **Microsoft Power BI Embedded**, você pode integrar relatórios do Power 
 
 Antes de continuarmos, convém salvar os recursos a seguir. Eles o ajudarão ao integrar relatórios do Power BI ao aplicativo de exemplo e a seus próprios aplicativos também.
 
-* [Aplicativo Web do painel de exemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Exemplo de aplicativo Web do espaço de trabalho](http://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referência da API do Power BI Embedded](https://msdn.microsoft.com/en-US/library/azure/mt711507.aspx)
 * [SDK do .NET do Power BI Embedded ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponível via NuGet)
 * [Amostra inserida de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
@@ -68,7 +69,7 @@ Checking import state... Succeeded
 Neste ponto, um relatório PBIX do Power BI é importado para o seu **Espaço de Trabalho**. Agora, vejamos como executar aplicativo Web de exemplo de introdução do **Power BI Embedded**.
 
 ## <a name="run-the-sample-web-app"></a>Executar o aplicativo Web de exemplo
-O aplicativo Web de exemplo é um painel de exemplo que renderiza relatórios importados para o seu **Espaço de Trabalho**. Aqui está como configurar o aplicativo Web de exemplo.
+A amostra do aplicativo Web é um aplicativo de exemplo que renderiza relatórios importados para o seu **Espaço de Trabalho**. Aqui está como configurar o aplicativo Web de exemplo.
 
 1. Na solução **PowerBI-embedded** do Visual Studio, clique com o botão direito do mouse no aplicativo Web **EmbedSample** e escolha **Definir como projeto de Inicialização**.
 2. Em **web.config**, no aplicativo Web **EmbedSample** edite o nome de **appSettings**: **AccessKey**, **WorkspaceCollection** e a **WorkspaceId**.
@@ -93,7 +94,7 @@ Depois de clicar em um relatório, o aplicativo Web **EmbedSample** deve ter ess
 
 ## <a name="explore-the-sample-code"></a>Explorar o código de exemplo
 
-A amostra do **Microsoft Power BI Embedded** é um aplicativo Web de painel de exemplo que mostra como integrar relatórios do **Power BI** em seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](http://www.asp.net/mvc).
+A amostra do **Microsoft Power BI Embedded** é um aplicativo Web de exemplo que mostra como integrar relatórios do **Power BI** ao seu aplicativo. Ele usa um MVC (Model-View-Controller) para demonstrar as práticas recomendadas. Esta seção destaca as partes do código de exemplo que você pode explorar dentro da solução de aplicativo Web **PowerBI-embedded**. O padrão Model-View-Controller (MVC) separa a modelagem de domínio, a apresentação e as ações com base na entrada do usuário em três classes separadas: Modelo, Exibição e Controle. Para saber mais sobre o MVC, consulte [Aprenda sobre o ASP.NET](http://www.asp.net/mvc).
 
 O código de exemplo do **Microsoft Power BI Embedded** é separado conforme demonstrado a seguir. Cada seção inclui o nome do arquivo na solução PowerBI-embedded.sln para que você possa localizar facilmente o código no exemplo.
 
@@ -241,13 +242,8 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > {tableName/fieldName} não pode incluir espaços ou caracteres especiais. O {fieldValue} aceita um único valor categórico.  
 
 ## <a name="see-also"></a>Consulte também
-* [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
-* [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
+[Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)  
+[Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)  
 Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

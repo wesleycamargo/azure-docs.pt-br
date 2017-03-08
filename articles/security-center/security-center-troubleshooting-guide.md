@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2017
+ms.date: 02/15/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
-ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
+ms.sourcegitcommit: b9f4a8b185f9fb06f8991b6da35a5d8c94689367
+ms.openlocfilehash: dbbec729c14d0d9dc5781e7a88a1db3f66f7df97
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -53,7 +54,7 @@ Você também pode obter mais informações sobre o processo de instalação len
 > Se o agente da Central de Segurança do Azure estiver se comportando mal, você precisará reiniciar a VM de destino porque não há nenhum comando para parar e iniciar o agente.
 
 
-Se você ainda tiver problemas com a coleta de dados, você pode desinstalar o agente, siga as etapas abaixo:
+Se você ainda tiver problemas com a coleta de dados, desinstale o agente seguindo as etapas abaixo:
 
 1. Do **Portal do Azure**, selecione a máquina virtual que é experiência problemas de coleta de dados e clique em **extensões**.
 2. Clique com o botão direito em **Microsoft.Azure.Security.Monitoring** e clique em selecionar **desinstalar**.
@@ -76,6 +77,20 @@ Em um sistema em funcionamento, você deve ver uma conexão com o processo de md
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Solução de problemas do Endpoint Protection que não está funcionando corretamente
+
+O agente convidado é o processo pai de tudo o que a extensão [Antimalware da Microsoft](../security/azure-security-antimalware.md) faz. Quando o processo do agente convidado falha, o Antimalware da Microsoft, que é executado como um processo filho do agente convidado, também pode falhar.  Em cenários como esse é recomendável verificar as seguintes opções:
+
+- Se a VM de destino é uma imagem personalizada e o criador da VM nunca instalou o agente convidado.
+- Se o destino for uma VM do Linux em vez de uma VM do Windows, instalar a versão do Windows da extensão antimalware em uma VM do Linux falhará. O agente convidado do Linux tem requisitos específicos em termos de versão do sistema operacional e pacotes necessários e, se esses requisitos não forem atendidos, o agente de VM também não funcionará lá. 
+- Se a VM foi criada com uma versão antiga do agente convidado. Se foi, esteja ciente de que alguns agentes antigos podem não realizar a própria atualização automática para a versão mais recente e isso pode causar esse problema. Sempre use a versão mais recente do agente convidado se estiver criando suas próprias imagens.
+- Alguns softwares de administração de terceiros podem desabilitar o agente convidado ou bloquear o acesso a determinados locais de arquivo. Se você tiver software de terceiros instalado em sua VM, verifique se o agente está na lista de exclusões.
+- Determinadas configurações de firewall ou o NSG (Grupo de Segurança de Rede) podem bloquear o tráfego de rede de/para o agente convidado.
+- Algumas ACLs (listas de controle de acesso) podem impedir o acesso ao disco.
+- Falta de espaço em disco pode impedir que o agente convidado funcione corretamente. 
+
+Por padrão, a Interface do Usuário do Antimalware da Microsoft está desabilitada. Leia [Habilitando a Interface de Usuário do Antimalware da Microsoft em VMs do Azure Resource Manager após a implantação](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) para obter mais informações sobre como habilitá-la, se você precisar.
+
 ## <a name="troubleshooting-problems-loading-the-dashboard"></a>Problemas ao carregar o painel de solução de problemas
 
 Se você enfrentar problemas ao carregar o painel central de segurança, certifique-se de que o usuário que registra a inscrição para a Central de segurança (ou seja, o primeiro usuário de um que abrir a Central de segurança com a assinatura) e o usuário que deseja ativar a coleta de dados deve ser *proprietário* ou *Colaborador* na assinatura. A partir desse momento também usuários com *leitor* na assinatura, pode ver a painel de controle/alertas/recomendação/política.
@@ -94,10 +109,5 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

@@ -4,7 +4,7 @@ description: "Saiba como criar um pacote do aplicativo de API RESTful do Node.js
 services: app-service\api
 documentationcenter: node
 author: bradygaster
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
-ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
+ms.sourcegitcommit: 9e62ed235d872738bc1a99ad33d977745c8b2d08
+ms.openlocfilehash: a3dacff719588be707418248ddc35c6f686b9b49
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -161,7 +162,7 @@ Embora o Serviço de Aplicativo ofereça suporte a várias maneiras de implantar
    
     ![Interface de usuário do Swagger](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Criar um novo Aplicativo de API
+## <a id="createapiapp"></a> Criar um novo Aplicativo de API
 Nesta seção, use o portal do Azure para criar um novo Aplicativo de API no Azure. Este aplicativo de API representa os recursos de computação que o Azure fornecerá para executar seu código. Nas próximas seções, você implantará seu código para o novo aplicativo de API.
 
 1. Navegar até o [Portal do Azure](https://portal.azure.com/). 
@@ -277,10 +278,5 @@ Agora que você tem o fornecimento contínuo conectado, pode fazer alterações 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usando o Node.js. O próximo tutorial mostra como [consumir aplicativos de API de clientes JavaScript usando CORS](app-service-api-cors-consume-javascript.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: f9ea0d14a99a7881b816606058e5ad72a0fef499
-ms.openlocfilehash: 01adbd43c5c77c3a80c5141e06a2ab14a49b8454
+ms.sourcegitcommit: bd67dc463daee2d7763e722f079930d8712fe478
+ms.openlocfilehash: 81a08a3cbd14c4a61efe68d9dd9fcd032dd1e1cd
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -92,19 +93,18 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-As extensões de VM do Azure podem ser implantadas com os modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a Extensão de Script Personalizado durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a Extensão de Script Personalizado pode ser encontrado aqui, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a Extensão de Script Personalizado durante uma implantação de modelo do Azure Resource Manager. Um modelo de exemplo que inclui a Extensão de Script Personalizado pode ser encontrado aqui, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
 O comando `Set-AzureRmVMCustomScriptExtension` pode ser usado para adicionar a Extensão de Script Personalizado a uma máquina virtual existente. Para saber mais, confira [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
-
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
--VMName myVM `
--Location myLocation `
--FileUri myURL `
--Run 'myScript.ps1' `
--Name DemoScriptExtension
+    -VMName myVM `
+    -Location myLocation `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
 ```
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
@@ -118,25 +118,35 @@ Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myE
 ```
 
 A saída de execução da extensão é registrada nos arquivos localizados no diretório a seguir da máquina virtual de destino.
-
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-O script propriamente dito é baixado no diretório a seguir na máquina virtual de destino.
-
+Os arquivos especificados são baixados no diretório a seguir da máquina virtual de destino.
 ```cmd
-C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
+em que `<n>` é um inteiro decimal que pode ser alterado entre as execuções da extensão.  O valor `1.*` corresponde ao valor `typeHandlerVersion` atual e real da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+
+Ao executar o comando `commandToExecute`, a extensão terá definido esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Isso permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
+
+Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute` sempre que possível. Por exemplo:
+```json
+    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```
+
+As informações de caminho após o primeiro segmento do URI são retidas para os arquivos baixados por meio da lista de propriedades `fileUris`.  Conforme mostrado na tabela a seguir, os arquivos baixados são mapeados em subdiretórios de download para refletir a estrutura dos valores `fileUris`.  
+
+#### <a name="examples-of-downloaded-files"></a>Exemplos de Arquivos Baixados
+
+| URI no fileUris | Localização baixada relativa | Localização baixada absoluta * |
+| ---- | ------- |:--- |
+| `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
+| `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
+
+\* Conforme ilustrado acima, os caminhos de diretório absolutos serão alterados durante o tempo de vida da VM, mas não em uma única execução da extensão do CustomScript.
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
+Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN] (https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
 

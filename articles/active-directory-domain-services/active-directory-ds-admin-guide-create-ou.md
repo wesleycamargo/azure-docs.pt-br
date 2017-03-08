@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
 ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
+ms.lasthandoff: 02/08/2017
 
 
 ---
@@ -40,27 +41,27 @@ Agora que as Ferramentas Administrativas do AD estão instaladas na máquina vir
 
 > [!NOTE]
 > Somente os membros do grupo 'Administradores de DC do AAD' têm os privilégios necessários para criar uma nova UO. Certifique-se de executar as etapas a seguir como um usuário pertencente a esse grupo.
-> 
-> 
+>
+>
 
 1. Na tela inicial, clique em **Ferramentas Administrativas**. Você deve ver as ferramentas administrativas do AD instaladas na máquina virtual.
-   
+
     ![Ferramentas Administrativas instaladas no servidor](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
 2. Clique em **Centro Administrativo do Active Directory**.
-   
+
     ![Centro Administrativo do Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 3. Para exibir o domínio, clique no nome de domínio no painel à esquerda (por exemplo, 'contoso100.com').
-   
+
     ![ADAC - exibir domínio](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 4. No lado direito do painel **Tarefas**, clique em **Novo** no nó de nome de domínio. Neste exemplo, vamos clicar em **Novo** no nó 'contoso100(local)' no lado direito do painel **Tarefas**.
-   
+
     ![ADAC - nova UO](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. Você deve ver a opção de criar uma unidade organizacional. Clique em **Unidade Organizacional** para iniciar o diálogo **Criar Unidade Organizacional**.
 6. Na caixa de diálogo **Criar Unidade Organizacional**, especifique um **Nome** para a nova UO. Forneça uma descrição curta para a UO. Você também pode definir o campo **Gerenciado Por** da UO. Para criar a UO personalizada, clique em **OK**.
-   
+
     ![ADAC - criar caixa de diálogo da UO](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 7. A UO recém-criada agora deve aparecer no ADAC (Centro Administrativo do AD).
-   
+
     ![ADAC - UO criada](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>Permissões/segurança para UOs recém-criadas
@@ -73,18 +74,12 @@ Agora que você criou uma UO personalizada, pode criar usuários, grupos, comput
 
 > [!WARNING]
 > As contas de usuário, de grupos, as contas de serviço e de objetos de computador que você criar em OUs personalizadas não ficam disponíveis no seu locatário do Azure AD. Em outras palavras, esses objetos não aparecem usando a API do Azure AD Graph ou na interface do usuário do Azure AD. Esses objetos só estarão disponíveis no seu domínio gerenciado dos Azure AD Domain Services.
-> 
-> 
+>
+>
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Configurar a Política de Grupo em um domínio gerenciado](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Centro Administrativo do Active Directory: introdução](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guia passo a passo de contas de serviço](https://technet.microsoft.com/library/dd548356.aspx)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

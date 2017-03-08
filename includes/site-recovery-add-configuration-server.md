@@ -3,7 +3,7 @@
     ![Antes de começar](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. Em **Licença de Software de Terceiros**, clique em **Aceito** para baixar e instalar o MySQL.
 
-    ![Software de terceiros](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Software de terceiros](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. Em **Registro**, selecione a chave de registro que você baixou do cofre.
 
     ![Registro](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do Provedor, escolha **Conectar-se com configurações de proxy personalizadas**.
 
      * Se você usar um proxy personalizado, especifique o endereço, a porta e as credenciais.
-     * Se estiver usando um proxy, você já deverá ter concedido as URLs descritas em [pré-requisitos](#configuration-server-prerequisites).
+     * Se estiver usando um proxy, você já deverá ter concedido as URLs descritas em [pré-requisitos](#prerequisites).
 
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Em **Verificação de Pré-requisitos**, a configuração executa uma verificação para garantir que a instalação pode ser executada. Se aparecer um aviso sobre a **Verificação de sincronização de tempo global**, verifique se a hora no relógio do sistema (configurações de **Data e Hora**) é a mesma que a do fuso horário.
@@ -40,8 +40,3 @@
     ![Resumo](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
 Após a conclusão do registro, o servidor é exibido na folha **Configurações** > **Servidores** no cofre.
-
-
-<!--HONumber=Feb17_HO2-->
-
-

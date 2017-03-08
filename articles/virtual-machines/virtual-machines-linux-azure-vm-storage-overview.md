@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 8651566079a0875e1a3a549d4bf1dbbc6ac7ce21
-ms.openlocfilehash: 410159ad7b5abc5eb3cb1a212895eda7ac225323
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: fb670dd7296f329fc280cf9f2c2adba2df44c07c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -47,7 +48,7 @@ Ao criar uma VM da `azure-cli` você pode escolher entre standard e premium ao e
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>Criação de uma máquina virtual com um Managed Disk
 
-O exemplo a seguir exige a CLI do Azure 2.0 (Visualização), que você pode [instalar aqui].
+O exemplo a seguir exige a CLI 2.0 do Azure, que você pode [instalar aqui].
 
 Primeiro, crie um grupo de recursos para gerenciar os recursos:
 
@@ -238,10 +239,5 @@ Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é poss
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 * [Limites de Serviço de Armazenamento](../azure-subscription-service-limits.md#storage-limits)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

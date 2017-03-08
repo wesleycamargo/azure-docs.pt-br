@@ -4,7 +4,7 @@ description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplic
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -15,22 +15,14 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: fccbab2baafed3b0347f2c35b7926200ec69a450
-ms.openlocfilehash: 640f04ca9a8351543d44899946464ed7cd4db437
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 7bc52251f2d0a6aca271bd3d013690bdd0d6b752
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-html-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Implantar seu primeiro aplicativo Web HTML no Azure em cinco minutos (CLI 2.0 Visualização)
-
-> [!div class="op_single_selector"]
-> * [Primeiro site HTML](app-service-web-get-started-html.md)
-> * [Primeiro aplicativo .NET](app-service-web-get-started-dotnet.md)
-> * [Primeiro aplicativo PHP](app-service-web-get-started-php.md)
-> * [Primeiro aplicativo Node.js](app-service-web-get-started-nodejs.md)
-> * [Primeiro aplicativo Python](app-service-web-get-started-python.md)
-> * [Primeiro aplicativo Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Este tutorial o ajuda a implantar um aplicativo Web HTML+CSS simples para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +41,7 @@ Você irá:
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-get-started-html-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (Visualização)](app-service-web-get-started-html.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](app-service-web-get-started-html.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Git](http://www.git-scm.com/downloads).
@@ -150,10 +142,5 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
 * Experimente [outras maneiras de implantar seu código no Azure](web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
 * Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

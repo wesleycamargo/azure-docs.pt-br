@@ -4,7 +4,7 @@ description: Como gerenciar os dispositivos de teste e o perfil de conta usando 
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
@@ -15,8 +15,9 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8430f80b9b2ec596d43b0de5e7ef022d4b3261bd
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -55,10 +56,10 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
    >(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
 
 ## <a name="troubleshooting-guide"></a>Guia de solução de problemas
-* [Guia de Solução de Problemas - Serviço][Link 24]
+* [Guia de Solução de Problemas — serviço][Link 24]
 
 ## <a name="see-also"></a>Consulte também
-* [Documentação da interface do usuário - Página inicial][Link 13]
+* [Documentação da interface do usuário — Página inicial][Link 13]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -157,10 +158,5 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

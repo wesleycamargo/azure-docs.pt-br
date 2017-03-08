@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/18/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 3a353bc874c1827f8a0fc85352894ad96cff16b5
-ms.openlocfilehash: e6ee3ea5e59e402d69ad255d2210d7092786c9d1
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: c208f44045ba414be2034f577435ae02ea4456cf
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -41,7 +42,7 @@ Para começar a usar o Armazenamento Standard do Azure, visite a página [Introd
 Para obter informações sobre como criar uma VM com Managed Disks, consulte um dos seguintes artigos.
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
-* [Criar uma VM do Linux usando a CLI do Azure 2.0 (Visualização)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Recursos do Armazenamento Standard 
 
@@ -92,7 +93,7 @@ Se a sua carga de trabalho requer suporte de disco de alto desempenho e baixa la
 
 ## <a name="snapshots-and-copy-blob"></a>Instantâneos e blob de cópia
 
-Para o serviço de armazenamento, o arquivo VHD é um blob de páginas. Você pode tirar instantâneos dos blobs de páginas e copiá-los para outro local, como uma conta de armazenamento diferente.
+Para o serviço de Armazenamento, o arquivo VHD é um blob de páginas. Você pode tirar instantâneos dos blobs de páginas e copiá-los para outro local, como uma conta de armazenamento diferente.
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
 
@@ -152,9 +153,4 @@ Você também pode usar o serviço de Backup do Azure com o Managed Disks para c
 
 * [Criar uma VM do Windows usando o Gerenciador de Recursos e o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md)
 
-* [Criar uma VM do Linux usando a CLI do Azure 2.0 (Visualização)](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+* [Criar uma VM Linux usando a CLI do Azure 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md)

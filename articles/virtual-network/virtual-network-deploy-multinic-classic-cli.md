@@ -1,10 +1,10 @@
 ---
-title: "Criar uma VM (clássica) com várias NICs usando a CLI do Azure | Microsoft Docs"
-description: "Saiba como criar uma VM com várias NICs por meio do modelo de implantação clássico usando a CLI do Azure."
+title: "Criar uma VM (Clássica) com várias NICs - CLI do Azure 1.0 | Microsoft Docs"
+description: "Saiba como criar uma VM (Clássica) com várias placas de rede usando a CLI (interface de linha de comando) do Azure 1.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
@@ -15,19 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: f1a4dc135721a1c2a134806fbae031ee60e23074
-ms.openlocfilehash: 4d9f5f918e8f06dedcce14a880e436f807a5a7b0
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b62421b7289650818748d0016dccfdf42ef0a768
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli"></a>Criar uma VM (clássica) com várias NICs usando a CLI do Azure
+# <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma VM (Clássica) com várias NICs usando a CLI do Azure 1.0
+
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces de rede (NICs) para cada uma de suas VMs. Várias NICs permitem a separação dos tipos de tráfego entre NICs. Por exemplo, uma NIC pode se comunicar com a Internet, enquanto outra se comunica apenas com recursos internos que não estão conectados à Internet. A capacidade de separar o tráfego de rede entre as várias NICs é necessária para vários dispositivos de rede virtual, como a entrega de aplicativos e soluções de otimização de WAN.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como executar estas etapas usando o [modelo de implantação do Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como executar essas etapas usando o [modelo de implantação do Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -186,9 +189,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
         info:    Getting virtual machines
         info:    Adding Data-Disk
         info:    vm disk attach-new command OK
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

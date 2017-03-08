@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c70e80c413d0637f956c43686df29b8073daaa3b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -61,8 +62,8 @@ A Litware Corporation implantou [o Azure AD Connect](../active-directory/active-
 
 > [!NOTE]
 > **A sincronização de senha é obrigatória para as organizações híbridas usarem os Serviços de Domínio do Azure AD**. Esse requisito é porque as credenciais do usuário são necessárias no domínio gerenciado fornecido pelos Serviços de Domínio do Azure AD para autenticar esses usuários por meio de métodos de autenticação NTLM ou Kerberos.
-> 
-> 
+>
+>
 
 ![Serviços de domínio do AD do Azure para a Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
@@ -82,10 +83,4 @@ Com os serviços de domínio do AD do Azure, você pode aproveitar os seguintes 
 * **Integrados** – Os Serviços de Domínio do Azure AD são profundamente integrados ao seu locatário do Azure AD. Agora, você pode usar o Azure AD como um diretório corporativo integrado baseado em nuvem que atende às necessidades de seus aplicativos modernos e de aplicativos com reconhecimento de diretório tradicionais.
 * **Compatível** – os Serviços de Domínio do Azure AD baseiam-se na infraestrutura de nível corporativo comprovada do Active Directory do Windows Server. Portanto, os aplicativos podem contar com um maior grau de compatibilidade com os recursos do Active Directory do Windows Server. Nem todos os recursos disponíveis no AD do Windows Server estão atualmente disponíveis nos Serviços de Domínio do Azure AD. No entanto, os recursos disponíveis são compatíveis com os recursos correspondentes do AD do Windows Server que se baseiam na sua infraestrutura local. LDAP, Kerberos, NTLM, política de grupo e recursos de ingresso no domínio constituem uma oferta madura que foi testada e refinada em várias versões do Windows Server.
 * **Econômicos** – Com os Serviços de Domínio do Azure AD, você pode evitar a sobrecarga de gerenciamento e infraestrutura associada ao gerenciamento de infraestrutura de identidade para dar suporte a aplicativos tradicionais com reconhecimento de diretório. Você pode mover esses aplicativos para os Serviços de Infraestrutura do Azure e aproveitar economias ainda maiores em despesas operacionais.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

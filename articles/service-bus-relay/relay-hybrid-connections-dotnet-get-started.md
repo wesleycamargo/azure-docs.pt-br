@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/03/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
-ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: d27016559ede5d810d7efcec2a3abc78334f0f0a
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -34,7 +35,7 @@ Como as Conexões Híbridas exigem um componente de cliente e de servidor, o tut
 4. Escreva um aplicativo de console de cliente (remetente) para enviar mensagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. [Visual Studio 2013 ou Visual Studio 2015](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2015.
+1. [Visual Studio 2015 ou superior](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2015.
 2. Uma assinatura do Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -72,10 +73,5 @@ Parabéns, você criou um aplicativo de Conexões Híbridas completo.
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

@@ -10,14 +10,15 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 1cbc3534aa0415a14d8b955dbcd291d2200c276e
-ms.openlocfilehash: 2ffc8d1f8ec924914c624f882bf35a08f0dd5888
+ms.sourcegitcommit: 67d4fee2fc59651903d4c02d1fce84c7b81e5da1
+ms.openlocfilehash: e038515302acc4871687ad592c44fcf9a352bfe6
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,7 +29,7 @@ Você tem a flexibilidade no Azure de criar uma máquina virtual Linux (VM) usan
 Você pode criar VMs no Azure usando uma das seguintes versões da CLI:
 
 - CLI 1.0 do Azure – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0 (Visualização)](virtual-machines-linux-creation-choices.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](virtual-machines-linux-creation-choices.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 A CLI 1.0 do Azure está disponível entre plataformas por meio de um pacote npm, pacotes de distribuição fornecida ou contêineres de Docker. Você pode ler mais sobre [como instalar e configurar a CLI do Azure](../xplat-cli-install.md). Os tutoriais a seguir fornecem exemplos sobre como usar a CLI 1.0 do Azure. Leia cada artigo para obter mais detalhes sobre os comandos de início rápido da CLI mostrados:
 
@@ -130,10 +131,5 @@ Se você precisar de personalizações específicas, poderá usar uma imagem com
 * Crie uma VM do Linux o [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), com a [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou usando um [modelo do Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Depois de criar uma VM do Linux, [adicione um disco de dados](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Etapas rápidas para [redefinir uma senha ou chaves SSH e gerenciar os usuários](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

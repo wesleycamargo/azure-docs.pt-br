@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/01/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 5b02054546ebf25766be6bb2837aebc502b67a67
-ms.openlocfilehash: 9c50b7caefe06bceac8035a0d274e13a96547fea
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 32b57664fcf15daed75fe7050b672383e79c50cf
+ms.lasthandoff: 03/03/2017
 
 ---
 
@@ -43,9 +44,9 @@ O exemplo de [Introdução ao envio](https://github.com/Azure/azure-event-hubs-d
 
 ### <a name="receive-events"></a>Receber eventos 
 
-O exemplo de [Introdução ao recebimento com o Host do Processador de Eventos](https://github.com/Azure/azure-event-hubs-dotnet/tree/master/samples/SampleEphReceiver) é um aplicativo de console .NET Core que recebe mensagens de um Hub de Eventos usando o [Host do Processador de Eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
+O exemplo de [Introdução ao recebimento com o Host do Processador de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/SampleEphReceiver) é um aplicativo de console .NET Core que recebe mensagens de um Hub de Eventos usando o [Host do Processador de Eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/). 
 
-## <a name="net-framework"></a>.NET Framework   
+## <a name="net-framework"></a>.NET Framework    
 
 Estes exemplos demonstram vários outros recursos dos Hubs de Eventos do Azure, direcionados para a [biblioteca do .NET Framework](https://msdn.microsoft.com/library/w0x726c2.aspx).
  
@@ -81,8 +82,3 @@ Você pode saber mais sobre os Hubs de Eventos nestes artigos:
 - [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 - [Criar um Hub de Eventos](event-hubs-create.md)
 - [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-
-
-<!--HONumber=Feb17_HO1-->
-
-

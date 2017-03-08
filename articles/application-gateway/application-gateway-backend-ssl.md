@@ -11,16 +11,18 @@ ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
-ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
+ms.sourcegitcommit: 5009b13cec57e6974f71610c84fdaad837085df0
+ms.openlocfilehash: 5f81d8146f8000e73a2eb578ff2371a62c8875e9
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Habilitando política de SSL e SSL de ponta a ponta no gateway de aplicativo
+# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>Visão geral de SSL de ponta a ponta e Política de SSL no Gateway de Aplicativo
 
 O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o tráfego flui geralmente descriptografado até os servidores de back-end. Esse recurso permite que os servidores Web fiquem livres da sobrecarga dispendiosa de criptografia/descriptografia. No entanto, para alguns clientes, a comunicação descriptografada com os servidores de back-end não é uma opção aceitável. Essa comunicação não criptografada pode ocorrer devido a requisitos de segurança/conformidade ou o aplicativo pode só aceitar conexões seguras. Para tais aplicativos, o gateway de aplicativo agora dá suporte a criptografia SSL de ponta a ponta.
 
@@ -53,9 +55,4 @@ Depois de aprender sobre SSL de ponta a ponta e política de SSL, vá para [Habi
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

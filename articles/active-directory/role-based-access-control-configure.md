@@ -1,5 +1,5 @@
 ---
-title: "Use o Controle de Acesso Baseado em Função no portal do Azure | Microsoft Docs"
+title: "Controle de Acesso baseado em função no Portal Clássico do Azure | Microsoft Docs"
 description: "Introdução ao gerenciamento de acesso com o Controle de Acesso Baseado em Função no Portal do Azure. Use as atribuições de função para atribuir permissões a seus recursos."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
+ms.lasthandoff: 02/18/2017
 
 
 ---
@@ -24,8 +25,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Gerenciar o acesso por usuário ou grupo](role-based-access-control-manage-assignments.md)
 > * [Gerenciar o acesso por recurso](role-based-access-control-configure.md)
-> 
-> 
 
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Usando o RBAC, você pode conceder apenas a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Este artigo ajuda você a começar a usar o RBAC no portal do Azure. Se você quiser saber mais sobre como o RBAC ajuda você a gerenciar o acesso, confira [O que é Controle de Acesso Baseado em Função](role-based-access-control-what-is.md).
 
@@ -44,8 +43,6 @@ Observe que alguns usuários tiveram o acesso **Atribuído**, ao passo que outro
 
 > [!NOTE]
 > Os administradores e coadministradores de assinatura clássicos são, na realidade, os proprietários da assinatura no novo modelo de RBAC.
-> 
-> 
 
 ## <a name="add-access"></a>Adicionar acesso
 Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que é o escopo da atribuição de função.
@@ -61,12 +58,11 @@ Conceda acesso de dentro do recurso, do grupo de recursos ou da assinatura que �
 Após a adição de uma atribuição de função com êxito, ela será exibida na folha **Usuários** .
 
 ## <a name="remove-access"></a>Remover acesso
-1. Selecione a atribuição de função na folha Controle de acesso.
-2. Selecione **Remover** na folha detalhes de atribuição.  
-3. Clique em **sim** para confirmar a remoção.  
-    ![Folha Usuários - remover da função - captura de tela](./media/role-based-access-control-configure/remove-access1.png)
+1. Use as caixas de seleção na folha de Controle de acesso para selecionar uma ou mais atribuições de função.
+2. Selecione **Remover**.  
+3. Uma caixa será exibida solicitando que você confirme a ação. Selecione **Sim** para remover as atribuições de função.
 
-Atribuições herdadas não podem ser removidas. Na imagem abaixo, observe que o botão Remover fica esmaecido. Em vez disso, examine o detalhe **Atribuído Em** . Vá para o recurso listado ali a fim de remover a atribuição de função.
+Atribuições herdadas não podem ser removidas. Se você precisar remover uma atribuição herdada, será necessário fazê-lo no escopo em que a atribuição de função foi criada. Na coluna **Escopo**, ao lado de **Herdado**, há um link que leva aos recursos em que essa função foi atribuída. Vá para o recurso listado ali a fim de remover a atribuição de função.
 
 ![Folha Usuários - botão remover desativa o acesso herdado - captura de tela](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -81,10 +77,5 @@ Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure
 * [Criar relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md)
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 * Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

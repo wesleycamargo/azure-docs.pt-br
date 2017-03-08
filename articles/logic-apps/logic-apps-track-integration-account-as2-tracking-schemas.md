@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d090ce5a912a2079d2e47d13caf60ca701f0e548
-ms.openlocfilehash: b78c42b14005b9bcedbc29216541495fd19c64a5
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: e9c9cfda4dda1ec3f1b002016118bd49d540e90a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="as2-tracking-schemas"></a>Esquemas de acompanhamento AS2
+# <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Iniciar ou habilitar acompanhamento de mensagens AS2 e MDNs para monitorar o êxito, os erros e as propriedades da mensagem
 Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integração do Azure para ajudá-lo a monitorar transações B2B (entre empresas):
 
 * Esquema de acompanhamento de mensagens AS2
@@ -136,9 +138,4 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 * Saiba mais sobre os esquemas de [acompanhamento personalizado B2B](logic-apps-track-integration-account-custom-tracking-schema.md).   
 * Saiba mais sobre os [esquemas de acompanhamento X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
 * Saiba mais sobre [acompanhamento de mensagens B2B no portal do Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

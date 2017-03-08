@@ -13,31 +13,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/03/2016
+ms.date: 01/03/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
-ms.openlocfilehash: 23862762fcf0939ce84859fdae0274421c0bb5fe
+ms.sourcegitcommit: d4cff286de1abd492ce7276c300b50d71f06345b
+ms.openlocfilehash: 1287a028122080c0d9745502a4a98a957894a0de
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="different-ways-to-create-a-linux-vm-including-the-azure-cli-20-preview"></a>Diferentes maneiras de criar uma VM do Linux incluindo a CLI do Azure 2.0 (Visualização)
-Você tem a flexibilidade no Azure de criar uma máquina virtual Linux (VM) usando ferramentas e fluxos de trabalho confortáveis para você. Este artigo resume essas diferenças e exemplos para criar suas VMs do Linux.
+# <a name="different-ways-to-create-a-linux-vm"></a>Modos diferentes para criar uma VM Linux
+Você tem a flexibilidade no Azure de criar uma máquina virtual Linux (VM) usando ferramentas e fluxos de trabalho confortáveis para você. Este artigo resume essas diferenças e exemplos para criar suas VMs Linux, incluindo a CLI do Azure 2.0. Você também pode exibir opções de criação incluindo a [CLI 1.0 do Azure](virtual-machines-linux-creation-choices-nodejs.md).
 
-## <a name="azure-cli"></a>CLI do Azure
-Você pode criar VMs no Azure usando uma das seguintes versões da CLI:
+A [CLI do Azure 2.0](/cli/azure/install-az-cli2) está disponível entre plataformas por meio de um pacote npm, pacotes fornecidos por distribuição ou por contêiner do Docker. Instale o build mais adequado ao seu ambiente e faça logon em uma conta do Azure usando [az login](/cli/azure/#login)
 
-- [CLI do Azure 1.0](virtual-machines-linux-creation-choices-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- CLI 2.0 do Azure (Visualização) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+Os exemplos a seguir usam a CLI do Azure 2.0. Leia cada artigo para obter mais detalhes sobre os comandos mostrados. Você também pode encontrar exemplos nas opções de criação do Linux usando a [CLI do Azure 1.0](virtual-machines-linux-creation-choices-nodejs.md).
 
-A [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) está disponível entre plataformas por meio de pacote npm, pacotes de distribuição fornecida ou contêiner do Docker. Instale o build mais adequado ao seu ambiente e faça logon em uma conta do Azure usando [az login](/cli/azure/#login)
-
-Os exemplos a seguir usam a CLI do Azure 2.0 (Visualização). Leia cada artigo para obter mais detalhes sobre os comandos mostrados. Você também pode encontrar exemplos nas opções de criação do Linux usando a [CLI do Azure 1.0](virtual-machines-linux-creation-choices-nodejs.md).
-
-* [Criar uma VM do Linux usando a CLI do Azure 2.0 (Visualização)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Criar uma VM Linux usando a CLI do Azure 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Este exemplo usa [az group create](/cli/azure/group#create) para criar um grupo de recursos denominado `myResourceGroup`: 
-    
+-    
     ```azurecli
     az group create --name myResourceGroup --location westus
     ```
@@ -47,9 +42,9 @@ Os exemplos a seguir usam a CLI do Azure 2.0 (Visualização). Leia cada artigo 
     ```azurecli
     az vm create \
     --image credativ:Debian:8:latest \
-    --admin-username azureuser \
+     --admin-username azureuser \
     --ssh-key-value ~/.ssh/id_rsa.pub \
-    --public-ip-address-dns-name myPublicDNS \
+az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  –-new --size-gb 5    --public-ip-address-dns-name myPublicDNS \
     --resource-group myResourceGroup \
     --location westus \
     --name myVM
@@ -73,11 +68,11 @@ Os exemplos a seguir usam a CLI do Azure 2.0 (Visualização). Leia cada artigo 
 
 * [Adicionar um disco a uma VM do Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
-  * O exemplo a seguir usa [az vm disk attach-new](/cli/azure/vm/disk#attach-new) para adicionar um disco de 5 Gb não gerenciado chamado `myDataDisk.vhd` para uma máquina virtual existente chamada `myVM`:
+  * O exemplo a seguir usa [az vm disk attach-new](/cli/azure/vm/disk#attach-new) para adicionar um disco gerenciado de 50 Gb a uma máquina virtual existente chamada `myVM`:
   
     ```azurecli
-    az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-      --disk-size 5 --vhd https://mystorageaccount.blob.core.windows.net/vhds/myDataDisk.vhd
+    az vm disk attach –g myResourceGroup –-vm-name myVM –-disk myDataDisk  \
+    –-new --size-gb 50
     ```
 
 ## <a name="azure-portal"></a>Portal do Azure
@@ -101,13 +96,13 @@ az vm image list-publishers --location WestUS
 Listar produtos (ofertas) disponíveis para determinado editor:
 
 ```azurecli
-az vm image list-offers --publisher-name Canonical --location WestUS
+az vm image list-offers --publisher Canonical --location WestUS
 ```
 
 Listar SKUs disponíveis (versões de distribuição) de determinada oferta:
 
 ```azurecli
-az vm image list-skus --publisher-name Canonical --offer UbuntuServer --location WestUS
+az vm image list-skus --publisher Canonical --offer UbuntuServer --location WestUS
 ```
 
 Liste todas as imagens disponíveis para determinada versão:
@@ -149,9 +144,4 @@ Se você precisar de personalizações específicas, poderá usar uma imagem com
 * Crie uma VM do Linux o [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), com a [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou usando um [modelo do Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Depois de criar uma VM do Linux, [adicione um disco de dados](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Etapas rápidas para [redefinir uma senha ou chaves SSH e gerenciar os usuários](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

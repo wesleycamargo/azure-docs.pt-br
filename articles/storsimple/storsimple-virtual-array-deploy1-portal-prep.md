@@ -12,19 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/03/2017
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 37f2816cb1fa9c7db43359f16669e6521b0fe46a
-ms.openlocfilehash: 8539540f96d1a6fbb34736eebb0a5897b4754c9f
+ms.sourcegitcommit: d8acfd6e0206e8e97b7d49e280a7e72e0acadb6d
+ms.openlocfilehash: 9ce5278e66afb81c5cbfe3662c6654d39bbc9a54
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array---prepare-the-portal"></a>Implantar o StorSimple Virtual Array – Preparar o portal
+# <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 ## <a name="overview"></a>Visão geral
 
-É o primeiro artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI usando o modelo do Resource Manager. Este artigo descreve a preparação necessária para criar e configurar o serviço StorSimple Manager antes do provisionamento de uma matriz virtual. Também tem links para uma lista de verificação da configuração da implantação e para pré-requisitos de configuração.
+É o primeiro artigo da série de tutoriais de implantação necessários para implantar completamente sua matriz virtual como um servidor de arquivos ou um servidor iSCSI usando o modelo do Resource Manager. Este artigo descreve a preparação necessária para criar e configurar o serviço Gerenciador de Dispositivos do StorSimple antes do provisionamento de uma matriz virtual. Também tem links para uma lista de verificação da configuração da implantação e para pré-requisitos de configuração.
 
 Você precisará de privilégios de administrador para concluir o processo de instalação e configuração. Recomenda-se que você examine a lista de verificação de configuração da implantação antes de começar. A preparação do portal leva menos de 10 minutos.
 
@@ -168,10 +170,5 @@ A próxima etapa é provisionar uma máquina virtual para a matriz virtual StorS
 
 * [Provisionar um StorSimple Virtual Array no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [Provisionar um StorSimple Virtual Array no VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

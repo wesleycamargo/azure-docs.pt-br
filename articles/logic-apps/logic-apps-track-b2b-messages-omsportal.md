@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 91eb30aaa1ab3891d8e97d48a9a0fe9fa9b2b82b
-ms.openlocfilehash: 3130104427b2a1873690617c6d726375c89876cf
+ms.sourcegitcommit: 2aa32d692da81dc34fafbc9cb6ea72a806f31e5c
+ms.openlocfilehash: a4068c70a01f80086ff3fb55f8e101c7dce95dea
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -79,8 +80,8 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 | Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato AS2. |
 | Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato AS2. |
 | Aplicativo Lógico | O aplicativo Lógico no qual as ações do AS2 estão configuradas. |
-| Status | Status de mensagem AS2. Sucesso = Recebeu ou enviou uma mensagem AS2 válida, sem MDN configurado; Sucesso = Recebeu ou enviou uma mensagem AS2 válida, MDN configurado e recebido ou MDN enviado; Falha = Recebeu uma mensagem AS2 inválida, sem MDN configurado; Pendente= Recebeu ou enviou uma mensagem AS2 válida, MDN configurado e uma confirmação funcional é esperada. |
-| Ack | Status de mensagem MDN. |
+| Status | Status de mensagem AS2 <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, nenhum MDN está configurado <br>Sucesso = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e recebido ou o MDN é enviado <br>Falha = Recebeu uma mensagem AS2 incorreta, nenhum MDN está configurado <br>Pendente = Recebeu ou enviou uma mensagem AS2 correta, o MDN é configurado e uma confirmação funcional é esperada |
+| Ack | Status de mensagem MDN <br>Aceito = Recebeu ou enviou um MDN positivo <br>Pendente = Aguardando para receber ou enviar um MDN <br>Rejeitado = Recebeu ou enviou um MDN negativo <br>Não Obrigatório = MDN não está configurado no contrato |
 | Direção | Direção de mensagem AS2. |
 | ID de Correlação | ID para correlacionar todos os gatilhos e ações em um Aplicativo lógico. |
 | ID da Mensagem |  ID da mensagem AS2, dos cabeçalhos da mensagem AS2. |
@@ -93,8 +94,8 @@ A comunicação B2B envolve a troca de mensagens entre dois processos de negóci
 | Remetente | O parceiro convidado definido nas configurações de recebimento ou o parceiro de host definido nas configurações de envio para um contrato AS2. |
 | Receptor | O parceiro de host definido nas configurações de recebimento ou o parceiro convidado definido nas configurações de envio para um contrato AS2. |
 | Aplicativo Lógico | O aplicativo Lógico no qual as ações do AS2 estão configuradas. |
-| Status | Status de mensagem X12. Sucesso = Recebeu ou enviou uma mensagem X12 válida, sem confirmação funcional configurada; Sucesso = Recebeu ou enviou uma mensagem X12 válida, confirmação funcional configurada e recebida ou confirmação funcional enviada; Falha = Recebeu ou enviou uma mensagem X12 inválida; Pendente= Recebeu ou enviou uma mensagem X12 válida, confirmação funcional configurada e uma confirmação funcional esperada. |
-| Ack | Status da confirmação funcional (997).  Aceita = Recebeu ou enviou uma confirmação funcional positiva; Rejeitado = Recebeu ou enviou uma confirmação funcional negativa; Pendente = esperando uma confirmação funcional, mas sem recebê-la; Pendente = Gerou uma confirmação funcional, mas não foi possível enviá-la ao parceiro. |
+| Status | Status de mensagem X12 <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, nenhuma confirmação está configurada <br>Sucesso = Recebeu ou enviou uma mensagem X12 correta, uma confirmação funcional é configurada e recebida ou uma confirmação funcional é enviada <br>Falha = Recebeu ou enviou uma mensagem X12 incorreta <br>Pendente = Recebeu ou enviou uma mensagem X12 correta, a confirmação funcional é configurada e uma confirmação funcional é esperada. |
+| Ack | Status da Confirmação Funcional (997) <br>Aceito = Recebeu ou enviou uma confirmação funcional positiva <br>Rejeitado = Recebeu ou enviou uma confirmação funcional negativa <br>Pendente = Esperando uma confirmação funcional, mas não a recebeu <br>Pendente = Gerou uma confirmação funcional, mas não foi possível enviá-la ao parceiro <br>Não obrigatório = Confirmação funcional não está configurada |
 | Direção | Direção da mensagem X12. |
 | ID de Correlação | ID para correlacionar todos os gatilhos e ações em um Aplicativo lógico. |
 | Tipo de mensagem |  Tipo de Mensagem EDI X12. |
@@ -130,9 +131,4 @@ Na página de pesquisa, você pode criar uma consulta. Quando você pesquisa, vo
 [Esquema de Controle do AS2](logic-apps-track-integration-account-as2-tracking-schemas.md "Learn about AS2 Tracking Schema")    
 [Esquema de Controle do X12](logic-apps-track-integration-account-x12-tracking-schema.md "Learn about X12 Tracking Schema")  
 [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -4,7 +4,7 @@ description: "Saiba como exibir e gerenciar os gráficos de dados sobre seu apli
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: 
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
@@ -15,16 +15,17 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
+ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
+ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
 A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
 
-### <a name="see-also"></a>Confira também
-* [Guia de solução de problemas - Análise][Link 21]
+### <a name="see-also"></a>Consulte também
+* [Guia de solução de problemas — análise][Link 21]
 
 ## <a name="dashboard"></a>Painel
 * Você pode adicionar gráficos a um painel vazio escolhendo a ação “Enviar ao painel” no menu de engrenagem de qualquer gráfico na seção Análise da interface do usuário que você gostaria de ver em um painel.
@@ -131,10 +132,5 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

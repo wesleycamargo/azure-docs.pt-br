@@ -1,5 +1,5 @@
 ---
-title: "Soluções de Lote e HPC na nuvem | Microsoft Docs"
+title: "Soluções de Lote e HPC na nuvem – Azure | Microsoft Docs"
 description: "Saiba mais sobre opções de cenários e de soluções de computação em lote e de alto desempenho (HPC e Big Compute) no Azure"
 services: batch, virtual-machines, cloud-services
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: danlep
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: c3e80bc18e4d1007146d9d3c80c2618400480046
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 288bd4dc0bde4cb610efc4a6d015e5b9499eb0ee
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Soluções de Lote e HPC na nuvem do Azure
+# <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>Soluções HPC e Lote para cargas de trabalho de computação em larga escala
+
 O Azure oferece soluções em nuvem eficientes, escalonáveis para lote e HPC (computação de alto desempenho), também chamado de *Big Compute*. Saiba mais sobre cargas de trabalho de Big Compute e sobre os serviços do Azure que oferecem suporte para isso, ou vá diretamente aos [cenários de solução](#scenarios) mais adiante neste artigo. Este artigo é direcionado principalmente aos responsáveis por decisões técnicas, aos gerentes de TI e fornecedores independentes de software, mas outros desenvolvedores e profissionais de TI podem usá-lo para se familiarizar com essas soluções.
 
 As organizações têm problemas de computação em larga escala: design de engenharia e análise, renderização de imagem, modelagem complexa, simulações de Monte Carlo, cálculos de riscos financeiros, entre outros. O Azure ajuda as organizações a solucionar problemas com os recursos, escala e cronograma necessários. Com o Azure, as organizações podem:
@@ -134,9 +137,4 @@ Talvez sua solução de Big Compute precise de outros serviços do Azure para se
 [iaas_cluster]: ./media/batch-hpc-solutions/iaas_cluster.png
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

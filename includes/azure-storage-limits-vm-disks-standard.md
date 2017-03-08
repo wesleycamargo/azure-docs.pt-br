@@ -1,4 +1,4 @@
-**Discos de máquina virtual: limites por disco**
+**Discos de máquina virtual não gerenciados Standard: de acordo com os limites de disco**
 
 | Tipo de VM | Tipo de VM Básica | VM de camada Standard |
 | --- | --- | --- |
@@ -6,4 +6,3 @@
 | IOPS máx. de 8 KB por disco persistente |300 |500 |
 | Número máximo de discos executando IOPS máximo |66 |40 |
 
-<!---HONumber=AcomDC_0413_2016-->

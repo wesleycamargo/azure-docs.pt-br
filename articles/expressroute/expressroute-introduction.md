@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
+ms.date: 02/28/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 6aed200529f8f21f15d9b77a403f9ef07582d449
-ms.openlocfilehash: 975c8fbc9afdc7b01da85f56a075aa44dade9dde
+ms.sourcegitcommit: 280a17677714a522ca978a6eb6baf3e70f853d7a
+ms.openlocfilehash: 5b0865310076557c8f7ce6f9d9b553950854407c
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -35,7 +36,7 @@ A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), 
 * Roteamento dinâmico entre sua rede e a Microsoft por meio de protocolos padrão da indústria (BGP).
 * Redundância interna em cada local de emparelhamento para proporcionar maior confiabilidade.
 * [SLA](https://azure.microsoft.com/support/legal/sla/)do tempo de atividade da conexão.
-* QoS e suporte para várias classes de serviço para aplicativos especiais, como o Skype for Business.
+* Suporte a QoS para Skype for Business.
 
 Para saber mais, veja as [perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md).
 
@@ -108,8 +109,4 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
   * [Criar um circuito da Rota Expressa](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-
-<!--HONumber=Feb17_HO2-->
-
 

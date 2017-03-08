@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 02/24/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 035ec56b638797d650f73e1112b77991555d5194
-
+ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
+ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="secure-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-20"></a>Proteger recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication com AD FS 2.0
+# <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS 2.0
 Este artigo é para organizações que estão federadas com o Azure Active Directory e desejam proteger recursos locais ou na nuvem. Proteja seus recursos usando o servidor de autenticação multifator do Azure e configure-o para trabalhar com o AD FS para que a verificação em duas etapas seja disparada para pontos de extremidade de alto valor.
 
 Esta documentação aborda como usar o Servidor Azure Multi-Factor Authentication com o AD FS 2.0. Para saber mais sobre o AD FS, veja [Proteger recursos de nuvem e locais usando o Servidor de Autenticação Multifator do Azure com o Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md).
@@ -115,9 +116,4 @@ Os IPs Confiáveis permitem que os usuários ignorem a Autenticação Multifator
 4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão **OK**. O IP confiável foi adicionado.
 
 <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

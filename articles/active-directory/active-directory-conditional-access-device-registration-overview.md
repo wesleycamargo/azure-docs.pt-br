@@ -5,7 +5,7 @@ services: active-directory
 keywords: registro de dispositivos, habilitar registro de dispositivos, registro de dispositivos e MDM
 documentationcenter: 
 author: femila
-manager: swadhwa
+manager: femila
 editor: 
 ms.assetid: 1e92c1a2-01b8-4225-950b-373cd601b035
 ms.service: active-directory
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 02/22/2017
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98f1b1856a6c457349decefeb277208a3b483bad
+ms.sourcegitcommit: 8df5889bfe2757ef68d0895d140dd44a765a89d0
+ms.openlocfilehash: 06fb59f627ea6aff3916787e321069c6b58c3e10
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -65,7 +66,7 @@ Os dispositivos com Windows 7 e Windows 8.1 descobrirão o serviço Registro de 
 
 Você deve criar um registro DNS CNAME que aponte para o registro A associado ao serviço Registro de Dispositivos do Azure Active Directory. O registro CNAME deve usar o prefixo enterpriseregistration conhecido seguido pelo sufixo UPN usado pelas contas de usuário em sua organização. Se sua organização usa vários sufixos UPN, vários registros CNAME devem ser criados no DNS.
 
-Por exemplo, se usar dois sufixos UPN na sua organização chamada @contoso.com e @region.contoso.com,, você criará os seguintes registros DNS.
+Por exemplo, se você usar dois sufixos UPN na sua organização chamados @contoso.com e @region.contoso.com, criará os registros DNS a seguir.
 
 | Entrada | Tipo | Endereço |
 | --- | --- | --- |
@@ -89,10 +90,5 @@ Você pode registrar seus dispositivos de domínio associado com Windows 7 e Win
 * [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 * [Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 * [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows 10](active-directory-azureadjoin-devices-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 84d52dccef4e2d9a1ae253831b5d8f86b6fb50a6
-ms.openlocfilehash: bc90832422a8643afda292d6897a275280cfe690
+ms.sourcegitcommit: 36fa9cd757b27347c08f80657bab8a06789a3c2f
+ms.openlocfilehash: 289bf7ab1ba91bd9edc6288af93e06170d8f2def
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -240,12 +241,7 @@ Você pode encontrar a referência de comandos da CLI 1.0 do Azure para trabalha
 * [Comandos da CLI do Azure no modo Resource Manager](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
 * [Comandos da CLI do Azure no modo Gerenciamento de Serviços do Azure](../xplat-cli-install.md)
 
-Você também pode querer testar a [CLI 2.0 (Preview) do Azure](storage-azure-cli.md), nossa CLI de última geração escrita em Python para uso com o modelo de implantação de gerenciamento de recursos.
+Talvez você também queira testar a [CLI do Azure 2.0](storage-azure-cli.md), nossa CLI de próxima geração escrita em Python para uso com o modelo de implantação do Resource Manager.
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

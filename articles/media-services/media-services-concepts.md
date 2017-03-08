@@ -12,18 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/25/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: d94b3c59ba23220f7cb377ada8fa2231eaa9838b
+ms.sourcegitcommit: 672d1518e22c5ab5595fb5c7c708f584e80b68e9
+ms.openlocfilehash: c6117296c8bd12e3bb8f276709bc4d4c2aa81719
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
 Este tópico fornece uma visão geral dos conceitos mais importantes dos Serviços de Mídia.
 
-## <a name="a-idassetsaassets-and-storage"></a><a id="assets"></a>Ativos e armazenamento
+## <a id="assets"></a>Ativos e armazenamento
 ### <a name="assets"></a>Ativos
 Um [Ativo](https://docs.microsoft.com/rest/api/media/operations/asset) contém arquivos digitais (incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda oculta) e os metadados sobre esses arquivos. Depois que os arquivos digitais são carregados em um ativo, eles podem ser usados nos fluxos de trabalho de codificação e streaming dos serviços de mídia.
 
@@ -67,7 +68,7 @@ Um contêiner de blob fornece um agrupamento de um conjunto de blobs. Contêiner
 > 
 > 
 
-### <a name="a-idlocatorsalocators"></a><a id="locators"></a>Localizadores
+### <a id="locators"></a>Localizadores
 Os [localizadores](https://docs.microsoft.com/rest/api/media/operations/locator) fornecem um ponto de entrada para acessar os arquivos contidos em um ativo. Uma política de acesso é usada para definir as permissões e a duração pela qual um cliente tem acesso a um determinado ativo. Os localizadores podem ter de uma a muitas relações com uma política de acesso, de modo que diferentes localizadores podem fornecer diferentes horas de início e tipos de conexão para diferentes clientes, ao mesmo tempo usando a mesma permissão e as mesmas configurações de duração; no entanto, devido a uma restrição de política de acesso compartilhado definida pelos serviços de armazenamento do Azure, você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
 
 Os Serviços de Mídia suportam dois tipos de localizadores: localizadores OnDemandOrigin, usados para transmitir mídia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou baixar, de maneira progressiva, mídia; e localizadores de URL SAS, usados para carregar ou baixar arquivos de mídia para\do armazenamento do Azure. 
@@ -82,7 +83,7 @@ Um [trabalho](https://https://docs.microsoft.com/rest/api/media/operations/job) 
 
 Um trabalho contém metadados sobre o processamento a ser realizado. Cada Trabalho contém uma ou mais [tarefas](https://docs.microsoft.com/rest/api/media/operations/task)que especificam uma tarefa de processamento atômica, seus ativos de entrada e ativos de saída, um processador de mídia e suas configurações associadas. Tarefas em um trabalho podem ser encadeadas, em que o ativo de saída de uma tarefa é determinado como o ativo de entrada para a próxima tarefa. Dessa forma, um trabalho pode conter todo o processamento necessário para uma apresentação de mídia.
 
-## <a name="a-idencodingaencoding"></a><a id="encoding"></a>Codificação
+## <a id="encoding"></a>Codificação
 Os Serviços de Mídia do Azure fornecem várias opções para a codificação de mídia na nuvem.
 
 Ao começar a usar os Serviços de Mídia é importante compreender a diferença entre codecs e formatos de arquivo.
@@ -112,13 +113,13 @@ Você pode obter a URL de ingestão e a URL de visualização prévia quando voc
 
 Cada conta dos Serviços de Mídia pode conter vários canais, vários programas e vários StreamingEndpoints. Dependendo das necessidades de largura de banda e segurança, serviços de StreamingEndpoint podem ser dedicados a um ou mais canais. Qualquer StreamingEndpoint pode executar pull de qualquer canal.
 
-### <a name="program"></a>Programa
-Um [Programa](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
+### <a name="program-event"></a>Programa (evento)
+Um [Programa (evento)](https://docs.microsoft.com/rest/api/media/operations/program) permite que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam Programas (eventos). A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
 Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o programa, definindo a propriedade **ArchiveWindowLength** . Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas.
 
 ArchiveWindowLength também determina que a quantidade máxima de clientes de tempo pode buscar de volta no tempo a partir da posição atual em tempo real. Programas podem ser executados sobre o período de tempo especificado, mas o conteúdo que sair do comprimento da janela será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada programa está associado um ativo. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
+Cada programa (evento) está associado a um ativo. Para publicar o programa, você deve criar um localizador para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
 
 Um canal dá suporte a até três programas em execução simultânea, para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, o requisito de negócios é arquivar 6 horas de um programa, mas transmitir apenas os últimos 10 minutos. Para fazer isso, você precisa criar dois programas em execução simultânea. Um programa é definido para arquivar 6 horas do evento, mas o programa não é publicado. Outro programa é definido para 10 minutos e esse programa é publicado.
 
@@ -152,7 +153,7 @@ Para obter mais informações, consulte os seguintes artigos:
 [Proteger com DRM](media-services-protect-with-drm.md)
 
 ## <a name="delivering"></a>Fornecimento
-### <a name="a-iddynamicpackagingadynamic-packaging"></a><a id="dynamic_packaging"></a>Empacotamento dinâmico
+### <a id="dynamic_packaging"></a>Empacotamento dinâmico
 Quando trabalhar com os Serviços de Mídia, é recomendado codificar seus arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>ponto de extremidade de streaming
@@ -223,10 +224,5 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 
