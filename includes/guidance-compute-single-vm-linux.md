@@ -136,7 +136,7 @@ Use o [RBAC (controle de acesso baseado em função)][rbac] para controlar o ace
 
 Um usuário pode ser atribuído a várias funções, e você pode criar funções personalizadas para permissões ainda mais refinadas.
 
-> [!NOTE]
+d> [!NOTE]
 > O RBAC não limita as ações que podem ser executadas por um usuário conectado a uma VM. Essas permissões são determinadas pelo tipo de conta no SO convidado.   
 > 
 > 
@@ -146,7 +146,6 @@ Use os [logs de auditoria][audit-logs] para ver as ações de provisionamento e 
 Considere o uso do [Azure Disk Encryption][disk-encryption] se você precisar criptografar os discos do sistema operacional e de dados. 
 
 ## <a name="solution-deployment"></a>Implantação da solução
-
 Uma implantação para essa arquitetura de referência está disponível no [GitHub][github-folder]. Ele inclui uma VNet, NSG e uma única VM. Para implantar a arquitetura, siga estas etapas: 
 
 1. Clique com o botão direito do mouse no botão abaixo e selecione "Abrir link em nova guia" ou "Abrir link em nova janela".
@@ -156,7 +155,7 @@ Uma implantação para essa arquitetura de referência está disponível no [Git
    * O nome do **Grupo de recursos** já está definido no arquivo de parâmetros, portanto, selecione **Criar novo** e digite `ra-single-vm-rg` na caixa de texto.
    * Selecione a região na caixa suspensa **Local**.
    * Não edite as caixas de texto **URI da raiz do modelo** ou **URI da raiz do parâmetro**.
-   * Selecione **linux** na caixa suspensa **Tipo de SO**.
+.   * Selecione **linux** na caixa suspensa **Tipo de SO**.
    * Analise os termos e condições e clique na caixa de seleção **Concordo com os termos e condições declarados acima**.
    * Clique no botão **Comprar**.
 3. Aguarde até que a implantação seja concluída.
@@ -176,7 +175,7 @@ Para maior disponibilidade, implante duas ou mais VMs atrás de um balanceador d
 [blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
@@ -215,9 +214,4 @@ Para maior disponibilidade, implante duas ou mais VMs atrás de um balanceador d
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Única arquitetura de VM do Linux no Azure"
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

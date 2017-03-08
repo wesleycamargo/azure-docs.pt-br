@@ -14,16 +14,17 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/09/2016
+ms.date: 02/23/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
-ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
+ms.sourcegitcommit: 78d9194f50bcdc4b0db7871f2480f59b26cfa8f6
+ms.openlocfilehash: 7b7273edfa33f297cb5dc30ef380b6a737787b33
+ms.lasthandoff: 02/27/2017
 
 
 ---
 
-# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Tutorial do Banco de Dados SQL: introdução aos servidores do Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o PowerShell
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Tutorial: provisione e acesse um banco de dados SQL do Azure usando o PowerShell
 
 Neste tutorial de introdução, você aprenderá a usar o PowerShell para:
 
@@ -42,7 +43,7 @@ Neste tutorial, você irá:
 * Conectar-se ao banco de dados de exemplo
 * Exibir propriedades do banco de dados de usuário
 
-Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também terá uma regra de firewall de nível de servidor configurada para habilitar a entidade de segurança de nível de servidor fazer logon no servidor de um endereço IP especificado (ou o intervalo de endereços IP). 
+Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também terá uma regra de firewall de nível de servidor configurada para habilitar a entidade de segurança no nível do servidor para fazer logon no servidor em um endereço IP especificado (ou intervalo de endereços IP). 
 
 **Tempo estimado:** este tutorial levará cerca de 30 minutos (supondo que você já atendeu aos pré-requisitos).
 
@@ -54,24 +55,9 @@ Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://azure.microsoft.com/free/) ou [Ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Você deve estar conectado usando uma conta que seja membro da função de proprietário ou colaborador da assinatura. Para obter mais informações sobre o controle de acesso baseado em função (RBAC), confira [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
-
-* Você precisa do arquivo .bacpac do banco de dados de exemplo do AdventureWorksLT no armazenamento de blobs do Azure
-
-### <a name="download-the-adventureworkslt-sample-database-bacpac-file-and-save-it-in-azure-blob-storage"></a>Baixe o arquivo .bacpac do banco de dados de exemplo do AdventureWorksLT e salve-o no armazenamento de blobs do Azure
-
-Este tutorial cria um novo banco de dados AdventureWorksLT importando um arquivo .bacpac do Armazenamento do Azure. A primeira etapa é obter uma cópia do AdventureWorksLT.bacpac e carregá-la no armazenamento de blobs.
-As etapas a seguir deixam o banco de dados de exemplo pronto para a importação:
-
-1. [Baixe o AdventureWorksLT.bacpac](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) e salve-o com uma extensão de arquivo .bacpac.
-2. [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) - você pode criar a conta de armazenamento com as configurações padrão.
-3. Crie um novo **Contêiner** navegando para a conta de armazenamento, selecione **Blobs**, em seguida, clique em **+Contêiner**.
-4. Carregue o arquivo .bacpac no contêiner de blobs em sua conta de armazenamento. Você pode usar o botão **Carregar** na parte superior da página do contêiner ou [usar o AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
-5. Depois de salvar o AdventureWorksLT.bacpac, é necessário a URL e chave da conta de armazenamento para importar posteriormente o trecho de código neste tutorial. 
-   * Selecione o arquivo bacpac e copie a URL. Ele será semelhante a https://{nome-conta-armazenamento}.blob.core.windows.net/{nome-contêiner}/AdventureWorksLT.bacpac. Na página da conta de armazenamento, clique em **Chaves de acesso**e copie **key1**.
-
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -79,7 +65,9 @@ As etapas a seguir deixam o banco de dados de exemplo pronto para a importação
 ## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Criar um novo servidor SQL lógico usando o Azure PowerShell
 
 Você precisa de um grupo de recursos para conter o servidor, portanto, a primeira etapa é criar um novo grupo de recursos e o servidor ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)) ou obter referências para os existentes ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
-Os trechos a seguir criarão um grupo de recursos e o SQL Server Azure, se ainda não existirem:
+
+
+Os trechos a seguir criarão um grupo de recursos e um servidor SQL Azure, se ainda não existirem:
 
 Para obter uma lista de locais do Azure válidos e formato da cadeia de caracteres, consulte a seção [Trechos do código auxiliar](#helper-snippets) abaixo.
 ```
@@ -178,6 +166,25 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allow Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
+
 ```
 
 
@@ -217,8 +224,8 @@ $connection.Close()
 
 ## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Criar um novo banco de dados de exemplo do AdventureWorksLT usando o Azure PowerShell
 
-O trecho a seguir importa um bacpac do banco de dados de exemplo do AdventureWorksLT usando o cmdlet [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport). O bacpac está localizado no armazenamento de blobs do Azure. Depois de executar o cmdlet de importação, você pode monitorar o progresso da operação de importação usando o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus).
-$storageUri é a propriedade de URL do arquivo bacpac carregado anteriormente no portal e deve ser semelhante a: https://{conta-armazenamento}.blob.core.windows.net/{contêiner}/AdventureWorksLT.bacpac
+O trecho a seguir importa um bacpac do banco de dados de exemplo do AdventureWorksLT usando o cmdlet [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport). O bacpac está localizado em uma conta de armazenamento de blobs do Azure pública e somente leitura. Depois de executar o cmdlet de importação, você pode monitorar o progresso da operação de importação usando o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus).
+
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -228,9 +235,9 @@ $databaseName = "AdventureWorksLT"
 $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
-$storageKeyType = "StorageAccessKey"
-$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
-$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
+$storageKeyType = "SharedAccessKey"
+$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$storageKey = "?"
 
 $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -348,10 +355,14 @@ $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
 $myDatabaseServiceLevel = "Basic"
 
-$myStorageKeyType = "StorageAccessKey"
-# Get these values from your Azure storage account:
-$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
-$myStorageKey = "{your-storage-key}"
+
+# Storage account details for locating
+# and accessing the sample .bacpac 
+# Do Not Edit for this tutorial
+$myStorageKeyType = "SharedAccessKey"
+$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
+$myStorageKey = "?"
+
 
 
 # Create new, or get existing resource group
@@ -415,9 +426,8 @@ Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
-
-# Create or update server firewall rule
-#######################################
+# Create or update server firewall rules
+########################################
 
 $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
@@ -435,6 +445,24 @@ else
    Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
+
+# Allows Azure services to access the server
+$serverFirewallRuleName2 = "allowAzureServices"
+$serverFirewallStartIp2 = "0.0.0.0"
+$serverFirewallEndIp2 = "0.0.0.0"
+
+$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule2)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
+   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
+}
+$myFirewallRule2
 
 
 # Connect to the server and master database
@@ -566,7 +594,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este primeiro tutorial de introdução e criou um banco de dados com alguns dados de exemplo, há vários tutoriais adicionais que talvez queira explorar que compilam o que você aprendeu neste tutorial. 
 
-* Se quiser começar a explorar a segurança do Banco de Dados SQL do Azure, confira [Introdução à segurança](sql-database-control-access-sql-authentication-get-started.md).
+- Para obter uma introdução ao tutorial de autenticação do SQL Server, confira [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md)
+- Para obter uma introdução ao tutorial de autenticação do Azure Active Directory, confira [Autenticação e autorização do Azure AD](sql-database-control-access-aad-authentication-get-started.md)
+* Se você deseja consultar o banco de dados de exemplo no portal do Azure, confira [Visualização pública: experiência interativa de consulta para bancos de dados SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Se você conhece o Excel, saiba como [Conectar um banco de dados SQL no Azure com o Excel](sql-database-connect-excel.md).
 * Se você estiver pronto para começar a codificar, escolha a linguagem de programação em [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 * Se você quiser mover seus bancos de dados SQL Server locais para o Azure, confira [Migrando um banco de dados para o Banco de Dados SQL](sql-database-cloud-migrate.md).
@@ -575,9 +605,4 @@ Agora que você concluiu este primeiro tutorial de introdução e criou um banco
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

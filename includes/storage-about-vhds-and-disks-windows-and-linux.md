@@ -1,3 +1,14 @@
+### <a name="disk-persistence"></a>Persistência de disco 
+
+A tabela a seguir ilustra os diferentes estados dos diferentes discos em uma VM do Azure e se os dados são persistidos ou não em cada estado.
+
+| Disco | Iniciar | Parar/<br>Desalocar | Pausar | Reini-<br>ciar | Des-<br>ligar | Excluir | Failure | Redimensionar | 
+| ---- | ----- | ---- | ---- | ---- | ----  | ------ | ------- | ------ | 
+| Disco do sistema operacional | Sim | Sim  | Sim | Sim | Sim  | Não | Não  | Sim | 
+| RAM  | Sim | Sim | Sim | Sim | Não   | Não | Não | Não | 
+| Disco temporário local | Sim | Não | Sim | Não | Não  | Não | Não | Não | 
+| Disco de dados anexado | Sim | Sim | Sim | Sim | Sim  | Sim | Sim | Sim | 
+
 ## <a name="about-vhds"></a>Sobre VHDs
 
 Os VHDs usados no Azure são arquivos .vhd armazenados como blobs de página em uma conta de armazenamento padrão ou premium no Azure. Para conhecer mais detalhes sobre os blobs, consulte [Noções Gerais sobre blobs de blocos e blobs de páginas](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para obter detalhes sobre o armazenamento premium, veja [Armazenamento premium de alto desempenho e máquinas virtuais do Azure](../articles/storage/storage-premium-storage.md).
@@ -47,14 +58,8 @@ A tabela a seguir fornece uma comparação do vs Premium padrão para discos ger
 |    | Disco Premium do Azure | Disco padrão do Azure |
 |--- | ------------------ | ------------------- |
 | Tipo de disco | Unidades de Estado Sólido (SSD) | Unidades de Disco Rígido (HDD)  |
-| Visão geral  | Suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho com uso intensivo de e/s ou ambiente de produção críticos missão de hospedagem com base SSD | Suporte a disco econômica para cenários de desenvolvimento/teste VM com base HDD |
+| Visão geral  | Suporte a disco com base em SSD de alto desempenho e baixa latência, para máquinas virtuais executando cargas de trabalho com uso intensivo de E/S ou hospedando ambiente de produção de missão crítica | Suporte a disco econômico com base em HDD para cenários de VM de desenvolvimento/teste |
 | Cenário  | Cargas de trabalho confidenciais produção e desempenho | Desenvolvimento e teste, não-crítico, <br>Acesso infrequente |
-| Tamanho do disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos não gerenciados: 1 GB a 1TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
+| Tamanho do disco | P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB | Discos não gerenciados: 1 GB a 1 TB <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB |
 | Taxa de Transferência Máxima por Disco | 200 MB/s | 60 MB/s |
 | IOPS Máxima por Disco | 5000 IOPS | 500 IOPS |
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: v-livech
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ea1274dd53a93f00fa251ed03684b17b58b009c2
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: bd0c9fd0044ce8a5de9004c68b1267b8b66df80a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-an-azure-template"></a>Criar uma VM do Linux usando um modelo do Azure
+# <a name="how-to-create-a-linux-vm-using-an-azure-resourec-manager-template"></a>Como criar uma VM Linux usando um modelo do Azure Resource Manager
 Este artigo mostra como implantar rapidamente uma nova Máquina Virtual do Linux no Azure usando um Modelo do Azure.  O artigo exige:
 
 * uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)).
@@ -78,10 +80,5 @@ Este exemplo implantou uma VM usando o parâmetro `--template-uri` .  Você tamb
 
 ## <a name="next-steps"></a>Próximas etapas
 Pesquise a [galeria de modelos](https://azure.microsoft.com/documentation/templates/) para descobrir quais estruturas de aplicativos implantar em seguida.
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

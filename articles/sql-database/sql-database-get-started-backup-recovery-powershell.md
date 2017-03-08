@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao backup e restauração de bancos de dados do Azure SQL para proteção de dados e recuperação usando o Azure PowerShell | Microsoft Docs"
+title: 'PowerShell: fazer backup e restaurar um banco de dados SQL do Azure | Microsoft Docs'
 description: "Este tutorial mostra como restaurar a partir de backups automatizados em um ponto no tempo, armazenar os backups automáticos no cofre dos Serviços de Recuperação do Azure e restaurar a partir do cofre dos Serviços de Recuperação do Azure usando o PowerShell"
 keywords: tutorial do banco de dados SQL
 services: sql-database
@@ -17,16 +17,17 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: 8a3ede8af471e656e830e38e0cf2f3a909fdaadb
+ms.lasthandoff: 02/18/2017
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>Introdução ao Backup e Restauração para Proteção e Recuperação dos Dados usando o PowerShell
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Tutorial: fazer backup e restaurar um Banco de Dados SQL do Azure usando o PowerShell
 
-Neste tutorial de introdução, você aprenderá a usar o Azure PowerShell para:
+Neste tutorial, você aprenderá a usar o Azure PowerShell para:
 
 - Exibir os backups existentes de um banco de dados
 - Restaurar um banco de dados em um ponto anterior no tempo
@@ -38,7 +39,7 @@ Neste tutorial de introdução, você aprenderá a usar o Azure PowerShell para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://azure.microsoft.com/free/) ou [Ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Você precisa se conectar ao Azure usando uma conta que seja membro da função de colaborador ou proprietário da assinatura. Para obter mais informações sobre o controle de acesso baseado em função (RBAC), confira [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
 
@@ -47,7 +48,7 @@ Neste tutorial de introdução, você aprenderá a usar o Azure PowerShell para:
 * Você concluiu a [Introdução aos servidores do Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md) ou a versão equivalente do [PowerShell](sql-database-get-started-powershell.md). Do contrário, conclua este tutorial de pré-requisito ou execute o script do PowerShell no final da [versão do PowerShell](sql-database-get-started-powershell.md) antes de continuar.
 
 > [!TIP]
-> Você pode executar as mesmas tarefas em um tutorial de introdução usando o [portal do Azure](sql-database-get-started-backup-recovery.md).
+> Você pode executar as mesmas tarefas em um tutorial de introdução usando o [portal do Azure](sql-database-get-started-backup-recovery-portal.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -114,7 +115,7 @@ Nesta seção do tutorial, você [configura um cofre dos Serviços de Recuperaç
 
 
 > [!TIP]
-> Para excluir backups de retenção de longo prazo, veja [Excluir backups de retenção de longo prazo](sql-database-long-term-retention-delete.md).
+> Para excluir backups de retenção de longo prazo, consulte [Gerenciar a retenção de backup de longo prazo, usando o PowerShell](sql-database-manage-long-term-backup-retention-powershell.md).
 
 
 ### <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
@@ -378,8 +379,4 @@ $restoredDbFromLtr
 - Para saber mais sobre backups automáticos gerados pelo serviço, veja [backups automáticos](sql-database-automated-backups.md)
 - Para saber mais sobre a retenção de backup de longo prazo, consulte [retenção de backup de longo prazo](sql-database-long-term-retention.md)
 - Para saber mais sobre a restauração a partir de backups, consulte [restaurar a partir do backup](sql-database-recovery-using-backups.md)
-
-
-<!--HONumber=Dec16_HO4-->
-
 

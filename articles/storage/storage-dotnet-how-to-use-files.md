@@ -15,8 +15,9 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
-ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
+ms.sourcegitcommit: 4e81088857c0e9cacaf91342227ae63080fc90c5
+ms.openlocfilehash: 780066b1e71d967c64da0a1c1a284ffd5d1b7481
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -215,10 +216,10 @@ Para demonstrar como montar um compartilhamento de arquivos do Azure, criaremos 
 3. Abra uma janela do PowerShell na máquina virtual.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Persistir as credenciais da sua conta de armazenamento para a máquina virtual
-Antes de montar o compartilhamento de arquivos, primeiro é preciso persistir as credenciais da sua conta de armazenamento na máquina virtual. Essa etapa permite ao Windows reconectar automaticamente ao compartilhamento de arquivos quando a máquina virtual é reinicializada. Para persistir as credenciais da sua conta, execute o comando `cmdkey` na janela do PowerShell na máquina virtual. Substitua `<storage-account-name>` pelo nome da conta de armazenamento e `<storage-account-key>` pela chave da conta de armazenamento.
+Antes de montar o compartilhamento de arquivos, primeiro é preciso persistir as credenciais da sua conta de armazenamento na máquina virtual. Essa etapa permite ao Windows reconectar automaticamente ao compartilhamento de arquivos quando a máquina virtual é reinicializada. Para persistir as credenciais da sua conta, execute o comando `cmdkey` na janela do PowerShell na máquina virtual. Substitua `<storage-account-name>` pelo nome da conta de armazenamento e `<storage-account-key>` pela chave da conta de armazenamento. Você precisa especificar explicitamente o domínio "AZURE", como no exemplo abaixo. 
 
 ```
-cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 ```
 
 O Windows reconectará ao compartilhamento de arquivo quando a máquina virtual for reinicializada. Você pode verificar se o compartilhamento foi reconectado executando o comando `net use` em uma janela do PowerShell.
@@ -238,10 +239,10 @@ net use z: \\samples.file.core.windows.net\logs
 Como você persistiu as credenciais da conta de armazenamento na etapa anterior, não será preciso fornecê-las com o comando `net use`. Se ainda não tiver persistido suas credenciais, inclua-as como um parâmetro passado para o comando `net use` , conforme exibido no exemplo a seguir.
 
 ```
-net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:<storage-account-name> <storage-account-key>
+net use <drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 
 example :
-net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
+net use z: \\samples.file.core.windows.net\logs /u:AZURE\samples <storage-account-key>
 ```
 
 Você agora pode trabalhar com o compartilhamento de armazenamento de arquivos na máquina virtual como faria com qualquer outra unidade. Você pode emitir comandos de arquivo padrão do prompt de comando ou exibir o compartilhamento montado e seu conteúdo no Explorador de Arquivos. Você também pode executar código na máquina virtual que avalia o compartilhamento de arquivos usando as APIs de E/S de arquivos padrão do Windows, como as fornecidas pelos [namespaces do System.IO](http://msdn.microsoft.com/library/gg145019.aspx) no .NET Framework.
@@ -680,9 +681,4 @@ Consulte estes links para obter mais informações sobre o armazenamento de arqu
 * [Por dentro do Armazenamento de arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Persistindo conexões para arquivos do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

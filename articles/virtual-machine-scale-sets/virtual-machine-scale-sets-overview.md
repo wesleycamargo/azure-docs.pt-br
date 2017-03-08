@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/25/2017
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 868d65642ab9ca3e1c35d33a7cb9e9dd8c31c430
-ms.openlocfilehash: f945ac0357c11c70780dea8e62f094457a213d96
+ms.sourcegitcommit: 54673cbc69e418bdbe7cb5791dfb5d20e7ebcb9f
+ms.openlocfilehash: 2294587fd3f978a3f8383112ece329b47307db7a
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-scale-sets-overview"></a>Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
 Os conjuntos de dimensionamento de máquina virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de escala de VM foram desenvolvidos para dar suporte ao verdadeiro dimensionamento automático (não é necessário o pré-provisionamento das VMs) e, desse modo, facilitar a criação de serviços em grande escala visando big compute, big data e cargas de trabalho contidas.
 
 Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização. Para ver uma introdução aos conjuntos de dimensionamento de VM, confira o [Comunicado no blog do Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
@@ -127,9 +129,4 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 **P.** Os conjuntos de dimensionamento de VM funcionam com os conjuntos de disponibilidade do Azure?
 
 **A.** Sim. Um conjunto de escala de VM é um conjunto de disponibilidade implícito com 5 FDs e 5 UDs. Não é preciso configurar nada em virtualMachineProfile. Os conjuntos de dimensionamento de VMs com mais de 100 máquinas virtuais abrangem vários ‘grupos de posicionamento’ que são equivalentes a vários conjuntos de disponibilidade. Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e nós de dados no conjunto de escala.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

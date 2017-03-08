@@ -1,32 +1,56 @@
-1. Entre no [portal clássico](http://manage.windowsazure.com). 
-2. Na barra de comandos na parte inferior da janela, clique em **Novo**.
-3. Em **Computação**, clique em **Máquina Virtual** e em **Da Galeria**.
-   
-    ![Navegar até Da Galeria na barra de comandos](./media/virtual-machines-create-WindowsVM/fromgallery.png)
-4. A primeira tela depois dessa permite que você **Escolha uma Imagem** para sua máquina virtual na lista de imagens disponíveis. Você pode escolher uma imagem da galeria ou selecione imagens e discos que você carregou. As imagens disponíveis podem ser diferentes dependendo da assinatura que você estiver usando.
-5. A segunda tela permite separar um nome de computador, tamanho e nome e senha do usuário administrativo. Use a camada e o tamanho necessários à execução do aplicativo ou da carga de trabalho. Aqui estão algumas dicas:
-   
-   * **Nome da Máquina Virtual** pode conter apenas letras, números e hifens. Ele também deve começar com uma letra ou número e terminar com uma letra ou número.
-   * **Novo Nome de Usuário** se refere à conta administrativa que você usa para gerenciar o servidor. A senha deve ter entre 8 e 123 caracteres e pelo menos três dos seguintes: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. **Você precisará do nome de usuário e da senha para conectar e fazer logon na máquina virtual**.
-   * O tamanho de uma máquina virtual afeta o custo de usá-la, bem como as opções de configuração, como quantos discos de dados é possível anexar. Para obter mais informações, confira [Tamanhos das máquinas virtuais](../articles/virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-6. A terceira tela permite configurar recursos para rede, armazenamento e disponibilidade. Aqui estão algumas dicas:
-   
-   * O **Nome DNS do Serviço de Nuvem** é o nome DNS global que se torna parte do URI usado no contato com a máquina virtual. Você precisará sugerir o próprio nome do serviço de nuvem porque ele deve ser exclusivo no Azure. Os serviços de nuvem são importantes para cenários que usem [várias máquinas virtuais](../articles/virtual-machines/virtual-machines-windows-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-   * Para **Região/Grupo de Afinidade/Rede Virtual**, use uma região apropriada ao local. Também é possível optar por especificar uma rede virtual.
-   * Se você desejar que uma máquina virtual use uma rede virtual, **deverá** especificar a rede virtual ao criar a máquina virtual. Você não poderá adicionar a máquina virtual a uma rede virtual depois de criar a VM. Para saber mais, consulte [Visão geral da Rede Virtual do Azure](../articles/virtual-network/virtual-networks-overview.md).
-   * Para obter detalhes sobre como configurar pontos de extremidade, consulte [Como instalar pontos de extremidade em uma máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-7. A quarta tela de configuração permite instalar o Agente de VM e configurar algumas das extensões disponíveis.
-   
-   > [!NOTE]
-   > O agente de VM fornece o ambiente para instalar extensões que podem ajudar a interagir com ou gerenciar a máquina virtual. Para obter detalhes, confira [Sobre o agente da VM e extensões](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  
-   > 
-   > 
-8. Depois que a máquina virtual é criada, o portal clássico lista a nova máquina virtual em **Máquinas Virtuais**. O serviço de nuvem correspondente e a conta de armazenamento também são criados e listados nessas seções. A máquina virtual e o serviço de nuvem são iniciados automaticamente, e seu status é listado como **Em Execução**.
-   
-    ![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-create-WindowsVM/vmcreated.png)
+1. Entre no [Portal do Azure](https://portal.azure.com).
+
+2. Começando no canto superior esquerdo, clique em **Nova > Computação > Datacenter do Windows Server 2016**.
+
+    ![Navegar até as imagens de VM do Azure no portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
+
+3. No Datacenter do Windows Server 2016, selecione o modelo de implantação Clássico. Clique em Criar.
+
+    ![Captura de tela que mostra as imagens da VM do Azure disponíveis no portal](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
+
+## <a name="1-basics-blade"></a>1. Folha de Noções básicas
+
+A folha de Noções básicas solicita informações administrativas da máquina virtual.
+
+1. Insira um **Nome** para a máquina virtual. Neste exemplo, o nome da máquina virtual é _HeroVM_. O nome deve ter de 1 a 15 caracteres e não pode conter caracteres especiais.
+
+2. Insira um **Nome de usuário** e uma **Senha** forte que serão usados para criar uma conta local na VM. A conta local é usada para conectar e gerenciar a VM. Neste exemplo, o nome de usuário é _azureuser_.
+
+ A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/virtual-machines-windows-faq.md).
+
+3. A **Assinatura** é opcional. Uma configuração comum é "Pré-pago".
+
+4. Selecione um **Grupo de recursos** existente ou digite o nome de um novo. Neste exemplo, o nome do grupo de recursos é _HeroVMRG_.
+
+5. Selecione um **Local** de datacenter do Azure no qual você deseja que a VM seja executada. Neste exemplo, o local é **Leste dos EUA**.
+
+6. Ao terminar, clique em **Avançar** para continuar na próxima folha.
+
+    ![Captura de tela que mostra as configurações na folha Noções básicas para configurar uma VM do Azure](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+
+## <a name="2-size-blade"></a>2. Folha Tamanho
+
+A folha Tamanho identifica os detalhes de configuração da VM e lista várias opções que incluem o sistema operacional, o número de processadores, o tipo de armazenamento em disco e os custos mensais estimados de uso.  
+
+Escolha um tamanho de VM e, em seguida, clique em **Selecionar** para continuar. Neste exemplo, o tamanho da VM é _DS1_\__V2 Standard_.
+
+  ![Captura de tela da folha Tamanho que mostra a VM do Azure que você pode selecionar](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 
+## <a name="3-settings-blade"></a>3. Folha de configurações
 
-<!--HONumber=Nov16_HO4-->
+A folha de Configurações solicita opções de armazenamento e de rede. Você pode aceitar as configurações padrão. O Azure cria entradas apropriadas quando necessário.
 
+Se você selecionou um tamanho de máquina virtual que dá suporte a isso, poderá experimentar o Armazenamento Premium do Azure, selecionando Premium (SSD) em Tipo de disco.
 
+Quando terminar de fazer as alterações, clique em **OK**.
+
+## <a name="4-summary-blade"></a>4. Folha de Resumo
+
+A folha de Resumo lista as configurações especificadas nas folhas anteriores. Clique em **OK** quando estiver pronto para criar a imagem.
+
+ ![Relatório da folha de Resumo fornecendo as configurações especificadas da máquina virtual](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+
+Depois que a máquina virtual é criada, o portal lista a nova máquina virtual em **Todos os recursos** e exibe um bloco da máquina virtual no painel. O serviço de nuvem correspondente e a conta de armazenamento também são criados e listados. A máquina virtual e o serviço de nuvem são iniciados automaticamente, e seu status é listado como **Em Execução**.
+
+ ![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

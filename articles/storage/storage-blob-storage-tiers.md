@@ -12,17 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 02/27/2017
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: c75658d173bcb3438d6f2725ec9ef2c4127013d7
-ms.openlocfilehash: 0d0ca29a4733c681e044884697030ccd2916b6cb
+ms.sourcegitcommit: c004285f3b3052ed9361fc7165702aff8f5e835d
+ms.openlocfilehash: e0df34dbb4278d759ee412000d6dafd64276d926
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática
 ## <a name="overview"></a>Visão geral
-Agora, o Armazenamento do Azure oferece duas camadas de armazenamento para o armazenamento de objetos de Blobs, para que você possa armazenar os dados de uma maneira mais econômica, dependendo de como os utiliza. A **camada de armazenamento dinâmica** do Azure é otimizada para armazenar dados acessados com frequência. A **camada de armazenamento estática** do Azure é otimizada para armazenar dados acessados com menos frequência e de longa duração. Os dados na camada de armazenamento estático podem tolerar uma disponibilidade um pouco menor, mas ainda exigem alta durabilidade e tempo de acesso e taxa de transferência semelhantes aos de dados ativos. Para os dados estáticos, um SLA com disponibilidade um pouco menor e custos mais altos de acesso são compensações aceitáveis, em troca de custos de armazenamento muito menores.
+O Armazenamento do Azure oferece duas camadas de armazenamento para o armazenamento de objetos de Blobs, para que você possa armazenar os dados de uma maneira mais econômica, dependendo de como os utiliza. A **camada de armazenamento dinâmica** do Azure é otimizada para armazenar dados acessados com frequência. A **camada de armazenamento estática** do Azure é otimizada para armazenar dados acessados com menos frequência e de longa duração. Os dados na camada de armazenamento estático podem tolerar uma disponibilidade um pouco menor, mas ainda exigem alta durabilidade e tempo de acesso e taxa de transferência semelhantes aos de dados ativos. Para os dados estáticos, um SLA com disponibilidade um pouco menor e custos mais altos de acesso são compensações aceitáveis, em troca de custos de armazenamento muito menores.
 
 Hoje, os dados armazenados na nuvem estão aumentando em um ritmo exponencial. Para gerenciar os custos de suas necessidades cada vez maiores de armazenamento, é útil organizar seus dados com base em atributos como frequência de acesso e período de retenção planejado. Os dados armazenados na nuvem podem ser diferentes em relação ao modo como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acessados e modificados durante seu ciclo de vida. Alguns dados são acessados com frequência no início do seu tempo de vida, mas esse acesso cai drasticamente à medida que os dados envelhecem. Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados após serem armazenados.
 
@@ -80,18 +81,18 @@ A seguinte tabela realça a comparação entre as duas camadas de armazenamento:
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>camada de armazenamento dinâmica</center></strong></td>
-    <td><strong><center>camada de armazenamento estática</center></strong></td
+    <td><strong><center>Camada de armazenamento dinâmica</center></strong></td>
+    <td><strong><center>Camada de armazenamento estática</center></strong></td
 </tr>
 <tr>
     <td><strong><center>Disponibilidade</center></strong></td>
-    <td><center>99,9%</center></td>
+    <td><center>99.9%</center></td>
     <td><center>99%</center></td>
 </tr>
 <tr>
     <td><strong><center>Disponibilidade<br>(Leituras de RA-GRS)</center></strong></td>
-    <td><center>99,99%</center></td>
-    <td><center>99,9%</center></td>
+    <td><center>99.99%</center></td>
+    <td><center>99.9%</center></td>
 </tr>
 <tr>
     <td><strong><center>Encargos de uso</center></strong></td>
@@ -111,7 +112,7 @@ A seguinte tabela realça a comparação entre as duas camadas de armazenamento:
     <td colspan="2"><center>milissegundos</center></td>
 </tr>
 <tr>
-    <td><strong><center>Escalabilidade e metas de desempenho<center></strong></td>
+    <td><strong><center>Metas de escalabilidade e desempenho<center></strong></td>
     <td colspan="2"><center>Igual ao das contas de armazenamento de finalidade geral</center></td>
 </tr>
 </tbody>
@@ -341,10 +342,5 @@ Para obter mais detalhes, consulte [Introdução ao armazenamento de Blobs do Az
 [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
 [Navegue e explore suas contas de armazenamento](http://storageexplorer.com/)
-
-
-
-
-<!--HONumber=Dec16_HO3-->
 
 
