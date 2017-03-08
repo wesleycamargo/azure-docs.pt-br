@@ -4,7 +4,7 @@ description: "Implementando uma arquitetura de segurança em camadas com Ambient
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 0fb02c13f99a8f4a46e0142c20da3b152c809b6b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -24,7 +25,7 @@ ms.openlocfilehash: 35f87789bd374a6170e38dfb462fd928babd55a3
 ## <a name="overview"></a>Visão geral
 Como os Ambientes do Serviço de Aplicativo fornecem um ambiente de tempo de execução isolado implantado em uma rede virtual, os desenvolvedores podem criar uma arquitetura de segurança em camadas fornecendo diferentes níveis de acesso à rede para cada camada de aplicativo físico.
 
-Um desejo comum é ocultar os back-ends de API do acesso à Internet geral e só permitir que as APIs sejam chamadas por aplicativos Web upstream.  Os [Grupos de segurança da rede (NSGs)][NetworkSecurityGroups] podem ser usados para restringir o acesso público aos aplicativos de API nas sub-redes com Ambientes do Serviço de Aplicativo.
+Um desejo comum é ocultar os back-ends de API do acesso à Internet geral e só permitir que as APIs sejam chamadas por aplicativos Web upstream.  Os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] podem ser usados em sub-redes contendo Ambientes do Serviço de Aplicativo para restringir o acesso público aos aplicativos da API.
 
 O diagrama abaixo mostra uma arquitetura de exemplo com um aplicativo baseado em API Web implantado em um Ambiente do Serviço de Aplicativo.  Três instâncias de aplicativos Web separados, implantadas em três Ambientes do Serviço de Aplicativo separados, fazem chamadas de back-end para o mesmo aplicativo da API Web.
 
@@ -37,10 +38,10 @@ O restante deste tópico explica as etapas necessárias para configurar o grupo 
 ## <a name="determining-the-network-behavior"></a>Determinando o comportamento de rede
 Para saber quais regras de segurança de rede são necessárias, você precisa determinar quais clientes de rede terão permissão para acessar o Ambiente do Serviço de Aplicativo que contém o aplicativo de API e quais clientes serão bloqueados.
 
-Como os [ grupos de segurança da rede (NSGs)][NetworkSecurityGroups] são aplicados nas sub-redes e os Ambientes do Serviço de Aplicativo são implantados nas sub-redes, as regras contidas em um NSG aplicam-se a **todos** os aplicativos em execução em um Ambiente do Serviço de Aplicativo.  Usando a arquitetura de exemplo deste artigo, depois que um grupo de segurança de rede for aplicado à sub-rede contendo “apiase”, todos os aplicativos em execução no Ambiente do Serviço de Aplicativo “apiase” estarão protegidos pelo mesmo conjunto de regras de segurança. 
+Como os [NSGs (grupos de segurança de rede)][NetworkSecurityGroups] são aplicados às sub-redes e os Ambientes do Serviço de Aplicativo são implantados em sub-redes, as regras contidas em um NSG se aplicam a **todos** os aplicativos em execução em um Ambiente do Serviço de Aplicativo.  Usando a arquitetura de exemplo deste artigo, depois que um grupo de segurança de rede for aplicado à sub-rede contendo “apiase”, todos os aplicativos em execução no Ambiente do Serviço de Aplicativo “apiase” estarão protegidos pelo mesmo conjunto de regras de segurança. 
 
-* **Determine o endereço IP de saída dos autores da chamada upstream:** Qual é o endereço IP ou endereços dos autores da chamada upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, isso significa que o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais detalhes sobre como determinar o endereço IP de saída para os aplicativos em execução em um Ambiente do Serviço de Aplicativo, consulte o artigo Visão Geral da [Arquitetura de Rede][NetworkArchitecture].
-* **O aplicativo de API de back-end precisará chamar a si mesmo?**   Um ponto sutil e às vezes negligenciado é o cenário em que o aplicativo de back-end precisa chamar a si mesmo.  Se um aplicativo de API de back-end em um Ambiente do Serviço de Aplicativo precisar chamar a si mesmo, isso também será tratado como uma chamada da “Internet”.  Na arquitetura de exemplo, isso também requer a permissão de acesso do endereço IP de saída do Ambiente do Serviço de Aplicativo “apiase”.
+* **Determine o endereço IP de saída dos autores da chamada upstream:** Qual é o endereço IP ou endereços dos autores da chamada upstream?  Esses endereços precisarão receber explicitamente a permissão de acesso no NSG.  Como as chamadas entre os Ambientes do Serviço de Aplicativo são consideradas chamadas da “Internet”, isso significa que o endereço IP de saída atribuído a cada um dos três Ambientes do Serviço de Aplicativo upstream precisa receber permissão de acesso no NSG para a sub-rede “apiase”.   Para obter mais detalhes sobre como determinar o endereço IP de saída para aplicativos executados em um Ambiente do Serviço de Aplicativo, confira o artigo de Visão geral da [Arquitetura de rede][NetworkArchitecture].
+* **O aplicativo de API de back-end precisará chamar a si mesmo?**  Um ponto sutil e às vezes negligenciado é o cenário em que o aplicativo de back-end precisa chamar a si mesmo.  Se um aplicativo de API de back-end em um Ambiente do Serviço de Aplicativo precisar chamar a si mesmo, isso também será tratado como uma chamada da “Internet”.  Na arquitetura de exemplo, isso também requer a permissão de acesso do endereço IP de saída do Ambiente do Serviço de Aplicativo “apiase”.
 
 ## <a name="setting-up-the-network-security-group"></a>Configurando o Grupo de Segurança de Rede
 Depois que o conjunto de endereços IP de saída forem conhecidos, a próxima etapa é criar um grupo de segurança de rede.  Os grupos de segurança de rede podem ser criados para as redes virtuais baseadas no Resource Manager, bem como para as redes virtuais clássicas.  Os exemplos a seguir mostram a criação e a configuração de um NSG em uma rede virtual clássica usando o Powershell.
@@ -49,7 +50,7 @@ Para a arquitetura de exemplo, como os ambientes estão localizados no Centro Su
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 
-Primeiro, uma regra de permissão explícita é adicionada para a infraestrutura de gerenciamento do Azure, como observado no artigo sobre o [tráfego de entrada][InboundTraffic] para os Ambientes do Serviço de Aplicativo.
+Primeiro uma regra de permissão explícita é adicionada para a infraestrutura de gerenciamento do Azure, como observado no artigo sobre o [tráfego de entrada][InboundTraffic] dos Ambientes do Serviço de Aplicativo.
 
     #Open ports for access by Azure management infrastructure
     Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET' -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
@@ -94,9 +95,9 @@ Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo est
 
 Informações sobre [grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md). 
 
-Noções básicas sobre os [endereços IP de saída][NetworkArchitecture] e os Ambientes do Serviço de Aplicativo.
+Noções básicas sobre [endereços IP de saída][NetworkArchitecture] e Ambientes do Serviço de Aplicativo.
 
-[Portas da rede][InboundTraffic] usadas pelos Ambientes do Serviço de Aplicativo.
+[Portas de rede][InboundTraffic] usadas pelos Ambientes do Serviço de Aplicativo.
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -110,9 +111,4 @@ Noções básicas sobre os [endereços IP de saída][NetworkArchitecture] e os A
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]:  ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

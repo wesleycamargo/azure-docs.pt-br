@@ -1,6 +1,6 @@
 ---
 title: "Gerenciar espaços de trabalho | Microsoft Docs"
-description: "Gerencie espaços de trabalho no Log Analytics usando uma variedade de tarefas administrativas em usuários, contas, espaços de trabalho e contas do Azure."
+description: "Gerenciar espaços de trabalho no Log Analytics do Azure usando uma variedade de tarefas administrativas em usuários, contas, espaços de trabalho e contas do Azure."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -97,10 +98,13 @@ Alguns pontos a ter em mente sobre o portal do Azure:
 
   A URL é semelhante: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Por exemplo, para adicionar ou remover soluções de gerenciamento, o usuário deve ser um administrador ou colaborador da assinatura do Azure ao usar o Portal do Azure. Além disso, o usuário deve ser membro da função de colaborador ou administrador do espaço de trabalho OMS no portal do OMS.
+
 ### <a name="managing-users-in-the-oms-portal"></a>Gerenciar usuários no Portal do OMS
 Você gerencia os usuários e o grupo na guia **Gerenciar Usuários** sob a guia **Contas** na página Configurações.   
 
 ![gerenciar usuários](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Adicionar um usuário a um espaço de trabalho existente
 Use as seguintes etapas para adicionar um usuário ou grupo a um espaço de trabalho.
@@ -295,9 +299,4 @@ Se você for um administrador e houver vários usuários associados ao espaço d
 * Consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md) para adicionar agentes e coletar dados.
 * [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidade e obter dados.
 * [Definir configurações de proxy e firewall no Log Analytics](log-analytics-proxy-firewall.md) se sua organização usar um servidor proxy ou firewall para que os agentes possam se comunicar com o serviço do Log Analytics.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

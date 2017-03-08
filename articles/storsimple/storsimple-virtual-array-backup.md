@@ -4,7 +4,7 @@ description: Descreve como fazer backup de volumes e compartilhamentos do StorSi
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5c31ac5284f3ba8fecc1e9f33838a778254658e5
-ms.openlocfilehash: 2e49565f2696e345d83fcff4d60a4f9a2b9ff39e
+ms.sourcegitcommit: ed759edbf4548bc0d6c041ca825ddb392430795b
+ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="back-up-your-storsimple-virtual-array"></a>Fazer backup de sua Matriz Virtual StorSimple
+# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
 ## <a name="overview"></a>Visão geral
 
@@ -112,10 +114,5 @@ Execute as etapas a seguir no portal do Azure para exibir os backups existentes.
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [administração de sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

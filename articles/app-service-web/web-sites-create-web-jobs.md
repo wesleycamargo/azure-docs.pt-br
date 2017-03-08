@@ -4,7 +4,7 @@ description: Saiba como executar tarefas em segundo plano em aplicativos Web do 
 services: app-service
 documentationcenter: 
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 10320f338d902ffefd8a98fd59f3e8fb22682b00
-ms.openlocfilehash: 578575877fc706076ac2fdf034cb1ac0e92b16ef
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 5d0d46447c3e0a3a1047e2bbedd44bbd46dd7f1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -32,7 +33,7 @@ O SDK de Trabalhos Web do Azure simplifica muitas tarefas de programação de Tr
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="a-nameacceptablefilesaacceptable-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipos de arquivo aceitáveis para scripts ou programas
+## <a name="acceptablefiles"></a>Tipos de arquivo aceitáveis para scripts ou programas
 Os seguintes tipos de arquivo são aceitos:
 
 * .cmd, .bat, .exe (usando o cmd do Windows)
@@ -43,7 +44,7 @@ Os seguintes tipos de arquivo são aceitos:
 * .js (usando nó)
 * .jar (usando java)
 
-## <a name="a-namecreateondemandacreate-an-on-demand-webjob-in-the-portal"></a><a name="CreateOnDemand"></a>Criar um Trabalho Web sob demanda no portal
+## <a name="CreateOnDemand"></a>Criar um Trabalho Web sob demanda no portal
 1. Na folha **Aplicativo Web** do [Portal do Azure](https://portal.azure.com), clique em **Todas as configurações > Trabalhos Web** para mostrar a folha **Trabalhos Web**.
    
     ![Lâmina do Trabalho Web](./media/web-sites-create-web-jobs/wjblade.png)
@@ -60,7 +61,7 @@ Os seguintes tipos de arquivo são aceitos:
    
     ![Executar o Trabalho Web](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="a-namecreatecontinuousacreate-a-continuously-running-webjob"></a><a name="CreateContinuous"></a>Criar um Trabalho Web em execução contínua
+## <a name="CreateContinuous"></a>Criar um Trabalho Web em execução contínua
 1. Para criar um Trabalho Web em execução contínua, siga as mesmas etapas para criar um Trabalho Web que é executado uma vez, mas, na caixa **Como Executar**, escolha **Contínuo**.
 2. Para iniciar ou interromper um Trabalho Web contínuo, clique com o botão direito do mouse no Trabalho Web na lista e clique em **Iniciar** ou **Parar**.
 
@@ -71,7 +72,7 @@ Os seguintes tipos de arquivo são aceitos:
 > 
 > 
 
-## <a name="a-namecreatescheduledcronacreate-a-scheduled-webjob-using-a-cron-expression"></a><a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
+## <a name="CreateScheduledCRON"></a>Criar um WebJob agendado usando uma expressão CRON
 Essa técnica está disponível para aplicativos Web em execução no modo Básico, Standard ou Premium e exige que a configuração **Sempre Ativado** esteja habilitada no aplicativo.
 
 Para transformar um Trabalho Web Sob Demanda em um Trabalho Web agendado, basta incluir um arquivo `settings.job` na raiz do arquivo .zip do Trabalho Web. Esse arquivo JSON deve incluir uma propriedade `schedule` com uma [expressão CRON](https://en.wikipedia.org/wiki/Cron), como mostrado no exemplo abaixo.
@@ -95,7 +96,7 @@ Outros exemplos de agendamento CRON:
 
 **Observação**: ao implantar um Trabalho Web do Visual Studio, certifique-se de marcar as propriedades do arquivo `settings.job` como "Copiar se mais recente".
 
-## <a name="a-namecreatescheduledacreate-a-scheduled-webjob-using-the-azure-scheduler"></a><a name="CreateScheduled"></a>Criar um Trabalho Web agendado usando o Agendador do Azure
+## <a name="CreateScheduled"></a>Criar um Trabalho Web agendado usando o Agendador do Azure
 A técnica alternativa a seguir utiliza o Agendador do Azure. Nesse caso, seu Trabalho Web não tem nenhum conhecimento direto do agendamento. Em vez disso, o Agendador do Azure é configurado para disparar o Trabalho Web em um agendamento. 
 
 O Portal do Azure ainda não tem a capacidade de criar um Trabalho Web agendado, mas até que esse recurso seja adicionado você pode fazê-lo usando o [portal clássico](http://manage.windowsazure.com).
@@ -133,7 +134,7 @@ O Portal do Azure ainda não tem a capacidade de criar um Trabalho Web agendado,
     
     ![Lista de trabalhos][WebJobsListWithSeveralJobs]
 
-### <a name="a-nameschedulerascheduled-jobs-and-azure-scheduler"></a><a name="Scheduler"></a>Trabalhos agendados e o Agendador do Azure
+### <a name="Scheduler"></a>Trabalhos agendados e o Agendador do Azure
 Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas do Agendador do Azure do [portal clássico](http://manage.windowsazure.com).
 
 1. Na página Trabalhos Web, clique no link **cronograma** do trabalho para navegar até a página do portal do Agendador do Azure. 
@@ -146,7 +147,7 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
    
     ![Ação de trabalho PageInScheduler][JobActionPageInScheduler]
 
-## <a name="a-nameviewjobhistoryaview-the-job-history"></a><a name="ViewJobHistory"></a>Exibir o histórico do trabalho
+## <a name="ViewJobHistory"></a>Exibir o histórico do trabalho
 1. Para exibir o histórico de execução de um trabalho, incluindo trabalhos criados com o SDK de Trabalhos Web, clique no link correspondente na coluna **Logs** da folha Trabalhos Web. (Se quiser, você poderá usar o ícone da área de transferência para copiar a URL da página do arquivo de log para a área de transferência.)
    
     ![Link Logs](./media/web-sites-create-web-jobs/wjbladelogslink.png)
@@ -167,15 +168,15 @@ Os trabalhos agendados podem ser configurados mais detalhadamente nas páginas d
    
     O clique em um desses links leva você até a página Detalhes do Trabalho Web do trabalho selecionado.
 
-## <a name="a-namewhpnotesanotes"></a><a name="WHPNotes"></a>Observações
+## <a name="WHPNotes"></a>Observações
 * Os aplicativos Web no modo Gratuito podem atingir tempo limite depois de 20 minutos se não houver solicitações para o site do scm (implantação) e o portal do aplicativo Web não estiver aberto no Azure. As solicitações para o site real não redefinirão isso.
 * O código para um trabalho contínuo precisa ser escrito para ser executado em um loop infinito.
 * Trabalhos contínuos só são executados continuamente quando o aplicativo Web estiver funcionando.
 * Os modos Básico e Padrão oferecem o recurso Sempre Ativo que, quando habilitado, evita que os aplicativos Web fiquem ociosos.
 * Só é possível depurar continuamente os Trabalhos Web em execução. Não há suporte para a depuração Trabalhos Web agendados ou sob demanda.
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Próximas etapas
-Para obter mais informações, consulte [Recursos recomendados de Trabalhos Web do Azure][WebJobsRecommendedResources].
+## <a name="NextSteps"></a>Próximas etapas
+Para saber mais, confira [Recursos de documentação do Azure WebJobs][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226
@@ -203,10 +204,5 @@ Para obter mais informações, consulte [Recursos recomendados de Trabalhos Web 
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

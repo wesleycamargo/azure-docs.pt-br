@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 02/06/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 9ee2d2ef7b21fab8cfc4a70561d612be7367d366
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -182,7 +183,7 @@ Eis um exemplo desse tipo de alerta:
 ![DOS de Saída](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## <a name="resource-analysis"></a>Análise de Recursos
-A análise de recursos da Central de Segurança foca nos serviços de PaaS, como a integração com o recurso [Detecção de Ameaças do Azure SQL Db](../sql-database/sql-database-threat-detection-get-started.md) . Com base nos resultados da análise dessas áreas, a Central de Segurança dispara um alerta relacionado aos recursos.
+A análise de recursos da Central de Segurança foca-se nos serviços de PaaS, como a integração com o recurso [Detecção de Ameaças do Banco de Dados SQL do Azure](../sql-database/sql-database-threat-detection.md). Com base nos resultados da análise dessas áreas, a Central de Segurança dispara um alerta relacionado aos recursos.
 
 ### <a name="potential-sql-injection"></a>Potencial injeção de SQL
 A injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que constrói instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executa todas as consultas sintaticamente válidas que recebe. A Detecção de Ameaças SQL usa o aprendizado de máquina, análise de comportamento e detecção de anomalias para determinar os eventos suspeitos que podem estar ocorrendo em seus Bancos de Dados SQL do Azure. Por exemplo:
@@ -213,9 +214,4 @@ Neste documento, você aprendeu sobre os diferentes tipos de alertas de seguran�
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço de localização.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -3,7 +3,7 @@ title: "Adicionar seu nome de domínio personalizado ao Azure Active Directory |
 description: "Como adicionar os nomes de domínio da sua empresa ao Azure Active Directory e como verificar o nome de domínio."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand;jeffsta
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 9803b4e41223bc979e4c0b0a4f22586a441c28df
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 7bd889847f07ebbadc5e427f2b1ff3f9f869e69a
 > 
 > 
 
-Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Agora que você está usando o Azure Active Directory (Azure AD), também poderá adicionar seu nome de domínio corporativo ao AD do Azure também. Isso permite que você atribua os nomes de usuário do seu diretório que sejam familiares para seus usuários, como ‘alice@contoso.com.’. O processo é simples:
+Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Agora que você está usando o Azure Active Directory (Azure AD), também poderá adicionar seu nome de domínio corporativo ao AD do Azure também. Isso permite que você atribua nomes de usuário no diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
 
 1. Adicionar o nome de domínio personalizado ao diretório
 2. Adicionar uma entrada DNS para o nome de domínio no registrador de nome de domínio
@@ -85,10 +86,5 @@ Se sua organização usa vários nomes de domínio personalizados, como 'contoso
 * [Saiba mais sobre os conceitos de gerenciamento de domínio no AD do Azure](active-directory-add-domain-concepts.md)
 * [Mostrar a identidade visual de sua empresa quando os usuários entrarem](active-directory-add-company-branding.md)
 * [Usar o PowerShell para gerenciar os nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

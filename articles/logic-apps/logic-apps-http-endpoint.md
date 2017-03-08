@@ -15,9 +15,9 @@ ms.workload: integration
 ms.date: 10/18/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: d7144208fc3e6eb1f8d3c43d8b4a5e2bcb225e58
-ms.openlocfilehash: ac0c200abd110262badd04212c82be45cb0f8bfc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 6964ff18532ccf4b67eecfe12122bc16819a7b4b
+ms.openlocfilehash: 9b2e0797317c6e0268e8ae90f4091fea96c78726
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -33,7 +33,7 @@ Existem três tipos de gatilhos que podem receber solicitações:
 Para o restante do artigo, usaremos **request** como exemplo, mas todos os princípios são aplicados de forma idêntica aos outros dois tipos de gatilhos.
 
 ## <a name="adding-a-trigger-to-your-definition"></a>Adição de um gatilho para sua definição
-A primeira etapa é adicionar um gatilho à sua definição de Aplicativo lógico que pode receber solicitações de entrada.  É possível pesquisar “Solicitação HTTP” no designer para adicionar o cartão de gatilho. É possível definir um Esquema JSON de corpo de solicitação e o designer gerará tokens para ajudá-lo a analisar e transmitir dados do gatilho manual por meio do fluxo de trabalho.  É recomendável usar uma ferramenta como [jsonschema.net](http://jsonschema.net) para gerar um esquema JSON por meio de um conteúdo de corpo de exemplo.
+A primeira etapa é adicionar um gatilho à sua definição de Aplicativo lógico que pode receber solicitações de entrada.  É possível pesquisar “Solicitação HTTP” no designer para adicionar o cartão de gatilho. É possível definir um Esquema JSON de corpo de solicitação e o designer gerará tokens para ajudá-lo a analisar e transmitir dados do gatilho manual por meio do fluxo de trabalho. Se você não tiver um esquema pronto, selecione `Use sample payload to generate schema` para gerar um esquema JSON de um exemplo de conteúdo.
 
 ![Cartão do Gatilho de Solicitação][2]
 

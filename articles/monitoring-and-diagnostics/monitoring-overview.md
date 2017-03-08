@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 09b2847586eec50d8512ec5eabdc05a11d8b238a
-ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
+ms.sourcegitcommit: 3693b90509646fd7292861979cd7c2d1c0100d68
+ms.openlocfilehash: 30e92d17a99a0c751397e448108d488aefdd557a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -24,8 +25,8 @@ ms.openlocfilehash: da4dc84501ca6b0c5a2d23e885196167be9c61ad
 # <a name="overview-of-azure-monitor"></a>Visão geral do Azure Monitor
 Este artigo fornece uma visão geral conceitual dos recursos de monitoramento do Azure. Ele fornece links para informações sobre tipos específicos de recursos.  Para obter informações de alto nível sobre como monitorar seu aplicativo do ponto de vista não do Azure, consulte [Diretrizes de monitoramento e diagnóstico](../best-practices-monitoring.md).
 
-O vídeo passo a passo do Azure Monitor está disponível em  
-[Explore o monitoramento e diagnósticos do Microsoft Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). O vídeo adicional explicando um cenário no qual você pode usar o Azure Monitor está disponível em [Explore o monitoramento e diagnósticos no Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
+Um vídeo passo a passo do Azure Monitor está disponível em  
+[Introdução ao Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). Um vídeo adicional explicando um cenário no qual você pode usar o Azure Monitor está disponível em [Explore o monitoramento e diagnósticos no Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
 
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
 
@@ -113,7 +114,7 @@ Os exemplos incluem:
 * Envie para os Hubs de Eventos para que você possa rotear para as ferramentas de terceiros para executar a análise em tempo real.
 
 ### <a name="automate"></a>Automatizar
-Você pode usar os dados de monitoramento para disparar eventos ou até processos inteiros. Os exemplos incluem:
+Você pode usar os dados de monitoramento para disparar alertas ou até processos inteiros. Os exemplos incluem:
 
 * Use os dados para dimensionar automaticamente as instâncias de computação com base na carga do aplicativo.
 * Envie emails quando uma métrica passar de um limite predeterminado.
@@ -145,9 +146,4 @@ Saiba mais sobre
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) se você tiver problemas de diagnóstico em seu aplicativo Web do Serviço de Aplicativo.
 * [Solucionar de problemas no Armazenamento do Azure](../storage/storage-e2e-troubleshooting.md) ao usar os Blobs, Tabelas ou Filas de Armazenamento
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) e [Operations Management Suite](https://www.microsoft.com/oms/)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: df5c0475245c6ad1f632b08e5fdbf64374893d67
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 902c6ae45e7809e2847c9e45a35803f40c0b0ff3
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -38,8 +39,8 @@ Selecione uma das tarefas e clique em **Avançar** para continuar.
 
 > [!IMPORTANT]
 > Enquanto o assistente de instalação estiver aberto, todas as operações no mecanismo de sincronização serão suspensas. Lembre-se de fechar o assistente de instalação assim que concluir as alterações de configuração.
-> 
-> 
+>
+>
 
 ## <a name="view-current-configuration"></a>Exibir a configuração atual
 Essa opção fornece uma visão rápida das opções configuradas no momento.
@@ -81,7 +82,7 @@ Para alterar o estado, selecione essa opção e marque ou desmarque a caixa de s
 ## <a name="change-user-sign-in"></a>Alterar a entrada do usuário
 Esta opção permite mudar da sincronização de senha para federação ou o oposto. Você não pode alterar para **não configurar**.
 
-Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
+Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o modelo de configuração usado pela sincronização do Azure AD Connect em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
@@ -90,10 +91,4 @@ Para obter mais informações sobre essa opção, consulte [entrada do usuário]
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

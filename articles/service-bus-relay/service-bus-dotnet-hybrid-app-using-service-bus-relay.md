@@ -1,5 +1,5 @@
 ---
-title: "Aplicativo híbrido local/na nuvem (.NET) | Microsoft Docs"
+title: "Aplicativo híbrido local/na nuvem de Retransmissão do WCF do Azure (.NET) | Microsoft Docs"
 description: "Saiba como criar um aplicativo híbrido .NET local/na nuvem usando a Retransmissão do WCF do Azure."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: 6c59c98a400da0616762b2bd0c4217d97e22ab86
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicativo híbrido .NET local/na nuvem usando a Retransmissão do WCF do Azure
 ## <a name="introduction"></a>Introdução
-Este artigo descreve como compilar um aplicativo de nuvem híbrido com o Microsoft Azure e o Visual Studio. Este tutorial pressupõe que você não tem uma experiência anterior com o Azure. Em menos de 30 minutos, você terá um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
+Este artigo mostra como criar um aplicativo de nuvem híbrida com o Microsoft Azure e o Visual Studio. Este tutorial pressupõe que você não tem uma experiência anterior com o Azure. Em menos de 30 minutos, você terá um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
 
 Você aprenderá:
 
@@ -36,7 +37,7 @@ As soluções de negócios geralmente são compostas por uma combinação de có
 
 Os arquitetos de solução estão começando a utilizar a nuvem para obter um manuseio mais fácil de requisitos de escala e custos operacionais mais baixos. Ao fazer isso, eles descobrem serviços ativos existentes que gostariam de aproveitar, como blocos de construção para suas soluções estão dentro do firewall corporativo e fora de alcance fácil para acesso pela solução de nuvem. Muitos serviços internos não são construídos ou hospedados de forma que possam ser facilmente expostos na borda da rede corporativa.
 
-A Retransmissão do Azure foi desenvolvida para o caso de utilizar os serviços Web do WCF (Windows Communication Foundation) existentes e torná-los acessíveis com segurança para soluções que residem fora do perímetro corporativo, sem exigir alterações intrusivas na infraestrutura da rede corporativa. Esses serviços de retransmissão ainda estão hospedados dentro de seu ambiente existente, mas delegam a escuta de sessões de entrada e solicitações para o serviço de retransmissão hospedado na nuvem. A Retransmissão do Azure também protege esses serviços contra acesso não autorizado usando a autenticação [SAS](../service-bus-messaging/service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado).
+A [Retransmissão do Azure](https://azure.microsoft.com/services/service-bus/) foi desenvolvida para o caso de utilizar os serviços Web do WCF (Windows Communication Foundation) existentes e torná-los acessíveis com segurança para soluções que residem fora do perímetro corporativo, sem exigir alterações intrusivas na infraestrutura da rede corporativa. Esses serviços de retransmissão ainda estão hospedados dentro de seu ambiente existente, mas delegam a escuta de sessões de entrada e solicitações para o serviço de retransmissão hospedado na nuvem. A Retransmissão do Azure também protege esses serviços contra acesso não autorizado usando a autenticação [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="solution-scenario"></a>Cenário da solução
 Neste tutorial, você criará um site ASP.NET que permitirá ver uma lista de produtos na página do inventário de produtos.
@@ -50,18 +51,16 @@ A captura de tela da página inicial do aplicativo Web completo é mostrada abai
 ![][1]
 
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
-Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
+Antes de começar a desenvolver aplicativos do Azure, baixe as ferramentas e configure seu ambiente de desenvolvimento:
 
-1. Instale o SDK do Azure para .NET da página [Obter ferramentas e SDK][Get Tools and SDK].
-2. Clique em **Instalar o SDK** da versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
+1. Instale o Azure SDK para .NET da [página de downloads](https://azure.microsoft.com/downloads/) do SDK.
+2. Na coluna **.NET**, clique na versão do [Visual Studio](http://www.visualstudio.com) que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
 3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
 4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
-5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio. Se você não tiver instalado o Visual Studio, o SDK também instala o Visual Studio Express gratuito.
+5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
-Para começar a usar os recursos de retransmissão no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do Azure dentro de seu aplicativo.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+Para começar a usar os recursos de retransmissão no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do Azure dentro de seu aplicativo. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um namespace de Retransmissão.
 
 ## <a name="create-an-on-premises-server"></a>Criar um servidor local
 Primeiro você irá criar um sistema de catálogo de produtos (fictício) local. Será muito simples, você pode ver isso como uma representação de um sistema de catálogo de produtos real local com uma superfície de serviço completa que estamos tentando integrar.
@@ -69,7 +68,7 @@ Primeiro você irá criar um sistema de catálogo de produtos (fictício) local.
 Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) para incluir as bibliotecas do Barramento de Serviço e as definições da configuração.
 
 ### <a name="create-the-project"></a>Criar o projeto
-1. Utilizando privilégios do administrador, inicie o Microsoft Visual Studio. Para iniciar o Visual Studio com privilégios do administrador, clique com o botão direito no ícone do programa **Visual Studio** e clique em **Executar como administrador**.
+1. Utilizando privilégios do administrador, inicie o Microsoft Visual Studio. Para fazer isso, clique com o botão direito do mouse no ícone do programa do Visual Studio e, em seguida, clique em **Executar como administrador**.
 2. No Visual Studio, no menu **Arquivo**, clique em **Novo** e clique em **Projeto**.
 3. Em **Modelos Instalados**, em **Visual C#**, clique em **Aplicativo de Console**. Na caixa **Nome**, digite o nome **ServidorDeProdutos**:
 
@@ -86,7 +85,7 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
 9. Na caixa **Nome**, digite o nome **ProductsContract.cs**. Clique em **Adicionar**.
 10. Em **ProductsContract.cs**, substitua a definição do namespace pelo código a seguir, que define o contrato do serviço.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -122,7 +121,7 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
     ```
 11. Em Program.cs, substitua a definição do namespace pelo código a seguir, que adiciona o serviço de perfil e o host para ele.
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -174,9 +173,9 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
         }
     }
     ```
-12. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior do elemento **&lt;system.ServiceModel&gt;** (mas ainda em &lt;system.ServiceModel&gt;), adicione o seguinte código XML. Substitua *seuNamespaceDeServiço* pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
+12. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior do elemento `<system.ServiceModel>` (mas ainda no `<system.ServiceModel>`), adicione o seguinte código XML. Substitua *seuNamespaceDeServiço* pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -197,9 +196,9 @@ Este projeto é um aplicativo de console do Visual Studio e usa o [pacote NuGet 
       </behaviors>
     </system.serviceModel>
     ```
-13. Ainda em App.config, no elemento **&lt;appSettings&gt;**, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal.
+13. Ainda em App.config, no elemento `<appSettings>`, substitua o valor da cadeia de conexão pela cadeia de conexão obtida anteriormente no portal.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -236,22 +235,22 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 ### <a name="modify-the-web-application"></a>Modificar o aplicativo web
 1. No arquivo Product.cs, no Visual Studio, substitua a definição de namespace existente pelo código a seguir.
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+    {
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+    }
+    ```
 2. No Gerenciador de Soluções, expanda a pasta **Controladores**, clique duas vezes no arquivo **HomeController.cs** para abri-lo no Visual Studio.
 3. Em **HomeController.cs**, substitua a definição do namespace existente pelo código a seguir.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -278,7 +277,7 @@ Nesta seção você criará um aplicativo ASP.NET simples que exibe os dados rec
 7. No Gerenciador de Soluções, expanda a pasta Views\Home e clique duas vezes em **Index.cshtml** para abri-lo no editor do Visual Studio.
    Substitua todo o conteúdo do arquivo pelo código a seguir.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -334,7 +333,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
    ![][24]
 6. Agora abra o arquivo **HomeController.cs** no editor do Visual Studio e substitua a definição de namespace pelo código a seguir. Substitua *seuNamespaceDeServiço* pelo nome do seu namespace de serviço e *suaChave* pela sua chave SAS. Isso permitirá que o cliente chame o serviço local, retornando o resultado da chamada.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +440,6 @@ Para saber mais sobre a Retransmissão do Azure, consulte os seguintes recursos:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -465,9 +463,4 @@ Para saber mais sobre a Retransmissão do Azure, consulte os seguintes recursos:
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

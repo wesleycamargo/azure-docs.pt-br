@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 7c75fd870efb93bcf6c69ccf8a8ea9b56288c749
-ms.openlocfilehash: 0744b317f595786b91afce3c9e9d59f64ceef25d
+ms.sourcegitcommit: 801eef31e4a06fd1b89ddf504d643d9dcfcdcbdc
+ms.openlocfilehash: 99e6f4c1be6fa73db05fc4635fa5c34a579af588
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -61,6 +62,21 @@ Saiba mais sobre [Citrix XenApp Express](http://now.citrix.com/remoteapp).
 ### <a name="citrix-service-provider-program"></a>**Programa de Provedores de Serviços da Citrix**
 O Programa de Provedores de Serviços da Citrix facilita para que provedores de serviços entreguem a simplicidade da computação em nuvem virtual para SMBs, oferecendo a eles os serviços que desejam em um modelo fácil e pré-pago. Provedores de Serviços da Citrix aumentam seus negócios Microsoft SPLA e expandem seus investimentos na plataforma RDS com qualquer dispositivo, acesso em qualquer local, o mais amplo suporte de aplicativo, uma experiência avançada, segurança adicional e maior escalabilidade. Por sua vez, provedores Citrix atraem mais assinantes, aumentam a satisfação do cliente e reduzem seus custos operacionais. [Saiba mais](http://www.citrix.com/products/service-providers.html) ou [encontre um parceiro](https://www.citrix.com/buy/partnerlocator.html).
 
+### <a name="frame"></a>Frame
+
+Organizações de TI corporativas e governamentais, provedores de serviços gerenciados e principais fornecedores de software escolhem o Frame para criar e gerenciar seus espaços de trabalho definidos por software na nuvem. Em organizações de pequeno à grande porte, o Frame facilita incrivelmente o acesso dos usuários aos aplicativos dos Windows em qualquer navegador de qualquer dispositivo. A plataforma Frame inclui tudo que um administrador precisa para implantar aplicativos da nuvem, incluindo a infraestrutura do Azure e as licenças RDS (trazer sua própria conta e licenças do Azure é opcional). 
+
+Saiba sobre o [Frame no Azure](https://www.fra.me/ara). 
+
+Localização primária: San Mateo, CA, EUA
+
+Região de operação: em todo o mundo
+
+Parceiro da Microsoft: Sim
+
+1-480-269-4668
+
+
 ### <a name="microsoft-hosted-service-provider"></a>**Provedor de Serviços Hospedados da Microsoft**
 Parceiros de hospedagem normalmente oferecem um serviço de aplicativo e da área de trabalho do Windows hospedado e totalmente gerenciado, que pode incluir o gerenciamento de recursos do Azure, sistemas operacionais, aplicativos e assistência técnica usando os contratos de licenciamento do parceiro com a Microsoft e outros fornecedores de software, além de ser um Contrato de Licença de Provedor de Serviços para permitir a revenda de SAL (licenças de acesso do assinante). As informações a seguir fornecem detalhes e informações de contato para alguns dos hosters especializados em ajudar os clientes com a sua migração do Azure RemoteApp. Verifique [a lista atual de provedores de serviços hospedados](http://aka.ms/rdsonazurecertified) que concluíram o roteiro de aprendizagem e avaliação do RDS no IaaS.  
 
@@ -86,7 +102,7 @@ Soluções de migração do Azure RemoteApp: sim, [saiba mais](https://www.aspex
 * Web: [http://cloud.aspex.be/contact-ara-0](http://cloud.aspex.be/contact-ara-0)
 
 #### <a name="conexlink-platform-name-mycloudit"></a>**Conexlink (nome da plataforma: MyCloudIT)**
-[MyCloudIT](http://www.mycloudit.com) é uma plataforma de automação para as empresas de TI simplificarem, otimizarem e dimensionarem a migração e a entrega de áreas de trabalho remotas, aplicativos remotos e infraestrutura na Nuvem do Microsoft Azure. 
+[MyCloudIT](https://mycloudit.com) é uma plataforma de automação para as empresas de TI simplificarem, otimizarem e dimensionarem a migração e a entrega de áreas de trabalho remotas, aplicativos remotos e infraestrutura na Nuvem do Microsoft Azure. 
 
 A plataforma MyCloudIT reduz o tempo de implantação em 95%, os custos do Azure em 30% e move toda a infraestrutura de TI do seu cliente para a nuvem apenas pressionando algumas teclas. Parceiros agora podem gerenciar os clientes de um painel global, prestar serviços aos usuários finais em todo o mundo como nunca antes e aumentar as receitas sem adicionar uma sobrecarga adicional nem muito treinamento do Azure.  
 
@@ -208,10 +224,5 @@ Ainda precisa de ajuda escolhendo ou tem mais perguntas? Use um dos seguintes m�
 1. Envie-nos um email para [arainfo@microsoft.com](mailto:arainfo@microsoft.com).
 2. Entre em contato com o [Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Comece abrindo um [caso de Suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 3. Ligue para nós. [Encontre um número de vendas local](https://azure.microsoft.com/overview/sales-number/).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

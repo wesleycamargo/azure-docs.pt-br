@@ -17,8 +17,9 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -121,9 +122,9 @@ Para vários departamentos de TI, atender às obrigações de tempo de atividade
 
 Para as camadas de serviço Básico, Standard e Premium do **Banco de Dados SQL** , a Microsoft fornece um SLA de 99,99% de disponibilidade. Para obter as últimas informações, consulte [Contrato de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/sql-database/). Para obter as últimas informações sobre as camadas de serviço do Banco de Dados SQL e os planos de continuidade de negócios com suporte, consulte [Camadas de Serviço](sql-database-service-tiers.md).
 
-Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a Máquina Virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como [Grupos de Disponibilidade AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja > 99,99% de disponibilidade do banco de dados.
+Para o **SQL Server em execução em VMs do Azure**, a Microsoft fornece um SLA de disponibilidade de 99,95% que abrange apenas a Máquina Virtual. Esse SLA não abrange os processos (como o SQL Server) em execução na VM e exige que você hospede pelo menos duas instâncias de VM em um conjunto de disponibilidade. Para obter as últimas informações, consulte o [SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Para HA (alta disponibilidade) de banco de dados em VMs, você deve configurar uma das opções de alta disponibilidade com suporte no SQL Server, como [Grupos de Disponibilidade AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Usar uma opção de alta disponibilidade com suporte não fornece um SLA adicional, mas permite que você atinja >&99;,99% de disponibilidade do banco de dados.
 
-### <a name="a-namemarketatime-to-market"></a><a name="market"></a>Tempo para colocação no mercado
+### <a name="market"></a>Tempo para colocação no mercado
 **SQL Database** é a solução ideal para aplicativos baseados em nuvem quando a produtividade do desenvolvedor e o tempo rápido de colocação no mercado são essenciais. Com a funcionalidade de programação como DBA, ele é perfeito para desenvolvedores e arquitetos de nuvem, pois reduz a necessidade de gerenciamento do sistema operacional e do banco de dados subjacentes. Por exemplo, você pode usar a [API REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) e os [Cmdlets do PowerShell](http://msdn.microsoft.com/library/mt740629.aspx) para automatizar e gerenciar operações administrativas para milhares de bancos de dados. Recursos como [pools elásticos](sql-database-elastic-pool.md) permitem que você se concentre na camada de aplicativo e coloque a solução no mercado mais rapidamente.
 
 **SQL Server em execução nas VMs do Azure** será perfeito se os aplicativos novos ou existentes exigirem grandes bancos de dados, bancos de dados inter-relacionados ou acesso a todos os recursos no SQL Server ou no Windows. Também é uma boa opção quando você deseja migrar bancos de dados e aplicativos locais existentes no Azure da maneira como estão. Já que você não precisa alterar a apresentação, o aplicativo e as camadas de dados, você economiza tempo e orçamento em rearquitetura da solução existente. Em vez disso, você pode se concentrar em migrar todas as soluções para o Azure e fazer algumas otimizações de desempenho que possam ser necessárias para a plataforma Microsoft Azure. Para obter mais informações, veja [Práticas Recomendadas de Desempenho para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
@@ -142,14 +143,8 @@ Escolha **SQL Server em VMs do Azure** se:
 * Você tem recursos de TI existentes e pode ter basicamente patches, backups e alta disponibilidade do banco de dados. Observe que alguns recursos automatizados simplificam muito essas operações. 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Confira [Tutorial do Banco de Dados SQL: criar um Banco de Dados SQL em alguns minutos usando o portal do Azure](sql-database-get-started.md) para obter uma introdução ao Banco de Dados SQL.
+* Consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started.md) para uma introdução ao Banco de Dados SQL.
 * Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
-* Confira [SQL Server em uma máquina virtual do Azure: roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -15,79 +15,76 @@ ms.topic: hero-article
 ms.date: 01/19/2017
 ms.author: sutalasi
 translationtype: Human Translation
-ms.sourcegitcommit: 74d51269cdd55e39eaa2963fec2b409decb47d0a
-ms.openlocfilehash: a279fdc35c62c76e6f0858d52c64240032669f15
+ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
+ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
+ms.lasthandoff: 02/21/2017
 
 
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>Gerenciar a política de replicação para VMware no Azure
 
 
-## <a name="create-a-new-replication-policy"></a>Criar uma nova política de replicação
+## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Clique em 'Gerenciar-> Infraestrutura do Site Recovery' no menu à esquerda. 
-2. Selecione 'Políticas de replicação' na seção 'Para VMware e Máquinas físicas'.
-3. Clique em '+ Política de replicação' na parte superior.
+1. Selecione **Gerenciar** > **Infraestrutura do Site Recovery**.
+2. Selecione **Políticas de replicação** em **Para VMware e Computadores físicos**.
+3. Selecione **+ Política de replicação**.
 
-    ![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+      ![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. Insira o nome da política.
 
-5. Em Limite de RPO, especifique o limite de RPO. Alertas serão gerados quando a replicação contínua excede esse limite.
-6. Em Retenção do ponto de recuperação, especifique, em horas, qual será a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela. 
+5. Em **Limite de RPO**, especifique o limite de RPO. Alertas serão gerados quando a replicação contínua excede esse limite.
+6. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto em uma janela de retenção.
 
-    > [!NOTE] 
-    > Até 24 horas, a retenção tem suporte para máquinas replicadas para o armazenamento premium e a retenção de 72 horas tem suporte para máquinas replicadas para o armazenamento padrão.
-    
-    > [!NOTE] 
-    > Uma política de replicação para failback será criada automaticamente.
+    > [!NOTE]
+    > Há suporte para até 24 horas de retenção para computadores replicados no armazenamento premium. Há suporte para até 72 horas de retenção para computadores replicados no armazenamento standard.
 
-7. Em Frequência do instantâneo consistente com o aplicativo, especifique com que frequência (em minutos) os pontos de recuperação contendo instantâneos consistentes com aplicativos serão criados.
+    > [!NOTE]
+    > Uma política de replicação para failback é criada automaticamente.
 
-8. Clique em 'OK'. A política deve ser criada em cerca de 30 segundos a um minuto.
+7. Em **Frequência de instantâneos consistente com o aplicativo**, especifique com que frequência (em minutos) serão criados os pontos de recuperação que contém instantâneos consistentes com aplicativos.
 
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
+8. Clique em **OK**. A política deve ser criada em 30 a 60 segundos.
 
-## <a name="associate-configuration-server-with-replication-policy"></a>Associar o servidor de configuração com a política de replicação
-1. Clique na política de replicação à qual você deseja associar o servidor de configuração.
-2. Clique em 'Associar' na parte superior.
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
+![Geração de política de replicação](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
-3. Selecione o ‘Servidor de configuração' na lista de servidores.
-4. Clique em OK. O servidor de configuração deve ser associado em cerca de um a dois minutos.
+## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Associar um servidor de configuração com uma política de replicação
+1. Escolha a política de replicação à qual você deseja associar o servidor de configuração.
+2. Clique em **Associar**.
+![Associar o servidor de configuração](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
+3. Selecione o servidor de configuração na lista de servidores.
+4. Clique em **OK**. O servidor de configuração deve ser associado em um ou dois minutos.
 
-## <a name="edit-replication-policy"></a>Editar política de replicação
-1. Clique na política de replicação para a qual você deseja editar as configurações de replicação.
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+![Associação de servidor de configuração](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
-2. Clique em ‘Editar Configurações’ na parte superior.
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
+## <a name="edit-a-replication-policy"></a>Editar uma política de replicação
+1. Escolha a política de replicação para a qual você deseja editar as configurações de replicação.
+![Editar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+
+2. Clique em **Editar Configurações**.
+![Editar configurações de política de replicação](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Altere as configurações com base nas suas necessidades.
-4. Clique em 'Salvar' na parte superior. A política deve ser salva em cerca de 2 a 5 minutos, dependendo de quantas VMs estejam usando essa política de replicação.
+4. Clique em **Salvar**. A política deve ser salva em cerca de dois a cinco minutos, dependendo de quantas VMs usam essa política de replicação.
 
-![Criar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
+![Salvar política de replicação](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
-## <a name="dissociate-configuration-server-from-replication-policy"></a>Desassociar o servidor de configuração da política de replicação
-1. Clique na política de replicação à qual você deseja associar o servidor de configuração.
-2. Clique em 'Desassociar' na parte superior.
-3. Selecione o ‘Servidor de configuração' na lista de servidores.
-4. Clique em OK. O servidor de configuração deve ser desassociado em cerca de um a dois minutos.
-    
-    > [!NOTE] 
-    > Não é possível desassociar um servidor de configuração se houver pelo menos um item duplicado usando a política. Verifique se não existem itens replicadas usando a política antes de desassociar o servidor de configuração.
+## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Desassociar um servidor de configuração de uma política de replicação
+1. Escolha a política de replicação à qual você deseja associar o servidor de configuração.
+2. Clique em **Desassociar**.
+3. Selecione o servidor de configuração na lista de servidores.
+4. Clique em **OK**. O servidor de configuração deve ser desassociado em um ou dois minutos.
 
-## <a name="delete-replication-policy"></a>Excluir política de replicação 
+    > [!NOTE]
+    > Não será possível desassociar um servidor de configuração se houver pelo menos um item replicado usando a política. Verifique se não existem itens replicados usando a política antes de desassociar o servidor de configuração.
 
-1. Clique na política de replicação que você deseja excluir.
-2. Clique em Excluir. A política deve ser excluída em cerca de 30 segundos a um minuto.
+## <a name="delete-a-replication-policy"></a>Excluir uma política de replicação
 
-    > [!NOTE] 
+1. Escolha a política de replicação que você deseja excluir.
+2. Clique em **Excluir**. A política deve ser excluída em 30 a 60 segundos.
+
+    > [!NOTE]
     > Você não poderá excluir uma política de replicação se ela tiver pelo menos um servidor de configuração associado a ela. Verifique se não há itens replicados usando a política e exclua todos os servidores de configuração associados antes de excluir a política.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

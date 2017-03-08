@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ceaf35eed16fda272e4b3c501e3e9ab570855101
-ms.lasthandoff: 12/08/2016
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 47f1a3e50639af80472c63cba30141a032f76443
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -36,7 +36,7 @@ Aplicativos Web, aplicativos móveis, aplicativos de funções ou aplicativos de
 
 Todos os aplicativos atribuídos a um **Plano do Serviço de Aplicativo** compartilham os recursos definidos pelo plano, permitindo que você economize ao hospedar vários aplicativos.
 
-O seu **Plano do Serviço de Aplicativo** pode variar dos SKUs **Gratuito** e **Compartilhado** para os SKUs **Básico**, **Standard** e **Premium**, dando a você mais recursos e funções ao longo do caminho. 
+O seu **Plano do Serviço de Aplicativo** pode ser dimensionado dos SKUs **Gratuito** e **Compartilhado** para os SKUs **Básico**, **Standard** e **Premium**, dando a você mais recursos e funções ao longo do caminho. 
 
 Depois que seu Plano do Serviço de Aplicativo for definido como um SKU **Básico** ou superior, também será possível controlar o **tamanho** e dimensionar a contagem de VMs.
 

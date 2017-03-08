@@ -4,7 +4,7 @@ description: "Saiba como realizar conexão segura a recursos de back-end a parti
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2783e9c84684a52fb9b85074eabc490c24b6eb9a
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 0b6d3a47dc429c469b37c2c74f546cfeca580358
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
-Como um Ambiente do Serviço de Aplicativo sempre é criado em ** uma ** rede virtual do Azure Resource Manager **ou em ** uma rede virtual do [modelo de implantação clássico][virtualnetwork], as conexões de saída de um Ambiente do Serviço de Aplicativo para outros recursos de back-end podem fluir exclusivamente pela rede virtual.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  
+Como um Ambiente do Serviço de Aplicativo sempre é criado **ou** em uma rede virtual do Azure Resource Manager, **ou** em uma [rede virtual][virtualnetwork] do modelo de implantação clássico, as conexões de saída de um Ambiente do Serviço de Aplicativo com outros recursos de back-end podem fluir exclusivamente pela rede virtual.  Com uma alteração recente feita em junho de 2016, os ASEs agora podem ser implantados nas redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, endereços privados).  
 
 Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada.  O ponto de extremidade pode ser ACLd, para permitir apenas acesso de outros recursos na mesma rede virtual.  
 
-Como outro exemplo, os pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou [ExpressRoute do Azure][ExpressRoute].  Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de rota expressa poderão acessar pontos de extremidade locais.
+Como outro exemplo, pontos de extremidade confidenciais podem ser executados localmente e conectados ao Azure via conexões [Site a Site][SiteToSite] ou do [Azure ExpressRoute][ExpressRoute].  Como resultado, apenas os recursos nas redes virtuais conectadas a túneis Site a Site ou de rota expressa poderão acessar pontos de extremidade locais.
 
 Para todos esses cenários, aplicativos em execução em um ambiente do serviço de aplicativo serão capazes de se conectar com segurança aos diversos servidores e recursos.  Tráfego de saída de aplicativos que são executados em um ambiente do serviço de aplicativo para pontos de extremidade privados na mesma rede virtual (ou conectados à mesma rede virtual) passará apenas pela rede virtual.  O tráfego de saída para pontos de extremidade privados não passará pela Internet pública.
 
@@ -48,8 +49,8 @@ Uma configuração comum do SQL Server tem um ponto de extremidade escutando na 
 
 Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
 
-* [Listas do Controle de Acesso à Rede][NetworkAccessControlLists] (ACLs da Rede)
-* [Grupos de Segurança da Rede][NetworkSecurityGroups]
+* [Listas de controle de acesso a redes][NetworkAccessControlLists] (ACLs de rede)
+* [Grupos de segurança de rede][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Restringindo o acesso com uma ACL de rede
 A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede.  O exemplo abaixo coloca endereços de cliente originados dentro de uma rede virtual em lista branca e bloqueia o acesso a todos os outros clientes.
@@ -86,11 +87,11 @@ O resultado final é um conjunto de regras de segurança que bloqueiam o acesso 
 ## <a name="getting-started"></a>Introdução
 Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Para se familiarizar com os Ambientes de Serviço de Aplicativo, consulte [Introdução ao Ambiente do Serviço de Aplicativo][IntroToAppServiceEnvironment]
+Para começar a usar Ambientes de Serviço de Aplicativo, veja [Introdução ao ambiente de Serviço de Aplicativo][IntroToAppServiceEnvironment]
 
-Para obter detalhes sobre como controlar o tráfego de entrada para seu Ambiente do Serviço de Aplicativo, consulte [Controlando o tráfego de entrada para um Ambiente do Serviço de Aplicativo][ControlInboundASE]
+Para obter detalhes sobre como controlar o tráfego de entrada para seu Ambiente do Serviço de Aplicativo, confira [Como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo][ControlInboundASE]
 
-Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, confira [Serviço de Aplicativo do Azure][AzureAppService].
+Para saber mais sobre a plataforma de Serviço de Aplicativo do Azure, veja [Serviço de Aplicativo do Azure][AzureAppService].
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -111,9 +112,4 @@ Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Az
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

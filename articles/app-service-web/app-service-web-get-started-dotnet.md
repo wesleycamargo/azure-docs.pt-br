@@ -4,7 +4,7 @@ description: "Saiba como é fácil executar os aplicativos Web no Serviço de Ap
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
@@ -15,22 +15,15 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 5ce3d205ebdf5fa7e52ebe0a6402400556da0f64
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 1ac3af3af2dddb260dc957ef425eda1fefef53c1
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="deploy-your-first-aspnet-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Implantar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos (CLI 2.0 Preview)
 
-> [!div class="op_single_selector"]
-> * [Primeiro site HTML](app-service-web-get-started-html.md)
-> * [Primeiro aplicativo .NET](app-service-web-get-started-dotnet.md)
-> * [Primeiro aplicativo PHP](app-service-web-get-started-php.md)
-> * [Primeiro aplicativo Node.js](app-service-web-get-started-nodejs.md)
-> * [Primeiro aplicativo Python](app-service-web-get-started-python.md)
-> * [Primeiro aplicativo Java](app-service-web-get-started-java.md)
-> 
-> 
+[!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
 Este tutorial ajuda a implantar um aplicativo Web ASP.NET simples no [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
@@ -49,7 +42,7 @@ Você irá:
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-get-started-dotnet-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (Visualização)](app-service-web-get-started-dotnet.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](app-service-web-get-started-dotnet.md) – nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Git](http://www.git-scm.com/downloads).
@@ -62,7 +55,7 @@ Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 > 
 
 ## <a name="deploy-an-aspnet-web-app"></a>Implantar um aplicativo Web ASP.NET
-1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute `git --version` e `azure --version` para verificar se o Git e a CLI do Azure estão instalados em seu computador.
+1. Abra um novo prompt de comando do Windows, janela do PowerShell, shell do Linux ou terminal do OS X. Execute `git --version` e `az --version` para verificar se o Git e a CLI do Azure estão instalados em seu computador.
    
     ![Testar a instalação das ferramentas da CLI para seu primeiro aplicativo Web no Azure](./media/app-service-web-get-started-languages/1-test-tools-2.0.png)
    
@@ -128,7 +121,7 @@ Parabéns, você implantou seu aplicativo no Serviço de Aplicativo do Azure.
 ## <a name="see-your-app-running-live"></a>Ver o aplicativo em execução
 Para ver seu aplicativo em execução no Azure, execute este comando em qualquer pasta no repositório:
 
-    azure site browse
+    az appservice web browse --name <app_name> --resource-group my-first-app-group
 
 ## <a name="make-updates-to-your-app"></a>Fazer atualizações no aplicativo
 Agora você pode usar o Git para enviar da raiz do projeto (repositório) a qualquer momento e fazer uma atualização no site ativo. Você faz isso da mesma forma que foi feito ao implantar o aplicativo no Azure pela primeira vez. Por exemplo, sempre que você desejar enviar novas alterações que testou localmente, bastará executar os seguintes comandos da raiz do projeto (repositório):
@@ -145,10 +138,5 @@ Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
 * Experimente [outras maneiras de implantar seu código no Azure](web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
 * Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

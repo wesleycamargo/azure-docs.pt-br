@@ -1,6 +1,6 @@
 ---
-title: "Criar um Conjunto de Dimensionamento de Máquina Virtual usando o PowerShell | Microsoft Docs"
-description: "Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell"
+title: "Criar um conjunto de dimensionamento de máquinas virtuais do Azure usando o PowerShell | Microsoft Docs"
+description: "Criar um conjunto de dimensionamento de máquinas virtuais do Azure usando o PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 02/21/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
+ms.sourcegitcommit: 1f8e66fac5b82698525794f0486dd0432c7421a7
+ms.openlocfilehash: 7286fed39839675eb960b749f3235f83e36c5e9a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -56,47 +57,7 @@ Um conjunto de escala de máquina virtual deve estar contido em um grupo de recu
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### <a name="storage-account"></a>Conta de armazenamento
-Uma conta de armazenamento é usada por uma máquina virtual para armazenar o disco do sistema operacional e os dados de diagnóstico utilizados para o dimensionamento. Quando possível, é recomendável ter uma conta de armazenamento para cada máquina virtual criada em um conjunto de dimensionamento. Se não for possível, planeje para não mais de 20 VMs por conta de armazenamento. O exemplo neste artigo mostra três contas de armazenamento sendo criadas para três máquinas virtuais.
-
-1. Substitua o valor de **$saName** por um nome para a conta de armazenamento. Teste a exclusividade do nome. 
-   
-        $saName = "storage account name"
-        Get-AzureRmStorageAccountNameAvailability $saName
-   
-    Se a resposta for **True**, o nome proposto será exclusivo.
-2. Substitua o valor de **$saType** pelo tipo de conta de armazenamento e crie a variável:  
-   
-        $saType = "storage account type"
-   
-    Os valores possíveis são: Standard_LRS, Standard_GRS, Standard_RAGRS ou Premium_LRS.
-3. Crie a conta:
-   
-        New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
-   
-    Você deverá ver algo como este exemplo:
-   
-        ResourceGroupName   : myrg1
-        StorageAccountName  : myst1
-        Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-                              .Storage/storageAccounts/myst1
-        Location            : centralus
-        AccountType         : StandardLRS
-        CreationTime        : 3/15/2016 4:51:52 PM
-        CustomDomain        :
-        LastGeoFailoverTime :
-        PrimaryEndpoints    : Microsoft.Azure.Management.Storage.Models.Endpoints
-        PrimaryLocation     : centralus
-        ProvisioningState   : Succeeded
-        SecondaryEndpoints  :
-        SecondaryLocation   :
-        StatusOfPrimary     : Available
-        StatusOfSecondary   :
-        Tags                : {}
-        Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
-4. Repita as etapas de 1 a 4 para criar três contas de armazenamento, por exemplo, myst1, myst2 e myst3.
-
-### <a name="virtual-network"></a>rede virtual
+### <a name="virtual-network"></a>Rede virtual
 Uma rede virtual é necessária para as máquinas virtuais no conjunto de escala.
 
 1. Substitua o valor de **$subnetName** pelo nome que você deseja usar para a sub-rede na rede virtual e crie a variável: 
@@ -130,7 +91,7 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Este exemplo mostra um conjunto de escala sendo criado com 3 máquinas virtuais. Consulte [Visão Geral dos Conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-overview.md) para saber mais sobre a capacidade dos conjuntos de dimensionamento. Essa etapa também inclui a definição do tamanho (chamado de SkuName) das máquinas virtuais no conjunto. Para encontrar um tamanho que atenda às suas necessidades, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+    Este exemplo mostra um conjunto de escala sendo criado com&3; máquinas virtuais. Consulte [Visão Geral dos Conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-overview.md) para saber mais sobre a capacidade dos conjuntos de dimensionamento. Essa etapa também inclui a definição do tamanho (chamado de SkuName) das máquinas virtuais no conjunto. Para encontrar um tamanho que atenda às suas necessidades, veja [Tamanhos das máquinas virtuais](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Adicione a configuração da interface de rede à configuração do conjunto de escala:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -173,12 +134,10 @@ Você tem todos os recursos necessários para a configuração do conjunto de es
         $imageSku = "2012-R2-Datacenter"
    
     Para encontrar informações sobre outras imagens a usar, confira [Navegar e selecionar imagens da máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-3. Substitua o valor de **$vhdContainers** por uma lista que contém os caminhos nos quais os discos rígidos virtuais são armazenados, como "https://mystorage.blob.core.windows.net/vhds", em seguida, crie a variável:
+
+3. Crie o perfil de armazenamento:
    
-        $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
-4. Crie o perfil de armazenamento:
-   
-        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
+        Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
 ### <a name="virtual-machine-scale-set"></a>Conjunto de escala de máquina virtual
 Por fim, você pode criar o conjunto de escala.
@@ -221,10 +180,5 @@ Use estes recursos para explorar o conjunto de escala de máquina virtual que cr
 * Gerencie o conjunto de dimensionamento que você acabou de criar usando as informações em [Gerenciar máquinas virtuais em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-manage.md)
 * Considere configurar o dimensionamento automático de seu conjunto de dimensionamento usando as informações em [Dimensionamento automático e conjuntos de dimensionamento da máquina virtual](virtual-machine-scale-sets-autoscale-overview.md)
 * Saiba mais sobre o dimensionamento vertical revisando [Dimensionamento vertical automático com conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

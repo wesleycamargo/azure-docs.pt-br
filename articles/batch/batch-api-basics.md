@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: 984d1afe93b19ebea7add524091ed64aa276da0c
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 9a17b749a50c0f75890fa71b4ae00391aa63876a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="batch-feature-overview-for-developers"></a>Visão geral do recurso de Lote para desenvolvedores
+# <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
+
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
 
 Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-technical-overview.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
@@ -486,9 +489,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

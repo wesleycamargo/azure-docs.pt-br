@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 83f9a2716086730f22527a9321b6b111f6e69907
-ms.openlocfilehash: 9e794e89e5ecf4633c2e6312c69487bfa0c7795c
+ms.sourcegitcommit: 75c5b8d3d8c8f389b8cee7d5d304b6e9704252fc
+ms.openlocfilehash: a57805510d5e84fcdc6c4521ae9443ec72de59e1
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -52,7 +53,7 @@ Observe como a infraestrutura do Azure assume a função do roteador, permitindo
   >
 
 ## <a name="subnets"></a>Sub-redes
-A sub-rede é um intervalo de endereços IP na Rede Virtual. Você pode dividir uma Rede Virtual em várias sub-redes para efeitos de organização e de segurança. As VMs e as instâncias de função de PaaS implantadas em sub-redes (iguais ou diferentes) em uma Rede Virtual podem se comunicar entre si sem nenhuma configuração adicional. Você pode também configurar as tabelas de rotas e os NSGs para uma sub-rede.
+Uma sub-rede é um intervalo de endereços IP na Rede Virtual. Você pode dividir uma Rede Virtual em várias sub-redes para efeitos de organização e de segurança. As VMs e as instâncias de função de PaaS implantadas em sub-redes (iguais ou diferentes) em uma Rede Virtual podem se comunicar entre si sem nenhuma configuração adicional. Você pode também configurar as tabelas de rotas e os NSGs para uma sub-rede.
 
 ## <a name="ip-addresses"></a>Endereços IP
 Há dois tipos de endereços IP atribuídos aos recursos no Azure: *público* e *privado*. Os endereços IP públicos permitem a comunicação dos recursos do Azure com a Internet e com outros serviços do Azure voltados ao público, como o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/) e os [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Os endereços IP privados permitem a comunicação entre os recursos de uma rede virtual juntamente com os recursos conectados por meio de uma VPN, sem usar endereços IP roteáveis na Internet.
@@ -88,9 +89,4 @@ Não há custo adicional para usar Redes Virtuais no Azure. Serão cobradas taxa
 * [Criar uma VM em uma VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 * Saiba mais sobre [NSGs](virtual-networks-nsg.md).
 * Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

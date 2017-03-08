@@ -16,7 +16,7 @@
 #### [Agentes do Windows](log-analytics-windows-agents.md)
 #### [Agentes do Linux](log-analytics-linux-agents.md)
 #### [Máquinas Virtuais do Azure](log-analytics-azure-vm-extension.md)
-#### [Armazenamento do Azure](log-analytics-azure-storage.md)
+#### [Recursos do Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gerenciador de Configurações](log-analytics-sccm.md)
 #### [Gateway do OMS](log-analytics-oms-gateway.md)

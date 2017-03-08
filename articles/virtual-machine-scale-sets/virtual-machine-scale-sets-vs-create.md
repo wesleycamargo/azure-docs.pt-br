@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: guybo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 038259ad4e1c7c6623426f9476ea96d02043fbf9
+ms.sourcegitcommit: 657a249af1840e7bf0711d5ebbe6169258f085b1
+ms.openlocfilehash: 91553d6d3dad76ed256efed7182f0855f0ad10e5
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-virtual-machine-scale-set-using-visual-studio"></a>Implantar um conjunto de escala de máquina virtual usando o Visual Studio
+# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
 
 [Conjuntos de Escala de Máquina Virtual do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com opções facilmente integradas para escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Escala de VM usando os [Modelos do ARM (Azure Resource Manager)](https://github.com/Azure/azure-quickstart-templates). Os Modelos do ARM podem ser implantados usando a CLI do Azure, o PowerShell, o REST e também diretamente no Visual Studio. O Visual Studio fornece um conjunto de Modelos de exemplo que podem ser implantados como parte de um projeto de Implantação do Grupo de Recursos do Azure.
@@ -95,9 +97,4 @@ Depois de implantar com êxito os Conjuntos de Escala de VM por meio do Visual S
 [edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
 [output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
 [cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

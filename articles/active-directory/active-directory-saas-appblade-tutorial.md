@@ -121,7 +121,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     a. Clique em **Baixar metadados**e salve o arquivo no computador.
    
     b. Clique em **Avançar**.
-2. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do AppBlade usando **support@appblade.com** e anexe o arquivo de metadados baixado ao email. Além disso, peça para configurar a **URL do Emissor de SSO** como **https://appblade.com/saml**.. Essa configuração é necessária para que o logon único funcione.
+2. Para obter o SSO configurado para o seu aplicativo, entre em contato com sua equipe de suporte do AppBlade usando **support@appblade.com** e anexe o arquivo de metadados baixado ao email. Além disso, peça para configurar a **URL do Emissor de SSO** como **https://appblade.com/saml** Essa configuração é necessária para que o logon único funcione.
 3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]

@@ -1,10 +1,10 @@
 ---
-title: "Otimizar seu ambiente com a solução System Center Operations Manager no Log Analytics| Microsoft Docs"
+title: Otimizar seu ambiente do System Center Operations Manager com o Azure Log Analytics | Microsoft Docs
 description: "Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor em intervalos regulares."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 45ba55083ecca1995e343dc1da1497df43f70e10
-ms.openlocfilehash: 90fb374e8c1712b5fc1e94979999da6a8c400f68
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: f812ff8fb2b32f89e24d640e0eae8f2da9858a18
+ms.lasthandoff: 02/28/2017
 
 
 ---
 
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution-in-log-analytics"></a>Otimizar seu ambiente com a solução System Center Operations Manager Assessment (Visualização) no Log Analytics
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Assessment (Prévia)
 
-Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor System Center Operations Manager em intervalos regulares. Este artigo ajuda você a instalar, configurar e usar a solução para que possa tomar ações corretivas para os problemas em potencial. 
+Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor System Center Operations Manager em intervalos regulares. Este artigo ajuda você a instalar, configurar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
 
 Esta solução fornece uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. As recomendações são categorizadas em quatro áreas de foco, que ajudam você a entender rapidamente o risco e a tomar uma ação corretiva.
 
@@ -43,12 +45,17 @@ A solução funciona com o Microsoft System Operations Manager 2012 R2 e 2012 SP
 
 Use as informações a seguir para instalar e configurar a solução.
 
-- Um servidor de gerenciamento do Operations Manager de um grupo de Gerenciamento deve ser configurado para conectar o OMS. Para conectar o Servidor de Gerenciamento do Operations Manager ao OMS, consulte [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md#connecting-operations-manager-to-oms).
-    - Se você monitorar mais de um servidor de gerenciamento em um grupo de gerenciamento usando o grupo de Computadores gerenciado pelo OMS, verifique se a avaliação está configurada para ser executada em um servidor de gerenciamento. Para obter mais informações, consulte [Configurar a regra de avaliação](#configure-the-assessment-rule).
-- Antes de usar uma solução de avaliação no OMS, é necessário ter a solução instalada. Para ler mais sobre como instalar as soluções, confira [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
-- Ao usar o agente do Operations Manager com a avaliação do System Center Operations Manager, você precisará utilizar uma conta Executar Como do Operations Manager. Para obter mais informações, consulte [Contas para executar como do Operations Manager para OMS](#operations-manager-run-as-accounts-for-oms).
-    >[!NOTE]
-    Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado ao servidor do SCOM. Os dados de configuração são lidos e, em seguida, enviados para o serviço OMS na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
+ - Antes de usar uma solução de avaliação no OMS, é necessário ter a solução instalada. Para ler mais sobre como instalar as soluções, confira [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
+
+ - Após adicionar a solução ao espaço de trabalho, o bloco do System Center Operations Manager Assessment no painel exibirá a mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
+
+ ![Bloco do painel do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
+
+ A configuração do System Center Operations Manager pode ser feita por meio do script, seguindo as etapas mencionadas na página de configuração da solução no OMS.
+
+ Como alternativa, para configurar a avaliação por meio do Console do SCOM, siga as etapas abaixo na mesma ordem
+1. [Definir como conta Executar como para o System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
+2. [Configurar a regra do System Center Operations Manager Assessment](#configure-the-assessment-rule)
 
 # <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
 
@@ -58,7 +65,7 @@ A tabela a seguir mostra os métodos da coleta de dados do System Center Operati
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Sim](./media/log-analytics-scom-assessment/oms-bullet-green.png)  | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Sim](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | sete dias |
+| Windows |  ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![Sim](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![Não](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | sete dias |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
 
@@ -73,7 +80,11 @@ Use as informações a seguir para definir a conta executar como do Operations M
 3. Crie a Conta Executar Como, seguindo o Assistente, criando uma conta do Windows. A conta a usar é a identificada e tem todos os pré-requisitos abaixo:
 
     >[!NOTE]
-    A conta Executar Como deve atender aos seguintes requisitos: - um membro da conta do domínio do grupo de Administradores local em todos os servidores no ambiente (Todas as Funções do Operations Manager - Servidor de Gerenciamento, Banco de Dados OpsMgr, Data Warehouse, Relatórios, Console Web, Gateway) - Função de Administrador do Operations Manager para o grupo de gerenciamento sendo avaliado - função do SysAdmin em todos os SQL Servers ou instâncias usadas pelo Operations Manager
+    A conta Executar Como deve atender aos seguintes requisitos:
+    - Um membro da conta de domínio do grupo local de Administradores em todos os servidores no ambiente (todas as funções do Operations Manager – Servidor de Gerenciamento, Banco de Dados do OpsMgr, Data Warehouse, Relatórios, Console Web, Gateway)
+    - Função de Administrador do Operation Manager para o grupo de gerenciamento que está sendo avaliado
+    - Execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões granulares à conta na instância do SQL usada pelo Operations Manager.
+      Observação: se essa conta já tiver direitos sysadmin, ignore a execução do script.
 
 4. Em **Segurança da Distribuição**, selecione **Mais seguro**.
 5. Especifique o servidor de gerenciamento no qual a conta é distribuída.
@@ -82,7 +93,7 @@ Use as informações a seguir para definir a conta executar como do Operations M
 5. O nome do perfil deve ser: *Perfil para Executar Como do Microsoft System Center Advisor SCOM Assessment*.
 6. Clique com botão direito, atualize suas propriedades e adicione a Conta para Executar Como criada recentemente na etapa 3.
 
-### <a name="sql-script-granting-permissions-to-the-run-as-account"></a>Script SQL concedendo permissões à conta Executar Como
+### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões granulares à conta Executar Como
 
 Execute o seguinte script SQL para conceder as permissões necessárias para a conta Executar Como na instância do SQL usada pelo Operations Manager.
 
@@ -144,8 +155,8 @@ Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Adv
 1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a regra *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituições** > **Para um objeto específico da classe: Servidor de Gerenciamento**.
-4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.
-5.  Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.  
+4.    Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.
+5.    Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.  
     ![parâmetro de substituição](./media/log-analytics-scom-assessment/rule.png)
 
 Ainda nessa janela, configure a frequência da execução usando o procedimento a seguir.
@@ -277,9 +288,4 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Pesquise os logs](log-analytics-log-searches.md) para exibir dados detalhados e recomendações do System Center Operations Manager Assessment.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

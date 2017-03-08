@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42a2f5488bac192311cd0652286e45a2280032f2
-ms.openlocfilehash: 8bb2c8138d5f5ef76490e5439ba2427cbaf9b33d
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a412304c33d915be6e30c6b748c8431a9c7e9f34
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="overview-and-architecture-of-sap-hana-on-azure-large-instances"></a>Visão geral e arquitetura do SAP HANA no Azure (Instâncias Grandes)
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (instâncias grandes) no Azure 
 Este é um guia com cinco partes de arquitetura e implantação técnica que fornece informações para ajudar você a implantar o SAP no novo SAP HANA no Azure (Instâncias Grandes). Ele não é abrangente e não aborda detalhes específicos que envolvem instalação de soluções SAP. Em vez disso, fornece informações valiosas para ajudar com sua implantação inicial e as operações em andamento. Não o utilize para substituir a documentação do SAP relacionada à instalação do SAP HANA (nem as várias Notas de Suporte do SAP que abrangem o tópico). Ele também fornece detalhes sobre a instalação do SAP HANA no Azure (Instâncias Grandes).
 
 
@@ -358,10 +360,5 @@ A figura acima mostra como as diferentes redes virtuais do Azure em ambas as reg
 > [!IMPORTANT] 
 > Se forem usados vários circuitos do ExpressRoute, as configurações de prefixação do AS Path e de BGP de Preferência Local deverão ser usadas para garantir o roteamento apropriado do tráfego.
 
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

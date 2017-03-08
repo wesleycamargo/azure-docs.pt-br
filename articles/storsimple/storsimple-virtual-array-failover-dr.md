@@ -4,7 +4,7 @@ description: Saiba mais sobre como realizar failover em sua StorSimple Virtual A
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: d31f10f660dc05290363825c089664a70ecdd037
+ms.sourcegitcommit: 01acc0a5a6db7695d04d3adbf843826da5288025
+ms.openlocfilehash: 30b0aaa27be46ed581f56176fa3385273ff101c0
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Failover de dispositivo e a recuperação de desastre para sua StorSimple Virtual Array
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
 
 ## <a name="overview"></a>Visão geral
 Este artigo descreve a recuperação de desastre para a Matriz Virtual Microsoft Azure StorSimple, incluindo as etapas detalhadas para fazer failover para outra matriz virtual. Um failover permite que você mova os dados de um dispositivo de *origem* no datacenter para um dispositivo de *destino*. O dispositivo de destino pode estar localizado no mesmo local geográfico ou em um diferente. O failover de dispositivo é para todo o dispositivo. Durante o failover, a propriedade dos dados de nuvem para o dispositivo de origem é alterada para aquela do dispositivo de destino.
@@ -178,10 +180,5 @@ Se houver dispositivos StorSimple que foram registrados antes da ocorrência de 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
