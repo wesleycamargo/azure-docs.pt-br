@@ -2,6 +2,7 @@
 # Visão geral
 ## [O que são Serviços Cognitivos?](https://azure.microsoft.com/services/cognitive-services/)
 # Introdução
+## [Criar uma conta](cognitive-services-apis-create-account.md)
 ## [Início rápido da Análise de Texto](cognitive-services-text-analytics-quick-start.md)
 ## [Início rápido de recomendações](cognitive-services-recommendations-quick-start.md)
 
