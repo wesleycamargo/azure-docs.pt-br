@@ -12,35 +12,41 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/27/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 0b404af5b638ec2d543ce98b562b7df538652f70
-ms.openlocfilehash: 1f6fd5b4e10e2f94256f5a3dac7609265b1f2cc4
-
+ms.sourcegitcommit: 51338924f5c8eff4234c7d57f7efc0619316bb38
+ms.openlocfilehash: 157a5130755f2092d044f3361e4fb5bc3a7a1053
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="how-to-auto-scale-a-cloud-service"></a>Como dimensionar automaticamente um serviço de nuvem
+
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um Serviço de Nuvem no portal
 > [!div class="op_single_selector"]
 > * [Portal do Azure](cloud-services-how-to-scale-portal.md)
 > * [Portal clássico do Azure](cloud-services-how-to-scale.md)
-> 
-> 
 
-As condições podem ser definidas para uma função de trabalho de serviço de nuvem que dispara uma operação para reduzir ou escalar horizontalmente. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou da métrica de algum outro recurso do Azure associado à sua assinatura.
+As condições podem ser definidas para uma função de trabalho de serviço de nuvem que dispara uma operação para reduzir ou escalar horizontalmente. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou a métrica de algum outro recurso do Azure associado à sua assinatura.
 
 > [!NOTE]
 > Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-classic-configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e ligá-los ou desligá-los manualmente.
-> 
-> 
 
 ## <a name="considerations"></a>Considerações
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:
 
-* A colocação em escala é afetada pelo uso de núcleo. As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, se sua assinatura tem um limite de vinte núcleos e você executa um aplicativo com os dois serviços de nuvem de tamanho médio (um total de quatro núcleos), você só pode escalar verticalmente o dimensionamento de outras implantações do serviço de nuvem em sua assinatura em dezesseis núcleos. Para saber mais, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md) .
+* A colocação em escala é afetada pelo uso de núcleo.
+
+    As instâncias de função maiores usam mais núcleos. Você só pode dimensionar um aplicativo dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Ao executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de 4 núcleos), você poderá escalar verticalmente outras implantações de serviço de nuvem na sua assinatura pelo 16 núcleos restantes. Para saber mais sobre tamanhos, confira [Tamanhos do Serviço de Nuvem](cloud-services-sizes-specs.md).
+
 * Você pode dimensionar com base em um limite de mensagens da fila. Para obter mais informações sobre como usar as filas, confira [Como usar o serviço de Armazenamento de Filas](../storage/storage-dotnet-how-to-use-queues.md).
+
 * Você também pode dimensionar outros recursos associados à sua assinatura.
+
 * Para habilitar a alta disponibilidade do seu aplicativo, você deverá garantir que ele esteja implantado com duas ou mais instâncias de função. Para obter mais informações, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
+
+> [!WARNING]
+> O dimensionamento automático funciona apenas com Contas Clássicas de Armazenamento do Azure. Ele não funciona com Contas de Armazenamento do Azure Resource Manager.
+
 
 ## <a name="where-scale-is-located"></a>Onde a escala está localizada
 Após selecionar o serviço de nuvem, a folha de serviço de nuvem deverá estar visível.
@@ -90,7 +96,7 @@ O perfil define as instâncias mínimas e máximas da escala, e também quando e
 Depois de configurar o perfil, selecione o botão **OK** na parte inferior da folha de perfil.
 
 #### <a name="rule"></a>Regra
-As regras são adicionadas a um perfil e representam uma condição que disparará a escala. 
+As regras são adicionadas a um perfil e representam uma condição que dispara a escala. 
 
 O gatilho de regra se baseia em uma métrica do serviço de nuvem (utilização da CPU, atividade de disco ou atividade de rede) para a qual você pode adicionar um valor condicional. Além disso, o gatilho pode se basear em uma fila de mensagens ou na métrica de algum outro recurso do Azure associada à sua assinatura.
 
@@ -103,17 +109,12 @@ Navegue até as [configurações de escala](#where-scale-is-located) e defina a 
 
 ![Escala dos serviços de nuvem com perfil e regra](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Isso remove a colocação em escala automatizada da função. Em seguida, você poderá definir a contagem de instâncias diretamente. 
+Essa configuração remove o dimensionamento automático da função. Em seguida, você pode definir a contagem de instâncias diretamente. 
 
 1. A opção escala (manual ou automática).
 2. Um controle deslizante da instância de função para definir as instâncias para dimensionar.
 3. Instâncias da função para dimensionar.
 
 Depois de definir as configurações de escala, selecione o ícone **Salvar** na parte superior.
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

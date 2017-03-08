@@ -4,7 +4,7 @@ description: "Visão geral da arquitetura da topologia de rede dos Ambientes de 
 services: app-service
 documentationcenter: 
 author: stefsch
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.service: app-service
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a5fdbc73f5d30c8dacfb8f7039bf70a450ea251
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: b2afe86d8774b449a257312d4e60b5f6125336ca
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Visão geral da arquitetura de rede dos Ambientes de Serviço de Aplicativo
 ## <a name="introduction"></a>Introdução
-Os Ambientes de Serviço de Aplicativo sempre são criados em uma sub-rede de uma [rede virtual][virtualnetwork] - Aplicativos em execução em um Ambiente de Serviço de Aplicativo podem se comunicar com pontos de extremidade privados localizados na mesma topologia de rede virtual.  Uma vez que os clientes podem bloquear partes da respectiva infraestrutura de rede virtual, é importante entender os tipos de fluxo de comunicação de rede que ocorrem com um Ambiente de Serviço de Aplicativo.
+Os Ambientes do Serviço de Aplicativo sempre são criados em uma sub-rede de uma [rede virtual][virtualnetwork]. Aplicativos em execução em um Ambiente do Serviço de Aplicativo podem se comunicar com pontos de extremidade privados localizados na mesma topologia de rede virtual.  Uma vez que os clientes podem bloquear partes da respectiva infraestrutura de rede virtual, é importante entender os tipos de fluxo de comunicação de rede que ocorrem com um Ambiente de Serviço de Aplicativo.
 
 ## <a name="general-network-flow"></a>Fluxo de rede geral
-Quando um Ambiente de Serviço de Aplicativo (ASE) usa um endereço IP virtual (VIP) público para aplicativos, todo o tráfego de entrada chega nesse VIP público.  Isso inclui o tráfego HTTP e HTTPS para aplicativos, bem como outro tráfego para FTP, funcionalidade de depuração remota e operações de gerenciamento do Azure.  Para obter uma lista completa de portas específicas (necessárias e opcionais) que estão disponíveis no VIP público, veja o artigo sobre [Como controlar o tráfego de entrada][controllinginboundtraffic] para um Ambiente de Serviço de Aplicativo. 
+Quando um Ambiente de Serviço de Aplicativo (ASE) usa um endereço IP virtual (VIP) público para aplicativos, todo o tráfego de entrada chega nesse VIP público.  Isso inclui o tráfego HTTP e HTTPS para aplicativos, bem como outro tráfego para FTP, funcionalidade de depuração remota e operações de gerenciamento do Azure.  Para obter uma lista completa de portas específicas (necessárias e opcionais) que estão disponíveis no VIP público, confira o artigo sobre [Como controlar o tráfego de entrada][controllinginboundtraffic] para um Ambiente do Serviço de Aplicativo. 
 
 Os Ambientes de Serviço de Aplicativo também dão suporte a aplicativos em execução que são associados apenas a um endereço interno de rede virtual, também conhecido como endereço ILB (balanceador de carga interno).  Em um ASE habilitado para ILB, o tráfego HTTP e HTTPS para aplicativos, bem como as chamadas remotas de depuração, chegam no endereço ILB.  Para as configurações mais comuns de ILB-ASE, o tráfego de FTP/FTPS também chegará no endereço ILB.  No entanto, as operações de gerenciamento do Azure continuarão fluindo para as portas 454/455 do VIP público em ASE habilitado para ILB.
 
@@ -42,9 +43,9 @@ Um Ambiente de Serviço de Aplicativo pode se comunicar com uma variedade de pon
 
 Os Ambientes de Serviço de Aplicativo também se comunicam com recursos do Banco de Dados SQL e Armazenamento do Azure necessários para gerenciar e operar um Ambiente de Serviço de Aplicativo.  Alguns dos recursos do SQL e Armazenamento com os quais o Ambiente de Serviço de Aplicativo se comunica estão localizados na mesma região do Ambiente de Serviço de Aplicativo, enquanto outros estão localizados em regiões remotas do Azure.  Consequentemente, a conectividade de saída com a Internet sempre é exigida para que um Ambiente de Serviço de Aplicativo funcione corretamente. 
 
-Uma vez que o Ambiente de Serviço de Aplicativo é implantado em uma sub-rede, os grupos de segurança de rede podem ser usados para controlar o tráfego de entrada para a sub-rede.  Para obter detalhes sobre como controlar o tráfego de entrada para um Ambiente de Serviço de Aplicativo, veja este [artigo][controllinginboundtraffic].
+Uma vez que o Ambiente de Serviço de Aplicativo é implantado em uma sub-rede, os grupos de segurança de rede podem ser usados para controlar o tráfego de entrada para a sub-rede.  Para obter detalhes sobre como controlar o tráfego de entrada para um Ambiente do Serviço de Aplicativo, consulte o [artigo][controllinginboundtraffic] a seguir.
 
-Para obter detalhes sobre como permitir a conectividade de saída da Internet de um Ambiente de Serviço de Aplicativo, veja o seguinte artigo sobre como trabalhar com o [ExpressRoute][ExpressRoute].  A mesma abordagem descrita no artigo se aplica ao trabalhar com conectividade site a site e usar túnel forçado.
+Para obter detalhes sobre como permitir a conectividade de saída da Internet de um Ambiente do Serviço de Aplicativo, consulte o seguinte artigo sobre como trabalhar com o [ExpressRoute][ExpressRoute].  A mesma abordagem descrita no artigo se aplica ao trabalhar com conectividade site a site e usar túnel forçado.
 
 ## <a name="outbound-network-addresses"></a>Endereços de rede de saída
 Quando um Ambiente de Serviço de Aplicativo faz chamadas de saída, um endereço IP sempre é associado às chamadas de saída.  O endereço IP específico que é usado depende de onde o ponto de extremidade que está sendo chamado está localizado, se dentro ou fora da topologia de rede virtual.
@@ -82,9 +83,9 @@ Embora chamadas entre diferentes Ambientes de Serviço de Aplicativo sejam trata
 ## <a name="additional-links-and-information"></a>Informações e links adicionais
 Todos os artigos e os Como fazer para Ambientes de Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes de Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
-Os detalhes sobre as portas de entrada usadas pelos Ambientes de Serviço de Aplicativo e como usar grupos de segurança de rede para controlar o tráfego de entrada estão disponíveis [aqui][controllinginboundtraffic].
+Os detalhes sobre as portas de entrada usadas pelos Ambientes do Serviço de Aplicativo e como usar grupos de segurança de rede para controlar o tráfego de entrada estão disponíveis [aqui][controllinginboundtraffic].
 
-Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à Internet de saída aos Ambientes de Serviço de Aplicativo estão disponíveis neste [artigo][ExpressRoute]. 
+Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso à Internet de saída aos Ambientes do Serviço de Aplicativo estão disponíveis neste [artigo][ExpressRoute]. 
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
@@ -96,10 +97,5 @@ Os detalhes sobre como usar rotas definidas pelo usuário para conceder acesso �
 [OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
-ms.openlocfilehash: 62d1a275252b17ae2b9870b281e1dd91239cae5f
-
+ms.sourcegitcommit: 8eeeef0bb33b5b8ed265532d160829c076190fc4
+ms.openlocfilehash: 91c4550f9caadc790d1b6aea8f037e2089ebec3c
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="access-and-security-in-azure-resource-manager-templates"></a>Acesso e segurança em modelos do Azure Resource Manager
+# <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>Acesso e segurança em modelos do Azure Resource Manager para VMs Windows
+
 Aplicativos hospedados no Azure provavelmente precisam ser acessados pela Internet ou por uma VPN/conexão de rota expressa com o Azure. Com o exemplo de aplicativo de Loja de Música, o site da Web é disponibilizado na Internet com um endereço IP público. Com acesso estabelecido, as conexões com o aplicativo e o acessa aos recursos de máquina virtual devem ser protegidos. Essa segurança de acesso é fornecida com um Grupo de Segurança de Rede. 
 
 Este documento fornece detalhes sobre como o aplicativo de Loja de Música é protegido no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -139,10 +141,5 @@ Para obter informações detalhadas sobre grupos de segurança de rede, leia [O 
 <hr>
 
 [Etapa 3 – Disponibilidade e escala em modelos do Azure Resource Manager](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

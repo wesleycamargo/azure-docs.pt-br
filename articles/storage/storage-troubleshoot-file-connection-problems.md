@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 1753096f376d09a1b5f2a6b4731775ef5bf6f5ac
-ms.openlocfilehash: 4f66de2fe4b123e208413ade436bb66b9a03961b
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
+ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -246,13 +246,15 @@ Isso pode ocorrer quando o comando mount não inclui a opção **serverino**. Se
 ### <a name="solution"></a>Solução
 Verifique o **serverino** na sua entrada "/etc/fstab":
 
-`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,cache=none,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
+`//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Você também pode verificar se essa opção está sendo usada, apenas executando o comando **sudo mount | grep cifs** e verificando sua saída:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=none,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
 Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure novamente fazendo com que a opção **serverino** esteja selecionada.+
+
+Outro motivo para o desempenho lento poderia ser o caching desabilitado. Para verificar se o caching está habilitado, procure "cache=".  *cache=none* indica que o caching está desabilitado. Remonte o compartilhamento com o comando de montagem padrão ou adicionado explicitamente a opção **cache=strict** ao comando de montagem para garantir que o modo de caching "strict" ou caching padrão seja habilitado.
 
 <a id="error112"></a>
 ## <a name="error-112---timeout-error"></a>Erro 112 - erro de tempo limite
@@ -263,9 +265,10 @@ Esse erro indica que as falhas de comunicação que impedem a restabelecer uma c
 
 Esse erro pode ser causado por uma Linux reconectar-se o problema ou outros problemas que impedem a reconexão, como erros de rede. Especificando uma montagem de disco rígida será forçar o cliente a esperar até que uma conexão é estabelecida ou interrompida explicitamente e pode ser usada para evitar erros devido a tempos limite de rede. No entanto, os usuários devem estar cientes de que isso pode levar a esperas indefinidas e deve tratar a interrupção de uma conexão conforme necessário.
 
+
 ### <a name="workaround"></a>Solução alternativa
 
-Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, mantenha um arquivo no compartilhamento de arquivos do Azure para o qual você escreve a cada 30 segundos ou menos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão.
+Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, mantenha um arquivo no compartilhamento de arquivos do Azure para o qual você escreve a cada 30 segundos ou menos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão. Esta é a lista de kernels populares do Linux que têm essa e outras correções de reconexão: 4.4.40+ 4.8.16+ 4.9.1+
 
 <a id="webjobs"></a>
 

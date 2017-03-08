@@ -16,8 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2017
 ms.author: kyliel
 translationtype: Human Translation
-ms.sourcegitcommit: 71ad04b10bc49500197db6fecdcc0305a1ea0dd2
-ms.openlocfilehash: ecb1c385de6c1b12674326afe7d5a0ebf6cd9ad0
+ms.sourcegitcommit: 8c96cacadb34a3d4eca1fe523d8a159c69a0ebe3
+ms.openlocfilehash: 01c855972d66d8ae2e975b206791ab8f9abcec41
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -83,16 +84,9 @@ Depois de fazer logon usando essa conta de usuário, você poderá executar coma
 Opcionalmente, é possível obter um shell root usando `sudo -s`.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-1. Atualmente, há um problema pendente com o FreeBSD 11.0 no Hyper-V (e no Azure) que poderá causar uma falha de inicialização nas VMs se o sistema operacional for corrigido com `freebsd-update`. O [patch proposto](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) está incluso nas imagens do FreeBSD no Azure Marketplace. Entretanto, o patch não foi combinado pela equipe do FreeBSD. Então executar `freebsd-update` substitui o kernel por um que não foi corrigido. É recomendável que os usuários no Azure não instalem patches para o FreeBSD 11.0 até que a correção seja publicada como uma ERRATA.
-
-2. O [Agente convidado da VM Azure](https://github.com/Azure/WALinuxAgent/) versão 2.2.2 tem um [problema conhecido] (https://github.com/Azure/WALinuxAgent/pull/517) que causa a falha de provisionamento da VM do FreeBSD no Azure. É recomendável que os usuários da VM do FreeBSD no Azure usem a versão 2.2.1 ou versões anteriores. A correção será capturada pelo [Agente convidado da VM Azure](https://github.com/Azure/WALinuxAgent/) versão 2.2.3. 
+1. O [Agente convidado da VM Azure](https://github.com/Azure/WALinuxAgent/) versão 2.2.2 tem um [problema conhecido] (https://github.com/Azure/WALinuxAgent/pull/517) que causa a falha de provisionamento da VM do FreeBSD no Azure. A correção foi capturada pelo [Agente Convidado da VM do Azure](https://github.com/Azure/WALinuxAgent/) versão 2.2.3 e versões posteriores. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Acesse o [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para criar uma VM FreeBSD.
 * Se você quiser levar seu próprio FreeBSD para o Azure, veja [Criar e carregar um VHD FreeBSD no Azure](./virtual-machines-linux-classic-freebsd-create-upload-vhd.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

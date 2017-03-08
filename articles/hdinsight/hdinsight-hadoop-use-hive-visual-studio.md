@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 067725ee5f303fc21baa3204509e8facd6f216fc
+ms.sourcegitcommit: 8b35b5c49141ba90e65b4e07b1e67ae5315a087a
+ms.openlocfilehash: 18447962966eca67e914d0bd8cd6c25c5f2ccc3b
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -25,14 +26,11 @@ ms.openlocfilehash: 067725ee5f303fc21baa3204509e8facd6f216fc
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Nesse artigo, você aprenderá a enviar remotamente consultas de Hive para um cluster HDInsight, usando para isso as ferramentas de HDInsight para o Visual Studio.
+Saiba como enviar consultas do Hive para um cluster HDInsight usando as ferramentas do HDInsight para o Visual Studio.
 
-> [!NOTE]
-> Esse documento não fornece uma descrição detalhada do que fazem as instruções HiveQL usadas nos exemplos. Para obter informações sobre o HiveQL usado neste exemplo, consulte [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
+## <a id="prereq"></a>Pré-requisitos
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
-
-Para concluir as etapas neste artigo, você precisará do seguinte.
+Para concluir as etapas deste artigo, você precisa do seguinte.
 
 * Um cluster Azure HDInsight (Hadoop no HDInsight)
 
@@ -47,70 +45,78 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Ferramentas do HDInsight para Visual Studio ou ferramentas do Azure Data Lake para Visual Studio. Confira [Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
-## <a name="a-idruna-run-hive-queries-using-the-visual-studio"></a><a id="run"></a> Executar consultas Hive usando o Visual Studio
+## <a id="run"></a> Executar consultas Hive usando o Visual Studio
 
 1. Abra o **Visual Studio** e selecione **Novo** > **Projeto** > **Azure Data Lake** > **HIVE** > **Aplicativo Hive**. Forneça um nome para esse projeto.
 
 2. Abra o arquivo **Script.hql** criado com esse projeto e cole as seguintes instruções HiveQL:
-   
-        set hive.execution.engine=tez;
-        DROP TABLE log4jLogs;
-        CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+
+   ```hiveql
+   set hive.execution.engine=tez;
+   DROP TABLE log4jLogs;
+   CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+   STORED AS TEXTFILE LOCATION '/example/data/';
+   SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+   ```
    
     As instruções executam as seguintes ações:
    
-   * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * `DROP TABLE`: se a tabela existir, esta instrução a excluirá.
 
-   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
+   * `CREATE EXTERNAL TABLE`: cria uma nova tabela 'externa' no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
      
      > [!NOTE]
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
      > 
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
-   * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
 
-   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
+   * `SELECT`: seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
 
-   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
+   * `INPUT__FILE__NAME LIKE '%.log'`: informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Essa cláusula restringe a pesquisa para o arquivo sample.log que contém os dados.
 
-3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar para essa consulta e selecione **Enviar ao WebHCat** para executar as instruções como um trabalho hive usando o WebHCat. Você também poderá enviar o trabalho usando o botão **Executar via HiveServer2** , se o HiveServer2 estiver disponível na versão do seu cluster. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
+3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar nessa consulta. Selecione **Enviar** para executar as instruções como um trabalho do Hive.
 
-4. Use o link **Saída de Trabalho** para exibir a saída desse trabalho. Ela deve exibir `[ERROR] 3`, que é o valor retornado pela instrução SELECT.
+   ![Barra de envio](./media/hdinsight-hadoop-use-hive-visual-studio/toolbar.png)
 
-5. Você também pode executar consultas Hive sem criar um projeto. Usando o **Gerenciador de Servidores**, expanda **Azure** > **HDInsight**, clique com o botão direito do mouse no seu servidor do HDInsight e selecione **Escrever uma Consulta de Hive**.
+4. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
 
-6. No documento **temp.hql** que aparece, adicione as seguintes instruções HiveQL:
+   ![resumo do trabalho exibindo um trabalho concluído](./media/hdinsight-hadoop-use-hive-visual-studio/jobsummary.png)
+
+5. Use o link **Saída de Trabalho** para exibir a saída desse trabalho. Ele exibe `[ERROR] 3`, que é o valor retornado por essa consulta.
+
+6. Você também pode executar consultas Hive sem criar um projeto. Usando o **Gerenciador de Servidores**, expanda **Azure** > **HDInsight**, clique com o botão direito do mouse no seu servidor do HDInsight e selecione **Escrever uma Consulta de Hive**.
+
+7. No documento **temp.hql** que aparece, adicione as seguintes instruções HiveQL:
    
-        set hive.execution.engine=tez;
-        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-   
+   ```hiveql
+   set hive.execution.engine=tez;
+   CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+   INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+   ```
+
     As instruções executam as seguintes ações:
    
-   * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
+   * `CREATE TABLE IF NOT EXISTS`: cria uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
      
      > [!NOTE]
-     > Diferentemente de tabelas **EXTERNAS** , o descarte de uma tabela interna excluirá também os dados subjacentes.
+     > Ao contrário das tabelas `EXTERNAL`, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
-   * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * `STORED AS ORC`: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
-   * **INSERT OVERWRITE ... SELECT**: seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
+   * `INSERT OVERWRITE ... SELECT`: seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
 
-7. Na barra de ferramentas, selecione no menu suspenso de **Enviar** para executar o trabalho. Use o **Status do Trabalho** para determinar se o trabalho foi concluído com êxito.
+8. Na barra de ferramentas, selecione no menu suspenso de **Enviar** para executar o trabalho. Use o **Status do Trabalho** para determinar se o trabalho foi concluído com êxito.
 
-8. Para verificar se o trabalho concluído e criado uma nova tabela, use **Gerenciador de Servidores** e expanda **Azure** > **HDInsight** > seu cluster HDInsight > **Bancos de Dados do Hive** > e **padrão**. Você deve ver as tabelas **errorLogs** e **log4jLogs**.
+9. Para verificar se o trabalho criou uma nova tabela, use o **Gerenciador de Servidores** e expanda **Azure** > **HDInsight** > seu cluster HDInsight > **Bancos de Dados do Hive** > **padrão**. As tabelas **errorLogs** e **log4jLogs** são listadas.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+## <a id="nextsteps"></a>Próximas etapas
 
-Como você pode ver, as ferramentas do HDInsight do Visual Studio fornecem uma maneira fácil de executar consultas Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
-
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+Como você pode ver, as ferramentas do HDInsight para o Visual Studio fornecem uma maneira fácil de trabalhar com as consultas do Hive no HDInsight.
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
@@ -156,9 +162,4 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

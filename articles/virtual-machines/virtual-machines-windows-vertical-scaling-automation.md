@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 915320ed4a7d9e86a7a9b29dff5c0addfb95f4c0
+ms.sourcegitcommit: 0a888f945a39a8bb88a730a226af6ec21d133f44
+ms.openlocfilehash: 0075160ea9c0dae991fc2344c46d216a8203bec3
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="vertically-scale-azure-virtual-machines-with-azure-automation"></a>Dimensionar verticalmente máquinas virtuais do Azure com a Automação do Azure
+# <a name="how-to-vertically-scale-virtual-machines-with-azure-automation"></a>Como dimensionar verticalmente máquinas virtuais com a Automação do Azure
 A escala vertical é o processo de aumentar ou diminuir os recursos de um computador em resposta à carga de trabalho. No Azure, isso pode ser feito alterando o tamanho da máquina virtual. Isso pode ajudar nos cenários a seguir
 
 * Se a máquina virtual não está sendo usado com frequência, você pode redimensioná-la para um tamanho menor, a fim de reduzir os custos mensais
@@ -89,10 +91,5 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 ![Adicionar alerta à máquina virtual 1](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![Adicionar alerta à máquina virtual 2](./media/virtual-machines-vertical-scaling-automation/add-alert-webhook-2.png)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

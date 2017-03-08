@@ -4,7 +4,7 @@ description: "Descreve as condições de alerta e gravidade da Matriz Virtual St
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ae076d52b532f5181868b2ab24ee8f2ffa887af7
-ms.openlocfilehash: 33b14d56b8d3622ba4e7bfb553e86055e57362fb
+ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
+ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o serviço Gerenciador de Dispositivo do StorSimple para exibir e gerenciar alertas para a Matriz Virtual do StorSimple
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
 ## <a name="overview"></a>Visão geral
 
@@ -142,8 +144,8 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| O backup de <*nome do dispositivo*> não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo que a operação de backup seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>  Resolva os problemas, limpe o alerta e repita a operação. |
-| A clonagem de <*nome do dispositivo*> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
+| O backup de <*nome do dispositivo*> não pôde ser concluído. |Falha no trabalho de backup. |Não foi possível criar um backup. Considere o seguinte:<ul><li>Problemas de conectividade podem estar impedindo que a operação de backup seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade. Para obter mais informações sobre solução de problemas de conectividade, vá para a [interface do usuário da Web local](storsimple-ova-web-ui-admin.md) do seu dispositivo virtual.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul> Resolva os problemas, limpe o alerta e repita a operação. |
+| A clonagem de <*nome do dispositivo*> não pôde ser concluída. |Falha no trabalho de clonagem. |Não foi possível criar um clone. Considere o seguinte:<ul><li>sua lista de backup pode não ser válida. Atualize a lista para verificar se ela ainda é válida.</li><li>Problemas de conectividade podem estar impedindo que a operação de clonagem seja concluída com êxito. Certifique-se de que não haja nenhum problema de conectividade.</li><li>Você atingiu o limite de armazenamento disponível. Para liberar espaço, considere a exclusão de todos os backups que não são mais necessários.</li></ul>Resolva os problemas, limpe o alerta e repita a operação. |
 
 ### <a name="performance-alerts"></a>Alertas de desempenho
 
@@ -168,10 +170,5 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre o StorSimple Virtual Array](storsimple-ova-overview.md).
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

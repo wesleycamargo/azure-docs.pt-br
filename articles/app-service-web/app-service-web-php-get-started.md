@@ -4,7 +4,7 @@ description: "Um tutorial que mostra como executar um aplicativo Web PHP (Larave
 services: app-service\web
 documentationcenter: php
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 tags: mysql
 ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 487fde71fb28d5ee4666be208d3acfc0de27bed9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -43,7 +44,7 @@ Você pode aplicar o que aprendeu aqui para outros aplicativos Web PHP que impla
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-php-get-started-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (Visualização)](app-service-web-php-get-started.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI 2.0 do Azure](app-service-web-php-get-started.md) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [PHP 7.0](http://php.net/downloads.php)
@@ -274,10 +275,5 @@ Saiba como adicionar dados ao aplicativo [criando um banco de dados MySQL no Azu
 * [Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure](web-sites-php-configure.md)
 * [Converter WordPress em Multissite no Serviço de Aplicativo do Azure](web-sites-php-convert-wordpress-multisite.md)
 * [WordPress de classe empresarial no Serviço de Aplicativo do Azure](web-sites-php-enterprise-wordpress.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 
