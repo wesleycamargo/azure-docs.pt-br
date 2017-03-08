@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Usar o SDK do Lote do Azure para Python | Microsoft Docs
-description: "Saiba mais sobre os conceitos básicos do Lote do Azure e sobre como desenvolver para o serviço Lote com um cenário simples"
+description: "Aprenda os conceitos básicos do Lote do Azure e crie uma solução simples usando o Python."
 services: batch
 documentationcenter: python
 author: tamram
@@ -12,15 +12,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/01/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 02f68c743f18fa691afdd5ff02f427b89d28c663
-ms.openlocfilehash: 146eaea2bf523ff6e7d9024205e47965fa2e0413
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 4dc9491f3645b071640262af3f1ffcb480cfabef
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="get-started-with-the-azure-batch-python-client"></a>Introdução ao cliente Python do Lote do Azure
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Introdução ao SDK do Lote para Python
+
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -705,9 +708,4 @@ Agora que você está familiarizado com o fluxo de trabalho básico de uma solu�
 [9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Credenciais do Lote no Portal"
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Credenciais do Armazenamento no Portal"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Fluxo de trabalho da solução do Lote (diagrama mínimo)"
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

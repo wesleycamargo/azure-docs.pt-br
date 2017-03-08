@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
 ms.sourcegitcommit: 1c4045bd9b705ab3e909a06035f27b85635fdf36
@@ -110,8 +110,8 @@ Você pode ter casos de uso de implantação nos quais precisa de alguns dos rec
 
 > [!NOTE]
 > Você pode determinar se uma opção de DIY é mais adequada para seus casos de uso de implantação. Considere [compartilhar comentários](active-directory-ds-contact-us.md) para nos ajudar a entender quais recursos ajudariam você a escolher os Azure AD Domain Services no futuro. Esses comentários nos ajudam a desenvolver o serviço a fim de atender melhor às suas necessidades de implantação e casos de uso.
-> 
-> 
+>
+>
 
 Publicamos [Diretrizes para implantação do Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) para facilitar as instalações DIY.
 
@@ -119,5 +119,4 @@ Publicamos [Diretrizes para implantação do Windows Server Active Directory em 
 * [Recursos – Azure AD Domain Services](active-directory-ds-features.md)
 * [Cenários de implantação – Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
 

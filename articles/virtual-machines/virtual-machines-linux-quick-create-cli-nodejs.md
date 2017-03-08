@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Linux usando a CLI ddo Azure | Microsoft Docs
-description: Criar uma VM do Linux no Azure usando a CLI do Azure para NodeJs.
+title: Criar uma VM Linux usando a CLI 1.0 do Azure | Microsoft Docs
+description: Criar uma VM Linux no Azure usando a CLI 1.0 do Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -9,23 +9,24 @@ editor:
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 2c37d5186e169789881a4b29597cb37cd6f7ede9
-ms.openlocfilehash: dc5c575873ceb2acc8321b949031276d9a8f8cc8
+ms.sourcegitcommit: a0d80ae5a4fe5af6f46e97a8f5d9a0c0715361b8
+ms.openlocfilehash: 5643a7f792cdfd1a445e69ac18b149a736951991
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli"></a>Criar uma VM do Linux usando a CLI do Azure
+# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Criar uma VM Linux usando a CLI do Azure 1.0
 
 Este artigo mostra como implantar rapidamente uma nova VM (máquina virtual) no Azure usando o comando `azure vm quick-create` na CLI (interface de linha de comando) do Azure. O comando `quick-create` implanta uma VM em uma infraestrutura básica e protegida que você pode usar para criar um protótipo ou testar um conceito rapidamente.
 
 > [!NOTE]
-Para criar uma VM usando a CLI do Azure 2.0 (Visualização), consulte [Criar uma VM com a CLI do Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para criar uma VM usando a CLI do Azure 2.0, consulte [Criar uma VM com a CLI do Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 O artigo exige:
 
@@ -211,9 +212,4 @@ O comando `azure vm quick-create` é a maneira de implantar rapidamente uma VM p
 * [Criar uma VM do Linux Protegida por SSH no Azure usando modelos](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Você também pode [usar o driver do Azure `docker-machine` com vários comandos para criar rapidamente uma VM do Linux como um host do docker](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

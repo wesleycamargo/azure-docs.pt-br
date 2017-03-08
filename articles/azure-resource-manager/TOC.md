@@ -36,8 +36,6 @@
 ### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
-### [Vincular recursos relacionados](resource-group-link-resources.md)
-### [Gerenciador de Recursos do Azure](resource-manager-resource-explorer.md)
 ## Controlar Acesso
 ### [Criar entidade de serviço com o PowerShell](resource-group-authenticate-service-principal.md)
 ### [Criar entidade de serviço com a CLI do Azure](resource-group-authenticate-service-principal-cli.md)

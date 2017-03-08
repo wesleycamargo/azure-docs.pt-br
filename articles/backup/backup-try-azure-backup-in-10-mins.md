@@ -1,5 +1,5 @@
 ---
-title: "Fazer backup de arquivos e pastas do Windows para o Azure com o Backup do Azure usando o modelo de implantação do Azure Resource Manager | Microsoft Docs"
+title: Fazer backup de arquivos e pastas do Windows no Azure (Resource Manager) | Microsoft Docs
 description: "Saiba como fazer backup de arquivos e pastas do Windows no Azure em uma implantação do Resource Manager."
 services: backup
 documentationcenter: 
@@ -13,11 +13,12 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 2/10/2017
+ms.date: 2/23/2017
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: cdccfe1215bb8f62381c73becdc9d90f45800966
-ms.openlocfilehash: 337e1101fe044f22d6389b83b79794560b84f273
+ms.sourcegitcommit: b188affca609dd5ff3aa0d2cba3ec81c1c91888f
+ms.openlocfilehash: 916a4e837d003a73a1801dd25b8ebfbfdcd86312
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -26,17 +27,6 @@ Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou
 
 Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](backup-introduction-to-azure-backup.md).
 
-O backup de arquivos e de pastas no Azure exige estas atividades:
-
-![Etapa 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obter uma assinatura do Azure (caso você ainda não tenha uma).<br>
-![Etapa 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Criar um cofre dos Serviços de Recuperação.<br>
-![Etapa 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Baixar os arquivos necessários.<br>
-![Etapa 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar e registrar o agente dos Serviços de Recuperação.<br>
-![Etapa 5](./media/backup-try-azure-backup-in-10-mins/step-5.png): fazer backup de arquivos e de pastas.
-
-![Como fazer backup de um computador Windows com o Backup do Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
-
-## <a name="get-an-azure-subscription"></a>Obter uma assinatura do Azure
 Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) , que permitirá o acesso a qualquer serviço do Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
@@ -70,6 +60,7 @@ Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Ser
   Para obter informações completas sobre Grupos de recursos, confira a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Clique em **Local** para selecionar a região geográfica do cofre. Essa escolha determina a região geográfica para a qual os dados de backup são enviados.
+
 8. Na parte inferior da folha Cofre dos Serviços de Recuperação, clique em **Criar**.
 
     Talvez demore alguns minutos para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita do portal. Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação. Se após alguns minutos, você não vir seu cofre, clique em **Atualizar**.
@@ -229,9 +220,4 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 * Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-configure-vault.md).
 * Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do serviço de Lote do Azure | Microsoft Docs"
+title: "O Lote do Azure executa soluções de computação paralela em larga escala na nuvem | Microsoft Docs"
 description: "Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala."
 services: batch
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3a01764b6a0e777e947cf8648606cdd568d118ff
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="basics-of-azure-batch"></a>Noções básicas de Lote do Azure
+# <a name="run-intrinsically-parallel-workloads-with-batch"></a>Executar cargas de trabalho intrinsecamente paralelas com o Lote
+
 O Lote do Azure é um serviço de plataforma para execução de aplicativos paralelos em grande escala e aplicativos HPC (computação de alto desempenho) com eficiência na nuvem. O Lote do Azure agenda o trabalho de computação intensiva para executar em uma coleção gerenciada de máquinas virtuais e que pode dimensionar automaticamente os recursos de computação para atender às necessidades dos trabalhos.
 
 Com o Lote do Azure, você pode definir facilmente os recursos de computação do Azure para executar os aplicativos em paralelo e em escala. Não é necessário criar, configurar e gerenciar manualmente um cluster HPC, máquinas virtuais, redes virtuais ou um trabalho e infraestrutura de agendamento de tarefas complexos. O Lote do Azure automatiza ou simplifica essas tarefas para você.
@@ -156,9 +159,4 @@ Agora que você já viu uma visão geral de alto nível do serviço Lote, é hor
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

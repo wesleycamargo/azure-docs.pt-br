@@ -4,7 +4,7 @@ description: "Saiba como implantar um aplicativo do Node.js no Serviço de Aplic
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 08b4cd3fe4a246bc62fb4a6cc596630968d7f9d7
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 9d43405539ced1dadcaa0cb11bb0c3dd42dee2b9
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -39,7 +40,7 @@ Você deve ter conhecimento prático de Sails.js. Este tutorial não se destina 
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure 1.0](app-service-web-nodejs-sails-cli-nodejs.md) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI do Azure 2.0 (Visualização)](app-service-web-nodejs-sails.md) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure 2.0](app-service-web-nodejs-sails.md) – nossa próxima geração de CLI para o modelo de implantação do resource manager
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Node.js](https://nodejs.org/)
@@ -258,9 +259,4 @@ Para se conectar a um banco de dados no Azure, crie o banco de dados de sua esco
 ## <a name="more-resources"></a>Mais recursos
 * [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-nodejs-get-started.md)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

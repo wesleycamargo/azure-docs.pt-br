@@ -11,11 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2016
+ms.date: 02/13/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
+ms.sourcegitcommit: c800f6e7b6bd1e17165146f981e32a8cbb251e3c
+ms.openlocfilehash: af4343dbe23f314a85c98d7337f42c4b60b03c6a
+ms.lasthandoff: 02/15/2017
 
 
 ---
@@ -29,11 +30,11 @@ Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou H
 Há dois tipos de teste da Web:
 
 * [Teste de ping de URL](#create): um teste simples que você pode criar no Portal do Azure.
-* [Teste da web de várias etapas](#multi-step-web-tests): criado no Visual Studio Ultimate ou Visual Studio Enterprise e carregado no portal.
+* [Teste na Web de várias etapas](#multi-step-web-tests): criado no Visual Studio Enterprise e carregado no portal.
 
 Você pode criar até 10 testes na Web por recurso de aplicativo.
 
-## <a name="a-namecreatea1-create-a-resource-for-your-test-reports"></a><a name="create"></a>1. Criar um recurso para os relatórios de teste
+## <a name="create"></a>1. Criar um recurso para os relatórios de teste
 Pule esta etapa se você já [configurou um recurso do Application Insights][start] para este aplicativo e deseja ver os relatórios de disponibilidade no mesmo local.
 
 Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights.
@@ -42,7 +43,7 @@ Inscreva-se no [Microsoft Azure](http://azure.com), vá para o [portal do Azure]
 
 Clique em **Todos os recursos** para abrir a folha de Visão geral do novo recurso.
 
-## <a name="a-namesetupa2-create-a-url-ping-test"></a><a name="setup"></a>2. Criar um teste de ping de URL
+## <a name="setup"></a>2. Criar um teste de ping de URL
 Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Clique para abrir a folha de testes da Web para seu aplicativo e adicione um teste da Web.
 
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -66,7 +67,7 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 ### <a name="test-more-urls"></a>Testar mais URLs
 Adicione mais testes. Por exemplo, além de testar a página inicial, você pode verificar se o banco de dados está sendo executado testando a URL para uma pesquisa.
 
-## <a name="a-namemonitora3-see-your-web-test-results"></a><a name="monitor"></a>3. Ver seus resultados de teste na Web
+## <a name="monitor"></a>3. Ver seus resultados de teste na Web
 Depois de 1 a 2 minutos, os resultados aparecem na folha de Teste na Web.
 
 ![Resumo dos resultados na lâmina inicial](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
@@ -75,40 +76,23 @@ Clique em qualquer barra no gráfico de resumo para obter uma exibição mais de
 
 Esses gráficos combinam os resultados de todos os testes da Web desse aplicativo.
 
-## <a name="a-namefailuresaif-you-see-failures"></a><a name="failures"></a>Se você encontrar falhas
+## <a name="failures"></a>Se você encontrar falhas
 Clique em um ponto vermelho.
 
-![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+![Clique em um ponto vermelho](./media/app-insights-monitor-web-app-availability/open-instance.png)
 
-Ou role para baixo e clique em um teste onde você pode ver menos de 100% de êxito.
 
-![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
+Em um resultado do teste na Web, você pode:
 
-Os resultados do teste são abertos.
+* Inspecionar a resposta recebida do servidor.
+* Abrir a telemetria enviada pelo seu aplicativo de servidor ao processar a instância de solicitação com falha.
+* Registrar um problema ou um item de trabalho no Git ou no VSTS para controlar o problema. O bug conterá um link para este evento.
+* Abrir o resultado do teste na Web no Visual Studio.
 
-![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/16-1test.png)
-
-O teste é executado em vários locais&#151. Escolha um local em que os resultados são menores que 100%.
-
-![Clique em um teste da Web específico](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
-
-Role para baixo até **Testes com falha** e selecione um resultado.
-
-Clique no resultado para avaliá-lo no portal e ver o motivo da falha.
-
-![Resultado do teste da Web](./media/app-insights-monitor-web-app-availability/18-availDetails.png)
-
-Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio.
 
 *Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
 
-### <a name="open-the-server-request-and-exceptions"></a>Abrir a solicitação de servidor e exceções
-
-Nas propriedades detalhadas de um teste específico, você pode abrir o relatório do lado do servidor da solicitação e quaisquer outros eventos como exceções.
-
-![Resultado do teste da Web](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
-
-Se você não vir itens relacionados, talvez a [amostragem](app-insights-sampling.md) esteja em operação.
+*Não há itens relacionados?* Isso pode ocorrer porque a [amostragem](app-insights-sampling.md) está em operação.
 
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
@@ -122,7 +106,7 @@ Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e
 Observe que você não pode usar funções codificadas em seus testes: as etapas do cenário devem estar contidas como um script no arquivo .webtest.
 
 #### <a name="1-record-a-scenario"></a>1. Registrar um cenário
-Use o Visual Studio Enterprise ou Ultimate para registrar uma sessão da Web.
+Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
 1. Crie um projeto de teste de desempenho na Web.
 
@@ -224,7 +208,7 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
 * Parametrize os tokens, definindo o parâmetro quando o token for retornado do autenticador e usando-o na consulta ao site.
   (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
-## <a name="a-nameedita-edit-or-disable-a-test"></a><a name="edit"></a> Editar ou desabilitar um teste
+## <a name="edit"></a> Editar ou desabilitar um teste
 Abra um teste individual para editá-lo ou desabilitá-lo.
 
 ![Editar ou desabilitar um teste na Web](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
@@ -239,7 +223,7 @@ Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 
 ## <a name="automation"></a>Automação
-* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
+* [Use os scripts do PowerShell para configurar um teste na Web](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
@@ -273,12 +257,12 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 
     Não há suporte para isso, infelizmente.
 
-## <a name="a-namevideoavideo"></a><a name="video"></a>Vídeo
+## <a name="video"></a>Vídeo
 > [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Monitoring-Availability-with-Application-Insights/player]
 >
 >
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
+## <a name="next"></a>Próximas etapas
 [Pesquisar logs de diagnóstico][diagnostic]
 
 [Solução de problemas][qna]
@@ -291,9 +275,4 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

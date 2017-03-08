@@ -12,7 +12,7 @@
       
       ![Definições básicas da instalação mínima do dispositivo do StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
 3. Clique no ícone de seta. ![Ícone de seta do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
-4. Na caixa de diálogo **Interfaces de Rede** , forneça endereços IP fixos para os Controladores 0 e 1. **Os endereços IP fixos do controlador precisam ser IPs gratuitos dentro da sub-rede acessível pelo endereço IP do dispositivo.**  Se a interface DADOS 0 foi configurada para o IPv4, os endereços IP fixos precisam ser fornecidos no formato IPv4. Se você forneceu um prefixo para a configuração do IPv6, os endereços IP fixos serão preenchidos automaticamente nesses campos.
+4. Na caixa de diálogo **Interfaces de Rede** , forneça endereços IP fixos para os Controladores 0 e 1. **Os endereços IP fixos do controlador precisam ser IPs gratuitos dentro da sub-rede acessível pelo endereço IP do dispositivo.** Se a interface DADOS 0 foi configurada para o IPv4, os endereços IP fixos precisam ser fornecidos no formato IPv4. Se você forneceu um prefixo para a configuração do IPv6, os endereços IP fixos serão preenchidos automaticamente nesses campos.
 
     ![Interfaces de rede da instalação mínima do dispositivo do StorSimple](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
@@ -29,8 +29,4 @@
    > 
 
 <!--Link reference-->
-[Teste]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
-
-<!--HONumber=Nov16_HO2-->
-
-
+[Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

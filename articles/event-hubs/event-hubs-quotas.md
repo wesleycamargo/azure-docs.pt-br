@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/25/2016
+ms.date: 03/07/2017
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
 ms.openlocfilehash: 91e611a0b3516bdb8f1ce6eba0210e2e610e5484
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -31,9 +32,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

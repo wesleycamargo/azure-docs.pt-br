@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
 ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -756,7 +757,7 @@ Para gerar a fatia do conjunto de dados [**início**, **término**], uma funçã
 
 ```
 DatasetSlice = [start, end]
-DependecyPeriod = [f(start, end), g(start, end)]
+DependencyPeriod = [f(start, end), g(start, end)]
 ```
 
 **F** e **g** são funções de mapeamento que calculam o início e término do período de dependência para cada entrada de atividade.
@@ -855,10 +856,5 @@ Observe o seguinte:
 * A **disponibilidade** de conjuntos de dados de entrada e saída é especificada (**frequência** e **intervalo**), mesmo que os valores não sejam usados pelo Data Factory.  
 * A exibição de diagrama não mostra pipelines únicos. Este comportamento ocorre por design.
 * Pipelines avulsos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

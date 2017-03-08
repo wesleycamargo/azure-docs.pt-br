@@ -25,8 +25,3 @@
 # Relacionados
 ## [Active Directory do Azure](/azure/active-directory/)
 ## [Controle de acesso baseado em função](../role-based-access-control-what-is.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-

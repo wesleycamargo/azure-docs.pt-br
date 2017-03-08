@@ -16,13 +16,14 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 3dc6373c9aaa01000a7da282e48557f175f040e7
 ms.openlocfilehash: a6588718fdc0b561a70f25ac4d674c5edf08d8cb
+ms.lasthandoff: 01/24/2017
 
 
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta, retenção e armazenamento de dados no Application Insights
 
 
-Quando você instala o SDK do [Azure Application Insights][startstart] em seu aplicativo, ele envia telemetria sobre seu aplicativo para a nuvem. Naturalmente, os desenvolvedores responsáveis querem saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle sobre esses dados. Em particular, poderiam ser enviados dados confidenciais, onde são armazenados e qual é o nível de segurança? 
+Quando você instala o SDK do [Azure Application Insights][start] em seu aplicativo, ele envia telemetria sobre seu aplicativo para a nuvem. Naturalmente, os desenvolvedores responsáveis querem saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle sobre esses dados. Em particular, poderiam ser enviados dados confidenciais, onde são armazenados e qual é o nível de segurança? 
 
 Primeiro, a resposta curta:
 
@@ -221,10 +222,5 @@ Este produto inclui dados GeoLite2 criados pelo MaxMind, disponíveis em [http:/
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

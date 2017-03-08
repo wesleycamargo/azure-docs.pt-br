@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 786ffe97c794aa44dc5d2b8e1a9597387752409c
+ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
+ms.openlocfilehash: d5171cdc9048837385bfb99d553e496a9f56846e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -64,21 +65,21 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Applications")
+   ![Aplicativos](./media/active-directory-saas-clicktime-tutorial/tic700994.png "Aplicativos")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Add application")
+   ![Adicionar aplicativo](./media/active-directory-saas-clicktime-tutorial/tic749321.png "Adicionar aplicativo")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Add an application from gallerry")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-clicktime-tutorial/tic749322.png "Adicionar um aplicativo da galeria")
 6. Na **caixa de pesquisa**, digite **ClickTime**.
    
-   ![Galeria de aplicativos](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Application gallery")
+   ![Galeria de aplicativos](./media/active-directory-saas-clicktime-tutorial/tic777275.png "Galeria de aplicativos")
 7. No painel de resultados, selecione **ClickTime** e clique em **Concluir** para adicionar o aplicativo.
    
    ![ClickTime](./media/active-directory-saas-clicktime-tutorial/tic777276.png "ClickTime")
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o ClickTime, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do ClickTime é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ClickTime.
@@ -105,10 +106,10 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
 
 1. No portal clássico do Azure, na página de integração do aplicativo **ClickTime**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-   ![Habilitar logon único](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Enable single sign-on")
+   ![Habilitar logon único](./media/active-directory-saas-clicktime-tutorial/tic777277.png "Habilitar logon único")
 2. Na página **Como você deseja que os usuários façam logon no ClickTime**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar o logon único](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configure single sign-on")
+   ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/tic777278.png "Configurar logon único")
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-clicktime-tutorial/tic777286.png) 
@@ -120,23 +121,23 @@ O objetivo desta seção é descrever como permitir que os usuários autentiquem
     c. Clique em **Avançar**
 4. Na página **Configurar logon único no ClickTime**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
    
-   ![Configurar o logon único](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configure single sign-on")
+   ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/tic777279.png "Configurar logon único")
 5. Em outra janela do navegador da Web, faça logon em seu site de empresa do ClickTime como administrador.
 6. Na barra de ferramentas na parte superior, clique em **Preferências** e em **Configurações de Segurança**.
 7. Na seção de configuração de **Preferências de Logon Único** , realize as seguintes etapas:
    
-   ![Configurações de Segurança](./media/active-directory-saas-clicktime-tutorial/tic777280.png "Security Settings")
+   ![Configurações de segurança](./media/active-directory-saas-clicktime-tutorial/tic777280.png "as configurações de segurança")
    
    a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
    
    b.  No portal clássico do Azure, na página da caixa de diálogo **Configurar logon único no ClickTime**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **Ponto de Extremidade do Provedor de Identidade**.
    
-   c.  Abra seu certificado codificado em Base 64 no **Bloco de Notas**, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
+   c.  Abra seu certificado codificado em Base&64; no **Bloco de Notas**, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
    
    d.  Clique em **Salvar**.
 8. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar o logon único](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configure single sign-on")
+   ![Configurar logon único](./media/active-directory-saas-clicktime-tutorial/tic777281.png "Configurar logon único")
 
 ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 Para permitir que os usuários do Azure AD façam logon no ClickTime, eles devem ser provisionados no ClickTime.  
@@ -146,13 +147,13 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
 1. Faça logon em seu locatário do **ClickTime** .
 2. Na barra de ferramentas na parte superior, clique na **Empresa** e em **Pessoas**.
    
-   ![Pessoas](./media/active-directory-saas-clicktime-tutorial/tic777282.png "People")
+   ![Pessoas](./media/active-directory-saas-clicktime-tutorial/tic777282.png "Pessoas")
 3. Clique em **Adicionar Pessoa**.
    
-   ![Adicionar Pessoa](./media/active-directory-saas-clicktime-tutorial/tic777283.png "Add Person")
+   ![Adicionar pessoa](./media/active-directory-saas-clicktime-tutorial/tic777283.png "Adicionar pessoa")
 4. Na seção Nova Pessoa, execute as etapas a seguir:
    
-   ![Pessoas](./media/active-directory-saas-clicktime-tutorial/tic777284.png "People")
+   ![Pessoas](./media/active-directory-saas-clicktime-tutorial/tic777284.png "Pessoas")
    
    a.  Na caixa de texto **endereço de email** , digite o endereço de email de sua conta do Azure AD.
    
@@ -208,9 +209,4 @@ Ao clicar no bloco do ClickTime no Painel de Acesso, você deve ser conectado au
 [201]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_201.png
 [203]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_203.png
 [205]: ./media/active-directory-saas-clicktime-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
