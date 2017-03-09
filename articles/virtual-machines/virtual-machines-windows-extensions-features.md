@@ -1,5 +1,5 @@
 ---
-title: "Recursos e extensões da máquina virtual para Windows | Microsoft Docs"
+title: "Recursos e extensões da máquina virtual para Windows no Azure | Microsoft Docs"
 description: "Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1493bf0a545cd605b80404413894bd56e1ced735
-ms.openlocfilehash: ebd8734ad2de6f5e528e941f90098de079966f48
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows 
 
 Extensões da máquina virtual do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a configuração do Docker, uma extensão da VM poderá ser usada para concluir essas tarefas. As extensões da VM do Azure podem ser executadas usando a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o Portal do Azure. Extensões podem ser agrupadas com uma nova implantação de máquina virtual ou executar qualquer sistema existente.
 
@@ -285,9 +287,4 @@ Uma extensão também pode ser removida usando o Portal do Azure. Para fazer iss
 | Extensão de DSC para o Windows |Extensão PowerShell DSC (Configuração de Estado Desejado) |[Extensão DSC para Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

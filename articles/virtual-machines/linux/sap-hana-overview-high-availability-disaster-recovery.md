@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 1a133d7710b1790241c0ff774c2fd40e86b64268
-ms.openlocfilehash: f0248ce46991d23c2f5bb0f1c8bf212207b7ad5f
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 661733edbabd61b42bfb44b4ed107b1e757c2e28
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Alta disponibilidade e recuperação de desastre do SAP HANA no Azure (instâncias grandes)
+# <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure 
 
 A alta disponibilidade e a recuperação de desastre são aspectos importantes da execução crucial do SAP HANA em servidores do Azure (instâncias grandes). É importante trabalhar junto com a SAP, seu integrador de sistemas ou a Microsoft para arquitetar e implementar adequadamente a estratégia de alta disponibilidade e recuperação de desastre adequada para você. Também é importante considerar o objetivo do ponto de recuperação e o objetivo do tempo de recuperação, que são específicos para seu ambiente.
 
@@ -593,9 +595,4 @@ Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN
 HANA snapshot deletion successfully.
 ```
 Você pode ver a este exemplo como o script registros a criação do instantâneo HANA. No caso de escala horizontal, esse processo é iniciado no nó principal. O nó principal iniciará a criação síncrona de instantâneos em cada um de nós de trabalho. Em seguida, o instantâneo de armazenamento é criado. Após a execução bem-sucedida de instantâneos de armazenamento, o instantâneo do HANA será excluído.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

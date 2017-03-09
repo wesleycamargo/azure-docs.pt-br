@@ -13,15 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: 12b2d12c5152c6e9b8f2e8c78fbbd6663cb24e45
+ms.sourcegitcommit: 0f6bd85668533ee79700caead2edc6bc6c7d70de
+ms.openlocfilehash: 45383cb3b8238d72bf9ba398a22fe0a005941c3f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="how-to-capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Como capturar uma imagem gerenciada de uma VM generalizada no Azure
+# <a name="capture-a-managed-image-of-a-generalized-vm-in-azure"></a>Capturar uma imagem gerenciada de uma VM generalizada no Azure
 
 Um recurso de imagem gerenciada pode ser criado de uma VM generalizada que é armazenada como um disco gerenciado ou um disco não gerenciado em uma conta de armazenamento. Em seguida, a imagem pode ser usada para criar várias VMs que usam discos gerenciados para o armazenamento. 
 
@@ -39,13 +40,14 @@ Você precisa já ter [generalizado a VM](virtual-machines-windows-generalize-vh
 4. Selecione a **Imagem** dos resultados.
 5. Na folha **Imagem**, clique em **Criar**.
 6. No **Nome**, digite um nome para a imagem.
-7. Em **Grupo de recursos** selecione **Criar novo** e digite um nome ou selecione **De existente** e selecione um grupo de recursos para usar na lista suspensa.
+7. Se você tiver mais de uma assinatura, selecione a correta na lista suspensa **Assinatura**.
+7. Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome ou escolha **Existente** e escolha na lista suspensa um grupo de recursos a ser usado.
 8. Em **Local**, escolha o local de seu grupo de recursos.
 9. Em **Tipo de sistema operacional** selecione o tipo de sistema operacional: Windows ou Linux.
 11. Em **Armazenamento de blobs**, clique em **Procurar** para procurar o VHD no armazenamento do Azure.
 12. Em **Tipo de conta** escolha entre Standard_LRS ou Premium_LRS. O Standard usa unidades de disco rígido e premium usa unidades de estado sólido. Ambos usam o armazenamento redundante localmente.
 13. Em **cache de disco** selecione a opção de cache de disco apropriada. As opções são **nenhum**, **somente leitura** e **leitura\gravação**.
-14. Opcional: você também pode adicionar um disco de dados existente para a imagem.  
+14. Opcional: você também pode adicionar um disco de dados existente à imagem clicando em **+ Adicionar disco de dados**.  
 15. Quando terminar as seleções, clique em **Criar**.
 16. Depois que a imagem for criada, você verá como um recurso de **imagem** na lista de recursos no grupo de recursos que você escolheu.
 
@@ -171,10 +173,5 @@ Você também pode criar uma imagem gerenciada de um instantâneo do VHD de uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Agora você pode [criar uma VM a partir de uma imagem gerenciada generalizada](virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
 translationtype: Human Translation
-ms.sourcegitcommit: b84e07b26506149cf9475491b32b9ff3ea9ae80d
-ms.openlocfilehash: d72a191cceaa90f9dae69b5c2698fae1a9fb95a7
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 69fbac5acdc812917d1e022d19768a8d72955783
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -36,7 +37,7 @@ Este artigo ajudará a responder às perguntas comuns a seguir sobre como otimiz
 
 Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as cargas de trabalho em execução no Armazenamento Premium são altamente sensíveis ao desempenho. Fornecemos exemplos onde apropriado. Também é possível aplicar algumas destas diretrizes a aplicativos em execução nas VMs da IaaS com discos de Armazenamento Padrão.
 
-Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, leia primeiro os artigos [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de Máquinas Virtuais do Azure](storage-premium-storage.md) e [Metas de desempenho e de escalabilidade do Armazenamento Premium do Azure](storage-scalability-targets.md#premium-storage-accounts).
+Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, primeiramente leia os artigos [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho da máquina virtual do Azure](storage-premium-storage.md) e [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 Avaliamos o desempenho de um aplicativo como bom ou ruim usando indicadores de desempenho como estes: rapidez com que um aplicativo está processando uma solicitação de usuário, volume de dados que um aplicativo está processando por solicitação, quantidade de solicitações que um aplicativo está processando em um intervalo específico, quanto tempo um usuário precisa aguardar para obter uma resposta depois de enviar uma solicitação. Os termos técnicos para esses indicadores de desempenho são IOPS, Taxa de Transferência ou Largura de Banda e Latência.
@@ -593,9 +594,4 @@ Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de de
 
 * [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,5 +1,5 @@
 ---
-title: "Problemas de reinicialização ou redimensionamento da VM | Microsoft Docs"
+title: "Problemas de reinicialização ou redimensionamento da VM no Azure | Microsoft Docs"
 description: "Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.workload: required
 ms.date: 01/10/2017
 ms.author: delhan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
-ms.openlocfilehash: afa8d2b76ab0f85b5eaf615b264af2f29936016c
+ms.sourcegitcommit: 287d912ecd397d963afb74135f4469653db2e604
+ms.openlocfilehash: cdbcb470ec0f15196062b5da88b7dc6cc76e3bfb
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="troubleshoot-resource-manager-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure
+# <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solucionar problemas de implantação ao reiniciar ou redimensionar uma VM Windows existente no Azure
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -64,10 +66,5 @@ Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster origi
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Windows no Azure](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

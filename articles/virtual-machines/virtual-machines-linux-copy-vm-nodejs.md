@@ -1,6 +1,6 @@
 ---
-title: "Criar uma cópia de sua VM Linux do Azure | Microsoft Docs"
-description: "Saiba como criar uma cópia de uma máquina virtual Linux do Azure no modelo de implantação do Resource Manager"
+title: Criar e copiar da sua VM Linux com a CLI do Azure 1.0 | Microsoft Docs
+description: "Saiba como criar uma cópia de sua máquina virtual Linux do Azure com a CLI do Azure 1.0 no modelo de implantação do Resource Manager"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: fc5d84768213f1c9358bfcffd77868c25b6c24a4
-ms.openlocfilehash: 9920e86a00793928bdfae5bc4e9dac161ed56ad0
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: e85094fbb63b5cf0c5f3b080e047dbc3b8561a26
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Criar uma cópia de uma máquina virtual Linux em execução no Azure
+# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Criar uma cópia de uma máquina virtual Linux em execução no Azure com a CLI do Azure 1.0
 Este artigo mostra como criar uma cópia de sua VM (máquina virtual) do Azure executando o Linux no modelo de implantação do Resource Manager. Primeiro, você copia o sistema operacional e os discos de dados para um novo contêiner e, em seguida, configura os recursos de rede para criar a nova máquina virtual.
 
 Você também pode [carregar e criar uma VM com base em uma imagem de disco personalizada](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -29,7 +30,7 @@ Você também pode [carregar e criar uma VM com base em uma imagem de disco pers
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - CLI 1.0 do Azure – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0 (Visualização)](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI 2.0 do Azure](virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="before-you-begin"></a>Antes de começar
 Verifique se você atende os seguintes pré-requisitos antes de iniciar as etapas:
@@ -112,10 +113,5 @@ azure vm create -n myVM -l myLocation -g myResourceGroup -f myNic \
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber como usar a CLI do Azure para gerenciar sua nova máquina virtual, consulte [Comandos da CLI do Azure para o Azure Resource Manager](azure-cli-arm-commands.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -15,13 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/24/2015
 ms.author: hbai
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 8e69e791128710e640cba0c9edfbbadc0ea70ef5
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a972ab1671e55a94fa1dc2060f220d2e85787e35
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="deploy-a-3-node-deis-cluster"></a>Implantar um cluster Deis de três nós
+# <a name="deploy-and-configure-a-3-node-deis-cluster-in-azure"></a>Implantar e configurar um cluster Deis de 3 nós no Azure
 Este artigo percorre o provisionamento de um cluster [Deis](http://deis.io/) no Azure. Ele abrange todas as etapas, desde criar os certificados necessários até implantar e dimensionar uma aplicativo **Go** de exemplo no cluster provisionado.
 
 O diagrama a seguir mostra a arquitetura do sistema implantado. Um administrador de sistema gerencia o cluster usando ferramentas do Deis como **deis** e **deisctl**. São estabelecidas conexões por meio de um balanceador de carga do Azure, que encaminha as conexões a um dos nós membro no cluster. Os clientes também acessam aplicativos implantados por meio do balanceador de carga. Nesse caso, o balanceador de carga encaminha o tráfego para um uma malha de roteadores Deis, que encaminha o tráfego a contêineres Docker correspondentes hospedados no cluster.
@@ -251,9 +253,4 @@ Este artigo percorreu todas as etapas para provisionar um novo cluster Deis no A
 [azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

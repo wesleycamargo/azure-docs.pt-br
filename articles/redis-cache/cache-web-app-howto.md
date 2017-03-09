@@ -685,7 +685,7 @@ Para hospedar seu aplicativo no Azure, primeiro você deve provisionar os servi�
 
 Para implantar esses serviços em um grupo de recursos novo ou existente de sua escolha, clique no botão **Implantar no Azure** a seguir.
 
-[! [Implantar no Azure] [deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
+[![Implantar no Azure][deploybutton]](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
 O botão **Implantar no Azure** usa o modelo [Criar um aplicativo Web e o Cache Redis e o Banco de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) [Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates) para provisionar esses serviços e definir a cadeia de conexão para o Banco de Dados SQL e o aplicativo de configuração para a cadeia de conexão do Cache Redis do Azure.
 

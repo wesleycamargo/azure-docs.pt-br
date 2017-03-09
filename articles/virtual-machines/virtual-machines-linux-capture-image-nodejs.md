@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 341dcec8c45b380286e2bb96c57afc7740605d16
-ms.openlocfilehash: 40a3fa51b1fcf87bd03f767606c888cc501fd6de
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 18d70fc1dc85efe699e6ec498e024a0b8d3525f0
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturar uma máquina virtual do Linux em execução no Azure
-Siga as etapas neste artigo para generalizar e capturar sua VM (máquina virtual) do Linux do Azure no modelo de implantação do Gerenciador de Recursos. Ao generalizar a VM, você remove informações de conta pessoal e prepara a VM a ser usada como uma imagem. Em seguida, você captura a imagem de um VHD (disco rígido virtual) generalizado para o sistema operacional, VHDs para discos de dados anexados e um [modelo do Resource Manager](../azure-resource-manager/resource-group-overview.md) para novas implantações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM usando discos não gerenciados. Você também pode [capturar uma VM usando o Azure Managed Disks com a CLI do Azure 2.0 (Visualização)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais, veja [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Siga as etapas neste artigo para generalizar e capturar sua VM (máquina virtual) do Linux do Azure no modelo de implantação do Gerenciador de Recursos. Ao generalizar a VM, você remove informações de conta pessoal e prepara a VM a ser usada como uma imagem. Em seguida, você captura a imagem de um VHD (disco rígido virtual) generalizado para o sistema operacional, VHDs para discos de dados anexados e um [modelo do Resource Manager](../azure-resource-manager/resource-group-overview.md) para novas implantações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM usando discos não gerenciados. Você também pode [capturar uma VM usando o Azure Managed Disks com a CLI 2.0 do Azure](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais, veja [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Para criar VMs usando a imagem, configure recursos de rede para cada nova VM e use o modelo (um arquivo JavaScript Object Notation ou JSON) para implantá-lo por meio de imagens VHD capturadas. Dessa forma, você pode replicar uma VM com sua configuração atual de software, da mesma forma como usa imagens no Azure Marketplace.
 
@@ -33,7 +34,7 @@ Para criar VMs usando a imagem, configure recursos de rede para cada nova VM e u
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI 1.0 do Azure](#before-you-begin) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
-- [CLI do Azure 2.0 (Visualização)](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa próxima geração de CLI para o modelo de implantação de gerenciamento de recursos
+- [CLI 2.0 do Azure](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 ## <a name="before-you-begin"></a>Antes de começar
 Verifique se os seguintes pré-requisitos foram atendidos:
@@ -205,10 +206,5 @@ Para obter opções adicionais de comando, execute `azure help vm create`.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para gerenciar suas VMs com a CLI, consulte as tarefas em [Implantar e gerenciar máquinas virtuais usando modelos do Gerenciador de Recursos do Azure e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

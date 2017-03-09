@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a3e99cf86cbe6ae18366b13047d8c2994ff398f4
-ms.openlocfilehash: 9adf67b706f866fbb41c2b82970eb0e44aada5c6
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 4b01305ea1fc033de64ed2e4fb7e4c9f3d16d394
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="infrastructure-and-connectivity-to-sap-hana-on-azure-large-instances"></a>Infraestrutura e conectividade para o SAP HANA no Azure (Instâncias Grandes)
+# <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestrutura e conectividade para o SAP HANA (instâncias grandes) no Azure 
 
 Após a compra do SAP HANA no Azure (Instâncias Grandes) ser finalizada entre você e a equipe de conta empresarial da Microsoft, são necessárias as seguintes informações:
 
@@ -193,10 +195,5 @@ Para remover um SAP HANA adicional no circuito de ExpressRoute do Azure (Instân
 
 Se você também quiser remover uma rede virtual, siga as diretrizes sobre Como excluir uma rede virtual na seção acima.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

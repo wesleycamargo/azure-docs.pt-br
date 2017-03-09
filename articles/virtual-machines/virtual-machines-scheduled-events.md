@@ -16,44 +16,38 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
 translationtype: Human Translation
-ms.sourcegitcommit: c7f552825f3230a924da6e5e7285e8fa7fa42842
-ms.openlocfilehash: 541709ca17b96f8334e67dbdbbd9a10eefffa06b
+ms.sourcegitcommit: bb4f7c4977de290e6e148bbb1ae8b28791360f96
+ms.openlocfilehash: 1a385de3c00b9288d9e1245f04969a9099bf5b45
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-metadata-service---scheduled-events"></a>Serviço de Metadados do Azure – Eventos Agendados
+# <a name="azure-metadata-service---scheduled-events-preview"></a>Serviço de Metadados do Azure – Eventos Agendados (Visualização)
 
-O Serviço de Metadados do Azure permite descobrir informações sobre sua Máquina Virtual hospedada no Azure. Eventos Agendados, uma das categorias expostas, revela informações sobre eventos futuros (por exemplo, de reinicialização) para que seu aplicativo possa se preparar para eles e limitar interrupções. Ele está disponível para todos os tipos de Máquina Virtual do Azure, incluindo PaaS e IaaS. O serviço fornece o tempo de Máquina Virtual para executar tarefas preventivas e minimizar o efeito de um evento. Por exemplo, seu serviço pode drenar sessões, escolher um novo líder ou copiar os dados depois de observar que uma instância está programada para reinicialização a fim de evitar a interrupção.
+> [!NOTE] 
+> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para obter mais informações, consulte [Termos de Uso do Microsoft Azure para Visualizações do Microsoft Azure.] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)
+>
 
+Os Eventos Agendados são um dos subserviços no Serviço de Metadados do Azure que revelam informações sobre eventos futuros (por exemplo, de reinicialização) para que seu aplicativo possa se preparar para eles e limitar interrupções. Estão disponíveis para todos os tipos de Máquina Virtual do Azure, incluindo PaaS e IaaS. Os Eventos Agendados fornecem seu tempo de Máquina Virtual para executar tarefas preventivas e minimizar o efeito de um evento. 
 
 
 ## <a name="introduction---why-scheduled-events"></a>Introdução – Por que usar Eventos Agendados?
 
-Com os Eventos Agendados, você pode conhecer (descobrir) eventos futuros que podem afetar a disponibilidade de sua Máquina Virtual e realizar operações proativas para limitar o impacto em seu serviço.
-Cargas de trabalho de várias instâncias, que usam técnicas de replicação para manter o estado, podem estar vulneráveis a interrupções frequentes que ocorrem em diversas instâncias. Tais interrupções podem resultar em tarefas caras (por exemplo, recompilação de índices) ou até mesmo na perda de uma réplica.
-Em muitos outros casos, usar a sequência de desligamento normal melhora a disponibilidade do serviço geral. Por exemplo, concluindo (ou cancelar) transações em trânsito, reatribuindo outras tarefas para outras VMs no cluster (failover manual) e remover a Máquina Virtual de um pool do balanceador de carga.
-Há casos em que notificar um administrador sobre um evento futuro ou mesmo simplesmente registrar tal evento em log, pode ajudar a melhorar a capacidade de manutenção de aplicativos hospedados na nuvem.
-
-O Serviço de Metadados do Azure revela eventos agendados nos seguintes casos de uso:
--   Manutenção “de impacto” iniciada na plataforma (por exemplo, distribuição do sistema operacional do Host)
--   Manutenção “sem impacto” iniciada na plataforma (por exemplo, migração de VM in-loco)
--   Chamadas interativas (por exemplo, o usuário reinicializa ou reimplanta uma VM)
-
+Com Eventos Agendados, é possível tomar medidas para limitar o impacto em seu serviço. Cargas de trabalho de várias instâncias, que usam técnicas de replicação para manter o estado, podem estar vulneráveis a interrupções frequentes que ocorrem em diversas instâncias. Tais interrupções podem resultar em tarefas caras (por exemplo, recompilação de índices) ou até mesmo na perda de uma réplica. Em muitos outros casos, usar a sequência de desligamento normal melhora a disponibilidade do serviço geral. Por exemplo, concluindo (ou cancelar) transações em trânsito, reatribuindo outras tarefas para outras VMs no cluster (failover manual) e remover a Máquina Virtual de um pool do balanceador de carga. Há casos em que notificar um administrador sobre um evento futuro ou mesmo simplesmente registrar tal evento em log, pode ajudar a melhorar a capacidade de manutenção de aplicativos hospedados na nuvem.
+O Serviço de Metadados do Azure revela Eventos Agendados nos seguintes casos de uso:
+-    Manutenção iniciada na plataforma (por exemplo, distribuição do sistema operacional do Host)
+-    Chamadas iniciadas pelo usuário (por exemplo, o usuário reinicializa ou reimplanta uma VM)
 
 
 ## <a name="scheduled-events---the-basics"></a>Eventos Agendados – Noções básicas  
 
 O Serviço de Metadados do Azure expõe informações sobre a execução de máquinas virtuais usando um Ponto de Extremidade REST de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que ele não seja exposto fora da VM.
 
-### <a name="scope"></a>Escopo 
-Eventos agendados são exibidos para todas as máquinas virtuais em um serviço de nuvem ou para todas as máquinas virtuais em um conjunto de disponibilidade. Como resultado, você deve verificar o campo **Recursos** no evento para identificar quais VMs serão afetadas.
+### <a name="scope"></a>Escopo
+Eventos agendados são exibidos para todas as máquinas virtuais em um serviço de nuvem ou para todas as máquinas virtuais em um conjunto de disponibilidade. Como resultado, você deve verificar o campo **Recursos** no evento para identificar quais VMs serão afetadas. 
 
 ### <a name="discover-the-endpoint"></a>Descobrir o ponto de extremidade
-No caso em que uma máquina virtual é criada em uma VNet (Rede Virtual), o serviço de metadados está disponível do IP não roteável de: 169.254.169.254
-
-No caso em que uma máquina virtual é usada para serviços de nuvem (PaaS), o ponto de extremidade de serviço de metadados pode ser descoberto usando o Registro.
-
-    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+Quando uma máquina Virtual é criada em uma Rede Virtual (VNet), o serviço de metadados está disponível no IP não roteável: 169.254.169.254. Caso contrário, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional é necessária para descobrir o ponto de extremidade para usar. Consulte este exemplo para aprender a [descobrir o ponto de extremidade do host] (https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)
 
 ### <a name="versioning"></a>Controle de versão 
 O Serviço de Metadados usa uma API de controle de versão no seguinte formato: http://{ip}/metadata/{versão}/scheduledevents. É recomendável que o seu serviço consuma a versão mais recente disponível em: http://{ip}/metadata/latest/scheduledevents
@@ -62,8 +56,11 @@ O Serviço de Metadados usa uma API de controle de versão no seguinte formato: 
 Ao consultar o Serviço de Metadados, você deverá fornecer o seguinte cabeçalho *Metadata: true*. 
 
 ### <a name="enable-scheduled-events"></a>Habilitar eventos agendados
-Na primeira vez que você chamar os eventos agendados, o Azure habilita implicitamente o recurso em sua máquina virtual. Como resultado, você deve esperar um atraso na resposta em sua primeira chamada de até um minuto. 
+Na primeira vez que você chamar os eventos agendados, o Azure habilita implicitamente o recurso em sua máquina virtual. Como resultado, você deve esperar um atraso na resposta em sua primeira chamada de até dois minutos.
 
+### <a name="testing-your-logic-with-user-initiated-operations"></a>Teste sua lógica com as operações iniciadas pelo usuário
+Para testar sua lógica, você pode usar o Portal do Azure, a API, a CLI ou o PowerShell para iniciar as operações que resultam em eventos agendados. Reiniciar uma máquina virtual resulta em um evento agendado com um tipo de evento igual para Reinicializar. Reimplantar uma máquina virtual resulta em um evento agendado com um tipo de evento igual para Reimplantar.
+Em ambos os casos, a operação iniciada pelo usuário leva mais tempo para ser concluída, já que os eventos agendados permitem que um aplicativo tenha mais tempo para desligar normalmente. 
 
 ## <a name="using-the-api"></a>Usando a API
 
@@ -76,10 +73,11 @@ Uma resposta contém uma matriz de eventos agendados. Uma matriz vazia significa
 No caso de haver eventos agendados, a resposta contém uma matriz de eventos: 
 
     {
+     "DocumentIncarnation":{IncarnationID},
      "Events":[
           {
                 "EventId":{eventID},
-                "EventType":"Reboot" | "Redeploy" | "Pause",
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
                 "ResourceType":"VirtualMachine",
                 "Resources":[{resourceName}],
                 "EventStatus":"Scheduled" | "Started",
@@ -89,7 +87,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos:
     }
 
 O EventType captura o impacto esperado na máquina virtual, em que:
-- Pause: a máquina virtual está agendada para pausar por alguns segundos. Não há nenhum impacto na memória, arquivos abertos ou conexões de rede
+- Congele: a máquina virtual está agendada para pausar por alguns segundos. Não há nenhum impacto na memória, arquivos abertos ou conexões de rede
 - Reinicialização: a máquina virtual está agendada para reinicialização (a memória é apagada).
 - Reimplantação: a máquina virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). 
 
@@ -136,7 +134,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ## <a name="c-sample"></a>Exemplo de C\# 
-O código a seguir é de um cliente que identifica APIs para se comunicar com o Serviço de Metadados
+O exemplo a seguir é de um cliente que identifica APIs para se comunicar com o Serviço de Metadados
 ```csharp
    public class ScheduledEventsClient
     {
@@ -304,9 +302,4 @@ if __name__ == '__main__':
 ```
 ## <a name="next-steps"></a>Próximas etapas 
 [Manutenção planejada para máquinas virtuais no Azure](./virtual-machines-linux-planned-maintenance.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

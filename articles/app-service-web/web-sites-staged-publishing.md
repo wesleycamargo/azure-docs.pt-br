@@ -5,7 +5,7 @@ services: app-service
 documentationcenter: 
 author: cephalin
 writer: cephalin
-manager: wpickett
+manager: erikre
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: c002c4588869536810b969aed80da09e60b62525
-ms.openlocfilehash: 9b06b4a7f4b58c586b81d0ad4a40dfdc586dfe6e
+ms.sourcegitcommit: 0921b01bc930f633f39aba07b7899ad60bd6a234
+ms.openlocfilehash: 10b1998789feafaf0c28155bc8a96a28ff78cf02
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -236,7 +237,7 @@ A CLI do Azure fornece comandos entre plataformas para trabalhar com o Azure, in
 * Para listar os comandos disponíveis para o Serviço de Aplicativo do Azure na CLI do Azure, chame `azure site -h`.
 
 > [!NOTE] 
-> Para comandos da [CLI 2.0 do Azure (Visualização)](https://github.com/Azure/azure-cli) para slots de implantação, consulte [slot de implantação da Web do az appservice](/cli/azure/appservice/web/deployment/slot).
+> Para obter os comandos da [CLI 2.0 do Azure](https://github.com/Azure/azure-cli) para slots de implantação, confira [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>azure site list
@@ -291,10 +292,5 @@ Para excluir um slot de implantação que não seja mais necessário, use o coma
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

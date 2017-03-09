@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: f7589fa62dcfedc6f99439f453a40f999ff8d845
-ms.openlocfilehash: aa1e59a38b37c5e78b61ad7fe10f7c8461b7fe1d
+ms.sourcegitcommit: d31d4c390d5e03c8b206284c3ae75defed2a38af
+ms.openlocfilehash: 83bedb42e8e685f5ea65e160ab7bfe128236ef82
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,7 +50,6 @@ Se a configuração de proxy não permitir acesso ao armazenamento do Azure dire
 Acrescente **subscriptionid** ao nome amigável ao adicionar a origem.
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
-
 O evento XML tem os metadados, como mostrado abaixo, incluindo a id da assinatura.
 
 ![Evento XML][1]
@@ -65,7 +65,7 @@ Erro:
 ### <a name="when-running-command-azlog-authorize-why-do-i-get-the-following-error"></a>Ao executar o comando **azlog authorize**, por que obtenho o erro a seguir?
 Erro:
 
-  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com'' com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
+  *Aviso ao criar Atribuição de Função – AuthorizationFailed: O cliente janedo@microsoft.com' com a id de objeto 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' além do escopo '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.*
 
 O comando **Azlog authorize** tenta criar a função de Leitor para a entidade de serviço do Azure AD (criada com **Azlog createazureid**) para as assinaturas fornecidas. Se o logon do Azure não for um coadministrador nem um proprietário da assinatura, ele falhará com a mensagem de erro 'Falha na Autorização'. O RBAC (Controle de Acesso Baseado em Função) do coadministrador ou proprietário é necessário para concluir essa ação.
 
@@ -104,13 +104,9 @@ O exemplo a seguir é uma configuração onde apenas a EventID 4624 e a EventID 
 
 Depois de fazer alterações, verifique a conta de armazenamento para garantir que os eventos corretos sejam coletados.
 
-Se você tiver dúvidas sobre a integração do Log do Azure, envie um email para [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+Se você tiver algum problema durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) e selecione "Integração de Log" como o serviço para o qual você está solicitando suporte.
+
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

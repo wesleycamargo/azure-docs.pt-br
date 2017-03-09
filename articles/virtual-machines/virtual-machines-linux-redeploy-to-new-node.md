@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 13ae22245d105b32b9fc50d7dbc8a6d50ad4560a
-ms.openlocfilehash: 85fcc919b97d4cc06f89fc1ea5dc701ff61c2b27
+ms.sourcegitcommit: 7f3abdd63e43713d9d1f7ff28e44efc08167fddb
+ms.openlocfilehash: f421ebdc81ce413d69f62a3b86563ab4a09b747a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -28,10 +29,18 @@ Se você tiver tendo dificuldades em solucionar problemas de SSH ou de acesso do
 
 Reimplante uma VM usando uma das opções a seguir. Escolha uma opção para reimplantar a VM:
 
+- [CLI 2.0 do Azure](#azure-cli-20)
 - [CLI 1.0 do Azure](#azure-cli-10)
-- [CLI do Azure 2.0 (Visualização)](#azure-cli-20-preview)
 - [Portal do Azure](#using-azure-portal)
 
+## <a name="azure-cli-20"></a>CLI 2.0 do Azure
+Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente e faça logon em uma conta do Azure usando [az login](/cli/azure/#login).
+
+Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM 
+```
 
 ## <a name="azure-cli-10"></a>CLI 1.0 do Azure
 Instale a [CLI 1.0 do Azure mais recente](../xplat-cli-install.md), faça logon uma conta do Azure e verifique se você está no modo do Resource Manager (`azure config mode arm`).
@@ -42,23 +51,9 @@ O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `
 azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
 
-## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
-Instale a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e faça logon na conta do Azure usando [az login](/cli/azure/#login).
-
-Reimplante a VM com [az vm redeploy](/cli/azure/vm#redeploy). O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
-
-```azurecli
-az vm redeploy --resource-group myResourceGroup --name myVM 
-```
-
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você estiver enfrentando problemas para se conectar à sua VM., encontre ajuda específica em [Solução de problemas de conexões SSH](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [Etapas detalhadas de solução de problemas de SSH](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Você também pode ler [problemas com a solução de problemas de aplicativo](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se não conseguir acessar um aplicativo em execução em sua VM.
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

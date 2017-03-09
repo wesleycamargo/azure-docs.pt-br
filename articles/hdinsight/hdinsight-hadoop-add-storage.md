@@ -12,16 +12,17 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 02/23/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
-ms.openlocfilehash: 18545981a21736d9673ce19ae2325ba5e4a67ff6
-
+ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
+ms.openlocfilehash: b8c5e53ed5fe86ed099e37644d405080477f8c27
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="add-additional-azure-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento do Azure ao HDInsight
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
 Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure a um cluster existente do HDInsight que usa o Linux como sistema operacional.
 
@@ -32,7 +33,7 @@ Saiba como usar ações de script para adicionar outras contas de armazenamento 
 
 Este script usa os seguintes parâmetros:
 
-* __Nome da conta de armazenamento do Azure__: o nome da conta de armazenamento a ser adicionada ao cluster do HDInsight. Após a execução do script, o HDInsight poderá ler e gravar dados armazenados nessa conta de armazenamento.
+* __Nome da conta de armazenamento do Azure__: o nome da conta de armazenamento a ser adicionada ao cluster do HDInsight. Após a execução do script, o HDInsight pode ler e gravar dados armazenados nessa conta de armazenamento.
 
 * __Chave da conta de armazenamento do Azure__: uma chave que concede acesso à conta de armazenamento.
 
@@ -44,7 +45,7 @@ Durante o processamento, o script executa as ações a seguir:
 
 * Verifica se a conta de armazenamento existe e se pode ser acessada usando a chave.
 
-* Criptografa a chave usando a credencial do cluster. Isso impede que os usuários do HDInsight possam extrair e usar facilmente a chave da conta de armazenamento do Ambari.
+* Criptografa a chave usando a credencial do cluster.
 
 * Adiciona a conta de armazenamento ao arquivo core-site.xml.
 
@@ -74,9 +75,9 @@ Ao usar as informações fornecidas no documento de personalização, substitua 
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Contas de armazenamento não exibidas no Portal do Azure ou nas ferramentas
 
-Ao visualizar o cluster do HDInsight no Portal do Azure, a seleção da entrada __Contas de Armazenamento__ em __Propriedades__ não exibe as contas de armazenamento adicionadas por meio dessa ação de script. O Azure PowerShell e a CLI do Azure também não exibirão a conta de armazenamento adicional.
+Ao exibir o cluster HDInsight no portal do Azure, a seleção da entrada __Contas de Armazenamento__ em __Propriedades__ não exibe as contas de armazenamento adicionadas por meio dessa ação de script. O Azure PowerShell e a CLI do Azure também não exibem a conta de armazenamento adicional.
 
-Isso acontece porque o script apenas modifica a configuração de core-site.xml para o cluster. No momento, essas informações não são usadas ao recuperar as informações de cluster usando as APIs de gerenciamento do Azure.
+As informações de armazenamento não são exibidas porque o script modifica apenas a configuração core-site.xml para o cluster. Essas informações não são usadas na recuperação das informações de cluster usando as APIs de gerenciamento do Azure.
 
 Para exibir informações da conta de armazenamento adicionadas ao cluster usando esse script, use a API REST do Ambari. O comando a seguir demonstra como usar [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON do Ambari:
 
@@ -96,13 +97,11 @@ Esse texto é um exemplo de uma chave criptografada, que é usada para acessar a
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Não é possível acessar o armazenamento após a alteração da chave
 
-Se você alterar a chave de uma conta de armazenamento, o HDInsight não poderá mais acessar a conta de armazenamento.
+Se você alterar a chave de uma conta de armazenamento, o HDInsight não poderá mais acessar a conta de armazenamento. O HDInsight usa uma cópia em cache da chave no core-site.xml do cluster. Essa cópia armazenada em cache deve ser atualizada para corresponder à nova chave.
 
-Isso acontece porque a chave armazenada no core-site.xml para o cluster é a chave antiga.
+Executar a ação de script novamente __não__ atualiza a chave, pois o script verifica se já existe alguma entrada para a conta de armazenamento. Se já houver uma entrada, ele não fará alterações.
 
-A nova execução da ação de script __não__ atualizará a chave, pois o script verifica se já existe uma entrada para a conta de armazenamento. Se existir, ele não fará alterações.
-
-Para contornar esse problema, remova a entrada existente da conta de armazenamento. Faça isso usando as etapas abaixo:
+Para contornar esse problema, remova a entrada existente da conta de armazenamento. Use as seguintes etapas para remover a entrada existente:
 
 1. Em um navegador da Web, abra a interface de usuário na Web do Ambari para seu cluster do HDInsight. O URI é https://CLUSTERNAME.azurehdinsight.net. Substitua __CLUSTERNAME__ pelo nome do cluster.
 
@@ -110,7 +109,7 @@ Para contornar esse problema, remova a entrada existente da conta de armazenamen
 
 2. Na lista de serviços à esquerda da página, selecione __HDFS__. Em seguida, selecione a guia __Configurações__ no centro da página.
 
-3. No campo __Filtrar...__, insira um valor de __fs.azure.account__. Isso retornará entradas para quaisquer outras contas de armazenamento que foram adicionadas ao cluster. Há dois tipos de entradas; __keyprovider__ e __key__. Ambas conterão o nome da conta de armazenamento como parte do nome da chave. 
+3. No campo __Filtrar...__, insira um valor de __fs.azure.account__. Isso retorna entradas para quaisquer outras contas de armazenamento que foram adicionadas ao cluster. Há dois tipos de entradas; __keyprovider__ e __key__. Ambas contêm o nome da conta de armazenamento como parte do nome da chave. 
 
     Veja a seguir exemplos de entradas para uma conta de armazenamento chamada __mystorage__:
 
@@ -131,9 +130,4 @@ Se a conta de armazenamento estiver em uma região diferente do cluster do HDIns
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a adicionar outras contas de armazenamento a um cluster existente do HDInsight. Para saber mais sobre as ações de script, confira [Personalizar clusters HDInsight com base em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-
-
-<!--HONumber=Jan17_HO3-->
-
-
+Você aprendeu a adicionar outras contas de armazenamento a um cluster HDInsight existente. Para saber mais sobre as ações de script, confira [Personalizar clusters HDInsight com base em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)

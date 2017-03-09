@@ -1,6 +1,6 @@
 ---
 title: "Conversão de uma VM do Linux no Azure de discos não gerenciados em discos gerenciados | Microsoft Docs"
-description: "Como converter uma VM de discos não gerenciados em discos gerenciados do Azure usando a CLI 2.0 do Azure (visualização)"
+description: "Como converter uma VM de discos não gerenciados em discos gerenciados do Azure usando a CLI 2.0 do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ef59fc785847f09706a565dc0a0471f8c08e7955
-ms.openlocfilehash: 71e0bfb230cc0c385a09243fa195e918bbade865
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 937b22dd9ad26211b006326b39cafe9c5da4e8bd
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -98,9 +99,4 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as opções de armazenamento, confira a [Visão geral dos Azure Managed Disks](../storage/storage-managed-disks-overview.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

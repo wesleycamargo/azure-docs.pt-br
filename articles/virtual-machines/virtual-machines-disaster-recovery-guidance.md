@@ -1,5 +1,5 @@
 ---
-title: "O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure | Microsoft Docs"
+title: "Cenários de recuperação de desastre para VMs do Azure | Microsoft Docs"
 description: "Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure."
 services: virtual-machines
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: a70f30f380bf110271cb597d8755611da5d2d78c
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer caso uma interrupção de serviço do Azure afete as VMs do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
 A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -76,10 +78,5 @@ Para saber como fazer backup de VMs, confira [Fazer backup de máquinas virtuais
 Saiba como usar o Azure Site Recovery para orquestrar e automatizar a proteção de suas máquinas físicas (e virtuais) com Windows e Linux que serão executadas em VMs Hyper-V e VMWare, confira [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
 Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

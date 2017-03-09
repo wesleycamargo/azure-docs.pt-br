@@ -4,7 +4,7 @@ description: "Siga este tutorial para começar a usar os back-ends de aplicativo
 services: app-service\mobile
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile

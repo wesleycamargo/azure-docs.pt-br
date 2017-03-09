@@ -1,11 +1,11 @@
 ---
-title: Saiba mais sobre parceiros e o Enterprise Integration Pack | Microsoft Docs
-description: "Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos"
+title: "Criar parceiros para mensagens B2B (entre empresas) — Aplicativos Lógicos do Azure"
+description: "Saiba como adicionar parceiros à sua conta de integração com o Enterprise Integration Pack e os Aplicativos Lógicos"
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: msftman
+author: MandiOhlinger
 manager: anneta
-editor: cgronlun
+editor: 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: estfan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2549531d21c8e15e5bbb4321c4119e6aaac53e96
-ms.openlocfilehash: de12b83c811dcdd93ed691ddade9d748383110df
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: 2a886d1eaf1253b55d8c95786139a2bbdc6f145e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="partners-in-b2b-scenarios"></a>Parceiros em cenários B2B
+# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Adicionar ou atualizar parceiros em contratos B2B no seu fluxo de trabalho
 
 Os parceiros são as entidades que participam de mensagens e transações B2B (entre empresas). Antes de criar os parceiros que representam você e a outra organização nessas transações, é necessário que ambas as partes compartilhem informações que identificam e validam as mensagens enviadas. Após a discussão desses detalhes e o início da relação de negócios, é possível criar parceiros em sua conta de integração para representar as duas partes.
 
@@ -89,10 +91,5 @@ As configurações de Recebimento e Envio são orientadas do ponto de vista do P
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre os contratos](../logic-apps/logic-apps-enterprise-integration-agreements.md "Saiba mais sobre os contratos de integração corporativa")  
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Pesquisas de log no Log Analytics | Microsoft Docs
+title: Localizar dados com as pesquisas de logs no Azure Log Analytics | Microsoft Docs
 description: "As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: d4935af0647f0629cca327a7e87c29f1252af382
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="log-searches-in-log-analytics"></a>Pesquisas de log no Log Analytics
+# <a name="find-data-using-log-searches"></a>Localizar dados usando pesquisas de logs
+
 No núcleo do Log Analytics está o recurso de pesquisa de log que permite combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente. As soluções também são alimentadas pela pesquisa de log para fornecer métricas que giram em torno de uma área de problema específica.
 
 Na página de Pesquisa, crie uma consulta e, em então, quando pesquisar, poderá filtrar os resultados por meio de controles da faceta. Você também pode criar consultas avançadas para transformar, filtrar e relatar sobre seus resultados.
@@ -574,9 +577,4 @@ Para obter outras informações sobre pesquisas de log, veja:
 
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

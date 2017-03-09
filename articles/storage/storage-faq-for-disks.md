@@ -3,8 +3,8 @@ title: Perguntas frequentes (FAQ) sobre Discos de VM IaaS do Azure | Microsoft D
 description: "Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium (gerenciados e não gerenciados)"
 services: storage
 documentationcenter: 
-author: ramankumarlive
-manager: aungoo-msft
+author: robinsh
+manager: timlt
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: storage
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
-ms.author: ramankum
+ms.date: 02/23/2017
+ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 0746c954e669bd739b8ecfcddaf287cb5172877f
-ms.openlocfilehash: 95b627738726f3c108fff38bfeda413303b2c718
+ms.sourcegitcommit: 61610078ad5cefd513fdb758aec45d7489704817
+ms.openlocfilehash: b4cb40d81613c16558be1e0e2c10dbfa0265a6b7
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -120,6 +121,48 @@ Sim.
 
 O Azure Managed Disks atualmente suporta apenas o armazenamento LRS (localmente redundante).
 
+## <a name="managed-disks-and-port-8443"></a>Managed Disks e porta 8443
+
+**Por que os clientes têm que desbloquear o tráfego de saída na porta 8443 para VMs usando o Azure Managed Disks?**
+
+O Agente de VM do Azure usa a porta 8443 para relatar o status de cada extensão de VM para a plataforma do Azure. Sem que essa porta seja desbloqueada, o agente de VM não conseguirá relatar o status de nenhuma extensão da VM. Para obter mais informações sobre o agente de VM, consulte [visão geral do Agente de Máquina Virtual do Azure](../virtual-machines/virtual-machines-windows-agent-user-guide.md).
+
+**O que acontece se uma VM é implantada com extensões e a porta não está desbloqueada?**
+
+A implantação resultará em um erro. 
+
+**O que acontece se uma VM for implantada sem extensões e a porta não estiver desbloqueada?**
+
+Não haverá nenhum impacto na implantação. 
+
+**O que acontece se uma extensão for instalada em uma VM que já está provisionada e em execução e a VM não tiver a porta 8443 desbloqueada?**
+
+A extensão não será implantada com êxito. O status da extensão será desconhecido. 
+
+**O que acontece se um modelo de ARM é usado para provisionar várias VMs com a porta 8443 bloqueada – uma VM com extensões e uma segunda VM dependente na primeira VM?**
+
+A primeira VM será exibida como uma implantação com falha porque as extensões não foram implantadas com êxito. A segunda VM não será implantada. 
+
+**Esse requisito de desbloqueio da porta se aplicará a todas as extensões da VM?**
+
+Sim.
+
+**As conexões de entrada e saída na porta 8443 precisam ser desbloqueadas?**
+
+Não. Somente as conexões de saída na porta 8443 têm que ser desbloqueadas. 
+
+**É necessário ter conexões de saída na porta 8443 que está sendo desbloqueada por todo o tempo de vida da VM?**
+
+Sim.
+
+**Ter essa porta desbloqueada afeta o desempenho da VM?**
+
+Não.
+
+**Há uma data estimada para esse problema ser resolvido para que não seja necessário desbloquear a porta 8443?**
+
+Sim, no final de maio de 2017.
+
 ## <a name="premium-disks--both-managed-and-unmanaged"></a>Discos Premium – gerenciados e não gerenciados
 
 **Se uma VM usa uma série de tamanho que oferece suporte ao armazenamento Premium, como um DSv2, é possível anexar discos de dados standard e premium?** 
@@ -151,8 +194,3 @@ O SSD local é um armazenamento temporário fornecido com uma VM de discos geren
 Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode publicar uma pergunta no final deste artigo, nos comentários ou no [Fórum do armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) do MSDN para entrar em contato com a equipe de Armazenamento do Azure e outros membros da comunidade sobre este artigo.
 
 Para fazer uma solicitação de recurso, envie suas solicitações e ideias para o [Fórum de comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

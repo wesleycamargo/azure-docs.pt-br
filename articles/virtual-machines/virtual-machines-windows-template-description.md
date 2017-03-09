@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 5c43e6c646928ef17e1bf2e5b9bce90f9038d5d0
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 9f3923092e0731b6bc75e9f28d152b1f50ca0848
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -173,7 +174,7 @@ Use estas oportunidades para obter as versões mais recentes de API:
 
 - API REST – [listar todos os provedores de recursos](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell – [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.Resources/v3.1.0/Get-AzureRmResourceProvider?redirectedfrom=msdn)
-- Azure CLI 2.0 (Visualização) – [mostrar provedor do az](https://docs.microsoft.com/cli/azure/provider#show)
+- CLI 2.0 do Azure – [az provider show](https://docs.microsoft.com/cli/azure/provider#show)
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
@@ -481,7 +482,7 @@ O script start.ps1 pode executar várias tarefas de configuração. Por exemplo,
 
 ![Obter status de extensão](./media/virtual-machines-windows-template-description/virtual-machines-show-extensions.png)
 
-Também é possível obter informações sobre extensões usando o comando do PowerShell **Get-AzureRmVMExtension**, o comando do Azure CLI 2.0 (Visualização) **vm extension get** ou a API REST **Obter informações sobre extensões**.
+Também é possível obter informações sobre a extensão usando o comando **Get-AzureRmVMExtension** do PowerShell, o comando **vm extension get** da CLI 2.0 do Azure ou a API REST **Get extension information**.
 
 ## <a name="deployments"></a>Implantações
 
@@ -498,8 +499,3 @@ Não é um problema usar o mesmo modelo para criar recursos ou para atualizar re
 - Crie seu próprio modelo usando [Criação de modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 - Implante o modelo criado usando [Create a Windows virtual machine with a Resource Manager template (Criar uma máquina virtual do Windows com um modelo do Resource Manager)](virtual-machines-windows-ps-template.md).
 - Saiba como gerenciar as VMs criadas examinando [Gerenciar máquinas virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
-
-
-<!--HONumber=Feb17_HO3-->
-
-

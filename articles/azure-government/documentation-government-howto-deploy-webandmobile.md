@@ -15,8 +15,9 @@ ms.workload: azure-government
 ms.date: 01/03/2016
 ms.author: sdubeymsft
 translationtype: Human Translation
-ms.sourcegitcommit: 40e2eea5c1a11dadb232c6ac7c224ca5fc847c02
-ms.openlocfilehash: 9a5efdd4c94c7cfc7a63c478f1f5b8124a8cb5c6
+ms.sourcegitcommit: 1cb57e5156dab976599ddfa9a58f26ca8ef1ee0e
+ms.openlocfilehash: 159c891dedb66dfaa238981b395b4bba074c5716
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -25,7 +26,7 @@ Este artigo descreve como implantar um aplicativo dos Serviços de Aplicativos d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Confira [Pré-requisitos do Visual Studio] (../app-service-api/app-service-api-dotnet-get-started.md#prerequisites) para instalar e configurar o Visual Studio 2015 e o SDK do Azure.
-* Siga [estas instruções] (documentation-government-manage-subscriptions.md#connecting-via-visual-studio) de modo a configurar o Visual Studio para se conectar à conta do Azure Governamental.
+* Siga [estas instruções] (documentation-government-manage-subscriptions.md) para configurar o Visual Studio para se conectar à conta do Azure Governamental.
 
 ## <a name="open-app-project-in-visual-studio"></a>Abrir o projeto Aplicativo no Visual Studio
 * Abra o aplicativo existente solution\project no Visual Studio, crie um projeto seguindo [estas instruções] (../app-service-web/web-sites-dotnet-get-started.md#create-a-web-application) ou baixe o aplicativo de exemplo seguindo [estas etapas] (../app-service-api/app-service-api-dotnet-get-started.md#download-the-sample-application).
@@ -42,9 +43,4 @@ Este artigo descreve como implantar um aplicativo dos Serviços de Aplicativos d
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o [Blog do Microsoft Azure Governamental](https://blogs.msdn.microsoft.com/azuregov/).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

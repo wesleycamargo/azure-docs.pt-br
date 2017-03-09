@@ -4,7 +4,7 @@ description: "Descreve como usar o portal do Azure ou a interface do usuário da
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 11490814-d9fd-4dc7-9c3b-55dd2c23eaf1
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 2ff0b7796b8e31cc3b26a951647bb483fd131c14
+ms.sourcegitcommit: f37fd4de0d6895f55508d1a51d981a047be15031
+ms.openlocfilehash: 260a23003d705e6598da8c51bb5a96f2539a0014
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="change-the-storsimple-virtual-array-device-administrator-password"></a>Alterar a senha do administrador do dispositivo da Matriz Virtual StorSimple
+# <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Alterar a senha de administrador do dispositivo StorSimple Virtual Array por meio do Gerenciador de Dispositivos do StorSimple
 
 ## <a name="overview"></a>Visão geral
 
@@ -76,10 +78,5 @@ Execute as etapas a seguir para alterar a senha do administrador do dispositivo 
 
 ## <a name="next-steps"></a>Próximas etapas
 Aprenda como [administrar sua StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

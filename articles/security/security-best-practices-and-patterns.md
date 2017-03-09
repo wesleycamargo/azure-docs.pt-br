@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: e3d01fadc5597efa7beb5ee690470f428ee12b62
-ms.openlocfilehash: 216146ffaa0f2732b2f2369107e80de0bbc4e466
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -29,7 +29,6 @@ No momento, temos os artigos de padrões e práticas recomendadas de segurança 
 * [Práticas recomendadas de gerenciamento de identidade e segurança de controle de acesso](azure-security-identity-management-best-practices.md)
 * [Práticas recomendadas de segurança de Internet das Coisas](azure-security-iot-best-practices.md)
 * [Práticas recomendadas de segurança do IaaS do Azure] (azure-security-iaas.md)
-* [Práticas recomendadas para atualizações de software no Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 * [Práticas recomendadas de segurança de limites do Azure](../best-practices-network-security.md)
 * [Implementar uma arquitetura de rede híbrida segura no Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [Melhores Práticas de PaaS do Azure] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)

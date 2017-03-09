@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: cedc76bc46137a5d53fd76c0fdb6ff2db79566a4
-ms.openlocfilehash: 05e999d62d3ffdde708c9898807e79fabcff992e
+ms.sourcegitcommit: a8b570cfbab594e1a21417e081eaf6d34a4659d0
+ms.openlocfilehash: 40f10b1cb860ca0c018cc3589417c54588269b0c
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,6 +37,10 @@ Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem a
 Quando você cria um instantâneo de um blob, as propriedades do sistema são copiadas para o instantâneo com os mesmos valores. Os metadados do blob de base também são copiados no instantâneo, a menos que você especifique metadados separados para o instantâneo ao criá-lo.
 
 Quaisquer concessões associadas ao blob básico não afetam o instantâneo. Não é possível adquirir uma concessão em um instantâneo.
+
+Um arquivo VHD é usado para armazenar as informações atuais e o status de um disco da VM. Você pode desanexar um disco de dentro da VM ou desligar a VM e, em seguida, tirar um instantâneo de seu arquivo VHD. É possível usar esse arquivo de instantâneo posteriormente para recuperar o arquivo VHD nesse ponto no tempo e recriar a VM.
+
+Se a SSE (Criptografia de Serviço de Armazenamento) for habilitada para a conta de armazenamento na qual está o blob, qualquer instantâneo desse blob será criptografado em repouso.
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 O exemplo de código a seguir mostra como criar um instantâneo no .NET. Este exemplo especifica metadados separados para o instantâneo quando ele é criado.
@@ -163,10 +168,5 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos adicionais usando o Armazenamento de Blobs, confira [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Você pode baixar um aplicativo de exemplo e executá-lo ou procurar o código no GitHub.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 
