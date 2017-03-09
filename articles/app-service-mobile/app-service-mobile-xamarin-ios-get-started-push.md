@@ -4,7 +4,7 @@ description: "Aprenda a usar o Serviço de Aplicativo do Azure para enviar notif
 services: app-service\mobile
 documentationcenter: xamarin
 author: ysxu
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -120,7 +120,7 @@ Se você não usar o projeto baixado do início rápido do servidor, deve adicio
 
 Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
 
-## <a name="a-nametestatest-push-notifications-in-your-app"></a><a name="test"></a>Testar notificações por push no seu aplicativo
+## <a name="test"></a>Testar notificações por push no seu aplicativo
 1. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo em um dispositivo compatível com iOS; em seguida, clique em **OK** para aceitar as notificações por push.
    
    > [!NOTE]

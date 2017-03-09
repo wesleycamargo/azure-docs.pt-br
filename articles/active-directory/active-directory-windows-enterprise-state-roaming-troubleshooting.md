@@ -4,7 +4,7 @@ description: "Responde a algumas dúvidas que os administradores de TI podem ter
 services: active-directory
 keywords: "configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming"
 documentationcenter: 
-author: femila
+author: ningtan
 manager: swadhwa
 editor: 
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
-ms.author: femila
+ms.date: 03/08/2017
+ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 58a583a761a400d8fa0488fbc4fbfec35ec62c41
 ms.openlocfilehash: ebdf73ad8a7a2f2690a404676e0c81ee01e77357
+ms.lasthandoff: 01/10/2017
 
 
 ---
@@ -59,9 +60,9 @@ Esta seção fornece sugestões sobre como solucionar e diagnosticar problemas r
 ### <a name="verify-the-device-registration-status"></a>Verificar o status de registro do dispositivo
 O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do Azure. Embora não sejam específicas para o Enterprise State Roaming, seguir as instruções abaixo poderá ajudar a confirmar que o cliente do Windows 10 está registrado, bem como confirmar a impressão digital, a URL das configurações do AD do Azure, o status do NGC e outras informações.
 
-1.  Abra o prompt de comando não elevado. Para fazer isso no Windows, abra o inicializador de Execução (Win + R) e digite “cmd” para abrir.
-2.  Depois de aberto o prompt de comando, digite “*dsregcmd.exe /status*”.
-3.  Para o resultado esperado, o valor do campo **AzureAdJoined** deve ser "SIM", o valor do campo **WamDefaultSet** deve ser "SIM" e o valor do campo **WamDefaultGUID** deve ser um GUID com "(AzureAd)" no final.
+1.    Abra o prompt de comando não elevado. Para fazer isso no Windows, abra o inicializador de Execução (Win + R) e digite “cmd” para abrir.
+2.    Depois de aberto o prompt de comando, digite “*dsregcmd.exe /status*”.
+3.    Para o resultado esperado, o valor do campo **AzureAdJoined** deve ser "SIM", o valor do campo **WamDefaultSet** deve ser "SIM" e o valor do campo **WamDefaultGUID** deve ser um GUID com "(AzureAd)" no final.
 
 **Possível problema**: o valor do campo **WamDefaultSet** e **AzureAdJoined** é "NÃO”, o dispositivo foi associado ao domínio e registrado com o AD do Azure AD e o dispositivo não sincroniza. Se isso estiver sendo exibido, pode ser necessário que o dispositivo aguarde até que a política seja aplicada ou a autenticação do dispositivo falhou ao se conectar ao AD do Azure. O usuário pode precisar aguardar algumas horas para que a política a seja aplicada. Outras etapas de solução de problemas podem incluir repetir o registro automático se desconectando e entrando novamente ou iniciar a tarefa no Agendador de tarefas. Em alguns casos, executar "*dsregcmd.exe /leave*" em uma janela de prompt de comando elevado, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 
@@ -144,7 +145,7 @@ Conecte o computador a uma rede corporativa para que a sincronização possa ser
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID de evento 6065: 80070533 Este usuário não pode fazer login porque esta conta está desabilitada no momento  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>ID de evento 6065: 80070533 Este usuário não pode fazer login porque esta conta está desabilitada no momento    
 No Visualizador de Eventos, em logs de SettingSync/Depuração, esse erro pode ser visto quando o locatário não tem o AzureRMS provisionado automaticamente. 
 
 **Ação recomendada**  
@@ -152,8 +153,8 @@ Prossiga com as etapas listadas em [KB3193791](https://support.microsoft.com/kb/
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID do evento 1098: Erro: Falha na operação do agente de Token 0xCAA5001C  
-No Visualizador de Eventos, em logs do AAD/Operacionais, esse erro pode ser visto com o evento 1104: chamada do plugin do AP da nuvem AAD Obter erro retornado do token: 0xC000005F. Esse problema ocorre se estiverem faltando permissões ou atributos de propriedade.  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>ID do evento 1098: Erro: Falha na operação do agente de Token 0xCAA5001C    
+No Visualizador de Eventos, em logs do AAD/Operacionais, esse erro pode ser visto com o evento 1104: chamada do plugin do AP da nuvem AAD Obter erro retornado do token: 0xC000005F. Esse problema ocorre se estiverem faltando permissões ou atributos de propriedade.     
 
 **Ação recomendada**  
 Prossiga com as etapas listadas em [KB3196528](https://support.microsoft.com/kb/3196528).  
@@ -172,9 +173,4 @@ Prossiga com as etapas listadas em [KB3196528](https://support.microsoft.com/kb/
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
