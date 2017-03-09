@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 8c9c9dea1248205aa6303e11e1166d5d38786c1b
-ms.openlocfilehash: 0e0fe444ef6eab96b134ad042d41a54b436f3aec
+ms.sourcegitcommit: b521c3bb99c9a6980df46eacec4e1ebe72fb01a1
+ms.openlocfilehash: 00f6a7af021029d1795071c930e05f200578fa14
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -243,6 +244,8 @@ Você atualizou uma configuração de dimensionamento automático em um conjunto
 ## <a name="next-steps"></a>Próximas etapas
 Use estes links para saber mais sobre o dimensionamento automático.
 
+[Solucionar problemas de autoescala com conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+
 [Métricas comuns para o dimensionamento automático](insights-autoscale-common-metrics.md)
 
 [Práticas Recomendadas para o Serviço de Aplicativo do Azure](insights-autoscale-best-practices.md)
@@ -252,9 +255,4 @@ Use estes links para saber mais sobre o dimensionamento automático.
 [Gerenciar o dimensionamento automático usando a CLI](insights-cli-samples.md#autoscale)
 
 [Configurar webhooks e notificações por email para dimensionamento automático](insights-autoscale-to-webhook-email.md)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

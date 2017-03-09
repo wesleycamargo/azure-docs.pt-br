@@ -15,13 +15,14 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/10/2015
 ms.author: crwilcox
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e33a3314fc127673a8bf7659b72bd91e1a2d1712
-
+ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
+ms.openlocfilehash: ad53cb9bb58064aeed49cb05fdcb936e408346d2
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="jupyter-notebook-on-azure"></a>Bloco de Anotações Jupyter no Azure
+# <a name="creating-an-azure-vm-installing-jupyter-and-running-a-jupyter-notebook-on-azure"></a>Criando uma VM do Azure, instalando o Jupyter, e executando um Notebook do Jupyter no Azure
 O [projeto Jupyter](http://jupyter.org), anteriormente conhecido como [projeto IPython](http://ipython.org), fornece um conjunto de ferramentas para a computação científica usando shells interativos avançados que combinam a execução do código com a criação de um ambiente computacional dinâmico. Esses arquivos de notebook podem conter textos arbitrários, fórmulas matemáticas, códigos de entrada, resultados, gráficos, vídeos e qualquer outro tipo de mídia que um navegador da Web moderno é capaz de exibir. Caso você não tenha experiência alguma com o Python e deseja aprender a usá-lo em um ambiente divertido e interativo, ou deseja fazer trabalhos de computação técnico ou complexos, o Bloco de Anotações Jupyter é a escolha ideal.
 
 ![Captura de tela](./media/virtual-machines-linux-jupyter-notebook/ipy-notebook-spectral.png) Usando os pacotes SciPy e Matplotlib para analisar a estrutura de uma gravação de som.
@@ -172,22 +173,17 @@ Esse paradigma de mistura de tecnologia da Web moderna com computação dinâmic
 * Para fornecer "trabalhos executáveis" que apresentam os resultados da pesquisa de uma forma que possa ser prontamente reproduzida, validada e estendida por outras pessoas.
 * Como uma plataforma para computação colaborativa: vários usuários podem entrar no mesmo servidor de notebook para compartilhar uma sessão computacional ao vivo.
 
-Se você for para o repositório do código-fonte do [IPython][repositório], encontrará um diretório inteiro com exemplos de notebook que você pode baixar e experimentar na sua própria VM Jupyter do Azure.  Basta baixar os arquivos `.ipynb` do site e carregá-los no painel de sua VM Notebook do Azure (ou baixá-los diretamente na VM).
+Caso acesse o [repositório][repository] de código-fonte do IPython, você encontrará um diretório inteiro com exemplos de notebook que você pode baixar e experimentar em sua própria VM Jupyter do Azure.  Basta baixar os arquivos `.ipynb` do site e carregá-los no painel de sua VM Notebook do Azure (ou baixá-los diretamente na VM).
 
 ## <a name="conclusion"></a>Conclusão
 O Bloco de Anotações do Jupyter fornece uma interface avançada para acesso interativo à tecnologia do ecossistema Python no Azure.  Ela abrange diversos casos de uso, incluindo exploração simples, aprendizado do Python, análise de dados e visualização, simulação e computação paralela. Os documentos resultantes do Bloco e notas contêm um registro completo das computações executadas e podem ser compartilhados com outros usuários do Jupyter.  O Bloco de Anotações do Jupyter pode ser usado como um aplicativo local e é ideal para implantações em nuvem no Azure
 
-Os principais recursos do Jupyter também estão disponíveis no Visual Studio por meio das [Ferramentas Python para Visual Studio][Ferramentas Python para Visual Studio] (PTVS). O PTVS é um plug-in gratuito e de código aberto da Microsoft que transforma o Visual Studio em um ambiente de implantação avançado do Python, incluindo um editor avançado com IntelliSense, depuração, criação de perfil e integração de computação paralela.
+Os recursos principais do Jupyter também estão disponíveis no Visual Studio por meio da PTVS ([Ferramentas Python para Visual Studio][Python Tools for Visual Studio]). O PTVS é um plug-in gratuito e de código aberto da Microsoft que transforma o Visual Studio em um ambiente de implantação avançado do Python, incluindo um editor avançado com IntelliSense, depuração, criação de perfil e integração de computação paralela.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/python/).
 
 [portal-vm-linux]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial-portal-rm/
-[repositório]: https://github.com/ipython/ipython
-[Ferramentas Python para Visual Studio]: http://aka.ms/ptvs
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+[repository]: https://github.com/ipython/ipython
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 

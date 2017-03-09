@@ -13,16 +13,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/22/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a2b32f23381ed1f9912edf6432f029e51bdf1be4
-ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
+ms.sourcegitcommit: c8abf308c20968f184a80b20dc40185b1631105d
+ms.openlocfilehash: 903004ae83d86ddcda13c6f2fce708e71ffa729b
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
-Às vezes, você deseja configurar os arquivos de configuração que incluem:
+Às vezes, você deseja definir os arquivos de configuração, que incluem:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -40,20 +41,17 @@ ms.openlocfilehash: 0bb7af25211ef728055ddb5a6fb826411986dd4e
 * webhcat-site.xml
 * yarn-site.xml
 
-Os clusters não podem reter as alterações devido à recriação das imagens. Para saber mais sobre a recriação de imagens, consulte [A instância de função é reinicializada devido a atualizações do SO](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Para manter as alterações durante o tempo de vida dos clusters, você pode usar a personalização de clusters do HDInsight durante o processo de criação. Essa é a maneira recomendável de mudar as configurações de um cluster e persisti-las entre esses eventos de reinicialização do refazimento de imagem do Azure. Essas mudanças de configuração são aplicadas antes do início de um serviço para que os serviços não precisem ser reiniciados. 
-
-Há três métodos para usar a Inicialização:
+Há três métodos para usar a inicialização:
 
 * Usar PowerShell do Azure
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 * Usar o SDK do .NET
 * Usar o modelo do Azure Resource Manager
 
-Para obter informações sobre como instalar componentes adicionais no cluster do HDInsight durante o tempo de criação, consulte:
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+
+Para saber mais sobre como instalar componentes adicionais no cluster HDInsight no momento da criação, confira:
 
 * [Personalizar os clusters HDInsight usando a Ação de Script (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
-* [Personalizar os Clusters HDInsight usando a Ação de Script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 O seguinte código do PowerShell personaliza uma configuração de Hive:
@@ -74,8 +72,8 @@ O seguinte código do PowerShell personaliza uma configuração de Hive:
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
-        -OSType Windows `
-        -Version "3.2" `
+        -OSType Linux `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -Config $config 
 
@@ -84,7 +82,7 @@ Um script do PowerShell em funcionamento completo pode ser encontrado no [Apênd
 **Para verificar a alteração:**
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. No painel esquerdo, clique em **Procurar** e, em seguida, clique em **Clusters do HDInsight**.
+2. No menu esquerdo, clique em **Clusters HDInsight**. Caso não visualize essa opção, clique primeiro em **Mais serviços**.
 3. Clique no cluster que você acabou de criar usando o script do PowerShell.
 4. Clique em **Painel** na parte superior da folha para abrir a interface do usuário do Ambari.
 5. Clique em **Hive** no menu à esquerda.
@@ -244,7 +242,7 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
         -ClusterSizeInNodes 1 `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.2" `
+        -Version "3.5" `
         -HttpCredential $httpCredential `
         -SshCredential $sshCredential `
         -Config $config
@@ -255,9 +253,4 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
     Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
 
     #endregion
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

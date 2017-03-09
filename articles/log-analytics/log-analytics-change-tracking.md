@@ -1,7 +1,7 @@
 ---
-title: "Solução de Controle de Alterações no Log Analytics | Microsoft Docs"
-description: "Você pode usar a solução de Controle de Alterações de Configuração no Log Analytics para ajudar a identificar facilmente as alterações no software e nos Serviços do Windows que ocorrem em seu ambiente. Identificar essas alterações de configuração poderá ajudá-lo a detectar problemas operacionais."
-services: operations-management-suite
+title: "Controlar alterações com o Azure Log Analytics | Microsoft Docs"
+description: "A solução Controle de Alterações no Log Analytics ajuda a identificar alterações no software e nos Serviços do Windows que ocorrem no ambiente."
+services: log-analytics
 documentationcenter: 
 author: bandersmsft
 manager: carmonm
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2a66cdb9825cfc3935d534afaf3f6f0cf5d5fb5a
-ms.openlocfilehash: d4226882ded34a79f7e227886a396db0e927bad2
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3953a83b20ee2d1ca0035b31824ca167e92f4864
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="change-tracking-solution-in-log-analytics"></a>Solução de Controle de Alterações no Log Analytics
+# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
+
 Este artigo ajuda você a usar a solução de Controle de Alterações em Log Analytics para identificar facilmente as alterações em seu ambiente. A solução rastreia as alterações no software Windows e Linux, nos arquivos Windows, nos serviços Windows e nos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a detectar problemas operacionais.
 
 Instale a solução para atualizar o tipo de agente já instalado. Alterações em software e serviços do Windows instalados e daemons do Linux em servidores monitorados são lidas e, em seguida, os dados são enviados para o serviço do Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Usando as informações no painel Controle de Alterações, você pode ver facilmente as alterações feitas à sua infraestrutura de servidor.
@@ -90,9 +93,4 @@ Você pode exibir as alterações à sua infraestrutura e então analisar em det
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados do controle de alterações.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

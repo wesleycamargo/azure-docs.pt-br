@@ -4,7 +4,7 @@ description: "Explica como instalar a Atualização 1.2 do StorSimple série 800
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+ms.sourcegitcommit: 56af9046fff24229298997b169aaf329e1692cc2
+ms.openlocfilehash: 80ff35cc47dfc38089f4c392ef4c90baf9ccc03e
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="install-update-12-on-your-storsimple-device"></a>Instalar a Atualização 1.2 no dispositivo StorSimple
+# <a name="install-update-12-on-your-storsimple-8000-series-device"></a>Instalar a Atualização 1.2 em seu dispositivo StorSimple série 8000
 ## <a name="overview"></a>Visão geral
 Este tutorial explica como instalar a Atualização 1.2 em um dispositivo StorSimple que está executando uma versão de software anterior à Atualização 1. O tutorial também aborda as etapas adicionais necessárias para a atualização quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple.
 
@@ -59,7 +61,7 @@ Realize as etapas a seguir para atualizar seu dispositivo para a [Atualização 
    
    As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo.
    
-   ![Página de manutenção](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
+   ![Página de manutenção](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Página de manutenção")
 2. Baixe as atualizações do modo de manutenção usando as etapas listadas em [Para baixar hotfixes](#to-download-hotfixes) a fim pesquisar e baixar a KB3063416, que instala atualizações de firmware de disco (as outras atualizações já devem estar instaladas agora).
 3. Siga as etapas listadas em [Instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
 4. No Portal Clássico do Azure, navegue até a página **Manutenção** e, na parte inferior da página, clique em **Verificar Atualizações** para verificar se há Atualizações do Windows e clique em **Instalar Atualizações**. O processo estará concluído depois que todas as atualizações forem instaladas com êxito.
@@ -114,10 +116,5 @@ Execute as seguintes etapas para desativar a interface de rede com o gateway e, 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a [versão da Atualização 1.2](storsimple-update1-release-notes.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

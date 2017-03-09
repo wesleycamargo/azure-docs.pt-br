@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 130100a4f1710a7820c8e9793db73144d7d68808
-ms.openlocfilehash: 26b1f0708b3705297b9a35cce0692d3503b03246
+ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
+ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,10 +39,10 @@ A SSE criptografa dados quando eles são gravados no armazenamento do Azure e po
 
 Criptografia do serviço de armazenamento: a SSE de visualização de arquivos agora está disponível para criptografar os dados no armazenamento de arquivos. No momento, isso está em visualização. A lista de regiões abaixo mostra onde a SSE para Armazenamento de Arquivos está disponível.
 
-Entre em contato com ssdiscussions@microsoft.com para participar da visualização de arquivos da SSE.
+Entre em contato com ssediscussions@microsoft.com para participar da visualização de arquivos da SSE.
 
 Para saber mais, veja as perguntas frequentes.
-A disponibilidade da SSE de armazenamento de arquivos para armazenamento de arquivos está disponível atualmente na região da Ásia Oriental.
+A disponibilidade da Criptografia de Serviço de Armazenamento do Armazenamento de Arquivo está disponível atualmente nas regiões da Ásia Oriental, Europa Setentrional e Leste dos EUA 2.
 
 
 Para habilitar ou desabilitar a Criptografia do Serviço de Armazenamento para uma conta de armazenamento, faça logon no [Portal do Azure](https://azure.portal.com) e selecione uma conta de armazenamento. Na folha Configurações, procure a seção de Serviço Blob, conforme mostrado nesta captura de tela, e clique em Criptografia.
@@ -198,10 +199,5 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 
 ## <a name="next-steps"></a>Próximas etapas
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

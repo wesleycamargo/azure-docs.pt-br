@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
-ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: 3bb103a8def2e1c56695169568c2d3c64b7f291f
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics"></a>Conectar máquinas virtuais do Azure ao Log Analytics
+# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Conectar máquinas virtuais do Azure ao Log Analytics com um agente do Log Analytics
+
 Para computadores Windows e Linux, o método recomendado para coletar métricas e logs é instalando o agente do Log Analytics.
 
 A maneira mais fácil de instalar o agente do Log Analytics em máquinas virtuais do Azure é por meio da Extensão de VM do Log Analytics.  Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o espaço de trabalho do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
@@ -34,8 +37,8 @@ Ao usar a coleta com base em agente para dados de log, você deve configurar [fo
 
 > [!IMPORTANT]
 > Se você configurar o Log Analytics para indexar dados de log usando o [diagnóstico do Azure](log-analytics-azure-storage.md) e se você configurar o agente para coletar os mesmos logs, eles serão coletados duas vezes. Você será cobrado por ambas as fontes de dados. Se você tiver o agente instalado, você deverá coletar dados de log usando apenas o agente – não configurar o Log Analytics para coletar dados de log do Diagnóstico do Azure.
-> 
-> 
+>
+>
 
 Há três maneiras fáceis de habilitar a extensão da máquina virtual do Log Analytics:
 
@@ -400,10 +403,4 @@ Para computadores que não estão no Azure, você pode instalar o agente do Log 
 
 * [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md)
 * [Conectar computadores Linux ao Log Analytics](log-analytics-linux-agents.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
