@@ -12,11 +12,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/28/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
+ms.sourcegitcommit: af3ba5a4d1bd457f19038b9917ce55920e5e882b
+ms.openlocfilehash: 7d97e0f8be183c8858520d795ac28b7ad63a6dae
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -28,7 +29,7 @@ ms.openlocfilehash: 7faa219c7c21c768419f6c5e98712a0f0f471924
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 ## <a name="about-this-tutorial"></a>Sobre este tutorial
-Neste tutorial, você aprenderá a executar operações básicas no serviço Armazenamento de Arquivos do Microsoft Azure. Por meio de exemplos escritos em C++, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você for novo no serviço de armazenamento de arquivos do Microsoft Azure, será muito útil percorrer os conceitos das seções a seguir para compreender os exemplos.
+Neste tutorial, você aprenderá a executar operações básicas no serviço Armazenamento de Arquivos do Microsoft Azure. Por meio de exemplos escritos em C++, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você não tiver experiência com o serviço de Armazenamento de Arquivos do Microsoft Azure, percorrer os conceitos nas seções que se seguem será útil para entender os exemplos.
 
 [!INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -50,12 +51,12 @@ Install-Package wastorage
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar os arquivos:
 
 ```cpp
-#include "was/storage_account.h"
-#include "was/file.h"
+#include <was/storage_account.h>
+#include <was/file.h>
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
-Para usar o armazenamento de arquivos, será necessário se conectar à sua conta de armazenamento do Azure. A primeira etapa seria configurar uma cadeia de conexão que usaremos para acessar a sua conta de armazenamento. Vamos definir uma variável estática para fazer isso.
+Para usar o armazenamento de arquivos, será necessário se conectar à sua conta de armazenamento do Azure. A primeira etapa é configurar uma cadeia de conexão que usaremos para se conectar à sua conta de armazenamento. Vamos definir uma variável estática para fazer isso.
 
 ```cpp
 // Define the connection-string with your values.
@@ -132,7 +133,7 @@ file4.upload_from_file(_XPLATSTR("DataFile.txt"));
 ```
 
 ## <a name="how-to-create-a-directory"></a>Coco criar um diretório
-Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. O serviço de armazenamento de arquivos do Azure permite que você crie tantos diretórios quanto a sua conta permitir. O código a seguir criará um diretório chamado **my-sample-directory** no diretório raiz, bem como um subdiretório nomeado **my-sample-subdirectory**.
+Você também pode organizar o armazenamento colocando arquivos em subdiretórios em vez de manter todos eles no diretório raiz. O serviço do Armazenamento de Arquivos do Azure permite que você crie tantos diretórios quanto a sua conta permitir. O código a seguir criará um diretório chamado **my-sample-directory** no diretório raiz, bem como um subdiretório nomeado **my-sample-subdirectory**.
 
 ```cpp
 // Retrieve a reference to a directory
@@ -174,9 +175,9 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="how-to-download-a-file"></a>Como baixar um arquivo
-Para baixar arquivos, primeiro recupere uma referência de arquivo e chame **download_to_stream** a fim de transferir o conteúdo do arquivo para um objeto de fluxo que você pode persistir em um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
+Para baixar arquivos, primeiro recupere uma referência de arquivo e chame o método **download_to_stream** a fim de transferir o conteúdo do arquivo para um objeto de fluxo, que você pode persistir em um arquivo local. Como alternativa, você pode usar o método **download_to_file** para baixar o conteúdo de um arquivo em um arquivo local. Você pode usar o método **download_text** para baixar o conteúdo de um arquivo como uma cadeia de texto.
 
-O exemplo a seguir usa os métodos **download_to_stream** e **download_text** para demonstrar o download dos arquivos que foram criados nas seções anteriores.
+O exemplo a seguir usa os métodos **download_to_stream** e **download_text** para demonstrar o download dos arquivos, que foram criados nas seções anteriores.
 
 ```cpp
 // Download as text
@@ -354,12 +355,8 @@ Para saber mais sobre como criar e usar assinaturas de acesso compartilhado, vej
 Para saber mais sobre o Armazenamento do Azure, explore estes recursos:
 
 * [Biblioteca do Cliente de Armazenamento para C++](https://github.com/Azure/azure-storage-cpp)
+* [Exemplos de Serviço de Arquivo do Armazenamento do Azure no C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Gerenciador de Armazenamento do Azure](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

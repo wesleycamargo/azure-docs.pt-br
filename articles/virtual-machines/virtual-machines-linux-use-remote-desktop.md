@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 95a79ccb83d5a3ba386d5db2fd47f3887a03fa8a
-ms.openlocfilehash: 4abb2fa6591c0e014e8d9563f69f9586e081e7b2
+ms.sourcegitcommit: 1aeb983730f732a021b828c658cc741f8659c487
+ms.openlocfilehash: 01a19f1070c1096b41599705bba246bd0cc45d09
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,10 +28,10 @@ As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a par
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo exige uma VM do Linux no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
-- A [CLI do Azure 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [CLI do Azure 2.0 (Visualização)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- A [CLI 2.0 do Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou a [CLI 1.0 do Azure](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - O [Portal do Azure](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Também é necessário ter a [CLI 1.0 do Azure ](../xplat-cli-install.md) ou a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) instalada e conectada a uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
+Também é necessário ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) ou a [CLI 1.0 do Azure](../xplat-cli-install.md) instalada e conectada a uma [conta ativa do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="quick-commands"></a>Comandos rápidos
@@ -69,16 +70,7 @@ Defina uma senha para sua conta de usuário se estiver usando atualmente apenas 
 sudo passwd ops
 ```
 
-Saia da sessão do SSH em sua VM do Linux. Use a CLI do Azure em seu computador local para criar uma regra de grupo de segurança de rede para permitir o tráfego da área de trabalho remota. O exemplo a seguir usa a CLI 1.0 do Azure para criar uma regra chamada `myNetworkSecurityGroupRule` em `myNetworkSecurityGroup` e permitir o tráfego na porta tcp 3389:
-
-```azurecli
-azure network nsg rule create --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-    --protocol tcp --direction inbound --priority 1010 \
-    --destination-port-range 3389 --access allow
-```
-
-Ou use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure (Visualização):
+Saia da sessão do SSH em sua VM do Linux. Use a CLI do Azure em seu computador local para criar uma regra de grupo de segurança de rede para permitir o tráfego da área de trabalho remota. Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure. O seguinte exemplo cria uma regra chamada `myNetworkSecurityGroupRule` no `myNetworkSecurityGroup` para permitir o tráfego na porta TCP 3389:
     
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup \
@@ -87,6 +79,15 @@ az network nsg rule create --resource-group myResourceGroup \
     --source-address-prefix '*' --source-port-range '*' \
     --destination-address-prefix '*' --destination-port-range 3389 \
     --access allow
+```
+
+Ou com a CLI do Azure 1.0:
+
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
 ```
 
 Conecte-se à sua VM do Linux usando seu cliente de área de trabalho remota preferido.
@@ -149,16 +150,7 @@ Para permitir que o tráfego da Área de Trabalho Remota alcance sua VM do Linux
 
 Os exemplos a seguir criam uma regra de grupo de segurança de rede denominada `myNetworkSecurityGroupRule` para o tráfego de `allow` no `tcp` na porta `3389`.
 
-- Usar a CLI 1.0 do Azure:
-
-    ```azurecli
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
-    ```
-
-- Ou use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure (Visualização):
+- Use [az network nsg rule create](/cli/azure/network/nsg/rule#create) com a CLI 2.0 do Azure:
     
     ```azurecli
     az network nsg rule create --resource-group myResourceGroup \
@@ -169,6 +161,14 @@ Os exemplos a seguir criam uma regra de grupo de segurança de rede denominada `
         --access allow
     ```
 
+- Ou use a CLI do Azure 1.0:
+
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Conectar-se a sua VM do Linux com um cliente de Área de Trabalho Remota
 Abra o cliente da área de trabalho remota local e conecte-se ao endereço IP ou nome DNS de sua VM do Linux. Insira o nome de usuário e a senha da conta de usuário em sua VM da seguinte maneira:
@@ -215,10 +215,5 @@ Se você não receber nenhuma resposta em seu cliente de área de trabalho remot
 Para saber mais sobre como criar e usar chaves SSH com VMs do Linux, veja [Criar chaves SSH para VMs do Linux no Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para saber mais sobre como usar o SSH do Windows, veja [Como usar chaves SSH com o Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

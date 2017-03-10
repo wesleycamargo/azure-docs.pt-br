@@ -4,7 +4,7 @@ description: "Responde a algumas dúvidas que os administradores de TI podem ter
 services: active-directory
 keywords: "configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming"
 documentationcenter: 
-author: femila
+author: tanning
 manager: swadhwa
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
@@ -13,11 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2017
+ms.date: 03/08/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 7d472733e80ae03294ba1ac9e97d1afd3aa0fa91
 ms.openlocfilehash: c7d8eefe560a361690cc4daf6550b2a8c894f318
+ms.lasthandoff: 01/05/2017
 
 
 ---
@@ -128,9 +129,4 @@ Confira a documentação na seção de [solução de problemas](active-directory
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 * [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

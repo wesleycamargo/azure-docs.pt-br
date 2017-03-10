@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
-ms.openlocfilehash: fc8cb82e952a05b161f00ef9ebfbd4852d3987d4
+ms.sourcegitcommit: c859b789b564ee79022823e8d796775f58eeeccd
+ms.openlocfilehash: 7acd58989da14ea49374e86edb0dba5762557d79
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="upload-a-specialized-vhd-to-azure-to-use-for-creating-a-new-vm"></a>Carregar um VHD especializado no Azure a ser usado para criar uma nova VM
+# <a name="how-to-upload-a-specialized-vhd-to-create-a-vm-in-azure"></a>Como carregar um VHD especializado para criar uma VM no Azure
 
 Um VHD especializado mantém as contas de usuário, aplicativos e outros dados de estado de sua VM original. Você pode carregar um VHD especializado no Azure e usá-lo para criar uma VM que usa Managed Disks ou uma conta de armazenamento não gerenciada. Recomendamos que você use o [Managed Disks](../storage/storage-managed-disks-overview.md) para tirar proveito dos recursos adicionais e gerenciamento simplificado que os Managed Disks oferecem.
 
@@ -39,7 +41,7 @@ Um VHD especializado mantém as contas de usuário, aplicativos e outros dados d
 * Para ver os limites gerais em VMs do Azure, consulte [Limites de assinatura e serviços do Azure, cotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso use o PowerShell, confira se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo.
+Caso use o PowerShell, verifique se você tem a versão mais recente do módulo AzureRM.Compute do PowerShell. Execute o comando a seguir para instalá-lo.
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -78,7 +80,7 @@ Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, lei
 ## <a name="get-the-storage-account"></a>Obter a conta de armazenamento
 Você precisa de uma conta de armazenamento no Azure para armazenar a imagem da VM carregada. Você pode usar uma conta de armazenamento existente ou criar uma nova. 
 
-Se pretende usar o VHD para criar um disco gerenciado para uma VM, o local da conta de armazenamento deve ser o mesmo local em que você criar a VM.
+Se for o usar o VHD para criar um disco gerenciado para uma VM, o local da conta de armazenamento deverá ser o mesmo local em que você criará a VM.
 
 Para exibir as contas de armazenamento disponíveis, digite:
 
@@ -119,7 +121,7 @@ Se você precisa criar uma conta de armazenamento, siga estas etapas:
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD na sua conta de armazenamento
 
-Use o cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) para carregar o VHD em um contêiner na sua conta de armazenamento. Este exemplo carrega o arquivo **myVHD.vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` em uma conta de armazenamento denominada **mystorageaccount** no grupo de recursos **myResourceGroup**. O arquivo será colocado em um contêiner chamado **mycontainer** e o novo nome do arquivo será **myUploadedVHD.vhd**.
+Use o cmdlet [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) para carregar o VHD em um contêiner na conta de armazenamento. Este exemplo carrega o arquivo **myVHD.vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` em uma conta de armazenamento denominada **mystorageaccount** no grupo de recursos **myResourceGroup**. O arquivo será colocado em um contêiner chamado **mycontainer** e o novo nome do arquivo será **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -145,7 +147,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode demorar um pouco para ser concluído
 
-Salve o caminho do **URI de destino** para usá-lo posteriormente caso queira criar um disco gerenciado ou uma nova VM usando o VHD carregado.
+Salve o caminho do **URI de Destino** para usá-lo posteriormente caso queira criar um disco gerenciado ou uma nova VM usando o VHD carregado.
 
 ### <a name="other-options-for-uploading-a-vhd"></a>Outras opções para carregar um VHD
 
@@ -321,9 +323,4 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Próximas etapas
 Para entrar em sua nova máquina virtual, navegue até a VM no [portal](https://portal.azure.com), clique em **Conectar**e abra o arquivo RDP da Área de Trabalho Remota. Use as credenciais da conta da máquina virtual original para entrar na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

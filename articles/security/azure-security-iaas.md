@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 03/06/2017
 ms.author: barclayn
 translationtype: Human Translation
-ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
-ms.openlocfilehash: 8416de09a4a3c2cdf9c73b9f79e8df9e292514ca
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 774feff39bee6f34b1fb292f130d8240ec070c81
+ms.lasthandoff: 03/07/2017
 
 
 
@@ -194,8 +195,6 @@ O [Microsoft Antimalware](azure-security-antimalware.md) inclui recursos como a 
 
 **Instale as últimas atualizações de segurança** Algumas das primeiras cargas de trabalho que vemos os clientes moverem para o Azure são laboratórios e sistemas externos. Se você estiver hospedando máquinas virtuais no Azure que hospedam aplicativos ou serviços que precisam ser disponibilizadas para a Internet, precisará observar os patches. Lembre-se que isso vai além da aplicação de patches no sistema operacional. As vulnerabilidades sem patch dos aplicativos de terceiros também podem levar a problemas que teriam sido facilmente evitados se um bom gerenciamento de patches existisse.
 
-Para obter mais informações sobre o gerenciamento de patches no Azure IaaS, examine as [Práticas recomendadas para atualizações de software no Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md).
-
 **Implantar e testar uma solução de backup**
 
 Assim como as atualizações de segurança, o backup precisa ser tratado da mesma maneira como você lida com qualquer outra operação. Isso é verdadeiro para os sistemas que fazem parte de seu ambiente de produção que se estende para a nuvem. Os Sistemas de Desenvolvimento e Teste devem seguir as estratégias de backup capazes de fornecer recursos semelhantes de restauração com os quais os usuários já estão acostumados com base em sua experiência com os ambientes locais.
@@ -243,9 +242,4 @@ A captura de tela abaixo mostra um exemplo do tipo de informações que podem se
 * [Blog da Equipe de Segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 * [Padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -1,6 +1,7 @@
 
 # Visão geral
 ## [O que é o DocumentDB?](documentdb-introduction.md)
+## [O que é DocumentDB: API para MongoDB?](documentdb-protocol-mongodb.md)
 ## [Conceitos principais](documentdb-resources.md)
 ## [Distribuição global](documentdb-distribute-data-globally.md)
 ## [Análise de TCO NoSQL](https://aka.ms/documentdb-tco-paper)
@@ -14,9 +15,11 @@
 ### [Aplicativo de console do .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplicativo de console Java](documentdb-java-get-started.md)
 ### [Aplicativo de console do Node.js](documentdb-nodejs-get-started.md)
+### [Aplicativo de console do Node.js para APIs do MongoDB](documentdb-mongodb-samples.md)
 ### [Aplicativo de console do C++](documentdb-cpp-get-started.md)
 ## Compilar um aplicativo Web
 ### [Aplicativo Web .NET](documentdb-dotnet-application.md)
+### [Aplicativo Web do .NET para APIs do MongoDB](documentdb-mongodb-application.md)
 ### [Aplicativo Web Node.js](documentdb-nodejs-application.md)
 ### [Aplicativo Web Java](documentdb-java-application.md)
 ### [Aplicativo Web Python Flask](documentdb-python-application.md)
@@ -34,6 +37,10 @@
 
 ## Gerenciar
 ### [Importar seus dados](documentdb-import-data.md)
+### [Importar a API para o MongoDB](documentdb-mongodb-migrate.md)
+### [Conectar-se à sua conta MongoDB](documentdb-connect-mongodb-account.md)
+### [Usar o MongoChef](documentdb-mongodb-mongochef.md)
+### [Usar o Robomongo](documentdb-mongodb-robomongo.md)
 ### [Modelar seus dados](documentdb-modeling-data.md)
 ### [Usar dados geoespaciais](documentdb-geospatial.md)
 ### [Desenvolver para várias regiões](documentdb-developing-with-multiple-regions.md)
@@ -60,15 +67,6 @@
 ### Práticas recomendadas
 #### [Instalação de vários mestres](documentdb-multi-region-writers.md)
 #### [DateTimes](documentdb-working-with-dates.md)
-
-## Usar o suporte de DocumentDB para MongoDB
-### [Suporte de protocolo para MongoDB](documentdb-protocol-mongodb.md)
-### [Criar conta](documentdb-create-mongodb-account.md)
-### [Conectar-se à sua conta](documentdb-connect-mongodb-account.md)
-### [Migrar seus dados](documentdb-mongodb-migrate.md)
-### [Usar o Robomongo](documentdb-mongodb-robomongo.md)
-### [Usar o MongoChef](documentdb-mongodb-mongochef.md)
-### [Exemplos de suporte de protocolo](documentdb-mongodb-samples.md)
 
 ## Usar o portal
 ### [Criar uma conta de banco de dados](documentdb-create-account.md)

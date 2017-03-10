@@ -17,6 +17,7 @@ ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 0ae9ad40f2e32d56fd50c90b86339cbb458d7291
 ms.openlocfilehash: a3276c764ebb6382594cf7002e7c7e8e328862ef
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -122,7 +123,7 @@ O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Isso per
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-`fabrikamb2c.onmicrosoft.com` é o diretório B2C usado para autenticar o usuário e `b2c_1_sign_in` é a política usada para adquirir o token. Para determinar qual política foi usada para assinar um token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base 64 o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` será o nome da política que foi usada para emitir o token.  A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
+`fabrikamb2c.onmicrosoft.com` é o diretório B2C usado para autenticar o usuário e `b2c_1_sign_in` é a política usada para adquirir o token. Para determinar qual política foi usada para assinar um token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no token. Você pode analisar as declarações fora do corpo do JWT decodificando em base&64; o corpo e desserializando a cadeia de caracteres JSON resultante. A declaração `acr` será o nome da política que foi usada para emitir o token.  A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Ambos os métodos são válidos.
 
 O documento de metadados é um objeto JSON que contém várias informações úteis. Isso inclui o local dos pontos de extremidade necessários para realizar a autenticação OpenID Connect. Também inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando `jwks_uri`:
 
@@ -152,10 +153,5 @@ Os tempos de vida de token a seguir são fornecidos para expandir seus conhecime
 | Tokens de ID |Uma hora |Tokens de ID normalmente são válidos por uma hora. O aplicativo Web pode usar esse tempo de vida para manter suas próprias sessões com usuários (recomendado). Também é possível escolher um tempo de vida de sessão diferente. Se o aplicativo precisar obter um novo token de ID, ele simplesmente precisará fazer uma nova solicitação de conexão ao Azure AD. Se um usuário tiver uma sessão de navegador válida com o Azure AD, talvez ele não precise inserir suas credenciais novamente. |
 | Tokens de atualização |Até 14 dias |Um único token de atualização é válido para um máximo de 14 dias. No entanto, um token de atualização pode se tornar inválido a qualquer momento por vários motivos. Seu aplicativo deve continuar a tentar usar um token de atualização até que a solicitação falhe ou até que o aplicativo substitua o token de atualização por um novo.  Um token de atualização também poderá ser invalidado se 90 dias tiverem decorrido desde a última vez em que o usuário inseriu credenciais. |
 | Códigos de autorização |Cinco minutos |Intencionalmente, os códigos de autorização são de curta duração. Eles devem ser resgatados imediatamente para tokens de acesso, tokens de ID ou tokens de atualização ao serem recebidos. |
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

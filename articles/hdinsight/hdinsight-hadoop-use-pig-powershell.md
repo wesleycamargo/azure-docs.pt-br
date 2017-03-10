@@ -15,24 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/19/2017
 ms.author: larryfr
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 8b88db5bb2c8153953109fcd0511c22042bcf931
-ms.openlocfilehash: bef30df14f6d00c4a7f5f5b3d59ec85b2e4fbe10
-
+ms.sourcegitcommit: cfaade8249a643b77f3d7fdf466eb5ba38143f18
+ms.openlocfilehash: a795f7a8dbb02ad29c517dca6ab06575a8d48bf9
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="run-pig-jobs-using-powershell"></a>Executar trabalhos do Pig usando o PowerShell
+# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Pig com o HDInsight
+
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 Este documento fornece um exemplo de uso do PowerShell do Azure para enviar trabalhos do Pig para um Hadoop no cluster HDInsight. O Pig permite que você escreva trabalhos do MapReduce usando uma linguagem (Pig Latin) que modela transformações de dados, em vez das funções mapear e reduzir.
 
 > [!NOTE]
 > Esse documento não fornece uma descrição detalhada do que fazem as instruções Pig Latin usadas nos exemplos. Para obter informações sobre o Pig Latin usado neste exemplo, consulte [Usar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md).
-> 
-> 
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte.
+## <a id="prereq"></a>Pré-requisitos
 
 * **Um cluster Azure HDInsight**
 
@@ -43,15 +42,16 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a name="a-idpowershellarun-pig-jobs-using-powershell"></a><a id="powershell"></a>Executar trabalhos do Pig usando o PowerShell
-O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos do Pig no HDInsight. Internamente, isso é feito por meio de chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
+## <a id="powershell"></a>Executar trabalhos do Pig usando o PowerShell
+
+O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabalhos do Pig no HDInsight. Internamente, o PowerShell usa chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) em execução no cluster HDInsight.
 
 Os seguintes cmdlets são usados ao executar trabalhos do Pig em um cluster HDInsight remoto:
 
 * **Login-AzureRmAccount**: autentica o Azure PowerShell para sua Assinatura do Azure
-* **New-AzureRmHDInsightPigJobDefinition**: cria uma nova *definição de trabalho* usando as instruções de Pig Latin especificadas
+* **New-AzureRmHDInsightPigJobDefinition**: cria uma *definição de trabalho* usando as instruções de Pig Latin especificadas
 * **Start-AzureRmHDInsightJob**: envia a definição do trabalho para o HDInsight, inicia o trabalho e retorna um objeto *job* que pode ser usado para verificar o status do trabalho
-* **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguardará até que o trabalho seja concluído ou que o tempo de espera seja excedido.
+* **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou que o tempo de espera seja excedido.
 * **Get-AzureRmHDInsightJobOutput**: usado para recuperar a saída do trabalho
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
@@ -112,7 +112,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
    
     Primeiro, você receberá uma solicitação para fazer logon em sua assinatura do Azure. Em seguida, receberá uma solicitação para fornecer o nome da conta e senha de Administrador/HTTPs para o cluster HDInsight.
 
-2. Quando o trabalho for concluído, ele deverá retornar informações semelhantes às seguintes:
+2. Quando o trabalho for concluído, ele deverá retornar informações semelhantes ao seguinte texto:
    
         Start the Pig job ...
         Wait for the Pig job to complete ...
@@ -124,7 +124,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
         (ERROR,6)
         (FATAL,2)
 
-## <a name="a-idtroubleshootingatroubleshooting"></a><a id="troubleshooting"></a>Solucionar problemas
+## <a id="troubleshooting"></a>Solucionar problemas
 
 Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **pigjob.ps1** , salve o arquivo e execute-o novamente.
 
@@ -136,12 +136,12 @@ Se nenhuma informação for retornada quando o trabalho for concluído, um erro 
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Isso retornará as informações que foram gravadas em STDERR no servidor quando você executou o trabalho, e pode ajudar a determinar por que o trabalho está falhando.
+Isso retorna as informações que foram gravadas em STDERR no servidor quando você executou o trabalho, e pode ajudar a determinar por que o trabalho está falhando.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+## <a id="summary"></a>Resumo
 Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executar trabalhos do Pig em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Pig no HDInsight:
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
@@ -150,10 +150,5 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

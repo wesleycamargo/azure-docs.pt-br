@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: adegeo
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
-ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+ms.sourcegitcommit: 3f1fdddcf382026e25ac6bca0b835e560152be9f
+ms.openlocfilehash: 98b302c26867d2fb2ade296e6983306266fa6f63
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Dimensionamento automático e conjuntos de dimensionamento da máquina virtual
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Como usar o dimensionamento automático e os Conjuntos de Dimensionamento de Máquinas Virtuais
 O dimensionamento automático de máquinas virtuais em um conjunto de escala é a criação ou exclusão de máquinas no conjunto conforme for necessário para atender a necessidades de desempenho. À medida que o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado.
 
 O dimensionamento automático é um processo automatizado que ajuda a facilitar o gerenciamento da sobrecarga. Reduzindo a sobrecarga, você não precisa monitorar continuamente o desempenho do sistema ou decidir como gerenciar recursos. O dimensionamento é um processo elástico. Mais recursos podem ser adicionados conforme a carga aumentar, mas conforme a demanda diminuir recursos podem ser removidos para minimizar custos e manter níveis de desempenho.
@@ -220,10 +222,5 @@ Para ver um exemplo de como usar o portal do Azure para configurar o dimensionam
 * Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 * Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Saiba mais sobre [Cenários de dimensionamento automático avançado](virtual-machine-scale-sets-advanced-autoscale.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

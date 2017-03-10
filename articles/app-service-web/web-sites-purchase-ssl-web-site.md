@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
 translationtype: Human Translation
-ms.sourcegitcommit: a1b492b7884deb2d0d4f255af0737e1633606384
-ms.openlocfilehash: 0a016d88b8d7a800bf726e4f582deeaaf3bc6ad6
+ms.sourcegitcommit: 3629280101a6c8c53dacf9f80c09becf1db53f03
+ms.openlocfilehash: e4331c6d5a07e6450c1fdde43d4c226e9a06de54
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -36,7 +37,7 @@ Este artigo explica como comprar e configurar um certificado SSL para o **[Servi
 > 
 > 
 
-## <a name="a-namebkmkoverviewaoverview"></a><a name="bkmk_Overview"></a>Visão geral
+## <a name="bkmk_Overview"></a>Visão geral
 > [!NOTE]
 > Não tente adquirir um certificado SSL usando uma assinatura que não tenha um cartão de crédito ativo associado a ela. Isso pode resultar na desabilitação de sua assinatura. 
 > 
@@ -47,7 +48,7 @@ Para habilitar HTTPS para um domínio personalizado, como contoso.com, primeiram
 
 Antes de solicitar um certificado SSL, você deve primeiro determinar quais nomes de domínio serão protegidos pelo certificado. Isso determinará o tipo de certificado que você precisa ter. Se você precisar apenas garantir um único nome de domínio, como contoso.com ou www.contoso.com, um certificado Standard (básico) será suficiente. Se precisar proteger vários nomes de domínio, como contoso.com, www.contoso.com e mail.contoso.com, você poderá obter um **[certificado curinga](http://en.wikipedia.org/wiki/Wildcard_certificate)**
 
-## <a name="a-namebkmkpurchasecertastep-0-place-an-ssl-certificate-order"></a><a name="bkmk_purchasecert"></a>Etapa 0: Fazer um pedido de certificado SSL
+## <a name="bkmk_purchasecert"></a>Etapa 0: Fazer um pedido de certificado SSL
 Nesta Etapa, você aprenderá a fazer um pedido de um certificado SSL de sua escolha.
 
 1. No **[portal do Azure](https://portal.azure.com/)**, clique em Procurar, digite "Certificados do Serviço de Aplicativo" na barra de pesquisa, selecione "Certificados do Serviço de Aplicativo" no resultado e clique em Adicionar. 
@@ -83,7 +84,7 @@ Nesta Etapa, você aprenderá a fazer um pedido de um certificado SSL de sua esc
 > 
 > 
 
-## <a name="a-namebkmkstorekeyvaultastep-1-store-the-certificate-in-azure-key-vault"></a><a name="bkmk_StoreKeyVault"></a>Etapa 1: Armazenar o certificado no Cofre da Chave do Azure
+## <a name="bkmk_StoreKeyVault"></a>Etapa 1: Armazenar o certificado no Cofre da Chave do Azure
 Nessa Etapa, você aprenderá a colocar em armazenamento um Certificado SSL que você adquiriu no Cofre da Chave do Azure de sua escolha.
 
 1. Após a conclusão da compra do Certificado SSL, você precisará abrir manualmente a folha Recursos dos **Certificados de Serviço de Aplicativo** navegando até ela novamente (confira a Etapa 1 acima)   
@@ -104,7 +105,7 @@ Nessa Etapa, você aprenderá a colocar em armazenamento um Certificado SSL que 
    
     Isso deve concluir a etapa de armazenamento do certificado que você adquiriu com o Cofre da Chave do Azure de sua escolha. Após atualizar a folha, você também deverá ver a marca de verificação verde nessa etapa.
 
-## <a name="a-namebkmkverifyownershipastep-2-verify-the-domain-ownership"></a><a name="bkmk_VerifyOwnership"></a>Etapa 2: Verificar a propriedade do domínio
+## <a name="bkmk_VerifyOwnership"></a>Etapa 2: Verificar a propriedade do domínio
 Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domínio de um Certificado SSL para o qual você acabou de fazer um pedido. 
 
 1. Clique em **"Etapa 2: Verificar"** na folha **"Configuração de Certificado"**. Há três tipos de Verificação de domínio com suporte dos Certificados do Serviço de Aplicativo.
@@ -121,14 +122,23 @@ Nesta etapa, você aprenderá a realizar a Verificação de Propriedade de Domí
      * Se você precisar reenviar o email de verificação, clique no botão **"Reenviar Email"** .
    * **Verificação manual**    
      
-      **Verificação de registro TXT do DNS**
-        
-        * Usando o gerenciador de DNS, crie um registro TXT no subdomínio **'DZC'** com um valor igual ao **Token de Verificação do Domínio.**
+      **Verificação da página da Web em HTML (funciona somente com SKU de Certificado Padrão)**
+
+        * Crie um arquivo HTML chamado **"starfield.html"**
+        * O conteúdo desse arquivo deve ter exatamente o mesmo nome do Token de Verificação de Domínio. (Você pode copiar o token na folha Status de Verificação de Domínio)
+        * Carregue esse arquivo na raiz do servidor Web que hospeda seu domínio **/.well-known/pki-validation/starfield.html**
         * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
           
-          Por exemplo, para executar a validação de um certificado curinga com o nome de host **\*.contosocertdemo.com** ou **\*.subdomain.contosocertdemo.com** e o Token de Verificação do Domínio **cAGgQrKc**, você precisa criar um registro TXT em dzc.contosocertdemo.com com o valor **cAGgQrKc.**     
+          Por exemplo, se você estiver comprando um certificado padrão para **contosocertdemo.com** com Token de Verificação de Domínio **tgjgthq8d11ttaeah97s3fr2sh**, uma solicitação da Web feita para **http://contosocertdemo.com/.well-known/pki-validation/starfield.html** deverá retornar **tgjgthq8d11ttaeah97s3fr2sh**.
 
-## <a name="a-namebkmkassigncertificateastep-3-assign-certificate-to-app-service-app"></a><a name="bkmk_AssignCertificate"></a>Etapa 3: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo
+      **Verificação de registro TXT do DNS**
+        
+        * Usando o gerenciador de DNS, crie um registro TXT no subdomínio **'@'** com um valor igual ao **Token de Verificação de Domínio.**
+        * Clique em **"Atualizar"** para atualizar o Status do certificado após a verificação. Pode demorar alguns minutos até a verificação ser concluída.
+          
+          Por exemplo, para executar a validação de um certificado curinga com o nome de host **\*.contosocertdemo.com** ou **\*.subdomain.contosocertdemo.com** e o Token de Verificação de Domínio **tgjgthq8d11ttaeah97s3fr2sh**, você precisa criar um registro TXT em **contosocertdemo.com** com o valor **tgjgthq8d11ttaeah97s3fr2sh**     
+
+## <a name="bkmk_AssignCertificate"></a>Etapa 3: Atribuir o certificado ao Aplicativo do Serviço de Aplicativo
 Nesta Etapa, você aprenderá a atribuir esse certificado recém-adquirido para seus Aplicativos do Serviço de Aplicativo. 
 
 > [!NOTE]
@@ -163,7 +173,7 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 1. Usando as ferramentas fornecidas pelo registro de nomes de domínio, modifique o registro A de seu nome de domínio personalizado para redirecionar para o endereço IP da etapa anterior.
    Nesse momento, você poderá visitar o seu aplicativo usando HTTPS:// em vez de HTTP:// para verificar se o certificado foi configurado corretamente.
 
-## <a name="a-namebkmkrekeyarekey-and-sync-the-certificate"></a><a name="bkmk_Rekey"></a>Criar novas chaves e sincronizar o certificado
+## <a name="bkmk_Rekey"></a>Criar novas chaves e sincronizar o certificado
 1. Por motivos de segurança, se você precisar chavear novamente seu certificado, basta selecionar a opção **"Rechaveamento e Sincronização"** na folha **"Propriedades do Certificado"**. 
 2. Clique no botão **"Criar Nova Chave"** para iniciar o processo. Esse processo pode demorar de um a 10 minutos para ser concluído. 
    
@@ -185,10 +195,5 @@ Se você selecionou **SSL baseado em IP** e seu domínio personalizado foi confi
 > Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

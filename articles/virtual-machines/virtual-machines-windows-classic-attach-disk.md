@@ -13,50 +13,105 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/21/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 26c58ae4c509cb768807875ecdf96e9a24d6a472
-ms.openlocfilehash: 8393b8ce2b373e8ff33454a61c944a5f8f7a8168
+ms.sourcegitcommit: 783082db6a3d763067a0e661970d6d2b61264803
+ms.openlocfilehash: d580732116666d3d304744d90721c05a1fb3462b
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
-> [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Se você quiser usar o novo portal, veja [Como anexar um disco de dados a uma VM do Windows no portal do Azure](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+<!--
+Refernce article:
+    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+-->
 
-Se você precisa de um disco de dados adicional, é possível anexar um disco vazio ou um disco existente com dados a uma VM. Em ambos os casos, os discos são arquivos .vhd que ficam em uma conta de armazenamento Azure. No caso de um novo disco, depois que você anexar o disco, você também precisará inicializá-lo para que esteja pronto para ser usado por uma VM do Windows.
+Este artigo mostra como anexar discos novos e existentes criados com o modelo de implantação Clássico a uma máquina virtual Windows usando o portal do Azure.
 
-Para obter mais detalhes sobre discos, consulte [Sobre discos e VHDs para máquinas virtuais](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Você também pode [anexar um disco de dados a uma VM Linux no portal do Azure](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+Antes de anexar um disco, leia estas dicas:
 
-## <a name="initialize-the-disk"></a>Inicializar o disco
-1. Conectar-se à máquina virtual. Para obter instruções, veja [Como fazer logon em uma máquina virtual que executa o Windows Server][logon].
+* O tamanho da máquina virtual controla quantos discos de dados você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+* Para usar o Armazenamento Premium, você precisa de uma máquina virtual da série DS ou GS. Você pode usar discos de contas de armazenamento Premium e Standard com essas máquinas virtuais. O armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../storage/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+* Para um novo disco, você não precisa criá-lo primeiro porque o Azure cria quando você anexa o mesmo.
+
+Você também pode [anexar um disco de dados usando o Powershell](virtual-machines-windows-attach-disk-ps.md).
+
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+2. Escolha a máquina virtual nos recursos listados no painel.
+3. No painel esquerdo, em **Configurações**, clique em **Discos**.
+
+    ![Abrir configurações de disco](./media/virtual-machines-windows-classic-attach-disk/virtualmachinedisks.png)
+
+Continue seguindo as instruções para anexar um [novo disco](#option-1-attach-a-new-disk) ou um [disco existente](#option-2-attach-an-existing-disk).
+
+## <a name="option-1-attach-and-initialize-a-new-disk"></a>Opção 1: Anexar e inicializar um novo disco
+
+1. Na folha **Discos**, clique em **Anexar novo**.
+2. Examine as configurações padrão, atualize conforme necessário e clique em **OK**.
+
+   ![Analisar configurações de disco](./media/virtual-machines-windows-classic-attach-disk/attach-new.png)
+
+3. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+
+### <a name="initialize-a-new-data-disk"></a>Inicializar um novo disco de dados
+
+1. Conectar-se à máquina virtual. Para obter instruções, consulte [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 2. Depois de entrar na máquina virtual, abra o **Gerenciador de Servidores**. No painel esquerdo, selecione **Arquivos e serviços de armazenamento**.
-   
-    ![Abra o gerenciador de servidor.](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
-3. Expanda o menu e selecione **Discos**.
-4. A seção **Discos** lista os discos. Na maioria dos casos, ele terá disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário e disco 2 é o disco de dados que você acabou de anexar à VM. O novo disco de dados listará a Partição como **desconhecida**. Clique com o botão direito do mouse no disco e selecione **Inicializar**.
-5. Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Depois de concluir, a Partição será listada como **GPT**. Clique com o botão direito do mouse no disco novamente e selecione **Novo Volume**.
-6. Conclua o assistente usando os valores padrão. Quando o assistente for concluído, a seção **Volumes** listará o novo volume. Agora, o disco está online e pronto para armazenar dados.
-   
-   ![Volume inicializado com êxito](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
-> [!NOTE]
-> O tamanho da VM determina quantos discos você pode anexar a ela. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-> 
-> 
+    ![Abra o gerenciador de servidor.](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
+
+3. Escolha **Discos**.
+4. A seção **Discos** lista os discos. Na maioria das vezes, uma máquina virtual tem disco 0, disco 1 e disco 2. Disco 0 é o disco do sistema operacional, disco 1 é o disco temporário e disco 2 é o disco de dados que você acabou de conectar à máquina virtual. O disco de dados lista a Partição como **Desconhecido**.
+
+ Clique com o botão direito do mouse no disco e selecione **Inicializar**.
+
+5. Você é notificado de que todos os dados serão apagados quando o disco for inicializado. Clique em **Sim** para confirmar o aviso e inicializar o disco. Depois de concluir, a partição será listada como **GPT**. Clique com o botão direito do mouse no disco novamente e selecione **Novo Volume**.
+
+6. Conclua o assistente usando os valores padrão. Quando o assistente for concluído, a seção **Volumes** listará o novo volume. Agora, o disco está online e pronto para armazenar dados.
+
+    ![Volume inicializado com êxito](./media/virtual-machines-windows-classic-attach-disk/newdiskafterinitialization.png)
+
+## <a name="option-2-attach-an-existing-disk"></a>Opção 2: Anexar um disco existente
+1. Na folha **Discos**, clique em **Anexar existente**.
+2. Em **Anexar disco existente**, clique em **Local**.
+
+   ![Anexar disco existente](./media/virtual-machines-windows-classic-attach-disk/attachexistingdisksettings.png)
+3. Em **Contas de armazenamento**, selecione a conta e o contêiner que mantém o arquivo .vhd.
+
+   ![Localização do VHD](./media/virtual-machines-windows-classic-attach-disk/existdiskstorageaccountandcontainer.png)
+
+4. Selecionar o arquivo .vhd
+5. Em **Anexar disco existente**, o arquivo que você selecionou é listado em **Arquivo VHD**. Clique em **OK**.
+6. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
+
+## <a name="use-trim-with-standard-storage"></a>Usar TRIM com o armazenamento padrão
+
+Se você usar o armazenamento padrão (HDD), será necessário habilitar o TRIM. O TRIM descarta os blocos não usados do disco para que você seja cobrado apenas pelo armazenamento que está efetivamente sendo usado. Usar o TRIM pode poupar dinheiro, incluindo blocos não utilizados que resultam da exclusão de arquivos grandes.
+
+Você pode executar esse comando para verificar a configuração de TRIM. Abra um prompt de comando na sua VM do Windows e digite:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+Se o comando retornar 0, o TRIM estará habilitado corretamente. Se ele retornar 1, execute o seguinte comando para habilitar o TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+## <a name="next-steps"></a>Próximas etapas
+Caso seu aplicativo precise usar a unidade D: para armazenar dados, é possível [alterar a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-[Como desanexar um disco de uma máquina virtual Windows](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-
 [Sobre discos e VHDs para máquinas virtuais](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-[logon]: virtual-machines-windows-classic-connect-logon.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

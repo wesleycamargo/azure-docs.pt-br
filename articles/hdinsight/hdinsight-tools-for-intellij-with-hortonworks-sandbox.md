@@ -8,9 +8,10 @@ tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
+ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/07/2017
@@ -18,6 +19,7 @@ ms.author: jgao
 translationtype: Human Translation
 ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
 ms.openlocfilehash: b52e5bcf443afd05bf8cc37ce436cb80ab41412f
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -143,8 +145,3 @@ Depois de vincular IntelliJ IDEA no emulador, você pode enviar seu projeto.
 - Para saber como depurar aplicativos Spark usando o kit de ferramentas remotamente no HDInsight, veja [Usar Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar aplicativos Spark remotamente no cluster Linux do HDInsight Spark](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 - Para saber como usar Ferramentas do HDInsight para Eclipse para criar aplicativo Spark, veja [Usar Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md).
 - Para assistir a um vídeo sobre as Ferramentas do HDInsight para Eclipse, veja [Usar a Ferramenta do HDInsight para Eclipse para criar aplicativos Spark](https://mix.office.com/watch/1rau2mopb6fha).
-
-
-<!--HONumber=Jan17_HO4-->
-
-

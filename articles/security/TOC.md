@@ -9,13 +9,13 @@
 ### [Práticas recomendadas de segurança e criptografia de dados](azure-security-data-encryption-best-practices.md)
 ### [Guia de segurança de armazenamento](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Segurança de computação](security-virtual-machines-overview.md)
+### [Práticas Recomendadas para as VMs do Azure](azure-security-best-practices-vms.md)
 ### [Práticas recomendadas para cargas de trabalho do IaaS ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Criptografia do disco](azure-security-disk-encryption.md)
 ### [Criptografar a VM do Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Gerenciamento e monitoramento de segurança](security-management-and-monitoring-overview.md)
 ### [Gerenciamento de segurança](azure-security-management.md)
-### [Práticas recomendadas para atualizações de software no IaaS](azure-security-best-practices-software-updates-iaas.md)
 ### [Central de Segurança do Azure](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ### [Integração de log do Azure](security-azure-log-integration-overview.md)
 #### [Introdução](security-azure-log-integration-get-started.md)
@@ -63,8 +63,3 @@
 ###[Validação da entrada](azure-security-threat-modeling-tool-input-validation.md)
 ###[Dados confidenciais](azure-security-threat-modeling-tool-sensitive-data.md)
 ###[Gerenciamento da sessão](azure-security-threat-modeling-tool-session-management.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

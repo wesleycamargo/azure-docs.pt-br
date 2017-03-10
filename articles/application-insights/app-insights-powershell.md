@@ -16,6 +16,7 @@ ms.author: awills
 translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: 9fc886d9ce69c1ca3d7a981d5eeb276c09cc245e
+ms.lasthandoff: 01/25/2017
 
 
 ---
@@ -191,9 +192,8 @@ Depois de criar um recurso de aplicativo, você desejará o iKey:
 Para configurar um alerta de métrica simultaneamente ao recurso de aplicativo, mescle código como este no arquivo de modelo:
 
 ```JSON
-
+{
     parameters: { ... // existing parameters ...
-       ,       
             "responseTime": {
               "type": "int",
               "defaultValue": 3,
@@ -203,12 +203,10 @@ Para configurar um alerta de métrica simultaneamente ao recurso de aplicativo, 
               }
     },
     variables: { ... // existing variables ...
-      ,
       // Alert names must be unique within resource group.
       "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
     }, 
     resources: { ... // existing resources ...
-     ,
      {
       //
       // Metric alert on response time
@@ -250,7 +248,7 @@ Para configurar um alerta de métrica simultaneamente ao recurso de aplicativo, 
         ]
       }
     }
-
+}
 ```
 
 Quando você invoca o modelo, você pode adicionar este parâmetro:
@@ -271,19 +269,16 @@ Este exemplo é para um teste de ping (para testar uma única página).
 Mescle o código a seguir no arquivo de modelo que cria o aplicativo.
 
 ```JSON
-
+{
     parameters: { ... // existing parameters here ...
-      ,
       "pingURL": { "type": "string" },
       "pingText": { "type": "string" , defaultValue: ""}
     },
     variables: { ... // existing variables here ...
-      ,
       "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
       "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
     },
     resources: { ... // existing resources here ...
-    ,  
     { //
       // Availability test: part 1 configures the test
       //
@@ -365,7 +360,7 @@ Mescle o código a seguir no arquivo de modelo que cria o aplicativo.
         ]
       }
     }
-
+}
 ```
 
 Para descobrir os códigos para outros locais de teste ou para automatizar a criação de testes da Web mais complexos, crie um exemplo manualmente e, em seguida, parametrize o código do [Azure Resource Manager](https://resources.azure.com/).
@@ -434,10 +429,5 @@ Outros artigos sobre automação:
 * [Enviar o Diagnóstico do Azure para o Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Implantar no Azure pelo Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar anotações de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

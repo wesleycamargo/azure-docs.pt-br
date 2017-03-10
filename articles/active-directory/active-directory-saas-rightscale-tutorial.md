@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 03/08/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a92b33ddae70867e163f6af16fc56f82c4baf4cc
+ms.sourcegitcommit: 451369e21e7471180b6cd8c77d62b157d0bcddff
+ms.openlocfilehash: d9264e4268bb0418d64d4da680bd6e8b756a9ea6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -61,22 +62,27 @@ Para configurar a integração do RightScale ao Azure AD, você precisa adicion�
 1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
+
 4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
+
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4]
+
 6. Na caixa de pesquisa, digite **RightScale**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_01.png)
+
 7. No painel de resultados, selecione **RightScale**, em seguida, clique em **Concluir** para adicionar o aplicativo.
    
-    ![Seleção do aplicativo na galeria](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o RightScale, com base em um usuário de teste chamado "Brenda Fernandes".
@@ -99,9 +105,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clás
 1. No portal clássico, na página de integração de aplicativos **RightScale**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar o logon único][6] 
+
 2. Na página **Como você gostaria que os usuários fizessem logon no RightScale**, selecione **Logon Único do Azure AD**, em seguida, clique em **Próximo**.
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_03.png) 
+
 3. Na página de diálogo **Definir Configurações de Aplicativo**, se quiser configurar o aplicativo no **modo iniciado pelo IDP**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_04.png) 
@@ -117,13 +125,15 @@ O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clás
     a. Na caixa de texto URL de Logon, digite a URL usada pelos usuários para fazer logon em seu aplicativo do RightScale usando o seguinte padrão: `https://login.rightscale.com/`
    
     b. Clique em **Avançar**
+
 2. Na página **Configurar logon único no RightScale**, execute as seguintes etapas e clique em **Próximo**:
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_05.png) 
    
-    a. Clique em **Baixar certificado**e salve o arquivo de certificado codificado em base 64 no computador.
+    a. Clique em **Baixar certificado**e salve o arquivo de certificado codificado em base&64; no computador.
    
     b. Clique em **Próximo**.
+
 3. Para configurar o SSO para o aplicativo, você precisa entrar no locatário do RightScale como administrador.
    
     a. No menu na parte superior, clique na guia **Configurações** e selecione **Logon Único**.
@@ -154,14 +164,16 @@ O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clás
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_008.png)
    
-    g. Clique no botão **Navegador** para carregar o certificado que você baixou na etapa 4.
+    g. Clique no botão **Navegador** para carregar o certificado que você baixou na etapa&4;.
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_009.png)
    
     h. Clique em **Salvar**.
+
 4. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
+
 5. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
@@ -176,13 +188,17 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_09.png) 
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_03.png) 
+
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_04.png) 
+
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_05.png) 
@@ -192,22 +208,25 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     b. Na caixa de texto **Nome** do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
+
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_07.png) 
+
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-rightscale-tutorial/create_aaduser_08.png) 
@@ -229,13 +248,17 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 1. No portal clássico, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
+
 2. Na lista de aplicativos, escolha **RightScale**.
    
     ![Configurar Logon Único](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_50.png) 
+
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
+
 4. Na lista de usuários, selecione **Brenda Fernandes**.
+
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][205]
@@ -265,9 +288,4 @@ Ao clicar no bloco do RightScale no Painel de Acesso, você deverá ser conectad
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

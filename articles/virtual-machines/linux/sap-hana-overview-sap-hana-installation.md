@@ -13,13 +13,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3827e74433a859e65071a1041c5ed6c8253db8df
-ms.openlocfilehash: be17b2de227ef6d93f8d326ff060c3c4788eb622
+ms.sourcegitcommit: fa842efd99718be7fa9eaf8aac8030c32cbceeec
+ms.openlocfilehash: 0d998b5347a9da6dd209b0ba106792ab5c34164d
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="install-sap-hana-on-sap-hana-on-azure-large-instances"></a>Instalar o SAP HANA no SAP HANA no Azure (Instâncias Grandes)
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 
 A instalação do SAP HANA é responsabilidade sua, e você pode fazer isso imediatamente após a entrega de um novo SAP HANA no servidor do Azure (Instâncias Grandes). Observe que, de acordo com a política do SAP, a instalação do SAP HANA deve ser executada pelo instalador do certificado do SAP HANA (alguém que tenha sido aprovado no exame de certificação de instalação Certified SAP Technology Associate – SAP HANA) ou por um SI (integrador de sistema) certificado pela SAP.
 
@@ -80,10 +82,5 @@ O SAP é muito sensível a diferenças de hora para os vários componentes que c
 
 Para SAP HANA no Azure (instâncias grandes), a sincronização de tempo feita no Azure não se aplica a unidades de computação nos carimbos de data/hora de Instâncias Grandes. Isso não é aplicável para executar aplicativos SAP de forma nativa no Azure (em VMs), pois o Azure garante que a hora do sistema seja sincronizada corretamente. Como resultado, deve ser configurado um servidor de tempo separado que possa ser usado pelos servidores de aplicativos SAP em execução em VMs do Azure e instâncias de banco de dados HANA SAP em execução em instâncias grandes HANA. A infraestrutura de armazenamento em carimbos de Instância Grande tem seu horário sincronizado com os servidores NTP.
 
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

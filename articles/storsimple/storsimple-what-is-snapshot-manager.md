@@ -4,7 +4,7 @@ description: Descreve o StorSimple Snapshot Manager, sua arquitetura e seus recu
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/24/2016
+ms.date: 02/27/2017
 ms.author: v-sharos
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1300262c5306ab76ae90be76dc19639e26665b69
+ms.sourcegitcommit: 43eb76f2d51c586f3cd44d4d34b307257a655182
+ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="what-is-storsimple-snapshot-manager"></a>O que é o StorSimple Snapshot Manager
+# <a name="an-introduction-to-storsimple-snapshot-manager"></a>Uma introdução ao StorSimple Snapshot Manager
+
 ## <a name="overview"></a>Visão geral
 O StorSimple Snapshot Manager é um snap-in do Microsoft Management Console (MMC) que simplifica a proteção de dados e o gerenciamento de backup em um ambiente Microsoft Azure StorSimple. Com o StorSimple Snapshot Manager, você pode gerenciar dados do Microsoft Azure StorSimple no data center e na nuvem como uma solução única de armazenamento integrado, simplificar assim os processos de backup e reduzindo os custos.
 
@@ -137,10 +140,5 @@ Para obter informações sobre como monitorar trabalhos de backup, vá para [Usa
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Baixe o [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
