@@ -3,7 +3,7 @@ title: "Sincronização de dados offline em aplicativos móveis do Azure | Micro
 description: "Visão geral e referência conceitual do recurso de sincronização de dados offline para aplicativos móveis do Azure"
 documentationcenter: windows
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -62,7 +62,7 @@ Um *contexto de sincronização* é associado a um objeto de cliente móvel (com
 
 Um armazenamento local é associado ao contexto de sincronização usando um método initialize como `IMobileServicesSyncContext.InitializeAsync(localstore)` no [SDK do cliente do .NET].
 
-## <a name="a-namehow-sync-worksahow-offline-synchronization-works"></a><a name="how-sync-works"></a>Como a sincronização offline funciona
+## <a name="how-sync-works"></a>Como a sincronização offline funciona
 Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais são sincronizadas com um back-end do aplicativo móvel do Azure. Nada será enviado ao back-end até que haja uma chamada para alterações locais de *push* . Da mesma forma, o armazenamento local é preenchido com dados novos somente quando há uma chamada para dados de *pull* .
 
 * **Push**: push é uma operação no contexto de sincronização e envia todas as alterações de CUD desde o último envio por push. Observe que não é possível enviar apenas alterações de uma tabela individual, pois as operações poderiam ser enviadas fora da ordem. O envio por push executa uma série de chamadas REST ao back-end do seu aplicativo móvel do Azure, que por sua vez, modifica o banco de dados do servidor.

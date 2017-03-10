@@ -4,7 +4,7 @@ description: Saiba mais sobre como restaurar um backup de sua StorSimple Virtual
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: 4d0deb8c-e3c7-4bc4-b89d-9881041960cb
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: 1b2156f2768e02be8030d91352422bd935fa7543
+ms.sourcegitcommit: 840deacac773846a9c57d9437cb6f331cd8fcecb
+ms.openlocfilehash: 5ec5cab591907ccc5d9139da2ba149325daf8422
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restaurar de um backup de sua Matriz Virtual StorSimple
+# <a name="restore-from-a-backup-set-of-shares-and-volumes-on-your-storsimple-virtual-array"></a>Restaurar usando um conjunto de backups de compartilhamentos e volumes em seu StorSimple Virtual Array
+
 ## <a name="overview"></a>Visão geral
 Este artigo se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como o dispositivo virtual local StorSimple ou dispositivo virtual StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016 ou posterior. Este artigo descreve passo a passo como restaurar um conjunto de backup de seus volumes ou compartilhamentos para seu StorSimple Virtual Array. O artigo também fornece detalhes sobre como a recuperação em nível de item funciona em sua StorSimple Virtual Array que está configurada como um servidor de arquivos.
 
@@ -104,10 +107,5 @@ Assista ao vídeo para ver como você pode criar compartilhamentos, fazer backup
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [administrar sua StorSimple Virtual Array usando a interface do usuário da Web local](storsimple-ova-web-ui-admin.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

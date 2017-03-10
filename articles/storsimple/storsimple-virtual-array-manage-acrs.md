@@ -4,7 +4,7 @@ description: Descreve como gerenciar registros de controle de acesso (ACRs) para
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e154bb4f-faab-4d92-a593-900c3ddc9595
 ms.service: storsimple
@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
-ms.openlocfilehash: 1a93ef9c3418da64302d251203fd195708437931
+ms.sourcegitcommit: 94a25f63887aea4eb71420dbd7ddc536e9f8d644
+ms.openlocfilehash: 2ce65aa4efba735305208f7a6d761bc2814d1b8f
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Use o serviço Gerenciador de Dispositivo do StorSimple para gerenciar registros de controle de acesso para a Matriz Virtual do StorSimple
+# <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar os registros de controle de acesso para o StorSimple Virtual Array
 
 ## <a name="overview"></a>Visão geral
 
@@ -127,10 +129,5 @@ Execute as etapas a seguir para excluir um registro de controle de acesso.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Adicionar volumes e configurar ACRs](storsimple-virtual-array-deploy3-iscsi-setup.md#step-3-add-a-volume).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

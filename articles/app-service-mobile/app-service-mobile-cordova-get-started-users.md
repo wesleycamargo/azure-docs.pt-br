@@ -4,7 +4,7 @@ description: "Saiba como usar os Aplicativos Móveis no Serviço de Aplicativo d
 services: app-service\mobile
 documentationcenter: javascript
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -17,6 +17,7 @@ ms.author: adrianha
 translationtype: Human Translation
 ms.sourcegitcommit: 15a3f9f40bdb84b939b30e33e5f2033411adc3cc
 ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -26,12 +27,12 @@ ms.openlocfilehash: a637422b704e1dc4e8c0e4ce81183de8b4ffb9a7
 ## <a name="summary"></a>Resumo
 Neste tutorial, você adiciona a autenticação ao projeto de início rápido todolist no Apache Cordova usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Assista a um vídeo que mostra etapas semelhantes](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Agora, é possível verificar se o acesso anônimo para o back-end foi desabilitado. No Visual Studio:
@@ -42,7 +43,7 @@ Agora, é possível verificar se o acesso anônimo para o back-end foi desabilit
 
 Em seguida, atualize o aplicativo para autenticar os usuários antes de solicitar recursos do back-end do Aplicativo Móvel.
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-the-app"></a><a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 1. Abra o projeto no **Visual Studio** e abra o arquivo `www/index.html` para edição.
 2. Localize a marca meta `Content-Security-Policy` na seção de cabeçalho.  Adicione o host OAuth à lista de fontes permitidas.
 
@@ -92,7 +93,7 @@ Em seguida, atualize o aplicativo para autenticar os usuários antes de solicita
 4. No código que você acabou de adicionar, substitua `SDK_Provider_Name` pelo nome de seu provedor de logon. Por exemplo, para o Azure Active Directory, use `client.login('aad')`.
 5. Execute seu projeto.  Após a conclusão da inicialização do projeto, o aplicativo mostrará a página de logon do OAuth para o provedor de autenticação escolhido.
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais [Sobre autenticação] com o Serviço de Aplicativo do Azure.
 * Continue o tutorial adicionando [Notificações por push] a seu aplicativo do Apache Cordova.
 
@@ -110,9 +111,4 @@ Saiba como usar os SDKs.
 [SDK do Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [SDK do Servidor ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [SDK do Servidor Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

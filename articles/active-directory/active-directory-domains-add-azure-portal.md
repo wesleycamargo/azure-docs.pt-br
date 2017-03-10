@@ -3,7 +3,7 @@ title: "Adicionar seu nome de domínio personalizado à visualização do Azure 
 description: "Como adicionar os nomes de domínio da sua empresa ao Azure Active Directory e como verificar o nome de domínio."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: d97e57c6-578a-4929-8fb8-42e858a711c7
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
+ms.sourcegitcommit: f1f3d6fa1ba29b0d43d29c7d9cccfc430fdd6f1e
+ms.openlocfilehash: 5153926f34961a397ef9632ca1f8ac868ba1986e
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: 0cf396fb2ce60868383d28afa1c4455aa108b3ba
 > 
 > 
 
-Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Usando a visualização do Azure Active Directory (Azure AD), você também pode adicionar seu nome de domínio corporativo ao Azure AD também. [O que há na visualização?](active-directory-preview-explainer.md) Isso permite que você atribua os nomes de usuário do seu diretório que sejam familiares para seus usuários, como ‘alice@contoso.com.’. O processo é simples:
+Você tem um ou mais nomes de domínio que sua organização usa para fazer negócios, e seus usuários entram em sua rede corporativa usando seu nome de domínio corporativo. Usando a visualização do Azure Active Directory (Azure AD), você também pode adicionar seu nome de domínio corporativo ao Azure AD também. [O que está na visualização?](active-directory-preview-explainer.md) Isso permite que você atribua nomes de usuário no diretório que sejam familiares para seus usuários, como 'alice@contoso.com'. O processo é simples:
 
 1. Adicionar o nome de domínio personalizado ao diretório
 2. Adicionar uma entrada DNS para o nome de domínio no registrador de nome de domínio
@@ -83,10 +84,5 @@ Se sua organização usa vários nomes de domínio personalizados, como 'contoso
 
 ## <a name="next-steps"></a>Próximas etapas
 [Gerenciar nomes de domínio personalizados](active-directory-domains-manage-azure-portal.md)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

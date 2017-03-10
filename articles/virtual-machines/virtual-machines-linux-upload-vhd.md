@@ -1,6 +1,6 @@
 ---
-title: "Carregar um disco personalizado do Linux com a CLI do Azure 2.0 (Versão prévia) | Microsoft Docs"
-description: "Criar e carregar um VHD (disco rígido virtual) no Azure usando o modelo de implantação do Resource Manager e a CLI do Azure 2.0 (Versão prévia)"
+title: Carregar um disco Linux personalizado com a CLI 2.0 do Azure | Microsoft Docs
+description: "Criar e carregar um VHD (disco rígido virtual) no Azure usando o modelo de implantação do Resource Manager e a CLI 2.0 do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -16,26 +16,19 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 25ca54a6514b281417ac71a89dac167c94137b18
-ms.openlocfilehash: bbb9a2cd2123a29507f21c11b536ae81368cf8a7
+ms.sourcegitcommit: 374b2601857b3983bcd7b2f2e11d22b187fe7105
+ms.openlocfilehash: 732ebaaf5bf16c02cfc2185d9e7138daf74c71dd
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-by-using-the-azure-cli-20-preview"></a>Carregar e criar uma VM Linux com base em um disco personalizado usando a CLI do Azure 2.0 (Versão prévia)
-Este artigo mostra como carregar um VHD (disco rígido virtual) no Azure usando o modelo de implantação do Resource Manager e criar VMs Linux com base nesse disco personalizado. Essa funcionalidade permite que você instale e configure uma distribuição do Linux segundo suas necessidades e use esse VHD para criar rapidamente máquinas virtuais (VMs) do Azure.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
-
-- [CLI do Azure 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI 2.0 do Azure (Visualização)](#quick-commands) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
-
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Carregar e criar uma VM Linux usando disco personalizado com a CLI 2.0 do Azure
+Este artigo mostra como carregar um VHD (disco rígido virtual) no Azure com a CLI 2.0 do Azure e como criar VMs Linux usando esse disco personalizado. Você também pode executar essas etapas com a [CLI do Azure 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Essa funcionalidade permite que você instale e configure uma distribuição do Linux segundo suas necessidades e use esse VHD para criar rapidamente máquinas virtuais (VMs) do Azure.
 
 ## <a name="quick-commands"></a>Comandos rápidos
 Caso você precise realizar rapidamente a tarefa, a seção a seguir detalha os comandos básicos para carregar uma VHD no Azure. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, [começando aqui](#requirements).
 
-Certifique-se de que você tenha instalado a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e entrado em uma conta do Azure com [az login](/cli/azure/#login).
+Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluíram `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -100,9 +93,9 @@ Agora, crie sua VM com [az vm create](/cli/azure/vm#create) e especifique o URI 
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
 ### <a name="unmanaged-disks"></a>Discos não gerenciados
@@ -112,7 +105,8 @@ Para criar uma VM com discos não gerenciados, especifique o URI para o disco (`
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisk/myDisks.vhd \
+    --use-unmanaged-disk
 ```
 
 A conta de armazenamento de destino deve ser a mesma em que você carregou o disco virtual. Você também precisará especificar todos os parâmetros adicionais necessários ou responder a prompts deles pelo comando **az vm create**, como rede virtual, endereço IP público, nome de usuário e chaves SSH. Leia mais sobre os [parâmetros do Resource Manager na CLI disponíveis](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
@@ -133,7 +127,7 @@ Para concluir as etapas a seguir, você precisa:
   * Criar uma conta de armazenamento e um contêiner para manter o disco personalizado e as VMs criadas
   * Depois de criar todas as VMs, você poderá excluir o disco com segurança
 
-Certifique-se de que você tenha instalado a versão mais recente da [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) e entrado em uma conta do Azure com [az login](/cli/azure/#login).
+Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#login).
 
 Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluíram `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -221,9 +215,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-vm-from-custom-disk"></a>Criar uma VM com base em um disco personalizado
-Novamente, você pode criar uma VM usando o Azure Managed Disks ou os discos não gerenciados. Para ambos os tipos, especifique o URI para o disco gerenciado ou não gerenciado quando você criar uma VM. Para discos não gerenciados, verifique se a conta de armazenamento de destino corresponde ao local em que o disco personalizado está armazenado. Você pode criar sua VM usando o Azure 2.0 (Versão prévia) ou o modelo JSON do Resource Manager.
+Novamente, você pode criar uma VM usando o Azure Managed Disks ou os discos não gerenciados. Para ambos os tipos, especifique o URI para o disco gerenciado ou não gerenciado quando você criar uma VM. Para discos não gerenciados, verifique se a conta de armazenamento de destino corresponde ao local em que o disco personalizado está armazenado. Você pode criar sua VM usando o Azure 2.0 ou o modelo JSON do Resource Manager.
 
-### <a name="azure-cli-20-preview---azure-managed-disks"></a>CLI do Azure 2.0 (Versão prévia) – Azure Managed Disks
+### <a name="azure-cli-20---azure-managed-disks"></a>CLI 2.0 do Azure – Azure Managed Disks
 Para criar uma VM de seu VHD, primeiro converta o VHD em um disco gerenciado com [az disk create](/cli/azure/disk/create). O exemplo a seguir cria um disco gerenciado chamado `myManagedDisk` por meio do VHD carregado para sua conta de armazenamento nomeado e o contêiner:
 
 ```azurecli
@@ -250,12 +244,12 @@ Agora, crie sua VM com [az vm create](/cli/azure/vm#create) e especifique o URI 
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
-    --name myVM --storage-account mystorageaccount --os-type linux \
+    --name myVM --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
+    --attach-os-disk https://vhdstoragezw9.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/my_image-osDisk.vhd
 ```
 
-### <a name="azure-20-preview---unmanaged-disks"></a>Azure 2.0 (Versão prévia) – discos não gerenciados
+### <a name="azure-20---unmanaged-disks"></a>Azure 2.0 – discos não gerenciados
 Para criar uma VM com discos não gerenciados, especifique o URI para o disco (`--image`) com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM denominada `myVM` usando o disco virtual carregado anteriormente:
 
 Especifique o parâmetro `--image` com [az vm create](/cli/azure/vm#create) para apontar para o disco personalizado. Verifique se `--storage-account` corresponde à conta de armazenamento em que o disco personalizado está armazenado. Você não precisa usar o mesmo contêiner que o disco personalizado para armazenar suas VMs. Certifique-se de criar recipientes adicionais da mesma forma como as etapas anteriores antes de carregar o disco personalizado.
@@ -266,7 +260,8 @@ O exemplo a seguir cria uma VM denominada `myVM` do disco personalizado:
 az vm create --resource-group myResourceGroup --location westus \
     --name myVM --storage-account mystorageaccount --os-type linux \
     --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd
+    --image https://mystorageaccount.blob.core.windows.net/mydisks/myDisk.vhd \
+    --use-unmanaged-disk
 ```
 
 Você ainda precisará especificar todos os parâmetros adicionais necessários ou responder a prompts deles pelo comando **az vm create**, como nome de usuário e chaves SSH.
@@ -312,10 +307,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de preparar e carregar seu disco virtual personalizado, leia mais sobre como [usar o Resource Manager e os modelos](../azure-resource-manager/resource-group-overview.md). É recomendável [adicionar um disco de dados](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) às novas VMs. Se você tiver aplicativos em execução nas VMs que precisa acessar, não se esqueça de [abrir as portas e os pontos de extremidade](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

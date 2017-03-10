@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 2/6/2017
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 673b979520b0e6fd4d0b0c00d2be26c41d112677
-ms.openlocfilehash: f99effa72070bb8acd35fa95b1ea3219d64ace46
+ms.sourcegitcommit: 6fda4b6e77104b6022b86010b53b46ae5df1b82e
+ms.openlocfilehash: 8bc6ac01f1592d371abbb2df3ff6ecf4ee2a993c
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -24,12 +25,12 @@ Crie um instantâneo de um Disco Gerenciado para backup ou crie um Disco Gerenci
 
 Para saber mais sobre preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
 
-Use o Portal do Azure ou a CLI do Azure 2.0 (Visualização) para criar um instantâneo do Disco Gerenciado.
+Use o portal do Azure ou a CLI 2.0 do Azure para criar um instantâneo do Disco Gerenciado.
 
-## <a name="use-azure-cli-20-preview-to-take-a-snapshot"></a>Usar a CLI do Azure 2.0 (Visualização) para criar um instantâneo
+## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Usar a CLI 2.0 do Azure para criar um instantâneo
 
 > [!NOTE] 
-> O exemplo a seguir exige a CLI do Azure 2.0 (Visualização) instalada e conectada à sua conta do Azure.
+> O exemplo a seguir exige a CLI 2.0 do Azure instalada e conectada à sua conta do Azure.
 
 As etapas a seguir mostram como obter e criar um instantâneo de um disco de SO gerenciado usando o comando `az snapshot create` com o parâmetro `--source-disk`. O exemplo a seguir pressupõe que exista uma VM chamada `myVM` criada com um disco de SO gerenciado no grupo de recursos `myResourceGroup`.
 
@@ -80,10 +81,5 @@ A saída deve ser semelhante a esta:
 
 Se você planeja usar o instantâneo para criar um Disco Gerenciado e anexá-lo a uma VM que precisa ser de alto desempenho, use o parâmetro `--sku Premium_LRS` com o comando `az snapshot create`. Isso cria o instantâneo para que ele seja armazenado como um Disco Gerenciado Premium. Os Discos Gerenciados Premium têm melhor desempenho porque são SSDs (unidades de estado sólido), mas são mais caros que os HDDs (discos rígidos) Standard.
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

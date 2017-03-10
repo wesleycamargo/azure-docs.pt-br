@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
-ms.openlocfilehash: 3eb5f21eed1c583587cf7642db4e70102c818348
+ms.sourcegitcommit: d72ff7449a87dfa9223b7c5e77446de23502eb84
+ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>Implantar o StorSimple Virtual Array – Configurar seu dispositivo virtual como um servidor iSCSI
+# <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implantar o StorSimple Virtual Array — configurar como um servidor iSCSI por meio do portal do Azure
 
 ![fluxo do processo de instalação iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
@@ -244,10 +245,5 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-
-
-
-
-<!--HONumber=Nov16_HO4-->
 
 

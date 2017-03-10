@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/11/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
-ms.openlocfilehash: 86df3e74cd0060652a3223cfbd1516643985275e
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 45225c4250539dfeb9f3b4654615acbdd162191b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -53,13 +54,13 @@ Se sua intenção for remover o certificado que está marcado como primário, vo
 Estas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
-> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
+> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
 
-Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível em [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
+Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível em [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
 **Certifique-se de seguir todas as etapas**
 
@@ -140,7 +141,7 @@ As propriedades devem ter esta aparência
 
 ![Json_Pub_Setting2][Json_Pub_Setting2]
 
-Se você não quiser **substituir o certificado**, especifique o novo certificado como primário e mova a réplica primária atual como secundária. Isso resulta na substituição do certificado atual pelo novo certificado em uma etapa de implantação. 
+Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário. Isso resulta na substituição do certificado atual pelo novo certificado em uma etapa de implantação. 
 
 
 ```JSON
@@ -312,10 +313,5 @@ Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Monitorar seus Aplicativos lógicos no Azure | Microsoft Docs"
-description: "Como ver o que os Aplicativos lógicos fizeram"
+title: "Habilitar registro em log e alertas, verificar o histórico de execuções, rastrear entradas e saídas – Aplicativos Lógicos do Azure | Microsoft Docs"
+description: "Monitorar o status dos fluxos de trabalho do seu aplicativo lógico usando registro em log, rastreamento e exibição do histórico e do diagnóstico"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
-ms.openlocfilehash: db3684fc5cc4ae7933454a02d8440d1eb4948828
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: d6840be7afc05d8d563215e370c59cf41a206e4f
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-your-logic-apps"></a>Monitorar seus Aplicativos lógicos
-Depois de [criar um Aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md), é possível ver o histórico completo de sua execução no portal do Azure.  Você também pode configurar serviços como o Diagnóstico do Azure e os Alertas do Azure para monitorar eventos em tempo real, e alertas para eventos como "quando mais do que cinco execuções falharem em uma hora."
+# <a name="check-the-performance-and-start-diagnostic-logging-and-alerts-of-your-workflows-in-logic-apps"></a>Verificar o desempenho e iniciar o registro em log e alertas de diagnóstico dos fluxos de trabalho em aplicativos lógicos
+Depois de [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md), é possível ver o histórico completo de sua execução no portal do Azure.  Você também pode configurar serviços como o Diagnóstico do Azure e os Alertas do Azure para monitorar eventos em tempo real, e alertas para eventos como "quando mais do que cinco execuções falharem em uma hora."
 
 ## <a name="monitor-in-the-azure-portal"></a>Monitorar no Portal do Azure
 Para exibir o histórico, selecione **Procurar** e **Aplicativos Lógicos**. É exibida uma lista com todos os aplicativos lógicos em sua assinatura.  Selecione o aplicativo lógico que você deseja monitorar.  Você verá uma lista de todas as ações e disparadores que ocorreram para esse aplicativo lógico.
@@ -137,10 +139,5 @@ Você pode aproveitar essa telemetria do Hub de Eventos ou Armazenamento em outr
 * [Exemplos comuns e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Criando um Modelo de Implantação do Aplicativo Lógico](../logic-apps/logic-apps-create-deploy-template.md)
 * [Recursos de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

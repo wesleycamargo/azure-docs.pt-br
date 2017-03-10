@@ -15,8 +15,9 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: db3d95cf7efd1caebb9e568ba729b9cbc30e5b78
-ms.openlocfilehash: 22001eec6402054239c9215a686512bd74d9bb9f
+ms.sourcegitcommit: e762497c67e04aa4186094a203796278355de36f
+ms.openlocfilehash: 5da58eebde8ea0d615514755af1c378d16f60bfc
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -30,8 +31,8 @@ Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (inte
 ## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-- [CLI do Azure 1.0](#create-supporting-resources) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI 2.0 do Azure (Visualização)](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+- [CLI 1.0 do Azure](#create-supporting-resources) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos (este artigo)
+- [CLI 2.0 do Azure](virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa última geração de CLI para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="create-supporting-resources"></a>Criar recursos de suporte
@@ -141,10 +142,5 @@ Você pode ler um exemplo completo em [Criando várias NICs usando modelos do Ge
 Certifique-se de rever os [Tamanhos de VM Linux](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ao tentar criar uma VM com várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 
 
 Lembre-se de que você não pode adicionar mais NICs a uma VM existente; você deve criar todas as NICs quando implantar a VM. Tome cuidado ao planejar suas implantações para certificar-se de que tenha toda a conectividade de rede necessária desde o início.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

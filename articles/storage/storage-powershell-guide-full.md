@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: 70a03b39eb49ed96b649e63f6f2c728147ebddec
+ms.sourcegitcommit: b046dcb32e6796f4e66009361783fa95936794b8
+ms.openlocfilehash: 662fbbdda2c6d4d7da2c7c94dabb984a6bfc7296
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -38,7 +39,7 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 
-1. Baixe e instale o [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+1. Baixe e instale o [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest) mais recente.
 2. Inicie o Ambiente de Script Integrado (ISE) do Windows PowerShell: No seu computador local, vá até o menu **Iniciar** . Digite **Ferramentas Administrativas** e clique para executá-las. Na janela **Ferramentas Administrativas**, clique com botão direito em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
 3. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script.
 4. Agora, você terá um script simples que mostra os comandos básicos do PowerShell para acessar o armazenamento do Azure. O script primeiro solicitará suas credenciais da conta do Azure para adicioná-la ao ambiente local do PowerShell. Depois, o script definirá a assinatura padrão do Azure e criará uma nova conta de armazenamento no Azure. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) para esse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele criará um novo diretório de destino no computador local e baixará o arquivo de imagem.
@@ -847,9 +848,4 @@ Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerSh
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

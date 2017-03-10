@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: padmavc
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 52fa2ceb13e6c14d0dd4ba72a76328a2a9356bab
-ms.openlocfilehash: 79acdf2c29c3520fc38adf6270bcae68e87aac18
+ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
+ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="monitor-b2b-messages"></a>Monitorar mensagens B2B
+# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>Iniciar ou habilitar o registro em log de mensagens AS2, X12 e EDIFACT para monitorar o êxito, os erros e as propriedades da mensagem
 
-A comunicação B2B envolve trocas de mensagens entre dois processos de negócios ou aplicativos em execução. A relação define um contrato entre os processos de negócios. Depois de a comunicação ser estabelecida, você poderá configurar o monitoramento de mensagens para verificar se a comunicação está funcionando conforme o esperado.
-Você pode configurar sua conta de integração para usar o diagnóstico e obter detalhes e depuração mais avançados.
+A comunicação B2B envolve trocas de mensagens entre dois processos de negócios ou aplicativos em execução. A relação define um contrato entre os processos de negócios. Depois de a comunicação ser estabelecida, você poderá configurar o monitoramento de mensagens para verificar se a comunicação está funcionando conforme o esperado. Você pode configurar sua conta de integração para usar o diagnóstico e obter detalhes e depuração mais avançados.
 
 O rastreamento de mensagens está disponível para os protocolos B2B: AS2, X12 e EDIFACT. 
 
@@ -94,10 +95,5 @@ Há suporte para esses tipos de esquema de rastreamento que têm esquemas fixos,
 [Rastreando mensagens B2B no Portal do OMS](logic-apps-track-b2b-messages-omsportal.md "Rastreando mensagens B2B")
 
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

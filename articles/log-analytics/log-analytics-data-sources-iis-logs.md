@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 920b5feee8e94af5b98e8dffc127da4085bac597
+ms.sourcegitcommit: c6e2ecebf6cd1b246c155c158d12d4d83bd1feda
+ms.openlocfilehash: bda2da933accb769bae4c9b420ae330014fc2ba0
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -70,8 +71,8 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 
 | Consultar | Descrição |
 |:--- |:--- |
-| Type=IISLog |Todos os registros de log do IIS. |
-| Type=IISLog EventLevelName=error |Todos os eventos do Windows com severidade de erro. |
+| Type=W3CIISLog |Todos os registros de log do IIS. |
+| Type=W3CIISLog scStatus=500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | Type=W3CIISLog &#124; Measure count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
 | Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
 | Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total de bytes recebidos por cada computador com IIS. |
@@ -80,10 +81,5 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 * Configure o Log Analytics para coletar outras [fontes de dados](log-analytics-data-sources.md) para análise.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.
 * Configure alertas no Log Analytics para notificá-lo proativamente sobre condições importantes encontradas em logs do IIS.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

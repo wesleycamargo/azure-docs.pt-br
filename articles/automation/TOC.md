@@ -1,12 +1,16 @@
 # Visão geral
 ## [O que é a Automação do Azure?](automation-intro.md)
-## [Segurança na Automação do Azure](automation-security-overview.md)
 # Introdução
 ## [Criar Runbook](automation-first-runbook-graphical.md)
 ## [Criar runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 ## [Criar runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 ## [Gerenciar controle de acesso baseado em função](automation-role-based-access-control.md)
 # Como
+## Configurar a autenticação
+### [Autenticação na Automação do Azure](automation-security-overview.md)
+### [Conta Executar como do Azure](automation-sec-configure-azure-runas-account.md)
+### [Gerenciamento de Serviços e Resource Manager do Azure](automation-sec-configure-aduser-account.md)
+### [Amazon Web Services](automation-sec-configure-aws-account.md)
 ## Criar runbooks
 ### [Tipos de runbook](automation-runbook-types.md)
 ### [Criar e importar runbooks](automation-creating-importing-runbook.md)
@@ -28,15 +32,11 @@
 ### [Gerenciar dados da Automação do Azure](automation-managing-data.md)
 ### [Chamar Runbook de Automação do Azure a partir do alerta do Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ## Implantar gerenciamento de configuração (DSC)
-### [DSC (Configuração de Estado Desejado)](automation-dsc-overview.md)
+### [Visão geral da Configuração do Estado Desejado (DSC)](automation-dsc-overview.md)
 ### [Guia de Introdução](automation-dsc-getting-started.md)
 ### [Integração de computadores para gerenciamento](automation-dsc-onboarding.md)
 ### [Compilação de configurações DSC](automation-dsc-compile.md)
 ### [Implantação contínua usando Chocolatey](automation-dsc-cd-chocolatey.md)
-## Configurar a autenticação
-### [Gerenciamento de Serviços e Resource Manager do Azure](automation-sec-configure-aduser-account.md)
-### [Amazon Web Services](automation-sec-configure-aws-account.md)
-### [Conta RunAs do Azure](automation-sec-configure-azure-runas-account.md)
 ## Gerenciar ativos de automação
 ### [Certificados](automation-certificates.md)
 ### [Conexões](automation-connections.md)
@@ -47,8 +47,6 @@
 ### [Atualizar os módulos do Azure PowerShell](automation-update-azure-modules.md)
 ## Automatizar cenários
 ### [Galeria de Runbook](automation-runbook-gallery.md)
-### [Iniciar/parar máquinas virtuais](automation-solution-startstopvm-graphical.md)
-### [Iniciar/parar máquinas virtuais com o PowerShell](automation-solution-startstopvm-psworkflow.md)
 ### [Criar VM do Amazon Web Service](automation-scenario-aws-deployment.md)
 ### [Corrigir alerta da VM do Azure](automation-azure-vm-alert-integration.md)
 ### [Iniciar/parar VM com marcações JSON](automation-scenario-start-stop-vm-wjson-tags.md)
@@ -81,8 +79,3 @@
 ## [Treinamento em Automação do Azure](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Vídeo de introdução à Automação](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

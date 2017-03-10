@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 45de2422e79215ecfbacf5bd15712eb780c49016
-ms.openlocfilehash: c0a99dadc1d588942ade14267bd45eff09080315
+ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
+ms.openlocfilehash: b28eec9a01c45468e0cc323514d9c2e91ec88bf5
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -25,14 +26,14 @@ A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para in
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* CLI do Azure 2.0 (Visualização): veja [Instalar e configurar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) para obter mais informações.
+* CLI 2.0 do Azure: confira [Instalar e configurar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) para saber mais.
 
 * Azure PowerShell: veja [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
 
 > [!NOTE]
 > As etapas neste documento requerem a versão mais recente da CLI do Azure e do Azure PowerShell. Se você estiver usando uma versão mais antiga, os comandos poderão ser diferentes. Para obter melhores resultados, use os links anteriores para instalar as versões mais recentes.
 
-## <a name="a-idwhatisawhat-is-azure-virtual-network"></a><a id="whatis"></a>O que é a Rede Virtual do Azure?
+## <a id="whatis"></a>O que é a Rede Virtual do Azure?
 
 [Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/) permite que você crie uma rede segura e persistente contendo os recursos necessários para sua solução. Uma rede virtual permite que você:
 
@@ -257,7 +258,7 @@ Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-red
 
 Para saber mais sobre os Grupos de Segurança de Rede, confira [Visão geral dos Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, confira [Rotas e encaminhamento IP definidos pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
 
-## <a name="a-idtasksatasks-and-information"></a><a id="tasks"></a>Tarefas e informações
+## <a id="tasks"></a>Tarefas e informações
 
 Esta seção contém informações sobre tarefas comuns e informações que podem ser necessárias ao usar o HDInsight com uma rede virtual.
 
@@ -354,7 +355,7 @@ Alguns serviços, como o SQL Server, podem limitar conexões de rede. Isso imped
 
 Se você encontrar problemas ao acessar um serviço do HDInsight, consulte a documentação para o serviço para garantir que você habilitou o acesso à rede. Você também pode verificar o acesso à rede criando uma máquina virtual do Azure na mesma rede virtual e usar utilitários de cliente para verificar se a máquina virtual consegue se conectar ao serviço através da rede virtual.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 
 Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azure:
 
@@ -363,10 +364,5 @@ Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azur
 * [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop-mac-linux.md) : fornece informações sobre como usar o Sqoop para transferir dados com o SQL Server em uma rede virtual.
 
 Para saber mais sobre redes virtuais do Azure, consulte [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

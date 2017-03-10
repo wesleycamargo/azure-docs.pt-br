@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ccde5cf9a45c79cfd441633722960007aad46088
-ms.openlocfilehash: fe00166c443d8db678ec46cfd8b66c327176ddcf
+ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
+ms.openlocfilehash: bc2a8803bdc875e9f62d9263b16cdbb5cc70ecbf
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="migrate-from-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migração do AWS e outras plataformas para os Managed Disks no Azure
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar do AWS (Amazon Web Services) e outras plataformas para o Managed Disks no Azure
 
-Você pode carregar arquivos VHD do AWs ou usar as soluções de virtualização locais do Azure para criar VMs que tiram proveito dos Managed Disks. O Azure Managed Disks elimina a necessidade de gerenciar contas de armazenamento para VMs de IaaS do Azure. Você só precisa especificar o tipo (premium ou Standard) e o tamanho do disco necessário, e o Azure cria e gerencia o disco para você. 
+Você pode carregar arquivos VHD do AWS ou soluções de virtualização locais no Azure para criar VMs que aproveitam os Managed Disks. O Azure Managed Disks elimina a necessidade de gerenciar contas de armazenamento para VMs de IaaS do Azure. Você só precisa especificar o tipo (premium ou Standard) e o tamanho do disco necessário, e o Azure cria e gerencia o disco para você. 
 
 Você pode carregar VHDs especializados e generalizados. 
 **VHD Generalizado** – um VHD generalizado teve todas suas informações de conta pessoal removidas usando o Sysprep. 
@@ -101,9 +103,4 @@ Confira os [preços dos Managed Disks](https://azure.microsoft.com/en-us/pricing
 ## <a name="next-steps"></a>Próximas etapas
 
 - Antes de carregar qualquer VHD no Azure, você deve seguir as etapas em [Preparar um VHD ou VHDX do Windows para carregar no Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

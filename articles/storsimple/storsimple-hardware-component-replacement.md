@@ -4,7 +4,7 @@ description: "Descreve como substituir com segurança PCMs, bateria, módulos de
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/11/2016
+ms.date: 02/27/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
+ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="storsimple-hardware-component-replacement"></a>Substituição de componentes de hardware do StorSimple
+# <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
+
 ## <a name="overview"></a>Visão geral
 Os tutoriais de substituição de componentes de hardware descrevem os componentes de hardware do seu dispositivo da série 8000 do Microsoft Azure StorSimple e as etapas necessárias para removê-los e substituí-los. Este artigo descreve os ícones de segurança, fornece ponteiros para os tutoriais detalhados e lista os componentes que podem ser substituíveis.
 
@@ -67,7 +70,7 @@ Os principais componentes de hardware do dispositivo são resumidos nas tabelas 
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controladores principais |2 |Sim |[Substituir um módulo de controlador em seu dispositivo StorSimple](storsimple-controller-replacement.md) |
-| Módulos de energia e resfriamento (PCMs) de 764W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Módulos de energia e resfriamento (PCMs) de&764;W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Bateria de backup |2 |Sim |[Substituir o módulo de bateria de backup em seu dispositivo StorSimple](storsimple-battery-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
@@ -79,7 +82,7 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 |:--- |:--- |:--- |:--- |
 | Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-chassis-replacement.md) |
 | Controladores do EBOD |2 |Sim |[Substituir um controlador EBOD em seu dispositivo StorSimple](storsimple-ebod-controller-replacement.md) |
-| Módulos de energia e resfriamento (PCMs) de 580W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
+| Módulos de energia e resfriamento (PCMs) de&580;W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-disk-drive-replacement.md) |
 
 **Tabela 2** Componentes de hardware no compartimento EBOD
@@ -122,8 +125,8 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositivo StorSimple:
 
 * Chassis (incluindo o painel de operações integrado)
-* PCM de CA de 764 W
-* PCM de CA de 580 W
+* PCM de CA de&764; W
+* PCM de CA de&580; W
 * Unidade de disco rígido com módulo de suporte de unidade
 * Módulo de controlador
 * Módulo de controlador do EBOD
@@ -134,10 +137,5 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 
