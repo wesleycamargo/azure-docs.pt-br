@@ -17,6 +17,7 @@ ms.author: vidarmsft
 translationtype: Human Translation
 ms.sourcegitcommit: 37f795fe59496b0267120537115cf56d44cc5325
 ms.openlocfilehash: 60cde851a466a5b4b0752908f11272eedb246b0a
+ms.lasthandoff: 12/23/2016
 
 ---
 
@@ -50,7 +51,7 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
         Você pode passar em todos os valores para ActiveDirectoryKey e AppName.
 
 
-2. Esse script gera os seguintes valores: - ID do cliente - ID de locatário - chave do Active Directory (a mesma indicada acima) - ID da assinatura
+2. Esse script gera os seguintes valores:      - ID do cliente      - ID de locatário      - chave do Active Directory (a mesma indicada acima) - ID da assinatura
 
 3. Usando o Visual Studio 2012, 2013 ou 2015, crie um aplicativo de console do .NET em C#.
 
@@ -177,9 +178,4 @@ Execute as seguintes etapas para usar o .NET e iniciar um trabalho de transforma
 ## <a name="next-steps"></a>Próximas etapas
 
 [Use a interface do usuário do Gerenciador de Dados StorSimple para transformar seus dados](storsimple-data-manager-ui.md).
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 
