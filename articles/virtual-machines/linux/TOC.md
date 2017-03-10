@@ -79,6 +79,7 @@
 ### [Opções de resolução de nome DNS](../virtual-machines-linux-azure-dns.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Usar o DNS do Azure com VMs](../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Use o Gerenciador de Tráfego do Azure com VMs](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Use o PF do FreeBSD para configurar um firewall NAT](../virtual-machines-linux-freebsd-pf-nat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Implantar
 ### [Copiar uma VM](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

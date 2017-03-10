@@ -4,7 +4,7 @@ description: "Uma lista completa de todas as configurações que serão ser movi
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf

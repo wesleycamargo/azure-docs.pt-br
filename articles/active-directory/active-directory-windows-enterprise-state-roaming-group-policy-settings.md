@@ -5,7 +5,7 @@ description: "Fornece informações sobre as configurações de política de gru
 services: active-directory
 keywords: "quais são as configurações da Política e do MDM para o Enterprise State Roaming, Enterprise State Roaming, nuvem do windows"
 documentationcenter: 
-author: ningtan
+author: tanning
 manager: femila
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
