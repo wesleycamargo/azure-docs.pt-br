@@ -215,7 +215,7 @@ Na operação de upload de arquivos, *python_tutorial_client.py* primeiro define
 
 Usando a abrangência da lista, a função `upload_file_to_container` é chamada para cada arquivo nas coleções e duas coleções [ResourceFile][py_resource_file] são populadas. A função `upload_file_to_container` é exibida abaixo:
 
-```
+```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
     """
     Uploads a local file to an Azure Blob storage container.
@@ -572,7 +572,7 @@ def download_blobs_from_container(block_blob_client,
 ## <a name="step-8-delete-containers"></a>Etapa 8: Excluir contêineres
 Como você é cobrado pelos dados que residem no Armazenamento do Azure, sempre será uma boa ideia remover todos os blobs que não sejam mais necessários para seus trabalhos do Lotes. Em *python_tutorial_client.py*, isso é feito com três chamadas a [BlockBlobService.delete_container][py_delete_container]:
 
-```
+```python
 # Clean up storage resources
 print('Deleting containers...')
 blob_client.delete_container(app_container_name)

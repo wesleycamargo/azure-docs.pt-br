@@ -18,6 +18,7 @@ ms.author: kasing
 translationtype: Human Translation
 ms.sourcegitcommit: e64449991bc28427d8f559ed13c3bdf9160488db
 ms.openlocfilehash: 92211cc98b6d8394ff04bc7c2fe33f7bd710713b
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -100,7 +101,7 @@ Se quiser migrar as máquinas virtuais em uma rede virtual criada por plataforma
 
 Se quiser migrar para uma rede virtual existente no modelo de implantação do Gerenciador de Recursos, use o comando a seguir.
 
-    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> subnetName <vnetName>
+    azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
 Após uma operação de preparação bem-sucedida, você poderá examinar a saída detalhada para obter o estado de migração das VMs e assegurar que as elas estejam no estado `Prepared` .
 
@@ -159,10 +160,5 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 ## <a name="next-steps"></a>Próximas etapas
 * [Migração de recursos de IaaS com suporte da plataforma do Clássico para o Gerenciador de Recursos](virtual-machines-windows-migration-classic-resource-manager.md)
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do Clássico para o Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 80627139ee253bb6a01241e460781519dac69e71
 ms.openlocfilehash: a8541d5bd5e5becb25e8460b6ca774ec6637563a
@@ -31,7 +31,7 @@ Criar, implantar e gerenciar WebJobs é fácil com ferramentas integradas no Vis
 
 O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos de gerenciamento poderosos que lhe dão controle total sobre a execução de Trabalhos Web, incluindo a capacidade de invocar funções individuais dentro de Trabalhos Web. O painel também exibe a saída de log e tempos de execução de função. 
 
-## <a name="a-namegetstartedagetting-started-with-webjobs-and-the-webjobs-sdk"></a><a name="getstarted"></a>Guia de Introdução a Trabalhos Web e ao SDK dos Trabalhos Web
+## <a name="getstarted"></a>Guia de Introdução a Trabalhos Web e ao SDK dos Trabalhos Web
 * [Introdução aos Trabalhos Web do Azure](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [O Azure Webjobs é impressionante e você deve começar a usá-lo agora mesmo!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Postagem no blog por Troy Hunt).
 * [Recursos de Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
@@ -54,7 +54,7 @@ O painel de Trabalhos Web no portal de gerenciamento do Azure fornece recursos d
 
 Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy) e [Teste e depuração de WebJobs](#debug).
 
-## <a name="a-namedeployadeploying-webjobs"></a><a name="deploy"></a>Implantando Trabalhos Web
+## <a name="deploy"></a>Implantando Trabalhos Web
 * [Como implantar Trabalhos Web do Azure usando o Visual Studio.](websites-dotnet-deploy-webjobs.md)
 * [Como implantar Trabalhos Web usando o Portal do Azure](web-sites-create-web-jobs.md)
 * [Habilitando entrega de linha de comando ou contínua dos Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
@@ -65,14 +65,14 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
   * [Apresentando as ferramentas de Trabalhos Web do Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
   * [Depuração remota e ferramentas de Trabalhos Web](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescheduleascheduling-webjobs"></a><a name="schedule"></a>Agendando Trabalhos Web
+## <a name="schedule"></a>Agendando Trabalhos Web
 * [A caixa de diálogo Adicionar Trabalho Web do Azure](websites-dotnet-deploy-webjobs.md#configure)
 * [Criar um Trabalho Web agendado no Portal do Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Vinculando um trabalho do agendador a um WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Agendando Azure WebJobs com expressões cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [Agendamento de funções individuais do WebJob usando o TimerTrigger do SDK do WebJobs](websites-dotnet-webjobs-sdk.md#schedule)
 
-## <a name="a-namedebugatesting-and-debugging-webjobs"></a><a name="debug"></a>Testando e depurando Trabalhos Web
+## <a name="debug"></a>Testando e depurando Trabalhos Web
 * [Novos recursos de desenvolvedor e de depuração para Trabalhos Web do Azure no Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
 * [Exibir o painel Trabalhos Web](websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
 * [Como gravar logs usando o SDK de Trabalhos Web e exibi-los no painel](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
@@ -84,13 +84,13 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 * Vídeos
   * [Depuração remota e ferramentas de Trabalhos Web](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
-## <a name="a-namescaleascaling-webjobs"></a><a name="scale"></a>Dimensionando de WebJobs
+## <a name="scale"></a>Dimensionando de WebJobs
 * [Dimensionando seu aplicativo Web com sites do Azure](http://msdn.microsoft.com/magazine/dn786914.aspx)
 * [Serviço de aplicativo do Azure: Arquitetura de aplicativos Web prontos para empresa de grande escala](https://channel9.msdn.com/Events/Build/2014/3-626). Aborda o dimensionamento de aplicativos Web com Trabalhos Web, incluindo o SDK de Trabalhos Web.
 * Vídeos
   * [Expandindo Trabalhos Web](http://channel9.msdn.com/Shows/Azure-Friday/Azure-WebJobs-105-Scaling-out-Web-Jobs)
 
-## <a name="a-nameadditionalaadditional-webjobs-resources"></a><a name="additional"></a>Recursos adicionais de Trabalhos Web
+## <a name="additional"></a>Recursos adicionais de Trabalhos Web
 * [Postagem no blog WebJobs GA do Azure de Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
 * [Executando Trabalhos Web do Powershell no Serviço de Aplicativo do Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Seja notificado quando os Trabalhos Web disparados pelo Azure forem concluídos](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
@@ -102,7 +102,7 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
   * [Vídeos de Trabalhos Web do Azure, de Magnus Mårtensson](https://www.youtube.com/playlist?list=PLqp1ZOYYUSd81yEzMYLTw8cz91wx_LU9r)
   * [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-nameadditionalsdkaadditional-webjobs-sdk-resources"></a><a name="additionalsdk"></a>Recursos adicionais do SDK de Trabalhos Web
+## <a name="additionalsdk"></a>Recursos adicionais do SDK de Trabalhos Web
 * [Notas de lançamento do SDK do WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
 * [Código-fonte do SDK de Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk)
 * [Código-fonte das extensões de SDK de WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions), com [guia detalhado do modelo de extensibilidade](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
@@ -114,17 +114,17 @@ Consulte também as seguintes seções sobre [Implantação de WebJobs](#deploy)
 * Vídeos
   * [Série de vídeos de Trabalhos Web do Azure no Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 
-## <a name="a-namesamplesasample-webjob-applications"></a><a name="samples"></a>Aplicativos de Trabalhos Web de exemplo
+## <a name="samples"></a>Aplicativos de Trabalhos Web de exemplo
 * [Aplicativos de exemplo fornecidos pela equipe de Trabalhos Web no GitHub](https://github.com/azure/azure-webjobs-sdk-samples)
 * [Site do Azure simples com back-end de Trabalhos Web usando o SDK de WebJobs](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb)
 * [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Demonstra o uso de WebJobs agendados e controlados por evento. Confira a postagem de blog [Recriando o SiteMonitR usando o SDK de Trabalhos Web do Azure](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs).
 
-## <a name="a-nameblogsablogs"></a><a name="blogs"></a>Blogs
+## <a name="blogs"></a>Blogs
 * [Blog do Azure](/blog)
 * [Blog de Amit Apple](http://blog.amitapple.com/). Concentra-se em Trabalhos Web (não no SDK).
 * [Blog de Magnus Mårtensson](http://magnusmartensson.com/)
 
-## <a name="a-namegethelpagetting-help-with-webjobs"></a><a name="gethelp"></a>Obtendo ajuda com Trabalhos Web
+## <a name="gethelp"></a>Obtendo ajuda com Trabalhos Web
 * [StackOverflow para Trabalhos Web](http://stackoverflow.com/questions/tagged/azure-webjobs)
 * [StackOverflow para o SDK de Trabalhos Web](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [StackOverflow para Azure Functions](http://stackoverflow.com/questions/tagged/azure-functions)

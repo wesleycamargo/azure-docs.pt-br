@@ -29,7 +29,7 @@ Você pode instrumentar um aplicativo Web ativo com o Application Insights do Az
 
 Você tem a opção de três rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
-* **Tempo de compilação:** [Adicionar o SDK do Application Insights] [ greenbrown] ao código do aplicativo Web.
+* **Tempo de compilação:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
 * **Tempo de execução:** instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
 * **Ambos:** crie o SDK em seu código de aplicativo Web e também aplique as extensões de tempo de execução. Obtenha o melhor de ambas as opções.
 
@@ -68,7 +68,7 @@ Se seu aplicativo estiver hospedado em um servidor do IIS, habilite o Applicatio
 2. Se o Application Insights Status Monitor ainda não estiver instalado, baixe e execute o [instalador do Monitor de Status](http://go.microsoft.com/fwlink/?LinkId=506648).
 3. No Monitor de Status, selecione o aplicativo Web ou o site que você deseja monitorar. Entre com suas credenciais do Azure.
 
-    Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da web] [ availability] ou [monitoramento de cliente] [ client] para esse aplicativo). 
+    Configure o recurso onde você deseja ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se você já tiver [testes da web][availability] ou [monitoramento de cliente][client] para esse aplicativo). 
 
     ![Escolha um aplicativo e um recurso.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -184,7 +184,7 @@ Saiba quais aplicativos estão sendo monitorados:
 
 * Baixa o SDK mais recente do Application Insights para o servidor.
 
-## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
+## <a name="next"></a>Próximas etapas
 
 Exiba sua telemetria:
 
