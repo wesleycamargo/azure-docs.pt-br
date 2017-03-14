@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 2d21cd34427921ad789b4c95212c07caddd5a966
@@ -22,7 +22,7 @@ ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>O que é o SDK de Trabalhos Web do Azure
-## <a name="a-idoverviewaoverview"></a><a id="overview"></a>Visão geral
+## <a id="overview"></a>Visão geral
 Este artigo explica o que é o SDK de Trabalhos Web, analisa alguns cenários comuns em que ele é útil e oferece uma visão geral de como usá-lo em seu código.
 
 [WebJobs](websites-webjobs-resources.md) é um recurso do Serviço de Aplicativo do Azure que permite que você execute um programa ou script no mesmo contexto que um aplicativo Web, aplicativo de API ou aplicativo móvel. A finalidade do [WebJobs SDK](websites-webjobs-resources.md) é simplificar o código escrito para tarefas comuns que um WebJob pode executar, como o processamento de imagens, o processamento de filas, a agregação de RSS, a manutenção de arquivos e o envio de emails. O SDK do WebJobs tem recursos internos para trabalhar com o Armazenamento do Azure e o Barramento de Serviço, para o agendamento de tarefas e o tratamento de erros e de muitos outros cenários comuns. Além disso, ele foi projetado para ser extensível. O [SDK do Trabalhos Web é um software livre](https://github.com/Azure/azure-webjobs-sdk/), e há um [repositório de softwares livres para extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
@@ -32,7 +32,7 @@ O SDK de Trabalhos Web inclui os seguintes componentes:
 * **Pacotes NuGet**. Os pacotes NuGet adicionados a um projeto de Aplicativo de Console do Visual Studio fornecem uma estrutura usada pelo código ao decorar os métodos com atributos do WebJobs SDK.
 * **Painel**. Parte do SDK de Trabalhos Web está incluído no Serviço de Aplicativo do Azure e oferece monitoramento e diagnóstico avançados para os programas que usam pacotes NuGet. Você não precisa escrever o código para usar esses recursos de monitoramento e diagnóstico.
 
-## <a name="a-idscenariosascenarios"></a><a id="scenarios"></a>Cenários
+## <a id="scenarios"></a>Cenários
 Aqui estão alguns cenários típicos que é possível processar mais facilmente com o SDK de Trabalhos Web do Azure:
 
 * Processamento de imagens ou outro trabalho com uso intensivo da CPU. Uma característica comum de sites é a capacidade de carregar imagens ou vídeos. Você pode querer manipular o conteúdo após o upload, mas sem fazer o usuário esperar enquanto faz isso.
@@ -47,7 +47,7 @@ Em muitos desses cenários, talvez você queira dimensionar um aplicativo Web pa
 
 O WebJobs SDK também facilita lidar com cenários de tratamento de erros comuns. Você pode configurar alertas para enviar notificações quando uma função falhar e pode definir tempos limite para que uma função seja cancelada automaticamente se não for concluída dentro de um limite de tempo especificado.
 
-## <a name="a-idcodea-code-samples"></a><a id="code"></a> Exemplos de código
+## <a id="code"></a> Exemplos de código
 O código para processar tarefas típicas que funcionam com o Armazenamento do Azure é simples. No método `Main` do Aplicativo de Console, você cria um objeto `JobHost` que coordena as chamadas para métodos que você escreve. A estrutura do SDK de WebJobs sabe quando chamar os métodos e quais valores de parâmetro usar baseada nos atributos do SDK de WebJobs que você usou neles. O SDK fornece *gatilhos*, que especificam quais condições fazem a função ser chamada, e *associadores*, que especificam como obter informações dentro e fora dos parâmetros do método.
 
 Por exemplo, o atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md) faz com que uma função seja chamada quando uma mensagem é recebida em uma fila, e se o formato de mensagem for JSON para uma matriz de bytes ou um tipo personalizado, a mensagem será desserializada automaticamente. O atributo [BlobTrigger](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) dispara um processo sempre que um novo blob é criado em uma conta de Armazenamento do Azure.
@@ -130,7 +130,7 @@ O exemplo de código a seguir mostra uma variedade de gatilhos em um WebJob: `Qu
     }
 ```
 
-## <a name="a-idschedulea-scheduling"></a>Agendamento <a id="schedule"></a>
+## Agendamento <a id="schedule"></a>
 O atributo `TimerTrigger` permite disparar funções para execução em um agendamento. Você pode agendar um WebJob como um todo usando o Azure ou agendar funções individuais de um WebJob usando o WebJobs SDK `TimerTrigger`. Aqui está um exemplo de código.
 
 ```
@@ -149,12 +149,12 @@ Para mais código de exemplo, confira [TimerSamples.cs](https://github.com/Azure
 ## <a name="extensibility"></a>Extensibilidade
 Você não está limitado à funcionalidade interna; o WebJobs SDK permite que você escreva associadores e gatilhos personalizados.  Por exemplo, você pode escrever gatilhos para eventos de cache e agendamentos periódicos. Um [repositório de software livre](https://github.com/Azure/azure-webjobs-sdk-extensions) contém um [guia detalhado sobre a extensibilidade do SDK de Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview), bem como um código de exemplo que ajuda você a começar a escrever seus próprios associadores e gatilhos.
 
-## <a name="a-idworkerroleausing-the-webjobs-sdk-outside-of-webjobs"></a><a id="workerrole"></a>Usando o SDK de Trabalhos Web fora de Trabalhos Web
+## <a id="workerrole"></a>Usando o SDK de Trabalhos Web fora de Trabalhos Web
 Um programa que usa o SDK de Trabalhos Web é um Aplicativo de Console padrão e pode ser executado em qualquer lugar, não precisa ser executado como um Trabalho Web. Você pode testar o programa localmente no seu computador de desenvolvimento. Na produção, você pode executá-lo em uma função de trabalho do Serviço de Nuvem ou em um serviço do Windows, se preferir um desses ambientes. 
 
 No entanto, o painel só está disponível como uma extensão para um aplicativo web do Serviço de Aplicativo do Azure. Se desejar a execução fora de um Trabalho Web e ainda usar o Painel, você poderá configurar um aplicativo Web para usar a mesma conta de armazenamento que é referenciada pela cadeia de conexão do Painel do SDK de Trabalhos Web. Assim, o Painel de Trabalhos Web desse aplicativo Web mostrará dados sobre a execução da função do seu programa, que está em operação em outro lugar. Você pode acessar o Painel usando a URL https://*{nomedoaplicativoweb}*.scm.azurewebsites.net/azurejobs/#/functions. Para saber mais, veja [Getting a dashboard for local development with the WebJobs SDK](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx) (Obtendo um painel para desenvolvimento local com o SDK de Trabalhos Web), mas observe que o post do blog mostra um nome de cadeia de conexão antigo. 
 
-## <a name="a-idnostorageadashboard-features"></a><a id="nostorage"></a>Recursos do painel de controle
+## <a id="nostorage"></a>Recursos do painel de controle
 O WebJobs SDK oferece várias vantagens, mesmo se você não usar os disparadores ou associadores do WebJobs SDK:
 
 * Você pode chamar funções por meio do Painel.
@@ -163,7 +163,7 @@ O WebJobs SDK oferece várias vantagens, mesmo se você não usar os disparadore
 
 Para saber mais, veja [Como acionar uma função manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual) e [Como gravar logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs) 
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 Para obter mais informações sobre o SDK de Trabalhos Web, consulte [Recursos recomendados para Trabalhos Web do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
 Para saber mais sobre os aprimoramentos mais recentes do WebJobs SDK, confira as [Notas de versão](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes).

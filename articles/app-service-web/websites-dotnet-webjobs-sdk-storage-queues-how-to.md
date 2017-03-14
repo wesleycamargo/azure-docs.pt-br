@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
 ms.openlocfilehash: 5110a86c3cc25ada27ddba9b0caef68e4509aa73
@@ -69,7 +69,7 @@ O guia inclui os seguintes tópicos:
 * [Como tratar erros e configurar tempos limite](#errors)
 * [Próximas etapas](#nextsteps)
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-queue-message-is-received"></a><a id="trigger"></a> Como acionar uma função quando uma mensagem da fila é recebida
+## <a id="trigger"></a> Como acionar uma função quando uma mensagem da fila é recebida
 Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo `QueueTrigger` . O construtor de atributo tem um parâmetro de cadeia que especifica o nome da fila para sondagem. Você também pode [definir dinamicamente o nome da fila](#config).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
@@ -115,7 +115,7 @@ As funções assíncronas podem levar um [token de cancelamento](http://www.asp.
             await blobInput.CopyToAsync(blobOutput, 4096, token);
         }
 
-### <a name="a-idqtattributetypesa-types-the-queuetrigger-attribute-works-with"></a><a id="qtattributetypes"></a> Tipos com os quais o atributo QueueTrigger funciona
+### <a id="qtattributetypes"></a> Tipos com os quais o atributo QueueTrigger funciona
 Você pode usar `QueueTrigger` com os seguintes tipos:
 
 * `string`
@@ -123,20 +123,20 @@ Você pode usar `QueueTrigger` com os seguintes tipos:
 * `byte[]`
 * `CloudQueueMessage`
 
-### <a name="a-idpollinga-polling-algorithm"></a><a id="polling"></a> Algoritmo de sondagem
+### <a id="polling"></a> Algoritmo de sondagem
 O SDK implementa um algoritmo exponencial aleatório de retirada para reduzir o efeito de sondagem de fila ociosa nos custos das transações de armazenamento.  Quando uma mensagem for encontrada, o SDK aguarda dois segundos e, em seguida, verifica outra mensagem; quando nenhuma mensagem for encontrada, ele aguarda cerca de quatro segundos antes de tentar novamente. Após subsequentes tentativas falhas para obter uma mensagem da fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, cujo padrão é um minuto. [O tempo de espera máximo é configurável](#config).
 
-### <a name="a-idinstancesa-multiple-instances"></a><a id="instances"></a> Várias instâncias
+### <a id="instances"></a> Várias instâncias
 Se seu aplicativo Web for executado em várias instâncias, um Trabalho Web contínuo será executado em todos os computadores, e cada computador aguardará os gatilhos e tentará executar as funções. O gatilho de fila do SDK dos Trabalhos Web impede automaticamente que uma função processe uma mensagem da fila várias vezes; as funções não precisam ser escritas para ser idempotentes. No entanto, se desejar garantir que apenas uma instância de uma função é executada, mesmo quando houver várias instâncias do aplicativo Web host, é possível usar o atributo `Singleton` .
 
-### <a name="a-idparallela-parallel-execution"></a><a id="parallel"></a> Execução paralela
+### <a id="parallel"></a> Execução paralela
 Se você tiver várias funções escutando em filas diferentes, o SDK as chamará em paralelo quando as mensagens forem recebidas simultaneamente.
 
 O mesmo é verdadeiro quando várias mensagens são recebidas para uma única fila. Por padrão, o SDK obtém um lote de 16 mensagens de fila por vez e executa a função que as processa em paralelo. [O tamanho do lote é configurável](#config). Quando o número que está sendo processado chega até a metade do tamanho do lote, o SDK obtém outro lote e começa a processar as mensagens. Portanto, o número máximo de mensagens simultâneas que estão sendo processadas por função é uma vez e meia o tamanho do lote. Esse limite se aplica separadamente a cada função que tem um atributo `QueueTrigger` .
 
 Se não desejar uma execução paralela para mensagens recebidas em uma fila, é possível definir o tamanho do lote como 1. Veja também **Mais controle sobre o processamento de fila** no [RTM 1.1.0 do SDK dos Trabalhos Web do Azure](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/).
 
-### <a name="a-idqueuemetadataaget-queue-or-queue-message-metadata"></a><a id="queuemetadata"></a>Obter fila ou metadados de mensagem da fila
+### <a id="queuemetadata"></a>Obter fila ou metadados de mensagem da fila
 Você pode obter as propriedades da mensagem a seguir adicionando parâmetros à assinatura do método:
 
 * `DateTimeOffset` expirationTime
@@ -188,7 +188,7 @@ Este é um log de exemplo gravado pelo código de exemplo:
         queue endpoint=https://contosoads.queue.core.windows.net/
         queueTrigger=Hello world!
 
-### <a name="a-idgracefulagraceful-shutdown"></a><a id="graceful"></a>Desligamento normal
+### <a id="graceful"></a>Desligamento normal
 Uma função que é executada em um trabalho Web contínuo pode aceitar um parâmetro `CancellationToken` , que permite ao sistema operacional notificar a função quando o trabalho Web está prestes a ser encerrado. Você pode usar essa notificação para certificar-se de que a função não finalize inesperadamente de uma maneira que os dados fiquem em um estado inconsistente.
 
 O exemplo a seguir mostra como verificar se há eminência de encerramento do trabalho Web em uma função.
@@ -214,7 +214,7 @@ O exemplo a seguir mostra como verificar se há eminência de encerramento do tr
 
 Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
-## <a name="a-idcreatequeuea-how-to-create-a-queue-message-while-processing-a-queue-message"></a><a id="createqueue"></a> Como criar uma mensagem da fila durante o processamento de uma mensagem da fila
+## <a id="createqueue"></a> Como criar uma mensagem da fila durante o processamento de uma mensagem da fila
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo `Queue` . Como o `QueueTrigger`, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#config).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
@@ -265,7 +265,7 @@ Você pode usar o atributo `Queue` nos seguintes tipos de parâmetros:
 * `IAsyncCollector`
 * `CloudQueue` (para criar mensagens manualmente usando a API de Armazenamento do Azure diretamente)
 
-### <a name="a-idibinderause-webjobs-sdk-attributes-in-the-body-of-a-function"></a><a id="ibinder"></a>Usar atributos do SDK de Trabalhos Web no corpo de uma função
+### <a id="ibinder"></a>Usar atributos do SDK de Trabalhos Web no corpo de uma função
 Se precisar realizar algum trabalho em sua função antes de usar um atributo do SDK de Trabalhos Web como `Queue`, `Blob`, ou `Table`, você poderá usar a interface `IBinder`.
 
 O exemplo a seguir usa uma mensagem da fila de entrada e cria uma nova mensagem com o mesmo conteúdo em uma fila de saída. O nome da fila de saída é definido pelo código no corpo da função.
@@ -282,7 +282,7 @@ O exemplo a seguir usa uma mensagem da fila de entrada e cria uma nova mensagem 
 
 A interface `IBinder` também pode ser usada com os atributos `Table` e `Blob`.
 
-## <a name="a-idblobsa-how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a><a id="blobs"></a> Como ler e gravar blobs e tabelas durante o processamento de uma mensagem da fila
+## <a id="blobs"></a> Como ler e gravar blobs e tabelas durante o processamento de uma mensagem da fila
 Os atributos `Blob` e `Table` permitem que você leia e grave os blobs e tabelas. Os exemplos nesta seção se aplicam a blobs. Para obter exemplos de código que mostram como disparar processos quando blobs são criados ou atualizados, consulte [Como usar o armazenamento de blobs do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md) e para obter exemplos de código que leem e gravam as tabelas, consulte [Como usar o armazenamento de tabelas do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>Mensagens da fila de cadeia de caracteres que disparam operações de blob
@@ -311,7 +311,7 @@ O exemplo a seguir usa um objeto `CloudBlockBlob` para excluir um blob. A mensag
             blobToDelete.Delete();
         }
 
-### <a name="a-idpocoblobsa-poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a><a id="pocoblobs"></a> Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a id="pocoblobs"></a> Mensagens de fila POCO [(Objeto Plain Old CLR](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para um POCO armazenado como JSON na mensagem da fila, você pode usar espaços reservados que nomeiam as propriedades do objeto no parâmetro do `Queue` atributo `blobPath`. Também é possível utilizar os [nomes de propriedade de metadados de fila](#queuemetadata) como espaços reservados.
 
 O exemplo a seguir copia um blob para um novo blob com uma extensão diferente. A mensagem da fila é um objeto `BlobInformation` que inclui `BlobName` e as propriedades `BlobNameWithoutExtension`. Os nomes de propriedade são usados como espaços reservados no caminho de blob para os atributos `Blob` .
@@ -332,7 +332,7 @@ O SDK usa o [pacote NuGet Newtonsoft.Json](http://www.nuget.org/packages/Newtons
 
 Se você precisar fazer algum trabalho em sua função antes de vincular um blob a um objeto, você pode usar o atributo no corpo da função, [conforme mostrado anteriormente para o atributo da fila](#ibinder).
 
-### <a name="a-idblobattributetypesa-types-you-can-use-the-blob-attribute-with"></a><a id="blobattributetypes"></a> Tipos com os quais você pode usar o atributo Blob
+### <a id="blobattributetypes"></a> Tipos com os quais você pode usar o atributo Blob
 O atributo `Blob` pode ser usado com os seguintes tipos:
 
 * `Stream` (leitura ou gravação, especificadas usando o parâmetro de construtor FileAccess)
@@ -347,7 +347,7 @@ O atributo `Blob` pode ser usado com os seguintes tipos:
 * `CloudBlockBlob` (leitura ou gravação)
 * `CloudPageBlob` (leitura ou gravação)
 
-## <a name="a-idpoisona-how-to-handle-poison-messages"></a><a id="poison"></a> Como tratar mensagens suspeitas
+## <a id="poison"></a> Como tratar mensagens suspeitas
 As mensagens cujo conteúdo faz com que uma função falhe são chamadas de *mensagens suspeitas*. Quando a função falhar, a mensagem da fila não é excluída e eventualmente é captada novamente, fazendo com que o ciclo seja repetido. O SDK pode interromper automaticamente o ciclo após algumas iterações, ou você fazê-lo manualmente.
 
 ### <a name="automatic-poison-message-handling"></a>Manipulação automática de mensagens suspeitas
@@ -394,14 +394,14 @@ Você pode obter o número de vezes que uma mensagem foi selecionada para proces
             }
         }
 
-## <a name="a-idconfiga-how-to-set-configuration-options"></a><a id="config"></a> Como definir as opções de configuração
+## <a id="config"></a> Como definir as opções de configuração
 Você pode usar o tipo `JobHostConfiguration` para definir as seguintes opções de configuração:
 
 * Definir as cadeias de conexão do SDK no código.
 * Defina as configurações `QueueTrigger` de como a contagem máxima de remoção da fila.
 * Obtenha nomes de fila por meio da configuração.
 
-### <a name="a-idsetconnstraset-sdk-connection-strings-in-code"></a><a id="setconnstr"></a>Definir as cadeias de conexão do SDK no código
+### <a id="setconnstr"></a>Definir as cadeias de conexão do SDK no código
 A definição das cadeias de conexão do SDK no código lhe permite usar seus próprios nomes de cadeia de conexão em arquivos de configuração ou variáveis de ambiente, conforme mostrado no exemplo a seguir.
 
         static void Main(string[] args)
@@ -423,7 +423,7 @@ A definição das cadeias de conexão do SDK no código lhe permite usar seus pr
             host.RunAndBlock();
         }
 
-### <a name="a-idconfigqueueaconfigure-queuetrigger--settings"></a><a id="configqueue"></a>Configurar definições de QueueTrigger
+### <a id="configqueue"></a>Configurar definições de QueueTrigger
 Você pode definir as seguintes configurações que se aplicam ao processamento de mensagem de fila:
 
 * O número máximo de mensagens da fila que são recebidas simultaneamente a serem executadas em paralelo (o padrão é 16).
@@ -442,7 +442,7 @@ O exemplo a seguir mostra como definir essas configurações:
             host.RunAndBlock();
         }
 
-### <a name="a-idsetnamesincodeaset-values-for-webjobs-sdk-constructor-parameters-in-code"></a><a id="setnamesincode"></a>Definir valores para parâmetros do construtor do SDK WebJobs no código
+### <a id="setnamesincode"></a>Definir valores para parâmetros do construtor do SDK WebJobs no código
 Às vezes você deseja especificar um nome de fila, um nome de blob ou contêiner ou um nome de tabela no código em vez de embuti-lo no código. Por exemplo, você talvez queira especificar o nome da fila para `QueueTrigger` em um arquivo de configuração ou variável de ambiente.
 
 Você pode fazer isso passando um objeto `NameResolver` para o tipo `JobHostConfiguration`. Você inclui espaços reservados especiais entre sinais de percentual (%) em parâmetros do construtor de atributos do SDK de e o código `NameResolver` especifica os valores reais a serem usados no lugar desses espaços reservados.
@@ -476,7 +476,7 @@ Você passa a classe `NameResolver` ao objeto `JobHost`, conforme mostrado no ex
 
 **Observação:** os nomes de fila, tabela e blob são resolvidos sempre que uma função é chamada, mas os nomes de contêineres de blob são resolvidos somente quando o aplicativo é iniciado. Você não pode alterar o nome do contêiner de blob enquanto o trabalho está em execução.
 
-## <a name="a-idmanualahow-to-trigger-a-function-manually"></a><a id="manual"></a>Como acionar uma função manualmente
+## <a id="manual"></a>Como acionar uma função manualmente
 Para disparar uma função manualmente, use o método `Call` ou `CallAsync` no objeto `JobHost` e o atributo `NoAutomaticTrigger` na função, conforme mostrado no exemplo a seguir.
 
         public class Program
@@ -498,7 +498,7 @@ Para disparar uma função manualmente, use o método `Call` ou `CallAsync` no o
             }
         }
 
-## <a name="a-idlogsahow-to-write-logs"></a><a id="logs"></a>Como gravar logs
+## <a id="logs"></a>Como gravar logs
 O painel mostra logs em dois lugares: na página do Trabalho Web e na página de determinada invocação do Trabalho Web.
 
 ![Logs na página do Trabalho Web](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
@@ -558,7 +558,7 @@ E em uma tabela do Azure, os logs `Console.Out` e `Console.Error` têm esta apar
 
 Se você desejar conectar seu próprio agente, veja [este exemplo](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Program.cs).
 
-## <a name="a-iderrorsahow-to-handle-errors-and-configure-timeouts"></a><a id="errors"></a>Como tratar erros e configurar tempos limite
+## <a id="errors"></a>Como tratar erros e configurar tempos limite
 O SDK dos Trabalhos Web também inclui um atributo [Timeout](http://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs) que pode ser usado para fazer com que uma função seja cancelada se não for concluída em um período especificado. E se você desejar gerar um alerta quando um número excessivo de erros ocorrerem em um período especificado, é possível usar o atributo `ErrorTrigger` . Este é um [exemplo de ErrorTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Error-Monitoring).
 
 ```
@@ -577,6 +577,6 @@ public static void ErrorMonitor(
 
 Você também pode desabilitar e habilitar de modo dinâmico funções para controlar se eles podem ser disparados, usando uma opção de configuração que pode ser uma configuração de aplicativo ou um nome de variável de ambiente. Para obter o código de exemplo, veja o atributo `Disable` no [repositório de exemplos de SDK dos Trabalhos Web](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/MiscOperations/Functions.cs).
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Próximas etapas
+## <a id="nextsteps"></a> Próximas etapas
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com filas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
