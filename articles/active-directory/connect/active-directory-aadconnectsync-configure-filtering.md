@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/21/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 0b5bdb5036024cc0e05b3845e0073b2ea66a0a73
-ms.openlocfilehash: 9f615c3936cf3207ace787dd7293f94d2b760149
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: fa9e86552f61693b953f636bff3cd9d869feba23
+ms.openlocfilehash: 14c179d76664876695f2974de44e6bc000942184
+ms.lasthandoff: 03/02/2017
 
 ---
 
@@ -45,7 +45,7 @@ Como a filtragem pode remover muitos objetos ao mesmo tempo, certifique-se de qu
 
 Para que você não exclua muitos objetos por acidente, o recurso “[impedir exclusões acidentais](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)” está ativado por padrão. Se você excluir muitos objetos devido à filtragem (500, por padrão), precisará seguir as etapas deste artigo para permitir que as exclusões passem para o Azure AD.
 
-Se você usar uma versão anterior à de novembro de 2015([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](active-directory-aadconnectsync-implement-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
+Se você usar uma versão anterior à de novembro de 2015([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
 
 Se objetos de **usuário** tiverem sido excluídos acidentalmente do Azure AD devido a um erro de filtragem, você pode recriar os objetos de usuário no Azure AD, removendo as configurações de filtragem. Em seguida, você pode sincronizar os diretórios novamente. Essa ação restaura os usuários da lixeira no Azure AD. Contudo, não é possível cancelar a exclusão de outros tipos de objeto. Por exemplo, se você excluir acidentalmente um grupo de segurança usado para criar a ACL de um recurso, o grupo e suas ACLs não poderão ser recuperados.
 
@@ -200,7 +200,7 @@ Isso deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EU
 
 Nos exemplos e nas etapas abaixo, usaremos o objeto de usuário como um exemplo, mas você poderá usar isso para todos os tipos de objeto.
 
-Nos exemplos abaixo, o valor de precedência começa com 500. Esse valor garante que essas regras sejam avaliadas após as regras prontas para uso (precedência menor, valor numérico maior).
+Nos exemplos a seguir, o valor de precedência começa com 50. Isso pode ser qualquer número não usado, mas deve ser inferior a 100.
 
 #### <a name="negative-filtering-do-not-sync-these"></a>Filtragem negativa, “não sincronizar estes”
 No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **extensionAttribute15** tem o valor **NoSync**.
@@ -208,7 +208,7 @@ No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
 2. Inicie o **Editor de Regras de Sincronização** no menu **Iniciar**.
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
-4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado por outra regra de sincronização (por exemplo: 500). Em seguida, clique em **Avançar**.  
+4. Dê à regra um nome descritivo, como "*Entrada do AD – User DoNotSyncFilter*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 50). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 1](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **ExtensionAttribute15**. Verifique se **Operador** está definido como **EQUAL** e digite o valor **NoSync** na caixa **Valor**. Clique em **Próximo**.  
    ![Escopo da entrada 2](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
@@ -218,7 +218,7 @@ No exemplo abaixo, você filtra (e não sincroniza) todos os usuários em que **
 8. Para concluir a configuração, você precisa executar uma **Sincronização completa**. Continue a ler a seção [Aplicar e verificar as alterações](#apply-and-verify-changes).
 
 #### <a name="positive-filtering-only-sync-these"></a>Filtragem positiva: "sincronizar somente estas"
-Expressar a filtragem positiva pode ser mais desafiador, já que você também precisa considerar os objetos que não são óbvios para a sincronização, como as salas de conferência.
+Expressar a filtragem positiva pode ser mais desafiador, já que você também precisa considerar os objetos que não são óbvios para a sincronização, como as salas de conferência. Você também irá substituir o filtro padrão na regra diretamente **Entrada do AD – Associação de Usuário**. Quando você criar seu filtro personalizado, não inclua os objetos críticos do sistema, objetos de replicação em conflito, caixas de correio especiais e contas de serviço para o Azure AD Connect.
 
 A opção de filtragem positiva requer duas regras de sincronização. Você precisa de uma regra (ou várias) com o escopo correto dos objetos que serão sincronizados. Você também precisa de uma segunda regra de sincronização pega-tudo que filtra todos os objetos ainda não identificados como um objeto a ser sincronizado.
 
@@ -227,7 +227,7 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
 2. Inicie o **Editor de Regras de Sincronização** no menu **Iniciar**.
 3. Verifique se a opção **Entrada** está selecionada e clique em **Adicionar Nova Regra**.
-4. Dê à regra um nome descritivo, como "*Entrada do AD – Sincronização de Vendas de Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado por outra regra de sincronização (por exemplo: 501). Em seguida, clique em **Avançar**.  
+4. Dê à regra um nome descritivo, como "*Entrada do AD – Sincronização de Vendas de Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra regra de sincronização (por exemplo, 51). Em seguida, clique em **Avançar**.  
    ![Descrição da entrada 4](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. Em **Filtro de escopo**, clique em **Adicionar Grupo** e em **Adicionar Cláusula**. Em **Atributo**, selecione **Departamento**. Verifique se Operador está definido como **EQUAL** e digite o valor **Vendas** na caixa **Valor**. Clique em **Próximo**.  
    ![Escopo da entrada 5](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
@@ -235,7 +235,7 @@ No exemplo a seguir, você só sincroniza os objetos de usuário quando o atribu
 7. Clique em **Adicionar Transformação**, selecione **Constant** como **FlowType** e selecione **cloudFiltered** como o **Atributo de Destino**. Na caixa **Origem** , digite **False**. Clique em **Adicionar** para salvar a regra.  
    ![Transformação da entrada 6](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png)  
    Este é um caso especial em que você define cloudFiltered explicitamente como **False**.
-8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado por outra regra de sincronização (por exemplo: 600). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Próximo**.  
+8. Agora temos de criar a regra de sincronização que captura tudo. Dê à regra um nome descritivo, como "*Entrada do AD – Filtro Captura Tudo Usuário*". Selecione a floresta correta, **Usuário** como o **Tipo de objeto do CS** e **Pessoa** como o **Tipo de objeto do MV**. Em **Tipo de Link**, selecione **Junção**. Em **Precedência**, digite um valor que não esteja sendo usado atualmente por outra Regra de Sincronização (por exemplo, 99). Você selecionou um valor de precedência mais alto (menor precedência) do que para a regra de sincronização anterior. Mas você também deixou algum espaço para poder adicionar mais regras de sincronização de filtragem depois, quando quiser iniciar a sincronização de outros departamentos. Clique em **Próximo**.  
    ![Descrição da entrada 7](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)  
 9. Deixe **Filtro de escopo** vazio e clique em **Avançar**. Um filtro vazio indica que a regra deve ser aplicada a todos os objetos.
 10. Deixe as regras de **Junção** vazias e clique em **Avançar**.
