@@ -71,72 +71,70 @@
       Controller0Events   :
       Controller1Events   :
       
-      It may take up to 11 hours to apply all the updates, including the Windows Updates.
-8. After all the updates are successfully installed, run the following cmdlet to confirm that the software updates were applied correctly:
+      ````
+      
+      Pode levar até 11 horas para que todas as atualizações sejam aplicadas, incluindo as atualizações do Windows.
+
+8. Depois que todas as atualizações forem instaladas com êxito, execute o seguinte cmdlet para confirmar se as atualizações de software foram aplicadas corretamente:
    
      `Get-HcsSystem`
    
-    You should see the following versions:
+    Você deverá ver as seguintes versões:
    
    * HcsSoftwareVersion: 6.3.9600.17491
    * CisAgentVersion: 1.0.9037.0
    * MdsAgentVersion: 26.0.4696.1433
-9. Run the following cmdlet to confirm that the firmware update was applied correctly:
+9. Execute o seguinte cmdlet para confirmar se a atualização do firmware foi aplicada corretamente:
    
     `Start-HcsFirmwareCheck`.
    
-     The firmware status should be **UpToDate**.
-10. Run the following cmdlet to point the device to the Microsoft Azure Government portal (because it points to the public Azure classic portal by default). This will restart both controllers. We recommend that you use two PuTTY sessions to simultaneously connect to both controllers so that you can see when each controller is restarted.
+     O status do firmware deve ser **UpToDate**.
+10. Execute o cmdlet a seguir para apontar o dispositivo para o portal do Microsoft Azure Governamental (já que ele aponta para o portal clássico do Azure público por padrão). Isso reiniciará os dois controladores. É recomendável que você use duas sessões PuTTY para se conectar simultaneamente a ambos os controladores para poder ver quando cada controlador for reiniciado.
     
      `Set-CloudPlatform -AzureGovt_US`
     
-    You will see a confirmation message. Accept the default (**Y**).
-11. Run the following cmdlet to resume setup:
+    Você verá uma mensagem de confirmação. Aceite o padrão (**Y**).
+11. Execute o seguinte cmdlet para retomar a instalação:
     
      `Invoke-HcsSetupWizard`
     
-     ![Resume setup wizard](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
+     ![Retomar o assistente de instalação](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
     
-    When you resume setup, the wizard will be the Update 1 version (which corresponds to version 17469). 
-12. Accept the network settings. You will see a validation message after you accept each setting.
-13. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+    Quando você retomar a instalação, o assistente será a versão de Atualização 1 (que corresponde à versão 17469). 
+12. Aceite as configurações de rede. Você verá uma mensagem de validação depois que aceitar cada configuração.
+13. Por motivos de segurança, a senha de administrador do dispositivo expira após a primeira sessão, e você precisará alterá-la agora. Quando solicitado, forneça uma senha de administrador do dispositivo. Uma senha de administrador do dispositivo válida deve ter entre 8 e 15 caracteres. A senha deve conter três das seguintes opções: caracteres com letras minúsculas e maiúsculas, numéricos e especiais.
     
-    <br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
-14. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in [Step 2: Get the service registration key](#step-2-get-the-service-registration-key). After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+    <br/>![Dispositivo de registro do StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
+14. A etapa final do assistente de instalação registra seu dispositivo no serviço Gerenciador StorSimple. Para isso, será necessária a chave de registro do serviço obtida na [Etapa 2: Obter a chave de registro](#step-2-get-the-service-registration-key). Depois de fornecer a chave de registro, talvez seja necessário aguardar de 2 a 3 minutos antes do dispositivo ser registrado.
     
     > [!NOTE]
-    > You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+    > Você pode pressionar Ctrl + C a qualquer momento para sair do assistente de instalação. Se você tiver inserido todas as configurações de rede (endereço IP para Dados 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
     > 
     > 
     
-    ![StorSimple registration progress](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
-15. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
+    ![Progresso do registro do StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
+15. Depois do dispositivo ser registrado, uma chave de Criptografia de Dados do Serviço será exibida. Copie essa chave e salve-a em um local seguro. **Essa chave será necessária com a chave de registro do serviço para registrar dispositivos adicionais no serviço Gerenciador StorSimple.** Consulte a [segurança do StorSimple](../articles/storsimple/storsimple-security.md) para obter mais informações sobre essa chave.
     
-    ![StorSimple register device 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
+    ![Dispositivo de registro do StorSimple 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
     
     > [!IMPORTANT]
-    > To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. 
+    > Para copiar o texto da janela do console serial, basta selecionar o texto. Então, você conseguirá colá-lo na área de transferência ou em qualquer editor de texto. 
     > 
-    > DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+    > NÃO use Ctrl + C para copiar a chave de criptografia de dados do serviço. Usar Ctrl + C fará com que você saia do assistente de instalação. Como resultado, a senha de administrador do dispositivo não será alterada, e o dispositivo voltará para a senha padrão.
     > 
     > 
-16. Exit the serial console.
-17. Return to the Azure Government Portal, and complete the following steps:
+16. Saia do console serial.
+17. Volte para o Portal do Azure Governamental e conclua as seguintes etapas:
     
-    1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-    2. Click **View connected devices**.
-    3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    1. Clique duas vezes no serviço Gerenciador StorSimple para acessar a página **Início Rápido** .
+    2. Clique em **Exibir dispositivos conectados**.
+    3. Na página **Dispositivos** , verifique se o dispositivo conectou com êxito o serviço pesquisando o status. O status do dispositivo deve ser **Online**.
        
-        ![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
+        ![Página dos Dispositivos StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
        
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Se o status do dispositivo for **Offline**, aguarde alguns minutos para o dispositivo ficar online. 
        
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+        Se o dispositivo continuar offline após alguns minutos, você precisará se certificar de que a rede do firewall foi configurada conforme descrito nos [requisitos de rede para seu dispositivo StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
        
-        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager service-to-device communication.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+        Verifique se a porta 9354 está aberta para comunicações de saída, pois ela é usada pelo barramento de serviço para a comunicação serviço-dispositivo do StorSimple Manager.
 

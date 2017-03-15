@@ -36,7 +36,7 @@ Para fornecer essas funcionalidades, o Azure IoT Suite reúne diversos serviços
 
 O vídeo a seguir oferece uma introdução ao Azure IoT Suite:
 
-> [!VÍDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
 > 
 > 
 

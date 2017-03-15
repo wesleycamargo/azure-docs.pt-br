@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5e773168480bcb2b011e5539555391c06e970047
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b4740816ac61ffad032b86367fef99be7581f4c6
+ms.lasthandoff: 12/14/2016
 
 
 ---
@@ -26,9 +27,7 @@ Este guia fornece soluções para alguns desafios encontrados com frequência qu
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="workspace-owner"></a>Proprietário do espaço de trabalho
-Quando você cria um novo espaço de trabalho do Machine Learning, a ID que você insere no campo PROPRIETÁRIO DO ESPAÇO DE TRABALHO deve ser uma conta da Microsoft válida (anteriormente conhecida como Windows Live ID), por exemplo, john-contoso@live.com ou john-contoso@hotmail.com., não pode ser uma conta que não seja da Microsoft, como sua conta de email corporativa . Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com).
-
-Observe que a conta usada para entrar no portal do Azure para criar o espaço de trabalho não tem automaticamente permissão para *abrir* esse espaço de trabalho, a menos que você especifique essa conta como proprietária. Para abrir um espaço de trabalho no Estúdio de Aprendizado de Máquina, você deve estar conectado à Conta da Microsoft que foi definida como proprietária do espaço de trabalho ou precisa receber um convite do proprietário para ingressar no espaço de trabalho. No entanto, no Portal Clássico do Azure, você pode *gerenciar* o espaço de trabalho, o que inclui a capacidade de alterar o proprietário e configurar o acesso.
+Para abrir um espaço de trabalho no Machine Learning Studio, você deve estar conectado à Conta da Microsoft usada para criar o espaço de trabalho, ou receber um convite do proprietário para ingressar no espaço de trabalho. No portal do Azure você pode gerenciar o espaço de trabalho, que inclui a capacidade de alterar o proprietário e configurar o acesso.
 
 Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure].
 
@@ -37,38 +36,32 @@ Para obter mais informações sobre como gerenciar um espaço de trabalho, consu
 ## <a name="allowed-regions"></a>Regiões permitidas
 No momento, o Aprendizado de Máquina está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro "Você não tem assinaturas nas regiões permitidas".
 
-Para solicitar a adição de uma região à sua assinatura, selecione **Entre em contato com o Suporte da Microsoft** no Portal Clássico do Azure, escolha **Cobrança** como o tipo de problema e siga os prompts para enviar sua solicitação.
-
-![Contatar Suporte da Microsoft][screen1]
+Para solicitar a adição de uma região à sua assinatura, crie uma nova solicitação de suporte da Microsoft no portal do Azure, escolha o tipo de problema **Cobrança** e siga os prompts para enviar sua solicitação.
 
 ## <a name="storage-account"></a>Conta de armazenamento
 O serviço de Aprendizado de Máquina precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho de Aprendizado de Máquina (se você tiver cota para criar uma nova conta de armazenamento).
 
-<!-- These instructions no longer work, but I'm not sure what to replace them with
-To see if you can create a new storage account, in the Classic Portal, go to **Settings** and then click **Usage**.
--->
-
-![Criar espaço de trabalho][screen2]
-
-Depois que o novo espaço de trabalho do Aprendizado de Máquina for criado, você poderá entrar no Estúdio de Aprendizado de Máquina usando a conta da Microsoft especificada como proprietária do espaço de trabalho. Se você encontrar a mensagem de erro "Espaço de Trabalho Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
+Criado o novo espaço de trabalho do Machine Learning, você pode entrar no Machine Learning Studio com a conta da Microsoft usada para criar o espaço de trabalho. Se você encontrar a mensagem de erro "Espaço de Trabalho Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
 
 ![Espaço de trabalho não encontrado][screen3]
 
 **Para excluir cookies do navegador**
 
-Se você usa o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **Opções da Internet**.  
+1. Se você usa o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **Opções da Internet**.  
 
 ![Opções da Internet][screen4]
 
-Na guia **Geral**, clique em **Excluir…**
+2. Na guia **Geral**, clique em **Excluir…**
 
 ![Guia Geral][screen5]
 
-Na caixa de diálogo **Excluir Histórico de Navegação**, selecione **Cookies e dados de sites** e clique em **Excluir**.
+3. Na caixa de diálogo **Excluir Histórico de Navegação**, selecione **Cookies e dados de sites** e clique em **Excluir**.
 
 ![Excluir cookies][screen6]
 
-Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net) . Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft que você especificou como conta do proprietário do espaço de trabalho.
+Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Aprendizado de Máquina do Microsoft Azure](https://studio.azureml.net) . Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft usada para criar o espaço de trabalho.
+
+## <a name="comments"></a>Comentários
 
 Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simples possível. Poste comentários e problemas no [Fórum do Aprendizado de Máquina do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.
 
@@ -78,9 +71,4 @@ Nosso objetivo é tornar a experiência do Aprendizado de Máquina o mais simple
 [screen4]:media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

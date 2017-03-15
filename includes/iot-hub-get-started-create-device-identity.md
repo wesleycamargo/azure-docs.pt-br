@@ -3,13 +3,19 @@ Nesta seção, você use uma ferramenta do Node.js chamada [Gerenciador do Hub I
 
 1. Execute o seguinte em seu ambiente de linha de comando:
    
+    ```
     npm install -g iothub-explorer@latest
+    ```
 2. Em seguida, execute o seguinte comando para fazer logon em seu hub, lembrando de substituir `{iot hub connection string}` pela cadeia de conexão do Hub IoT copiado anteriormente:
-   
-    iothub-explorer login "{cadeia de conexão do hub iot}"
+
+    ```
+    iothub-explorer login "{iot hub connection string}"
+    ```
 3. Finalmente, crie uma nova identidade de dispositivo chamada `myDeviceId` com o comando:
    
+    ```
     iothub-explorer create myDeviceId --connection-string
+    ```
 
 Anote a cadeia de conexão do dispositivo no resultado. Essa cadeia de conexão é usada pelo aplicativo do dispositivo para se conectar ao seu Hub IoT como um dispositivo.
 
@@ -23,8 +29,3 @@ Consulte [Introdução ao Hub IoT][lnk-getstarted] para conferir uma forma de cr
 [iot-hub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 
 [lnk-getstarted]: ../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md
-
-
-<!--HONumber=Dec16_HO1-->
-
-

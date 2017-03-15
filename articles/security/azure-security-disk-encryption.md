@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: kakhan
 translationtype: Human Translation
-ms.sourcegitcommit: 1dd5be3ba3a0fbbb4657a2c0b2ca6757a94cc76a
-ms.openlocfilehash: 1c6b4b45b9e0b018a7cb3f28f7868c89ad0fda61
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 10cc114451da7e73726772da4159776e76f5b8c9
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -139,7 +139,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 > O Azure Disk Encryption tem suporte nas seguintes versões de servidor Linux: Ubuntu, CentOS, SUSE e SLES (SUSE Linux Enterprise Server) e Red Hat Enterprise Linux.
 
 > [!NOTE]
-> No momento, há suporte para a criptografia de disco do sistema operacional Linux nas seguintes distribuições Linux: RHEL 7.2, CentOS 7.2n e Ubuntu 16.04.
+> No momento, há suporte para a criptografia de disco do sistema operacional Linux nas seguintes distribuições Linux: RHEL 7.2, RHEL 7.3, CentOS 7.2n e Ubuntu 16.04.
 >
 > Todos os recursos (cofre de chaves, conta de armazenamento e VM, por exemplo) devem pertencer à mesma região do Azure e assinatura.
 
@@ -537,7 +537,7 @@ Para habilitar a criptografia em uma VM IaaS do Windows existente ou em execuç�
  ```
 
 ### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-in-azure"></a>Habilitar a criptografia em uma VM IaaS do Linux existente ou em execução no Azure
-Você pode habilitar a criptografia de disco em uma VM Linux IaaS existente ou em execução no Azure usando o [modelo do Gerenciador de Recursos](https://github.com/Azure/azure-quick-start-templates/tree/master/201-encrypt-running-linux-vm).
+Você pode habilitar a criptografia de disco em uma VM Linux IaaS existente ou em execução no Azure usando o [modelo do Gerenciador de Recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
 1. Clique em **Implantar no Azure** no modelo de início rápido do Azure, insira a configuração de criptografia na folha **Parâmetros** e clique em **OK**.
 

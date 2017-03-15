@@ -18,13 +18,13 @@ ms.date: 02/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 652c4c51d67b8914885406e631e7233694a8a1d8
-ms.openlocfilehash: a221f3bc9e058a46e46edf8f7177d21151ae3595
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 2f4ea765df71ed9aac7e8657e6be3706b635407e
+ms.lasthandoff: 03/06/2017
 
 ---
 # <a name="increase-vm-availability-by-creating-an-azure-availability-set"></a>Aumentar a disponibilidade da VM criando um conjunto de disponibilidade do Azure 
-Conjuntos de disponibilidade fornecem redundância ao seu aplicativo. Recomendamos o agrupamento de uma ou mais máquinas virtuais em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para saber mais, confira [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+Os conjuntos de disponibilidade fornecem redundância ao seu aplicativo. Recomendamos o agrupamento de uma ou mais máquinas virtuais em um conjunto de disponibilidade. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual estará disponível e atenderá os 99,95% SLA do Azure. Para saber mais, confira [SLA para máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
 > A VM deve ser criada no mesmo grupo de recursos que o grupo de disponibilidade.

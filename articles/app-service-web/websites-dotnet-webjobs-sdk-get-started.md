@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
 ms.openlocfilehash: b4a64bbccabf0e7b0e7aec659d066883139c8207
@@ -32,7 +32,7 @@ O aplicativo de exemplo é um boletim informativo de anúncio. Os usuários pode
 
 Este aplicativo de exemplo funciona com [filas do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) e [blobs do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). O tutorial mostra como implantar o aplicativo no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e no [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279).
 
-## <a name="a-idprerequisitesaprerequisites"></a><a id="prerequisites"></a>Pré-requisitos
+## <a id="prerequisites"></a>Pré-requisitos
 O tutorial pressupõe que você saiba como trabalhar com projetos [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) no Visual Studio.
 
 O tutorial foi escrito para o Visual Studio 2013. Se você ainda não tem o Visual Studio, ele será instalado automaticamente quando você instalar o SDK do Azure para .NET.
@@ -49,7 +49,7 @@ O tutorial pode ser usado com o Visual Studio 2015, mas, antes de executar o apl
 >
 >
 
-## <a name="a-idlearnawhat-youll-learn"></a><a id="learn"></a>O que você vai aprender
+## <a id="learn"></a>O que você vai aprender
 O tutorial mostra como executar as seguintes tarefas:
 
 * Habilitar o computador para desenvolvimento do Azure instalando o SDK do Azure.
@@ -59,7 +59,7 @@ O tutorial mostra como executar as seguintes tarefas:
 * Carregar arquivos e armazená-los no serviço Azure Blob.
 * Usar o SDK de Trabalhos Web do Azure para trabalhar com filas e blobs do Armazenamento do Azure.
 
-## <a name="a-idcontosoadsaapplication-architecture"></a><a id="contosoads"></a>Arquitetura do aplicativo
+## <a id="contosoads"></a>Arquitetura do aplicativo
 O aplicativo de exemplo usa o [padrão de trabalho centrado em fila](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descarregar o trabalho com uso intensivo da CPU de criar miniaturas para um processo back-end.
 
 O aplicativo armazena anúncios em um banco de dados SQL usando Entity Framework Code First para criar as tabelas e acessar os dados. Para cada anúncio, o banco de dados armazena duas URLs: uma para a imagem em tamanho total e outra para a miniatura.
@@ -74,7 +74,7 @@ Quando um usuário carrega uma imagem, o aplicativo Web armazena a imagem em um 
 
 As instruções do tutorial aplicam-se ao SDK do Azure para .NET 2.7.1 ou posterior.
 
-## <a name="a-idstorageacreate-an-azure-storage-account"></a><a id="storage"></a>Criar uma conta do Armazenamento do Azure
+## <a id="storage"></a>Criar uma conta do Armazenamento do Azure
 Uma conta de armazenamento do Azure fornece os recursos para dados de blob e fila de armazenamento na nuvem. Ela também é usada pelo SDK de WebJobs para armazenar dados de registro no painel.
 
 Em um aplicativo real, você normalmente cria contas à parte para dados de aplicativo em comparação com dados de registro em log e separa contas para dados de teste em comparação com dados de produção. Neste tutorial você usará apenas uma conta.
@@ -100,7 +100,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
     ![Nova conta de armazenamento](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)
 
-## <a name="a-iddownloadadownload-the-application"></a><a id="download"></a>Baixar o aplicativo
+## <a id="download"></a>Baixar o aplicativo
 1. Baixar e descompactar a [solução concluída](http://code.msdn.microsoft.com/Simple-Azure-Website-with-b4391eeb).
 2. Inicie o Visual Studio.
 3. No menu **Arquivo**, escolha **Abrir > Projeto/Solução**, navegue até onde você baixou a solução e abra o arquivo de solução.
@@ -109,7 +109,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
     Por padrão, o Visual Studio restaura automaticamente o conteúdo do pacote NuGet, que não foi incluído no arquivo *.zip* . Se os pacotes não forem restaurados, instale-os manualmente acessando a caixa de diálogo **Gerenciar Pacotes NuGet para Solução** e clicando no botão **Restaurar** na parte superior direita.
 5. No **Gerenciador de Soluções**, verifique se **ContosoAdsWeb** está selecionado como o projeto inicial.
 
-## <a name="a-idconfigurestorageaconfigure-the-application-to-use-your-storage-account"></a><a id="configurestorage"></a>Configurar o aplicativo para usar a conta de armazenamento
+## <a id="configurestorage"></a>Configurar o aplicativo para usar a conta de armazenamento
 1. Abra o arquivo *Web.config* do aplicativo no projeto ContosoAdsWeb.
 
     O arquivo contém uma cadeia de conexão SQL e uma cadeia de conexão de armazenamento do Azure para trabalhar com blobs e filas.
@@ -153,7 +153,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 7. Substitua ambas as cadeias de caracteres de conexão de armazenamento com a cadeia de conexão que você copiou anteriormente.
 8. Salve suas alterações.
 
-## <a name="a-idrunarun-the-application-locally"></a><a id="run"></a>Executar o aplicativo localmente
+## <a id="run"></a>Executar o aplicativo localmente
 1. Para iniciar o front-end Web do aplicativo, pressione CTRL+F5.
 
     O navegador padrão é aberto na home page. (O projeto Web é executado porque você o tornou o projeto inicial.)
@@ -183,7 +183,7 @@ Em um aplicativo real, você normalmente cria contas à parte para dados de apli
 
 Você esteve executando o aplicativo no computador local, e ele estava usando um banco de dados do SQL Server localizado no computador, mas funcionando com filas e blobs na nuvem. Na seção a seguir, você vai executar o aplicativo na nuvem usando um banco de dados de nuvem, bem como blobs e filas da nuvem.  
 
-## <a name="a-idrunincloudarun-the-application-in-the-cloud"></a><a id="runincloud"></a>Executar o aplicativo na nuvem
+## <a id="runincloud"></a>Executar o aplicativo na nuvem
 Você seguirá as etapas abaixo para executar o aplicativo na nuvem:
 
 * Implantar em aplicativos Web. O Visual Studio cria automaticamente um novo aplicativo Web no Serviço de Aplicativo e uma instância do Banco de Dados SQL.
@@ -308,7 +308,7 @@ Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores
 >
 >
 
-## <a name="a-idcreateacreate-the-application-from-scratch"></a><a id="create"></a>Criar o aplicativo do zero
+## <a id="create"></a>Criar o aplicativo do zero
 Nesta seção, você executará as seguintes tarefas:
 
 * Criar uma solução do Visual Studio com um projeto Web.
@@ -407,7 +407,7 @@ Para adicionar arquivos a um projeto ou a uma pasta, clique com o botão direito
 
 Agora é possível compilar, executar e implantar o aplicativo conforme instruído anteriormente no tutorial. Porém, antes de fazer isso, interrompa o Trabalho Web em execução no primeiro aplicativo Web em que você o implantou. Do contrário, esse Trabalho Web processará as mensagens da fila criadas localmente ou pelo aplicativo em execução no novo aplicativo Web, porque todas estão usando a mesma conta de armazenamento.
 
-## <a name="a-idcodeareview-the-application-code"></a><a id="code"></a>Examinar o código do aplicativo
+## <a id="code"></a>Examinar o código do aplicativo
 As seções a seguir explicam o código relacionado ao trabalho com os blobs e as filas do SDK de Trabalhos Web e do Armazenamento do Azure.
 
 > [!NOTE]
@@ -636,7 +636,7 @@ Um elemento `<input>` informa o navegador para fornecer uma caixa de diálogo de
 
         <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 
-### <a name="a-idprogramcsacontosoadswebjob---programcs"></a><a id="programcs"></a>ContosoAdsWebJob - Program.cs
+### <a id="programcs"></a>ContosoAdsWebJob - Program.cs
 Quando o Trabalho Web é iniciado, o método `Main` chama o método `JobHost.RunAndBlock` do SDK dos Trabalhos Web para iniciar a execução de funções disparadas no thread atual.
 
         static void Main(string[] args)
@@ -645,7 +645,7 @@ Quando o Trabalho Web é iniciado, o método `Main` chama o método `JobHost.Run
             host.RunAndBlock();
         }
 
-### <a name="a-idgeneratethumbnailacontosoadswebjob---functionscs---generatethumbnail-method"></a><a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - método GenerateThumbnail
+### <a id="generatethumbnail"></a>ContosoAdsWebJob - Functions.cs - método GenerateThumbnail
 O SDK de Trabalhos Web chama esse método quando uma mensagem da fila é recebida. O método cria uma miniatura e coloca a URL da miniatura no banco de dados.
 
         public static void GenerateThumbnail(

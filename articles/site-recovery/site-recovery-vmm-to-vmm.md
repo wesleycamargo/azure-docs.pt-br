@@ -12,12 +12,12 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 03/05/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7ff27bb866bd9b1f2a24b5c0ff5d83dea2227f49
-ms.openlocfilehash: 70a71bae81d4e499041c140b1d61b621e168ec43
-ms.lasthandoff: 02/14/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: a2bc32193ad539053984794a411ae7307b8d8532
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/14/2017
 >
 >
 
-Este artigo descreve como replicar máquinas virtuais do Hyper-V locais gerenciadas em nuvens do System Center VMM (Virtual Machine Manager) para um site secundário usando o [Azure Site Recovery](site-recovery-overview.md) no portal do Azure. Saiba mais sobre isso [arquitetura de cenário](site-recovery-components.md#replicate-hyper-v-vms-to-a-secondary-site).
+Este artigo descreve como replicar máquinas virtuais do Hyper-V locais gerenciadas em nuvens do System Center VMM (Virtual Machine Manager) para um site secundário usando o [Azure Site Recovery](site-recovery-overview.md) no portal do Azure. Saiba mais sobre isso [arquitetura de cenário](site-recovery-components.md#hyper-v-to-a-secondary-site).
 
 Depois de ler este artigo, poste comentários na parte inferior ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -44,7 +44,7 @@ Depois de ler este artigo, poste comentários na parte inferior ou no [Fórum do
 **Hyper-V** | Os servidores Hyper-V devem executar, no mínimo, o Windows Server 2012 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/> Um servidor Hyper-V deve conter uma ou mais VMs.<br/><br/>  Os servidores host Hyper-V devem estar localizados em grupos de hosts nas nuvens VMM primárias e secundárias.<br/><br/> Se você estiver executando o Hyper-V em um cluster no Windows Server 2012 R2, instale a [atualização 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> Se estiver executando o Hyper-V em um cluster no Windows Server 2012, o agente de cluster não será criado automaticamente se você tiver um cluster baseado em endereço IP estático. Configure o agente de cluster manualmente. [Leia mais](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Os servidores do Hyper-V precisam de acesso à Internet.
 **URLs** | Servidores do VMM e hosts Hyper-V devem ser capazes de acessar essas URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
-## <a name="steps"></a>Etapas
+## <a name="deployment-steps"></a>Etapas de implantação.
 
 Veja o que fazer:
 
@@ -65,7 +65,7 @@ Para se preparar para a implantação:
 
     - Verifique se as VMs do servidor host de origem do Hyper-V estão conectadas a uma rede de VMs do VMM. Essa rede deve ser vinculada a uma rede lógica que esteja associada à nuvem.
     Verifique se a nuvem secundária que você usará para recuperação tem uma rede VM correspondente configurada. Essa rede de VM deverá ser vinculada a uma rede lógica associada à nuvem secundária.
-    
+
 3. Preparar para uma [implantação de servidor única](#single-vmm-server-deployment), se você quiser replicar máquinas virtuais entre nuvens no mesmo servidor VMM.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
@@ -174,7 +174,7 @@ Selecione o servidor VMM e a nuvem de destino.
 10. Em **Método de replicação inicial**, se você estiver replicando na rede, especifique se deseja iniciar a replicação inicial ou agendá-la. Para economizar largura de banda de rede, talvez você deseje agendá-la fora de seus horários mais ocupados. Em seguida, clique em **OK**.
 
      ![Política de replicação](./media/site-recovery-vmm-to-vmm/gs-replication2.png)
-11. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM. Em **Política de replicação**, clique em **OK**. Você pode associar Nuvens do VMM adicionais (e as VMs nelas) a essa política de replicação em **Configurações** > **Replicação** > nome da política > **Associar Nuvem do VMM**.
+11. Quando você cria uma nova política, ela é automaticamente associada à nuvem do VMM. Em **Política de replicação**, clique em **OK**. É possível associar Nuvens do VMM adicionais (e as VMs nelas) a essa política de replicação em **Replicação** > nome da política > **Associar Nuvem do VMM**.
 
      ![Política de replicação](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
@@ -185,7 +185,7 @@ Selecione o servidor VMM e a nuvem de destino.
 - Verifique se as máquinas virtuais nos servidores VMM estão conectadas a uma rede de VM.
 
 
-1. Em **Configurações** > **Infraestrutura do Site Recovery** > **Mapeamento de Rede** > **Mapeamentos de rede**, clique em **+Mapeamento de Rede**.
+1. Em **Infraestrutura do Site Recovery** > **Mapeamento de Rede** > **Mapeamentos de rede**, clique em **+Mapeamento de Rede**.
 
     ![Mapeamento de rede](./media/site-recovery-vmm-to-azure/network-mapping1.png)
 2. Na guia **Adicionar mapeamento de rede**, selecione os servidores VMM de origem e destino. As redes da VM associadas aos servidores VMM são recuperadas.
@@ -225,12 +225,12 @@ Agora que você tem a infraestrutura básica configurada, pense no planejamento 
 
     ![Habilitar Proteção da Máquina Virtual](./media/site-recovery-vmm-to-vmm/enable-replication5.png)
 
-Acompanhe o progresso da ação **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a máquina virtual estará pronta para failover.
+É possível acompanhar o progresso da ação **Habilitar Proteção** em **Trabalhos** > **Trabalhos do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a máquina virtual estará pronta para failover.
 
 Observe que:
 
 - Também é possível habilitar a proteção para máquinas virtuais no console do VMM. Clique em **Habilitar Proteção** na barra de ferramentas na guia propriedades > **Azure Site Recovery** da máquina virtual.
-- Depois de habilitar a replicação, é possível exibir as propriedades da VM em **Configurações** > **Itens Replicados**. No painel **Informações Gerais**, você pode ver informações sobre a política de replicação da VM e seu status. Clique em **Propriedades** para obter mais detalhes.
+- Depois de habilitar a replicação, é possível exibir as propriedades da VM em **Itens Replicados**. No painel **Informações Gerais**, você pode ver informações sobre a política de replicação da VM e seu status. Clique em **Propriedades** para obter mais detalhes.
 
 ### <a name="onboard-existing-virtual-machines"></a>Integrar máquinas virtuais existentes
 Se você tiver máquinas virtuais existentes no VMM replicadas com a Réplica do Hyper-V, poderá carregá-las na replicação do Azure Site Recovery da seguinte maneira:
@@ -243,10 +243,6 @@ Se você tiver máquinas virtuais existentes no VMM replicadas com a Réplica do
 
 Para testar a implantação, você pode executar um [failover de teste](site-recovery-test-failover-vmm-to-vmm.md) para uma única máquina virtual ou [criar um plano de recuperação](site-recovery-create-recovery-plans.md) que contenha uma ou mais máquinas virtuais.
 
-
-## <a name="next-steps"></a>Próximas etapas
-
-Depois de testar a implantação, saiba mais sobre outros tipos de [failover](site-recovery-failover.md)
 
 
 ## <a name="prepare-for-offline-initial-replication"></a>Preparar a replicação inicial offline
@@ -444,4 +440,8 @@ Esta tabela resume como os dados são armazenados neste cenário:
 | **Plano de recuperação** | Planos de recuperação ajudam a compilar um plano de orquestração para o data center de recuperação. Você pode definir a ordem na qual as VMs ou um grupo de máquinas virtuais devem ser iniciados no site de recuperação. Você também pode especificar scripts automatizados para execução ou qualquer ação manual a ser executada no momento da recuperação para cada VM. O failover costuma ser disparado no nível do plano de recuperação para a recuperação coordenada. | A Recuperação de Site coleta, processa e transmite metadados para o plano de recuperação, incluindo metadados de máquina virtual e metadados de scripts de automação e anotações de ações manuais. |Os metadados são usados para compilar o plano de recuperação no portal do Azure. |Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não crie planos de recuperação. |
 | **Mapeamento de rede** | Mapeia as informações de rede do data center principal para o data center de recuperação. Quando as VMs são recuperadas no site de recuperação, o mapeamento de rede ajuda a estabelecer a conectividade de rede. |A Recuperação de Site coleta, processa e transmite os metadados das redes lógicas para cada site (primário e datacenter). |Os metadados são usados para preencher as configurações de rede para que você possa mapear as informações de rede. | Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não use o mapeamento de rede. |
 | **Failover (planejado/não planejado/teste)** | O failover faz o failover de VMs de um datacenter gerenciado por VMM para outro. A ação de failover é disparada manualmente no portal do Azure. |O Provedor no servidor VMM é notificado sobre o evento de failover pela Recuperação de Site e executa uma ação de failover no host Hyper-V por meio de interfaces do VMM. O failover real de uma VM é de um host do Hyper-V para outro e é tratado pelo Windows Server 2012 ou pela Réplica do Hyper-V do Windows Server 2012 R2. O Site Recovery usa as informações enviadas para popular o status das informações de ação de failover no portal do Azure. | Esse recurso é uma parte essencial do serviço e não pode ser desativado. Se você não quiser enviar essas informações à Recuperação de Site, não use o failover. |
+
+## <a name="next-steps"></a>Próximas etapas
+
+Depois de testar a implantação, saiba mais sobre outros tipos de [failover](site-recovery-failover.md)
 

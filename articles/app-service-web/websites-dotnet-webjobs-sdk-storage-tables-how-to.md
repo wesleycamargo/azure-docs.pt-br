@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
@@ -29,7 +29,7 @@ Este guia pressupõe que você sabe [como criar um projeto WebJob no Visual Stud
 
 Alguns dos trechos de código mostram o atributo `Table` usado nas funções que são [chamadas manualmente](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), ou seja, que não usam um dos atributos de acionamento. 
 
-## <a name="a-idingressa-how-to-add-entities-to-a-table"></a><a id="ingress"></a> Como adicionar entidades a uma tabela
+## <a id="ingress"></a> Como adicionar entidades a uma tabela
 Para adicionar entidades em uma tabela, use o atributo `Table` com um parâmetro `ICollector<T>` ou `IAsyncCollector<T>`, no qual `T` especifica o esquema das entidades que você deseja adicionar. O construtor de atributo tem um parâmetro de cadeia que especifica o nome da tabela. 
 
 O exemplo de código a seguir adiciona entidades `Person` em uma tabela nomeada *entrada*.
@@ -65,7 +65,7 @@ Geralmente, o tipo que você usa com `ICollector` deriva de `TableEntity` ou imp
 
 Para trabalhar diretamente com a API de armazenamento do Azure, você pode adicionar um parâmetro `CloudStorageAccount` à assinatura do método.
 
-## <a name="a-idmonitora-real-time-monitoring"></a><a id="monitor"></a> Monitoramento em tempo real
+## <a id="monitor"></a> Monitoramento em tempo real
 Como as funções de entrada de dados geralmente processam grandes volumes de dados, o painel do SDK de Trabalhos Web fornece dados de monitoramento em tempo real. A seção **Log de Invocação** informa se a função ainda está em execução.
 
 ![Função de entrada em execução](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
@@ -78,7 +78,7 @@ Quando a função é concluída, a página **Detalhes de Invocação** relata o 
 
 ![Função de entrada concluída](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a name="a-idmultiplea-how-to-read-multiple-entities-from-a-table"></a><a id="multiple"></a> Como ler várias entidades de uma tabela
+## <a id="multiple"></a> Como ler várias entidades de uma tabela
 Para ler uma tabela, use o atributo `Table` com um parâmetro `IQueryable<T>`, em que tipo `T` deriva de `TableEntity` ou implementa `ITableEntity`.
 
 O seguinte exemplo de código lê e registra em log todas as linhas da tabela `Ingress`:
@@ -95,7 +95,7 @@ O seguinte exemplo de código lê e registra em log todas as linhas da tabela `I
             }
         }
 
-### <a name="a-idreadonea-how-to-read-a-single-entity-from-a-table"></a><a id="readone"></a> Como ler uma única entidade de uma tabela
+### <a id="readone"></a> Como ler uma única entidade de uma tabela
 Há um construtor de atributo `Table` com dois parâmetros adicionais que permite especificar a chave de partição e a chave de linha quando você deseja associar a uma entidade de tabela única.
 
 O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person` com base nos valores de chave de partição e chave de linha recebidos em uma mensagem de fila:  
@@ -120,7 +120,7 @@ O seguinte exemplo de código lê uma linha de tabela para uma entidade `Person`
 
 A classe `Person` nesse exemplo não precisa implementar `ITableEntity`.
 
-## <a name="a-idstorageapia-how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a><a id="storageapi"></a> Como usar a API de Armazenamento .NET diretamente para trabalhar com uma tabela
+## <a id="storageapi"></a> Como usar a API de Armazenamento .NET diretamente para trabalhar com uma tabela
 Você também pode usar o atributo `Table` com um objeto `CloudTable` para ter mais flexibilidade ao trabalhar com uma tabela.
 
 A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma única entidade de *entrada* à tabela. 
@@ -141,7 +141,7 @@ A seguinte amostra de código usa um objeto `CloudTable` para adicionar uma úni
 
 Para obter mais informações sobre como usar o objeto `CloudTable` , consulte [Como usar o Armazenamento de Tabela do .NET](../storage/storage-dotnet-how-to-use-tables.md). 
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-queues-how-to-article"></a><a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
+## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções sobre filas
 Para obter informações sobre como lidar com o processamento de tabelas acionado por uma mensagem da fila ou para cenários do SDK de Trabalhos Web não específicos do processamento de tabelas, consulte [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Os tópicos abordados nesse artigo incluem o seguinte:
@@ -155,7 +155,7 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 * Disparar uma função manualmente
 * Gravar logs
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Próximas etapas
+## <a id="nextsteps"></a> Próximas etapas
 Este guia forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com tabelas do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
 

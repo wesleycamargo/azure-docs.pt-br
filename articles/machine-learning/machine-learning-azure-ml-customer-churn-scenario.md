@@ -12,23 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/13/2016
 ms.author: jeannt
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cfaa14eb1dd8d958c210f95997d291aba79c5da7
+ms.sourcegitcommit: 80bede0dc3ad3934d63feabb946744aeb45f334d
+ms.openlocfilehash: f239a2a270df00cecbe263fa61b84af06af817db
+ms.lasthandoff: 12/15/2016
 
 
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisando a Variação do Cliente usando o Aprendizado de Máquina do Microsoft Azure
 ## <a name="overview"></a>Visão geral
-Este tópico apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando o Azure Machine Learning Studio. Ele aborda modelos genéricos associados para resolver holisticamente o problema de variação de cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando-se o Azure Machine Learning. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Aprendizado de Máquina e avaliamos as direções para maior desenvolvimento.  
 
 ### <a name="acknowledgements"></a>Confirmações
 Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Aprendizado de Máquina do Microsoft Azure. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
-> Os dados usados neste experimento não estão publicamente disponíveis. Para obter um exemplo de como criar um modelo de aprendizado de máquina para a análise de variação, confira o [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) em [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como construir um modelo de aprendizagem por máquina para análise de variação, confira o [modelo de variação de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
@@ -250,9 +251,4 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 
