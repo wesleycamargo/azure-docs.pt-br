@@ -32,7 +32,7 @@ As etapas gerais neste tutorial também podem ser usadas para criar uma função
 ## <a name="watch-the-video"></a>Assista ao vídeo
 O vídeo a seguir mostra como executar as etapas básicas deste tutorial 
 
->[!VÍDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
 >
 >
 

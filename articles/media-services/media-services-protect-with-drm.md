@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3309db6a926c3c2a0ff6340f0ade3d73093f6d6b
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 8f11b9a6606e30e323295d4144497fae90040d2a
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -88,17 +88,17 @@ Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo q
 
 Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
+## <a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
 Nos Serviços de Mídia, a chave de conteúdo contém a chave com a qual você deseja criptografar um ativo.
 
 Para obter informações detalhadas, consulte [Criar chave de conteúdo](media-services-dotnet-create-contentkey.md).
 
-## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
+## <a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente (player) para que a chave seja entregue ao cliente. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta ou restrição de token.
 
 Para obter informações detalhadas, consulte [Configurar política de autorização de chave de conteúdo](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurar política de entrega de ativos
+## <a id="configure_asset_delivery_policy"></a>Configurar política de entrega de ativos
 Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos:
 
 * A URL de aquisição de licença de DRM.
@@ -107,7 +107,7 @@ Configure a política de entrega para seu ativo. Algumas coisas incluídas na co
 
 Para obter informações detalhadas, consulte [Configurar política de entrega de ativos ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
+## <a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
 Você precisará fornecer ao seu usuário a URL para Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
@@ -134,7 +134,7 @@ Obtenha um token de teste com base na restrição de token que foi usada para a 
 
 É possível usar o [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para testar seu fluxo.
 
-## <a name="a-idexampleaexample"></a><a id="example"></a>Exemplo
+## <a id="example"></a>Exemplo
 O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5.2 do SDK para .NET dos Serviços de Mídia do Azure (especificamente, a capacidade de definir um modelo de licença do Widevine e solicitar uma licença do Widevine dos Serviços de Mídia do Azure). O seguinte comando do pacote do Nuget foi usado para instalar o pacote:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -160,6 +160,9 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
               </appSettings>
         </configuration>
 7. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
+
+    >[!NOTE]
+    >Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
     Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
@@ -276,20 +279,10 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
                     Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                    var policy = _context.AccessPolicies.Create(
-                                            assetName,
-                                            TimeSpan.FromDays(30),
-                                            AccessPermissions.Write | AccessPermissions.List);
-
-                    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-
                     Console.WriteLine("Upload {0}", assetFile.Name);
 
                     assetFile.Upload(singleFilePath);
                     Console.WriteLine("Done uploading {0}", assetFile.Name);
-
-                    locator.Delete();
-                    policy.Delete();
 
                     return inputAsset;
                 }

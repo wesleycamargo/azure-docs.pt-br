@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
-ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: afecdde0cbc0bcbe0932b23dc1a8e067d02ded12
+ms.lasthandoff: 12/20/2016
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar os dados para o Estúdio do Aprendizado de Máquina do Azure de diferentes fontes de dados online com o módulo Importar Dados
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Aprendizado de Máquina do Azure.
 
 > [!NOTE]
@@ -34,8 +32,10 @@ Este artigo descreve o suporte para a importação de dados online de diversas f
 
 <!-- -->
 
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 ## <a name="introduction"></a>Introdução
-É possível acessar dados do Azure Machine Learning Studio de uma de várias fontes de dados online enquanto seu experimento é executado usando o módulo [Importar Dados][import-data]:
+Usando o módulo [Importar Dados][import-data], é possível acessar dados de uma das várias fontes de dados online enquanto seu experimento é executado no [Machine Learning Studio do Azure](https://studio.azureml.net/Home):
 
 * Uma URL da Web usando HTTP
 * Hadoop usando HiveQL
@@ -45,15 +45,15 @@ Este artigo descreve o suporte para a importação de dados online de diversas f
 * Banco de dados local do SQL Server
 * Um provedor de feed de dados, atualmente OData
 
-O fluxo de trabalho para a condução de experiências no Estúdio de Aprendizado de Máquina do Azure consiste em arrastar e soltar componentes na tela. Para acessar fontes de dados online, adicione o módulo [Importar Dados][import-data] ao seu experimento, selecione a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
+Para acessar fontes de dados online no seu experimento do Estúdio, adicione o módulo [Importar Dados][import-data] ao seu experimento, selecione a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
 
-Observe que como os dados deste treinamento são acessados enquanto seu experimento está em execução, eles só estarão disponíveis nesse experimento. Por comparação, os dados que foram armazenados em um módulo do conjunto de dados estarão disponíveis para todos os experimentos em seu espaço de trabalho.
+Observe que, como os dados deste treinamento são acessados enquanto seu experimento está em execução, eles só estão disponíveis nesse experimento. Por comparação, os dados que foram armazenados em um módulo do conjunto de dados estarão disponíveis para todos os experimentos em seu espaço de trabalho.
 
 > [!IMPORTANT]
 > Atualmente, os módulos [Importar Dados][import-data] e [Exportar Dados][export-data] podem ler e gravar dados somente no armazenamento do Azure criado usando o modelo de implantação Clássico. Em outras palavras, o novo tipo de conta de Armazenamento de Blobs do Azure que oferece uma camada de acesso de armazenamento dinâmica ou uma camada de acesso de armazenamento estática ainda não é compatível. 
 > 
 > De modo geral, as contas de armazenamento do Azure que você possa ter criado antes de essa opção se tornar disponível não deverão ser afetadas. 
-> Se precisar criar uma nova conta, escolha **Clássico** para o modelo de implantação, ou use o Resource Manager ,e para **Tipo de conta**, escolha** Uso geral** em vez de **Armazenamento de Blobs**. 
+> Se precisar criar uma nova conta, escolha **Clássico** para o modelo de Implantação, ou use o Gerenciador de Recursos e selecione **Objetivo Geral**, em vez de **Armazenamento de Blobs**, para **Tipo de conta**. 
 > 
 > Para saber mais, confira [Armazenamento de Blobs do Azure: camadas de armazenamento dinâmica e estática](../storage/storage-blob-storage-tiers.md).
 > 
@@ -80,9 +80,4 @@ O módulo **Import Data** (Importar Dados) do Aprendizado de Máquina do Azure �
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [export-data]: https://msdn.microsoft.com/library/azure/7A391181-B6A7-4AD4-B82D-E419C0D6522C/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

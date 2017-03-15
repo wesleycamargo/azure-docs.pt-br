@@ -15,9 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5c26aaea6acfab8c4c60478968e0b68543086a9d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -102,6 +102,8 @@ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita e
 
 ## <a name="considerations"></a>Considerações
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
+* Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+
 
 ## <a name="download-sample"></a>Baixar exemplo
 Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -130,6 +132,7 @@ Adicione a seção appSettings ao arquivo app.config e defina os valores do nome
 
 
 ## <a name="code-example"></a>Exemplo de código
+
     using System;
     using System.Collections.Generic;
     using System.Configuration;

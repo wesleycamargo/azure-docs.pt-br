@@ -37,7 +37,7 @@ Atribua usuários de colaboração B2B a um aplicativo como um operador de infor
 
 Os operadores de informação podem adicionar usuários de colaboração B2B de uma forma semelhante a um grupo atribuído e habilitado para gerenciamento de grupo de autoatendimento.
 > [!NOTE]
-Não é possível adicionar usuários de colaboração B2B a um grupo dinâmico ou a um grupo sincronizado com o Active Directory local.
+> Não é possível adicionar usuários de colaboração B2B a um grupo dinâmico ou a um grupo sincronizado com o Active Directory local.
 
 
 ## <a name="next-steps"></a>Próximas etapas

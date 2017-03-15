@@ -15,8 +15,9 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: c292772cb21c90bf4373803bfcaa47787c3980b5
+ms.lasthandoff: 03/06/2017
 
 
 ---
@@ -58,7 +59,7 @@ Saiba como processar e analisar arquivos JSON usando Hive no HDInsight. O docume
         ]
     }
 
-O arquivo pode ser encontrado em wasbs://processjson@hditutorialdata.blob.core.windows.net/. Para obter mais informações sobre como usar o armazenamento de Blob do Azure com o HDInsight, consulte [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight (Usar o armazenamento de Blob do Azure compatível com HDFS com o Hadoop no HDInsight)](hdinsight-hadoop-use-blob-storage.md). Você pode copiar o arquivo para o contêiner padrão do seu cluster se desejar.
+O arquivo pode ser encontrado em wasbs://processjson@hditutorialdata.blob.core.windows.net/. Para obter mais informações sobre como usar o armazenamento de Blobs do Azure com o HDInsight, consulte [Usar o armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](hdinsight-hadoop-use-blob-storage.md). Você pode copiar o arquivo para o contêiner padrão do seu cluster se desejar.
 
 Neste tutorial, você usará o console do Hive.  Para obter instruções sobre como abrir o console do Hive, consulte [Usar o Hive com Hadoop no HDInsight com Área de Trabalho Remota](hdinsight-hadoop-use-hive-remote-desktop.md).
 
@@ -173,7 +174,7 @@ SerDe é a melhor opção para analisar documentos JSON aninhados, pois permite 
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+   ![Adicionar JAR ao seu projeto][image-hdi-hivejson-addjar]
 
 Agora você está pronto para usar o SerDe para executar consultas no documento JSON.
 
@@ -257,9 +258,4 @@ Para outros artigos relacionados, consulte
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
-ms.author: tdykstra
+ms.author: glenga
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 4d5205b1c693b8c1f199235784263f3f7b6189ff
@@ -44,7 +44,7 @@ public class Program
 
 Um [exemplo de código completo do Barramento de Serviço](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Program.cs) está no repositório de exemplos azure-webjobs-sdk no GitHub.com.
 
-## <a name="a-idprerequisitesa-prerequisites"></a><a id="prerequisites"></a> Pré-requisitos
+## <a id="prerequisites"></a> Pré-requisitos
 Para trabalhar com o Barramento de Serviço, você precisa instalar o pacote do NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) , além dos pacotes do SDK de Trabalhos Web. 
 
 Você também deve definir a cadeia de conexão AzureWebJobsServiceBus além de cadeias de conexão de armazenamento.  Você pode fazer isso na seção `connectionStrings` do arquivo  App.config, conforme mostrado no seguinte exemplo:
@@ -59,7 +59,7 @@ Para um projeto de exemplo que inclui a configuração de cadeia de conexão do 
 
 As cadeias de conexão também podem ser definidas no ambiente de tempo de execução do Azure, que, em seguida, substitui as configurações do App.config quando o Trabalho Web é executado no Azure. Para obter mais informações, consulte [Introdução ao SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
-## <a name="a-idtriggera-how-to-trigger-a-function-when-a-service-bus-queue-message-is-received"></a><a id="trigger"></a> Como disparar uma função quando uma mensagem da fila de Barramento de Serviço é recebida
+## <a id="trigger"></a> Como disparar uma função quando uma mensagem da fila de Barramento de Serviço é recebida
 Para gravar uma função que o SDK de Trabalhos Web chama quando uma mensagem da fila é recebida, use o atributo `ServiceBusTrigger` . O construtor de atributo tem um parâmetro que especifica o nome da fila para sondagem.
 
 ### <a name="how-servicebustrigger-works"></a>Como funciona o ServicebusTrigger
@@ -99,7 +99,7 @@ Se seu código que cria a mensagem da fila não usa o SDK WebJobs, use um códig
 ### <a name="types-servicebustrigger-works-with"></a>O tipo ServiceBusTrigger funciona com
 Além dos tipos `string` e POCO, você pode usar o atributo `ServiceBusTrigger` com uma matriz de bytes ou um objeto `BrokeredMessage`.
 
-## <a name="a-idcreatea-how-to-create-service-bus-queue-messages"></a><a id="create"></a> Como criar mensagens de fila do Barramento de Serviço
+## <a id="create"></a> Como criar mensagens de fila do Barramento de Serviço
 Para escrever uma função que cria um uma nova mensagem de fila, use o atributo `ServiceBus` e passe o nome da fila para o construtor de atributo. 
 
 ### <a name="create-a-single-queue-message-in-a-non-async-function"></a>Criar uma mensagem de fila única em uma função não sincronizada
@@ -136,7 +136,7 @@ Para criar várias mensagens, use o atributo `ServiceBus` com `ICollector<T>` ou
 
 Cada mensagem da fila é criada imediatamente quando o método `Add` é chamado.
 
-## <a name="a-idtopicsahow-to-work-with-service-bus-topics"></a><a id="topics"></a>Como trabalhar com tópicos do Barramento de Serviço
+## <a id="topics"></a>Como trabalhar com tópicos do Barramento de Serviço
 Para gravar uma função que o SDK chama quando uma mensagem é recebida em um tópico do barramento de serviço, use o atributo `ServiceBusTrigger` com o construtor que usa o nome do tópico e assinatura, conforme mostrado no exemplo de código a seguir:
 
         public static void WriteLog([ServiceBusTrigger("outputtopic","subscription1")] string message,
@@ -157,7 +157,7 @@ Os seguintes recursos foram adicionados na versão 1.1:
 * Personalização fácil de `OnMessageOptions` via `ServiceBusConfiguration.MessageOptions`.
 * Permita que [AccessRights](https://github.com/Azure/azure-webjobs-sdk-samples/blob/master/BasicSamples/ServiceBus/Functions.cs#L71) seja especificado em `ServiceBusTriggerAttribute`/`ServiceBusAttribute` (para cenários em que você talvez não precise gerenciar direitos). 
 
-## <a name="a-idqueuesarelated-topics-covered-by-the-storage-queues-how-to-article"></a><a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
+## <a id="queues"></a>Tópicos relacionados abordados no artigo de instruções de filas de armazenamento
 Para obter informações sobre cenários do SDK de Trabalhos Web não específicos para o barramento de serviço, consulte [Como usar armazenamento de fila do Azure com o SDK de Trabalhos Web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Os tópicos abordados nesse artigo incluem o seguinte:
@@ -171,7 +171,7 @@ Os tópicos abordados nesse artigo incluem o seguinte:
 * Disparar uma função manualmente
 * Gravar logs
 
-## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Próximas etapas
+## <a id="nextsteps"></a> Próximas etapas
 Este guia forneceu exemplos de amostras que mostram como lidar com cenários comuns para trabalhar com o Barramento de Serviço do Azure. Para obter mais informações sobre como usar os Trabalhos Web do Azure e o SDK de Trabalhos Web, consulte [Trabalhos Web do Azure – Recursos recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
 
 

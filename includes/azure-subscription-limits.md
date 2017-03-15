@@ -10,15 +10,9 @@
 | IPs reservados por assinatura |20 |100 |
 | Certificados de serviço hospedado por assinatura |400 |400 |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |256 |256 |
-| [Lote](https://azure.microsoft.com/services/batch/) por região, por assinatura |1 |50 |
 | Regras de alerta por assinatura |250 |250 |
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 
 <sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento. 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 
