@@ -18,6 +18,7 @@ ms.author: cynthn
 translationtype: Human Translation
 ms.sourcegitcommit: 204fa369dd6db618ec5340317188681b0a2988e3
 ms.openlocfilehash: cbe3d72bbd0d9cc425b1b26ad412e77b33f385b2
+ms.lasthandoff: 02/11/2017
 
 
 ---
@@ -74,7 +75,6 @@ Para habilitar a comunicação com a máquina virtual na rede virtual, são nece
 
 ## <a name="create-the-network-security-group-and-an-rdp-rule"></a>Criar o grupo de segurança de rede e uma regra RDP
 Para fazer logon em sua VM usando RDP, é preciso ter uma regra de segurança que permita acesso RDP na porta 3389. Como o VHD para a nova VM foi criado com base em uma VM especializada existente, depois que a VM é criada, você pode usar uma conta existente na máquina virtual de origem que tenha permissão para fazer logon usando o RDP.
-
 Este exemplo define o nome NSG para **myNsg** e o nome da regra RDP para **myRdpRule**.
 
 ```powershell
@@ -84,7 +84,6 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
     
@@ -95,7 +94,6 @@ Para obter mais informações sobre regras de NSGs e pontos de extremidade, veja
 ## <a name="set-the-vm-name-and-size"></a>Definir o nome e o tamanho da VM
 
 Este exemplo define o nome da VM como "myVM" e o tamanho da VM como "Standard_A2".
-
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
@@ -133,7 +131,7 @@ ou o
 2. Adicione o disco do sistema operacional à configuração. Este exemplo define o tamanho do disco como **128 GB** e anexa o disco gerenciado como um disco do sistema operacional **Windows**.
     
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -ManagedDiskStorageAccountType StandardLRS `
+    $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
@@ -196,10 +194,5 @@ $vmList.Name
 
 ## <a name="next-steps"></a>Próximas etapas
 Para entrar em sua nova máquina virtual, navegue até a VM no [portal](https://portal.azure.com), clique em **Conectar**e abra o arquivo RDP da Área de Trabalho Remota. Use as credenciais da conta da máquina virtual original para entrar na nova máquina virtual. Para obter mais informações, veja [Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

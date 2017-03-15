@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 03/13/2017
 ms.author: garye;krishnan
 translationtype: Human Translation
 ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
 ms.openlocfilehash: 62917bfb2124a2b8beb57e0ee38be93e8ca1c655
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -148,9 +149,4 @@ Depois de configurar o gateway, você pode adicionar um módulo **Importar Dados
 Quando o experimento concluir a execução, você poderá visualizar os dados importados do banco de dados clicando na porta de saída do módulo **Importar Dados** e selecionando **Visualizar**.
 
 Depois de concluir o desenvolvimento de seu experimento, você poderá implantar e colocar o modelo em operação. Usando o Serviço de Execução em Lotes, os dados do banco de dados do SQL Server local configurados no módulo **Importar Dados** serão lidos e usados para pontuação. Embora você possa usar o Serviço de Resposta de Solicitação para pontuar dados locais, a Microsoft recomenda usar o [Suplemento do Excel](machine-learning-excel-add-in-for-web-services.md) . Atualmente, gravar em um banco de dados do SQL Server local por meio de **Exportar Dados** não é permitido em seus experimentos ou em serviços Web publicados.
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 
