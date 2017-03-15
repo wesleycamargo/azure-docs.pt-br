@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: a5cce0da15941e91cbe74cdd1e0306ebd8db362c
-ms.openlocfilehash: d228ceb1a99e8fe11b59e6372b60bbfc93adac27
+ms.sourcegitcommit: 47398863e01204b840a965767cf2a022242d92fe
+ms.openlocfilehash: ea4d46e2d555c6572d0d741310abc4ee492767df
 ms.lasthandoff: 03/01/2017
 
 
@@ -42,7 +42,8 @@ Criptografia do serviço de armazenamento: a SSE de visualização de arquivos a
 Entre em contato com ssediscussions@microsoft.com para participar da visualização de arquivos da SSE.
 
 Para saber mais, veja as perguntas frequentes.
-A disponibilidade da Criptografia de Serviço de Armazenamento do Armazenamento de Arquivo está disponível atualmente nas regiões da Ásia Oriental, Europa Setentrional e Leste dos EUA 2.
+### <a name="availability-for-file-storage"></a>Disponibilidade para o Armazenamento de Arquivos
+A Criptografia de Serviço de Armazenamento para o Armazenamento de Arquivos está disponível atualmente nas regiões da Ásia Oriental, Europa Setentrional e Leste dos EUA 2.
 
 
 Para habilitar ou desabilitar a Criptografia do Serviço de Armazenamento para uma conta de armazenamento, faça logon no [Portal do Azure](https://azure.portal.com) e selecione uma conta de armazenamento. Na folha Configurações, procure a seção de Serviço Blob, conforme mostrado nesta captura de tela, e clique em Criptografia.
