@@ -16,15 +16,15 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dbf337a27c43fc6c91f1b061a1938c5471dd36a4
-ms.openlocfilehash: c511a73794a4b1333e149d286ae43c6929d58f75
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: c83a5aacca6669c4259365fba9f444ecb1b2a6c9
+ms.openlocfilehash: 1e7393537f6c9e4d6af522dd05f149403a85559e
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="create-and-manage-an-elastic-pool-with-cx23"></a>Criar e gerenciar um pool elástico com C&#x23;
 
-Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com C#. Você também pode criar e gerenciar um pool elástico do Azure com o [portal do Azure](https://portal.azure.com/), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), a API REST. Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
+Este tópico mostra como criar e gerenciar [pools elásticos](sql-database-elastic-pool.md) escalonáveis com C#. Você também pode criar e gerenciar um pool elástico do Azure com o [Portal do Azure](https://portal.azure.com/), o [PowerShell](sql-database-elastic-pool-manage-powershell.md) ou a API REST. Você também pode criar e mover bancos de dados de e para os pools elásticos usando [Transact-SQL](sql-database-elastic-pool-manage-tsql.md).
 
 > [!NOTE]
 > Muitos recursos novos do Banco de Dados SQL só têm suporte quando você está usando o [Modelo de implantação do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), portanto, você sempre deve usar a versão mais recente da **Biblioteca de Gerenciamento do Banco de Dados SQL do Azure para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Pacote do NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. As [bibliotecas com base no modelo de implantação clássico](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) mais antigas têm suporte para a compatibilidade com versões anteriores, portanto, é recomendável usar as bibliotecas baseadas no Gerenciador de Recursos mais recentes.

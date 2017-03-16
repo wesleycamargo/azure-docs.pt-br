@@ -16,37 +16,38 @@ ms.workload: identity
 ms.date: 02/06/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: 0c05cd490ee9125f7e5182cb502db6f4e9390094
-ms.openlocfilehash: 6c6d757a770613498bedca0f8f3a965241d692eb
+ms.sourcegitcommit: f06af80b14b439a223607e91c031a887c200d88d
+ms.openlocfilehash: 11da3f4ff55e8d52a1d0cecb0e275a8af80727ea
+ms.lasthandoff: 02/24/2017
 
 
 ---
 
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegar convites para a colaboração do Azure Active Directory B2B
 
-Com a atualização da visualização pública da colaboração B2B do Azure Active Directory (Azure AD), você não precisa ser um administrador global para convidar usuários. Controle quem pode convidar por meio de políticas e delegue convites aos usuários nas funções permitidas para convidar. Uma nova maneira importante de delegar convites de usuário convidado é por meio da função Emissor do convite para convidado.
+Com a atualização da visualização pública da colaboração B2B (entre empresas) do Azure Active Directory (Azure AD), você não precisa ser um administrador global para envias convites. Em vez disso, use políticas e delegue convites aos usuários cujas funções permitem o envio de convites. Uma nova maneira importante de delegar convites de usuário convidado é por meio da função Emissor do convite para convidado.
 
 ## <a name="guest-inviter-role"></a>Função Emissor do convite para convidado
-Podemos atribuir o usuário à função Emissor do convite para convidado para enviar convites. Você não precisa ser membro do administrador global para enviar convites. Por padrão, usuários regulares também podem chamar a API de convite, a menos que os convites tenham sido desabilitados pelo administrador global para usuários regulares. Você pode fazer isso no Portal do Azure e também no PowerShell.
+Podemos atribuir o usuário à função Emissor do convite para convidado para enviar convites. Você não precisa ser membro da função de administrador global para enviar convites. Por padrão, usuários regulares também podem chamar a API de convite, a menos que os convites tenham sido desabilitados pelo administrador global para usuários regulares. Faça isso usando o Portal do Azure ou o PowerShell.
 
-Veja um exemplo que mostra a adição de um usuário à função Emissor do convite para convidado por meio do PowerShell:
+Veja um exemplo que mostra como usar o PowerShell para adicionar um usuário à função Emissor de convite para convidado:
 
 ```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress >
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
-## <a name="controlling-who-can-invite"></a>Controle quem pode convidar
+## <a name="control-who-can-invite"></a>Controle quem pode convidar
 
-![controle como convidar](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
+![Controle como convidar](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
-Com a colaboração B2B do Azure AD, permitimos à administração de locatário definir as seguintes políticas de convite:
+Com a colaboração B2B do Azure AD, um administrador de locatário pode definir as seguintes políticas de convite:
 
-1. Desativar convites
-2. Somente administradores e usuários na função Emissor de convite para convidado podem convidar
-3. Administradores, função Emissor de convite para convidado e Membros podem convidar
-4. Todos os usuários, incluindo convidados, podem convidar
+- Desativar convites
+- Somente administradores e usuários na função Emissor de convite para convidado podem convidar
+- Administradores, a função Emissor de convite para convidado e membros podem convidar
+- Todos os usuários, incluindo convidados, podem convidar
 
-Por padrão, os locatários são definidos como #4 (todos os usuários, incluindo convidados, podem convidar usuários B2B).
+Por padrão, os locatários são definidos como #4. (Todos os usuários, incluindo convidados, podem convidar usuários B2B).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -59,12 +60,7 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Código de colaboração B2B e exemplos do PowerShell](active-directory-b2b-code-samples.md)
 * [Configurar aplicativos SaaS para colaboração B2B](active-directory-b2b-configure-saas-apps.md)
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
-* [Mapeamento de declarações do usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
+* [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

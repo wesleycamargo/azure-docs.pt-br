@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a5aeb1612d670f1145ee9b176e33667f717de357
+ms.sourcegitcommit: 7c4faaba6db10f6803236a5d72eed375e2c39d46
+ms.openlocfilehash: b0ecc19b62e7620b4c37c4d9f702238dcb8c44cc
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,7 +27,7 @@ O objetivo desse tutorial é mostrar como integrar o Front ao Azure AD (Azure Ac
 A integração do Front ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, é possível controlar quem tem acesso ao Front
-* Você pode permitir que seus usuários façam logon automaticamente no Front (logon único) com suas contas do Azure AD
+* Você pode permitir que seus usuários façam logon automaticamente no Front usando SSO (logon único) com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -35,25 +36,24 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Front, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do Front
+* Uma assinatura habilitada para SSO (logon único) do Front
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Front por meio da Galeria
-2. configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 ## <a name="adding-front-from-the-gallery"></a>Adição do Front por meio da Galeria
 Para configurar a integração do Front ao Azure AD, você precisa adicionar o Front por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -80,25 +80,25 @@ Para configurar a integração do Front ao Azure AD, você precisa adicionar o F
    
     ![Seleção do aplicativo na galeria](./media/active-directory-saas-front-tutorial/tutorial_front_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Front, com base em um usuário de teste chamado “Brenda Fernandes”.
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Front, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Front é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Front.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Front é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Front.
 
 Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD como o valor do **Nome de Usuário** no Front.
 
-Para configurar e testar o logon único do Azure AD com o Front, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Front, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do Front](#creating-a-front-test-user)** : para ter um equivalente de Brenda Fernandes no Front que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único em seu aplicativo Front.
+### <a name="configuring-azure-ad-sso"></a>Configurar o SSO do Azure AD
+Nesta seção, você habilitará o SSO do Azure AD no portal clássico e configurará o logon único em seu aplicativo Front.
 
-**Para configurar o logon único do Azure AD com o Front, execute as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o Front, execute as seguintes etapas:**
 
 1. No portal clássico, na página de integração de aplicativos do **Front**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
@@ -108,32 +108,25 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_03.png)
 3. Na página de diálogo **Definir Configurações de Aplicativo**, se quiser configurar o aplicativo no **modo iniciado pelo IDP**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_04.png)
-   
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.frontapp.com`
-   
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.frontapp.com/sso/saml/callback`
-   
-    c. Clique em **Próximo**
+    ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_04.png)
+  1. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.frontapp.com`.
+  2. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.frontapp.com/sso/saml/callback`
+  3. Clique em **Próximo**.
 4. Se quiser configurar o aplicativo no **modo iniciado pelo SP**, na página de diálogo **Definir Configurações do Aplicativo**, clique em **"Mostrar configurações avançadas (opcional)"**, insira a **URL de Logon** e clique em **Avançar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_05.png)
+    ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_05.png)
    
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.frontapp.com`
+  1. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.frontapp.com`
+  2. Clique em **Próximo**.
    
-    b. Clique em **Avançar**
-   
-   > [!NOTE]
-   > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Para obter esses valores, você pode conferir a **etapa 12** para obter detalhes ou entrar em contato com a Front pelo email [support@frontapp.com](emailTo:support@frontapp.com).
-   > 
-   > 
+   >[!NOTE]
+   >Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Para obter esses valores, você pode conferir a **etapa 12** para obter detalhes ou entrar em contato com a Front pelo email [support@frontapp.com](emailTo:support@frontapp.com).
+   >  
 5. Na página **Configurar logon único no Front**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_06.png)
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Avançar**.
+ ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_06.png) 
+ 1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+ 2. Clique em **Próximo**.
 6. Faça logon no seu locatário do Front como administrador.
 7. Acesse as **Configurações (ícone de engrenagem na parte inferior da barra lateral esquerda) > Preferências**.
    
@@ -161,7 +154,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -181,41 +174,31 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_05.png)
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+ 1. Em Tipo de Usuário, selecione Novo usuário na organização.
+ 2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**. 
+ 3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_06.png)
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_06.png) 
+ 1. Na caixa de texto **Nome**, digite **Brenda**.   
+ 2. Na caixa de texto **Sobrenome**, digite **Fernandes**. 
+ 3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**. 
+ 4. Na lista **Função**, selecione **Usuário**. 
+ 5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_08.png)
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-front-tutorial/create_aaduser_08.png) 
+ 1. Anote o valor da **Nova Senha**. 
+ 2. Clique em **Concluído**.   
 
-### <a name="creating-a-front-test-user"></a>Criação de um usuário de teste do Front
+### <a name="create-a-front-test-user"></a>Criar um usuário de teste do Front
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Front. Trabalhe com a equipe de suporte do Front para adicionar os usuários da conta do Front.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Front.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao Front.
 
 ![Atribuir usuário][200]
 
@@ -235,8 +218,8 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Front no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Front.
 
@@ -261,9 +244,4 @@ Ao clicar no bloco do Front no Painel de Acesso, você deverá ser conectado aut
 [203]: ./media/active-directory-saas-front-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-front-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-front-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

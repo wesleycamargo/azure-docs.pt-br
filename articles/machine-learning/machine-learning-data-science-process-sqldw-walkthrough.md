@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bradsev;hangzh;weig
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 572f09e5034f60e20b6668b5d513741048619ab6
+ms.sourcegitcommit: 29c718d0c34d1e2f9d17b285a7270541a9ff15cf
+ms.openlocfilehash: f12bf7ef4f608e01115a7e7d12b734d65ccc40e5
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -25,7 +26,7 @@ Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learni
 
 O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Aprendizado de Máquina do Azure.
 
-## <a name="a-namedatasetathe-nyc-taxi-trips-dataset"></a><a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
+## <a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
 Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônimo e o número de medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. O arquivo **trip_data.csv** contém detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e quilometragem da corrida. Aqui estão alguns exemplos de registros:
@@ -51,10 +52,10 @@ A **chave exclusiva** para unir trip\_data e trip\_fare é composta pelos três 
 * hack\_license e
 * pickup\_datetime.
 
-## <a name="a-namemltasksaaddress-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Resolver três tipos de tarefas de previsão
+## <a name="mltasks"></a>Resolver três tipos de tarefas de previsão
 Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar três tipos de tarefas de modelagem:
 
-1. **Classificação binária**: para prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
+1. **Classificação binária**: para prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$&0; é um exemplo positivo, enquanto um *tip\_amount* de US$&0; é um exemplo negativo.
 2. **Classificação multiclasse**: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
         Class 0 : tip_amount = $0
@@ -64,7 +65,7 @@ Formulamos três problemas de previsão com base em *tip\_amount* para ilustrar 
         Class 4 : tip_amount > $20
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
-## <a name="a-namesetupaset-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configurar o ambiente de ciência de dados do Azure para análise avançada
+## <a name="setup"></a>Configurar o ambiente de ciência de dados do Azure para análise avançada
 Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
 
 **Crie sua própria conta de armazenamento de blobs do Azure.**
@@ -84,7 +85,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql
 * **Nome de Usuário**
 * **Senha**
 
-**Instale o Visual Studio 2015 e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Instale o Visual Studio e o SQL Server Data Tools.** Para obter instruções, confira [Instalar o Visual Studio 2015 e/ou SSDT (SQL Server Data Tools) para o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Conectar-se ao Azure SQL DW com o Visual Studio.** Para obter instruções, veja as etapas 1 e 2 em [Connect to Azure SQL Data Warehouse with Visual Studio (Conectar-se ao Azure SQL Data Warehouse com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -103,7 +104,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../sql-data-warehouse/sql
 
 **Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md).
 
-## <a name="a-namegetdataaload-the-data-into-sql-data-warehouse"></a><a name="getdata"></a>Carregar os dados no SQL Data Warehouse
+## <a name="getdata"></a>Carregar os dados no SQL Data Warehouse
 Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no Github para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
 
 > [!NOTE]
@@ -338,7 +339,7 @@ Após a execução bem-sucedida, você verá uma tela parecida com a seguinte:
 
 ![][20]
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-azure-sql-data-warehouse"></a><a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no Azure SQL Data Warehouse
 Nesta seção, executamos a exploração de dados e a geração de recursos por meio da execução de consultas SQL no Azure SQL DW usando diretamente o **Visual Studio Data Tools**. Todas as consultas SQL usadas nesta seção podem ser encontradas no exemplo de script chamado *SQLDW_Explorations.sql*. Esse arquivo já foi baixado em seu diretório local pelo script do PowerShell. Você também pode recuperá-lo no [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o arquivo no Github não tem as informações do Azure SQL DW conectadas.
 
 Conecte-se ao seu Azure SQL DW usando o Visual Studio com o nome e senha de logon do SQL DW e abra o **Pesquisador de Objetos do SQL** para confirmar se o banco de dados e as tabelas foram importados. Recupere o arquivo *SQLDW_Explorations.sql*.
@@ -564,7 +565,7 @@ Quando você estiver pronto para prosseguir para o Aprendizado de Máquina do Az
 1. Salve a consulta SQL final para extrair os dados de exemplo e copiar e colar a consulta diretamente em um módulo [Importar Dados][import-data] no Azure Machine Learning ou
 2. Mantenha os dados de amostra e projetados que você planeja usar para criar modelos em uma nova tabela do SQL DW e use a nova tabela no módulo [Importar Dados][import-data] no Azure Machine Learning. O script do PowerShell na etapa anterior fez isso para você. Você pode ler diretamente dessa tabela no módulo Importar Dados.
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Exploração de dados e engenharia de recursos no IPython Notebook
+## <a name="ipnb"></a>Exploração de dados e engenharia de recursos no IPython Notebook
 Nesta seção, realizaremos a exploração de dados e a geração de recursos executando consultas SQL e Python no SQL DW criado anteriormente. Um exemplo de notebook IPython chamado **SQLDW_Explorations.ipynb** e um arquivo de script Python **SQLDW_Explorations_Scripts.py** foram baixados no diretório local. Eles também estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Esses dois arquivos são idênticos em scripts Python. O arquivo de script Python é fornecido a você caso você não tenha um servidor do Notebook IPython. Esses dois de exemplo de arquivo Python são criados no **Python 2.7**.
 
 As informações necessárias do Azure SQL DW no exemplo de Notebook IPython e o arquivo de script Python baixados em seu computador local foram conectados anteriormente pelo script do PowerShell. Eles são executáveis sem qualquer modificação.
@@ -804,7 +805,7 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
+## <a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Aprendizado de Máquina do Azure](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
 
 1. **Classificação binária**: para prever se uma gorjeta foi ou não paga em uma corrida.
@@ -853,7 +854,7 @@ Veja na figura abaixo um exemplo de experimento de classificação binária que 
 > 
 > 
 
-## <a name="a-namemldeployadeploy-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implantar modelos no Aprendizado de Máquina do Azure
+## <a name="mldeploy"></a>Implantar modelos no Aprendizado de Máquina do Azure
 Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do AM do Azure, veja [Implantar um serviço Web do Aprendizado de Máquina do Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
@@ -920,9 +921,4 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

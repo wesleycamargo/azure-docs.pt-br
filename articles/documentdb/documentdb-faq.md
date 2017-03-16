@@ -13,18 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 02/22/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 8afc15321db5c6d3b7c6cae2692a9a0d61ccdf6a
-ms.openlocfilehash: d62431f3fae21388d8ccfc0d411267f69823b700
+ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
+ms.openlocfilehash: 441e2adf6a222a0fc2e7e06c9b0140548655d542
+ms.lasthandoff: 02/22/2017
 
 
 ---
 # <a name="frequently-asked-questions-about-documentdb"></a>Perguntas frequentes sobre o Banco de Dados de Documentos
 ## <a name="database-questions-about-microsoft-azure-documentdb-fundamentals"></a>Perguntas de banco de dados sobre as noções básicas do Banco de Dados de Documentos do Microsoft Azure
 ### <a name="what-is-microsoft-azure-documentdb"></a>O que é o Banco de Dados de Documentos do Microsoft Azure?
-O Banco de Dados de Documentos do Microsoft Azure é um serviço de banco de dados de documentos NoSQL grande e rápido que oferece consulta sofisticada de dados sem esquemas, ajuda a oferecer um desempenho confiável e configurável e habilita um desenvolvimento rápido – tudo isso por meio de uma plataforma gerenciada com o suporte e o alcance do Microsoft Azure. O Banco de Dados de Documentos é a solução certa para aplicativos Web, móveis, de jogos e IoT quando a produtividade previsível, alta disponibilidade, baixa latência e o modelo de dados sem esquema são requisitos essenciais. O Banco de Dados de Documentos fornece flexibilidade de esquemas e indexação sofisticada por meio de um modelo de dados JSON nativo e inclui suporte de transações com diversos documentos com JavaScript integrado.  
+O Banco de Dados de Documentos do Microsoft Azure é um serviço de banco de dados de documentos NoSQL grande e rápido que oferece consulta sofisticada de dados sem esquemas, ajuda a oferecer um desempenho confiável e configurável e habilita um desenvolvimento rápido – tudo isso por meio de uma plataforma gerenciada com o suporte e o alcance do Microsoft Azure. O DocumentDB é a solução certa para aplicativos Web, móveis, de jogos e IoT quando a produtividade previsível, alta disponibilidade, baixa latência e o modelo de dados sem esquema são requisitos essenciais. O Banco de Dados de Documentos fornece flexibilidade de esquemas e indexação sofisticada por meio de um modelo de dados JSON nativo e inclui suporte de transações com diversos documentos com JavaScript integrado.  
 
 Para obter mais perguntas, respostas e instruções de banco de dados sobre como implantar e usar esse serviço, consulte a [página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
 
@@ -58,7 +59,7 @@ Não há limite para a quantidade total de dados que uma coleção pode armazena
 Não há limite para a quantidade total de produtividade à qual uma coleção pode dar suporte no DocumentDB, se sua carga de trabalho puder ser distribuída quase que de maneira uniforme entre um número suficientemente grande de chaves de partição.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
-Consulte a página [Detalhes de preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/) para obter mais informações. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
+Consulte a página [Detalhes de preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/) para obter detalhes. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
 
 ### <a name="is-there-a-free-account-available"></a>Existe uma conta gratuita disponível?
 Se for novo no Azure, você poderá se inscrever para uma [conta gratuita do Azure](https://azure.microsoft.com/free/), que dá 30 dias e US$ 200 para experimentar todos os serviços do Azure. Ou então, se tiver uma assinatura do Visual Studio, você estará qualificado para receber [US$&150; em créditos Azure gratuitos por mês](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) a serem usados em qualquer serviço do Azure.  
@@ -88,15 +89,18 @@ Você pode criar usuários e permissões usando um dos [SDKs do DocumentDB](docu
 
 ## <a name="database-questions-about-developing-against-microsoft-azure-documentdb"></a>Perguntas de banco de dados sobre como desenvolver no Banco de Dados de Documentos do Microsoft Azure
 ### <a name="how-to-do-i-start-developing-against-documentdb"></a>Como começo a desenvolver no Banco de Dados de Documentos?
-[SDKs](documentdb-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java.  Os desenvolvedores também podem aproveitar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do Banco de Dados de Documentos em uma série de plataformas e linguagens.
+[SDKs](documentdb-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java.  Os desenvolvedores também podem usar as [APIs HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interagir com os recursos do DocumentDB em uma série de plataformas e linguagens.
 
 Exemplos dos SDKs [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md) e [Python](documentdb-python-samples.md) do DocumentDB estão disponíveis no GitHub.
 
 ### <a name="does-documentdb-support-sql"></a>O Banco de Dados de Documentos dá suporte ao SQL?
-A linguagem de consulta SQL do Banco de Dados de Documentos é um subconjunto aprimorado da funcionalidade de consulta com suporte do SQL. A linguagem de consulta SQL do DocumentDB fornece extensibilidade e operadores hierárquicos e relacionais por meio de JavaScript com base em UDFs (funções definidas por usuário). A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore, o que é usado pelas técnicas de indexação automática do Banco de Dados de Documentos, bem como pelo dialeto de consulta SQL do Banco de Dados de Documentos.  Para obter detalhes sobre como usar a gramática SQL, veja o artigo [Consultar o DocumentDB][query].
+A linguagem de consulta SQL do Banco de Dados de Documentos é um subconjunto aprimorado da funcionalidade de consulta com suporte do SQL. A linguagem de consulta SQL do DocumentDB fornece extensibilidade e operadores hierárquicos e relacionais por meio de JavaScript com base em UDFs (funções definidas por usuário). A gramática JSON permite modelar documentos JSON como árvores com rótulos como os nós da árvore, o que é usado pelas técnicas de indexação automática do DocumentDB e pelo dialeto de consulta SQL do Banco de Dados de Documentos.  Para obter detalhes sobre como usar a gramática SQL, consulte o artigo [Consultar o DocumentDB][query].
+
+### <a name="does-documentdb-support-sql-aggregation-functions"></a>O DocumentDB é compatível com as funções de agregação SQL?
+O DocumentDB é compatível com a agregação de baixa latência em qualquer escala por meio de funções de agregação `COUNT`, `MIN`, `MAX`, `AVG` e `SUM` via a gramática SQL. Para saber mais, consulte [Funções de agregação](documentdb-sql-query.md#Aggregates).
 
 ### <a name="what-are-the-data-types-supported-by-documentdb"></a>Quais são os tipos de dados com suporte pelo Banco de Dados de Documentos?
-Os tipos de dados primitivos suportados no Banco de Dados de Documentos são os mesmos que os do JSON. O JSON tem um sistema de tipo simples que consiste em cadeias de caracteres, números (precisão dupla IEEE754) e boolianos – verdadeiro e falso e nulos.  Os tipos de dados mais complexos como DateTime, Guid, Int64 e Geometria podem ser representados tanto no JSON quanto no Banco de Dados de Documentos com a criação de objetos aninhados usando o operador { } e matrizes usando o operador [ ].
+Os tipos de dados primitivos suportados no Banco de Dados de Documentos são os mesmos que os do JSON. O JSON tem um sistema de tipo simples que consiste em cadeias de caracteres, números (precisão dupla IEEE754) e boolianos – verdadeiro e falso e nulos. O DocumentDB é nativamente compatível com os tipos espaciais Point, Polygon e LineString expressados como GeoJSON. Os tipos de dados mais complexos como DateTime, Guid, Int64 e Geometria podem ser representados tanto no JSON quanto no Banco de Dados de Documentos com a criação de objetos aninhados usando o operador { } e matrizes usando o operador [ ].
 
 ### <a name="how-does-documentdb-provide-concurrency"></a>Como o Banco de Dados de Documentos fornece simultaneidade?
 O Banco de Dados de Documentos suporta o controle de simultaneidade otimista (OCC) por meio de marcas de entidade HTTP ou etags. Cada recurso do Banco de Dados de Documentos tem uma etag, e a etag é definida no servidor sempre que um documento é atualizado. O cabeçalho etag e o valor atual são incluídos em todas as mensagens de resposta. As etags podem ser usadas com o cabeçalho If-Match a fim de permitir que o servidor decida se um recurso deve ser atualizado. O valor de If-Match é o valor de etag a ser comparado. Se o valor de etag corresponder ao valor de etag do servidor, o recurso será atualizado. Se a etag não for mais atual, o servidor rejeitará a operação com um código de resposta "HTTP 412 Falha de pré-condição". O cliente precisará refazer a buscar do recurso a fim de obter o valor de etag atual do recurso. Além disso, as etags podem ser usadas com o cabeçalho If-None-Match para determinar se é necessário realizar uma nova busca de um recurso.
@@ -121,9 +125,4 @@ Sim. O [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) fornec
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

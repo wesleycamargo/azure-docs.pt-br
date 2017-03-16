@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 02/22/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: f4f04a05c1d522f43668e31db15092476b4ef6df
+ms.sourcegitcommit: 5ed72d95ae258d6fa8e808cd72ab6e8a665901c9
+ms.openlocfilehash: 4c72a7c7127f2d387926ac2722aeb3f1e5f7c2a6
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -39,62 +40,65 @@ Recomendamos que você comece assistindo ao vídeo a seguir, em que Aravind Rama
 
 Em seguida, retorne a este artigo, onde começaremos com um tutorial de consulta SQL que apresenta a você alguns documentos JSON e comandos SQL simples.
 
-## <a name="getting-started-with-sql-commands-in-documentdb"></a>Introdução aos comandos SQL no Banco de Dados de Documentos
+## <a id="GettingStarted"></a>Introdução aos comandos SQL no DocumentDB
 Para ver o Banco de Dados de Documentos SQL em funcionamento, vamos começar com alguns documentos JSON simples e percorreremos algumas consultas simples relacionadas a eles. Considere esses dois documentos JSON sobre duas famílias. Observe que com o Banco de Dados de Documentos, não precisamos criar nenhum esquema ou índice secundário explicitamente. Precisamos apenas inserir os documentos JSON em uma coleção do Banco de Dados de Documentos e, em seguida, realizar a consulta. Aqui, temos um documento JSON simples relacionado à família Andersen - os pais, filhos (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 
 
 **Documento**  
 
-    {
-        "id": "AndersenFamily",
-        "lastName": "Andersen",
-        "parents": [
-           { "firstName": "Thomas" },
-           { "firstName": "Mary Kay"}
-        ],
-        "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
-        ],
-        "address": { "state": "WA", "county": "King", "city": "seattle" },
-        "creationDate": 1431620472,
-        "isRegistered": true
-    }
-
+```JSON
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow", 
+         "gender": "female", 
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 Aqui está um segundo documento, com uma pequena diferença: `givenName` e `familyName` são usados em vez de `firstName` e `lastName`.
 
 **Documento**  
 
-    {
-        "id": "WakefieldFamily",
-        "parents": [
-            { "familyName": "Wakefield", "givenName": "Robin" },
-            { "familyName": "Miller", "givenName": "Ben" }
-        ],
-        "children": [
-            {
-                "familyName": "Merriam", 
-                "givenName": "Jesse", 
-                "gender": "female", "grade": 1,
-                "pets": [
-                    { "givenName": "Goofy" },
-                    { "givenName": "Shadow" }
-                ]
-            },
-            { 
-                "familyName": "Miller", 
-                 "givenName": "Lisa", 
-                 "gender": "female", 
-                 "grade": 8 }
-        ],
-        "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
-        "creationDate": 1431620462,
-        "isRegistered": false
-    }
-
-
+```json
+{
+  "id": "WakefieldFamily",
+  "parents": [
+      { "familyName": "Wakefield", "givenName": "Robin" },
+      { "familyName": "Miller", "givenName": "Ben" }
+  ],
+  "children": [
+      {
+        "familyName": "Merriam", 
+        "givenName": "Jesse", 
+        "gender": "female", "grade": 1,
+        "pets": [
+            { "givenName": "Goofy" },
+            { "givenName": "Shadow" }
+        ]
+      },
+      { 
+        "familyName": "Miller", 
+         "givenName": "Lisa", 
+         "gender": "female", 
+         "grade": 8 }
+  ],
+  "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
+  "creationDate": 1431620462,
+  "isRegistered": false
+}
+```
 
 Agora, vamos tentar realizar algumas consultas nestes dados para entender alguns dos principais aspectos do Banco de Dados de Documentos SQL. Por exemplo, a consulta a seguir retornará os documentos cujo campo de ID corresponde a `AndersenFamily`. Por se tratar de um `SELECT *`, a saída da consulta será todo o documento JSON:
 
@@ -168,7 +172,7 @@ Gostaríamos de chamar atenção para alguns aspectos de destaque da linguagem d
 * O Banco de Dados de Documentos tem suporte apenas para documentos JSON estritos. Isto significa que as expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Consulte a [especificação JSON](http://www.json.org/) para obter mais detalhes.  
 * Uma coleção do Banco de Dados de Documentos é um contêiner de documentos JSON sem esquemas. As relações nas entidades de dados dentro e entre documentos em uma coleção são capturadas implicitamente pela contenção e não pelas relações chave primária e chave estrangeira. Este é um importante aspecto que vale a pena destacar em virtude das junções intradocumentos abordadas mais adiante neste artigo.
 
-## <a name="documentdb-indexing"></a>Indexação do Banco de Dados de Documentos
+## <a id="Indexing"></a> Indexação do DocumentDB
 Antes de passarmos à sintaxe da SQL do Banco de Dados de Documentos, vale explorar o design da indexação no Banco de Dados de Documentos. 
 
 O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
@@ -183,16 +187,16 @@ Portanto, quando criamos o subsistema de indexação do Banco de Dados de Docume
 
 Consulte [amostras do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) no MSDN para ver exemplos de como configurar a política de indexação para uma coleção. Agora, vejamos os detalhes da sintaxe da SQL do Banco de Dados de Documentos.
 
-## <a name="basics-of-a-documentdb-sql-query"></a>Noções básicas de uma consulta SQL do Banco de Dados de Documentos
+## <a id="Basics"></a>Noções básicas de uma consulta SQL do DocumentDB
 Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada.
 
-    SELECT [TOP <top_expression>] <select_list> 
+    SELECT <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
 
 
-## <a name="from-clause"></a>Cláusula FROM
+## <a id="FromClause"></a>Cláusula FROM
 A cláusula `FROM <from_specification>` é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Normalmente, a coleção inteira é a fonte, mas é possível também especificar um subconjunto da coleção. 
 
 Uma consulta como `SELECT * FROM Families` indica que a coleção Families inteira é a fonte a ser enumerada. Um identificador especial ROOT pode ser usado para representar a coleção em vez de usar o nome da coleção. A lista a seguir contém as regras que são impostas por uma consulta:
@@ -255,7 +259,7 @@ Embora o exemplo acima tenha usado uma matriz como fonte, um objeto também pode
     ]
 
 
-## <a name="where-clause"></a>Cláusula WHERE
+## <a id="WhereClause"></a>Cláusula WHERE
 A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Ela especifica as condições que os documentos JSON fornecidos pela fonte devem satisfazer para serem incluídas como parte dos resultados. Qualquer documento JSON deve avaliar as condições especificadas como “verdadeiras” para serem consideradas para os resultados. A cláusula WHERE é usada pela camada do índice para determinar o subconjunto absolutamente menor de documentos fonte que pode fazer parte do resultado. 
 
 A consulta a seguir solicita documentos que contêm uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro documento que não tiver uma propriedade de nome ou cujo valor não corresponder a `AndersenFamily` será excluído. 
@@ -586,7 +590,7 @@ O operador de União (??) pode ser usado para verificar de modo eficaz a presen�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a name="quoted-property-accessor"></a>Acessador de propriedade entre aspas
+### <a id="EscapingReservedKeywords"></a>Acessador de propriedade entre aspas
 Você também pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil quando você precisa substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
 
     SELECT f["lastName"]
@@ -594,7 +598,7 @@ Você também pode acessar propriedades usando o operador de propriedade entre a
     WHERE f["id"] = "AndersenFamily"
 
 
-## <a name="select-clause"></a>Cláusula SELECT
+## <a id="SelectClause"></a>Cláusula SELECT
 A cláusula SELECT (**`SELECT <select_list>`**) é obrigatória e especifica quais valores serão recuperados da consulta, exatamente como ocorre em ANSI-SQL. O subconjunto que foi filtrado sobre os documentos fonte é passado à fase de projeção, em que os valores JSON especificados são recuperados e um novo objeto JSON é construído, para cada entrada passada a ele. 
 
 O exemplo a seguir mostra uma consulta SELECT típica. 
@@ -771,7 +775,7 @@ Outro recurso fundamental da SQL do Banco de Dados de Documentos é a criação 
       }
     ]
 
-### <a name="value-keyword"></a>Palavra-chave VALUE
+### <a id="ValueKeyword"></a>Palavra-chave VALUE
 A palavra-chave **VALUE** é uma forma de retornar valores JSON. Por exemplo: a consulta mostrada abaixo retorna o `"Hello World"` escalar, em vez de `{$1: "Hello World"}`.
 
 **Consulta**
@@ -851,7 +855,7 @@ O operador especial (*) é suportado para projetar o documento da forma que ele 
         "isRegistered": true
     }]
 
-### <a name="top-operator"></a>Operador TOP
+### <a id="TopKeyword"></a>Operador TOP
 A palavra-chave TOP pode ser usada para limitar o número de valores de uma consulta. Quando TOP é usado em conjunto com a cláusula ORDER BY, o conjunto de resultados é limitado ao primeiro número N de valores ordenados; caso contrário, ele retorna o primeiro número N de resultados em uma ordem indefinida. Como melhor prática, em uma instrução SELECT, sempre use uma cláusula ORDER BY com a cláusula TOP. Essa é a única maneira de indicar de modo previsível quais linhas são afetadas pelo TOP. 
 
 **Consulta**
@@ -881,7 +885,64 @@ A palavra-chave TOP pode ser usada para limitar o número de valores de uma cons
 
 O TOP pode ser usado com um valor constante (conforme mostrado acima) ou com um valor de variável usando consultas parametrizadas. Para obter mais detalhes, veja as consultas parametrizadas abaixo.
 
-## <a name="order-by-clause"></a>Cláusula ORDER BY
+### <a id="Aggregates"></a>Funções de agregação
+Você também pode executar agregações na cláusula `SELECT`. Funções agregadas executam um cálculo em um conjunto de valores e retornam um único valor. Por exemplo, a consulta a seguir retorna a contagem de documentos de família dentro da coleção.
+
+**Consulta**
+
+    SELECT COUNT(1) 
+    FROM Families f 
+
+**Resultados**
+
+    [{
+        "$1": 2
+    }]
+
+Você também pode retornar o valor escalar da agregação usando a palavra-chave `VALUE`. Por exemplo, a consulta a seguir retorna a contagem de valores como um único número:
+
+**Consulta**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f 
+
+**Resultados**
+
+    [ 2 ]
+
+Você também pode executar agregações em combinação com filtros. Por exemplo, a consulta a seguir retorna a contagem de documentos com endereço no estado de Washington.
+
+**Consulta**
+
+    SELECT VALUE COUNT(1) 
+    FROM Families f
+    WHERE f.address.state = "WA" 
+
+**Resultados**
+
+    [{
+        "$1": 1
+    }]
+
+As tabelas a seguir mostram a lista de funções de agregação com suporte no DocumentDB. `SUM` e `AVG` são executados por meio de valores numéricos, enquanto `COUNT`, `MIN` e `MAX` podem ser executados em relação a números, cadeias de caracteres, Boolianos e nulos. 
+
+| Uso | Descrição |
+|-------|-------------|
+| COUNT | Retorna o número de itens na expressão. |
+| SUM   | Retorna a soma de todos os valores na expressão. |
+| MÍN.   | Retorna o valor mínimo na expressão. |
+| MÁX.   | Retorna o valor máximo na expressão. |
+| AVG   | Retorna a média dos valores na expressão. |
+
+Agregações também podem ser executadas em relação aos resultados de uma iteração de matriz. Para obter mais detalhes, confira [Iteração de matriz em consultas](#Iteration).
+
+> [!NOTE]
+> Ao usar o Gerenciador de Consultas do Portal do Azure, observe que as consultas de agregação podem retornar os resultados parcialmente agregados em uma página de consulta. Os SDKs produzirão um único valor cumulativo em todas as páginas. 
+> 
+> Para executar consultas de agregação usando o código, você precisa do .NET SDK 1.12.0, .NET Core SDK 1.1.0 ou Java SDK 1.9.5 ou posterior.    
+>
+
+## <a id="OrderByClause"></a>Cláusula ORDER BY
 Como no ANSI-SQL, agora você pode incluir uma cláusula Order By opcional ao realizar consultas. A cláusula pode incluir um argumento ASC/DESC opcional para especificar a ordem na qual os resultados devem ser recuperados.
 
 Por exemplo, aqui está uma consulta que recupera famílias pela ordem do nome da cidade do residente.
@@ -926,8 +987,9 @@ E aqui está uma consulta que recupera famílias em ordem de data de criação, 
       }
     ]
 
-## <a name="advanced-database-concepts-and-sql-queries"></a>Conceitos avançados de banco de dados e consultas SQL
-### <a name="iteration"></a>Iteração
+## <a id="Advanced"></a>Conceitos avançados de banco de dados e consultas SQL
+
+### <a id="Iteration"></a>Iteração
 Uma nova construção por meio da palavra-chave **IN** na SQL do Banco de Dados de Documentos, para dar suporte à iteração em matrizes JSON. A fonte FROM dá suporte à iteração. Comecemos com o exemplo a seguir:
 
 **Consulta**
@@ -1006,7 +1068,22 @@ Isto pode ser usado mais amplamente para filtrar cada entrada individual da matr
       "givenName": "Lisa"
     }]
 
-### <a name="joins"></a>Junções
+Você também pode executar a agregação sobre o resultado da iteração de matriz. Por exemplo, a consulta a seguir conta o número de filhos entre todas as famílias.
+
+**Consulta**
+
+    SELECT COUNT(child) 
+    FROM child IN Families.children
+
+**Resultados**  
+
+    [
+      { 
+        "$1": 3
+      }
+    ]
+
+### <a id="Joins"></a>Junções
 Em um banco de dados relacional, a necessidade de realizar junções entre tabelas é muito importante. É o padrão lógico para criar esquemas normalizados. De forma contrária, o Banco de Dados de Documentos lida com o modelo de dados desnormalizado dos documentos sem esquemas. Trata-se do equivalente lógico de uma “autojunção”.
 
 A sintaxe à qual a linguagem oferece suporte é <from_source1> JOIN <from_source2> JOIN ... JUNÇÃO < from_sourceN >. De modo geral, isto retorna um conjunto de tuplas **N** (tupla com valores **N**). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos. Em outras palavras, trata-se do produto do cruzamento completo dos conjuntos que participam da junção.
@@ -1155,13 +1232,13 @@ No próximo exemplo, há um filtro adicional em `pet`. Isto exclui todas as tupl
     ]
 
 
-## <a name="javascript-integration"></a>Integração do JavaScript
+## <a id="JavaScriptIntegration"></a>Integração do JavaScript
 O Banco de Dados de Documentos oferece um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. Isso possibilita:
 
 * Capacidade de realizar operações CRUD transacional de alto desempenho e consultas documentos em uma coleção em virtude da profunda integração do tempo de execução do JavaScript diretamente com o mecanismo do banco de dados. 
 * Um modelamento natural de fluxo de controle, escopo de variáveis, atribuição e integração de primitivos que lidam com exceções com transações de bancos de dados. Para obter mais detalhes sobre o suporte do Banco de Dados de Documentos à integração com JavaScript, consulte a documentação de programabilidade do JavaScript.
 
-### <a name="user-defined-functions-udfs"></a>UDFs (Funções definidas pelo usuário)
+### <a id="UserDefinedFunctions"></a>UDFs (Funções Definidas pelo Usuário)
 Além dos tipos já especificados neste artigo, a SQL do Banco de Dados de Documentos oferece suporte a UDFs (funções definidas pelo usuário). Em particular, há suporte a UDFs escalares nas quais os desenvolvedores podem passar zero ou muitos argumentos e retornar um resultado com um único argumento. Cada um desses argumentos é verificado quanto a serem valores JSON legais.  
 
 A sintaxe da SQL do Banco de Dados de Documentos é estendida para dar suporte à lógica de aplicativos personalizados usando essas funções definidas pelo usuário. As UDFs podem ser registradas com o Banco de Dados de Documentos e referenciadas como parte de uma consulta SQL. De fato, as UDFs são projetadas de maneira especial para serem invocadas por consultas. Como consequência dessa escolha, as UDFs não têm acesso ao objeto de contexto que outros tipos de JavaScript (procedimentos armazenados e gatilhos) têm. Como as consultas são executadas como somente leitura, elas podem ser executadas em réplicas primárias ou secundárias. Portanto, as UDFs foram criadas para serem executadas em réplicas secundárias, diferente de outros tipos de JavaScript.
@@ -1281,7 +1358,7 @@ Na SQL do Banco de Dados de Documentos, ao contrário do que ocorre na SQL tradi
 A SQL do Banco de Dados de Documentos não realiza conversões implícitas, diferente do JavaScript. Por exemplo, uma consulta como `SELECT * FROM Person p WHERE p.Age = 21` corresponde a documentos que contêm a propriedade Age com valor 21. Qualquer outro documento cuja propriedade Age corresponder a “21” — ou a outras variações potencialmente infinitas como “021”, “21,0”, “0021”, “00021” etc. — não será correspondido. Isso ocorre em oposição ao JavaScript, que os valores das cadeias de caracteres são convertidos implicitamente em números (baseado em operador como, por exemplo: ==). Esta escolha é fundamental para uma correspondência eficiente de índices na SQL do Banco de Dados de Documentos. 
 
 ## <a name="parameterized-sql-queries"></a>Consultas SQL parametrizadas
-O DocumentDB dá suporte a consultas com parâmetros expressados com a familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
+O Banco de Dados de Documentos dá suporte a consultas com parâmetros expressados com a familiar notação @. A SQL parametrizada oferece recursos robustos de manuseio e saída das entradas de usuário, evitando a exposição acidental de dados por meio de uma injeção SQL. 
 
 Por exemplo, você pode escrever uma consulta que define o sobrenome e o estado do endereço como parâmetros e executá-la para vários valores de sobrenome e estado de endereço, com base na entrada do usuário.
 
@@ -1310,7 +1387,7 @@ O argumento para TOP pode ser definido usando consultas parametrizadas, como mos
 
 Os valores dos parâmetros podem ser qualquer JSON válido (cadeias de caracteres, números, boolianos, nulos, ou mesmo matrizes e JSON aninhado). Além disso, como o Banco de Dados de Documentos não tem esquema, os parâmetros não são validados com relação a qualquer tipo.
 
-## <a name="built-in-functions"></a>Funções internas
+## <a id="BuiltinFunctions"></a>Funções internas
 O Banco de Dados de Documentos também dá suporte a várias funções internas para operações comuns, que podem ser usadas em consultas como UDFs (funções definidas pelo usuário).
 
 | Grupo de funções          | Operações                                                                                                                                          |
@@ -1319,7 +1396,7 @@ O Banco de Dados de Documentos também dá suporte a várias funções internas 
 | Funções de verificação de tipo | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED e IS_PRIMITIVE                                                           |
 | Funções de cadeia de caracteres        | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING e UPPER       |
 | Funções de matriz         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH e ARRAY_SLICE                                                                                         |
-|  Funções espaciais      | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID e ST_ISVALIDDETAILED                                                                           | 
+| Funções espaciais       | ST_DISTANCE, ST_WITHIN, ST_INTERSECTS, ST_ISVALID e ST_ISVALIDDETAILED                                                                           | 
 
 Se estiver usando uma UDF (função definida pelo usuário) para a qual uma função interna agora está disponível, você deverá usar a função interna correspondente, pois ela será executada de forma mais rápida e mais eficiente. 
 
@@ -1576,7 +1653,7 @@ As funções espaciais podem ser usadas para executar consultas de proximidade e
 
 Para obter mais detalhes sobre o suporte geoespacial no Banco de Dados de Documentos, consulte [Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure](documentdb-geospatial.md). Com isso, encerramos as funções espaciais e a sintaxe de SQL para o Banco de Dados de Documentos. Agora vamos dar uma olhada em como o sistema de consultas LINQ funciona e como ele interage com a sintaxe que vimos até agora.
 
-## <a name="linq-to-documentdb-sql"></a>LINQ para SQL do Banco de Dados de Documentos
+## <a id="Linq"></a>LINQ para SQL do DocumentDB
 O LINQ é um modelo de programação .NET que expressa a computação como consultas em fluxos de objetos. O Banco de Dados de Documentos oferece uma biblioteca cliente para realizar a interface com o LINQ facilitando a conversão entre objetos JSON e .NET e mapeando por meio de um subconjunto de consultas do LINQ para consultas do Banco de Dados de Documentos. 
 
 A imagem abaixo mostra a arquitetura do suporte a consultas do LINQ usando o Banco de Dados de Documentos.  Usando o cliente do Banco de Dados de Documentos, os desenvolvedores podem criar um objeto **IQueryable** que consulta diretamente o provedor de consulta do Banco de Dados de Documentos que, por sua vez, traduz a consulta do LINQ para uma consulta de Banco de Dados de Documentos. A consulta é, então, passada ao servidor do Banco de Dados de Documentos para recuperar um conjunto de resultados no formato JSON. Os resultados retornados são desserializados em um fluxo de objetos .NET no lado do cliente.
@@ -1685,13 +1762,13 @@ Primeiro, para o sistema de tipos, oferecemos suporte para todos os tipos de JSO
      novo pai { familyName = "Smith", givenName = "Joe" }; novo { primeiro = 1, segundo = 2 }; //um tipo anônimo com dois campos              
      novo int[] { 3, child.grade, 5 };
 
-### <a name="list-of-supported-linq-operators"></a>Lista de operadores LINQ com suporte
+### <a id="SupportedLinqOperators"></a>Lista de operadores LINQ com suporte
 Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos no SDK do .NET do Banco de Dados de Documentos.
 
 * **Select**: as projeções são convertidas para SQL SELECT, incluindo a construção de objetos
 * **Em que**: os filtros são convertidos para SQL WHERE e dão suporte à conversão entre && , || e ! para os operadores SQL
 * **SelectMany**: permite o desenrolamento de matrizes à cláusula SQL JOIN. Pode ser usado para encadear/aninhar expressões para filtrar elementos de matriz
-* **OrderBy e OrderByDescending**: são convertidas em ORDER BY de forma crescente/decrescente:
+* **OrderBy e OrderByDescending**: são convertidas em ORDER BY de forma crescente/decrescente
 * **CompareTo**: é convertido em comparações de intervalo. Normalmente usados para cadeias de caracteres, já que não são comparáveis no .NET
 * **Take**: é convertido em SQL TOP para limitar os resultados de uma consulta
 * **Funções matemáticas**: dão suporte à conversão de Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan e Truncate do .NET nas funções internas do SQL equivalentes.
@@ -1700,6 +1777,11 @@ Aqui está uma lista de operadores LINQ com suporte no provedor LINQ incluídos 
 * **Funções de extensão geoespacial**: dão suporte à conversão dos métodos stub Distance, Within, IsValid e IsValidDetailed nas funções internas do SQL equivalentes.
 * **Função de extensão da função definida pelo usuário**: dá suporte à conversão do método stub UserDefinedFunctionProvider.Invoke na função definida pelo usuário correspondente.
 * **Diversos**: dá suporte à conversão dos operadores de união e condicional. Pode converter Contains para a Cadeia de caracteres CONTAINS, ARRAY_CONTAINS ou para o SQL IN, dependendo do contexto.
+
+> [!NOTE]
+> Os operadores de agregação **Count, Sum, Min, Max e Average** atualmente não têm suporte, mas estarão disponíveis em versões futuras do SDK.  
+> 
+> 
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
 Aqui, temos alguns exemplos que ilustram como alguns dos operadores de consulta padrão do LINQ são traduzidos para consultas do Banco de Dados de Documentos.
@@ -1892,12 +1974,12 @@ Em uma consulta aninhada, a consulta interior é aplicada a cada elemento da col
     WHERE c.familyName = f.parents[0].familyName
 
 
-## <a name="executing-sql-queries"></a>Executando consultas SQL
+## <a id="ExecutingSqlQueries"></a>Execução de consultas SQL
 O Banco de Dados de Documentos expõe recursos pode meio de uma API REST que pode ser chamada por qualquer linguagem que possa fazer solicitações HTTP/HTTPS. Além disso, o Banco de Dados de Documentos oferece bibliotecas de programação para várias linguagens populares, como .NET, Node.js, JavaScript e Python. A API REST e as diversas bibliotecas suportam a consulta por meio de SQL. O SDK .NET oferece suporte para consultas no LINQ além da SQL.
 
 Os exemplos a seguir mostram como criar uma consulta e enviá-la a uma conta de banco de dados do Banco de Dados de Documentos.
 
-### <a name="rest-api"></a>API REST
+### <a id="RestAPI"></a>API REST
 O Banco de Dados de Documentos oferece um modelo de programação RESTful em vez do HTTP. As contas do banco de dados podem ser provisionadas usando uma assinatura do Azure. O modelo de recursos do DocumentDB consiste em um conjunto de recursos em uma conta do banco de dados, cada um acessível usando um URI lógico e estável. Um conjunto de recursos é referido como um feed neste documento. Uma conta do banco de dados é formada por um conjunto de bancos de dados, cada um contendo diversas coleções, cada uma delas, por sua vez, contendo documentos, UDFs e outros tipos de recursos.
 
 O modelo de interação básico com esses recursos é por meio dos verbos HTTP GET, PUT, POST e DELETE, com sua interpretação padrão. O verbo POST é usado para criação de um novo recurso, para executar um procedimento armazenado ou para emitir uma consulta do Banco de Dados de Documentos. As consultas sempre são operações somente leitura, sem efeitos colaterais.
@@ -2024,13 +2106,13 @@ O segundo exemplo mostra uma consulta mais complexa que retorna múltiplos resul
     }
 
 
-Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` .
+Se os resultados de uma consulta não couberem em uma página de resultados, a API REST retornará um token de continuação por meio do cabeçalho de resposta `x-ms-continuation-token` . Os clientes podem paginar os resultados incluindo o cabeçalho nos resultados subsequentes. O número de resultados por página também pode ser controlado por meio do cabeçalho de número `x-ms-max-item-count` . Se a consulta especificada tiver uma função de agregação como `COUNT`, a página de consulta poderá retornar um valor parcialmente agregado na página de resultados. Os clientes devem executar uma segunda agregação nesses resultados para produzir os resultados finais; por exemplo, a soma das contagens retornadas nas páginas individuais, para retornar a contagem total.
 
 Para gerenciar a política de consistência de dados para consultas, use o cabeçalho `x-ms-consistency-level` como todas as solicitações da API REST. Para que haja consistência da sessão, é necessário também ecoar o cabeçalho de cookie `x-ms-session-token` mais recente na solicitação de consulta. Observe que a política de indexação da coleção consultada também pode influenciar a consistência dos resultados da consulta. Com as configurações da política de indexação padrão, para as coleções o índice sempre estará atualizado com o conteúdo dos documentos e os resultados das consultas corresponderão à consistência escolhida para os dados. Se a política de indexação for relaxada para Lenta, as consultas poderão retornar resultados obsoletos. Para saber mais, veja [Níveis de consistência do DocumentDB][consistency-levels].
 
 Se a política de indexação configurada na coleção não puder suportar a consulta especificada, o servidor do Banco de Dados de Documentos retorna um 400, "Solicitação Incorreta". Este código é retornado para consultas de intervalo em caminhos configurados para pesquisas hash (igualdade), e para caminhos excluídos explicitamente da indexação. O cabeçalho `x-ms-documentdb-query-enable-scan` pode ser especificado para permitir que a consulta faça uma verificação quando um índice estiver indisponível.
 
-### <a name="c-net-sdk"></a>SDK C# (.NET)
+### <a id="DotNetSdk"></a>SDK do C# (.NET)
 O SDK .NET suporta consultas LINQ e SQL. O exemplo a seguir mostra como realizar a consulta de filtro simples mencionada no início deste documento.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
@@ -2121,7 +2203,11 @@ Você também pode controlar explicitamente paginação criando `IDocumentQuerya
 
 Consulte [Amostras .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net) para ver mais amostras contendo consultas. 
 
-### <a name="javascript-server-side-api"></a>API do lado servidor do JavaScript
+> [!NOTE]
+> Para executar consultas de agregação, você precisa de SDKs 1.12.0 ou superior. Não há suporte a LINQ para funções de agregação, mas ele estará disponível no SDK do .NET 1.13.0.
+>
+
+### <a id="JavaScriptServerSideApi"></a>API do lado servidor do JavaScript
 O Banco de Dados de Documentos um modelo de programação para executar a lógica de aplicativos baseados em JavaScript diretamente nas coleções em termos de procedimentos armazenados e gatilhos. A lógica de JavaScript registrada no nível da coleção pode então emitir operações do banco de dados nas operações dos documentos da coleção determinada. Essas operações são encapsuladas em transações ACID ambiente.
 
 O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaScript para realizar consultas de dentro de procedimentos e gatilhos armazenados.
@@ -2156,19 +2242,7 @@ O exemplo a seguir mostra como usar o queryDocuments na API do servidor do JavaS
             });
     }
 
-## <a name="aggregate-functions"></a>Funções de agregação
-O suporte nativo para funções de agregação está em andamento, mas, se enquanto isso você precisar da funcionalidade de contagem ou soma, poderá alcançar o mesmo resultado usando métodos diferentes.  
-
-No caminho de leitura:
-
-* Você pode executar as funções de agregação recuperando os dados e fazendo uma contagem localmente. É recomendável usar uma projeção de consulta barata como `SELECT VALUE 1` em vez de usar no documento completo, como `SELECT * FROM c`. Isso ajuda a maximizar o número de documentos processados em cada página de resultados, evitando assim viagens adicionais ao serviço, se necessário.
-* Você também pode usar um procedimento armazenado para minimizar a latência de rede em repetidas viagens de ida e volta. Para um exemplo de procedimento armazenado que calcula a contagem de uma consulta de filtro específica, consulte [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). O procedimento armazenado pode permitir que os usuários combinem uma lógica de negócios avançada à realização de agregações de maneira eficiente.
-
-No caminho de gravação:
-
-* Outro padrão comum é agregar previamente os resultados no caminho "write" (gravação). Isso é especialmente atraente quando o volume de solicitações "read" (leitura) é maior do que as solicitações "write" (gravação). Uma vez agregados previamente, os resultados estão disponíveis com uma solicitação de leitura de ponto único.  A melhor maneira de agregar previamente em um Banco de Dados de Documentos é definir um gatilho que é invocado com cada "write" e atualizar um documento de metadados que tem os resultados mais recentes para a consulta que está sendo materializada. Por exemplo, examine o exemplo [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js), que atualiza minSize, maxSize e totalSize do documento de metadados para a coleção. O exemplo pode ser estendido para atualizar um contador, soma, etc.
-
-## <a name="references"></a>Referências
+## <a id="References"></a>Referências
 1. [Introdução ao Azure DocumentDB][introduction]
 2. [Especificação da linguagem SQL do Banco de Dados de Documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
@@ -2186,10 +2260,4 @@ No caminho de gravação:
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: documentdb-introduction.md
 [consistency-levels]: documentdb-consistency-levels.md
-
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

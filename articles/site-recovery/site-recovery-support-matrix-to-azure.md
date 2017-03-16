@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 01/25/2017
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 43e818b0b60045f9e88d587441d39f46ab2fbfad
-ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
+ms.sourcegitcommit: 511e61552ec0a2c862ebd99fd881f87b56b69398
+ms.openlocfilehash: 84eabb9c898d32efeb6e1c4b1f17b683940b4c04
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -27,7 +28,7 @@ ms.openlocfilehash: e529461d3c6e1876572848fbf6af5b0a1c64ac30
 > * [Replicar no site secundário possuído pelo cliente](site-recovery-support-matrix-to-sec-site.md)
 
 
-Este artigo resume os componentes e as configurações com suporte do Azure Site Recovery durante a replicação e recuperação no Azure. Para saber mais sobre os pré-requisitos do Azure Site Recovery, confira [Práticas recomendadas do Site Recovery](site-recovery-best-practices.md).
+Este artigo resume os componentes e as configurações com suporte do Azure Site Recovery durante a replicação e recuperação no Azure. Para saber mais sobre os requisitos do Azure Site Recovery, confira os [pré-requisitos](site-recovery-prereq.md).
 
 
 ## <a name="support-for-deployment-options"></a>Suporte para opções de implantação
@@ -64,7 +65,7 @@ Este artigo resume os componentes e as configurações com suporte do Azure Site
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões do SO do computador replicado
 
-As máquinas virtuais protegidas devem atender aos [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) ao replicar no Azure.
+As máquinas virtuais protegidas devem atender aos [requisitos do Azure](#failed-over-azure-vm-requirements) ao replicar no Azure.
 A tabela a seguir resume o suporte a sistemas operacionais replicados em vários cenários de implantação durante o uso do Azure Site Recovery. Esse suporte é aplicável a qualquer carga de trabalho em execução no SO mencionado.
 
  **Servidor VMware/físico** | **Hyper-V (sem Virtual Machine Manager)** | **Hyper-V (com Virtual Machine Manager)**
@@ -147,7 +148,7 @@ Múltiplos caminhos (MPIO) | N/D | Sim | Sim
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (sem Virtual Machine Manager)** | **Hyper-V (com Virtual Machine Manager)**
 --- | --- | --- | ---
-LRS | Sim | Sim | Sim 
+LRS | Sim | Sim | Sim
 GRS | Sim | Sim | Sim
 Armazenamento frio | Não | Não | Não
 Armazenamento quente| Não | Não | Não
@@ -173,7 +174,7 @@ Você pode implantar a Recuperação de Site para replicar máquinas virtuais e 
 **Arquitetura do sistema operacional convidado** | 64 bits | A verificação de pré-requisitos falhará se não houver suporte
 **Tamanho de disco do sistema operacional** | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 **Contagem de discos do sistema operacional** | 1 | A verificação de pré-requisitos falhará se não houver suporte.
-**Contagem de discos de dados** | 64 ou menos se você estiver replicando **VMs VMware no Azure**; 16 ou menos se você estiver replicando **VMs Hyper-V no Azure** | A verificação de pré-requisitos falhará se não houver suporte
+**Contagem de discos de dados** | 64 ou menos se você estiver replicando **VMs do VMware no Azure**; 16 ou menos se você estiver replicando **VMs do Hyper-V no Azure** | A verificação de pré-requisitos falhará se não houver suporte
 **Tamanho do VHD do disco de dados** | Até 1023 GB | A verificação de pré-requisitos falhará se não houver suporte
 **Adaptadores de rede** | Há suporte para vários adaptadores |
 **VHD compartilhado** | Sem suporte | A verificação de pré-requisitos falhará se não houver suporte
@@ -206,10 +207,5 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos<br/><br/> Dentr
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Preparar para a implantação](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+[Verificar pré-requisitos](site-recovery-prereq.md)
 
