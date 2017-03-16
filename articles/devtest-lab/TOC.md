@@ -5,17 +5,20 @@
 
 # Introdução
 ## [Criar laboratório](devtest-lab-create-lab.md)
+## [Criar fórmulas](devtest-lab-create-formulas.md)
 ## [Criar VM](devtest-lab-add-vm.md)
+## [Gerenciar políticas de laboratório básico](devtest-lab-get-started-with-lab-policies.md)
 ## [Criar laboratório para treinamento](devtest-lab-training-lab.md)
 ## [Perguntas frequentes](devtest-lab-faq.md)
 
 # Como:
 ## Gerenciar laboratórios
 ### [Adicionar proprietários e usuários do laboratório](devtest-lab-add-devtest-user.md)
-### [Definir políticas de laboratório](devtest-lab-set-lab-policy.md)
+### [Gerenciar todas as políticas de laboratório](devtest-lab-set-lab-policy.md)
 ### [Conceder permissões a políticas](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)
 ### [Configurar o gerenciamento de custo](devtest-lab-configure-cost-management.md)
 ### [Configurar redes virtuais](devtest-lab-configure-vnet.md)
+### [Entender os endereços IP compartilhados](devtest-lab-shared-ip.md)
 
 ## Gerenciar artefatos
 ### [Adicionar um repositório de artefatos](devtest-lab-add-artifact-repo.md)
@@ -33,8 +36,6 @@
 ### [Carregar o arquivo VHD usando AzCopy](devtest-lab-upload-vhd-using-azcopy.md)
 ### [Carregar o arquivo VHD usando o PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 ### [Carregar o arquivo VHD usando o Gerenciador de Armazenamento](devtest-lab-upload-vhd-using-storage-explorer.md)
-
-
 
 # Recursos
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=devtest-lab)

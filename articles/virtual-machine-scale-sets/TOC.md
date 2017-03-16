@@ -2,13 +2,16 @@
 ## [O que são conjuntos de escala de máquina virtual?](virtual-machine-scale-sets-overview.md)
 
 # Introdução
-## [Criar um conjunto de dimensionamento no portal](virtual-machine-scale-sets-portal-create.md)
-## [Criar um conjunto de dimensionamento usando a CLI do Azure](virtual-machine-scale-sets-linux-create-cli.md)
-## [Criar um conjunto de dimensionamento usando um modelo do Resource Manager](virtual-machine-scale-sets-mvss-start.md)
+## [Implantar um conjunto de dimensionamento no portal](virtual-machine-scale-sets-portal-create.md)
+## [Implantar um conjunto de dimensionamento usando a CLI do Azure](virtual-machine-scale-sets-linux-create-cli.md)
+## [Implantar um conjunto de dimensionamento simples usando um Modelo do Resource Manager](virtual-machine-scale-sets-mvss-start.md)
 
 # Como
 ## Planejar e projetar
 ### [Considerações sobre o design](virtual-machine-scale-sets-design-overview.md)
+## Escrever modelos do conjunto de dimensionamento para
+### [Implantar um conjunto de dimensionamento simples](virtual-machine-scale-sets-mvss-start.md)
+### [Implante um conjunto de dimensionamento em uma rede virtual existente](virtual-machine-scale-sets-mvss-existing-vnet.md)
 
 ## Implantar
 ### [Conjunto de dimensionamento usando o portal](virtual-machine-scale-sets-portal-create.md)
@@ -36,6 +39,9 @@
 
 ## Solucionar problemas
 ### [Autoescala](virtual-machine-scale-sets-troubleshoot.md)
+
+## Perguntas frequentes
+### [Perguntas frequentes do conjunto de dimensionamento](virtual-machine-scale-sets-faq.md)
 
 # Referência
 ## [PowerShell](/powershell/azureps-cmdlets-docs)

@@ -3,7 +3,7 @@ title: "Solução de problemas: Gerenciamento de senhas do Azure AD | Microsoft 
 description: "Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: 3515091cf71ecb595d8c08902ff13549a9ddd2f4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 3aa3a2fce46f37b06b60472d296e21fd10e070dc
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="how-to-troubleshoot-password-management"></a>Como solucionar problemas de gerenciamento de senha
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
 Se você estiver tendo problemas com o gerenciamento de senhas, estamos aqui para ajudar. A maioria dos problemas que podem ocorrer são resolvidos com algumas etapas de solução de problemas simples que você pode ler abaixo para solucionar problemas na sua implantação:
 
@@ -46,9 +47,9 @@ Se você não conseguir solucionar seu problema com as orientações abaixo, pod
 * **Página** - em que página você estava quando viu o erro (inclua a URL)?
 * **Data/hora/fuso horário** - qual era a exata data e hora em que você viu o erro (inclua o fuso horário)?
 * **Código de suporte** : qual foi o código de suporte gerado quando o usuário viu o erro (para encontrá-lo, reproduza o erro, clique no link do Código de suporte na parte inferior da tela e envie ao engenheiro de suporte a GUID resultante).
-  
+
   * Se você estiver em uma página sem um código de suporte na parte inferior, pressione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
-    
+
     ![][001]
 * **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
 * **Informações sobre o usuário** : o usuário era federado, a senha era sincronizada com hash, somente na nuvem?  O usuário tinha uma licença AAD Premium ou AAD básica atribuída?
@@ -726,7 +727,7 @@ Se você tiver filtros de senha ativados e um usuário selecionar uma senha que 
               <p>HR 8023042</p>
             </td>
             <td>
-              <p>O Mecanismo de Sincronização retornou um erro hr = 80230402, mensagem= Houve uma falha na tentativa de obter um objeto, porque existem entradas duplicadas com a mesma âncora</p>
+              <p>O Mecanismo de Sincronização retornou um erro hr =&80230;402, mensagem= Houve uma falha na tentativa de obter um objeto, porque existem entradas duplicadas com a mesma âncora</p>
             </td>
             <td>
               <p>ADSync</p>
@@ -1455,7 +1456,7 @@ A reinicialização do serviço de sincronização do Azure AD Connect pode ajud
 2. Digite **“services.msc”** na caixa de pesquisa e pressione **Enter**.
 3. Procure a entrada do **Microsoft Azure AD Connect** .
 4. Com o botão direito do mouse na entrada do serviço, clique em **Reiniciar**e aguarde a conclusão da operação.
-   
+
    ![][002]
 
 Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.  Se a reinicialização do serviço de sincronização não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o recurso de write-back de senha como uma próxima etapa.
@@ -1468,14 +1469,14 @@ Desabilitar e reabilitar o recurso de write-back de senha podem ajudar a resolve
 3. No diálogo **Conectar-se ao AD DS**, insira suas **credenciais de administrador de Serviços de Domínio do AD**.
 4. No diálogo **Identificar exclusivamente os seus usuários**, clique no botão **Avançar**.
 5. No diálogo **Funcionalidades opcionais**, desmarque a caixa de seleção **Write-back de senha**.
-   
+
    ![][003]
 6. Clique em **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
 7. Verifique se a página de configuração mostra a **Opção de write-back de senha como desabilitada** e clique no botão verde **Configurar** para confirmar as suas alterações.
 8. No diálogo **Concluído**, desmarque a opção **Sincronizar agora** e clique em **Concluir** para fechar o assistente.
 9. Abra novamente o **Assistente de configuração do Azure AD Connect**.
 10. **Repita as etapas de 2 a 8**, mas confirme que você **marcou a opção Write-back de senha** na tela **Funcionalidades opcionais** para reabilitar o serviço.
-    
+
     ![][004]
 
 Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.
@@ -1496,14 +1497,12 @@ Se a instalação da versão mais recente do servidor Azure AD Connect não reso
 
 Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback) e nas [Perguntas frequentes sobre o gerenciamento de senhas do Azure AD](active-directory-passwords-faq.md) para ver se o problema pode ter sido discutido ali.
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
+
+## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -1516,9 +1515,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

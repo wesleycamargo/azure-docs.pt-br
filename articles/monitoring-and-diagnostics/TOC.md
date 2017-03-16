@@ -29,7 +29,7 @@
 ### [Exibir eventos no log de atividades](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Configurar webhook em um alerta de log de atividades](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Arquivar log de atividades](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
-### [Transmitir o log de atividades para os Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [Transmitir log de atividades para Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 ### [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/resource-group-audit.md)
 ## Gerenciar logs de diagnóstico
 ### [Arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
@@ -37,6 +37,8 @@
 ### [Habilitar configurações de diagnóstico usando modelos do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
 ## Usar a API REST
 ### [Passo a passo usando a API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+## Usar Diagnóstico do Azure
+### [Enviar para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-applicationinsights.md)
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
@@ -52,8 +54,3 @@
 ## [Exemplos do PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Exemplos de CLI 1.0 do Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Lista de métricas com suporte](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
