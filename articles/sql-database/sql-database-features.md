@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 02/01/2017
+ms.date: 03/03/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: e052109ff10f21c3a737f336479fe43fb54e500e
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -60,7 +60,7 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 | Funções de aplicativo | [Com suporte](https://msdn.microsoft.com/library/ms190998.aspx) | [Com suporte](https://msdn.microsoft.com/library/ms190998.aspx) |
 | Escala automática | Sem suporte | [Com suporte](sql-database-service-tiers.md) |
 | Azure Active Directory | Sem suporte | [Com suporte](sql-database-aad-authentication.md) |
-| Fábrica de dados do Azure | Sem suporte – consulte [SSIS (SQL Server Integration Services)](https://msdn.microsoft.com/library/ms141026.aspx) | [Com suporte](https://azure.microsoft.com/services/data-factory/) |
+| Fábrica de dados do Azure | [Com suporte](../data-factory/data-factory-introduction.md) | [Com suporte](../data-factory/data-factory-introduction.md) |
 | Auditoria | [Com suporte](https://msdn.microsoft.com/library/cc280386.aspx) | [Com suporte](sql-database-auditing.md) |
 | Arquivo BACPAC (exportação) | [Com suporte](https://msdn.microsoft.com/library/hh213241.aspx) | [Com suporte](sql-database-export.md) |
 | Arquivo BACPAC (importação) | [Com suporte](https://msdn.microsoft.com/library/hh710052.aspx) | [Com suporte](sql-database-import-portal.md) |
@@ -118,7 +118,8 @@ Continuamos a adicionar recursos à V12. Portanto, recomendamos que você visite
 | Polybase | [Com suporte](https://msdn.microsoft.com/library/mt143171.aspx) | [Sem suporte]
 | Gerenciamento baseado em políticas | [Com suporte](https://msdn.microsoft.com/library/bb510667.aspx) | Sem suporte |
 | Predicados | [Com suporte](https://msdn.microsoft.com/library/ms189523.aspx) | [A maioria](https://msdn.microsoft.com/library/ms189523.aspx)
-| Administrador de recursos | [Com suporte](https://msdn.microsoft.com/library/bb933866.aspx) | [Interno](sql-database-service-tiers.md) |
+| R Services | [Com suporte](https://msdn.microsoft.com/library/mt604845.aspx)
+| Administrador de recursos | [Com suporte](https://msdn.microsoft.com/library/bb933866.aspx) | Sem suporte |
 | Restauração do banco de dados por meio de backup | [Com suporte](https://msdn.microsoft.com/library/ms187048.aspx#anchor_6) | [Somente de backups internos](sql-database-recovery-using-backups.md) |
 | Segurança em nível de linha | [Com suporte](https://msdn.microsoft.com/library/dn765131.aspx) | [Com suporte](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Instruções de segurança | [Com suporte](https://msdn.microsoft.com/library/ff848791.aspx) | [Alguns](https://msdn.microsoft.com/library/ff848791.aspx) |

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 02/28/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: fda7455320e1c043f1f5aa2a92b72329fc20e76a
-ms.openlocfilehash: b4aca222974e3165c9131134a8e1a2171b3d5088
+ms.sourcegitcommit: feb6e388a98cd6e133d010cada97f895140c3f4f
+ms.openlocfilehash: ee9a3b605c5445007f880a37e96c2326dd7c9b89
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -40,7 +41,7 @@ O agendador em si está sempre em execução, mas ele pode ser configurado para 
 ## <a name="scheduler-configuration"></a>Configuração do agendador
 Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
 
 Se você vir **O comando de sincronização ou o cmdlet não está disponível** quando executar esse cmdlet, o módulo do PowerShell não estará carregado. Esse problema poderá ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell do que as configurações padrão. Se você vir esse erro, execute `Import-Module ADSync` para disponibilizar o cmdlet.
 
@@ -52,7 +53,8 @@ Se você vir **O comando de sincronização ou o cmdlet não está disponível**
 * **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Esses logs podem ser analisados no gerenciador do serviço de sincronização. O padrão é manter os logs por sete dias.
 * **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
 * **MaintenanceEnabled**. Mostra se o processo de manutenção está habilitado. Ele atualiza os certificados/chaves e limpa o log de operações.
-* **IsStagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Quando essa configuração está habilitada, ela impede que as exportações sejam executadas, mas ainda executa a importação e a sincronização.
+* **StagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado. Quando essa configuração está habilitada, ela impede que as exportações sejam executadas, mas ainda executa a importação e a sincronização.
+* **SchedulerSuspended**. Definido pelo Connect durante uma atualização para bloquear temporariamente a execução do agendador.
 
 Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os parâmetros a seguir podem ser modificados:
 
@@ -61,6 +63,8 @@ Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os 
 * PurgeRunHistoryInterval
 * SyncCycleEnabled
 * MaintenanceEnabled
+
+Em builds anteriores do Azure AD Connect, **isStagingModeEnabled** era exposto em Set-ADSyncScheduler. **Não há suporte** para a definição dessa propriedade. A propriedade **SchedulerSuspended** só deve ser modificada pelo Connect. **Não há suporte** para a definição dela diretamente com o PowerShell.
 
 A configuração do agendador é armazenada no Azure AD. Se você tiver um servidor de preparo, uma alteração no servidor primário também afetará o servidor de preparo (exceto IsStagingModeEnabled).
 
@@ -169,9 +173,4 @@ Se você iniciar o assistente de instalação, o agendador será temporariamente
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
