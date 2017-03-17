@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ea7095e12b6194556d3cd0baa43ccfed1e087ee
-ms.openlocfilehash: b28eec9a01c45468e0cc323514d9c2e91ec88bf5
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: a4d30ffc0a5c5ef9fe7bb892d17f0859ff27f569
+ms.openlocfilehash: 85fd87c1523eb2beb59e2ef36e604063a3f373aa
+ms.lasthandoff: 03/02/2017
 
 
 ---
 # <a name="extend-hdinsight-capabilities-by-using-azure-virtual-network"></a>Estender os recursos do HDInsight usando a Rede Virtual do Azure
-A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para incorporar recursos locais como SQL Server, combinar vários tipos de cluster HDInsight ou criar redes privadas seguras entre recursos na nuvem.
+A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para incorporar recursos locais, como o SQL Server. Ela também permite que você combine vários tipos de cluster HDInsight ou crie redes privadas seguras entre recursos na nuvem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* CLI 2.0 do Azure: confira [Instalar e configurar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) para saber mais.
+* CLI do Azure 2.0: para obter mais informações, consulte [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Instalar e configurar a CLI do Azure 2.0).
 
-* Azure PowerShell: veja [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações.
+* Azure PowerShell: para obter mais informações, consulte [Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Instalar e configurar o Azure PowerShell).
 
 > [!NOTE]
 > As etapas neste documento requerem a versão mais recente da CLI do Azure e do Azure PowerShell. Se você estiver usando uma versão mais antiga, os comandos poderão ser diferentes. Para obter melhores resultados, use os links anteriores para instalar as versões mais recentes.
@@ -45,11 +45,11 @@ A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para in
   
     * **Invocar serviços ou trabalhos do HDInsight** de sites do Azure ou de serviços em execução em máquinas virtuais do Azure.
     * **Transferência direta de dados** entre o HDInsight e o Banco de Dados SQL do Azure, o SQL Server ou outra solução de armazenamento de dados em execução em uma máquina virtual.
-    * **Combinar vários servidores HDInsight** em uma única solução. Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster. O uso de uma rede virtual permite que vários clusters comuniquem-se diretamente entre si.
+    * **Combinar vários servidores HDInsight** em uma única solução. Há vários tipos de clusters HDInsight que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster. O uso de uma rede virtual permite que vários clusters comuniquem-se diretamente entre si.
 
 * Conecte seus recursos de nuvem à sua rede de datacenter local (site a site ou ponto a site), usando uma VPN (rede privada virtual).
   
-    A configuração site a site permite conectar vários recursos do datacenter à rede virtual do Azure usando uma VPN de hardware ou o serviço de Roteamento e Acesso Remoto.
+    A configuração de site a site permite que você conecte vários recursos do seu datacenter à rede virtual do Azure. A conexão pode ser feita usando um dispositivo VPN de hardware ou o serviço de roteamento e acesso remoto.
   
     ![diagrama da configuração site a site](media/hdinsight-extend-hadoop-virtual-network/site-to-site.png)
   
@@ -65,7 +65,7 @@ A Rede Virtual do Azure permite que você estenda suas soluções Hadoop para in
 Para obter mais informações sobre os recursos, benefícios e capacidades das redes virtuais, consulte a [Visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
 > [!NOTE]
-> Você deve criar a Rede Virtual do Azure antes de provisionar um cluster HDInsight. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
+> Crie a Rede Virtual do Azure antes de provisionar um cluster HDInsight e, em seguida, especifique a rede ao criar o cluster. Para obter mais informações, consulte [Tarefas de configuração de rede virtual](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## <a name="virtual-network-requirements"></a>Requisitos de Rede Virtual
 
@@ -78,21 +78,26 @@ O Azure HDInsight dá suporte apenas a redes virtuais baseadas em local e atualm
 
 ### <a name="classic-or-v2-virtual-network"></a>Rede virtual clássica ou v2
 
-Os clusters baseados em Linux exigem uma rede virtual do Azure Resource Manager (clusters baseados em Windows exigem uma rede virtual clássica). Se você não tiver o tipo correto de rede, ele não poderá ser usado durante a criação do cluster.
+Os clusters baseados em Linux exigem uma rede virtual do Azure Resource Manager (clusters baseados em Windows exigem uma rede virtual clássica). Se você não tiver o tipo de rede correto, ele não poderá ser selecionado durante a criação do cluster.
 
-Se você tiver recursos em uma Rede Virtual que não pode ser usada pelo cluster que você planejar criar, é possível criar uma nova Rede Virtual que pode ser usada pelo cluster e conectá-la à Rede Virtual incompatível. Em seguida, você pode criar o cluster na versão de rede exigida, e ele poderá acessar os recursos na outra rede, pois as duas foram unidas. Para obter mais informações sobre como conectar Redes Virtuais clássicas e novas, veja [Conectando Redes Virtuais clássicas a Redes Virtuais novas](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+Você pode unir os diferentes tipos de rede, o que permite que você acesse recursos em uma rede virtual incompatível. Crie o cluster na versão de rede exigida e ele poderá acessar os recursos na outra rede, pois as duas foram unidas. Para obter mais informações sobre como conectar Redes Virtuais clássicas e do Resource Manager, consulte [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) (Conectando Redes Virtuais clássicas a Redes Virtuais novas).
 
 ### <a name="custom-dns"></a>DNS personalizado
 
-Ao criar uma rede virtual, o Azure fornece resolução de nomes padrão para os serviços do Azure, como o HDInsight que é instalado na rede. No entanto, você pode ter que usar seu próprio DNS (sistema de nomes de domínio) para situações como resolução de nomes de domínio entre redes. Por exemplo, na comunicação entre serviços localizados em duas redes virtuais unidas. O HDInsight dá suporte tanto à resolução de nomes do Azure padrão como ao DNS personalizado quando usado com a rede virtual do Azure.
+Ao criar uma rede virtual, o Azure fornece resolução de nomes padrão para os serviços do Azure, como o HDInsight que é instalado na rede. No entanto, você pode ter que usar seu próprio DNS (sistema de nomes de domínio) para situações como resolução de nomes de domínio entre redes. Por exemplo, na comunicação entre serviços localizados em duas redes virtuais unidas. O HDInsight dá suporte tanto à resolução de nomes padrão do Azure quanto ao DNS personalizado quando usado com a Rede Virtual do Azure.
 
-Para saber mais sobre como usar seu próprio servidor DNS com a Rede Virtual do Azure, confira a seção **Resolução de nomes usando o seu próprio servidor DNS** no documento [Resolução de nomes de máquinas virtuais e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) .
+Para obter mais informações sobre como usar um servidor DNS personalizado, consulte o documento [Resolução de nomes de máquinas virtuais e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 ### <a name="secured-virtual-networks"></a>Redes virtuais protegidas
 
-O serviço do HDInsight é um serviço gerenciado e requer acesso à Internet durante o provisionamento e a execução. Isso é necessário para que o Azure possa monitorar a integridade do cluster, iniciar o failover dos recursos de cluster, alterar o número de nós no cluster por meio de operações de escala, bem como outras tarefas de gerenciamento.
+O serviço do HDInsight é um serviço gerenciado e requer acesso à Internet durante o provisionamento e a execução. A conectividade com a Internet é usada pelo Azure para:
 
-Se você precisar instalar o HDInsight em uma Rede Virtual protegida, será necessário permitir o acesso de entrada pela porta 443 para os seguintes endereços IP, que permitem ao Azure gerenciar o cluster HDInsight.
+* Monitorar a integridade do cluster
+* Iniciar o failover dos recursos do cluster
+* Alterar o número de nós do cluster por meio de operações de colocação em escala
+* Outras tarefas de gerenciamento
+
+Essas operações não exigem acesso completo à Internet. Ao restringir o acesso à Internet, habilite o acesso de entrada na porta 443 para os seguintes endereços IP. Isso permite que o Azure gerencie o HDInsight:
 
 > [!IMPORTANT]
 > Os endereços IP que devem ser permitidos são específicos à região em que o cluster HDInsight e a Rede Virtual residem. Use os valores a seguir para encontrar os endereços IP para a região que você está usando.
@@ -111,6 +116,11 @@ Região __Canadá Central__:
 
 * 52.228.37.66
 * 52.228.45.222
+
+Região __Índia Central__:
+
+* 52.172.153.209
+* 52.172.152.49
 
 Região __Centro-Oeste dos EUA__:
 
@@ -134,16 +144,16 @@ Permitir o acesso de entrada desses endereços por meio da porta 443 permitirá 
 > [!IMPORTANT]
 > O HDInsight não permite a restrição do tráfego de saída, somente o tráfego de entrada. Ao definir regras do Grupo de Segurança de Rede para a sub-rede que contém o HDInsight, use somente regras de entrada.
 
-Os exemplos a seguir demonstram como criar um novo Grupo de Segurança de Rede que permite os endereços necessários e que aplica o grupo de segurança a uma sub-rede em sua Rede Virtual. Os endereços usados neste exemplo são da lista __Todas as outras regiões__ acima. Se você estiver em uma das regiões especificamente listadas, como __Centro-Oeste dos EUA__, modifique o script para usar os endereços IP da sua região.
+Os exemplos a seguir demonstram como criar um Grupo de Segurança de Rede que permite os endereços necessários e aplica o grupo de segurança a uma sub-rede em sua Rede Virtual. Modifique os endereços IP usados neste exemplo para que eles correspondam à região do Azure que você está usando.
 
 Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-rede na qual deseja instalar o HDInsight. Consulte [Criar uma Rede Virtual usando o Portal do Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 > [!IMPORTANT]
-> Observe o valor `priority` usado nesses exemplos. As regras são testadas no tráfego de rede na ordem de prioridade. Depois que uma regra corresponde aos critérios de teste e é aplicada, nenhuma outra regra é testada.
+> Observe o valor `priority` usado nesses exemplos. As regras são testadas no tráfego de rede em ordem de prioridade. Depois que uma regra corresponde aos critérios de teste e é aplicada, nenhuma outra regra é testada.
 > 
-> Se você tiver regras personalizadas que bloqueiam amplamente tráfego de entrada (como uma regra **negar tudo**), talvez seja necessário ajustar os valores de prioridade nesses exemplos ou suas regras personalizadas para que as regras nos exemplos ocorram antes das regras que bloqueiam o acesso. Caso contrário, a regra **negar tudo** será testada primeiro e as regras neste exemplo nunca serão aplicadas. Você também deve tomar cuidado para não bloquear as regras padrão para uma Rede Virtual do Azure. Por exemplo, você não deve criar uma regra **negar tudo** que é aplicada antes da regra **ALLOW VNET INBOUND** padrão (que tem uma prioridade 65000.)
+> Se você tiver regras personalizadas que bloqueiam amplamente o tráfego de entrada (como uma regra **negar tudo**), talvez seja necessário ajustar os valores de prioridade nesses exemplos. As regras nos exemplos precisam ocorrer antes das regras que bloqueiam o acesso. Caso contrário, a regra **negar tudo** será testada primeiro e as regras neste exemplo nunca serão aplicadas. Você não deve bloquear as regras padrão em uma Rede Virtual do Azure. Por exemplo, você não deve criar uma regra **negar tudo** que é aplicada antes da regra **ALLOW VNET INBOUND** padrão (que tem uma prioridade 65000.)
 > 
-> Para obter mais informações sobre como as regras são aplicadas e as regras de entrada e saída padrão, consulte [O que é Grupo de Segurança da Rede?](../virtual-network/virtual-networks-nsg.md).
+> Para obter mais informações sobre as regras do Grupo de Segurança de Rede, confira [O que é um Grupo de Segurança de Rede?](../virtual-network/virtual-networks-nsg.md).
 
 **Usando o PowerShell do Azure**
 
@@ -219,7 +229,7 @@ Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-red
 
 **Usando a CLI do Azure**
 
-1. Use o seguinte comando para criar um novo grupo de segurança de rede chamado `hdisecure`. Substitua **RESOURCEGROUPNAME** e **LOCATION** pelo grupo de recursos que contém a Rede Virtual do Azure e pelo local (região) em que o grupo foi criado.
+1. Use o seguinte comando para criar um novo grupo de segurança de rede chamado `hdisecure`. Substitua **RESOURCEGROUPNAME** pelo grupo de recursos que contém a Rede Virtual do Azure. Substitua **LOCATION** pelo local (região) em que o grupo foi criado.
    
         az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
 
@@ -236,7 +246,7 @@ Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-red
 
         az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
 
-    Isso retorna um valor semelhante ao texto a seguir:
+    Esse comando retorna um valor semelhante ao texto a seguir:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
@@ -249,14 +259,14 @@ Essas etapas pressupõem que você já tenha criado uma Rede Virtual e a sub-red
     Após a conclusão desse comando, é possível instalar com êxito o HDInsight na Rede Virtual protegida, na sub-rede usada nessas etapas.
 
 > [!IMPORTANT]
-> Usar as etapas acima abre o acesso somente ao serviço de integridade e gerenciamento do HDInsight na nuvem do Azure. Isso permite uma instalação bem-sucedida de um cluster HDInsight na sub-rede; no entanto, o acesso ao cluster HDInsight de fora da Rede Virtual é bloqueado por padrão. Você terá de adicionar mais regras do Grupo de Segurança de Rede se desejar habilitar o acesso de fora da Rede Virtual.
+> O uso das etapas anteriores abre somente o acesso ao serviço de integridade e gerenciamento do HDInsight na nuvem do Azure. Qualquer outro acesso ao cluster HDInsight de fora da Rede Virtual permanecerá bloqueado. Você precisará adicionar mais regras do Grupo de Segurança de Rede se desejar habilitar o acesso de fora da Rede Virtual.
 > 
-> Por exemplo, para permitir o acesso SSH da Internet, você precisará adicionar uma regra semelhante à seguinte: 
+> O exemplo a seguir demonstra como habilitar o acesso SSH por meio da Internet: 
 > 
 > * Azure PowerShell - ```Add-AzureRmNetworkSecurityRuleConfig -Name "SSSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 304 -Direction Inbound```
 > * CLI do Azure - ```az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"```
 
-Para saber mais sobre os Grupos de Segurança de Rede, confira [Visão geral dos Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, confira [Rotas e encaminhamento IP definidos pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
+Para saber mais sobre os Grupos de Segurança de Rede, confira [Visão geral dos Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md). Para saber mais sobre como controlar o roteamento em uma Rede Virtual do Azure, confira [Encaminhamento IP e rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md).
 
 ## <a id="tasks"></a>Tarefas e informações
 
@@ -264,17 +274,14 @@ Esta seção contém informações sobre tarefas comuns e informações que pode
 
 ### <a name="determine-the-fqdn"></a>Determinar o FQDN
 
-Um FQDN (nome de domínio totalmente qualificado) será atribuído ao cluster HDInsight para a interface da Rede Virtual. Esse é o endereço que você deve usar ao se conectar ao cluster por meio de outros recursos na rede virtual. Para determinar o FQDN, use a seguinte URL para consultar o serviço de gerenciamento Ambari:
+Um FQDN (nome de domínio totalmente qualificado) será atribuído ao cluster HDInsight para o adaptador de rede virtual. O FQDN é o endereço que você deve usar ao se conectar ao cluster por meio de outros recursos do Azure na rede virtual. Para determinar o FQDN, use a seguinte URL para consultar o serviço de gerenciamento Ambari:
 
     https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [!NOTE]
-> Para obter mais informações sobre como usar o Ambari com o HDInsight, consulte [Monitorar clusters Hadoop no HDInsight usando a API do Ambari](hdinsight-monitor-use-ambari-api.md).
-
-Você deve especificar o nome do cluster e um serviço e componente em execução no cluster, como o gerenciador de recursos YARN.
+Você deve usar o nome do cluster e um serviço e um componente em execução no cluster, como o gerenciador de recursos YARN.
 
 > [!NOTE]
-> Os dados retornados são um documento JSON (JavaScript Object Notation) que contém muitas informações sobre o componente. Para extrair apenas o FQDN, você deve usar um analisador JSON para recuperar o valor `host_components[0].HostRoles.host_name` .
+> Os dados retornados são um documento JSON (JavaScript Object Notation). Para extrair apenas o FQDN, você deve usar um analisador JSON para recuperar o valor `host_components[0].HostRoles.host_name` .
 
 Por exemplo, para retornar o FQDN de um cluster Hadoop no HDInsight, você pode usar um dos métodos a seguir para recuperar os dados para o gerenciador de recursos YARN:
 
@@ -299,9 +306,17 @@ Por exemplo, para retornar o FQDN de um cluster Hadoop no HDInsight, você pode 
   
         curl -G -u <username>:<password> https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/yarn/components/resourcemanager | jq .host_components[0].HostRoles.host_name
 
+> [!IMPORTANT]
+> Se tiver restringido o acesso à Internet no cluster, você não poderá usar o Ambari pela Internet. Como alternativa, você deverá usar um dos métodos a seguir para recuperar o FQDN:
+>
+> * Azure PowerShell: `Get-AzureRmNetworkInterface -ResourceGroupName GROUPNAME | Foreach-object { Write-Output $_.DnsSettings.InternalFqdn }`
+> * CLI do Azure 2.0: ` az network nic list --resource-group GROUPNAME --query '[].dnsSettings.internalFqdn'`
+>
+> Nos dois exemplos, substitua __GROUPNAME__ pelo nome do grupo de recursos que contém a Rede Virtual.
+
 ### <a name="connecting-to-hbase"></a>Conectando-se ao HBase
 
-Para se conectar ao HBase remotamente usando a API do Java, você deve determinar os endereços de quorum ZooKeeper para o cluster HBase e especificá-los no seu aplicativo.
+Para se conectar ao HBase remotamente usando a API do Java, você deve determinar os endereços de quorum ZooKeeper para o cluster HBase e especificar as informações de quorum no seu aplicativo.
 
 Para obter o endereço de quorum ZooKeeper, use um dos seguintes métodos para consultar o serviço de gerenciamento Ambari:
 
@@ -351,15 +366,13 @@ Por exemplo, para um aplicativo Java que usa a API do HBase, você adicionaria u
 
 ### <a name="verify-network-connectivity"></a>Verificar a conectividade de rede
 
-Alguns serviços, como o SQL Server, podem limitar conexões de rede. Isso impedirá que HDInsight trabalhe com êxito com esses serviços.
-
-Se você encontrar problemas ao acessar um serviço do HDInsight, consulte a documentação para o serviço para garantir que você habilitou o acesso à rede. Você também pode verificar o acesso à rede criando uma máquina virtual do Azure na mesma rede virtual e usar utilitários de cliente para verificar se a máquina virtual consegue se conectar ao serviço através da rede virtual.
+Alguns serviços, como o SQL Server, podem limitar conexões de rede. Se você encontrar problemas ao acessar um serviço do HDInsight, consulte a documentação para o serviço para garantir que você habilitou o acesso à rede. Você também pode verificar o acesso à rede criando uma máquina virtual do Azure na mesma rede virtual. Use utilitários de cliente na máquina virtual para verificar se ela pode se conectar ao serviço por meio da rede virtual.
 
 ## <a id="nextsteps"></a>Próximas etapas
 
 Os exemplos a seguir demonstram como usar o HDInsight com a Rede Virtual do Azure:
 
-* [Analisar dados de sensor com o Storm e o HBase no HDInsight](hdinsight-storm-sensor-data-analysis.md) : demonstra como configurar um cluster Storm e HBase em uma rede virtual e como gravar dados remotamente no HBase pelo Storm.
+* [Analisar dados de sensor com o Storm e o HBase no HDInsight](hdinsight-storm-sensor-data-analysis.md): demonstra como configurar um cluster Storm e HBase em uma rede virtual.
 * [Provisionar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) : fornece informações sobre como provisionar clusters Hadoop, inclusive informações sobre como usar a Rede Virtual do Azure.
 * [Usar o Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop-mac-linux.md) : fornece informações sobre como usar o Sqoop para transferir dados com o SQL Server em uma rede virtual.
 

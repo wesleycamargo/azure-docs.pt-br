@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43e9febd4bc230db69b55ae3f5bb13ff17b2e3f6
+ms.sourcegitcommit: a2ce8c3a6aad76ca491ca17beab8555ad77a1142
+ms.openlocfilehash: 3bfb340639674406a0a983106b56ca4a993aaf14
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -26,8 +27,8 @@ O objetivo desse tutorial é mostrar como integrar o Recognize ao Azure AD (Azur
 A integração do Recognize ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem tem acesso ao Recognize
-* Você pode permitir que os usuários façam logon automaticamente no Recognize (Logon Único) com suas contas do Azure AD
-* Você pode gerenciar suas contas em um único local: o Portal clássico do Azure
+* Permita que os usuários façam logon automaticamente no Recognize usando SSO (logon único) com suas contas do Azure AD
+* Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
@@ -35,25 +36,24 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Recognize, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura do Recognize com logon único habilitado
+* Uma assinatura do Recognize com SSO habilitado
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
-> 
+ >[!NOTE]
+ >Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
+ > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
+O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Recognize da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 ## <a name="adding-recognize-from-the-gallery"></a>Adicionando o Recognize da galeria
 Para configurar a integração do Recognize ao Azure AD, você precisará adicionar o Recognize da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -80,25 +80,25 @@ Para configurar a integração do Recognize ao Azure AD, você precisará adicio
    
     ![Seleção do aplicativo na galeria](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_0001.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o Recognize, com base em um usuário de teste chamado "Brenda Fernandes".
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o Recognize, com base em um usuário de teste chamado "Brenda Fernandes".
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Recognize é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Recognize.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Recognize é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Recognize.
 
 Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuário** no Azure AD ao valor do **Nome de Usuário** no Recognize.
 
-Para configurar e testar o logon único do Azure AD com o Recognize, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Recognize, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
 3. **[Criação de um usuário de teste do Recognize](#creating-a-recognize-test-user)** – para ter um equivalente de Brenda Fernandes no Recognize que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo Recognize.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+Nesta seção, você habilitará o logon único (SSO) do Azure AD no portal clássico e configurará o logon único (SSO) em seu aplicativo Recognize.
 
-**Para configurar o logon único do Azure AD com o Recognize, execute as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o Recognize, execute as seguintes etapas:**
 
 1. No portal clássico, na página de integração de aplicativos do **Recognize**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
@@ -108,18 +108,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     ![Configurar Logon Único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_03.png)
 3. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar o logon único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_04.png)
-   
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/sso`.
-   
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/metadata`.
-   
-    c. Clique em **Próximo**
-   
-   > [!NOTE]
-   > Se você não conhecer essas URLs, digite URLs de amostra, com o padrão de exemplo. Para obter esses valores, confira a etapa 9 para ver mais detalhes ou entre em contato com a equipe de suporte do Recognize por <mailto:support@recognizeapp.com>.
-   > 
-   > 
+    ![Configurar Logon Único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_04.png)
+  1. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/sso`. 
+  2. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://recognizeapp.com/<your-domain>/saml/metadata`.
+  3. Clique em **Próximo**.
+  
+    >[!NOTE]
+    >Se você não conhecer essas URLs, digite URLs de amostra, com o padrão de exemplo. Para obter esses valores, confira a etapa 9 para ver mais detalhes ou entre em contato com a equipe de suporte do Recognize por <mailto:support@recognizeapp.com>.
+    >
+
 4. Na página **Configurar logon único no Recognize**, clique em **Baixar certificado** e, em seguida, salve o arquivo no computador:
    
     ![Configurar Logon Único](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_05.png)
@@ -133,18 +130,12 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 8. Realize as seguintes etapas na seção **Configurações do SSO**.
    
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_002.png)
-   
-    a. Em **Habilitar SSO**, selecione **ATIVADO**.
-   
-    b. Na caixa de texto **ID da entidade do IDP**, coloque o valor da **URL do Emissor** do assistente de configuração de aplicativo do Azure AD.
-   
-    c. Na caixa de texto **URL de destino do SSO**, insira o valor da **URL de serviço de logon único** do assistente de configuração de aplicativo do Azure AD.
-   
-    d. Na caixa de texto **URL de destino do SLO**, insira o valor da **URL de serviço de logoff único** do assistente de configuração de aplicativo do Azure AD.
-   
-    e. Abra seu arquivo de certificado baixado no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**. 
-   
-    f. Clique no botão **Salvar configurações**. 
+ 1. Em **Habilitar SSO**, selecione **ATIVADO**.
+ 2. Na caixa de texto **ID da entidade do IDP**, coloque o valor da **URL do Emissor** do assistente de configuração de aplicativo do Azure AD. 
+ 3. Na caixa de texto **URL de destino do SSO**, insira o valor da **URL de serviço de logon único** do assistente de configuração de aplicativo do Azure AD. 
+ 4. Na caixa de texto **URL de destino do SLO**, insira o valor da **URL de serviço de logoff único** do assistente de configuração de aplicativo do Azure AD. 
+ 5. Abra seu arquivo de certificado baixado no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado**.  
+ 6. Clique no botão **Salvar configurações**. 
 9. Ao lado da seção **Configurações de SSO**, copie a URL em **URL de metadados do provedor de serviço**.
    
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_003.png)
@@ -158,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -178,56 +169,44 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_05.png)
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+ 1. Em Tipo de Usuário, selecione Novo usuário na organização.  
+ 2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**. 
+ 3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png)
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_06.png) 
+ 1. Na caixa de texto **Nome**, digite **Brenda**.   
+ 2. Na caixa de texto **Sobrenome**, digite **Fernandes**. 
+ 3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**. 
+ 4. Na lista **Função**, selecione **Usuário**. 
+ 5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png)
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-recognize-tutorial/create_aaduser_08.png) 
+ 1. Anote o valor da **Nova Senha**. 
+ 2. Clique em **Concluído**.   
 
-### <a name="creating-a-recognize-test-user"></a>Criando um usuário de teste do Recognize
+### <a name="create-a-recognize-test-user"></a>Criar um usuário de teste do Recognize
 Para permitir que os usuários do Azure AD façam logon no Recognize, eles deverão ser provisionados no Recognize. No caso do Recognize, o provisionamento é uma tarefa manual.
 
 Este aplicativo não dá suporte ao provisionamento de SCIM, mas tem uma sincronização de usuário alternativa que provisiona usuários. 
 
-#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+
 1. Faça logon em seu site de empresa Recognize como um administrador.
 2. No canto superior direito, clique em **Menu**. Vá para **Administrador da Empresa**.
 3. No painel de navegação esquerdo, clique em **Configurações**.
 4. Execute as seguintes etapas na seção **Sincronização de usuário**.
    
-   ![Novo Usuário](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "New User")
-   
-   a. Em **Sincronização habilitada**, selecione **ATIVADO**.
-   
-   b. Em **Escolher o provedor de sincronização**, selecione **Microsoft / Office 365**.
-   
-   c. Clique em **Executar sincronização de usuário**
+   ![Novo Usuário](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")   
+ 1. Em **Sincronização habilitada**, selecione **ATIVADO**. 
+ 2. Em **Escolher o provedor de sincronização**, selecione **Microsoft / Office 365**. 
+ 3. Clique em **Executar Sincronização de Usuário**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 O objetivo dessa seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao Recognize.
 
 ![Atribuir usuário][200]
@@ -248,8 +227,8 @@ O objetivo dessa seção é habilitar Brenda Fernandes a usar o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Recognize no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo do Recognize.
 
@@ -274,9 +253,4 @@ Ao clicar no bloco do Recognize no Painel de Acesso, você deverá ser conectado
 [203]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

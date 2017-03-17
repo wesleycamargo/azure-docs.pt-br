@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 02/22/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 5d1ace8c6dab1655b0c2b512376b69444434f1ad
-ms.openlocfilehash: 414699ef94a6679f1b3bc777669674247a3449e9
+ms.sourcegitcommit: 47c897afd6321a59f540d1f0cb86602d4ea18ed1
+ms.openlocfilehash: 5aed4eb336d55c2954da563422972644e25d0140
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,6 +38,7 @@ O [Microsoft Operations Management Suite (OMS)](operations-management-suite-over
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Documentação do Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)
+* [API REST do Log Analytics](/rest/api/loganalytics)
 * [API do coletor de dados HTTP do Log Analytics](../log-analytics/log-analytics-data-collector-api.md)
 * [API da Pesquisa de Log](../log-analytics/log-analytics-log-search-api.md)
 * [API de Alerta](../log-analytics/log-analytics-api-alerts.md)
@@ -55,10 +57,5 @@ O [Microsoft Operations Management Suite (OMS)](operations-management-suite-over
 ## <a name="next-steps"></a>Próximas etapas
 * Leia sobre as diferentes opções de [integração com serviços do OMS](operations-management-suite-integration.md).
 * Crie uma solução personalizada no OMS (em breve).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

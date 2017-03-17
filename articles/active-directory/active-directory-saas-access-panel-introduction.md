@@ -11,17 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: 2dd9c96e1c15e424588869b61eb26501b1b66be3
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: ef589c768f60e9a68ac7bc952fa181758452b1bd
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="introduction-to-the-access-panel"></a>Introdução ao painel de acesso
+# <a name="what-is-the-access-panel"></a>O que é o painel de acesso
 O painel de acesso é um portal baseado na Web que permite que um usuário final, com uma conta organizacional no Active Directory do Azure, veja e inicie aplicativos baseados em nuvem aos quais ele tenha acesso concedido pelo administrador do AD do Azure. Se você for um usuário final com edições do Active Directory do Azure, também poderá utilizar os recursos de gerenciamento de grupo de autoatendimento por meio do painel de acesso. <br>
- O painel de acesso é separado do Portal de Gerenciamento do Azure e não requer que os usuários tenham uma assinatura do Azure. 
+O painel de acesso é separado do Portal de Gerenciamento do Azure e não requer que os usuários tenham uma assinatura do Azure. 
 
 ![Painel de acesso][1] 
 
@@ -49,8 +51,8 @@ Essa URL deve ser distribuída a todos os usuários que façam logon em aplicati
 
 ## <a name="authentication"></a>Autenticação
 Para acessar o painel de acesso, um usuário deve ser autenticado usando uma conta organizacional no AD do Azure. <br>
- Um usuário pode ser autenticado no Azure AD diretamente. <br>
- Como alternativa, se uma organização configurou a federação usando o AD FS ou outras tecnologias, os usuários poderão ser autenticados pelo Windows Server Active Directory.
+Um usuário pode ser autenticado no Azure AD diretamente. <br>
+Como alternativa, se uma organização configurou a federação usando o AD FS ou outras tecnologias, os usuários poderão ser autenticados pelo Windows Server Active Directory.
 
 Se um usuário tiver uma assinatura do Azure ou Office 365 e estiver usando o Portal de Gerenciamento do Azure ou um aplicativo do Office 365, ele verá a lista de aplicativos sem precisar entrar novamente. Usuários não autenticados serão solicitados a entrar usando o nome de usuário e a senha de sua conta no AD do Azure. Se a organização configurou a federação, digitar o nome do usuário é suficiente.
 
@@ -102,7 +104,7 @@ São aplicativos que o administrador adicionou na seção Active Directory do Po
 Quando um usuário clica em um bloco do aplicativo para um desses aplicativos, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
 ### <a name="password-based-sso-without-identity-provisioning"></a>SSO baseado em senha sem provisionamento de identidade
-São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*". <br>  Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
+São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*". <br> Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
 
 Quando um usuário clica em um bloco do aplicativo pela primeira vez para um desses aplicativos, ele é solicitado a instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome, que pode exigir a reinicialização do navegador da Web. Quando ele é retornado ao painel de acesso e clica novamente no bloco do aplicativo, será solicitado a ele um nome de usuário e uma senha para o aplicativo. Depois que o nome de usuário e a senha são inseridos, essas credenciais são armazenadas com segurança no AD do Azure e vinculadas à sua conta no AD do Azure, e o painel de acesso conectará automaticamente o usuário ao aplicativo usando essas credenciais.
 
@@ -131,9 +133,4 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

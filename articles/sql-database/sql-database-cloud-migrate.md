@@ -17,9 +17,9 @@ ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 21be71a1b4c79ecec8af02d08f65c41128c5ef73
-ms.openlocfilehash: 92c8f2e0f2dfa35c904a1132d72c037ceb7d3765
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 8d4823576fe0d44fa565fdb72e8b229d31dff609
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -51,7 +51,7 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 
 A lista a seguir contém recomendações para melhorar o desempenho durante o processo de importação.
 
-* Escolha o mais alto nível de serviço e nível de desempenho que seu orçamento permitir para maximizar o desempenho de transferência. Você pode reduzir verticalmente após a migração para economizar dinheiro. Confira [Alterar a camada de serviço e o nível de desempenho de um único banco de dados usando o portal do Azure](sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Alterar o nível de desempenho e a camada de serviço um único banco de dados usando o PowerShell](sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database) e [Alterar a camada de serviço e o nível de desempenho de um único banco de dados usando o Transact-SQL](sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)
+* Escolha o mais alto nível de serviço e nível de desempenho que seu orçamento permitir para maximizar o desempenho de transferência. Você pode reduzir verticalmente após a migração para economizar dinheiro. 
 * Minimize a distância entre o arquivo .BACPAC e o data center de destino.
 * Desabilitar estatísticas automaticamente durante a migração
 * Índices e tabelas de partição

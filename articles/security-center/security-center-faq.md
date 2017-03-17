@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2017
+ms.date: 02/22/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 40f8f1b52c39a170a57168db9227a7c2fa069570
-ms.openlocfilehash: 466d4a566ebb426f48e8c271e1305b844842d638
+ms.sourcegitcommit: f07cd15658f7d367bdf364ece449dd5d09b2f9d3
+ms.openlocfilehash: 38503e36f9c0ad981d0239d82a858dbe2c5263a4
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -36,7 +37,7 @@ A Central de Segurança é oferecida em duas camadas: Gratuita e Standard.
 
 A camada Gratuita permite definir políticas de segurança e receber alertas, incidentes e recomendações de segurança que orientam você durante o processo de configuração dos controles necessários. Com a Camada gratuita, você também pode monitorar o estado de segurança de seus recursos do Azure e de soluções de parceiros integradas à sua assinatura do Azure.
 
-A camada Standard oferece os recursos da camada Gratuita mais as detecções avançadas: inteligência de ameaças, análise comportamental, análise de falha e detecção de anomalias. Uma avaliação gratuita de 90 dias da camada Standard está disponível. Para atualizar, selecione Tipo de Preço na [política de segurança](security-center-policies.md#set-security-policies-for-subscriptions). Para saber mais, consulte [Azure Security Center pricing](security-center-pricing.md) (Preços da Central de Segurança do Azure).
+A camada Standard oferece os recursos da camada Gratuita mais as detecções avançadas: inteligência de ameaças, análise comportamental, análise de falha e detecção de anomalias. A camada Standard é oferecida gratuitamente nos 60 primeiros dias. Se você escolher continuar a usar o serviço por mais 60 dias, nós automaticamente começaremos a cobrar pelo serviço. Para atualizar, selecione Tipo de Preço na [política de segurança](security-center-policies.md#set-security-policies-for-subscriptions). Para saber mais, consulte [Azure Security Center pricing](security-center-pricing.md) (Preços da Central de Segurança do Azure).
 
 ## <a name="permissions"></a>Permissões
 A Central de Segurança do Azure usa o [RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md), que fornece [funções internas](../active-directory/role-based-access-built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
@@ -161,9 +162,4 @@ Pode levar algum tempo (menos de uma hora) para que os dados de exame sejam popu
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que recebo a mensagem "O Agente de VM está ausente?"
 O Agente de VM deve ser instalado nas VMs para habilitar a Coleta de Dados. O agente de VM está instalado por padrão nas VMs implantadas do Azure Marketplace. Para obter informações sobre como instalar o Agente da VM em outras VMs, consulte a postagem de blog sobre o [Agente de VM e Extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

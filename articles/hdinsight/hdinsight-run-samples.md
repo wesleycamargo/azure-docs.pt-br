@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: d83bfd81768722592565fe924c4d00610b149999
 ms.openlocfilehash: 16801860b78b40cc883393ca4db3ffa208b889fd
@@ -57,7 +58,7 @@ Hoje em dia, muitas pessoas escolhem o Hive e o Pig em vez do MapReduce.  Para o
     >
     > Execute as etapas em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrar para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
-## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java
+## <a name="hdinsight-sample-wordcount"></a>Contagem de palavras - Java
 Para enviar um projeto do MapReduce, primeiro você cria uma definição de trabalho do MapReduce. Na definição de trabalho, você especifica o arquivo jar do programa MapReduce e o local do arquivo jar, que é **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos.  O programa MapReduce de contagem de palavras usa dois argumentos: o arquivo de origem usado para contar palavras e o local para a saída.
 
 O código-fonte pode ser encontrado no [Apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
@@ -123,7 +124,7 @@ Para obter o procedimento de desenvolver um programa MapReduce em Java, consulte
     O trabalho MapReduce produz um arquivo chamado *part-r-00000*com as palavras e as contagens. O script usa o comando **findstr** para listar todas as palavras que contêm *"there"*.
 3. Defina as três primeiras variáveis e execute o script.
 
-## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Contagem de palavras - Transmissão em C#
+## <a name="hdinsight-sample-csharp-streaming"></a>Contagem de palavras - Transmissão em C#
 O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapa e de redução em outras linguagens além do Java.
 
 > [!NOTE]
@@ -156,7 +157,7 @@ Enquanto isso, o redutor coleta a saída orientada a linha de [stdout][stdin-std
 
         example/data/StreamingOutput/wc.txt/part-00000
 
-## <a name="a-namehdinsight-sample-pi-estimatorapi-estimator"></a><a name="hdinsight-sample-pi-estimator"></a>Estimador de PI
+## <a name="hdinsight-sample-pi-estimator"></a>Estimador de PI
 O estimador de Pi usa um método estatístico (quase Monte Carlo) para estimar o valor de pi. Os pontos colocados aleatoriamente em um quadrado de unidade também caem dentro de um círculo inscrito nesse quadrado com uma probabilidade igual à área do círculo, pi/4. O valor de pi pode ser estimado do valor de 4R onde R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
 O script fornecido para este exemplo envia um trabalho jar do Hadoop e está configurado para executar com um valor de 16 mapas, cada um dos quais é necessário para calcular 10 milhões de pontos de amostra pelos valores do parâmetro. Esses valores de parâmetro podem ser alterados para melhorar o valor estimado de pi. Para referência, as 10 primeiras casas decimais de pi são 3,1415926535.
@@ -172,7 +173,7 @@ O script fornecido para este exemplo envia um trabalho jar do Hadoop e está con
                                 -Arguments "16", "10000000"
     ```
 
-## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>Graysort de&10; GB
+## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de&10; GB
 Este exemplo usa uma quantidade modesta de 10 GB de dados para que possa ser executado de modo relativamente rápido. Ele usa os aplicativos MapReduce desenvolvidos por Owen O'Malley e Arun Murthy que ganharam o parâmetro de comparação anual de classificação de terabytes de finalidade geral ("daytona") em 2009, com uma taxa de 0,578 TB/m (100 TB em 173 minutos). Para obter mais informações sobre esse e outros benchmarks de classificação, consulte o site [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este exemplo usa três conjuntos de programas MapReduce:

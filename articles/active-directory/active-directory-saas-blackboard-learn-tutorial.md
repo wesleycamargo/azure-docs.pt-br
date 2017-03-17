@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2016
+ms.date: 02/15/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 9d32b156878ff963e6dac00663fc5f1f272d269b
-ms.openlocfilehash: f86b20d5cf20ff977901d481438292c7b38658da
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 0247e7c8f3803e27b4304dae6af11f18432e76b0
+ms.openlocfilehash: 92ee9f08ff85a85a08a2d1e021cdb7afec0c6de7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -36,7 +36,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Blackboard Learn, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do Blackboard Learn Cloud Platform
+* Uma assinatura habilitada para logon único (SSO) do Blackboard Learn Cloud Platform
 
 >[!NOTE]
 >Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
@@ -45,7 +45,7 @@ Para configurar a integração do Azure AD ao Blackboard Learn, você precisará
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.

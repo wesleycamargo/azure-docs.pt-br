@@ -1,5 +1,5 @@
 ---
-title: Provisionamento de aplicativo baseado em atributo com filtros de escopo | Microsoft Docs
+title: Provisionar aplicativos com filtros de escopo | Microsoft Docs
 description: "Saiba como usar filtros de escopo para impedir que objetos em aplicativos, que dão suporte a provisionamento automatizado de usuários, sejam provisionados, caso um objeto não satisfaça suas necessidades de negócios."
 services: active-directory
 documentationcenter: 
@@ -11,23 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4b95782793956470fd147a98c17759a1a1a3a0de
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: 3e4458f70afce9ebd9477b00afc39b6e84e49319
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="attribute-based-app-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
-O objetivo desta seção é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados no aplicativo.
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
+O objetivo desta seção é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados ao aplicativo.
 
 ## <a name="clauses-and-scope-groups"></a>Cláusulas e grupos de escopo
 ![Filtro de Escopo][1] 
 
 Filtros de escopo são definidos por um ou mais **grupos de escopo** e cada um deles contém uma ou mais **cláusulas**. Para ver as cláusulas de determinado grupo de escopo, expanda-o clicando na seta à esquerda do nome do grupo.
 
-Uma **cláusula** determina quais usuários têm permissão para passar pelo filtro de escopo, avaliando os atributos de cada usuário. Por exemplo, pode haver uma cláusula que requer que o atributo de “estado” de um usuário seja igual a Nova York, o que significa que somente os usuários de Nova York serão provisionados no aplicativo.
+Uma **cláusula** determina quais usuários têm permissão para passar pelo filtro de escopo, avaliando os atributos de cada usuário. Por exemplo, pode haver uma cláusula que requer que o atributo de “estado” de um usuário seja igual a Nova York, somente os usuários de Nova York serão provisionados no aplicativo.
 
 ![Nome do grupo de escopo][2] 
 
@@ -38,7 +40,7 @@ Você pode adicionar novas cláusulas ou novos grupos de escopo, pressionando o 
 ## <a name="how-scoping-filters-are-evaluated"></a>Como os filtros de escopo são avaliados
 Durante o provisionamento, testamos cada usuário atribuído em relação a seus filtros de escopo para determinar se esse usuário merece acesso ao aplicativo. Você pode pensar em cada cláusula como sendo um teste que o usuário deve passar para evitar ser filtrado. 
 
-Se houver vários grupos de escopo definidos, cada usuário deverá passar em pelo menos um deles para acessar o aplicativo. Em cada grupo de escopo, no entanto, o usuário deve passar por cada cláusula única, a fim de passar para aquele grupo de escopo específico. 
+Se houver vários grupos de escopo definidos, cada usuário deverá passar em pelo menos um deles para acessar o aplicativo. Em cada grupo de escopo, no entanto, o usuário deve passar por cada cláusula a fim de passar naquele grupo de escopo específico. 
 
 Em outras palavras, você pode pensar nos grupos de escopo como sendo agrupados por OR e pode considerar as cláusulas dentro deles como sendo agrupadas por AND. Por exemplo, considere o filtro de escopo abaixo:
 
@@ -63,9 +65,4 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./media/active-directory-saas-scoping-filters/ic782813.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

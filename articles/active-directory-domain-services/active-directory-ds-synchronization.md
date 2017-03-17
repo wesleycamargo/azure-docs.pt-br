@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2016
+ms.date: 03/06/2017
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: f5143bc817215d075129170adcabf3dd53b5e15a
-ms.openlocfilehash: 1f6abf9bf123534f29b7976ecadbcf8cb49ce040
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -121,9 +122,4 @@ Conforme descrito em uma seção anterior deste artigo, há uma sincronização 
 * [Cenários de implantação – Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Considerações de rede para Serviços de Domínio do Azure AD](active-directory-ds-networking.md)
 * [Introdução aos Serviços de Domínio do Azure AD](active-directory-ds-getting-started.md)
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

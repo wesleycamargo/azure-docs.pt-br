@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 080376a50e4cde3d3f9f801408e4a02b75bc72da
-ms.openlocfilehash: 40da274d0dcbf1efb22afc474a1c365f7770fdcb
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: 789373189ff0ec1dd9c08bc1725bb781f8b7428b
+ms.openlocfilehash: df25e320e046355bc4a538f8acc4bb9e9cd98d8e
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -52,7 +52,7 @@ Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight
 * Você é cobrado somente pelo tempo em que o cluster HDInsight estiver ativo e executando trabalhos.
 
 > [!IMPORTANT]
-> Ele normalmente demora mais do que **15 minutos** para provisionar um cluster Azure HDInsight sob demanda.
+> Em geral, são necessários **20 minutos** ou mais para provisionar um cluster Azure HDInsight sob demanda.
 > 
 > 
 
@@ -183,7 +183,9 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 
 * Azure HDInsight
 * Lote do Azure
-* Aprendizado de Máquina do Azure.
+* Aprendizado de Máquina do Azure
+* Análise Azure Data Lake
+* Banco de Dados SQL do Azure, SQL DW do Azure, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
 Você pode criar um serviço vinculado Azure HDInsight para registrar seu próprio cluster HDInsight com o Data Factory.
@@ -325,7 +327,7 @@ O código de autorização gerado usando o botão **Autorizar** expira após alg
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
-| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com,, etc.) |12 horas |
+| Contas de usuário NÃO gerenciadas pelo Azure Active Directory (@hotmail.com, @live.com etc.) |12 horas |
 | Contas de usuários gerenciadas pelo AAD (Azure Active Directory) |14 dias após a última execução da fatia. <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias. |
 
 Para evitar/resolver este erro, você precisará autorizar novamente usando o botão **Autorizar** quando o **token expirar** e reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades sessionId e authorization programaticamente usando o código na seção a seguir. 

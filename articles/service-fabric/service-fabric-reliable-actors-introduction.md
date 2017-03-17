@@ -15,9 +15,9 @@ ms.workload: NA
 ms.date: 02/10/2017
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 56220f357cbb44946d601167234636a1bce03bfa
-ms.openlocfilehash: bf69d2fdfb80395f9af58d113e4f8838c6bb93be
-ms.lasthandoff: 02/13/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9b6668bf4b3f826a1d41527ce4a7ae8d05936731
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -87,9 +87,21 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
+```java
+// Create actor ID with some name
+ActorId actorId = new ActorId("Actor1");
+
+// This only creates a proxy object, it does not activate an actor or invoke any methods yet.
+MyActor myActor = ActorProxyBase.create(actorId, new URI("fabric:/MyApp/MyActorService"), MyActor.class);
+
+// This will invoke a method on the actor. If an actor with the given ID does not exist, it will be activated by this method call.
+myActor.DoWorkAsync().get();
+```
+
+
 Observe que os dois conjuntos de informações usadas para criar o objeto de proxy de ator são a ID do ator e o nome do aplicativo. A ID de ator é um identificador exclusivo do ator, enquanto o nome do aplicativo identifica o [aplicativo do Service Fabric](service-fabric-reliable-actors-platform.md#application-model) em que o ator foi implantado.
 
-A classe `ActorProxy` do lado do cliente executa a resolução necessária para localizar o ator por ID e abrir um canal de comunicação com ele. `ActorProxy` também tenta localizar novamente o ator no caso de falhas de comunicação e failovers. Como resultado, a entrega de mensagem tem as seguintes características:
+A classe `ActorProxy`(C#) / `ActorProxyBase`(Java) do lado do cliente executa a resolução necessária para localizar o ator por ID e abrir um canal de comunicação com ele. Ela também tenta localizar novamente o ator no caso de falhas de comunicação e failovers. Como resultado, a entrega de mensagem tem as seguintes características:
 
 * A entrega de mensagem é o melhor esforço.
 * Os atores podem receber mensagens duplicadas do mesmo cliente.
@@ -123,7 +135,7 @@ Alguns pontos importantes a considerar:
 * Enquanto *Method1* está sendo executado em nome de *ActorId2* em resposta à solicitação do cliente *xyz789*, outra solicitação de cliente (*abc123*) chega e também exige que *Method1* seja executado por *ActorId2*. No entanto, a segunda execução de *Method1* não é iniciada até que a execução anterior seja concluída. Da mesma forma, um lembrete registrado por *ActorId2* é acionado enquanto *Method1* está sendo executado em resposta à solicitação do cliente *xyz789*. O retorno de chamada de lembrete é executado somente depois que ambas as execuções de *Method1* são concluídas. Tudo isso se deve à simultaneidade baseada em turno que está sendo imposta para *ActorId2*.
 * Da mesma forma, a simultaneidade baseada em turno também é imposta para *ActorId1*, como demonstrado pela execução de *Method1*, *Method2* e do retorno de chamada do temporizador em nome de *ActorId1* que ocorre de maneira serial.
 * A execução de *Method1* em nome de *ActorId1* é sobreposta por sua execução em nome de *ActorId2*. Isso porque a simultaneidade baseada em turno é imposta apenas em um ator, e não entre atores.
-* Em algumas das execuções de método/retorno de chamada, a `Task` retornada pelo método/retorno de chamada é concluída após o retorno do método. Em outras, a `Task` já terá sido concluída quando o método/retorno de chamada for retornado. Em ambos os casos, o bloqueio por ator será liberado apenas depois que o método e o retorno de chamada forem retornados e `Task` for concluída.
+* Em algumas das execuções de método/retorno de chamada, a `Task`(C#) / `CompletableFuture`(Java) retornada pelo método/retorno de chamada é concluída após o retorno do método. Em outras, a operação assíncrona já terá sido concluída quando o método/retorno de chamada for retornado. Em ambos os casos, o bloqueio por ator será liberado apenas depois que o método e o retorno de chamada forem retornados e a operação assíncrona for concluída.
 
 #### <a name="reentrancy"></a>Reentrada
 O tempo de execução dos Atores permite reentrância por padrão. Isso significa que, se um método de ator do *Ator A* chamar um método no *Ator B*, que, por sua vez, chamar outro método no *Ator A*, esse método terá permissão para ser executado. Isso ocorre porque ele faz parte do mesmo contexto lógico da cadeia de chamadas. Todas as chamadas de temporizador e lembrete começam com o novo contexto lógico de chamada. Veja [Reentrância dos Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para obter mais detalhes.

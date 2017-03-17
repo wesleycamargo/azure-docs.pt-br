@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7ea1762e3a3ffe8d3c0c6af307b846dc1f3c696
+ms.sourcegitcommit: 52590f0c47954d115f39cbe988e04a0ed3feb94d
+ms.openlocfilehash: cd3352ae30734cce116fda5a838f95e5e0b86a8a
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -31,7 +32,7 @@ Neste artigo, você aprenderá a realizar as seguintes tarefas:
 * [Excluir uma fórmula](#delete-a-formula)
 
 > [!NOTE]
-> As fórmulas – assim como as [imagens personalizadas](devtest-lab-create-template.md) – permitem que você crie uma imagem base de um arquivo VHD. A imagem base pode, então, ser usada para provisionar uma nova VM. Para ajudar a decidir o que é melhor para seu ambiente específico, confira o artigo [Comparar imagens e fórmulas personalizadas em DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
+> As fórmulas – assim como as [imagens personalizadas](devtest-lab-create-template.md) – permitem que você crie uma imagem base de um arquivo VHD. A imagem base pode, então, ser usada para provisionar uma nova VM. Para ajudar a decidir o que é melhor para seu ambiente específico, confira o artigo [Comparar imagens e fórmulas personalizadas em Laboratórios de Desenvolvimento/Teste](devtest-lab-comparing-vm-base-image-types.md).
 > 
 > 
 
@@ -95,7 +96,7 @@ As etapas a seguir o orientarão durante o processo de criação de uma fórmula
 7. Selecione **OK** para criar a fórmula.
 
 ## <a name="use-a-formula-to-provision-a-vm"></a>Usar uma fórmula para provisionar uma VM
-Após ter criado uma fórmula, você pode criar uma VM com base na fórmula. A seção [Adicionar uma VM com artefatos](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) orienta você nesse processo.
+Após ter criado uma fórmula, você pode criar uma VM com base na fórmula. O artigo [Adicionar uma VM com artefatos](devtest-lab-add-vm-with-artifacts.md) orienta você nesse processo.
 
 ## <a name="modify-a-formula"></a>Modificar uma Fórmula
 Para modificar uma fórmula, siga estas etapas:
@@ -133,10 +134,5 @@ Para excluir uma fórmula, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de criar uma fórmula para uso durante a criação de uma VM, a próxima etapa será [adicionar uma VM ao seu laboratório](devtest-lab-add-vm-with-artifacts.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

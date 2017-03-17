@@ -17,6 +17,7 @@ ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -39,9 +40,4 @@ Para obter mais informações sobre requisitos de software e instalação do mó
 
 ## <a name="next-steps"></a>Próximas etapas
 [Edições do Active Directory do Azure](active-directory-editions.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: c33b69dbdccd2a894b494175dec2bd423af478b1
-ms.openlocfilehash: 0019b64ba545d91cf32ed2945c5c0d4844e264e1
-ms.lasthandoff: 03/02/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b0fb6e2b86aa0a47b7250face90be8ab2d06b78e
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -35,7 +35,7 @@ Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui está o que você precisa para essa implantação:
 
-* **Servidor de configuração**: uma VM local que executa o Windows Server 2012 R2 e que atua como o servidor de configuração. Você instala os outros componentes do Site Recovery (incluindo o servidor de processo e o servidor de destino mestre) nessa VM também. Leia mais em [arquitetura de cenário](site-recovery-components.md#vmware-replication-to-azure) e [pré-requisitos do servidor de configuração](site-recovery-vmware-to-azure.md#prerequisites).
+* **Servidor de configuração**: uma VM local que executa o Windows Server 2012 R2 e que atua como o servidor de configuração. Você instala os outros componentes do Site Recovery (incluindo o servidor de processo e o servidor de destino mestre) nessa VM também. Leia mais em [arquitetura de cenário](site-recovery-components.md#vmware-to-azure) e [pré-requisitos do servidor de configuração](site-recovery-vmware-to-azure.md#prerequisites).
 * **Máquinas virtuais IaaS**: as VMs que você deseja migrar. Você pode migrar essas VMs tratando-as como computadores físicos.
 
 ## <a name="deployment-steps"></a>Etapas de implantação.

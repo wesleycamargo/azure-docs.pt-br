@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: fe331199333d492dbc42c9125c9da96a44066ee1
-ms.openlocfilehash: a6d6db0e0e6b6fe8d8ccbd6cbd3858ae0df5cb2d
+ms.sourcegitcommit: f92909e0098a543f99baf3df3197a799bc9f1edc
+ms.openlocfilehash: f62c0ca57bfd15a9ad1f767fa8fd59cc73b71c43
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -32,7 +33,7 @@ Neste tutorial, você aprenderá a enviar eventos para um Hub de Eventos usando 
 Para concluir este tutorial, você precisará do seguinte:
 
 * Um ambiente de desenvolvimento C. Para este tutorial, vamos pressupor a pilha gcc em uma Máquina Virtual Linux do Azure com Ubuntu 14.04.
-* Microsoft Visual Studio Express para Windows
+* Microsoft Visual Studio ou Visual Studio Community Edition
 * Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Enviar mensagens ao Hub de Eventos
@@ -167,9 +168,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

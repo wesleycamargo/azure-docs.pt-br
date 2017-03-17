@@ -1,9 +1,9 @@
 ---
-title: "Redefinição de Senhas do Azure AD | Microsoft Docs"
+title: "Azure Active Directory de redefinição de senha | Microsoft Docs"
 description: "Descrição dos recursos de gerenciamento de senhas no AD do Azure, incluindo redefinição de senha, alteração, relatórios de gerenciamento de senhas e write-back para seu Active Directory local."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
@@ -12,31 +12,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a6287228622070d566266f184dc1c32ec6c3dea5
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 68334eab580e7117cf0b18f84ba56ed699fea12e
+ms.lasthandoff: 03/10/2017
 
 
 ---
-# <a name="azure-ad-password-reset-for-it-administrators"></a>Redefinição de Senhas do Azure AD para administradores de TI
+# <a name="azure-active-directory-password-reset-for-it-administrators"></a>Redefinição de senhas do Azure Active Directory para administradores de TI
 > [!IMPORTANT]
-> Você está aqui porque deseja redefinir sua senha do Azure ou do O365?  Nesse caso, [ignore esta seção](#users-how-to-manage-your-own-password).
-> 
-> 
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+>
+>
 
-O autoatendimento tem sido das principais metas para os departamentos de TI em todo o mundo, como uma medida de redução de custos e economia de trabalho.  De fato, o mercado é inundado com produtos que permitem que você gerencie seus grupos locais, senhas ou perfis de usuário na nuvem ou no local. O Azure AD se diferencia dessas ofertas fornecendo alguns dos recursos de autoatendimento mais fáceis de usar e mais poderosos disponíveis atualmente.
+O autoatendimento tem sido das principais metas para os departamentos de TI em todo o mundo, como uma medida de redução de custos e economia de trabalho.  De fato, o mercado é inundado com produtos que permitem que você gerencie seus grupos locais, senhas ou perfis de usuário na nuvem ou no local. O Azure Active Directory (Azure AD) diferencia-se de outras ofertas fornecendo alguns dos recursos de autoatendimento mais fáceis de usar e mais poderosos disponíveis atualmente.
 
 **Gerenciamento de Senhas do AD do Azure** é um conjunto de recursos que permitem que os usuários gerenciem qualquer senha de qualquer dispositivo, a qualquer momento, de qualquer local, enquanto permanecem em conformidade com as políticas de segurança que você define.
 
-## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINISTRADORES: saiba mais sobre como começar com a Redefinição de Senha do AD do Azure
-Se você for um administrador que deseja habilitar a Redefinição de Senha do AD do Azure ou simplesmente saber mais sobre ela, comece pelos links abaixo para chegar aonde você quer.
+## <a name="admins-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINISTRADORES: saiba mais sobre como começar com a redefinição de senha do Azure AD
+Se você for um administrador que deseja habilitar a redefinição de senha do Azure AD ou simplesmente saber mais sobre ela, comece pelos links abaixo para chegar aonde você quer.
 
 | Tópico |  |
 | --- | --- |
-| Cenários com suporte |[O que é possível com a Redefinição de Senha do AD do Azure?](#what-is-possible-with-azure-ad-password-reset) |
-| Por que usá-la? |[Por que usar a Redefinição de Senha do AD do Azure?](#why-use-azure-ad-password-reset) |
+| Cenários com suporte |[O que é possível com a redefinição de senha do Azure AD?](#what-is-possible-with-azure-ad-password-reset) |
+| Por que usá-la? |[Por que usar a redefinição de senha do Azure AD?](#why-use-azure-ad-password-reset) |
 | Preços e disponibilidade |[Preços e disponibilidade](#pricing-and-availability) |
 | Habilitar a redefinição de senha |[Habilitar a redefinição de senha para os usuários](#enable-password-reset-for-your-users) |
 | Personalizar seu funcionamento |[Personalizar o comportamento de redefinição de senha](#customize-password-reset-behavior) |
@@ -50,7 +51,7 @@ Se você for um administrador que deseja habilitar a Redefinição de Senha do A
 | Recursos recém-lançados |[Atualizações de serviço recentes](#recent-service-updates) |
 | Links para documentação adicional |[Links para documentação de redefinição de senha](#links-to-password-reset-documentation) |
 
-### <a name="what-is-possible-with-azure-ad-password-reset"></a>O que é possível com a Redefinição de Senha do AD do Azure?
+### <a name="what-is-possible-with-azure-ad-password-reset"></a>O que é possível com a redefinição de senha do Azure AD?
 Aqui estão algumas das coisas que você pode fazer com os recursos de gerenciamento de senhas do AD do Azure.
 
 * **senha por autoatendimento** permite que os usuários finais ou os administradores alterem suas senhas expiradas ou não expiradas sem chamar um administrador ou o suporte técnico em busca de suporte.
@@ -59,7 +60,7 @@ Aqui estão algumas das coisas que você pode fazer com os recursos de gerenciam
 * **Relatórios de atividade de gerenciamento de senha** fornecem aos administradores percepções sobre as atividades de registro e de redefinição de senha que ocorrem em suas organizações.
 * **Write-back de senha** permite o gerenciamento de senhas locais na nuvem, de modo que todos os cenários acima podem ser executados por, ou em nome de, usuários federados ou sincronizados por senha. O Write-back de senha requer o AD Premium do Azure. Para saber mais, consulte Introdução ao AD Premium do Azure.
 
-### <a name="why-use-azure-ad-password-reset"></a>Por que usar a Redefinição de Senha do AD do Azure?
+### <a name="why-use-azure-ad-password-reset"></a>Por que usar a redefinição de senha do Azure AD?
 Aqui estão alguns dos motivos pelos quais você deve usar os recursos de gerenciamento de senhas do AD do Azure
 
 * **Reduzir os custos** - a redefinição do suporte assistido por senha normalmente é de 20% nos gastos de TI da organização
@@ -68,7 +69,7 @@ Aqui estão alguns dos motivos pelos quais você deve usar os recursos de gerenc
 * **Habilitar a mobilidade** - os usuários podem redefinir suas senhas onde quer que estejam
 
 ### <a name="pricing-and-availability"></a>Preços e disponibilidade
-A Redefinição de Senha do AD do Azure está disponível em três camadas, dependendo da assinatura que você tem:
+A redefinição de senha do Azure AD está disponível em três camadas, dependendo da assinatura que você tem:
 
 * **Azure AD Gratuito** : os administradores somente nuvem podem redefinir suas próprias senhas
 * **Azure AD Basic ou qualquer assinatura do O365 paga** : usuários somente nuvem e administradores somente nuvem podem redefinir suas próprias senhas
@@ -117,8 +118,8 @@ Para saber mais sobre preços do Azure AD Basic ou Premium, visite a página [De
 | Tópico |  |
 | --- | --- |
 | Onde posso ver relatórios de redefinição de senha? |[Visão geral dos relatórios de gerenciamento de senhas](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Onde posso ver como os usuários estão usando a redefinição de senha em minha organização? |[Exibir atividade de redefinição de senha](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Onde posso ver quantos usuários estão se registrando e em que estão se registrando? |[Exibir atividade de registro de redefinição de senha](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Onde posso ver como os usuários estão usando a redefinição de senha em minha organização? |[Exibir atividade de redefinição de senha](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
+| Onde posso ver quantos usuários estão se registrando e em que estão se registrando? |[Exibir atividade de registro de redefinição de senha](active-directory-passwords-get-insights.md#how-to-view-password-management-reports) |
 | Como obter relatórios de redefinição de senha de uma API? |[Criando um aplicativo do Azure AD para acessar a API de relatório](active-directory-reporting-api-getting-started.md) |
 | Que tipo de informação de relatórios de redefinição de senha está disponível em uma API? |[Eventos de registro e de redefinição de senha disponíveis na API de geração de relatórios](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
@@ -166,11 +167,11 @@ Para saber mais sobre preços do Azure AD Basic ou Premium, visite a página [De
 | Quero saber quais dados são usados na redefinição de senha |[Quais dados são usados na redefinição de senha?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
 ## <a name="recent-service-updates"></a>Atualizações de serviço recentes
-#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Impor o registro de Redefinição de Senha ao entrar nos aplicativos do Office 365: novembro de 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Impor o registro de redefinição de senha ao entrar nos aplicativos do Office 365: novembro de 2015
 * Depois de habilitar o recurso [registro imposto](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) , os usuários precisarão se registrar em qualquer lugar em que se conectarem usando uma conta de trabalho ou escolar.  Isso aumenta significativamente o ritmo de integração das organizações à redefinição de senha.  Com esse novo recurso, vimos a integração de empresas de grande porte em até duas semanas!
 
-#### <a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>Suporte para desbloquear contas do Active Directory sem a Redefinição de Senha - novembro de 2015
-* O recurso Somente desbloquear (sem redefinir) é uma grande ajuda na assistência técnica hoje em dia.  Na verdade, muitas organizações gastam 70% de seu orçamento de redefinição de senha desbloqueando contas!  Para atender a essa demanda, com a Redefinição de Senha do AD do Azure, você pode habilitar um recurso para permitir que os usuários desbloqueiem contas do AD separadamente da Redefinição de Senha.  Confira como ativá-lo aqui: [Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
+#### <a name="support-for-unlocking-on-premises-ad-accounts-without-resetting-a-password---november-2015"></a>Suporte para desbloquear contas do AD local sem a redefinição de senha - novembro de 2015
+* O recurso Somente desbloquear (sem redefinir) é uma grande ajuda na assistência técnica hoje em dia.  Na verdade, muitas organizações gastam 70% de seu orçamento de redefinição de senha desbloqueando contas!  Para atender a essa demanda, com a redefinição de senha do Azure AD, você pode habilitar um recurso para permitir que os usuários desbloqueiem contas do AD local separadamente da redefinição de senha.  Confira como ativá-lo aqui: [Configuração: permitir que os usuários desbloqueiem suas contas do AD local sem redefinir a senha](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
 
 #### <a name="usability-updates-to-registration-page---october-2015"></a>Atualizações de usabilidade na página de registro: outubro de 2015
 * Agora, quando um usuário tiver dados já registrados, ele poderá simplesmente clicar em "boa aparência" para atualizar os dados sem a necessidade de enviar novamente o email ou fazer uma chamada telefônica.
@@ -178,22 +179,22 @@ Para saber mais sobre preços do Azure AD Basic ou Premium, visite a página [De
 #### <a name="improved-reliability-of-password-writeback---september-2015"></a>Confiabilidade melhorada de write-back de senha: setembro de 2015
 * A partir da versão de setembro do Azure AD Connect, agora o agente de write-back de senha repetirá com mais agressividade as conexões e os recursos de failover adicionais mais robustos.
 
-#### <a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API para recuperar os dados de relatório da Redefinição de Senha: agosto de 2015
+#### <a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API para recuperar os dados de relatório da redefinição de senha: agosto de 2015
 * Agora, os dados dos relatórios da redefinição de senha podem ser recuperados diretamente com o uso dos [Relatórios do AD do Azure e da API de Eventos](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-#### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Suporte para a Redefinição de Senha do AD do Azure durante o ingresso no domínio na nuvem: agosto de 2015
+#### <a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Suporte para a redefinição de senha do Azure AD durante o ingresso no domínio na nuvem: agosto de 2015
 * Agora, qualquer usuário de nuvem pode redefinir sua senha diretamente na tela de conexão do Windows 10 durante a experiência de integração de associação do domínio em nuvem.  Observe que isso ainda não é exibido na tela de conexão do Windows 10.
 
-#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Impor o registro de Redefinição de Senha ao entrar no Azure e nos aplicativos federados: julho de 2015
+#### <a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Impor o registro de redefinição de senha ao entrar no Azure e nos aplicativos federados: julho de 2015
 * Além de aplicar o registro ao entrar em myapps.microsoft.com, agora temos suporte para impor o registro durante as conexões no Portal de Gerenciamento do Azure e em quaisquer aplicativos de logon único federados
 
 #### <a name="security-question-localization-support---may-2015"></a>Suporte à localização da pergunta de segurança: maio de 2015
 * Agora, você tem a opção de selecionar perguntas de segurança predefinidas que estão localizadas na linguagem O365 completa definida ao configurar as Perguntas de Segurança para a redefinição de senha.
 
-#### <a name="account-unlock-support-during-password-reset---june-2015"></a>Suporte para o desbloqueio de conta durante a Redefinição de Senha: junho de 2015
+#### <a name="account-unlock-support-during-password-reset---june-2015"></a>Suporte para o desbloqueio de conta durante a redefinição de senha: junho de 2015
 * Se você estiver usando o write-back de senha e redefinir sua senha quando a conta for bloqueada, poderemos desbloquear automaticamente sua conta do Active Directory!
 
-#### <a name="branded-sspr-registration---april-2015"></a>Registro SSPR de marca: abril de 2015
+#### <a name="branded-self-service-password-reset-sspr-registration---april-2015"></a>Registro de redefinição de senha por autoatendimento (SSPR) com marca - abril de 2015
 * A página de registro da redefinição de senha agora contém a marca com o logotipo da empresa!
 
 #### <a name="security-questions---march-2015"></a>Perguntas de segurança: março de 2015
@@ -209,10 +210,10 @@ A seguir estão alguns dos recursos interessantes nos quais estamos trabalhando 
 
 * Atualmente, oferecemos suporte para lembrar os usuários para atualizarem seus dados registrados ao acessarem myapps.microsoft.com, mas estamos trabalhando na capacidade de fazer isso para todas as conexões.
 
-## <a name="links-to-password-reset-documentation"></a>Links para documentação de redefinição de senha
-Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
+## <a name="next-steps"></a>Próximas etapas
+Veja abaixo links para todas as páginas de documentação sobre redefinição de senha do Azure AD:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
@@ -221,10 +222,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
-
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

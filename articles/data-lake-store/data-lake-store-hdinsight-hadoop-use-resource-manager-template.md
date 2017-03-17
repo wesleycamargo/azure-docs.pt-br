@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/18/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 98f1c50774c2ee70afd18a1e036b6e3264518552
-ms.openlocfilehash: b67be76eab9b6c467f8ab9760f7ea481f1d6db90
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40a1d76cc4167858a9bebac9845230473cc71e3e
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -34,7 +34,7 @@ Aprenda a usar o Azure PowerShell para configurar um cluster HDInsight com o Azu
 
 Para tipos de cluster compatíveis, o Data Lake Store pode ser usado como um armazenamento padrão ou uma conta de armazenamento adicional. Quando o Data Lake Store é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Blobs de Armazenamento do Azure (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, embora os dados que você queira processar possam ser armazenados em uma conta do Data Lake Store. O uso do Repositório Data Lake como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura/gravação no armazenamento do cluster.
 
-## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento do cluster HDInsight
+## <a name="using-data-lake-store-for-hdinsight-cluster-storage"></a>Usando o Data Lake Store para armazenamento de cluster HDInsight
 
 Aqui estão algumas considerações importantes para usar o HDInsight com o Data Lake Store:
 
@@ -84,8 +84,7 @@ Para verificar se os dados de exemplo que você carregou estão acessíveis do c
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Executar trabalhos de teste no cluster HDInsight para usar o Repositório Data Lake
 Após a configuração de um cluster HDInsight, você poderá executar trabalhos de teste no cluster a fim de testar se o cluster HDInsight pode acessar o Repositório Data Lake. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os exemplos de dados que você carregou anteriormente em seu Repositório Data Lake.
 
-### <a name="for-a-linux-cluster"></a>Para um cluster do Linux
-Nesta seção, você acessará o cluster por SSH e executará uma consulta Hive de exemplo. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará uma consulta Hive de exemplo. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -117,60 +116,11 @@ Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop ba
    1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
    ```
 
-### <a name="for-a-windows-cluster"></a>Para um cluster do Windows
-Use os seguintes cmdlets para executar a consulta do Hive. Nessa consulta criamos uma tabela a partir dos dados no Repositório Data Lake e executamos uma consulta seleção na tabela criada.
-
-```
-$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-
-$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
-
-$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
-
-Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
-```
-
-Esta será a saída. **ExitValue** com valor 0 na saída sugere que o trabalho foi concluído com êxito.
-
-```
-Cluster         : hdiadlcluster.
-HttpEndpoint    : hdiadlcluster.azurehdinsight.net
-State           : SUCCEEDED
-JobId           : job_1445386885331_0012
-ParentId        :
-PercentComplete :
-ExitValue       : 0
-User            : admin
-Callback        :
-Completed       : done
-```
-
-Recupere a saída do trabalho usando o seguinte cmdlet:
-
-```
-Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
-```
-
-A saída é semelhante ao seguinte:
-
-```
-1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
-```
 
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Repositório Data Lake usando comandos do HDFS
 Após a configuração do cluster HDInsight para usar o Repositório Data Lake, você poderá usar os comandos do shell HDFS para acessar o armazenamento.
 
-### <a name="for-a-linux-cluster"></a>Para um cluster do Linux
-Nesta seção, você acessará o cluster por SSH e executará os comandos HDFS. O Windows não fornece um cliente SSH integrado. É recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará comandos do HDFS. Se você está usando um cliente Windows, é recomendável usar o **PuTTY**, que pode ser baixado de [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para saber mais sobre a utilização do PuTTY, confira [Usar SSH com o Hadoop baseado em Linux no HDInsight no Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -190,29 +140,6 @@ Found 1 items
 
 Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
-### <a name="for-a-windows-cluster"></a>Para um cluster do Windows
-1. Entre no novo [Portal do Azure](https://portal.azure.com).
-2. Clique em **Procurar**, em **Clusters HDInsight** e clique no cluster HDInsight que você criou.
-3. Na folha do cluster, clique em **Área de Trabalho Remota** e na folha **Área de Trabalho Remota**, clique em **Conectar**.
-
-   ![Remoto em cluster HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png)
-
-   Quando receber a solicitação, insira as credenciais fornecidas para o usuário da área de trabalho remota.
-4. Na sessão remota, inicie o Windows PowerShell e use os comandos do sistema de arquivos HDFS para listar os arquivos no Repositório Data Lake do Azure.
-
-   ```
-   hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
-   ```
-
-   Isso deve listar o arquivo carregado anteriormente no Repositório Data Lake.
-
-   ```
-   15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-   Found 1 items
-   -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
-   ```
-
-   Você também pode usar o comando `hdfs dfs -put` para carregar alguns arquivos no Repositório Data Lake e usar `hdfs dfs -ls` para verificar se os arquivos foram carregados com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Copiar dados de Armazenamento de Blobs do Azure para o Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)

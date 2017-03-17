@@ -1,5 +1,5 @@
 ---
-title: Trabalhando com dados geoespaciais no DocumentDB do Azure | Microsoft Docs
+title: Trabalhando com os dados geoespaciais no DocumentDB do Azure | Microsoft Docs
 description: Compreenda como criar, indexar e consultar objetos espaciais com o Banco de Dados de Documentos do Azure.
 services: documentdb
 documentationcenter: 
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: arramac
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: f78c0fc1959f72164508af9d8945744b67fac68b
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 60219a9c78884e01fcf46e18ac03e2a955787bc5
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="working-with-geospatial-data-in-azure-documentdb"></a>Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
+# <a name="working-with-geospatial-and-geojson-location-data-in-documentdb"></a>Trabalhando com os dados geoespaciais e de localização do GeoJSON no DocumentDB
 Este artigo é uma introdução à funcionalidade geoespacial do [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/). Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
 * Como armazeno dados espaciais no Banco de Dados de Documentos do Azure?
@@ -387,10 +389,5 @@ Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco
 * Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
 * Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
 * Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

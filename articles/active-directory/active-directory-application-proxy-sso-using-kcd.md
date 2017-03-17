@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c308524e41047220fbad026edb6a87f196d89580
-ms.openlocfilehash: 3f293996d2565c495f707f99a0bb75bb7c24054e
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aac56543b2b3b7fa8f8baf1cc719ead79b3c1b00
+ms.lasthandoff: 02/28/2017
 
 ---
 
-# <a name="single-sign-on-with-application-proxy"></a>Logon único com Proxy de Aplicativo
+# <a name="provide-single-sign-on-to-your-apps-with-application-proxy"></a>Fornecer logon único para seus aplicativos com Proxy de Aplicativo
 O logon único é um elemento fundamental do Proxy de Aplicativo do Azure AD. Ele oferece a melhor experiência do usuário por meio das seguintes etapas:
 
 1. Um usuário entra na nuvem.  
@@ -110,7 +112,7 @@ Para obter mais informações sobre o Kerberos, consulte [Tudo o que você desej
 ### <a name="delegated-login-identity"></a>identidade de logon delegada
 A identidade de logon delegada ajuda a lidar com dois cenários de logon diferentes:
 
-* Os aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, e não de um endereço de email (username@domain).
+* Aplicativos não Windows normalmente obtém a identidade do usuário na forma de um nome de usuário ou nome de conta SAM, não um endereço de email (username@domain).
 * Configurações de logon alternativas em que o UPN no Azure AD e o UPN no Active Directory local são diferentes.
 
 Com o Proxy de Aplicativo, você pode selecionar qual identidade deve ser usada para obter o tíquete Kerberos. Essa configuração é por aplicativo. Algumas dessas opções são adequadas para sistemas que não aceitam o formato de endereço de email, e outras são desenvolvidas para logon alternativo.
@@ -159,9 +161,4 @@ Para ver as últimas notícias e atualizações, confira o [blog Application Pro
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2cc98bbd4e7febcace445d28f8c5fbc70e5d2d82
+ms.sourcegitcommit: 7d5438776882d8ce3d93718d35efe9fa2562478f
+ms.openlocfilehash: 455a32848d4f49071bb4d81574c41f65349078e1
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -36,7 +37,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 4. Configurando o provisionamento de usuários
 5. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800275.png "Scenario")
+![Cenário](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800275.png "Cenário")
 
 ## <a name="enabling-the-application-integration-for-zscaler-zscloud"></a>Habilitando a integração de aplicativos com o Zscaler ZSCloud
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o ZScaler ZSCloud.
@@ -48,35 +49,35 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-zscaler-zscloud-tutorial/IC700994.png "Applications")
+   ![Aplicativos](./media/active-directory-saas-zscaler-zscloud-tutorial/IC700994.png "Aplicativos")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-zscaler-zscloud-tutorial/IC749321.png "Add application")
+   ![Adicionar aplicativo](./media/active-directory-saas-zscaler-zscloud-tutorial/IC749321.png "Adicionar aplicativo")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-zscaler-zscloud-tutorial/IC749322.png "Add an application from gallerry")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-zscaler-zscloud-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 6. Na **caixa de pesquisa**, digite **Zscaler ZSCloud**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800276.png "Application Gallery")
+   ![Galeria de Aplicativos](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800276.png "Galeria de Aplicativos")
 7. No painel de resultados, selecione **Zscaler ZSCloud** e clique em **Concluir** para adicionar o aplicativo.
    
-   ![Zscaler ZSCloud](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800277.png "ZScaler ZSCloud")
+   ![ZScaler ZSCloud](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800277.png "ZScaler ZSCloud")
 
 ## <a name="configuring-single-sign-on"></a>Configurando o logon único
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Zscaler ZSCloud com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
-Como parte desse procedimento, é necessário carregar um certificado codificado em base 64 no locatário do Zscaler ZSCloud.  
+Como parte desse procedimento, é necessário carregar um certificado codificado em base&64; no locatário do Zscaler ZSCloud.  
 Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração de aplicativos do **ZScaler ZSCloud**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Configurar Logon Único")
 2. Na página **Como você deseja que os usuários façam logon no Zscaler ZSCloud**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar o logon único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800279.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800279.png "Configurar Logon Único")
 3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do Zscaler ZSCloud**, digite a URL usada pelos usuários para fazer logon em seu aplicativo Zscaler ZSCloud e clique em **Avançar**.
    
-   ![Configurar a URL do Aplicativo](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configure App URL")
+   ![Configurar URL do Aplicativo](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configurar URL do Aplicativo")
    
    > [!NOTE]
    > Você pode obter o valor real para o ambiente de sua equipe de suporte Zscaler ZSCloud se necessário.
@@ -84,23 +85,23 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
    > 
 4. Na página **Configurar logon único no Zscaler ZSCloud**, para baixar seu certificado, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
    
-   ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800281.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800281.png "Configurar Logon Único")
 5. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zscaler ZSCloud como administrador.
 6. No menu na parte superior, clique em **Administração**.
    
-   ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800206.png "Administration")
+   ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800206.png "Administração")
 7. Em **Gerenciar Administradores e Funções**, clique em **Gerenciar Usuários e Autenticação**.
    
-   ![Gerenciar Usuários e Autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800207.png "Manage Users & Authentication")
+   ![Gerenciar usuários e autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800207.png "Gerenciar usuários e autenticação")
 8. Na seção **Escolher Opções de Autenticação para a sua Organização** , realize as seguintes etapas:
    
-   ![Autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800208.png "Authentication")
+   ![Autenticação](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800208.png "Autenticação")
    
    1. Selecione **Autenticar usando o Logon Único do SAML**.
    2. Clique em **Configurar Parâmetros de Logon Único do SAML**.
-9. Na página do diálogo **Configurar Parâmetros de Logon Único do SAML**, realize as seguintes etapas e clique em **Concluído**:
+9. Na página da caixa de diálogo **Configurar Parâmetros de Logon Único do SAML**, execute as seguintes etapas e clique em **Concluído**:
    
-   ![Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Single Sign-On")
+   ![Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Logon Único")
    
    1. No portal clássico do Azure, na página do diálogo **Configurar logon único no ZScaler ZSCloud**, copie o valor da **URL de Solicitação de Autenticação** e cole-o na caixa de texto **URL do Portal do SAML para o qual os usuários são enviados para autenticação**.
    2. Na caixa de texto **Atributo que contém o Nome de Logon**, digite **NameID**.
@@ -108,34 +109,34 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
    4. Selecione **Habilitar Provisionamento Automático do SAML**.
 10. Na página de caixa de diálogo **Configurar Autenticação de Usuário** , execute as seguintes etapas:
     
-    ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800210.png "Administration")
+    ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800210.png "Administração")
     
     1. Clique em **Salvar**.
     2. Clique em **Ativar Agora**.
 11. No portal clássico do Azure, na página do diálogo **Configurar logon único no ZScaler ZSCloud**, selecione a confirmação de configuração de logon único e clique em **Concluir**.
     
-    ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Configurar Logon Único")
 
 ## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
 1. Inicie o **Internet Explorer**.
-2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir o diálogo **Opções da Internet**.
+2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.
    
-   ![Opções da Internet](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769492.png "Internet Options")
+   ![Opções da Internet](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769492.png "Opções da Internet")
 3. Clique na guia **Conexões** .
    
-   ![Conexões](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769493.png "Connections")
-4. Clique em **Configurações de LAN** para abrir o diálogo **Configurações de LAN**.
+   ![Conexões](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769493.png "Conexões")
+4. Clique em **Configurações da LAN** para abrir a caixa de diálogo **Configurações da LAN**.
 5. Na seção Servidor de proxy, execute as seguintes etapas:
    
-   ![Servidor proxy](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769494.png "Proxy server")
+   ![Servidor proxy](./media/active-directory-saas-zscaler-zscloud-tutorial/IC769494.png "Servidor proxy")
    
    1. Selecione Usar um servidor de proxy para a LAN.
    2. Na caixa de texto Endereço, digite **gateway.zscalerone.net**.
    3. Na caixa de texto Porta, digite **80**.
    4. Selecione **Ignorar servidor proxy para endereços locais**.
-   5. Clique em **OK** para fechar o diálogo **Configurações de LAN (Rede de Área Local)**.
-6. Clique em **OK** para fechar o diálogo **Opções da Internet**.
+   5. Clique em **OK** para fechar a caixa de diálogo **Configurações da Rede Local (LAN)**.
+6. Clique em **OK** para fechar a caixa de diálogo **Opções da Internet**.
 
 ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 Para permitir que os usuários do AD do Azure façam logon no Zscaler ZSCloud, eles devem ser provisionados no Zscaler ZSCloud.  
@@ -145,18 +146,18 @@ No caso do Zscaler ZSCloud, o provisionamento é uma tarefa manual.
 1. Faça login no seu locatário do **Zscaler** .
 2. Clique em **Administração**.
    
-   ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781035.png "Administration")
+   ![Administração](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781035.png "Administração")
 3. Clique em **Gerenciamento de Usuários**.
    
-   ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Add")
+   ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Adicionar")
 4. Na guia **Usuários**, clique em **Adicionar**.
    
-   ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Add")
+   ![Adicionar](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781037.png "Adicionar")
 5. Na seção Adicionar Usuário, execute as seguintes etapas:
    
-   ![Adicionar usuário](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781038.png "Add User")
+   ![Adicionar Usuário](./media/active-directory-saas-zscaler-zscloud-tutorial/IC781038.png "Adicionar Usuário")
    
-   1. Digite **UserID**, **Nome de Exibição do Usuário**, **Senha** e **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
+   1. Digite **UserID**, **Nome de Exibição do Usuário**, **Senha**, **Confirmar Senha** e selecione **Grupos** e o **Departamento** de uma conta válida do AAD que você deseja provisionar.
    2. Clique em **Salvar**.
 
 > [!NOTE]
@@ -171,16 +172,11 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Zscaler ZSCloud**, clique em **Atribuir usuários**.
    
-   ![Atribuir usuários](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800283.png "Assign Users")
+   ![Atribuir Usuários](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800283.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-zscaler-zscloud-tutorial/IC767830.png "Yes")
+   ![Sim](./media/active-directory-saas-zscaler-zscloud-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

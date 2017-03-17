@@ -1,6 +1,6 @@
 ---
-title: Usar modelos do Visual Studio para iniciar seu projeto do Lote - Azure | Microsoft Docs
-description: "Saiba como esses modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure"
+title: "Começar a criar soluções em lote com modelos de projeto do Visual Studio - Azure | Microsoft Docs"
+description: "Saiba como os modelos de projeto do Visual Studio podem ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote do Azure."
 services: batch
 documentationcenter: .net
 author: fayora
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: d56525e55816595f33b1fcd9ea96e41fe48b55a3
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: dd7c67bf83e4b95b978b793c8169b7e9c98bc939
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="visual-studio-project-templates-for-azure-batch"></a>Modelos de projeto do Visual Studio para o Lote do Azure
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
+
 O **Gerenciador de Trabalho** e os **modelos do Visual Studio do Processador de Tarefa** para o Lote fornecem código para ajudar você a implementar e executar suas cargas de trabalho de computação intensa no Lote com o mínimo de esforço. Este documento descreve esses modelos e fornece diretrizes sobre como usá-los.
 
 > [!IMPORTANT]
@@ -451,9 +454,4 @@ O [Fórum do Lote do Azure][forum] no MSDN é um ótimo lugar para discutir sobr
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

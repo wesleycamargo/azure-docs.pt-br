@@ -18,6 +18,7 @@ ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 5b8950619da3f42bc3c92443a7b9e9f2a97067f9
 ms.openlocfilehash: b38edfee4f74ede5fb647001cd64cbe81e941c41
+ms.lasthandoff: 01/26/2017
 
 
 ---
@@ -94,10 +95,5 @@ Existem ferramentas disponíveis para gerar VHDs Debian para o Azure, como os sc
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para usar o disco rígido virtual Debian para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que você estiver carregando o arquivo .vhd para o Azure, veja as etapas 2 e 3 em [Criando e carregando um disco rígido virtual que contém o sistema operacional Linux](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

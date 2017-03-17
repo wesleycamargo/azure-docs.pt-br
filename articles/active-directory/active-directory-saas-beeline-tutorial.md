@@ -17,6 +17,7 @@ ms.author: jeedes
 translationtype: Human Translation
 ms.sourcegitcommit: 49a8d812924a421d131497b9f275525202f94a43
 ms.openlocfilehash: ef40a9ddd33434299e9a603751fa75ef6d61742b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -236,9 +237,4 @@ Ao clicar no bloco Beeline no Painel de Acesso, você deverá ser conectado auto
 [203]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

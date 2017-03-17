@@ -13,11 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 02/09/2017
+ms.date: 02/18/2017
 ms.author: sasubram
 translationtype: Human Translation
-ms.sourcegitcommit: a4e59dfa8a098f63c3173176c4d2675d6a59af00
-ms.openlocfilehash: 5e55afe6eb88a558ea4eb147860ac5e2ebc97dbc
+ms.sourcegitcommit: 14028332ecc17478230d035206e8e00f6af67f7b
+ms.openlocfilehash: 8b6bf676dfa0df45d59763db70655d85fa08809a
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -89,14 +90,11 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Resgate de convite de colaboração B2B](active-directory-b2b-redemption-experience.md)
 * [Licenciamento da colaboração B2B do Azure AD](active-directory-b2b-licensing.md)
 * [Solução de problemas de colaboração B2B do Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Perguntas frequentes sobre colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
+* [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](active-directory-b2b-faq.md)
 * [API e personalização da colaboração B2B do Azure Active Directory](active-directory-b2b-api.md)
 * [Autenticação multifator para usuários de colaboração B2B](active-directory-b2b-mfa-instructions.md)
 * [Adicionar usuários de colaboração B2B sem um convite](active-directory-b2b-add-user-without-invite.md)
+
+* [Auditoria e relatórios de um usuário de colaboração B2B](active-directory-b2b-auditing-and-reporting.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,23 +1,7 @@
----
-title: "Criptografar uma máquina virtual do Azure | Microsoft Docs"
-description: "Este documento ajudará você a criptografar uma Máquina Virtual do Azure depois de receber um alerta da Central de Segurança do Azure."
-services: security, security-center
-documentationcenter: na
-author: TomShinder
-manager: swadhwa
-editor: 
-ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
-ms.service: security
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/27/2016
-ms.author: tomsh
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
+le--- título: Criptografar uma Máquina Virtual do Azure | Descrição do Microsoft Docs: este documento o ajuda a criptografar uma Máquina Virtual do Azure depois de receber um alerta da Central de Segurança do Azure.
+services: security, security-center documentationcenter: na author: TomShinder manager: swadhwa editor: ''
 
+ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5 ms.service: security ms.devlang: na ms.topic: hero-article ms.tgt_pltfrm: na ms.workload: na ms.date: 05/27/2016 ms.author: tomsh
 
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
@@ -26,7 +10,7 @@ A Central de Segurança do Azure alertará você se houver máquinas virtuais qu
 ![Recomendação de criptografia de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> As informações neste documento se aplicam à versão de visualização da Central de Segurança do Azure.
+> As informações neste documento se aplicam à criptografia de máquinas virtuais sem usar uma Chave de Criptografia de Chave (que é necessária para fazer backup de máquinas virtuais usando o Backup do Azure). Confira o artigo [Azure Disk Encryption para máquinas virtuais do Azure do Windows e do Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obter informações sobre como usar uma Chave de Criptografia de Chave para dar suporte ao Backup do Azure para Máquinas Virtuais do Azure criptografadas.
 >
 >
 
@@ -178,9 +162,3 @@ Neste documento, você aprendeu a criptografar uma Máquina Virtual do Azure. Pa
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança
 * [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre perguntas frequentes sobre como usar o serviço
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

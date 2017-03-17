@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 1f4e0904c9025ce0b21d904acc7b959e823039ef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 0591b536a9be901085074f4b49fc65b097382835
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
+# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Noções básicas de licenciamento baseado em grupo no Azure Active Directory
 
 Os serviços de nuvem da Microsoft, como o Office 365 Enterprise Mobility + Security, Dynamics CRM e outros produtos similares exigem licenças a serem atribuídas a cada usuário que precisar acessar esses serviços. O gerenciamento de licenças é exposto aos administradores por meio de portais de gerenciamento (Office, Azure) e cmdlets do PowerShell. O estado de atribuição de licença é armazenado no Azure Active Directory – a infraestrutura subjacente com suporte a gerenciamento de identidade para todos os serviços de nuvem da Microsoft.
 

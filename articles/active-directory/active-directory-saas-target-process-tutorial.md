@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a44967e57156a3cf2d002f03128f1828a20e111a
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 7cf207e3a853359794a5988aff854cf766734f9b
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ O objetivo deste tutorial é mostrar como integrar o TargetProcess ao Azure AD (
 A integração do TargetProcess ao Azure AD oferece os seguintes benefícios: 
 
 * Você pode controlar no Azure AD quem tem acesso ao TargetProcess 
-* Você pode habilitar seus usuários a fazerem logon automaticamente no TargetProcess (logon único) com suas contas do Azure AD
+* Você pode permitir que seus usuários façam logon automaticamente no TargetProcess usando SSO (logon único) com suas contas do Azure AD
 * Você pode gerenciar suas contas em um local central, o portal clássico do Active Directory do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -35,25 +36,24 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD com o TargetProcess, você precisa dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do TargetProcess
+* Um logon único de TargetProcess em assinatura habilitada
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. 
+O objetivo deste tutorial é permitir que você teste o SSO do Azure AD em um ambiente de teste. 
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando TargetProcess da galeria 
-2. configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 ## <a name="adding-targetprocess-from-the-gallery"></a>Adicionando TargetProcess da galeria
 Para configurar a integração do TargetProcess ao Azure AD, você precisa adicionar o TargetProcess por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -80,25 +80,27 @@ Para configurar a integração do TargetProcess ao Azure AD, você precisa adici
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_10.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
-O objetivo desta seção é mostrar como configurar e testar o logon único do Azure AD com o TargetProcess, com base em um usuário de teste chamado “Brenda Fernandes”.
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
+O objetivo desta seção é mostrar como configurar e testar o SSO do Azure AD com o TargetProcess, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o AD do Azure precisa saber qual usuário do TargetPRocess é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TargetProcess.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do TargetProcess é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TargetProcess.
 
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no TargetProcess.
 
-Para configurar e testar o logon único do AD do Azure com o TargetProcess, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o TargetProcess, conclua os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criar um usuário de teste TargetProcess](#creating-a-targetprocess-test-user)** : para ter um equivalente de Brenda Fernandes no TargetProcess que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do TargetProcess. Como parte desse procedimento, será necessário criar um arquivo de certificado codificado em base 64. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+O objetivo desta seção é habilitar o SSO do Azure AD no Portal Clássico do Azure e configurar o logon único em seu aplicativo do TargetProcess. 
 
-Para configurar o logon único para o TargetProcess, você precisa de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do TargetProcess pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).  
+Como parte deste procedimento, será necessário criar um arquivo de certificado codificado em base&64;. Se você não estiver familiarizado com este procedimento, consulte [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+
+Para configurar o SSO para o TargetProcess, você precisa de um domínio registrado. Se não tiver um domínio registrado, entre em contato com a equipe de suporte do TargetProcess pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com).  
 
 **Para configurar o logon único do Azure AD com o TargetProcess, realize as seguintes etapas:**
 
@@ -111,50 +113,41 @@ Para configurar o logon único para o TargetProcess, você precisa de um domíni
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png) 
-
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo TargetProcess (por exemplo: *https://fabrikam.TargetProcess.com/*).
-
-    b. Clique em **Avançar**.
-
-
-1. Na página **Configurar logon único no TargetProcess** , realize as seguintes etapas:
+  1. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo TargetProcess (por exemplo: *https://fabrikam.TargetProcess.com/*).
+  2. Clique em **Próximo**.
+4. Na página **Configurar logon único no TargetProcess** , realize as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_04.png) 
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Avançar**.
-2. Entre no seu aplicativo TargetProcess como administrador.
-3. No menu na parte superior, clique em **Configuração**.
+    ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_04.png)   
+  1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+  2. Clique em **Próximo**.
+5. Entre no seu aplicativo TargetProcess como administrador.
+6. No menu na parte superior, clique em **Configuração**.
    
     ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_05.png)
-4. Clique em **Configurações**.
+7. Clique em **Configurações**.
    
     ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_06.png) 
-5. Clique em **Logon Único**.
+8. Clique em **Logon Único**.
    
     ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_07.png) 
-6. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
+9. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_08.png) 
-   
-    a. Clique em **Habilitar Logon Único**.
-   
-    b. No portal clássico do Azure, na página **Configurar logon único no TargetProcess**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
-   
-    c. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado** .
-   
-    d. Clique em **Habilitar Provisionamento de JIT**.
-7. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**. 
+    ![Configurar o logon único](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_08.png)   
+  1. Clique em **Habilitar Logon Único**.
+  2. No portal clássico do Azure, na página **Configurar logon único no TargetProcess**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon**.
+  3. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado** .
+  4. Clique em **Habilitar Provisionamento de JIT**.
+10. No portal clássico do Azure, selecione a confirmação da configuração de logon único e, em seguida, clique em **Avançar**. 
    
     ![Logon Único do AD do Azure][10]
-8. Na página **Confirmação de logon único**, clique em **Concluir**.  
+11. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal clássico do Azure chamado Brenda Fernandes.
-Na lista de usuários, selecione **Brenda Fernandes**.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+O objetivo desta seção é criar um usuário de teste no Portal Clássico do Azure chamado Brenda Fernandes.
+
+* Na lista de usuários, selecione **Brenda Fernandes**.
 
 ![Criar um usuário do AD do Azure][20]
 
@@ -172,44 +165,36 @@ Na lista de usuários, selecione **Brenda Fernandes**.
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_04.png) 
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas: 
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_05.png)  
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_05.png)   
+  1. Em Tipo de Usuário, selecione Novo usuário na organização. 
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+  3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   e. Clique em **Próximo**.
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+  4. Na lista **Função**, selecione **Usuário**.
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-flatter-files-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**.
+  2. Clique em **Concluído**.   
 
-### <a name="creating-a-targetprocess-test-user"></a>Criar um usuário de teste TargetProcess
+### <a name="create-a-targetprocess-test-user"></a>Criar um usuário de teste do TargetProcess
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no TargetProcess.
+
 O TargetProcess dá suporte ao provisionamento de usuário just-in-time. Você já habilitou isso em [Configurar o logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on).
 
 Não há itens de ação para você nesta seção.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao TargetProcess.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+O objetivo desta seção é permitir que Brenda Fernandes use o SSO do Azure, concedendo a ela acesso ao TargetProcess.
 
 ![Atribuir usuário][200] 
 
@@ -229,7 +214,7 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco TargetProcess no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo TargetProcess.
@@ -260,10 +245,5 @@ Quando você clica no bloco TargetProcess no Painel de Acesso, você deve ser co
 
 
 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

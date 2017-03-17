@@ -11,12 +11,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 02/23/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4df32e7e03f17ec46e46a3f2718d24783424ab9e
-ms.openlocfilehash: fc1f3c7160a4956ed7372a2797c03c2892fbfb65
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 14627391a5df562a70737a71f41fe7cb934c9062
+ms.openlocfilehash: 54f579e5806a2fa5bd4ceace8a8ab46509b4be1e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -29,53 +29,50 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 
 * [O botão Exportar](app-insights-metrics-explorer.md#export-to-excel) na parte superior de uma métrica ou folha de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel. 
 
-* [Análise](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
+* O [Analytics](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](app-insights-export-power-bi.md), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente. 
 
 Depois que a exportação contínua copia os dados para o armazenamento (onde eles podem permanecer pelo tempo desejado), eles ainda ficam disponíveis no Application Insights pelo [período de retenção](app-insights-data-retention-privacy.md) normal. 
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Se você ainda não tiver uma conta de armazenamento "clássica", crie uma agora.
+## <a name="setup"></a> Criar uma Exportação Contínua
+1. No recurso Application Insights do seu aplicativo, abra Exportação Contínua e selecione **Adicionar**: 
 
-1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure](https://portal.azure.com).
-   
-    ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-telemetry/030.png)
-2. Criar um contêiner.
-   
-    ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-export-telemetry/040.png)
+    ![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
 
-Se você criar o armazenamento em uma região diferente do seu recurso do Application Insights, poderá haver [encargos de transferência de dados](https://azure.microsoft.com/pricing/details/bandwidth/).
+2. Escolha a telemetria de tipos de dados que você deseja exportar.
 
-## <a name="a-namesetupa-set-up-continuous-export"></a><a name="setup"></a> Configurar a exportação contínua
-Na folha Visão geral do aplicativo no portal do Application Insights, abra Exportação contínua: 
+3. Crie ou selecione uma [Conta de armazenamento do Azure](../storage/storage-introduction.md) onde você deseja armazenar os dados. 
 
-![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
+    > [!Warning]
+    > Por padrão, o local de armazenamento será definido como a mesma região geográfica que seu recurso Application Insights. Armazenar em uma região diferente poderá incorrer em encargos de transferência.
 
-Adicione uma exportação contínua e escolha os tipos de evento que você deseja exportar:
+    ![Clique em Adicionar, Destino de exportação, Conta de armazenamento e, em seguida, crie um novo repositório ou escolha um repositório existente](./media/app-insights-export-telemetry/02-add.png)
 
-![Clique em Adicionar, Destino de exportação, Conta de armazenamento e, em seguida, crie um novo repositório ou escolha um repositório existente](./media/app-insights-export-telemetry/02-add.png)
+4. Crie ou selecione um contêiner no armazenamento:
 
-Escolha ou crie a [conta de armazenamento do Azure](../storage/storage-introduction.md) onde você deseja armazenar os dados:
+    ![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/create-container.png)
 
-![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/03-types.png)
+Depois de criar sua exportação, ela começa a ser realizada. Você só obtém os dados que chegam após a criação da exportação. 
 
-Depois de criar sua exportação, ela começa a ser realizada. (Você só obtém os dados que chegam após a criação da exportação.) 
+Pode haver um atraso de aproximadamente uma hora antes de os dados aparecem no armazenamento.
 
-Pode haver um atraso de aproximadamente uma hora antes de os dados aparecem no blob.
+### <a name="to-edit-continuous-export"></a>Para editar a exportação contínua
 
 Se você quiser alterar os tipos de evento mais tarde, basta editar a exportação:
 
 ![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/05-edit.png)
 
-Para interromper o fluxo, clique em Desabilitar. Quando você clicar em Habilitar novamente, o fluxo será reiniciado com novos dados. Você não obterá os dados recebidos no portal enquanto a exportação estava desabilitada.
+### <a name="to-stop-continuous-export"></a>Para interromper a exportação contínua
 
-Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclui seus dados do armazenamento.
+Para interromper a exportação, clique em Desabilitar. Quando você clicar em Habilitar novamente, a exportação será reiniciada com novos dados. Você não obterá os dados recebidos no portal enquanto a exportação estava desabilitada.
 
-#### <a name="cant-add-or-change-an-export"></a>Não consegue adicionar nem alterar uma exportação?
+Para interromper a exportação permanentemente, basta excluí-la. Isso não exclui seus dados do armazenamento.
+
+### <a name="cant-add-or-change-an-export"></a>Não consegue adicionar nem alterar uma exportação?
 * Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre as funções][roles].
 
-## <a name="a-nameanalyzea-what-events-do-you-get"></a><a name="analyze"></a> Quais eventos você recebe?
+## <a name="analyze"></a> Quais eventos você recebe?
 Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente. 
 
 Dados que foram descartados por [amostragem](app-insights-sampling.md) não são incluídos nos dados exportados.
@@ -85,11 +82,11 @@ Outras métricas calculadas não são incluídas. Por exemplo, nós não exporta
 Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou. 
 
 > [!NOTE]
-> **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> **Amostragem.** Se seu aplicativo enviar muitos dados, a funcionalidade de amostragem poderá operar e enviar apenas uma parte da telemetria gerada. [Saiba mais sobre amostragem.](app-insights-sampling.md)
 > 
 > 
 
-## <a name="a-namegeta-inspect-the-data"></a><a name="get"></a> Inspecionar os dados
+## <a name="get"></a> Inspecionar os dados
 Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
 
 Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**.)
@@ -109,7 +106,7 @@ Where
 * `blobCreationTimeUtc` é a hora em que o blob foi criado no armazenamento de preparo interno
 * `blobDeliveryTimeUtc` é a hora em que o blob foi copiado para o armazenamento de destino de exportação
 
-## <a name="a-nameformata-data-format"></a><a name="format"></a> Formato dos dados
+## <a name="format"></a> Formato dos dados
 * Cada blob é um arquivo de texto que contém várias linhas separadas por “ \n”. Ele contém a telemetria processada durante um período de tempo de aproximadamente metade um minuto.
 * Cada linha representa um ponto de dados de telemetria como uma solicitação ou uma exibição de página.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar olhando para ele, abra-o no Visual Studio e escolha Editar, Avançado, Arquivo de Formato:
@@ -146,7 +143,7 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
 
 Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
-## <a name="a-namedeleteadelete-your-old-data"></a><a name="delete"></a>Excluir dados antigos
+## <a name="delete"></a>Excluir dados antigos
 Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário. 
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se você regenerar sua chave de armazenamento...

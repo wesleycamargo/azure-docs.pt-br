@@ -11,11 +11,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/22/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
-ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
+ms.sourcegitcommit: ed8ef101a0757fd32585f5b3249e49d4fb0e09b4
+ms.openlocfilehash: ea3aa0b94c6a74747f7efa8633d5b6bfff75a230
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -109,7 +110,7 @@ Depois de configurar o logon único em seus aplicativos e recursos, aplique uma 
 | Uma introdução aos recursos de acesso condicional oferecidos no AD do Azure, no Office365 e no Intune |[Gerenciamento de riscos com acesso condicional](active-directory-conditional-access.md) |
 | Como habilitar o acesso condicional aos seguintes tipos de recursos |[Acesso condicional para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Acesso condicional para serviços do Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Acesso condicional para aplicativos locais](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Acesso condicional para aplicativos locais publicados por meio do Proxy de Aplicativo do Azure AD](active-directory-application-proxy-conditional-access.md) |
 | Como registrar dispositivos com o Active Directory do Azure a fim de habilitar políticas de acesso condicional baseadas no dispositivo |[Visão geral do registro de dispositivos do Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Como habilitar o registro de dispositivo automático para dispositivos Windows ingressados no domínio](active-directory-conditional-access-automatic-device-registration.md)<br />— [Etapas para dispositivos com Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Etapas para dispositivos com Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
-| Como usar a versão para Android do aplicativo Azure Authenticator para políticas que envolvam Multi-Factor Authentication |[Azure Authenticator para Android](active-directory-conditional-access-azure-authenticator-app.md) |
+| Como usar o aplicativo Microsoft Authenticator para verificação em duas etapas |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 O Acesso Condicional é um recurso do [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -209,10 +210,5 @@ Para ver quais relatórios estão incluídos em edições diferentes do Azure Ac
 [Serviços de Domínio do Active Directory do Azure](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

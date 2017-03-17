@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 31c6cb19827279995502c68ed6d86d23ef9eacd0
-ms.openlocfilehash: 5d98f086b4ccee300b18c8271f940272f618e93e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: c6c92f0d357909921a9f3ee2f484ff355ddde0be
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -36,7 +37,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para saber mais, confira [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure um host do Docker em uma máquina virtual do Azure usando a extensão de VM do Docker. Para saber mais, confira [Extensão de VM do Docker](virtual-machines-linux-dockerextension.md).
 
-Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma máquina virtual. Isso é útil para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](virtual-machines-linux-extensions-customscript.md).
+Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script Personalizado para Linux permite a execução de qualquer script Bash em uma máquina virtual. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, confira [Extensão de Script Personalizado de VM do Linux](virtual-machines-linux-extensions-customscript.md).
 
 Para trabalhar em um exemplo no qual uma extensão de VM é usada em uma implantação de aplicativos de ponta a ponta, confira [Automatizar implantações de aplicativos em máquinas virtuais do Azure](virtual-machines-linux-dotnet-core-1-landing.md).
 
@@ -74,7 +75,7 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
   --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-isso fornece uma saída parecida com o seguinte texto:
+O script produz uma saída semelhante ao texto a seguir:
 
 ```azurecli
 info:    Executing command vm extension set
@@ -85,15 +86,15 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-É possível aplicar extensões de VM a uma máquina virtual existente por meio do Portal do Azure. Para fazer isso, selecione a máquina virtual, escolha **Extensões** e clique em **Adicionar**. Isso fornece uma lista de extensões disponíveis. Selecione a desejada e siga as instruções no assistente.
+É possível aplicar extensões de VM a uma máquina virtual existente por meio do Portal do Azure. Para fazer isso, selecione a máquina virtual, escolha **Extensões** e clique em **Adicionar**. Selecione a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente.
 
 A imagem a seguir mostra a instalação da extensão Script Personalizado do Linux no Portal do Azure.
 
-![Extensão de Script personalizado](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Instalar a extensão de script personalizado](./media/virtual-machines-linux-extensions-features/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
-É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de máquinas virtuais com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
+É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager. O modelo implanta um conjunto de máquinas virtuais com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
 Para saber mais, confira o [Modelo completo do Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -222,7 +223,7 @@ O status de execução da extensão também pode ser encontrado no Portal do Azu
 
 ### <a name="rerun-a-vm-extension"></a>Executar novamente uma extensão de VM
 
-Pode haver casos nos quais uma extensão da máquina virtual precisa ser executada novamente. Faça isso removendo a extensão e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, execute o seguinte comando com a CLI do Azure. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
+Pode haver casos nos quais uma extensão da máquina virtual precisa ser executada novamente. Você pode executar novamente uma extensão removendo-a e, em seguida, executando novamente a extensão com um método de execução de sua escolha. Para remover uma extensão, execute o seguinte comando com a CLI do Azure. Substitua os nomes de parâmetro de exemplo por seus próprios valores.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
@@ -243,9 +244,4 @@ Você pode remover uma extensão usando as seguintes etapas no Portal do Azure:
 | Extensão de acesso à VM |Restabelecer o acesso a uma máquina virtual do Azure |[Extensão de acesso à VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de Acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

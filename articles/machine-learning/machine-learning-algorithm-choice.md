@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f2593e5ddebdc3a44559f16739dc9a13881afcb2
+ms.sourcegitcommit: 265bb284d23e42c16c84a718c402b1bc6f6a30f9
+ms.openlocfilehash: c5521c3a02e36fa388e4da90faf4d8b9fa219356
+ms.lasthandoff: 12/19/2016
 
 
 ---
@@ -175,7 +176,7 @@ As redes neurais são algoritmos de aprendizado inspirados no cérebro que cobre
 No entanto, esse alto desempenho tem um preço. As redes neurais podem ter um treinamento muito longo, particularmente para grandes conjuntos de dados com muitos recursos. Elas também têm mais parâmetros do que a maioria dos algoritmos, o que significa que a limpeza de parâmetros aumenta muito o tempo de treinamento.
 E para as pessoas brilhantes que desejam [especificar sua própria estrutura de rede](http://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inesgotáveis.
 
-## <a name="boundaries-learned-by-neural-networks6"></a>![Limites aprendidos por redes neurais][6]
+![Limites aprendidos por redes neurais][6]
 ***Os limites aprendidos por redes neurais podem ser complexos e irregulares***
 
 O [perceptron médio de duas classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) é a resposta das redes neurais para os tempos de treinamento estratosféricos. Ele usa uma estrutura de rede que fornece os limites de classe linear. É quase primitivo pelos padrões de hoje, mas tem uma longa história de trabalho robusto e é pequeno o suficiente para aprender rapidamente.
@@ -217,7 +218,14 @@ Há também um conjunto [classificador multiclasse um contra todos](https://msdn
 
 O Aprendizado de Máquina do Azure também inclui acesso a uma poderosa estrutura de aprendizado de máquina sob o título de [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf).
 O VW desafia a categorização aqui, já que pode aprender problemas de classificação e de regressão e pode até aprender de dados parcialmente sem rótulo. Você pode configurá-lo para usar qualquer um de vários algoritmos, funções de perda e algoritmos de otimização de aprendizado. Ele foi projetado desde o início para ser eficiente, paralelo e extremamente rápido. Ele lida com conjuntos de recursos absurdamente grandes com pouco esforço aparente.
-Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é uma entrada de Fórmula 1 em um campo de algoritmos de stock cars. Nem todo problema se ajustará ao VW, mas se ele se ajustar, poderá valer a pena seguir a curva de aprendizado em sua interface. Ele também está disponível como [código-fonte aberto autônomo](https://github.com/JohnLangford/vowpal_wabbit) em várias linguagens.
+Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é uma entrada de Fórmula&1; em um campo de algoritmos de stock cars. Nem todo problema se ajustará ao VW, mas se ele se ajustar, poderá valer a pena seguir a curva de aprendizado em sua interface. Ele também está disponível como [código-fonte aberto autônomo](https://github.com/JohnLangford/vowpal_wabbit) em várias linguagens.
+
+## <a name="more-help-with-algorithms"></a>Obter ajuda com algoritmos
+* Para obter um infográfico para download que descreve algoritmos e fornece exemplos, consulte [Infográfico para download: conceitos básicos com exemplos de algoritmo de aprendizado de máquina ](machine-learning-basics-infographic-with-algorithm-examples.md).
+* Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio do Azure, consulte [Inicializar modelo][initialize-model] na Ajuda de algoritmo e módulo do Machine Learning Studio.
+* Para obter uma lista completa em ordem alfabética dos algoritmos e módulos no Machine Learning Studio do Azure, consulte a [Lista de A-Z de módulos do Machine Learning Studio] na Ajuda de algoritmo e módulo do Machine Learning Studio.
+* Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio do Azure, consulte [Diagrama de visão geral dos recursos do Machine Learning Studio do Azure](machine-learning-studio-overview-diagram.md).
+
 
 <!-- Media -->
 
@@ -231,9 +239,4 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 [8]: ./media/machine-learning-algorithm-choice/image8.png
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

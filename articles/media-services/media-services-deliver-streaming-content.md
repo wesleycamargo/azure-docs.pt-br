@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: cd9a73d1830be132a1176fcb6cdeadedcdc96d04
-ms.openlocfilehash: 98bfdc49524edd5cedc85b5f94a74ca8c29ae2e9
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 5598a16511713a76193c13c4521e4884d8f5b75d
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -49,6 +50,10 @@ Para criar o localizador de streaming sob demanda e obter URLs, você precisa fa
    
    Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo.  
 4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
+
+
+>[!NOTE]
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 ### <a name="use-media-services-net-sdk"></a>Usar o SDK do .NET dos Serviços de Mídia
 Criar URLs de streaming 
@@ -173,10 +178,5 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
 ## <a name="see-also"></a>Consulte também
 [Baixar ativos](media-services-deliver-asset-download.md)
 [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

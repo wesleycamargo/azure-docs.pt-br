@@ -16,8 +16,9 @@ ms.workload: tbd
 ms.date: 11/30/2016
 ms.author: v-six
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 00b09be636a01872070a1bec5f0f19885496bbcc
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -55,7 +56,7 @@ Para garantir que a configuração `DiagnosticsConnectionString` esteja correta 
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  Se estiver desenvolvendo seu aplicativo com as Ferramentas do Azure para o Microsoft Visual Studio, você poderá usar as [páginas de propriedade](https://msdn.microsoft.com/library/ee405486) para definir esse valor.
+  Se estiver desenvolvendo seu aplicativo com as Ferramentas do Azure para o Microsoft Visual Studio, você poderá usar as páginas de propriedade para definir esse valor.
 
 ## <a name="exported-certificate-does-not-include-private-key"></a>O certificado exportado não inclui a chave privada
 Para executar uma função web por meio do SSL, você deve garantir que seu certificado de gerenciamento exportado inclui a chave privada. Se você usar o *Gerenciador de Certificados do Windows* para exportar o certificado, selecione **Sim** para a opção **Exportar a chave privada**. O certificado deve ser exportado no formato PFX, que é o único formato atualmente com suporte.
@@ -69,9 +70,4 @@ Veja mais cenários de reciclagem da função na [Série de blogs de Kevin Willi
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Execute]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

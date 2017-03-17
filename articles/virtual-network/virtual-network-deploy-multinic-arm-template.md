@@ -1,10 +1,10 @@
 ---
-title: Criar uma VM com diversas NICs usando um modelo| Microsoft Docs
-description: Criar uma VM com diversas NICs usando um modelo pelo Azure Resource Manager.
+title: "Criar uma VM com várias NICs - modelo do Azure Resource Manager | Microsoft Docs"
+description: Criar uma VM com diversas NICs usando um modelo do Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
-ms.openlocfilehash: 05a3d3e1c6c608b1dcfd0a4d4ed795cb1d22456b
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: aeee602495131ddd14f12716d4f79e702bbddce7
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -315,10 +317,5 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
         data:    Tags: null
         data:
         info:    group create command OK
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

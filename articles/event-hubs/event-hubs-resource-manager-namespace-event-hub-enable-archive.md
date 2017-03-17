@@ -12,16 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 03/07/2017
 ms.author: shvija;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: aa7244849f6286e8ef9f9785c133b4c326193c12
-ms.openlocfilehash: fffa437acabc2f26cbe285be9aec47c89232948c
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: cab8a4de9d8d98d77094da5d73f29237829e743a
+ms.lasthandoff: 03/08/2017
 
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager
-Este artigo mostra como usar um modelo do Azure Resource Manager, que cria um namespace de Hubs de Eventos com um Hub de Eventos e habilita o Arquivo Morto em seu Hub de Eventos. Você aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
+Este artigo mostra como usar um modelo do Azure Resource Manager, que cria um namespace de Hubs de Eventos de tipo com um Hub de Eventos e também habilita o recurso de Arquivo em seu Hub de Eventos. O artigo descreve como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager][Authoring Azure Resource Manager templates].
 
@@ -73,7 +74,7 @@ O nome do Hub de Evento criado no namespace Hubs de Evento.
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-O número de dias que você quer que as mensagens sejam retidas em seu Hub de Eventos. 
+O número de dias para manter as mensagens no Hub de Eventos. 
 
 ```json
 "messageRetentionInDays":{
@@ -88,7 +89,7 @@ O número de dias que você quer que as mensagens sejam retidas em seu Hub de Ev
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-O número de partições que você deseja em seu Hub de Eventos.
+O número de partições para criar no Hub de Eventos.
 
 ```json
 "partitionCount":{
@@ -175,7 +176,7 @@ O Arquivo Morto exige uma ID de recurso da conta de Armazenamento do Azure para 
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-O contêiner de blobs no qual você quer que seus dados de evento sejam arquivados.
+O contêiner de blob no qual deseja arquivar os dados de evento.
 
 ```json
  "blobContainerName":{
@@ -201,7 +202,7 @@ A versão da API do modelo.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos a implantar
-Cria um namespace do tipo **EventHubs** com um Hub de Eventos e habilita o Arquivo Morto.
+Cria um namespace do tipo **EventHubs** com um Hub de Eventos e habilita o Arquivo.
 
 ```json
 "resources":[  
@@ -257,7 +258,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
@@ -276,9 +277,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
 [Azure Resources Naming Conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
 [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

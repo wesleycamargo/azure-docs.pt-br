@@ -1,5 +1,5 @@
 ---
-title: Executar um trabalho do Hadoop usando o Banco de Dados de Documentos e o HDInsight | Microsoft Docs
+title: Executar um trabalho do Hadoop usando o Azure DocumentDB e o HDInsight | Microsoft Docs
 description: Saiba como executar um trabalho de Hive, Pig e MapReduce simples com o Banco de Dados de Documentos e o HDInsight do Azure.
 services: documentdb
 author: dennyglee
@@ -14,13 +14,15 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: f7b508071e76deb47bfbaf397ce168ebc78aa068
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 9304acd9f99b7f492a37bc4243ed8fb617998c6f
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="a-namedocumentdb-hdinsightarun-a-hadoop-job-using-documentdb-and-hdinsight"></a><a name="DocumentDB-HDInsight"></a>Executar um trabalho do Hadoop usando o Banco de Dados de Documentos e o HDInsight
+# <a name="DocumentDB-HDInsight"></a>Executar um trabalho do Apache Hive, Pig ou Hadoop usando o DocumentDB e o HDInsight
 Este tutorial mostra como executar trabalhos MapReduce do [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] no Azure HDInsight com o conector para Hadoop do DocumentDB. O conector para Hadoop do Banco de Dados de Documentos permite que ele atue como origem e como coletor para trabalhos de Hive, Pig e MapReduce. Este tutorial usa o Banco de Dados de Documentos como a fonte e o destino dos dados para trabalhos do Hadoop.
 
 Depois de concluir este tutorial, você poderá responder às seguintes perguntas:
@@ -43,7 +45,7 @@ Depois, volte a este artigo, no qual você verá todos os detalhes de como execu
 
 Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts do PowerShell para Hive, Pig e MapReduce? Sem problemas, elas estão [aqui][documentdb-hdinsight-samples]. O download contém também arquivos hql, pig e java para essas amostras.
 
-## <a name="a-namenewestversionanewest-version"></a><a name="NewestVersion"></a>Versão Mais Recente
+## <a name="NewestVersion"></a>Versão Mais Recente
 <table border='1'>
     <tr><th>Versão do Conector para Hadoop</th>
         <td>1.2.0</td></tr>
@@ -59,7 +61,7 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
         </td></tr>
 </table>
 
-## <a name="a-nameprerequisitesaprerequisites"></a><a name="Prerequisites"></a>Pré-requisitos
+## <a name="Prerequisites"></a>Pré-requisitos
 Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
 * Uma conta do Banco de Dados de Documentos, um banco de dados e uma coleção com documentos. Para saber mais, consulte o [Guia de Introdução ao DocumentDB][getting-started]. Importe dados de exemplo para sua conta do DocumentDB com a [ferramenta de importação do DocumentDB][documentdb-import-data].
@@ -73,7 +75,7 @@ Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 >
 >
 
-## <a name="a-nameprovisionhdinsightastep-1-create-a-new-hdinsight-cluster"></a><a name="ProvisionHDInsight"></a>Etapa 1: criar um novo cluster HDInsight
+## <a name="ProvisionHDInsight"></a>Etapa 1: criar um novo cluster HDInsight
 Este tutorial usa a Ação de Script do Portal do Azure para personalizar o cluster HDInsight. Nesse tutorial, usaremos o Portal do Azure para criar o cluster HDInsight. Para sabe como usar cmdlets do PowerShell ou o SDK do .NET do HDInsight, veja o artigo [Personalizar clusters HDInsight usando Ação de Script][hdinsight-custom-provision].
 
 1. Entre no [Portal do Azure][azure-portal].
@@ -139,7 +141,7 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 11. Criar um novo **Grupo de Recursos** ou use um Grupo de Recursos existente em sua Assinatura do Azure.
 12. Agora, marque **Fixar no painel** para controlar sua implantação e clique em **Criar**!
 
-## <a name="a-nameinstallcmdletsastep-2-install-and-configure-azure-powershell"></a><a name="InstallCmdlets"></a>Etapa 2: instalar e configurar o Azure PowerShell
+## <a name="InstallCmdlets"></a>Etapa 2: instalar e configurar o Azure PowerShell
 1. Instale o PowerShell do Azure. As instruções podem ser encontradas [aqui][powershell-install-configure].
 
    > [!NOTE]
@@ -160,7 +162,7 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 
     ![Diagrama do PowerShell do Azure][azure-powershell-diagram]
 
-## <a name="a-namerunhiveastep-3-run-a-hive-job-using-documentdb-and-hdinsight"></a><a name="RunHive"></a>Etapa 3: executar um trabalho Hive usando o DocumentDB e o HDInsight
+## <a name="RunHive"></a>Etapa 3: executar um trabalho Hive usando o DocumentDB e o HDInsight
 > [!IMPORTANT]
 > Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
 >
@@ -261,7 +263,7 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 
    ![Resultados da consulta de Hive][image-hive-query-results]
 
-## <a name="a-namerunpigastep-4-run-a-pig-job-using-documentdb-and-hdinsight"></a><a name="RunPig"></a>Etapa 4: executar um trabalho Pig usando o DocumentDB e o HDInsight
+## <a name="RunPig"></a>Etapa 4: executar um trabalho Pig usando o DocumentDB e o HDInsight
 > [!IMPORTANT]
 > Todas as variáveis indicadas entre < e > devem ser preenchidas usando suas configurações.
 >
@@ -348,7 +350,7 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 
     ![Resultados da consulta de Pig][image-pig-query-results]
 
-## <a name="a-namerunmapreduceastep-5-run-a-mapreduce-job-using-documentdb-and-hdinsight"></a><a name="RunMapReduce"></a>Etapa 5: executar um trabalho MapReduce usando o DocumentDB e o HDInsight
+## <a name="RunMapReduce"></a>Etapa 5: executar um trabalho MapReduce usando o DocumentDB e o HDInsight
 1. Defina as seguintes variáveis no seu Painel de Script do PowerShell.
 
         $subscriptionName = "<SubscriptionName>"   # Azure subscription name
@@ -389,7 +391,7 @@ Este tutorial usa a Ação de Script do Portal do Azure para personalizar o clus
 
       ![Resultados da consulta de MapReduce][image-mapreduce-query-results]
 
-## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Próximas etapas
+## <a name="NextSteps"></a>Próximas etapas
 Parabéns! Você acaba de executar seus primeiros trabalhos Hive, Pig e MapReduce usando o HDInsight e o Banco de Dados de Documentos do Azure.
 
 Nós abrimos o código-fonte do nosso Conector do Hadoop. Se estiver interessado, você poderá contribuir com o [GitHub][documentdb-github].
@@ -433,9 +435,4 @@ Para saber mais, consulte os seguintes artigos:
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

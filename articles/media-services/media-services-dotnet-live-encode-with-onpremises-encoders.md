@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: b00dcddf38885b002822b9e92010bdf2c5938cc4
-ms.lasthandoff: 01/13/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 67d446263c7a884cd8d22e88e6fb607b1399d9aa
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -62,6 +62,10 @@ O exemplo de código a seguir demonstra como concretar as seguintes tarefas:
 >[!NOTE]
 >Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
     
+    
+>[!NOTE]
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+
 Para obter informações sobre como configurar um codificador ativo, consulte [Suporte a RTMP dos Serviços de Mídia do Azure e codificadores ativos](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;

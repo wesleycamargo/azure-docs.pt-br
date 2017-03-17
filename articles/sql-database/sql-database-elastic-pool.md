@@ -11,22 +11,23 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 02/01/2017
+ms.date: 02/24/2017
 ms.author: ddove
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 65b7e72d2cf0afd57aebd2e5938b540b2a2b4f20
-ms.openlocfilehash: a38e1bf40bde45d0122e07b50c748d57757635a5
+ms.sourcegitcommit: 1cac55acd88babc4ca4b04d2cafc6fa25f1393f0
+ms.openlocfilehash: 59f09d9529e8a97d8a0a4c7d9984a6fed850a57d
+ms.lasthandoff: 02/27/2017
 
 
 ---
 # <a name="what-is-an-azure-sql-elastic-pool"></a>O que é um pool elástico do SQL do Azure?
-Um pool elástico do SQL recebe um número definido de eDTUs por um preço definido, em um servidor lógico do Azure, compartilhados entre um pool de bancos de dados no servidor. Pools elásticos de bancos de dados SQL fornecem uma solução simples e econômica para gerenciar as metas de desempenho de vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
+Um pool elástico do SQL recebe um número definido de eDTUs por um preço definido, em um servidor lógico do Azure, compartilhados entre um pool de bancos de dados no servidor. Pools elásticos de bancos de dados SQL fornecem uma solução simples e econômica para gerenciar as metas de desempenho de vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis. Você pode criar e gerenciar um pool elástico usando o [Portal do Azure](sql-database-elastic-pool-manage-portal.md), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), o [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [C#](sql-database-elastic-pool-manage-csharp.md)e a API REST.
 
 > [!NOTE]
-> Os pools elásticos têm uma disponibilidade geral (GA) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão em preview.  A GA dos pools elásticos nessa região ocorrerá assim que possível.
+> Os pools elásticos têm uma disponibilidade geral (DG) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão no modo de visualização.  A GA dos pools elásticos nessa região ocorrerá assim que possível.
 >
 >
 
@@ -98,14 +99,12 @@ A restauração geográfica fornecerá a opção de recuperação padrão quando
 ### <a name="active-geo-replication"></a>Replicação geográfica ativa
 Para aplicativos que têm requisitos de restauração mais agressivos do que a Restauração Geográfica pode oferecer, configure a Replicação Geográfica Ativa usando o [Portal do Azure](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md) ou [Transact-SQL](sql-database-geo-replication-transact-sql.md).
 
-## <a name="additional-resources"></a>Recursos adicionais
-* [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+## <a name="next-steps"></a>Próximas etapas
+
+* Você pode criar e gerenciar um pool elástico usando o [Portal do Azure](sql-database-elastic-pool-manage-portal.md), o [PowerShell](sql-database-elastic-pool-manage-powershell.md), o [Transact-SQL](sql-database-elastic-pool-manage-tsql.md), o [C#](sql-database-elastic-pool-manage-csharp.md)e a API REST. 
+* Para obter orientação sobre quando usar pools elásticos, confira [Diretrizes de pool elástico](sql-database-elastic-pool-guidance.md).
+* Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

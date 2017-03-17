@@ -12,15 +12,17 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: 15412e67b6785812d00438e1819f24a6cb4fd0a8
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 3a917b34c925965aacd161e8a01284d9a01bebae
+ms.lasthandoff: 03/01/2017
 
 ---
-# <a name="using-azure-dns-with-other-azure-services"></a>Usando o Azure DNS com outros serviços do Azure
+# <a name="how-azure-dns-works-with-other-azure-services"></a>Como o Azure DNS funciona com outros serviços do Azure
 
 O DNS do Azure é um serviço hospedado de gerenciamento de DNS e resolução de nomes. Isso permite que você crie nomes DNS públicos para outros aplicativos e serviços implantados no Azure. A criação de um nome para um serviço do Azure no seu domínio personalizado é tão simples quanto adicionar um registro do tipo correto ao seu serviço.
 
@@ -38,10 +40,5 @@ A tabela a seguir descreve os tipos de registro com suporte que podem ser usados
 | Serviço de Aplicativo |IP Externa |Para endereços IP externos, você pode criar um registro DNS A. Caso contrário, você deve criar um registro CNAME que mapeia para o nome azurewebsites.net. Para saber mais, confira [Mapear um nome de domínio personalizado para um aplicativo do Azure](../app-service-web/web-sites-custom-domain-name.md) |
 | VMs do Resource Manager |IP público |As VMs do Gerenciador de Recursos pode ter endereços IP públicos. Uma VM com um endereço IP público também pode estar por trás de um balanceador de carga. Você pode criar um registro DNS A ou CNAME para o endereço público. Esse nome personalizado pode ser usado para ignorar o VIP no balanceador de carga. |
 | VMs clássicas |IP público |VMs clássicas criadas usando o PowerShell ou a CLI podem ser configuradas com um endereço virtual (reservado) dinâmico ou estático. Você pode criar um registro DNS CNAME ou A, respectivamente. |
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 647398c1a0994da04845672e89d9f82d5e8b6d21
+ms.sourcegitcommit: 613cf7e34d69afa21b1808ffe57af9a8b64944f5
+ms.openlocfilehash: 182a34822e71d63f4d7229548ae3f59d9f195337
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,86 +30,77 @@ Para usar o Estúdio de Aprendizado de Máquina do Azure, você precisa ter um e
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="to-create-a-workspace"></a>Para criar um espaço de trabalho
-1. Entre no [Portal Clássico do Microsoft Azure].
+### <a name="to-create-a-workspace"></a>Para criar um espaço de trabalho
+1. Entre no [Portal do Azure](https://portal.azure.com/)
 
-> [!NOTE]
-> Para entrar, você precisa ser um administrador de assinatura do Azure. Ser o proprietário de um espaço de trabalho de aprendizado de máquina não concede acesso ao [Portal Clássico do Microsoft Azure]. Confira [Privilégios do administrador de assinatura do Azure e proprietário do espaço de trabalho](#subscriptionvsworkspace) para obter mais detalhes.
-> 
-> 
+    > [!NOTE]
+    > Para entrar e criar um espaço de trabalho, você precisa ser um administrador de assinatura do Azure. 
+    >
+    > 
 
-1. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
-   
-    ![Serviço de Aprendizado de Máquina][1]
-2. Clique em **+NOVO** na parte inferior da janela.
-3. Clique em **SERVIÇOS DE DADOS**, depois em **APRENDIZADO DE MÁQUINA** e **CRIAÇÃO RÁPIDA**.
-   
-    ![Criação Rápida do novo espaço de trabalho][3]
-4. Insira um **NOME DE ESPAÇO DE TRABALHO** para seu espaço de trabalho.
-5. Especifique o **LOCAL** do Azure, depois insira uma **CONTA DE ARMAZENAMENTO** do Azure existente ou selecione **Criar uma nova conta de armazenamento** para criar uma nova.
-6. Clique em **CRIAR UM ESPAÇO DE TRABALHO AM**.
+2. Clique em **+Novo**
 
-Após seu espaço de trabalho do Aprendizado de Máquina ser criado, você o verá listado na página de **aprendizado de máquina** .
+3. Selecione **Inteligência + análise**, clique em **Espaço de Trabalho do Machine Learning**, e clique em **Criar**
+
+4. Insira suas informações de espaço de trabalho
+
+    - O *nome do espaço de trabalho* pode ter até 260 caracteres, sem terminar com um espaço. O nome não pode incluir estes caracteres:`< > * % & : \ ? + /`
+    - O *plano do serviço Web* escolhido (ou criado), juntamente com o *tipo de preço* associado, será usado se você implantar os serviços Web deste espaço de trabalho.
+
+    ![Criar um novo espaço de trabalho](media/machine-learning-create-workspace/create-new-workspace.png)
+
+5. Clique em **Criar**
+
+Após a implantação do espaço de trabalho, abra-o no Machine Learning Studio.
+
+1. Vá até o Machine Learning Studio em [https://studio.azureml.net/](https://studio.azureml.net/).
+
+2. Selecione seu espaço de trabalho no canto superior direito.
+
+    ![Selecione o espaço de trabalho](media/machine-learning-create-workspace/open-workspace.png)
+
+3. Clique em **meus experimentos**.
+
+    ![Experimentos abertos](media/machine-learning-create-workspace/my-experiments.png)
+
+Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure](machine-learning-manage-workspace.md).
+Se você encontrar um problema ao criar seu espaço de trabalho, consulte [Guia de solução de problemas: criar e conectar-se a um Espaço de Trabalho do Machine Learning](machine-learning-troubleshooting-creating-ml-workspace.md).
+
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Compartilhar um espaço de trabalho do Aprendizado de Máquina do Azure
-Depois de criar um espaço de trabalho de Aprendizado de Máquina, você pode convidar usuários para acessar seu espaço de trabalho e de compartilhar acesso ao seu espaço de trabalho e todos os seus experimentos. Damos suporte duas funções de usuários:
+Depois de criar um Espaço de Trabalho do Machine Learning, você pode convidar usuários ao seu espaço de trabalho e compartilhar acesso ao seu espaço de trabalho, conjuntos de dados, notebooks etc. Você pode adicionar usuários em uma das duas funções:
 
-* **Usuário** : um usuário do espaço de trabalho pode criar, abrir, modificar e excluir conjuntos de dados, testes e serviços Web no espaço de trabalho.
-* **Proprietário** : um proprietário pode convidar, remover e listar usuários com acesso ao espaço de trabalho, além do que o usuário pode fazer. Ele também tem acesso aos Notebooks.
-
-### <a name="to-share-a-workspace"></a>Para compartilhar um espaço de trabalho
-1. Entre no [Estúdio de Aprendizado de Máquina]
-2. No painel do Estúdio de Aprendizado de Máquina, clique em **CONFIGURAÇÕES**
-3. Clique em **USUÁRIOS**
-4. Clique em **CONVIDAR MAIS USUÁRIOS**
-   
-    ![CONVIDAR MAIS USUÁRIOS][4]
-5. Insira um ou mais endereços de email. O usuário precisa apenas de uma conta da Microsoft válida (por exemplo, name@outlook.com)) ou uma conta organizacional (do Azure Active Directory).
-6. Clique no botão de seleção.
-
-Cada usuário que você adicionar receberá um email com instruções para fazer logon no espaço de trabalho compartilhado.
-
-Para saber mais sobre como gerenciar seu espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure].
-Se você encontrar um problema ao criar seu espaço de trabalho, consulte [Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina].
-
-## <a name="a-namesubscriptionvsworkspaceaprivileges-of-azure-subscription-administrator-and-of-workspace-owner"></a><a name="subscriptionvsworkspace"></a>Privilégios do administrador de assinatura do Azure e proprietário do espaço de trabalho
-Veja abaixo uma tabela que esclarece a diferença entre um administrador de assinatura do Azure e o proprietário de um espaço de trabalho.
-
-| Ações | Administrador de assinatura do Azure | Proprietário do espaço de trabalho |
-| --- |:---:|:---:|
-| Acessar o [Portal Clássico do Microsoft Azure] |Sim |Não |
-| Criar um novo espaço de trabalho |Sim |Não |
-| Excluir um espaço de trabalho |Sim |Não |
-| Adicionar ponto de extremidade a um serviço Web |Sim |Não |
-| Excluir um ponto de extremidade de um serviço Web |Sim |Não |
-| Alterar a simultaneidade de um serviço Web |Sim |Não |
-| Acessar o [Estúdio de Aprendizado de Máquina] |Não * |Sim |
+* **Usuário**: um usuário do espaço de trabalho pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no espaço de trabalho.
+* **Proprietário**: um proprietário pode convidar e remover usuários no espaço de trabalho, além do que o usuário pode fazer.
 
 > [!NOTE]
-> * Um administrador de assinatura do Azure é adicionado automaticamente ao espaço de trabalho que ele cria como proprietário do espaço de trabalho. No entanto, simplesmente ser um administrador de assinatura do Azure não concede acesso a qualquer espaço de trabalho nessa assinatura.
+> A conta de administrador que cria o espaço de trabalho é adicionado automaticamente ao espaço de trabalho como proprietário. No entanto, outros administradores ou usuários nessa assinatura não recebem automaticamente acesso ao espaço de trabalho - é preciso convidá-los explicitamente.
 > 
 > 
 
-<!-- ![List of Machine Learning workspaces][2] -->
+### <a name="to-share-a-workspace"></a>Para compartilhar um espaço de trabalho
 
-<!--Anchors-->
-[Para criar um espaço de trabalho]: #createworkspace
+1. Entre no Machine Learning Studio em [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-<!--Image references-->
-[1]: media/machine-learning-create-workspace/cw1.png
-[2]: media/machine-learning-create-workspace/cw2.png
-[3]: media/machine-learning-create-workspace/cw4.png
-[4]: media/machine-learning-create-workspace/cw5.png
+2. No painel esquerdo, clique em **CONFIGURAÇÕES**
+
+3. Clique na guia **USUÁRIOS**
+
+4. Clique em **CONVIDAR MAIS USUÁRIOS** na parte inferior da página
+
+    ![Configurações do Studio](media/machine-learning-create-workspace/settings.png)
+
+5. Insira um ou mais endereços de email. O usuário precisa de uma conta da Microsoft válida ou de uma conta organizacional (do Azure Active Directory).
+
+6. Selecione se deseja adicionar os usuários como Proprietário ou Usuário.
+
+7. Clique no botão de seleção **OK**.
+
+Cada usuário que você adicionar receberá um email com instruções sobre como entrar no espaço de trabalho compartilhado.
+
+> [!NOTE]
+> Para que os usuários possam implantar ou gerenciar os serviços Web neste espaço de trabalho, eles devem ser colaboradores ou administradores na assinatura do Azure. 
 
 
-<!--Link references-->
-[Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]: machine-learning-manage-workspace.md
-[Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Estúdio de Aprendizado de Máquina]: https://studio.azureml.net/  
-[Portal Clássico do Microsoft Azure]: https://manage.windowsazure.com/
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

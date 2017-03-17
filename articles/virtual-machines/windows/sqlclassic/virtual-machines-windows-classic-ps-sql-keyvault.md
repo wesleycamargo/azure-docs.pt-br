@@ -1,5 +1,5 @@
 ---
-title: "Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)"
+title: "Configuração automatizada do Azure Key Vault para VMs do SQL (Clássicas) | Microsoft Docs"
 description: "Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre de Chaves do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a5724d4291a0b1878d528a59f693c046ba960f9
-ms.openlocfilehash: d7133180f4fc9263894c522fcaacaeea4a985847
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 763b8b57c5914e7be39256d58de1b6769dbbaf9d
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-classic"></a>Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Clássicas)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](../sql/virtual-machines-windows-ps-sql-keyvault.md)
 > * [Clássico](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -78,10 +79,5 @@ O cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** cria um objeto de conf
 A extensão do Agente IaaS do SQL atualizará a VM do SQL com essa nova configuração.
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

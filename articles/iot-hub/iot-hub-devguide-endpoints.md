@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
-ms.openlocfilehash: 58a5f8cfc376cd1fea6a668126683bb6d2521bab
+ms.sourcegitcommit: 32364c5a681c1d614abbc32cc8b73dba4e5a2d18
+ms.openlocfilehash: 00a576357c6e89d7943e6c6c6a83c2c1535d549e
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -49,6 +50,7 @@ A seguir, uma descrição dos pontos de extremidade:
   * *Enviar mensagens da nuvem para o dispositivo e receber confirmações de entrega*. Esses pontos de extremidade permitem que o seu back-end de solução envie [mensagens da nuvem para o dispositivo][lnk-c2d] confiáveis e receba as confirmações de entrega ou de vencimento correspondentes.
   * *Receba notificações de arquivo*. Esse ponto de extremidade de mensagens permite que você receba notificações quando os dispositivos carregarem com êxito um arquivo. 
   * *Invocação direta de método*. Esse ponto de extremidade permite que um serviço de back-end invoque um [método direto][lnk-methods] em um dispositivo.
+  * *Eventos de monitoramento de operações de recebimento*. Esse ponto de extremidade permitirá que você receba eventos de monitoramento de operações se o hub IoT tiver sido configurado para emiti-los. Confira [Monitoramento de operações do Hub IoT][lnk-operations-mon] para obter mais detalhes.
 
 O artigo [SDKs do Azure IoT][lnk-sdks] descreve as várias maneiras de acessar esses pontos de extremidade.
 
@@ -109,9 +111,5 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-
-
-
-<!--HONumber=Jan17_HO5-->
-
+[lnk-operations-mon]: iot-hub-operations-monitoring.md
 

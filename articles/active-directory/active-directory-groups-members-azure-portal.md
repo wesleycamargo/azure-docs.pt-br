@@ -1,6 +1,6 @@
 ---
 title: "Gerenciar os membros de um grupo na visualização do Azure Active Directory | Microsoft Docs"
-description: "Como gerenciar usuários e dispositivos que são membros de um grupo no Azure Active Directory"
+description: "Como adicionar ou remover usuários e dispositivos de um grupo no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c0c411f6e2f51fa2d55d46ff92153dc8882bb38
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 3373af848720c7c04e679d7fd4b075c5571fb417
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-members-for-a-group-in-azure-active-directory-preview"></a>Gerenciar os membros de um grupo na visualização do Azure Active Directory
+# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gerenciar associação de grupo de usuários em seu locatário do Azure Active Directory
 Este artigo explica como gerenciar os membros de um grupo na visualização do Azure AD (Azure Active Directory). [O que há na visualização?](active-directory-preview-explainer.md)
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>Como localizo os membros e os gerencio?
@@ -53,9 +55,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

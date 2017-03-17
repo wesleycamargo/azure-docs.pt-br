@@ -15,20 +15,28 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 01fb45cc2d2323290427a08e3210fadf27f6cda8
+ms.sourcegitcommit: 2434762c2a1174a40d9c6daad6c317bc3ca8f374
+ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
-O Gerenciamento de API do Azure fornece vários recursos de personalização para permitir que os administradores possam [personalizar a aparência do portal do desenvolvedor](api-management-customize-portal.md), bem como personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram o conteúdo das próprias páginas. Usando a sintaxe de [DotLiquid](http://dotliquidmarkup.org/) e um conjunto fornecido de recursos de cadeia de caracteres localizado, ícones e controles de página, você tem grande flexibilidade para configurar o conteúdo das páginas como desejar usar esses modelos.
+
+Há três maneiras básicas para personalizar o portal do desenvolvedor no Gerenciamento de API do Azure:
+
+* [Editar o conteúdo de páginas estáticas e elementos de layout da página][modify-content-layout]
+* [Atualizar os estilos usados para elementos de página entre o portal do desenvolvedor][customize-styles]
+* [Modificar os modelos usados para as páginas geradas pelo portal][portal-templates] (explicado neste guia)
+
+Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
 
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
-Os modelos de portal do desenvolvedor são gerenciados no portal do desenvolvedor pelos administradores da instância do serviço de Gerenciamento de API. Para gerenciar os modelos do desenvolvedor, navegue até a instância do serviço de Gerenciamento de API no Portal do Azure e clique no **portal do Desenvolvedor** na barra de ferramentas.
+A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do editor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
 
-![Portal do desenvolvedor][api-management-browse]
+![Portal do editor][api-management-management-console]
 
-Se você já estiver no portal do editor, poderá acessar o portal do publicador clicando em **portal do Desenvolvedor**.
+Em seguida, clique em **Portal do desenvolvedor** no canto superior direito. 
 
 ![Menu do portal do desenvolvedor][api-management-developer-portal-menu]
 
@@ -181,6 +189,9 @@ Os modelos restaurados devem ser publicados individualmente ou todos de uma vez,
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações de referência para modelos do portal do desenvolvedor, recursos de cadeia de caracteres, ícones e controles de página, consulte [referência de modelos de portal do desenvolvedor do Gerenciamento de API](api-management-developer-portal-templates-reference.md).
 
+[modify-content-layout]: api-management-modify-content-layout.md
+[customize-styles]: api-management-customize-styles.md
+[portal-templates]: api-management-developer-portal-templates.md
 
 [api-management-customize-menu]: ./media/api-management-developer-portal-templates/api-management-customize-menu.png
 [api-management-templates-menu]: ./media/api-management-developer-portal-templates/api-management-templates-menu.png
@@ -188,6 +199,7 @@ Para obter informações de referência para modelos do portal do desenvolvedor,
 [api-management-template]: ./media/api-management-developer-portal-templates/api-management-template.png
 [api-management-template-data]: ./media/api-management-developer-portal-templates/api-management-template-data.png
 [api-management-developer-portal-menu]: ./media/api-management-developer-portal-templates/api-management-developer-portal-menu.png
+[api-management-management-console]: ./media/api-management-developer-portal-templates/api-management-management-console.png
 [api-management-browse]: ./media/api-management-developer-portal-templates/api-management-browse.png
 [api-management-user-profile-templates]: ./media/api-management-developer-portal-templates/api-management-user-profile-templates.png
 [api-management-save-template]: ./media/api-management-developer-portal-templates/api-management-save-template.png
@@ -206,10 +218,5 @@ Para obter informações de referência para modelos do portal do desenvolvedor,
 
 
 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

@@ -16,8 +16,9 @@ ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
-ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: 821be267a109bdcb1a1d22107f0ab4c469e6d6aa
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -53,7 +54,7 @@ Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máqu
 
 #### <a name="recovery"></a>Recuperação
 * Certifique-se de que a configuração do aplicativo na região de DR aponta para o secundário anterior que se tornará o novo primário totalmente acessível.
-* Execute [failover planejado](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) para tornar o banco de dados secundário um novo primário
+* Execute [failover planejado](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) para tornar o banco de dados secundário um novo primário
 * Siga o guia [Configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
 #### <a name="validation"></a>Validação
@@ -64,9 +65,4 @@ Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máqu
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
 * Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
 * Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)  
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

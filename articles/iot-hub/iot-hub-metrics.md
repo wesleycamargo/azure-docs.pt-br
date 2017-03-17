@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: e8cac4af4b971320429cc4c76b8d806e314e1143
+ms.sourcegitcommit: 3f3ff3d196e9c640e9bd7cf01f9f1218c774ec6b
+ms.openlocfilehash: c06c43d430760a56d08dc0c2f9d158f4124db6d3
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -37,24 +38,59 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do Hub
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métricas do Hub IoT e como usá-las
 O Hub IoT fornece várias métricas que dão uma visão geral da integridade do hub e o número total de dispositivos conectados. É possível combinar informações de várias métricas para ter uma ideia mais ampla do estado do Hub IoT. A tabela a seguir descreve as métricas que cada Hub IoT rastreia e como cada métrica se relaciona com o status geral do Hub IoT.
 
-| Métrica | Descrição da métrica | Para que a métrica é usada |
-| --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol | A contagem de mensagens enviadas em todos os dispositivos | Dados gerais sobre envios de mensagem |
-| d2c.telemetry.ingress.success | A contagem de todas as mensagens bem-sucedidas no hub | Visão geral da entrada de mensagem bem-sucedida no hub |
-| d2c.telemetry.egress.success | A contagem de todas as gravações bem-sucedidas em um ponto de extremidade | Visão geral da divisão de mensagem com base nas rotas do usuário |
-| d2c.telemetry.egress.invalid | A contagem de mensagens não entregues devido à incompatibilidade com o ponto de extremidade | Visão geral de como há muitas falhas estão gravando no conjunto de pontos de extremidade desse usuário. Valores altos podem indicar pontos de extremidade configurados incorretamente. |
-| d2c.telemetry.egress.dropped | A contagem de mensagens removidas devido à não integridade de um ponto de extremidade | Visão geral de quantas mensagens foram descartadas considerando a configuração atual do hub IoT |
-| d2c.telemetry.egress.fallback | A contagem de mensagens que correspondem à rota de fallback | Para usuários que redirecionar todas as mensagens para outros pontos de extremidade que o ponto de extremidade internos, esta métrica mostra lacunas na configuração de roteamento |
-| d2c.telemetry.egress.orphaned | A contagem de mensagens que não correspondem a nenhuma rota, incluindo a rota de fallback | Visão geral de quantas mensagens ficam órfãos considerando a configuração atual do IoT Hub |
-| d2c.endpoints.latency.eventHubs | A latência média entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade do Hub de Eventos, em milissegundos | A propagação ajuda os usuários a identificar a configuração de ponto de extremidade ruim |
-| d2c.endpoints.latency.serviceBusQueues | A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade de Fila do Barramento de Serviço, em milissegundos | A propagação ajuda os usuários a identificar a configuração de ponto de extremidade ruim |
-| d2c.Endpoints.Latency.serviceBusTopic | A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade de Tópico do Barramento de Serviço, em milissegundos | A propagação ajuda os usuários a identificar a configuração de ponto de extremidade ruim |
-| d2c.Endpoints.Latency.builtIn.Events | A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem no ponto de extremidade interno (mensagens/eventos), em milissegundos | A propagação ajuda os usuários a identificar a configuração de ponto de extremidade ruim |
-| c2d.commands.egress.complete.success | A contagem de todas as mensagens de comando concluídas pelo dispositivo de recebimento em todos os dispositivos |Com as métricas sobre abandono e rejeição, dá uma visão geral da taxa geral de sucesso do comando da nuvem para o dispositivo |
-| c2d.commands.egress.abandon.success | A contagem de todas as mensagens abandonadas com êxito pelo dispositivo de recebimento em todos os dispositivos |Realça os possíveis problemas se as mensagens estiverem sendo abandonadas com mais frequência que o esperado |
-| c2d.commands.egress.reject.success | A contagem de todas as mensagens rejeitadas com êxito pelo dispositivo de recebimento em todos os dispositivos |Realça os possíveis problemas se as mensagens estiverem sendo rejeitadas com mais frequência que o esperado |
-| devices.totalDevices | A contagem do número de dispositivos registrados para o hub IoT |O número de dispositivos registrados para o hub |
-| devices.connectedDevices.allProtocol | A contagem do número de dispositivos conectados simultâneos |Visão geral do número de dispositivos conectados ao hub |
+|Métrica|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|
+|---|---|---|---|---|
+|d2c.telemetry.ingress.allProtocol|Tentativas de envio de mensagem de telemetria|Contagem|Total|Número de tentativas de envio de mensagens de telemetria do dispositivo para nuvem para o hub IoT|
+|d2c.telemetry.ingress.success|Mensagens de telemetria enviadas|Contagem|Total|Número de mensagens de telemetria do dispositivo para nuvem enviadas com êxito para o hub IoT|
+|c2d.commands.egress.complete.success|Comandos concluídos|Contagem|Total|Número de comandos da nuvem para o dispositivo concluídos com sucesso pelo dispositivo|
+|c2d.commands.egress.abandon.success|Comandos abandonados|Contagem|Total|Número de comandos da nuvem para o dispositivo abandonados pelo dispositivo|
+|c2d.commands.egress.reject.success|Comandos rejeitados|Contagem|Total|Número de comandos da nuvem para o dispositivo rejeitados pelo dispositivo|
+|devices.totalDevices|Total de dispositivos|Contagem|Total|Número de dispositivos registrados para o seu hub IoT|
+|devices.connectedDevices.allProtocol|Dispositivos conectados|Contagem|Total|Número de dispositivos registrados ao seu hub IoT|
+|d2c.telemetry.egress.success|Mensagens de telemetria entregues|Contagem|Total|Número de vezes que as mensagens foram gravadas com êxito nos pontos de extremidade (total)|
+|d2c.telemetry.egress.dropped|Mensagens descartadas|Contagem|Total|Número de mensagens descartadas por não corresponderem a nenhuma rota e a rota de fallback foi desabilitada|
+|d2c.telemetry.egress.orphaned|Mensagens órfãs|Contagem|Total|A contagem de mensagens que não correspondem a nenhuma rota, incluindo a rota de fallback|
+|d2c.telemetry.egress.invalid|Mensagens inválidas|Contagem|Total|A contagem de mensagens não entregues devido à incompatibilidade com o ponto de extremidade|
+|d2c.telemetry.egress.fallback|Mensagens que correspondem à condição de fallback|Contagem|Total|Número de mensagens gravadas para o ponto de extremidade de fallback|
+|d2c.endpoints.egress.eventHubs|Mensagens entregues aos pontos de extremidade do Hub de Evento|Contagem|Total|Número de vezes que as mensagens foram gravadas com êxito nos pontos de extremidade do Hub de Evento|
+|d2c.endpoints.latency.eventHubs|Latência de mensagem para pontos de extremidade do Hub de Eventos|Milissegundos|Média|A latência média entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade do Hub de Eventos, em milissegundos|
+|d2c.endpoints.egress.serviceBusQueues|Mensagens entregues aos pontos de extremidade da Fila do Barramento de Serviço|Contagem|Total|Número de vezes que as mensagens foram gravadas com êxito nos pontos de extremidade da Fila do Barramento de Serviço|
+|d2c.endpoints.latency.serviceBusQueues|Latência de mensagem para pontos de extremidade da Fila do Barramento de Serviço|Milissegundos|Média|A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade de Fila do Barramento de Serviço, em milissegundos|
+|d2c.endpoints.egress.serviceBusTopics|Mensagens entregues aos pontos de extremidade do Tópico do Barramento de Serviço|Contagem|Total|Número de vezes que as mensagens foram gravadas com êxito nos pontos de extremidade do Tópico do Barramento de Serviço|
+|d2c.endpoints.latency.serviceBusTopics|Latência de mensagem para pontos de extremidade de Tópico do Barramento de Serviço|Milissegundos|Média|A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem em um ponto de extremidade de Tópico do Barramento de Serviço, em milissegundos|
+|d2c.endpoints.egress.builtIn.events|Mensagens entregues ao ponto de extremidade interno (mensagens/eventos)|Contagem|Total|Número de vezes que as mensagens foram gravadas com êxito no ponto de extremidade interno (mensagens/eventos)|
+|d2c.Endpoints.Latency.builtIn.Events|Latência de mensagem para o ponto de extremidade interno (mensagens/eventos)|Milissegundos|Média|A latência média, mínima e máxima entre a entrada da mensagem no hub IoT e a entrada da mensagem no ponto de extremidade interno (mensagens/eventos), em milissegundos |
+|d2c.twin.read.success|Leituras de gêmeos dos dispositivos bem-sucedidas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|
+|d2c.twin.read.failure|Leituras de gêmeos dos dispositivos com falhas|Contagem|Total|A contagem de todas as leituras de gêmeos iniciadas pelo dispositivo com falhas.|
+|d2c.twin.read.size|Tamanho da resposta das leituras de gêmeos dos dispositivos|Bytes|Média|A média, o mínimo e o máximo de todas as leituras de gêmeos iniciadas pelo dispositivo bem-sucedidas.|
+|d2c.twin.update.success|Atualizações de gêmeos dos dispositivos bem-sucedidas|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo bem-sucedidas.|
+|d2c.twin.update.failure|Atualizações de gêmeos dos dispositivos com falhas|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo dispositivo.|
+|d2c.twin.update.size|Tamanho das atualizações de gêmeos dos dispositivos|Bytes|Média|A média, o mínimo e o máximo de todas as atualizações de gêmeos iniciadas pelo dispositivo bem-sucedidas.|
+|c2d.methods.success|Invocações de método diretas bem-sucedidas|Contagem|Total|A contagem de todas as chamadas de método diretas bem-sucedidas.|
+|c2d.methods.failure|Invocações de método diretas com falhas|Contagem|Total|A contagem de todas as chamadas de método diretas com falhas.|
+|c2d.methods.requestSize|Tamanho da solicitação das invocações de método diretas|Bytes|Média|A média, o mínimo e o máximo de todas as solicitações de método diretas bem-sucedidas.|
+|c2d.methods.responseSize|Tamanho da resposta das invocações de método diretas|Bytes|Média|A média, o mínimo e o máximo de todas as respostas de método diretas bem-sucedidas.|
+|c2d.twin.read.success|Leituras de gêmeos de back-end bem-sucedidas|Contagem|Total|A contagem de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|
+|c2d.twin.read.failure|Leituras de gêmeos de back-end com falhas|Contagem|Total|A contagem de todas as falhas de leituras de gêmeos iniciadas pelo back-end.|
+|c2d.twin.read.size|Tamanho da resposta das leituras de gêmeos de back-end|Bytes|Média|A média, o mínimo e o máximo de todas as leituras de gêmeos bem-sucedidas iniciadas pelo back-end.|
+|c2d.twin.update.success|Atualizações de gêmeos de back-end bem-sucedidas|Contagem|Total|A contagem de todas as atualizações de gêmeos iniciadas pelo back-end bem-sucedidas.|
+|c2d.twin.update.failure|Atualizações de gêmeos de back-end com falhas|Contagem|Total|A contagem de todas as falhas de atualizações de gêmeos iniciadas pelo back-end.|
+|c2d.twin.update.size|Tamanho das atualizações de gêmeos de back-end|Bytes|Média|A média, o mínimo e o máximo de todas as atualizações de gêmeos iniciadas pelo back-end bem-sucedidas.|
+|twinQueries.success|Consultas de gêmeos bem-sucedidas|Contagem|Total|A contagem de todas as consultas de gêmeos bem-sucedidas.|
+|twinQueries.failure|Consultas de gêmeos com falhas|Contagem|Total|A contagem de todas as consultas de gêmeos com falhas.|
+|twinQueries.resultSize|Tamanho do resultado das consultas de gêmeos|Bytes|Média|A média, o mínimo e o máximo do tamanho do resultado de todas as consultas de gêmeos bem-sucedidas.|
+|jobs.createTwinUpdateJob.success|Criações de trabalhos de atualização de gêmeos bem-sucedidas|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos bem-sucedidos.|
+|jobs.createTwinUpdateJob.failure|Criações de trabalhos de atualização de gêmeos com falhas|Contagem|Total|A contagem de todos os trabalhos de criação de atualização de gêmeos com falhas.|
+|jobs.createDirectMethodJob.success|Criações de trabalhos de invocação de método bem-sucedidas|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto bem-sucedidas.|
+|jobs.createDirectMethodJob.failure|Criações de trabalhos de invocação de método com falhas|Contagem|Total|A contagem de todas as criações de trabalhos de invocação de método direto com falhas.|
+|jobs.listJobs.success|Chamadas para listar trabalhos bem-sucedidas|Contagem|Total|A contagem de todas as chamadas para listar trabalhos bem-sucedidas.|
+|jobs.listJobs.failure|Chamadas para listar trabalhos com falhas|Contagem|Total|A contagem de todas as chamadas para listar trabalhos com falhas.|
+|jobs.cancelJob.success|Cancelamentos de trabalho bem-sucedidos|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho bem-sucedidas.|
+|jobs.cancelJob.failure|Cancelamentos de trabalho com falhas|Contagem|Total|A contagem de todas as chamadas para cancelar um trabalho com falhas.|
+|jobs.queryJobs.success|Consultas de trabalho bem-sucedidas|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho bem-sucedidas.|
+|jobs.queryJobs.failure|Consultas de trabalho com falhas|Contagem|Total|A contagem de todas as chamadas para consultas de trabalho com falhas.|
+|jobs.completed|Trabalhos concluídos|Contagem|Total|A contagem de todos os trabalhos concluídos.|
+|jobs.failed|Trabalhos com falha|Contagem|Total|A contagem de todos os trabalhos com falha.|
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois da visão geral das métricas do Hub IoT, acesse este link para saber mais sobre o gerenciamento do Hub IoT do Azure:
@@ -79,9 +115,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

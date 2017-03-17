@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/07/2017
+ms.date: 03/07/2017
 ms.author: TomSh
 translationtype: Human Translation
-ms.sourcegitcommit: 9c27ea02ae341197a70d2b399cf8d534d79c9e4c
-ms.openlocfilehash: 001cc873960733bfe3e37fad95dbac29872ba00a
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f5f5597e09128236fd659b68c70d587d87a0832a
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="get-started-with-azure-log-integration-preview"></a>Introdução à integração de log do Azure (visualização)
+# <a name="get-started-with-azure-log-integration"></a>Introdução à integração de log do Azure
 A integração do log do Azure permite que você integre registros brutos de recursos do Azure em seus sistemas de SIEM (Segurança da Informação e Gerenciamento de Evento) locais. Essa integração fornece um painel unificado para todos os seus ativos, locais ou na nuvem, para que você possa agregar, correlacionar, analisar e emitir alertas de eventos de segurança associados aos aplicativos.
 
 Este tutorial orienta você durante a instalação da integração de log do Azure e na integração dos Logs de Armazenamento do Azure, dos Logs de Auditoria do Azure e dos alertas da Central de Segurança do Azure. O tempo estimado para concluir este tutorial é de uma hora.
@@ -129,15 +129,22 @@ Se você ainda não vir os eventos, então:
 
 ## <a name="integrate-azure-active-directory-audit-logs"></a>Integrar o Azure Active Directory a logs de auditoria
 1. Abra o prompt de comando e **cd** em **c:\Arquivos de Programas\Microsoft Azure Log Integration**
-2. Execute o comando .\AZLOG.exe authorizedirectoryreader <TenantID> Sample – 
+2. Execute o comando fornecendo seu tenantID. Você precisa ser membro da função de administrador de locatário para executar o comando.
 
-.\AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+AZLOG.exe authorizedirectoryreader tenantId
 
-3. Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Auditoria do Azure Active Directory são criados em 
-* **C:\Users\azlog\AzureActiveDirectoryJson**   
+Amostra –
+
+AZLOG.exe authorizedirectoryreader ba2c0023-d24b-4f4e-92b1-48c4469999
+
+
+3. Verifique as seguintes pastas para confirmar se os arquivos JSON do Log de Auditoria do Azure Active Directory são criados em
+* **C:\Users\azlog\AzureActiveDirectoryJson**  
 * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
 4. Aponte o conector de encaminhamento de arquivos SIEM padrão para a devida pasta para enviar os dados para a instância SIEM. Talvez sejam necessários alguns mapeamentos de campo com base no produto SIEM que você está usando.
+
+[Lista de eventos atualmente registrados como eventos de auditoria no Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events)
 
 Se você tiver algum problema durante a instalação e configuração, abra uma [solicitação de suporte](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) e selecione "Integração de Log" como o serviço para o qual você está solicitando suporte.
 

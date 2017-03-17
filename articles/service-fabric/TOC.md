@@ -54,7 +54,6 @@
 #### Introdução
 ##### [C# em Windows](service-fabric-reliable-services-quick-start.md)
 ##### [Java no Linux](service-fabric-reliable-services-quick-start-java.md)
-#### [Arquitetura](service-fabric-reliable-services-platform-architecture.md)
 #### [Ciclo de vida dos Reliable Services](service-fabric-reliable-services-lifecycle.md)
 #### [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md)
 #### [Usar Reliable Collections](service-fabric-work-with-reliable-collections.md)
@@ -78,8 +77,8 @@
 #### [Ciclo de vida e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 #### [Polimorfismo](service-fabric-reliable-actors-polymorphism.md)
 #### [Reentrada](service-fabric-reliable-actors-reentrancy.md)
+#### [Eventos](service-fabric-reliable-actors-events.md) 
 #### [Lembretes e temporizadores](service-fabric-reliable-actors-timers-reminders.md)
-#### [Eventos](service-fabric-reliable-actors-events.md)
 #### [Gerenciamento de estado](service-fabric-reliable-actors-state-management.md)
 #### [Configurar KVSActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Serialização de tipo](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
@@ -166,7 +165,6 @@
 ### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
 ### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 ### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
-### [Solução de problemas comuns](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
 ## Dimensionar aplicativos
 ### [Particionar Reliable Services](service-fabric-concepts-partitioning.md)
@@ -181,7 +179,6 @@
 #### [Como usar o Caos controlado](service-fabric-controlled-chaos.md)
 #### [Como usar ações de Teste](service-fabric-testability-actions.md)
 #### [Durante cargas de trabalho](service-fabric-testability-workload-tests.md)
-#### [Invocando perda de dados](service-fabric-use-data-loss-api.md)
 #### [Como usar cenários de Teste](service-fabric-testability-scenarios.md)
 #### [Usando as APIs de transição do nó](service-fabric-node-transition-apis.md)
 ### [Fazer teste de carga em seu aplicativo](service-fabric-vso-load-test.md)

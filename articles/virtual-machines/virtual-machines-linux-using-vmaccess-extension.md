@@ -1,6 +1,6 @@
 ---
-title: "Redefinir o acesso com a extensão VMAccess e CLI do Azure 2.0 (Visualização) | Microsoft Docs"
-description: "Como gerenciar usuários e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI do Azure 2.0 (Visualização)"
+title: "Redefinir o acesso com a extensão VMAccess e CLI 2.0 do Azure | Microsoft Docs"
+description: "Como gerenciar usuários e redefinir o acesso em VMs Linux usando a extensão VMAccess e a CLI 2.0 do Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -16,32 +16,25 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: 98646daf5a4d2c9aca7dfc02a36f39d12f749443
-ms.openlocfilehash: 7752b486bda4a68b14ff3e8aaf1a369a649c83b5
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: debdb8a16c8cfd6a137bd2a7c3b82cfdbedb0d8c
+ms.openlocfilehash: 4fac98d37dde195af69d8bd03fd796c6eeae3734
+ms.lasthandoff: 02/27/2017
 
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20-preview"></a>Gerenciar usuários, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI do Azure 2.0 (Visualização)
+# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gerenciar usuários, SSH e verificar ou reparar discos em VMs Linux do usando a extensão VMAccess com a CLI 2.0 do Azure
 O disco em sua VM do Linux está mostrando erros. De alguma forma, você redefiniu a senha raiz para sua VM do Linux ou excluiu acidentalmente sua chave privada SSH. Se isso tiver ocorrido na época do datacenter, você precisará ir até lá e abrir o KVM para acessar o console do servidor. Considere a Extensão VMAccess do Azure como o comutador KVM que permite que você acesse o console para redefinir o acesso para o Linux ou para realizar a manutenção no nível de disco.
 
-Este artigo mostra como usar a extensão VMAcesss do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário ou redefinir a configuração do SSHD no Linux.
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
-
-- [CLI do Azure 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
-- [CLI 2.0 do Azure (Visualização)](#ways-to-use-the-vmaccess-extension) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
+Este artigo mostra como usar a extensão VMAcesss do Azure para verificar ou reparar um disco, redefinir o acesso do usuário, gerenciar contas de usuário ou redefinir a configuração do SSHD no Linux. Você também pode executar essas etapas com a [CLI do Azure 1.0](virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Modos de usar a extensão VMAccess
 Há duas maneiras de usar a extensão VMAccess em VMs Linux:
 
-* Use a CLI do Azure 2.0 (Visualização) e os parâmetros necessários.
+* Use a CLI 2.0 do Azure e os parâmetros necessários.
 * [Use os arquivos JSON brutos processados pela Extensão VMAccess](#use-json-files-and-the-vmaccess-extension) e depois tome atitudes em relação a eles.
 
-Os exemplos a seguir usam [az vm access](/cli/azure/vm/access) juntamente com os parâmetros apropriados. Para realizar essas etapas, é preciso ter a [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+Os exemplos a seguir usam [az vm access](/cli/azure/vm/access) juntamente com os parâmetros apropriados. Para realizar essas etapas, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando o [logon az](/cli/azure/#login).
 
 ## <a name="reset-ssh-key"></a>Redefinir chave SSH
 O exemplo a seguir redefine a chave SSH para o usuário `azureuser` na VM denominada `myVM`:

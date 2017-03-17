@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: ff5a7091e985629763dde416b17e060236f8f7ad
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 9238141fc56abcb618d71e4bfd1eccb77f282c71
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -32,8 +33,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 
 > [!WARNING]
 > Ao cancelar a seleção de atributos, seja cuidadoso e desmarque somente aqueles que não podem ser sincronizados em absoluto. Desmarcar outros atributos poderá causar um impacto negativo sobre os recursos.
-> 
-> 
+>
+>
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
 | Nome do atributo | Usuário | Comentário |
@@ -421,7 +422,7 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 
 | Nome do atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no Exchange 2016. |
+| msDS-ExternalDirectoryObjectID |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no AD do Windows Server 2016 e Exchange 2016. |
 | msExchArchiveStatus |X | | |Arquivo online: permite que os clientes arquivem emails. |
 | msExchBlockedSendersHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
 | msExchSafeRecipientsHash |X | | |Filtragem: faz write-back de dados de remetentes bloqueados e seguros de filtragem local e online por meio de clientes. |
@@ -458,10 +459,4 @@ Os objetos do dispositivo são criados no Active Directory. Esses objetos podem 
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

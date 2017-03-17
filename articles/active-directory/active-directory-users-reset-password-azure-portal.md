@@ -1,5 +1,5 @@
 ---
-title: "Redefinir a senha de um usuário na visualização do Azure Active Directory | Microsoft Docs"
+title: Redefinir senhas no Azure Active Directory | Microsoft Docs
 description: "Explica como redefinir a senha de um usuário no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
-ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
+ms.sourcegitcommit: 15cb521e928bab6c7966d19e74d9ae3bca99ef34
+ms.openlocfilehash: a5e48f43751e90f41ffd61049a17af3ff48d132e
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user-in-azure-active-directory-preview"></a>Redefinir a senha para um usuário na visualização do Azure Active Directory
+# <a name="reset-the-password-for-a-user-in-azure-active-directory---public-preview"></a>Redefinir a senha de um usuário no Azure Active Directory - Visualização pública
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-create-users-reset-password.md)
@@ -47,9 +49,4 @@ ms.openlocfilehash: 7b58db43f247182553a5766e11fa263ee93beff7
 * [Alterar as informações de trabalho do usuário](active-directory-users-work-info-azure-portal.md)
 * [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 * [Excluir um usuário no Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

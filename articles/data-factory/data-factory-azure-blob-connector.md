@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: aa2aabee72d1ca381502f9332df7fb88cf2384a2
+ms.sourcegitcommit: 3ec7a230a4051d23e741360f3f714cccadf85902
+ms.openlocfilehash: 511021e43e7d5b3247744592cbeab67769758375
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -27,7 +28,7 @@ Este artigo explica como usar a atividade de cópia no Azure Data Factory para m
 ## <a name="supported-sources-and-sinks"></a>Com suporte de origens e coletores
 Confira a tabela [Repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver a lista dos armazenamentos de dados com suporte como origens e coletores da Atividade de Cópia. Você pode mover dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte.
 
-A Atividade de Cópia dá suporte à cópia de dados de/para contas de Armazenamento do Azure para fins gerais e para o Armazenamento de Blobs Dinâmico/Estático. A atividade oferece suporte à leitura de blobs de bloco, de acréscimo ou de página, mas oferece suporte à gravação apenas em blobs de blocos.
+A Atividade de Cópia dá suporte à cópia de dados de/para contas de Armazenamento do Azure para fins gerais e para o Armazenamento de Blobs Dinâmico/Estático. A atividade oferece suporte à leitura de blobs de bloco, de acréscimo ou de página, mas oferece suporte à gravação apenas em blobs de blocos. Observe que não há suporte para o Armazenamento Premium do Azure como um coletor fornecido abaixo dos blobs da página.
 
 ## <a name="create-pipeline"></a>Criar um pipeline
 Você pode criar um pipeline com uma atividade de cópia que mova dados de um armazenamento de Blobs do Azure usando ferramentas/APIs diferentes.  
@@ -521,9 +522,4 @@ Esta seção descreve o comportamento resultante da operação de cópia para di
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: d24fd29cfe453a12d72998176177018f322e64d8
-ms.openlocfilehash: 2000e2005533d4e4d4c7bba9d5168c395af1499f
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
+ms.openlocfilehash: e41620d3192dbb77a26b79663494e441ccd96d40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -169,9 +169,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | post_logout_redirect_uri |recomendável |A URL para a qual o usuário deve ser redirecionado após logoff bem-sucedido.  Se não estiver incluído, o usuário verá uma mensagem genérica. |
 
 ## <a name="single-sign-out"></a>Logout único
-O Azure AD usa cookies para identificar uma sessão de usuário. Seu aplicativo Web também pode definir cookies para gerenciar sessões dentro de seu aplicativo. Quando um usuário entra pela primeira vez em um aplicativo, o Azure AD define um cookie no navegador do usuário. Quando o usuário entra em outro aplicativo posteriormente, o Azure AD primeiro verifica o cookie para determinar se o usuário tem ou não uma sessão de logon válida com o ponto de extremidade do Azure AD, em vez de autenticar novamente o usuário.
-
-De modo similar, quando o usuário sai pela primeira vez de um aplicativo, o Azure AD limpa o cookie do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam o Azure AD para autenticação. Para assegurar que o usuário saia de todos os aplicativos, o Azure AD envia uma solicitação HTTP GET para o `LogoutUrl` de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando os cookies que identificam a sessão do usuário. Você pode definir o `LogoutUrl` do Portal do Azure.
+Quando você redireciona o usuário para o `end_session_endpoint`, o Azure AD limpa a sessão do usuário do navegador. No entanto, o usuário pode ainda entrar em outros aplicativos que usam o Azure AD para autenticação. Para permitir que esses aplicativos desconectem o usuário simultaneamente, o Azure AD envia uma solicitação HTTP GET para o `LogoutUrl` de todos os aplicativos aos quais o usuário está atualmente conectado. Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`.  Se você deseja dar suporte um logout único em seu aplicativo, você deve implementar um `LogoutUrl` no código do aplicativo.  Você pode definir o `LogoutUrl` do Portal do Azure:
 
 1. Navegue para o [Portal do Azure](https://portal.azure.com).
 2. Escolha seu Active Directory clicando em sua conta no canto superior direito da página.

@@ -1,10 +1,10 @@
 ---
-title: Como criar NSGs no modo ARM usando o portal do Azure | Microsoft Docs
-description: Aprenda a criar e implantar NSGs no ARM usando o portal do Azure
+title: "Criar grupos de segurança de rede – Portal do Azure | Microsoft Docs"
+description: "Aprenda a criar e implantar grupos de segurança de rede usando o Portal do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 5bc8fc2e-1e81-40e2-8231-0484cd5605cb
@@ -15,13 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7c00b45be99d254c1967bff8a1150ad4c1eaab6d
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>Como gerenciar NSGs usando o portal do Azure
+# <a name="create-network-security-groups-using-the-azure-portal"></a>Criar grupos de segurança de rede usando o Portal do Azure
+
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -92,10 +95,5 @@ Para criar o NSG **NSG-BackEnd** e associá-lo à sub-rede **BackEnd**, siga as 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [gerenciar NSGs existentes](virtual-network-manage-nsg-arm-portal.md)
 * [Habilite o registro em log](virtual-network-nsg-manage-log.md) para NSGs.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

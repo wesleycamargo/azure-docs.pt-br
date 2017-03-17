@@ -1,6 +1,6 @@
 ---
 
-title: "Atribuição de licenças a um grupo no Azure Active Directory | Microsoft Docs"
+title: "Atribuir licenças a um grupo no Azure Active Directory | Microsoft Docs"
 description: "Como atribuir licenças usando o licenciamento baseado em grupo do Azure Active Directory"
 services: active-directory
 keywords: Licenciamento do AD do Azure
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: cea745934c36297f5fe0867f4335a797a3ae2515
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 73727d8d1e5de01794589538bd67d3d698d325a0
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="assigning-licenses-to-a-group-in-azure-active-directory"></a>Atribuição de licenças a um grupo no Azure Active Directory
+# <a name="assign-licenses-to-a-group-of-users-in-azure-active-directory"></a>Atribuir de licenças a um grupo de usuários no Azure Active Directory
 
 Neste artigo, vamos examinar um cenário básico de atribuir licenças de produto a um grupo e verificando todos os membros do grupo estão corretamente licenciados.
 

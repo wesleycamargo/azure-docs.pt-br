@@ -13,11 +13,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 03/06/2017
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
-ms.openlocfilehash: 91fe35cb57775c1ab9c30fdfe5cf82cd1afafd14
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 2a7229c9658cbbab676801f5c532a50bc0adedce
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -28,13 +29,10 @@ Este documento mostra as alterações em um aplicativo do Entity Framework neces
 Para baixar o código para este artigo:
 
 * É necessário o Visual Studio 2012 ou posterior. 
+* Baixe as [Ferramentas de Banco de Dados Elástico para Azure SQL – amostra de integração ao Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) do MSDN. Descompacte o exemplo em um local de sua escolha.
 * Inicie o Visual Studio. 
-* No Visual Studio, selecione Arquivo -> Novo projeto. 
-* Na caixa de diálogo “Novo projeto”, navegue até **Exemplos Online** para **Visual C#** e digite “banco de dados elástico” na caixa de pesquisa no canto superior direito.
-  
-    ![Entity Framework e o aplicativo de exemplo de banco de dados elástico][1] 
-  
-    Selecione o exemplo chamado **Ferramentas de banco de dados elástico para SQL Azure – integração ao Entity Framework**. Após aceitar a licença, o exemplo é carregado. 
+* No Visual Studio, selecione Arquivo -> Abrir Projeto/Solução. 
+* Na caixa de diálogo **Abrir Projeto**, navegue até o exemplo que você baixou e selecione **EntityFrameworkCodeFirst.sln** para abrir a amostra. 
 
 Para executar o exemplo, você precisa criar três bancos de dados vazios no Banco de Dados SQL do Azure:
 
@@ -266,9 +264,4 @@ Através das etapas descritas neste documento, os aplicativos do EF podem usar a
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
