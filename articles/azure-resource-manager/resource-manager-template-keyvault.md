@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 06/23/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: f72ae06c2e31de5d8a1121a9e265c23f016fffe9
+ms.sourcegitcommit: f2d009477a614c3b2876ce98a355d3775abf772b
+ms.openlocfilehash: 04f2d5d8e501ebf41cf95ea925d238f64b096c1d
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Para criar um cofre da chave, adicione o esquema a seguir à seção de recursos
         "properties": {
             "enabledForDeployment": bool,
             "enabledForTemplateDeployment": bool,
-            "enabledForVolumeEncryption": bool,
+            "enabledForDiskEncryption": bool,
             "tenantId": string,
             "accessPolicies": [
                 {
@@ -75,7 +76,7 @@ As tabelas a seguir descrevem os valores necessários para definir no esquema.
 | --- | --- |
 | enabledForDeployment |Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para implantação da Máquina Virtual ou do Service Fabric. |
 | enabledForTemplateDeployment |Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para uso em implantações de modelo do Resource Manager. Para obter mais informações, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption |Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para criptografia de volume. |
+| enabledForDiskEncryption |Booliano<br />Opcional<br />**true** ou **false**<br /><br />Especifica se o cofre está habilitado para criptografia de volume. |
 | tenantId |Cadeia de caracteres<br />Obrigatório<br />**Identificador global exclusivo**<br /><br />O identificador do locatário para a assinatura. Você pode recuperá-lo com o cmdlet [Get-AzureRMSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) do PowerShell ou o comando **azure account show** da CLI do Azure. |
 | accessPolicies |Matriz<br />Obrigatório<br />[objeto accessPolicies](#accesspolicies)<br /><br />Uma matriz de até 16 objetos que especificam as permissões do usuário ou da entidade de serviço. |
 | sku |Objeto<br />Obrigatório<br />[objeto do SKU](#sku)<br /><br />O SKU do cofre de chaves. |
@@ -169,7 +170,7 @@ O exemplo a seguir implanta um cofre da chave e um segredo.
                     "description": "Specifies if the vault is enabled for ARM template deployment"
                 }
             },
-            "enableVaultForVolumeEncryption": {
+            "enableVaultForDiskEncryption": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -201,7 +202,7 @@ O exemplo a seguir implanta um cofre da chave e um segredo.
             "properties": {
                 "enabledForDeployment": "[parameters('enabledForDeployment')]",
                 "enabledForTemplateDeployment": "[parameters('enabledForTemplateDeployment')]",
-                "enabledForVolumeEncryption": "[parameters('enableVaultForVolumeEncryption')]",
+                "enabledForDiskEncryption": "[parameters('enableVaultForDiskEncryption')]",
                 "tenantId": "[parameters('tenantId')]",
                 "accessPolicies": [
                 {
@@ -240,10 +241,5 @@ O modelo de início rápido a seguir implanta um cofre da chave.
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter informações gerais sobre cofres de chaves, veja [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md).
 * Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

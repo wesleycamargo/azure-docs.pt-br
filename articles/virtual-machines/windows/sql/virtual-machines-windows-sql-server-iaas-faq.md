@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/07/2017
 ms.author: v-shysun
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 42b3e222f24e9b5c1bb26f7e1e36b1e11c2f48b8
-ms.openlocfilehash: 7a8d1451fc1b5ace2996faec22090b1f872bf547
-
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 6df28527f502fe2191ee0127a3f9d467ca53c5b5
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="sql-server-on-azure-virtual-machines-faq"></a>Perguntas frequentes sobre o SQL Server em Máquinas Virtuais do Azure
+# <a name="frequently-asked-questions-for-sql-server-on-azure-virtual-machines"></a>Perguntas frequentes sobre o SQL Server nas Máquinas Virtuais do Azure
 Este tópico fornece respostas a algumas das perguntas mais comuns sobre a execução do [SQL Server em Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
@@ -77,10 +78,5 @@ Outros recursos incluem:
 * [Alta disponibilidade e recuperação de desastres para SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-high-availability-dr.md)
 * [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-performance.md)
 * [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

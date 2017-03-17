@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 01/30/2017
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 545ec23bc720dc1a17ce3d084642e96c2397d482
-ms.openlocfilehash: e61638db3c6c3acdc58f374b94b28d855161cf59
+ms.sourcegitcommit: e89ec01cb47a87a45378f73d138224095bcbebed
+ms.openlocfilehash: 201d98c4f4ff29393ad308824ed0575f1ff602ee
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -127,9 +128,9 @@ As etapas a seguir usam o [exemplo Guestbook](https://github.com/kubernetes/kube
 
 Para balancear a carga do tráfego HTTP ou HTTPS para aplicativos Web de contêiner e gerenciar os certificados para o protocolo TLS, você pode usar o recurso de [Entrada](https://kubernetes.io/docs/user-guide/ingress/) Kubernetes. Uma Entrada é uma coleção de regras que permite que conexões de entrada alcançar os serviços de cluster. Para um recurso de Entrada funcionar, o cluster Kubernetes deve ter uma [Controlador de entrada](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) em execução.
 
-O Serviço de Contêiner do Azure não implementa um controlador de Entrada Kubernetes automaticamente. Existem várias implementações de controlador disponíveis. Atualmente, o [controlador de Entrada Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md) é recomendado para configurar regras de Entrada e balancear a carga do tráfego HTTP e HTTPS. 
+O Serviço de Contêiner do Azure não implementa um controlador de Entrada Kubernetes automaticamente. Existem várias implementações de controlador disponíveis. Atualmente, o [controlador de Entrada Nginx](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) é recomendado para configurar regras de Entrada e balancear a carga do tráfego HTTP e HTTPS. 
 
-Para obter mais informações e exemplos, consulte a [documentação do controlador de Entrada Nginx](https://github.com/kubernetes/contrib/blob/master/ingress/controllers/nginx/README.md).
+Para saber mais, consulte a [Documentação do controlador de entrada Nginx](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
 
 > [!IMPORTANT]
 > Ao usar o controlador de Entrada Nginx no Serviço de Contêiner do Azure, você deve expor a implantação do controlador como um serviço com `type: LoadBalancer`. Isso configura o Azure Load Balancer para rotear o tráfego para o controlador. Para obter mais informações, consulte a seção anterior.
@@ -140,10 +141,5 @@ Para obter mais informações e exemplos, consulte a [documentação do controla
 * Consulte a [documentação do balanceador de carga Kubernetes](https://kubernetes.io/docs/user-guide/load-balancer/)
 * Saiba mais sobre [controladores de Entrada e Entrada Kubernetes](https://kubernetes.io/docs/user-guide/ingress/)
 * Consulte [exemplos do Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

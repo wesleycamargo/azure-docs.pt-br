@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/22/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
-ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
+ms.sourcegitcommit: bf5010537d222045b5bf13d85cab6c48c9659ed0
+ms.openlocfilehash: b055342d8e11e4d38688681b36ef9a1f717fdf15
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -29,9 +30,9 @@ Atualmente, a data factory dá suporte apenas para a movimentação de dados do 
 Para copiar dados da Amazon S3, verifique se você recebeu as permissões abaixo:
 
 * **S3:GetObject** e **s3:GetObjectVersion** para operações de objeto da Amazon S3
-* **S3:ListBucket** e **s3:ListAllMyBuckets** (usado somente no assistente de cópia) para operações de bucket da Amazon S3
+* **S3:ListBucket** para operações do Amazon S3 Bucket. Se você estiver usando o assistente para cópia, **s3:ListAllMyBuckets** também será exigido.
 
-Você pode encontrar uma lista completa de permissões da Amazon S3 com detalhes em [Especificando permissões em uma política](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+Encontre uma lista completa e detalhada das permissões da Amazon S3 em [Especificar permissões em uma política](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="copy-data-wizard"></a>Assistente de cópia de dados
 A maneira mais fácil de criar um pipeline que copia dados do Amazon S3 é usar o Assistente para cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
@@ -340,9 +341,4 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 Confira os seguintes artigos:
 
 * [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia.
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

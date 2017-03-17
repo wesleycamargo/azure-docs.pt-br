@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: e207c221a7294d1288e38c377d64327d889b29de
-ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: fe1d7abf3585efab67a7dbc10afa7bf3c4d466e5
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -25,7 +26,7 @@ ms.openlocfilehash: 7a635fa0f63e851f63f56dc7eb3bca405603dec0
 O emulador de armazenamento do Microsoft Azure fornece um ambiente local que emula os serviços de blob, fila e tabela do Azure para fins de desenvolvimento. Usando o emulador de armazenamento, você pode testar seu aplicativo contra os serviços de armazenamento locais, sem criar uma assinatura Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento de seu aplicativo no emulador, você pode alternar para usar uma conta de armazenamento do Azure na nuvem.
 
 > [!NOTE]
-> O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Para configurar o emulador de armazenamento, você deve ter privilégios administrativos no computador.
+> O emulador de armazenamento está disponível como parte do [SDK do Microsoft Azure](https://azure.microsoft.com/downloads/). Você também pode instalar o emulador de armazenamento usando o [instalador autônomo](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). Para instalar o emulador de armazenamento, você deve ter privilégios administrativos no computador.
 >
 > O emulador de armazenamento atualmente é executado apenas no Windows.
 >
@@ -88,10 +89,10 @@ Na primeira vez que você executar o emulador de armazenamento, o ambiente de ar
 O emulador de armazenamento é instalado por padrão no diretório C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator.
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicializar o emulador de armazenamento para usar outro banco de dados SQL
-Você pode usar a ferramenta de linha de comando do emulador de armazenamento para inicializar o emulador de armazenamento para apontar para uma instância do banco de dados SQL diferente da instância LocalDB padrão. É necessário executar a ferramenta de linha de comando com privilégios administrativos para inicializar o banco de dados de back-end do emulador de armazenamento:
+Você pode usar a ferramenta de linha de comando do emulador de armazenamento para inicializar o emulador de armazenamento para apontar para uma instância do Banco de Dados SQL diferente da instância LocalDB padrão:
 
 1. Clique no botão **Iniciar** ou pressione a tecla **Windows**. Comece a digitar `Azure Storage Emulator` e selecione-o quando ele aparecer para abrir a ferramenta de linha de comando do emulador de armazenamento.
-2. Na janela do prompt de comando, digite o seguinte comando em que `<SQLServerInstance>` é o nome da instância do SQL Server. Para usar o LocalDb, especifique `(localdb)\v11.0` como a instância do SQL Server.
+2. Na janela do prompt de comando, digite o seguinte comando em que `<SQLServerInstance>` é o nome da instância do SQL Server. Para usar o LocalDb, especifique `(localdb)\MSSQLLocalDb` como a instância do SQL Server.
 
         AzureStorageEmulator init /server <SQLServerInstance>
 
@@ -160,7 +161,7 @@ Para exibir a lista de opções, digite `/help` no prompt de comando.
 | **Parar** |Para o emulador de armazenamento. |`AzureStorageEmulator stop` | |
 | **Status** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator status` | |
 | **Limpar** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    ` |*blob*: limpa os dados do blob. <br/>*fila*: limpa os dados da fila. <br/>*tabela*: limpa os dados de tabela. <br/>*todos*: limpa todos os dados em todos os serviços. |
-| **Init** |Executa a inicialização única para configurar o emulador. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server nomedoServidor\nomedaInstância*: especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: especifica o nome da instância SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do Banco de Dados SQL, mesmo se ele já existir. <br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deve ser iniciado com permissões elevadas para executar a inicialização. |
+| **Init** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server nomedoServidor\nomedaInstância*: especifica o servidor que hospeda a instância do SQL. <br/>*-sqlinstance instanceName*: especifica o nome da instância SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do Banco de Dados SQL, mesmo se ele já existir. <br/>*-skipcreate*: ignora a criação do Banco de Dados SQL. Isso tem precedência sobre -forcecreate.<br/>*-reserveports*: tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: tenta remover as reservas de portas HTTP associadas aos serviços. Isso tem precedência sobre -reserveports.<br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deverá ser iniciado com permissões elevadas se reservas de porta forem alteradas. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento e o armazenamento do Azure
 Como o emulador de armazenamento é um ambiente emulado executado em uma instância SQL local, há diferenças na funcionalidade entre o emulador e uma conta de armazenamento do Azure na nuvem:
@@ -195,6 +196,18 @@ As diferenças a seguir aplicam-se ao armazenamento de tabela no emulador:
 Não existem diferenças específicas para o armazenamento de fila no emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de versão do emulador de armazenamento
+### <a name="version-51"></a>Versão 5.1
+* Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não estava.
+
+### <a name="version-50"></a>Versão 5.0
+* O instalador do emulador de armazenamento não verifica mais em busca de instalações existentes do MSSQL e do .NET Framework.
+* O instalador do emulador de armazenamento não cria mais o banco de dados como parte da instalação.  O banco de dados ainda será criado como parte da inicialização se necessário.
+* A criação de banco de dados não requer elevação.
+* Reservas de porta não são mais necessários para a inicialização.
+* Adiciona as seguintes opções para *init*: -reserveports (requer elevação), -unreserveports (requer elevação), -skipcreate.
+* A opção de interface do usuário do emulador de armazenamento no ícone de bandeja do sistema agora inicia a interface de linha de comando.  A GUI antiga não está mais disponível.
+* Algumas DLLs foram removidas ou renomeadas.
+
 ### <a name="version-46"></a>Versão 4.6
 * O emulador de armazenamento agora dá suporte à versão 2016-05-31 dos serviços de armazenamento nos pontos de extremidade de serviço Blob, Fila e Tabela.
 
@@ -231,9 +244,4 @@ Não existem diferenças específicas para o armazenamento de fila no emulador.
 * O emulador de armazenamento do Azure não é mais fornecido no mesmo pacote que o emulador de computação.
 * A interface gráfica do usuário do emulador de armazenamento é preterida por uma interface de linha de comando programável por script. Para obter detalhes sobre a interface de linha de comando consulte Referência da ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só poderá ser acessada quando o emulador de computação for instalado, clicando com o botão direito no ícone de bandeja do sistema e selecionando Mostrar IU do Emulador de Armazenamento.
 * A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

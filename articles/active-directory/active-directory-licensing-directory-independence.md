@@ -1,6 +1,6 @@
 ---
-title: "Adicionar e gerenciar vários diretórios do Azure Active Directory | Microsoft Docs"
-description: "Instruções e práticas recomendadas para adicionar e gerenciar diretórios do Active Directory do Azure, explicando os diretórios como recursos totalmente independentes"
+title: "Características dos diretórios do Azure Active Directory | Microsoft Docs"
+description: "Gerenciar seus diretórios do Azure Active Directory entendendo os diretórios como recursos totalmente independentes"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 23aad0421088b620f32bbf3f6b3f0b11e001e3ae
+ms.sourcegitcommit: f8b63e5831897d3a45298b0415bb2d6d44ab0de1
+ms.openlocfilehash: 5ec00d5e8380f121dd9302cf08a0708c530aab9b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Adicionar e gerenciar vários diretórios do Active Directory do Azure
+# <a name="understand-how-multiple-azure-active-directory-directories-interact"></a>Entender como interagem vários diretórios do Azure Active Directory
 No Active Directory do Azure (Azure AD), cada diretório é um recurso completamente independente: um par completo e logicamente independente de outros diretórios que você gerencia. Não há nenhuma relação pai-filho entre os diretórios. Essa independência entre diretórios inclui independência de recursos, independência administrativa e independência de sincronização.
 
 ## <a name="resource-independence"></a>Independência de recursos
@@ -49,9 +51,4 @@ Para adicionar um diretório do Active Directory do Azure no portal de clássico
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as práticas recomendadas, consulte [O que é o licenciamento do Active Directory do Azure?](active-directory-licensing-what-is.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

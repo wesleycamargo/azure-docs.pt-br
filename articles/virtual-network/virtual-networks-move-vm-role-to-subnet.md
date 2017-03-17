@@ -1,10 +1,10 @@
 ---
-title: "Como mover uma VM ou instância de função para uma sub-rede diferente."
-description: "Saiba como mover VMs e instâncias de função para uma sub-rede diferente"
+title: "Mover uma VM (Clássico) ou uma instância de função de Serviços de Nuvem para uma sub-rede diferente - Azure PowerShell | Microsoft Docs"
+description: "Aprenda a mover VMs (Clássico) e instâncias de função de Serviços de Nuvem para uma sub-rede diferente usando o PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 264e02fa48486acd7a9701c497c4e1fa95a1ce4e
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: b094f8338394ef2e84cad3070936d715411326a4
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-move-a-vm-or-role-instance-to-a-different-subnet"></a>Como mover uma VM ou instância de função para uma sub-rede diferente.
-Você pode usar o PowerShell para mover suas VMs de uma sub-rede para outra na mesma rede virtual (VNet). As instâncias de função podem ser movidas editando o CSCFG em vez de usar o PowerShell.
+# <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Mover uma VM (Clássico) ou uma instância de função de Serviços de Nuvem para uma sub-rede diferente usando o PowerShell
+Você pode usar o PowerShell para mover suas VMs (Clássico) de uma sub-rede para outra na mesma rede virtual (VNet). As instâncias de função podem ser movidas editando o arquivo CSCFG em vez de usar o PowerShell.
 
 > [!NOTE]
-> Este artigo contém informações referentes apenas a implantações clássicas do Azure.
+> Este artigo explica como mover VMs implantadas somente por meio do modelo de implantação clássico.
 > 
 > 
 
@@ -57,9 +59,4 @@ Para mover uma instância de função, edite o arquivo CSCFG. No exemplo a segui
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration> 
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

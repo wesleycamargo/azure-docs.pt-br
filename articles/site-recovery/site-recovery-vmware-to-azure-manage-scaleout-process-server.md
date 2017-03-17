@@ -15,8 +15,8 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: af40c53972845d93a2fbbdf3210d55d84d55650e
+ms.sourcegitcommit: cabbce12a07720c37375092962ee1f89c32269ef
+ms.openlocfilehash: 03bb87bdbf3dce07a282323f484d0aefae8bad62
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -95,11 +95,27 @@ O parâmetro ProxySettingsFilePath utiliza um arquivo como entrada. Crie o arqui
   ```
   cmd
   cdpcli.exe --registermt
+  
+  net stop obengine
+
+  net start obengine
+
   exit
   ```
 
 ## <a name="re-registering-a-scale-out-process-server"></a>Registrando novamente um servidor de processo de escalonamento horizontal
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+
+* Em seguida, abra um prompt de comando de Administrador.
+* Navegue até o diretório **%PROGRAMDATA%\ASR\Agent** e execute o comando
+
+```
+cdpcli.exe --registermt
+
+net stop obengine
+
+net start obengine
+```
 
 ## <a name="upgrading-a-scale-out-process-server"></a>Atualizando um servidor de processo de escalonamento horizontal
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]

@@ -1,6 +1,6 @@
 ---
-title: Criar uma rede virtual usando o PowerShell | Microsoft Docs
-description: Saiba como criar uma rede virtual usando a PowerShell | Gerenciador de Recursos.
+title: Criar uma rede virtual - Azure PowerShell | Microsoft Docs
+description: Saiba como criar uma rede virtual usando o PowerShell.
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
-ms.openlocfilehash: 33f3a1f490b51123054440b6098de1ae4aca941f
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: d229d6add2c06952eaf662bdacc92a5163b1e945
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -180,9 +182,4 @@ Saiba como se conectar:
 - Uma VM (máquina virtual) em uma rede virtual lendo o artigo [Criar uma VM Windows](../virtual-machines/virtual-machines-windows-ps-create.md). Em vez de criar uma rede virtual e sub-rede nas etapas dos artigos, você pode selecionar uma rede virtual e uma sub-rede existente para se conectar a uma VM.
 - A rede virtual para outras redes virtuais, lendo o artigo [Conectar VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo os artigos [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

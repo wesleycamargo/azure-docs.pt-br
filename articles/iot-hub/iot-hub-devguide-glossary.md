@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e331e7aab69890637a74382938e22cca56c4d39a
-ms.openlocfilehash: 223dcbb2b54c9b0de384515b185266dc19653191
+ms.sourcegitcommit: c2b0c6b125ededd30e9db8e7f42796bdf6b413d4
+ms.openlocfilehash: f254b4a9b942004f0d1d1065ec2efb2ea5df8418
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -29,8 +30,8 @@ O [AMQP (Advanced Message Queueing Protocol)](https://www.amqp.org/) é um dos p
 ## <a name="azure-cli"></a>CLI do Azure
 A [CLI do Azure](../xplat-cli-install.md) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão da CLI é implementada usando o Node.js.
 
-## <a name="azure-cli-20-preview"></a>CLI do Azure 2.0 (Visualização)
-A [CLI do Azure 2.0 (Visualização)](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão de visualização da CLI é implementada usando Python.
+## <a name="azure-cli-20"></a>CLI 2.0 do Azure
+A [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão de visualização da CLI é implementada usando Python.
 
 
 ## <a name="azure-iot-device-sdks"></a>SDKs do dispositivo IoT do Azure
@@ -61,7 +62,7 @@ O [Armazenamento do Azure](../storage/storage-introduction.md) é uma solução 
 No contexto do [Hub IoT](#iot-hub), um aplicativo de back-end é um aplicativo que se conecta a um dos pontos de extremidade voltados para o serviço em um hub IoT. Por exemplo, um aplicativo de back-end pode recuperar mensagens do [dispositivo para nuvem](#device-to-cloud) ou gerenciar o [registro de identidade](#identity-registry). Normalmente, um aplicativo de back-end é executado na nuvem, mas em muitos dos tutoriais dos aplicativos de back-end há aplicativos de console em execução no seu computador de desenvolvimento local.
 
 ## <a name="built-in-endpoints"></a>Pontos de extremidade internos
-Cada hub IoT inclui internos [endpoint](iot-hub-devguide-endpoints.md) que é evento Hubs compatível. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de dispositivo para nuvem desse ponto de extremidade.
+Cada hub IoT inclui um [ponto de extremidade](iot-hub-devguide-endpoints.md) interno que é compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de dispositivo para nuvem desse ponto de extremidade.
 
 ## <a name="cloud-gateway"></a>Gateway de nuvem
 Um gateway de nuvem permite a conectividade para os dispositivos que não podem se conectar diretamente ao [Hub IoT](#iot-hub). Um gateway de nuvem é hospedado na nuvem em comparação a um [gateway de campo](#field-gateway) executado no local para seus dispositivos. Um caso de uso típico para um gateway de nuvem é implementar a conversão de protocolo para seus dispositivos.
@@ -256,8 +257,3 @@ Você pode usar um serviço de token para implementar um mecanismo de autentica�
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Um dispositivo pode usar um certificado X.509 para se autenticar no [Hub IoT](#iot-hub). O uso de um certificado x.509 é uma alternativa ao uso de um [token SAS](#shared-access-signature).
-
-
-<!--HONumber=Feb17_HO2-->
-
-

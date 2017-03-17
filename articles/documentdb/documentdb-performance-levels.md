@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: mimig
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b9902de45477bb7970da6c8f2234775bdb6edba8
-ms.openlocfilehash: 65f19191bbb736d3b7fbdd94d73f2308ee6dea83
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 659d6bd63ea996af7b7b172f998884354e5d5858
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="performance-levels-in-documentdb"></a>Níveis de desempenho no Banco de Dados de Documentos
+# <a name="retiring-the-s1-s2-and-s3-performance-levels-in-documentdb"></a>Desativando os níveis de desempenho S1, S2 e S3 no DocumentDB
 
 > [!IMPORTANT] 
 > Os níveis de desempenho S1, S2 e S3 analisados neste artigo estão sendo desativados e não estão mais disponíveis para as novas coleções do DocumentDB.
@@ -174,12 +176,7 @@ Os clientes EA terão o preço protegido até o final do contrato atual.
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a definição de preços e o gerenciamento de dados no Banco de Dados de Documentos do Azure, explore esses recursos:
 
-1.  [Particionando dados no DocumentDB](documentdb-partition-data.md). Compreenda a diferença entre as coleções de partição única e a coleção particionada, bem como dicas sobre como implementar uma estratégia de particionamento para dimensionar facilmente.
-2.  [Preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Saiba mais sobre o custo de provisionar a taxa de transferência e consumir o armazenamento.
-3.  [Unidades de solicitação](documentdb-request-units.md). Compreenda o consumo da taxa de transferência para os diferentes tipos de operação, por exemplo, Leitura, Gravação e Consulta.
-4.  [Modelando dados no DocumentDB](documentdb-modeling-data.md). Saiba como modelar seus dados para o DocumentDB.
-
-
-<!--HONumber=Feb17_HO2-->
-
-
+1.    [Particionando dados no DocumentDB](documentdb-partition-data.md). Compreenda a diferença entre as coleções de partição única e a coleção particionada, bem como dicas sobre como implementar uma estratégia de particionamento para dimensionar facilmente.
+2.    [Preços do DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/). Saiba mais sobre o custo de provisionar a taxa de transferência e consumir o armazenamento.
+3.    [Unidades de solicitação](documentdb-request-units.md). Compreenda o consumo da taxa de transferência para os diferentes tipos de operação, por exemplo, Leitura, Gravação e Consulta.
+4.    [Modelando dados no DocumentDB](documentdb-modeling-data.md). Saiba como modelar seus dados para o DocumentDB.

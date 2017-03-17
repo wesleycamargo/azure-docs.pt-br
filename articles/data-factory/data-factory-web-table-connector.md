@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/23/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: dd8a68029449ad013c4df9a46c558efaefd20e96
-ms.openlocfilehash: 88f746a4802e13e062f4414e5d2032dfcee565b7
+ms.sourcegitcommit: 5046ec3f6a29fb4791cd6badc67c2111a9e3ab2c
+ms.openlocfilehash: 132ecec8aef2f166753214fce410237103583c08
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -186,9 +187,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | --- | --- | --- |
 | type |A propriedade type deve ser definida como: **Web** |Sim |
 | Url |URL para a origem da Web |Sim |
-| authenticationType |Anônimo ou Básico. |Sim |
-| userName |Nome de usuário para autenticação básica. |Sim (para autenticação básica) |
-| Senha |Senha de autenticação básica. |Sim (para autenticação básica) |
+| authenticationType |Anônima. |Sim |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
 
@@ -202,25 +201,6 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
         {
             "authenticationType": "Anonymous",
             "url" : "https://en.wikipedia.org/wiki/"
-        }
-    }
-}
-```
-
-### <a name="using-basic-authentication"></a>Usando a autenticação Básica
-
-```JSON
-{
-    "name": "web",
-    "properties":
-    {
-        "type": "Web",
-        "typeProperties":
-        {
-            "authenticationType": "basic",
-            "url" : "http://myit.mycompany.com/",
-            "userName": "Administrator",
-            "password": "password"
         }
     }
 }
@@ -296,9 +276,4 @@ Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](h
 
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,8 +16,9 @@ ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: c2f30eecb62ac578e8635346e1f67d441f29f189
-ms.openlocfilehash: e441e338a97c31b9131105ef08186c897d301ceb
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -121,7 +122,15 @@ Para ver as operações de implantação, use as etapas a seguir:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
+4. Cada operação de implantação no Azure inclui conteúdo da solicitação e resposta. O conteúdo da solicitação é aquilo que é enviado para o Azure durante a implantação (por exemplo, criar uma VM, disco do sistema operacional e outros recursos). O conteúdo da resposta é aquilo que o Azure enviou de volta com base em sua solicitação de implantação. Durante a implantação, você pode usar o parâmetro **DeploymentDebugLogLevel** para especificar que a solicitação e/ou resposta seja mantida no log. 
 
+  Você obtém informações do log e salva-as localmente usando os seguintes comandos do PowerShell:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  ```
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -208,10 +217,5 @@ Para ver as operações de implantação, use as etapas a seguir:
 * Para obter ajuda com a resolução de erros de implantação específicos, veja [Resolver erros comuns ao implantar recursos no Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre como usar os logs de atividades para monitorar outros tipos de ação, confira [View activity logs to manage Azure resources](resource-group-audit.md) (Exibir logs de atividades para gerenciar recursos do Azure).
 * Para validar sua implantação antes de executá-la, consulte [Implantar um grupo de recursos com um modelo do Azure Resource Manager](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

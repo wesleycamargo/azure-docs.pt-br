@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/23/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 5f9783232e9b03ca3777a000ffc189863d0956ab
-ms.openlocfilehash: ffc481943a9dc55593fa8b46dffef0098f288eaf
+ms.sourcegitcommit: 92479ddca2c69f1b8630374e88cc5eda9ac8c9ef
+ms.openlocfilehash: 59b2205fcddf48cfbfb8d15e174c385482a21ec9
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -38,9 +39,9 @@ O Emulador do DocumentDB tem os seguintes requisitos de hardware e software:
 
 * Requisitos de software
   * Windows Server 2012 R2, Windows Server 2016 ou Windows 10
-*   Requisitos mínimos de hardware
-  * 2 GB de RAM
-  * Espaço disponível no disco rígido de&10; GB
+*    Requisitos mínimos de hardware
+  *    2 GB de RAM
+  *    Espaço disponível no disco rígido de&10; GB
 
 ## <a name="installing-the-documentdb-emulator"></a>Instalando o Emulador do DocumentDB
 Você pode baixar e instalar o Emulador do DocumentDB no [Centro de Download da Microsoft](https://aka.ms/documentdb-emulator). 
@@ -117,7 +118,7 @@ O certificado X.509 pode ser importado no repositório de certificados Java segu
 
 Durante a conexão do emulador de SDKs Python e Node.js, a verificação de SSL é desabilitada.
 
-## <a name="a-idcommand-lineadocumentdb-emulator-command-line-tool-reference"></a><a id="command-line"></a>Referência da ferramenta de linha de comando do Emulador do DocumentDB
+## <a id="command-line"></a>Referência da ferramenta de linha de comando do Emulador do DocumentDB
 No local da instalação, você pode usar a linha de comando para iniciar e interromper o emulador, configurar opções e executar outras operações.
 
 ### <a name="command-line-syntax"></a>Sintaxe da linha de comando
@@ -223,7 +224,7 @@ Como o Emulador do DocumentDB é um ambiente emulado em execução em uma estaç
 * O Emulador do DocumentDB não dá suporte às substituições de cota de serviço que estão disponíveis no serviço Azure DocumentDB (por exemplo, limites de tamanho de documento, aumento do armazenamento de coleção particionado).
 * Como a sua cópia do Emulador do DocumentDB pode não ser atualizada com as alterações mais recentes com o serviço Azure DocumentDB, use o [planejador de capacidade do DocumentDB](https://www.documentdb.com/capacityplanner) para estimar precisamente as necessidades de produtividade (RUs) do seu aplicativo.
 
-## <a name="a-idset-partitioncountachange-the-number-of-collections"></a><a id="set-partitioncount"></a>Alterar o número de coleções
+## <a id="set-partitioncount"></a>Alterar o número de coleções
 
 Por padrão, você pode criar até 25 coleções de partição única ou uma coleção particionada usando o emulador do DocumentDB. Modificando o valor **PartitionCount**, você pode criar até 250 coleções de partição única ou 10 coleções particionadas ou qualquer combinação dos dois que não excedam 250 partições únicas (onde 1 coleção particionada = 25 coleções de partição única).
 
@@ -249,9 +250,11 @@ Use as dicas a seguir para ajudar a solucionar problemas encontrados com o emula
 
 - Se o emulador do DocumentDB falhar, colete os arquivos de despejo na pasta c:\Users\user_name\AppData\Local\CrashDumps, compacte-os e anexe-os a um email que deve ser enviado para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
+- Se você enfrentar falhas em DocumentDB.StartupEntryPoint.exe, execute o seguinte comando em um prompt de comando de administrador: `lodctr /R` 
+
 - Se você encontrar um problema de conectividade, [colete os arquivos de rastreamento](#trace-files), compacte-os e anexe-os a um email que deve ser enviado para [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
 
-### <a name="a-idtrace-filesacollect-trace-files"></a><a id="trace-files"></a>Coletar arquivos de rastreamento
+### <a id="trace-files"></a>Coletar arquivos de rastreamento
 
 Para coletar rastreamentos de depuração, execute os seguintes comandos em um prompt de comando administrativo:
 
@@ -268,9 +271,4 @@ Para coletar rastreamentos de depuração, execute os seguintes comandos em um p
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o DocumentDB, veja [Introdução ao Azure DocumentDB](documentdb-introduction.md)
 * Para começar a desenvolver no Emulador do DocumentDB, baixe um dos [SDKs do DocumentDB com suporte](documentdb-sdk-dotnet.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

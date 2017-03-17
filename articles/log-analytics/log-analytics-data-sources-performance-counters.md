@@ -1,5 +1,5 @@
 ---
-title: Coletar e analisar contadores de desempenho no Log Analytics | Microsoft Docs
+title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
 description: "Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Windows e do Linux, os detalhes deles que são armazenados no repositório do OMS e como analisá-los no portal do OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 02/24/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 653696779e612726ed5b75829a5c6ed2615553d7
-ms.openlocfilehash: 1e4b5dac9333a9bd38f6ef89ddce22c74fed06ba
+ms.sourcegitcommit: 853177202e4724546242d4e8d1b41b456a444eeb
+ms.openlocfilehash: 2381b7e9ab4514d6668569c2a58d108af5008a7e
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -34,7 +35,7 @@ Quando você configurar os contadores de desempenho do Linux ou Windows para um 
 
 Siga este procedimento para adicionar um novo contador de desempenho do Windows para coletar.
 
-1. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  Você também pode retornar todas as instâncias de um determinado contador especificando *objeto\contador*. 
+1. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  Você também pode retornar todas as instâncias de um determinado contador especificando *objeto\contador*.
 2. Clique em **+** ou pressione **Enter** para adicionar o contador à lista.
 3. Quando você adicionar um contador, ele usa o padrão de 10 segundos para seu **Intervalo de Amostragem**.  Você poderá alterar isso para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
 4. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
@@ -92,19 +93,9 @@ Quando você executa uma pesquisa de log de dados de desempenho, a exibição **
 
 ![Exibição de métricas recolhida](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-Se o intervalo de tempo que você selecionou for de seis horas ou menos, o gráfico é atualizado em intervalos de segundos.  Os dados dinâmicos são exibidos no lado direito do gráfico em azul claro.
-
-![Exibição de métricas expandida com dados dinâmicos](media/log-analytics-data-sources-performance-counters/metricsexpanded.png)
-
 Para agregar dados de desempenho em uma pesquisa de log, confira [Agregação métrica sob demanda e visualização de OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Exporte os dados coletados para o [Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

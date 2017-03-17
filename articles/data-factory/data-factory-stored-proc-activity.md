@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 03/06/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
-ms.openlocfilehash: 90bd5b4b6fb58c044b5edaba2c5f3a4bf7346e7d
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: a42dbefe6805cff5fb2df604265f0e62e2c25f69
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -35,9 +36,9 @@ ms.openlocfilehash: 90bd5b4b6fb58c044b5edaba2c5f3a4bf7346e7d
 
 Use atividades de transformação de dados em um [pipeline](data-factory-create-pipelines.md) do Data Factory para transformar e processar dados brutos em previsões e informações. A Atividade de Procedimento Armazenado é uma das atividades de transformação que o Data Factory dá suporte. Este artigo se baseia no artigo sobre [atividades de transformação de dados](data-factory-data-transformation-activities.md) que apresenta uma visão geral da transformação de dados e as atividades de transformação permitidas.
 
-Você pode usar a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes repositórios de dados: Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Banco de Dados SQL Server na sua empresa ou em uma VM (máquina virtual) do Azure.  Se estiver usando o SQL Server, será necessário instalar o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar a concorrência por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais ou em uma VM do Azure a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter detalhes.
+Você pode usar a Atividade de Procedimento Armazenado para invocar um procedimento armazenado em um dos seguintes repositórios de dados: Banco de Dados SQL do Azure, SQL Data Warehouse do Azure, Banco de Dados SQL Server na sua empresa ou em uma VM (máquina virtual) do Azure.  Se estiver usando o SQL Server, instale o Gateway de Gerenciamento de Dados no mesmo computador que hospeda o banco de dados ou em um computador separado com acesso ao banco de dados. O Gateway de Gerenciamento de Dados é um componente que conecta fontes de dados locais ou em uma VM do Azure a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter detalhes.
 
-A seguir há instruções passo a passo de como chamar um procedimento armazenado em um Banco de Dados SQL do Azure de um pipeline do Data Factory usando a atividade de procedimento armazenado. 
+O passo a passo a seguir usa a Atividade de Procedimento Armazenado em um pipeline para invocar um procedimento armazenado em um Banco de Dados SQL do Azure. 
 
 ## <a name="walkthrough"></a>Passo a passo
 ### <a name="sample-table-and-stored-procedure"></a>Tabela de exemplo e procedimento armazenado
@@ -58,7 +59,7 @@ A seguir há instruções passo a passo de como chamar um procedimento armazenad
     
     ![Dados de amostra](./media/data-factory-stored-proc-activity/sample-data.png)
 
-    Este exemplo usa o Banco de Dados SQL do Azure, mas funciona da mesma maneira para o SQL Data Warehouse do Azure e para o Banco de Dados SQL Server. Para o Banco de Dados SQL Server, é necessário instalar um [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
+    Neste exemplo, o procedimento armazenado está em um Banco de Dados SQL do Azure. Se o procedimento armazenado está em um SQL Data Warehouse do Azure e Banco de Dados do SQL Server, a abordagem é semelhante. Para um Banco de Dados do SQL Server, você deve instalar um [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
 2. Crie o **procedimento armazenado** a seguir que insere dados na **sampletable**.
 
     ```SQL
@@ -102,10 +103,10 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
    ![Novo armazenamento de dados](media/data-factory-stored-proc-activity/new-data-store.png)
 3. No script JSON, faça as seguintes alterações:
 
-   1. Substitua **&lt;servername&gt;** pelo nome de seu servidor do Banco de Dados SQL do Azure.
-   2. Substitua **&lt;databasename&gt;** pelo banco de dados no qual você criou a tabela e o procedimento armazenado.
-   3. Substitua **&lt;username@servername&gt;** pela conta de usuário que tem acesso ao banco de dados.
-   4. Substitua **&lt;password&gt;** pela senha da conta de usuário.
+   1. Substitua `<servername>` pelo nome do servidor de Banco de Dados SQL do Azure.
+   2. Substitua `<databasename>` pelo banco de dados no qual você criou a tabela e o procedimento armazenado.
+   3. Substitua `<username@servername>` pela conta de usuário que tem acesso ao banco de dados.
+   4. Substitua `<password>` pela senha da conta de usuário.
 
       ![Novo armazenamento de dados](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 4. Clique em **Implantar** na barra de comandos para implantar o serviço vinculado. Confirme se você vê AzureSqlLinkedService no modo de exibição de árvore à esquerda.
@@ -134,7 +135,7 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
         }
     }
     ```
-3. Clique em **Implantar** na barra de comando para implantar o conjunto de dados. Confirme se você vê o conjunto de dados no modo de exibição de árvore.
+3. Clique em **Implantar** na barra de comandos para implantar o conjunto de dados. Confirme se você vê o conjunto de dados no modo de exibição de árvore.
 
     ![modo de exibição de árvore com serviços vinculados](media/data-factory-stored-proc-activity/tree-view-2.png)
 
@@ -142,7 +143,7 @@ Depois de criar a data factory, você deve criar um serviço do SQL Azure vincul
 AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
 
 1. Clique em **... Mais ** na barra de comandos e clique em **Novo pipeline**.
-2. Copiar/colar o seguinte trecho JSON. O **storedProcedureName** definido como **sp_sample**. O nome e o uso de maiúsculas e minúsculas do parâmetro **DateTime** deve corresponder ao nome e o uso de maiúsculas e minúsculas do parâmetro na definição do procedimento armazenado.  
+2. Copie/cole o seguinte trecho de código JSON:   
 
     ```JSON
     {
@@ -176,6 +177,8 @@ AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
     }
     ```
 
+    O **storedProcedureName** definido como **sp_sample**. O nome e o uso de maiúsculas e minúsculas do parâmetro **DateTime** deve corresponder ao nome e o uso de maiúsculas e minúsculas do parâmetro na definição do procedimento armazenado.
+
     Se você precisar passar null para um parâmetro, use a sintaxe: "param1": null (todas as letras minúsculas).
 3. Clique em **Implantar** na barra de ferramentas para implantar o pipeline.  
 
@@ -186,10 +189,10 @@ AGora, crie um pipeline com atividade de SqlServerStoredProcedure.
 2. Na **Exibição de Diagrama**, você tem uma visão geral dos pipelines e dos conjuntos de dados usados neste tutorial.
 
     ![bloco do diagrama](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
-3. Na Exibição de Diagrama, clique duas vezes no conjunto de dados **sprocsampleout**. Você vê as partes no estado Pronto. Deve haver cinco partes porque uma fatia é produzida para cada hora entre a hora de início e de término no JSON.
+3. Na Exibição do Diagrama, clique duas vezes no conjunto de dados `sprocsampleout`. Você vê as partes no estado Pronto. Deve haver cinco partes porque uma fatia é produzida para cada hora entre a hora de início e de término no JSON.
 
     ![bloco do diagrama](media/data-factory-stored-proc-activity/data-factory-slices.png)
-4. Quando uma fatia estiver no estado **Pronto**, execute uma consulta **select * de sampletable** no banco de dados SQL do Azure para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
+4. Quando uma fatia estiver no estado **Pronto**, execute uma consulta `select * from sampletable` no Banco de Dados SQL do Azure para verificar se os dados foram inseridos na tabela pelo procedimento armazenado.
 
    ![Dados de saída](./media/data-factory-stored-proc-activity/output.png)
 
@@ -229,7 +232,7 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 | Descrição |Texto que descreve qual a utilidade da atividade |Não |
 | type | Deve ser definido como: **SqlServerStoredProcedure** | Sim |
 | inputs | Opcional. Se você especificar um conjunto de dados de entrada, ele deverá estar disponível (no status 'Pronto') para a atividade de procedimento armazenado a ser executada. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Ele só é usado para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
-| outputs |Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica a **agenda** da atividade de procedimento armazenado (por hora, semana, mês, etc.). <br/><br/>O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. <br/><br/>O conjunto de dados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento posterior de outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é usado apenas para especificar o agendamento para execução da atividade de procedimento armazenado. |Sim |
+| outputs | Você deve especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. O conjunto de dados de saída especifica a **agenda** da atividade de procedimento armazenado (por hora, semana, mês, etc.). <br/><br/>O conjunto de dados de saída deve usar um **serviço vinculado** que se refere a um Banco de Dados SQL do Azure, ou SQL Data Warehouse do Azure, ou um Banco de Dados SQL Server no qual você quer que o procedimento armazenado seja executado. <br/><br/>O conjunto de dados de saída pode servir como uma maneira de passar o resultado do procedimento armazenado para processamento posterior de outra atividade ([atividades de encadeamento](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) no pipeline. No entanto, o Data Factory não trava automaticamente a saída de um procedimento armazenado para esse conjunto de dados. É o procedimento armazenado que grava em uma tabela SQL para a qual o conjunto de dados de saída aponta. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é usado apenas para especificar o agendamento para execução da atividade de procedimento armazenado. |Sim |
 | storedProcedureName |Especifique o nome do procedimento armazenado no banco de dados SQL do Azure ou SQL Data Warehouse do Azure que é representado pelo serviço vinculado utilizado pela tabela de saída. |Sim |
 | storedProcedureParameters |Especifique valores para parâmetros de procedimento armazenado. Se você precisar passar null para um parâmetro, use a sintaxe: "param1": null (todas as letras minúsculas). Veja o exemplo a seguir para saber mais sobre como usar essa propriedade. |Não |
 
@@ -332,8 +335,3 @@ Agora, passe o parâmetro **Cenário** e o valor da atividade de procedimento ar
     }
 }
 ```
-
-
-<!--HONumber=Dec16_HO3-->
-
-

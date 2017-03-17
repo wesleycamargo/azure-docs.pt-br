@@ -15,8 +15,9 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: b181c2e325621023753d420d0f005c71822db346
-ms.openlocfilehash: 81aee56a4a6e5759987108effe0f6abef0852852
+ms.sourcegitcommit: 2dfc38070e5c9bbdfc4c74e2465894a221657564
+ms.openlocfilehash: 1ee20b8f546c43d0351a2065b0628bb9d6b31736
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -118,7 +119,7 @@ Observe que um único lote não deve exceder o limite de 256 KB de um evento. Al
 Você também pode enviar eventos para um Hub de Eventos de forma assíncrona. O envio de forma assíncrona pode aumentar a taxa em que um cliente é capaz de enviar eventos. Os métodos [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) e [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) estão disponíveis nas versões assíncronas que retornam um objeto [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx). Embora essa técnica possa aumentar a taxa de transferência, ela também pode fazer com que o cliente continue a enviar eventos mesmo enquanto está sendo limitado pelo serviço de Hubs de Eventos e pode resultar em falhas por parte do cliente ou mensagens perdidas, se não for implementada corretamente. Além disso, você pode usar a propriedade [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) no cliente para controlar as opções de novas tentativas do cliente.
 
 ## <a name="create-a-partition-sender"></a>Criar um remetente de partição
-Embora seja mais comum enviar eventos para um Hub de Eventos com uma chave de partição, em alguns casos você pode enviar eventos diretamente para determinada partição. Por exemplo:
+Embora seja mais comum enviar eventos para um Hub de Eventos sem uma chave de partição, em alguns casos, você pode enviar eventos diretamente para determinada partição. Por exemplo:
 
 ```csharp
 var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[0]);
@@ -190,9 +191,4 @@ Para saber mais sobre os cenários de Hubs de Eventos, consulte estes links:
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

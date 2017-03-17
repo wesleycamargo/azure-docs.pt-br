@@ -1,5 +1,5 @@
 ---
-title: "Manter a saída de trabalhos e tarefas - Azure Batch | Microsoft Docs"
+title: "Persistir saída de tarefa e de trabalho no Armazenamento do Azure - Lote do Azure | Microsoft Docs"
 description: "Saiba como usar o Armazenamento do Azure como um armazenamento durável para a saída de trabalhos e tarefas do Lote e habilitar a exibição dessa saída persistente no portal do Azure."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: ffba988bd8cd3896816118afde979c7067fced79
-ms.openlocfilehash: e5231970b772f7cc043441954ebab6cb1bb6ed8b
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 2c80f9d2bc788c60c5a7b3a5fd0d38cb86cbf838
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="persist-azure-batch-job-and-task-output"></a>Persistir trabalho de Lote do Azure e saída de tarefa
+# <a name="persist-results-from-completed-jobs-and-tasks-to-azure-storage"></a>Manter resultados de trabalhos concluídos e tarefas para o Armazenamento do Azure
+
 As tarefas que você executa normalmente no Lote produzem saída que deve ser armazenada e recuperada posteriormente por outras tarefas no trabalho, no aplicativo cliente que executou o trabalho ou em ambos. Essa saída pode consistir em arquivos criados pelo processamento de dados de entrada ou arquivos de log associados à execução da tarefa. Este artigo apresenta uma biblioteca de classes .NET que usa uma técnica de convenções para persistir essa saída de tarefa para o armazenamento de Blobs do Azure, disponibilizando-a mesmo depois que você exclui os pools, trabalhos e nós de computação.
 
 Usando a técnica deste artigo, você também poderá exibir a saída da tarefa em **Arquivos de saída salvos** e **Logs salvos** no [portal do Azure][portal].
@@ -248,9 +251,4 @@ Confira a postagem [Instalação de aplicativos e preparo de dados em nós de co
 
 [1]: ./media/batch-task-output/task-output-01.png "Arquivos de saída salvos e Seletores de logs salvos no portal"
 [2]: ./media/batch-task-output/task-output-02.png "Folha de saídas de tarefa no portal do Azure"
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

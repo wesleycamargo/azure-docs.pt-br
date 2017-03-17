@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/24/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf8930a73c334265c828cd01ca1910201b231f3b
+ms.sourcegitcommit: 0dc1f1ef73334187fe76302ff3bd5a5446dec768
+ms.openlocfilehash: 21370f9c30ac1dcaa979ab9724155c91bda128f7
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -27,7 +28,7 @@ Este artigo explica como adicionar informações de perfil do usuário, como uma
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
-   ![Abrir o gerenciamento de usuários](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
+   ![Abrir usuários e grupos](./media/active-directory-users-profile-azure-portal/create-users-user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Usuários**.
 
    ![Abrindo a folha Usuários](./media/active-directory-users-profile-azure-portal/create-users-open-users-blade.png)
@@ -43,9 +44,4 @@ Este artigo explica como adicionar informações de perfil do usuário, como uma
 * [Atribuir um usuário às funções de administrador na visualização do Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * [Adicionar ou alterar as informações de perfil de um usuário na visualização do Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Excluir um usuário de um diretório na visualização do Azure Active Directory](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

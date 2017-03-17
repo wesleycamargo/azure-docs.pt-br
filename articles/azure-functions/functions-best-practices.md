@@ -14,24 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2016
-ms.author: wesmc
+ms.date: 02/27/2017
+ms.author: glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 182e28e37eb56c547e28524f2a3e13f042238cb4
-ms.openlocfilehash: c638bf42b9adf906f195d77268637d056f7b00a9
+ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
+ms.openlocfilehash: 53dcaea155471d47eb61317c52d38524c05e4600
+ms.lasthandoff: 03/01/2017
+
 
 ---
 
-# <a name="best-practices-for-azure-functions"></a>Práticas recomendadas para o Azure Functions
+# <a name="tips-for-improving-the-performance-and-reliability-of-azure-functions"></a>Dicas para melhorar o desempenho e a confiabilidade do Azure Functions
 
 ##<a name="overview"></a>Visão geral
 
-Este artigo fornece um conjunto de práticas recomendadas a serem consideradas ao implementar aplicativos de funções. Tenha em mente que o seu aplicativo Azure Funcion é um serviço de aplicativo do Azure. Então essas práticas recomendadas se aplicam.
+Este artigo fornece um conjunto de práticas recomendadas a serem consideradas ao implementar aplicativos de funções. Lembre-se de que o aplicativo de funções é um aplicativo no Serviço de Aplicativo do Azure. Portanto, as práticas recomendadas do Serviço de Aplicativo também se aplicam.
 
 
 ## <a name="avoid-large-long-running-functions"></a>Evite funções grandes de longa duração
 
-Funções grandes de longa duração podem causar problemas de tempo limite inesperados. Uma função pode ser grande devido a muitas dependências de Node. js. A importação dessas dependências pode causar aumento no tempo de carregamento resultando em tempos limite inesperados. As dependências do Node. js podem ser explicitamente carregadas por várias instruções `require()` no seu código. Também podem ser implícitas com base em um único módulo carregado pelo seu código que tenha suas próprias dependências internas.  
+As funções grandes de longa duração podem causar problemas de tempo limite inesperados. Uma função pode ser grande devido a muitas dependências de Node. js. A importação dessas dependências pode causar aumento no tempo de carregamento resultando em tempos limite inesperados. As dependências do Node. js podem ser explicitamente carregadas por várias instruções `require()` no seu código. As dependências também podem ser implícitas com base em um único módulo carregado pelo código que tenha suas próprias dependências internas.  
 
 Sempre que possível, refatore funções grandes em conjuntos menores de função que funcionem juntos e retornem respostas rápidas. Por exemplo, um webhook ou a função do gatilho HTTP pode exigir uma resposta de confirmação dentro de um certo limite de tempo. Você pode passar o conteúdo do gatilho HTTP para uma fila para ser processado por uma função de gatilho de fila. Essa abordagem permite adiar o trabalho real e retornar uma resposta imediata. É comum que webhooks exijam uma resposta imediata.
 
@@ -71,8 +74,6 @@ Se um item da fila já tiver sido processado, permita que sua função seja no-o
 Tire proveito de medidas defensivas já fornecidas para componentes usados na plataforma Azure Functions. Por exemplo, consulte **Tratamento de mensagens suspeitas na fila** na documentação de [gatilhos de fila de armazenamento do Azure](functions-bindings-storage-queue.md#trigger).
  
 
-
-
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Não misture códigos de teste e de produção no mesmo aplicativo de funções.
 
 As funções em um aplicativo de funções compartilham recursos. Por exemplo, a memória é compartilhada. Se você estiver usando um aplicativo de funções em produção, não adicione recursos e funções de teste nele. Ele pode causar sobrecarga inesperada durante a execução de código de produção.
@@ -103,10 +104,6 @@ Para saber mais, consulte os recursos a seguir:
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
+* [Otimizações de desempenho HTTP para padrões e práticas](https://github.com/mspnp/performance-optimization/blob/master/ImproperInstantiation/docs/ImproperInstantiation.md)
 
 

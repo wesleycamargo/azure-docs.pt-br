@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: 638410921c6dad72e1bbe0c035243cea70a3deb1
-ms.openlocfilehash: 4bab1ba9c30cee50baeddc06931a3997aac0f33f
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 48a0060edf30b53f685f25efebcb896af2c6122b
+ms.openlocfilehash: ee69cc8402cd9321d1f47ceb4be045274376f440
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -138,7 +138,7 @@ Veja a seguir um modo de exibição detalhado do evento de Alteração de Config
 
 
 ## <a name="oms-performance-integration"></a>Integração de desempenho do OMS
-O painel Desempenho do Computador mostra as métricas de desempenho padrão para o servidor selecionado.  As métricas incluem Utilização de CPU, Utilização de Memória, Bytes de Rede Enviados e Recebidos, e uma lista dos principais processos por Bytes de Rede enviados e recebidos.
+O painel Desempenho do Computador mostra as métricas de desempenho padrão para o servidor selecionado.  As métricas incluem Utilização de CPU, Utilização de Memória, Bytes de Rede Enviados e Recebidos, e uma lista dos principais processos por Bytes de Rede enviados e recebidos.  Observe que para obter os dados de desempenho da rede, você deve habilitar também a solução Wire Data 2.0 no OMS.
 ![Painel de Controle de Alteração da Máquina](media/oms-service-map/machine-performance.png)
 
 

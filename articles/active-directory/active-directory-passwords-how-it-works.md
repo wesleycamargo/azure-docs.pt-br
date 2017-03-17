@@ -3,7 +3,7 @@ title: 'Como funciona: Gerenciamento de Senhas do AD do Azure | Microsoft Docs'
 description: "Saiba mais sobre os diferentes componentes do Gerenciamento de Senhas do AD do Azure, incluindo onde os usuários se registram, redefinem e alteram suas senhas e onde os administradores configuram, relatam e habilitam o gerenciamento de senhas do Active Directory local."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 83d4fb4e8dc53b8b7013b6178b2633f649887fd8
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 856d35c0a84ef0aa1f01996ae647b7bb6acc87c2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="how-password-management-works"></a>Como funciona o gerenciamento de senhas
+# <a name="how-password-management-works-in-azure-active-directory"></a>Como funciona o gerenciamento de senha no Azure Active Directory
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-O Gerenciamento de Senhas no Active Directory do Azure consiste em vários componentes lógicos que são descritos abaixo.  Clique em cada link para saber mais sobre esse componente.
+O gerenciamento de senhas no Azure Active Directory (Azure AD) consiste em vários componentes lógicos que são descritos abaixo. Selecione os links para saber mais sobre esse componente.
 
 * [**Portal de Configuração do Gerenciamento de Senhas**](#password-management-configuration-portal) – os administradores podem controlar os diferentes aspectos de como as senhas são gerenciadas em seus locatários navegando até a guia Configurar no seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 * [**Portal de registro de usuário**](#user-registration-portal) – os usuários podem se registrar para a redefinição de senha nesse portal da Web.
-* [**Portal de redefinição de senha do usuário**](#user-password-reset-portal) – os usuários podem redefinir suas próprias senhas usando diversos desafios diferentes de acordo com a política de redefinição de senha controlada pelo administrador
+* [**Portal de Redefinição de Senha do Usuário**](#user-password-reset-portal) – os usuários podem redefinir suas próprias senhas usando diversos desafios diferentes de acordo com a política de redefinição de senha controlada pelo administrador
 * [**Portal de alteração de senha do usuário**](#user-password-change-portal) – os usuários podem alterar suas próprias senhas a qualquer momento inserindo a senha antiga e selecionando uma nova senha usando esse portal da Web
 * [**Relatórios do Gerenciamento de Senhas**](#password-management-reports) – os administradores podem exibir e analisar a atividade de registro e redefinição de senhas em seu locatário navegando até a seção "Relatórios da Atividade" na guia "Relatórios" do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
 * [**Password Writeback Component of Azure AD Connect**](#password-writeback-component-of-azure-ad-connect) – os administradores podem, opcionalmente, habilitar o recurso de write-back de senha ao instalar o Azure AD Connect para habilitar o gerenciamento de senhas de usuário sincronizadas ou federadas na nuvem.
@@ -63,14 +65,14 @@ Para saber mais sobre como configurar o Gerenciamento de Senhas na sua organiza�
 ## <a name="user-registration-portal"></a>Portal de registro de usuário
 Para queos usuários possam usar a redefinição de senha, suas contas de usuário de nuvem devem ser atualizadas com os dados de autenticação corretos para garantir que eles possam passar pelo número correto de desafios de redefinição de senha definidos pelo administrador.  Os administradores também podem definir essas informações de autenticação em nome de seu usuário usando os portais do Azure ou Office, DirSync/Azure AD Connect ou o Windows PowerShell.
 
-No entanto, se você preferir que os usuários registrem seus próprios dados, também fornecemos uma página da Web que os usuários podem acessar para fornecer essas informações.  Essa página permitirá que os usuários especifiquem informações de autenticação de acordo com as políticas de redefinição de senha habilitadas em sua organização.  Depois que esses dados são verificados, são armazenados em sua conta de usuário de nuvem para serem usados para recuperação de conta em um momento posterior. Esta é a aparência do portal de registro:
+No entanto, se você preferir que os usuários registrem seus próprios dados, também fornecemos uma página da Web que os usuários podem acessar a fim de fornecer essas informações.  Essa página permitirá que os usuários especifiquem informações de autenticação de acordo com as políticas de redefinição de senha habilitadas em sua organização.  Depois que esses dados são verificados, são armazenados em sua conta de usuário de nuvem para serem usados para recuperação de conta em um momento posterior. Esta é a aparência do portal de registro:
 
   ![][001]
 
 Para obter mais informações, consulte [Introdução: Gerenciamento de Senhas do Azure AD](active-directory-passwords-getting-started.md) e [Práticas recomendadas: Gerenciamento de Senhas do Azure AD](active-directory-passwords-best-practices.md).
 
 ## <a name="user-password-reset-portal"></a>Portal de redefinição de senha do usuário
-Depois que você habilitar a redefinição de senha de autoatendimento, configurar a política de redefinição de senha de autoatendimento de sua organização e garantir que os usuários tenham os dados de contato apropriados no diretório, os usuários em sua organização poderão redefinir suas próprias senhas automaticamente em qualquer página da Web que use uma conta do trabalho ou da escola para entrar (como [portal.microsoftonline.com](https://portal.microsoftonline.com)). Em páginas como essas, os usuários verão um link **Não é possível acessar sua conta?**
+Depois que você habilitar a redefinição de senha de autoatendimento, configurar a política de redefinição de senha de autoatendimento de sua organização e garantir que os usuários tenham os dados de contato apropriados no diretório, os usuários em sua organização poderão redefinir suas próprias senhas automaticamente em qualquer página da Web que use uma conta do trabalho ou da escola para entrar (como [portal.microsoftonline.com](https://portal.microsoftonline.com)). Em páginas como essas, os usuários verão um link **Não consegue acessar sua conta?**.
 
   ![][002]
 
@@ -105,11 +107,8 @@ Se as senhas de usuários em sua organização se originam de seu ambiente local
 
 Para obter mais informações sobre o Azure AD Connect, consulte [Introdução: Azure AD Connect](active-directory-aadconnect.md). Para obter mais informações sobre o write-back de senha, consulte [Introdução: Gerenciamento de Senhas do AD do Azure](active-directory-passwords-getting-started.md).
 
-<br/>
-<br/>
-<br/>
 
-## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
+## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
@@ -128,9 +127,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

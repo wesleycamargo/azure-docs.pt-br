@@ -13,24 +13,25 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 02/23/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 99c7ca60b472d2481d9ebb1ec4be3d2eee088c26
-ms.openlocfilehash: e1b76cb4c6393d7c5783f55bf9a0f141786a9602
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: c7094a92355a199e9b94bc695c8499271b9adc39
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço na Pesquisa do Azure
-Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o Azure Search é adicionado, que pode ser **Gratuito**, **Básico** ou **Standard**.
+Os limites máximos de armazenamento, cargas de trabalho, quantidades de índices, documentos e outros objetos dependem do tipo de preço ao qual o [Azure Search é provisionado](search-create-service-portal.md), que pode ser **Gratuito**, **Básico** ou **Standard**.
 
 * **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure. É uma opção sem custo adicional para assinantes existentes que permite experimentar o serviço antes de se inscrever para obter recursos dedicados.
 * **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor.
 * **Standard** é executado em computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Standard vem em quatro níveis: S1, S2, S3 e S3 Alta Densidade (S3 HD).
 
-Todas as camadas podem ser [provisionadas no portal](search-create-service-portal.md). Um serviço é alocado inicialmente em uma partição e uma réplica, mas você pode aumentar a alocação de recurso após o serviço ser criado.
-
-Um serviço é provisionado em uma camada específica. Se você precisar pular camadas para obter mais capacidade, provisione um novo serviço (não há nenhuma atualização in-loco). Para obter mais informações sobre as camadas, confira [Escolher uma camada ou SKU](search-sku-tier.md). Para saber mais sobre o ajuste de capacidade em um serviço já provisionado, consulte [Dimensionar níveis de recursos para cargas de trabalho de indexação e consulta](search-capacity-planning.md).
+> [!NOTE]
+> Um serviço é provisionado em uma camada específica. Se você precisar pular camadas para obter mais capacidade, provisione um novo serviço (não há nenhuma atualização in-loco). Para obter mais informações, confira [Escolher uma camada ou SKU](search-sku-tier.md). Para saber mais sobre o ajuste de capacidade em um serviço já provisionado, consulte [Dimensionar níveis de recursos para cargas de trabalho de indexação e consulta](search-capacity-planning.md).
+>
 
 ## <a name="per-subscription-limits"></a>Por limites de assinatura
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -93,9 +94,4 @@ As chaves de API são usadas para autenticação de serviço. Há dois tipos. Ch
 
 * Máximo de duas chaves de administração por serviço
 * Máximo de 50 chaves de consulta por serviço
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -12,17 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 02/27/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: d99920e1f39567834f7721c6afec6adfceb512f4
-ms.openlocfilehash: 7464d02b94d8119bb932508e0dfcd36bcbfaed3b
+ms.sourcegitcommit: 59be15f2d17bbcbc4db6dd9d291cb1ea5991db2e
+ms.openlocfilehash: a753ac16e3329c85656682314824eb14ad8a4e52
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="common-access-panel-tasks"></a>Tarefas comuns do Painel de Acesso
+# <a name="do-you-need-help-with-myapps"></a>Você precisa de ajuda com MyApps?
 
-O Painel de Acesso é um portal da Web que lhe permite:
+Provavelmente você chegou a esta página porque houve um problema ao usar o portal do MyApps. Embora haja casos que exijam que você entre em contato com a assistência técnica ou o administrador para solucionar um problema, capturamos neste tópico etapas para perguntas comuns que você pode experimentar sozinho primeiro. 
+
+Se você estiver procurando ajuda relacionada ao gerenciamento de senha, tente [isso](active-directory-passwords-update-your-own-password.md).
+  
+
+## <a name="what-is-the-myapps-portal"></a>O que é o portal do MyApps?
+
+
+MyApps é um portal da Web que permite que você:
 
 - Gerenciar e iniciar aplicativos baseados em nuvem
 - Gerenciar suas associações de grupo
@@ -30,66 +39,53 @@ O Painel de Acesso é um portal da Web que lhe permite:
 
 ![Painel de acesso][1] 
 
-Este tópico fornece instruções para executar tarefas comuns e solucionar problemas.
 
 
 
-## <a name="how-to-troubleshoot-accessing-an-app"></a>Como solucionar problemas de acesso a um aplicativo
+## <a name="how-can-i-change-my-password"></a>Como posso alterar minha senha?
 
-1.  Verifique se você tem a extensão Painel de Acesso instalada corretamente em seu navegador.  
-Execute [estas etapas](active-directory-saas-ie-troubleshooting.md) para solucionar o problema com sua extensão do IE.
-2.  Verifique se o navegador não está no modo particular ou incógnito.
-3.  Contate o administrador ou o suporte técnico para obter assistência adicional se você ainda não conseguir acessar seus aplicativos.
-
-## <a name="how-to-change-your-password"></a>Como alterar sua senha
-
-1.  No **Painel de Acesso**, clique no controle de usuário do lado superior direito e depois clique em **Perfil**.
-2.  Em **Gerenciar Conta**, clique em **Alterar senha**.
-3.  Digite a sua senha antiga, digite uma nova senha e confirme.
-4.  Clique em **Enviar**.
+1.    Em **MyApps**, clique no controle de usuário do lado superior direito e depois clique em **Perfil**.
+2.    Em **Gerenciar Conta**, clique em **Alterar senha**.
+3.    Digite a sua senha antiga, digite uma nova senha e confirme.
+4.    Clique em **Enviar**.
 
 Para obter mais detalhes, confira [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md).
 
 
-## <a name="how-to-setup-password-reset"></a>Como configurar a redefinição de senha
+## <a name="how-do-i-setup-password-reset"></a>Como posso configurar a redefinição de senha?
 
-1.  No **Painel de Acesso**, clique no controle de usuário no lado superior direito e depois clique em **Perfil**.
-2.  Em **Gerenciar Conta**, clique em **Configurar autoatendimento de redefinição de senha**.
-3.  Execute as etapas da caixa de diálogo e envie.
+1.    Em **MyApps**, clique no controle de usuário do lado superior direito e depois clique em **Perfil**.
+2.    Em **Gerenciar Conta**, clique em **Configurar autoatendimento de redefinição de senha**.
+3.    Execute as etapas da caixa de diálogo e envie.
 
 Para obter mais detalhes, consulte [Como redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 
 
-## <a name="how-to-add-new-apps-or-request-permission-to-app-access"></a>Como adicionar novos aplicativos ou solicitar permissão para acessar o aplicativo
+## <a name="how-can-i-add-a-new-app"></a>Como posso adicionar um novo aplicativo?
 
-1.  No **Painel de Acesso**, clique em **Adicionar Aplicativo**.
-2.  Pesquise ou localize um aplicativo que você deseja adicionar e clique em **Adicionar**.  
-Se o aplicativo exigir uma permissão, talvez seja necessário aguardar a aprovação do administrador.
+1.    Em **MyApps**, clique em **Adicionar Aplicativo**.
+2.    Pesquise ou localize um aplicativo que você deseja adicionar e clique em **Adicionar**.
 
-Se você não encontrar o aplicativo que está procurando, entre em contato com o administrador para obter assistência.
+**Comentários:**
+
+- Você terá acesso a essa opção apenas se seu administrador a tiver habilitado para sua conta.
+- Se o aplicativo exigir uma permissão, talvez seja necessário aguardar a aprovação do administrador.
 
 
-## <a name="how-to-manage-your-group-memberships"></a>Como gerenciar suas associações de grupo
 
-1. No **Painel de Acesso**, clique no bloco de aplicativo **Grupos**.
-2. Para criar um grupo, em **Grupos que possuo**, clique em **Criar grupo** e siga as instruções.
-3. Para entrar para um grupo, em **Grupos nos quais estou**, clique em **Entrar para grupo** e siga as instruções.
+## <a name="how-can-i-manage-group-memberships"></a>Como posso gerenciar as associações de grupo?
 
-**Comentários**:
-  
+1.    Em **MyApps**, clique no bloco de aplicativos **Grupos**.
+2.    Para criar um grupo, em **Grupos que possuo**, clique em **Criar grupo** e siga as instruções.
+3.    Para entrar para um grupo, em **Grupos nos quais estou**, clique em **Entrar para grupo** e siga as instruções.
+
+**Comentários:**
+
 - Clicar em um grupo do qual você é membro permite a exibição de detalhes e também sair do grupo.
 - Clicar em um grupo do qual você é proprietário permite a exibição de detalhes, adicionar ou remover membros e também sair do grupo.
 
 
 
-## <a name="next-steps"></a>Próximas etapas
-* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-user-help/01.png
-
-
-
-<!--HONumber=Nov16_HO5-->
-
 

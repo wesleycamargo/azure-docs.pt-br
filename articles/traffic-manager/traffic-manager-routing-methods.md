@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2016
+ms.date: 03/16/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 993408c9d008a94dfd4004ed6826a2fe6180b20c
-ms.openlocfilehash: aa3c77c0bf9db1f875dd992c4eb7a494af58c400
+ms.sourcegitcommit: 11a120338a9f76bfb0a56a70d0c566625bc518b9
+ms.openlocfilehash: ee3265032a839b1c35821e60e1143ae772389804
+ms.lasthandoff: 02/27/2017
 
 ---
 
@@ -46,7 +47,6 @@ Todos os perfis do Gerenciador de Tráfego incluem o monitoramento da integridad
 ## <a name="priority-traffic-routing-method"></a>Método de roteamento de tráfego por prioridade
 
 Frequentemente, as organizações desejam fornecer confiabilidade para seus serviços implantando um ou mais serviços de backup, caso seu serviço primário fique inativo. O método de roteamento de tráfego por “Prioridade” permite que os clientes do Azure implementem esse padrão de failover com facilidade.
-
 ![Método de roteamento de tráfego por “Prioridade” do Gerenciador de Tráfego do Azure][1]
 
 O perfil do Gerenciador de Tráfego contém uma lista priorizada de pontos de extremidade de serviço. Por padrão, o Gerenciador de Tráfego envia todo o tráfego para o ponto de extremidade primário (prioridade mais alta). Se o ponto de extremidade primário não estiver disponível, o Gerenciador de Tráfego encaminhará o tráfego para o segundo ponto de extremidade. Se os pontos de extremidade primário e secundário não estiverem disponíveis, o tráfego passará para o terceiro e assim por diante. A disponibilidade do ponto de extremidade é baseada no status configurado (habilitado ou desabilitado) e no monitoramento contínuo do ponto de extremidade.
@@ -58,7 +58,6 @@ Com o Azure Resource Manager, você configura a prioridade do ponto de extremida
 Com a interface Clássica, a prioridade do ponto de extremidade é configurada implicitamente. A prioridade baseia-se na ordem em que os pontos de extremidade são listados na definição do perfil.
 
 ## <a name="weighted-traffic-routing-method"></a>Método de roteamento de tráfego ponderado
-
 O método de roteamento de tráfego “Ponderado” permite que você distribua o tráfego de maneira uniforme ou use uma ponderação predefinida.
 
 ![Método de roteamento de tráfego “Ponderado” do Gerenciador de Tráfego do Azure][2]
@@ -97,7 +96,9 @@ O Gerenciador de Tráfego pesquisa o endereço IP de origem da solicitação DNS
 
 Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-how-traffic-manager-works.md), o Gerenciador de Tráfego não recebe consultas DNS diretamente de clientes. Em vez disso, as consultas DNS são recebidas do serviço DNS recursivo que os clientes são configurados para usar. Portanto, o endereço IP usado para determinar o ponto de extremidade “mais próximo” não é o endereço IP do cliente, mas o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.
 
-Regularmente, o Gerenciador de Tráfego atualiza a Tabela de Latência da Internet para verificar se há alterações na Internet global e em novas regiões do Azure. No entanto, o desempenho do aplicativo varia de acordo com as variações em tempo real na carga pela Internet. O roteamento de tráfego por desempenho não monitora a carga em um ponto de extremidade de serviço específico. No entanto, se um ponto de extremidade ficar indisponível, o Gerenciador de Tráfego não o retornará nas respostas às consultas DNS.
+
+Regularmente, o Gerenciador de Tráfego atualiza a Tabela de Latência da Internet para verificar se há alterações na Internet global e em novas regiões do Azure. No entanto, o desempenho do aplicativo varia de acordo com as variações em tempo real na carga pela Internet. O roteamento de tráfego por desempenho não monitora a carga em um ponto de extremidade de serviço específico. No entanto, se um ponto de extremidade ficar indisponível, o Gerenciador de Tráfego não incluirá isso nas respostas a consultas DNS.
+
 
 Pontos a serem observados:
 
@@ -117,9 +118,4 @@ Aprenda a [criar um perfil do Gerenciador de Tráfego](traffic-manager-manage-pr
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

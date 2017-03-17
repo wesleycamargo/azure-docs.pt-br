@@ -1,5 +1,5 @@
 ---
-title: Desenvolver aplicativos LOB para o Azure AD| Microsoft Docs
+title: Desenvolver aplicativos para o Azure AD| Microsoft Docs
 description: "Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicativos do Azure com o Active Directory."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 02/27/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: cd1c8d74afa51815b3f6c093e6a9054b97359843
-
+ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
+ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-and-applications-develop-line-of-business-apps"></a>Azure AD e aplicativos: desenvolver aplicativos de linha de negócios
+# <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (de linha de negócios) do Azure AD (Active Directory). O público-alvo são os administradores globais do Active Directory/Office 365.
 
 ## <a name="overview"></a>Visão geral
@@ -80,9 +81,4 @@ Para saber mais sobre o consentimento do usuário e sobre a experiência de cons
 * [Visualização de acesso condicional do Azure para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Gerenciando o acesso a aplicativos usando o Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

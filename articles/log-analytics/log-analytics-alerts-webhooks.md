@@ -1,5 +1,5 @@
 ---
-title: Exemplo de webhook de alerta no Log Analytics
+title: "Exemplo de ação de alerta de Webhook no Log Analytics do OMS | Microsoft Docs"
 description: "Uma das ações que você pode executar em resposta a um alerta do Log Analytics é um *webhook*, que permite invocar um processo externo por meio de uma única solicitação HTTP. Neste artigo, vamos examinar um exemplo de como criar uma ação de webhook em um alerta do Log Analytics usando o Slack."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2016
+ms.date: 02/27/2017
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+ms.sourcegitcommit: c8e67f2dcd061e3cd92eec40d6e6bb3de5d73b67
+ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="webhooks-in-log-analytics-alerts"></a>Webhooks nos alertas do Log Analytics
+
+# <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Criar uma ação de webhook de alerta no OMS Log Analytics para enviar mensagens ao Slack
 Uma das ações que você pode executar em resposta a um [alerta do Log Analytics](log-analytics-alerts.md) é um *webhook*, que permite invocar um processo externo por meio de uma única solicitação HTTP.  Você pode ler sobre os detalhes de alertas e webhooks em [Alertas no Log Analytics](log-analytics-alerts.md)
 
 Neste artigo, vamos examinar um exemplo de como criar uma ação de webhook em um alerta do Log Analytics usando o Slack, que é um serviço de mensagens.
@@ -109,12 +111,7 @@ Com essa regra de alerta em vigor, uma mensagem será enviada para o Slack sempr
 Esse é apenas um exemplo de uma ação que você pode criar em resposta a um alerta.  Você pode criar uma ação de webhook que chama outro serviço externo, uma ação de runbook para iniciar um runbook na Automação do Azure ou uma ação de email para enviar um email para si mesmo ou para outros destinatários.   
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [alertas no Log Analytics](log-analytics-alerts.md) , incluindo outras ações.
-* [Crie runbooks na Automação do Azure](../automation/automation-webhooks.md) que podem ser chamados de um webhook.
+* Saiba mais sobre outras [ações de alerta no Log Analytics](log-analytics-alerts-actions.md), incluindo outras ações.
 
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

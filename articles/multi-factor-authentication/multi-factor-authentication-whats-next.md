@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 02/21/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: c8a53cbbfdb0f3d5d5b4b3a1e70f2c08d50c6004
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 042b99a77fae0de2fe65113d9d909a443f5487d4
+ms.openlocfilehash: 3a6020b2c189b4ce9a930a18d78140b7bd8ff8ff
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tudo está funcionando.  Ele aborda diversos tópicos que ajudarão você a aproveitar ao máximo a Autenticação Multifator do Azure.  Alguns desses recursos não estão disponíveis em todas as versões da Autenticação Multifator do Azure.
 
-| Recurso | Descrição | |:--- |:--- || | [Alerta de fraude](#fraud-alert) | O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. | | [Bypass avulso](#one-time-bypass) |Um bypass avulso permite que um usuário se autentique uma única vez ao "ignorando" a autenticação multifator. | | [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. | | [Cache](#caching-in-azure-multi-factor-authentication) |O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. | | [IPs Confiáveis](#trusted-ips) |Os administradores de um locatário gerenciado ou federado podem usar este recurso para ignorar a verificação em duas etapas de usuários que fizerem logon pela intranet local da empresa. | | [Senhas de aplicativo](#app-passwords) |Uma senha de aplicativo permite que um aplicativo sem reconhecimento de MFA possa ignorar a autenticação multifator e continuar trabalhando. | | [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-users-trust) |Permite lembrar dispositivos por um número de dias definido depois que o usuário fizer logon usando a MFA. | | [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você escolha os métodos de autenticação disponíveis para os usuários utilizarem. |
+| Recurso | Descrição | |:--- |:--- || | [Alerta de fraude](#fraud-alert) | O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. | | [Bypass avulso](#one-time-bypass) |Um bypass avulso permite que um usuário se autentique uma única vez ao "ignorando" a autenticação multifator. | | [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. | | [Cache](#caching-in-azure-multi-factor-authentication) |O cache permite que você defina um momento específico período para que tentativas de autenticação subsequentes tenham êxito automaticamente. | | [IPs Confiáveis](#trusted-ips) |Os administradores de um locatário gerenciado ou federado podem usar este recurso para ignorar a verificação em duas etapas de usuários que fizerem logon pela intranet local da empresa. | | [Senhas de aplicativo](#app-passwords) |Uma senha de aplicativo permite que um aplicativo sem reconhecimento de MFA possa ignorar a autenticação multifator e continuar trabalhando. | | [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite lembrar dispositivos por um número de dias definido depois que o usuário fizer logon usando a MFA. | | [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você escolha os métodos de autenticação disponíveis para os usuários utilizarem. |
 
 ## <a name="access-the-azure-mfa-management-portal"></a>Acesse o Portal de Gerenciamento do Azure MFA
 
@@ -164,7 +164,7 @@ Observe que o cache não deve ser usado para acessar o Azure AD.
 <center>![Nuvem](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## <a name="trusted-ips"></a>IPs confiáveis
-Os administradores de um locatário gerenciado ou federado podem usar este recurso do Azure MFA para ignorar a verificação em duas etapas de usuários que fizerem logon pela intranet local da empresa. Esse recurso está disponível na versão completa da Autenticação Multifator do Azure, não na versão gratuita para administradores. Para saber como obter a versão completa da Autenticação Multifator do Azure, consulte [Como obter a Autenticação Multifator do Azure](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).
+Os administradores de um locatário gerenciado ou federado podem usar este recurso do Azure MFA para ignorar a verificação em duas etapas de usuários que fizerem logon pela intranet local da empresa. Esse recurso está disponível na versão completa da Autenticação Multifator do Azure, não na versão gratuita para administradores. Para saber como obter a versão completa da Autenticação Multifator do Azure, consulte [Autenticação Multifator do Azure](multi-factor-authentication.md).
 
 | Tipo de locatário do Azure AD | Opções disponíveis de IPs confiáveis |
 |:--- |:--- |
@@ -260,13 +260,18 @@ Os usuários também podem criar senhas de aplicativo após o registro alterando
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Lembrar a autenticação multifator em dispositivos de confiança dos usuários
 Lembrar Multi-Factor Authentication para dispositivos e navegadores de confiança dos usuários é um recurso gratuito para todos os usuários do MFA. Ele permite fornecer aos usuários a opção de ignorar o MFA para um número de dias específico após a entrada bem-sucedida usando o MFA. Isso pode melhorar a usabilidade, pois minimiza o número de vezes que um usuário executa a verificação em duas etapas no mesmo dispositivo.
 
+No entanto, se um dispositivo ou a conta for comprometido, lembrar a autenticação multifator em dispositivos confiáveis pode colocar sua segurança em risco. Caso uma conta corporativa seja comprometida ou um dispositivo confiável seja perdido ou roubado, você deve [restaurar a Autenticação Multifator em todos os dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Essa ação revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar o MFA em seus próprios dispositivos com as instruções em [Gerenciar as configurações de verificação em duas etapas](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
+
+### <a name="how-it-works"></a>Como ele funciona
+
+Lembre-se que a autenticação multifator funciona com a definição de um cookie persistente no navegador quando um usuário seleciona a caixa "Não perguntar novamente por **X** dias" ao entrar. O usuário não será solicitado a fornecer o MFA novamente neste navegador até que o cookie expire. Se o usuário abrir um navegador diferente no mesmo dispositivo ou limpar os cookies, ele será solicitado a verificar novamente. 
+
+A caixa de seleção "Não perguntar novamente por **X** dias" não é exibida em aplicativos que não usam navegador, independentemente de eles suportarem a autenticação moderna ou não. Esses aplicativos usam tokens de atualização que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última verificação de duas etapas foi realizada dentro do número de dias configurado. 
+
+Portanto, lembrar o MFA em dispositivos confiáveis reduz o número de autenticações em aplicativos Web (que normalmente solicitam sempre), mas aumenta o número de autenticações para clientes de autenticação moderna (que normalmente solicita a cada 90 dias).
+
 > [!NOTE]
-> Esse recurso é implementado como um cache de cookie do navegador. Ele não funcionará se os cookies do navegador não estiverem habilitados.
-
-No entanto, se um dispositivo ou a conta for comprometido, lembrar a autenticação multifator em dispositivos confiáveis pode colocar sua segurança em risco. Para garantir a segurança da conta, há uma opção para restaurar a autenticação multifator em todos os dispositivos. Isso significa que todos os dispositivos perderão seu status de confiável, e o usuário precisará executar a verificação em duas etapas novamente. A autenticação multifator deve ser restaurada nos dispositivos para em um dos seguintes cenários:
-
-* Se sua conta corporativa estiver comprometida
-* Se um dispositivo lembrado for perdido ou roubado
+>Esse recurso não é compatível com o recurso "Manter-me conectado" do AD FS quando os usuários executam uma verificação em duas etapas para o AD FS por meio do Servidor MFA do Azure ou uma solução MFA de terceiros. Se os usuários selecionarem "Manter-me conectado" no AD FS e também marcarem seus dispositivos como confiáveis para o MFA, eles não poderão verificar depois que o número de dias de "Lembrar do MFA" expirar. O Azure AD solicita uma nova verificação em duas etapas, mas o AD FS retorna um token com a declaração e a data originais do MFA em vez de realizar a verificação em duas etapas novamente. Isso define um loop de verificação entre o Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitar a opção Lembrar autenticação multifator
 1. Entre no [portal clássico do Azure](https://portal.azure.com/).

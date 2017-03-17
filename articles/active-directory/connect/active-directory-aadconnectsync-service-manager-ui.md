@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 02/27/2017
 ms.author: billmath
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 898b3d317aac7c1a3e5593e8c5ab5aaedee179e1
-ms.openlocfilehash: 06e738c2d81665baa4e21a574cdbd2997a17ff73
-
+ms.sourcegitcommit: b9a3b64d9de48f17a295ca7a9ea58cf26e8f83ed
+ms.openlocfilehash: d999cc5ce3527539bbdf868912d5b2f6f470c21e
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Sincronização do Azure AD Connect: Synchronization Service Manager
+# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução à interface do usuário do Synchronization Service Manager do Azure AD Connect
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/ssmui.png)
 
@@ -35,9 +36,4 @@ Clique nos links na parte superior deste tópico para saber mais sobre as difere
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
