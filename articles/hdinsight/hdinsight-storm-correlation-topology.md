@@ -13,31 +13,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/13/2017
+ms.date: 03/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: d391c5c6289aa63e969f63f189eb5db680883f0a
-ms.openlocfilehash: 2f2792c409b579ba721195e5749a38c6396f339d
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a16b3eee9ed52a197b5407dc7ebe71c0710d6fa1
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="correlate-events-that-arrive-at-differnet-times-using-storm-and-hbase"></a>Correlacionar eventos que chegam em diferentes horários usando Storm e HBase
+# <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>Correlacionar eventos que chegam em diferentes horários usando Storm e o HBase
 
 Usando um armazenamento de dados persistentes com o Apache Storm, você pode correlacionar as entradas de dados que chegam em momentos diferentes. Por exemplo, vincular eventos de logon e logoff de uma sessão de usuário para calcular quanto tempo durou a sessão.
 
-Neste documento, você aprenderá como criar uma topologia Storm C# básica que rastreie eventos de logon e logoff de sessões de usuário e calcule a duração da sessão. A topologia usa HBase como um repositório de dados persistentes. O HBase também permite executar consultas de lote nos dados históricos para produzir informações adicionais, como quantas sessões de usuário foram iniciadas ou encerradas durante um período específico.
+Neste documento, você aprenderá como criar uma topologia Storm C# básica que rastreie eventos de logon e logoff de sessões de usuário e calcule a duração da sessão. A topologia usa HBase como um repositório de dados persistentes. O HBase também permite que você execute consultas de lote nos dados históricos para produzir informações adicionais. Por exemplo, quantas sessões de usuário foram iniciadas ou encerradas durante um período de tempo específico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Visual Studio e as ferramentas do HDInsight para Visual Studio: confira [Comece a usar as ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações de instalação.
+* O Visual Studio e as ferramentas do HDInsight para Visual Studio. Para obter mais informações, consulte [Introdução ao uso das ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* Apache Storm em cluster HDInsight (baseado em Windows). Isso executa a topologia Storm, que processa os dados de entrada e os armazena no HBase.
+* Apache Storm em cluster HDInsight (baseado em Windows).
   
   > [!IMPORTANT]
   > Embora as topologias SCP.NET sejam compatíveis com clusters Storm baseados em Linux criados após 28/10/2016, o pacote SDK do HBase para .NET disponível a partir de 28/10/2016 não funciona corretamente no Linux.
 
-* Apache HBase no cluster HDInsight (baseado em Linux ou Windows). Esse é o repositório de dados para este exemplo.
+* Apache HBase no cluster HDInsight (baseado em Linux ou Windows).
 
   > [!IMPORTANT]
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
@@ -81,7 +81,7 @@ A topologia de exemplo é composta dos seguintes componentes:
 
 * Session.cs: simula uma sessão de usuário criando uma ID de sessão aleatória, hora de início e por quanto tempo durará a sessão.
 
-* Spout.cs: cria 100 sessões, emite um evento INICIAR, aguarda o tempo limite aleatório para cada sessão e emite um evento ENCERRAR. Em seguida, recicla as sessões encerradas para gerar novas.
+* Spout.cs: cria 100 sessões, emite um evento START, aguarda o tempo limite aleatório para cada sessão e emite um evento END. Em seguida, recicla as sessões encerradas para gerar novas.
 
 * HBaseLookupBolt.cs: usa a ID de sessão para pesquisar informações de sessão do HBase. Quando um evento ENCERRAR é processado, ele localiza o evento INICIAR correspondente e calcula a duração da sessão.
 
@@ -99,14 +99,14 @@ No HBase, os dados são armazenados em uma tabela com os seguintes esquema/confi
   
   * evento: INICIAR ou ENCERRAR.
 
-  * tempo: o tempo em milissegundos que o evento ocorreu.
+  * tempo: o tempo em milissegundos durante o qual o evento ocorreu.
 
   * duração: o comprimento entre eventos INICIAR e ENCERRAR.
 
 * VERSÕES: a família 'cf' é definida para reter cinco versões de cada linha.
   
   > [!NOTE]
-  > As versões são um log dos valores anteriores armazenados para uma chave de linha específica. Por padrão, o HBase retorna apenas o valor para a versão mais recente de uma linha. Nesse caso, a mesma linha é usada para todos os eventos (INICIAR, ENCERRAR) por que cada versão de uma linha é identificada pelo valor de carimbo de data e hora. Isso fornece uma exibição do histórico de eventos registrados para uma ID específica.
+  > As versões são um log dos valores anteriores armazenados para uma chave de linha específica. Por padrão, o HBase retorna apenas o valor para a versão mais recente de uma linha. Nesse caso, a mesma linha é usada para todos os eventos (INICIAR, ENCERRAR) por que cada versão de uma linha é identificada pelo valor de carimbo de data e hora. As versões fornecem exibição do histórico de eventos registrados para uma ID específica.
 
 ## <a name="download-the-project"></a>Baixe o projeto
 
@@ -148,7 +148,7 @@ Este download contém os seguintes projetos C#:
 
 2. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **CorrelationTopology** e selecione Propriedades.
 
-3. Na janela Propriedades, selecione **Configurações** e forneça as informações a seguir. Os 5 primeiros devem ser os mesmos valores usados pelo projeto **SessionInfo** :
+3. Na janela Propriedades, selecione **Configurações** e insira os valores de configuração para este projeto. Os cinco primeiros são os mesmos valores usados pelo projeto **SessionInfo**:
    
    * HBaseClusterURL: a URL para o cluster HBase. Por exemplo, https://meuclusterhbase.azurehdinsight.net.
 
@@ -156,9 +156,9 @@ Este download contém os seguintes projetos C#:
 
    * HBaseClusterPassword: a senha para a conta de usuário admin/HTTP.
 
-   * HBaseTableName: o nome da tabela a ser usada com este exemplo. Ele deve conter o mesmo nome de tabela usado no projeto SessionInfo.
+   * HBaseTableName: o nome da tabela a ser usada com este exemplo. Esse valor deve conter o mesmo nome de tabela usado no projeto SessionInfo.
 
-   * HBaseTableColumnFamily: o nome da família de coluna. Este deve conter o mesmo nome de família de coluna usado no projeto SessionInfo.
+   * HBaseTableColumnFamily: o nome da família de coluna. Esse valor deve conter o mesmo nome de família de colunas usado no projeto SessionInfo.
    
    > [!IMPORTANT]
    > Não altere HBaseTableColumnNames, pois os padrões são os nomes usados por **SessionInfo** para recuperar dados.
@@ -174,7 +174,7 @@ Este download contém os seguintes projetos C#:
    > [!NOTE]
    > Na primeira vez que você enviar uma topologia, pode levar alguns segundos para recuperar o nome do seus clusters HDInsight.
 
-7. Depois que a topologia for carregada e enviada para o cluster, a **Visualização da Topologia Storm** será aberta e exibirá a topologia em execução. Selecione o **CorrelationTopology** e use o botão Atualizar na parte superior direita da página para atualizar as informações de topologia.
+7. Depois que a topologia for carregada e enviada para o cluster, a **Visualização da Topologia Storm** será aberta e exibirá a topologia em execução. Para atualizar os dados, selecione o **CorrelationTopology** e use o botão Atualizar na parte superior direita da página.
    
    ![Imagem da visualização da topologia](./media/hdinsight-storm-correlation-topology/topologyview.png)
    
@@ -184,7 +184,7 @@ Este download contém os seguintes projetos C#:
    > Se a **Visualização da topologia Storm** não abrir automaticamente, use as seguintes etapas para abri-la:
    > 
    > 1. No **Gerenciador de Soluções**, expanda **Azure** e **HDInsight**.
-   > 2. Clique com o botão direito do mouse no cluster Storm em que a topologia está em execução e selecione **Visualizar topologias Storm**
+   > 2. Clique com o botão direito do mouse no cluster Storm em que a topologia está em execução e selecione **Exibir topologias Storm**
 
 ## <a name="query-the-data"></a>Consultar os dados
 
@@ -196,11 +196,11 @@ Depois que os dados forem emitidos, use as seguintes etapas para consultar os da
    
     Use o seguinte formato ao inserir as horas de início e encerramento: HH:MM e “am” ou “pm”. Por exemplo, 11:20pm.
    
-    Uma vez que a topologia começar, use uma hora de início de tempo de antes de ele ter sido implantado e uma hora de encerramento de agora. Isso deve capturar a maioria dos eventos INICIAR que foram gerados quando iniciado. Quando a consulta for executada, você verá uma lista de entradas semelhantes à seguinte:
+    Para retornar eventos registrados em log, use uma hora de início anterior à implantação da topologia do Storm e uma hora de encerramento equivalente ao horário atual. Os dados retornados contêm entradas semelhantes ao seguinte texto:
    
         Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
-A busca por eventos ENCERRAR funciona da mesma maneira que os eventos INICIAR. No entanto, os eventos ENCERRAR são gerados aleatoriamente entre 1 e 5 minutos após o evento INICIAR. Portanto, você terá que experimentar alguns intervalos de tempo para encontrar os eventos ENCERRAR. Os eventos ENCERRAR também contêm a duração da sessão; a diferença entre a hora do evento INICIAR e do evento ENCERRAR. Veja um exemplo de dados para eventos ENCERRAR:
+A busca por eventos ENCERRAR funciona da mesma maneira que os eventos INICIAR. No entanto, os eventos ENCERRAR são gerados aleatoriamente entre 1 e 5 minutos após o evento INICIAR. Você terá que experimentar alguns intervalos de tempo para encontrar os eventos ENCERRAR. Os eventos ENCERRAR também contêm a duração da sessão; a diferença entre a hora do evento INICIAR e do evento ENCERRAR. Veja um exemplo de dados para eventos ENCERRAR:
 
     Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 

@@ -4,7 +4,7 @@ description: "Saiba como usar as ferramentas do Azure Data Lake para Visual Stud
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: paulettm
+manager: jhubbard
 editor: cgronlun
 ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/10/2017
+ms.date: 02/28/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: a1e6216647b7401183ab2f47f72aaee1f80ccee0
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 599aeb1f38c804c2edf6590140e739c9705ab1ab
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -30,7 +31,7 @@ O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente 
 
 * A Hortonworks Sandbox em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi escrito e testado com a área restrita em execução no Oracle VirtualBox, que foi configurado usando as informações no documento [Introdução ao ecossistema Hadoop](hdinsight-hadoop-emulator-get-started.md) .
 
-* Visual Studio 2013 ou 2015, qualquer edição.
+* Visual Studio 2013, 2015 ou 2017, qualquer edição.
 
 * O [SDK do Azure para .NET](https://azure.microsoft.com/downloads/) 2.7.1 ou superior.
 
@@ -38,7 +39,7 @@ O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurar senhas para a área restrita
 
-Certifique-se de que a Hortonworks Sandbox está em execução e execute as etapas em [Introdução ao ecossistema Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords) para configurar a senha para a conta `root` de SSH e conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se à área restrita a partir do Visual Studio.
+Certifique-se de que a Hortonworks Sandbox está em execução e siga as etapas em [Introdução ao ecossistema Hadoop](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Essas etapas configuram a senha para a conta `root` de SSH e a conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se do Visual Studio à área restrita.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conectar as ferramentas à área restrita
 
@@ -60,7 +61,7 @@ Certifique-se de que a Hortonworks Sandbox está em execução e execute as etap
 
     Selecione **Avançar** para continuar.
 
-5. Aguarde a validação dos serviços para concluir. Em alguns casos, a validação pode falhar e solicitar a atualização da configuração. Quando isso acontece, selecione o botão **atualizar** e aguarde a conclusão da configuração e da verificação do serviço.
+5. Aguarde a validação dos serviços para concluir. Em alguns casos, a validação pode falhar e solicitar a atualização da configuração. Se a validação falhar, selecione o botão **atualizar** e aguarde a conclusão da configuração e da verificação do serviço.
 
     ![Erros e botão de atualização](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
@@ -78,7 +79,7 @@ Após a execução dessas etapas, você terá uma entrada de "cluster local do H
 
 ## <a name="write-a-hive-query"></a>Escrever uma consulta do Hive
 
-O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com dados estruturados. Use as etapas a seguir para saber como executar consultas ad hoc no cluster local.
+O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com os dados estruturados. Use as etapas a seguir para saber como executar consultas ad hoc no cluster local.
 
 1. No **Gerenciador de Servidores**, clique com o botão direito do mouse na entrada do cluster local que você adicionou anteriormente e, em seguida, selecione **Escrever uma consulta do Hive**.
 
@@ -86,23 +87,23 @@ O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com
 
     Isso abre uma nova janela de consulta para você digitar e enviar rapidamente uma consulta para o cluster local.
 
-2. Na nova janela de consulta, insira o seguinte:
+2. Na nova janela de consulta, insira o seguinte comando:
 
         select count(*) from sample_08;
 
-    Na parte superior da janela de consulta, certifique-se de que a configuração para o cluster local esteja selecionada e, em seguida, selecione **Enviar**. Deixe os outros valores (**Lote** e nome de servidor) com os valores padrão.
+    Na parte superior da janela de consulta, certifique-se de que a configuração para o cluster local esteja selecionada e, em seguida, selecione **Enviar**. Deixe os outros valores (**Lote** e nome do servidor) com os valores padrão.
 
     ![janela de consulta e botão enviar](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
-    Observe que também é possível usar o menu suspenso próximo a **Enviar** para selecionar **Avançado**. Isso abre uma caixa de diálogo que permite a você fornecer opções adicionais ao enviar o trabalho.
+    Você também pode usar o menu suspenso próximo a **Enviar** para selecionar **Avançado**. Opções avançadas permitem que você forneça opções adicionais ao enviar o trabalho.
 
     ![envio avançado](./media/hdinsight-hadoop-emulator-visual-studio/advanced-hive.png)
 
-3. Depois de enviar a consulta, o status do trabalho será exibido. Isso fornece informações sobre o trabalho conforme ele é processado pelo Hadoop. A entrada **Estado do Trabalho** fornece o status atual do trabalho. O estado será atualizado periodicamente, ou você pode usar o ícone de atualização para atualizar manualmente o estado.
+3. Depois de enviar a consulta, o status do trabalho será exibido. Isso fornece informações sobre o trabalho conforme ele é processado pelo Hadoop. A entrada **Estado do Trabalho** fornece o status do trabalho. O estado é atualizado periodicamente ou você pode usar o ícone de atualização para atualizar o estado manualmente.
 
     ![Estado do Trabalho](./media/hdinsight-hadoop-emulator-visual-studio/job-state.png)
 
-    Quando o **Status do Trabalho** muda para **Concluído**, um DAG (gráfico acíclico dirigido) é exibido. Isso descreve o caminho de execução determinado pelo Tez (o mecanismo de execução padrão para o Hive no cluster local.)
+    Quando o **Status do Trabalho** muda para **Concluído**, um DAG (gráfico acíclico dirigido) é exibido. Este diagrama descreve o caminho de execução determinado pelo Tez (o mecanismo de execução padrão para o Hive no cluster local.)
 
     > [!NOTE]
     > Tez também é o padrão ao usar clusters HDInsight baseados em Linux. Ele não é o padrão no HDInsight baseado em Windows; para usá-lo, você deve adicionar a linha `set hive.execution.engine = tez;` ao início da consulta Hive.
@@ -113,16 +114,16 @@ O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com
 
     ![Consulta interativa](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 
-    Isso transfere o log de saída gerado durante o processamento para a janela **Saída do HiveServer2**.
+    Uma consulta interativa transfere o log de saída gerado durante o processamento para a janela **Saída do HiveServer2**.
 
     > [!NOTE]
-    > Essas são as mesmas informações disponíveis a partir do link **Log de Trabalho** após a conclusão de um trabalho.
+    > Essas são as mesmas informações disponíveis pelo link **Log de Trabalho** após a conclusão de um trabalho.
 
     ![Saída do HiveServer2](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
 
 ## <a name="create-a-hive-project"></a>Criar um projeto do Hive
 
-Você também pode criar um projeto que contém vários scripts do Hive. Isso será útil quando você tiver scripts relacionados aos quais você precisa manter juntos, ou manter usando sistemas de controle de versão.
+Você também pode criar um projeto que contém vários scripts do Hive. Um projeto será útil quando você tiver scripts relacionados aos quais você precisa manter juntos ou manter usando sistemas de controle de versão.
 
 1. No Visual Studio, selecione **Arquivo**, **Novo** e _Projeto_.
 
@@ -134,13 +135,13 @@ O projeto **Amostra do Hive** contém dois scripts, **WebLogAnalysis.hql** e **S
 
 ## <a name="create-a-pig-project"></a>Criar um projeto Pig
 
-Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com dados estruturados, o Pig fornece uma linguagem (Pig Latin) que permite o desenvolvimento de um pipeline de transformações que são aplicadas aos seus dados. Use as etapas a seguir para usar o Pig com o cluster local.
+Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com os dados estruturados, o Pig funciona executando transformações nos dados. O Pig fornece uma linguagem (Pig Latin) que permite que você desenvolva um pipeline de transformações. Use as etapas a seguir para usar o Pig com o cluster local:
 
 1. Abra o Visual Studio, selecione **Arquivo**, **Novo** e **Projeto**. Na lista de projetos, expanda **Modelos**, **Azure Data Lake** e selecione **Pig (HDInsight)**. Na lista de modelos, selecione **Aplicativo Pig**. Insira um nome e local e selecione **OK**.
 
     ![Projeto Pig (HDInsight)](./media/hdinsight-hadoop-emulator-visual-studio/new-pig.png)
 
-2. Insira o seguinte como conteúdo do arquivo **script.pig** que foi criado com este projeto.
+2. Insira o texto a seguir como conteúdo do arquivo **script.pig** que foi criado com este projeto.
 
         a = LOAD '/demo/data/Website/Website-Logs' AS (
             log_id:int,
@@ -153,7 +154,7 @@ Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com dados
         c = GROUP b BY ip_address;
         DUMP c;
 
-    Embora o Pig use uma linguagem diferente do Hive, o modo de execução dos trabalhos é consistente entre os dois idiomas por meio do botão **Enviar** . A seleção da lista suspensa ao lado de **Enviar** exibe uma caixa de diálogo de envio avançado para Pig.
+    Embora o Pig use uma linguagem diferente do Hive, o modo de execução dos trabalhos é consistente entre os dois idiomas por meio do botão **Enviar** . A seleção da lista suspensa ao lado de **Enviar** exibe uma caixa de diálogo de envio avançado para o Pig.
 
     ![Envio avançado de Pig](./media/hdinsight-hadoop-emulator-visual-studio/advanced-pig.png)
 
@@ -165,7 +166,7 @@ Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com dados
 
 As ferramentas do Azure Data Lake também permitem que você veja facilmente as informações sobre os trabalhos que foram executados no Hadoop. Use as etapas a seguir para ver os trabalhos que foram executados no cluster local.
 
-1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no cluster local e selecione **Exibir Trabalhos**. Isso exibirá uma lista de trabalhos que foram enviados para o cluster.
+1. No **Gerenciador de Servidores**, clique com o botão direito do mouse no cluster local e selecione **Exibir Trabalhos**. Uma lista de trabalhos que foram enviados para o cluster será exibida.
 
     ![Exibir trabalhos](./media/hdinsight-hadoop-emulator-visual-studio/view-jobs.png)
 
@@ -179,7 +180,7 @@ As ferramentas do Azure Data Lake também permitem que você veja facilmente as 
 
 ## <a name="view-hive-databases"></a>Exibir bancos de dados do Hive
 
-1. No **Gerenciador de Servidores**, expanda a entrada **Cluster local do HDInsight** e, em seguida, expanda **Bancos de Dados Hive**. Isso revelará os bancos de dados **Padrão** e **xademo** no cluster local. A expansão de um banco de dados revela as tabelas no banco de dados.
+1. No **Gerenciador de Servidores**, expanda a entrada **Cluster local do HDInsight** e, em seguida, expanda **Bancos de Dados Hive**. Os bancos de dados **Padrão** e **xademo** no cluster local serão exibidos. A expansão de um banco de dados revela as tabelas no banco de dados.
 
     ![bancos de dados expandidos](./media/hdinsight-hadoop-emulator-visual-studio/expanded-databases.png)
 
@@ -189,7 +190,7 @@ As ferramentas do Azure Data Lake também permitem que você veja facilmente as 
 
 ### <a name="database-and-table-properties"></a>Propriedades do banco de dados e da tabela
 
-Talvez você tenha percebido que pode selecionar a exibição de **Propriedades** em um banco de dados ou tabela. Isso mostrará detalhes do item selecionado na janela de propriedades.
+Talvez você tenha percebido que pode selecionar a exibição de **Propriedades** em um banco de dados ou tabela. Selecionar **Propriedades** mostra detalhes do item selecionado na janela Propriedades.
 
 ![Propriedades](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
@@ -207,9 +208,4 @@ Em seguida, você pode criar a tabela usando um formulário. Você pode ver o Hi
 
 * [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

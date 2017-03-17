@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2017
+ms.date: 03/06/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec4b964066687b506686709c3dc5ed5b402fbaf
-ms.openlocfilehash: 8045f9d927e9c877573085eb43eaadcd60f96a67
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: a09fc0052538316a37a9ff07dfddd89de00cb499
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -51,9 +52,17 @@ Ao usar um túnel SSH para o tráfego da Web, você deverá ter o seguinte:
   > [!NOTE]
   > Se você quiser usar um cliente SSH diferente de `ssh` ou PuTTY, consulte a documentação de seu cliente sobre como estabelecer um túnel SSH.
 
-* Um navegador da Web que pode ser configurado para usar um proxy SOCKS
+* Um navegador da Web que pode ser configurado para usar um proxy SOCKS5.
 
-## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Criar um túnel usando o comando SSH
+    > [!WARNING]
+    > O suporte a proxy SOCKS integrado do Windows não dá suporte a SOCKS5 e não funcionará com as etapas neste documento. Os navegadores a seguir contam com as configurações de proxy do Windows e não funcionam com as etapas neste documento:
+    > 
+    > * Microsoft Edge
+    > * Microsoft Internet Explorer
+    >
+    > O Google Chrome também conta com as configurações de proxy do Windows. No entanto, você pode instalar extensões que dão suporte a SOCKS5. Recomendamos o [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+
+## <a name="usessh"></a>Criar um túnel usando o comando SSH
 
 Use o comando a seguir para criar um túnel SSH usando o comando `ssh` . Substitua **USERNAME** por um usuário SSH para seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight
 
@@ -76,7 +85,7 @@ Se você tiver configurado o cluster com uma chave SSH, talvez seja necessário 
 
 Quando o comando terminar, o tráfego enviado para a porta 9876 no computador local será roteado pelo protocolo SSL para o nó de cabeçalho do cluster e parecerá originar-se de lá.
 
-## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Criar um túnel usando o PuTTY
+## <a name="useputty"></a>Criar um túnel usando o PuTTY
 
 Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
@@ -100,8 +109,8 @@ Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Usar o túnel de seu navegador
 
-> [!NOTE]
-> As etapas desta seção usam o navegador Firefox, pois ele está disponível gratuitamente para os sistemas Linux, Unix, Macintosh OS X e Windows. Outros navegadores modernos que sejam compatíveis com o uso do proxy SOCKS também funcionam.
+> [!IMPORTANT]
+> As etapas nesta seção usam o navegador Mozilla FireFox, pois ele fornece as mesmas configurações de proxy em todas as plataformas. Outros navegadores modernos como Google Chrome podem exigir uma extensão como o FoxyProxy para trabalhar com o túnel.
 
 1. Configure o navegador para usar **localhost** e a porta usada ao criar o túnel como um proxy **SOCKS v5**. Aqui está a aparência das configurações do Firefox. Se você tiver usado uma porta diferente da 9876, altere a porta que usou:
    
@@ -144,6 +153,7 @@ Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verific
    > 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você aprendeu a criar e a usar um túnel SSH, consulte o seguinte para obter informações sobre como monitorar e gerenciar o cluster usando o Ambari:
 
 * [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md)
@@ -152,10 +162,5 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

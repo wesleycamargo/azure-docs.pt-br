@@ -14,9 +14,9 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 13c524cdc5ef0d9e70820cc3dac8d747e5bb5845
-ms.openlocfilehash: 12e832b8e0d0509f5b59d588b43f062fb07ddcde
-ms.lasthandoff: 02/11/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: ca96cd4ddf1be5ab70475d40fa65e73d248fd67b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -101,8 +101,8 @@ Vamos ver apenas as solicitações que retornaram um código de resultado espec�
 O operador `where` usa uma expressão booliana. Eis alguns pontos importantes sobre eles:
 
 * `and`, `or`: Operadores booleanos
-* `==`, `<>`: igual a e diferente de
-* `=~`, `!=`: cadeia de caracteres que não diferencia maiúsculas de minúsculas "igual a" e "diferente de". Há muitos outros operadores de comparação de cadeia de caracteres.
+* `==`, `<>`, `!=`: igual a e diferente de
+* `=~`, `!~`: cadeia de caracteres que não diferencia maiúsculas de minúsculas "igual a" e "diferente de". Há muitos outros operadores de comparação de cadeia de caracteres.
 
 Leia tudo sobre [expressões escalares](app-insights-analytics-reference.md#scalars).
 

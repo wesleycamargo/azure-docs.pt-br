@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/08/2016
+ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 32e30b44c2f7cfa9c1069190fdc53dbe6e9f4cd5
-ms.openlocfilehash: 88ccd06cf3098c3df014422e5f4dc54ceb955d3c
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: d7cb13d751bc9153669ce0d96b42fcda3024f6f0
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows 
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
 Extensões da máquina virtual do Azure são pequenos aplicativos que fornecem tarefas de configuração e automação pós-implantação nas máquinas virtuais do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, proteção antivírus ou a configuração do Docker, uma extensão da VM poderá ser usada para concluir essas tarefas. As extensões da VM do Azure podem ser executadas usando a CLI do Azure, o PowerShell, modelos do Azure Resource Manager e o Portal do Azure. Extensões podem ser agrupadas com uma nova implantação de máquina virtual ou executar qualquer sistema existente.
 
@@ -121,7 +121,7 @@ O comando `Set-AzureRmVMExtension` pode ser usado para iniciar qualquer extensã
 
 A imagem a seguir mostra a instalação da extensão Microsoft Antimalware no Portal do Azure.
 
-![Extensão de antimalware](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
+![Instalar a extensão de antimalware](./media/virtual-machines-windows-extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 

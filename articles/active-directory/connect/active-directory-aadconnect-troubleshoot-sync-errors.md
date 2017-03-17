@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 1/31/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 55ee9f685427168c02865d204fda34066c6779c5
-ms.openlocfilehash: a8533926bbb26770d8e665436e38172aeffbb035
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 6a466937358932a28604cddf7f32cdfd02a5b88d
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -206,13 +207,15 @@ Se o sufixo UserPrincipalName de um usuário tiver sido atualizado de bob@**cont
 Quando um atributo excede o limite de tamanho permitido, o limite de comprimento ou o limite de contagem definidos pelo esquema do Azure Active Directory, a operação de sincronização resultará no erro de sincronização **LargeObject** ou **ExceededAllowedLength**. Geralmente este erro ocorre para os atributos seguir
 
 * userCertificate
+* userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
 ### <a name="possible-scenarios"></a>Cenários possíveis
-1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite é 50 certificados, mas a recomendação é ter menos de 25 certificados.
-2. O thumbnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
-3. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a&500; foi atribuído a um objeto.
+1. O atributo userCertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
+2. O atributo userSMIMECertificate de Bob está armazenando certificados em excesso atribuídos a Bob. Eles podem incluir certificados mais antigos e expirados. O limite rígido é de 15 certificados.
+3. O thumbnailPhoto de Bob, definido no Active Directory, é muito grande para ser sincronizado no Azure AD.
+4. Durante a população automática do atributo ProxyAddresses no Active Directory, um ProxyAddresses superior a&500; foi atribuído a um objeto.
 
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo que está causando o erro esteja dentro do limite permitido.
@@ -220,9 +223,4 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 ## <a name="related-links"></a>Links relacionados
 * [Localizar objetos do Active Directory no Centro Administrativo do Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
 * [Como consultar o Azure Active Directory para um objeto usando o Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

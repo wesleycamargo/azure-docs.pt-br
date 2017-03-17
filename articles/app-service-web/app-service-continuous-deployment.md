@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 071e8056382128f7c5070b46591b2a66ba5b7e41
-ms.openlocfilehash: 57c38c3d19810fd8c2789a27983c521517f2303b
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 904a2251328ec7b2a6ed6f3c91e2aaba33076860
+ms.lasthandoff: 03/07/2017
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
-Este tutorial mostra a você como configurar um fluxo de trabalho de implantação contínua para seu aplicativo do [Serviço de Aplicativo do Azure] . A integração do Serviço de Aplicativo com o VSTS (Visual Studio Team Services), GitHub e BitBucket permite um fluxo de trabalho de implantação contínua, no qual o Azure recebe por pull as atualizações mais recentes de seu projeto publicado em um desses serviços. A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas.
+Este tutorial mostra a você como configurar um fluxo de trabalho de implantação contínua para seu aplicativo do [Serviço de Aplicativo do Azure] . A integração do Serviço de Aplicativo com o [VSTS (Visual Studio Team Services)](https://www.visualstudio.com/team-services/), GitHub e BitBucket permite um fluxo de trabalho de implantação contínua, no qual o Azure recebe por pull as atualizações mais recentes de seu projeto publicado em um desses serviços. A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas.
 
 Para saber como configurar a implantação contínua manualmente a partir de um repositório de nuvem que não esteja listado pelo Portal do Azure (como o [GitLab](https://gitlab.com/)), confira [Configurar a implantação contínua usando etapas manuais](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
-## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Habilitar a implantação contínua
+## <a name="overview"></a>Habilitar a implantação contínua
 Para habilitar a implantação contínua,
 
 1. Publique o conteúdo de seu aplicativo no repositório que será usado para a implantação contínua.  
@@ -53,7 +53,7 @@ Para habilitar a implantação contínua,
 5. Para verificar se o aplicativo foi implantado com êxito, clique na **URL** na parte superior da folha do aplicativo no Portal do Azure.
 6. Para verificar se a implantação contínua está ocorrendo no repositório de sua escolha, envie uma alteração por push para o repositório. Seu aplicativo deve ser atualizado para refletir as alterações logo após a conclusão do envio por push para o repositório. Você pode verificar se ele recebeu a atualização na folha **Opções de implantação** do seu aplicativo.
 
-## <a name="a-namevssolutionacontinuous-deployment-of-a-visual-studio-solution"></a><a name="VSsolution"></a>Implantação contínua de uma solução do Visual Studio
+## <a name="VSsolution"></a>Implantação contínua de uma solução do Visual Studio
 Enviar uma solução do Visual Studio por push para o Serviço de Aplicativo do Azure é tão simples quanto enviar por push um arquivo index.html simples. O processo de implantação do Serviço de Aplicativo simplifica todos os detalhes, incluindo as dependências de restauração NuGet e a criação dos binários do aplicativo. Você pode seguir as práticas recomendadas de controle do código-fonte para manter o código apenas em seu repositório Git e deixar que a implantação do Serviço de Aplicativo cuide do resto.
 
 As etapas para enviar sua solução do Visual Studio para o Serviço de Aplicativo são as mesmas que na [seção anterior](#overview), considerando que você configurou sua solução e o repositório da seguinte maneira:
@@ -65,7 +65,7 @@ As etapas para enviar sua solução do Visual Studio para o Serviço de Aplicati
 
 Assim que você tiver configurado seu repositório conforme descrito e tiver configurado seu aplicativo do Azure para publicação contínua por meio de um dos repositórios Git online, você poderá desenvolver seu aplicativo ASP.NET localmente no Visual Studio e implantar continuamente seu código, simplesmente enviando por push suas alterações a seu repositório Git online.
 
-## <a name="a-namedisablecdadisable-continuous-deployment"></a><a name="disableCD"></a>Desabilitar a implantação contínua
+## <a name="disableCD"></a>Desabilitar a implantação contínua
 Para desabilitar a implantação contínua,
 
 1. Na folha do menu do aplicativo no [Portal do Azure], clique em **IMPLANTAÇÃO DE APLICATIVOS > Opções de implantação**. Em seguida, clique em **Desconectar** na folha **Opções de implantação**.
@@ -79,9 +79,10 @@ Para desabilitar a implantação contínua,
 * [Como usar as Ferramentas de Linha de Comando do Azure para Mac e Linux]
 * [Documentação do Git]
 * [Kudu do Projeto](https://github.com/projectkudu/kudu/wiki)
+* [Usar o Azure para gerar automaticamente um pipeline de CI/CD para implantar um aplicativo ASP.NET 4](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo.. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
