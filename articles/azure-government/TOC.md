@@ -37,6 +37,7 @@
 ### [Segurança + Identidade](documentation-government-services-securityandidentity.md)
 ### [Monitoramento + Gerenciamento](documentation-government-services-monitoringandmanagement.md)
 ### [Web + Celular](documentation-government-services-webandmobile.md)
+### [Serviços de Mídia](documentation-government-services-media.md)
 
 
 # Recursos
