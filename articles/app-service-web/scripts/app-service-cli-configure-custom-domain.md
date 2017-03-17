@@ -1,13 +1,13 @@
 ---
-title: "Exemplo de Script CLI do Azure - Criar um aplicativo Web e implantar o código de um repositório Git local | Microsoft Docs"
-description: "Exemplo de script da CLI do Azure - Criar um aplicativo Web e implantar o código de um repositório local Git"
+title: "Exemplo de Script CLI do Azure - mapeie um domínio personalizado para um aplicativo Web | Microsoft Docs"
+description: "Exemplo de Script CLI do Azure - mapeie um domínio personalizado para um aplicativo Web"
 services: app-service\web
 documentationcenter: 
 author: cephalin
 manager: erikre
 editor: 
 tags: azure-service-management
-ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
+ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
@@ -16,22 +16,22 @@ ms.date: 02/21/2017
 ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: 20ea69ea285fc97bbcf755ea1c40447745ff4be0
+ms.openlocfilehash: b618e1e7095cf56a1f2f91a6bddee17d512f43c9
 ms.lasthandoff: 03/11/2017
 
 ---
 
-# <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Criar um aplicativo Web e implantar o código de um repositório local Git
+# <a name="map-a-custom-domain-to-a-web-app"></a>Mapear um domínio para um aplicativo Web
 
-Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus recursos relacionados e, em seguida, implanta seu código de aplicativo da web em um repositório Git local.
+Este script de exemplo cria um aplicativo Web no serviço de aplicativo com seus recursos relacionados e, em seguida, mapeia `www.<yourdomain>` a ele. 
 
-Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criado usando o comando `az login` e que o código do aplicativo será confirmado em um repositório Git local.
+Antes de executar esse script, certifique-se de que uma conexão com o Azure foi criado usando o `az login` comando e que você tenha acesso à página de configuração do DNS do registrador do domínio.
 
 Este exemplo funciona em um shell Bash. Para opções sobre como executar scripts da CLI do Azure no cliente Windows, veja [Execução da CLI do Azure no Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/app-service/deploy-local-git/deploy-local-git.sh?highlight=3-5 "Criar um aplicativo Web e implantar o código de um repositório local Git")]
+[!code-azurecli[principal](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Mapear um domínio personalizado para um aplicativo Web")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -44,9 +44,7 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | [az group create](https://docs.microsoft.com/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | Cria um Plano do Serviço de Aplicativo. |
 | [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#delete) | Cria um aplicativo Web do Azure. |
-| [az appservice web deployment user set](https://docs.microsoft.com/cli/azure/appservice/web/deployment/user#set) | Define as credenciais de implantação no nível da conta de serviço de aplicativo. |
-| [az appservice web source-control config-local-git](https://docs.microsoft.com/cli/azure/appservice/web/source-control#config-local-git) | Cria uma configuração de controle de origem para um repositório Git local. |
-| [az appservice web browse](https://docs.microsoft.com/cli/azure/appservice/web#browse) | Abra um aplicativo Web do Azure em um navegador. |
+| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#add) | Atualize um plano do Serviço de Aplicativo para dimensionar sua faixa de preço. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

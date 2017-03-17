@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
-ms.openlocfilehash: f7dd06f1fc789a74ec7ce2182824ff759dcf7a9f
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6c711fd3a843604d62d6589d0a742f03a049bc5c
+ms.lasthandoff: 03/10/2017
 
 
 ---
 # <a name="deploying-password-management-and-training-users-to-use-it"></a>Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
 > [!IMPORTANT]
-> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -74,8 +74,8 @@ A seguir estão as etapas de distribuição geral para a redefinição de senha:
 2. Atribua as licenças apropriadas para cada usuário a quem você deseja oferecer a redefinição de senha indo para a guia **Licenças** do [Portal de Gerenciamento](https://manage.windowsazure.com).
 3. Restrinja opcionalmente a redefinição de senha para um grupo de usuários para distribuir o recurso lentamente ao longo do tempo, definindo a opção **Restringir o Acesso para Redefinição de Senha** como **Sim** e selecionando um grupo de segurança para habilitar a redefinição de senha (observe que todos esses usuários devem ter licenças atribuídas a eles).
 4. Instrua os usuários a usar a redefinição de senha enviando a eles um email instruindo-os a se registrar, habilitando o registro imposto no painel de acesso ou carregando os dados de autenticação apropriados para os usuários por conta própria por meio de DirSync, do PowerShell ou do [Portal de Gerenciamento](https://manage.windowsazure.com).  Mais detalhes são fornecidos abaixo.
-5. Ao longo do tempo, examine o registro dos usuários navegando até a guia Relatórios e exibindo o relatório [**Atividade de Registro de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6. Depois que um bom número de usuários se registrarem, assista a eles ao usarem a redefinição de senha navegando até a guia Relatórios e exibindo o relatório [**Atividade de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+5. Ao longo do tempo, examine o registro dos usuários navegando até a guia Relatórios e exibindo o relatório [**Atividade de Registro de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity-in-the-classic-portal).
+6. Depois que um bom número de usuários se registrarem, assista a eles ao usarem a redefinição de senha navegando até a guia Relatórios e exibindo o relatório [**Atividade de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-activity-in-the-classic-portal).
 
 Há várias maneiras de informar os usuários que podem se registrar e usar a redefinição de senha em sua organização.  Elas são detalhadas abaixo.
 
@@ -84,7 +84,7 @@ Talvez a abordagem mais simples para informar os usuários de que devem se regis
 
   ![][001]
 
-Você pode [baixar o modelo de email aqui](http://1drv.ms/1xWFtQM).
+Você pode [baixar o modelo de email aqui](https://1drv.ms/f/s!AharQMeRmrWggcNnPlk_7xHInYJzow).
 
 ### <a name="creating-your-own-password-portal"></a>Criando seu próprio portal de senha
 Uma estratégia que funciona bem para os  clientes maiores que implantam recursos de gerenciamento de senhas é criar um único "portal de senha" que os usuários poderão usar para gerenciar tudo relacionado a suas senhas em um único lugar.  
@@ -144,7 +144,7 @@ Estamos trabalhando no material de treinamento de exemplo que você pode usar pa
 ## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
-* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+* **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
 * [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização

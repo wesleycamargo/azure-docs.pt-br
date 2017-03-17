@@ -15,9 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/11/2016
 ms.author: rajanaki
 translationtype: Human Translation
-ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
-ms.openlocfilehash: a8e374c247be49d4b1390fb4061b4c9b1311f58a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: b20d1a20119e8bffa3ece7105c38b3ee51c942d5
+ms.lasthandoff: 03/15/2017
 
 ---
 
@@ -104,6 +104,20 @@ A seguir estão os componentes obrigatórios para a recuperação de desastres d
 | --- | --- |
 | **Virtual Machine Manager** |  Recomendamos que você implante um servidor do Virtual Machine Manager no site primário e um servidor do Virtual Machine Manager no site secundário.<br/><br/> Você pode [replicar entre nuvens em um único servidor VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Para fazer isso, você precisa de pelo menos duas nuvens configuradas no servidor do Virtual Machine Manager.<br/><br/> Os servidores do Virtual Machine Manager devem estar executando pelo menos o System Center 2012 SP1 com as atualizações mais recentes.<br/><br/> Cada servidor do Virtual Machine Manager deve ter pelo menos uma ou mais nuvens. Todas as nuvens devem ter o perfil de Capacidade do Hyper-V definido. <br/><br/>As nuvens devem conter um ou mais grupos de hosts do Virtual Machine Manager. Para mais informações sobre como configurar nuvens do Virtual Machine Manager, consulte [Preparar para a implantação do Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Os servidores Hyper-V devem executar, no mínimo, o Windows Server 2012 com a função Hyper-V e ter as últimas atualizações instaladas.<br/><br/> Um servidor Hyper-V deve conter uma ou mais VMs.<br/><br/>  Os servidores host Hyper-V devem estar localizados em grupos de hosts nas nuvens VMM primárias e secundárias.<br/><br/> Se você estiver executando o Hyper-V em um cluster no Windows Server 2012 R2, recomendamos que instale a [atualização 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Se estiver executando o Hyper-V em um cluster no Windows Server 2012 e tiver um cluster baseado em endereço IP estático, o agente de cluster não será criado automaticamente. Você deve configurar o agente do cluster manualmente. Para mais informações sobre o agente de cluster, consulte [Configurar cluster de função de agente de réplica para replicação de cluster](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
-
 | **Provedor** | Durante a implantação do Site Recovery, instale o provedor Azure Site Recovery nos servidores do Virtual Machine Manager. O Provedor se comunica com a Recuperação de Site por HTTPS 443 para orquestrar a replicação. A replicação de dados ocorre entre os servidores Hyper-V primário e secundário sobre a LAN ou uma conexão VPN.<br/><br/> O provedor em execução no servidor do Virtual Machine Manager precisa de acesso a essas URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>O provedor deve permitir a comunicação de firewall de servidores do Virtual Machine Manager para [Intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e permitir o protocolo HTTPS (443). |
+
+
+## <a name="url-access"></a>Acesso à URL
+Essas URLs devem estar disponíveis no VMware, no VMM e nos servidores host Hyper-V.
+
+|**URL** | **VMM no VMM** | **VMM para Azure** | **Hyper-V para Azure** | **VMware no Azure** |
+|--- | --- | --- | --- | --- |
+|``*.accesscontrol.windows.net`` | PERMITIR | Permitir | Permitir | Permitir |
+|``*.backup.windowsazure.com`` | Não requerido | Permitir | Permitir | Permitir |
+|``*.hypervrecoverymanager.windowsazure.com`` | Permitir | Permitir | Permitir | Permitir |
+|``*.store.core.windows.net`` | Permitir | Permitir | Permitir | Permitir |
+|``*.blob.core.windows.net`` | Não requerido | Permitir | Permitir | Permitir |
+|``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Não requerido | Não requerido | Não requerido | Permitir download do SQL |
+|``time.windows.com`` | PERMITIR | Permitir | Permitir | Permitir|
+|``time.nist.gov`` | Permitir | Permitir | Permitir | PERMITIR |
 

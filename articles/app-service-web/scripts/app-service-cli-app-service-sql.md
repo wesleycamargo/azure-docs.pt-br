@@ -16,9 +16,9 @@ ms.workload: web
 ms.date: 02/21/2017
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 97ab792a0ad7420e97dbab378736b9815356e8a4
-ms.openlocfilehash: 72c91ef9c59fb42e7a2a233e258622417b2f84ac
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: df3813fc82492f6aa03b5f6df0c3da6816ae3b35
+ms.lasthandoff: 03/11/2017
 
 ---
 
@@ -34,13 +34,7 @@ Este exemplo funciona em um shell Bash. Para opções sobre como executar script
 
 [!code-azurecli[principal](../../../cli_scripts/app-service/connect-to-sql/connect-to-sql.sh?highlight=9-10 "Banco de dados SQL")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
-
-Após a execução doo exemplo de script, o comando a seguir poderá ser usado para remover o Grupo de Recursos, o aplicativo do Serviço de Aplicativo e todos os recursos relacionados.
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 

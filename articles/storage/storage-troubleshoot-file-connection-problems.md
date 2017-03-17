@@ -16,9 +16,9 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 7aa2a60f2a02e0f9d837b5b1cecc03709f040898
-ms.openlocfilehash: cce72f374e2cc6f1a42428d9f8e1f3ab8be50f7b
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 62d2cd990bff4ffc982eef507ad69c68c00a65ab
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -36,22 +36,18 @@ Este artigo lista os problemas comuns relacionados ao Armazenamento de Arquivos 
 * [Desempenho lento ao acessar o Armazenamento de Arquivos do Azure do Windows 8.1 ou do Server 2012 R2](#windowsslow)
 * [Erro 53 ao tentar montar um compartilhamento de arquivos do Azure](#error53)
 * [Erro 87 – parâmetro incorreto durante a tentativa de montar um compartilhamento de arquivos do Azure](#error87)
-* [O net use foi bem-sucedido, mas não vejo o compartilhamento de arquivos do Azure montado no Windows Explorer](#netuse)
+* [O net use foi bem-sucedido, mas não vejo o compartilhamento de arquivos do Azure montado nem a letra da unidade na interface do usuário do Windows Explorer](#netuse)
 * [Minha conta de armazenamento contém "/" e o comando net use falha](#slashfails)
 * [Meu aplicativo/serviço não pode acessar a unidade montada dos Arquivos do Azure.](#accessfiledrive)
 * [Recomendações adicionais para otimizar o desempenho](#additional)
+* [Erro "Você está copiando um arquivo para um destino que não dá suporte à criptografia" ao carregar/copiar arquivos para os Arquivos do Azure](#encryption)
 
 **Problemas do cliente Linux**
 
-* [Erro "Você está copiando um arquivo para um destino que não dá suporte à criptografia" ao carregar/copiar arquivos para os Arquivos do Azure](#encryption)
-* [Erro de E/S intermitente – erro de "Host inativo" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
+* [Erro de E/S intermitente – erro de "Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem](#errorhold)
 * [Erro de montagem 115 ao tentar montar os Arquivos do Azure na VM Linux](#error15)
-* [A VM Linux está sofrendo atrasos aleatórios em comandos do tipo "ls"](#delayproblem)
-* [Erro 112 - erro de tempo limite](#error112)
+* [Compartilhamento de arquivos do Azure montado na VM Linux apresentando um desempenho lento](#delayproblem)
 
-**Acesso de outros aplicativos**
-
-* [Pode referenciar o compartilhamento de arquivos do azure para meu aplicativo por meio de um trabalho Web?](#webjobs)
 
 <a id="quotaerror"></a>
 
@@ -193,7 +189,7 @@ As unidades são montadas por usuário. Se seu aplicativo ou serviço é executa
 ### <a name="solution"></a>Solução
 Monte a unidade da mesma conta de usuário na qual o aplicativo está. Isso pode ser feito usando ferramentas como psexec.
 
-Outra forma é criar um novo usuário que tem os mesmos privilégios da conta de serviço ou sistema de rede e executar **cmdkey** e **net use** nessa conta. O nome de usuário deve ser o nome da conta de armazenamento e a senha deve conter a chave da conta de armazenamento. Outra opção para **net use** é passar o nome da conta de armazenamento e a chave nos parâmetros de nome e senha de usuário do comando **net use**.
+Outra opção para **net use** é passar o nome da conta de armazenamento e a chave nos parâmetros de nome e senha de usuário do comando **net use**.
 
 Depois de seguir essas instruções, você pode receber a seguinte mensagem de erro: "Ocorreu um erro de sistema 1312. Uma sessão de logon especificada não existe. Ela pode já ter sido finalizada"ao executar **net use** para a conta de serviço de rede/sistema. Se isso ocorrer, verifique se o nome de usuário que é passado para **net use** inclui informações de domínio (por exemplo: "[nome de conta de armazenamento].file.core.windows.net").
 
@@ -219,14 +215,34 @@ No entanto, observe que a definição da chave do registro afeta todas as opera�
 
 <a id="errorhold"></a>
 
-## <a name="host-is-down-error-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>Erro "Host inativo" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem
+## <a name="host-is-down-error-112-on-existing-file-shares-or-the-shell-hangs-when-you-run-list-commands-on-the-mount-point"></a>"Host inativo (Erro 112)" nos compartilhamentos de arquivo existentes ou o shell trava ao executar comandos de lista no ponto de montagem
 ### <a name="cause"></a>Causa
-Esse erro ocorre no cliente Linux quando o cliente ficou ocioso por um longo período de tempo. Quando esse erro ocorre, o cliente se desconecta e a conexão de cliente atinge o tempo limite.
+Esse erro ocorre no cliente Linux quando o cliente ficou ocioso por um longo período de tempo. Quando o cliente está ocioso por um período longo, ele se desconecta e a conexão atinge o tempo limite. 
+
+A conexão pode ficar ociosa por vários motivos. Um motivo são as falhas de comunicação de rede que impedem o restabelecimento de uma conexão TCP com o servidor quando a opção de montagem "soft" é usada, o que é o padrão.
+
+Outro motivo pode ser que também há algumas correções de reconexão que não estão presentes nos kernels anteriores.
 
 ### <a name="solution"></a>Solução
-Esse problema agora foi corrigido no kernel do Linux como parte do [change set](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) e falta apenas a backport na distribuição do Linux.
 
-Para solucionar esse problema, mantenha a conexão e evite entrar em um estado ocioso; mantenha também um arquivo no compartilhamento de arquivos do Azure em que você grava periodicamente. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão.
+Especificando uma montagem de disco rígida será forçar o cliente a esperar até que uma conexão é estabelecida ou interrompida explicitamente e pode ser usada para evitar erros devido a tempos limite de rede. No entanto, os usuários devem estar cientes de que isso pode levar a esperas indefinidas e deve tratar a interrupção de uma conexão conforme necessário.
+
+Esse problema de reconexão no kernel Linux agora é fixo como parte dos próximos conjuntos de alterações
+
+* [Corrigir a reconexão para não adiar a sessão smb3 por muito tempo após a reconexão do soquete](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+
+* [Chamar o serviço de eco imediatamente após a reconexão do soquete](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+
+* [CIFS: corrigir uma possível corrupção de memória durante a reconexão](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+
+* [CIFS: Corrigir um possível bloqueio duplo de mutex durante a reconexão – para kernels v4.9 e superior](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) 
+
+No entanto, essa alteração pode ainda não ser transportada para todas as distribuições de Linux. Esta é a lista de kernels populares do Linux conhecidos que têm essa e outras correções de reconexão: 4.4.40+ 4.8.16+ 4.9.1+.
+Você pode passar para as versões de kernel recomendadas acima para obter a correção mais recente.
+
+### <a name="workaround"></a>Solução alternativa
+Se você não pode passar para versões do kernel mais recentes, é possível solucionar esse problema mantendo um arquivo no compartilhamento de arquivos do Azure no qual você grava a cada 30 segundos ou menos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a reconexão. 
+
 
 <a id="error15"></a>
 
@@ -239,42 +255,22 @@ Se o cliente Linux SMB usado não dá suporte à criptografia, monte os Arquivos
 
 <a id="delayproblem"></a>
 
-## <a name="linux-vm-experiencing-random-delays-in-commands-like-ls"></a>A VM Linux está sofrendo atrasos aleatórios em comandos do tipo "ls"
-### <a name="cause"></a>Causa
-Isso pode ocorrer quando o comando mount não inclui a opção **serverino**. Sem **serverino**, o comando ls executa um **stat** em cada arquivo.
+## <a name="azure-file-share-mounted-on-linux-vm-experiencing-slow-performance"></a>Compartilhamento de arquivos do Azure montado na VM Linux apresentando um desempenho lento
 
-### <a name="solution"></a>Solução
-Verifique o **serverino** na sua entrada "/etc/fstab":
+Um possível motivo do desempenho lento poderia ser o cache desabilitado. Para verificar se o caching está habilitado, procure "cache=".  *cache=none* indica que o caching está desabilitado. Remonte o compartilhamento com o comando de montagem padrão ou adicionado explicitamente a opção **cache=strict** ao comando de montagem para garantir que o modo de caching "strict" ou caching padrão seja habilitado.
+
+Em alguns cenários, a opção de montagem serverino pode fazer com que o comando ls execute stat em todas as entradas de diretório e esse comportamento resulta na degradação de desempenho ao listar um diretório grande. Você pode verificar as opções de montagem na sua entrada de "/etc/fstab":
 
 `//azureuser.file.core.windows.net/cifs        /cifs   cifs vers=3.0,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
-Você também pode verificar se essa opção está sendo usada, apenas executando o comando **sudo mount | grep cifs** e verificando sua saída:
+Você também pode verificar as opções corretas estão sendo usadas, apenas executando o comando **sudo mount | grep cifs** e verificando sua saída:
 
-`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+`//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs
+(rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777,
+dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-Se a opção **serverino** não está lá, desmonte e monte os Arquivos do Azure novamente fazendo com que a opção **serverino** esteja selecionada.+
+Se as opções o cache=strict ou serverino não estão presentes, desmonte e monte arquivos do Azure novamente executando o comando mount da [documentação](https://docs.microsoft.com/en-us/azure/storage/storage-how-to-use-files-linux#mount-the-file-share) e verifique novamente se a entrada "/etc/fstab" tem as opções corretas.
 
-Outro motivo para o desempenho lento poderia ser o caching desabilitado. Para verificar se o caching está habilitado, procure "cache=".  *cache=none* indica que o caching está desabilitado. Remonte o compartilhamento com o comando de montagem padrão ou adicionado explicitamente a opção **cache=strict** ao comando de montagem para garantir que o modo de caching "strict" ou caching padrão seja habilitado.
-
-<a id="error112"></a>
-## <a name="error-112---timeout-error"></a>Erro 112 - erro de tempo limite
-
-Esse erro indica que as falhas de comunicação que impedem a restabelecer uma conexão TCP com o servidor quando a opção de montagem "soft" é usado, que é o padrão.
-
-### <a name="cause"></a>Causa
-
-Esse erro pode ser causado por uma Linux reconectar-se o problema ou outros problemas que impedem a reconexão, como erros de rede. Especificando uma montagem de disco rígida será forçar o cliente a esperar até que uma conexão é estabelecida ou interrompida explicitamente e pode ser usada para evitar erros devido a tempos limite de rede. No entanto, os usuários devem estar cientes de que isso pode levar a esperas indefinidas e deve tratar a interrupção de uma conexão conforme necessário.
-
-
-### <a name="workaround"></a>Solução alternativa
-
-Foi corrigido o problema de Linux, porém não compilado para distribuições do Linux ainda. Se o problema é causado pelo problema reconectar no Linux, isso pode ser contornado, evitando a entrar em um estado ocioso. Para conseguir isso, mantenha um arquivo no compartilhamento de arquivos do Azure para o qual você escreve a cada 30 segundos ou menos. Isso deve ser uma operação de gravação, como reescrever a data da modificação/criação no arquivo. Caso contrário, você poderá obter resultados em cache e a operação poderá não disparar a conexão. Esta é a lista de kernels populares do Linux que têm essa e outras correções de reconexão: 4.4.40+ 4.8.16+ 4.9.1+
-
-<a id="webjobs"></a>
-
-## <a name="accessing-from-other-applications"></a>Acesso de outros aplicativos
-### <a name="can-i-reference-the-azure-file-share-for-my-application-through-a-webjob"></a>Pode referenciar o compartilhamento de arquivos do azure para meu aplicativo por meio de um trabalho Web?
-Não é possível montar compartilhamentos SMB em área restrita do serviço de aplicativo. Como alternativa, você pode mapear o compartilhamento de arquivos do Azure como uma unidade mapeada e permitir que o aplicativo para acessá-lo como uma letra de unidade.
 ## <a name="learn-more"></a>Saiba mais
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 * [Introdução ao Armazenamento de Arquivos do Azure no Linux](storage-how-to-use-files-linux.md)
