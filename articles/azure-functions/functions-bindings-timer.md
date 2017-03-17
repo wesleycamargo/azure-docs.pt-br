@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 02/27/2017
 ms.author: chrande; glenga
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b41a5aacec6748af5ee05b01487310cc339af1f9
-ms.openlocfilehash: 542e5378aff893741a68c979bc2c5e8bfe58ba26
+ms.sourcegitcommit: 2542d8c750fc7e1bcc31a9c0eb1672402facfd58
+ms.openlocfilehash: 146884833e968767c14d7e4f924762a592e427e2
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="azure-functions-timer-trigger"></a>Gatilho de temporizador do Azure Functions
+# <a name="schedule-code-execution-with-azure-functions"></a>Agendar a execução de código com Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. O Azure Functions dá suporte ao disparador para temporizadores. Os gatilhos de temporizador chamam funções com base em uma agenda, única ou recorrente. 
+Este artigo explica como configurar e codificar gatilhos de temporizador no Azure Functions. O Azure Functions tem uma associação de gatilho de timer que permite executar o código de função com base em um agendamento definido. 
 
 O gatilho de timer dá suporte à expansão em várias instâncias. Uma única instância de uma função específica de timer é executada em todas as instâncias.
 
@@ -45,21 +47,26 @@ O gatilho de timer de uma função usa o seguinte objeto JSON na matriz `binding
 }
 ```
 
-O valor de `schedule` é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui 6 campos: `{second} {minute} {hour} {day} {month} {day of the week}`. Muitas das expressões cron encontradas online omitem o campo `{second}`. Se você copiar de um deles, precisará ajustá-lo para o campo `{second}`. Para obter exemplos específicos, consulte [Agendar exemplos](#examples) abaixo.
+O valor de `schedule` é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui estes seis campos: 
 
-O fuso horário padrão usado com as expressões CRON é a Hora Universal Coordenada (UTC). Se você quiser que sua expressão CRON se baseie em outro fuso horário, crie uma nova configuração de aplicativo para o aplicativo de funções denominada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [Índice de fuso horário da Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+    {second} {minute} {hour} {day} {month} {day-of-week}
+&nbsp;
+>[!NOTE]   
+>Muitas das expressões cron encontradas online omitem o campo `{second}`. Se você copiar de um deles, precisará ajustá-lo para o campo `{second}`. Para obter exemplos específicos, consulte [Agendar exemplos](#examples) abaixo.
 
-Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Se quiser que seu gatilho de timer seja disparado às 10:00 EST diariamente, você pode usar a seguinte expressão CRON que considera o fuso horário UTC:
+O fuso horário padrão usado com as expressões CRON é a Hora Universal Coordenada (UTC). Para que a expressão CRON se baseie em outro fuso horário, crie uma nova configuração de aplicativo para o aplicativo de funções denominada `WEBSITE_TIME_ZONE`. Defina o valor para o nome do fuso horário desejado, conforme mostrado no [Índice de fuso horário da Microsoft](https://msdn.microsoft.com/library/ms912391.aspx). 
+
+Por exemplo, a *Hora padrão da costa leste dos EUA* é UTC-05:00. Para que o timer dispare às 10:00 AM EST diariamente, use a seguinte expressão CRON que considera o fuso horário UTC:
 
 ```json
 "schedule": "0 0 15 * * *",
-``` 
+```    
 
 Como alternativa, você pode adicionar uma nova configuração de aplicativo para seu aplicativo de funções denominada `WEBSITE_TIME_ZONE` e definir o valor como **Horário padrão da costa leste dos EUA**.  Em seguida, a seguinte expressão CRON poderia ser usada para 10:00 EST: 
 
 ```json
 "schedule": "0 0 10 * * *",
-``` 
+```    
 
 
 <a name="examples"></a>
@@ -184,10 +191,5 @@ module.exports = function (context, myTimer) {
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 12/04/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1e88eba53b8ec3388ede1ae69cb290423919fda6
-ms.openlocfilehash: d683e25ef96bbd87a6d5b5ea143754b8f67f288e
+ms.sourcegitcommit: 3b9d269a780e9a4c61263208f26f440b1121c682
+ms.openlocfilehash: f437598b612a145c5dd8b46a1ba340d298a76981
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -62,7 +63,7 @@ vCenter 5.5 ou 6.0 (suporte somente a recursos do 5.5)  <br/><br/> vSphere 6.0, 
 
 ### <a name="machines-replicate-to-azure"></a>Computadores (replicação para o Azure)
 
-As máquinas virtuais devem atender os [requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+As máquinas virtuais devem atender os [requisitos do Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 **Requisito** | **Servidor VMware/físico** | **Hyper-V (sem VMM)** | **Hyper-V (com o VMM)**
 --- | --- | --- | ---
@@ -163,17 +164,17 @@ Disco > 1 TB | Não | Não | Não
 Volume com discos distribuídos > 1 TB<br/><br/> LVM | Sim | Sim | Sim
 Espaços de Armazenamento | Não | Sim | Sim
 Adição/remoção de disco a quente | Não | Não | Não
-Exclusão de disco | Sim | Não | Não
+Exclusão de disco | Sim | Sim | Sim
 Múltiplos caminhos (MPIO) | ND | Sim | Sim
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (sem VMM)** | **Hyper-V (com o VMM)**
 --- | --- | --- | ---
 LRS | Sim | Sim | Sim
-GRS | Sim | Sim | Sim
+GRS (somente para o armazenamento padrão) | Sim | Sim | Sim
 Armazenamento frio | Não | Não | Não
 Armazenamento quente| Não | Não | Não
 Criptografia em repouso | Sim | Sim | Sim
-Armazenamento Premium | Sim | Não | Não
+Armazenamento Premium | Sim | Sim | Sim
 Serviço de importação/exportação | Não | Não | Não
 
 
@@ -261,10 +262,5 @@ Você pode implantar o Site Recovery para replicar máquinas virtuais e servidor
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Preparar para a implantação](site-recovery-best-practices.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
+Verificar [pré-requisitos](site-recovery-prereq.md)
 

@@ -12,15 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 1/09/2017
+ms.date: 2/15/2017
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 1c3a3a3e9381e20382bb537299b04993180ee729
-ms.openlocfilehash: 465da7ae1aa3a31400706c28d0516507ddf66ff0
+ms.sourcegitcommit: 6b1a5b2879a7b98ec4ad3e8ebbc9e95c0740d89f
+ms.openlocfilehash: 3aaa005319b1ce2a10cd913c63b31860d31b797e
+ms.lasthandoff: 02/23/2017
 
 
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>Testar o Failover (VMM para VMM) no Site Recovery
+> [!div class="op_single_selector"]
+> * [Failover de teste para o Azure](./site-recovery-test-failover-to-azure.md)
+> * [Failover de teste (VMM para VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
+
 
 Este artigo fornece informações e instruções sobre como fazer um failover de teste ou uma simulação de recuperação de desastre de máquinas virtuais e servidores físicos protegidos com o Site Recovery usando um site local gerenciado por VMM como o local de recuperação. 
 
@@ -67,6 +72,8 @@ Prepare um servidor DNS para o failover de teste da seguinte forma:
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 Este procedimento descreve como executar um failover de teste para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual ou servidor físico na guia **Máquinas Virtuais** .
 
+![Failover de Teste](./media/site-recovery-test-failover-vmm-to-vmm/TestFailover.png)
+
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover** > **Test Failover**.
 1. Na folha **Failover de Teste** , especifique como as máquinas virtuais devem ser conectadas às redes após o failover de teste. Examine as [opções de rede](#network-options-in-site-recovery) para obter mais detalhes.
 1. Acompanhe o progresso do failover na guia **Trabalhos** . 
@@ -100,9 +107,4 @@ Recomendamos que, ao fazer um failover de teste, você escolha uma rede diferent
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de tentar executar um failover de teste com êxito, você poderá tentar executar um [failover](site-recovery-failover.md).
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

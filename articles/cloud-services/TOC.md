@@ -36,8 +36,8 @@
 #### [Usar uma tarefa para instalar .NET em uma função de Serviço de Nuvem](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurar a Área de Trabalho Remota
-#### [Visual Studio](cloud-services-role-enable-remote-desktop.md)
-#### [Node.js](cloud-services-nodejs-enable-remote-desktop.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Portal clássico](cloud-services-role-enable-remote-desktop.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implantar

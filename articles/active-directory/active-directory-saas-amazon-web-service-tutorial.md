@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 02/27/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: bc60476253fd3e646fbd08cd6749e06fb403959c
-ms.openlocfilehash: 7ce638ae0cdca9f6114acae458a2cdea38a7793f
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 391943c6057081b48594d74898d798e5365509d3
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -308,6 +309,11 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 ### <a name="creating-a-amazon-web-services-aws-test-user"></a>Criar um usuário de teste do AWS (Amazon Web Services)
 O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no AWS (Amazon Web Services).
 
+> [!NOTE]
+> O AWS dá suporte ao provisionamento de usuário just in time com SAML. Isso é habilitado por padrão e, por isso, você não precisa provisionar os usuários no AWS.
+> 
+> 
+
 ### <a name="to-create-a-user-called-britta-simon-in-amazon-web-services-aws-perform-the-following-steps"></a>Para criar uma usuária chamada Brenda Fernandes no AWS (Amazon Web Services), execute as seguintes etapas:
 1. Faça logon no site da sua empresa **AWS (Amazon Web Services)** como administrador.
 
@@ -421,10 +427,5 @@ Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve faz
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

@@ -15,9 +15,9 @@ ms.workload: backup-recovery
 ms.date: 2/14/2017
 ms.author: anoopkv
 translationtype: Human Translation
-ms.sourcegitcommit: 96e6696818a0de2fadd55ff7e0ccee350d2666ad
-ms.openlocfilehash: 0e49b7dded14ab6b76c7c73af714af5f5c854bbc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 73d5f91f31780350c68b3475c2cbbb597f9b438e
+ms.openlocfilehash: 0c8f37055a6c64a54009ecafd883426824dcd901
+ms.lasthandoff: 03/01/2017
 
 ---
 
@@ -104,11 +104,32 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Se você tiver anexados a este servidor de configuração de servidores de processo de expansão, você precisa [corrigir as configurações de proxy em todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md) em sua implantação.
+  Se você tiver anexados a este servidor de configuração de servidores de processo de expansão, você precisa [corrigir as configurações de proxy em todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) em sua implantação.
+
+## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>Registrar novamente um Servidor de Configuração com o mesmo Cofre de Serviços de Recuperação
+  1. Faça logon no Servidor de Configuração.
+  2. Inicie o cspsconfigtool.exe usando o atalho.
+  3. Clique na guia **Registro do Cofre**.
+  4. Download de um novo arquivo de registro no portal e fornecê-la como entrada para a ferramenta.
+        ![register-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/register-csonfiguration-server.png)
+  5. Forneça os detalhes do servidor Proxy e clique no **registrar** botão.  
+  6. Abra uma janela de comando do PowerShell do Administrador.
+  7. Execute o comando a seguir
+
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
+
+  >[!WARNING]
+  Se você tiver anexados a este servidor de configuração de servidores de processo de expansão, você precisa [registrar novamente todos os servidores de processo de expansão](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) em sua implantação.
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>Registrar um servidor de configuração com um cofre de serviços de recuperação diferente.
 1. Faça logon no Servidor de Configuração.
 2. em um prompt de comando de administrador, execute o comando
+
 ```
 reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 net stop dra
@@ -152,11 +173,11 @@ Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
 1. Faça logon no Servidor de Configuração como um Administrador.
 2. Abra o painel de controle > programa > desinstalar programas
 3. Desinstale os programas na sequência a seguir:
+  * Agente de Serviços de Recuperação do Microsoft Azure
   * Servidor de destino do Microsoft Azure Site Recovery mobilidade mestra do serviço
+  * Provedor do Microsoft Azure Site Recovery
   * Servidor de processo/servidor de configuração do Microsoft Azure Site Recovery
   * Dependências de servidor de configuração do Microsoft Azure Site Recovery
-  * Agente de Serviços de Recuperação do Microsoft Azure
-  * Provedor do Microsoft Azure Site Recovery
   * MySQL Server 5.5
 4. Execute o seguinte comando de um prompt de comando de administrador.
   ```

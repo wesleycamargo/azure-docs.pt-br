@@ -1,9 +1,9 @@
 ---
-title: "Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Docs"
+title: "Obter percepções: relatórios de gerenciamento de senhas do Azure AD | Microsoft Docs"
 description: "Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9e66d3d4877b0f04d101da73aa819b76857b7e18
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 50255c1eabc5ac0f51fa8d45851fb632928070cc
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="how-to-get-operational-insights-with-password-management-reports"></a>Como obter percepções operacionais com relatórios de gerenciamento de senhas
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
-Esta seção descreve como você pode usar relatórios de gerenciamento de senhas do Active Directory do Azure para ver como os usuários estão usando a redefinição e alteração de senhas em sua organização.
+Esta seção descreve como você pode usar relatórios de gerenciamento de senhas do Azure Active Directory para ver como os usuários estão usando a redefinição e alteração de senhas em sua organização.
 
 * [**Visão geral de relatórios de gerenciamento de senhas**](#overview-of-password-management-reports)
 * [**Como exibir relatórios de gerenciamento de senhas**](#how-to-view-password-management-reports)
@@ -48,16 +49,16 @@ Após a implantação da redefinição de senhas, uma das próximas etapas mais 
 ## <a name="how-to-view-password-management-reports"></a>Como exibir relatórios de gerenciamento de senhas
 Para localizar os relatórios de gerenciamento de senhas, siga as etapas abaixo:
 
-1. Clique na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+1. Clique na **Extensão do Active Directory** no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2. Selecione o diretório na lista que aparece no portal.
 3. Clique na guia **Relatórios** .
 4. Procure na seção **Logs de Atividade** .
 5. Selecione o relatório **Atividade de redefinição de senhas** ou **Atividade de registro de redefinição de senhas**.
-   
+
    ![][001]
 
-## <a name="how-to-access-password-management-reports-from-an-api"></a>Como acessar os Relatórios de Gerenciamento de Senhas de uma API
-A partir de agosto de 2015, os Eventos e os Relatórios do AD do Azure agora oferecem suporte ao recuperar todas as informações incluídas nos relatórios de Redefinição de Senhas e de Registro da Redefinição de Senhas.
+## <a name="how-to-access-password-management-reports-from-an-api"></a>Como acessar os relatórios de gerenciamento de senhas de uma API
+A partir de agosto de 2015, os Eventos e os Relatórios do Azure AD agora oferecem suporte ao recuperar todas as informações incluídas nos relatórios de redefinição de senhas e de registro da redefinição de senhas.
 
 Para acessar esses dados, você precisará gravar um pequeno aplicativo ou script para recuperá-los de nossos servidores. [Saiba como começar com a API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md).
 
@@ -72,7 +73,7 @@ O relatório de atividade de registro de redefinição de senhas mostra todos os
 * **Intervalo de tempo máximo**: um mês
 * **Número máximo de linhas**: ilimitado
 * **Baixável**: sim, por meio de arquivo CSV
-  
+
     ![][002]
 
 ### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
@@ -96,7 +97,7 @@ Esse relatório mostra todas as tentativas de redefinição de senha que ocorrer
 * **Intervalo de tempo máximo**: um mês
 * **Número máximo de linhas**: ilimitado
 * **Baixável**: sim, por meio de arquivo CSV
-  
+
     ![][003]
 
 ### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
@@ -157,9 +158,9 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 | Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização |Falha |
 | Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema. |Falha |
 | A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. |Falha |
-| O usuário redefiniu a senha com êxito |Bem-sucedida |
+| O usuário redefiniu a senha com êxito |Bem-sucedido |
 
-## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
+## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
@@ -174,9 +175,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

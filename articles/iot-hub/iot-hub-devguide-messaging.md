@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: b6c79691c75cb01eb4eea4d0e66b01d1792cfb11
-ms.openlocfilehash: 0e3f0166517d3fd0ddd5f04a12afa393d0ac2a92
+ms.sourcegitcommit: 2fb6f4d8330eb62e01af318277bc0e90aee039e0
+ms.openlocfilehash: d3c4d1a91615957764552a985e0dfeba7c10a927
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -88,10 +89,10 @@ Para obter mais informações sobre a criação de pontos de extremidade persona
 
 ### <a name="built-in-endpoint-messagesevents"></a>Ponto de extremidade interno: mensagens/eventos
 
-Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno.
+Um Hub IoT expõe as propriedades a seguir para permitir que você controle as **mensagens/eventos** do ponto de extremidade do sistema de mensagens interno compatível com o Hub de Eventos.
 
-* **Contagem de partição**. Defina essa propriedade no momento da criação e define o número de partições para inclusão do evento do dispositivo para a nuvem.
-* **Período de retenção**. Esta propriedade especifica o período de retenção das mensagens do dispositivo para a nuvem. O padrão é de um dia, mas pode ser aumentado para sete dias.
+* **Contagem de partição**. Defina essa propriedade no momento da criação e define o número de [partições][lnk-event-hub-partitions] para inclusão do evento do dispositivo para a nuvem.
+* **Período de retenção**. Esta propriedade especifica por quanto tempo, em dias, as mensagens são retidas pelo Hub IoT. O padrão é de um dia, mas pode ser aumentado para sete dias.
 
 O Hub IoT também permite que você gerencie grupos de consumidores no ponto de extremidade de recebimento do dispositivo para a nuvem interno.
 
@@ -232,7 +233,7 @@ Cada hub IoT expõe as seguintes opções de configuração para mensagens da nu
 Para saber mais, confira [Criar Hubs IoT][lnk-portal].
 
 ## <a name="read-device-to-cloud-messages"></a>Ler mensagens do dispositivo para a nuvem
-O Hub IoT expõe um ponto de extremidade interno de **mensagens/eventos** para os serviços de back-end lerem as mensagens de dispositivo para nuvem recebidas por seu hub. Esse ponto de extremidade é compatível com os Hubs de Eventos, o que permite que você use qualquer um dos mecanismos para os quais o serviço Hubs de Eventos dá suporte para ler as mensagens.
+O Hub IoT expõe um ponto de extremidade interno de **mensagens/eventos** para os serviços de back-end lerem as mensagens de dispositivo para nuvem recebidas por seu hub. Este ponto de extremidade é compatível com o Hub de Eventos, o que permite que você use qualquer um dos mecanismos para os quais o serviço Hubs de Eventos dá suporte para ler as mensagens.
 
 Você também pode criar pontos de extremidade personalizados no Hub IoT. O Hub IoT atualmente dá suporte aos Hubs de Eventos, filas do Barramento de Serviço e tópicos do Barramento de Serviço como pontos de extremidade personalizados. Para obter mais informações sobre a leitura desses serviços, consulte: leitura de [Hubs de Eventos][lnk-getstarted-eh], leitura de [filas do Barramento de Serviço][lnk-getstarted-queue], leitura de [tópicos do Barramento de Serviço][lnk-getstarted-topic].
 
@@ -434,9 +435,4 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-
-
-
-<!--HONumber=Feb17_HO1-->
-
-
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions

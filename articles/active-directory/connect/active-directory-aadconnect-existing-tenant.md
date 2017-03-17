@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect: quando você tem um locatário existente | Documentos da Microsoft"
+title: "Azure AD Connect: Quando você já tiver o Azure AD | Microsoft Docs"
 description: "Este tópico descreve como usar o Connect quando você tem um locatário existente do Azure AD."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 02/22/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: e358f6d1937a45f375777cea1153b975a745a719
-ms.openlocfilehash: 160a3ae7190dab76eee4634bd6babb5b047cd5ac
+ms.sourcegitcommit: f59028a2f909914222236f3b3575afd0949b4277
+ms.openlocfilehash: c89e206462856d25a81729e7028065ac1cd13ef3
+ms.lasthandoff: 02/23/2017
 
 ---
 
@@ -26,7 +27,7 @@ A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você i
 ## <a name="the-basics"></a>Noções básicas
 Um objeto no Azure AD é controlado na nuvem (Azure AD) ou no local. Em um único objeto, você não pode gerenciar alguns atributos locais e outros atributos no Azure AD. Cada objeto tem um sinalizador que indica onde o objeto é gerenciado.
 
-Você pode gerenciar alguns usuários locais e outros na nuvem. Um cenário comum para essa configuração é uma organização com uma combinação de funcionários de escritório e operários. Os funcionários de escritório têm uma conta local do AD, mas os operários não. Você deve gerenciar alguns usuários locais e outros no Azure AD.
+Você pode gerenciar alguns usuários locais e outros na nuvem. Um cenário comum para essa configuração é uma organização com uma combinação de funcionários de contabilidade e vendedores. Os funcionários de contabilidade têm uma conta local do AD, mas os vendedores não, eles têm uma conta no Azure AD. Você deve gerenciar alguns usuários locais e outros no Azure AD.
 
 Se você começar a gerenciar usuários no Azure AD que também estão no AD local e, mais tarde, desejar usar o Connect, existem outros problemas que devem ser considerados.
 
@@ -60,9 +61,4 @@ Se oferecer suporte a LOBs (aplicativos de linha de negócios) é o único motiv
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

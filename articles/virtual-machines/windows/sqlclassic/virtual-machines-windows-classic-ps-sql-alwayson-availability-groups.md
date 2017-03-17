@@ -1,5 +1,5 @@
 ---
-title: Configurar grupos de disponibilidade Always On em VMs do Azure com PowerShell
+title: Configurar os grupos de disponibilidade Always On na VM do Azure com o PowerShell | Microsoft Docs
 description: "Este tutorial usa os recursos criados com o modelo de implantação clássico e usa o PowerShell para criar um grupo de disponibilidade AlwaysOn no Azure."
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,8 +16,9 @@ ms.workload: iaas-sql-server
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 9504b2f74fa0161b6c4dfb6a510913256b99629a
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 4d14b4f54957ae31e736211671cba816f8dea629
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -251,7 +252,7 @@ O servidor de DC agora foi provisionado com êxito. Em seguida, você configurar
         $dataDiskSize = 100
         $dnsSettings = New-AzureDns -Name "ContosoBackDNS" -IPAddress "10.10.0.4"
    
-    O endereço **IP 10.10.0.4** normalmente é atribuído à primeira VM que você criar na sub-rede **10.10.0.0/16** da rede virtual do Azure. Você deve verificar se esse é o endereço do servidor DC executando **IPCONFIG**.
+    O endereço **IP&10;.10.0.4** normalmente é atribuído à primeira VM que você criar na sub-rede **10.10.0.0/16** da rede virtual do Azure. Você deve verificar se esse é o endereço do servidor DC executando **IPCONFIG**.
 2. Execute os seguintes comandos redirecionados para criar a primeira VM no cluster WSFC, chamado **ContosoQuorum**:
    
         New-AzureVMConfig `
@@ -563,10 +564,5 @@ Agora você está pronto para configurar o grupo de disponibilidade. Você usar�
 Agora você implementou com êxito o SQL Server AlwaysOn criando um grupo de disponibilidade no Azure. Para configurar um ouvinte para este grupo de disponibilidade, veja [Configurar um ouvinte de ILB para Grupos de Disponibilidade Always On no Azure](virtual-machines-windows-classic-ps-sql-int-listener.md).
 
 Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL Server em Máquinas Virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

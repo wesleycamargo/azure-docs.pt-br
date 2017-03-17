@@ -1,10 +1,10 @@
 ---
-title: "Como definir um IP privado estático no modo ARM usando o portal do Azure | Microsoft Docs"
-description: "Noções básicas sobre IPs privados (DIPs) e como gerenciá-los no modo ARM usando o portal do Azure"
+title: "Configurar endereços IP privados para VMs - Portal do Azure | Microsoft Docs"
+description: "Saiba como configurar endereços IP para máquinas virtuais usando o Portal do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
@@ -15,13 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 5d56a0d2c9c44d37520c6a9a3db326f9bdc5420e
-ms.openlocfilehash: e4f6d14f79536c58e40d3ac4b48d00a8c397f1b4
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: 251a2977d821b710807e00b2aae71992630feb77
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="how-to-set-a-static-private-ip-address-in-the-azure-portal"></a>Como definir um endereço IP privado estático no portal do Azure
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurar endereços IP particulares para uma máquina virtual usando o Portal do Azure
 
 > [!div class="op_single_selector"]
 - [Portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
@@ -104,10 +106,5 @@ Para remover o endereço IP privado estático da VM criada acima, siga a etapa a
 * Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
 * Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
 * Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

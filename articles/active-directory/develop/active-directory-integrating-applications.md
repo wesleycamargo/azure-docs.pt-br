@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/08/2017
 ms.author: mbaldwin;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: b5dbb8c28bd6b2bdbb53939314348104bbbe4f34
-ms.openlocfilehash: f6ec7634a1d21c7205ac8ae7377a312ed386ee61
+ms.sourcegitcommit: 57383c11682342cb0a6446c79e603843a698fc8c
+ms.openlocfilehash: 835e1c494de59576fd8ac529240729cb33eaa50b
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -55,13 +56,13 @@ Depois que o aplicativo tiver sido registrado no AD do Azure, talvez ele tenha q
 Para obter mais informações sobre como funciona a autenticação no AD do Azure, consulte [Cenários de autenticação do AD do Azure.](active-directory-authentication-scenarios.md).
 
 ### <a name="overview-of-the-consent-framework"></a>Visão geral da estrutura de consentimento
-A estrutura de autorização do Azure AD facilita o desenvolvimento de aplicativos cliente nativos ou Web multilocatários que precisam acessar APIs Web protegidas por um locatário do Azure AD, diferentemente daquele em que o aplicativo cliente é registrado. Essas APIs Web incluem a Graph API, o Office 365 e outros serviços Microsoft, além das suas próprias APIs Web. A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório.
+A estrutura de autorização do Azure AD facilita o desenvolvimento de aplicativos cliente nativos ou Web multilocatários que precisam acessar APIs Web protegidas por um locatário do Azure AD, diferentemente daquele em que o aplicativo cliente é registrado. Essas APIs da Web incluem a API do Microsoft Graph (para acessar o Azure Active Directory, o Intune e serviços no Office 365) e outras APIs de serviços da Microsoft, além de suas próprias APIs da Web. A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório, o que pode envolver acesso aos dados do diretório.
 
-Por exemplo, se um aplicativo cliente Web precisar chamar um aplicativo de recurso/API Web do Office 365 para ler as informações de calendário sobre o usuário, esse usuário precisará dar autorização ao aplicativo cliente. Depois que o autorização for dado, o aplicativo cliente poderá chamar a API Web do Office 365 em nome do usuário e usar as informações de calendário conforme a necessidade.
+Por exemplo, se um aplicativo cliente da Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo. Depois que o autorização for dado, o aplicativo cliente poderá chamar a API do Microsoft Graph em nome do usuário e usar as informações de calendário conforme a necessidade. A [API do Microsoft Graph](https://graph.microsoft.io) fornece acesso aos dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, notebooks do OneNote, tarefas do Planner, pastas de trabalho do Excel etc.), bem como usuários e grupos do Azure AD e outros objetos de dados de mais serviços de nuvem da Microsoft. 
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o AD do Azure permite criar muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor, ou um aplicativo Web, assim como obter acesso aos recursos necessários.
 
-Para saber mais sobre a estrutura de consentimento, veja [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md) e o tópico do Office 365 [Noções básicas sobre a autenticação com APIs do Office 365](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks).
+Para saber mais sobre a estrutura de consentimento, consulte [OAuth 2.0 no Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md), e para obter informações sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, consulte [Autenticação de aplicativos com o Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Exemplo da experiência de consentimento
 As etapas a seguir mostrarão como funciona a experiência de consentimento para o desenvolvedor e o usuário do aplicativo.
@@ -88,7 +89,7 @@ As etapas a seguir mostrarão como funciona a experiência de consentimento para
 ### <a name="configuring-a-client-application-to-access-web-apis"></a>Configurando um aplicativo cliente para acessar APIs Web
 Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e possa obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte do portal do Azure é a ID do Cliente + chave simétrica. Esta seção abordará as etapas de configuração necessárias para fornecer a chave secreta das credenciais do seu cliente.
 
-Além disso, antes que um cliente possa acessar uma API Web exposta por um aplicativo de recurso (isto é, API do Graph do Azure AD), a estrutura de autorização garantirá que o cliente obtenha a concessão de permissão necessária, com base nas permissões solicitadas. Por padrão, todos os aplicativos podem escolher permissões no Active Directory do Azure (Graph API) e na API de Gerenciamento de Serviços do Azure, com a permissão "Permitir logon e leitura do perfil do usuário" do AD do Azure já selecionada por padrão. Se o aplicativo cliente estiver sendo registrado em um locatário do Azure AD do Office 365, as APIs Web e permissões para o SharePoint e Exchange Online também serão disponibilizadas para seleção. Você pode selecionar entre [dois tipos de permissão](active-directory-dev-glossary.md#permissions) nos menus suspensos ao lado da API Web desejada:
+Além disso, antes que um cliente possa acessar uma API Web exposta por um aplicativo de recurso (isto é, API do Microsoft Graph), a estrutura de autorização garantirá que o cliente obtenha a concessão de permissão necessária, com base nas permissões solicitadas. Por padrão, todos os aplicativos podem escolher permissões no Active Directory do Azure (Graph API) e na API de Gerenciamento de Serviços do Azure, com a permissão "Permitir logon e leitura do perfil do usuário" do AD do Azure já selecionada por padrão. Se o aplicativo cliente estiver sendo registrado em um locatário do Azure AD do Office 365, as APIs Web e permissões para o SharePoint e Exchange Online também serão disponibilizadas para seleção. Você pode selecionar entre [dois tipos de permissão](active-directory-dev-glossary.md#permissions) nos menus suspensos ao lado da API Web desejada:
 
 * Permissões de Aplicativo: o aplicativo cliente precisa acessar a API Web diretamente por si só (sem contexto de usuário). Esse tipo de permissão requer o consentimento do administrador e também não está disponível para aplicativos cliente nativos.
 * Permissões Delegadas: o aplicativo cliente precisa acessar a API Web como usuário conectado, mas com acesso limitado pela permissão selecionada. Esse tipo de permissão pode ser concedido por um usuário, a menos que a permissão esteja configurada para pedir consentimento do administrador. 
@@ -165,13 +166,10 @@ O manifesto do aplicativo, na verdade, funciona como um mecanismo para atualizar
 
 Para obter mais informações gerais sobre os conceitos do manifesto do aplicativo, veja [Entendendo o manifesto de aplicativo do Azure Active Directory](active-directory-application-manifest.md).
 
-### <a name="accessing-the-azure-ad-graph-and-office-365-apis"></a>Acessando as APIs do Office 365 e da Graph do AD do Azure
-Conforme mencionado anteriormente, além de expor/acessar APIs em seus próprios aplicativos de recurso, você também pode atualizar o aplicativo cliente para acessar APIs expostas pelos recursos da Microsoft.  A Graph API do AD do Azure, que é chamada de "Active Directory do Azure" na lista de Permissões para outros aplicativos, está disponível por padrão para todos os aplicativos que são registrados no AD do Azure. Se estiver registrando o aplicativo cliente em um locatário do AD do Azure que foi provisionado pelo Office 365, você também poderá acessar todas as permissões expostas pelas APIs a vários recursos do Office 365.
+### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Acessar o Azure AD Graph e o Office 365 pelas APIs do Microsoft Graph  
+Conforme mencionado anteriormente, além de expor/acessar APIs em seus próprios aplicativos de recurso, você também pode atualizar o aplicativo cliente para acessar APIs expostas pelos recursos da Microsoft.  A API do Microsoft Graph, chamada de "Microsoft Graph" na lista de Permissões para outros aplicativos, está disponível para todos os aplicativos registrados no Azure AD. Se você estiver registrando seu aplicativo cliente em um locatário do Azure AD que foi provisionado pelo Office 365, também poderá acessar todas as permissões expostas pela API do Microsoft Graph a vários recursos do Office 365.
 
-Para ver uma abordagem completa sobre escopos de acesso expostos por:  
-
-* API do Graph do Azure AD, confira o artigo [Escopos de permissão | Conceitos da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
-* APIs do Office 365, confira o artigo [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) (Autenticação e autorização usando Common Consent Framework). Confira [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) (Configurar seu ambiente de desenvolvimento do Office 365) para ver uma discussão mais ampla sobre como criar um aplicativo cliente que se integra às APIs do Office 365.
+Para conferir uma discussão completa sobre os escopos de acesso expostos pela API do Microsoft Graph, consulte o artigo [Escopos de permissão | Conceitos da API do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes) artigo.
 
 > [!NOTE]
 > Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a Graph API do AD do Azure se eles usarem a permissão "Acessar diretório da sua organização".  Essa restrição não se aplica a aplicativos Web.
@@ -258,10 +256,5 @@ Para remover o acesso de um aplicativo multilocatário ao seu diretório (depois
 * Para saber mais sobre a função do manifesto do aplicativo, veja [Noções básicas sobre o manifesto do aplicativo do Azure Active Directory](active-directory-application-manifest.md)
 * Veja as definições do [Glossário de desenvolvedor do Azure AD](active-directory-dev-glossary.md) de alguns dos conceitos de desenvolvedor do Azure Active Directory (AD).
 * Visite o [Guia do desenvolvedor do Active Directory](active-directory-developers-guide.md) para obter uma visão geral de todo o conteúdo relacionado de desenvolvedores.
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

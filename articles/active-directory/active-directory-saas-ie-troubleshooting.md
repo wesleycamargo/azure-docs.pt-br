@@ -1,5 +1,5 @@
 ---
-title: "Resolução de problemas da extensão do painel de acesso do Internet Explorer | Microsoft Docs"
+title: "Resolução de problemas da extensão do Painel de Acesso do Azure para IE | Microsoft Docs"
 description: "Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
 services: active-directory
 documentationcenter: 
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 43768d76e3cdc0dc34a3412675ea4fb84170c021
+ms.sourcegitcommit: f593ecca4f4c82dcbd07e6f57ad120537f7d2134
+ms.openlocfilehash: 4c3f7f95b1052512547a9996019803b6185a3405
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Resolução de problemas da extensão do painel de acesso do Internet Explorer
-Este artigo o ajudará a solucionar os problemas a seguir:
+Este artigo ajuda você a solucionar os problemas a seguir:
 
 * Você não consegue acessar seus aplicativos por meio do portal de meus aplicativos ao usar o Internet Explorer.
 * Consulte a mensagem "Instalação de Software", mesmo que você já tenha instalado o software.
@@ -53,7 +55,7 @@ Para verificar se a extensão do painel de acesso está habilitada no Internet E
 1. No Internet Explorer, clique no **ícone de engrenagem** no canto superior direito da janela. Em seguida, selecione **Opções da Internet**.<br />(Em versões mais antigas do Internet Explorer pode ser encontrada em **Ferramentas > Opções da Internet**.
    
     ![Vá para Ferramentas > Opções da Internet](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
-2. Clique na guia **Programas**, clique no botão **Gerenciar Complementos**.
+2. Clique na guia **Programas** e clique no botão **Gerenciar Complementos**.
    
     ![Clique em Gerenciar complementos](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
 3. Nesta caixa de diálogo, selecione **extensão do painel de acesso** e, em seguida, clique no botão **Habilitar**.
@@ -78,10 +80,10 @@ Para desinstalar a extensão do painel de acesso do computador:
 1. No teclado, pressione a **tecla Windows** para abrir o menu Iniciar. Quando o menu estiver aberto, você pode digitar qualquer coisa para fazer uma pesquisa. Digite "Control Panel" e, em seguida, abra o **Painel de controle** quando ele aparecer nos resultados da pesquisa.
    
     ![Pesquise Painel de Controle](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. No canto superior direito do painel de controle, altere a opção **Exibir para** **ícones grandes**. Em seguida, localize e clique no botão **Programas e recursos** .
+2. No canto superior direito do painel de controle, altere a opção **Exibir para** **ícones grandes**. Em seguida, localize e clique no botão **Programas e Recursos**.
    
     ![Altere a exibição para mostrar ícones grandes](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
-3. Na lista, selecione **extensão do painel de acesso** e clique no botão **Desinstalar**.
+3. Na lista, selecione **Extensão do Painel de Acesso** e clique no botão **Desinstalar**.
    
     ![Clique em Desinstalar](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 4. Você pode tentar instalar a extensão novamente para ver se o problema foi resolvido.
@@ -92,10 +94,5 @@ Se você encontrar problemas ao desinstalar a extensão, também pode removê-lo
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Como implantar a extensão do painel de acesso para o Internet Explorer usando a Política de Grupo](active-directory-saas-ie-group-policy.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

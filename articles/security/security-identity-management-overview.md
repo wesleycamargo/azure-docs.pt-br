@@ -1,6 +1,6 @@
 ---
 title: "Recursos de segurança do Azure que ajudam com o gerenciamento de identidade | Microsoft Docs"
-description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como a autenticação multifator e políticas de acesso condicional. "
+description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 03/09/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
-ms.openlocfilehash: 9c5af888ec0130ec8506602ab805221f0a83ea47
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: bb9d08d6164ec01ce1d76fc4a23e782213ecfcd9
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -110,15 +110,15 @@ Saiba mais:
 * [Visualização do Azure Active Directory B2C: tipos de aplicativos](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Registro de dispositivos
-O registro de dispositivo do Azure AD é a base para cenários de [acesso condicional](../active-directory/active-directory-conditional-access-on-premises-setup.md) com base no dispositivo. Quando um dispositivo é registrado, o Registro de Dispositivo do Azure Active Directory fornece ao dispositivo uma identidade, que é usada para autenticar o dispositivo quando o usuário faz logon. O dispositivo autenticado e os atributos desse dispositivo podem, em seguida, ser usados para impor políticas de acesso condicional para aplicativos locais e hospedados em nuvem.
+O registro de dispositivo do Azure AD é a base para cenários de [acesso condicional](../active-directory/active-directory-conditional-access-device-registration-overview.md) com base no dispositivo. Quando um dispositivo é registrado, o Registro de Dispositivo do Azure Active Directory fornece ao dispositivo uma identidade, que é usada para autenticar o dispositivo quando o usuário faz logon. O dispositivo autenticado e os atributos desse dispositivo podem, em seguida, ser usados para impor políticas de acesso condicional para aplicativos locais e hospedados em nuvem.
 
 Quando combinado com uma solução de MDM (gerenciamento de dispositivo móvel), como Intune, os atributos do dispositivo no Azure Active Directory são atualizados com informações adicionais sobre o dispositivo. Isso permite que você crie regras de acesso condicional que imponham que o acesso dos dispositivos atendam aos padrões de segurança e conformidade.
 
 Saiba mais:
 
 * [Introdução ao registro de dispositivos do Azure Active Directory](../active-directory/active-directory-conditional-access-device-registration-overview.md)
-* [Configurando o acesso condicional no local usando o registro do dispositivo do Active Directory do Azure](../active-directory/active-directory-conditional-access-on-premises-setup.md)
 * [Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
+* [Configurar o registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 O Azure AD (Active Directory) Privileged Identity Management permite gerenciar, controlar e monitorar suas identidades com privilégios e o acesso a recursos no Azure AD e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.

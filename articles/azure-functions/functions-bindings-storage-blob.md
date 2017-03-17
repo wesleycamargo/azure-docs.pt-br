@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/11/2017
-ms.author: chrande
+ms.date: 03/06/2017
+ms.author: chrande, glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 7b691e92cfcc8c6c62f854b3f1b6cf13d317df7b
-ms.openlocfilehash: 961aa46e3f3654c250aa10e61149fac2fc251935
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 1c071390fd6cd9bb5889cb225696b7782fe2bd6b
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -55,6 +56,8 @@ Observe o seguinte:
 
 * Para `path`, consulte [Padrões de nome](#pattern) para descobrir como formatar os padrões de nome de blob.
 * `connection` deve conter o nome de uma configuração de aplicativo que contenha uma cadeia de conexão de armazenamento. No Portal do Azure, o editor padrão na guia **Integrar** define essa configuração de aplicativo para você ao criar uma conta de armazenamento ou selecionar uma conta existente. Para criar essa configuração de aplicativo manualmente, consulte [Definir esta configuração de aplicativo manualmente](). 
+
+Durante a execução em um plano de Consumo, se um Aplicativo de funções tiver ficado ocioso, poderá haver até 10 minutos por dia de processamento de novos blobs. Quando o Aplicativo de funções está em execução, os blobs são processados mais rapidamente. Para evitar esse atraso inicial, use um Plano de Serviço de Aplicativo regular com Always On habilitado ou use outro mecanismo para disparar o processamento de blob, como uma mensagem da fila que contém o nome do blob. 
 
 Além disso, consulte um destes subtítulos a seguir para obter mais informações:
 
@@ -235,7 +238,7 @@ Em que `T` é o tipo de dados no qual você deseja desserializar os dados e `par
 O blob pode ser desserializado em qualquer um destes tipos:
 
 * Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para dados de blob serializados para JSON.
-  Se você declarar um tipo de entrada personalizado (por exemplo, `FooType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
+  Se você declarar um tipo de entrada personalizado (por exemplo, `InputType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
 * Cadeia de caracteres - útil para dados de blob de texto.
 
 Em funções do C#, você também pode associar a qualquer um dos seguintes tipos, e o tempo de execução do Functions tentará desserializar os dados de blob usando esse tipo:
@@ -347,7 +350,7 @@ Em funções do C#, você associa ao blob de saída usando o parâmetro `out` no
 Você pode gravar no blob de saída usando qualquer um dos seguintes tipos:
 
 * Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para serialização JSON.
-  Se você declarar um tipo de saída personalizada (por exemplo, `out FooType paramName`), o Azure Functions tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução de funções criará um blob como objeto nulo.
+  Se você declarar um tipo de saída personalizada (por exemplo, `out OutputType paramName`), o Azure Functions tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução de funções criará um blob como objeto nulo.
 * Cadeia de caracteres - (`out string paramName`) útil para dados de blob de texto. o tempo de execução de funções criará um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função for encerrada.
 
 Em funções do C#, também é possível executar a saída para qualquer um dos seguintes tipos:
@@ -358,8 +361,6 @@ Em funções do C#, também é possível executar a saída para qualquer um dos 
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
-* `ICollector<T>` (para gerar vários blobs)
-* `IAsyncCollector<T>` (versão assíncrona de `ICollector<T>`)
 
 <a name="outputsample"></a>
 
@@ -368,10 +369,5 @@ Consulte [amostra de entrada](#inputsample).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

@@ -16,8 +16,9 @@ ms.tgt_pltfrm: NA
 ms.date: 02/06/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 319e22e2fb423e0fe1fabf95d0018d4fa3232e0b
-ms.openlocfilehash: 5d7f11b9b027f86adf3d2382e82f2d382d71ee51
+ms.sourcegitcommit: 5e01db2676e3515f41bf98d23595e6509c0d6805
+ms.openlocfilehash: c5f50213be9cd20c82acf8dd94463e7dce0a0195
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -49,6 +50,7 @@ Você pode criar e gerenciar um banco de dados SQL do Azure com o [portal do Azu
     ![nova folha de banco de dados de exemplo](./media/sql-database-get-started/new-sample-db-blade.png)
 
 ## <a name="change-the-service-tier-and-performance-level-of-a-single-database"></a>Alterar a camada de serviço e o nível de desempenho de um banco de dados único
+
 Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verticalmente:
 
 1. No [Portal do Azure](https://portal.azure.com), clique em **Mais serviços** > **Bancos de Dados SQL**.
@@ -59,12 +61,11 @@ Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verti
 
 4. Selecione uma nova camada e clique em **Selecionar**:
    
-   Clicar em **Selecionar** envia uma solicitação de escala para alterar o tipo de preço. Dependendo do tamanho do banco de dados, a operação de escala poderá demorar um pouco para ser concluída (veja as informações no início deste artigo).
+   Clicar em **Selecionar** envia uma solicitação de escala para alterar o tipo de preço. Dependendo do tamanho do banco de dados, a operação de escala poderá demorar um pouco para ser concluída (veja [Camadas de serviço](sql-database-service-tiers.md).
    
    > [!NOTE]
    > Alterar o tipo de preço do banco de dados não altera o tamanho máximo do banco de dados. Para alterar o tamanho máximo do banco de dados, use [Transact-SQL (T-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ou [PowerShell](https://msdn.microsoft.com/library/mt619433.aspx).
-   > 
-   > 
+   >  
    
    ![selecionar camada de preços](./media/sql-database-manage-single-database-portal/choose-tier.png)
 5. Clique no ícone de notificação (sino), no canto superior direito:
@@ -80,9 +81,4 @@ Abra a folha Banco de Dados SQL do banco de dados que você deseja escalar verti
 * Para saber como realizar tarefas de gerenciamento usando o SQL Server Management Studio, consulte [SQL Server Management Studio](sql-database-manage-azure-ssms.md).
 * Para obter informações sobre o serviço do Banco de Dados SQL, consulte [O que é o Banco de Dados SQL](sql-database-technical-overview.md). 
 * Para obter informações sobre os servidores de Banco de Dados do Azure e recursos de banco de dados, confira [Recursos](sql-database-features.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

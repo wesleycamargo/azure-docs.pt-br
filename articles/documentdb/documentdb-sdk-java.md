@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 02/22/2017
 ms.author: khdang
 translationtype: Human Translation
-ms.sourcegitcommit: 47a54e51fa7378336aabe3fa6f93794852152cfe
-ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
+ms.sourcegitcommit: 64858123a75686ba460de5e0f26b143c29f9f067
+ms.openlocfilehash: 7b7afa0ac55327b83e7ea8983a5e25782bda9f07
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -50,8 +51,12 @@ ms.openlocfilehash: d61ed82cc7841e427d422d4e48f2b1a42cf97521
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+### <a name="a-name196196httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb196"></a><a name="1.9.6"/>[1.9.6](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.6)
+* Corrigido um erro na configuração do mecanismo de consulta que pode causar exceções para consultas no modo de gateway.
+* Corrigidos alguns bugs no contêiner de sessão que podem causar uma exceção "Recurso proprietário não encontrado" para solicitações imediatamente após a criação da coleção.
+
 ### <a name="a-name195195httpmvnrepositorycomartifactcommicrosoftazureazure-documentdb195"></a><a name="1.9.5"/>[1.9.5](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.5)
-* Adicionado suporte para consultas de agregação (AVG, COUNT, MIN, MAX e SUM).
+* Suporte adicionado para consultas de agregação (COUNT, MIN, MAX, SUM e AVG). Veja [Suporte de agregação](documentdb-sql-query.md#Aggregates).
 * Adicionado suporte para alteração de feed.
 * Adicionado suporte para informações de cota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o log de script de procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
@@ -151,6 +156,7 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.9.6](#1.9.6) |21 de fevereiro de 2017 |--- |
 | [1.9.5](#1.9.5) |31 de janeiro de 2017 |--- |
 | [1.9.4](#1.9.4) |24 de novembro de 2016 |--- |
 | [1.9.3](#1.9.3) |30 de outubro de 2016 |--- |
@@ -182,10 +188,5 @@ Qualquer solicitação feita ao Banco de Dados de Documentos usando um SDK obsol
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Banco de Dados de Documentos, confira a página de serviço do [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) .
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

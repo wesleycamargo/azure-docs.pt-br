@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/27/2016
-ms.author: magoedte;tomfitz
+ms.date: 03/06/2017
+ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 53e57807e97671bd279c03ada4c147fc1e7f1e45
-ms.openlocfilehash: c7bfc5584c11a7e69aedeb93f143a78d97c9369a
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: c645a8aa317b12d52f0246d0f9205294d56b6a0d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -162,48 +163,41 @@ Para obter todos os provedores de recursos disponíveis, incluindo seus tipos, s
 ### <a name="powershell"></a>PowerShell
 O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 
 O exemplo a seguir mostra como obter os tipos de recursos para um provedor de recursos específico.
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
-
-A saída deverá ser semelhante a:
-
-    ResourceTypeName                Locations                                         
-    ----------------                ---------                                         
-    sites/extensions                {Brazil South, East Asia, East US, Japan East...} 
-    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} .
-    ...
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+```
 
 Para registrar um provedor de recursos, forneça o namespace:
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+```
 
 ### <a name="azure-cli"></a>CLI do Azure
 O exemplo a seguir mostra como obter todos os provedores de recursos disponíveis.
 
-    azure provider list
+```azurecli
+az provider list
+```
 
-A saída deverá ser semelhante a:
+Você pode exibir as informações de um provedor de recursos específico para um arquivo com o comando a seguir:
 
-    info:    Executing command provider list
-    + Getting registered providers
-    data:    Namespace                        Registered
-    data:    -------------------------------  -------------
-    data:    Microsoft.ApiManagement          Unregistered
-    data:    Microsoft.AppService             Registered
-    data:    Microsoft.Authorization          Registered
-    ...
-
-Salve as informações de um provedor de recursos específico em um arquivo com o seguinte comando:
-
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
+```azurecli
+az provider show --namespace Microsoft.Web
+```
 
 Para registrar um provedor de recursos, forneça o namespace:
 
-    azure provider register -n Microsoft.ServiceBus
+```azurecli
+az provider register --namespace Microsoft.ServiceBus
+```
 
 ## <a name="supported-regions"></a>Regiões com suporte
 Durante a implantação de recursos, você normalmente precisa especificar uma região para os recursos. O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. Essas limitações podem estar relacionadas a problemas tributários de seu país de residência ou ao resultado de uma política colocada pelo seu administrador de assinatura para usar somente determinadas regiões. 
@@ -229,40 +223,17 @@ Para descobrir quais regiões estão disponíveis para um tipo de recurso espec�
 ### <a name="powershell"></a>PowerShell
 O exemplo a seguir mostra como obter as regiões com suporte para sites da web.
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
-
-A saída deverá ser semelhante a:
-
-    Brazil South
-    East Asia
-    East US
-    Japan East
-    Japan West
-    North Central US
-    North Europe
-    South Central US
-    West Europe
-    West US
-    Southeast Asia
-    Central US
-    East US 2
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 ### <a name="azure-cli"></a>CLI do Azure
-O exemplo a seguir retorna todas as localizações com suporte para cada tipo de recurso.
+O exemplo a seguir mostra como obter as regiões com suporte para sites da Web.
 
-    azure location list
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
+```
 
-Também é possível filtrar os resultados do local com um utilitário JSON, como o [jq](https://stedolan.github.io/jq/).
-
-    azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
-
-Que retorna:
-
-    {
-      "name": "Microsoft.Web/sites",
-      "location": "Brazil South,East Asia,East US,Japan East,Japan West,North Central US,
-            North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
-    }
 
 ## <a name="supported-api-versions"></a>Versões de API com suporte
 Ao implantar um modelo, você deve especificar uma versão de API a ser usada para criar cada recurso. A versão disponível da API corresponde a uma versão das operações da API REST lançadas pelo provedor de recursos. Conforme um provedor de recursos habilita novos recursos, ele lança uma nova versão da API REST. Portanto, a versão da API especificada em seu modelo afetará quais propriedades estarão disponíveis para você durante a criação do modelo. Em geral, você deve selecionar a versão mais recente da API ao criar novos modelos. Para os modelos existentes, você pode decidir se deseja continuar usando uma versão de API anterior ou atualizar o modelo para a versão mais recente para aproveitar os novos recursos.
@@ -276,35 +247,34 @@ Para descobrir quais versões de API está disponíveis para os tipos de recurso
 ### <a name="powershell"></a>PowerShell
 O exemplo a seguir mostra como obter as versões de API disponíveis para um tipo de recurso específico.
 
+```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 A saída deverá ser semelhante a:
 
-    2015-08-01
-    2015-07-01
-    2015-06-01
-    2015-05-01
-    2015-04-01
-    2015-02-01
-    2014-11-01
-    2014-06-01
-    2014-04-01-preview
-    2014-04-01
+```powershell
+2015-08-01
+2015-07-01
+2015-06-01
+2015-05-01
+2015-04-01
+2015-02-01
+2014-11-01
+2014-06-01
+2014-04-01-preview
+2014-04-01
+```
 
 ### <a name="azure-cli"></a>CLI do Azure
-Salve as informações (incluindo as versões de API disponíveis) de um provedor de recursos em um arquivo com o seguinte comando:
+Você pode obter as versões de API disponíveis para um provedor de recursos com o seguinte comando:
 
-    azure provider show Microsoft.Web -vv --json > c:\temp.json
-
-Você pode abrir o arquivo e localizar o elemento **apiVersions**
+```azurecli
+az provider show --namespace Microsoft.Web --query "resourceTypes[?resourceType=='sites'].apiVersions"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 * Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

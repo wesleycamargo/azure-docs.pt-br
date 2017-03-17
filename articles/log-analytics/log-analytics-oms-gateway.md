@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6f9974c109905f432705b85dcc8fc4d3549f16e9
-ms.openlocfilehash: 445bc1259cb3fa6f02fa1cadec11b1ac4b186e78
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: de2e6d201ba54774697356e1cd55c4881664a401
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="connect-computers-and-devices-to-oms-using-the-oms-gateway"></a>Conectar computadores e dispositivos ao OMS usando o Gateway do OMS
+# <a name="connect-computers-and-devices-without-internet-access-to-oms-using-the-oms-gateway"></a>Conectar computadores e dispositivos sem acesso à Internet a OMS usando o Gateway do OMS
+
 Este documento descreve como dispositivos gerenciados pelo OMS e computadores monitorados pelo SCOM (System Center Operations Manager) podem enviar dados ao serviço OMS quando eles não tiverem acesso à Internet. O Gateway do OMS pode coletar os dados e enviá-los ao serviço OMS em seu nome.
 
 O gateway é um proxy de encaminhamento de HTTP que dá suporte ao túnel HTTP usando o comando HTTP CONNECT. O gateway pode manipular até 2.000 dispositivos conectados simultaneamente do OMS quando executado em um servidor com Windows, uma CPU de 4 núcleos e 16 GB.
@@ -277,9 +280,4 @@ Você também pode deixar comentários sobre o OMS ou o Log Analytics no [Fórum
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar fontes de dados](log-analytics-data-sources.md) para coletar dados das Fontes Conectadas em seu espaço de trabalho do OMS e armazená-los no repositório do OMS.
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

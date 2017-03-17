@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/19/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 34bb02d93f74d437962334802f3bfbf938bbb258
-ms.openlocfilehash: 2bc98da479e6efea322a3782879fae72b106538a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
+ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -190,7 +190,7 @@ Verifique a barra de status para confirmar que o cofre foi criado com sucesso. O
 
    * Se quiser usar um proxy personalizado, você deverá configurá-lo antes de instalar o Provedor. Quando você definir as configurações personalizadas de proxy, um teste será executado para verificar a conexão proxy.
    * Se você usar um proxy personalizado ou se seu proxy padrão exigir autenticação, você deverá inserir os detalhes do proxy, incluindo a porta e o endereço.
-   * Essas [URLs](site-recovery-best-practices.md#url-access) devem poder ser acessadas do servidor VMM.
+   * As URLs devem poder ser acessadas do servidor VMM.
    * Se você usar um proxy personalizado, uma conta Executar VMM Como (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada. Você pode modificar as configurações da conta Executar Como no console do VMM (**Configurações** > **Segurança** > **Contas Executar Como** > **DRAProxyAccount**). Você precisa reiniciar o serviço do VMM para a alteração ter efeito.
 10. Em **Chave de Registro**, selecione a chave que você baixou do portal e copiou para o servidor VMM.
 11. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado.
@@ -321,7 +321,7 @@ Teste a implantação para ter certeza de que as VMs realizam failover conforme 
 
     ![Selecionar máquinas virtuais](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. Depois que um plano de recuperação é criado, ele aparece na lista da guia **Planos de Recuperação** . Selecione o plano e escolha **Failover de Teste**.
-5. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Com essa opção habilitada, as VMs de réplica com failover não serão conectadas a nenhuma rede. Isso testa se as VMs fazem failover como o esperado, mas não testa o ambiente de rede. Para saber mais sobre outras opções de rede, consulte [Failover do Site Recovery](site-recovery-failover.md#run-a-test-failover).
+5. Na página **Confirmar Failover de Teste** selecione **Nenhum**. Com essa opção habilitada, as VMs de réplica com failover não serão conectadas a nenhuma rede. Isso testa se as VMs fazem failover como o esperado, mas não testa o ambiente de rede. Para saber mais sobre outras opções de rede, consulte [Failover do Site Recovery](site-recovery-failover.md).
 
     ![Selecionar rede de teste](./media/site-recovery-vmm-san/test-fail1.png)
 

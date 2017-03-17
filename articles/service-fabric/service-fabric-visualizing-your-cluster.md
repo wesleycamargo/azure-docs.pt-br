@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: dafaf29b6827a6f1c043af3d6bfe62d480d31ad5
-ms.openlocfilehash: bebfd5e0cc209d8c1fc28d2300c57e3519410954
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: cc61146e0353455c5c763297a002afb86b76887a
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -83,11 +84,11 @@ A tabela a seguir lista as ações disponíveis para cada entidade:
 | Aplicativo |Excluir Aplicativo |Exclua o aplicativo, incluindo todos os seus serviços e o estado (se houver). |
 | O Barramento de |Excluir serviço |Exclua o serviço e seu estado (se houver). |
 | Nó |Ativar |Ative o nó. |
-| Desativar (pausa) |Pause o nó em seu estado atual. Os serviços continuam sendo executados, mas o Service Fabric não move nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. | |
-| Desativar (reiniciar) |Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. | |
-| Desativar (remover dados) |Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. | |
-| Remover o estado do nó |Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. | |
-| Nó | Reiniciar | Simule a falha de nó reiniciando o nó. Mais informações podem ser obtidas [aqui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
+| Nó | Desativar (pausa) | Pause o nó em seu estado atual. Os serviços continuam sendo executados, mas o Service Fabric não move nada dele ou para ele proativamente, exceto se for necessário para impedir uma interrupção ou inconsistência de dados. Essa ação normalmente é usada para habilitar serviços de depuração em um nó específico a fim de garantir que não sejam movidos durante a inspeção. | |
+| Nó | Desativar (reiniciar) | Mova todos os serviços na memória de um nó com segurança e feche os serviços persistentes. Normalmente usado quando os processos de host ou o computador precisam ser reiniciados. | |
+| Nó | Desativar (remover dados) | Feche com segurança todos os serviços em execução no nó após a criação de réplicas de reposição suficientes. Normalmente usado quando um nó (ou pelo menos seu armazenamento) é desabilitado permanentemente. | |
+| Nó | Remover o estado do nó | Remova o conhecimento das réplicas do nó do cluster. Normalmente usado quando um nó com falha já é considerado irrecuperável. | |
+| Nó | Reiniciar | Simule a falha de nó reiniciando o nó. Mais informações podem ser obtidas [aqui](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) | |
 
 Como muitas ações são destrutivas, talvez seja necessário confirmar sua intenção antes que a ação seja concluída.
 
@@ -132,9 +133,4 @@ Se você tentar se conectar ao Service Fabric Explorer em um cluster seguro, dep
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

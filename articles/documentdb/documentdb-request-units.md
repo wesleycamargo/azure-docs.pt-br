@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 02/22/2017
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: bf58d333e81fb76ffc3cca8a8e1ccb3f71ac72c9
+ms.sourcegitcommit: 4f8235ae743a63129799972ca1024d672faccbe9
+ms.openlocfilehash: 7c32d69f3d6d2cc60f830db96b6aea47ce8712ca
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -26,7 +27,11 @@ Agora disponível: [calculadora de unidade de solicitação](https://www.documen
 ![Calculadora de produtividade][5]
 
 ## <a name="introduction"></a>Introdução
-Este artigo fornece uma visão geral das unidades de solicitação no [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/). 
+O [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) é um serviço de banco de dados NoSQL para documentos JSON totalmente escalável e gerenciável. Com o Banco de Dados de Documentos, você não precisa alugar máquinas virtuais, implantar software ou monitorar banco de dados. O Banco de Dados de Documentos é operado e continuamente monitorado por engenheiros da Microsoft para a melhor fornecer disponibilidade, desempenho e proteção aos dados do cliente. Os dados no DocumentDB são armazenados dentro de coleções, que são contêineres elásticos e altamente disponíveis. Em vez de gerenciar e pensar sobre os recursos de hardware, como CPU, memória e IOPs de uma coleção, você pode reservar a taxa de transferência em termos de solicitações por segundo. O DocumentDB gerencia automaticamente o provisionamento, o particionamento transparente e o dimensionamento da sua coleção para fornecer o número provisionado de solicitações. 
+
+O DocumentDB oferece suporte a uma série de APIs para leituras, gravações, consultas e execuções de procedimentos armazenados. Como nem todas as solicitações são iguais, eles recebem um valor normalizado de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico, e você pode acompanhar o número de unidades de solicitação consumidas por qualquer operação no DocumentDB por meio de um cabeçalho de resposta.
+
+Cada coleção no DocumentDB pode ser reservada com taxa de transferência e expressada em termos de unidades de solicitação. Isso é manifestado em blocos de 100 unidades de solicitação por segundo, que variam de centenas até milhões de unidades de solicitação por segundo. A produtividade provisionada pode ser ajustada durante toda a vida útil de uma coleção para se adaptar às necessidades de processamento em constante mudança e aos padrões de acesso do aplicativo. 
 
 Após ler este artigo, você poderá responder as perguntas a seguir:  
 
@@ -47,9 +52,45 @@ Com o Banco de Dados de Documentos, a taxa de transferência reservada é especi
 > 
 
 ## <a name="specifying-request-unit-capacity"></a>Especificação da capacidade da unidade de solicitação
-Ao criar uma coleção do Banco de Dados de Documentos, você pode especificar o número de RUs (unidades de solicitação) por segundo que deseja reservar para a coleção.  Quando a coleção é criada, a alocação total de RUs especificada é reservada para uso da coleção.  Cada coleção tem a garantia de ter características de taxa de transferência dedicadas e isoladas.  
+Ao criar uma coleção no DocumentDB, você pode especificar o número de unidades de solicitação por segundo (RU por segundo) que deseja reservar para a coleção. Com base na taxa de transferência provisionada, o DocumentDB aloca partições físicas para hospedar sua coleção e, em seguida, divide e redistribui dados em partições conforme a demanda.
 
-É importante observar que o Banco de Dados de Documentos opera em um modelo de reserva. Ou seja, você será cobrado pela quantidade de produtividade *reservada* para a coleção, independentemente da quantidade dessa produtividade que é *usada* ativamente.  No entanto, lembre-se de que, à medida que a carga, os dados e os padrões de uso do aplicativo forem alterados, você poderá escalar vertical e horizontalmente com facilidade a quantidade de RUs reservadas por meio de SDKs do Banco de Dados de Documentos ou usando o [Portal do Azure](https://portal.azure.com).  Para saber mais sobre como escalar vertical e horizontalmente a produtividade, confira [Níveis de desempenho no Banco de Dados de Documentos](documentdb-performance-levels.md).
+O DocumentDB requer uma chave de partição a ser especificada quando uma coleção é provisionada com 10.000 unidades de solicitação ou superior. Uma chave de partição também é necessária para dimensionar a taxa de transferência da coleção superior a 10.000 unidades de solicitação no futuro. Portanto, é altamente recomendável configurar uma [chave de partição](documentdb-partition-data.md) durante a criação de uma coleção, independentemente da taxa de transferência inicial. Como os dados podem estar divididos em várias partições, é necessário escolher uma chave de partição que tem uma cardinalidade alta (100s para milhões de valores distintos) para que a coleção e solicitações podem ser dimensionadas uniformemente com DocumentDB. 
+
+> [!NOTE]
+> Uma chave de partição é um limite lógico e não físico. Portanto, não é necessário limitar o número de valores de chave de partição distinta. Na verdade, já que o DocumentDB tem mais opções de balanceamento de carga, é melhor ter mais valores de chave de partição distintos do que menos.
+
+Segue um trecho de código para criar uma coleção com 3.000 unidades de solicitação por segundo usando o SDK do .NET:
+
+```C#
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+O DocumentDB opera em um modelo de reserva na taxa de transferência. Ou seja, você será cobrado pela quantidade de taxa de transferência *reservada* da coleção, independentemente do quanto da taxa de transferência estiver em *uso*. No entanto, à medida que a carga, os dados e os padrões de uso do aplicativo forem alterados, você poderá escalar para mais e menos a quantidade de RUs reservadas por meio de SDKs do DocumentDB ou usando o [Portal do Azure](https://portal.azure.com).
+
+Cada coleção é mapeada para um recurso `Offer` no DocumentDB, que tem metadados sobre a taxa de transferência provisionada da coleção. Para alterar a taxa de transferência alocada, procure o recurso de oferta correspondente para uma coleção e, em seguida, atualize-o com o novo valor de taxa de transferência. Aqui está um trecho de código para alterar a taxa de transferência de uma coleção para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
+
+```C#
+// Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
+
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
+
+// Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
+
+Não há nenhum impacto sobre a disponibilidade de sua coleção quando você altera a taxa de transferência. Normalmente, a nova taxa de transferência reservada se torna eficaz em segundos no aplicativo da nova taxa de transferência.
 
 ## <a name="request-unit-considerations"></a>Considerações sobre unidades de solicitação
 Ao estimar o número de unidades de solicitação a serem reservadas para a coleção do Banco de Dados de Documentos, é importante considerar as seguintes variáveis:
@@ -69,6 +110,55 @@ Uma unidade de solicitação é uma medida normalizada de custo de processamento
 > A linha de base de uma unidade de solicitação para um documento de 1 KB corresponde a um GET simples por self link ou id do documento.
 > 
 > 
+
+Por exemplo, veja uma tabela que mostra quantas unidades de solicitação provisionar em três tamanhos de documento diferentes (1 KB, 4 KB e 64 KB) e em dois níveis de desempenho diferentes (500 leituras/segundo + 100 gravações/segundo e 500 leituras/segundo + 500 gravações/segundo). A consistência dos dados foi configurada em Sessão e a política de indexação foi definida como Nenhuma.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p><strong>Tamanho do documento</strong></p></td>
+            <td valign="top"><p><strong>Leituras/segundo</strong></p></td>
+            <td valign="top"><p><strong>Gravações/segundo</strong></p></td>
+            <td valign="top"><p><strong>Unidades de solicitação</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 5) + (100 * 5) = 3.000 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>100</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 RU/s</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>500</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 RU/s</p></td>
+        </tr>
+    </tbody>
+</table>
 
 ### <a name="use-the-request-unit-calculator"></a>Usar a calculadora de unidade de solicitação
 Para ajudar os clientes a ajustar as estimativas de produtividade, há uma [calculadora de unidade de solicitação](https://www.documentdb.com/capacityplanner) baseada na Web que ajuda a fazer uma estimativa dos requisitos de unidade de solicitação para operações comuns, incluindo:
@@ -99,7 +189,7 @@ Usar a ferramenta é simples:
 > 
 
 ### <a name="use-the-documentdb-request-charge-response-header"></a>Usar o cabeçalho de resposta do encargo de solicitação do Banco de Dados de Documentos
-Todas as respostas do serviço Banco de Dados de Documentos incluem um cabeçalho personalizado (x-ms-request-charge) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Banco de Dados de Documentos. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Gerenciador de Consultas do Banco de Dados de Documentos no portal do Azure fornece informações sobre solicitações de encargo para consultas executadas.
+Todas as respostas do serviço do DocumentDB incluem um cabeçalho personalizado (`x-ms-request-charge`) que contém as unidades de solicitação consumidas para a solicitação. Esse cabeçalho também está acessível por meio dos SDKs do Banco de Dados de Documentos. No SDK .NET, RequestCharge é uma propriedade do objeto ResourceResponse.  Para consultas, o Gerenciador de Consultas do Banco de Dados de Documentos no portal do Azure fornece informações sobre solicitações de encargo para consultas executadas.
 
 ![Análise de encargos de RU no Gerenciador de Consultas][1]
 
@@ -122,53 +212,55 @@ Por exemplo:
 ## <a name="a-request-unit-estimation-example"></a>Um exemplo de estimativa de unidade de solicitação
 Considere o seguinte documento de aproximadamente&1; KB:
 
+```JSON
+{
+ "id": "08259",
+  "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
+  "tags": [
     {
-     "id": "08259",
-      "description": "Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX",
-      "tags": [
-        {
-          "name": "cereals ready-to-eat"
-        },
-        {
-          "name": "kellogg"
-        },
-        {
-          "name": "kellogg's crispix"
-        }
-    ],
-      "version": 1,
-      "commonName": "Includes USDA Commodity B855",
-      "manufacturerName": "Kellogg, Co.",
-      "isFromSurvey": false,
-      "foodGroup": "Breakfast Cereals",
-      "nutrients": [
-        {
-          "id": "262",
-          "description": "Caffeine",
-          "nutritionValue": 0,
-          "units": "mg"
-        },
-        {
-          "id": "307",
-          "description": "Sodium, Na",
-          "nutritionValue": 611,
-          "units": "mg"
-        },
-        {
-          "id": "309",
-          "description": "Zinc, Zn",
-          "nutritionValue": 5.2,
-          "units": "mg"
-        }
-      ],
-      "servings": [
-        {
-          "amount": 1,
-          "description": "cup (1 NLEA serving)",
-          "weightInGrams": 29
-        }
-      ]
+      "name": "cereals ready-to-eat"
+    },
+    {
+      "name": "kellogg"
+    },
+    {
+      "name": "kellogg's crispix"
     }
+  ],
+  "version": 1,
+  "commonName": "Includes USDA Commodity B855",
+  "manufacturerName": "Kellogg, Co.",
+  "isFromSurvey": false,
+  "foodGroup": "Breakfast Cereals",
+  "nutrients": [
+    {
+      "id": "262",
+      "description": "Caffeine",
+      "nutritionValue": 0,
+      "units": "mg"
+    },
+    {
+      "id": "307",
+      "description": "Sodium, Na",
+      "nutritionValue": 611,
+      "units": "mg"
+    },
+    {
+      "id": "309",
+      "description": "Zinc, Zn",
+      "nutritionValue": 5.2,
+      "units": "mg"
+    }
+  ],
+  "servings": [
+    {
+      "amount": 1,
+      "description": "cup (1 NLEA serving)",
+      "weightInGrams": 29
+    }
+  ]
+}
+```
 
 > [!NOTE]
 > Os documentos são reduzidos no Banco de Dados de Documentos, assim, o tamanho do documento acima calculado pelo sistema é um pouco menor que 1 KB.
@@ -209,7 +301,7 @@ Com essas informações, podemos estimar os requisitos de RU para o aplicativo, 
 
 Nesse caso, esperamos um requisito de taxa de transferência médio de 1.275 RUs/s.  Arredondando para a centena mais próxima, vamos provisionar 1.300 RUs/s para a coleção desse aplicativo.
 
-## <a name="a-idrequestratetoolargea-exceeding-reserved-throughput-limits"></a><a id="RequestRateTooLarge"></a> Exceder os limites de taxa de transferência reservada
+## <a id="RequestRateTooLarge"></a> Exceder os limites de taxa de transferência reservada
 Lembre-se de que o consumo de unidades de solicitação é avaliado como uma taxa por segundo. Para aplicativos que ultrapassam a taxa de unidades solicitação provisionada para uma coleção, as solicitações a essa coleção são limitadas até que a taxa caia para baixo do nível reservado. Quando ocorre uma restrição, o servidor encerra preventivamente a solicitação com RequestRateTooLargeException (código de status HTTP 429) e retorna o cabeçalho x-ms-retry-after-ms, indicando a quantidade de tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 
     HTTP Status 429
@@ -236,9 +328,4 @@ Para começar com os testes de desempenho e escala com o DocumentDB, confira [Te
 [3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

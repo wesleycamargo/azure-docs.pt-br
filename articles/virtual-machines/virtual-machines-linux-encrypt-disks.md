@@ -17,6 +17,7 @@ ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 233116deaaaf2ac62981453b05c4a5254e836806
 ms.openlocfilehash: 97dd91986751031daef24fc806adc7021b2f94fc
+ms.lasthandoff: 01/31/2017
 
 
 ---
@@ -308,10 +309,5 @@ azure vm enable-disk-encryption --resource-group myResourceGroup --name myVM \
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre como gerenciar o Cofre de Chaves do Azure, incluindo a exclusão de chaves criptográficas e cofres, consulte [Gerenciar Cofres de Chaves usando a CLI](../key-vault/key-vault-manage-with-cli.md).
 * Para obter mais informações sobre criptografia de disco, como preparar uma VM personalizada criptografada para carregar no Azure, consulte [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

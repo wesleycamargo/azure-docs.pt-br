@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar os grupos dos quais seu grupo é membro na visualização do Azure Active Directory | Microsoft Docs"
-description: "Os grupos podem conter outros grupos no Azure Active Directory.  Veja como gerenciar essas associações."
+title: "Gerenciar os grupos dos quais seu grupo pertence à visualização do Azure Active Directory | Microsoft Docs"
+description: "Os grupos podem conter outros grupos no Azure Active Directory. Veja como gerenciar essas associações."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,16 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1968862a68d86c0f42e86ecb1f23aeebd264076c
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: 8e0563f3490186a19dd9418ebf7beac7dd8dd046
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="manage-the-groups-your-group-is-a-member-of-in-azure-active-directory-preview"></a>Gerenciar os grupos nos quais seu grupo é um membro na visualização do Azure Active Directory
-Os grupos podem conter outros grupos na visualização do Azure Active Directory. [O que há na visualização?](active-directory-preview-explainer.md)  Veja como gerenciar essas associações.
+# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gerenciar a quais grupos um grupo pertence no seu locatário do Azure Active Directory
+Os grupos podem conter outros grupos na visualização do Azure Active Directory. [O que há na visualização?](active-directory-preview-explainer.md) Veja como gerenciar essas associações.
 
 ## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>Como localizo os grupos dos quais meu grupo é um membro?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -53,9 +55,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

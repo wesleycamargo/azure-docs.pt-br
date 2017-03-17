@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/15/2017
 ms.author: heidist
-experimental: true
-experiment_id: heidist-experiment1-20170221
+experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: f7e657906d24693dffd84ebbd348d1940f271931
-ms.openlocfilehash: a4e28e17cd3ce2488bd292a4c5e95fb532526a56
-ms.lasthandoff: 02/21/2017
+ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
+ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
+ms.lasthandoff: 02/23/2017
 
 ---
 # <a name="what-is-azure-search"></a>O que é a Pesquisa do Azure?
@@ -29,7 +28,7 @@ O Azure Search oferece um mecanismo de pesquisa dedicado e programável com comp
 
 Ter uma experiência de pesquisa sólida é uma necessidade para a maioria dos aplicativos web e móveis. Pesquisa de texto completo com os termos da consulta com preenchimento automático, correções ortográficas e correspondências com base em entradas semanticamente idênticas, mas superficialmente diferentes ("carro" e "auto"), é quase a barra mínima, apesar da complexidade técnica reforçando a experiência. Igualmente importantes são os requisitos operacionais para o dimensionamento, confiabilidade e sincronização entre os armazenamentos de dados de back-end e de pesquisa. 
 
-O Azure Search fornece uma ampla gama de recursos, permitindo que você atenda aos requisitos operacionais e de pesquisa.
+O Azure Search fornece ampla funcionalidade, permitindo que você atenda aos requisitos operacionais e de pesquisa.
 
 ![Barra de pesquisa e página de pesquisa personalizada com os recursos de pesquisa comuns](./media/search-what-is-azure-search/search-page-callouts3.png)
 
@@ -50,7 +49,7 @@ Os serviços dedicados são executados 24x7 em escala com [99,9% dos contratos n
 
 Vários provedores de serviço de nuvem oferecem mecanismos de pesquisa personalizados com recursos que ativam uma barra de pesquisa nos aplicativos personalizados. Alguns oferecem recursos comparáveis da linha de base, com a pesquisa de texto completo, pesquisa geográfica e capacidade de lidar com certo nível de ambiguidade nas entradas da pesquisa. Normalmente, é um [recurso especializado](#feature-drilldown) ou a facilidade e simplicidade geral das APIs, ferramentas e gerenciamento que determinam o melhor ajuste.
 
-Como pontos de comparação com outras soluções de pesquisa, o Azure Search é mais forte para as cargas de trabalho de pesquisa de texto completo nos armazenamentos de conteúdo e bancos de dados no Azure, com uma camada adicional de funcionalidade necessária para os aplicativos que dependem principalmente da pesquisa para a navegação do conteúdo. 
+Como pontos de comparação com outras soluções de pesquisa, o Azure Search é mais forte para as cargas de trabalho de pesquisa de texto completo nos armazenamentos de conteúdo e bancos de dados no Azure, com uma camada adicional de funcionalidade necessária para os aplicativos que dependem principalmente da pesquisa para recuperação de informações e navegação do conteúdo. 
 
 + Integração dos dados do Azure (rastreadores) na camada de indexação
 + Portal do Azure para o gerenciamento central
@@ -61,7 +60,9 @@ Como pontos de comparação com outras soluções de pesquisa, o Azure Search é
 > [!Note]
 > As fontes de dados não do Azure são totalmente compatíveis. Você pode direcionar qualquer coleção de documentos JSON para um índice do Azure Search.
 
-### <a name="a-namefeature-drilldownafeature-drilldown"></a><a name="feature-drilldown"></a>Busca detalhada do recurso
+Use casos que sejam capazes de aproveitar a mais ampla gama de recursos no Azure Search, incluindo catálogos online, programas de linha de negócios e aplicativos de descoberta de documentos.
+
+### <a name="feature-drilldown"></a>Busca detalhada do recurso
 
 #### <a name="full-text-search-and-text-analysis"></a>Análise de texto e pesquisa de texto completo
 

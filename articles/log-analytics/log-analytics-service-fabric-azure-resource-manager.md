@@ -1,6 +1,6 @@
 ---
-title: "Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs"
-description: "Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric."
+title: Avaliar aplicativos do Service Fabric com o Log Analytics usando o Portal do Azure | Microsoft Docs
+description: "Você pode usar a solução do Service Fabric no Log Analytics usando o Portal do Azure para avaliar o risco e a integridade dos aplicativos do Service Fabric, microsserviços, nós e clusters."
 services: log-analytics
 documentationcenter: 
 author: niniikhena
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ac94bca1657efbe0ce94db953933f026217d1c8a
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Solução do Service Fabric no Log Analytics)
+# <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avaliar aplicativos do Service Fabric e microsserviços com o Portal do Azure
+
 > [!div class="op_single_selector"]
-> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [Gerenciador de Recursos](log-analytics-service-fabric-azure-resource-manager.md)
 > * [PowerShell](log-analytics-service-fabric.md)
-> 
-> 
+>
+>
 
 Este artigo descreve como usar a solução de Service Fabric no Log Analytics para ajudar a identificar e solucionar problemas em seu cluster do Service Fabric.
 
@@ -79,11 +81,11 @@ Para exibir dados de desempenho de seus nós:
 * Vá para Configurações no painel esquerdo e selecione Dados >> Contadores de Desempenho do Windows >> "Adicionar os contadores de desempenho selecionados": ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 * Na Pesquisa de Log, use as seguintes consultas se aprofundar nas principais métricas sobre seus nós:
   </br>
-  
+
     a. Compare a média de Utilização da CPU em todos os nós na última hora para ver os nós que estão tendo problemas e o intervalo em que um nó teve um pico:
-  
+
     ``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
-  
+
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
     b. Exibir gráficos de linhas semelhantes para a memória disponível em cada nó com esta consulta:
@@ -115,8 +117,8 @@ Este modelo simplesmente adiciona suas contas de armazenamento existentes a um e
 > [!NOTE]
 > Ao selecionar um grupo de recursos, se você estiver trabalhando com um espaço de trabalho já existente do Log Analytics, selecione "Usar Existente" e pesquise o grupo de recursos que contém o espaço de trabalho do OMS. Caso contrário, crie um novo.
 > ![Service Fabric](./media/log-analytics-service-fabric/8.png)
-> 
-> 
+>
+>
 
 Após esse modelo ter sido implantado, você poderá ver a conta de armazenamento conectada ao seu espaço de trabalho do Log Analytics. Neste exemplo, eu adicionei mais uma conta de armazenamento ao espaço de trabalho do Exchange que criei acima.
 ![Service Fabric](./media/log-analytics-service-fabric/9.png)
@@ -144,15 +146,9 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 > [!NOTE]
 > Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Você também pode mostrar eventos gerados dentro dos últimos sete dias, um dia ou seis horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados dos eventos do Service Fabric.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

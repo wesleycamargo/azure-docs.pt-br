@@ -12,22 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: e22177e7faa371e43f5f6a41b3e17a9f2b33e6ff
+ms.sourcegitcommit: 3334729cbc4ab4a48e10ece0a15a31595317ca3f
+ms.openlocfilehash: 5a14124412ac8e86a4a76d18c6d93a17a4f72b1b
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="reset-the-password-for-a-user"></a>Redefinir a senha de um usuário
+# <a name="reset-a-password-for-a-user-in-the-azure-classic-portal"></a>Redefinir uma senha para um usuário no Portal Clássico do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-create-users-reset-password.md)
 >
 >
 
-Se você estiver respondendo a um usuário que está solicitando uma redefinição de senha após um bloqueio ou se estiver apenas cuidando da manutenção de segurança de rotina, às vezes, será necessário redefinir a senha de um usuário. O Azure AD (Azure Active Directory) facilita essas tarefas.
+O Azure Active Directory (Azure AD) simplifica o processo de redefinição de senha do um usuário, caso ele se esqueça e fique bloqueado, ou enquanto realiza a manutenção da segurança de rotina. 
 
 1. Abra seu diretório.
 2. Selecione a guia **Usuários** e o nome de exibição do usuário que deseja alterar.
@@ -40,9 +42,4 @@ Se você estiver respondendo a um usuário que está solicitando uma redefiniç�
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
 * [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

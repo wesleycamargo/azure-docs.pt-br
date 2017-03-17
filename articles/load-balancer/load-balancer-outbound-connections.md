@@ -15,8 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: bec4f89556a2daa41e19b0ecb2ab9bbbed849107
-ms.openlocfilehash: 0bf40c5b44ea87c88d4464baf958e8afb7a59c38
+ms.sourcegitcommit: 273598a6eecb358c0b308c481193323e67dd475c
+ms.openlocfilehash: 24c3fdd8124ff3cc43feacb6f25dda84be9f46d9
+ms.lasthandoff: 02/28/2017
 
 ---
 
@@ -36,7 +37,7 @@ Se não quiser que uma VM se comunique com pontos de extremidade fora do Azure n
 
 ## <a name="standalone-vm-with-no-instance-level-public-ip-address"></a>VM autônoma sem endereço IP público em nível de instância
 
-Nesse cenário, a VM não faz parte de um pool do Azure Load Balancer e não tem um endereço ILPIP (IP Público em Nível de Instância) atribuído a ele. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
+Nesse cenário, a VM não faz parte de um pool do Azure Load Balancer e não tem um endereço ILPIP (IP Público em Nível de Instância) atribuído a ele. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
 
 As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, consumem uma única porta SNAT por destino. O endereço IP de destino torna os fluxos exclusivos.
 
@@ -65,9 +66,4 @@ Há várias maneiras de determinar o endereço IP público de uma conexão de sa
 Às vezes, não é recomendável para uma VM poder criar um fluxo de saída ou pode haver um requisito para gerenciar quais destinos podem ser alcançados com fluxos de saída. Nesse caso, você usa o [NSG (Grupos de Segurança de Rede)](../virtual-network/virtual-networks-nsg.md) para gerenciar os destinos que a VM pode acessar. Quando você aplica um NSG a uma VM com balanceamento de carga, é necessário prestar atenção nas [marcações padrão](../virtual-network/virtual-networks-nsg.md#default-tags) e nas [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Certifique-se de que a VM possa receber solicitações de investigação de integridade do Azure Load Balancer. Se um NSG bloquear solicitações de investigação de integridade da marcação padrão AZURE_LOADBALANCER, o teste de integridade da VM falhará e a VM será reduzida. O Balanceador de Carga interrompe o envio de novos fluxos para a VM.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

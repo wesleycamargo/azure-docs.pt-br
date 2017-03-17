@@ -1,5 +1,5 @@
 ---
-title: "Usar a preparação do trabalho e tarefas de liberação - Azure Batch | Microsoft Docs"
+title: "Criar tarefas para preparar e concluir trabalhos em nós de computação - Lote do Azure | Microsoft Docs"
 description: "Use tarefas de preparação de nível de trabalho para minimizar a transferência de dados para nós de computação do Lote do Azure e libere as tarefas para limpeza de nó na conclusão do trabalho."
 services: batch
 documentationcenter: .net
@@ -12,15 +12,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 01/23/2017
+ms.date: 02/27/2017
 ms.author: tamram
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: bf22cd3426e936c8d74377f59443e5e1a6834286
-ms.openlocfilehash: 3b34a9665bfab85abbd633d01139ba2da2249bbf
+ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
+ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Executar tarefas de preparação e conclusão do trabalho em nós de computação em lotes do Azure
+# <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
+
  Um trabalho do Lote do Azure geralmente requer alguma forma de configuração antes da execução das tarefas e manutenção pós-trabalho quando as tarefas são concluídas. Talvez seja necessário baixar dados de entrada de tarefas comuns nos nós de computação ou carregar dados de saída da tarefa no Armazenamento do Azure depois que o trabalho for concluído. Você pode usar tarefas de **preparação de trabalho** e de **liberação de trabalho** para executar essas operações.
 
 ## <a name="what-are-job-preparation-and-release-tasks"></a>O que são as tarefas de preparação e liberação do trabalho?
@@ -222,9 +225,4 @@ Escrito por um dos membros da equipe do Lote do Azure, ele aborda várias técni
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

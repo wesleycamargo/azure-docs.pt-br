@@ -1,6 +1,6 @@
 ---
 
-title: "Identificar e resolver problemas de licença para um grupo no Azure Active Directory | Microsoft Docs"
+title: "Resolver problemas de licença para um grupo no Azure Active Directory | Microsoft Docs"
 description: "Como identificar e resolver problemas de atribuição de licença usando o licenciamento baseado em grupo do Azure Active Directory"
 services: active-directory
 keywords: Licenciamento do AD do Azure
@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/21/2017
+ms.date: 02/28/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6a9cebafd1ad8f513bfab897970241f7b82b2a53
-ms.openlocfilehash: 9a434cf35d7934dc5eb759851fb65ad2a9f06eef
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ac3f563828c5fa379f328392a3f5cf7c7932f534
+ms.openlocfilehash: 4ed83a1af1c31d41860931d363d93c7d61df9c98
+ms.lasthandoff: 03/01/2017
 
 
 ---
 
-# <a name="identifying-and-resolving-license-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de licença para um grupo no Azure Active Directory
+# <a name="identifying-and-resolving-license-assignment-problems-when-using-groups-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças ao usar grupos no Azure Active Directory
 
 
 O licenciamento baseado em grupo no Azure Active Directory (Azure AD) introduz o conceito de usuários em estado de erro de licenciamento. Neste artigo, vamos explicar por que os usuários podem acabar nesse estado. Quando as licenças são atribuídas diretamente a usuários individuais, sem o uso de licenciamento baseado em grupo, a operação de atribuição pode falhar. Por exemplo, quando o administrador executa o cmdlet `Set-MsolUserLicense` do PowerShell em um usuário, o cmdlet pode falhar por vários motivos relacionados à lógica de negócios, como um número insuficiente de licenças ou um conflito entre dois planos de serviço que não podem ser atribuídos ao mesmo tempo. O problema é relatado imediatamente ao usuário que está executando o comando.
