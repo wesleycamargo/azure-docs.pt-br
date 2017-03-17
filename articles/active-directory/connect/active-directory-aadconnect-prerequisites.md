@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 7174da908fda12fbb83a102921d9f223fc3ee17b
-ms.openlocfilehash: 2fb3dffb35a4798942f95df65a9af822dd2485cd
+ms.sourcegitcommit: fe0377fed432ac2c83f7a277ba41d9ffcc138ba7
+ms.openlocfilehash: 8d0533c81866dee7d24f3d5ccc5958b019d55a40
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -52,7 +53,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * Se você usar um SQL Server separado, esses requisitos se aplicam:
   * O Azure Connect AD oferece suporte a todos as versões do Microsoft SQL Server, do SQL Server 2008 (com SP4) ao SQL Server 2016. O Banco de Dados SQL do Microsoft Azure **não tem suporte** como banco de dados.
   * Deve usar uma colação de SQL que não diferencia maiúsculas de minúsculas São identificados com um \_CI_ no nome. **Não há suporte** para a utilização de um agrupamento de maiúsculas e minúsculas, identificado por \_CS_ em seu nome.
-  * Você só pode ter uma instância de banco de dados de motor de sincronização. **Não há suporte** para compartilhar a instância de banco de dados com a sincronização do FIM/MIM, DirSync ou Azure AD Sync.
+  * Você só pode ter um mecanismo de sincronização por instância do SQL. **Não há suporte** para compartilhar uma instância do SQL com FIM/MIM Sync, DirSync ou Azure AD Sync.
 
 ### <a name="accounts"></a>Contas
 * Uma conta de Administrador Global de AD do Azure para o diretório do AD do Azure com o qual você deseja se integrar. Esse valor deve ser uma **conta corporativa ou de estudante** e não pode ser uma **conta da Microsoft**.
@@ -200,10 +201,4 @@ Os requisitos mínimos para computadores que executam o AD FS ou servidores de a
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

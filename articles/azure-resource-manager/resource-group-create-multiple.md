@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2016
+ms.date: 02/24/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: b3972f3d407b3ba9529b36005c0856796c272095
+ms.sourcegitcommit: 04a3866f88b00486c30c578699d34cd6e8e776d7
+ms.openlocfilehash: 056ee5e67b9a6d396586c53b04d50f89e6fbb560
+ms.lasthandoff: 02/27/2017
 
 
 ---
@@ -26,45 +27,53 @@ Este tópico mostra como iterar em seu modelo do Gerenciador de Recursos do Azur
 ## <a name="copy-copyindex-and-length"></a>copy, copyIndex e length
 No recurso a ser criado várias vezes, você pode definir um objeto **copy** que especifica o número de vezes para iterar. A cópia recebe o seguinte formato:
 
-    "copy": { 
-        "name": "websitescopy", 
-        "count": "[parameters('count')]" 
-    } 
+```json
+"copy": { 
+    "name": "websitescopy", 
+    "count": "[parameters('count')]" 
+} 
+```
 
 Você pode acessar o valor de iteração atual com a função **copyIndex()**. O exemplo a seguir usa copyIndex com a função concat para construir um nome.
 
-    [concat('examplecopy-', copyIndex())]
+```json
+[concat('examplecopy-', copyIndex())]
+```
 
 Ao criar vários recursos de uma matriz de valores, você pode usar a função **length** para especificar a contagem. Você pode fornecer a matriz como o parâmetro para a função length.
 
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
+```json
+"copy": {
+    "name": "websitescopy",
+    "count": "[length(parameters('siteNames'))]"
+}
+```
 
 Só é possível aplicar o objeto de cópia para um recurso de nível superior. Você não pode aplicá-la a uma propriedade em um tipo de recurso ou a um recurso filho. No entanto, este tópico mostra como especificar vários itens de uma propriedade e criar várias instâncias de um recurso filho. A pseudocódigo de exemplo a seguir mostra onde a cópia pode ser aplicada:
 
+```json
+"resources": [
+  {
+    "type": "{provider-namespace-and-type}",
+    "name": "parentResource",
+    "copy": {  
+      /* yes, copy can be applied here */
+    },
+    "properties": {
+      "exampleProperty": {
+        /* no, copy cannot be applied here */
+      }
+    },
     "resources": [
       {
-        "type": "{provider-namespace-and-type}",
-        "name": "parentResource",
-        "copy": {  
-          /* yes, copy can be applied here */
-        },
-        "properties": {
-          "exampleProperty": {
-            /* no, copy cannot be applied here */
-          }
-        },
-        "resources": [
-          {
-            "type": "{provider-type}",
-            "name": "childResource",
-            /* copy can be applied if resource is promoted to top level */ 
-          }
-        ]
+        "type": "{provider-type}",
+        "name": "childResource",
+        /* copy can be applied if resource is promoted to top level */ 
       }
-    ] 
+    ]
+  }
+] 
+```
 
 Embora você não possa aplicar a **copy** a uma propriedade, essa propriedade ainda faz parte das iterações do recurso que contém a propriedade. Portanto, você pode usar **copyIndex()** dentro da propriedade para especificar valores.
 
@@ -81,27 +90,29 @@ Você pode usar a operação de cópia para criar várias instâncias de um recu
 
 Use o modelo a seguir:
 
-    "parameters": { 
-      "count": { 
-        "type": "int", 
-        "defaultValue": 3 
-      } 
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', copyIndex())]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[parameters('count')]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          }
-      } 
-    ]
+```json
+"parameters": { 
+  "count": { 
+    "type": "int", 
+    "defaultValue": 3 
+  } 
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', copyIndex())]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[parameters('count')]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
+      }
+  } 
+]
+```
 
 ## <a name="offset-index-value"></a>Valor de índice de deslocamento
 No exemplo anterior, o valor de índice vai de zero a 2. Para deslocar o valor do índice, você pode passar um valor da função **copyIndex()**, como **copyIndex(1)**. O número de iterações a ser executado ainda é especificado no elemento de cópia, mas o valor de copyIndex é compensado pelo valor especificado. Desta maneira, usar o mesmo modelo do exemplo anterior, porém especificando **copyIndex(1)** , implantaria três sites da Web chamados:
@@ -119,115 +130,119 @@ A operação de cópia é útil ao trabalhar com matrizes porque você pode perc
 
 Use o modelo a seguir:
 
-    "parameters": { 
-      "org": { 
-         "type": "array", 
-         "defaultValue": [ 
-             "Contoso", 
-             "Fabrikam", 
-             "Coho" 
-          ] 
-      }
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2015-08-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[length(parameters('org'))]" 
-          }, 
-          "properties": {
-              "serverFarmId": "hostingPlanName"
-          } 
+```json
+"parameters": { 
+  "org": { 
+     "type": "array", 
+     "defaultValue": [ 
+         "Contoso", 
+         "Fabrikam", 
+         "Coho" 
+      ] 
+  }
+}, 
+"resources": [ 
+  { 
+      "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
+      "type": "Microsoft.Web/sites", 
+      "location": "East US", 
+      "apiVersion": "2015-08-01",
+      "copy": { 
+         "name": "websitescopy", 
+         "count": "[length(parameters('org'))]" 
+      }, 
+      "properties": {
+          "serverFarmId": "hostingPlanName"
       } 
-    ]
+  } 
+]
+```
 
 É claro que você pode definir a contagem de cópias como um valor diferente do comprimento da matriz. Por exemplo, você poderia criar uma matriz com vários valores e, em seguida, passar um valor de parâmetro que especifique quantos dos elementos da matriz serão implantados. Nesse caso, você define a contagem de cópias como mostrado no primeiro exemplo. 
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
 Você pode especificar a implantação de um recurso após outro recurso usando o elemento **dependsOn**. Para implantar um recurso que depende do conjunto de recursos em um loop, forneça o nome do loop de cópia no elemento **dependsOn**. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina Virtual. A definição completa da máquina Virtual não é exibida. Observe que o elemento de cópia tem **name** definido como **storagecopy** e o elemento **dependsOn** para as máquinas virtuais também é definido como **storagecopy**.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "resources": [
-            {
-                "apiVersion": "2015-06-15",
-                "type": "Microsoft.Storage/storageAccounts",
-                "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
-                "location": "[resourceGroup().location]",
-                "properties": {
-                    "accountType": "Standard_LRS"
-                 },
-                "copy": { 
-                     "name": "storagecopy", 
-                     "count": 3 
-                  }
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": [
+        {
+            "apiVersion": "2015-06-15",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accountType": "Standard_LRS"
             },
-            {
-                "apiVersion": "2015-06-15", 
-                "type": "Microsoft.Compute/virtualMachines", 
-                "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-                "dependsOn": ["storagecopy"],
-                ...
+            "copy": { 
+                "name": "storagecopy", 
+                "count": 3 
             }
-        ],
-        "outputs": {}
-    }
+        },
+        {
+            "apiVersion": "2015-06-15", 
+            "type": "Microsoft.Compute/virtualMachines", 
+            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+            "dependsOn": ["storagecopy"],
+            ...
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="create-multiple-instances-of-a-child-resource"></a>Criar diversas instâncias de um recurso filho
 Você não pode usar um loop de cópia para um recurso filho. Para criar várias instâncias de um recurso que você normalmente define como aninhado dentro de outro recurso, você deve criar esse recurso como um recurso de nível superior. Definir a relação com o recurso pai por meio das propriedades **type** e **name**.
 
 Por exemplo, suponha que você normalmente defina um conjunto de dados como um recurso filho em uma data factory.
 
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
     "resources": [
     {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-        "resources": [
-        {
-            "type": "datasets",
-            "name": "exampleDataSet",
-            "dependsOn": [
-                "exampleDataFactory"
-            ],
-            ...
-        }
-    }]
-
-Para criar várias instâncias de conjuntos de dados, mova-os para fora da data factory. O conjunto de dados deve estar no mesmo nível que a data factory, mas ainda é um recurso filho da data factory. Preserve a relação entre um conjunto de dados e a data factory por meio das propriedades **type** e **name**. Como o tipo não pode ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no seguinte formato:
-
- **{namespace-do-provedor-de-recursos}/{tipo-do-recurso-pai}/{tipo-do-recurso-filho}** 
-
-Para estabelecer uma relação pai/filho com uma instância da data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o seguinte formato para o nome:
-
-**{nome-do-recurso-pai}/{nome-do-recurso-filho}**.  
-
-O exemplo a seguir mostra a implementação:
-
-    "resources": [
-    {
-        "type": "Microsoft.DataFactory/datafactories",
-        "name": "exampleDataFactory",
-        ...
-    },
-    {
-        "type": "Microsoft.DataFactory/datafactories/datasets",
-        "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+        "type": "datasets",
+        "name": "exampleDataSet",
         "dependsOn": [
             "exampleDataFactory"
         ],
-        "copy": { 
-            "name": "datasetcopy", 
-            "count": "3" 
-        } 
         ...
-    }]
+    }
+}]
+```
+
+Para criar várias instâncias de conjuntos de dados, mova-os para fora da data factory. O conjunto de dados deve estar no mesmo nível que a data factory, mas ainda é um recurso filho da data factory. Preserve a relação entre um conjunto de dados e a data factory por meio das propriedades **type** e **name**. Como o tipo não pode ser inferido de sua posição no modelo, você deve fornecer o tipo totalmente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+
+Para estabelecer uma relação pai/filho com uma instância da data factory, forneça um nome para o conjunto de dados que inclui o nome do recurso pai. Use o formato: `{parent-resource-name}/{child-resource-name}`.  
+
+O exemplo a seguir mostra a implementação:
+
+```json
+"resources": [
+{
+    "type": "Microsoft.DataFactory/datafactories",
+    "name": "exampleDataFactory",
+    ...
+},
+{
+    "type": "Microsoft.DataFactory/datafactories/datasets",
+    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+    "dependsOn": [
+        "exampleDataFactory"
+    ],
+    "copy": { 
+        "name": "datasetcopy", 
+        "count": "3" 
+    } 
+    ...
+}]
+```
 
 ## <a name="create-multiple-instances-when-copy-wont-work"></a>Criar várias instâncias quando a cópia não funciona
 Você só pode usar **cópia** em tipos de recursos, não propriedades dentro de um tipo de recurso. Esse requisito pode criar problemas para você quando quiser criar várias instâncias de algo que faz parte de um recurso. Um cenário comum é criar vários discos de dados para uma Máquina Virtual. Não é possível usar **copy** com os discos de dados porque **dataDisks** é uma propriedade na Máquina Virtual e não seu próprio tipo de recurso. Em vez disso, você cria uma matriz com tantos discos de dados conforme o necessário e passa o número real de discos de dados para criar. Na definição de máquina virtual, você deve usar a função **take** para obter apenas o número de elementos que você realmente deseja da matriz.
@@ -236,7 +251,7 @@ Um exemplo completo desse padrão é mostrado no modelo [Criar uma máquina virt
 
 As seções relevantes do modelo de implantação são mostradas no exemplo a seguir. Grande parte do modelo foi removido para destacar as seções envolvidas na criação dinâmica de vários discos de dados. Observe o parâmetro **numDataDisks** que permite que você passe o número de discos para criar. 
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -338,7 +353,7 @@ As seções relevantes do modelo de implantação são mostradas no exemplo a se
 
 Você pode usar a função **take** e o elemento **copy** juntos quando precisa criar várias instâncias de um recurso com um número variável de itens para uma propriedade. Por exemplo, suponha que você precisa criar várias máquinas virtuais, mas cada máquina virtual tem um número diferente de discos de dados. Para dar a cada disco de dados um nome que identifica a máquina virtual associada, coloque sua matriz de discos de dados em um modelo separado. Inclua parâmetros para o nome da máquina virtual e o número de discos de dados para retornar. Na seção de saídas, retorne o número de itens especificados.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -382,7 +397,7 @@ Você pode usar a função **take** e o elemento **copy** juntos quando precisa 
 
 No modelo pai, você pode incluir parâmetros para o número de máquinas virtuais e uma matriz para o número de discos de dados para cada máquina virtual.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -404,7 +419,7 @@ No modelo pai, você pode incluir parâmetros para o número de máquinas virtua
 
 Na seção de recursos, implante várias instâncias do modelo que define os discos de dados. 
 
-```
+```json
 {
   "apiVersion": "2016-09-01",
   "name": "[concat('nested-', copyIndex())]",
@@ -430,7 +445,7 @@ Na seção de recursos, implante várias instâncias do modelo que define os dis
 
 Na seção de recursos, implante várias instâncias da máquina virtual. Para os discos de dados, consulte a implantação aninhada que contém o número correto e os nomes corretos dos discos de dados.
 
-```
+```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[concat('myvm', copyIndex())]",
@@ -454,7 +469,7 @@ Embora seja prático criar várias instâncias de um tipo de recurso, retornar v
 
 Primeiro, crie o modelo aninhado que cria a conta de armazenamento. Observe que ela aceita um parâmetro de matriz para os URIs de blob. Use esse parâmetro para fazer viagem de ida e volta de todos os valores de implantações anteriores. A saída do modelo é uma matriz que concatena o novo URI de blob aos URIs anteriores.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -495,7 +510,7 @@ Primeiro, crie o modelo aninhado que cria a conta de armazenamento. Observe que 
 
 Agora, crie o modelo pai que tem uma instância estática do modelo aninhado e faz loop nas instâncias restantes do modelo aninhado. Para cada instância da implantação em loop, passe uma matriz que é a saída da implantação anterior.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -552,10 +567,5 @@ Agora, crie o modelo pai que tem uma instância estática do modelo aninhado e f
 * Para saber mais sobre as seções de um modelo, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
 * Para ver todas as funções que você pode usar em um modelo, veja [Funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Para saber mais sobre como implantar o modelo, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

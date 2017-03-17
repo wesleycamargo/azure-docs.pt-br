@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar as configurações de um grupo na visualização do Azure Active Directory | Microsoft Docs"
+title: "Gerenciar propriedades de grupo na visualização do Azure Active Directory | Microsoft Docs"
 description: "Como editar as propriedades e outras definições de configuração para um grupo no Azure Active Directory"
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 02/27/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 3b31bd036d9c3ff8036b314b93cbddd94874ff63
-ms.openlocfilehash: ffb2f8d2eaaa0754063cd2f92791739b2dee3b16
+ms.sourcegitcommit: 58768cd59a922483bcb37797a6dcd515d159ef4c
+ms.openlocfilehash: a07348679b589c6e6d438af3f01fbfcc9b149b32
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -47,9 +49,4 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

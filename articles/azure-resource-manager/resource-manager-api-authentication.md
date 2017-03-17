@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
-ms.openlocfilehash: cacb2ce368a09c71c6f02548c5a1836ad77f540a
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 32f5959a9b96318208c46789ec406d614081bc8d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -27,7 +28,7 @@ Se você for um desenvolvedor de software que precisa criar um aplicativo que ge
 Seu aplicativo pode acessar as APIs do Gerenciador de Recursos de duas maneiras:
 
 1. **Acesso de aplicativo + usuário**: para aplicativos que acessam recursos em nome de um usuário conectado. Essa abordagem funciona para aplicativos, como aplicativos Web e ferramentas de linha de comando, que lidam apenas com "gerenciamento interativo" dos recursos do Azure.
-2. **Acesso somente a aplicativos**: para aplicativos que executam serviços daemon e trabalhos agendados. A identidade do aplicativo recebe acesso direto aos recursos. Essa abordagem funciona para aplicativos que precisam de "acesso offline" de longo prazo ao Azure.
+2. **Acesso somente a aplicativos**: para aplicativos que executam serviços daemon e trabalhos agendados. A identidade do aplicativo recebe acesso direto aos recursos. Essa abordagem funciona para aplicativos que precisam de acesso de administração remota (autônomo) de longo prazo ao Azure.
 
 Este tópico fornece instruções passo a passo para criar um aplicativo que utiliza ambos os métodos de autorização. Ele mostra como executar cada etapa com a API REST ou o C#. O aplicativo ASP.NET MVC completo está disponível em [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
@@ -362,10 +363,5 @@ Assim como você habilitou o usuário para conectar as assinaturas ao aplicativo
 O método [RevokeRoleFromServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) do aplicativo de exemplo do ASP.NET MVC implementa essa chamada.
 
 Pronto! Agora os usuários podem agora se conectar e gerenciar suas assinaturas do Azure com seu aplicativo facilmente.
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

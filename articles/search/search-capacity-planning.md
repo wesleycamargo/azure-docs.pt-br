@@ -16,26 +16,32 @@ ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: bf06b5623ca6bd6005cdde6fd587048ded6412dd
-ms.openlocfilehash: 3e33d1c815589fdb40af46f3c3410e037f77a34c
+ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
+ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
+ms.lasthandoff: 02/24/2017
 
 ---
 
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
 
-A configuração de recursos fica disponível quando você configura um serviço na [camada Básica](http://aka.ms/azuresearchbasic) ou em uma das [camadas Standard](search-limits-quotas-capacity.md). Para os serviços faturáveis nessas camadas, a capacidade é comprada em incrementos de SUs (*unidades de pesquisa*), em que cada partição e réplica conta como uma SU. Usar menos SUs resulta em uma lista menor proporcionalmente. A cobrança fica em vigor durante o tempo de configuração do serviço. Se, no momento, você não estiver usando um serviço, a única maneira de evitar a cobrança será excluindo o serviço e o recriando quando precisar dele.
+A configuração de recursos fica disponível quando você configura um serviço na [camada Básica](http://aka.ms/azuresearchbasic) ou em uma das [camadas Standard](search-limits-quotas-capacity.md). Para os serviços faturáveis nessas camadas, a capacidade é comprada em incrementos de SUs (*unidades de pesquisa*), em que cada partição e réplica conta como uma SU. 
+
+Usar menos SUs resulta em uma lista menor proporcionalmente. A cobrança fica em vigor durante o tempo de configuração do serviço. Se, no momento, você não estiver usando um serviço, a única maneira de evitar a cobrança será excluindo o serviço e o recriando quando precisar dele.
+
+> [!Note]
+> Excluir um serviço exclui tudo nele. Há um recurso no Azure Search para fazer backup e restaurar dados de pesquisa persistentes. Para reimplantar um índice existente em um novo serviço, você deverá executar o programa usado para criar e carregá-lo originalmente. 
 
 ## <a name="terminology-partitions-and-replicas"></a>Terminologia: partições e réplicas
 Partições e réplicas são os recursos principais que apoiam um serviço de pesquisa.
 
-As *partições* fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).
-
-*Réplicas* são instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.
+| Recurso | Definição |
+|----------|------------|
+|*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).|
+|*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregadas no serviço.|
 
 > [!NOTE]
 > Não há uma maneira de manipular ou gerenciar diretamente quais índices são executados em uma réplica. Uma cópia de cada índice em cada réplica faz parte da arquitetura do serviço.
->
 >
 
 ## <a name="how-to-allocate-partitions-and-replicas"></a>Como alocar partições e réplicas
@@ -122,9 +128,4 @@ SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para o
 A fórmula para calcular quantas SUs são usadas para combinações específicas é o produto de réplicas e partições ou (R X P = SU). Por exemplo, três réplicas multiplicadas por três partições são cobradas como nove SUs.
 
 O custo por SU é determinado pela camada, com uma taxa de cobrança por unidade menor para Básico que para Standard. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

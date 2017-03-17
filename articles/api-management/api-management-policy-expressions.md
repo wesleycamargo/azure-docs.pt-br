@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: ed28fcea134bfbeda25abff41a3163471cef4294
+ms.sourcegitcommit: 3152a1306f2c3eeb42dd3b21cff62b696ed01e5d
+ms.openlocfilehash: 75ea0486a1b5abc71df3b7d9e8385717954b89f4
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de Gerenciamento de API
@@ -35,12 +36,12 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 > -   Para baixar as instruções de política usadas neste vídeo, consulte o repositório GitHub [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
-##  <a name="a-namesyntaxa-syntax"></a><a name="Syntax"></a> Sintaxe  
+##  <a name="Syntax"></a> Sintaxe  
  Expressões de instrução única são colocadas em `@(expression)`, em que `expression` é uma instrução de expressão C# bem formada.  
   
  Expressões de várias instruções são colocadas em `@{expression}`. Todos os caminhos de código dentro de expressões de várias instruções devem terminar com uma instrução `return`.  
   
-##  <a name="a-namepolicyexpressionsexamplesa-examples"></a><a name="PolicyExpressionsExamples"></a> Exemplos  
+##  <a name="PolicyExpressionsExamples"></a> Exemplos  
   
 ```  
 @(true)  
@@ -51,7 +52,7 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
   
 @(Regex.Match(context.Response.Headers.GetValueOrDefault("Cache-Control",""), @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value)  
   
-@(context.Variables.ContainsKey("maxAge")?3600:int.Parse((string)context.Variables["maxAge"]))  
+@(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
 @{   
   string value;   
@@ -66,13 +67,13 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 }  
 ```  
   
-##  <a name="a-namepolicyexpressionsusagea-usage"></a><a name="PolicyExpressionsUsage"></a> Uso  
+##  <a name="PolicyExpressionsUsage"></a> Uso  
  Expressões podem ser usadas como valores de atributo ou texto em qualquer uma das [políticas](api-management-policies.md) de Gerenciamento de API, a menos que a referência de política especifique o contrário.  
   
 > [!IMPORTANT]
 >  Observe que quando você usa expressões de política, há apenas uma verificação limitada de expressões de política quando a política é definida. Como as expressões são executadas em tempo de execução no pipeline de entrada ou saída pelo gateway, quaisquer exceções de tempo de execução geradas por expressões de política resultarão em um erro em tempo de execução na chamada à API.  
   
-##  <a name="a-nameclrtypesa-net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política  
+##  <a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política  
  A tabela a seguir lista os tipos do .NET Framework e seus membros permitidos em expressões de política.  
   
 |Tipo CLR|Métodos com suporte|  
@@ -166,12 +167,12 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |System.Xml.Linq.XText|Há suporte para todos os métodos|  
 |System.Xml.XmlNodeType|Todos|  
   
-##  <a name="a-namecontextvariablesa-context-variable"></a><a name="ContextVariables"></a> Variável de contexto  
+##  <a name="ContextVariables"></a> Variável de contexto  
  Uma variável chamada `context` está implicitamente disponível em toda [expressão](api-management-policy-expressions.md#Syntax) de política. Seus membros fornecem informações pertinentes para `\request`. Todos os membros de `context` são somente leitura.  
   
 |Variável de contexto|Valores de métodos, propriedades e parâmetros permitidos|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Implantação<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> Resposta<br /><br /> Assinatura<br /><br /> Tracing: bool<br /><br /> Usuário<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context|Api: IApi<br /><br /> Implantação<br /><br /> LastError<br /><br /> Operação<br /><br /> Produto<br /><br /> Solicitação<br /><br /> RequestId: cadeia de caracteres<br /><br /> Resposta<br /><br /> Assinatura<br /><br /> Tracing: bool<br /><br /> Usuário<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
 |context.Deployment|Region: string<br /><br /> ServiceName: string|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre context.LastError, consulte [Error handling](api-management-error-handling-policies.md) (Tratamento de erro).|  
@@ -200,9 +201,5 @@ A sintaxe de expressões de política é C# 6.0. Cada expressão tem acesso à v
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Retorna valores de declaração separados por vírgula ou `defaultValue` se o cabeçalho não for encontrado.|
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre como trabalhar com políticas, consulte [Políticas do Gerenciamento de API](api-management-howto-policies.md).  
-
-
-<!--HONumber=Jan17_HO2-->
-
+Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
 

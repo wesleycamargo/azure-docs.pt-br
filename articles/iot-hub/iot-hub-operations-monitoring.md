@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: 8f72f2ca66a5d1394e87c7c0f8d8dff9da73732f
-ms.openlocfilehash: 612ef94efb9776ae0ce768de1b59fb208824da93
-ms.lasthandoff: 02/08/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 796bf9b1219b7f0e2c68688c5f5b51163ef4b49b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -165,6 +165,26 @@ A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a a
         "details": "ExternalEndpointDisabled"
     }
 
+## <a name="view-events"></a>Exibir eventos
+
+Você pode usar a ferramenta *iothub explorer* para testar rapidamente se o Hub IoT está gerando eventos de monitoramento. Para instalar a ferramenta, consulte as instruções no repositório do GitHub [iothub-explorer][lnk-iothub-explorer].
+
+1. Certifique-se de que a categoria de monitoramento **Conexões** esteja definida como **Detalhadas** no portal.
+
+1. No prompt de comando, execute o seguinte comando para ler do ponto de extremidade de monitoramento:
+
+    ```
+    iothub-explorer monitor-ops --login {your iothubowner connection string}
+    ```
+
+1. Em outro prompt de comando, execute o seguinte comando para simular um dispositivo enviando mensagens do dispositivo para a nuvem:
+
+    ```
+    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
+    ```
+
+1. O primeiro prompt de comando mostra os eventos de monitoramento conforme o dispositivo simulado se conecta ao seu Hub IoT.
+
 ## <a name="next-steps"></a>Próximas etapas
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
@@ -182,4 +202,5 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 

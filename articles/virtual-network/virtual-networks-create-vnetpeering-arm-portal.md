@@ -16,9 +16,9 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: c3c3938577f610eba522ba593bfab5e93c70e459
-ms.openlocfilehash: d47a97fb023e2cc3ad4acaa07eb4edfd1f82509e
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: a4a770ec6f258c62864cd3fcc79b33b5cac38ace
+ms.openlocfilehash: 8f05957e8c40dee8ceb7fb1355d8d8776935cf5a
+ms.lasthandoff: 02/24/2017
 
 
 ---
@@ -76,7 +76,7 @@ Cada link em uma rede virtual emparelhamento tem o conjunto anterior de propried
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. Em um navegador, navegue até http://portal.azure.com e, se necessário, entre com sua conta do Azure.
-2. Neste exemplo, UserA tem permissões administrativas para SubscriptionA e UserB tem permissões administrativas para SubscriptionB.
+2. Neste exemplo, UserA tem permissões administrativas para SubscriptionA e UserB tem permissões administrativas para SubscriptionB. Ambas as assinaturas são associadas ao mesmo locatário do Azure Active Directory. Você não pode criar um emparelhamento entre assinaturas associadas a diferentes locatários do Azure Active Directory.
 3. No portal, clique em **Procurar** e escolha **Redes virtuais**. Clique na rede virtual para a qual você deseja configurar o emparelhamento.
 4. Na folha da VNet que você selecionou, clique em **Controle de acesso** e clique em **Adicionar**, conforme mostrado na seguinte figura:
 

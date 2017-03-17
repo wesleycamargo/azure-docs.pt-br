@@ -1,5 +1,6 @@
 ---
-title: "Uso de atributos para criar regras avançadas para a associação de grupo na visualização do Azure Active Directory | Microsoft Docs"
+
+title: "Associação dinâmica de grupo baseada em atributos na visualização do Azure Active Directory | Microsoft Docs"
 description: "Como criar regras avançadas para uma associação de grupo dinâmico, incluindo parâmetros e operadores de regra de expressões com suporte."
 services: active-directory
 documentationcenter: 
@@ -12,16 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: curtand
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e5103ccd0cc9ac46a29d98c613b58eead01f5e31
-ms.openlocfilehash: 6c7adb5d20c70c52400f1b003d4a81fdbf62b405
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 6ef550047a28a6070cad5da2e00cf18fbca3f9fa
+ms.lasthandoff: 03/09/2017
 
 
 ---
-# <a name="using-attributes-to-create-advanced-rules-for-group-membership-in-azure-active-directory-preview"></a>Usando atributos para criar regras avançadas para a associação de grupo na visualização do Azure Active Directory
-O portal do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos da visualização do Azure Active Directory (Azure AD). [O que está na visualização?](active-directory-preview-explainer.md) Este artigo detalha os atributos de regra e a sintaxe para criar essas regras avançadas.
+# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory-preview"></a>Criar regras baseadas em atributo para associação dinâmica de grupo na visualização do Azure Active Directory
+O portal do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos da visualização do Azure Active Directory (Azure AD). [O que há na visualização?](active-directory-preview-explainer.md) 
+
+Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica.
 
 ## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
@@ -148,10 +153,10 @@ Operadores permitidos
 * -contains
 * -notContains
 
-| Properties | Valores permitidos | Uso |
+| Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP:alias@domainsmtp:alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados
 Os atributos de extensão e os atributos personalizados têm suporte das regras de associação dinâmica.
@@ -186,14 +191,27 @@ Agora você pode preencher os membros de um grupo com base no atributo gerenciad
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Usando atributos para criar regras para objetos de dispositivo
 Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Os seguintes atributos de dispositivo podem ser usados:
 
-| Propriedades | Valores permitidos | Uso |
-| --- | --- | --- |
-| displayName |Um valor de cadeia de caracteres. |(device.displayName -eq "Rob Iphone”) |
-| deviceOSType |Um valor de cadeia de caracteres. |(device.deviceOSType -eq "IOS") |
-| deviceOSVersion |Um valor de cadeia de caracteres. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| Propriedades              | Valores permitidos                  | Uso                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | Um valor de cadeia de caracteres.                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Um valor de cadeia de caracteres.                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | Um valor de cadeia de caracteres.                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | Um valor de cadeia de caracteres.                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | Um valor de cadeia de caracteres.                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | Um valor de cadeia de caracteres.                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | Um valor de cadeia de caracteres.                | (device.deviceOwnership -eq "")                             |
+| domainName              | Um valor de cadeia de caracteres.                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Um valor de cadeia de caracteres.                | (device.enrollmentProfileName -eq "")                       |
+| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | Um valor de cadeia de caracteres.                | (device.managementType -eq "")                              |
+| organizationalUnit      | Um valor de cadeia de caracteres.                | (device.organizationalUnit -eq "")                          |
+| deviceId                | um deviceId válido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Esses artigos fornecem mais informações sobre grupos no Azure Active Directory.
@@ -203,9 +221,4 @@ Esses artigos fornecem mais informações sobre grupos no Azure Active Directory
 * [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

@@ -1,10 +1,10 @@
 ---
-title: "Criar uma VM com um IP público estático usando o PowerShell | Microsoft Docs"
-description: "Saiba como criar uma VM com um endereço IP público estático pelo Azure Resource Manager usando o PowerShell."
+title: "Criar uma VM com um endereço IP público estático - Azure PowerShell | Microsoft Docs"
+description: "Saiba como criar uma VM com um endereço IP público estático usando o PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 989236033c263bae3cc54260e1b2e6c31c30af03
+ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
+ms.openlocfilehash: fb071365d8d716085d1b1bd1cb52fffc830fd75c
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="create-a-vm-with-a-static-public-ip-using-powershell"></a>Criar uma VM com um IP público estático usando o PowerShell
+# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Criar uma VM com um endereço IP público estático usando o PowerShell
 
 > [!div class="op_single_selector"]
-- [portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
 - [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 - [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
 - [Modelo](virtual-network-deploy-static-pip-arm-template.md)
@@ -245,10 +247,5 @@ Depois de fazer quaisquer alterações necessárias e de compreender o script mo
         EndTime             : [Subscription Id]
         Error               : 
         ErrorText           : 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

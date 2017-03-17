@@ -15,8 +15,9 @@ ms.workload: storage-backup-recovery
 ms.date: 02/06/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
-ms.openlocfilehash: 7ec48138cf18cf50dc34f28e177c8d774034090b
+ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
+ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -38,7 +39,7 @@ Você pode executar a ferramenta em vários modos:
 2. Identifique sua taxa de alteração (variação) diária de dados replicados. Para fazer isso:
 
    * Se você estiver replicando VMs Hyper-V, baixe a [ferramenta de planejamento de capacidade do Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obter a taxa de alteração. [Saiba mais](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre essa ferramenta. Recomendamos que você execute essa ferramenta durante uma semana para capturar as médias.
-   * Se você estiver replicando máquinas virtuais VMware, use a [solução de planejamento de capacidade vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance) para calcular a taxa de variação.
+   * Se você estiver replicando máquinas virtuais VMware, use o [Planejador de Implantação do Azure Site Recovery](./site-recovery-deployment-planner.md) para calcular a taxa de variação.
    * Se você estiver replicando servidores físicos, precisará estimá-la manualmente.
 
 ## <a name="run-the-quick-planner"></a>Execute o Planejador Rápido
@@ -49,7 +50,7 @@ Você pode executar a ferramenta em vários modos:
 3. Na planilha **Planejador de Capacidade**, insira as informações necessárias. Preencha todos os campos envoltos em vermelho na captura de tela abaixo.
 
    * Em **Selecionar seu cenário**, escolha **Hyper-V para Azure** ou **VMware/físico para Azure**.
-   * Em **Taxa média diária de alteração de dados (%)**, insira as informações coletadas usando a [ferramenta de planejamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou a [solução de planejamento de capacidade do vSphere](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).  
+   * Em **Taxa média diária de alteração de dados (%)**, insira as informações coletadas usando a [ferramenta de planejamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou o [Planejador de Implantação do Azure Site Recovery](./site-recovery-deployment-planner.md).  
    * **Compactação** se aplica somente à compactação oferecida ao replicar VMs ou servidores físicos da VMware para o Azure. Estimamos 30% ou mais, mas você pode modificar a configuração, conforme necessário. Para replicar VMs Hyper-V para compactação do Azure, você pode usar uma solução de terceiros, como o Riverbed.
    * Em **Entradas de Retenção**, especifique por quanto tempo as réplicas devem ser retidas. Se você estiver replicando VMware ou servidores físicos, insira o valor em dias. Se você estiver replicando Hyper-V, especifique o tempo em horas.
    * Em **Número de horas em que a replicação inicial para o lote de máquinas virtuais deve ser concluída** e em **Número de máquinas virtuais por lote de replicação inicial**, insira as configurações usadas para calcular os requisitos iniciais de replicação.  Quando o Site Recovery é implantado, o conjunto inteiro de dados inicial deve ser carregado.
@@ -119,16 +120,11 @@ Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta cal
     > O IOPS no armazenamento standard e premium é calculado no nível da VM e não no disco. Uma máquina virtual padrão pode manipular até 500 IOPS por disco. Se o IOPS de um disco for maior que 500, você precisará do armazenamento premium. No entanto, se o IOPS de um disco for superior a 500, mas o IOPS do total de discos de VM estiver dentro dos limites de VM standard do Azure com suporte (tamanho da VM, número de discos, número de adaptadores, CPU e memória), o planejador escolherá uma VM standard e não uma da série DS ou GS. Você precisa atualizar manualmente a célula de tamanho do Azure de mapeamento com a VM da série DS ou GS apropriada.
 
 
-1. Depois que todos os detalhes estiverem prontos, clique em **Enviar dados para a ferramenta de planejamento** para abrir o **Planejador de Capacidade**. As cargas de trabalho são realçadas para mostrar se estão qualificadas ou não para proteção.
+Depois que todos os detalhes estiverem prontos, clique em **Enviar dados para a ferramenta de planejamento** para abrir o **Planejador de Capacidade**. As cargas de trabalho são realçadas para mostrar se estão qualificadas ou não para proteção.
 
 ### <a name="submit-data-in-the-capacity-planner"></a>Enviar dados no Planejador de Capacidade
 1. Ao abrir o **Planejador de Capacidade** , a planilha é preenchida com base nas configurações que você especificou. As palavras “Carga de trabalho” são exibidas na célula **Fonte de entradas de infraestrutura**, para mostrar que a entrada é a planilha **Qualificação da Carga de Trabalho**.
 2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho** e clicar em **Enviar dados para a ferramenta do planejador** novamente.  
 
    ![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

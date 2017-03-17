@@ -169,7 +169,7 @@
 ## [CLI do Azure](/cli/azure/storage)
 ## .NET
 ### [Gerenciador de Recursos](/dotnet/api/microsoft.azure.management.storage)
-### [Movimentação de dados](https://msdn.microsoft.com/library/azure/mt684990.aspx)
+### [Movimentação de dados](/dotnet/api/microsoft.windowsazure.storage.datamovement)
 ### [Blobs, Filas, Tabelas e Arquivos](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: integração do Azure Active Directory com o Novatus | Microsoft Docs"
+title: "Tutorial: Integração do Azure Active Directory ao 10,000ft Plans | Microsoft Docs"
 description: "Saiba como configurar o logon único entre o Azure Active Directory e o 10,000ft Plans."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
-ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
+ms.sourcegitcommit: 2a1f3df856116e372518b2f88460b3c6905c4c9a
+ms.openlocfilehash: 584ddcfc53afee6a8ff11a03d662d8acf58e4820
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -112,7 +113,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     b. Na caixa de texto **Identificador**, digite `https://app.10000ft.com/saml/metadata`.
 
     > [!NOTE] 
-    > O valor de **Identificador** será diferente se você tiver um domínio personalizado. Se você precisar de assistência, entre em contato com a [equipe de suporte do 10,000ft Plans](mailto:support@10000ft.com).  
+    > O valor de **Identificador** será diferente se você tiver um domínio personalizado. Se você precisar de assistência, entre em contato com a [equipe de suporte do&10;,000ft Plans](mailto:support@10000ft.com).  
 
     c. Clique em **Avançar**
 
@@ -124,7 +125,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
    
     b. Clique em **Avançar**.
-2. Para configurar o SSO para o seu aplicativo, entre em contato com a [equipe de suporte do 10,000ft Plans](mailto:support@10000ft.com), anexo o certificado baixado e forneça a eles a URL do Emissor, a URL de SSO SAML e a URL de Saída.
+2. Para configurar o SSO para o seu aplicativo, entre em contato com a [equipe de suporte do&10;,000ft Plans](mailto:support@10000ft.com), anexo o certificado baixado e forneça a eles a URL do Emissor, a URL de SSO SAML e a URL de Saída.
 3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
@@ -184,7 +185,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     b. Clique em **Concluído**.   
 
 ### <a name="creating-a-10000ft-plans-test-user"></a>Criando um usuário de teste do 10,000ft Plans
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 10,000ft Plans. O 10,000ft Plans dá suporte ao provisionamento Just-In-Time, que é habilitado por padrão.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no 10,000ft Plans. O&10;,000ft Plans dá suporte ao provisionamento Just-In-Time, que é habilitado por padrão.
 
 Não há itens de ação para você nesta seção. Um novo usuário será criado durante uma tentativa de acessar o 10,000ft Plans se ele ainda não existir. 
 
@@ -239,9 +240,4 @@ Ao clicar no bloco 10,000ft Plans no Painel de Acesso, você deverá ser conecta
 [203]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-10000ftplans-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

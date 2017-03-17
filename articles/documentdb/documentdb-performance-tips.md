@@ -13,11 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 02/23/2017
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: abf65ccbf8806d6581135f41224ef46840715f85
-ms.openlocfilehash: 51e7188530574703a178c5927092d9bc9d15a45f
+ms.sourcegitcommit: d1ff26fd2d93881d028728bf86197c2dc9835ad7
+ms.openlocfilehash: 01f250b218e348a8bad046ac1ddb8c532aa8267f
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -91,9 +92,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     Observe que cada instância do DocumentClient tem um thread seguro e realiza um gerenciamento de conexão eficiente e o cache de endereço ao operar no Modo Direto. Para permitir o gerenciamento de conexão eficiente e o melhor desempenho por DocumentClient, é recomendável usar uma única instância de DocumentClient por AppDomain durante a vida útil do aplicativo.
 
    <a id="max-connection"></a>
-3. **Aumentar System.Net MaxConnections por host**
+3. **Aumentar System.Net MaxConnections por host usando o modo de Gateway**
 
-    As solicitações do DocumentDB são feitas por HTTPS/REST por padrão e estão sujeitas aos limites de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir MaxConnections como um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas ao DocumentDB. No SDK do .NET 1.8.0 e posterior, o valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais alto.  
+    As solicitações do DocumentDB são feitas por HTTPS/REST ao ser usado o modo de Gateway e estão sujeitas aos limites de conexão padrão por nome do host ou endereço IP. Talvez seja necessário definir MaxConnections como um valor mais alto (100-1000) para que a biblioteca de cliente possa utilizar várias conexões simultâneas ao DocumentDB. No SDK do .NET 1.8.0 e posterior, o valor padrão para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) é 50 e para alterar o valor, você pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) para um valor mais alto.   
 4. **Ajustar consultas paralelas para coleções particionadas**
 
      O SDK .NET do DocumentDB versão 1.9.0 e superiores oferecem suporte a consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo (confira [Trabalhando com SDKs](documentdb-partition-data.md#working-with-the-sdks) e os [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados para saber mais). Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial. Consultas paralelas fornecem dois parâmetros que os usuários podem ajustar para atender aos próprios requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições que podem ser consultadas em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
@@ -135,7 +136,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     
 11. **Usar o processamento do host de 64 bits**
 
-    O SDK do DocumentDB funciona em um processo de host de 32 bits. No entanto, se você usa consultas entre partições, recomenda-se o processamento de host de 64 bits para melhorar o desempenho. Os seguintes tipos de aplicativos têm o processo de host de 32 bits como o padrão, portanto para alterá-los para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
+    O SDK do DocumentDB funciona em um processo de host de 32 bits quando você usa o SDK do .NET do DocumentDB versão 1.11.4 e superior. No entanto, se você usa consultas entre partições, recomenda-se o processamento de host de 64 bits para melhorar o desempenho. Os seguintes tipos de aplicativos têm o processo de host de 32 bits como o padrão, portanto para alterá-los para 64 bits, siga estas etapas com base no tipo de seu aplicativo:
     
     - Para aplicativos executáveis, isso pode ser feito desmarcando a opção **Preferir 32 bits** na janela **Propriedades do Projeto**, na guia **Compilar**. 
     
@@ -215,9 +216,4 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 Para ver um aplicativo de exemplo usado para avaliar o DocumentDB para os cenários de alto desempenho em alguns computadores cliente, consulte [Teste de desempenho e dimensionamento com o Azure DocumentDB](documentdb-performance-testing.md).
 
 Além disso, para saber mais sobre como criar seu aplicativo para a escala e o alto desempenho, consulte [Particionamento e dimensionamento no Azure DocumentDB](documentdb-partition-data.md).
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

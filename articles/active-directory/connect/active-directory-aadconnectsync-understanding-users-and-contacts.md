@@ -14,8 +14,9 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: markvi;andkjell
 translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: d77e9309fa8823846f25c58276bfbaaf8d65717a
+ms.sourcegitcommit: c5b54c80d9a74d72b242f8d7dd55e2dcadbfa48e
+ms.openlocfilehash: 96d568b6d264fa484e09ee81cdbc779a6f65eb0d
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -53,10 +54,5 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

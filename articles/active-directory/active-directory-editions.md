@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 8dd4c5ab11c43ca09085004ee4dce3e616b19d8e
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: b875c83ba7d87a572e78625e4038840aadcf9c85
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -144,7 +145,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 **Mais detalhes:**
 
-* [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md)
+* [Como atualizar sua própria senha](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password)
 
 #### <a name="connect--sync-engine-that-extends-on-premises-directories-to-azure-active-directory"></a>Connect (Mecanismo de sincronização que amplia os diretórios locais ao Azure Active Directory)
 **Tipo:** recursos comuns
@@ -241,7 +242,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 ## <a name="premium-features"></a>Recursos Premium
 
 
-#### <a name="a-nameself-service-groupaself-service-group-and-app-managementself-service-application-additionsdynamic-groups"></a><a name="self-service-group"></a>Gerenciamento de autoatendimento de aplicativos e grupos/Adições de autoatendimento de aplicativos/Grupos dinâmicos
+#### <a name="self-service-group"></a>Gerenciamento de autoatendimento de aplicativos e grupos/Adições de autoatendimento de aplicativos/Grupos dinâmicos
 **Tipo:** recursos premium
 
 **Disponibilidade:**
@@ -273,7 +274,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 * [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 
-#### <a name="a-namemim-cal-mim-serveramim-cal--mim-server"></a><a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
+#### <a name="mim-cal-mim-server"></a>CAL MIM + Servidor MIM
 Direitos de software de servidor Microsoft Identity Manager são concedidos com licenças do Windows Server (qualquer edição). Como o Microsoft Identity Manager é executado no sistema operacional Windows Server, se o servidor estiver executando uma cópia licenciada válida do Windows Server, o Microsoft Identity Manager pode ser instalado e usado no servidor. Nenhuma outra licença separada é necessária para o servidor do Microsoft Identity Manager.
 
 **Tipo:** recursos premium
@@ -344,7 +345,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 | ![Verificação][12] |![Verificação][12] |![Verificação][12] |![Verificação][12] |
 
 
-#### <a name="a-namemdm-auto-enrollmentamdm-auto-enrollment-self-service-bitlocker-recovery-additional-local-administrators-to-windows-10-devices-via-azure-ad-join"></a><a name="mdm-auto-enrollment"></a>Registro automático do MDM, Recuperação de autoatendimento do Bitlocker, Administradores locais adicionais aos dispositivos do Windows 10 através de Ingresso do Azure AD
+#### <a name="mdm-auto-enrollment"></a>Registro automático do MDM, Recuperação de autoatendimento do Bitlocker, Administradores locais adicionais aos dispositivos do Windows 10 através de Ingresso do Azure AD
 **Tipo:** ingresso do Azure Active Directory – apenas recursos relacionados ao Windows 10
 
 **Disponibilidade:**
@@ -384,9 +385,4 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

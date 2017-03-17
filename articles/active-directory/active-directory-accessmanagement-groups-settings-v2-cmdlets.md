@@ -1,5 +1,5 @@
 ---
-title: "Cmdlets de visualização do PowerShell do Azure Active Directory para gerenciamento de grupos no Azure AD | Microsoft Docs"
+title: Cmdlets do PowerShell do Azure Active Directory para gerenciamento de grupos no Azure AD | Microsoft Docs
 description: "Esta página fornece exemplos do PowerShell para ajudar no gerenciamento de seus grupos no Azure Active Directory"
 keywords: Azure AD, Azure Active Directory, PowerShell, Grupos, Gerenciamento de grupos
 services: active-directory
@@ -16,8 +16,9 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: f4aeeaf13604443e0902112b4cc998ae1dcce4c2
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -29,12 +30,12 @@ ms.openlocfilehash: 4f12fdf6732d44903fb1e971f05d0233d7aff08e
 >
 >
 
-O documento a seguir fornece exemplos de como usar o PowerShell para gerenciar os grupos no Azure AD (Azure Active Directory).  Ele também fornece informações sobre como configurar usando o módulo de visualização PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](http://go.microsoft.com/fwlink/p/?LinkId=828627).
+O documento a seguir fornece exemplos de como usar o PowerShell para gerenciar os grupos no Azure AD (Azure Active Directory).  Ele também fornece informações sobre como configurar usando o módulo de visualização PowerShell do Azure AD. Primeiramente, você deve [baixar o módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>Instalando o módulo PowerShell do Azure AD
-Para instalar o módulo de visualização PowerShell do Azure AD, use os seguintes comandos:
+Para instalar o módulo do PowerShell do AzureAD, use os seguintes comandos:
 
-    PS C:\Windows\system32> install-module azureadpreview
+    PS C:\Windows\system32> install-module azuread
 
 Para verificar se o módulo de visualização foi instalado, use o seguinte comando:
 
@@ -44,10 +45,10 @@ Para verificar se o módulo de visualização foi instalado, use o seguinte coma
     ---------- -------    ----                                ----------------
     Binary     1.1.146.0  azureadpreview                      {Add-AzureADAdministrati...}
 
-Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo de visualização do Azure AD, confira a [documentação de referência online](https://msdn.microsoft.com/library/azure/mt757216.aspx).
+Agora você pode começar a usar os cmdlets do módulo. Para obter uma descrição completa dos cmdlets no módulo do Azure AD, confira a [documentação de referência online](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 ## <a name="connecting-to-the-directory"></a>Conectando-se ao diretório
-Antes de começar a gerenciar grupos usando cmdlets de visualização do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Para isso, use o seguinte comando:
+Antes de começar a gerenciar grupos usando cmdlets do PowerShell do Azure AD, você deve conectar a sessão do PowerShell ao diretório que deseja gerenciar. Para isso, use o seguinte comando:
 
     PS C:\Windows\system32> Connect-AzureAD
 
@@ -57,7 +58,7 @@ O cmdlet solicitará as credenciais que você deseja usar para acessar o diretó
     -------                       ----------- ------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 
-Agora você pode começar a usar os cmdlets de visualização do Azure AD para gerenciar grupos no diretório.
+Agora você pode começar a usar os cmdlets do AzureAD para gerenciar grupos no diretório.
 
 ## <a name="retrieving-groups"></a>Recuperando grupos
 Para recuperar grupos existentes do diretório, você pode usar o cmdlet Get-AzureADGroups. Para recuperar todos os grupos no diretório, use o cmdlet sem parâmetros:
@@ -225,13 +226,8 @@ Se você quer remover um proprietário de um grupo, use Remove-AzureADGroupOwner
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
+Você pode encontrar mais documentação do PowerShell do Azure Active Directory em [Cmdlets do Azure Active Directory](https://docs.microsoft.com/en-us/powershell/azuread/).
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
-
-
-<!--HONumber=Dec16_HO5-->
-
 

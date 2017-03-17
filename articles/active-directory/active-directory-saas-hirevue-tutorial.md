@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0cb121d54310c518795269dee68f24ab21f7d31b
+ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
+ms.openlocfilehash: 0e443928a683a45d763b11d76c369890b1fb80ab
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá como integrar o HireVue ao Azure AD (Azure Acti
 A integração do HireVue ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, é possível controlar quem tem acesso ao HireVue
-* Você pode permitir que os usuários façam logon automaticamente no HireVue (Logon Único) com suas contas do Azure AD
+* Você pode permitir que os usuários façam logon automaticamente no HireVue usando logon único com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -35,27 +36,26 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao HireVue, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do HireVue
+* Uma assinatura habilitada para SSO (logon único) do HireVue
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar HireVue da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
-## <a name="adding-hirevue-from-the-gallery"></a>Adicionar HireVue da galeria
+## <a name="add-hirevue-from-the-gallery"></a>Adicionar HireVue da galeria
 Para configurar a integração do HireVue ao Azure AD, você precisará adicionar o HireVue da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o HireVue por meio da galeria, execute as seguintes etapas:**
@@ -80,25 +80,25 @@ Para configurar a integração do HireVue ao Azure AD, você precisará adiciona
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_06.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o HireVue, com base em uma usuária de teste chamada "Brenda Fernandes".
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
+Nesta seção, você configurará e testará o logon único (SSO) do Azure AD com o HireVue, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do HireVue é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do HireVue.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do HireVue é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do HireVue.
 
 Essa relação de vinculação é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no HireVue.
 
 Para configurar e testar o logon único do Azure AD com o HireVue, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configurar logon único do Azure AD](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
 3. **[Criação de um usuário de teste do HireVue](#creating-a-predictix-price-reporting-test-user)** - para ter um equivalente de Brenda Fernandes no HireVue que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do Azure AD.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo HireVue.
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único (SSO) em seu aplicativo HireVue.
 
-**Para configurar o logon único do Azure AD com o HireVue, execute as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o HireVue, execute as seguintes etapas:**
 
 1. No Portal clássico, na página de integração de aplicativos do **HireVue**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
@@ -109,51 +109,39 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_04.png) 
-   
-    a. Na caixa de texto **URL de entrada** , digite a URL usada pelos usuários para fazer logon no aplicativo HireVue usando o seguinte padrão: 
+  1. Na caixa de texto **URL de entrada** , digite a URL usada pelos usuários para fazer logon no aplicativo HireVue usando o seguinte padrão: 
 
     | Ambiente | URL |
     |---|---|
     | Produção | `https://<company name>.hirevue.com` |
     | Staging| `https://<company name>.stghv.com` |
-
-
-    b. Na caixa de texto **Identificador** , digite a URL no seguinte padrão:
-
-
+  2. Na caixa de texto **Identificador** , digite a URL no seguinte padrão:
+  
     | Ambiente | URN |
     |---|---|
     |Produção | `urn:federation:hirevue.com:saml:sp:prod` |
     |Staging | `urn:federation:hirevue.com:saml:sp:staging` |
+  3. Clique em **Avançar**.
 
+4. Na página **Configurar logon único no HireVue** , realize as seguintes etapas:
+   
+    ![Configurar o logon único](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_05.png)  
+  1. Clique em **Baixar certificado**e salve o arquivo em seu computador.
+  2. Clique em **Próximo**.
+5. Para configurar o SSO para o aplicativo, contate a equipe de suporte do HireVue em [samlsupport@hirevue.com](mailTo:samlsupport@hirevue.com) e forneça o seguinte:
 
-
-    c. Clique em **Avançar**
-
-1. Na página **Configurar logon único no HireVue** , realize as seguintes etapas:
-   
-    ![Configurar Logon Único](./media/active-directory-saas-hirevue-tutorial/tutorial_hirevue_05.png)
-   
-    a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
-   
-    b. Clique em **Próximo**.
-2. Para configurar o SSO para o aplicativo, contate a equipe de suporte do HireVue em [samlsupport@hirevue.com](mailTo:samlsupport@hirevue.com) e forneça o seguinte:
-   
-    • O **certificado**
-   
-    • A **ID de Entidade**
-   
-    • A **URL de SSO do SAML**
-   
-    • A **URL do Serviço de Logoff Único**
-3. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+  * O **certificado** baixado  
+  * A **ID de Entidade**
+  * A **URL de SSO do SAML**   
+  * A **URL do Serviço de Saída Única**
+6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-4. Na página **Confirmação de logon único**, clique em **Concluir**.  
+7. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -170,40 +158,34 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_04.png) 
-5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
-6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
+
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_05.png) 
+  1. Em Tipo de Usuário, selecione Novo usuário na organização.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+  3. Clique em **Próximo**.
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
+
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_06.png) 
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+  4. Na lista **Função**, selecione **Usuário**.
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**. 
+  2. Clique em **Concluído**.   
 
-### <a name="creating-an-hirevue-test-user"></a>Criar um usuário de teste HireVue
+### <a name="create-an-hirevue-test-user"></a>Criar um usuário de teste HireVue
 Nesta seção, você criará uma usuária chamada Brenda Fernandes no HireVue. Trabalhe com a equipe de suporte do HireVue para adicionar usuários na plataforma HireVue.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao HireVue.
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+Nesta seção, você permitirá que Brenda Fernandes use o logon único (SSO) do Azure concedendo-lhe acesso ao HireVue.
 
 ![Atribuir usuário][200] 
 
@@ -223,7 +205,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do HireVue no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo HireVue.
@@ -249,9 +231,4 @@ Ao clicar no bloco do HireVue no Painel de Acesso, você deverá ser conectado a
 [203]: ./media/active-directory-saas-hirevue-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-hirevue-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hirevue-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

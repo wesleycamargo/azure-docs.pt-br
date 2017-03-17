@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2016
+ms.date: 02/20/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 725b7aaf79f9410cd1b0d9c2b9c4d6f913f9dacd
+ms.sourcegitcommit: f98e199e06d5d272a23efcd4eaaa5e5f1629f1bc
+ms.openlocfilehash: d1276b4adbbf40a586c6f2f2924d108cb96f8be4
+ms.lasthandoff: 02/28/2017
 
 
 ---
@@ -26,7 +27,7 @@ Neste tutorial, você aprenderá a integrar o Jostle ao Azure AD (Azure Active D
 A integração do Jostle ao Azure AD oferece os seguintes benefícios:
 
 * Você pode controlar no Azure AD quem terá acesso ao Jostle
-* Você pode permitir que seus usuários faça logon automaticamente no Jostle (Logon Único) com suas contas do Azure AD
+* Você pode permitir que seus usuários faça logon automaticamente no Jostle usando SSO (logon único) com suas contas do Azure AD
 * Gerenciar suas contas em um único local: o Portal clássico do Azure
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
@@ -35,23 +36,22 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do
 Para configurar a integração do Azure AD ao Jostle, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
-* Uma assinatura habilitada para logon único do **Jostle**
+* Uma assinatura do **Jostle** habilitada para SSO
 
-> [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
-> 
+>[!NOTE]
+>Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção. 
 > 
 
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 * Não use o ambiente de produção, a menos que seja necessário.
-* Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Se não tiver um ambiente de avaliação do Azure AD, você pode obter uma [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testa o SSO do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Jostle da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. Configurar e testar o SSO do Azure AD
 
 ## <a name="adding-jostle-from-the-gallery"></a>Adição do Jostle da galeria
 Para configurar a integração do Jostle ao Azure AD, você precisará adicionar o Jostle da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -78,24 +78,24 @@ Para configurar a integração do Jostle ao Azure AD, você precisará adicionar
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_02.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar SSO do Azure AD
 Nesta seção, você configurará e testará o logon único do Azure AD com o Jostle, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Jostle é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Jostle.
+Para que o SSO funcione, o Azure AD precisa saber qual usuário do Jostle é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Jostle.
+
 Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no Jostle.
 
-Para configurar e testar o logon único do Azure AD com o Jostle, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+Para configurar e testar o SSO do Azure AD com o Jostle, você precisa concluir os seguintes blocos de construção:
+1. **[Configuração do logon único do Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir que seus usuários utilizem esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** - para testar logon único do Azure AD com Britta Simon.
 3. **[Criação de um usuário de teste do Jostle](#creating-a-jostle-test-user)** - para ter um equivalente de Brenda Fernandes no Jostle que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** - para habilitar Britta Simon a usar o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do AD do Azure
-O objetivo desta seção é habilitar o logon único do Azure AD no portal clássico do Azure e configurar o logon único em seu aplicativo do Jostle.
+### <a name="configuring-azure-ad-sso"></a>Configurar o SSO do Azure AD
+O objetivo desta seção é habilitar o logon único do Azure AD no Portal Clássico do Azure e configurar o logon único (SSO) em seu aplicativo Jostle.
 
-**Para configurar o logon único do Azure AD com o Jostle, execute as seguintes etapas:**
+**Para configurar o SSO do Azure AD com o Jostle, execute as seguintes etapas:**
 
 1. No menu na parte superior, clique em **Início Rápido**.
    
@@ -109,23 +109,20 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 4. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas: 
    
     ![Configurar Logon Único](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_07.png)
-
-    a. Na caixa de texto URL de Entrada, digite uma URL usando o seguinte padrão: `https://<subdomain>.jostle.us/jostle-prod/`
-
-    b. Clique em **Próximo**.
-
-1. Na página **Configurar o logon único no Jostle**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
+  1. Na caixa de texto URL de Entrada, digite uma URL usando o seguinte padrão: `https://<subdomain>.jostle.us/jostle-prod/`
+  2. Clique em **Próximo**.
+5. Na página **Configurar o logon único no Jostle**, clique em **Baixar metadados** e salve o arquivo de metadados no computador.
    
     ![Configurar o logon único](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_08.png)
-2. Para ter o logon único configurado para seu aplicativo, entre em contato com seu gerente de contas do Jostle ou com o suporte do Jostle. Eles ajudarão com o canal apropriado para configurar o SSO. Observe que você precisa enviar o email e anexar o arquivo de metadados baixado ao <mailto:support@jostle.me>.
-3. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
+6. Para ter o logon único configurado para seu aplicativo, entre em contato com seu gerente de contas do Jostle ou com o suporte do Jostle. Eles ajudarão com o canal apropriado para configurar o SSO. Observe que você precisa enviar o email e anexar o arquivo de metadados baixado ao <mailto:support@jostle.me>.
+7. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
-4. Na página **Confirmação de logon único**, clique em **Concluir**.  
+8. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -145,40 +142,30 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-jostle-tutorial/create_aaduser_05.png) 
-   
-    a. Em Tipo de Usuário, selecione Novo usuário na organização.
-   
-    b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
-   
-    c. Clique em **Próximo**.
+  1. Em Tipo de Usuário, selecione Novo usuário na organização.
+  2. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
+  3. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-jostle-tutorial/create_aaduser_06.png) 
-   
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
-   
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
-   
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
-   
-   d. Na lista **Função**, selecione **Usuário**.
-   
-   e. Clique em **Próximo**.
+  1. Na caixa de texto **Nome**, digite **Brenda**.  
+  2. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+  3. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+  4. Na lista **Função**, selecione **Usuário**.
+  5. Clique em **Próximo**.
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-jostle-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-jostle-tutorial/create_aaduser_08.png) 
-   
-    a. Anote o valor da **Nova Senha**.
-   
-    b. Clique em **Concluído**.   
+  1. Anote o valor da **Nova Senha**.
+  2. Clique em **Concluído**.   
 
-### <a name="creating-a-jostle-test-user"></a>Criação de um usuário de teste do Jostle
+### <a name="create-a-jostle-test-user"></a>Criar um usuário de teste do Jostle
 Nesta seção, você criará um usuário chamado Brenda Fernandes no Jostle. Se você não souber como adicionar Brenda Fernandes ao Jostle, trabalhe com a equipe de suporte do Jostle para adicionar o usuário de teste e habilitar o SSO. Entre em contato com eles pelo email <mailto:support@jostle.me>.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao Jostle.
 
 ![Atribuir usuário][200] 
@@ -199,8 +186,8 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
    
     ![Atribuir usuário][205]
 
-### <a name="testing-single-sign-on"></a>Teste do logon único
-O objetivo desta seção é testar sua configuração de logon único do Azure AD usando o Painel de Acesso.
+### <a name="test-single-sign-on"></a>Testar logon único
+O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Jostle no Painel de Acesso, você deverá ser conectado automaticamente a seu aplicativo do Jostle.
 
@@ -228,9 +215,4 @@ Ao clicar no bloco do Jostle no Painel de Acesso, você deverá ser conectado au
 [203]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-jostle-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

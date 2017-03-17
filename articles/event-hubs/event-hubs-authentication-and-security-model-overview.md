@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 03/07/2017
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
-ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 930b3da630b88eecdec56e86d621daee53070257
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -28,7 +29,7 @@ O modelo de segurança dos Hubs de Eventos do Azure atende aos seguintes requisi
 * Um dispositivo não autorizado pode ser impedido de enviar dados para um Hub de Eventos.
 
 ## <a name="device-authentication"></a>Autenticação de dispositivo
-O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
+O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
 
 Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensagens enviadas a qualquer um dos editores de um Hub de Eventos são enfileiradas nesse Hub de Eventos. Os editores habilitam o controle de acesso detalhado e a limitação.
 
@@ -102,17 +103,12 @@ Na ausência de autenticação SAS para grupos de consumidores individuais, voc�
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
-* [Visão geral de Hubs de Evento]
-* [Visão geral de SAS]
-* Um [aplicativo de exemplo completo que usa os Hubs de Eventos]
+* [Visão Geral dos Hubs de Eventos]
+* [Visão Geral de Assinatura de Acesso Compartilhado]
+* [Aplicativos de exemplo que usam Hub de Eventos]
 
-[Visão geral de Hubs de Evento]: event-hubs-overview.md
-[aplicativo de exemplo completo que usa os Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Visão geral de SAS]: ../service-bus-messaging/service-bus-sas-overview.md
-
-
-
-
-<!--HONumber=Dec16_HO1-->
+[Visão Geral dos Hubs de Eventos]: event-hubs-what-is-event-hubs.md
+[Aplicativos de exemplo que usam Hub de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Visão Geral de Assinatura de Acesso Compartilhado]: ../service-bus-messaging/service-bus-sas.md
 
 

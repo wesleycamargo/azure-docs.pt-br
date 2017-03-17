@@ -1,5 +1,5 @@
 ---
-title: "Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo | Microsoft Docs"
+title: "Implantar a extensão do Painel de Acesso do Azure do IE usando um GPO | Microsoft Docs"
 description: "Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
 services: active-directory
 documentationcenter: 
@@ -11,11 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+ms.sourcegitcommit: c06c089fb08c19b55246122201c378917a560e14
+ms.openlocfilehash: af36f45e66b68e2e76651eb408682f36ee0cbb68
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -28,10 +30,10 @@ A extensão do Painel de Acesso também está disponível para o [Chrome](https:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
-* Você deve ter a permissão "Editar configurações" para editar os Objetos de Política de Grupo (GPOs). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Etapa 1: Criar o ponto de distribuição
-Primeiro, você deve colocar o pacote do instalador em um local de rede que possa ser acessado de todos os computadores em que você deseja instalar remotamente a extensão. Para fazer isso, siga estas etapas:
+Primeiro, você deve colocar o pacote do instalador em um local de rede que possa ser acessado pelos computadores nos quais você deseja instalar remotamente a extensão. Para fazer isso, siga estas etapas:
 
 1. Faça logon no servidor como um administrador
 2. Na janela **Gerenciador do Servidor**, vá para **Arquivos e Serviços de Armazenamento**.
@@ -44,7 +46,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 5. Baixe o seguinte pacote do Microsoft Windows Installer (arquivo .msi): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
 6. Copie o pacote do instalador para um local desejado no compartilhamento.
    
-    ![Copie o arquivo .msi para o seu compartilhamento.](./media/active-directory-saas-ie-group-policy/copy-package.png)
+    ![Copie o arquivo .msi para o compartilhamento.](./media/active-directory-saas-ie-group-policy/copy-package.png)
 7. Verifique se os computadores do cliente podem acessar o pacote do instalador desde o compartilhamento. 
 
 ## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: Criar o Objeto de Política de Grupo
@@ -64,12 +66,12 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 5. No prompt **Novo GPO** , digite um nome para o novo Objeto de Política de Grupo.
    
     ![Dar um nome ao novo GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Clique com o botão direito do mouse no Objeto de Política de Grupo recém-criado e selecione **Editar**.
+6. Clique com o botão direito do mouse no Objeto de Política de Grupo criado e selecione **Editar**.
    
     ![Editar o novo GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
 ## <a name="step-3-assign-the-installation-package"></a>Etapa 3: Atribuir o pacote de instalação
-1. Determine se você deseja implantar a extensão com base na **Configuração do Computador** ou na **Configuração do Usuário**. Ao usar a [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), a extensão será instalada no computador, independentemente dos usuários que fizerem logon. Por outro lado, com a [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários terão a extensão instalada para eles, independentemente dos computadores em que eles fizerem logon.
+1. Determine se você deseja implantar a extensão com base na **Configuração do Computador** ou na **Configuração do Usuário**. Ao usar a [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), a extensão será instalada no computador, independentemente dos usuários que fizerem logon. Com a [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários têm a extensão instalada para eles, independentemente dos computadores em que eles fizerem logon.
 2. No painel esquerdo da janela **Editor de Gerenciamento de Política de Grupo** , vá para qualquer um dos seguintes caminhos de pasta, dependendo do tipo de configuração escolhida:
    
    * `Computer Configuration/Policies/Software Settings/`
@@ -121,7 +123,7 @@ Quando os usuários entram em sites que usam a extensão do painel de acesso, o 
 
 Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaixo para impedir o preenchimento automático de lembrar senhas:
 
-1. Na janela **Editor de gerenciamento de política de grupo** , vá para o caminho listado abaixo. Observe que essa configuração só está disponível em **Configuração do usuário**.
+1. Na janela **Editor de gerenciamento de política de grupo** , vá para o caminho listado abaixo. Essa configuração só está disponível em **Configuração do usuário**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
 2. Localize a configuração denominada **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**.
@@ -150,7 +152,7 @@ Siga as etapas abaixo para verificar se a implantação da extensão obteve êxi
 
 1. Se você implantou usando **Configuração do computador**, faça logon em um computador cliente que pertence à UO que você selecionou na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
 2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para forçar a atualização, abra um **Prompt de comando** e execute o seguinte comando: `gpupdate /force`
-3. Será necessário reiniciar o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
+3. Reinicie o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
 4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (ícone de engrenagem) e, em seguida, selecione **Gerenciar complementos**.
    
     ![Vá para Ferramentas > Gerenciar Complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
@@ -162,10 +164,5 @@ Siga as etapas abaixo para verificar se a implantação da extensão obteve êxi
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

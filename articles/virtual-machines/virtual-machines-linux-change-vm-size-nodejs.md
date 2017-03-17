@@ -17,14 +17,17 @@ ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: b93844d55cf1c41e1e388d7bbaa3fedf88113423
-ms.openlocfilehash: bf28993330619a25fcf0bc79055be0d7453c2be4
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: fecd0dc34fad70706ac0451a24dac0dc4bf55e40
+ms.lasthandoff: 03/03/2017
+
 
 ---
-# <a name="resize-a-linux-vm-with-the-azure-cli-10"></a>Redimensionar uma VM Linux com a CLI do Azure 1.0
+
+# <a name="resize-a-linux-vm-with-azure-cli-10"></a>Redimensionar uma VM Linux com a CLI do Azure 1.0
 
 ## <a name="overview"></a>Visão geral
+
 Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda a VM.
 
 Este artigo mostra como redimensionar uma VM Linux usando a [CLI do Azure][azure-cli].

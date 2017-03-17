@@ -1,5 +1,5 @@
 ---
-title: Personalizando mapeamentos de atributo | Microsoft Docs
+title: Personalizar mapeamentos de atributo do Azure AD | Microsoft Docs
 description: "Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios."
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/27/2017
 ms.author: markvi
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b73c9dc8edd341898ede06f67f383b86010e1e39
+ms.sourcegitcommit: 18415c92d50a00c14823685857ab7e2624334ec7
+ms.openlocfilehash: 19e934895279adb3a32096fffafd567b294c3009
+ms.lasthandoff: 03/01/2017
 
 
 ---
-# <a name="customizing-attribute-mappings"></a>Personalizando mapeamentos de atributo
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar os mapeamentos de atributos de provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 O AD do Microsoft Azure dá suporte para provisionamento de usuário para aplicativos SaaS de terceiros, como Salesforce, Google Apps e outros. Se você tiver provisionamento de usuário para um aplicativo SaaS de terceiro habilitado, o Portal de Gerenciamento controlará seus valores de atributo na forma de uma configuração chamada "mapeamento de atributo".
 
 Há um conjunto predefinido de mapeamentos de atributo entre objetos de usuário do AD do Azure e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos, como grupos ou contatos. <br> 
@@ -49,7 +51,7 @@ Se você quiser personalizar mapeamentos de atributo ou reverter configurações
 
 Há mapeamentos de atributo que são exigidos por um aplicativo SaaS para funcionar corretamente. Na tabela de atributos, os mapeamentos de atributo relacionados têm **Sim** como valor para o atributo **Obrigatório**. Se um mapeamento de atributo for obrigatório, você não poderá excluí-lo. Nesse caso, o recurso **Excluir** não estará disponível.
 
-Para modificar um mapeamento de atributo existente, basta selecionar o mapeamento e clicar em **Editar**. Isso abre uma página de diálogo que permite que você modifique o mapeamento de atributo selecionado.
+Para modificar um mapeamento de atributo existente, selecione o mapeamento e clique em **Editar**. Isso abre uma página de diálogo que permite que você modifique o mapeamento de atributo selecionado.
 
 ![Editar mapeamento de atributo][4]  
 
@@ -59,12 +61,12 @@ Com mapeamentos de atributo, você controla como os atributos são preenchidos e
 * **Direto** – o atributo de destino é preenchido com o valor de um atributo do objeto vinculado no AD do Azure.
 * **Constante** – o atributo de destino é preenchido com uma cadeia de caracteres especificada por você.
 * **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. 
-  Para obter mais detalhes, consulte [Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+  Para saber mais, consulte [Escrever expressões para mapeamentos de atributo no Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Nenhum** – o atributo de destino é deixado inalterado. No entanto, se o atributo de destino estiver vazio, ele será preenchido com o valor padrão que você especificar.
 
 Além desses quatro tipos de mapeamentos de atributo básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** . A atribuição do valor padrão assegura que um atributo de destino seja preenchido com um valor, se não houver um valor no AD do Azure nem no objeto de destino.
 
-O AD do Microsoft Azure fornece uma implementação muito eficiente de um processo de sincronização. Em um ambiente inicializado, apenas os objetos que precisam de atualização são processados durante um ciclo de sincronização. A atualização de mapeamentos de atributo tem impacto no desempenho de um ciclo de sincronização. Isso ocorre porque uma atualização a uma configuração de mapeamento de atributo requer que todos os objetos gerenciados sejam reavaliados. Por isso, é uma prática recomendada manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
+O Microsoft Azure AD fornece uma implementação muito eficiente de um processo de sincronização. Em um ambiente inicializado, apenas os objetos que precisam de atualização são processados durante um ciclo de sincronização. A atualização de mapeamentos de atributo tem impacto no desempenho de um ciclo de sincronização. Uma atualização a uma configuração de mapeamento de atributo exige que todos os objetos gerenciados sejam reavaliados. É uma prática recomendada manter o número de alterações consecutivas aos seus mapeamentos de atributos no mínimo.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
@@ -80,9 +82,4 @@ O AD do Microsoft Azure fornece uma implementação muito eficiente de um proces
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

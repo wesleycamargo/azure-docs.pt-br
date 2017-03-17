@@ -1,9 +1,9 @@
 ---
-title: 'Personalizar: Gerenciamento de Senhas do Azure AD | Microsoft Docs'
+title: 'Personalizar: gerenciamento de senhas do Azure Active Directory | Microsoft Docs'
 description: "Como personalizar a aparência, o comportamento e as notificações do gerenciamento de senhas no Azure AD para atender às suas necessidades."
 services: active-directory
 documentationcenter: 
-author: asteen
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
@@ -12,19 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
-ms.author: asteen
+ms.date: 02/28/2017
+ms.author: joflore
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+ms.sourcegitcommit: 0035aa17e661a52db371b533b547c88dcb0f0148
+ms.openlocfilehash: 88a1d39337a8aebf58b6b35841acc4348e1baeae
+ms.lasthandoff: 02/24/2017
 
 
 ---
 # <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalização do gerenciamento de senhas para atender às necessidades da sua organização
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 Para dar aos usuários a melhor experiência possível, recomendamos que você explore e brinque com todas as opções de configuração de gerenciamento de senhas disponíveis para você. Na verdade, você pode começar a explorar isso imediatamente acessando a guia de configuração da **extensão do Active Directory** no [Portal clássico do Azure](https://manage.windowsazure.com). Este tópico orienta você por todas as personalizações de Gerenciamento de Senhas diferentes que é possível fazer como administrador na guia **Configurar** de seu diretório no [Portal clássico do Azure](https://manage.windowsazure.com), incluindo:
 
@@ -40,7 +41,7 @@ Para dar aos usuários a melhor experiência possível, recomendamos que você e
 | Como posso forçar meus usuários a fazer o registro durante a conexão? |[Imposição de distribuição baseada em registro de redefinição de senha](#require-users-to-register-when-signing-in) |
 | Como posso forçar meus usuários a reconfirmar seus registros periodicamente? |[Configuração: número de dias antes que os usuários tenham que reconfirmar seus dados de autenticação](#number-of-days-before-users-must-confirm-their-contact-data) |
 | Como posso personalizar como um usuário entra em contato com um administrador? |[Configuração: personalizar o link “entre em contato com o seu administrador”](#customize-the-contact-your-administrator-link) |
-| Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? |[Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Como posso permitir aos usuários desbloquear contas do AD no local sem redefinir a senha? |[Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Como habilitar notificações de redefinição de senha para os usuários? |[Configuração: notificar os usuários quando suas senhas forem redefinidas](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Como habilitar notificações de redefinição de senha para administradores? |[Configuração: notificar outros administradores quando um administrador redefinir suas senhas](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | Como posso personalizar a aparência da redefinição de senha? |[Configuração: nome, identidade visual e logotipo da empresa ](#password-management-look-and-feel) |
@@ -140,8 +141,8 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
 
 > [!NOTE]
 > A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores.  **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
-> 
-> 
+>
+>
 
 <table>
             <tbody><tr>
@@ -744,12 +745,12 @@ Se o write-back for implantado e configurado e essa opção estiver definida com
                   <li class="unordered">
 Se a opção estiver definida como <strong>sim</strong>, o write-back estará habilitado e os usuários federados e sincronizados com hash de senha poderão redefinir as suas senhas.<br><br></li>
                 </ul>
-              </td>
+              </td
             </tr>
              <tr>
               <td>
                 <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
-                  <p>Permitir aos usuários desbloquear contas sem redefinir a senha</p>
+                  <p>Permitir aos usuários desbloquear contas do Active Directory no local sem redefinir a senha</p>
                 </div>
               </td>
               <td>
@@ -864,7 +865,7 @@ Essa notificação é enviada por email para o nome UPN e para o endereço de em
 <br/>
 <br/>
 
-## <a name="links-to-password-reset-documentation"></a>Links para documentação de redefinição de senha
+## <a name="next-steps"></a>Próximas etapas
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
@@ -877,9 +878,4 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

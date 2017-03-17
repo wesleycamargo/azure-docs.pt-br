@@ -11,16 +11,18 @@ ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
-ms.openlocfilehash: 4950edd41f58175c675afb7a7ea9f14fe4a59b26
+ms.sourcegitcommit: 119275f335344858cd20b6a17ef87e3ef32b6e12
+ms.openlocfilehash: 4e25ec1ece6017dc58c24ce593802293b7fc12b8
+ms.lasthandoff: 03/01/2017
 
 ---
 
-# <a name="dns-zones-and-records"></a>Registros e zonas DNS
+# <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
 Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos de registros e registros DNS, e como eles têm suporte no DNS do Azure.
 
@@ -58,19 +60,19 @@ Para criar um conjunto de registros curinga, use o nome do conjunto de registros
 
 Conjuntos de registros CNAME não podem coexistir com outros conjuntos de registros com o mesmo nome. Por exemplo, você não pode criar um conjunto de registros CNAME com o nome relativo 'www' e um registro A com o nome relativo 'www' ao mesmo tempo.
 
-Como o apex de zona (nome = '@')) sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no apex da zona.
+Como o ápice da zona (nome = '@') sempre contém os conjuntos de registro NS e SOA criados quando a zona foi criada, não é possível criar um conjunto de registros CNAME no ápice da zona.
 
 Essas restrições são provenientes dos padrões DNS e não são limitações do DNS do Azure.
 
 ### <a name="ns-records"></a>Registros NS
 
-Um conjunto de registros NS é criado automaticamente no apex de cada zona (nome = '@'),) e é excluído automaticamente quando a zona é excluída (ele não pode ser excluído separadamente).  Você pode modificar o TTL desse conjunto de registros, mas não pode modificar os registros que são pré-configurados para se referirem aos servidores de nomes do DNS do Azure atribuídos à zona.
+Um conjunto de registros NS é criado automaticamente no ápice de cada zona (nome = '@') e é excluído automaticamente quando a zona é excluída (ele não pode ser excluído separadamente).  Você pode modificar o TTL desse conjunto de registros, mas não pode modificar os registros que são pré-configurados para se referirem aos servidores de nomes do DNS do Azure atribuídos à zona.
 
 Você pode criar e excluir outros registros NS dentro da zona, mas não no ápice da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
 
 ### <a name="soa-records"></a>Registros SOA
 
-Um conjunto de registros SOA é criado automaticamente no apex de cada zona (nome = '@'),) e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
+Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (nome = '@') e é excluído automaticamente quando a zona é excluída.  Os registros SOA não podem ser criados ou excluídos separadamente.
 
 Você pode modificar todas as propriedades do registro SOA, exceto a propriedade 'host', que é pré-configurada para se referir ao nome do servidor de nomes primário fornecido pelo DNS do Azure.
 
@@ -139,10 +141,5 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 03/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f1c8c5b9bfa14b817efb635cf812242afaa70e35
-ms.openlocfilehash: d0475ff29da03d2c4a12e72e458175d03ce608fd
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 1e66ce0af4d3d33b584f9f3a881c34aa04e783b7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -39,12 +40,12 @@ Antes de começar este artigo, você deve ter o seguinte:
 ## <a name="do-you-learn-fast-with-videos"></a>Você aprende rapidamente com vídeos?
 [Assista a este vídeo](https://mix.office.com/watch/1liuojvdx6sie) sobre como copiar dados entre o Repositório do Data Lake e os Blobs de Armazenamento do Azure usando o DistCp.
 
-## <a name="use-distcp-from-remote-desktop-windows-cluster-or-ssh-linux-cluster"></a>Use Distcp da área de trabalho remota (cluster do Windows) ou o SSH (cluster do Linux)
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar Distcp de um cluster HDInsight do Linux
+
 Um cluster do HDInsight é fornecido com o utilitário Distcp, que pode ser usado para copiar dados de fontes diferentes em um cluster do HDInsight. Se você tiver configurado o cluster do HDInsight para usar o Repositório do Data Lake como um armazenamento adicional, o utilitário Distcp pode ser usado prontamente para copiar dados de e para uma conta do Repositório do Data Lake. Nesta seção, vamos examinar como usar o utilitário Distcp.
 
-1. Se você tiver um cluster do Windows, faça com que ele seja remoto em um cluster do HDInsight que tenha acesso a uma conta de Repositório do Data Lake. Para instruções, confira [Connect to clusters using RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)(Conectar-se aos clusters usando RDP). No cluster de área de trabalho, abra a linha de comando do Hadoop.
+1. Da sua área de trabalho, use o SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Execute os comandos do prompt de SSH.
 
-    Se você tiver um cluster do Linux, use SSH para se conectar ao cluster. Confira [Conectar-se a um cluster HDInsight baseado em Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Execute os comandos do prompt de SSH.
 2. Verifique se você pode acessar os WASB (Blobs de Armazenamento do Azure). Execute o comando a seguir:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -100,7 +101,7 @@ Se outros aplicativos estiverem usando memória, então você poderá usar somen
 
 ### <a name="copying-large-datasets"></a>Copiando grandes conjuntos de dados
 
-Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemplo, maior que 1 TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum trabalho falhar, seja necessário reiniciar somente esse trabalho específico em vez de todo o trabalho.
+Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemplo, maior que&1; TB) ou se você tiver muitas pastas diferentes, considere usar vários trabalhos DistCp. Provavelmente, não haverá nenhum ganho de desempenho, porém isso espalhará os trabalhos para que, se algum trabalho falhar, seja necessário reiniciar somente esse trabalho específico em vez de todo o trabalho.
 
 ### <a name="limitations"></a>Limitações
 
@@ -117,9 +118,4 @@ Quando o tamanho do conjunto de dados a ser movido será muito grande (por exemp
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

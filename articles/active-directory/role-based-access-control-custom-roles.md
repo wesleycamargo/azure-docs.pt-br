@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/31/2017
+ms.date: 02/21/2017
 ms.author: kgremban
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: a474aa115425293660ba59ed1c6f7fd2ba4db5ce
-ms.openlocfilehash: 277c97289ba6dd66028394000d17deed80ba6cc6
-
+ms.sourcegitcommit: 53fa0876ce1e3e2b2ac47316f37c5a0de2591d41
+ms.openlocfilehash: c8189af2ebd9cabfa3e20e6b3520ba347d6147ff
+ms.lasthandoff: 02/28/2017
 
 ---
-# <a name="custom-roles-in-azure-rbac"></a>Funções personalizadas no RBAC do Azure
+# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure
 Crie uma função personalizada no RBAC (Controle de Acesso Baseado em Função) do Azure se nenhuma das funções internas atende às suas necessidades de acesso específicas. É possível criar funções personalizadas usando o [Azure PowerShell](role-based-access-control-manage-access-powershell.md), a [CLI (interface de linha de comando) do Azure](role-based-access-control-manage-access-azure-cli.md) e a [API REST](role-based-access-control-manage-access-rest.md). Assim como as funções internas, as funções personalizadas podem ser atribuídas a usuários, grupos e aplicativos na assinatura, no grupo de recursos e nos escopos de recurso. As funções personalizadas são armazenadas em um locatário do Azure AD e podem ser compartilhadas entre todas as assinaturas que usam esse locatário como o diretório do Azure AD para a assinatura.
 
 Este é um exemplo de uma função personalizada para monitorar e reiniciar as máquinas virtuais:
@@ -120,9 +121,4 @@ A propriedade **AssignableScopes** da função personalizada também controla qu
   * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
   * [API REST](role-based-access-control-manage-access-rest.md)
 * [Funções internas](role-based-access-built-in-roles.md): obtenha detalhes sobre as funções que são incluídas por padrão no RBAC.
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

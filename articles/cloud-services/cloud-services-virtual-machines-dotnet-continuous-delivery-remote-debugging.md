@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: d9f325c515e0a8e2cdbcbde657c3f7d6b793a9da
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: bd0768b9d46c12c38ecd530ccef8397d1b595d8d
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -25,7 +26,14 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>Habilitando a depuração remota para serviços de nuvem
 1. No agente de compilação, configure o ambiente inicial para o Azure conforme descrito em [Compilação de linha de comando para Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Como a execução da depuração remota (msvsmon.exe) é exigida para o pacote, instale as [Ferramentas Remotas para Visual Studio 2015](http://www.microsoft.com/en-us/download/details.aspx?id=48155) (ou as [Ferramentas Remotas para Microsoft Visual Studio 2013 Atualização 5](https://www.microsoft.com/en-us/download/details.aspx?id=48156) se estiver usando o Visual Studio 2013). Você pode, como alternativa, copiar os binários de depuração remota de um sistema que tiver o Visual Studio instalado.
+2. Como o tempo de execução de depuração remota (msvsmon.exe) é exigido para o pacote, instale as **Ferramentas Remotas para Visual Studio**.
+
+    * [Ferramentas Remotas para Visual Studio 2017](https://go.microsoft.com/fwlink/?LinkId=746570)
+    * [Ferramentas Remotas para Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=615470)
+    * [Ferramentas Remotas para Visual Studio 2013 Atualização 5](https://www.microsoft.com/download/details.aspx?id=48156)
+    
+    Você pode, como alternativa, copiar os binários de depuração remota de um sistema que tiver o Visual Studio instalado.
+
 3. Crie um certificado conforme descrito em [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md). Mantenha o .pfx e a impressão digital do certificado RDP e carregue o certificado no serviço de nuvem alvo.
 4. Utilize as opções a seguir na linha de comando do MSBuild para compilar e criar o pacote com a depuração remota habilitada. (Substitua os caminhos reais até seus arquivos do sistema e de projeto pelos itens entre colchetes angulares.)
    
@@ -44,39 +52,48 @@ Você pode habilitar a depuração remota no Azure, para os serviços de nuvem o
 5. Execute o script a seguir para habilitar a extensão RemoteDebug. Substitua os caminhos e os dados pessoais por seus dados, como seu nome da assinatura, nome do serviço e impressão digital.
    
    > [!NOTE]
-   > Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013, modifique as atribuições `$referenceName` e `$extensionName` abaixo para usar `RemoteDebugVS2013` (em vez de `RemoteDebugVS2015`).
-   > 
-   > 
-   
-    <pre>
+   > Esse script é configurado para o Visual Studio 2015. Se você estiver usando o Visual Studio 2013 ou Visual Studio 2017, modifique as atribuições `$referenceName` e `$extensionName` abaixo para `RemoteDebugVS2013` ou `RemoteDebugVS2017`.
+
+    ```powershell   
     Add-AzureAccount
-   
+
     Select-AzureSubscription "My Microsoft Subscription"
-   
+
     $vm = Get-AzureVM -ServiceName "mytestvm1" -Name "mytestvm1"
-   
-    $endpoints = @(  ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}  ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}  )
-   
-    foreach($endpoint in $endpoints)  {  Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort  }
-   
-    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"  $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"  $extensionName = "RemoteDebugVS2015"  $version = "1.*"  $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
-   
-    $vm | Set-AzureVMExtension `
-    -ReferenceName $referenceName `
-    -Publisher $publisher `
-    -ExtensionName $extensionName `
-    -Version $version `  -PublicConfiguration $publicConfiguration
-   
-    foreach($extension in $vm.VM.ResourceExtensionReferences)  {  if(($extension.ReferenceName -eq $referenceName) `
-    -and ($extension.Publisher -eq $publisher) `
-    -and ($extension.Name -eq $extensionName) `  -and ($extension.Version -eq $version))  {  $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'  break  }  }
-   
-    $vm | Update-AzureVM  </pre>
+
+    $endpoints = @(
+                    ,@{Name="RDConnVS2013"; PublicPort=30400; PrivatePort=30398}
+                    ,@{Name="RDFwdrVS2013"; PublicPort=31400; PrivatePort=31398}
+                )
+
+    foreach($endpoint in $endpoints)
+    {
+        Add-AzureEndpoint -VM $vm -Name $endpoint.Name -Protocol tcp -PublicPort $endpoint.PublicPort -LocalPort $endpoint.PrivatePort
+    }
+
+    $referenceName = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug.RemoteDebugVS2015"
+    $publisher = "Microsoft.VisualStudio.WindowsAzure.RemoteDebug"
+    $extensionName = "RemoteDebugVS2015"
+    $version = "1.*"
+    $publicConfiguration = "<PublicConfig><Connector.Enabled>true</Connector.Enabled><ClientThumbprint>56D7D1B25B472268E332F7FC0C87286458BFB6B2</ClientThumbprint><ServerThumbprint>E7DCB00CB916C468CC3228261D6E4EE45C8ED3C6</ServerThumbprint><ConnectorPort>30398</ConnectorPort><ForwarderPort>31398</ForwarderPort></PublicConfig>"
+
+    $vm | Set-AzureVMExtension -ReferenceName $referenceName -Publisher $publisher -ExtensionName $extensionName -Version $version -PublicConfiguration $publicConfiguration
+
+    foreach($extension in $vm.VM.ResourceExtensionReferences)
+    {
+        if(($extension.ReferenceName -eq $referenceName) `
+        -and ($extension.Publisher -eq $publisher) `
+        -and ($extension.Name -eq $extensionName) `
+        -and ($extension.Version -eq $version))
+        {
+            $extension.ResourceExtensionParameterValues[0].Key = 'config.txt'
+            break
+        }
+    }
+
+    $vm | Update-AzureVM
+    ```
+
 6. Importe o certificado (.pfx) para a máquina que tem o Visual Studio com o SDK do Azure para .NET instalado.
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

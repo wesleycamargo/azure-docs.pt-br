@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 translationtype: Human Translation
-ms.sourcegitcommit: 5e531c6c23c510936fe7e4e844db2ec3afb170dc
-ms.openlocfilehash: 32d79cf050968738764c2239cbd79c73734ee855
+ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
+ms.openlocfilehash: 41be26b5dc3b7333521f02053ecb4b6ae1b17f73
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -31,7 +32,7 @@ O Xamarin permite que os desenvolvedores usem uma base de código C# compartilha
 [!INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## <a name="create-a-new-xamarin-application"></a>Criar um novo aplicativo Xamarin
-Neste guia de Introdução, criaremos um aplicativo para Android, iOS e Windows. Este aplicativo simplesmente criará um contêiner e carregará um blob nesse contêiner. Usaremos o Visual Studio no Windows para este guia de introdução, mas as mesmas lições podem ser aplicadas durante a criação de um aplicativo usando o Xamarin Studio no Mac OS.
+Neste tutorial, criaremos um aplicativo para Android, iOS e Windows. Este aplicativo simplesmente criará um contêiner e carregará um blob nesse contêiner. Usaremos o Visual Studio no Windows, mas as mesmas lições podem ser aplicadas durante a criação de um aplicativo usando o Xamarin Studio no Mac OS.
 
 Execute estas etapas para criar o aplicativo:
 
@@ -241,7 +242,7 @@ Agora você pode executar esse aplicativo em um emulador do Android ou do Window
 Após a execução do aplicativo, ele criará o contêiner `mycontainer` em sua conta de armazenamento. Ele deve conter o blob, `myblob`, que tem o texto `Hello, world!`. Você pode verificar isso usando o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de introdução, você aprendeu como criar um aplicativo de plataforma cruzada no Xamarin que usa o Armazenamento do Azure. Este guia de introdução se concentrou especificamente em um cenário no Armazenamento de Blobs. No entanto, você pode fazer muito mais, não apenas com o Armazenamento de Blobs, mas também com o Armazenamento de Tabelas, de Arquivo e de Filas. Para saber mais, veja os artigos a seguir:
+Neste tutorial, você aprendeu como criar um aplicativo de plataforma cruzada no Xamarin que usa o armazenamento do Azure, concentrando-se especificamente em um cenário no Armazenamento de Blobs. No entanto, você pode fazer muito mais, não apenas com o Armazenamento de Blobs, mas também com o Armazenamento de Filas, de Tabelas e de Arquivo. Para saber mais, veja os artigos a seguir:
 
 * [Introdução ao Armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md)
 * [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](storage-dotnet-how-to-use-tables.md)
@@ -249,10 +250,5 @@ Neste guia de introdução, você aprendeu como criar um aplicativo de plataform
 * [Introdução ao Armazenamento de Arquivos do Azure no Windows](storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

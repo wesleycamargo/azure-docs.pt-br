@@ -4,7 +4,7 @@ description: "Lista dos SDKs clientes e compatibilidade com versões do SDK do s
 services: app-service\mobile
 documentationcenter: 
 author: adrianhall
-manager: erikre
+manager: adrianha
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d1ef7821eee67f4b9ace01af7e41bd7fdd28b5e
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -63,12 +64,12 @@ A tabela abaixo mostra a compatibilidade entre todos os tipos de cliente e de se
 
 <!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
 
-## <a name="a-name100amobile-services-client-and-server"></a><a name="1.0.0"></a>Servidor e cliente de Serviços Móveis
+## <a name="1.0.0"></a>Servidor e cliente de Serviços Móveis
 Os SDKs de cliente na tabela a seguir são compatíveis com **Serviços Móveis**.
 
 Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de cabeçalho para `ZUMO-API-VERSION`. Se o serviço receber esse cabeçalho ou o valor de cadeia de consulta, um erro será retornado, a menos que você tenha recusado expressamente conforme descrito acima.
 
-### <a name="a-namemobileservicesclientsa-mobile-services-client-sdks"></a><a name="MobileServicesClients"></a> SDKs de clientes de *Serviços* Móveis
+### <a name="MobileServicesClients"></a> SDKs de clientes de *Serviços* Móveis
 | Plataforma cliente | Versão | Valor de cabeçalho de versão |
 | --- | --- | --- |
 | Cliente gerenciado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
@@ -91,8 +92,8 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 | Qualquer valor |Verdadeiro |200 - OK |
 | Qualquer valor |Falso/não especificado |400 - solicitação inválida |
 
-## <a name="a-name200aazure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
-### <a name="a-namemobileappsclientsa-mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
+## <a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
+### <a name="MobileAppsClients"></a> SDKs de cliente de *Aplicativos* Móveis
 A verificação de versão foi introduzida começando com as seguintes versões do SDK do cliente para **Aplicativos Móveis do Azure**:
 
 | Plataforma cliente | Versão | Valor de cabeçalho de versão |
@@ -127,12 +128,7 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 [Clientes de Aplicativos Móveis]: #MobileAppsClients
 
 
-[SDK do Servidor de Aplicativos Móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um Serviço Móvel para o Serviço de Aplicativo do Azure]: app-service-mobile-migrating-from-mobile-services.md
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

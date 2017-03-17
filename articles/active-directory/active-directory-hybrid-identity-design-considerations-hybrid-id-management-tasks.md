@@ -15,8 +15,9 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c290266a09bf6f75ab7eb9247120b921c7f841fb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fbb295d00f90a70b6d8505575e9260d0d8c98f1f
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -66,10 +67,5 @@ Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos o
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

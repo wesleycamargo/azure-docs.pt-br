@@ -12,11 +12,12 @@ ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/06/2017
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 44c2c181b1ca463c5d2bd92b77e4b92604964ba2
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 0bbbc4f61c37fe4d296221c372bfdf6dd429a32b
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -35,6 +36,7 @@ Executar estas etapas nesta ordem garante que as versões antigas da biblioteca 
 * Em sua solução do Visual Studio, selecione **Ferramentas** --> **NuGet Package Manager** -->  **Gerenciar pacotes NuGet para solução**. 
 * (Visual Studio 2013) No painel esquerdo, escolha **Atualizações** e selecione o botão **Atualizar** no pacote **Biblioteca de cliente de escala elástica do Banco de dados SQL do Azure** que aparece na janela.
 * (Visual Studio 2015) Defina a caixa de Filtro para **Atualização disponível**. Selecione o pacote para atualizar e clique no botão **Atualizar** .
+* (2017 do visual Studio) Na parte superior da caixa de diálogo, selecione **Atualizações**. Selecione o pacote para atualizar e clique no botão **Atualizar** .
 * Criar e implantar. 
 
 **2. Atualize seus scripts.** Se você estiver usando scripts do **PowerShell** para gerenciar os fragmentos, [baixe a nova versão da biblioteca](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) e copie-a para o diretório de onde você executa scripts. 
@@ -77,10 +79,5 @@ Para ver o histórico de versão, vá para [Microsoft.Azure.SqlDatabase.ElasticS
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

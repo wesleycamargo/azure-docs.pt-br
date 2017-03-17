@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2016
+ms.date: 02/22/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 1cef7ff21a8d076c89688f1fe75cebdb7c468199
-ms.openlocfilehash: ee413f5044d541a7a127690fab0115341c7619f3
+ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
+ms.openlocfilehash: 54c7da3fc0693ee44358cb77973c8c37e653d3cc
+ms.lasthandoff: 02/23/2017
 
 
 ---
@@ -35,7 +36,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-topdesk-public-tutorial/IC790613.png "Scenario")
+![Cenário](./media/active-directory-saas-topdesk-public-tutorial/IC790613.png "Cenário")
 
 ## <a name="enabling-the-application-integration-for-topdesk---public"></a>Habilitando a integração de aplicativos com o TOPdesk - Público
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o TOPdesk - Público.
@@ -49,23 +50,23 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-    ![Aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Applications")
+    ![Aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC700994.png "Aplicativos")
 
 4. Clique em **Adicionar** na parte inferior da página.
    
-    ![Adicionar aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Add application")
+    ![Adicionar aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC749321.png "Adicionar aplicativo")
 
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Add an application from gallerry")
+    ![Adicionar um aplicativo da galeria](./media/active-directory-saas-topdesk-public-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 
 6. Na **caixa de pesquisa**, digite **TOPdesk - Public**.
    
-    ![Galeria de Aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Application Gallery")
+    ![Galeria de Aplicativos](./media/active-directory-saas-topdesk-public-tutorial/IC790614.png "Galeria de Aplicativos")
 
 7. No painel de resultados, selecione **TOPdesk - Public** e clique em **Concluir** para adicionar o aplicativo.
    
-    ![TOPdesk Public](./media/active-directory-saas-topdesk-public-tutorial/IC791317.png "TOPdesk Public")
+    ![TOPdesk público](./media/active-directory-saas-topdesk-public-tutorial/IC791317.png "TOPdesk público")
 
 ## <a name="configuring-single-sign-on"></a>Configurando o logon único
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no TOPdesk - Público com sua conta do AD do Azure usando federação baseada em protocolo SAML.  
@@ -76,19 +77,19 @@ Configurar o logon único para o TOPdesk - Público requer que você carregue um
 
 2. No menu **TOPdesk**, clique em **Configurações**.
    
-    ![Configurações](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Settings")
+    ![Configurações](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Configurações")
 
 3. Clique em **Configurações de Logon**.
    
-    ![Configurações de Logon](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Login Settings")
+    ![Configurações de logon](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Configurações de logon")
 
 4. Expanda o menu **Configurações de Logon** e clique em **Geral**.
    
-    ![Geral](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "General")
+    ![Geral](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "Geral")
 
 5. Na seção **Público** da seção de configuração de **Logon do SAML**, realize as seguintes etapas:
    
-    ![Configurações Técnicas](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Technical Settings")
+    ![Configurações técnicas](./media/active-directory-saas-topdesk-public-tutorial/IC790601.png "Configurações técnicas")
    
     a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
    
@@ -106,15 +107,15 @@ Configurar o logon único para o TOPdesk - Público requer que você carregue um
 
 7. Na página de integração de aplicativos do **TOPdesk - Public**, clique em **Configurar logon único**, para abrir a caixa de diálogo **Configurar Logon Único**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790620.png "Configurar Logon Único")
 
 8. Na página **Como você deseja que os usuários façam logon no TOPdesk - Public**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790621.png "Configurar Logon Único")
 
 9. Na página **Configurar URL do Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar URL do Aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configure App URL")
+    ![Configurar URL do Aplicativo](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Configurar URL do Aplicativo")
    
     a. Na caixa de texto **URL de Logon do TOPdesk - Public**, digite a URL usada pelos usuários para entrar no aplicativo TOPdesk - Public (por exemplo, "*https://qssolutions.topdesk.net*").
    
@@ -124,11 +125,11 @@ Configurar o logon único para o TOPdesk - Público requer que você carregue um
 
 10. Na página **Configurar logon único no TOPdesk - Public**, para baixar o arquivo de metadados, clique em **Baixar metadados** e salve o arquivo localmente no computador.
     
-    ![Configurar o logon único](./media/active-directory-saas-topdesk-public-tutorial/IC790623.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790623.png "Configurar Logon Único")
 
 11. Execute as seguintes etapas para criar um arquivo de certificado:
     
-    ![Certificado](./media/active-directory-saas-topdesk-public-tutorial/IC790606.png "Certificate")
+    ![Certificado](./media/active-directory-saas-topdesk-public-tutorial/IC790606.png "Certificado")
     
     1. Abra o arquivo de metadados baixado.
     2. Expanda o nó **RoleDescriptor** que contém um **xsi:type** de **fed:ApplicationServiceType**.
@@ -136,19 +137,19 @@ Configurar o logon único para o TOPdesk - Público requer que você carregue um
     4. Salve o valor copiado de **X509Certificate** localmente no computador em um arquivo.
 12. Em seu site de empresa do TOPdesk - Public, no menu **TOPdesk**, clique em **Configurações**.
     
-    ![Configurações](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Settings")
+    ![Configurações](./media/active-directory-saas-topdesk-public-tutorial/IC790598.png "Configurações")
 13. Clique em **Configurações de Logon**.
     
-    ![Configurações de Logon](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Login Settings")
+    ![Configurações de logon](./media/active-directory-saas-topdesk-public-tutorial/IC790599.png "Configurações de logon")
 14. Expanda o menu **Configurações de Logon** e clique em **Geral**.
     
-    ![Geral](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "General")
+    ![Geral](./media/active-directory-saas-topdesk-public-tutorial/IC790600.png "Geral")
 15. Na seção **Público**, clique em **Adicionar**.
     
-    ![Logon do SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790625.png "SAML Login")
+    ![Logon SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790625.png "logon SAML")
 16. Na página do diálogo **Assistente de configuração do SAML** , realize as seguintes etapas:
     
-    ![Assistente de configuração do SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790608.png "SAML Configuration Assistant")
+    ![Assistente de configuração SAML](./media/active-directory-saas-topdesk-public-tutorial/IC790608.png "Assistente de configuração SAML")
     
     a. Para carregar o arquivo de metadados baixado, em **Metadados de Federação**, clique em **Procurar**.
 
@@ -164,7 +165,7 @@ Configurar o logon único para o TOPdesk - Público requer que você carregue um
 
 17. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
     
-    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-topdesk-public-tutorial/IC790627.png "Configurar Logon Único")
 
 ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 Para permitir que os usuários do AD do Azure façam logon no TOPdesk - Público, eles deverão ser provisionados no TOPdesk - Público.  
@@ -175,11 +176,11 @@ No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **TOPdesk \> Novo \> Arquivos de Suporte \> Pessoa**.
    
-    ![Pessoa](./media/active-directory-saas-topdesk-public-tutorial/IC790628.png "Person")
+    ![Pessoa](./media/active-directory-saas-topdesk-public-tutorial/IC790628.png "Pessoa")
 
 3. Na caixa de diálogo Nova Pessoa, execute as seguintes etapas:
    
-    ![Nova Pessoa](./media/active-directory-saas-topdesk-public-tutorial/IC790629.png "New Person")
+    ![Nova pessoa](./media/active-directory-saas-topdesk-public-tutorial/IC790629.png "Nova pessoa")
    
     a. Clique na guia Geral.
 
@@ -202,17 +203,12 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 2. Na página de integração de aplicativos **TOPdesk - Public**, clique em **Atribuir usuários**.
    
-    ![Atribuir usuários](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Assign Users")
+    ![Atribuir Usuários](./media/active-directory-saas-topdesk-public-tutorial/IC790630.png "Atribuir Usuários")
 
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-    ![Sim](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "Yes")
+    ![Sim](./media/active-directory-saas-topdesk-public-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
-
-
-
-
-<!--HONumber=Dec16_HO1-->
 
 

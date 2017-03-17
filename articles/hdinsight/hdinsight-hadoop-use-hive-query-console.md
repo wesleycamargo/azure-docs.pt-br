@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
 ms.openlocfilehash: 0c7f570db388b0ed96479e994a4a2f79e7919b17
+ms.lasthandoff: 02/17/2017
 
 
 ---
@@ -31,13 +33,13 @@ Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para
 >
 > Para HDInsight 3.4 ou superior, confira [Executar consultas do Hive no Modo de Exibição Hive do Ambari](hdinsight-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive em um navegador da Web.
 
-## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
+## <a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster Hadoop do HDInsight baseado no Windows
 * Um navegador da Web
 
-## <a name="a-idruna-run-hive-queries-using-the-query-console"></a><a id="run"></a> Executar consultas Hive usando o Console de Consulta
+## <a id="run"></a> Executar consultas Hive usando o Console de Consulta
 1. Abra um navegador da Web, navegue até **https://CLUSTERNAME.azurehdinsight.net**, onde **CLUSTERNAME** é o nome do seu cluster HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
 2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight.
    
@@ -70,12 +72,12 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 3. Clique em **Enviar**. A **Sessão de Trabalho** na parte inferior da página deve exibir detalhes do trabalho.
 4. Quando o campo **Status** for alterado para **Concluído**, selecione **Exibir Detalhes** do trabalho. Na página de detalhes, a **Saída de Trabalho** contém `[ERROR]    3`. Você pode usar o botão **Download** abaixo desse campo para baixar um arquivo que contém a saída do trabalho.
 
-## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
+## <a id="summary"></a>Resumo
 Como você pode ver, o Console de Consulta fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
 Para saber mais sobre o Hive usando o Console de Consulta para executar trabalhos Hive, selecione **Introdução** na parte superior do Console de Consulta e use os exemplos fornecidos. Cada exemplo percorre o processo de análise de dados usando o Hive, incluindo explicações sobre as instruções HiveQL usadas no exemplo.
 
-## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
@@ -122,9 +124,4 @@ Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para 
 
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

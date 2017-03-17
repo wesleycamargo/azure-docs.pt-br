@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/28/2016
+ms.date: 02/28/2017
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
-ms.openlocfilehash: 01c6d3c3fa8648ef9ecaefcf43191315380d13d4
+ms.sourcegitcommit: e1299c1f7f8a31f7034fc0736fcd9d66153a9758
+ms.openlocfilehash: 3290a375963bc3e625cbdb05b5f9686e8cfb34f6
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory-ad"></a>Como certificar o AppSource para o Azure AD (Active Directory)
-Para receber a certificação do AppSource para o Azure AD, seu aplicativo deve implementar padrão de entrada multilocatário com o Azure AD usando os protocolos OpenID Connect, OAuth 2.0 ou SAML 2.0. 
+Para receber a certificação do AppSource para o Azure AD, seu aplicativo deve implementar padrão de entrada multilocatário com o Azure AD usando os protocolos OpenID Connect ou OAuth 2.0.  
 
 Se você não estiver familiarizado com o desenvolvimento de aplicativos multilocatário ou de entrada no Azure AD:
 
@@ -57,10 +58,5 @@ Use a seção de comentários do Disqus abaixo deste artigo para fornecer seus c
 
 
 
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

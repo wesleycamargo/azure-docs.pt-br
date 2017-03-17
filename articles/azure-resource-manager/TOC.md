@@ -38,7 +38,8 @@
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
 ## Controlar Acesso
 ### [Criar entidade de serviço com o PowerShell](resource-group-authenticate-service-principal.md)
-### [Criar entidade de serviço com a CLI do Azure](resource-group-authenticate-service-principal-cli.md)
+### [Criar entidade de serviço com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Criar entidade de serviço com a CLI 1.0 do Azure](resource-group-authenticate-service-principal-cli.md)
 ### [Criar entidade de serviço com o portal](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)

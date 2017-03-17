@@ -1,6 +1,6 @@
 ---
 title: Usar o MongoChef para MongoDB com Azure DocumentDB | Microsoft Docs
-description: "Saiba como usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização."
+description: Saiba como usar o MongoChef com uma conta da API para MongoDB do DocumentDB
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
@@ -13,30 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 03/06/2017
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: a6aadaae2a9400dc62ab277d89d9a9657833b1b7
-ms.openlocfilehash: 26035ac7827eba384268dde266db2ac13cc30f40
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: eb5a10e414a4dcce50b34a54d0e56fd5f7a16737
+ms.lasthandoff: 03/08/2017
 
 
 ---
-# <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
-Para se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o MongoChef, você deve:
+# <a name="use-mongochef-with-a-documentdb-api-for-mongodb-account"></a>Use o MongoChef com uma conta da API para MongoDB do DocumentDB
+
+Para se conectar a uma conta da API para MongoDB do Azure DocumentDB, você deve:
 
 * Baixar e instalar o [MongoChef](http://3t.io/mongochef)
-* Ter as informações de [cadeia de conexão](documentdb-connect-mongodb-account.md) da sua conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
+* Ter suas informações de [cadeia de conexão](documentdb-connect-mongodb-account.md) da sua conta da API para MongoDB do DocumentDB
 
 ## <a name="create-the-connection-in-mongochef"></a>Criar a conexão no MongoChef
-Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB ao gerenciador de conexões do MongoChef, execute as etapas a seguir.
+Para adicionar a conta da API para MongoDB do DocumentDB ao gerenciador de conexões do MongoChef, execute as etapas a seguir.
 
-1. Recuperar as informações do Banco de Dados de Documentos com o suporte de protocolo para as informações de conexão do MongoDB usando as instruções que constam [aqui](documentdb-connect-mongodb-account.md).
+1. Recupere as informações da conexão da API para MongoDB do DocumentDB usando as instruções encontradas [aqui](documentdb-connect-mongodb-account.md).
 
     ![Captura de tela da folha de cadeia de conexão](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 2. Clique em **Conectar** para abrir o Gerenciador de Conexões e clique em **Nova Conexão**
 
     ![Captura de tela do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManager.png)
-3. Na janela **Nova Conexão**, na guia **Servidor**, insira o HOST (FQDN) da conta do DocumentDB com suporte de protocolo para o MongoDB e o PORT.
+3. Na janela **Nova Conexão**, na guia **Servidor**, insira o HOST (FQDN) da conta da API para MongoDB do DocumentDB e a PORTA.
 
     ![Captura de tela da guia servidor do gerenciador de conexões do MongoChef](./media/documentdb-mongodb-mongochef/ConnectionManagerServerTab.png)
 4. Na janela **Nova Conexão**, na guia **Autenticação**, escolha o Padrão do Modo de Autenticação **(MONGODB-CR ou SCARM-SHA-1)** e insira USERNAME e PASSWORD.  Aceite o banco de dados de autenticação padrão (admin) ou forneça seu próprio valor.
@@ -114,10 +116,5 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
     ![Captura de tela dos resultados de consulta do MongoChef](./media/documentdb-mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Explore [amostras](documentdb-mongodb-samples.md)do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
-
-
-
-<!--HONumber=Jan17_HO4-->
-
+* Explore [amostras](documentdb-mongodb-samples.md) da API para MongoDB do DocumentDB.
 

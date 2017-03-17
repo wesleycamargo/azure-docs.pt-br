@@ -12,11 +12,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 03/16/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
 ms.openlocfilehash: 312e9081c8597f59c32e99d594f2e729410986d8
+ms.lasthandoff: 12/16/2016
 
 
 ---
@@ -196,9 +197,4 @@ Para saber mais sobre como desenvolver soluções com o Hub IoT, consulte o [Gui
 [Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Portal do Azure]: https://portal.azure.com
 [Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
-
-
-
-<!--HONumber=Dec16_HO3-->
-
 

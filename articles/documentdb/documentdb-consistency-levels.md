@@ -1,5 +1,5 @@
 ---
-title: "Níveis de coerência no DocumentDB | Microsoft Docs"
+title: "Níveis de consistência no Azure DocumentDB | Microsoft Docs"
 description: "O Banco de Dados de Documentos tem quatro níveis de consistência que ajudam a equilibrar as trocas entre consistência eventual, disponibilidade e latência."
 keywords: "consistência eventual, banco de dados de documentos, azure, Microsoft azure"
 services: documentdb
@@ -15,13 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: dc5ddeaaa865260c58422ed00c015689946b63f5
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 839f8c8669c06e22635b68018d816a669aec895b
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="consistency-levels-in-documentdb"></a>Níveis de consistência no Banco de Dados de Documentos
+# <a name="tunable-data-consistency-levels-in-documentdb"></a>Níveis de consistência ajustáveis no DocumentDB
 O Banco de Dados de Documentos do Azure foi desenvolvido desde o início com foco na distribuição global. Ele se destina a oferecer garantias de baixa latência previsível, um SLA de disponibilidade de 99,99% e vários modelos flexíveis de consistência bem definidos. Atualmente, o Banco de Dados de Documentos fornece quatro níveis de consistência: strong, bounded staleness, session e eventual. Além dos modelos de **coerência forte** e **eventual** frequentemente oferecidos por outros bancos de dados NoSQL, o DocumentDB também oferece dois modelos de coerência cuidadosamente codificados e operacionalizados – **desatualização limitada** e **sessão**, tendo validado sua utilidade em casos de uso reais. Coletivamente, esses quatro níveis de consistência permitem que você faça trocas ponderadas entre consistência, disponibilidade e latência. 
 
 ## <a name="scope-of-consistency"></a>Escopo de consistência
@@ -116,9 +118,4 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,9 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
+ROBOTS: NOINDEX
 translationtype: Human Translation
 ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
 ms.openlocfilehash: 6de7798f117f0362ac80a390b7e341c7f6fc01b8
+ms.lasthandoff: 01/18/2017
 
 
 ---
@@ -141,10 +143,5 @@ Use as etapas a seguir para executar uma consulta do Hive usando o Tez.
 Agora que você aprendeu a usar o modo de exibição do Tez, saiba mais sobre [Como usar o Hive no HDInsight](hdinsight-use-hive.md).
 
 Para obter informações técnicas mais detalhadas sobre o Tez, confira a [página sobre o Tez em Hortonworks](http://hortonworks.com/hadoop/tez/).
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

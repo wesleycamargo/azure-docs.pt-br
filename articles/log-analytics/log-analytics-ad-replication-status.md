@@ -1,5 +1,5 @@
 ---
-title: "Solução de Status de Replicação do Active Directory no Log Analytics | Microsoft Docs"
+title: "Monitorar o status da replicação do Active Directory com o Azure Log Analytics | Microsoft Docs"
 description: "O pacote de solução de Status de Replicação do Active Directory monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação e relata os resultados no seu painel do OMS."
 services: log-analytics
 documentationcenter: 
@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2017
+ms.date: 02/27/2017
 ms.author: banders
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 744c4bd37b7b1443cf78586aab8ec2661e02254e
-ms.openlocfilehash: c0fc2ae5318068c204296b9e053c2cc7324e84c7
+ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
+ms.openlocfilehash: ffae86cb963f0df7f879effbace073d7e830cd94
+ms.lasthandoff: 02/28/2017
 
 
 ---
-# <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solução de Status de Replicação do Active Directory no Log Analytics
+# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorar o status da replicação do Active Directory com o Log Analytics
+
 O Active Directory é um componente-chave de um ambiente de TI corporativo. Para garantir a alta disponibilidade e alto desempenho, cada controlador de domínio tem sua própria cópia do banco de dados do Active Directory. Controladores de domínio replicam entre si para propagar alterações em toda a empresa. Falhas nesse processo de replicação podem causar vários problemas em toda a empresa.
 
 O pacote de solução de Status de Replicação do AD monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação e relata os resultados no seu painel do OMS.
@@ -150,9 +153,4 @@ Se você não quiser conectar nenhum controlador de domínio diretamente ao OMS 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de status de replicação do Active Directory.
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

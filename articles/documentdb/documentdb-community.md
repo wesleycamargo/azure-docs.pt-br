@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/16/2017
+ms.date: 03/07/2017
 ms.author: andrl
 translationtype: Human Translation
-ms.sourcegitcommit: cf163b2809f50daf0273398d6fec50dfc6fd69a2
-ms.openlocfilehash: 96dbc1f5a84f52ab39a3515511c7851bba5fa9a9
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 4e5d915d474d7ea161f467def931e3013255f843
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -100,6 +100,7 @@ Você pode se manter atualizado com as notícias e os recursos mais recentes do 
 |[South Florida Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx) (NoSQL para desenvolvedores .NET em menos de 10 minutos com o Azure DocumentDB)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 de março de 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL for .NET developers in under 10 minutes with Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20) (NoSQL para desenvolvedores .NET em menos de 10 minutos com o Azure DocumentDB)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|8 de abril de 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
 |[Global Azure Bootcamp: Serverless computing in Azure with Azure Functions and DocumentDB](https://www.eventbrite.com/e/2017-global-azure-bootcamp-atlanta-usa-tickets-31817713638) (computação sem servidor no Azure com o Azure Functions e DocumentDB)| [Josh Lane](https://twitter.com/jplane)|Atlanta, GA|22 de abril de 2017|[#GlobalAzure](https://twitter.com/hashtag/GlobalAzure?src=hash)|
+|[NDC Olso 2017: Azure DocumentDB – o melhor banco de dados NoSQL que você provavelmente não está usando (ainda)](http://ndcoslo.com/talk/azure-documentdb-the-best-nosql-database-youre-probably-not-using-yet/)|[Josh Lane](https://twitter.com/jplane)|Olso, Noruega|14 de junho de 2017|[#ndcoslo](https://twitter.com/search?q=%23ndcoslo)|
 
 *Você está participando como palestrante ou organizando um evento? [Fale conosco](mailto:askdocdb@microsoft.com) para sabermos como podemos ajudar!*
 

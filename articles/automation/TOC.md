@@ -54,6 +54,9 @@
 ### [Iniciar/parar VMs durante os horários inativos](automation-solution-vm-management.md)
 ### [Integração de controle do código-fonte com o GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ### [Integração de controle do código-fonte com o VSTS](automation-scenario-source-control-integration-with-VSTS.md)
+## Soluções
+### [Controle de alterações](../log-analytics/log-analytics-change-tracking.md)
+### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 ## Monitoramento
 ### [Encaminhar dados de trabalho de Automação do Azure para o Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Desvincular conta de Automação do Azure do Log Analytics](automation-unlink-from-log-analytics.md)
