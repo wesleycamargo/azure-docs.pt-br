@@ -12,73 +12,62 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/06/2017
+ms.date: 03/14/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: d8e4e4bb7dd1e40d8c561adba04b8346fcb2127d
+ms.lasthandoff: 03/15/2017
 
 
 ---
 # <a name="what-is-site-recovery"></a>O que é a Recuperação de Site?
-Bem-vindo ao Azure Site Recovery! Este artigo fornece uma visão geral rápida do Site Recovery.
 
-Sua organização precisa de uma estratégia BCDR (recuperação de desastres continuidade de negócios) que mantêm os dados e aplicativos seguros e disponíveis durante a inatividade planejada e não planejada, e recupera as condições normais de trabalho assim que possível.
+Bem-vindo ao Azure Site Recovery! Este artigo fornece uma visão geral rápida do serviço.
 
-O Site Recovery contribui para sua estratégia de BCDR, gerenciando a replicação de máquinas virtuais locais e servidores físicos. Você replica os servidores e as VMs do data center primário local para a nuvem (Azure) ou para um datacenter secundário.
+As interrupções são causadas por falhas operacionais e eventos naturais. Sua organização precisa de uma estratégia BCDR (recuperação de desastres continuidade de negócios) de forma que, durante o tempo de inatividade planejado e não planejado, os dados permaneçam seguros, os aplicativos permaneçam disponíveis e a empresa recupere as condições normais de trabalho assim que possível.
 
-Quando ocorrem paralisações no site primário, você realiza o failover em um site secundário para manter as cargas de trabalho acessíveis e disponíveis. Quando o local primário retoma as operações normais, você realiza o failback.
+Os Serviços de Recuperação do Azure contribuem para sua estratégia BCDR. O serviço [Backup do Azure](https://docs.microsoft.com/en-us/azure/backup/) mantém seus dados seguros e recuperáveis. O Site Recovery replica, faz failover e recupera cargas de trabalho para que elas permaneçam disponíveis quando ocorre uma falha.
 
-## <a name="site-recovery-in-the-azure-portal"></a>Recuperação de Site no portal do Azure
-O Azure tem dois [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md) diferentes para criar e trabalhar com recursos. Modelo do Azure Resource Manager e modelo de gerenciamento de serviços clássico. O Azure também tem dois portais: O [Portal Clássico do Azure](https://manage.windowsazure.com/) e o [Portal do Azure](https://portal.azure.com).
+## <a name="what-does-site-recovery-provide"></a>O que o Site Recovery fornece?
 
-* O Site Recovery pode ser implantado no portal clássico e no portal do Azure.
-* No portal clássico do Azure, você pode dar suporte ao Site Recovery com o modelo de gerenciamento de serviços clássico.
-* No portal do Azure, você pode suportar o modelo clássico ou as implantações do Gerenciador de Recursos.
-
-As informações neste artigo se aplicam às implantações clássicas e do portal do Azure. As diferenças são indicadas onde aplicável.
-
-## <a name="why-deploy-site-recovery"></a>Por que implantar o Site Recovery?
-Veja o que a Recuperação de Site pode fazer pela sua empresa:
-
-* **Simplificar BCDR**— você pode replicar, realizar failover e recuperar várias cargas de trabalho de um único local no portal do Azure. O Site Recovery gerencia a replicação e o failover, sem interceptar dados de aplicativo.
-* **Fornecer replicação flexível**— você pode duplicar as cargas de trabalho em execução nas VMs do Hyper-V com suporte, VMs VMware e servidores físicos Windows/Linux.
-* **Eliminar um data center secundário**— você pode replicar as cargas de trabalho do Azure, em vez de em um site secundário. Isso elimina o custo e a complexidade de manter um data center secundário. Os dados replicados são armazenados no Armazenamento do Azure, com toda a resiliência que ele oferece. Quando ocorrer um failover, as VMs do Azure serão criadas com os dados replicados.
-* **Executar testes de replicação fácil**— você pode facilmente executar failovers de teste para dar suporte à recuperação de desastre, sem afetar os ambientes de produção.
-* **Failover e recuperação**— você pode executar failovers planejados para interrupções esperadas com perda de dados zero ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação), para desastres inesperados. Você pode executar failback para o site primário quando ele estiver disponível novamente.
-* **Failover de várias VMs**— você pode configurar planos de recuperação que incluem scripts e runbooks de automação do Azure. Os planos de recuperação permitem que você modele e personalize o failover e a recuperação de aplicativos de várias camadas distribuídos por várias VMs.
-* **Integração com as tecnologias BCDR existentes**– o Site Recovery se integra a outras tecnologias BCDR. Por exemplo, você pode usar o Site Recovery para proteger o back-end do SQL Server das cargas de trabalho corporativas, incluindo o suporte nativo para o SQL Server AlwaysOn, a fim de gerenciar o failover dos grupos de disponibilidade.
-
-## <a name="what-can-i-replicate"></a>O que posso replicar?
-Aqui está um resumo de como você pode replicar usando a Recuperação de Site.
-
-![Local para o próprio local](./media/site-recovery-overview/asr-overview-graphic.png)
-
-| **REPLICATE** | **REPLICAR PARA** |
-| --- | --- |
-| VMs VMware locais |[As tabelas](site-recovery-vmware-to-azure-classic.md)<br/><br/> [Site secundário](site-recovery-vmware-to-vmware.md) |
-| VMs do Hyper-V locais gerenciadas nas nuvens do VMM |[As tabelas](site-recovery-vmm-to-azure.md)<br/><br/> [Site secundário](site-recovery-vmm-to-vmm.md) |
-| VMs do Hyper-V locais gerenciadas nas nuvens do VMM, com o armazenamento SAN |[Site secundário](site-recovery-vmm-san.md) |
-| VMs do Hyper-V locais, sem VMM |[As tabelas](site-recovery-hyper-v-site-to-azure.md) |
-| Servidores físicos locais com Windows/Linux |[As tabelas](site-recovery-vmware-to-azure-classic.md)<br/><br/> [Site secundário](site-recovery-vmware-to-vmware.md) |
-
-## <a name="how-does-site-recovery-protect-workloads"></a>Como o Site Recovery protege as cargas de trabalho?
-O Site Recovery permite a replicação com reconhecimento do aplicativo para que as cargas de trabalho e os aplicativos continuem sendo executados de forma consistente quando ocorrem paralisações.
-
-* **Instantâneos consistentes com aplicativos**— as máquinas replicam usando instantâneos consistentes com os aplicativos, para aplicativos com uma ou várias camadas. Além de capturar os dados do disco, os instantâneos consistentes com os aplicativos capturam todos os dados na memória e todas as transações em andamento.
-* **Replicação quase síncrona**— o Site Recovery fornece a frequência da replicação, que é tão baixa quanto 30 segundos para o Hyper-V, e a replicação contínua para o VMware.
-* **Planos de recuperação flexíveis**— Você pode criar e personalizar os planos de recuperação com scripts externos e ações manuais. A integração com runbooks de Automação do Azure permitem que você recupere uma pilha de aplicativos inteira com um único clique.
-* **Integração com o SQL Server AlwaysOn**— você pode gerenciar o failover dos grupos de disponibilidade nos planos de recuperação.
-* **Biblioteca de automação**— Uma biblioteca de Automação do Azure avançada fornece scripts prontos para a produção e específicos do aplicativo que podem ser baixados e integrados na Recuperação de Site.
+- **Recuperação de desastres na nuvem** – Você pode replicar no Azure as cargas de trabalho em execução em VMs e servidores físicos em vez de fazer isso em um site secundário. Isso elimina o custo e a complexidade de manter um data center secundário.
+- **Replicação flexível para ambientes híbridos** – Você pode replicar qualquer carga de trabalho em execução em VMs locais do Hyper-V e VMs do VMware com suporte, bem como em servidores físicos Windows/Linux.
+- **Migração** – Você pode usar o Site Recovery para migrar instâncias AWS locais para VMs do Azure ou para migrar VMs do Azure entre regiões do Azure.
+- **BCDR simplificado** – Você pode implantar a replicação de um único local no portal do Azure.  Você pode fazer failovers e failbacks simples de um ou de vários computadores.
+- **Resiliência** – O Site Recovery orquestra a replicação e o failover sem interceptar dados de aplicativo.
+Os dados replicados são armazenados no armazenamento do Azure, com toda a resiliência que ele oferece. Quando ocorrer um failover, as VMs do Azure serão criadas com base nos dados replicados.
+- **Desempenho de replicação** – O Site Recovery fornece uma frequência da replicação tão baixa quanto 30 segundos para o Hyper-V, assim como a replicação contínua para o VMware. Você pode definir limites de RPO (objetivo de ponto de recuperação) para controlar a frequência com que os pontos de recuperação de dados são criados e pode reduzir o RTO (objetivo do tempo de recuperação) com o processo de recuperação automatizada do Site Recovery e a integração com o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/en-us/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)
+- **Consistência de aplicativo** – Os computadores replicam usando instantâneos consistentes de aplicativo. Além de capturar os dados do disco, os instantâneos consistentes com os aplicativos capturam todos os dados na memória e todas as transações em andamento.
+- **Testes sem interrupção** – Você pode facilmente executar failovers de teste para dar suporte à recuperação de desastre, sem afetar os ambientes de produção.
+- **Failover e recuperação flexíveis** – Você pode executar failovers planejados para interrupções esperadas sem perda de dados ou failovers não planejados com perda mínima de dados (dependendo da frequência de replicação) para desastres inesperados. É possível executar facilmente o failback para o site primário quando ele estiver disponível novamente.
+- **Planos de recuperação personalizados** – os planos de recuperação permitem que você modele e personalize o failover e a recuperação de aplicativos de várias camadas distribuídos por várias VMs. Ordene grupos em planos e adicione scripts e ações manuais. Os planos de recuperação podem ser integrados com runbooks de automação do Azure.
+- **Aplicativos de várias camadas** – Você pode criar planos de recuperação para failover e recuperação sequenciados de aplicativos de várias camadas. Você pode agrupar computadores em diferentes camadas (por exemplo, banco de dados, Web, aplicativo) em um plano de recuperação e personalizar como cada grupo faz o failover e é iniciado.
+* **Integração com as tecnologias BCDR existentes** – O Site Recovery integra-se a outras tecnologias BCDR. Por exemplo, você pode usar o Site Recovery para proteger o back-end do SQL Server das cargas de trabalho corporativas, incluindo o suporte nativo para o SQL Server AlwaysOn, a fim de gerenciar o failover dos grupos de disponibilidade.
+* **Integração com a biblioteca de automação** – Uma biblioteca de Automação do Azure avançada fornece scripts prontos para a produção e específicos do aplicativo que podem ser baixados e integrados com o Site Recovery.
 * **Gerenciamento de rede simples**— O gerenciamento de rede avançado no Site Recovery e no Azure simplifica os requisitos de rede do aplicativo, incluindo reservar endereços IP, configurar balanceadores de carga e integrar o Gerenciador de Tráfego do Azure para ter uma troca de rede eficiente.
 
+
+## <a name="whats-supported"></a>Há suporte para quê?
+
+**Com suporte** | **Detalhes**
+--- | ---
+**Quais são as regiões têm suporte para o Site Recovery?** | [Regiões com suporte](https://azure.microsoft.com/en-us/regions/services/) |
+**O que posso replicar?** | VMs locais do VMware, VMs do Hyper-V e servidores físicos Windows e Linux.
+**De quais sistemas operacionais os computadores replicados precisam?** | [Sistemas operacionais com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) para VMs do VMware<br/><br/> Para VMs do Hyper-V, há suporte para qualquer [SO convidado](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) com suporte do Azure e do Hyper-V.<br/><br/> [Sistemas operacionais](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) para servidores físicos
+**Para qual local posso replicar?** | Para o armazenamento do Azure ou um datacenter secundário<br/><br/> Para o Hyper-V, apenas as VMs nos hosts Hyper-V gerenciados em nuvens do System Center VMM podem replicar para um datacenter secundário.
+**Quais servidores/hosts VMware são necessários?** | As VMs VMware que você deseja replicar podem ser gerenciadas por [hosts vSphere/servidores vCenter com suporte](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)
+**Quais cargas de trabalho posso replicar?** | Você pode replicar qualquer carga de trabalho em execução em um computador de replicação com suporte. Além disso, a equipe do Site Recovery realizou testes específicos do aplicativo para [alguns aplicativos](site-recovery-workload.md#workload-summary).
+
+
+## <a name="which-azure-portal"></a>Qual portal do Azure?
+
+* O Site Recovery pode ser implantado tanto no mais recente [Portal do Azure](https://portal.azure.com) quanto no [Portal Clássico do Azure](https://manage.windowsazure.com/).
+* No portal clássico do Azure, você pode dar suporte ao Site Recovery com o modelo de gerenciamento de serviços clássico.
+* No Portal do Azure, você pode oferecer suporte ao modelo clássico ou ao mais recente [modelo de implantação do Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+- O portal clássico deve ser usado somente para manter as implantações do Site Recovery existentes. Não é possível criar novos cofres no portal clássico.
+
 ## <a name="next-steps"></a>Próximas etapas
-* Leia mais em [Quais cargas de trabalho a Recuperação de Site pode proteger?](site-recovery-workload.md)
-* Saiba mais sobre a arquitetura da Recuperação de Site em [Como funciona a Recuperação de Site?](site-recovery-components.md)
-
-
-
-
-<!--HONumber=Nov16_HO4-->
-
+* Leia mais sobre [Suporte a carga de trabalho](site-recovery-workload.md)
+* Saiba mais sobre a [arquitetura e os componentes do Site Recovery](site-recovery-components.md)
 

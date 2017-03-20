@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 03/10/2017
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 6a1d5cea8f7f501851dce9813012df51ec9e3dcf
-ms.openlocfilehash: ea1dc55af79cf3285dfa1e245fcafb07dd8a6379
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: d995918ef51f345bf76a25f9b6908cf5f4aac6c9
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -63,7 +63,7 @@ O vídeo a seguir fornece uma visão geral do Azure AD Connect Health para sincr
 >
 >
 
-## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health para AD FS (visualização)](active-directory-aadconnect-health-adds.md)
+## <a name="azure-ad-connect-health-for-ad-dsactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health para AD DS](active-directory-aadconnect-health-adds.md)
 O Azure AD Connect Health para AD DS (Active Directory Domain Services) fornece monitoramento para controladores de domínio instalados no Windows Server 2008 R2, no Windows Server 2012, no Windows Server 2012 R2 e no Windows Server 2016. A instalação do Agente de Integridade permite que você monitore o ambiente do AD DS local diretamente da nuvem. O Azure AD Connect Health para o AD DS fornece o seguinte conjunto de recursos principais:
 
 * Alertas de monitoramento para detectar quando controladores de domínio não estão íntegros, juntamente com as notificações por email para alertas críticos

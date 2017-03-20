@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/14/2017
+ms.date: 03/09/2017
 ms.author: babanisa;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 1b9423c22ff6e003a6236e01118b600a2c746db4
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 9fd40892c77630bd4f0b7abf5c3458a6dc200402
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -32,7 +33,7 @@ Os principais elementos de capacidade fornecidos pela Retransmissão são comuni
 A Retransmissão do Azure tem dois recursos:
 
 1. [Conexões Híbridas](#hybrid-connections) – usa os soquetes Web de padrão aberto, habilitando cenários de várias plataformas.
-2. [Retransmissões de WCF](#wcf-relays) – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de Retransmissão herdada oferta que muitos clientes já podem usar com seus modelos de programação do WCF.
+2. [Retransmissões de WCF](#wcf-relays) – usa o WCF (Windows Communication Foundation) para habilitar chamadas de procedimento remotas. A Retransmissão de WCF é a oferta de Retransmissão herdada oferta que muitos clientes já usam com seus modelos de programação do WCF.
 
 Conexões Híbridas e Retransmissões de WCF habilitam conexão segura para ativos que existem dentro de uma rede corporativa. O uso de um ou do outro depende de suas necessidades específicas, conforme descrito na seguinte tabela:
 
@@ -41,12 +42,9 @@ Conexões Híbridas e Retransmissões de WCF habilitam conexão segura para ativ
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS*** | |x |
-| **Java*** | |x |
+| **JavaScript/NodeJS** | |x |
 | **Protocolo Aberto Baseado em Padrões** | |x |
 | **Vários modelos de programação de RPC** | |x |
-
-*Por Disponibilidade Geral
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
 A funcionalidade de [Conexões Híbridas de Retransmissão do Azure](relay-hybrid-connections-protocol.md) é uma evolução segura de protocolo aberto dos recursos existentes de Retransmissão que pode ser implementada em qualquer plataforma e em qualquer linguagem que tenha uma funcionalidade básica de WebSocket, que inclui explicitamente a API WebSocket em navegadores da Web comuns. A capacidade de Conexões Híbridas baseia-se em HTTP e WebSockets.
@@ -62,10 +60,5 @@ As Conexões Híbridas suplantam primeiro recurso, também denominado "Serviços
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

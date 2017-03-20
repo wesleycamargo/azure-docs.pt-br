@@ -3,7 +3,7 @@ title: "Introdução à auditoria do banco de dados SQL do Azure | Microsoft Doc
 description: "Introdução à auditoria do banco de dados SQL"
 services: sql-database
 documentationcenter: 
-author: ronitr
+author: giladm
 manager: jhubbard
 editor: giladm
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
@@ -13,12 +13,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
-ms.author: ronitr; giladm
+ms.date: 7/3/2017
+ms.author: giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 506fd7b5cbf11dd4d9348962db5e06077953bd51
-ms.openlocfilehash: 185c6aaa2db0820421c8ea3523865bc90a1475f7
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 6b5b357c996f5c4642e61b09c5a7e5e0ec6a93c7
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -42,8 +42,8 @@ A auditoria de Banco de Dados SQL permite:
 
 Há dois **Métodos de auditoria**:
 
-* **Auditoria de blob** – os logs são gravados no Armazenamento de Blobs do Azure. Esse é um método de auditoria mais recente, que fornece **desempenho maior**, dá suporte à **auditoria do nível de objeto de granularidade mais alta** e é **mais econômico**.
-* **Auditoria de tabela** – os logs são gravados no Armazenamento de Tabelas do Azure.
+* **Auditoria de Blob** – os logs são gravados no Armazenamento de Blobs do Azure. Esse é um método de auditoria mais recente, que fornece **desempenho maior**, dá suporte à **auditoria do nível de objeto de granularidade mais alta** e é **mais econômico**.
+* **Auditoria de Tabela** – os logs são gravados no Armazenamento de Tabelas do Azure.
 
 > [!IMPORTANT]
 > A introdução do novo Blob de auditoria traz uma grande mudança na forma como a diretiva de auditoria de servidor está sendo herdada por banco de dados. Consulte [as diferenças de Blob/tabela na herança de diretiva de auditoria do servidor](#subheading-8) seção para obter detalhes adicionais.
@@ -57,7 +57,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 ## <a id="subheading-2"></a>Configurar a auditoria do banco de dados
 A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
 
-### <a id="subheading-2-1">Auditoria de blobs</a>
+### <a id="subheading-2-1">Auditoria de blob</a>
 1. Inicie o [Portal do Azure](https://portal.azure.com) em https://portal.azure.com.
 2. Navegue até a folha de configuração do Banco de Dados SQL/SQL Server que você deseja auditar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**.
 
@@ -76,11 +76,12 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
     <a id="storage-screenshot"></a>
     ![Painel de navegação][4]
 6. Se desejar personalizar os eventos auditados, você pode fazer isso por meio do PowerShell ou API REST. Consulte a seção [Automação (PowerShell/API REST)](#subheading-7) para obter mais detalhes.
-7. Clique em **Salvar**.
+7. Depois de definir as configurações de auditoria, você pode ativar o novo recurso **Detecção de Ameaças** (visualização) e configurar os emails para receber alertas de segurança. A Detecção de Ameaças permite que você receba alertas proativos em atividades anômalas de banco de dados que podem indicar possíveis ameaças de segurança. Para obter mais detalhes, consulte [Introdução à Detecção de Ameaças](sql-database-threat-detection-get-started.md) .
+8. Clique em **Salvar**.
 
 ### <a id="subheading-2-2">Auditoria de tabela</a>
 
-> Antes de configurar a **Auditoria de tabela**, verifique se você está usando um ["Cliente de Versão Anterior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Além disso, se você tiver configurações de firewall estritas, observe que o [ponto de extremidade IP do seu banco de dados será alterado](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando auditoria de tabela for habilitada.
+> Antes de configurar a **Auditoria de Tabela**, verifique se você está usando um [“Cliente de Versão Anterior”](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Além disso, se você tiver configurações de firewall estritas, observe que o [ponto de extremidade IP do seu banco de dados será alterado](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) quando auditoria de tabela for habilitada.
 
 
 1. Inicie o [Portal do Azure](https://portal.azure.com) em https://portal.azure.com.
@@ -134,7 +135,7 @@ Você pode explorar os logs de auditoria usando uma ferramenta como o [Azure Sto
 Veja abaixo informações específicas para análise de logs de auditoria de **Blob** e **Tabela**.
 
 ### <a id="subheading-3-1">Auditoria de blob</a>
-Os logs de auditoria de blob são salvos como uma coleção de arquivos de Blob em um contêiner chamado "**sqldbauditlogs**".
+Os logs da Auditoria de Blob são salvos como uma coleção de arquivos de blob em um contêiner chamado “**sqldbauditlogs**”.
 
 Para mais detalhes sobre a hierarquia de pasta de armazenamento de logs de auditoria de blob, a convenção de nomenclatura do blob e o formato do log, consulte a [Referência do formato do log de auditoria de blob (download do arquivo doc)](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -237,14 +238,14 @@ Você também pode configurar a Auditoria no Azure SQL Database usando as seguin
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
    * [Use-AzureRMSqlServerAuditingPolicy][107]
-2. **API REST – auditoria de blob**
+2. **API REST – Auditoria de Blob**
 
    * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx) (Criar ou atualizar a política de auditoria de blob do banco de dados)
    * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx) (Criar ou atualizar uma política de auditoria de blob de servidor)
    * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx) (Obter a política de auditoria de blob do banco de dados)
    * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx) (Obter a política de auditoria de blob do servidor)
    * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx) (Obter o resultado da operação de auditoria do blob do servidor)
-3. **API REST – auditoria de tabela**
+3. **API REST – Auditoria de Tabela**
 
    * [Create or Update Database Auditing Policy](https://msdn.microsoft.com/library/azure/mt604471.aspx) (Criar ou atualizar a política de auditoria de tabela do banco de dados)
    * [Create or Update Server Auditing Policy](https://msdn.microsoft.com/library/azure/mt604383.aspx) (Criar ou atualizar a política de auditoria de tabela do servidor)
@@ -282,3 +283,4 @@ Você também pode configurar a Auditoria no Azure SQL Database usando as seguin
 [105]: https://msdn.microsoft.com/library/azure/mt603531(v=azure.200).aspx
 [106]: https://msdn.microsoft.com/library/azure/mt603794(v=azure.200).aspx
 [107]: https://msdn.microsoft.com/library/azure/mt619353(v=azure.200).aspx
+

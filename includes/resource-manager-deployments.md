@@ -1,22 +1,10 @@
 ## <a name="incremental-and-complete-deployments"></a>Implantações incrementais e completas
-Ao implantar os recursos, especifique que a implantação é uma atualização incremental ou uma atualização completa. Por padrão, o Gerenciador de Recursos trata as implantações como atualizações incrementais para o grupo de recursos. Com a implantação incremental, o Gerenciador de Recursos:
+Ao implantar os recursos, especifique que a implantação é uma atualização incremental ou uma atualização completa. A principal diferença entre esses dois modos é como o Resource Manager lida com os recursos existentes no grupo de recursos que não estão no modelo:
 
-* **deixa inalterados** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
-* **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
-* **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
-* **reprovisiona** recursos existentes com configurações atualizadas no modelo
+* No modo completo, o Resource Manager **exclui** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo. 
+* No modo incremental, o Resource Manager **deixa inalterados** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo.
 
-Com a implantação completa, o Gerenciador de Recursos:
+Para ambos os modos, o Resource Manager tenta provisionar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e suas configurações são as mesmas, a operação resulta em nenhuma alteração. Se você alterar as configurações de um recurso, o recurso será provisionado com as novas configurações. No entanto, você não pode atualizar o local ou o tipo de um recurso existente. Em vez disso, implante um novo recurso com o local ou o tipo de que você precisa.
 
-* **exclui** os recursos existentes no grupo de recursos, mas que não foram especificados no modelo
-* **adiciona** os recursos especificados no modelo, mas que não existem no grupo de recursos 
-* **não reprovisiona** os recursos existentes no grupo de recursos na mesma condição definida no modelo
-* **reprovisiona** recursos existentes com configurações atualizadas no modelo
-
-Especifique o tipo de implantação por meio da propriedade **Mode** .
-
-
-
-<!--HONumber=Nov16_HO3-->
-
+Por padrão, o Resource Manager usa o modo incremental.
 

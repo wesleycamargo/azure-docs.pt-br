@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
-ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 851319639f1443c062b87305bbde351f41846433
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -56,8 +56,8 @@ Estes links serão úteis na exploração em profundidade do serviço:
 
 * Veja as [informações sobre preços do Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Examinar nosso [amostras de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) para o Azure Active Directory B2C. 
-* Obtenha ajuda sobre o Stack Overflow usando as marcas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-* Envie-nos seus comentários usando [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/)– queremos recebe-los! Use a frase "AzureADB2C:" no título da sua publicação para que possamos encontrá-la.
+* Obtenha ajuda no Stack Overflow usando a marca [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Envie-nos seus comentários usando [Voz do Usuário](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)– queremos recebe-los!
 * Examine a [Referência de protocolo do Azure AD B2C](active-directory-b2c-reference-protocols.md).
 * Examine a [Referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md).
 * Leia as [Perguntas frequentes do Azure Active Directory B2C](active-directory-b2c-faqs.md).

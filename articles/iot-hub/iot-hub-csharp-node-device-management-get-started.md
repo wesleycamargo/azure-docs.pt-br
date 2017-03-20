@@ -15,8 +15,9 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: f03b8d192255a3c93284f3c5e898f68a1234644f
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -26,7 +27,7 @@ ms.openlocfilehash: e4072903a0040d34ad4d41e6c28793d3594fa2f2
 ## <a name="introduction"></a>Introdução
 Os aplicativos de back-end podem usar primitivos no Hub IoT do Azure, ou seja, o dispositivo gêmeo e métodos diretos, para iniciar remotamente e monitorar as ações de gerenciamento de dispositivo nos dispositivos.  Este artigo fornece código e diretrizes sobre como dispositivos e aplicativos de back-end funcionam juntos para iniciar e monitorar uma reinicialização do dispositivo remoto usando o Hub IoT.
 
-Para iniciar e monitorar remotamente as ações de gerenciamento do dispositivo em seus dispositivos a partir de um aplicativo baseado em nuvem e de back-end, use os primitivos do Hub IoT do Azure como o [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod]. Este tutorial mostra como um aplicativo de back-end e um dispositivo podem trabalhar juntos para permitir que você inicie e monitore a reinicialização do dispositivo remota a partir do Hub IoT.
+Para iniciar e monitorar remotamente as ações de gerenciamento do dispositivo em seus dispositivos a partir de um aplicativo baseado em nuvem e de back-end, use os primitivos do Hub IoT do Azure como o [dispositivo gêmeo][lnk-devtwin] e [métodos diretos][lnk-c2dmethod]. Este tutorial mostra como um aplicativo de back-end e um dispositivo podem trabalhar juntos para permitir que você inicie e monitore uma reinicialização remota do dispositivo por meio do Hub IoT.
 
 Use um método direto para iniciar as ações de gerenciamento do dispositivo (como a reinicialização, redefinição de fábrica e atualização do firmware) a partir de um aplicativo de back-end na nuvem. O dispositivo é responsável por:
 
@@ -39,7 +40,7 @@ Você pode usar um aplicativo de back-end na nuvem para executar consultas do di
 Este tutorial mostra como:
 
 * Usar o portal do Azure para criar um Hub IoT e criar uma identidade de dispositivo em seu Hub IoT.
-* Criar um aplicativo de dispositivo simulado que tem um método direto que permite a realização, que pode ser chamada pela nuvem.
+* Crie um aplicativo de dispositivo simulado contendo um método direto que reinicia o dispositivo. Métodos diretos são invocados da nuvem.
 * Criar um aplicativo de console .NET que chama um método direto de reinicialização no aplicativo de dispositivo simulado por meio do Hub IoT.
 
 Ao final deste tutorial, você terá um aplicativo de dispositivo de console Node.js e um aplicativo de back-end do console .NET (C#):
@@ -50,7 +51,7 @@ Ao final deste tutorial, você terá um aplicativo de dispositivo de console Nod
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Microsoft Visual Studio 2015.
+* Visual Studio 2015 ou Visual Studio 2017.
 * Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
@@ -59,9 +60,9 @@ Para concluir este tutorial, você precisará do seguinte:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Disparar uma reinicialização remota no dispositivo usando um método direto
-Nesta seção, você cria um aplicativo de console .NET (usando C#) que inicia uma reinicialização remota em um dispositivo usando um método direto e usa as consultas do dispositivo gêmeo para saber a hora da última reinicialização desse dispositivo.
+Nesta seção, você criará um aplicativo do console .NET (usando C#) que inicia uma reinicialização remota em um dispositivo usando um método direto. O aplicativo usa consultas de dispositivo gêmeo para descobrir o último horário de reinicialização para esse dispositivo.
 
-1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# à solução atual usando o modelo de projeto **Aplicativo do Console** . Nomeie o projeto como **TriggerReboot**.
+1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# a uma nova solução usando o modelo de projeto **Aplicativo do Console (.NET Framework)**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **TriggerReboot**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
@@ -199,7 +200,8 @@ Nesta seção, você irá
     ```
 8. Salve e feche o arquivo **dmpatterns_getstarted_device.js**.
    
-   [AZURE.NOTE] Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> [!NOTE]
+> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
 
 
 ## <a name="run-the-apps"></a>Executar os aplicativos
@@ -210,7 +212,7 @@ Agora você está pronto para executar os aplicativos.
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. Execute o aplicativo de console C# **TriggerReboot**- clique com botão direito no projeto **TriggerReboot**, selecione **Depurar** e **Iniciar nova instância**.
+2. Execute o aplicativo de console do C# **TriggerReboot**. Clique com o botão direito do mouse no projeto **TriggerReboot**, selecione **Depurar** e, em seguida, **Iniciar nova instância**.
 
 3. Você verá a resposta do dispositivo para o método direto no console.
 
@@ -221,7 +223,7 @@ As soluções de IoT podem expandir o conjunto definido de padrões de gerenciam
 Normalmente, você pode configurar os dispositivos para executar ações em um horário que minimiza as interrupções e a inatividade.  As janelas de manutenção do dispositivo são um padrão usado para definir a hora em que um dispositivo deve atualizar sua configuração. As soluções de back-end podem usar as propriedades desejadas do dispositivo gêmeo para definir e ativar uma política no dispositivo que permite uma janela de manutenção. Quando um dispositivo recebe a política da janela de manutenção, ele pode usar a propriedade relatada do dispositivo gêmeo para informar o status da política. O aplicativo de back-end pode usar as consultas do dispositivo gêmeo para atestar a conformidade dos dispositivos e cada política.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou um método direto para disparar uma reinicialização remota em um dispositivo, usou as propriedades relatadas para relatar a hora da última reinicialização a partir do dispositivo e consultou o dispositivo gêmeo para descobrir a hora da última reinicialização do dispositivo na nuvem.
+Neste tutorial, você usou um método direto para disparar uma reinicialização remota em um dispositivo. Você usou as propriedades relatadas para relatar a hora da última reinicialização do dispositivo e consultou o dispositivo gêmeo para descobrir a hora da última reinicialização do dispositivo na nuvem.
 
 Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivo como remoto por meio da atualização de firmware de ar, consulte:
 
@@ -251,8 +253,3 @@ Para continuar a introdução ao Hub IoT, confira [Introdução ao SDK do Gatewa
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-
-
-<!--HONumber=Dec16_HO1-->
-
-

@@ -20,15 +20,15 @@
 | Número máximo de arquivos em um compartilhamento de arquivo |O único limite é a capacidade total de 5 TB do compartilhamento de arquivo |
 | Número máximo de contêineres de blob, blobs, compartilhamentos de arquivo, tabelas, filas, entidades ou mensagens por conta de armazenamento |O único limite é a capacidade de conta de armazenamento de 500 TB |
 | Número máximo de políticas de acesso armazenada por contêiner, compartilhamento de arquivos, tabela ou fila |5 |
-| Taxa de solicitação total (presumindo um tamanho de objeto de 1KB) por conta de armazenamento |Até 20.000 IOPS, entidades por segundo ou mensagens por segundo |
+| Taxa Máxima de Solicitação por conta de armazenamento |Blobs: 20.000 solicitações por segundo para blobs de qualquer tamanho válido (restrito somente pelos limites de entrada/saída da conta) <br />Arquivos: 1000 IOPS (de 8 KB) por compartilhamento de arquivos <br />Filas: 20.000 mensagens por segundo (supondo que o tamanho de mensagem seja de 1 KB)<br />Tabelas: 20.000 transações por segundo (supondo que tamanho de entidade seja de 1 KB) |
 | Taxa de transferência de destino para blob único |Até 60 MB por segundo, ou até 500 solicitações por segundo |
-| Taxa de transferência de destino para fila única (mensagens de 1 KB) |Até 2000 mensagens por segundo |
-| Meta de taxa de transferência para partição de tabela única (entidades de 1 KB) |Até 2000 entidades por segundo |
+| Taxa de transferência de destino para fila única (mensagens de&1; KB) |Até 2000 mensagens por segundo |
+| Meta de taxa de transferência para partição de tabela única (entidades de&1; KB) |Até 2000 entidades por segundo |
 | Taxa de transferência de destino para compartilhamento de arquivo único |Até 60 MB por segundo |
 | Entrada máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA) |10 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 20 Gbps para o LRS |
 | Saída máxima<sup>2</sup> por conta de armazenamento (regiões dos EUA) |20 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 30 Gbps para o LRS |
-| Entrada máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa) |5 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 10 Gbps para o LRS |
-| Saída máxima<sup>2</sup> por conta de armazenamento (regiões da Ásia e Europa) |10 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 15 Gbps para o LRS |
+| Entrada máxima<sup>2</sup> por conta de armazenamento (regiões fora dos EUA) |5 Gbps se o GRS/ZRS<sup>3</sup> estiver habilitado, 10 Gbps para o LRS |
+| Saída máxima<sup>2</sup> por conta de armazenamento (regiões fora dos EUA) |10 Gbps se o RA-GRS/GRS/ZRS<sup>3</sup> estiver habilitado, 15 Gbps para o LRS |
 
 <sup>1</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento. 
 
@@ -40,9 +40,4 @@
 * **GRS**: armazenamento com redundância geográfica. 
 * **ZRS**: armazenamento com redundância de zona. Disponível apenas para blobs de blocos. 
 * **LRS**: armazenamento com redundância local. 
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
