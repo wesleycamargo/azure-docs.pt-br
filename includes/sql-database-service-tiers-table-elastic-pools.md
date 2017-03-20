@@ -75,6 +75,20 @@ sql-database-service-tiers.md
 | Máximo de eDTUs por banco de dados | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
+### <a name="premium-rs-elastic-pool-limits"></a>Limites de pool elástico Premium RS
+
+| Tamanho do pool (eDTUs)  | **125** | **250** | **500** | **1000** |
+|:---|---:|---:|---:| ---: | ---: | 
+| Armazenamento máximo de dados por pool* | 250 GB| 500 GB | 750 GB | 750 GB |
+| Armazenamento máximo OLTP na memória por pool* | 1 GB | 2 GB | 4 GB | 10 GB |
+| Número máximo de BDs por pool | 50 | 100 | 100 | 100 |
+| Máximo de trabalhos simultâneos por pool | 200 | 400 | 800 | 1600 |
+| Máximo de logons simultâneos por pool | 200 | 400 | 800 | 1600 |
+| Máximo de sessões simultâneas por pool | 30000 | 30000 | 30000 | 30000 |
+| Mínimo de eDTUs por banco de dados | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} |
+| Máximo de eDTUs por banco de dados | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | 
+||||||||
+
 > [!IMPORTANT]
 >\* Os bancos de dados em pool compartilham o armazenamento de pool, de modo que o armazenamento de dados em um pool elástico é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados.
 >

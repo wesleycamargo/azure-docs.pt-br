@@ -12,12 +12,12 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2017
+ms.date: 03/07/2017
 ms.author: ryanwi, mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: a3367bc4eb66a97263abc2e057eda41770e3face
-ms.openlocfilehash: c461706167728361576f42f8ac7f9b4a2d120609
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
+ms.openlocfilehash: cf48dc816661fa3d61f831fb176aba048a6f5b58
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -47,8 +47,8 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 > 
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
-### <a name="to-use-visual-studio-2017-rc"></a>Para usar o Visual Studio 2017 RC
-As ferramentas do Service Fabric fazem parte da carga de trabalho de Gerenciamento e Desenvolvimento do Azure no Visual Studio 2017 RC. Habilite essa carga de trabalho como parte da instalação do Visual Studio.
+### <a name="to-use-visual-studio-2017"></a>Para usar o Virtual Studio 2017
+As ferramentas do Service Fabric fazem parte da carga de trabalho de Gerenciamento e Desenvolvimento do Azure no Visual Studio 2017. Habilite essa carga de trabalho como parte da instalação do Visual Studio.
 Além disso, você precisa instalar o SDK do Microsoft Azure Service Fabric usando o Web Platform Installer.
 
 * [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
@@ -56,7 +56,7 @@ Além disso, você precisa instalar o SDK do Microsoft Azure Service Fabric usan
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Para usar o Visual Studio 2015 (requer a atualização do Visual Studio 2015 2 ou posterior)
 Para Visual Studio 2015, as ferramentas do Service Fabric são instaladas junto com o SDK, usando o Web Platform Installer:
 
-* [Instalar as ferramentas e o SDK do Microsoft Azure Service Fabric)][full-bundle-vs2015]
+* [Instalar as ferramentas e o SDK do Microsoft Azure Service Fabric][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Somente instalação do SDK
 Se só precisar do SDK, você poderá instalar este pacote:
