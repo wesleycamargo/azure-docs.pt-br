@@ -1,5 +1,5 @@
 ---
-title: "Conceitos e modelo de recursos hierárquico do DocumentDB | Microsoft Docs"
+title: Conceitos e modelo de recursos do Azure DocumentDB | Microsoft Docs
 description: "Saiba mais sobre modelo hierárquico de bancos de dados, coleções, UDF (função definida pelo usuário), documentos e permissões do Banco de Dados de Documentos para gerenciar recursos e muito mais."
 keywords: "Modelo hierárquico, banco de dados de documentos, azure, Microsoft azure"
 services: documentdb
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: anhoh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 4125a8d930ead541420c83ef5d8aa3ae1ea2a263
-ms.openlocfilehash: 520dc84bfd882d33d32719d5225af91eb124f015
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 456ff5cd0c91232ace87e02363f812a36cc38297
+ms.lasthandoff: 03/07/2017
 
 
 ---
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>Conceitos e modelo de recursos hierárquico do Banco de Dados de Documentos
+# <a name="documentdb-hierarchical-resource-model-and-core-concepts"></a>Conceitos principais e modelo de recursos hierárquicos do DocumentDB
 As entidades de banco de dados gerenciadas pelo Banco de Dados de Documentos são chamadas de **recursos**. Cada recurso é identificado de maneira exclusiva por um URI lógico. Você pode interagir com os recursos usando verbos de HTTP padrão, cabeçalhos de solicitação/resposta e códigos de status. 
 
 Após ler este artigo, você poderá responder as perguntas a seguir:
@@ -37,7 +38,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 Como o diagrama a seguir ilustra, o **modelo de recursos** hierárquico do Banco de Dados de Documentos é formado por conjuntos de recursos em uma conta de banco de dados, cada um podendo ser acessado por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos será chamado de **feed** . 
 
 > [!NOTE]
-> Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET.](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+> Ele oferece um protocolo TCP altamente eficiente que também possui o modelo de comunicação RESTful, disponível por meio do [SDK do cliente .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 > 
 > 
 

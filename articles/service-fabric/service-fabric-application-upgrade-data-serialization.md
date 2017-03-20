@@ -17,6 +17,7 @@ ms.author: vturecek
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d8cc770e863381bcc9dc4417bd2b1f91ac0a34e9
+ms.lasthandoff: 11/17/2016
 
 
 ---
@@ -62,10 +63,5 @@ Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização]
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos Avançados](service-fabric-application-upgrade-advanced.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solucionando Problemas de Atualizações de Aplicativo ](service-fabric-application-upgrade-troubleshooting.md).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

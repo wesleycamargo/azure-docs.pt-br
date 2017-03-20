@@ -99,6 +99,6 @@ Você também pode examinar estatísticas de desempenho e controlar a segurança
 
 <!-- Links -->
 [Criar um novo Aplicativo lógico]: app-service-logic-create-a-logic-app.md
-[File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
+[Definição da API do conector de arquivo]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso do Gerenciador de Conexão Híbrida]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 

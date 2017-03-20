@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/02/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 0e56d6e48bef816b38df9d31f93c7d1240580ce8
-ms.openlocfilehash: d8efafb69ed8d60aaf617917183736218e202e4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d7560b689d7cea56d40ffa2db9542f74a649f9c1
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -28,7 +28,7 @@ O formato do tipo do recurso filho é: `{resource-provider-namespace}/{parent-re
 
 O formato do nome do recurso filho é: `{parent-resource-name}/{child-resource-name}`
 
-No entanto, nos modelos, o tipo e o nome são especificados de forma diferente dependendo se estiverem aninhados no recurso pai ou sozinhos no nível superior. Este tópico mostra como lidar com as duas abordagens.
+No entanto, o tipo e o nome são especificados de forma diferente no modelo dependendo de estarem aninhados no recurso pai ou sozinhos no nível superior. Este tópico mostra como lidar com as duas abordagens.
 
 ## <a name="nested-child-resource"></a>Recurso filho aninhado
 A maneira mais fácil de definir um recurso filho é aninhando-o dentro do recurso pai. O exemplo a seguir mostra um Banco de Dados SQL aninhado em um SQL Server.

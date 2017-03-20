@@ -15,9 +15,9 @@ ms.date: 02/15/2017
 ms.author: heidist
 experiment_id: heidist-20170221
 translationtype: Human Translation
-ms.sourcegitcommit: 71694028366f48682881523c0220a4158078a76c
-ms.openlocfilehash: b851f906b57225dce516d9704fdace80c44c4897
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 8f4947ba2641bc8a39a71945ff2a6818d1ff7830
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="what-is-azure-search"></a>O que é a Pesquisa do Azure?
@@ -49,7 +49,7 @@ Os serviços dedicados são executados 24x7 em escala com [99,9% dos contratos n
 
 Vários provedores de serviço de nuvem oferecem mecanismos de pesquisa personalizados com recursos que ativam uma barra de pesquisa nos aplicativos personalizados. Alguns oferecem recursos comparáveis da linha de base, com a pesquisa de texto completo, pesquisa geográfica e capacidade de lidar com certo nível de ambiguidade nas entradas da pesquisa. Normalmente, é um [recurso especializado](#feature-drilldown) ou a facilidade e simplicidade geral das APIs, ferramentas e gerenciamento que determinam o melhor ajuste.
 
-Como pontos de comparação com outras soluções de pesquisa, o Azure Search é mais forte para as cargas de trabalho de pesquisa de texto completo nos armazenamentos de conteúdo e bancos de dados no Azure, com uma camada adicional de funcionalidade necessária para os aplicativos que dependem principalmente da pesquisa para recuperação de informações e navegação do conteúdo. 
+Como pontos de comparação com outras soluções de pesquisa, o Azure Search é mais forte para as cargas de trabalho de pesquisa de texto completo nos armazenamentos de conteúdo e bancos de dados no Azure, com uma camada adicional de funcionalidade necessária para os aplicativos que dependem principalmente da pesquisa para recuperação de informações e navegação do conteúdo. As principais vantagens incluem:
 
 + Integração dos dados do Azure (rastreadores) na camada de indexação
 + Portal do Azure para o gerenciamento central
