@@ -1,6 +1,6 @@
 ---
 title: "Logs de diagnóstico do Barramento de Serviço do Azure | Microsoft Docs"
-description: "Saiba mais sobre como analisar logs de diagnóstico do Barramento de Serviço no Microsoft Azure."
+description: "Saiba como configurar logs de diagnóstico para o Barramento de Serviço no Azure."
 keywords: 
 documentationcenter: 
 services: service-bus-messaging
@@ -16,64 +16,71 @@ ms.workload: data-services
 ms.date: 02/17/2017
 ms.author: babanisa
 translationtype: Human Translation
-ms.sourcegitcommit: 90321171586110a3b60c3df5b749003ebbf70ec9
-ms.openlocfilehash: 70205b33e9d52e41f5c1a637fee4da192e2a971a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: abcb0eee979853948cf6d981ff8f3a457eeeeef0
+ms.openlocfilehash: 65fe81dc90f2dc7a251860adfdd8374912cb8d73
+ms.lasthandoff: 03/01/2017
 
 
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 
-## <a name="introduction"></a>Introdução
-O Barramento de Serviço expõe dois tipos de logs: 
-* [Logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) que estão sempre habilitados e fornecem informações sobre as operações realizadas em trabalhos;
-* [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) que são configuráveis pelo usuário e fornecem informações mais avançadas sobre tudo o que acontece com o trabalho desde quando ele é criado, atualizado, enquanto ele está em execução e até ser excluído;
+É possível exibir dois tipos de logs para o Barramento de Serviço do Azure:
+* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre ativados.
+* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para obter informações mais sofisticadas sobre tudo o que acontece com um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
-## <a name="how-to-enable-diagnostic-logs"></a>Como habilitar os logs de diagnóstico
-Os logs de diagnóstico estão **desligados** por padrão. Para habilitá-los, siga estas etapas:
+## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
+Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs de diagnóstico:
 
-Entre no Portal do Azure e navegue até a folha de trabalho de streaming e use a folha de "Logs de diagnóstico" em "Monitoramento".
+1.    No portal do Azure, acesse a folha do trabalho de transmissão.
 
-![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)  
+2.    Em **Monitoramento**, acesse a folha **Logs de diagnóstico**.
 
-Em seguida, clique no link "Ativar diagnóstico"
+    ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)  
 
-![ativar logs de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
+3.    Selecione **Ativar diagnóstico**.
 
-Nos diagnósticos abertos, altere o status para "Ligado".
+    ![ativar logs de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
 
-![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
+4.    Para **Status**, selecione **Ativado**.
 
-Configure o destino de arquivamento desejado (conta de armazenamento, hub de eventos, Log Analytics) e selecione as categorias de logs que você deseja coletar (Execução, Criação). Em seguida, salve a nova configuração de diagnóstico.
+    ![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
 
-Uma vez salva, a configuração levará cerca de 10 minutos para entrar em vigor e após isso os logs começarão a aparecer no destino de arquivamento configurado, que pode ser visto na folha “Logs de diagnóstico”:
+5.    Defina o destino de arquivamento desejado, por exemplo, uma conta de armazenamento, um hub de eventos ou o Azure Log Analytics.
 
-Há mais informações sobre a configuração de diagnóstico disponíveis na página [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+6.    Selecione as categorias de logs que você deseja coletar, por exemplo, **Execução** ou **Criação**.
+
+7.    Salve as novas configurações de diagnóstico.
+
+As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
+
+Para obter mais informações sobre como configurar um diagnóstico, consulte uma [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 
-Todos os logs são armazenados no formato JSON e cada entrada tem campos de cadeia de caracteres que seguem o formato abaixo.
+Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito no exemplo a seguir.
 
-### <a name="operation-logs"></a>Logs de operação
+## <a name="operation-logs-example"></a>Exemplo de logs de operação
 
-O OperationalLogs captura o que está acontecendo durante a operação do Barramento de Serviço - especificamente o tipo de operação como criação de filas, recursos usados e o status da operação.
+Faz logon na categoria **OperationalLogs** para capturar o que acontece durante a operação do Barramento de Serviço. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
+
+As cadeias de caracteres JSON do log de operação incluem os elementos listados na seguinte tabela:
 
 Nome | Descrição
 ------- | -------
-ActivityId | Id interna para finalidade de controle
+ActivityId | ID interna, usada para acompanhamento
 EventName | Nome da operação             
-resourceId | ID de Recurso ARM
+resourceId | ID de recurso do Azure Resource Manager
 SubscriptionId | ID da assinatura
 EventTimeString | Tempo de operação
 EventProperties | Propriedades da operação
 Status | Status da operação
-Chamador | Chamador de operação (Portal ou cliente de gerenciamento)
+Chamador | Chamador da operação (portal do Azure ou cliente de gerenciamento)
 categoria | OperationalLogs
 
-#### <a name="example-operation-log"></a>Log de operação de exemplo
+Este é um exemplo de uma cadeia de caracteres JSON do log de operação:
 
 ```json
-Example: 
+Example:
 {
      "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
      "EventName": "Create Queue",

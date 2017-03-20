@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 437bbb47a490ecc66c5820eccfc8db8ec28d76be
-ms.openlocfilehash: 0a5aaf64f22e6c116165a63b77618b535dfd3797
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 7018320e601c1e8762e1c8fc409813a113a35044
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -26,6 +26,8 @@ ms.lasthandoff: 02/24/2017
 Os logs de fluxo do Grupo de Segurança de Rede fornecem informações que podem ser usadas para entender a entrada e a saída de tráfego IP em Grupos de Segurança de Rede. Esses logs de fluxo exibem os fluxos de entrada e saída baseados em regras. A NIC de fluxo se aplica às informações de 5 tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino e Protocolo) e se o tráfego foi permitido ou negado.
 
 Esses logs de fluxo podem ser difíceis de serem analisados e de obter ideias de forma manual. No entanto, há várias ferramentas de código livre que podem ajudar a visualizar esses dados. Esse artigo fornece uma solução para visualizar esses logs usando o Elastic Stack que permite indexar e visualizar seus logs de fluxo em um painel Kibana.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -88,7 +90,7 @@ Para obter instruções adicionais sobre a instalação da pesquisa elástica, c
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Em seguida, precisamos configurar o Logstash para ler a partir da saída do arquivo eve.json. Crie um arquivo logstash.conf usando:
+1. Em seguida, precisamos configurar Logstash a leitura da saída do arquivo eve.json. Crie um arquivo logstash.conf usando:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
@@ -156,7 +158,7 @@ Para obter mais informações sobre como instalar o Logstash, consulte a [docume
 
 ### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Instalar o plugin de entrada do Logstash para o armazenamento de blobs do Azure
 
-Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo a partir da conta de armazenamento designada. Para instalar esse plug-in, execute o comando:
+Esse plug-in do Logstash permitirá o acesso direto aos logs do fluxo a partir da conta de armazenamento designada. Para instalar esse plug-in, do diretório de instalação Logstash padrão (nesse caso, /usr/share/logstash/bin), execute o comando:
 
 ```
 logstash-plugin install logstash-input-azureblob
@@ -230,7 +232,7 @@ O painel de exemplo fornece várias visualizações dos logs de fluxo:
 1. Tuplas de Fluxo - essa tabela mostra as informações contidas em cada tupla de fluxo, além da regra e NGS correspondentes.
 
   ![figura7][7]
-  
+
 Usando a barra de consulta na parte superior do painel, você pode filtrar o conteúdo do painel com base nos parâmetros dos fluxos, como a ID da assinatura, grupos de recursos, regra ou qualquer outra variável de interesse. Para obter mais informações sobre consultas e filtros do Kibana, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## <a name="conclusion"></a>Conclusão
@@ -252,5 +254,4 @@ Para saber como visualizar os logs de fluxo NSG com o Power BI, veja [Como visua
 [5]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure5.png
 [6]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure6.png
 [7]: ./media/network-watcher-visualize-nsg-flow-logs-open-source-tools/figure7.png
-
 

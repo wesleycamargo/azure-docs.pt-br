@@ -1,5 +1,5 @@
 ---
-title: "Verifique o tráfego com a Verificação de Fluxo de IP do Observador de Rede do Azure - REST | Microsoft Docs"
+title: "Verifique o tráfego com a verificação de fluxo de IP do Observador de Rede do Azure – REST | Microsoft Docs"
 description: "Esse artigo descreve como verificar se o tráfego de ou para uma máquina virtual é permitido ou negado"
 services: network-watcher
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1d0136b044f6049e59fa09d824cf244cac703c45
-ms.openlocfilehash: 5c2054800d2234653c60c35f9c009499e231fd31
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 18b98300ee103e3f3118f6db4e1c1a0e169eecad
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado para ou de uma VM com a Verificação de Fluxo de IP, um componente do Observador de Rede do Azure
+# <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Verifique se o tráfego é permitido ou negado com a verificação de fluxo de IP, um componente do Observador de Rede do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal do Azure](network-watcher-check-ip-flow-verify-portal.md)
@@ -29,22 +29,24 @@ ms.lasthandoff: 02/23/2017
 > - [CLI](network-watcher-check-ip-flow-verify-cli.md)
 > - [API REST do Azure](network-watcher-check-ip-flow-verify-rest.md)
 
-A Verificação de Fluxo de IP é um recurso do Observador de Rede que permite verificar se o tráfego é permitido para ou de uma máquina virtual. A validação pode ser executada para o tráfego de entrada ou saída. Esse cenário é útil para obter o estado atual de se uma máquina virtual pode se comunicar com um recurso externo ou um back-end. A Verificação de Fluxo de IP pode ser usada para verificar se as regras do Grupo de Segurança de Rede (NSG) estão configuradas corretamente e solucionar problemas de fluxos que estão sendo bloqueados por regras do NSG. Outro motivo para usar a Verificação de Fluxo de IP é para garantir que o tráfego, que você deseja bloquear, está sendo bloqueado corretamente pelo NSG.
+Fluxo de IP Verifique se é um recurso do Observador de Rede que permite verificar se o tráfego é permitido para ou de uma máquina virtual. A validação pode ser executada para o tráfego de entrada ou saída. Esse cenário é útil para obter o estado atual de se uma máquina virtual pode se comunicar com um recurso externo ou um back-end. A Verificação de Fluxo de IP pode ser usada para verificar se as regras do Grupo de Segurança de Rede (NSG) estão configuradas corretamente e solucionar problemas de fluxos que estão sendo bloqueados por regras do NSG. Outro motivo para usar IP fluxo Verifique se é para garantir que deseja bloquear o tráfego está sendo bloqueado corretamente por NSG.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-Este cenário pressupõe que você tenha seguido as etapas em [Criar um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 ## <a name="scenario"></a>Cenário
 
-Esse cenário usa a Verificação de Fluxo de IP para verificar se uma máquina virtual pode se comunicar com outra máquina pela porta 443. Se o tráfego é negado, ele retorna a regra de segurança que está negando esse tráfego. Para saber mais sobre a Verificação de Fluxo de IP, consulte [Visão Geral da Verificação de Fluxo de IP](network-watcher-ip-flow-verify-overview.md)
+Esse cenário usa a verificação de fluxo de IP para verificar se uma máquina virtual pode se comunicar com outra máquina pela porta 443. Se o tráfego é negado, ele retorna a regra de segurança que está negando esse tráfego. Para saber mais sobre a verificação de fluxo de IP, visite [Visão geral de verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 
 Nesse cenário, você irá:
 
 * Recuperar uma máquina virtual
-* Chamar a Verificação de Fluxo de IP
+* Chamar a verificação de fluxo de IP
 * Verificar os resultados
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
@@ -97,12 +99,12 @@ pute/virtualMachines/ContosoVM/extensions/CustomScriptExtension"
 }
 ```
 
-## <a name="call-ip-flow-verify"></a>Chamar a Verificação de Fluxo de IP
+## <a name="call-ip-flow-verify"></a>Chamar a Verificação de fluxo de IP
 
 O exemplo a seguir cria uma solicitação para verificar o tráfego para uma máquina virtual especificada. A resposta retorna se o tráfego é permitido ou não. Se o tráfego é negado, a resposta também indica a regra que bloqueia o tráfego.
 
 > [!NOTE]
-> A Verificação de Fluxo de IP requer que o recurso de máquina virtual seja alocado.
+> A verificação de fluxo de IP exige que o recurso de máquina virtual seja alocado.
 
 O script exige a Id do recurso de uma máquina virtual e de uma cartão do adaptador de rede na máquina virtual do recurso. Esses valores são fornecidos pelo resultado anterior.
 

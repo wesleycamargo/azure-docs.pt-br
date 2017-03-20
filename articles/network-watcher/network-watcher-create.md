@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 064c8f7c312aaac94f20224e99b9e29c641e0349
-ms.openlocfilehash: 7099081e7294c64c1b9076b58a2c87f4f7ca7e44
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: bdaf5afff8466a189afe96517135b1b347b85550
+ms.lasthandoff: 03/04/2017
 
 ---
 
@@ -25,22 +25,24 @@ ms.lasthandoff: 03/01/2017
 
 O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização
 
-O Observador de Rede está atualmente na visualização e para usar seus recursos, o recurso precisa ser registrado. Para fazer isso, execute o seguinte exemplo do PowerShell:
+O Observador de Rede está atualmente em visualização, para usar seus recursos, o recurso precisa ser registrado. Para fazer isso, execute a seguinte amostra do PowerShell:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Para verificar se o registro foi bem-sucedido, execute o seguinte exemplo do Powershell:
+Para verificar se o registro foi bem-sucedido, execute a seguinte amostra do Powershell:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcher -ProviderNamespace  Microsoft.Network
 ```
 
-Se o recurso foi registrado corretamente, a saída deve corresponder com o seguinte:
+Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
 
 ```
 FeatureName         ProviderName      RegistrationState
@@ -48,21 +50,23 @@ FeatureName         ProviderName      RegistrationState
 AllowNetworkWatcher Microsoft.Network Registered
 ```
 
-####<a name="instructions-for-cli"></a>Instruções para CLI
+### <a name="instructions-for-cli"></a>Instruções para CLI
 
 Para registrar
 
 ```CLI
-azure provider register Microsoft.Network
 azure feature register  Microsoft.Network AllowNetworkWatcher
+azure provider register Microsoft.Network
 ```
+
 Para verificar se o registro foi bem-sucedido, execute o seguinte comando de CLI:
 
 ```CLI
 azure feature show Microsoft.Network AllowNetworkWatcher
 ```
 
-Se o recurso foi registrado corretamente, a saída deve corresponder com o seguinte:
+Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
+
 ```CLI
 info:    Executing command feature show
 data:    Feature Name:       AllowNetworkWatcher
@@ -123,7 +127,7 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 * [Registro do fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Solução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)
 
-Quando uma instância do Observador de Rede tiver sido criada, a captura de pacotes pode ser configurada seguindo o artigo [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md)
+Quando uma instância do Observador de Rede tiver sido criada, a captura de pacotes pode ser configurada seguindo o artigo: [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md)
 
 [1]: ./media/network-watcher-create/figure1.png
 

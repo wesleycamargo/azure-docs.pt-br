@@ -15,9 +15,9 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 318d141d7769d063555c394ada91a2714be77f64
-ms.openlocfilehash: 6635079e568634285e0ffeb1c2334d66db3cc633
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: c24c2c4e297497e106691d62be76ad0591bb33de
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -26,9 +26,11 @@ ms.lasthandoff: 02/22/2017
 
 Os logs de fluxo do Grupo de Segurança da Rede são um recurso do Observador de Rede que permite exibir informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança da Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e saída por regra, a NIC à qual o fluxo se aplica, informações com cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
 
+[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+
 ![visão geral dos logs de fluxo][1]
 
-Embora os logs de fluxo sejam destinados aos Grupos de Segurança da Rede, eles não são exibidos como os outros logs. Os logs de fluxo são armazenados apenas em uma conta de armazenamento e seguem o caminho do log como mostrado no exemplo a seguir.
+Embora os logs de fluxo sejam destinados aos Grupos de Segurança da Rede, eles não são exibidos como os outros logs. Os logs de fluxo são armazenados apenas em uma conta de armazenamento e seguem o caminho do log como mostrado no exemplo a seguir:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json

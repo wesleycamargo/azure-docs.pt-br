@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2017
+ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 83ae00afbcbb5d3ff38ee1f934e3b2f8d1c8f624
-ms.openlocfilehash: 95a6933d64428255eb061e7077c3e0768c72e207
-ms.lasthandoff: 02/24/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e166b82e547975a5d44465231da057a9465f81c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -126,7 +126,7 @@ O diagnóstico da Automação do Azure cria dois tipos de registros no Log Analy
 | Caller_s |Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
-| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>- Êxito |
+| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
 | Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor é Job. |
 | Recurso | Nome da Conta de automação |
@@ -176,7 +176,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` Você também pode agrupar pelo RunbookName usando: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de JobLogs.  
-3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todos os trabalhos que foram concluídos com erros
 Além de alertas de falhas, você pode descobrir quando um trabalho de runbook tem um erro não fatal. Nesses casos, o PowerShell produz um fluxo de erro, mas os erros não fatais fazem com que seu trabalho seja suspenso ou falhe.    
