@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: a37992cd2bfe346fd171bde15b6180c56527289b
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -64,10 +65,5 @@ Depois que o Azure AD B2C anunciar o lançamento nos países ou regiões acima, 
 
 ## <a name="availability-of-b2c-tenants"></a>Disponibilidade de locatários do B2C
 Os locatários do B2C estão indisponíveis no momento nos seguintes países ou regiões: Afeganistão, Argentina, Austrália, Brasil, Chile, Colômbia, Equador, RAE de Hong Kong, Índia, Indonésia, Iraque, Japão, Coreia, Malásia, Nova Zelândia, Paraguai, Peru, Filipinas, Cingapura, Sri Lanka, Taiwan, Tailândia, Uruguai e Venezuela. Planejamos incluí-los no futuro.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
