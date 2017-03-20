@@ -16,9 +16,9 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: e204a3c79768ddbd433f3b00a3db456ef3258173
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 9ea205cb5034fea66c770ec71934e302ee818a89
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -100,7 +100,7 @@ As APIs do Azure Resource Manager para o Lote fornecem acesso programático a co
 Embora não sejam necessárias para compilar soluções usando o Lote, veja algumas ferramentas essenciais para a compilação e depuração de aplicativos e serviços do Lote.
 
 * [Portal do azure][portal]: você pode criar, monitorar e excluir pools, trabalhos e tarefas do Lote nas folhas do Lote do portal do Azure. Você pode exibir as informações de status para esses e outros recursos ao executar seus trabalhos e até mesmo baixar arquivos de nós de computação em seus pools (baixar um `stderr.txt` de uma tarefa com falha durante a solução de problemas, por exemplo). Você também pode baixar arquivos da área de trabalho remota (RDP) que pode usar para fazer logon em nós de computação.
-* [Gerenciador do Lote do Azure][batch_explorer]: o Gerenciador do Lote oferece uma funcionalidade de gerenciamento de recursos do Lote semelhante como no portal do Azure, mas em um aplicativo cliente autônomo do WPF (Windows Presentation Foundation). Um dos aplicativos de exemplo do .NET do Lote disponíveis no [GitHub][github_samples], você pode compilá-lo com o Visual Studio 2015 ou acima e usá-lo para procurar e gerenciar os recursos na sua conta do Lote enquanto desenvolver e depurar suas soluções do Lote. Exiba detalhes da tarefa, do pool e do trabalho, baixe arquivos de nós de computação e se conecte a nós remotamente por meio de arquivos de RDP (Área de Trabalho Remota) que você pode baixar com o Gerenciador do Lote.
+* [Gerenciador do Lote do Azure][batch_explorer]: o Gerenciador do Lote oferece uma funcionalidade de gerenciamento de recursos do Lote semelhante como no portal do Azure, mas em um aplicativo cliente autônomo do WPF (Windows Presentation Foundation). Um dos aplicativos de exemplo do .NET do Lote disponíveis no [GitHub][github_samples], você pode compilá-lo com o Visual Studio 2015 ou mais recente e usá-lo para procurar e gerenciar os recursos na sua conta do Lote enquanto desenvolver e depurar suas soluções do Lote. Exiba detalhes da tarefa, do pool e do trabalho, baixe arquivos de nós de computação e se conecte a nós remotamente por meio de arquivos de RDP (Área de Trabalho Remota) que você pode baixar com o Gerenciador do Lote.
 * [Gerenciador de Armazenamento do Microsoft Azure][storage_explorer]: embora não seja estritamente uma ferramenta do Lote do Azure, o Gerenciador de Armazenamento é outra ferramenta valiosa a ser usada durante o desenvolvimento e a depuração de suas soluções do Lote.
 
 ## <a name="scenario-scale-out-a-parallel-workload"></a>Cenário: escalar horizontalmente uma carga de trabalho paralela

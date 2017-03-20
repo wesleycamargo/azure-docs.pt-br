@@ -15,9 +15,9 @@ ms.workload: Identity
 ms.date: 02/08/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: b6ec60f9e15e459f70127448eb7d9c03e4b118e8
-ms.openlocfilehash: 3bd1ca8e0bb9f17b76dda68a6cb2f9f64a5d05dd
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 085706dacdcb0cd5a4169ccac4dc7fd8b8ddb6e0
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -40,15 +40,15 @@ Para informações sobre permissões, consulte as [permissões necessárias para
 > Depois que você tiver ativado o novo servidor do Azure AD Connect para iniciar a sincronização de alterações para o Azure AD, não deverá reverter usando o DirSync ou o Azure AD Sync. Fazer downgrade do Azure AD Connect para clientes herdados, incluindo o DirSync e o Azure AD Sync, não tem suporte e pode levar a problemas como a perda de dados no Azure AD.
 
 ## <a name="in-place-upgrade"></a>Atualização in-loco
-Uma atualização in-loco funciona para mudar do Azure AD Sync ou do Azure AD Connect. Ela não funcionará na migração do DirSync ou para uma solução com o Forefront Identity Manager (FIM) + Azure AD Connector.
+Uma atualização in-loco funciona para mudar do Azure AD Sync ou do Azure AD Connect. Ele não funcionará para a migração do DirSync ou para uma solução com o FIM (Forefront Identity Manager) + Azure AD Connector.
 
-Esse será o método preferencial quando você tiver um único servidor e menos de cerca de 100.000 objetos. Se houver várias alterações nas regras de sincronização prontas para uso, uma importação completa e uma sincronização completa ocorrerão após a atualização. Isso garante que a nova configuração seja aplicada a todos os objetos existentes no sistema. Isso pode levar algumas horas, dependendo do número de objetos no escopo do mecanismo de sincronização. O agendador da sincronização delta normal (que, por padrão, sincroniza a cada 30 minutos), será suspensa, mas a sincronização de senha continuará. Você pode considerar fazer a atualização in-loco durante um final de semana. Se não houver nenhuma alteração na configuração pronta para uso com a nova versão do Azure AD Connect, uma importação/sincronização delta normal será iniciada.  
+Esse será o método preferencial quando você tiver um único servidor e menos de cerca de 100.000 objetos. Se houver várias alterações nas regras de sincronização prontas para uso, uma importação completa e uma sincronização completa ocorrerão após a atualização. Esse método assegura que a nova configuração seja aplicada a todos os objetos existentes no sistema. Essa execução pode levar algumas horas, dependendo do número de objetos no escopo do mecanismo de sincronização. O agendador da sincronização delta normal (que, por padrão, sincroniza a cada 30 minutos), será suspensa, mas a sincronização de senha continuará. Você pode considerar fazer a atualização in-loco durante um final de semana. Se não houver nenhuma alteração na configuração pronta para uso com a nova versão do Azure AD Connect, uma importação/sincronização delta normal será iniciada em vez disso.  
 ![Atualização in-loco](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-Se você tiver feito alterações nas regras de sincronização prontas, elas serão definidas para a configuração padrão na atualização. Para certificar-se de que sua configuração seja mantida entre as atualizações, verifique se as alterações foram feitas como descrito em [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+Se você tiver feito alterações nas regras de sincronização prontas, essas regras serão definidas para a configuração padrão na atualização. Para certificar-se de que sua configuração seja mantida entre as atualizações, verifique se as alterações foram feitas como descrito em [Práticas recomendadas para alterar a configuração padrão](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 ## <a name="swing-migration"></a>Migração swing
-Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, isso poderia levar vários dias e, durante esse tempo, nenhuma alteração delta seria processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.
+Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.
 
 O método recomendado para estes cenários é usar uma migração swing. Você precisa de (pelo menos) dois servidores, um servidor ativo e um de preparo. O servidor ativo (exibido com linhas azuis sólidas na imagem abaixo) será responsável pela carga de produção ativa. O servidor de preparo (mostrado com linhas tracejadas roxas) está preparado com a nova versão ou configuração. Quando estiver totalmente pronto, esse servidor ficará ativo. O servidor ativo anterior, agora com a versão ou configuração antiga instalada, se tornará o servidor de preparo e será atualizado.
 
@@ -70,9 +70,9 @@ Estas etapas também funcionam para mudar do Azure AD Sync ou de uma solução c
 7. Se estiver atualizando do Azure AD Connect, atualize o servidor que está no modo de preparo para a versão mais recente. Siga as mesmas etapas anteriores para atualizar os dados e a configuração. Se estiver atualizando do Azure AD Sync, agora você poderá desativar e encerrar o servidor antigo.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Mover uma configuração personalizada do servidor ativo para o servidor de preparo
-Se você tiver feito alterações de configuração no servidor ativo, precisará garantir que as mesmas alterações sejam aplicadas ao servidor de preparo.
+Se você tiver feito alterações de configuração no servidor ativo, precisará garantir que as mesmas alterações sejam aplicadas ao servidor de preparo. Para ajudar com essa mudança, você pode usar o [Documentador de configuração do Azure AD Connect](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-Você pode mover as regras de sincronização personalizadas que você criou usando o PowerShell. Você deve aplicar outras alterações da mesma maneira em ambos os sistemas, mas não será possível migrar as alterações.
+Você pode mover as regras de sincronização personalizadas que você criou usando o PowerShell. Você deve aplicar outras alterações da mesma maneira em ambos os sistemas, mas não será possível migrar as alterações. O [documentador de configuração](https://github.com/Microsoft/AADConnectConfigDocumenter) pode ajudá-lo a comparar os dois sistemas para certificar-se de que eles são idênticos. A ferramenta também pode ajudar a automatizar as etapas desta seção.
 
 Você precisa configurar os seguintes itens da mesma maneira em ambos os servidores:
 

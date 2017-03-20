@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 03/06/2017
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 56a61479971c4a03345bee8a044dbc17d16371ce
-ms.openlocfilehash: 8e87f9bd8122ec3c80d11e8ac563849f540e0cc5
-ms.lasthandoff: 02/23/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: 40636aa9d847b97ea872bf4689a1da6e3eb23eb4
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -92,7 +92,7 @@ Você pode configurar políticas de segurança para suas assinaturas e grupos de
    ![Alertas na Central de Segurança do Azure][7]
 
    > [!NOTE]
-   > Os alertas de segurança só estarão disponíveis se a camada Standard da Central de Segurança estiver habilitada. Uma avaliação gratuita por 90 dias da camada Standard está disponível. Confira as [Próximas etapas](#next-steps) para obter informações sobre como obter a camada Standard.
+   > Os alertas de segurança só estarão disponíveis se a camada Standard da Central de Segurança estiver habilitada. Uma avaliação gratuita de 60 dias da camada Standard está disponível. Confira as [Próximas etapas](#next-steps) para obter informações sobre como obter a camada Standard.
    >
    >
 2. Selecione um alerta para exibir mais informações. Neste exemplo, vamos selecionar **Binário do sistema modificado descoberto**. Isso abre folhas que fornecem detalhes adicionais sobre o alerta.

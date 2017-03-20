@@ -4,7 +4,7 @@ description: "Use o Aprendizado de Máquina do Azure para compilar um modelo de 
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
-manager: barbkess
+manager: jhubbard
 editor: 
 ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
@@ -12,12 +12,12 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
+ms.date: 03/02/2017
+ms.author: kevin
 translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
-ms.openlocfilehash: db402a9d8bdccf0db9783450fa4cb60a2c047ece
-ms.lasthandoff: 01/30/2017
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: a5befbf1dc1862b3b0803eb4940341d246ec036c
+ms.lasthandoff: 03/14/2017
 
 
 ---
@@ -42,7 +42,7 @@ Para acompanhar este tutorial, você precisará:
 
 * Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
 
-## <a name="1-get-data"></a>1. Obter dados
+## <a name="1-get-the-data"></a>1. Obter os dados
 Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
 
 1. Entre no [Azure Machine Learning Studio][Azure Machine Learning studio] e clique em Meus Testes.

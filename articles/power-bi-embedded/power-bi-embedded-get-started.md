@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 02/06/2017
+ms.date: 03/11/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: bd7925f3fa9a717cbe0649bf899cdd00511d5ca6
-ms.openlocfilehash: b9dff45d1bb60d50c882c6daf363fca86a7f8f4c
-ms.lasthandoff: 02/22/2017
-
+ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
+ms.openlocfilehash: 4afa8d2c7f8ec1942521ba5fa131967dfd581c91
+ms.lasthandoff: 03/14/2017
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introdução ao Microsoft Power BI Embedded
+
 **Power BI Embedded** é um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos. **Power BI Embedded** funciona com aplicativos existentes sem precisar reprojetar ou alterar os maneira como os usuários entram.
 
 Os recursos para o **Microsoft Power BI Embedded** são provisionados por meio de [APIs do ARM do Azure](https://msdn.microsoft.com/library/mt712306.aspx). Nesse caso, o recurso que você provisiona é uma **Coleção de Espaços de Trabalho do Power BI**.
@@ -30,6 +30,7 @@ Os recursos para o **Microsoft Power BI Embedded** são provisionados por meio d
 ![](media/power-bi-embedded-get-started/introduction.png)
 
 ## <a name="create-a-workspace-collection"></a>Criar uma coleção de espaços de trabalho
+
 Uma **coleção de espaços de trabalho** é o recurso mais avançado do Azure e um contêiner para o conteúdo que será inserido em seu aplicativo. Uma **Coleção de espaços de trabalho** pode ser criada de duas maneiras:
 
 * Usando o Portal do Azure manualmente
@@ -56,6 +57,7 @@ A **Folha de Criação** contém as informações necessárias para chamar as AP
 <a name="view-access-keys"/>
 
 ## <a name="view-power-bi-api-access-keys"></a>Exibir chaves de acesso da API do Power BI
+
 Uma das informações mais importantes necessárias para chamar as APIs REST do Power BI são as **Chaves de Acesso**. Elas são usadas para gerar os **tokens do aplicativo** que são usados na autenticação das solicitações de API. Para exibir suas **Chaves de Acesso**, clique em **Chaves de Acesso** na **Folha de Configurações**. Para saber mais sobre **tokens de aplicativo**, confira [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media/power-bi-embedded-get-started/access-keys.png)
@@ -74,7 +76,8 @@ Agora que você tem uma instância do Power BI para seu aplicativo e as **Chaves
 
 Depois que você criou sua coleção de espaço de trabalho, você precisará criar um espaço de trabalho que conterá seus relatórios e conjuntos de dados. Para criar um espaço de trabalho, você precisará usar o [API de REST do espaço de trabalho de Post](https://msdn.microsoft.com/library/azure/mt711503.aspx).
 
-## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo
+## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Criar relatórios e conjuntos de dados do Power BI para inserir em um aplicativo usando o Power BI Desktop
+
 Agora que você criou uma instância do Power BI para seu aplicativo e tem **Chaves de Acesso**, precisa criar os relatórios e conjuntos de dados do Power BI que deseja inserir. Conjuntos de dados e relatórios podem ser criados usando o **Power BI Desktop**. Você pode baixar o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Ou, para começar rapidamente, você pode baixar o [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)(PBIX de exemplo de análise de varejo).
 
 > [!NOTE]
@@ -95,20 +98,25 @@ Depois de salvar seu trabalho no **Power BI Desktop**, um arquivo PBIX será cri
 > [!NOTE]
 > **Power BI Embedded** tem APIs adicionais para alterar o servidor e o banco de dados para onde seu conjunto de dados está apontando e para definir uma credencial da conta de serviço que o conjunto de dados usará a fim de se conectar ao banco de dados. Confira [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) e [Correção de fonte de dados do gateway](https://msdn.microsoft.com/library/mt711498.aspx).
 
-## <a name="next-steps"></a>Próximas etapas
-Nas etapas anteriores, você criou uma coleção de espaços de trabalho, o primeiro relatório e o primeiro conjunto de dados. Agora é hora de aprender a escrever código para o **Power BI Embedded**. Para ajudar você a começar, criamos um aplicativo Web de exemplo: [Introdução a exemplos](power-bi-embedded-get-started-sample.md). O exemplo mostra a você como:
+## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Criar relatórios e conjuntos de dados do Power BI usando APIs
 
-* Provisionar conteúdo
-  * Criar um espaço de trabalho
-  * Importar um arquivo PBIX
-  * Atualizar cadeias de conexão e definir suas credenciais para os conjuntos de dados.
-* Inserir um relatório com segurança
+### <a name="datsets"></a>Conjuntos de dados
+
+Você pode criar conjuntos de dados no Power BI Embedded usando a API REST. Em seguida, você pode enviar dados por push para seu conjunto de dados. Isso permite que você trabalhe com dados sem a necessidade do Power BI Desktop. Para saber mais, veja [Postar conjuntos de dados](https://msdn.microsoft.com/library/azure/mt778875.aspx).
+
+### <a name="reports"></a>Relatórios
+
+Você pode criar um relatório de um conjunto de dados diretamente em seu aplicativo usando a API de JavaScript. Para saber mais, veja [Criar um novo relatório de um conjunto de dados no Power BI Embedded](power-bi-embedded-create-report-from-dataset.md).
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução a exemplos](power-bi-embedded-get-started-sample.md)
-* [Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)
-* [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+[Introdução a exemplos](power-bi-embedded-get-started-sample.md)  
+[Autenticando e autorizando com o Power BI Embedded](power-bi-embedded-app-token-flow.md)  
+[Inserir um relatório](power-bi-embedded-embed-report.md)  
+[Criar um novo relatório de um conjunto de dados no Power BI Embedded](power-bi-embedded-create-report-from-dataset.md)
+[Salvar relatórios](power-bi-embedded-save-reports.md)  
+[Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
+[Exemplo inserido de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
 
 

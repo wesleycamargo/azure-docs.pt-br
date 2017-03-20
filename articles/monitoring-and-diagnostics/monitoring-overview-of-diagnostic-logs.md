@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fbc96a248de20b67a72e6a0150fe4b9b754ec4fe
-ms.openlocfilehash: d61ec29026ae5bbbdf33d7810e2e35c4d6bee1e7
-ms.lasthandoff: 02/10/2017
+ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
+ms.openlocfilehash: 2e011fbde0ee1b070d51a38b23193a4b48a3a154
+ms.lasthandoff: 03/08/2017
 
 
 ---
@@ -179,7 +179,7 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 | Automação do Azure |[Análise de log para automação do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Hubs de evento |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Stream Analytics |[Logs de diagnóstico do trabalho](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Barramento de Serviço |Nenhum esquema disponível. |
+| Barramento de Serviço |[Logs de diagnóstico do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso

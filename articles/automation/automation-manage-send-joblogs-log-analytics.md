@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2017
+ms.date: 03/03/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d7cba9126c11418f8ccafb1ace0816a9a9cc3b6d
-ms.openlocfilehash: babfda8735699b9f9991bffd22a8d2d9847ae759
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 3e166b82e547975a5d44465231da057a9465f81c
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -52,22 +53,24 @@ Se precisar encontrar o *Nome* da sua Conta de automação, no portal do Azure, 
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
 1. Em seu computador, inicie o **Windows PowerShell** na tela **Inicial**.  
-2. Copie e cole o PowerShell a seguir e edite o valor de `$workspaceId` e `$automationAccountId`.  Se você estiver trabalhando na nuvem do Azure Governamental, será necessário definir o valor booliano de `$GovCloud` para *$True* ou *1* ao executá-lo.     
+2. Copie e cole o PowerShell a seguir e edite o valor de `$workspaceId` e `$automationAccountId`.  Para o parâmetro `-Environment`, os valores válidos são *AzureCloud* ou *AzureUSGovernment*, dependendo do ambiente de nuvem no qual você está trabalhando.     
 
 ```powershell
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
+
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -88,16 +91,17 @@ Para confirmar que sua conta de automação está enviando logs para o seu espa�
 [cmdletBinding()]
     Param
     (
-        [Parameter(Mandatory=$true)]
-        [bool]$GovCloud = $False
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
     )
 
-#Check to see if we need to log into Commercial or Government cloud.
-If ($GovCloud -eq $False) {
-    Login-AzureRmAccount
-}Else{
-    Login-AzureRmAccount -EnvironmentName AzureUSGovernment 
-}
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureUSGovernment} 
+   }
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
@@ -122,7 +126,7 @@ O diagnóstico da Automação do Azure cria dois tipos de registros no Log Analy
 | Caller_s |Quem iniciou a operação.  Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
-| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>- Êxito |
+| ResultType |O status do trabalho de runbook.  Os valores possíveis são:<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
 | Categoria | Classificação do tipo de dados.  Para a Automação, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação realizada no Azure.  Para a Automação, o valor é Job. |
 | Recurso | Nome da Conta de automação |
@@ -172,7 +176,7 @@ Para criar uma regra de alerta, você começa criando uma pesquisa de log para o
 2. Crie uma consulta de pesquisa de logs para o alerta digitando a seguinte pesquisa no campo de consulta: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended)` Você também pode agrupar pelo RunbookName usando: `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobLogs (ResultType=Failed OR ResultType=Suspended) | measure Count() by RunbookName_s`   
 
    Se você tiver configurado logs de mais de uma Conta de automação ou assinatura para o espaço de trabalho, também poderá agrupar os alertas por assinatura e por conta de Automação.  O nome da conta de Automação pode ser derivado do campo de Recurso na pesquisa de JobLogs.  
-3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#creating-an-alert-rule).
+3. Para abrir a tela **Adicionar Regra de Alerta**, clique em **Alerta** na parte superior da página. Para obter mais detalhes sobre as opções de configuração de alerta, confira [Alertas no Log Analytics](../log-analytics/log-analytics-alerts.md#creating-alert-rules).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Localizar todos os trabalhos que foram concluídos com erros
 Além de alertas de falhas, você pode descobrir quando um trabalho de runbook tem um erro não fatal. Nesses casos, o PowerShell produz um fluxo de erro, mas os erros não fatais fazem com que seu trabalho seja suspenso ou falhe.    
@@ -203,9 +207,4 @@ O Log Analytics oferece maior visibilidade operacional para os Trabalhos de auto
 * Para entender como criar e recuperar mensagens de erro e de saída de runbooks, confira [Saída e mensagens de Runbook](automation-runbook-output-and-messages.md)
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 * Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

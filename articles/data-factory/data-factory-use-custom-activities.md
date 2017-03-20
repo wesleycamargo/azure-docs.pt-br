@@ -17,6 +17,7 @@ ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: b8a54b6ca0b13c161a35595af7f09e6c5ab203c0
 ms.openlocfilehash: 21190b985860a79e4bebf7bf4845e5954c657b9f
+ms.lasthandoff: 02/02/2017
 
 
 ---
@@ -116,7 +117,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
      <li>Selecione <b>C:\ADFGetStarted</b> como o <b>Local</b>.</li>
      <li>Clique em <b>OK</b> para criar o projeto.</li>
    </ol>
-2.Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
+2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes NuGet** e clique em **Console do Gerenciador de Pacotes**.
 3. No Console do Gerenciador de Pacotes, execute o comando a seguir para importar **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell
@@ -896,9 +897,4 @@ No **JSON do pipeline**, use o serviço vinculado do HDInsight (sob demanda ou o
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

@@ -17,6 +17,7 @@ ms.author: nisoneji
 translationtype: Human Translation
 ms.sourcegitcommit: 3b606aa6dc3b84ed80cd3cc5452bbe1da6c79a8b
 ms.openlocfilehash: cff6ef0c1c49110edc53ec82f88d9875439aab8a
+ms.lasthandoff: 01/30/2017
 
 
 ---
@@ -197,9 +198,4 @@ A atualização 1 inclui as seguintes correções de bugs e novos recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 Publique qualquer pergunta que você desejar no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

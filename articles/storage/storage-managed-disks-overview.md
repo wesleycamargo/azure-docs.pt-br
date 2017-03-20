@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 388e4c8f46662200a0e05db06d417f086ad41b11
-ms.openlocfilehash: b53feeb08d469363a52303cad4577b752a570900
-ms.lasthandoff: 02/27/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: d9e79c78f55dc80e113062bf0a134c02787e06a1
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -45,7 +45,7 @@ O Managed Disks permitirá que você crie até 10.000 **discos** de VM em uma as
 
 O Managed Disks fornece mais confiabilidade para Conjuntos de disponibilidade, assegurando que os discos de VMs em um Conjunto de disponibilidade sejam suficientemente isolados entre si para evitar pontos de falha. Ele faz isso colocando automaticamente os discos em unidades de escala (carimbos) de armazenamentos diferentes. Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e as VMs estejam em um Conjunto de disponibilidade. Os discos dessas VMs não serão armazenados no mesmo carimbo. Portanto, se um carimbo ficar inativo, as outras instâncias do aplicativo continuarão executando.
 
-### <a name="better-security"></a>Mais segurança
+### <a name="granular-access-control"></a>Controle de acesso granular
 
 Use o [RBAC (Controle de acesso baseado em função do Azure)](../active-directory/role-based-access-control-what-is.md) para atribuir permissões específicas a um disco gerenciado a um ou mais usuários. O Managed Disks expõe uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão, exportação e recuperação de um [URI de SAS (assinatura de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
 
@@ -100,7 +100,7 @@ Para obter informações detalhadas sobre os preços para Managed Disks, confira
 
 ## <a name="images"></a>Imagens
 
-O Managed Disks também oferece suporte à criação de uma imagem personalizada gerenciada. Crie uma imagem de seu VHD personalizado em uma conta de armazenamento ou diretamente de uma VM em execução. Isso captura em uma única imagem todos os discos gerenciados associados a uma VM em execução, incluindo o sistema operacional e os discos de dados. Isso permite a criação de centenas de VMs usando sua imagem personalizada, sem a necessidade de copiar ou gerenciar contas de armazenamento.
+O Managed Disks também oferece suporte à criação de uma imagem personalizada gerenciada. Crie uma imagem de seu VHD personalizado em uma conta de armazenamento ou diretamente de uma VM generalizada (por meio do Sysprep). Isso captura em uma única imagem todos os discos gerenciados associados a uma VM, incluindo o sistema operacional e os discos de dados. Isso permite a criação de centenas de VMs usando sua imagem personalizada, sem a necessidade de copiar ou gerenciar contas de armazenamento.
 
 Para saber mais sobre a criação de imagens, confira os artigos a seguir:
 * [Como capturar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/virtual-machines-windows-capture-image-resource.md)
@@ -112,7 +112,7 @@ Para saber mais sobre a criação de imagens, confira os artigos a seguir:
 
 Um instantâneo é uma cópia de um disco no momento exato em que é tirado. Ele só se aplica a um disco. Se você tiver uma VM com apenas um disco (o SO), será possível tirar um instantâneo ou uma imagem dele e criar uma VM a partir do instantâneo ou da imagem.
 
-E se você tiver uma VM com cinco discos, e eles estiverem distribuídos? Você pode tirar um instantâneo de cada um dos discos, mas não há reconhecimento dentro da VM do estado dos discos – os instantâneos dizem respeito apenas àquele disco. Nesse caso, os instantâneos precisariam ser coordenados entre si, e não há suporte para isso no momento. Então, nesse caso, se você quiser criar uma cópia da sua VM, será necessário criar uma imagem. Por padrão, a imagem incluirá uma cópia coordenada de todos os cinco discos.
+E se uma VM tiver cinco discos e eles estiverem distribuídos? Você pode tirar um instantâneo de cada um dos discos, mas não há reconhecimento dentro da VM do estado dos discos – os instantâneos dizem respeito apenas àquele disco. Nesse caso, os instantâneos precisariam ser coordenados entre si, e não há suporte para isso no momento.
 
 ## <a name="azure-backup-service-support"></a>Suporte de serviço do Backup do Azure 
 

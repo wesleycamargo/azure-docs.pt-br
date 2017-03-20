@@ -15,9 +15,9 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
-ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
-ms.lasthandoff: 02/03/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: f5f21fa9a0265258b065a844ffd002749c4dee03
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -42,7 +42,7 @@ Se você ainda não tiver uma conta do Microsoft Azure, deverá inscrever-se em 
 
 A maioria das ferramentas do cliente SQL pode conectar o SQL Data Warehouse usando o JDBC, ODBC ou ADO.NET. Devido ao grande número de recursos do T-SQL que oferece suporte ao SQL Data Warehouse, alguns aplicativos cliente não são totalmente compatíveis com o SQL Data Warehouse.
 
-Se você estiver executando um sistema operacional do Windows, é recomendável usar o [Visual Studio] ou o [SQL Server Management Studio].
+Se você estiver executando um sistema operacional do Windows, recomendamos o uso do [Visual Studio] ou do [SQL Server Management Studio].
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
@@ -76,7 +76,7 @@ Um SQL Data Warehouse é um tipo especial de banco de dados que foi projetado pa
 
     **Origem**: banco de dados em branco
 
-    **Servidor**: selecione o servidor criado em [Pré-requisitos].
+    **Servidor**: selecione o servidor que você criou em [Pré-requisitos].
 
     **Agrupamento**: mantenha o agrupamento padrão SQL_Latin1_General_CP1_CI_AS.
 
@@ -415,13 +415,13 @@ Agora, você está pronto para carregar dados em seu data warehouse. Esta etapa 
         REJECT_VALUE = 0
     )
     ;
-    ```
+```
 
-### Import the data from Azure blob storage.
+### <a name="import-the-data-from-azure-blob-storage"></a>Importe os dados do Armazenamento de Blobs do Azure.
 
-SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS). This statement creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement.  This is an elegant way to import data from Azure blob storage into SQL Data Warehouse.
+O SQL Data Warehouse oferece suporte a uma instrução de chave chamada CREATE TABLE AS SELECT (CTAS). Essa instrução cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select.  Essa é uma forma elegante de importar dados do Armazenamento de Blobs do Azure no SQL Data Warehouse.
 
-1. Run this script to import your data.
+1. Execute este script para importar seus dados.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,9 +496,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ;
     ```
 
-2. View your data as it loads.
+2. Exiba os dados enquanto eles são carregados.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+   Você está carregando vários GBs de dados e compactando-os em índices columnstore de cluster de alto desempenho. Execute a consulta a seguir que usa DMVs (exibições de gerenciamento dinâmico) para mostrar o status do carregamento. Após iniciar a consulta, pegue um café e alguns biscoitos enquanto o SQL Data Warehouse faz o trabalho pesado.
     
     ```sql
     SELECT
@@ -528,62 +528,61 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
         gb_processed desc;
     ```
 
-3. View all system queries.
+3. Exiba todas as consultas do sistema.
 
     ```sql
     SELECT * FROM sys.dm_pdw_exec_requests;
     ```
 
-4. Enjoy seeing your data nicely loaded into your Azure SQL Data Warehouse.
+4. Veja os dados carregados sem problemas no Azure SQL Data Warehouse.
 
-    ![See Data Loaded](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
+    ![Ver dados carregados](./media/sql-data-warehouse-get-started-tutorial/see-data-loaded.png)
 
 
-## Improve query performance
+## <a name="improve-query-performance"></a>Melhorar o desempenho da consulta
 
-There are several ways to improve query performance and to achieve the high-speed performance that SQL Data Warehouse is designed to provide.  
+Há várias maneiras de melhorar o desempenho da consulta e atingir o desempenho de alta velocidade que o SQL Data Warehouse foi projetado para fornecer.  
 
-### See the effect of scaling on query performance 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Ver o efeito do dimensionamento no desempenho da consulta 
 
-One way to improve query performance is to scale resources by changing the DWU service level for your data warehouse. Each service level costs more, but you can scale back or pause resources at any time. 
+Uma maneira de melhorar o desempenho da consulta é dimensionar os recursos alterando o nível de serviço do DWU para o data warehouse. Cada nível de serviço custa mais, mas você pode reduzir ou pausar recursos a qualquer momento. 
 
-In this step, you compare performance at two different DWU settings.
+Nesta etapa, você compara o desempenho em suas configurações diferentes de DWU.
 
-First, let's scale the sizing down to 100 DWU so we can get an idea of how one compute node might perform on its own.
+Primeiro, vamos reduzir para 100 DWUs para lhe dar uma ideia de como a computação como um nó pode ser executada por conta própria.
 
-1. Go to the portal and select your SQL Data Warehouse.
+1. Acesse o portal e selecione a instância do SQL Data Warehouse.
 
-2. Select scale in the SQL Data Warehouse blade. 
+2. Selecione dimensionar na folha SQL Data Warehouse. 
 
-    ![Scale DW From portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
+    ![Dimensionar DW no portal](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Scale down the performance bar to 100 DWU and hit save.
+3. Reduza a barra de desempenho para 100 DWU e clique em Salvar.
 
-    ![Scale and save](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
+    ![Dimensionar e salvar](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Wait for your scale operation to finish.
+4. Aguarde a conclusão da operação de dimensionamento.
 
     > [!NOTE]
-    > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
+    > Não é possível executar consultas ao alterar a escala. O dimensionamento **elimina** suas consultas em execução no momento. Você poderá reiniciá-las quando a operação for concluída.
     >
     
-5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
+5. Faça uma operação de verificação nos dados de viagem, selecionando os milhões de entradas principais para todas as colunas. Se está ansioso para continuar rapidamente, fique à vontade para selecionar menos linhas. Anote o tempo necessário para executar esta operação.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Scale your data warehouse back to 400 DWU. Remember, each 100 DWU is adding another compute node to your Azure SQL Data Warehouse.
+6. Dimensione seu data warehouse de volta para 400 DWUs. Lembre-se de que cada 100 DWU adicionam outro nó de computação ao Azure SQL Data Warehouse.
 
-7. Run the query again! You should notice a significant difference. 
+7. Execute a consulta novamente! Você deve notar uma diferença significativa. 
 
 > [!NOTE]
-> Since SQL Data Warehouse uses massively parallel processing. Queries that scan or perform analytic functions on millions of rows experience the true power of
-> Azure SQL Data Warehouse.
+> Como o SQL Data Warehouse usa processamento paralelo massivo. As consultas que examinam ou executam funções de análise em milhões de linhas experimentam o verdadeira poder do Azure SQL Data Warehouse.
 >
 
-### See the effect of statistics on query performance
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>Ver o efeito da estatísticas no desempenho da consulta
 
-1. Run a query that joins the Date table with the Trip table
+1. Executar uma consulta que une a tabela de Datas à tabela de Viagens
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
         ON  tr.DateID = dt.DateID
     ```
 
-    This query takes a while because SQL Data Warehouse has to shuffle data before it can perform the join. Joins do not have to shuffle data if they are designed to join data in the same way it is distributed. That's a deeper subject. 
+    Essa consulta demora um pouco porque o SQL Data Warehouse precisa movimentar os dados de forma aleatória antes de executar a junção. As junções não precisam movimentar os dados de forma aleatória se eles forem criados para juntar dados da mesma forma que foram distribuídos. Esse é um assunto mais profundo. 
 
-2. Statistics make a difference. 
-3. Run this statement to create statistics on the join columns.
+2. Estatísticas fazem a diferença. 
+3. Execute esta instrução para criar estatísticas em colunas de junção.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -626,48 +625,45 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     ```
 
     > [!NOTE]
-    > SQL DW does not automatically manage statistics for you. Statistics are important for query
-    > performance and it is highly recommended you create and update statistics.
+    > O SQL DW não gerencia automaticamente as estatísticas para você. As estatísticas são importantes para o desempenho da consulta, e é altamente recomendável criar e atualizar as estatísticas.
     > 
-    > **You gain the most benefit by having statistics on columns involved in joins, columns
-    > used in the WHERE clause and columns found in GROUP BY.**
+    > **Você obterá mais benefícios se tiver estatísticas em colunas envolvidas em junções, colunas usadas na cláusula WHERE e colunas encontradas em GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+3. Execute novamente a consulta de Pré-requisitos e observe as diferenças de desempenho. Embora as diferenças no desempenho da consulta não sejam tão drásticas quanto o aumento, você deve observar uma aceleração. 
 
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-You're now ready to query and explore. Check out our best practices or tips.
+Agora você está pronto para consultar e explorar. Confira nossas melhores práticas recomendadas ou dicas.
 
-If you're done exploring for the day, make sure to pause your instance! In production, you can experience enormous 
-savings by pausing and scaling to meet your business needs.
+Se tiver terminado de explorar por hoje, pause a instância! Em produção, você pode obter uma enorme economia pausando e dimensionando para atender às suas necessidades de negócios.
 
-![Pause](./media/sql-data-warehouse-get-started-tutorial/pause.png)
+![Pausar](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
-## Useful readings
+## <a name="useful-readings"></a>Leituras úteis
 
-[Concurrency and Workload Management][]
+[Gerenciamento de simultaneidade e carga de trabalho][]
 
-[Best practices for Azure SQL Data Warehouse][]
+[Práticas recomendadas para o Azure SQL Data Warehouse][]
 
-[Query Monitoring][]
+[Consultar monitoramento][]
 
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse][]
+[Dez principais práticas recomendadas para a criação de um Data Warehouse relacional em grande escala][]
 
-[Migrating Data to Azure SQL Data Warehouse][]
+[Migrando dados para o Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
-[Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
-[Query Monitoring]: sql-data-warehouse-manage-monitor.md
-[Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Migrating Data to Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Gerenciamento de simultaneidade e carga de trabalho]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Práticas recomendadas para o Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Consultar monitoramento]: sql-data-warehouse-manage-monitor.md
+[Dez principais práticas recomendadas para a criação de um Data Warehouse relacional em grande escala]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
+[Migrando dados para o Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[Prerequisites]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Pré-requisitos]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

@@ -14,12 +14,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2016
+ms.date: 03/06/2017
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
-ms.openlocfilehash: a2a738ef1df470e17b805e843a159e0abc23efdf
-ms.lasthandoff: 02/16/2017
+ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
+ms.openlocfilehash: aa3f2bc04fe33466ca44abd7331a4b3aa7be26fc
+ms.lasthandoff: 03/07/2017
 
 
 ---
@@ -60,8 +60,8 @@ Você deve primeiro habilitar o aplicativo cliente para acessar o serviço do Ba
 7. Copie a **ID DO CLIENTE**. (Posteriormente você precisará desse valor no código)
 8. Na seção **chaves**, selecione **1 ano** na lista suspensa **Selecionar duração**. (Você irá copiar a chave depois de salvar na etapa 13).
 9. Role para baixo e clique em **Adicionar aplicativo**.
-10. Deixe **MOSTRAR** definida como **Microsoft Apps** e selecione **Gerenciamento de Serviços do Microsoft Azure**. Clique na marca de seleção para continuar.
-11. Selecione **Acessar Gerenciamento de Serviços do Azure** na lista suspensa **Permissões Delegadas**.
+10. Deixe **MOSTRAR** definido como **Aplicativos da Microsoft** e selecione **API de Gerenciamento de Serviços do Microsoft Azure**. Clique na marca de seleção para continuar.
+11. Selecione **Acessar Gerenciamento de Serviços do Azure...** na lista suspensa **Permissões Delegadas**.
 12. Clique em **SALVAR**.
 13. Após salvar, copie o valor da chave na seção **chaves** . (Posteriormente você precisará desse valor no código)
 
@@ -192,9 +192,8 @@ Agora que o Always Encrypted está configurado, você pode compilar um aplicativ
 > 
 > 
 
-1. Abra o Visual Studio e crie um novo aplicativo de console em C#. Verifique se seu projeto está definido como **.NET Framework 4.6** ou posterior.
+1. Abra o Visual Studio e crie um novo **Aplicativo de Console** do C# (Visual Studio 2015 e anterior) ou **Aplicativo de Console (.NET Framework)** (Visual Studio 2017 e posterior). Verifique se seu projeto está definido como **.NET Framework 4.6** ou posterior.
 2. Nomeie o projeto como **AlwaysEncryptedConsoleAKVApp** e clique em **OK**.
-   ![Novo aplicativo de console](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
 3. Instale os seguintes pacotes NuGet indo até **Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**.
 
 Execute estas duas linhas de código no Console do Gerenciador de Pacotes.

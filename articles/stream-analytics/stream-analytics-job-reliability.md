@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/27/2017
+ms.date: 03/06/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: a2892343432f7dced535efb3917d915736580dfb
-ms.openlocfilehash: cf8eba0f68e1e803026079f02b91f1bbaec189da
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.lasthandoff: 03/06/2017
 
 ---
 
@@ -30,20 +30,7 @@ O Stream Analytics garante que os trabalhos em regiões emparelhadas sejam atual
 
 _Com exceção da Índia central_ (cuja região emparelhada, sul da Índia, não tem a presença do Stream Analytics), não ocorrerá a implantação de uma atualização simultânea do Stream Analytics em um conjunto de regiões emparelhadas. Implantações em várias regiões **no mesmo grupo de** podem ocorrer **ao mesmo tempo**.
 
-Consulte o gráfico a seguir para obter a lista de grupos de emparelhamento:
+O artigo em **[regiões de disponibilidade e emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tem as informações mais atualizadas sobre quais regiões são emparelhadas.
 
-Regiões do Grupo A |  | Regiões do Grupo B
-------- | ------- | -------
-Leste do Japão | emparelhada com | Oeste do Japão
-Norte da Europa |  | Europa Ocidental
-Centro dos EUA |  | Leste dos EUA&2;
-Ásia Oriental |  | Sudeste da Ásia
-Centro-Norte dos EUA |  | Centro-Sul dos Estados Unidos
-Leste da Austrália |  | Sudeste da Austrália
-Leste dos EUA |  | Oeste dos EUA
-Sul do Brasil |  | Centro-Sul dos Estados Unidos
-Norte da China |  | Leste da China
-Nordeste da Alemanha |  | Alemanha Central
-
-Os clientes são aconselhados a implantar trabalhos idênticos para ambas as regiões emparelhadas. Além do monitoramento interno do Stream Analytics, os clientes também devem monitorar os trabalhos como se **ambos** fossem trabalhos de produção. Se uma interrupção for identificada como sendo o resultado da atualização do serviço do Stream Analytics, escalone adequadamente e realize o failover de consumidores downstream para que a saída do trabalho seja íntegra. O escalonamento ao suporte impedirá a região emparelhada de ser afetada pela nova implantação e manterá a integridade dos trabalhos emparelhados.
+Os clientes são aconselhados a implantar trabalhos idênticos para ambas as regiões emparelhadas. Além das funcionalidades de monitoramento interno do Stream Analytics, também é recomendável que os clientes monitorem os trabalhos como se **ambos** fossem trabalhos de produção. Se uma interrupção for identificada como sendo o resultado da atualização do serviço do Stream Analytics, escalone adequadamente e realize o failover de consumidores downstream para que a saída do trabalho seja íntegra. O escalonamento ao suporte impedirá a região emparelhada de ser afetada pela nova implantação e manterá a integridade dos trabalhos emparelhados.
 

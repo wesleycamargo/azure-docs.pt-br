@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 03/08/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: ca66a344ea855f561ead082091c6941540b1839d
-ms.openlocfilehash: 9c7f4b6f6417b6eef90dc5b92eeaca3a004d2955
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 4d7523c2bd865039cc989b3d6a288f870288b102
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -32,7 +33,7 @@ O Service Bus é um serviço de nuvem de diversos clientes, o que significa que 
 
 **Figura 1: O Barramento de Serviço fornece um serviço multilocatário para conexão de aplicativos por meio da nuvem.**
 
-Dentro de um namespace, você pode usar uma ou mais instâncias de quatro mecanismos de comunicação diferentes, cada um deles conecta aplicativos de maneira diferente. As opções são:
+Dentro de um namespace, você pode usar uma ou mais instâncias de três mecanismos de comunicação diferentes, cada um deles conecta aplicativos de uma maneira diferente. As opções são:
 
 * *Filas de*, que permitem a comunicação de um-direcional. Cada fila atua como um intermediário (às vezes chamado de um *agente*) que armazena mensagens enviadas até que eles são recebidos. Cada mensagem é recebida por um único destinatário.
 * *Tópicos*, que fornecem uma comunicação unidirecional usando *assinaturas* - um único tópico pode ter várias assinaturas. Como uma fila, um tópico age como um agente, mas cada assinatura pode, opcionalmente, usar um filtro para receber apenas as mensagens que correspondem a critérios específicos.
@@ -40,7 +41,7 @@ Dentro de um namespace, você pode usar uma ou mais instâncias de quatro mecani
 
 Ao criar uma fila, um tópico ou uma retransmissão, você atribui um nome a ele/ela. Esse nome combinado com qualquer é chamado seu espaço para nome, cria um identificador exclusivo para o objeto. Os aplicativos podem fornecer esse nome ao Barramento de Serviço e usar essa fila, tópico ou retransmissão para se comunicar uns com os outros. 
 
-Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Para as filas e os tópicos, os aplicativos do Windows podem usar as APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas e os tópicos usando as APIs REST no(s) HTTP(s). 
+Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Para as filas e os tópicos, os aplicativos do Windows podem usar as APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas e os tópicos usando as [APIs REST](/rest/api/servicebus/) no(s) HTTP(s). 
 
 É importante compreender que, embora o Barramento de Serviço em si seja executado na nuvem (ou seja, nos datacenters do Azure da Microsoft), os aplicativos que o utilizam podem ser executados em qualquer lugar. Você pode usar o Service Bus para conectar aplicativos em execução no Azure, por exemplo, ou aplicativos executados dentro de seu próprio datacenter. Também pode usá-lo para se conectar a um aplicativo em execução no Azure ou outra plataforma de nuvem com um aplicativo local ou tablets e telefones. Também é possível conectar os aparelhos domésticos, sensores e outros dispositivos para um aplicativo central ou a qualquer outra. O Barramento de Serviço é um mecanismo de comunicação na nuvem, que é acessível a partir de praticamente qualquer lugar. Como você o usa depende do que os seus aplicativos precisam fazer.
 
@@ -55,15 +56,15 @@ O processo é simples: um remetente enviar uma mensagem para uma fila do Service
 
 Cada mensagem tem duas partes: um conjunto de propriedades, cada um par chave/valor e uma carga de mensagem. A carga pode ser binária, texto ou até mesmo XML. Como eles são usados depende de que um aplicativo está tentando fazer. Por exemplo, um aplicativo de envio de uma mensagem sobre uma venda recente pode incluir as propriedades *Vendedor = "Ana"* e *Valor =&10000;*. O corpo da mensagem pode conter uma imagem digitalizada do contrato assinado da venda ou, se não houver um, apenas permanecerão vazio.
 
-Um receptor pode ler uma mensagem de uma fila do Service Bus de duas maneiras diferentes. A primeira opção, chamada *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, remove uma mensagem da fila e a exclui imediatamente. Isso é simples, mas se o receptor falhar antes de terminar de processar a mensagem, a mensagem será perdida. Porque ele é removido da fila, nenhum outro receptor pode acessá-lo. 
+Um receptor pode ler uma mensagem de uma fila do Service Bus de duas maneiras diferentes. A primeira opção, chamada *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, remove uma mensagem da fila e a exclui imediatamente. Isso é simples, mas se o receptor falhar antes de terminar de processar a mensagem, a mensagem será perdida. Porque ele é removido da fila, nenhum outro receptor pode acessá-lo. 
 
-A segunda opção, *[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)*, é destinada a ajudar com esse problema. Como **ReceiveAndDelete**, uma leitura **PeekLock** remove uma mensagem da fila. Ela não exclui a mensagem, no entanto. Em vez disso, ela bloqueia a mensagem, tornando-a invisível para outros destinatários, e espera por um dos três eventos:
+A segunda opção, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, é destinada a ajudar com esse problema. Como **ReceiveAndDelete**, uma leitura **PeekLock** remove uma mensagem da fila. Ela não exclui a mensagem, no entanto. Em vez disso, ela bloqueia a mensagem, tornando-a invisível para outros destinatários, e espera por um dos três eventos:
 
-* Se o receptor processar a mensagem com êxito, ele chamará **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** e a fila excluirá a mensagem. 
-* Se o receptor decidir que não é possível processar a mensagem com êxito, ele chamará **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)**. A fila remove o bloqueio da mensagem e o torna disponível para outros destinatários.
+* Se o receptor processar a mensagem com êxito, ele chamará [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) e a fila excluirá a mensagem. 
+* Se o receptor decidir que não é possível processar a mensagem com êxito, ele chamará [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). A fila remove o bloqueio da mensagem e o torna disponível para outros destinatários.
 * Se o receptor chama nenhuma delas dentro de um período de tempo configurável (por padrão, 60 segundos), a fila supõe que o receptor falhou. Nesse caso, comporta-se como se o destinatário tivesse chamado **Abandonar**, disponibilizando a mensagem para outros destinatários.
 
-Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Aplicativos usando filas do Service Bus devem estar preparados para isso. Para facilitar a detecção de duplicidades, cada mensagem tem uma propriedade **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** exclusiva que, por padrão, permanece a mesma, independentemente de quantas vezes a mensagem é lida em uma fila. 
+Observe o que pode acontecer aqui: A mesma mensagem pode ser entregue duas vezes, talvez para dois destinatários diferentes. Aplicativos usando filas do Service Bus devem estar preparados para isso. Para facilitar a detecção de duplicidades, cada mensagem tem uma propriedade [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) exclusiva que, por padrão, permanece a mesma, independentemente de quantas vezes a mensagem é lida em uma fila. 
 
 Filas são úteis em algumas situações. Eles permitem que os aplicativos se comuniquem mesmo quando ambos não são executados ao mesmo tempo, algo que é especialmente útil com lotes e aplicativos móveis. Uma fila com vários receptores também fornece balanceamento de carga automático, desde que as mensagens enviadas sejam distribuídas entre esses receptores.
 
@@ -80,7 +81,7 @@ Um *tópico* é semelhante, de muitas formas, a uma fila. Os remetentes enviam m
 * Assinante 2 recebe mensagens que contêm a propriedade *Vendedor = "Clara"* e/ou conter uma propriedade *Valor* cujo valor seja maior que 100.000. Talvez Ruby seja a gerente de vendas e, portanto, ela deseja ver próprias vendas e todas as vendas grandes independentemente de quem realizá-las.
 * Assinante 3 definiu seu filtro como *True*, que significa que ele recebe todas as mensagens. Por exemplo, esse aplicativo pode ser responsável por manter uma trilha de auditoria e, portanto, ele precisa ver todas as mensagens.
 
-Assim como acontece com as filas, os assinantes de um tópico podem ler mensagens usando [**ReceiveAndDelete** ou **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por várias assinaturas. Essa abordagem, conhecida como *publicar e assinar* (ou *pub/sub*), é útil sempre que vários aplicativos estão interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
+Assim como acontece com as filas, os assinantes de um tópico podem ler mensagens usando [ReceiveAndDelete ou PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Ao contrário das filas, no entanto, uma única mensagem enviada a um tópico pode ser recebida por várias assinaturas. Essa abordagem, conhecida como *publicar e assinar* (ou *pub/sub*), é útil sempre que vários aplicativos estão interessados nas mesmas mensagens. Definindo o filtro à direita, cada assinante pode tocar na parte de fluxo de mensagens que precisa ver.
 
 ## <a name="relays"></a>Retransmissão
 As filas e os tópicos fornecem uma comunicação unidirecional assíncrona por meio de um agente. O tráfego flui em apenas uma direção, e não há nenhuma conexão direta entre remetentes e receptores. Mas e se você não quiser isso? Suponha que seus aplicativos precisam enviar e receber mensagens, ou talvez você deseja um link direto entre eles e você não precisa de um agente para armazenar mensagens. Para lidar com cenários como este, o Barramento de Serviço fornece *retransmissões*, como mostra a Figura 4.
@@ -116,9 +117,4 @@ Agora que você aprendeu os conceitos básicos do barramento de serviço do Azur
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

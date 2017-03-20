@@ -15,9 +15,9 @@ ms.topic: hero-article
 ms.date: 2/21/2017
 ms.author: nisoneji
 translationtype: Human Translation
-ms.sourcegitcommit: f438db1d0129dfb0e2eaa00146147084cd8c11b6
-ms.openlocfilehash: 179e8cf928d83a3a66ed3489173e4c28a2bc9d4f
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: 2575621d72b7db2b090ba923324697b7fa7b8308
+ms.lasthandoff: 03/15/2017
 
 
 ---
@@ -82,9 +82,9 @@ Copie o arquivo zip para o Windows Server do qual você deseja executar a ferram
 Extrai a pasta zip. Você pode ver vários arquivos e subpastas. O executável é ASRDeploymentPlanner.exe na pasta pai.
 
 Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo.
-E:\ASR Deployment Planner-Preview_v1.0.zip
+E:\ASR Deployment Planner-Preview_v1.1.zip
 
-E:\ASR Deployment Planner-Preview_v1.0\ ASR Deployment Planner-Preview_v1.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner-Preview_v1.1\ ASR Deployment Planner-Preview_v1.1\ ASRDeploymentPlanner.exe
 
 ##<a name="capabilities"></a>Funcionalidades
 A ferramenta de linha de comando (ASRDeploymentPlanner.exe) pode ser executada em qualquer um dos três seguintes modos:
@@ -199,7 +199,7 @@ ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.cont
 
 
 ##### <a name="example-2-to-generate-report-when-profiled-data-is-on-a-remote-server-user-should-have-readwrite-access-on-the-remote-directory"></a>Exemplo 2: para gerar relatório quando os dados cujo perfil foi criado estão em um servidor remoto. O usuário deve ter acesso de leitura/gravação no diretório remoto.
-ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
+ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “\\\\PS1-W2K12R2\vCenter1_ProfiledData” **-VMListFile** “\\\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 
 ##### <a name="example-3-generate-report-with-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Exemplo 3: para gerar relatório com uma largura de banda específica e com o objetivo de concluir IR no tempo especificado
 ASRDeploymentPlanner.exe **-Operation** GenerateReport **-Server** vCenter1.contoso.com **-Directory** “E:\vCenter1_ProfiledData” **-VMListFile** “E:\vCenter1_ProfiledData\ProfileVMList1.txt” **-Bandwidth** 100 **-GoalToCompleteIR** 24
@@ -309,7 +309,7 @@ ASRDeploymentPlanner.exe **-Operation** GetThroughput **-Directory**  E:\vCenter
 
 **Para atender ao RPO 90% do tempo**: devido a preços de banda larga ou por qualquer outro motivo, se você não puder provisionar a largura de banda necessária para atender ao RPO desejado 100% do tempo, poderá optar por uma quantidade menor de largura de banda que possa satisfazer ao RPO desejado 90% do tempo de provisionamento. Para entender as implicações de provisionamento dessa largura de banda menos, o relatório fornece uma análise do tipo "e se" sobre o número e a duração de violações de RPO a serem esperados.
 
-**Taxa de Transferência Obtida:** é a taxa de transferência do servidor em que você executou o comando GetThroughput para a região do Microsoft Azure em que se encontra a conta de Armazenamento do Azure. Indica a taxa de transferência aproximada que pode ser obtida quando você protege as máquinas virtuais compatíveis usando o Azure Site Recovery, desde que as características de rede e de armazenamento do Servidor de Configuração/Servidor de Processo permaneçam iguais às do servidor do qual você executa a ferramenta. A taxa de transferência obtida é a taxa de transferência do servidor em que você executou o comando GetThroughput para a região do Microsoft Azure em que se encontra a conta de Armazenamento do Azure. Indica a taxa de transferência aproximada que pode ser obtida quando você protege as máquinas virtuais compatíveis usando o Azure Site Recovery, desde que as características de rede e de armazenamento do Servidor de Configuração/Servidor de Processo permaneçam iguais às do servidor do qual você executa a ferramenta.
+**Taxa de Transferência Obtida:** é a taxa de transferência do servidor em que você executou o comando GetThroughput para a região do Microsoft Azure em que se encontra a conta de Armazenamento do Azure. Indica a taxa de transferência aproximada que pode ser obtida quando você protege as máquinas virtuais compatíveis usando o Azure Site Recovery, desde que as características de rede e de armazenamento do Servidor de Configuração/Servidor de Processo permaneçam iguais às do servidor do qual você executa a ferramenta.    
 
 Para a replicação, você deve provisionar a largura de banda que é recomendada para atender ao RPO 100% do tempo. Mesmo após provisionar a largura de banda correta, se você não vir um aumento na taxa de transferência obtida relatada pela ferramenta, verifique o seguinte:
 
@@ -407,10 +407,10 @@ O número total de discos em todas as máquinas virtuais compatíveis é o núme
 
 **Máquinas Virtuais a serem Posicionadas** lista todas as máquinas virtuais devem ser colocadas em determinada conta de Armazenamento do Azure para oferecer melhor desempenho e utilização.
 
-##<a name="compatible-vms"></a>VMs compatíveis
+## <a name="compatible-vms"></a>VMs compatíveis
 ![Planejador de Implantação](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**Nome da VM** é o nome da máquina virtual ou o endereço IP, conforme usado em VMListFile no momento da geração de relatórios. Essa coluna também lista os discos (VMDKs) anexados às máquinas virtuais.
+**Nome da VM** é o nome da máquina virtual ou o endereço IP, conforme usado em VMListFile no momento da geração de relatórios. Essa coluna também lista os discos (VMDKs) anexados às máquinas virtuais. As máquinas virtuais em um vCenter com nomes ou endereços IP duplicados são mencionados com o nome de host ESXi para distinguir cada máquina virtual. O host ESXi listado é o host no qual a máquina virtual foi colocada quando a ferramenta a descobriu pela primeira vez durante o período de criação de perfil.
 
 **Compatibilidade de VM** tem dois valores: Sim/Sim*. Sim* é para os casos em que a máquina virtual é uma opção para o [armazenamento premium do Azure](https://aka.ms/premium-storage-workload) com disco IOPS/alta variação de criação de perfil se adequando à categoria P20 ou P30, mas o tamanho do disco faz com que ele deva ser mapeado para P10 ou P20. O Armazenamento do Azure decide para qual tipo de disco de armazenamento premium mapear um disco com base em seu tamanho, ou seja, < 128 GB é P10, 128 a 512 GB é P20 e 512 GB a 1023 GB é P30. Portanto, se as características de carga de trabalho de um disco o colocarem em um P20 ou P30, mas o tamanho for mapeado para um tipo de disco de armazenamento premium inferior, a ferramenta marcará essa máquina virtual como Sim* e recomendará que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado correto ou altere o pós-failover de tipo de disco de destino.
 O Tipo de Armazenamento é standard ou premium.
@@ -439,7 +439,7 @@ O Tipo de Armazenamento é standard ou premium.
 
 ![Planejador de Implantação](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**Nome da VM** é o nome da máquina virtual ou o endereço IP, conforme usado em VMListFile no momento da geração de relatórios. Essa coluna também lista os discos (VMDKs) anexados às máquinas virtuais.
+**Nome da VM** é o nome da máquina virtual ou o endereço IP, conforme usado em VMListFile no momento da geração de relatórios. Essa coluna também lista os discos (VMDKs) anexados às máquinas virtuais. As máquinas virtuais em um vCenter com nomes ou endereços IP duplicados são mencionados com o nome de host ESXi para distinguir cada máquina virtual. O host ESXi listado é o host no qual a máquina virtual foi colocada quando a ferramenta a descobriu pela primeira vez durante o período de criação de perfil.
 
 **Compatibilidade de VM** indica por que a máquina virtual específica é incompatível com o Azure Site Recovery. Os motivos são descritos por disco incompatível da máquina virtual e podem ser uma das seguintes opções, com base nos [limites](https://aka.ms/azure-storage-scalbility-performance) publicados do Armazenamento do Azure.
 
@@ -483,7 +483,24 @@ Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Azu
 
 Os limites publicados acima se baseiam em nossos testes, mas não podem abranger todas as combinações de E/S de aplicativos. Os resultados reais variarão dependendo da combinação de E/S do aplicativo. Para obter melhores resultados, mesmo depois de planejar a implantação, é sempre recomendável executar extensos testes de aplicativos usando o teste de failover para obter a verdadeira imagem de desempenho.
 
-##<a name="release-notes"></a>Notas de versão
+## <a name="how-to-update-the-deployment-planner"></a>Como atualizar o Planejador de implantação?
+[Baixe](site-recovery-deployment-planner.md#download) a versão mais recente do Planejador de Implantação do Azure Site Recovery. Copie o arquivo zip em um servidor no qual você deseja executar. Extraia o arquivo zip.
+Se você já tiver a versão anterior do planejador de implantação e a criação de perfil estiver ocorrendo, não será necessário interromper a criação de perfil, a menos que a nova versão tem uma correção de criação de perfil. Se a versão de lançamento contiver correções no componente de criação de perfil, recomendamos que você pare a criação de perfil usando a versão mais antiga e inicie a criação de perfil novamente usando a nova versão. Observe que quando você começa a criação de perfil usando a nova versão, precisa passar o mesmo caminho de diretório de saída para que a ferramenta acrescente os dados de perfil aos arquivos existentes, e o conjunto completo de dados com perfil será usado na geração de relatórios. Se você passar um diretório de saída diferente, os novos arquivos serão criados e os dados com perfil antigos não poderão ser usados na geração do relatório.<br> Cada atualização é uma atualização cumulativa com um arquivo zip. Não é necessário copiar os novos arquivos de versão para a pasta de versão anterior para usá-los. Você pode usar a nova pasta.
+
+
+##<a name="version-history"></a>Histórico de Versões
+### <a name="11"></a>1,1
+Atualizado em: 09 de março 2017 <br>
+
+Os problemas a seguir foram corrigidos<br>
+
+* Não pode criar o perfil de máquinas virtuais se o vCenter tiver duas ou mais máquinas virtuais com o mesmo nome/endereço IP em hosts ESXi diferentes.<br>
+* As ações de copiar e pesquisar foram desabilitadas para as folhas de VMs compatíveis e incompatíveis.
+
+
+### <a name="10"></a>1.0 
+Atualizado em: 23 de fevereiro de 2017 
+
 A Visualização Pública do Planejador de Implantação 1.0 do Azure Site Recovery tem os problemas conhecidos a seguir, que serão abordados em atualizações futuras.
 
 * A ferramenta funciona somente para o cenário do VMware para o Azure, não para implantações do Hyper-V para o Azure. Para o cenário de Hyper-v para o Azure, use a [ferramenta de planejamento de capacidade do Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
