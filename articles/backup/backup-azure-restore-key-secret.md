@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: pajosh
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0c5b2969ddc943b2b15826003f5a9e686e84e1c4
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: ddb9e7909eb4ab97204059d21690795ceb6ff9e8
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurar chave e segredo do Cofre de Chaves para VMs criptografadas usando o Backup do Azure
+# <a name="restore-an-encrypted-virtual-machine-from-an-azure-backup-recovery-point"></a>Restaurar uma máquina virtual criptografada de um ponto de recuperação do Backup do Azure
 Este artigo fala sobre usar o Backup da VM do Azure para executar a restauração de VMs do Azure criptografadas se a chave e o segredo não existirem no cofre de chaves. Essas etapas também poderão ser usadas se vocês quiser manter uma cópia separada da chave (Chave de Criptografia de Chave) e o segredo (Chave de Criptografia do BitLocker) para a VM restaurada.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
@@ -89,10 +91,10 @@ PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $
 
 > [!NOTE]
 > Após a execução bem-sucedida desse cmdlet, um arquivo de blob é gerado na pasta especificada no computador em que ele foi executado. Esse arquivo de blob representa a Chave Criptografada da Chave em formato criptografado.
-> 
-> 
+>
+>
 
-Restaure a chave de volta ao cofre de chaves usando o seguinte cmdlet. 
+Restaure a chave de volta ao cofre de chaves usando o seguinte cmdlet.
 
 ```
 PS C:\> Restore-AzureKeyVaultKey -VaultName "contosokeyvault" -InputFile "C:\Users\downloads\key.blob"
@@ -108,11 +110,11 @@ https://contosokeyvault.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848
 ```
 
 > [!NOTE]
-> O texto antes de vault.azure.net representa o nome do cofre de chaves original. O texto depois de secrets/ representa o nome do segredo. 
-> 
-> 
+> O texto antes de vault.azure.net representa o nome do cofre de chaves original. O texto depois de secrets/ representa o nome do segredo.
+>
+>
 
-Obtenha o nome e o valor do segredo da saída do cmdlet executado acima, caso deseje usar o mesmo nome do segredo. Em outros casos, o $secretname abaixo deve ser atualizado para usar o novo nome do segredo. 
+Obtenha o nome e o valor do segredo da saída do cmdlet executado acima, caso deseje usar o mesmo nome do segredo. Em outros casos, o $secretname abaixo deve ser atualizado para usar o novo nome do segredo.
 
 ```
 PS C:\> $secretname = "B3284AAA-DAAA-4AAA-B393-60CAA848AAAA"
@@ -120,7 +122,7 @@ PS C:\> $secretdata = $rp1.KeyAndSecretDetails.SecretData
 PS C:\> $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 ```
 
-Defina marcações para o segredo, caso a VM precise ser restaurada também. Para a marcação DiskEncryptionKeyFileName, valor deve conter o nome do segredo que você planeja usar. 
+Defina marcações para o segredo, caso a VM precise ser restaurada também. Para a marcação DiskEncryptionKeyFileName, valor deve conter o nome do segredo que você planeja usar.
 
 ```
 PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://contosokeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
@@ -128,8 +130,8 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 
 > [!NOTE]
 > O valor para DiskEncryptionKeyFileName é igual ao nome do segredo obtido anteriormente. O valor para DiskEncryptionKeyEncryptionKeyURL pode ser obtido do cofre de chaves depois de restaurar as chaves de volta e usar o cmdlet [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx)    
-> 
-> 
+>
+>
 
 Definir o segredo de volta para o cofre de chaves
 
@@ -139,10 +141,4 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName "contosokeyvault" -Name $secretname -
 
 ### <a name="restore-virtual-machine"></a>Restaurar a máquina virtual
 Os cmdlets do PowerShell acima ajudam a restaurar a chave e o segredo de volta para o cofre de chaves se você tiver feito backup da VM criptografado usando o Backup de VM do Azure. Depois de restaurá-los, consulte o artigo [Gerenciar backup e restauração de VMs do Azure usando o PowerShell](backup-azure-vms-automation.md) para restaurar VMs criptografadas.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

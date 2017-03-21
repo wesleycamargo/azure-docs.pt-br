@@ -12,12 +12,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
+ms.date: 3/1/2017
 ms.author: mcoskun
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 287707d528d2327637ad3d17633ef830657c04f8
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: 4952dfded6ec5c4512a61cb18d4c754bf001dade
+ms.openlocfilehash: b5fab7cf91493d477cafd66e27e346ea3ad02f04
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -148,6 +148,7 @@ Dessa forma, quando a réplica precisar ser reiniciada, as Coleções Confiávei
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
 * Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
 * Evite a mistura de operações de entidade única e operações de várias entidades (por exemplo, de `GetCountAsync`, `CreateEnumerableAsync`) na mesma transação devido a níveis de isolamento diferentes.
+* Trate InvalidOperationException. As transações do usuário podem ser anuladas pelo sistema por diversos motivos. Por exemplo, quando o Gerenciador de Estado Confiável muda sua função Primária ou quando uma transação de longa execução bloqueia o truncamento do log transacional. Nesses casos, o usuário pode receber InvalidOperationException, indicando que a transação já foi encerrada. Supondo que o encerramento da transação não foi solicitado pelo usuário, a melhor maneira de tratar essa exceção é descartar a transação, verificar se o token de cancelamento foi sinalizado (ou se a função da réplica foi alterada) e, caso não tenha, criar uma nova transação e tentar novamente.  
 
 Eis aqui algumas coisas que se deve manter em mente:
 

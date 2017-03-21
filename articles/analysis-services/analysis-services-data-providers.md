@@ -16,9 +16,9 @@ ms.workload: na
 ms.date: 02/27/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 13eb8ab1bf3c218f14b4c23ca1a46e9552d55b25
-ms.openlocfilehash: d70b9f2c2a0cb1abe11dcfee9acb51dcb5552a60
-ms.lasthandoff: 02/09/2017
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 03720b926e3a75c5443308f510b38132144318ff
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -32,8 +32,17 @@ O Analysis Services utiliza três provedores de dados. O ADOMD.NET e o AMO (Obje
 Os aplicativos cliente da Microsoft, como o Power BI Desktop e o Excel, instalam os três provedores de dados. No entanto, dependendo da versão do Excel, ou se as versões mais novas do Excel e do Power BI Desktop são ou não atualizadas mensalmente, os provedores de dados instalados podem não ser atualizados para as últimas versões exigidas pelo Azure Analysis Service. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos exigem a instalação manual dos provedores. Os provedores de dados de instalação manual estão incluídos nos pacotes de recursos do SQL Server como pacotes distribuíveis, no entanto, eles são associados à versão do SQL Server e podem não ser os mais recentes.  
 
 Os provedores de dados para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de fonte de dados, confira [Conexões de fonte de dados](analysis-services-datasource.md).
- 
-## <a name="download-the-latest-data-providers"></a>Baixar os provedores de dados mais recentes  
+
+## <a name="download-the-latest-preview-data-providers"></a>Baixar os últimos provedores de dados de **visualização**  
+Use os provedores de dados a seguir para obter as últimas correções de bugs e atualizações. Esses provedores de dados são recomendados ao se conectar à Visualização do Azure Analysis Services ou ao Analysis Services do SQL Server vNext.
+
+[Visualização do MSOLAP (amd64)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_OLEDB.msi)</br>
+[Visualização do MSOLAP (x86)](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x86/SQL_AS_OLEDB.msi)</br>
+[Visualização do AMO](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_AMO.msi)</br>
+[Visualização do ADOMD](http://download.microsoft.com/download/4/8/2/482E5799-9B8E-4724-8A4C-F301BAE788EE/14.0.304.138/1033/x64/SQL_AS_ADOMD.msi)</br>
+
+## <a name="download-the-latest-rtm-data-providers"></a>Baixar os últimos provedores de dados **RTM**  
+Use os provedores de dados a seguir se estiver em um ambiente de produção e precisar de versões totalmente liberadas e com suporte completo.
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>

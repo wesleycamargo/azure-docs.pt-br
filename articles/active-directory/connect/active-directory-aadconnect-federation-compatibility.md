@@ -12,11 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 03/01/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: cb06c5bd74816777ec7c5836d362d509a265bd9c
-ms.openlocfilehash: 9e16fd3112b093f22ed99829c223a3a80e008f28
+ms.sourcegitcommit: 1f004b499eb01009ae824ece74d06a03474c4d53
+ms.openlocfilehash: 93a159001fabad513295b0958cf7918b0ed2d1b7
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -57,7 +58,8 @@ Para obter informações sobre como você pode obter o provedor de identidade do
 * [CA Secure Cloud](#ca-secure-cloud) 
 * [Dell One Identity Cloud Access Manager v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [AuthAnvil Single Sign On 4.5](#authavil-single-sign-on-45)
-* [Sailpoint IdentityNow](#sailpoint-identitynow) 
+* [Sailpoint IdentityNow](#sailpoint-identitynow)
+* [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
 > [!IMPORTANT]
 > Como esses são produtos de terceiros, a Microsoft não fornece suporte à implantação, configuração, solução de problemas, práticas recomendadas etc. problemas e questões relacionadas a esses provedores de identidade. Para obter suporte e consultar perguntas sobre esses provedores de identidade, entre em contato diretamente com os terceiros.
@@ -344,10 +346,17 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 
 Para saber mais, confira [Sailpoint IdentityNow.](https://www.sailpoint.com/idaas-identity-as-a-service-identitynow/)
 
+## <a name="netiq-access-manager-4x"></a>NetIQ Access Manager 4.x
+O NetIQ Access Manager implementa o padrão de identidade amplamente utilizado, WS Federation/WS-Trust, para fornecer uma estrutura de logon único e de troca de atributos.
 
+A seguir, a matriz de suporte de cenário para esta experiência de logon único:
 
+| Cliente | Suporte | Exceções |
+| --- | --- | --- |
+| Clientes baseados na Web, como o Exchange Web Access e o SharePoint Online |Suportado |Nenhum|
+| Aplicativos de cliente avançados como o Lync, a assinatura do Office, o CRM |Suportado |Nenhum|
+| Clientes de email avançados, como o Outlook e o ActiveSync |Suportado |Nenhum |
 
-
-<!--HONumber=Jan17_HO3-->
+Para obter mais informações, consulte [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
 
 

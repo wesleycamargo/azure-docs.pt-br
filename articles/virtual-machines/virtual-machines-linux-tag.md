@@ -1,6 +1,6 @@
 ---
-title: "Como marcar uma máquina virtual do Linux | Microsoft Docs"
-description: "Aprenda a marcar uma máquina virtual do Linux criada no Azure usando o modelo de implantação do Resource Manager."
+title: "Como marcar uma máquina virtual Linux do Azure | Microsoft Docs"
+description: "Saiba como marcar uma máquina virtual Linux do Azure criada no Azure usando o modelo de implantação do Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
 author: mmccrory
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2016
+ms.date: 02/28/2017
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 56777605e84326fdde1821b42279bd7fc752c553
+ms.sourcegitcommit: 2ec95674901130c9c24de331257e40311c88cb6a
+ms.openlocfilehash: 8fad89189ba6836c5748c656457ab25564147550
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -27,19 +28,21 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Li
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Marcando com a CLI do Azure
-Para começar, [instale e configure a CLI do Azure](../xplat-cli-azure-resource-manager.md) e verifique se você está no modo do Resource Manager (`azure config mode arm`).
+Para começar, é necessário ter a última [CLI do Azure 2.0 (Visualização)](/cli/azure/install-az-cli2) instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+
+Você também pode executar essas etapas com a [CLI 1.0 do Azure](virtual-machines-linux-tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 É possível exibir todas as propriedades de uma determinada Máquina Virtual, incluindo as marcas, usando este comando:
 
-        azure vm show -g MyResourceGroup -n MyTestVM
+        az vm show --resource-group MyResourceGroup --name MyTestVM
 
-Para adicionar uma nova marca de VM usando a CLI do Azure, use o comando `azure vm set` juntamente com o parâmetro de marca **-t**:
+Para adicionar uma nova marcação de VM usando a CLI do Azure, use o comando `azure vm update`, juntamente com o parâmetro de marcação **--set**:
 
-        azure vm set -g MyResourceGroup -n MyTestVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
+        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 
-Para remover todas as marcas, use o parâmetro **–T** no comando `azure vm set`.
+Para remover as marcas, use o parâmetro **--remove** no comando `azure vm update`.
 
-        azure vm set – g MyResourceGroup –n MyTestVM -T
+        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
 
 
 Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Portal, vamos examinar os detalhes de uso para ver as marcas no portal de cobrança.
@@ -55,9 +58,4 @@ Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Por
 [Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
 [Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

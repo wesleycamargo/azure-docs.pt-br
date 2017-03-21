@@ -15,14 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 64ad540536dcf3f4d4a73f49d99fb6142b33ea9c
-ms.openlocfilehash: d761bd2cb01d121a3abdd91b59737bece567aba5
-ms.lasthandoff: 01/24/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: d9d65d8fb5fd7b1ff226e96fe33f8b0757d7a12e
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="automating-application-deployments-to-azure-virtual-machines"></a>Automatização das implantações de aplicativos em máquinas virtuais do Azure
+# <a name="automating-application-deployments-to-linux-virtual-machines"></a>Automatizando implantações de aplicativos em Máquinas Virtuais Linux 
+
 Esta série de quatro partes detalha como implantar e configurar recursos e aplicativos do Azure que usam modelos do Azure Resource Manager. Nesta série, um exemplo de modelo é implantado e o modelo de implantação é examinado. O objetivo desta série é orientar na relação entre os recursos do Azure e fornecer experiência prática de implantação de modelos do Azure Resource Manager totalmente integrados. Este documento presume um nível básico de conhecimento com o Azure Resource Manager. Antes de iniciar este tutorial, familiarize-se com os conceitos básicos do Azure Resource Manager. 
 
 ## <a name="music-store-application"></a>Aplicativo de loja de música

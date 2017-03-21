@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: dac6c9f3be7b4535f8cb30a9ec0c1e398ca5ff28
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: ae2280f7bd7945f723d88dc6ce3f9a117074e93f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -34,78 +35,27 @@ O Azure Data Lake Store usa o Azure Active Directory para autenticação. Antes 
 
 As duas opções resultam no fornecimento de um token OAuth 2.0 a seu aplicativo, que é anexado a cada solicitação feita ao Azure Data Lake Store ou ao Azure Data Lake Analytics.
 
-Este artigo fala sobre como criar um aplicativo Web do Azure AD para autenticação de serviço a serviço. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação de usuário final, consulte [Autenticação de usuário final com o Data Lake Store usando o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+Este artigo explica como criar um **aplicativo Web do Azure AD para autenticação serviço a serviço**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação de usuário final, consulte [Autenticação de usuário final com o Data Lake Store usando o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-an-active-directory-application"></a>Criar um aplicativo do Active Directory
-Nesta seção aprendemos como criar e configurar um aplicativo Web do Azure AD para autenticação de serviço a serviço com o Azure Data Lake Store usando o Azure Active Directory. Observe que criar um "aplicativo do Active Directory" cria uma entidade de serviço para você, ele não cria realmente um aplicativo ou qualquer código.
+## <a name="step-1-create-an-active-directory-web-application"></a>Etapa 1: Criar um aplicativo Web do Active Directory
 
-### <a name="step-1-create-an-azure-active-directory-application"></a>Etapa 1: Criar um aplicativo do Azure Active Directory
-1. Faça logon na sua conta do Azure por meio do [Portal Clássico](https://manage.windowsazure.com/).
-2. Selecione **Active Directory** no painel à esquerda.
-   
-     ![selecionar Active Directory](./media/data-lake-store-authenticate-using-active-directory/active-directory.png)
-3. Selecione o Active Directory que você deseja usar para criar o novo aplicativo. Se tiver mais de um Active Directory, você geralmente deseja criar o aplicativo no diretório em que está a sua assinatura. Você só pode conceder acesso a recurso em sua assinatura para aplicativos no mesmo diretório que sua assinatura.  
-   
-     ![escolher o diretório](./media/data-lake-store-authenticate-using-active-directory/active-directory-details.png)
-4. Para exibir os aplicativos em seu diretório, clique em **Aplicativos**.
-   
-     ![exibir aplicativos](./media/data-lake-store-authenticate-using-active-directory/view-applications.png)
-5. Se você não criou um aplicativo nesse diretório antes, você verá algo semelhante à imagem a seguir. Clique em **ADICIONAR UM APLICATIVO**
-   
-     ![Adicionar aplicativo](./media/data-lake-store-authenticate-using-active-directory/create-application.png)
-   
-     Ou então, clique em **Adicionar** no painel inferior.
-   
-     ![adicionar](./media/data-lake-store-authenticate-using-active-directory/add-icon.png)
-6. Forneça um nome para o aplicativo e selecione o tipo de aplicativo que você deseja criar. Para este tutorial, crie um **APLICATIVO WEB E/OU API WEB** e clique no botão Avançar.
-   
-     ![nomear aplicativo](./media/data-lake-store-authenticate-using-active-directory/tell-us-about-your-application.png)
+Crie e configure um aplicativo Web do Azure AD para autenticação serviço a serviço com o Azure Data Lake Store usando o Azure Active Directory. Para obter instruções, consulte [Criar um aplicativo do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
-    > [!TIP]
-    > Forneça um nome que facilite a busca pelo aplicativo posteriormente. Mais adiante neste tutorial, você vai procurar esse aplicativo e atribui-lo a uma conta do Data Lake Store.
-    > 
-    > 
+Ao seguir as instruções do link acima, verifique se você selecionou **Aplicativo Web/API** para tipo de aplicativo, conforme mostrado na captura de tela abaixo.
 
-7. Preencha as propriedades de seu aplicativo. Para a **URL DE ENTRADA**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. 
-   Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo.
-   
-     ![propriedades do aplicativo](./media/data-lake-store-authenticate-using-active-directory/app-properties.png)
-   
-    Clique na marca de seleção para concluir o assistente e criar o aplicativo.
+![Criar aplicativo Web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Criar aplicativo Web")
 
-### <a name="step-2-get-client-id-client-secret-and-token-endpoint"></a>Etapa 2: Obter a id do cliente, o segredo do cliente e o ponto de extremidade do token
+## <a name="step-2-get-client-id-client-secret-and-tenant-id"></a>Etapa 2: Obter ID do cliente, segredo do cliente e ID do locatário
 Ao fazer logon por meio de programação, você precisa da id para seu aplicativo. Se o aplicativo for executado com suas próprias credenciais, você também precisará de uma chave de autenticação.
 
-1. Clique na guia **Configurar** para definir a senha do aplicativo.
-   
-     ![configurar o aplicativo](./media/data-lake-store-authenticate-using-active-directory/application-configure.png)
-2. Copie a **ID do CLIENTE**.
-   
-     ![ID do CLIENTE](./media/data-lake-store-authenticate-using-active-directory/client-id.png)
-3. Se o aplicativo for executado com suas próprias credenciais, role para baixo até a seção **Chaves** e selecione por quanto tempo você deseja que a senha seja válida.
-   
-     ![chaves](./media/data-lake-store-authenticate-using-active-directory/create-key.png)
-4. Selecione **Salvar** para criar a chave.
-   
-    ![Salvar](./media/data-lake-store-authenticate-using-active-directory/save-icon.png)
-   
-    A chave salva é exibida e você pode copiá-la. Você não poderá recuperar a chave mais tarde; portanto, copie-a agora.
-   
-    ![chave salva](./media/data-lake-store-authenticate-using-active-directory/save-key.png)
-5. Recupere o ponto de extremidade do token selecionando **Exibir pontos de extremidade** na parte inferior da tela e recuperando o valor para **Ponto de Extremidade do Token OAuth 2.0**, como mostrado abaixo.  
-   
-    ![ID do locatário](./media/data-lake-store-authenticate-using-active-directory/save-tenant.png)
+* Para obter instruções sobre como recuperar a ID e o segredo do cliente do aplicativo, consulte [Obter ID do aplicativo e chave de autenticação](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-#### <a name="note-down-the-following-properties-that-you-will-need-for-the-next-steps"></a>Anote as seguintes propriedades que você precisará para as próximas etapas:
-1. Nome da ID do aplicativo Web criado na etapa 1.6 acima
-2. A ID do cliente recuperado na etapa 2.2 acima
-3. A chave criada na etapa 2.4 acima
-4. A ID do locatário recuperado na etapa 2.5 acima
+* Para obter instruções sobre como recuperar a ID do locatário, consulte [Obter ID do locatário](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
 
-### <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder-only-for-service-to-service-authentication"></a>Etapa 3: Atribuir o aplicativo do Azure AD ao arquivo ou pasta da conta do Azure Data Lake Store (apenas para autenticação de serviços)
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder-only-for-service-to-service-authentication"></a>Etapa 3: Atribuir o aplicativo do Azure AD ao arquivo ou pasta da conta do Azure Data Lake Store (apenas para autenticação de serviços)
 1. Faça logon no novo [portal do Azure](https://portal.azure.com) e abra a conta do Azure Data Lake Store que você deseja associar ao aplicativo do Azure Active Directory criado anteriormente.
 2. Na folha de sua conta do Repositório Data Lake, clique em **Gerenciador de Dados**.
    
@@ -139,10 +89,5 @@ Este artigo ensinou em detalhes as etapas básicas necessárias para obter um us
 * [Usar autenticação de certificado para autenticação de entidade de serviço](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
 * [Outros métodos para autenticar no AD do Azure](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

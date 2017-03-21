@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2017
+ms.date: 03/02/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 9019a4115e81a7d8f1960098b1138cd437a0460b
-ms.openlocfilehash: a50fc687a1738a55c3d22eb3e12060397c162e06
+ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
+ms.openlocfilehash: 0f6af54b351235390afa88f1ce156abd839a723f
+ms.lasthandoff: 03/03/2017
 
 
 ---
@@ -34,14 +35,16 @@ O Azure Data Lake Store usa o Azure Active Directory para autenticação. Antes 
 
 As duas opções resultam no fornecimento de um token OAuth 2.0 a seu aplicativo, que é anexado a cada solicitação feita ao Azure Data Lake Store ou ao Azure Data Lake Analytics.
 
-Este artigo fala sobre como criar um aplicativo Web do Azure AD para autenticação do usuário final. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação serviço a serviço, consulte [Autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+Este artigo descreve como criar um **aplicativo nativo do Azure AD para autenticação do usuário final**. Para obter instruções sobre a configuração de aplicativo do Azure AD para autenticação serviço a serviço, consulte [Autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+
 * A ID de sua assinatura. Você pode habilitá-la no Portal do Azure. Por exemplo, está disponível na folha da conta do Data Lake Store.
   
     ![Obter ID da assinatura](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
-* O nome de domínio do Azure AD. Você pode recuperá-lo passando o mouse sobre o canto superior direito do Portal do Azure. Na captura de tela abaixo, o nome de domínio é **contoso.microsoft.com** e o GUID entre colchetes é a ID de locatário. 
+
+* O nome de domínio do Azure AD. Você pode recuperá-lo passando o mouse sobre o canto superior direito do Portal do Azure. Na captura de tela abaixo, o nome de domínio é **contoso.onmicrosoft.com** e o GUID entre colchetes é a ID de locatário. 
   
     ![Obter domínio do AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
@@ -63,77 +66,59 @@ Seu aplicativo pode fornecer credenciais de usuário ao Azure AD diretamente. Es
 
 ### <a name="what-do-i-need-to-use-this-approach"></a>O que é necessário para usar essa abordagem?
 * Nome de domínio do Azure AD. Já está listado no pré-requisito deste artigo.
-* **Aplicativo Web**do Azure AD
-* ID do cliente para o aplicativo Web do Azure AD
-* URI de resposta para o aplicativo Web do Azure AD
+* **Aplicativo nativo** do Azure AD
+* ID do Cliente do aplicativo nativo do Azure AD
+* URI de Resposta do aplicativo nativo do Azure AD
 * Definir permissões delegadas
 
-Para obter instruções sobre como criar um aplicativo Web do Azure AD configurá-lo para os requisitos listados acima, consulte a seção [Criar um aplicativo do Active Directory](#create-an-active-directory-application) abaixo. 
 
-## <a name="create-an-active-directory-application"></a>Criar um aplicativo do Active Directory
-Nesta seção aprendemos como criar e configurar um aplicativo Web do Azure AD para autenticação do usuário final com o Azure Data Lake Store usando o Azure Active Directory.
+## <a name="step-1-create-an-active-directory-web-application"></a>Etapa 1: Criar um aplicativo Web do Active Directory
 
-### <a name="step-1-create-an-azure-active-directory-application"></a>Etapa 1: Criar um aplicativo do Azure Active Directory
-> [!NOTE]
-> As etapas abaixo utilizam o Portal do Azure. Você também pode criar um aplicativo do Azure AD usando o [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) ou o [CLI do Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
-> 
-> 
+Crie e configure um aplicativo nativo do Azure AD para autenticação do usuário final com o Azure Data Lake Store usando o Azure Active Directory. Para obter instruções, consulte [Criar um aplicativo do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
-1. Faça logon na sua conta do Azure por meio do [Portal Clássico](https://manage.windowsazure.com/).
-2. Selecione **Active Directory** no painel à esquerda.
-   
-     ![selecionar Active Directory](./media/data-lake-store-end-user-authenticate-using-active-directory/active-directory.png)
-3. Selecione o Active Directory que você deseja usar para criar o novo aplicativo. Se tiver mais de um Active Directory, você geralmente deseja criar o aplicativo no diretório em que está a sua assinatura. Você só pode conceder acesso a recurso em sua assinatura para aplicativos no mesmo diretório que sua assinatura.  
-   
-     ![escolher o diretório](./media/data-lake-store-end-user-authenticate-using-active-directory/active-directory-details.png)
-4. Para exibir os aplicativos em seu diretório, clique em **Aplicativos**.
-   
-     ![exibir aplicativos](./media/data-lake-store-end-user-authenticate-using-active-directory/view-applications.png)
-5. Se você não criou um aplicativo nesse diretório antes de você verá algo semelhante à imagem a seguir. Clique em **ADICIONAR UM APLICATIVO**
-   
-     ![Adicionar aplicativo](./media/data-lake-store-end-user-authenticate-using-active-directory/create-application.png)
-   
-     Ou então, clique em **Adicionar** no painel inferior.
-   
-     ![adicionar](./media/data-lake-store-end-user-authenticate-using-active-directory/add-icon.png)
-6. Forneça um nome para o aplicativo e selecione o tipo de aplicativo que você deseja criar. Para este tutorial, crie um **APLICATIVO WEB E/OU API WEB** e clique no botão Avançar.
-   
-     ![nomear aplicativo](./media/data-lake-store-end-user-authenticate-using-active-directory/tell-us-about-your-application.png)
-7. Preencha as propriedades de seu aplicativo. Para a **URL DE ENTRADA**, forneça o URI para um site da Web que descreve seu aplicativo. A existência do site Web não é validada. 
-   Para **URI DE ID DO APLICATIVO**, forneça o URI que identifica seu aplicativo.
-   
-     ![propriedades do aplicativo](./media/data-lake-store-end-user-authenticate-using-active-directory/app-properties.png)
-   
-    Clique na marca de seleção para concluir o assistente e criar o aplicativo.
+Ao seguir as instruções do link acima, verifique se você selecionou **Nativo** para tipo de aplicativo, conforme mostrado na captura de tela abaixo.
 
-### <a name="step-2-get-client-id-reply-uri-and-set-delegated-permissions"></a>Etapa 2: Obter ID do cliente, URI de resposta e definir permissões delegadas
-1. Clique na guia **Configurar** para definir a senha do aplicativo.
-   
-     ![configurar o aplicativo](./media/data-lake-store-end-user-authenticate-using-active-directory/application-configure.png)
-2. Copie a **ID do CLIENTE**.
-   
-     ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/client-id.png)
-3. Sob a seção **Logon único**, copie a **URI de resposta**.
-   
-    ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-get-reply-uri.png)
-4. Sob **Permissões para outros aplicativos**, clique em **Adicionar aplicativo**
-   
+![Criar aplicativo Web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Criar aplicativo nativo")
+
+## <a name="step-2-get-client-id-reply-uri-and-set-delegated-permissions"></a>Etapa 2: Obter ID do cliente, URI de resposta e definir permissões delegadas
+
+Consulte [Obter a adição do cliente](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para recuperar a ID do cliente (também chamada a ID do aplicativo) do aplicativo nativo do Azure AD.
+
+Para recuperar o URI de redirecionamento, siga as etapas abaixo.
+
+1. No Portal do Azure, selecione **Azure Active Directory**, clique em **Registros do aplicativo** e, em seguida, encontre e clique no aplicativo nativo do Azure AD que você acabou de criar.
+
+2. Na folha **Configurações** do aplicativo, clique em **URIs de Redirecionamento**.
+
+    ![Obter URI de redirecionamento](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
+
+3. Copie o valor exibido.
+
+
+## <a name="step-3-set-permissions"></a>Etapa 3: Definir permissões
+
+1. No Portal do Azure, selecione **Azure Active Directory**, clique em **Registros do aplicativo** e, em seguida, encontre e clique no aplicativo nativo do Azure AD que você acabou de criar.
+
+2. Na folha **Configurações** do aplicativo, clique em **Permissões necessárias** e, em seguida, em **Adicionar**.
+
     ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
-5. No assistente **Permissões para outros aplicativos**, selecione **Azure Data Lake** e **Windows** **API de Gerenciamento de Serviços do Azure** e clique na marca de seleção.
-6. Por padrão o **Permissões delegadas** para os serviços adicionados recentemente é definido como zero. Clique no menu suspenso **Permissões delegadas** do Azure Data Lake e do Serviço de gerenciamento do Microsoft Azure e selecione as caixas de seleção disponíveis para definir os valores como 1. O resultado deve ter essa aparência.
-   
-     ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
-7. Clique em **Salvar**.
 
+3. Na folha **Adicionar Acesso à API**, clique em **Selecionar uma API**, em **Azure Data Lake** e, em seguida, em **Selecionar**.
+
+    ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+ 
+4.  Na folha **Adicionar Acesso à API**, clique em **Selecionar permissões**, marque a caixa de seleção para conceder **Acesso completo ao Data Lake Store** e, em seguida, clique em **Selecionar**.
+
+    ![ID do CLIENTE](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+
+    Clique em **Concluído**.
+
+5. Repita as duas últimas etapas para conceder permissões à **API de Gerenciamento de Serviços do Microsoft Azure** também.
+   
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você criou um aplicativo Web do Azure AD e reuniu as informações necessárias em seus aplicativos cliente, que você cria usando o SDK do .NET, SDK do Java, etc. Agora você pode prosseguir para os artigos seguintes, que falam sobre como usar o aplicativo Web do Azure AD para primeiro se autenticar no Data Lake Store e, em seguida, executar outras operações no repositório.
 
 * [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Introdução ao Azure Data Lake Store usando o SDK do Java](data-lake-store-get-started-java-sdk.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

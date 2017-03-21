@@ -15,16 +15,16 @@ ms.workload: azure-government
 ms.date: 12/06/2016
 ms.author: MeganYount
 translationtype: Human Translation
-ms.sourcegitcommit: 14fb62669e15873770ef9b8470e34db70f1ca2ca
-ms.openlocfilehash: 2b89d78e20cccee81c9581e762e4c61bacd84fd4
-ms.lasthandoff: 02/15/2017
+ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
+ms.openlocfilehash: 0233aa66bc4f4f135456ec15bd09756e63192b14
+ms.lasthandoff: 03/06/2017
 
 
 ---
 # <a name="azure-government-intelligence--analytics"></a>Inteligência + Análises do Azure Government
 Este artigo descreve os serviços, variações e considerações sobre inteligência e análise para o ambiente do Azure Government.
 
-## <a name="azure-hdinsight"></a>Azure HDInsight
+## <a name="hdinsight"></a>HDInsight
 O HDInsight no Linux Standard está geralmente disponível no Azure Government. Você pode ver uma demonstração sobre como criar soluções centralizadas em dados no Azure Governamental usando o HDInsight <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>aqui</a>.
 
 HDInsight no Linux Premium estará disponível em breve.
@@ -41,10 +41,10 @@ As URLs do Log Analytics são diferentes no Azure Governamental:
 | --- | --- | --- |
 | Cluster do HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
-Para saber mais, veja a [Documentação pública do HDInsight do Azure](../hdinsight/hdinsight-hadoop-introduction.md).
+Para obter mais informações, consulte a [documentação pública do HDInsight](../hdinsight/hdinsight-hadoop-introduction.md).
 
 ## <a name="power-bi"></a>Power BI
-O Power BI Governamental está geralmente disponível como parte das assinaturas da Comunidade do Office 365 US Government. Saiba mais sobre o Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/> aqui</a>. Veja uma demonstração sobre como criar soluções centralizadas em dados no Azure Governamental usando o Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>aqui</a>.
+O Power BI Governamental está geralmente disponível como parte das assinaturas da Comunidade do Office 365 US Government. Saiba mais sobre o Power BI US Government <a href=https://powerbi.microsoft.com/en-us/documentation/powerbi-service-govus-overview/>aqui</a>. Veja uma demonstração sobre como criar soluções centralizadas em dados no Azure Governamental usando o Power BI <a href=https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/>aqui</a>.
 
 O Power BI Embedded estará disponível em breve.
 

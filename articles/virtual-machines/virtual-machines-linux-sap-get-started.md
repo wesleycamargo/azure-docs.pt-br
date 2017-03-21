@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: rclaus
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 746ed119239d5a0a71a0663e81d9c5b259354419
-ms.openlocfilehash: 21b7bf78e70b7d4534220913987cdac5f04cb462
-ms.lasthandoff: 01/26/2017
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 9e64fc5425db5ffde6af493e961edfcac527b6df
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="using-sap-on-azure-virtual-machines-vms"></a>Usando o SAP em Máquinas Virtuais (VMs) do Azure
+# <a name="using-sap-on-azure-linux-virtual-machines-vms"></a>Usando o SAP em VMs (Máquinas Virtuais) Linux do Azure
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -69,7 +70,7 @@ ms.lasthandoff: 01/26/2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../xplat-cli-install.md
+[azure-cli]:../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -240,7 +241,7 @@ ms.lasthandoff: 01/26/2017
 [vpn-gateway-cross-premises-options]:../vpn-gateway/vpn-gateway-plan-design.md
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-site-to-site-create.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../xplat-cli-install.md
+[xplat-cli]:../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 Ao escolher o Microsoft Azure como seu parceiro de nuvem pronto para o SAP, você poderá executar de forma confiável suas cargas de trabalho críticas do SAP em uma plataforma escalonável, em conformidade e comprovada pela empresa.  Obtenha a escalabilidade, flexibilidade e economia de custos do Azure. Com a parceria expandida entre a Microsoft e a SAP, você pode executar aplicativos da SAP entre cenários de desenvolvimento/teste e produção no Azure, com suporte total. Do SAP NetWeaver ao SAP S4/HANA, do Linux ao Windows, do SAP HANA ao SQL, estamos com você. 
@@ -330,7 +331,7 @@ Atualizado: setembro de 2016
 
 [Esse guia pode ser encontrado aqui](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="a-name3da0389e-708b-4e82-b2a2-e92f132df89caplanning-and-implementation"></a><a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planejamento e implementação
+## <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Planejamento e implementação
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Planejamento e Implementação
 
 Resumo: este é o documento que você deverá ler primeiro se estiver pensando em executar o SAP NetWeaver em Máquinas Virtuais do Azure. Este guia de planejamento e implementação ajudará você a avaliar se um sistema baseado no SAP NetWeaver planejado ou existente poderá ser implantado em um ambiente de Máquinas Virtuais do Azure. Ele aborda vários cenários de implantação do SAP NetWeaver e inclui configurações do SAP específicas para o Azure. O documento lista e descreve todas as informações de configuração necessárias de que você precisará no lado do SAP/Azure para executar um cenário SAP híbrido. As medidas que você pode tomar para garantir a alta disponibilidade dos sistemas baseados no SAP NetWeaver em IaaS também serão abordadas.
@@ -339,7 +340,7 @@ Atualização: março de 2016
 
 [Este guia pode ser encontrado aqui] [guia de planejamento]
 
-## <a name="a-name6aadadd2-76b5-46d8-8713-e8d63630e955adeployment"></a><a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
+## <a name="6aadadd2-76b5-46d8-8713-e8d63630e955"></a>Implantação
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação
 
 Resumo: este documento oferece orientação de procedimentos para a implantação do software SAP NetWeaver em máquinas virtuais no Azure. Este documento se concentra em três cenários de implantação específicos, com ênfase em habilitar as Extensões de Monitoramento do Azure para SAP, incluindo recomendações para a solução de problemas para as Extensões de Monitoramento do Azure para SAP. Este documento pressupõe que você já tenha lido o guia de planejamento e implementação.
@@ -348,7 +349,7 @@ Atualização: março de 2016
 
 [Este guia pode ser encontrado aqui][guia de implantação]
 
-## <a name="a-name1343ffe1-8021-4ce6-a08d-3a1553a4db82adbms-deployment-guide"></a><a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de implantação de DBMS
+## <a name="1343ffe1-8021-4ce6-a08d-3a1553a4db82"></a>Guia de implantação de DBMS
 Título: SAP NetWeaver em VMs (máquinas virtuais) do Linux – Guia de Implantação de DBMS
 
 Resumo: este artigo aborda considerações sobre planejamento e implementação para os sistemas DBMS que devem ser executados em conjunto com o SAP. Na primeira parte, são listadas e apresentadas as considerações gerais. As partes seguintes do documento estão relacionadas às implantações dos diferentes DBMS com suporte do SAP no Azure. Os DBMS diferentes apresentados são o SQL Server, o SAP ASE e o Oracle. Nestas partes específicas, serão discutidas as considerações que você terá de fazer ao executar sistemas SAP no Azure em conjunto com os DBMS. Serão apresentados assuntos como os métodos de backup e de alta disponibilidade com suporte dos diferentes DBMS no Azure a serem usados com os aplicativos SAP.

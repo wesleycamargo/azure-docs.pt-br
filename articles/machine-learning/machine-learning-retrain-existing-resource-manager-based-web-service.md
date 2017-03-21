@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 201b07536bcee58e2b7102379dff1c1c93c4b675
-ms.openlocfilehash: adf31b2e309e4ec19bb19e5683bd5298d27ad3eb
+ms.sourcegitcommit: 247d370c1f80729856e53690045991127ad54351
+ms.openlocfilehash: dc4716a26ba5c2ba93dda83890dbff81f22cbd2a
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -25,6 +26,9 @@ Este documento descreve o processo de readaptação do cenário a seguir:
 
 * Você tem um experimento de treinamento e um experimento de previsão implantado como um serviço Web operacionalizado.
 * Você tem novos dados os quais deseja usar em seu serviço Web de previsão para executar sua pontuação.
+
+> [!NOTE] 
+> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
 
 Começando com o Serviço web e experimentos existentes, você precisa executar estas etapas:
 
@@ -190,9 +194,4 @@ Finalmente, use o cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 

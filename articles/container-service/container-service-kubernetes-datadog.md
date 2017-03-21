@@ -1,6 +1,6 @@
 ---
-title: Monitorar o cluster Azure Kubernetes com o DataDog| Microsoft Docs
-description: "Monitoramento do cluster Kubernetes no Serviço de Contêiner do Azure usando DataDog"
+title: Monitorar o cluster Azure Kubernetes com o DataDog | Microsoft Docs
+description: "Monitorando o cluster Kubernetes no Serviço de Contêiner do Azure usando o DataDog"
 services: container-service
 documentationcenter: 
 author: bburns
@@ -17,8 +17,9 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 translationtype: Human Translation
-ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
-ms.openlocfilehash: 2984a3811eba670b54fd253a8d7dc84acd8c8ec4
+ms.sourcegitcommit: f7377b3d0c0b89d7e196a31890173575688687cf
+ms.openlocfilehash: 901cbf5093c6a547f5dffa7ed6d71fe67caaadb9
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -55,16 +56,12 @@ O Datadog é um serviço de monitoramento que reúne dados de monitoramento de s
 
 Primeiro você precisa [criar uma conta](https://www.datadoghq.com/lpg/)
 
-## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Instalação do Agente DataDog com um DaemonSet
+## <a name="installing-the-datadog-agent-with-a-daemonset"></a>Instalando o Agente do DataDog com um DaemonSet
 DaemonSets são usados pelo Kubernetes para executar uma única instância de um contêiner em cada host no cluster.
 Eles são perfeitos para a execução de agentes de monitoramento.
 
-Depois de fazer logon no DataDog, siga as [instruções do DataDog](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar agentes de DataDog em seu cluster usando um DaemonSet.
+Depois de fazer logon no DataDog, siga as [instruções do DataDog](https://app.datadoghq.com/account/settings#agent/kubernetes) para instalar agentes do DataDog no cluster usando um DaemonSet.
 
 ## <a name="conclusion"></a>Conclusão
 É isso! Quando seus agentes estiverem em execução, você deverá ver os dados no console em alguns minutos. Visite o [painel kubernetes](https://app.datadoghq.com/screen/integration/kubernetes) integrado para ver um resumo do cluster.
-
-
-<!--HONumber=Jan17_HO4-->
-
 

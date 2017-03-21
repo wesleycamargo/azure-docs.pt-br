@@ -4,7 +4,7 @@ description: "Explica como remover e substituir um ou ambos os módulos do dispo
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
 ms.service: storsimple
@@ -12,11 +12,12 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 03/03/2017
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -106,7 +107,8 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
 
 > [!NOTE]
 > Se você estiver monitorando o dispositivo através do console serial, você poderá ver diversas reinicializações enquanto o controlador se recupera do procedimento de substituição. Quando o menu do console serial é apresentado, você saberá que a substituição foi concluída. Se o menu não aparecer dentro de duas horas do início da substituição do controlador, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
-> 
+>
+> A partir da Atualização 4, também é possível usar o cmdlet `Get-HCSControllerReplacementStatus` na interface do Windows PowerShell do dispositivo para monitorar o status do processo de substituição de controlador.
 > 
 
 ## <a name="replace-both-controllers"></a>Substituir ambos os controladores
@@ -246,10 +248,5 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

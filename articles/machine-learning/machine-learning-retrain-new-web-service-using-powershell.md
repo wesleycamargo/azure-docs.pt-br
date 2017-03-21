@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 66fb3dc316ce25aea4dff4add5c25b7f0f56ad7a
-ms.openlocfilehash: d57d3802e1678c6754b0d770acc4fe6c092329a3
+ms.sourcegitcommit: 1029c7e4c6a17ad2a290ff0783fc88692555b255
+ms.openlocfilehash: e971bd36f9245032296537ea3e0b64e5f3e18ddd
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -27,9 +28,9 @@ Quando você readapta um novo serviço Web, também atualiza a definição do se
 Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning do Azure Resource Manager (novo). 
-> 
-> 
+> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning do Azure Resource Manager (novo). Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](machine-learning-manage-new-webservice.md). 
+
+
 
 Para obter mais informações sobre como implantar os serviços Web, veja [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -108,10 +109,5 @@ Usando os cmdlets de gerenciamento do PowerShell de Machine Learning, você pode
 
 * Readaptação de modelo periódico com novos dados.
 * A distribuição de um modelo para os clientes com o objetivo de permitir que eles recuperem o modelo usando seus próprios dados.
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

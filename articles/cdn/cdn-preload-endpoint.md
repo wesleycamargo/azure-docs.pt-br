@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: df0dec0731031f2dee69719dd03a588ad6589044
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 242c3a6bf656da9b029a780e8b80667405b7b92f
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,11 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
    > [!TIP]
    > Outras caixas de texto **Caminho** serão mostradas depois que você digitar um texto, para permitir que crie uma lista com vários ativos.  Para excluir ativos da lista, clique no botão de reticências (...).
    > 
-   > Os caminhos devem ser uma URL relativa que atenda à seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Cada ativo deve ter seu próprio caminho.  Não há nenhuma funcionalidade de curinga para pré-carregar ativos.
+   > Os caminhos devem ser uma URL relativa que se adapte à seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > >Carregar um único caminho de arquivo `@"^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$"`;  
+   > >Carregar um único arquivo com a cadeia de caracteres de consulta `@"^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$";`  
+   > 
+   > Cada ativo deve ter seu próprio caminho.  Não há nenhuma funcionalidade de curinga para pré-carregar ativos.
    > 
    > 
    
@@ -66,10 +71,5 @@ Esse tutorial orienta você carregando previamente o conteúdo armazenado em cac
 ## <a name="see-also"></a>Consulte também
 * [Limpar um ponto de extremidade da CDN do Azure](cdn-purge-endpoint.md)
 * [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](https://msdn.microsoft.com/library/mt634451.aspx)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
