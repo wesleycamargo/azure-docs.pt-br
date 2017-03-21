@@ -1,6 +1,6 @@
 ---
-title: "Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL | Microsoft Docs"
-description: "Compara as ferramentas e opções de gerenciamento de Banco de Dados SQL do Azure"
+title: Ferramentas para gerenciar e desenvolver com o Banco de Dados SQL do Azure | Microsoft Docs
+description: "Apresenta as ferramentas de gerenciamento e desenvolvimento e as opções do Banco de Dados SQL do Azure"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -12,34 +12,41 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/01/2017
+ms.topic: article
+ms.date: 03/03/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 915292a191da82af9e24e89460d46dc61a062b18
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 9b0a3a314e576db2133e5c63fada43bb11a4e520
+ms.lasthandoff: 03/04/2017
 
 
 ---
-# <a name="overview-management-tools-for-sql-database"></a>Visão geral: ferramentas de gerenciamento para o Banco de Dados SQL
-Este tópico explora e compara as ferramentas e opções de gerenciamento de bancos de dados SQL do Azure para que você possa escolher a ferramenta certa para o trabalho, para sua empresa e para você. Escolher a ferramenta certa depende de quantos bancos de dados você gerencia, da tarefa e da frequência de execução de uma tarefa.
+# <a name="overview-tools-to-manage--develop-with-azure-sql-database"></a>Visão geral: Ferramentas para gerenciar e desenvolver com o Banco de Dados SQL do Azure
+Este tópico apresenta as ferramentas de gerenciamento e desenvolvimento com bancos de dados SQL do Azure.
+
+> [!IMPORTANT]
+> Este conjunto de documentações inclui guias de Início Rápido, de Amostras e de Instruções que mostram como gerenciar e desenvolver com o Banco de Dados SQL do Azure usando as ferramentas apresentadas nos parágrafos a seguir. Use o painel de navegação esquerdo e a caixa de filtro para encontrar um conteúdo específico do portal do Azure, PowerShell e T-SQL.
+>
 
 ## <a name="azure-portal"></a>Portal do Azure
 O [Portal do Azure](https://portal.azure.com) é um aplicativo baseado na Web no qual você pode criar, atualizar e excluir bancos de dados e servidores lógicos, além de monitorar a atividade do banco de dados. Essa ferramenta é excelente se você está começando a usar o Azure, gerenciando poucos bancos de dados ou precisar fazer algo rapidamente.
 
-Para obter informações sobre como usar o portal, consulte [Gerenciar Bancos de Dados SQL usando o Portal do Azure](sql-database-manage-portal.md).
-
-## <a name="sql-server-management-studio-and-sql-server-data-tools-in-visual-studio"></a>SQL Server Management Studio e SQL Server Data Tools no Visual Studio
-SSMS (SQL Server Management Studio) e SSDT (SQL Server Data Tools) são ferramentas cliente executadas em seu computador para gerenciar e desenvolver seu banco de dados na nuvem. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou outros ambientes de desenvolvimento integrado (IDEs), [tente usar o SSDT no Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Muitos administradores de banco de dados estão familiarizados com o SSMS, que pode ser usado com bancos de dados SQL do Azure. [Baixe a versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290) e use sempre o lançamento mais recente ao trabalhar com o banco de dados SQL do Azure. Para obter mais informações sobre como gerenciar seus bancos de dados SQL do Azure com SSMS, confira a seção [Gerenciar bancos de dados SQL usando o SSMS](sql-database-manage-azure-ssms.md).
+## <a name="sql-server-management-studio-and-transact-sql"></a>SQL Server Management Studio e Transact-SQL
+O SSMS (SQL Server Management Studio) é uma ferramenta de cliente que é executada no computador para o gerenciamento do banco de dados na nuvem usando o Transact-SQL. Muitos administradores de banco de dados estão familiarizados com o SSMS, que pode ser usado com bancos de dados SQL do Azure. [Baixe a versão mais recente do SSMS](https://msdn.microsoft.com/library/mt238290) e use sempre o lançamento mais recente ao trabalhar com o banco de dados SQL do Azure. 
 
 > [!IMPORTANT]
-> Sempre use a versão mais recente do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290) e do [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) para permanecer sincronizado com as atualizações do Microsoft Azure e do Banco de Dados SQL.
+> Sempre use a última versão do [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290).
 >  
 
+## <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools no Visual Studio
+O SSDT (SQL Server Data Tools) é uma ferramenta de cliente que é executada no computador para o desenvolvimento do banco de dados na nuvem. Se você for um desenvolvedor de aplicativos familiarizado com o Visual Studio ou outros ambientes de desenvolvimento integrado (IDEs), [tente usar o SSDT no Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx).  
+
+> [!IMPORTANT]
+> Sempre use a última versão do [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) para permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL.
+>  
 ## <a name="powershell"></a>PowerShell
 É possível usar o PowerShell para gerenciar bancos de dados e pools elásticos, bem como para automatizar implantações de recursos do Azure. A Microsoft recomenda essa ferramenta para gerenciar um grande número de bancos de dados e automatizar a implantação e alterações de recursos em um ambiente de produção.
-
-Para obter mais informações, consulte [Gerenciar o banco de dados SQL com o PowerShell](sql-database-manage-powershell.md)
 
 ## <a name="elastic-database-tools"></a>Ferramentas de Banco de Dados Elástico
 Use as ferramentas de banco de dados elástico para executar ações como 
@@ -52,10 +59,5 @@ Use as ferramentas de banco de dados elástico para executar ações como
 * [Gerenciador de Recursos do Azure](https://azure.microsoft.com/features/resource-manager/)
 * [Automação do Azure](https://azure.microsoft.com/documentation/services/automation/)
 * [Agendador do Azure](https://azure.microsoft.com/documentation/services/scheduler/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

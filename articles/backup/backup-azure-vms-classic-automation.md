@@ -1,6 +1,6 @@
 ---
 title: Implantar e gerenciar o backup das VMs do Azure usando o PowerShell | Microsoft Docs
-description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
+description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -14,13 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: markgal;trinadhk;jimpark
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ad7fb6f05a40cced28555521049f85ad59fb9878
+ms.sourcegitcommit: 82b7541ab1434179353247ffc50546812346bda9
+ms.openlocfilehash: aa1934447b53b725a08cebb47da9171a136b76ff
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="deploy-and-manage-backup-for-azure-vms-using-powershell"></a>Implantar e gerenciar o backup de VMs do Azure usando o PowerShell
+# <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Usar cmdlets AzureRM.Backup para fazer backup de máquinas virtuais
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](backup-azure-vms-automation.md)
 > * [Clássico](backup-azure-vms-classic-automation.md)
@@ -350,9 +352,4 @@ Se você deseja adicionar recursos de gráficos à saída do relatório, saiba m
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você preferir usar o PowerShell para interagir com os recursos do Azure, confira o artigo do PowerShell para proteger o Windows Server, [Implantar e Gerenciar o Backup do Windows Server](backup-client-automation-classic.md). Há também um artigo do PowerShell para gerenciar os backups do DPM, [Implantar e Gerenciar o Backup do DPM](backup-dpm-automation-classic.md). Esses dois artigos têm uma versão para implantações do Gerenciador de Recursos, bem como para implantações do modelo Clássico.
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

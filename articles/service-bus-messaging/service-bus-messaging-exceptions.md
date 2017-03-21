@@ -1,5 +1,5 @@
 ---
-title: "Exceções de mensagens do Barramento de Serviço | Microsoft Docs"
+title: "Exceções de mensagens do Barramento de Serviço do Azure | Microsoft Docs"
 description: "Lista de exceções de mensagens do Barramento de Serviço e ações sugeridas."
 services: service-bus-messaging
 documentationcenter: na
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2017
+ms.date: 03/03/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: e872848a91834cf19cd6ebdd4db637c54120c33b
-ms.openlocfilehash: 5321a465a0fab9dac4c4c0755da3e3ca4c8d7369
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 3b543b1c94122a037cdd3b16e25d60957add1cb7
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -49,7 +50,7 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 | [SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception) |O bloqueio associado a esta sessão foi perdido. |Anular o objeto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) . |Tentar novamente não ajudará. |
 | [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |A exceção de mensagens genéricas pode ser lançada nos seguintes casos:<br /> Uma tentativa é feita para criar um [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) usando um nome ou caminho que pertence a um tipo de entidade diferente (por exemplo, um tópico).<br />  Uma tentativa de enviar uma mensagem maior que 256 KB foi feita. O servidor ou o serviço encontrou um erro durante o processamento da solicitação. Consulte a mensagem de exceção para obter detalhes. Isso geralmente é uma exceção temporária. |Verifique o código e certifique-se de que somente objetos serializáveis sejam usados para o corpo da mensagem (ou use um serializador personalizado). Verifique a documentação para os tipos de valor com suporte das propriedades e somente os tipos de uso com suporte. Verifique a propriedade [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception#Microsoft_ServiceBus_Messaging_MessagingException_IsTransient) . Se for **true**, você pode tentar a operação novamente. |O comportamento de repetição é indefinido e pode não ajudar. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tentativa de criar uma entidade com um nome que já está sendo usado por outra entidade no namespace de serviço. |Exclua a entidade existente ou escolha um nome diferente para a entidade a ser criada. |Tentar novamente não ajudará. |
-| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |A entidade de mensagens atingiu seu tamanho máximo permitido. |Crie espaço na entidade ao receber mensagens da entidade ou de suas subfilas. Confira [QuotaExceededException](#quotaexceededexception). |Tentar novamente pode ajudar se as mensagens foram removidas nesse meio tempo. |
+| [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |A entidade de mensagens atingiu o tamanho máximo permitido ou o número máximo de conexões com um namespace foi excedido. |Crie espaço na entidade ao receber mensagens da entidade ou de suas subfilas. Confira [QuotaExceededException](#quotaexceededexception). |Tentar novamente pode ajudar se as mensagens foram removidas nesse meio tempo. |
 | [RuleActionException](/dotnet/api/microsoft.servicebus.messaging.ruleactionexception) |O Barramento de Serviço retorna essa exceção se você tentar criar uma ação de regra inválida. Barramento de Serviço anexa essa exceção a uma mensagem morta se ocorrer um erro ao processar a ação de regra para a mensagem. |Verifique se a ação da regra está correta. |Tentar novamente não ajudará. |
 | [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) |O Barramento de Serviço retorna essa exceção se você tentar criar um filtro inválido. O Barramento de Serviço anexa essa exceção a uma mensagem morta se ocorreu um erro ao processar o filtro para a mensagem. |Verifique se o filtro está correto. |Tentar novamente não ajudará. |
 | [SessionCannotBeLockedException](/dotnet/api/microsoft.servicebus.messaging.sessioncannotbelockedexception) |Tentativa de aceitar uma sessão com uma ID de sessão específica, mas a sessão está atualmente bloqueada por outro cliente. |Verifique se a sessão foi desbloqueada por outros clientes. |Tentar novamente pode ajudar se a sessão foi liberada nesse meio tempo. |
@@ -74,6 +75,17 @@ Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-
 ```
 
 A mensagem informa que o tópico excedeu seu limite de tamanho, neste caso 1 GB (o limite de tamanho padrão). 
+
+### <a name="namespaces"></a>Namespaces
+
+Para namespaces, [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) pode indicar que um aplicativo excedeu o número máximo de conexões com um namespace. Por exemplo:
+
+```
+Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
+<tracking-id-guid>_G12 ---> 
+System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
+ConnectionsQuotaExceeded for namespace xxx.
+```
 
 #### <a name="common-causes"></a>Causas comuns
 Há duas causas comuns desse erro: a fila de mensagens mortas e os destinatários de mensagem não estão funcionando.
@@ -115,10 +127,5 @@ Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/ser
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
-
-
-
-
-<!--HONumber=Jan17_HO3-->
 
 

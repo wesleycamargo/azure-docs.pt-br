@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2016
 ms.author: elioda
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 7683a6c6afa3dbec3fccadc9f095480ed90aa039
+ms.sourcegitcommit: 7adde91586f5fbbffd0aeaf0efb0810cc891ac0b
+ms.openlocfilehash: cbff931e7acc88b29ed6f51a16156b44c1596d3f
+ms.lasthandoff: 03/02/2017
 
 
 ---
-# <a name="scaling-iot-hub"></a>Dimensionamento do Hub IoT
+# <a name="scale-your-iot-hub-solution"></a>Escalar sua solução do hub IoT
 O Hub do IoT do Azure pode oferecer suporte a até um milhão de dispositivos conectados ao mesmo tempo. Para saber mais, confira [Preço do Hub IoT][lnk-pricing]. Cada unidade do Hub IoT permite uma determinada quantidade de mensagens diárias.
 
 Para dimensionar corretamente sua solução, considere sua utilização específica do Hub IoT. Em particular, considere a taxa de transferência de pico necessária para as seguintes categorias de operações:
@@ -61,9 +63,4 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

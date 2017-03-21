@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: aea6f0fedb447e953b9db40342e5091bd35486af
-ms.openlocfilehash: 9b80ae8c247480e69025b86fac322166a4d5cb4c
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: b334ba6bbec1d0a7e23a514174bffae01c7fff05
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -59,7 +60,13 @@ Estes são alguns dos atributos principais do recurso HTTPS:
 >[!IMPORTANT] 
 >Conclua a validação completa de domínio antes de ativar o HTTPS no seu domínio personalizado. Você tem 6 dias úteis para aprovar o domínio. A solicitação será cancelada se não tiver aprovação em 6 dias úteis.  
 
-Depois de habilitar o HTTPS em seu domínio personalizado, o nosso provedor de certificado HTTPS DigiCert validará a propriedade do seu domínio entrando em contato, com base nas informações de registro WHOIS, com o solicitante através de email (por padrão) ou telefone. Se as informações sobre o inscrito WHOIS forem privadas, o DigiCert enviará o email de verificação para **admin@*<your-domain-name.com>***.
+Depois de habilitar o HTTPS em seu domínio personalizado, o nosso provedor de certificado HTTPS DigiCert validará a propriedade do seu domínio entrando em contato, com base nas informações de registro WHOIS, com o solicitante através de email (por padrão) ou telefone. DigiCert também enviará o email de verificação para os endereços abaixo. Se as informações de inscrito WHOIS forem privadas, verifique se é possível aprovar diretamente por meio de um desses endereços.
+
+>admin@<your-domain-name.com> administrator@<your-domain-name.com>  
+>webmaster@<your-domain-name.com>  
+>hostmaster@<your-domain-name.com>  
+>postmaster@<your-domain-name.com>
+
 
 Ao receber o email, você tem duas opções de verificação:
 
@@ -104,10 +111,5 @@ Depois da validação do nome de domínio, leva de 6 a 8 horas para a ativação
 
 - Saiba como configurar um [domínio personalizado no seu ponto de extremidade do CDN do Azure](./cdn-map-content-to-custom-domain.md)
 
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

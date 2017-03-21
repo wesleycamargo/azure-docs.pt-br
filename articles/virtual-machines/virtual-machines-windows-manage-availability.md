@@ -1,5 +1,5 @@
 ---
-title: Gerenciar a disponibilidade de VMs do Windows| Microsoft Docs
+title: Gerenciar a disponibilidade de VMs Windows no Azure | Microsoft Docs
 description: "Aprenda como usar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Windows no Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -13,15 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2016
+ms.date: 03/06/2017
 ms.author: cynthn
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 569f67da5d91264a20927da64e560ec35a9a2d81
-ms.openlocfilehash: a12b91a794301d616a736fb0bac8b11f7cae9b95
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: 105880c146135a9ecdc29cf5363a240d3550a6a9
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="manage-the-availability-of-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais
+# <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gerenciar a disponibilidade de máquinas virtuais Windows no Azure 
+
 Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo do Windows no Azure. Você também pode [gerenciar a disponibilidade das máquinas virtuais do Linux](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,10 +35,5 @@ Para obter instruções sobre como criar e usar conjuntos de disponibilidade ao 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o balanceamento de carga das máquinas virtuais, veja [Balanceamento de carga de máquinas virtuais](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

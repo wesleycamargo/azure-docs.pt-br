@@ -15,13 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
+ms.custom: H1Hack27Feb2017
 translationtype: Human Translation
-ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
-ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
+ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
+ms.openlocfilehash: b321683b2080e5af3a112791eae416e03dee0080
+ms.lasthandoff: 03/03/2017
 
 
 ---
-# <a name="availability-and-scale-in-azure-resource-manager-templates"></a>Disponibilidade e escala em modelos do Azure Resource Manager
+# <a name="availability-and-scale-in-azure-resource-manager-templates-for-windows-vms"></a>Disponibilidade e escala em modelos do Azure Resource Manager para VMs Windows
+
 Disponibilidade e escala referem-se ao tempo de atividade e à capacidade de atender à demanda. Se um aplicativo deve estar ativo 99,9% do tempo, ele precisa ter uma arquitetura que permite vários recursos de computação simultâneos. Por exemplo, em vez de ter um único site, uma configuração com um nível mais alto de disponibilidade inclui várias instâncias do mesmo site, com tecnologia de balanceamento na frente delas. Nessa configuração, uma instância do aplicativo pode ser desativada para manutenção, enquanto o restante continua a funcionar. Por outro lado, a escala se refere à capacidade de aplicativos para atender à demanda. Com um aplicativo de balanceamento de carga, adicionar ou remover instâncias do pool permite que um aplicativo seja dimensionado para atender à demanda.
 
 Este documento detalha como a implantação de exemplo de Loja de Música é configurada para disponibilidade e escala. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
@@ -249,10 +252,5 @@ Para obter mais informações sobre a função de cópia, consulte [Criar vária
 <hr>
 
 [Etapa 4 – Implantação de aplicativos com modelos do Azure Resource Manager](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-
-
-
-<!--HONumber=Jan17_HO1-->
 
 

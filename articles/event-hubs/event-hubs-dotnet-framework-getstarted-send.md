@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2017
-ms.author: jotaub
+ms.date: 03/08/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: c52f7055897ba8e851add431e5ab9c0defdb5bfc
-ms.openlocfilehash: 29523e308e038904773582c73c1688f57e3c31e3
+ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
+ms.openlocfilehash: 5c326a025a4276ae9b1a777439ed6c728d3e7103
+ms.lasthandoff: 03/09/2017
 
 
 ---
@@ -29,17 +30,21 @@ Este tutorial mostra como usar o [portal do Azure](https://portal.azure.com) par
 
 Para concluir esse tutorial, você precisará do seguinte:
 
-* [Microsoft Visual Studio](http://visualstudio.com)
+* [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). As capturas de tela neste tutorial usam o Visual Studio 2017.
 * Uma conta ativa do Azure. Se não tiver uma, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
-## <a name="send-messages-to-event-hubs"></a>Enviar mensagens ao Hub de Eventos
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um namespace dp Hubs de Eventos e um Hub de Eventos
+
+A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o Hub de Eventos. Para criar um namespace e um Hub de eventos, execute o procedimento [neste artigo](event-hubs-create.md) e então continue com as etapas a seguir.
+
+## <a name="create-a-console-application"></a>Criar um aplicativo de console
 Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
 
 1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console** . Nomeie o projeto como **Remetente**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**. 
-3. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Verifique se o nome do projeto (**Remetente**) está especificado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso. 
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **Remetente** clique em **Gerenciar Pacotes NuGet para Solução**. 
+3. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar**e aceite os termos de uso. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -91,6 +96,9 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
     Console.ReadLine();
     SendingRandomMessages();
     ```
+8. Execute o programa e certifique-se de que não existem erros.
+  
+Parabéns! Agora você enviou mensagens para um Hub de Eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você criou um aplicativo funcional que cria um Hub de Eventos e envia dados, poderá passar para os seguintes cenários:
@@ -104,14 +112,5 @@ Agora que você criou um aplicativo funcional que cria um Hub de Eventos e envia
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-overview.md
-
-
-
-
-<!--HONumber=Feb17_HO1-->
 
 

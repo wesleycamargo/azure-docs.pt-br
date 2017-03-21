@@ -12,12 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 03/07/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 010219c4da683b1e4b96d688a12e0f75c930a546
-ms.openlocfilehash: 8afaf239717c32ca9c81b2da033faf585348e6f2
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 6a7e0964a3a6e9be534a6bd683446d3da5edcecd
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -565,9 +565,9 @@ A saída deste cmdlet mostra os dispositivos registrados no Azure AD. Para obter
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-conditional-access-automatic-device-registration-faq.md)
-* [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
-* [Solução de problemas de registro automático de computadores associados ao domínio do Azure AD – não Windows 10](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
+* [Perguntas frequentes sobre o registro de dispositivo automático](active-directory-device-registration-faq.md)
+* [Solução de problemas de registro automático de computadores ingressados no domínio do Azure AD – Windows 10 e Windows Server 2016](active-directory-device-registration-troubleshoot-windows.md)
+* [Solução de problemas de registro automático de computadores associados ao domínio do Azure AD – não Windows 10](active-directory-device-registration-troubleshoot-windows-legacy.md)
 * [Acesso condicional ao Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
 

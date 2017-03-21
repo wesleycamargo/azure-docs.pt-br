@@ -15,9 +15,9 @@ ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
-ms.openlocfilehash: 641fe31fc4b160fe5f0628df717006fb540394b9
-ms.lasthandoff: 02/17/2017
+ms.sourcegitcommit: eaf3df69428124127ef3daf134bc948cd0988ec6
+ms.openlocfilehash: c1956e97444077f197ab5d0fd67097ddea0f7244
+ms.lasthandoff: 03/02/2017
 
 
 ---
@@ -51,11 +51,11 @@ Enquanto o Azure é responsável por proteger a infraestrutura e a plataforma em
 Uma discussão completa das considerações sobre segurança para aplicativos Web está além do escopo deste documento. Como ponto de partida para mais diretrizes sobre como proteger seu aplicativo, confira [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page), mais especificamente os [10 principais projetos.](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que lista as 10 principais falhas de segurança em aplicativos Web, conforme determinado pelos membros do OWASP.
 
 ## <a name="perform-penetration-testing-on-your-app"></a>Executar testes de penetração no aplicativo
-Uma das maneiras mais fáceis de começar a fazer testes de vulnerabilidades no aplicativo do Serviço de Aplicativo é usar a [integração à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar a verificação de vulnerabilidades de um clique no aplicativo. Você pode exibir os resultados do teste em um relatório de fácil compreensão e aprender como corrigir cada vulnerabilidade com instruções passo a passo.
+Uma das maneiras mais fáceis de começar a usar testes de vulnerabilidades no aplicativo Serviço de Aplicativo é usar a [integração ao Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para executar o exame de vulnerabilidades com um clique no aplicativo. Você pode exibir os resultados do teste em um relatório de fácil compreensão e aprender como corrigir cada vulnerabilidade com instruções passo a passo.
 
 Se preferir realizar seus próprios testes de penetração ou se desejar usar outro pacote de scanners ou provedor, você deverá seguir o [processo de aprovação do teste de penetração do Azure](https://security-forms.azure.com/penetration-testing/terms) e obter aprovação prévia para realizar os testes de penetração desejados.
 
-## <a name="a-namehttpsa-secure-communication-with-customers"></a><a name="https"></a> Comunicação segura com os clientes
+## <a name="https"></a> Comunicação segura com os clientes
 Se você usar o nome de domínio **\*.azurewebsites.net** criado para o aplicativo do Serviço de Aplicativo, será possível usar imediatamente o protocolo HTTPS, já que um certificado SSL é fornecido para todos os nomes de domínio **\*.azurewebsites.net**. Se o site usar um [nome de domínio personalizado](web-sites-custom-domain-name.md), você poderá carregar um certificado SSL a fim de [habilitar o protocolo HTTPS](web-sites-configure-ssl-certificate.md) para o domínio personalizado.
 
 Habilitar o [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pode ajudar a proteger contra ataques MITM na comunicação entre o aplicativo e seus usuários.
@@ -65,7 +65,7 @@ O Serviço de Aplicativo integra-se favoravelmente ao Banco de Dados SQL, de mod
 
 Se você usar um provedor de banco de dados de terceiros, como ClearDB, será preciso consultar a documentação do provedor diretamente no que se refere às práticas recomendadas de segurança.  
 
-## <a name="a-namedevelopa-secure-development-and-deployment"></a><a name="develop"></a> Desenvolvimento e implantação seguros
+## <a name="develop"></a> Desenvolvimento e implantação seguros
 ### <a name="publishing-profiles-and-publish-settings"></a>Publicando configurações de publicação de perfis e publicação
 Durante o desenvolvimento de aplicativos, a realização de tarefas de gerenciamento ou a automação de tarefas usando utilitários como **Visual Studio**, **Web Matrix**, **Azure PowerShell** ou a **CLI do Azure (Interface de linha de comando do Azure)**, é possível usar um arquivo de *configurações de publicação* ou um *perfil de publicação*. Ambos os tipos de arquivo autenticam você no Azure e devem ser protegidos para impedir o acesso não autorizado.
 

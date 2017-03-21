@@ -15,8 +15,9 @@ ms.workload: NA
 ms.date: 01/05/2017
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: dc9234760b0dfb5d109fc86ac47a89c8fcf7d991
+ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
+ms.openlocfilehash: 88b16b0b7c951ab0350649de05c00263ec76e630
+ms.lasthandoff: 03/11/2017
 
 
 ---
@@ -101,40 +102,22 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
-## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Compilar e implantar um aplicativo com o plug-in Eclipse Neon
+## <a name="create-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Criar e implantar um aplicativo com o plug-in Eclipse Neon
 
-Se você instalou o [Plug-in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.  Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**.
-
-### <a name="create-the-application"></a>Criar o aplicativo
-
-O Plug-in de serviço do Service Fabric está disponível por meio da extensibilidade do Eclipse.
-
-1. No Eclipse, escolha **Arquivo > Outros > Service Fabric**. Você verá um conjunto de opções, incluindo Atores e Contêineres.
-
-    ![Modelos de Service Fabric no Eclipse][sf-eclipse-templates]
-
-2. Nesse caso, escolha Serviço Sem Estado.
-
-3. Você deve confirmar o uso da perspectiva do Service Fabric, que otimiza o Eclipse para uso com projetos do Service Fabric. Selecione “Sim”.
-
-### <a name="deploy-the-application"></a>Implantar o aplicativo
-Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse.
-
-1. Escolha **Executar > Executar Configurações**.
-2. Especifique **local** ou **nuvem**. A configuração padrão é **local**. Para implantar um cluster remoto, selecione **nuvem**.
-3. Certifique-se de que as informações adequadas estão preenchidas nos perfis de publicação, editando `local.json` ou `cloud.json` conforme apropriado.
-4. Clique em **Executar**.
-
-Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status no Service Fabric Explorer.
+O Service Fabric também oferece a provisão para criar, construir e implantar aplicativos Java do Service Fabric usando o Eclipse. Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**. Além disso, atualmente o Service Fabric dá suporte ao plug-in para Eclipse **Neon**. Consulte a documentação detalhada - [Criar e implantar seu primeiro aplicativo Java do Service Fabric usando o plug-in do Service Fabric para o Eclipse no Linux](service-fabric-get-started-eclipse.md)
 
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
+### <a name="using-command-line-utility"></a>Uso do utilitário de linha de comando
 Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas:
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfjava:AddService`
 
+### <a name="using-service-fabric-eclipse-plugin-for-java-on-linux"></a>Uso do plug-in Eclipse do Service Fabric para Java no Linux
+Para adicionar serviço a um aplicativo existente criado usando o plug-in Eclipse do Service Fabric, consulte a documentação [aqui](service-fabric-get-started-eclipse.md#add-new-service-fabric-service-to-your-service-fabric-application).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Criar e implantar seu primeiro aplicativo Java do Service Fabric usando o plug-in do Service Fabric para o Eclipse no Linux](service-fabric-get-started-eclipse.md)
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
 * [Solução de problemas de implantação](service-fabric-azure-cli.md#troubleshooting)
@@ -144,9 +127,4 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

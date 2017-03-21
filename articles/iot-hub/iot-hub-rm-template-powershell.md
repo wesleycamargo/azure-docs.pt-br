@@ -2,7 +2,7 @@
 title: Criar um Hub IoT do Azure usando um modelo (PowerShell) | Microsoft Docs
 description: Como usar um modelo do Azure Resource Manager para criar um Hub IoT com o PowerShell.
 services: iot-hub
-documentationcenter: .net
+documentationcenter: 
 author: dominicbetts
 manager: timlt
 editor: 

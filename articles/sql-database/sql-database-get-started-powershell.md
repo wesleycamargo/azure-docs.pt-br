@@ -1,608 +1,93 @@
 ---
-title: "PowerShell: introdução ao Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e bancos de dados usando o PowerShell. Você também aprenderá a consultar bancos de dados usando o PowerShell."
-keywords: "criar um novo banco de dados sql, configuração do banco de dados"
+title: "Azure PowerShell: criar um único Banco de Dados SQL | Microsoft Docs"
+description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall no nível de servidor e bancos de dados com o portal do Azure."
+keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
 documentationcenter: 
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
+editor: 
+ms.assetid: 
 ms.service: sql-database
-ms.custom: single databases
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: powershell
+ms.custom: quick start
 ms.workload: data-management
-ms.date: 02/23/2016
-ms.author: sstein
+ms.tgt_pltfrm: na
+ms.devlang: PowerShell
+ms.topic: hero-article
+ms.date: 03/13/2017
+ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 78d9194f50bcdc4b0db7871f2480f59b26cfa8f6
-ms.openlocfilehash: 7b7273edfa33f297cb5dc30ef380b6a737787b33
-ms.lasthandoff: 02/27/2017
-
+ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
+ms.openlocfilehash: fe527f7de573b87fbc644cb6d71ae13816bc284b
+ms.lasthandoff: 03/15/2017
 
 ---
 
-# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Tutorial: provisione e acesse um banco de dados SQL do Azure usando o PowerShell
+# <a name="create-a-single-azure-sql-database-using-powershell"></a>Criar um único Banco de Dados SQL do Azure usando o PowerShell
 
-Neste tutorial de introdução, você aprenderá a usar o PowerShell para:
+O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso do PowerShell para implantar um Banco de Dados SQL do Azure em um grupo de recursos do Azure em um servidor lógico do Banco de Dados SQL.
 
-* Criar um novo grupo de recursos do Azure
-* Criar um servidor lógico do SQL do Azure
-* Exibir propriedades do SQL Server do Azure
-* Criar uma regra de firewall no nível de servidor
-* Criar o banco de dados de exemplo do AdventureWorksLT como um banco de dados único
-* Exibir as propriedades do banco de dados de exemplo do AdventureWorksLT
-* Criar um banco de dados em branco
+Antes de começar, verifique se a versão mais recente do PowerShell está instalada. A CLI do Azure foi instalada. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs). 
 
-Neste tutorial, você irá:
+## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
-* Conectar-se ao servidor lógico e seu banco de dados mestre
-* Exibir propriedades do banco de dados mestre
-* Conectar-se ao banco de dados de exemplo
-* Exibir propriedades do banco de dados de usuário
+Faça logon na sua assinatura do Azure com o comando [Add-AzureRmAccount](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.profile/v2.5.0/add-azurermaccount) e acompanhe as instruções na tela.
 
-Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também terá uma regra de firewall de nível de servidor configurada para habilitar a entidade de segurança no nível do servidor para fazer logon no servidor em um endereço IP especificado (ou intervalo de endereços IP). 
-
-**Tempo estimado:** este tutorial levará cerca de 30 minutos (supondo que você já atendeu aos pré-requisitos).
-
-
-> [!TIP]
-> Você pode executar as mesmas tarefas em um tutorial de introdução usando o [portal do Azure](sql-database-get-started.md).
->
-
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://azure.microsoft.com/free/) ou [Ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
-
-* Você deve estar conectado usando uma conta que seja membro da função de proprietário ou colaborador da assinatura. Para obter mais informações sobre o controle de acesso baseado em função (RBAC), confira [Introdução ao gerenciamento de acesso no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
-
-[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
-
-
-## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Criar um novo servidor SQL lógico usando o Azure PowerShell
-
-Você precisa de um grupo de recursos para conter o servidor, portanto, a primeira etapa é criar um novo grupo de recursos e o servidor ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)) ou obter referências para os existentes ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
-
-
-Os trechos a seguir criarão um grupo de recursos e um servidor SQL Azure, se ainda não existirem:
-
-Para obter uma lista de locais do Azure válidos e formato da cadeia de caracteres, consulte a seção [Trechos do código auxiliar](#helper-snippets) abaixo.
-```
-# Create new, or get existing resource group
-############################################
-
-$resourceGroupName = "{resource-group-name}"
-$resourceGroupLocation = "{resource-group-location}"
-
-$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
-
-if(!$myResourceGroup)
-{
-   Write-Output "Creating resource group: $resourceGroupName"
-   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else
-{
-   Write-Output "Resource group $resourceGroupName already exists:"
-}
-$myResourceGroup
-
-
-
-# Create a new, or get existing server
-######################################
-
-$serverName = "{server-name}"
-$serverVersion = "12.0"
-$serverLocation = $resourceGroupLocation
-$serverResourceGroupName = $resourceGroupName
-
-$serverAdmin = "{server-admin}"
-$serverAdminPassword = "{server-admin-password}"
-
-$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
-$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-if(!$myServer)
-{
-   Write-Output "Creating SQL server: $serverName"
-   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
-}
-else
-{
-   Write-Output "SQL server $serverName already exists:"
-}
-$myServer
-
-```
-
-
-## <a name="view-the-logical-sql-server-properties-using-azure-powershell"></a>Exibir as propriedades do servidor SQL lógico usando o Azure PowerShell
-
-```
-#$serverResourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-
-Write-Host "Server name: " $myServer.ServerName
-Write-Host "Fully qualified server name: $serverName.database.windows.net"
-Write-Host "Server location: " $myServer.Location
-Write-Host "Server version: " $myServer.ServerVersion
-Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
-```
-
-
-## <a name="create-a-server-level-firewall-rule-using-azure-powershell"></a>Criar uma regra de firewall no nível do servidor usando o Azure PowerShell
-
-Você precisa saber o endereço IP público para definir a regra de firewall. Você pode obter seu endereço IP usando um navegador de sua escolha (pergunte “qual é meu endereço IP”). Para obter detalhes, consulte [regras de firewall](sql-database-firewall-configure.md).
-
-O seguinte usa os cmdlets [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule) e [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) para obter uma referência ou criar uma nova regra. Para este trecho, se a regra já existir, ele apenas obtém uma referência e não atualiza os endereços IP inicial e final. Você sempre pode modificar a cláusula **else** para usar o [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) para a funcionalidade de criação ou atualização.
-
-> [!NOTE] 
-> Você pode abrir o firewall do Banco de dados SQL no servidor para um único endereço IP ou um intervalo inteiro de endereços. Abrir o firewall permite que os administradores do SQL e os usuários façam logon em qualquer banco de dados no servidor ao qual eles têm credenciais válidas.
->
-
-```
-#$serverName = "{server-name}"
-#$serverResourceGroupName = "{resource-group-name}"
-$serverFirewallRuleName = "{server-firewall-rule-name}"
-$serverFirewallStartIp = "{server-firewall-rule-startIp}"
-$serverFirewallEndIp = "{server-firewall-rule-endIp}"
-
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
-   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
-}
-$myFirewallRule
-
-# Allow Azure services to access the server
-$serverFirewallRuleName2 = "allowAzureServices"
-$serverFirewallStartIp2 = "0.0.0.0"
-$serverFirewallEndIp2 = "0.0.0.0"
-
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule2)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
-   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
-}
-$myFirewallRule2
-
-```
-
-
-## <a name="connect-to-sql-server-using-azure-powershell"></a>Conectar o SQL Server usando o Azure PowerShell
-
-Iremos executar uma consulta rápida no banco de dados mestre para verificar se podemos conectar o servidor. O trecho a seguir usa o [Provedor do .NET Framework para SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) para conectar e consultar o banco de dados mestre do servidor. Ele cria uma cadeia de conexão com base nas variáveis usadas nos trechos anteriores. Substitua os espaços reservados pelo administrador do SQL Server e senha usados para criar o servidor nas etapas anteriores.
-
-
-```
-#$serverName = "{server-name}"
-#$serverAdmin = "{server-admin}"
-#$serverAdminPassword = "{server-admin-password}"
-$databaseName = "master"
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-```
-
-
-## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Criar um novo banco de dados de exemplo do AdventureWorksLT usando o Azure PowerShell
-
-O trecho a seguir importa um bacpac do banco de dados de exemplo do AdventureWorksLT usando o cmdlet [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport). O bacpac está localizado em uma conta de armazenamento de blobs do Azure pública e somente leitura. Depois de executar o cmdlet de importação, você pode monitorar o progresso da operação de importação usando o cmdlet [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus).
-
-
-```
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-
-$databaseName = "AdventureWorksLT"
-$databaseEdition = "Basic"
-$databaseServiceLevel = "Basic"
-
-$storageKeyType = "SharedAccessKey"
-$storageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
-$storageKey = "?"
-
-$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
-
-
-Do {
-     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-     Write-host "Importing database..." $importStatus.StatusMessage
-     Start-Sleep -Seconds 30
-     $importStatus.Status
-   }
-   until ($importStatus.Status -eq "Succeeded")
-$importStatus
-```
-
-
-
-## <a name="view-database-properties-using-azure-powershell"></a>Exibir as propriedades do banco de dados no Azure PowerShell
-
-Depois de criar o banco de dados, exiba algumas de suas propriedades.
-
-```
-#$resourceGroupName = "{resource-group-name}"
-#$serverName = "{server-name}"
-#$databaseName = "{database-name}"
-
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
-
-
-Write-Host "Database name: " $myDatabase.DatabaseName
-Write-Host "Server name: " $myDatabase.ServerName
-Write-Host "Creation date: " $myDatabase.CreationDate
-Write-Host "Database edition: " $myDatabase.Edition
-Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
-Write-Host "Database status: " $myDatabase.Status
-```
-
-## <a name="connect-and-query-the-sample-database-using-azure-powershell"></a>Conectar e consultar o banco de dados de exemplo usando o Azure PowerShell
-
-Iremos executar uma consulta rápida no banco de dados AdventureWorksLT para verificar se podemos conectar. O trecho a seguir usa o [Provedor do .NET Framework para SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) para conectar e consultar o banco de dados. Ele cria uma cadeia de conexão com base nas variáveis usadas nos trechos anteriores. Substitua o espaço reservado pela senha de administrador do SQL Server.
-
-```
-#$serverName = {server-name}
-#$serverAdmin = "{server-admin}"
-#$serverAdminPassword = "{server-admin-password}"
-#$databaseName = {database-name}
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-```
-
-## <a name="create-a-new-blank-database-using-azure-powershell"></a>Criar um novo banco de dados em branco usando o Azure PowerShell
-
-```
-#$resourceGroupName = {resource-group-name}
-#$serverName = {server-name}
-
-$blankDatabaseName = "blankdb"
-$blankDatabaseEdition = "Basic"
-$blankDatabaseServiceLevel = "Basic"
-
-
-$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
-$myBlankDatabase
-```
-
-
-## <a name="complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database"></a>Concluir o script do Azure PowerShell para criar um servidor, regra de firewall e banco de dados
-
-
-
-```
-# Sign in to Azure and set the subscription to work with
-########################################################
-
-$SubscriptionId = "{subscription-id}"
-
+```powershell
 Add-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $SubscriptionId
-
-# User variables
-################
-
-$myResourceGroupName = "{resource-group-name}"
-$myResourceGroupLocation = "{resource-group-location}"
-
-$myServerName = "{server-name}"
-$myServerVersion = "12.0"
-$myServerLocation = $myResourceGroupLocation
-$myServerResourceGroupName = $myResourceGroupName
-$myServerAdmin = "{server-admin}"
-$myServerAdminPassword = "{server-admin-password}" 
-
-$myServerFirewallRuleName = "{server-firewall-rule-name}"
-$myServerFirewallStartIp = "{start-ip}"
-$myServerFirewallEndIp = "{end-ip}"
-
-$myDatabaseName = "AdventureWorksLT"
-$myDatabaseEdition = "Basic"
-$myDatabaseServiceLevel = "Basic"
-
-
-# Storage account details for locating
-# and accessing the sample .bacpac 
-# Do Not Edit for this tutorial
-$myStorageKeyType = "SharedAccessKey"
-$myStorageUri = "https://sqldbtutorial.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
-$myStorageKey = "?"
-
-
-
-# Create new, or get existing resource group
-############################################
-
-$resourceGroupName = $myResourceGroupName
-$resourceGroupLocation = $myResourceGroupLocation
-
-$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
-
-if(!$myResourceGroup)
-{
-   Write-host "Creating resource group: $resourceGroupName"
-   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else
-{
-   Write-host "Resource group $resourceGroupName already exists:"
-}
-$myResourceGroup
-
-
-# Create a new, or get existing server
-######################################
-
-$serverName = $myServerName
-$serverVersion = $myServerVersion
-$serverLocation = $myServerLocation
-$serverResourceGroupName = $myServerResourceGroupName
-
-$serverAdmin = $myServerAdmin
-$serverAdminPassword = $myServerAdminPassword
-
-$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
-$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-if(!$myServer)
-{
-   Write-host "Creating SQL server: $serverName"
-   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
-}
-else
-{
-   Write-host "SQL server $serverName already exists:"
-}
-$myServer
-
-
-# View server properties
-##########################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-
-$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
-
-Write-Host "Server name: " $myServer.ServerName
-Write-Host "Fully qualified server name: $serverName.database.windows.net"
-Write-Host "Server location: " $myServer.Location
-Write-Host "Server version: " $myServer.ServerVersion
-Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
-
-# Create or update server firewall rules
-########################################
-
-$serverFirewallRuleName = $myServerFirewallRuleName
-$serverFirewallStartIp = $myServerFirewallStartIp
-$serverFirewallEndIp = $myServerFirewallEndIp
-
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName"
-   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
-}
-$myFirewallRule
-
-# Allows Azure services to access the server
-$serverFirewallRuleName2 = "allowAzureServices"
-$serverFirewallStartIp2 = "0.0.0.0"
-$serverFirewallEndIp2 = "0.0.0.0"
-
-$myFirewallRule2 = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName2 -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
-
-if(!$myFirewallRule2)
-{
-   Write-host "Creating server firewall rule: $serverFirewallRuleName2"
-   $myFirewallRule2 = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName2 -StartIpAddress $serverFirewallStartIp2 -EndIpAddress $serverFirewallEndIp2
-}
-else
-{
-   Write-host "Server firewall rule $serverFirewallRuleName2 already exists:"
-}
-$myFirewallRule2
-
-
-# Connect to the server and master database
-###########################################
-$databaseName = "master"
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-
-
-# Create the AdventureWorksLT database from a bacpac
-####################################################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-
-$databaseName = $myDatabaseName
-$databaseEdition = $myDatabaseEdition
-$databaseServiceLevel = $myDatabaseServiceLevel
-
-$storageKeyType = $myStorageKeyType
-$storageUri = $myStorageUri
-$storageKey = $myStorageKey
-
-$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
-
-Do {
-     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-     Write-host "Importing database..." $importStatus.StatusMessage
-     Start-Sleep -Seconds 30
-     $importStatus.Status
-   }
-   until ($importStatus.Status -eq "Succeeded")
-$importStatus
-
-
-# View database properties
-##########################
-
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-$databaseName = $myDatabaseName
-
-$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
-
-Write-Host "Database name: " $myDatabase.DatabaseName
-Write-Host "Server name: " $myDatabase.ServerName
-Write-Host "Creation date: " $myDatabase.CreationDate
-Write-Host "Database edition: " $myDatabase.Edition
-Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
-Write-Host "Database status: " $myDatabase.Status
-
-
-# Query the database
-####################
-
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-$connection = New-Object System.Data.SqlClient.SqlConnection
-$connection.ConnectionString = $connectionString
-$connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
-
-$command.Connection = $connection
-$reader = $command.ExecuteReader()
-
-$sysObjects = ""
-while ($reader.Read()) {
-    $sysObjects += $reader["name"] + "`n"
-}
-$sysObjects
-
-$connection.Close()
-
-
-# Create a blank database
-#########################
-
-$blankDatabaseName = "blankdb"
-$blankDatabaseEdition = "Basic"
-$blankDatabaseServiceLevel = "Basic"
-
-
-$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
-$myBlankDatabase
 ```
 
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
+Crie um grupo de recursos com o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`.
 
-> [!TIP]
-> Você pode economizar algum dinheiro enquanto estiver aprendendo excluindo bancos de dados que você não está usando. Para os bancos de dados de edição Básica, você pode restaurá-los dentro de sete dias. No entanto, não exclua um servidor. Se você fizer isso, não poderá recuperar o servidor ou qualquer um de seus bancos de dados excluídos.
-
-## <a name="helper-snippets"></a>Trechos de código auxiliares
-
+```powershell
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "westeurope"
 ```
-# Get a list of Azure regions where you can create SQL resources
+## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-$sqlRegions = (Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" })
-foreach ($region in $sqlRegions)
-{
-   $region.Location
-}
+Crie um servidor lógico do Banco de Dados SQL com o comando [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver). O exemplo a seguir cria um servidor nomeado aleatoriamente em seu grupo de recursos com um logon de administrador chamado `ServerAdmin` e uma senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
-# Clean up
-# Delete a resource group (and all contained resources)
-Remove-AzureRmResourceGroup -Name {resource-group-name}
+```powershell
+$servername = "server-$(Get-Random)"
+New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -Location "westeurope" `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "ServerAdmin", $(ConvertTo-SecureString -String "ChangeYourAdminPassword1" -AsPlainText -Force))
 ```
 
-> [!TIP]
-> Você pode economizar algum dinheiro enquanto estiver aprendendo excluindo bancos de dados que você não está usando. Para bancos de dados edição Básica, você poderá restaurá-los dentro de sete dias. No entanto, não exclua um servidor. Se você fizer isso, não poderá recuperar o servidor ou qualquer um de seus bancos de dados excluídos.
->
+## <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
+
+Crie uma regra de firewall no nível de servidor do Banco de Dados SQL com o comando [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserverfirewallrule). Uma regra de firewall no nível de servidor permite que um aplicativo externo, como o SQL Server Management Studio ou o utilitário SQLCMD, se conecte ao banco de dados SQL através do firewall do serviço de Banco de Dados SQL. O exemplo a seguir cria uma regra de firewall para um intervalo de endereços predefinidos, que, neste exemplo, é intervalo inteiro possível de endereços IP. Substitua esses valores predefinidos pelos valores do endereço IP externo ou do intervalo de endereços IP. 
+
+```powershell
+New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "255.255.255.255"
+```
+
+## <a name="create-a-blank-database"></a>Criar um banco de dados vazio
+
+Crie um Banco de Dados SQL vazio com um nível de desempenho S0 no servidor com o comando [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqldatabase). O exemplo a seguir cria um banco de dados chamado `mySampleDatabase`. Substitua esse valor predefinido conforme desejado.
+
+```powershell
+New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
+    -ServerName $servername `
+    -DatabaseName "MySampleDatabase" `
+    -RequestedServiceObjectiveName "S0"
+```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para remover todos os recursos criados por este Início Rápido, execute o seguinte comando:
+
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você concluiu este primeiro tutorial de introdução e criou um banco de dados com alguns dados de exemplo, há vários tutoriais adicionais que talvez queira explorar que compilam o que você aprendeu neste tutorial. 
 
-- Para obter uma introdução ao tutorial de autenticação do SQL Server, confira [Autenticação e autorização do SQL](sql-database-control-access-sql-authentication-get-started.md)
-- Para obter uma introdução ao tutorial de autenticação do Azure Active Directory, confira [Autenticação e autorização do Azure AD](sql-database-control-access-aad-authentication-get-started.md)
-* Se você deseja consultar o banco de dados de exemplo no portal do Azure, confira [Visualização pública: experiência interativa de consulta para bancos de dados SQL](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
-* Se você conhece o Excel, saiba como [Conectar um banco de dados SQL no Azure com o Excel](sql-database-connect-excel.md).
-* Se você estiver pronto para começar a codificar, escolha a linguagem de programação em [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
-* Se você quiser mover seus bancos de dados SQL Server locais para o Azure, confira [Migrando um banco de dados para o Banco de Dados SQL](sql-database-cloud-migrate.md).
-* Se você quiser carregar alguns dados em uma nova tabela de um arquivo CSV usando a ferramenta da linha de comando BCP, consulte [Carregando dados no Banco de Dados SQL a partir de um arquivo CSV usando o BCP](sql-database-load-from-csv-with-bcp.md).
-* Se você deseja iniciar a criação de tabelas e outros objetos, confira o tópico "Para criar uma tabela" em [Criando uma tabela](https://msdn.microsoft.com/library/ms365315.aspx).
-
-## <a name="additional-resources"></a>Recursos adicionais
-[O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
+- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md)
+- Para se conectar usando o Visual Studio, veja [Conectar e consultar com o Visual Studio](sql-database-connect-query.md).
+* Para obter uma visão geral técnica do banco de dados SQL, veja [Sobre o serviço Banco de Dados SQL](sql-database-technical-overview.md).
 

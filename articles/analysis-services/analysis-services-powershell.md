@@ -12,11 +12,12 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 02/28/2017
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: ef3f31c633eeba92f343e2126626bd029aebbf64
-ms.openlocfilehash: 170657601a0ea6b0c0ebabfd34befdce290cebd8
+ms.sourcegitcommit: c0dd85570f052c4a9651faecbaeb3eaa181f9017
+ms.openlocfilehash: b00b2cf1d3a54bba716d7470643aa1a5e6a58633
+ms.lasthandoff: 03/01/2017
 
 
 ---
@@ -37,13 +38,13 @@ Os cmdlets do Azure Analysis Services são incluídos no módulo de componente [
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
-|Get-AzureRmAnalysisServicesServer|Obtém detalhes de uma instância do servidor.|  
-|New-AzureRmAnalysisServicesServer|Cria uma nova instância do servidor.|
-|Remove-AzureRmAnalysisServicesServer|Remove uma instância do servidor.|  
-|Suspend-AzureRmAnalysisServicesServe|Suspende uma instância do servidor.| 
-|Resume-AzureRmAnalysisServicesServer|Retoma uma instância do servidor.|  
-|Set-AzureRmAnalysisServicesServer|Modifica uma instância do servidor.|   
-|Test-AzureRmAnalysisServicesServer|Testa a existência de uma instância do servidor.| 
+|[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/get-azurermanalysisservicesserver)|Obtém detalhes de uma instância do servidor.|  
+|[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/new-azurermanalysisservicesserver)|Cria uma nova instância do servidor.|
+|[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/remove-azurermanalysisservicesserver)|Remove uma instância do servidor.|  
+|[Suspend-AzureRmAnalysisServicesServe](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/suspend-azurermanalysisservicesserver)|Suspende uma instância do servidor.| 
+|[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/resume-azurermanalysisservicesserver)|Retoma uma instância do servidor.|  
+|[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/set-azurermanalysisservicesserver)|Modifica uma instância do servidor.|   
+|[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.analysisservices/v3.0.0/test-azurermanalysisservicesserver)|Testa a existência de uma instância do servidor.| 
 
 ## <a name="database-operations"></a>Operações de banco de dados
 As operações de banco de dados do Azure Analysis Services usam o mesmo módulo [SQLASCMDLETS](https://msdn.microsoft.com/library/hh758425.aspx) que o SQL Server Analysis Services. No entanto, nem todos os cmdlets têm suporte para visualização do Azure Analysis Services. 
@@ -64,8 +65,3 @@ O módulo SQLASCMDLETS fornece cmdlets de gerenciamento de banco de dados de tar
 ## <a name="related-information"></a>Informações relacionadas
 * [Script do PowerShell no Analysis Services](https://msdn.microsoft.com/library/hh213141.aspx).
 * [Programação de Modelo de Tabela para o Nível de Compatibilidade 1200](https://msdn.microsoft.com/library/mt712541.aspx)
-
-
-<!--HONumber=Jan17_HO5-->
-
-

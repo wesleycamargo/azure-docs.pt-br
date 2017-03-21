@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 03/09/2017
 ms.author: briz
 translationtype: Human Translation
-ms.sourcegitcommit: 55d3f08de7f8c7ba68faba1945e8fd960e888853
-ms.openlocfilehash: 5e1b1333212af0b9042e7ed3793c08e305085519
-ms.lasthandoff: 01/25/2017
+ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
+ms.openlocfilehash: 352c42ddeef5537f9b912ddfe6a72b6b5342835b
+ms.lasthandoff: 03/10/2017
 
 
 ---
@@ -39,7 +39,11 @@ A IoT traz um conjunto exclusivo de desafios de gerenciamento de dispositivo, e 
 
 * **Escala e automação**: soluções de IoT exigem ferramentas simples que podem automatizar tarefas de rotina e capacitar uma equipe de operações relativamente pequena a gerenciar milhões de dispositivos. Diariamente, os operadores esperam lidar com operações de dispositivo remotamente, em massa, e só receberem alertas quando surgirem problemas que exijam sua atenção direta.
 * **Abertura e compatibilidade**: o ecossistema de dispositivos é incrivelmente diverso. Ferramentas de gerenciamento devem ser personalizadas a fim de acomodar vários protocolos, classes e plataformas de dispositivos. Os operadores devem ser capazes de dar suporte a muitos tipos de dispositivos, desde os chips de processo único incorporados mais restritos, até computadores eficientes e totalmente funcionais.
-* **Reconhecimento de contexto**: os ambientes de IoT são dinâmicos e estão em constante mudança. A confiabilidade do serviço é fundamental. Operações de gerenciamento de dispositivo devem considerar as janelas de manutenção do SLA, os estados de energia e de rede, as condições em uso e a localização geográfica do dispositivo para garantir que esse tempo de inatividade para a manutenção não afete operações comerciais críticas ou crie condições perigosas.
+* **Reconhecimento de contexto**: os ambientes de IoT são dinâmicos e estão em constante mudança. A confiabilidade do serviço é fundamental. As operações de gerenciamento de dispositivos devem levar em consideração os seguintes fatores para garantir que esse tempo de inatividade de manutenção não afete as operações de negócios críticos ou crie condições perigosas:
+    * Janelas de manutenção do SLA
+    * Estados de energia e de rede
+    * Condições de uso
+    * Localização geográfica do dispositivo
 * **Atende muitas funções**: o suporte aos fluxos de trabalho e processos exclusivos das funções de operações do IoT é crucial. A equipe de operações deve trabalhar de forma harmoniosa com as restrições de determinado departamentos de TI internos.  Também deve encontrar formas sustentáveis de detectar informações de operações de dispositivo em tempo real para supervisores e outras funções de gerente de negócios.
 
 ## <a name="device-lifecycle"></a>Ciclo de vida do dispositivo
@@ -51,19 +55,19 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
 
 * **Planejamento**: permita que os operadores criem um esquema de metadados de dispositivo que os possibilite consultar de forma fácil e precisa e selecionar um grupo de dispositivos para operações de gerenciamento em massa. Você pode usar o gêmeo de dispositivo para armazenar metadados de dispositivo na forma de marcas e propriedades.
   
-    *Leitura adicional*: [Introdução aos gêmeos de dispositivos][lnk-twins-getstarted], [Entender os gêmeos de dispositivos][lnk-twins-devguide], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties]
+    *Leitura adicional*: [Introdução aos gêmeos de dispositivos][lnk-twins-getstarted], [Entender os gêmeos de dispositivos][lnk-twins-devguide], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties].
 * **Provisionar**: provisionar novos dispositivos para o Hub IoT e habilitar operadores descobrir imediatamente os recursos do dispositivo com segurança.  Use o Registro de identidade do Hub IoT para criar as credenciais e identidades flexíveis de dispositivos e executar essa operação em massa usando um trabalho. Crie dispositivos para relatar seus recursos e condições por meio de propriedades do dispositivo no twin de dispositivo.
   
-    *Leitura adicional*: [Gerenciar identidades de dispositivo][lnk-identity-registry], [Gerenciamento em massa de identidades de dispositivo][lnk-bulk-identity], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties]
+    *Leitura adicional*: [Gerenciar identidades de dispositivo][lnk-identity-registry], [Gerenciamento em massa de identidades de dispositivo][lnk-bulk-identity], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties].
 * **Configurar**: facilite as alterações de configuração em massa e atualizações de firmware em dispositivos enquanto mantém a integridade e a segurança. Execute essas operações de gerenciamento de dispositivo em massa usando propriedades desejadas ou com trabalhos de difusão e métodos diretos.
   
-    *Leitura adicional*: [Usar métodos diretos][lnk-c2d-methods], [Invocar um método direto em um dispositivo][lnk-methods-devguide], [Como usar propriedades gêmeo de dispositivo][lnk-twin-properties], [Agendar e difundir trabalhos][lnk-jobs], [Agendar trabalhos em vários dispositivos][lnk-jobs-devguide]
+    *Leitura adicional*: [Usar métodos diretos][lnk-c2d-methods], [Invocar um método direto em um dispositivo][lnk-methods-devguide], [Como usar propriedades gêmeo de dispositivo][lnk-twin-properties], [Agendar e difundir trabalhos][lnk-jobs], [Agendar trabalhos em vários dispositivos][lnk-jobs-devguide].
 * **Monitor**: monitorar a integridade geral da coleção de dispositivos, o status das operações em andamento e alertar os operadores para problemas que podem exigir a atenção.  Aplique o twin de dispositivo para permitir que dispositivos relatem condições operacionais em tempo real e o status de operações de atualização. Crie poderosos relatórios de painel que indicam os problemas mais imediatos por meio de consultas ao twin de dispositivo.
   
-    *Leitura adicional*: [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties], [Linguagem de consulta de Hub IoT para gêmeos de dispositivo e trabalhos][lnk-query-language]
+    *Leitura adicional*: [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties], [Linguagem de consulta de Hub IoT para gêmeos de dispositivo e trabalhos][lnk-query-language].
 * **Desativação**: substitua ou encerre os dispositivos após uma falha, ciclo de atualização ou ao final da vida útil do serviço.  Use o gêmeo de dispositivo para manter informações sobre o dispositivo, se o dispositivo físico está sendo substituído ou arquivado ou se está sendo desativado. Use o Registro do Hub IoT para revogar com segurança as credenciais e identidades de dispositivos.
   
-    *Leitura adicional*: [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties], [Gerenciar identidades de dispositivo][lnk-identity-registry]
+    *Leitura adicional*: [Como usar as propriedades de dispositivo gêmeo][lnk-twin-properties], [Gerenciar identidades de dispositivo][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Padrões de gerenciamento de dispositivos
 O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositivo.  Os [tutoriais de gerenciamento de dispositivo][lnk-get-started] mostram mais detalhadamente como estender esses padrões para ajustar seu cenário exato e como criar novos padrões com base nesses modelos de núcleo.
@@ -85,7 +89,7 @@ O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositi
     ![Gráfico de padrão de status e progresso de relatório de gerenciamento de dispositivos][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode usar as funcionalidades, os padrões e as bibliotecas de código que o gerenciamento de dispositivo do Hub IoT fornece para criar aplicativos IoT que atendam aos requisitos corporativos de operador IoT em cada estágio do ciclo de vida do dispositivo.
+As funcionalidades, os padrões e as bibliotecas de código que o gerenciamento de dispositivos do Hub IoT fornece para gerenciamento de dispositivos, permitem que você crie aplicativos IoT que atendam aos requisitos corporativos de operador IoT em cada estágio do ciclo de vida do dispositivo.
 
 Para continuar a aprender sobre as funcionalidades de gerenciamento de dispositivos no Hub IoT, confira o tutorial [Introdução ao gerenciamento de dispositivos][lnk-get-started].
 

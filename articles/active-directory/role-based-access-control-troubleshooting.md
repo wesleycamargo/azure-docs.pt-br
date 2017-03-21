@@ -1,5 +1,5 @@
 ---
-title: "Solução de problemas de controle de acesso baseado em função | Microsoft Docs"
+title: Solucionar problemas de RBAC do Azure | Microsoft Docs
 description: "Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função."
 services: azure-portal
 documentationcenter: na
@@ -12,31 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 03/02/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 32b335d8a1f84348ab28bcc081cc42fd79fb08fc
+ms.lasthandoff: 03/04/2017
 
 
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Solução de problemas de Controle de Acesso baseado em função
-## <a name="introduction"></a>Introdução
-[Controle de Acesso Baseado em Função](role-based-access-control-configure.md) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode ficar tranquilo, concedendo a uma certa pessoa o direito de usar exatamente o que ela precisa, e nada mais. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
-Este documento informará a você o que esperar ao usar algumas das funções no Portal do Azure. Estas três funções abrangem todos os tipos de recurso:
+Este artigo responde a perguntas comuns sobre os direitos de acesso específicos concedidos com as funções, para que você saiba o que esperar ao usar as funções no portal do Azure e possa solucionar problemas de acesso. Estas três funções abrangem todos os tipos de recurso:
 
 * Proprietário  
 * Colaborador  
 * Leitor  
 
-Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
+Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas ficam um pouco mais interessantes com a função de leitor e é para ela que vamos dedicar algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
 
 ## <a name="app-service-workloads"></a>Cargas de trabalho do serviço de aplicativo
 ### <a name="write-access-capabilities"></a>Recursos do acesso de gravação
-Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, para sua surpresa, alguns recursos estarão desabilitados. Os seguintes recursos de gerenciamento exigem o acesso de **gravação** para um aplicativo Web (Colaborador ou Proprietário) e não estarão disponíveis em um cenário de somente leitura.
+Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, para sua surpresa, alguns recursos estarão desabilitados. As funcionalidades de gerenciamento a seguir exigem o acesso de **gravação** para um aplicativo Web (Colaborador ou Proprietário) e não estarão disponíveis em um cenário somente leitura.
 
-* Comandos (por exemplo, iniciar, parar, etc.)
+* Comandos (como iniciar, parar, etc.)
 * Alterar configurações como configuração geral, configurações de escala, configurações de backup e configurações de monitoramento.
 * Acessar credenciais de publicação e outros segredos como configurações de aplicativos e cadeias de conexão.
 * Logs de streaming
@@ -88,17 +87,12 @@ Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no 
 * Conjunto de balanceamento de carga  
 * Regras de alerta  
 
-Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
+Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao administrador o acesso de Colaborador para o Grupo de recursos.
 
 ## <a name="see-more"></a>Veja mais
 * [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 * [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

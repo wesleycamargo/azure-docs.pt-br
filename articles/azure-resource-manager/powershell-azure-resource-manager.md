@@ -15,8 +15,9 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: d1f4b7806f72dc2632ba981781097b19e89d07f3
+ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
+ms.openlocfilehash: 407e9a1e4a50b875fa65e61d3e9aae245dd907e5
+ms.lasthandoff: 03/04/2017
 
 
 ---
@@ -56,10 +57,10 @@ Este tópico foi atualizado para a versão 3.3.0. Se você tiver uma versão ant
 ## <a name="log-in-to-your-azure-account"></a>Fazer logon na sua conta do Azure
 Antes de trabalhar em sua solução, você deve fazer logon em sua conta.
 
-Para fazer logon em sua conta do Azure, use o cmdlet **Add-AzureRmAccount**.
+Para fazer logon em sua conta do Azure, use o cmdlet **Login-AzureRmAccount**.
 
 ```powershell
-Add-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 O cmdlet solicita as credenciais de logon para sua conta do Azure. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
@@ -273,10 +274,5 @@ Os tópicos a seguir mostram como usar a automação do Azure, o Resource Manage
 * Para saber mais sobre como implantar modelos, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](resource-group-template-deploy.md).
 * Você pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](resource-group-move-resources.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

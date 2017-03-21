@@ -17,6 +17,7 @@ ms.author: swkrish
 translationtype: Human Translation
 ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 4226075affd1ae03c7bd258b244718f7bb72f127
+ms.lasthandoff: 12/29/2016
 
 
 ---
@@ -57,10 +58,5 @@ Quando o consumidor entra (usando uma conta local ou social), se um número de t
 
 ## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication em outras políticas
 Conforme descrito para as políticas de inscrição e entrada acima, também é possível habilitar a autenticação multifator nas políticas de inscrição ou entrada e nas políticas de redefinição de senha. Ela estará disponível em breve nas políticas de edição de perfil.
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 
